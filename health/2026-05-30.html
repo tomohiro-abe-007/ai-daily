@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-05-30</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .cover {
+    background: linear-gradient(135deg, #2d7a5a 0%, #1a4a35 100%);
+    color: white;
+    border-radius: 8px;
+    padding: 60px 40px;
+    text-align: center;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.3);
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 28px,
+      rgba(255,255,255,0.07) 28px,
+      rgba(255,255,255,0.07) 29px
+    );
+  }
+  .cover-emoji { font-size: 64px; display: block; margin-bottom: 16px; }
+  .cover h1 {
+    font-family: 'Klee One', sans-serif;
+    font-size: 2.4rem;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 12px;
+    position: relative;
+  }
+  .cover .subtitle {
+    font-size: 1.05rem;
+    opacity: 0.85;
+    margin-bottom: 8px;
+    position: relative;
+  }
+  .cover .date-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 20px;
+    padding: 6px 20px;
+    font-size: 1rem;
+    margin-top: 16px;
+    position: relative;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 6px;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.12);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-body {
+    padding: 28px 36px 28px 64px;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 31px,
+      #e0d8c8 31px,
+      #e0d8c8 32px
+    );
+    background-color: #fff9f0;
+    min-height: 200px;
+  }
+
+  .card-body::before {
+    content: '';
+    position: absolute;
+    left: 52px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #e8a0a0;
+    opacity: 0.7;
+  }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 8px;
+    border-bottom: 2px dashed #c8b89a;
+  }
+
+  .card-emoji { font-size: 2rem; }
+
+  .card-title {
+    font-family: 'Klee One', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #2c3e50;
+    line-height: 1.3;
+  }
+
+  .topic-badge {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-left: auto;
+    white-space: nowrap;
+  }
+  .badge-red    { background: #ffe0e0; color: #c0392b; border: 1px solid #f5a0a0; }
+  .badge-blue   { background: #e0eeff; color: #2255aa; border: 1px solid #a0c0f5; }
+  .badge-green  { background: #e0f5e0; color: #1e7e34; border: 1px solid #a0d8a0; }
+  .badge-purple { background: #f0e0ff; color: #7b2fbe; border: 1px solid #c8a0f0; }
+  .badge-orange { background: #fff0d0; color: #cc6600; border: 1px solid #f0c070; }
+  .badge-teal   { background: #d0f0f0; color: #006060; border: 1px solid #80d0d0; }
+
+  .simple-box {
+    background: #fff7e0;
+    border-left: 4px solid #f5c842;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin: 16px 0;
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+  .simple-box .label {
+    display: inline-block;
+    background: #f5c842;
+    color: #5a4000;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+  }
+
+  .point-list {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0;
+  }
+  .point-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 0;
+    font-size: 0.97rem;
+    line-height: 1.7;
+    color: #333;
+    border-bottom: 1px dotted #ddd;
+  }
+  .point-list li:last-child { border-bottom: none; }
+  .point-list .marker {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-top: 2px;
+  }
+  .marker-red    { background: #c0392b; color: white; }
+  .marker-blue   { background: #2255aa; color: white; }
+  .marker-green  { background: #1e7e34; color: white; }
+  .marker-purple { background: #7b2fbe; color: white; }
+  .marker-orange { background: #cc6600; color: white; }
+  .marker-teal   { background: #006060; color: white; }
+
+  .hl-yellow { background: linear-gradient(transparent 60%, #ffe566 60%); }
+  .hl-pink   { background: linear-gradient(transparent 60%, #ffb3c6 60%); }
+  .hl-blue   { background: linear-gradient(transparent 60%, #b3d4ff 60%); }
+  .hl-green  { background: linear-gradient(transparent 60%, #b3f0b3 60%); }
+
+  .sticky {
+    background: #fff9c4;
+    border-radius: 4px;
+    padding: 12px 16px;
+    margin: 14px 0;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.1);
+    transform: rotate(-0.5deg);
+    display: inline-block;
+    width: 100%;
+    color: #4a3800;
+  }
+
+  .evidence-tag {
+    display: inline-block;
+    border-radius: 4px;
+    padding: 1px 7px;
+    font-size: 0.70rem;
+    margin: 0 2px;
+    font-weight: 600;
+    vertical-align: middle;
+  }
+  .evidence-tag.weak     { background: #fff3e0; border: 1px solid #f0c080; color: #884400; }
+  .evidence-tag.moderate { background: #e8f4f8; border: 1px solid #aaccdd; color: #336688; }
+  .evidence-tag.strong   { background: #e0f5e0; border: 1px solid #80cc80; color: #226622; }
+
+  .source {
+    font-size: 0.78rem;
+    color: #888;
+    margin-top: 14px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+    line-height: 1.7;
+  }
+  .source a { color: #5577aa; text-decoration: none; }
+  .source a:hover { text-decoration: underline; }
+
+  .summary-card {
+    background: linear-gradient(135deg, #1a4a35 0%, #2d5a7a 100%);
+    color: white;
+    border-radius: 8px;
+    padding: 36px 40px;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.2);
+  }
+  .summary-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px dashed rgba(255,255,255,0.4);
+  }
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+  }
+  .summary-item {
+    background: rgba(255,255,255,0.12);
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  .summary-item .s-emoji { font-size: 1.6rem; display: block; margin-bottom: 6px; }
+  .summary-item .s-title { font-weight: 600; margin-bottom: 4px; font-size: 1rem; }
+
+  .disclaimer {
+    background: #fff0f0;
+    border: 2px solid #ffaaaa;
+    border-radius: 8px;
+    padding: 20px 28px;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    font-size: 0.85rem;
+    line-height: 1.8;
+    color: #5a2020;
+  }
+  .disclaimer h3 {
+    font-size: 0.95rem;
+    color: #c0392b;
+    margin-bottom: 10px;
+  }
+
+  .footer {
+    text-align: center;
+    color: #888;
+    font-size: 0.8rem;
+    padding: 20px;
+    max-width: 820px;
+    width: 100%;
+  }
+
+  .toc {
+    background: #f8f4ec;
+    border: 2px solid #c8b89a;
+    border-radius: 8px;
+    padding: 20px 28px;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+  }
+  .toc h2 { font-size: 1.1rem; color: #5a4030; margin-bottom: 12px; }
+  .toc ol { padding-left: 20px; }
+  .toc li { padding: 4px 0; font-size: 0.93rem; }
+  .toc a { color: #2255aa; text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+
+  @media (max-width: 600px) {
+    .card-body { padding: 20px 20px 20px 44px; }
+    .card-title { font-size: 1.15rem; }
+    .cover h1 { font-size: 1.8rem; }
+    .summary-card { padding: 24px 20px; }
+    .disclaimer { padding: 16px 18px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== 表紙 ===== -->
+<div class="cover">
+  <span class="cover-emoji">🧬🥗</span>
+  <h1>健康・栄養 最新トピック</h1>
+  <div class="subtitle">精密栄養学と最新の医学・科学論文をやさしく解説</div>
+  <div class="date-badge">📅 2026年5月30日号</div>
+</div>
+
+<!-- ===== 目次 ===== -->
+<div class="toc">
+  <h2>📋 今日の目次</h2>
+  <ol>
+    <li><a href="#topic1">精密栄養学入門 ── 同じ食事でも血糖値の上がり方が人によってこんなに違う</a></li>
+    <li><a href="#topic2">「砂糖太り」を防ぐ腸内細菌の発見 ── Nature Communications 2025年論文</a></li>
+    <li><a href="#topic3">腸内細菌が作る物質が血糖を乱す？ ── 東北大学 Scientific Reports 2025年</a></li>
+    <li><a href="#topic4">では私たちに何ができる？ ── 腸内環境と食生活の基本（エビデンスに基づく）</a></li>
+    <li><a href="#summary">今日のまとめ ── 精密栄養学の現在地</a></li>
+  </ol>
+</div>
+
+<!-- ===== トピック1 ===== -->
+<div class="card" id="topic1">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">📊</span>
+      <div class="card-title">精密栄養学入門 ──<br>同じ食事でも血糖値の上がり方が人によってこんなに違う</div>
+      <span class="topic-badge badge-green">基礎知識</span>
+    </div>
+
+    <div class="simple-box">
+      <span class="label">🌱 やさしく解説</span><br>
+      「ダイエットで白米を減らしているのに効果がない」という人と「白米を食べても太らない」人、どちらもリアルにいます。実はこれ、<span class="hl-yellow">食後に血糖値の上がり方が同じ食事でも人によって全然違う</span>からかもしれません。これを科学的に追うのが<strong>精密栄養学</strong>（Precision Nutrition＝その人の体に合わせた栄養学）という分野です。
+    </div>
+
+    <ul class="point-list">
+      <li>
+        <span class="marker marker-green">1</span>
+        <span><strong>800人・4万6,898食を計測した観察研究（Weizmann 科学研究所, 2015年）</strong> ── Eran Segal 博士らは健康な成人800人が1週間に食べた約4万7,000食を<strong>連続血糖モニタリング（CGM）</strong>で計測。<span class="hl-green">同じ種類・同量の食品でも、血糖反応の個人差が非常に大きい</span>ことを示した <span class="evidence-tag moderate">観察研究 n=800</span></span>
+      </li>
+      <li>
+        <span class="marker marker-green">2</span>
+        <span><strong>「健康食品」が人によっては血糖を大きく上げる</strong> ── バナナで血糖が急上昇する人もいれば、ほぼ反応しない人もいた。逆にクッキーで血糖がほとんど上がらない人も。腸内細菌の組成・食習慣・身体計測値・血液データが予測因子として浮かび上がった（あくまで<strong>相関関係</strong>であり、因果は未確定）</span>
+      </li>
+      <li>
+        <span class="marker marker-green">3</span>
+        <span><strong>機械学習で個人の食後血糖を予測</strong> ── 腸内細菌プロファイルを含む複数データを機械学習で解析すると、その人の食後血糖反応をある程度予測できることを示した。別集団100人での検証と小規模な食事介入試験でも改善効果が確認された <span class="evidence-tag weak">小規模介入試験 n=100</span></span>
+      </li>
+      <li>
+        <span class="marker marker-green">4</span>
+        <span><strong>精密栄養学の「現在地」</strong> ── 腸内細菌と食後血糖反応の関連は複数の研究が支持しているが、「腸内細菌を改善すれば血糖が確実に改善する」という大規模な介入試験（RCT＝ランダム化比較試験）はまだ限られている。<strong>「相関がある」≠「原因である」</strong>の視点が重要</span>
+      </li>
+    </ul>
+
+    <div class="sticky">
+      ✏️ <strong>中学生的に言うと：</strong>「太るから食べちゃダメ」という食べ物が、実は自分には全然平気だったり、逆に「ヘルシー食品」が自分の血糖を急上昇させている場合もある。体の反応は人それぞれ、という科学的な証拠が出てきた！
+    </div>
+
+    <div class="source">
+      📎 出典：
+      <a href="https://www.cell.com/cell/fulltext/S0092-8674(15)01481-6" target="_blank">Zeevi D, et al. "Personalized Nutrition by Prediction of Glycemic Responses." Cell. 2015;163(5):1079–1094</a> ／
+      <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10537332/" target="_blank">PMC – Gut Microbiome–Diet Connection: Precision Nutrition（2023年レビュー）</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== トピック2 ===== -->
+<div class="card" id="topic2">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">🦠</span>
+      <div class="card-title">「砂糖太り」を防ぐ腸内細菌の発見 ──<br>Nature Communications 2025年論文</div>
+      <span class="topic-badge badge-orange">2025年新研究</span>
+    </div>
+
+    <div class="simple-box">
+      <span class="label">🌱 やさしく解説</span><br>
+      「甘いものを食べるとすぐ太る人」と「あまり太らない人」の違いの一つが<span class="hl-yellow">腸内細菌にある</span>かもしれないと示す研究が2025年1月に発表されました。京都大学などの研究グループが権威ある科学誌 <strong>Nature Communications</strong> に掲載。ただしメインの実験はマウスを対象にしており、人間への直接応用はまだ研究途上です。
+    </div>
+
+    <ul class="point-list">
+      <li>
+        <span class="marker marker-orange">1</span>
+        <span><strong>発見した菌：Streptococcus salivarius（ストレプトコッカス・サリバリウス）</strong> ── 口腔・腸に住む常在菌（もともと体にいる菌）。この菌が<span class="hl-yellow">砂糖（スクロース）を食べて「EPS（難消化性菌体外多糖）」に変換</span>することで、宿主の糖吸収を抑えると考えられた <span class="evidence-tag weak">動物実験（雄マウス）＋ヒト観察研究</span></span>
+      </li>
+      <li>
+        <span class="marker marker-orange">2</span>
+        <span><strong>EPS→短鎖脂肪酸（SCFA）→代謝改善の経路</strong> ── 変換されたEPSは他の腸内細菌が分解して<strong>短鎖脂肪酸（SCFA）</strong>を産生。SCFAは腸の健康維持・血糖調節・脂肪蓄積の抑制に関わると多くの先行研究が示している</span>
+      </li>
+      <li>
+        <span class="marker marker-orange">3</span>
+        <span><strong>ヒトのデータでも相関を確認（観察研究 n≈500）</strong> ── 健常者と肥満の人を比較すると、肥満の人では S. salivarius の量が少なく、EPS産生経路の活性も低い傾向が見られた。ただし「菌が少ないから太る」のか「太っているから菌が少ない」のかは因果未確定 <span class="evidence-tag weak">観察研究（相関のみ）</span></span>
+      </li>
+      <li>
+        <span class="marker marker-orange">4</span>
+        <span><strong>重要な注意点</strong> ── メインの実験は<strong>雄マウス</strong>を対象にしたもの。人間でこの菌を増やせば同じ効果が得られるかどうかは、今後の介入試験（RCT）での検証が必要。現時点でサプリなどで摂取するという実用化の段階にはない</span>
+      </li>
+    </ul>
+
+    <div class="sticky">
+      ✏️ <strong>中学生的に言うと：</strong>砂糖を食べてもあまり太らない人は、腸にいる特定の菌が砂糖を太りにくい繊維に変えてくれているのかも、という発見。でもまだマウスでの話が中心で、人間でも同じかはこれから調べるところ！
+    </div>
+
+    <div class="source">
+      📎 出典：
+      <a href="https://www.nature.com/articles/s41467-025-56470-0" target="_blank">Shimizu J, et al. "Sucrose-preferring gut microbes prevent host obesity by producing exopolysaccharides." Nature Communications 16, 1145 (2025)</a> ／
+      <a href="https://pubmed.ncbi.nlm.nih.gov/39880823/" target="_blank">PubMed – PMID 39880823</a> ／
+      <a href="https://www.kyoto-u.ac.jp/ja/research-news/2025-02-03" target="_blank">京都大学プレスリリース（2025年2月3日）</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== トピック3 ===== -->
+<div class="card" id="topic3">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">🔬</span>
+      <div class="card-title">腸内細菌が作る物質が血糖を乱す？ ──<br>東北大学 Scientific Reports 2025年研究</div>
+      <span class="topic-badge badge-purple">2025年新研究</span>
+    </div>
+
+    <div class="simple-box">
+      <span class="label">🌱 やさしく解説</span><br>
+      腸内細菌が食べ物から作り出す<span class="hl-pink">「フェニル硫酸（PS）」</span>という物質が、血糖を下げるホルモン「インスリン」の働きに対して二面的な影響を持つことが東北大学の研究グループによって明らかになりました。2025年2月に <strong>Scientific Reports</strong>（国際的な査読誌）に掲載された研究です。
+    </div>
+
+    <ul class="point-list">
+      <li>
+        <span class="marker marker-purple">1</span>
+        <span><strong>フェニル硫酸（PS）とは？</strong> ── 腸内細菌が食べ物の<strong>フェニルアラニン</strong>（たんぱく質の材料の一種）を代謝して作る物質。慢性腎臓病（CKD）の患者で血中濃度が上がる「尿毒症毒素」の一種として以前から研究されていた <span class="evidence-tag weak">マウス実験＋ヒト観察研究</span></span>
+      </li>
+      <li>
+        <span class="marker marker-purple">2</span>
+        <span><strong>PSはインスリン分泌を「増やしながら効きにくくもさせる」</strong> ── マウス実験とヒトのデータを分析した結果、PSは膵臓のβ細胞（インスリンを作る細胞）からのインスリン分泌を促進する一方で、脂肪細胞ではインスリン抵抗性（インスリンへの反応低下）を引き起こすことが判明した</span>
+      </li>
+      <li>
+        <span class="marker marker-purple">3</span>
+        <span><strong>ヒトのデータとの相関</strong> ── 糖尿病患者のデータを分析すると、PS値が高い人はHbA1c（2〜3ヶ月の血糖コントロール指標）が低い傾向と、インスリン抵抗性が高い傾向が同時に見られた。複雑な関係があり、単純に「PSが高い＝悪い」とは言えない <span class="evidence-tag weak">観察研究（相関関係のみ）</span></span>
+      </li>
+      <li>
+        <span class="marker marker-purple">4</span>
+        <span><strong>今後の展開と現時点の限界</strong> ── PSを産生する腸内細菌の酵素を薬のターゲットにすることで、糖尿病や慢性腎臓病の新たな治療法につながる可能性が期待されている。ただし現時点では基礎研究段階であり、「PSを下げれば確実に血糖が改善する」とは言えない</span>
+      </li>
+    </ul>
+
+    <div class="sticky">
+      ✏️ <strong>中学生的に言うと：</strong>腸の菌が作る「フェニル硫酸」という物質が、血糖を管理するホルモンのバランスをかき乱しているかもしれないという発見。腸の中の菌が体全体に影響しているって、すごい！でもまだ解明途中。
+    </div>
+
+    <div class="source">
+      📎 出典：
+      <a href="https://www.life.med.tohoku.ac.jp/newsroom/press/33499/" target="_blank">東北大学医療系メディア LIFE ── フェニル硫酸による血糖値調節メカニズムを解明（2025年4月掲載）</a> ／
+      <a href="https://www.tohoku.ac.jp/japanese/2025/04/press20250401-01-PS.html" target="_blank">東北大学プレスリリース（2025年4月1日）</a> ／
+      <a href="https://dm-rg.net/news/91f39ef8-dd42-40d3-9583-86c4ca719410" target="_blank">糖尿病リソースガイド ── 腸内細菌由来フェニル硫酸とインスリン分泌・抵抗性</a><br>
+      ※ Scientific Reports 掲載日は2025年2月17日。論文の詳細はプレスリリースに基づく。
+    </div>
+  </div>
+</div>
+
+<!-- ===== トピック4 ===== -->
+<div class="card" id="topic4">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">🌿</span>
+      <div class="card-title">では私たちに何ができる？ ──<br>腸内環境と食生活の基本（エビデンスに基づく）</div>
+      <span class="topic-badge badge-teal">日常への応用</span>
+    </div>
+
+    <div class="simple-box">
+      <span class="label">🌱 やさしく解説</span><br>
+      上の2つの研究はまだ「基礎研究」の段階で、「○○を食べれば確実に血糖が改善する」とは言えません。でも、<span class="hl-green">腸内細菌を多様で豊かに保つことが、全体的な代謝の健康と関連する</span>というエビデンスは複数の研究が積み上げています。まず確認されている基本から始めましょう。
+    </div>
+
+    <ul class="point-list">
+      <li>
+        <span class="marker marker-teal">1</span>
+        <span><strong>多様な植物性食品から食物繊維を摂る</strong> ── 食物繊維は腸内細菌のエサになり、SCFAの産生を助ける。野菜・豆類・全粒穀物・海藻など多様な食品から摂ることが、腸内細菌の多様性向上と関連する <span class="evidence-tag moderate">複数の観察研究・一部介入試験で支持</span></span>
+      </li>
+      <li>
+        <span class="marker marker-teal">2</span>
+        <span><strong>発酵食品（納豆・味噌・ヨーグルトなど）の継続摂取</strong> ── スタンフォード大学の2021年研究（n=36, RCT）では、発酵食品を増やしたグループで腸内細菌の多様性が上がり、炎症マーカーが低下した。ただし小規模な試験であり、普遍化には慎重さが必要 <span class="evidence-tag weak">小規模RCT n=36</span></span>
+      </li>
+      <li>
+        <span class="marker marker-teal">3</span>
+        <span><strong>超加工食品・精製糖の摂りすぎを控える</strong> ── 超加工食品の多量摂取が腸内細菌の多様性低下と関連するという観察研究が複数ある。直接の因果関係は証明されていないが、精製糖の過剰摂取を控えることは総じて代謝の健康に好影響とされる</span>
+      </li>
+      <li>
+        <span class="marker marker-teal">4</span>
+        <span><strong>「自分の食後反応」を知る</strong> ── 食事日記や連続血糖モニタリング（CGM）で自分がどの食品に血糖反応しやすいかを記録するアプローチが精密栄養学の実践として注目されている。専門家の指導のもとで行うことが推奨される</span>
+      </li>
+      <li>
+        <span class="marker marker-teal">5</span>
+        <span><strong>プロバイオティクス（特定菌のサプリ等）は？</strong> ── 現時点で「この菌を飲めば血糖が改善する」という大規模RCTレベルのエビデンスは限られている。製品の選択前に管理栄養士・医師への相談を推奨する</span>
+      </li>
+    </ul>
+
+    <div class="sticky">
+      ✏️ <strong>中学生的に言うと：</strong>腸の菌を元気にするには、野菜・豆・発酵食品をバランスよく食べるのが今のところの「答え」。特定のサプリより、毎日の食事の多様性の方が大事という研究が増えている！
+    </div>
+
+    <div class="source">
+      📎 出典（エビデンス根拠として）：
+      <a href="https://pubmed.ncbi.nlm.nih.gov/34256014/" target="_blank">Wastyk HC, et al. "Gut-microbiota-targeted diets modulate human immune status." Cell 2021（発酵食品RCT, n=36）</a> ／
+      <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11597134/" target="_blank">PMC – Unraveling the Gut Microbiota: Implications for Precision Nutrition（2024年レビュー）</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== まとめ ===== -->
+<div class="summary-card" id="summary">
+  <h2>📝 今日のまとめ ── 精密栄養学の現在地</h2>
+  <div class="summary-grid">
+    <div class="summary-item">
+      <span class="s-emoji">📊</span>
+      <div class="s-title">わかってきたこと</div>
+      同じ食事でも食後血糖反応には大きな個人差がある。腸内細菌の種類・量がその一因と考えられる（Weizmann研究 n=800, 観察研究）
+    </div>
+    <div class="summary-item">
+      <span class="s-emoji">🦠</span>
+      <div class="s-title">2025年の新発見</div>
+      S. salivarius が砂糖を難消化性多糖に変換（マウス＋ヒト観察）。フェニル硫酸がインスリンに二面的影響（マウス＋ヒト観察）
+    </div>
+    <div class="summary-item">
+      <span class="s-emoji">⚠️</span>
+      <div class="s-title">まだわからないこと</div>
+      動物実験の知見が人間に直接あてはまるかは未確定。腸内細菌への介入で血糖や体重が改善するという大規模RCTエビデンスはまだ限られる
+    </div>
+    <div class="summary-item">
+      <span class="s-emoji">🌿</span>
+      <div class="s-title">今できること</div>
+      多様な食物繊維・発酵食品を毎日の食事に取り入れ、超加工食品を控えることが腸内細菌の多様性維持に役立つ（複数研究が支持）
+    </div>
+  </div>
+</div>
+
+<!-- ===== 免責事項 ===== -->
+<div class="disclaimer">
+  <h3>⚕️ ご注意・免責事項</h3>
+  本記事は一般的な情報提供を目的としており、<strong>医療上のアドバイスではありません</strong>。記載した研究結果の効果・必要量・リスクは、個人の体質・年齢・持病・服薬内容によって大きく異なります。記事中の観察研究や動物実験の結果は、すべての人に同様に当てはまるものではありません。特定の食事制限・サプリメント・断食などを実践する前に、<strong>かかりつけ医・管理栄養士・薬剤師など専門家にご相談ください</strong>。研究の引用は記載時点の情報に基づきます。
+</div>
+
+<!-- ===== フッター ===== -->
+<div class="footer">
+  <p><strong>健康・栄養 最新トピック</strong> ── 2026-05-30号</p>
+  <p style="margin-top:6px;">各記事の出典URLは各トピック下部に記載しています。情報は収集時点のものです。</p>
+  <p style="margin-top:4px;"><a href="index.html" style="color:#aaa;">← バックナンバー一覧へ</a></p>
+</div>
+
+</body>
+</html>
