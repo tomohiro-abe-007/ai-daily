@@ -19,7 +19,7 @@
   }
 
   .cover {
-    background: linear-gradient(135deg, #7c3a1e 0%, #c47820 100%);
+    background: linear-gradient(135deg, #1a5276 0%, #2e86c1 100%);
     color: white;
     border-radius: 8px;
     padding: 60px 40px;
@@ -41,10 +41,10 @@
       rgba(255,255,255,0.07) 28px, rgba(255,255,255,0.07) 29px
     );
   }
-  .cover-emoji { font-size: 64px; display: block; margin-bottom: 16px; }
+  .cover-emoji { font-size: 64px; display: block; margin-bottom: 16px; position: relative; }
   .cover h1 {
     font-family: 'Klee One', sans-serif;
-    font-size: 2.2rem;
+    font-size: 2.1rem;
     font-weight: 600;
     line-height: 1.3;
     margin-bottom: 12px;
@@ -78,6 +78,7 @@
     background: repeating-linear-gradient(0deg, transparent, transparent 31px, #e0d8c8 31px, #e0d8c8 32px);
     background-color: #fff9f0;
     min-height: 200px;
+    position: relative;
   }
 
   .card-body::before {
@@ -118,8 +119,8 @@
   .badge-blue   { background: #e0eeff; color: #2255aa; border: 1px solid #a0c0f5; }
   .badge-green  { background: #e0f5e0; color: #1e7e34; border: 1px solid #a0d8a0; }
   .badge-orange { background: #fff0d0; color: #cc6600; border: 1px solid #f0c070; }
-  .badge-brown  { background: #f5e6d0; color: #7c3a1e; border: 1px solid #d4a47a; }
   .badge-teal   { background: #d0f0f0; color: #006060; border: 1px solid #80d0d0; }
+  .badge-navy   { background: #dde8f5; color: #1a5276; border: 1px solid #7aaad5; }
 
   .simple-box {
     background: #fff7e0;
@@ -165,7 +166,7 @@
   .marker-blue   { background: #2255aa; color: white; }
   .marker-green  { background: #1e7e34; color: white; }
   .marker-orange { background: #cc6600; color: white; }
-  .marker-brown  { background: #7c3a1e; color: white; }
+  .marker-navy   { background: #1a5276; color: white; }
   .marker-teal   { background: #006060; color: white; }
 
   .hl-yellow { background: linear-gradient(transparent 60%, #ffe566 60%); }
@@ -187,6 +188,51 @@
     color: #4a3800;
   }
 
+  /* 数字カードグリッド */
+  .num-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 14px;
+    margin: 18px 0;
+  }
+  .num-card {
+    border-radius: 10px;
+    padding: 18px 14px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.1);
+  }
+  .num-card .nc-label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+    letter-spacing: 0.4px;
+    opacity: 0.85;
+  }
+  .num-card .nc-num {
+    font-size: 2.2rem;
+    font-weight: 700;
+    line-height: 1.1;
+    display: block;
+  }
+  .num-card .nc-unit {
+    font-size: 0.88rem;
+    opacity: 0.8;
+    margin-top: 4px;
+    display: block;
+  }
+  .num-card .nc-note {
+    font-size: 0.72rem;
+    opacity: 0.7;
+    margin-top: 6px;
+    line-height: 1.4;
+  }
+  .nc-blue   { background: #ddeeff; color: #1a5276; }
+  .nc-green  { background: #e0f5e0; color: #1e6e34; }
+  .nc-orange { background: #fff0d0; color: #994400; }
+  .nc-teal   { background: #d0f0ee; color: #006060; }
+  .nc-purple { background: #ede0ff; color: #5a0080; }
+
+  /* 比較表 */
   .compare-table {
     width: 100%;
     border-collapse: collapse;
@@ -194,7 +240,7 @@
     font-size: 0.88rem;
   }
   .compare-table th {
-    background: #7c3a1e;
+    background: #1a5276;
     color: white;
     padding: 8px 12px;
     text-align: left;
@@ -203,11 +249,72 @@
   .compare-table td {
     padding: 8px 12px;
     border-bottom: 1px solid #e0d8c8;
-    vertical-align: top;
+    vertical-align: middle;
     line-height: 1.6;
   }
   .compare-table tr:nth-child(even) td { background: #faf5ec; }
-  .compare-table tr:hover td { background: #fff0d0; }
+  .compare-table tr:hover td { background: #eef5ff; }
+  .compare-table .highlight-row td { background: #ddeeff; font-weight: 600; }
+
+  /* フロー図 */
+  .flow-row {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin: 14px 0;
+    flex-wrap: wrap;
+  }
+  .flow-step {
+    background: #1a5276;
+    color: white;
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    text-align: center;
+    min-width: 110px;
+    line-height: 1.4;
+  }
+  .flow-arrow {
+    font-size: 1.5rem;
+    color: #1a5276;
+    margin: 0 6px;
+    font-weight: 700;
+  }
+  .flow-step.step-mid { background: #2e86c1; }
+  .flow-step.step-end { background: #148f77; }
+  .flow-step .fs-sub { font-size: 0.72rem; font-weight: 400; opacity: 0.85; display: block; margin-top: 2px; }
+
+  .range-bar-wrap { margin: 10px 0; }
+  .range-bar-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: #555;
+    margin-bottom: 3px;
+  }
+  .range-bar {
+    height: 20px;
+    border-radius: 10px;
+    position: relative;
+    background: #dce8f5;
+    margin-bottom: 4px;
+  }
+  .range-fill {
+    position: absolute;
+    top: 0; bottom: 0;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: white;
+  }
+  .rf-blue  { background: linear-gradient(90deg, #2e86c1, #5dade2); }
+  .rf-green { background: linear-gradient(90deg, #1e8449, #52be80); }
+  .rf-orange{ background: linear-gradient(90deg, #ca6f1e, #f0b27a); }
+  .rf-purple{ background: linear-gradient(90deg, #7d3c98, #bb8fce); }
 
   .action-box {
     background: #e8f5e9;
@@ -243,11 +350,11 @@
     padding-top: 10px;
     border-top: 1px solid #ddd;
   }
-  .source a { color: #5577aa; text-decoration: none; }
+  .source a { color: #2e86c1; text-decoration: none; }
   .source a:hover { text-decoration: underline; }
 
   .summary-card {
-    background: linear-gradient(135deg, #7c3a1e 0%, #c47820 100%);
+    background: linear-gradient(135deg, #1a5276 0%, #2e86c1 100%);
     color: white;
     border-radius: 8px;
     padding: 36px 40px;
@@ -264,12 +371,12 @@
   }
   .summary-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 16px;
     margin-top: 16px;
   }
   .summary-item {
-    background: rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.13);
     border-radius: 8px;
     padding: 14px 16px;
     font-size: 0.9rem;
@@ -278,393 +385,330 @@
   .summary-item .s-emoji { font-size: 1.6rem; display: block; margin-bottom: 6px; }
   .summary-item .s-title { font-weight: 600; margin-bottom: 4px; font-size: 1rem; }
 
-  .footer {
-    text-align: center;
-    color: #888;
-    font-size: 0.8rem;
-    padding: 20px;
-    max-width: 820px;
-    width: 100%;
-  }
-
-  .toc {
-    background: #f8f4ec;
-    border: 2px solid #c8b89a;
-    border-radius: 8px;
-    padding: 20px 28px;
-    width: 100%;
-    max-width: 820px;
-    margin-bottom: 24px;
-  }
-  .toc h2 { font-size: 1.1rem; color: #7c3a1e; margin-bottom: 12px; }
-  .toc ol { padding-left: 20px; }
-  .toc li { padding: 4px 0; font-size: 0.93rem; }
-  .toc a { color: #7c3a1e; text-decoration: none; }
-  .toc a:hover { text-decoration: underline; }
+  p { line-height: 1.85; font-size: 0.97rem; margin: 10px 0; color: #333; }
+  strong { color: #1a5276; }
+  .text-small { font-size: 0.85rem; color: #555; }
 
   @media (max-width: 600px) {
-    .card-body { padding: 20px 20px 20px 44px; }
-    .card-title { font-size: 1.15rem; }
-    .cover h1 { font-size: 1.8rem; }
-    .summary-card { padding: 24px 20px; }
-    .compare-table { font-size: 0.78rem; }
-    .compare-table th, .compare-table td { padding: 6px 8px; }
+    .cover h1 { font-size: 1.5rem; }
+    .card-body { padding: 20px 20px 20px 48px; }
+    .num-grid { grid-template-columns: repeat(2, 1fr); }
+    .flow-row { flex-direction: column; align-items: flex-start; }
+    .flow-arrow { transform: rotate(90deg); }
   }
 </style>
 </head>
 <body>
 
-<!-- ===== 表紙 ===== -->
+<!-- ===== COVER ===== -->
 <div class="cover">
-  <span class="cover-emoji">📞💼</span>
-  <h1>インサイドセールス 最新トピック</h1>
-  <div class="subtitle">テーマ：CRM・SFA・MAツール基礎 ── 営業の「デジタルノート」を使いこなそう</div>
-  <div class="date-badge">📅 2026年5月30日号</div>
+  <span class="cover-emoji">💴</span>
+  <h1>インサイドセールス<br>時給・報酬相場（日本）</h1>
+  <div class="subtitle">雇用形態×スキル別の「稼げる金額」を丸ごと解説</div>
+  <div class="date-badge">📅 2026-05-30</div>
 </div>
 
-<!-- ===== 目次 ===== -->
-<div class="toc">
-  <h2>📋 今日の目次</h2>
-  <ol>
-    <li><a href="#topic1">CRM・SFA・MAって何が違う？ ── 3つの用語をやさしく整理</a></li>
-    <li><a href="#topic2">インサイドセールスでよく使われるツール比較</a></li>
-    <li><a href="#topic3">まず HubSpot 無料版を使ってみよう ── 初心者にやさしい入門ツール</a></li>
-    <li><a href="#topic4">Salesforce を知っておくと転職で強い ── 無料で学べる Trailhead</a></li>
-    <li><a href="#topic5">ツール活用のコツ ── 入力を続けるための仕組みづくり</a></li>
-    <li><a href="#action">今日からできる一歩 ＋ まとめ</a></li>
-  </ol>
-</div>
-
-<!-- ===== トピック1 ===== -->
-<div class="card" id="topic1">
+<!-- ===== CARD 1: 今日のテーマ ===== -->
+<div class="card">
   <div class="card-body">
     <div class="card-header">
-      <span class="card-emoji">📖</span>
-      <div class="card-title">CRM・SFA・MAって何が違う？<br>── 3つの用語をやさしく整理</div>
-      <span class="topic-badge badge-brown">基礎用語</span>
+      <span class="card-emoji">📌</span>
+      <span class="card-title">そもそも「報酬の形」は何種類ある？</span>
+      <span class="topic-badge badge-navy">基礎知識</span>
     </div>
+    <p>インサイドセールスやテレアポの仕事は、<strong>雇用形態によって給料の計算方法が全然違います</strong>。大きく分けると3種類あります。</p>
 
     <div class="simple-box">
-      <span class="label">🌱 やさしく解説</span><br>
-      営業の仕事でよく出てくる3つのアルファベット略語。全部「管理するもの」ですが、<span class="hl-yellow">何を管理するかが違います</span>。簡単に言うと「誰に連絡したか（CRM）」「どこまで進んでいるか（SFA）」「自動でメールを送る仕組み（MA）」です。
+      <div class="label">💡 言葉の解説</div>
+      <strong>時給制</strong>…働いた時間 × 時給。安定しているが稼ぎの上限が決まりやすい。<br>
+      <strong>成果報酬型</strong>…アポ（商談の約束）を取るたびに1件いくらもらえる。稼ぎに上限がない分、成果が出ないと収入ゼロの可能性も。<br>
+      <strong>月額固定＋インセンティブ</strong>…毎月決まった額＋成果ボーナスのハイブリッド。正社員・業務委託で多い形。
     </div>
 
-    <ul class="point-list">
-      <li>
-        <span class="marker marker-blue">C</span>
-        <span><strong>CRM（シーアールエム）＝ 顧客管理（Customer Relationship Management）</strong><br>
-        「どの会社の誰に、いつ電話して、何を話したか」を記録するデジタルノート。見込み客の名前・電話番号・対応履歴を一か所で管理する。</span>
-      </li>
-      <li>
-        <span class="marker marker-orange">S</span>
-        <span><strong>SFA（エスエフエー）＝ 営業支援（Sales Force Automation）</strong><br>
-        「この商談は今どの段階か」を追いかけるツール。初回接触→提案→交渉→成約という<span class="hl-orange">パイプライン（商談の流れ）</span>を視覚的に管理できる。</span>
-      </li>
-      <li>
-        <span class="marker marker-green">M</span>
-        <span><strong>MA（エムエー）＝ マーケティング自動化（Marketing Automation）</strong><br>
-        「資料請求した人に3日後に自動でフォローメールを送る」など、決まった行動を自動化するツール。主にメール配信・スコアリング（見込み度の点数付け）に使う。</span>
-      </li>
-      <li>
-        <span class="marker marker-teal">✓</span>
-        <span><strong>インサイドセールスが主に使うのは CRM と SFA</strong><br>
-        架電・商談の記録（CRM）と、商談の進捗管理（SFA）が中心。HubSpotやSalesforceはCRM・SFA両方の機能を1つにまとめたオールインワンツールとして広く使われている。</span>
-      </li>
-    </ul>
+    <!-- フロー図：報酬タイプの比較 -->
+    <div class="flow-row" style="margin-top:18px;">
+      <div class="flow-step">
+        ⏰ 時給制
+        <span class="fs-sub">安定・初心者向け</span>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step step-mid">
+        📊 固定＋<br>インセンティブ
+        <span class="fs-sub">バランス型</span>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step step-end">
+        🏆 完全成果報酬
+        <span class="fs-sub">ハイリスク・ハイリターン</span>
+      </div>
+    </div>
+    <p class="text-small" style="margin-top:8px;">未経験なら時給制から始めるのが安全。スキルが上がるにつれて成果報酬寄りにシフトすると収入UP の道がひらけます。</p>
+  </div>
+</div>
+
+<!-- ===== CARD 2: 数字で見る相場 ===== -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">📊</span>
+      <span class="card-title">雇用形態別 リアルな相場を数字で見る</span>
+      <span class="topic-badge badge-blue">2025年データ</span>
+    </div>
+    <p>求人情報・集計データをもとにした<strong>目安の相場</strong>です（実際の条件は求人によって異なります）。</p>
+
+    <div class="num-grid">
+      <div class="num-card nc-blue">
+        <div class="nc-label">📋 派遣・アルバイト<br>（テレアポ）</div>
+        <span class="nc-num">1,521</span>
+        <span class="nc-unit">円 / 時（平均）</span>
+        <div class="nc-note">幅は約<br>1,200〜1,600円</div>
+      </div>
+      <div class="num-card nc-teal">
+        <div class="nc-label">🏢 正社員<br>インサイドセールス</div>
+        <span class="nc-num">490</span>
+        <span class="nc-unit">万円 / 年（平均）</span>
+        <div class="nc-note">相場幅 350〜700万円<br>東京は約494万円</div>
+      </div>
+      <div class="num-card nc-orange">
+        <div class="nc-label">💼 業務委託<br>フリーランスIS</div>
+        <span class="nc-num">1,800〜</span>
+        <span class="nc-unit">円 / 時（案件相場）</span>
+        <div class="nc-note">上位案件は<br>5,000円/時も</div>
+      </div>
+      <div class="num-card nc-green">
+        <div class="nc-label">🎯 成果報酬型<br>テレアポ</div>
+        <span class="nc-num">500〜</span>
+        <span class="nc-unit">円 / アポ1件</span>
+        <div class="nc-note">高単価案件は<br>5,000円/件も</div>
+      </div>
+    </div>
 
     <div class="sticky">
-      ✏️ <strong>中学生的に言うと：</strong>CRM は「連絡先アドレス帳＋会話日記」、SFA は「やることリスト＋進捗ボード」、MA は「自動返信メール設定」だと思えばOK！
+      📝 <strong>メモ：</strong> 業務委託フリーランスのインサイドセールスは月収50万円超の案件も存在（ITプロパートナーズ調べ、2025年）。ただしSaaS営業経験やCRM操作スキルが求められることが多いです。
     </div>
 
     <div class="source">
-      📎 出典：
-      <a href="https://s.gbase.ai/blog/inside-sales-tool-guide/" target="_blank">GBase GTM Blog – インサイドセールスツール比較2026年版｜SFA・CRM・MAの違いと選び方</a> ／
-      <a href="https://start-link.jp/hubspot-ai/btob-marketing/inside-sales/inside-sales-tool-comparison" target="_blank">start-link.jp – インサイドセールスツール比較15選</a>
+      出典：<a href="https://jp.stanby.com/stats/occupation/%E3%82%A4%E3%83%B3%E3%82%B5%E3%82%A4%E3%83%89%E3%82%BB%E3%83%BC%E3%83%AB%E3%82%B9" target="_blank">スタンバイ 職種別給与</a>（2025年）／
+      <a href="https://www.baitoru.com/salary/teleapo/" target="_blank">バイトル テレアポ平均時給</a>（2025年）／
+      <a href="https://itpropartners.com/job/salesDirector/is" target="_blank">ITプロパートナーズ ISフリーランス案件</a>（2025年）
     </div>
   </div>
 </div>
 
-<!-- ===== トピック2 ===== -->
-<div class="card" id="topic2">
+<!-- ===== CARD 3: 比較表 ===== -->
+<div class="card">
   <div class="card-body">
     <div class="card-header">
-      <span class="card-emoji">🔧</span>
-      <div class="card-title">インサイドセールスでよく使われるツール比較</div>
-      <span class="topic-badge badge-orange">ツール一覧</span>
-    </div>
-
-    <div class="simple-box">
-      <span class="label">🌱 やさしく解説</span><br>
-      ツールはたくさんありますが、初心者に特によく登場するのは <span class="hl-yellow">HubSpot（ハブスポット）</span> と <span class="hl-blue">Salesforce（セールスフォース）</span> の2つ。どちらを使うかは会社次第なので、両方の名前と特徴を知っておくと転職・副業に有利です。
+      <span class="card-emoji">🔍</span>
+      <span class="card-title">雇用形態ごとのメリット・デメリット一覧</span>
+      <span class="topic-badge badge-teal">比較表</span>
     </div>
 
     <table class="compare-table">
-      <tr>
-        <th>ツール名</th>
-        <th>種別</th>
-        <th>費用の目安</th>
-        <th>特徴・向いている人</th>
-      </tr>
-      <tr>
-        <td><strong>HubSpot</strong></td>
-        <td>CRM/SFA/MA</td>
-        <td>無料版あり<br>（有料プランは公式で確認）</td>
-        <td>初心者向け。日本語対応。無料版で商談管理・連絡先管理が十分できる。まず触ってみるなら最適</td>
-      </tr>
-      <tr>
-        <td><strong>Salesforce</strong></td>
-        <td>CRM/SFA</td>
-        <td>月額制（公式で確認）</td>
-        <td>業界標準。大企業・中堅企業で多く導入。「Salesforce使えます」は転職の強みになる</td>
-      </tr>
-      <tr>
-        <td><strong>Zoho CRM</strong></td>
-        <td>CRM/SFA</td>
-        <td>無料版あり</td>
-        <td>コスパ良し。中小企業向け。英語・日本語対応。スタートアップで採用が多い</td>
-      </tr>
-      <tr>
-        <td><strong>kintone</strong></td>
-        <td>業務DB</td>
-        <td>月額制（公式で確認）</td>
-        <td>国産で安心。カスタマイズしやすい。テレアポ管理・架電リスト管理にも活用される</td>
-      </tr>
-      <tr>
-        <td><strong>MiiTel</strong></td>
-        <td>AI架電ツール</td>
-        <td>要問合せ</td>
-        <td>電話をAIが自動録音・文字起こし・分析。テレアポ・インサイドセールス専用。架電品質の振り返りに強い</td>
-      </tr>
+      <thead>
+        <tr>
+          <th>雇用形態</th>
+          <th>時給・月収の目安</th>
+          <th>安定性</th>
+          <th>向いている人</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>🏢 正社員</td>
+          <td>年収350〜700万円<br><span class="text-small">平均490万円</span></td>
+          <td>◎ 高い</td>
+          <td>長期キャリアを積みたい人、社会保険重視</td>
+        </tr>
+        <tr>
+          <td>📋 派遣・パート</td>
+          <td>時給1,200〜1,600円<br><span class="text-small">平均1,521円</span></td>
+          <td>○ 普通</td>
+          <td>まず経験を積みたい未経験者、主婦・副業</td>
+        </tr>
+        <tr class="highlight-row">
+          <td>💼 業務委託（在宅）</td>
+          <td>時給1,800〜5,000円<br><span class="text-small">月50万円超も</span></td>
+          <td>△ 案件次第</td>
+          <td>経験者・スキルある人のフルリモート</td>
+        </tr>
+        <tr>
+          <td>🎯 成果報酬型テレアポ</td>
+          <td>1アポ500〜5,000円<br><span class="text-small">アポ率で変動大</span></td>
+          <td>△ 不安定</td>
+          <td>アポ率に自信がある人、副業</td>
+        </tr>
+      </tbody>
     </table>
 
-    <div class="sticky">
-      ✏️ <strong>ポイント：</strong>求人票に「Salesforce経験者優遇」「HubSpot使用」と書いてあることが多い。まず無料の HubSpot で「CRMの感覚」をつかんでおくと、どのツールにも応用できる！
-    </div>
-
-    <div class="disclaimer">
-      ⚠️ 各ツールの料金・プランは変更される場合があります。最新情報は各ツールの公式サイトでご確認ください。
-    </div>
-
-    <div class="source">
-      📎 出典：
-      <a href="https://s.gbase.ai/blog/inside-sales-tool-guide/" target="_blank">GBase GTM Blog – インサイドセールスツール比較2026年版</a> ／
-      <a href="https://goofy-inc.com/blog/recommended-inside-sales-tool/" target="_blank">Goofy Inc. – おすすめのインサイドセールスツール15選(SFA／MA／CRM)</a>
+    <div class="simple-box">
+      <div class="label">🔑 ポイント</div>
+      <strong>ハイライト行（業務委託）</strong>は経験があれば最も時給が高くなりやすい形態です。まず派遣・アルバイトで1〜2年経験を積んでから業務委託にシフトする、というルートが現実的です。
     </div>
   </div>
 </div>
 
-<!-- ===== トピック3 ===== -->
-<div class="card" id="topic3">
+<!-- ===== CARD 4: 地域・業種別の傾向 ===== -->
+<div class="card">
   <div class="card-body">
     <div class="card-header">
-      <span class="card-emoji">🟠</span>
-      <div class="card-title">まず HubSpot 無料版を使ってみよう<br>── 初心者にやさしい入門ツール</div>
-      <span class="topic-badge badge-orange">HubSpot</span>
+      <span class="card-emoji">🗾</span>
+      <span class="card-title">地域・商材で変わる年収の差</span>
+      <span class="topic-badge badge-orange">傾向</span>
     </div>
+    <p>同じインサイドセールスでも、<strong>「どこで」「何を売るか」</strong>で年収は大きく変わります。</p>
 
-    <div class="simple-box">
-      <span class="label">🌱 やさしく解説</span><br>
-      <span class="hl-yellow">HubSpot</span> はアメリカ発のCRM/SFAツールで、<strong>無料版でも基本的なインサイドセールス業務のほとんどができます</strong>。「まずツールを無料で触ってみたい」という人の第一選択として最適。日本語にも対応しています。
+    <!-- 地域バーチャート -->
+    <div class="range-bar-wrap" style="margin-top:14px;">
+      <div style="font-size:0.85rem; font-weight:600; color:#333; margin-bottom:8px;">📍 正社員インサイドセールスの地域別平均年収（2025年）</div>
+
+      <div class="range-bar-label"><span>東京都</span><span>494万円</span></div>
+      <div class="range-bar" style="margin-bottom:8px;">
+        <div class="range-fill rf-blue" style="left:0; width:90%;"></div>
+      </div>
+
+      <div class="range-bar-label"><span>福岡県</span><span>405万円</span></div>
+      <div class="range-bar" style="margin-bottom:8px;">
+        <div class="range-fill rf-green" style="left:0; width:74%;"></div>
+      </div>
+
+      <div class="range-bar-label"><span>大阪府</span><span>390万円</span></div>
+      <div class="range-bar" style="margin-bottom:8px;">
+        <div class="range-fill rf-orange" style="left:0; width:71%;"></div>
+      </div>
+
+      <div class="range-bar-label"><span>愛知県</span><span>391万円</span></div>
+      <div class="range-bar" style="margin-bottom:8px;">
+        <div class="range-fill rf-orange" style="left:0; width:71%;"></div>
+      </div>
     </div>
+    <p class="text-small">※フルリモート案件は居住地に関係なく東京相場の報酬が得られるケースがあります。</p>
 
-    <ul class="point-list">
+    <ul class="point-list" style="margin-top:16px;">
       <li>
-        <span class="marker marker-orange">1</span>
-        <span><strong>無料版でできること</strong> ── 連絡先・会社情報の管理（件数制限なし）、商談パイプライン管理、Eメールトラッキング、ミーティング予約リンク作成。インサイドセールスの基本業務はほぼカバーできる</span>
+        <span class="marker marker-blue">🏆</span>
+        <span><strong>SaaS（クラウドサービス）を売るIS</strong>が最も年収高め。IT業界は積極採用中で平均年収が高い傾向。</span>
       </li>
       <li>
-        <span class="marker marker-orange">2</span>
-        <span><strong>架電記録の流れ</strong> ── 連絡先を開く → 「活動を記録」ボタン → 「電話」を選択 → 結果（つながった／留守／折り返し依頼など）を入力 → メモを書いて保存。慣れると30秒以内で記録できる</span>
+        <span class="marker marker-teal">💊</span>
+        <span><strong>医療・ヘルスケア系</strong>も安定した高単価。専門知識が必要だが参入すると離職率が低い。</span>
       </li>
       <li>
-        <span class="marker marker-orange">3</span>
-        <span><strong>商談パイプラインの使い方</strong> ── 「初回接触→ヒアリング→提案→クロージング→成約」の各ステージにカードを移動させるだけ。今何件進行中かが一目でわかる</span>
-      </li>
-      <li>
-        <span class="marker marker-orange">4</span>
-        <span><strong>他ツールとの連携</strong> ── Gmail・Googleカレンダー・Zoomと連携できる。カレンダーに登録した商談面談が自動でHubSpotに記録される設定も可能（有料プランで機能拡張）</span>
-      </li>
-      <li>
-        <span class="marker marker-orange">5</span>
-        <span><strong>無料の学習リソース「HubSpot アカデミー」</strong> ── 公式が提供する無料の日本語対応認定コースあり。「Sales Hub ソフトウェア認定」を取得するとプロフィールに掲載でき、転職時のアピールになる</span>
+        <span class="marker marker-orange">📦</span>
+        <span><strong>人材・不動産</strong>はインセンティブ幅が大きい。固定給は低めでも成果次第で大幅UP。</span>
       </li>
     </ul>
 
-    <div class="sticky">
-      ✏️ <strong>おすすめの最初の一歩：</strong>HubSpot Japan でアカウントを作り、架空の会社名・連絡先を10件入力してみる。「CRMに入力する感覚」を体で覚えるだけで、次の転職・案件で大きなアドバンテージになる！
-    </div>
-
     <div class="source">
-      📎 出典：
-      <a href="https://www.hubspot.jp/products/sales/sfa" target="_blank">HubSpot Japan 公式 – 無料の SFA（営業支援）ツール</a> ／
-      <a href="https://sora1.jp/blog/hubspot-salesforce/" target="_blank">InsideSales Magazine – HubSpotとSalesforceの違いとは？連携もできる両ツールを比較！</a>
+      出典：<a href="https://jp.indeed.com/career/%E5%86%85%E5%8B%A4%E5%96%B6%E6%A5%AD/salaries" target="_blank">Indeed 内勤営業 給与データ</a>（2025年）／
+      <a href="https://smacie.co.jp/knowledge/is-fs-salary/" target="_blank">Smacie インサイドセールス vs フィールドセールス年収比較</a>（2025年）
     </div>
   </div>
 </div>
 
-<!-- ===== トピック4 ===== -->
-<div class="card" id="topic4">
-  <div class="card-body">
-    <div class="card-header">
-      <span class="card-emoji">☁️</span>
-      <div class="card-title">Salesforce を知っておくと転職で強い<br>── 無料で学べる Trailhead</div>
-      <span class="topic-badge badge-blue">Salesforce</span>
-    </div>
-
-    <div class="simple-box">
-      <span class="label">🌱 やさしく解説</span><br>
-      <span class="hl-blue">Salesforce（セールスフォース）</span>は世界最大のCRM/SFAプラットフォームで、大手企業の多くが導入しています。「Salesforceを使いこなせる人材」は求人市場で需要が高い傾向があります。公式の無料学習サービス「<span class="hl-yellow">Trailhead（トレイルヘッド）</span>」でゼロから学べます。
-    </div>
-
-    <ul class="point-list">
-      <li>
-        <span class="marker marker-blue">1</span>
-        <span><strong>Salesforce の基本画面3つ</strong> ── ①取引先（会社情報）②取引先責任者（担当者情報）③商談（パイプライン）。この3つを押さえると基本操作は8割カバーできる</span>
-      </li>
-      <li>
-        <span class="marker marker-blue">2</span>
-        <span><strong>Trailhead（無料学習プラットフォーム）</strong> ── Salesforce公式の無料学習サービス。ゲーム感覚でバッジを集めながらCRM・SFAの使い方を学べる。日本語コンテンツも多い。アカウント登録は無料</span>
-      </li>
-      <li>
-        <span class="marker marker-blue">3</span>
-        <span><strong>Salesforce Administrator 資格</strong> ── Salesforceの公式資格。インサイドセールスや営業オペレーション担当の求人票に「保有者優遇」と書かれることもある。受験料は有料（費用は公式で確認）</span>
-      </li>
-      <li>
-        <span class="marker marker-blue">4</span>
-        <span><strong>求人票での出現頻度</strong> ── Indeed・doda・リクナビNEXTでの「インサイドセールス フルリモート」求人の多くに「Salesforce経験者歓迎」の記載がある（2026年5月時点の傾向）</span>
-      </li>
-      <li>
-        <span class="marker marker-blue">5</span>
-        <span><strong>Developer Edition（無料）</strong> ── Salesforce.comでは開発者向けの無料エディションが用意されている。実際の画面を触っておくと面接や案件の初日に大きな差が出る</span>
-      </li>
-    </ul>
-
-    <div class="sticky">
-      ✏️ <strong>中学生的に言うと：</strong>Salesforceは「業界で一番使われているノート＆タスク管理アプリ」。使えると面接や案件で「このアプリ知ってる人ね！」と一気に信頼される。しかも Trailhead は無料で練習できる！
-    </div>
-
-    <div class="source">
-      📎 出典：
-      <a href="https://www.salesforce.com/jp/resources/articles/crm/how-to-use-salesforce/" target="_blank">Salesforce Japan 公式 – セールスフォースの使い方と基本機能</a> ／
-      <a href="https://renue.co.jp/posts/salesforce-how-to-use-beginners-crm-deal-management-pricing-hubspot-comparison-guide" target="_blank">renue.co.jp – Salesforce 使い方入門｜初心者向けCRM・料金・HubSpotとの違い</a>
-    </div>
-  </div>
-</div>
-
-<!-- ===== トピック5 ===== -->
-<div class="card" id="topic5">
-  <div class="card-body">
-    <div class="card-header">
-      <span class="card-emoji">💡</span>
-      <div class="card-title">ツール活用のコツ<br>── 入力を続けるための仕組みづくり</div>
-      <span class="topic-badge badge-teal">実践Tips</span>
-    </div>
-
-    <div class="simple-box">
-      <span class="label">🌱 やさしく解説</span><br>
-      CRM・SFAは「入力してナンボ」のツールです。使い始めた人の多くが「入力が面倒で続かない」という壁に当たります。<span class="hl-yellow">入力を習慣にするには「すぐ・短く・決まった形式で」</span>が鉄則です。
-    </div>
-
-    <ul class="point-list">
-      <li>
-        <span class="marker marker-green">1</span>
-        <span><strong>「3分ルール」を守る</strong> ── 電話を切ったら3分以内にCRMへ記録する。時間が経つと細かい情報が抜けていくうえ、溜めると一気に入力する気がなくなる</span>
-      </li>
-      <li>
-        <span class="marker marker-green">2</span>
-        <span><strong>ステータスは3〜5段階に絞る</strong> ── 「アプローチ中・ヒアリング済み・提案済み・成約・NG」の5段階で十分。細かすぎると分類に迷って入力が止まる</span>
-      </li>
-      <li>
-        <span class="marker marker-green">3</span>
-        <span><strong>メモは「事実＋次のアクション」だけ</strong> ── 「〇〇の件が気になると言っていた。来週火曜に再度連絡。」のように短く書く。長文を書こうとすると続かない</span>
-      </li>
-      <li>
-        <span class="marker marker-green">4</span>
-        <span><strong>数値を毎日5分確認する習慣</strong> ── 「今月の架電数・アポ数・成約数」の3つをCRM/SFAのダッシュボード（グラフ画面）で毎朝確認。問題に早く気づき、改善サイクルが回る</span>
-      </li>
-      <li>
-        <span class="marker marker-green">5</span>
-        <span><strong>入力テンプレートを用意する</strong> ── 「担当者名・用件・担当者の反応・次のアクション」の4項目を埋めるだけのテンプレートを作っておく。HubSpotなら「メモのデフォルトテキスト」として登録できる</span>
-      </li>
-    </ul>
-
-    <div class="sticky">
-      ✏️ <strong>現場の本音：</strong>CRMをきちんと入力し続けているトップ営業は「入力が義務だから」ではなく「記録が自分の武器になるから」続けている。今日の入力が3か月後の自分を助ける！
-    </div>
-
-    <div class="source">
-      📎 参考：
-      <a href="https://sora1.jp/blog/hubspot-salesforce/" target="_blank">InsideSales Magazine – HubSpotとSalesforceの違いとは？</a> ／
-      <a href="https://start-link.jp/hubspot-ai/btob-marketing/inside-sales/inside-sales-tool-comparison" target="_blank">start-link.jp – インサイドセールスツール比較15選</a>
-    </div>
-  </div>
-</div>
-
-<!-- ===== 今日からできる一歩 ===== -->
-<div class="card" id="action">
+<!-- ===== CARD 5: 収入アップの道筋 ===== -->
+<div class="card">
   <div class="card-body">
     <div class="card-header">
       <span class="card-emoji">🚀</span>
-      <div class="card-title">今日からできる一歩</div>
+      <span class="card-title">収入を上げるための3ステップ</span>
+      <span class="topic-badge badge-green">キャリア</span>
+    </div>
+    <p>「今より稼ぎたい」と思ったとき、どのステップを踏むのが現実的か整理します。</p>
+
+    <!-- ステップフロー -->
+    <div style="margin: 20px 0;">
+
+      <div style="display:flex; align-items:flex-start; gap:14px; margin-bottom:16px;">
+        <div style="background:#1a5276; color:white; border-radius:50%; width:34px; height:34px; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:1.1rem; flex-shrink:0; margin-top:2px;">1</div>
+        <div>
+          <div style="font-weight:600; font-size:1rem; color:#1a5276; margin-bottom:4px;">未経験からスタート（時給1,200〜1,600円）</div>
+          <div style="font-size:0.9rem; color:#444; line-height:1.7;">テレアポ・インバウンド対応などのパート・派遣から始める。まず「会話で成果を出す感覚」をつかむことが最優先。</div>
+        </div>
+      </div>
+
+      <div style="text-align:center; font-size:1.4rem; color:#2e86c1; margin: -6px 0 6px 0;">↓</div>
+
+      <div style="display:flex; align-items:flex-start; gap:14px; margin-bottom:16px;">
+        <div style="background:#2e86c1; color:white; border-radius:50%; width:34px; height:34px; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:1.1rem; flex-shrink:0; margin-top:2px;">2</div>
+        <div>
+          <div style="font-weight:600; font-size:1rem; color:#2e86c1; margin-bottom:4px;">経験1〜2年でCRM習得・実績をつくる（年収350〜490万円）</div>
+          <div style="font-size:0.9rem; color:#444; line-height:1.7;">Salesforce・HubSpotなどのCRM操作、アポ獲得率の実績数字をポートフォリオ化。業界をSaaSに絞ると年収アップしやすい。</div>
+        </div>
+      </div>
+
+      <div style="text-align:center; font-size:1.4rem; color:#148f77; margin: -6px 0 6px 0;">↓</div>
+
+      <div style="display:flex; align-items:flex-start; gap:14px;">
+        <div style="background:#148f77; color:white; border-radius:50%; width:34px; height:34px; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:1.1rem; flex-shrink:0; margin-top:2px;">3</div>
+        <div>
+          <div style="font-weight:600; font-size:1rem; color:#148f77; margin-bottom:4px;">フリーランス・業務委託に転換（時給1,800〜5,000円）</div>
+          <div style="font-size:0.9rem; color:#444; line-height:1.7;">実績と信頼が積まれたら業務委託に移行。月稼働80〜100時間でも時給次第で月収40〜50万円のラインに届く。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sticky">
+      ✏️ <strong>トッププレイヤーの実態：</strong> 成果報酬型×複数案件の掛け持ちで月収100万円超の事例もあります（スタンバイ・2025年9月実績）。ただし安定性は低く、営業スキル＋自己管理能力が両方求められます。
+    </div>
+  </div>
+</div>
+
+<!-- ===== CARD 6: 今日からできる一歩 ===== -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">👣</span>
+      <span class="card-title">今日からできる一歩</span>
       <span class="topic-badge badge-green">アクション</span>
     </div>
 
     <div class="action-box">
-      <div class="action-title">✅ 今日のアクション：HubSpot の無料アカウントを作り、架空の連絡先を5件入力してみる</div>
-      <strong>具体的な手順：</strong><br>
-      ① <a href="https://www.hubspot.jp/" target="_blank" style="color:#1e7e34;">HubSpot Japan 公式サイト（hubspot.jp）</a> にアクセスし、無料アカウントを作成<br>
-      ② 「連絡先」メニューを開き、架空の会社名・担当者名・電話番号を5件入力<br>
-      ③ 「商談」メニューを開き、1件を「ヒアリング済み」ステージに移動<br>
-      ④ その商談に「来週電話予定・担当者は費用を気にしていた」と1行メモを追記<br><br>
-      <span style="font-size:0.9rem;color:#333;">目安時間：15〜20分。「CRMに入力する感覚」がつかめれば目的達成！</span>
+      <div class="action-title">✅ 今日やること：自分の「現在地」を確認する</div>
+      <ol style="padding-left: 20px; line-height: 2;">
+        <li><strong>求人サイト（Indeed・スタンバイ・doda）</strong>で「インサイドセールス 業務委託」と検索し、応募条件と時給を3件メモする</li>
+        <li>自分の経験（アポ件数・CRM使用歴・業界）を<strong>箇条書きで書き出す</strong></li>
+        <li>今の時給 or 年収と相場を比べて、<strong>「あとどのくらいのスキルが必要か」</strong>を1行で書く</li>
+      </ol>
     </div>
 
-    <div class="disclaimer">
-      ⚠️ <strong>免責事項：</strong>
-      本記事で紹介した報酬・採用条件・ツールの料金は、スキルレベル・市場状況・時期により個人差があります。掲載した数値は参考値であり、特定の成果を保証するものではありません。「誰でも稼げる」「必ず採用される」といった保証はできません。求人媒体・企業・ツールの条件は変更されることがありますので、最新情報は必ず各公式サイトでご確認ください。
-    </div>
-
-    <div class="source">
-      📎 参考求人：
-      <a href="https://jp.indeed.com/q-%E6%A5%AD%E5%8B%99%E5%A7%94%E8%A8%97-%E3%83%95%E3%83%AB%E3%83%AA%E3%83%A2%E3%83%BC%E3%83%88-%E3%82%A4%E3%83%B3%E3%82%B5%E3%82%A4%E3%83%89%E3%82%BB%E3%83%BC%E3%83%AB%E3%82%B9-%E6%B1%82%E4%BA%BA.html" target="_blank">Indeed – 業務委託 フルリモート インサイドセールス</a> ／
-      <a href="https://www.lancers.jp/work/search/salesmarketing/sale" target="_blank">Lancers – 営業・テレアポ案件一覧</a> ／
-      <a href="https://9e-career-insidesales.com/jobs/full-remote" target="_blank">9Eキャリアインサイドセールス – フルリモート案件一覧</a>
-    </div>
+    <p class="text-small">所要時間は15〜20分。「比較する習慣」をつけることが市場感覚を養う一番の近道です。</p>
   </div>
 </div>
 
-<!-- ===== まとめカード ===== -->
+<!-- ===== SUMMARY ===== -->
 <div class="summary-card">
-  <h2>📝 今日のまとめ ── CRM・SFAツール基礎</h2>
+  <h2>📋 今日のまとめ</h2>
   <div class="summary-grid">
     <div class="summary-item">
-      <span class="s-emoji">📒</span>
-      <div class="s-title">CRM ＝ 顧客の「連絡帳＋日記」</div>
-      誰に・いつ・何を話したかを記録。接触履歴を全部残す「デジタルノート」。記録が積み上がるほど次の電話がしやすくなる
+      <span class="s-emoji">⏰</span>
+      <div class="s-title">テレアポ時給（バイト）</div>
+      平均1,521円／幅は1,200〜1,600円（2025年）
     </div>
     <div class="summary-item">
-      <span class="s-emoji">📊</span>
-      <div class="s-title">SFA ＝ 商談の「進捗ボード」</div>
-      どの商談がどのステージか、パイプラインで管理。KPIを数値で追い、ボトルネック（詰まっている箇所）を見つけやすくする
+      <span class="s-emoji">🏢</span>
+      <div class="s-title">正社員IS年収</div>
+      平均490万円。東京が最高水準（494万円）
     </div>
     <div class="summary-item">
-      <span class="s-emoji">🟠</span>
-      <div class="s-title">HubSpot ＝ 初心者の最初の一歩</div>
-      無料版でCRM＋SFAの基本がほぼ全部使える。日本語対応でハードルが低い。まずここから始めると◎
+      <span class="s-emoji">💼</span>
+      <div class="s-title">業務委託の狙い目</div>
+      時給1,800〜5,000円。月50万円超の案件も存在
     </div>
     <div class="summary-item">
-      <span class="s-emoji">☁️</span>
-      <div class="s-title">Salesforce ＝ 業界標準で転職に強い</div>
-      Trailheadで無料学習可能。「使えます」の一言が転職・案件獲得に効く。大企業案件に挑戦したいなら要チェック
+      <span class="s-emoji">🚀</span>
+      <div class="s-title">収入UP の道筋</div>
+      未経験→実績→フリーランスの3ステップが現実的
     </div>
   </div>
 </div>
 
-<!-- ===== フッター ===== -->
-<div class="footer">
-  <p><strong>テレアポ・インサイドセールス 毎朝解説</strong> ── 2026-05-30号</p>
-  <p style="margin-top:6px;">各記事の出典URLは各トピック下部に記載しています。情報は収集時点のものです。</p>
-  <p style="margin-top:4px;"><a href="index.html" style="color:#aaa;">← バックナンバー一覧へ</a></p>
+<!-- ===== DISCLAIMER ===== -->
+<div style="width:100%; max-width:820px;">
+  <div class="disclaimer">
+    ⚠️ <strong>免責事項：</strong>
+    本記事に掲載した報酬・年収の数値は求人サイトや公開データをもとにした目安であり、実際の収入は個人のスキル・稼働時間・商材・企業・市場状況によって大きく異なります。「必ず稼げる」「誰でも受かる」という保証はできません。掲載した求人媒体・企業・ツールの条件は随時変わるため、<strong>必ず各公式サイトで最新情報をご確認ください</strong>。
+  </div>
 </div>
 
 </body>
