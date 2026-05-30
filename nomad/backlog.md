@@ -6,6 +6,7 @@
 ## 未解説テーマ
 
 - スペインDNVの新規申請要件と必要書類（初回申請フロー）
+- ベックハム法（Ley Beckham）の概要と適用条件・メリット・デメリット
 - 日西租税条約と非居住者判定（日本法人給与はどこで課税される？）
 - Wiseでの外貨受取の実務（SWIFT vs Wise、手数料比較）
 - autónomoと日本の1人法人の関係（両立できる？どちらが有利？）
@@ -22,5 +23,4 @@
 
 ## 解説済みテーマ
 
-- 2026-05-30（午前）：スペイン 国際遠隔就労ビザ（Autorización de residencia para teletrabajo de carácter internacional）2026年更新ルール改定（収入基準引き上げ＋スペイン収入20%キャップ）
-- 2026-05-30（本日）：ベックハム法（Régimen especial para trabajadores desplazados a territorio español）── デジタルノマドビザ保持者が使える24%フラット税率・外国所得非課税の仕組み
+- 2026-05-30：スペイン 国際遠隔就労ビザ（Autorización de residencia para teletrabajo de carácter internacional）2026年更新ルール改定（収入基準引き上げ＋スペイン収入20%キャップ）

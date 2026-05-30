@@ -20,7 +20,7 @@
 
   /* ノート表紙スタイル */
   .cover {
-    background: linear-gradient(135deg, #1a3d5c 0%, #2c5f8a 60%, #3a7ab5 100%);
+    background: linear-gradient(135deg, #2c5f8a 0%, #1a3d5c 100%);
     color: white;
     border-radius: 8px;
     padding: 60px 40px;
@@ -44,17 +44,17 @@
       rgba(255,255,255,0.07) 29px
     );
   }
-  .cover-emoji { font-size: 64px; display: block; margin-bottom: 16px; position: relative; }
+  .cover-emoji { font-size: 64px; display: block; margin-bottom: 16px; }
   .cover h1 {
     font-family: 'Klee One', sans-serif;
-    font-size: 2.2rem;
+    font-size: 2.4rem;
     font-weight: 600;
     line-height: 1.3;
     margin-bottom: 12px;
     position: relative;
   }
   .cover .subtitle {
-    font-size: 1rem;
+    font-size: 1.05rem;
     opacity: 0.85;
     margin-bottom: 8px;
     position: relative;
@@ -94,7 +94,6 @@
     );
     background-color: #fff9f0;
     min-height: 200px;
-    position: relative;
   }
 
   /* 左の赤い縦線（ノートの余白線） */
@@ -200,618 +199,451 @@
   .marker-green  { background: #1e7e34; color: white; }
   .marker-purple { background: #7b2fbe; color: white; }
   .marker-orange { background: #cc6600; color: white; }
+  .marker-teal   { background: #006060; color: white; }
 
-  .hl-yellow { background: #fef08a; padding: 0 3px; border-radius: 3px; }
-  .hl-pink   { background: #ffd6e7; padding: 0 3px; border-radius: 3px; }
-  .hl-blue   { background: #dbeafe; padding: 0 3px; border-radius: 3px; }
-  .hl-green  { background: #d1fae5; padding: 0 3px; border-radius: 3px; }
+  /* ハイライト文字 */
+  .hl-yellow { background: linear-gradient(transparent 60%, #ffe566 60%); }
+  .hl-pink   { background: linear-gradient(transparent 60%, #ffb3c6 60%); }
+  .hl-blue   { background: linear-gradient(transparent 60%, #b3d4ff 60%); }
+  .hl-green  { background: linear-gradient(transparent 60%, #b3f0b3 60%); }
 
-  /* 大きな数字カード */
-  .big-numbers {
-    display: flex;
-    gap: 16px;
-    margin: 16px 0;
-    flex-wrap: wrap;
-  }
-  .big-num-card {
-    flex: 1;
-    min-width: 140px;
-    background: white;
-    border-radius: 8px;
-    padding: 16px 20px;
-    text-align: center;
-    box-shadow: 2px 3px 8px rgba(0,0,0,0.1);
-    border-top: 4px solid #2c5f8a;
-  }
-  .big-num-card .num {
-    font-size: 2rem;
-    font-weight: 700;
-    line-height: 1.1;
-    color: #1a3d5c;
-  }
-  .big-num-card .num-label {
-    font-size: 0.78rem;
-    color: #666;
-    margin-top: 6px;
-    line-height: 1.4;
-  }
-  .big-num-card.alt { border-top-color: #7b2fbe; }
-  .big-num-card.alt .num { color: #7b2fbe; }
-  .big-num-card.green-top { border-top-color: #1e7e34; }
-  .big-num-card.green-top .num { color: #1e7e34; }
-  .big-num-card.orange-top { border-top-color: #cc6600; }
-  .big-num-card.orange-top .num { color: #cc6600; }
-
-  /* 対比表・比較カード */
-  .compare-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 16px 0;
+  /* 手書き風メモ帖 */
+  .sticky {
+    background: #fff9c4;
+    border-radius: 4px;
+    padding: 12px 16px;
+    margin: 14px 0;
     font-size: 0.9rem;
-  }
-  .compare-table th {
-    background: #2c5f8a;
-    color: white;
-    padding: 10px 14px;
-    text-align: left;
-    font-weight: 600;
-    font-size: 0.85rem;
-  }
-  .compare-table td {
-    padding: 9px 14px;
-    border-bottom: 1px solid #e0d8c8;
-    line-height: 1.5;
-    vertical-align: top;
-  }
-  .compare-table tr:nth-child(even) td { background: rgba(44,95,138,0.04); }
-  .compare-table tr:last-child td { border-bottom: none; }
-  .compare-table .winner {
-    background: #e0f5e0 !important;
-    font-weight: 600;
-    color: #1e7e34;
-  }
-
-  /* フロー図（矢印ステップ） */
-  .flow-steps {
-    display: flex;
-    gap: 0;
-    align-items: stretch;
-    margin: 16px 0;
-    flex-wrap: wrap;
-  }
-  .flow-step {
-    flex: 1;
-    min-width: 120px;
-    background: white;
-    border-radius: 6px;
-    padding: 12px 14px;
-    text-align: center;
-    box-shadow: 1px 2px 6px rgba(0,0,0,0.08);
-    position: relative;
-    font-size: 0.85rem;
-    line-height: 1.5;
-  }
-  .flow-step .step-num {
+    line-height: 1.7;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.1);
+    transform: rotate(-0.5deg);
     display: inline-block;
-    background: #2c5f8a;
-    color: white;
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    font-size: 0.8rem;
-    font-weight: 700;
-    line-height: 24px;
-    margin-bottom: 8px;
-  }
-  .flow-arrow {
-    display: flex;
-    align-items: center;
-    color: #aaa;
-    font-size: 1.4rem;
-    padding: 0 4px;
+    width: 100%;
+    color: #4a3800;
   }
 
-  /* 目次スタイル */
-  .toc-list {
-    list-style: none;
-    margin: 8px 0;
+  /* 出典 */
+  .source {
+    font-size: 0.78rem;
+    color: #888;
+    margin-top: 14px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
   }
-  .toc-list li {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 10px 0;
-    font-size: 1rem;
-    border-bottom: 1px dotted #ddd;
-    color: #2c3e50;
-  }
-  .toc-list li:last-child { border-bottom: none; }
-  .toc-num {
-    flex-shrink: 0;
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    background: #2c5f8a;
-    color: white;
-    font-size: 0.85rem;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+  .source a { color: #5577aa; text-decoration: none; }
+  .source a:hover { text-decoration: underline; }
 
-  /* 出典リスト */
-  .source-card {
-    background: #f5f0e8;
-    border-radius: 6px;
+  /* まとめカード */
+  .summary-card {
+    background: linear-gradient(135deg, #1a3d5c 0%, #2c7744 100%);
+    color: white;
+    border-radius: 8px;
+    padding: 36px 40px;
     width: 100%;
     max-width: 820px;
-    padding: 20px 28px;
     margin-bottom: 24px;
-    box-shadow: 2px 3px 8px rgba(0,0,0,0.08);
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.2);
   }
-  .source-card h3 {
-    font-size: 0.9rem;
-    color: #666;
-    margin-bottom: 12px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid #ddd;
+  .summary-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px dashed rgba(255,255,255,0.4);
   }
-  .source-card ul {
-    list-style: none;
-    padding: 0;
-  }
-  .source-card ul li {
-    font-size: 0.82rem;
-    padding: 5px 0;
-    border-bottom: 1px dotted #ddd;
-    color: #555;
-    line-height: 1.5;
-  }
-  .source-card ul li:last-child { border-bottom: none; }
-  .source-card a {
-    color: #2c5f8a;
-    text-decoration: none;
-    word-break: break-all;
-  }
-  .source-card a:hover { text-decoration: underline; }
-
-  .footer-note {
-    text-align: center;
-    color: #aaa;
-    font-size: 0.8rem;
-    margin-bottom: 32px;
-    line-height: 1.7;
-  }
-
-  /* ラベル付き情報ボックス */
-  .info-row {
-    display: flex;
-    gap: 12px;
-    margin: 12px 0;
-    flex-wrap: wrap;
-  }
-  .info-chip {
-    background: #e0eeff;
-    border: 1px solid #a0c0f5;
-    border-radius: 20px;
-    padding: 4px 14px;
-    font-size: 0.82rem;
-    color: #2255aa;
-    font-weight: 600;
-  }
-  .info-chip.orange {
-    background: #fff0d0;
-    border-color: #f0c070;
-    color: #cc6600;
-  }
-  .info-chip.purple {
-    background: #f0e0ff;
-    border-color: #c8a0f0;
-    color: #7b2fbe;
-  }
-  .info-chip.red {
-    background: #ffe0e0;
-    border-color: #f5a0a0;
-    color: #c0392b;
-  }
-  .info-chip.green {
-    background: #e0f5e0;
-    border-color: #a0d8a0;
-    color: #1e7e34;
-  }
-
-  /* 警告・注目ボックス */
-  .alert-box {
-    background: #fff0f0;
-    border: 1.5px solid #f5a0a0;
-    border-radius: 8px;
-    padding: 12px 16px;
-    margin: 12px 0;
-    font-size: 0.92rem;
-    line-height: 1.7;
-    color: #6b2020;
-  }
-
-  /* マトリクス */
-  .matrix {
+  .summary-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    margin: 14px 0;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
   }
-  .matrix-cell {
-    background: white;
-    border-radius: 6px;
-    padding: 12px 16px;
-    box-shadow: 1px 2px 5px rgba(0,0,0,0.08);
-    font-size: 0.88rem;
+  .summary-item {
+    background: rgba(255,255,255,0.12);
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 0.9rem;
     line-height: 1.6;
   }
-  .matrix-cell .mc-title {
-    font-weight: 700;
-    margin-bottom: 4px;
-    font-size: 0.9rem;
+  .summary-item .s-emoji { font-size: 1.6rem; display: block; margin-bottom: 6px; }
+  .summary-item .s-title { font-weight: 600; margin-bottom: 4px; font-size: 1rem; }
+
+  /* フッター */
+  .footer {
+    text-align: center;
+    color: #888;
+    font-size: 0.8rem;
+    padding: 20px;
+    max-width: 820px;
+    width: 100%;
   }
 
-  /* 要確認バッジ */
-  .confirm-badge {
-    display: inline-block;
-    background: #fff3cd;
-    color: #856404;
-    border: 1px solid #ffc107;
-    border-radius: 4px;
-    font-size: 0.7rem;
-    padding: 1px 6px;
-    margin-left: 4px;
-    vertical-align: middle;
+  /* 目次 */
+  .toc {
+    background: #f8f4ec;
+    border: 2px solid #c8b89a;
+    border-radius: 8px;
+    padding: 20px 28px;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+  }
+  .toc h2 { font-size: 1.1rem; color: #5a4030; margin-bottom: 12px; }
+  .toc ol { padding-left: 20px; }
+  .toc li { padding: 4px 0; font-size: 0.93rem; }
+  .toc a { color: #2255aa; text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+
+  @media (max-width: 600px) {
+    .card-body { padding: 20px 20px 20px 44px; }
+    .card-title { font-size: 1.15rem; }
+    .cover h1 { font-size: 1.8rem; }
+    .summary-card { padding: 24px 20px; }
   }
 </style>
 </head>
 <body>
 
-<!-- 表紙 -->
+<!-- ===== 表紙 ===== -->
 <div class="cover">
-  <span class="cover-emoji">🤖</span>
+  <span class="cover-emoji">🤖📰</span>
   <h1>生成AI 最新トピック</h1>
-  <p class="subtitle">直近7日の重要ニュースを中学生にもわかるやさしい解説で</p>
-  <div class="date-badge">📅 2026-05-30</div>
+  <div class="subtitle">直近30日の重要ニュースを中学生でもわかるようにまとめました</div>
+  <div class="date-badge">📅 2026年5月30日号</div>
 </div>
 
-<!-- 目次カード -->
-<div class="card">
-  <div class="card-body">
-    <div class="card-header">
-      <span class="card-emoji">📋</span>
-      <span class="card-title">今日の目次</span>
-      <span class="topic-badge badge-blue">3トピック</span>
-    </div>
-    <ul class="toc-list">
-      <li>
-        <div class="toc-num">1</div>
-        🏆 AnthropicがOpenAIの評価額を追い越した ── $965B（約9,650億ドル）で世界最高値
-      </li>
-      <li>
-        <div class="toc-num">2</div>
-        ⚡ Claude Opus 4.8 リリース ── コーディング最高スコア＋Fast Modeが3倍安く
-      </li>
-      <li>
-        <div class="toc-num">3</div>
-        🔐 Claude Mythos ── 超強力AIの一般公開が数週間以内に迫る
-      </li>
-    </ul>
-  </div>
+<!-- ===== 目次 ===== -->
+<div class="toc">
+  <h2>📋 今日の目次</h2>
+  <ol>
+    <li><a href="#topic1">Google I/O 2026 ── Gemini 3.5 Flash と「個人AI秘書」Gemini Spark 登場</a></li>
+    <li><a href="#topic2">GPT-5.5 Instant ── ハルシネーション52%減・Gmailの記憶を持つAI</a></li>
+    <li><a href="#topic3">Grok Build ── xAIが8つのAIを同時に動かすコーディングエージェント参入</a></li>
+    <li><a href="#topic4">AIコーディング時代 ── 開発者の95%が毎週AIを使う新常識</a></li>
+    <li><a href="#topic5">AI著作権問題 ── 米最高裁「AIだけが作った作品には著作権なし」</a></li>
+    <li><a href="#topic6">ビジネス最前線 ── 製薬大手がOpenAIと全社提携、日本でも本格普及</a></li>
+    <li><a href="#summary">今日のまとめ ── 2026年5月の大きな流れ</a></li>
+  </ol>
 </div>
 
-<!-- トピック1: Anthropic評価額 -->
-<div class="card">
+<!-- ===== トピック1 ===== -->
+<div class="card" id="topic1">
   <div class="card-body">
     <div class="card-header">
-      <span class="card-emoji">🏆</span>
-      <span class="card-title">AnthropicがOpenAIの評価額を追い越した</span>
-      <span class="topic-badge badge-red">速報 5/28〜29</span>
-    </div>
-
-    <p style="font-size:0.97rem; line-height:1.8; margin-bottom:12px;">
-      2026年5月28〜29日、AIスタートアップの<span class="hl-yellow">Anthropic</span>（アンソロピック）が
-      新たに<strong>650億ドル（約9.4兆円）の資金調達</strong>を完了し、
-      企業評価額（会社の値段）が<span class="hl-pink">9,650億ドル</span>に達しました。
-      これにより、これまでAI業界のリーダーだった<strong>OpenAI</strong>の評価額を上回り、
-      AIスタートアップとして<strong>世界最高の評価額</strong>となりました。
-    </p>
-
-    <!-- 大きな数字カード -->
-    <div class="big-numbers">
-      <div class="big-num-card">
-        <div class="num">$965B</div>
-        <div class="num-label">Anthropicの企業評価額<br>（9,650億ドル）</div>
-      </div>
-      <div class="big-num-card alt">
-        <div class="num">$47B</div>
-        <div class="num-label">Anthropicの年間売上<br>（換算）2026年5月時点</div>
-      </div>
-      <div class="big-num-card orange-top">
-        <div class="num">$30B</div>
-        <div class="num-label">OpenAIの年間売上<br>（換算）2026年5月時点</div>
-      </div>
-      <div class="big-num-card green-top">
-        <div class="num">$65B</div>
-        <div class="num-label">今回の資金調達額<br>（新規ラウンド）</div>
-      </div>
-    </div>
-
-    <!-- 対比表 -->
-    <table class="compare-table">
-      <tr>
-        <th style="width:30%">項目</th>
-        <th style="width:35%">Anthropic</th>
-        <th style="width:35%">OpenAI</th>
-      </tr>
-      <tr>
-        <td>評価額</td>
-        <td class="winner">$965B（世界首位）</td>
-        <td>$~860B（推定）</td>
-      </tr>
-      <tr>
-        <td>年間売上（換算）</td>
-        <td class="winner">$47B</td>
-        <td>$30B</td>
-      </tr>
-      <tr>
-        <td>主力製品</td>
-        <td>Claude（クロード）</td>
-        <td>ChatGPT・GPT-5.5</td>
-      </tr>
-      <tr>
-        <td>最新フラグシップ</td>
-        <td>Claude Opus 4.8</td>
-        <td>GPT-5.5 Instant</td>
-      </tr>
-    </table>
-
-    <div class="info-row">
-      <span class="info-chip green">📍 韓国オフィス開設（5/26）</span>
-      <span class="info-chip green">📍 イタリア・ミラノオフィス開設（5/27）</span>
-      <span class="info-chip orange">🇰🇷 韓国のClaude利用率は人口比3.5倍</span>
+      <span class="card-emoji">🔍</span>
+      <div class="card-title">Google I/O 2026 ──<br>Gemini 3.5 Flash と「個人AI秘書」Gemini Spark 登場</div>
+      <span class="topic-badge badge-green">Google</span>
     </div>
 
     <div class="simple-box">
-      <div class="label">✏️ 中学生的に言うと</div><br>
-      たとえるなら「ずっとドラゴンボールでいえば悟空（OpenAI）が最強だったのに、
-      ベジータ（Anthropic）が売上も会社の値段も追い越した！」という感じ。
-      Claudeを使う企業が爆発的に増えて、売上がほぼ倍になり、会社の値段でもついに1位になった！
+      <span class="label">🌱 やさしく解説</span><br>
+      5月19日のGoogle最大のイベント「Google I/O 2026」で、<span class="hl-green">Gemini 3.5 Flash</span>という新AIが発表されました。速くて賢い！さらに<span class="hl-yellow">Gemini Spark</span>という「24時間働く個人AI秘書」も登場。メールやカレンダーを読んで、あなたの代わりに実際の仕事をしてくれます。
+    </div>
+
+    <ul class="point-list">
+      <li>
+        <span class="marker marker-green">1</span>
+        <span><strong>Gemini 3.5 Flash 発表</strong> ── 大型モデル並みの賢さを持ちながら、他の最先端モデルより4倍速く動作。コーディングと推論のベンチマークでGemini 3.1 Proを超えた</span>
+      </li>
+      <li>
+        <span class="marker marker-green">2</span>
+        <span><strong>Gemini Spark（個人AIエージェント）</strong> ── 24時間あなたのデジタル生活を管理。Gmail・カレンダー・タスクを読んで優先順位をつけ、実際に仕事を代行。Google AI Ultraサブスクライバー向けに先行公開</span>
+      </li>
+      <li>
+        <span class="marker marker-green">3</span>
+        <span><strong>Daily Brief（毎朝のまとめ）</strong> ── Gmailやカレンダーを自動でまとめ、「今日やること」リストを毎朝作ってくれる新機能</span>
+      </li>
+      <li>
+        <span class="marker marker-green">4</span>
+        <span><strong>Google AI Ultra プラン（月100ドル）</strong> ── 開発者・上級ユーザー向けの新プラン。Gemini Sparkや最新Omniモデルへのフルアクセスを提供</span>
+      </li>
+      <li>
+        <span class="marker marker-green">5</span>
+        <span><strong>GoogleのSearch がAI回答ページに完全移行</strong> ── 検索バーにGemini 3.5 Flashを搭載し、検索結果をリンク一覧ではなくAIが生成したまとめページで表示</span>
+      </li>
+    </ul>
+
+    <div class="sticky">
+      ✏️ <strong>中学生的に言うと：</strong>「明日の予定教えて」と聞いたら、カレンダーとメールを全部読んで、重要なものだけピックアップして報告してくれる秘書AIが誰でも使えるようになった！
+    </div>
+
+    <div class="source">
+      📎 出典：
+      <a href="https://blog.google/innovation-and-ai/technology/ai/google-io-2026-all-our-announcements/" target="_blank">Google Blog – 100 things announced at Google I/O 2026</a> /
+      <a href="https://9to5google.com/2026/05/19/google-io-2026-news/" target="_blank">9to5Google – Everything Google announced at I/O 2026</a> /
+      <a href="https://www.tomsguide.com/news/live/google-io-2026-live-news-updates" target="_blank">Tom's Guide – Biggest Google I/O 2026 announcements</a>
     </div>
   </div>
 </div>
 
-<!-- トピック2: Claude Opus 4.8 -->
-<div class="card">
+<!-- ===== トピック2 ===== -->
+<div class="card" id="topic2">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">🧠</span>
+      <div class="card-title">GPT-5.5 Instant ──<br>ハルシネーション52%減・Gmailの記憶を持つAI</div>
+      <span class="topic-badge badge-red">OpenAI</span>
+    </div>
+
+    <div class="simple-box">
+      <span class="label">🌱 やさしく解説</span><br>
+      5月5日に登場した<span class="hl-yellow">GPT-5.5 Instant</span>は、「うそをつく頻度」が大幅に減りました。医療・法律・お金に関する質問で<strong>間違った情報を出す確率が52.5%も減少</strong>！さらにあなたのGmailを読んで、前の会話を記憶した上で答えてくれます。
+    </div>
+
+    <ul class="point-list">
+      <li>
+        <span class="marker marker-red">1</span>
+        <span><strong>ハルシネーション（事実誤り）が52.5%減</strong> ── 医療・法律・金融などの高リスク分野で誤った情報を出す確率を大幅に削減</span>
+      </li>
+      <li>
+        <span class="marker marker-red">2</span>
+        <span><strong>Gmail連携のパーソナライズ機能</strong> ── 過去のチャット・ファイル・Gmailを記憶に使える。Plus・Proユーザーから先行展開（数週間以内に全プランへ）</span>
+      </li>
+      <li>
+        <span class="marker marker-red">3</span>
+        <span><strong>ChatGPT for Excel・Google Sheetsが一般公開</strong> ── 5月5日から誰でも利用可能に。スプレッドシート上でAIが直接サポート</span>
+      </li>
+      <li>
+        <span class="marker marker-red">4</span>
+        <span><strong>個人財務ダッシュボード（Pro限定・米国先行）</strong> ── 銀行口座・投資・支出をAIが分析。「来月いくら使えそう？」という相談が可能に</span>
+      </li>
+      <li>
+        <span class="marker marker-red">5</span>
+        <span><strong>ChatGPTの回答内にブランドリンクが表示開始</strong> ── 5月7日から試験的に開始。サイトへのトラフィックが前週比157%急増</span>
+      </li>
+    </ul>
+
+    <div class="sticky">
+      ✏️ <strong>中学生的に言うと：</strong>「このAI、前に聞いたこと覚えてる！しかも間違いが減った！」って感じ。宿題のためのウソ情報を出すリスクがかなり下がった！
+    </div>
+
+    <div class="source">
+      📎 出典：
+      <a href="https://openai.com/index/gpt-5-5-instant/" target="_blank">OpenAI – GPT-5.5 Instant 公式発表</a> /
+      <a href="https://techcrunch.com/2026/05/05/openai-releases-gpt-5-5-instant-a-new-default-model-for-chatgpt/" target="_blank">TechCrunch – OpenAI releases GPT-5.5 Instant</a> /
+      <a href="https://codersera.com/blog/openai-may-2026-updates-roundup/" target="_blank">CoderSera – OpenAI May 2026 Updates Roundup</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== トピック3 ===== -->
+<div class="card" id="topic3">
   <div class="card-body">
     <div class="card-header">
       <span class="card-emoji">⚡</span>
-      <span class="card-title">Claude Opus 4.8 リリース ── コーディング首位を更新</span>
-      <span class="topic-badge badge-purple">5/28リリース</span>
-    </div>
-
-    <p style="font-size:0.97rem; line-height:1.8; margin-bottom:12px;">
-      AnthropicはOpus 4.8と同時に<span class="hl-yellow">Claude Opus 4.8</span>をリリース。
-      プログラミング（コーディング）の実力を測る「SWE-bench（エス・ダブリュー・イー・ベンチ）」という
-      テストで過去最高スコアを更新し、<strong>競合モデルをさらに引き離しました</strong>。
-      料金はOpus 4.7と同じですが、<span class="hl-pink">Fast Mode（速いモード）</span>の値段が大幅に下がりました。
-    </p>
-
-    <!-- ベンチマーク比較 -->
-    <table class="compare-table">
-      <tr>
-        <th style="width:40%">テスト名 ／ 項目</th>
-        <th style="width:30%">Opus 4.8（新）</th>
-        <th style="width:30%">Opus 4.7（旧）</th>
-      </tr>
-      <tr>
-        <td>SWE-bench Verified<br><small>（コーディング総合）</small></td>
-        <td class="winner">88.6%</td>
-        <td>87.6%</td>
-      </tr>
-      <tr>
-        <td>SWE-bench Pro<br><small>（応用・難易度高）</small></td>
-        <td class="winner">69.2%</td>
-        <td>64.3%</td>
-      </tr>
-      <tr>
-        <td>Fast Mode 料金（入力）<span class="confirm-badge">公式で要確認</span></td>
-        <td class="winner">$10 / 100万トークン</td>
-        <td>$30 / 100万トークン</td>
-      </tr>
-      <tr>
-        <td>Fast Mode 料金（出力）<span class="confirm-badge">公式で要確認</span></td>
-        <td class="winner">$50 / 100万トークン</td>
-        <td>$150 / 100万トークン</td>
-      </tr>
-      <tr>
-        <td>通常料金（入力/出力）<span class="confirm-badge">公式で要確認</span></td>
-        <td>$5 / $25（変わらず）</td>
-        <td>$5 / $25</td>
-      </tr>
-    </table>
-
-    <p style="font-size:0.9rem; color:#555; margin-bottom:10px; font-style:italic;">
-      ※ SWE-bench＝実際のソフトウェア開発の問題をAIが解けるか測るテスト。点数が高いほどプログラミングが得意。
-    </p>
-
-    <!-- 主な新機能フロー -->
-    <p style="font-weight:600; margin-bottom:8px; font-size:0.95rem;">✨ Opus 4.8の主な新機能</p>
-    <div class="flow-steps">
-      <div class="flow-step">
-        <div class="step-num">1</div><br>
-        <strong>並列サブエージェント</strong><br>
-        Claude Codeで数百の<br>子AIを同時に動かして<br>大規模問題を解決
-      </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">
-        <div class="step-num">2</div><br>
-        <strong>Effort Control</strong><br>
-        「どのくらい考えるか」<br>を調整できる機能<br>（速度と精度のバランス）
-      </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">
-        <div class="step-num">3</div><br>
-        <strong>正直さ向上</strong><br>
-        自分が間違えた時に<br>ちゃんと気づいて<br>報告する精度が4倍改善
-      </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step">
-        <div class="step-num">4</div><br>
-        <strong>Mid-task メッセージ</strong><br>
-        作業途中でも<br>人間からの指示を<br>受け付ける新機能
-      </div>
+      <div class="card-title">Grok Build ──<br>xAIが8つのAIを同時に動かすコーディングエージェント参入</div>
+      <span class="topic-badge badge-orange">xAI</span>
     </div>
 
     <div class="simple-box">
-      <div class="label">✏️ 中学生的に言うと</div><br>
-      「コーディングのテストで世界一の点数を取りながら、使うための料金がさらに安くなった」という最高の状態。
-      しかも「自分が間違えたことを認めてちゃんと教えてくれる確率」が4倍になった。
-      宿題をてつだってもらうとき、間違えても黙ってたAIが、ちゃんと「ここ違うかも」と教えてくれるように！
+      <span class="label">🌱 やさしく解説</span><br>
+      イーロン・マスクの会社xAIが、プログラマー向けAI「<span class="hl-yellow">Grok Build</span>」を5月14日にリリース。さらに4月には<span class="hl-pink">Grok 4.3</span>も登場。PDFやパワーポイント・Excelを<strong>会話の流れで直接作れる</strong>という他にはない機能で話題になっています。
+    </div>
+
+    <ul class="point-list">
+      <li>
+        <span class="marker marker-orange">1</span>
+        <span><strong>Grok Build（5月14日リリース）</strong> ── コーディングエージェント。「計画モード」でまず作業手順を表示し、人間が確認してから実行。SuperGrok Heavyサブスクライバー向けに先行公開</span>
+      </li>
+      <li>
+        <span class="marker marker-orange">2</span>
+        <span><strong>Grok 4.3（常時推論アーキテクチャ）</strong> ── すべての回答で内部的に「考えるプロセス」を必ず経由。複雑な指示でも安定した結果を出す設計</span>
+      </li>
+      <li>
+        <span class="marker marker-orange">3</span>
+        <span><strong>ファイル直接生成機能</strong> ── 会話の流れからPDF・PowerPoint・Excel・Wordを「ファイル形式」で直接生成できる。業界初の機能</span>
+      </li>
+      <li>
+        <span class="marker marker-orange">4</span>
+        <span><strong>Grok Connectors（5月6日公開）</strong> ── GitHub・Notion・Google Workspace・Microsoft 365との連携機能。AIが複数のツールをまたいで作業できる</span>
+      </li>
+      <li>
+        <span class="marker marker-orange">5</span>
+        <span><strong>音声API一般公開</strong> ── Speech-to-Text・Text-to-Speech APIが開放。Grokを音声で使えるサービスを誰でも作れるように</span>
+      </li>
+    </ul>
+
+    <div class="sticky">
+      ✏️ <strong>中学生的に言うと：</strong>「ゲームの企画書を作って」と言ったら、Word・パワーポイント・スプレッドシートを全部自動で作ってくれる。しかもGitHubとも連動してコードも書いてくれる！
+    </div>
+
+    <div class="source">
+      📎 出典：
+      <a href="https://xenospectrum.com/xai-grok-build-coding-agent-release/" target="_blank">XenoSpectrum – xAIがGrok BuildでCoding Agent市場へ本格参入</a> /
+      <a href="https://ai-revolution.co.jp/media/what-is-grok-4-3/" target="_blank">AI革命株式会社 – Grok 4.3 Beta とは？</a> /
+      <a href="https://prtimes.jp/main/html/rd/p/000000076.000138218.html" target="_blank">PR TIMES – Grok 4.3 対応発表</a>
     </div>
   </div>
 </div>
 
-<!-- トピック3: Claude Mythos -->
-<div class="card">
+<!-- ===== トピック4 ===== -->
+<div class="card" id="topic4">
   <div class="card-body">
     <div class="card-header">
-      <span class="card-emoji">🔐</span>
-      <span class="card-title">Claude Mythos ── 超強力AIが数週間以内に一般公開へ</span>
-      <span class="topic-badge badge-orange">近日一般公開</span>
-    </div>
-
-    <p style="font-size:0.97rem; line-height:1.8; margin-bottom:12px;">
-      Anthropicは2026年4月7日、<span class="hl-yellow">Claude Mythos（クロード・ミトス）</span>プレビューを発表しました。
-      これはOpus 4.8よりさらに1段階上の、同社史上最強のモデルです。
-      特に<span class="hl-pink">サイバーセキュリティ（システムの安全を守る技術）</span>が驚くほど高性能で、
-      現在は厳重な審査を通過した約40組織だけが使える「招待制」ですが、
-      <strong>数週間以内に一般公開する</strong>と発表されました。
-    </p>
-
-    <!-- Mythosの特徴マトリクス -->
-    <div class="matrix">
-      <div class="matrix-cell">
-        <div class="mc-title">🧠 能力レベル</div>
-        Opus 4.8よりさらに1段上。全項目で現行最強クラスのパフォーマンスを発揮
-      </div>
-      <div class="matrix-cell">
-        <div class="mc-title">🛡️ セキュリティ特化</div>
-        ソフトウェアの弱点（脆弱性）を見つけ出すことが特に得意。複数の弱点をつなげた攻撃を想定できる
-      </div>
-      <div class="matrix-cell">
-        <div class="mc-title">🔒 現在の利用制限</div>
-        「Project Glasswing（グラスウィング）」という招待制プログラムで約40組織のみ先行利用中
-      </div>
-      <div class="matrix-cell">
-        <div class="mc-title">📅 一般公開の予定</div>
-        Anthropicが「数週間以内に公開する」と発表。安全対策の整備が完了次第（公式で要確認）
-      </div>
-    </div>
-
-    <!-- Project Glasswingの成果 -->
-    <p style="font-weight:600; margin-top:16px; margin-bottom:8px; font-size:0.95rem;">
-      🔍 Project Glasswingでわかったこと（招待制テスト期間中の成果）
-    </p>
-
-    <div class="big-numbers">
-      <div class="big-num-card">
-        <div class="num">10,000+</div>
-        <div class="num-label">Mythosが発見した<br>ソフトウェアの弱点の数</div>
-      </div>
-      <div class="big-num-card alt">
-        <div class="num">6,202</div>
-        <div class="num-label">そのうち「重大度：高または緊急」<br>に分類された弱点の数</div>
-      </div>
-      <div class="big-num-card orange-top">
-        <div class="num">1,000+</div>
-        <div class="num-label">調査対象になった<br>オープンソースプロジェクト数</div>
-      </div>
-    </div>
-
-    <div class="alert-box">
-      ⚠️ <strong>なぜ今すぐ公開しないのか？</strong><br>
-      Mythosはサイバー攻撃に使われる危険があるほど高性能。Anthropicは
-      「悪用をより難しくする安全対策が整ってから公開する」という方針を取っています。
-      強力すぎるAIをどう安全に使うかが、業界全体の課題になっています。
-    </div>
-
-    <!-- 公開までのフロー -->
-    <div class="flow-steps" style="margin-top:14px;">
-      <div class="flow-step" style="border-left:3px solid #7b2fbe;">
-        <div class="step-num" style="background:#7b2fbe;">1</div><br>
-        <strong>招待制テスト</strong><br>
-        約40組織が先行利用<br>（現在進行中）
-      </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step" style="border-left:3px solid #cc6600;">
-        <div class="step-num" style="background:#cc6600;">2</div><br>
-        <strong>安全対策を強化</strong><br>
-        悪用を難しくする<br>フィルターを整備
-      </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step" style="border-left:3px solid #1e7e34;">
-        <div class="step-num" style="background:#1e7e34;">3</div><br>
-        <strong>一般公開</strong><br>
-        「数週間以内」と<br>Anthropicが予告
-      </div>
+      <span class="card-emoji">💻</span>
+      <div class="card-title">AIコーディング時代 ──<br>開発者の95%が毎週AIを使う新常識</div>
+      <span class="topic-badge badge-purple">業界動向</span>
     </div>
 
     <div class="simple-box">
-      <div class="label">✏️ 中学生的に言うと</div><br>
-      学校でいうと「試験問題を全部解ける天才が生まれたけど、その知識を悪いことに使う人が出てこないよう
-      に、今は信頼できる大人40人だけに教えてる」状態。近いうちに全員が使えるようになるけど、
-      「どう安全に使うか」のルール作りが先に必要、という話。
+      <span class="label">🌱 やさしく解説</span><br>
+      2026年、<span class="hl-blue">プログラマーの95%</span>が毎週AIツールを使うようになりました。「コードを書く人」から「AIに指示を出す人」へと仕事の形が変わっています。Anthropicのエンジニアが「2025年から一行もコードを書いていない」と言ったことも話題に。
+    </div>
+
+    <ul class="point-list">
+      <li>
+        <span class="marker marker-purple">1</span>
+        <span><strong>開発者の95%が毎週AIを活用</strong> ── 単純なコード補完を超え、「AIが自律的に設計・実装・テストまでやる」エージェント型コーディングが主流に</span>
+      </li>
+      <li>
+        <span class="marker marker-purple">2</span>
+        <span><strong>「バイブコーディング」が主流化</strong> ── 自然言語で要件を説明するだけでAIが全コードを担当するスタイル。IDEを使わない開発者が急増</span>
+      </li>
+      <li>
+        <span class="marker marker-purple">3</span>
+        <span><strong>主要コーディングAI比較</strong> ── Claude Code（多ファイル修正・CLI実行）、Cursor 2.0（Agent Mode）、GitHub Copilot（GPT-5.5 Turbo統合）、Gemini CLI（200万トークン解析）が4強</span>
+      </li>
+      <li>
+        <span class="marker marker-purple">4</span>
+        <span><strong>ガートナー予測</strong> ── 2027年までにエージェント型コーディングを使う開発者の65%が従来のIDEを必要としなくなる</span>
+      </li>
+    </ul>
+
+    <div class="sticky">
+      ✏️ <strong>中学生的に言うと：</strong>「プログラマー」の仕事が「コードを打つ人」から「AIに何を作るか指示する人」に変わってきた。もうキーボードでコードを書かない人が増えてる！
+    </div>
+
+    <div class="source">
+      📎 出典：
+      <a href="https://blog.xidao.online/en/posts/ai-coding-agents-2026-guide/" target="_blank">XiDao Tech Blog – The Complete Guide to AI Coding Agents in 2026</a> /
+      <a href="https://www.datalearner.com/blog/advances-in-ai-agent-report-2026-05" target="_blank">DataLearner – 2026年5月AI Agent進展研究報告</a> /
+      <a href="https://tech.meituan.com/2026/05/07/agent-ai-coding.html" target="_blank">美団技術チーム – 31万行コードAI重構の実践</a>
     </div>
   </div>
 </div>
 
-<!-- 出典カード -->
-<div class="source-card">
-  <h3>📎 出典・参照情報</h3>
-  <ul>
-    <li>
-      ① 【Anthropic評価額】(2026-05) <em>Anthropic leapfrogs OpenAI with a record $965 billion valuation</em> — Fortune<br>
-      <a href="https://fortune.com/2026/05/29/anthropic-raises-65-billion-at-record-965-billion-valuation-promises-mythos-ai-model-in-wide-release-in-coming-weeks-releases-claude-opus-4-8/">fortune.com/2026/05/29/…</a>
-    </li>
-    <li>
-      ② 【Anthropic vs OpenAI評価額】(2026-05-28) <em>Anthropic tops OpenAI as most valuable AI startup</em> — CNBC<br>
-      <a href="https://www.cnbc.com/2026/05/28/anthropic-open-ai-startup-value.html">cnbc.com/2026/05/28/…</a>
-    </li>
-    <li>
-      ③ 【Anthropic評価額】(2026-05-30) <em>The new AI king: how Anthropic eclipsed OpenAI's valuation</em> — Invezz<br>
-      <a href="https://invezz.com/news/2026/05/30/the-new-ai-king-how-anthropic-eclipsed-openais-valuation-and-leapt-to-965b/">invezz.com/news/2026/05/30/…</a>
-    </li>
-    <li>
-      ④ 【Anthropic売上・韓国展開】(2026-05) <em>Anthropic vaults to a $965 billion valuation</em> — Philadelphia Inquirer<br>
-      <a href="https://www.inquirer.com/business/anthropic-claude-chatgpt-openai-ai-wall-street-valuation-20260529.html">inquirer.com/…/anthropic-claude-chatgpt-openai-…</a>
-    </li>
-    <li>
-      ⑤ 【Opus 4.8 ベンチマーク】(2026-05) <em>Claude Opus 4.8: Complete Guide to Benchmarks, Features &amp; Pricing</em> — AIMadeTools<br>
-      <a href="https://www.aimadetools.com/blog/claude-opus-4-8-complete-guide">aimadetools.com/blog/claude-opus-4-8-complete-guide</a>
-    </li>
-    <li>
-      ⑥ 【Opus 4.8 詳細】(2026-05) <em>Claude Opus 4.8 Release, Benchmarks And More</em> — LLM-Stats<br>
-      <a href="https://llm-stats.com/blog/research/claude-opus-4-8-launch">llm-stats.com/blog/research/claude-opus-4-8-launch</a>
-    </li>
-    <li>
-      ⑦ 【Claude Mythos】(2026-05) <em>Anthropic Claude Mythos AI Model Nearing Public Release</em> — AndroidHeadlines<br>
-      <a href="https://www.androidheadlines.com/2026/05/anthropic-claude-mythos-ai-model-public-release-cybersecurity.html">androidheadlines.com/2026/05/…</a>
-    </li>
-    <li>
-      ⑧ 【Claude Mythos プレビュー】(2026-04) <em>Claude Mythos Preview</em> — Anthropic Red Team<br>
-      <a href="https://red.anthropic.com/2026/mythos-preview/">red.anthropic.com/2026/mythos-preview/</a>
-    </li>
-  </ul>
+<!-- ===== トピック5 ===== -->
+<div class="card" id="topic5">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">⚖️</span>
+      <div class="card-title">AI著作権問題 ──<br>米最高裁「AIだけが作った作品には著作権なし」</div>
+      <span class="topic-badge badge-teal">法律・社会</span>
+    </div>
+
+    <div class="simple-box">
+      <span class="label">🌱 やさしく解説</span><br>
+      3月、アメリカの最高裁判所が重要な判断を下しました：<span class="hl-yellow">「人間が関わっていない、AIだけが作った作品には著作権を認めない」</span>。つまり「AIが描いた絵」は誰のものでもない、ということです。同時に、AIの学習データの問題も議会で議論中です。
+    </div>
+
+    <ul class="point-list">
+      <li>
+        <span class="marker marker-teal">1</span>
+        <span><strong>米最高裁（3月2日）の判断</strong> ── 著作権は「人間の創作」にのみ認められるという原則を再確認。AI単体が生成したコンテンツは著作権の対象外と確定</span>
+      </li>
+      <li>
+        <span class="marker marker-teal">2</span>
+        <span><strong>AI学習データの開示法案</strong> ── 「著作権のある作品をAIの学習に使った場合、事前に届け出が必要」とする法案がアメリカ議会で審議中。既存モデルにも遡及適用</span>
+      </li>
+      <li>
+        <span class="marker marker-teal">3</span>
+        <span><strong>AI生成コンテンツへのラベル義務化</strong> ── 「AIが作ったとわかるラベル表示」を義務づける新ルールが各国で最終審査段階に。表示面積は画面の10%以上が必要</span>
+      </li>
+      <li>
+        <span class="marker marker-teal">4</span>
+        <span><strong>著作権訴訟が急増</strong> ── AI企業へのコンテンツ無断学習の訴訟が2026年に急増。「フェアユース（正当利用）」に当たるかどうかが最大の争点に</span>
+      </li>
+    </ul>
+
+    <div class="sticky">
+      ✏️ <strong>中学生的に言うと：</strong>AIが描いた絵は「誰のもの？」という問題に、アメリカが答えを出した。「人間が作ったものじゃないから、誰のものでもない」。でもAIに絵を学ばせていいかどうかは、まだ議論中！
+    </div>
+
+    <div class="source">
+      📎 出典：
+      <a href="https://www.morganlewis.com/pubs/2026/03/us-supreme-court-declines-to-consider-whether-ai-alone-can-create-copyrighted-works" target="_blank">Morgan Lewis – US Supreme Court Declines to Consider AI Copyright</a> /
+      <a href="https://www.nortonrosefulbright.com/en/knowledge/publications/ce8eaa5f/ai-in-litigation-series-an-update-on-ai-copyright-cases-in-2026" target="_blank">Norton Rose Fulbright – AI Copyright Cases in 2026</a> /
+      <a href="https://deadline.com/2026/02/senate-bill-ai-training-models-copyright-1236714135/" target="_blank">Deadline – Senate Bill: AI Training Disclosure</a>
+    </div>
+  </div>
 </div>
 
-<div class="footer-note">
-  <p>生成AI 最新トピック 2026-05-30号</p>
-  <p>各情報の公開日は出典欄を参照してください<br>
-  料金・機能・スケジュールは変更される場合があります。重要な判断は必ず一次情報をご確認ください。</p>
+<!-- ===== トピック6 ===== -->
+<div class="card" id="topic6">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">🏢</span>
+      <div class="card-title">ビジネス最前線 ──<br>製薬大手がOpenAIと全社提携、日本でも本格普及</div>
+      <span class="topic-badge badge-blue">ビジネス</span>
+    </div>
+
+    <div class="simple-box">
+      <span class="label">🌱 やさしく解説</span><br>
+      世界の大企業がAIを「試してみる」段階から「全社で使う」段階に入りました。デンマークの製薬大手<span class="hl-blue">Novo Nordisk</span>がOpenAIと組んで、薬の発見から製造ラインまでAIで管理することに。日本のメガバンクもClaudeの法人版を導入開始です。
+    </div>
+
+    <ul class="point-list">
+      <li>
+        <span class="marker marker-blue">1</span>
+        <span><strong>Novo Nordisk × OpenAI 戦略提携</strong> ── 創薬・臨床試験・製造・サプライチェーン・営業まで全社でAIを統合。2026年末までに完全展開を計画</span>
+      </li>
+      <li>
+        <span class="marker marker-blue">2</span>
+        <span><strong>日本のメガバンク3行がClaudeを法人導入</strong> ── 三菱UFJ・三井住友・みずほがAnthropicの法人版にアクセス開始。日本政府のAI活用推進方針とも連動</span>
+      </li>
+      <li>
+        <span class="marker marker-blue">3</span>
+        <span><strong>AIは「アプリ」から「業務インフラ」へ</strong> ── 日本企業でもAIが「試しに使う道具」から「止まると困る基盤」へと位置づけが変わりつつある</span>
+      </li>
+      <li>
+        <span class="marker marker-blue">4</span>
+        <span><strong>若手の初級職が構造変化</strong> ── AIが初歩的な業務を代替し「育成の入り口の消失」が課題に。直接的な失業より「スキル習得機会の減少」が問題視されている</span>
+      </li>
+    </ul>
+
+    <div class="sticky">
+      ✏️ <strong>中学生的に言うと：</strong>大企業が「AIを全部署で使う」と決めて動き始めた。薬の開発も銀行の仕事も、AIなしでは考えられない時代が本格的にきた！
+    </div>
+
+    <div class="source">
+      📎 出典：
+      <a href="https://www.prismetric.com/weekly-ai-news-from-may-24-29-2026-grok-build-openai-cnn-perplexity-samsung-ai-chips/" target="_blank">Prismetric – Weekly AI News May 24-29, 2026</a> /
+      <a href="https://note.com/dsg_id/n/n17e11f5c7093" target="_blank">DESIGN STUDIO garden – 日本の生成AIニュースまとめ（2026年5月第2週）</a> /
+      <a href="https://gais.jp/news-2026-05-01/" target="_blank">GAIS – 生成AI関連ニュース ベスト5（2026-04-24〜2026-05-01）</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== まとめ ===== -->
+<div class="summary-card" id="summary">
+  <h2>📝 今月の大きな流れ ── 2026年5月のキーワード</h2>
+  <div class="summary-grid">
+    <div class="summary-item">
+      <span class="s-emoji">🤖</span>
+      <div class="s-title">「エージェント元年」本格化</div>
+      AIが「答えるだけ」から「自律的に動く」存在へ。Gemini Spark・GPT-5.5・Grok BuildすべてがAI秘書化を加速
+    </div>
+    <div class="summary-item">
+      <span class="s-emoji">⚔️</span>
+      <div class="s-title">コーディングAI戦争</div>
+      Claude Code・Grok Build・Cursor 2.0・GitHub Copilotが激突。開発者95%がAI活用、IDE不要論も浮上
+    </div>
+    <div class="summary-item">
+      <span class="s-emoji">⚖️</span>
+      <div class="s-title">AI法整備が加速</div>
+      最高裁がAI著作権に判断。学習データ開示義務・生成コンテンツのラベル表示など、ルール化の動きが世界的に本格化
+    </div>
+    <div class="summary-item">
+      <span class="s-emoji">🏢</span>
+      <div class="s-title">企業インフラ化が加速</div>
+      製薬・金融の大企業がAI全社導入を宣言。「使うか使わないか」より「どう管理するか」が問われる時代に
+    </div>
+  </div>
+</div>
+
+<!-- ===== フッター ===== -->
+<div class="footer">
+  <p><strong>生成AI 最新トピック</strong> ── 2026-05-30号</p>
+  <p style="margin-top:6px;">各記事の出典URLは各トピック下部に記載しています。情報は収集時点のものです。</p>
+  <p style="margin-top:4px;"><a href="index.html" style="color:#aaa;">← バックナンバー一覧へ</a></p>
 </div>
 
 </body>
