@@ -23,4 +23,4 @@
 
 ## 解説済みテーマ
 
-- 2026-05-30：スペイン ARTIN ビザ 2026年更新ルール改定（収入基準引き上げ＋スペイン収入20%キャップ）
+- 2026-05-30：スペイン 国際遠隔就労ビザ（Autorización de residencia para teletrabajo de carácter internacional）2026年更新ルール改定（収入基準引き上げ＋スペイン収入20%キャップ）
