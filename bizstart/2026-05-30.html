@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>1人法人スタート 最新トピック 2026-05-30</title>
+<title>1人法人スタート 基礎知識 2026-05-30</title>
 <link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -59,10 +59,10 @@
     margin-bottom: 8px;
     position: relative;
   }
-  .cover .urgent-badge {
+  .cover .key-badge {
     display: inline-block;
-    background: #e74c3c;
-    border: 2px solid #ff8080;
+    background: #e67e22;
+    border: 2px solid #f39c12;
     border-radius: 20px;
     padding: 6px 20px;
     font-size: 0.95rem;
@@ -396,12 +396,142 @@
     width: 100%;
   }
 
+  /* ルールカード（3枚並び） */
+  .rule-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .rule-card {
+    background: #eaf7ea;
+    border: 2px solid #27ae60;
+    border-radius: 10px;
+    padding: 18px 14px;
+    text-align: center;
+  }
+  .rule-card .rc-emoji { font-size: 2.2rem; display: block; margin-bottom: 8px; }
+  .rule-card .rc-title {
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: #1e7e34;
+    margin-bottom: 8px;
+    letter-spacing: 2px;
+  }
+  .rule-card .rc-desc { font-size: 0.83rem; color: #2c3e50; line-height: 1.6; }
+
+  /* 大きな数字カード */
+  .big-num-row {
+    display: flex;
+    gap: 16px;
+    margin: 16px 0;
+    flex-wrap: wrap;
+  }
+  .big-num-card {
+    background: #fff9f0;
+    border: 2px solid #7a4f1e;
+    border-radius: 10px;
+    padding: 16px 24px;
+    text-align: center;
+    flex: 1;
+    min-width: 140px;
+  }
+  .big-num-card .bn-number {
+    font-family: 'Caveat', cursive;
+    font-size: 3.4rem;
+    font-weight: 700;
+    color: #7a4f1e;
+    line-height: 1;
+    display: block;
+  }
+  .big-num-card .bn-unit {
+    font-size: 1rem;
+    color: #7a4f1e;
+    font-weight: 600;
+  }
+  .big-num-card .bn-label {
+    font-size: 0.8rem;
+    color: #666;
+    margin-top: 6px;
+    line-height: 1.5;
+  }
+
+  /* タイムラインフロー */
+  .flow-wrap {
+    margin: 20px 0;
+  }
+  .flow-row {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #fff9f0;
+    border: 2px solid #7a4f1e;
+    border-radius: 8px;
+    padding: 14px 12px;
+    text-align: center;
+    flex: 1;
+    min-width: 120px;
+    max-width: 180px;
+  }
+  .flow-step .fs-emoji { font-size: 1.5rem; display: block; margin-bottom: 6px; }
+  .flow-step .fs-title { font-size: 0.85rem; font-weight: 700; color: #2c3e50; line-height: 1.4; }
+  .flow-step .fs-sub { font-size: 0.75rem; color: #777; margin-top: 4px; line-height: 1.4; }
+  .flow-step.highlight { background: #fdf0d0; border-color: #cc6600; }
+  .flow-step.highlight .fs-title { color: #cc6600; }
+  .flow-arrow {
+    display: flex;
+    align-items: center;
+    padding: 0 6px;
+    color: #7a4f1e;
+    font-size: 1.6rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  /* 3視点カード */
+  .view-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .view-card {
+    border-radius: 8px;
+    padding: 16px;
+    border-left: 4px solid;
+  }
+  .view-card.vc-blue  { background: #eef3ff; border-color: #2255aa; }
+  .view-card.vc-green { background: #edfaea; border-color: #27ae60; }
+  .view-card.vc-orange{ background: #fff4e0; border-color: #cc6600; }
+  .view-card .vc-num {
+    font-family: 'Caveat', cursive;
+    font-size: 2.2rem;
+    font-weight: 700;
+    line-height: 1;
+  }
+  .view-card.vc-blue  .vc-num { color: #2255aa; }
+  .view-card.vc-green .vc-num { color: #27ae60; }
+  .view-card.vc-orange .vc-num { color: #cc6600; }
+  .view-card .vc-title { font-size: 0.98rem; font-weight: 700; color: #2c3e50; margin: 6px 0 6px; }
+  .view-card .vc-desc  { font-size: 0.85rem; color: #444; line-height: 1.6; }
+
+  /* NG/OKバッジ */
+  .badge-ok  { display:inline-block; background:#27ae60; color:white; padding:2px 10px; border-radius:10px; font-size:0.8rem; font-weight:700; }
+  .badge-ng  { display:inline-block; background:#c0392b; color:white; padding:2px 10px; border-radius:10px; font-size:0.8rem; font-weight:700; }
+  .badge-cau { display:inline-block; background:#e67e22; color:white; padding:2px 10px; border-radius:10px; font-size:0.8rem; font-weight:700; }
+
   @media (max-width: 600px) {
     .card-body { padding: 20px 20px 20px 44px; }
     .card-title { font-size: 1.15rem; }
     .cover h1 { font-size: 1.7rem; }
     .summary-card { padding: 24px 20px; }
     .compare-table { font-size: 0.8rem; }
+    .flow-arrow { display: none; }
+    .flow-step { min-width: 100%; max-width: 100%; margin-bottom: 8px; }
   }
 </style>
 </head>
@@ -409,10 +539,10 @@
 
 <!-- ===== 表紙 ===== -->
 <div class="cover">
-  <span class="cover-emoji">🧾📚</span>
-  <h1>1人法人スタート 最新トピック</h1>
-  <div class="subtitle">代表者1人の会社・新設法人のための税務・制度解説</div>
-  <div class="urgent-badge">⚠️ 2026年9月末 期限迫る！インボイス2割特例</div>
+  <span class="cover-emoji">💰📋</span>
+  <h1>1人法人スタート 基礎知識</h1>
+  <div class="subtitle">代表者1人の会社・新設法人のための税務・経営解説</div>
+  <div class="key-badge">🔑 設立直後に必読！役員報酬の基本ルール</div>
   <div class="date-badge">📅 2026年5月30日号</div>
 </div>
 
@@ -420,11 +550,11 @@
 <div class="toc">
   <h2>📋 今日の目次</h2>
   <ol>
-    <li><a href="#topic1">消費税の仕組みをおさらい ── 1人法人が知っておく最低限</a></li>
-    <li><a href="#topic2">「2割特例」とは何か ── 恩恵と対象条件を確認</a></li>
-    <li><a href="#topic3">新設法人は2割特例を使えるか？ ── 適用要件チェック</a></li>
-    <li><a href="#topic4">2026年10月以降の選択肢 ── 本則課税・簡易課税・免税のまま</a></li>
-    <li><a href="#topic5">今から動く！アクションチェックリスト</a></li>
+    <li><a href="#topic1">役員報酬って何？ ── 普通の給料との3つの違い</a></li>
+    <li><a href="#topic2">「定期同額給与」の3つのルール ── これを守ると経費になる</a></li>
+    <li><a href="#topic3">いつ・どうやって決める？ ── タイムラインで理解する</a></li>
+    <li><a href="#topic4">金額はいくらにすべき？ ── 3つの視点で考える</a></li>
+    <li><a href="#topic5">よくある落とし穴と注意点 ── 絶対に避けたいNG行動</a></li>
     <li><a href="#summary">今日のまとめ</a></li>
   </ol>
 </div>
@@ -434,59 +564,66 @@
   <div class="card-body">
     <div class="card-header">
       <span class="card-emoji">💡</span>
-      <div class="card-title">消費税の仕組みをおさらい ──<br>1人法人が知っておく最低限</div>
+      <div class="card-title">役員報酬って何？ ──<br>普通の給料との3つの違い</div>
       <span class="topic-badge badge-brown">基礎知識</span>
     </div>
 
     <div class="simple-box">
       <span class="label">🌱 やさしく解説</span><br>
-      消費税（正式名：消費税および地方消費税）は、商品を売るときや
-      サービスを提供するときに10%（または8%）を上乗せして
-      受け取り、国に納める税金です。<br>
-      「受け取った消費税」から「支払った消費税」を引いた差額を
-      納税します。これが基本の計算方法（<span class="hl-yellow">本則課税</span>）です。
+      1人法人をつくると、あなたは会社の「代表取締役（社長）」という
+      <span class="hl-yellow">役員（やくいん）</span>になります。
+      役員が会社からもらうお金は「役員報酬（やくいんほうしゅう）」と呼ばれます。<br><br>
+      ふつうのサラリーマンの「給料」に似ていますが、税務上のルールがずっと厳しい！
+      このルールを知らずに払うと、<span class="hl-pink">会社の経費として認めてもらえない</span>場合があります。
     </div>
 
-    <ul class="point-list">
-      <li>
-        <span class="marker marker-brown">1</span>
-        <span>
-          <strong>免税事業者</strong>（=消費税を国に納めなくてよい）の条件 ──
-          設立後2年間は原則として免税（資本金1,000万円未満・特定期間の要件も満たす場合）。
-          基準期間（2期前）の課税売上高が1,000万円以下の事業者も免税。
-          <span class="hl-orange">ただしインボイス（適格請求書）を発行するには
-          課税事業者への登録が必要</span>
-        </span>
-      </li>
-      <li>
-        <span class="marker marker-brown">2</span>
-        <span>
-          <strong>課税事業者</strong> ── 消費税を計算して申告・納税する義務がある。
-          免税事業者でもインボイス発行事業者に登録すると課税事業者になる
-        </span>
-      </li>
-      <li>
-        <span class="marker marker-brown">3</span>
-        <span>
-          <strong>インボイス制度（適格請求書等保存方式）</strong> ──
-          2023年10月1日スタート。買い手（課税事業者）が仕入税額控除を受けるには
-          売り手がインボイスを発行している必要がある。
-          BtoB取引では「売り手がインボイス登録済みか」が取引継続の条件になりやすい
-        </span>
-      </li>
-    </ul>
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>個人事業主の「生活費」</th>
+          <th>会社員の「給料」</th>
+          <th>1人社長の「役員報酬」✅</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>法的な位置づけ</strong></td>
+          <td>事業主貸（じぎょうぬしかし）<br>会計上の「引き出し」</td>
+          <td>雇用契約に基づく賃金</td>
+          <td>委任契約に基づく報酬<br>（法人税法で規定）</td>
+        </tr>
+        <tr>
+          <td><strong>会社側の経費</strong></td>
+          <td>❌ 経費にならない</td>
+          <td>✅ 人件費として経費</td>
+          <td>✅ <strong>ルールを守れば</strong>損金（経費）</td>
+        </tr>
+        <tr>
+          <td><strong>個人側の税</strong></td>
+          <td>事業所得として確定申告</td>
+          <td>給与所得として年末調整</td>
+          <td>給与所得として源泉徴収・年末調整</td>
+        </tr>
+        <tr>
+          <td><strong>社会保険</strong></td>
+          <td>国民健康保険・国民年金</td>
+          <td>健康保険・厚生年金（会社加入）</td>
+          <td>健康保険・厚生年金（<strong>強制加入</strong>）</td>
+        </tr>
+      </tbody>
+    </table>
 
     <div class="sticky">
-      ✏️ <strong>まとめると：</strong>新設法人は最初の2年は原則「消費税を納めなくてよい」。
-      でもBtoB（企業向け）で仕事をしたい場合、取引先からインボイスの発行を求められるケースが多い。
-      インボイスを出すには課税事業者に登録しなければならない。
+      ✏️ <strong>大事なポイント：</strong>役員報酬は「自分に払う給料」ではなく、
+      <strong>会社が役員に支払う報酬</strong>。ルール通りに支払えば会社の経費になり、
+      法人税が減る。でも、ルール違反は損金不算入（経費にならない）＝法人税が増える！
     </div>
 
     <div class="source">
       📎 出典：
-      <a href="https://www.nta.go.jp/taxes/shiraberu/zeimokubetsu/shohi/keigenzeiritsu/invoice_about.htm" target="_blank">国税庁｜インボイス制度について（令和5年10月〜）</a>
-      ／
-      <a href="https://www.nta.go.jp/taxes/tetsuzuki/shinsei/annai/shohi/menzei/pdf/01.pdf" target="_blank">国税庁｜消費税の免税事業者のパンフレット</a>
+      <a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/hojin/5207.htm" target="_blank">国税庁タックスアンサー No.5207「役員に対する給与」（令和6年4月現在）</a>
+      ／ 法人税法第34条（基準年度：令和8年度税制）
     </div>
   </div>
 </div>
@@ -495,59 +632,75 @@
 <div class="card" id="topic2">
   <div class="card-body">
     <div class="card-header">
-      <span class="card-emoji">📊</span>
-      <div class="card-title">「2割特例」とは何か ──<br>恩恵と終了タイミングを確認</div>
-      <span class="topic-badge badge-red">今すぐ確認</span>
+      <span class="card-emoji">📏</span>
+      <div class="card-title">「定期同額給与」の3つのルール ──<br>これを守ると経費になる</div>
+      <span class="topic-badge badge-red">重要ルール</span>
     </div>
 
     <div class="simple-box">
       <span class="label">🌱 やさしく解説</span><br>
-      <span class="hl-yellow">2割特例</span>とは、インボイス登録をきっかけに
-      免税事業者から課税事業者になった方への「お得な期間限定ルール」です。<br><br>
-      通常の消費税計算（本則課税）は複雑ですが、2割特例なら<br>
-      <strong>「売上に係る消費税額 × 20% だけ納税すればOK」</strong>。<br>
-      残りの80%は手元に残せます！
+      役員報酬を会社の経費（損金）にするためのメインルールが
+      <span class="hl-yellow">定期同額給与（ていきどうがくきゅうよ）</span>です。<br>
+      「定期」＝決まった時期に、「同額」＝毎回同じ金額。<br>
+      この2条件を1年間守れば、<strong>特別な届出なしに</strong>経費として認められます。
     </div>
 
-    <table class="compare-table">
-      <thead>
-        <tr>
-          <th>計算方法</th>
-          <th>税額のイメージ（売上消費税100万円の場合）</th>
-          <th>手元に残る消費税</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>本則課税</strong><br>（正式な計算）</td>
-          <td>受取消費税100万円 − 支払消費税（実費）</td>
-          <td>経費・仕入れ次第で変わる</td>
-        </tr>
-        <tr>
-          <td><strong>簡易課税</strong><br>（みなし仕入率）</td>
-          <td>業種によって異なる（第5種・サービス業なら50%みなし）</td>
-          <td>業種と実際コストによる</td>
-        </tr>
-        <tr>
-          <td><strong>2割特例 ✅</strong><br>（期間限定！）</td>
-          <td>100万円 × 20% ＝ <strong>20万円を納税</strong></td>
-          <td><strong>80万円が手元に残る</strong></td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="rule-grid">
+      <div class="rule-card">
+        <span class="rc-emoji">📅</span>
+        <div class="rc-title">定 期</div>
+        <div class="rc-desc">1か月以下の一定期間ごとに支払う（＝毎月払い）</div>
+      </div>
+      <div class="rule-card">
+        <span class="rc-emoji">💰</span>
+        <div class="rc-title">同 額</div>
+        <div class="rc-desc">毎回まったく同じ金額を支払う（年間通じて変更禁止）</div>
+      </div>
+      <div class="rule-card">
+        <span class="rc-emoji">📄</span>
+        <div class="rc-title">届出不要</div>
+        <div class="rc-desc">上記2つを守れば特別な届出書なしで損金算入OK</div>
+      </div>
+    </div>
+
+    <ul class="point-list">
+      <li>
+        <span class="marker marker-green">✓</span>
+        <span>
+          <strong>毎月25日に30万円</strong> → ✅ 定期同額給与として認められる
+        </span>
+      </li>
+      <li>
+        <span class="marker marker-green">✓</span>
+        <span>
+          <strong>毎月末日に50万円</strong> → ✅ 同じく認められる（日にちは固定でなくても「毎月末日」のように一定ならOK）
+        </span>
+      </li>
+      <li>
+        <span class="marker marker-red">✗</span>
+        <span>
+          <strong>7月だけ増額して40万円</strong> → ❌ <span class="hl-pink">通常は増額分が損金不算入</span>（後述の例外あり）
+        </span>
+      </li>
+      <li>
+        <span class="marker marker-red">✗</span>
+        <span>
+          <strong>3か月は払わず9か月で清算</strong> → ❌ 「定期」の要件を満たさないため不算入リスクあり
+        </span>
+      </li>
+    </ul>
 
     <div class="alert-box">
-      <span class="label">⚠️ 重要：期限</span><br>
-      2割特例が使えるのは、<strong>令和5年10月1日（2023/10/1）〜 令和8年9月30日（2026/9/30）</strong>までの日が属する課税期間のみです。<br>
-      今日は2026年5月30日 ── 残り<strong>約4か月</strong>。法人は2026年10月以降の課税期間から2割特例を使えなくなります。
+      <span class="label">⚠️ 定期同額給与 以外の役員給与</span><br>
+      <strong>事前確定届出給与（じぜんかくていとどけできゅうよ）</strong>：賞与（ボーナス）を役員に払いたい場合、
+      あらかじめ税務署に「いつ・いくら払うか」を届け出て、その通りに払えば経費になる。<br>
+      <strong>利益連動給与</strong>：利益に連動する報酬。上場会社向けの制度のため1人法人には通常関係なし。
     </div>
 
     <div class="source">
       📎 出典：
-      <a href="https://www.nta.go.jp/publication/pamph/shohi/kaisei/202304/01.htm" target="_blank">国税庁｜2割特例（インボイス発行事業者となる小規模事業者に対する負担軽減措置）の概要</a>
-      ／
-      <a href="https://www.nta.go.jp/taxes/shiraberu/zeimokubetsu/shohi/keigenzeiritsu/invoice_2tokurei.htm" target="_blank">国税庁｜2割特例 特設ページ</a>
-      （基準年度：令和5年度・令和8年度税制）
+      <a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/hojin/5207.htm" target="_blank">国税庁タックスアンサー No.5207（令和6年4月現在）</a>
+      ／ 法人税法第34条第1項（基準年度：令和8年度税制）
     </div>
   </div>
 </div>
@@ -556,83 +709,107 @@
 <div class="card" id="topic3">
   <div class="card-body">
     <div class="card-header">
-      <span class="card-emoji">🏢</span>
-      <div class="card-title">新設法人は2割特例を使えるか？ ──<br>適用要件チェック</div>
-      <span class="topic-badge badge-orange">新設法人向け</span>
+      <span class="card-emoji">🗓️</span>
+      <div class="card-title">いつ・どうやって決める？ ──<br>タイムラインで理解する</div>
+      <span class="topic-badge badge-orange">期限注意</span>
     </div>
 
     <div class="simple-box">
       <span class="label">🌱 やさしく解説</span><br>
-      2割特例には「もともと免税事業者だったのにインボイス登録した人向け」
-      という性質があります。新設法人の場合は、<span class="hl-yellow">資本金の金額</span>が
-      カギになります。
+      役員報酬は<span class="hl-yellow">株主総会（かぶぬしそうかい）または取締役会（とりしまりやくかい）の決議</span>
+      で決めます。<br>1人会社でも「社長＝唯一の株主」として総会を開いて議事録を作成する必要があります。
+      大切なのは<span class="hl-orange">「事業年度開始後3か月以内」</span>に決めること。これを「定時改定」と呼びます。
     </div>
 
-    <table class="compare-table">
-      <thead>
-        <tr>
-          <th>新設法人の状況</th>
-          <th>2割特例の可否</th>
-          <th>理由</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>資本金<strong>1,000万円未満</strong>で設立し、<br>インボイス登録したケース</td>
-          <td>✅ <strong>原則、使える</strong></td>
-          <td>設立当初は免税事業者のはずなので、インボイス登録を機に課税事業者になった扱いになる</td>
-        </tr>
-        <tr>
-          <td>資本金<strong>1,000万円以上</strong>で設立したケース</td>
-          <td>❌ <strong>使えない</strong></td>
-          <td>設立当初から強制的に課税事業者（インボイスと無関係に課税事業者）のため、対象外</td>
-        </tr>
-        <tr>
-          <td>免税のまま（インボイス未登録）</td>
-          <td>❌ <strong>使えない</strong></td>
-          <td>インボイス発行事業者でなければ2割特例は適用なし</td>
-        </tr>
-        <tr>
-          <td>基準期間の課税売上高が<br><strong>1,000万円超</strong>になったケース</td>
-          <td>❌ <strong>その期間は使えない</strong></td>
-          <td>課税売上高が超えた課税期間は対象外</td>
-        </tr>
-      </tbody>
-    </table>
+    <!-- タイムライン図 -->
+    <div class="flow-wrap">
+      <div class="flow-row">
+        <div class="flow-step">
+          <span class="fs-emoji">🏢</span>
+          <div class="fs-title">会社設立</div>
+          <div class="fs-sub">事業年度スタート</div>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step highlight">
+          <span class="fs-emoji">📋</span>
+          <div class="fs-title">株主総会・取締役会</div>
+          <div class="fs-sub">役員報酬を決議・議事録作成</div>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">
+          <span class="fs-emoji">💴</span>
+          <div class="fs-title">毎月同額を支払い</div>
+          <div class="fs-sub">年間を通じて金額は固定</div>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">
+          <span class="fs-emoji">🔄</span>
+          <div class="fs-title">翌事業年度・定時改定</div>
+          <div class="fs-sub">また株主総会で改定</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 重要な数字カード -->
+    <div class="big-num-row">
+      <div class="big-num-card">
+        <span class="bn-number">3</span>
+        <span class="bn-unit">か月以内</span>
+        <div class="bn-label">事業年度開始後に定期改定できる期間（「定時改定」）</div>
+      </div>
+      <div class="big-num-card">
+        <span class="bn-number">1</span>
+        <span class="bn-unit">年間変更禁止</span>
+        <div class="bn-label">定時改定後は原則として期中変更できない</div>
+      </div>
+      <div class="big-num-card">
+        <span class="bn-number">10</span>
+        <span class="bn-unit">日までに納税</span>
+        <div class="bn-label">源泉徴収した所得税を翌月10日までに納付</div>
+      </div>
+    </div>
 
     <ul class="point-list">
       <li>
-        <span class="marker marker-orange">!</span>
+        <span class="marker marker-brown">1</span>
         <span>
-          <strong>「特定期間」での課税事業者判定にも注意</strong> ──
-          設立1期目でも「前事業年度の前半6か月の課税売上高または給与支払額が
-          1,000万円超」の場合は2期目から課税事業者になる。
-          この場合も2割特例が使えるか確認が必要（インボイスと無関係に
-          課税事業者になっているため対象外の可能性あり）
+          <strong>設立直後の決め方</strong> ──
+          設立後すぐ（または最初の株主総会・取締役会）で役員報酬額を決議する。
+          議事録（取締役会議事録または株主総会議事録）を必ず作成・保管する
+        </span>
+      </li>
+      <li>
+        <span class="marker marker-brown">2</span>
+        <span>
+          <strong>定時改定（毎年の見直し）</strong> ──
+          事業年度が始まってから<span class="hl-yellow">3か月以内</span>に開催する定時株主総会で決議すれば、
+          新しい金額への変更が認められる（＝損金算入OK）
+        </span>
+      </li>
+      <li>
+        <span class="marker marker-brown">3</span>
+        <span>
+          <strong>業績悪化改定（例外）</strong> ──
+          業績が著しく悪化して役員報酬を払い続けると会社の資金繰りが危うい場合は、
+          期中でも<span class="hl-orange">「減額」</span>が認められる例外がある（増額は不可）。
+          ただし「著しい悪化」の認定は厳格なため、税理士に確認を
         </span>
       </li>
       <li>
         <span class="marker marker-orange">!</span>
         <span>
-          <strong>調整対象固定資産・高額特定資産の取得</strong> ──
-          100万円以上の棚卸資産・200万円以上の建物等を取得して
-          仕入税額控除を受けた場合も2割特例の適用が制限される場合あり
+          <strong>議事録の保管</strong> ──
+          1人会社でも役員報酬を決めた株主総会議事録を10年間保管する義務がある（会社法第371条）。
+          税務調査でも提示を求められる場合がある
         </span>
       </li>
     </ul>
 
-    <div class="sticky">
-      ✏️ <strong>自分に当てはまるか不安な場合：</strong>
-      国税庁の「2割特例 適用可否フローチャート」で確認できます。
-      それでも判断に迷う場合は必ず税理士に確認してください。
-    </div>
-
     <div class="source">
       📎 出典：
-      <a href="https://www.nta.go.jp/taxes/shiraberu/zeimokubetsu/shohi/keigenzeiritsu/pdf/0024003-131.pdf" target="_blank">国税庁｜2割特例 適用可否フローチャート（PDF）</a>
-      ／
-      <a href="https://www.nta.go.jp/taxes/shiraberu/zeimokubetsu/shohi/keigenzeiritsu/pdf/qa/115.pdf" target="_blank">国税庁 Q&amp;A｜2割特例の適用ができない課税期間①</a>
-      （基準年度：令和8年度税制）
+      <a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/hojin/5207.htm" target="_blank">国税庁タックスアンサー No.5207</a>
+      ／ 法人税法施行令第69条（定期同額給与の範囲）
+      ／ 会社法第361条・第371条（基準年度：令和8年度税制）
     </div>
   </div>
 </div>
@@ -641,93 +818,99 @@
 <div class="card" id="topic4">
   <div class="card-body">
     <div class="card-header">
-      <span class="card-emoji">🔀</span>
-      <div class="card-title">2026年10月以降の選択肢 ──<br>本則課税・簡易課税・免税のまま</div>
-      <span class="topic-badge badge-blue">制度</span>
+      <span class="card-emoji">🎯</span>
+      <div class="card-title">金額はいくらにすべき？ ──<br>3つの視点で考える</div>
+      <span class="topic-badge badge-blue">実践</span>
     </div>
 
     <div class="simple-box">
       <span class="label">🌱 やさしく解説</span><br>
-      2割特例が終わった後、法人には主に3つの道があります。
-      どれが得かは売上の規模・業種・経費の多さによって違います。
-      また、個人事業主向けの「3割特例」（令和8年分・9年分）は
-      <span class="hl-pink">法人は対象外</span>なので注意！
+      「いくらにしよう」と悩む方がとても多いです。
+      答えは「会社の状況次第」なのですが、
+      <span class="hl-yellow">3つの視点</span>を同時に考えることが大事です。
+      特に1年間変更できないため、最初の設定が重要です。
+    </div>
+
+    <div class="view-grid">
+      <div class="view-card vc-blue">
+        <div class="vc-num">①</div>
+        <div class="vc-title">個人の生活費を確保</div>
+        <div class="vc-desc">
+          毎月の生活費（家賃・食費・光熱費など）をカバーできる最低ラインを把握する。
+          役員報酬が低すぎると生活が苦しくなる。貯蓄・予備費も忘れずに。
+        </div>
+      </div>
+      <div class="view-card vc-green">
+        <div class="vc-num">②</div>
+        <div class="vc-title">社会保険料の負担を試算</div>
+        <div class="vc-desc">
+          役員報酬の額に応じて<strong>社会保険料（健康保険＋厚生年金）</strong>が変わる。
+          高い報酬 → 手取りは増えるが社会保険料も増大。
+          標準報酬月額の等級表を年金事務所や日本年金機構サイトで確認しよう。
+        </div>
+      </div>
+      <div class="view-card vc-orange">
+        <div class="vc-num">③</div>
+        <div class="vc-title">会社の資金繰りを優先</div>
+        <div class="vc-desc">
+          役員報酬＋社会保険料（会社負担分）が毎月確実に出ていく固定費になる。
+          創業期は売上が不安定なため、<strong>「低め設定で安全に」</strong>スタートするのが
+          一般的な考え方。
+        </div>
+      </div>
     </div>
 
     <table class="compare-table">
       <thead>
         <tr>
-          <th>選択肢</th>
-          <th>特徴</th>
-          <th>向いているケース</th>
+          <th>月額報酬イメージ</th>
+          <th>法人税への影響</th>
+          <th>個人の所得税・住民税</th>
+          <th>社会保険料（概算）</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>① <strong>本則課税</strong><br>（原則課税）</td>
-          <td>実際の仕入・経費の消費税をすべて集計して計算。帳簿管理が大変だが正確</td>
-          <td>経費・仕入れが売上の50〜60%以上あるケース（製造業・小売など）</td>
+          <td><strong>低め設定</strong><br>例：月10〜20万円</td>
+          <td>報酬額が少なく法人利益が残りやすい → 法人税が増える傾向</td>
+          <td>低い（給与所得控除が使えるため）</td>
+          <td>低い（標準報酬月額が低い等級）</td>
         </tr>
         <tr>
-          <td>② <strong>簡易課税</strong></td>
-          <td>売上の消費税額に「みなし仕入率」を掛けて税額を計算。帳簿管理がシンプル</td>
-          <td>経費が少なく粗利が高いケース（ITサービス・コンサルなど第5種・第6種）</td>
+          <td><strong>中程度設定</strong><br>例：月30〜50万円</td>
+          <td>法人利益を適度に圧縮できる</td>
+          <td>中程度（所得税・住民税が発生）</td>
+          <td>中程度（老後の年金額が増える）</td>
         </tr>
         <tr>
-          <td>③ <strong>免税のまま</strong><br>（インボイス廃止）</td>
-          <td>インボイス登録を取り消すと再び免税に戻れる可能性あり（条件あり）</td>
-          <td>BtoC中心で取引先からインボイスを求められていない場合</td>
+          <td><strong>高め設定</strong><br>例：月70万円〜</td>
+          <td>法人利益をほぼ圧縮できる場合も</td>
+          <td>高い（最高税率に注意）</td>
+          <td>高い（月額上限あり）</td>
         </tr>
       </tbody>
     </table>
 
-    <ul class="point-list">
-      <li>
-        <span class="marker marker-blue">★</span>
-        <span>
-          <strong>簡易課税の業種別みなし仕入率</strong>（令和6年度時点）──
-          第1種（卸売）90%、第2種（小売）80%、第3種（製造等）70%、
-          第4種（その他）60%、第5種（サービス等）50%、第6種（不動産）40%。
-          1人法人のコンサル・IT・クリエイター系は主に第5種（50%）
-        </span>
-      </li>
-      <li>
-        <span class="marker marker-blue">★</span>
-        <span>
-          <strong>2割特例終了後の特例的な簡易課税届出</strong> ──
-          通常、簡易課税を使うには「適用を受けたい課税期間の前日まで」に
-          届出書の提出が必要。ただし2割特例の経過措置として、
-          <span class="hl-yellow">2割特例が終わった後の最初の課税期間に係る
-          確定申告期限まで</span>に届出書を出せば、
-          その課税期間から簡易課税が使える特例が設けられています
-        </span>
-      </li>
-      <li>
-        <span class="marker marker-blue">!</span>
-        <span>
-          <strong>仕入税額控除の縮小（2026年10月〜）</strong> ──
-          免税事業者からの仕入れについて、買い手が控除できる消費税が
-          現在の80%から<span class="hl-pink">50%に縮小</span>。
-          免税事業者のままでいると、取引先からコスト交渉を受けやすくなる
-        </span>
-      </li>
-    </ul>
+    <div class="alert-box">
+      <span class="label">⚠️ 過大役員報酬に注意</span><br>
+      役員報酬の金額が「その会社の規模・業績・同業他社の水準と比べて不相当に高額」な部分は、
+      <strong>損金不算入</strong>（経費として認められない）となります。
+      1人法人でも法人税法第34条第2項の規定が適用されます。
+      通常の1人法人では問題になるケースはまれですが、年収数千万円以上に設定する場合は
+      税理士に確認してください。
+    </div>
 
     <div class="sticky">
-      ✏️ <strong>1人法人（サービス業）の簡易課税シミュレーション例：</strong><br>
-      年間売上1,000万円（税込）→ 消費税分 ≒ 90.9万円<br>
-      第5種みなし仕入率50% → 90.9万円 × (1−50%) ＝ 約45万円を納税<br>
-      ※2割特例なら90.9万円 × 20% ＝ 約18万円。差額は約27万円！
+      ✏️ <strong>創業期のよくある考え方：</strong><br>
+      「まず月15〜20万円でスタート、法人の資金が安定したら翌事業年度（定時改定）で増額」
+      という方法が安全。増額は定時改定のタイミングでしか原則できないので、
+      最初から高く設定しすぎて会社の資金が回らなくなるリスクに注意！
     </div>
 
     <div class="source">
       📎 出典：
-      <a href="https://www.nta.go.jp/taxes/shiraberu/zeimokubetsu/shohi/keigenzeiritsu/invoice_2tokurei.htm" target="_blank">国税庁｜2割特例 特設ページ（届出の特例）</a>
-      ／
-      <a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shohi/6505.htm" target="_blank">国税庁タックスアンサー No.6505 簡易課税制度</a>
-      ／
-      <a href="https://www.mjs.co.jp/topics/keieisense/20260413/" target="_blank">ミロク情報サービス｜2026年10月インボイス経過措置の変更点（2026年4月）</a>
-      （基準年度：令和8年度税制）
+      <a href="https://www.nenkin.go.jp/service/kounen/hokenryo-kankei/hyojun-hokenryo/hokenryo.html" target="_blank">日本年金機構｜標準報酬月額の等級と保険料額表</a>
+      ／ 法人税法第34条第2項（過大役員給与）（基準年度：令和8年度税制）
     </div>
   </div>
 </div>
@@ -736,81 +919,69 @@
 <div class="card" id="topic5">
   <div class="card-body">
     <div class="card-header">
-      <span class="card-emoji">✅</span>
-      <div class="card-title">今から動く！アクションチェックリスト ──<br>2026年9月末までにやること</div>
-      <span class="topic-badge badge-green">アクション</span>
+      <span class="card-emoji">⚠️</span>
+      <div class="card-title">よくある落とし穴と注意点 ──<br>絶対に避けたいNG行動</div>
+      <span class="topic-badge badge-red">注意</span>
     </div>
 
     <div class="simple-box">
       <span class="label">🌱 やさしく解説</span><br>
-      「何から手をつければいいか」を整理しました。
-      一つひとつ確認して、期限前に税理士や税務署に相談しましょう。
+      「知らなかった」では済まない落とし穴が多い役員報酬。
+      税務調査で指摘されると追徴課税（ついちょうかぜい＝後から税金を追加で払う）
+      になることも。典型的なミスを確認しましょう。
     </div>
 
-    <ul class="checklist">
-      <li>
-        <span class="check-box">□</span>
-        <span>
-          <strong>STEP 1：自社のインボイス登録状況を確認</strong><br>
-          適格請求書発行事業者に登録しているか？
-          登録通知書（T番号入りの書類）を手元で確認する
-        </span>
-      </li>
-      <li>
-        <span class="check-box">□</span>
-        <span>
-          <strong>STEP 2：資本金と設立時の状況を確認</strong><br>
-          資本金が1,000万円未満か？ 設立後2年以内か？
-          「2割特例の適用可否フローチャート」（国税庁）で自分が対象か確認する
-        </span>
-      </li>
-      <li>
-        <span class="check-box">□</span>
-        <span>
-          <strong>STEP 3：今期（2割特例が使える最後の課税期間）の申告準備</strong><br>
-          課税期間の末日が2026年9月30日以前なら2割特例が使える。
-          適用する場合、申告書に「2割特例の適用」を付記する
-        </span>
-      </li>
-      <li>
-        <span class="check-box">□</span>
-        <span>
-          <strong>STEP 4：2026年10月以降の方針を税理士と決める</strong><br>
-          ①本則課税 ②簡易課税 ③インボイス廃止（免税に戻る検討）の3択を比較。
-          売上規模・業種・経費構造を持参して相談する
-        </span>
-      </li>
-      <li>
-        <span class="check-box">□</span>
-        <span>
-          <strong>STEP 5：簡易課税を選ぶなら届出書の提出タイミングを確認</strong><br>
-          通常は「適用課税期間の前日まで」に提出が必要。
-          ただし2割特例終了後の特例的届出（最初の課税期間の申告期限まで提出）
-          が使えるか確認する
-        </span>
-      </li>
-      <li>
-        <span class="check-box">□</span>
-        <span>
-          <strong>STEP 6：取引先への影響を確認</strong><br>
-          もし免税に戻る場合、主要取引先からの仕入税額控除が50%に縮小することを伝え、
-          取引条件の変更交渉が起きないか事前に確認しておく
-        </span>
-      </li>
-    </ul>
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>NG行動</th>
+          <th>何が問題？</th>
+          <th>対策</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="badge-ng">NG</span><br>期中に増額した</td>
+          <td>定時改定（3か月以内）以外での増額は損金不算入。増額分の役員報酬が経費にならない → 法人税増加</td>
+          <td>増額は翌事業年度の定時改定で。「もうひと頑張りして増やしたい」と思っても待つ</td>
+        </tr>
+        <tr>
+          <td><span class="badge-ng">NG</span><br>資金不足で数か月払えなかった</td>
+          <td>未払計上（会計上の処理）はできるが、後から一括払いすると「同額・定期」の要件に抵触するリスク。また社会保険料の計算も複雑に</td>
+          <td>資金に不安がある時期は最初から低めの金額に設定する。未払いが続くなら税理士・社労士に相談</td>
+        </tr>
+        <tr>
+          <td><span class="badge-ng">NG</span><br>議事録を作らなかった</td>
+          <td>役員報酬の根拠が証明できない。税務調査時に「何を根拠に払ったのか」と問われる。最悪、全額損金不算入のリスク</td>
+          <td>1人会社でも株主総会議事録を毎年作成して保管（10年間）。フォーマットはネット検索で入手可</td>
+        </tr>
+        <tr>
+          <td><span class="badge-cau">注意</span><br>役員報酬を0円にした</td>
+          <td>法人税を減らせない（役員報酬＝損金がゼロ）。また社会保険の加入要否が曖昧になる場合がある</td>
+          <td>事業立ち上げ期で収入がまだない場合は0円もあり得るが、早めに設定を見直す。社会保険は年金事務所に確認</td>
+        </tr>
+        <tr>
+          <td><span class="badge-ng">NG</span><br>源泉徴収を忘れた</td>
+          <td>役員報酬は給与所得として所得税を源泉徴収（げんせんちょうしゅう＝支払い前に引き去る）し、翌月10日までに税務署に納付する義務がある。忘れると不納付加算税＋延滞税</td>
+          <td>毎月の支払日に「源泉徴収額」を計算して手取り額を振り込み、徴収額を翌月10日までに e-Tax または金融機関で納付</td>
+        </tr>
+      </tbody>
+    </table>
 
     <div class="sticky">
-      ✏️ <strong>相談先：</strong>
-      近くの税理士（日本税理士会連合会の検索サービスで探せます）
-      ／ 税務署の「記帳相談」（予約制・無料）
-      ／ 商工会・商工会議所の経営支援担当
+      ✏️ <strong>源泉徴収の計算方法：</strong><br>
+      役員報酬の源泉徴収税額は「給与所得の源泉徴収税額表（月額表）」を使う。
+      国税庁ウェブサイトで毎年公表されているので、自分の報酬額と扶養親族の数から
+      引くべき税額を確認する。
+      会計ソフト（freee・マネーフォワードなど）を使うと自動計算してくれる。
     </div>
 
     <div class="source">
       📎 出典：
-      <a href="https://www.nichizeiren.or.jp/consultant/" target="_blank">日本税理士会連合会｜税理士検索</a>
+      <a href="https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2023/01.htm" target="_blank">国税庁｜給与所得の源泉徴収税額表（月額表）</a>
       ／
-      <a href="https://www.nta.go.jp/about/organization/ntc/kekka/h27/jitsumu_h27/pdf/003.pdf" target="_blank">国税庁｜消費税簡易課税制度選択届出書の様式・記載例</a>
+      <a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/gensen/2502.htm" target="_blank">国税庁タックスアンサー No.2502 源泉徴収の納付期限</a>
+      （基準年度：令和8年度税制）
     </div>
   </div>
 </div>
@@ -820,24 +991,24 @@
   <h2>📝 今日のまとめ</h2>
   <div class="summary-grid">
     <div class="summary-item">
-      <span class="s-emoji">⏰</span>
-      <div class="s-title">2割特例は9月末で終了</div>
-      法人が2割特例を使えるのは2026年9月30日までの課税期間のみ。残り約4か月
+      <span class="s-emoji">📏</span>
+      <div class="s-title">定期同額給与がメインルール</div>
+      毎月・同額・届出不要。この3条件を守れば役員報酬は会社の損金（経費）になる
     </div>
     <div class="summary-item">
-      <span class="s-emoji">🏢</span>
-      <div class="s-title">新設法人の適用条件</div>
-      資本金1,000万円未満かつインボイス登録済みなら原則OK。ただし例外あり → フローチャートで確認
+      <span class="s-emoji">🗓️</span>
+      <div class="s-title">決めるのは3か月以内</div>
+      事業年度開始後3か月以内（定時改定）に株主総会で決議＆議事録作成。それ以外の期中変更は原則NG
     </div>
     <div class="summary-item">
-      <span class="s-emoji">🔀</span>
-      <div class="s-title">10月以降は3択</div>
-      本則課税・簡易課税・免税（インボイス廃止）から選ぶ。法人は「3割特例」の対象外
+      <span class="s-emoji">🎯</span>
+      <div class="s-title">金額は3視点で設定</div>
+      ①個人の生活費 ②社会保険料の負担 ③会社の資金繰り。創業期は低め設定で安全スタートが定石
     </div>
     <div class="summary-item">
-      <span class="s-emoji">📝</span>
-      <div class="s-title">簡易課税の特例届出を活用</div>
-      2割特例終了後の最初の課税期間の申告期限までに届出書を出せば簡易課税に切り替え可
+      <span class="s-emoji">💸</span>
+      <div class="s-title">源泉徴収は翌月10日</div>
+      役員報酬から所得税を源泉徴収し、翌月10日までに納付。忘れると加算税＋延滞税が発生
     </div>
   </div>
 </div>
@@ -846,15 +1017,16 @@
 <div class="disclaimer">
   <strong>⚠️ 免責事項・ご注意</strong><br><br>
   本記事は一般的な情報提供を目的としており、税務・法務・会計上の個別アドバイスではありません。
-  消費税の計算方法・届出の可否・適用要件は、法人の状況（資本金・設立時期・売上規模・取引形態など）
-  によって異なります。具体的な判断は必ず<strong>税理士・公認会計士</strong>などの専門家にご相談ください。<br><br>
-  本記事で引用した税率・制度・金額・期限は<strong>令和8年度（2026年度）税制</strong>を基準に記載しています。
-  税制は毎年改正されるため、最新情報は<strong>国税庁（nta.go.jp）</strong>の公式ページでご確認ください。
+  役員報酬の適正額・源泉徴収の計算・社会保険の加入要否は、法人の状況（設立時期・売上規模・株主構成など）
+  によって異なります。具体的な判断は必ず<strong>税理士・社会保険労務士</strong>などの専門家にご相談ください。<br><br>
+  本記事で引用した法令・制度・税額表は<strong>令和8年度（2026年度）時点</strong>を基準に記載しています。
+  税制・社会保険料率は毎年改定されるため、最新情報は
+  <strong>国税庁（nta.go.jp）</strong>・<strong>日本年金機構（nenkin.go.jp）</strong>の公式ページでご確認ください。
 </div>
 
 <!-- ===== フッター ===== -->
 <div class="footer">
-  <p><strong>1人法人スタート 最新トピック</strong> ── 2026-05-30号</p>
+  <p><strong>1人法人スタート 基礎知識</strong> ── 2026-05-30号</p>
   <p style="margin-top:6px;">各記事の出典URLは各トピック下部に記載しています。情報は収集時点のものです。</p>
   <p style="margin-top:4px;"><a href="index.html" style="color:#aaa;">← バックナンバー一覧へ</a></p>
 </div>
