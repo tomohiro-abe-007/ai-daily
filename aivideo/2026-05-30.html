@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI動画制作 最新トピック 2026-05-30</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  /* ノート表紙 */
+  .cover {
+    background: linear-gradient(135deg, #1a4a6b 0%, #0d2e45 50%, #1a5c3a 100%);
+    color: white;
+    border-radius: 8px;
+    padding: 60px 40px;
+    text-align: center;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.3);
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 28px,
+      rgba(255,255,255,0.06) 28px,
+      rgba(255,255,255,0.06) 29px
+    );
+  }
+  .cover-emoji { font-size: 64px; display: block; margin-bottom: 16px; position: relative; }
+  .cover h1 {
+    font-family: 'Klee One', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 12px;
+    position: relative;
+  }
+  .cover .subtitle {
+    font-size: 1.05rem;
+    opacity: 0.85;
+    margin-bottom: 8px;
+    position: relative;
+  }
+  .cover .date-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 20px;
+    padding: 6px 20px;
+    font-size: 1rem;
+    margin-top: 16px;
+    position: relative;
+  }
+
+  /* カード */
+  .card {
+    background: #fff9f0;
+    border-radius: 6px;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.12);
+    position: relative;
+    overflow: hidden;
+  }
+  .card-body {
+    padding: 28px 36px 28px 64px;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 31px,
+      #e0d8c8 31px,
+      #e0d8c8 32px
+    );
+    background-color: #fff9f0;
+    min-height: 200px;
+    position: relative;
+  }
+  .card-body::before {
+    content: '';
+    position: absolute;
+    left: 52px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #e8a0a0;
+    opacity: 0.7;
+  }
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 8px;
+    border-bottom: 2px dashed #c8b89a;
+  }
+  .card-emoji { font-size: 2rem; }
+  .card-title {
+    font-family: 'Klee One', sans-serif;
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: #1a3a5c;
+    line-height: 1.3;
+  }
+
+  /* バッジ */
+  .topic-badge {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-left: auto;
+    white-space: nowrap;
+  }
+  .badge-blue   { background: #e0eeff; color: #2255aa; border: 1px solid #a0c0f5; }
+  .badge-green  { background: #e0f5e0; color: #1e7e34; border: 1px solid #a0d8a0; }
+  .badge-teal   { background: #d0f0f0; color: #006060; border: 1px solid #80d0d0; }
+  .badge-orange { background: #fff0d0; color: #cc6600; border: 1px solid #f0c070; }
+  .badge-purple { background: #f0e0ff; color: #7b2fbe; border: 1px solid #c8a0f0; }
+  .badge-red    { background: #ffe0e0; color: #c0392b; border: 1px solid #f5a0a0; }
+
+  /* マーカー */
+  .point-list { list-style: none; padding: 0; margin: 12px 0; }
+  .point-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 0;
+    font-size: 0.97rem;
+    line-height: 1.7;
+    color: #333;
+    border-bottom: 1px dotted #ddd;
+  }
+  .point-list li:last-child { border-bottom: none; }
+  .marker {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-top: 2px;
+  }
+  .marker-blue   { background: #2255aa; color: white; }
+  .marker-green  { background: #1e7e34; color: white; }
+  .marker-teal   { background: #006060; color: white; }
+  .marker-orange { background: #cc6600; color: white; }
+  .marker-purple { background: #7b2fbe; color: white; }
+  .marker-red    { background: #c0392b; color: white; }
+
+  /* ハイライト */
+  .hl-yellow { background: linear-gradient(transparent 60%, #ffe566 60%); }
+  .hl-blue   { background: linear-gradient(transparent 60%, #b3d4ff 60%); }
+  .hl-green  { background: linear-gradient(transparent 60%, #b3f0b3 60%); }
+  .hl-pink   { background: linear-gradient(transparent 60%, #ffb3c6 60%); }
+
+  /* やさしい解説ボックス */
+  .simple-box {
+    background: #fff7e0;
+    border-left: 4px solid #f5c842;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin: 16px 0;
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+  .simple-box .label {
+    display: inline-block;
+    background: #f5c842;
+    color: #5a4000;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+  }
+
+  /* 付箋 */
+  .sticky {
+    background: #fff9c4;
+    border-radius: 4px;
+    padding: 12px 16px;
+    margin: 14px 0;
+    font-size: 0.9rem;
+    line-height: 1.8;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.1);
+    transform: rotate(-0.5deg);
+    display: inline-block;
+    width: 100%;
+    color: #4a3800;
+  }
+
+  /* 比較テーブル */
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 0.88rem;
+  }
+  .compare-table th {
+    background: #1a4a6b;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .compare-table th:first-child { border-radius: 6px 0 0 0; }
+  .compare-table th:last-child  { border-radius: 0 6px 0 0; }
+  .compare-table td {
+    padding: 8px 12px;
+    border-bottom: 1px solid #e0d8c8;
+    line-height: 1.6;
+    vertical-align: top;
+  }
+  .compare-table tr:nth-child(even) td { background: rgba(0,0,0,0.025); }
+  .check { color: #1e7e34; font-weight: 700; }
+  .cross { color: #c0392b; }
+  .warn  { color: #cc6600; }
+
+  /* コードブロック風プロンプト */
+  .prompt-box {
+    background: #1e2a3a;
+    color: #a8d8a0;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 14px 0;
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+    line-height: 1.8;
+    white-space: pre-wrap;
+    word-break: break-all;
+  }
+  .prompt-box .comment { color: #6a9ad4; }
+
+  /* 出典 */
+  .source {
+    font-size: 0.78rem;
+    color: #888;
+    margin-top: 14px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+  }
+  .source a { color: #5577aa; text-decoration: none; }
+  .source a:hover { text-decoration: underline; }
+
+  /* まとめカード */
+  .summary-card {
+    background: linear-gradient(135deg, #0d2e45 0%, #1a5c3a 100%);
+    color: white;
+    border-radius: 8px;
+    padding: 36px 40px;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.2);
+  }
+  .summary-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px dashed rgba(255,255,255,0.4);
+  }
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+  }
+  .summary-item {
+    background: rgba(255,255,255,0.12);
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  .summary-item .s-emoji { font-size: 1.6rem; display: block; margin-bottom: 6px; }
+  .summary-item .s-title { font-weight: 600; margin-bottom: 4px; font-size: 0.97rem; }
+
+  /* 目次 */
+  .toc {
+    background: #f8f4ec;
+    border: 2px solid #c8b89a;
+    border-radius: 8px;
+    padding: 20px 28px;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+  }
+  .toc h2 { font-size: 1.1rem; color: #5a4030; margin-bottom: 12px; }
+  .toc ol { padding-left: 20px; }
+  .toc li { padding: 4px 0; font-size: 0.93rem; }
+  .toc a { color: #2255aa; text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+
+  /* 免責 */
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.8rem;
+    color: #666;
+    line-height: 1.7;
+    margin: 14px 0;
+  }
+
+  /* フッター */
+  .footer {
+    text-align: center;
+    color: #888;
+    font-size: 0.8rem;
+    padding: 20px;
+    max-width: 820px;
+    width: 100%;
+  }
+
+  @media (max-width: 600px) {
+    .card-body { padding: 20px 20px 20px 44px; }
+    .card-title { font-size: 1.1rem; }
+    .cover h1 { font-size: 1.7rem; }
+    .summary-card { padding: 24px 20px; }
+    .compare-table { font-size: 0.8rem; }
+    .prompt-box { font-size: 0.78rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== 表紙 ===== -->
+<div class="cover">
+  <span class="cover-emoji">🎬🎵</span>
+  <h1>AI動画制作 最新トピック</h1>
+  <div class="subtitle">映像と音を同時につくる時代 ── 2026年の主要ツール解説</div>
+  <div class="date-badge">📅 2026年5月30日号</div>
+</div>
+
+<!-- ===== 目次 ===== -->
+<div class="toc">
+  <h2>📋 今日の目次</h2>
+  <ol>
+    <li><a href="#topic1">「映像と音を同時に生成」とはどういうこと？</a></li>
+    <li><a href="#topic2">Veo 3.1 ── Googleの動画生成AIの最新版</a></li>
+    <li><a href="#topic3">Runway Gen-4 ── 一貫したキャラクターと音声</a></li>
+    <li><a href="#topic4">ツール比較まとめ</a></li>
+    <li><a href="#topic5">今すぐ真似できる！プロンプトのコツ</a></li>
+  </ol>
+</div>
+
+<!-- ===== トピック1 ===== -->
+<div class="card" id="topic1">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">🎙️</span>
+      <h2 class="card-title">「映像と音を同時に生成」とはどういうこと？</h2>
+      <span class="topic-badge badge-blue">基礎知識</span>
+    </div>
+
+    <div class="simple-box">
+      <span class="label">中学生向け一言解説</span><br>
+      これまでのAI動画ツールは「映像だけ」を作るものがほとんどで、BGMや声・効果音は別のアプリで後から追加する必要がありました。<br>
+      2026年の最新ツールは、テキストを入力するだけで<span class="hl-yellow">映像・セリフ・効果音・BGMがセットで出来上がる</span>ようになっています。まるで「文字を書いたら映画の1シーンが完成する」感覚です。
+    </div>
+
+    <ul class="point-list">
+      <li>
+        <span class="marker marker-blue">旧</span>
+        <div>以前：テキスト → AI → 映像のみ。音声は別ツール（Suno, ElevenLabsなど）で用意して、動画編集ソフトで貼り合わせる必要があった</div>
+      </li>
+      <li>
+        <span class="marker marker-green">新</span>
+        <div>2026年現在：テキスト → AI → <span class="hl-green">映像＋音声（同期済み）</span>を一発出力できるツールが登場。ワークフローが大幅に短縮</div>
+      </li>
+      <li>
+        <span class="marker marker-teal">注</span>
+        <div><strong>ネイティブ音声生成</strong>（native audio）＝ 映像と音をAIが同時に計算して作ること。後からくっつけた音とは口の動きや環境音のタイミングが自然に合う</div>
+      </li>
+    </ul>
+
+    <div class="sticky">
+      📝 メモ：「音と映像の同時生成」は2026年の最大トレンド。この技術があるかどうかがツール選びの重要ポイントになっています。
+    </div>
+  </div>
+</div>
+
+<!-- ===== トピック2 ===== -->
+<div class="card" id="topic2">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">🔵</span>
+      <h2 class="card-title">Veo 3.1 ── Googleの動画生成AI最新版</h2>
+      <span class="topic-badge badge-teal">ツール情報</span>
+    </div>
+
+    <p style="font-size:0.95rem;line-height:1.8;margin-bottom:14px;">
+      <strong>Veo（ヴェオ）</strong>はGoogle DeepMindが開発した動画生成AI（＝テキストや画像から映像を作るAI）です。2025年5月に登場したVeo 3が大きな注目を集め、2026年には改良版の<span class="hl-blue">Veo 3.1</span>がリリースされています。<br>
+      GoogleのサービスFlowやGemini上から利用できます（公式で要確認）。
+    </p>
+
+    <ul class="point-list">
+      <li>
+        <span class="marker marker-teal">①</span>
+        <div><strong>ネイティブ音声生成</strong>：映像と同時に<span class="hl-yellow">セリフ・効果音・BGMを生成</span>できる。Sora・Runwayなどは2026年5月時点の公式仕様では映像専用（音声は別途必要）</div>
+      </li>
+      <li>
+        <span class="marker marker-teal">②</span>
+        <div><strong>Ingredients to Video（材料から動画）</strong>：最大4枚の参照画像（＝使いたいキャラや小道具の写真）をアップロードすると、動画全体でそのビジュアルを一貫して維持できる</div>
+      </li>
+      <li>
+        <span class="marker marker-teal">③</span>
+        <div><strong>縦型動画（9:16）対応</strong>：TikTok・YouTube Shorts用のショート動画をネイティブに生成。横に生成して後からトリミングではなく最初から縦で作れる</div>
+      </li>
+      <li>
+        <span class="marker marker-teal">④</span>
+        <div><strong>2つのモード</strong>：<span class="hl-green">Qualityモード</span>（高品質・約100クレジット）と<span class="hl-pink">Fastモード</span>（ドラフト確認用・約10クレジット）。まずFastで構図を確認してからQualityで仕上げる使い方が効率的</div>
+      </li>
+    </ul>
+
+    <div class="simple-box">
+      <span class="label">たとえ話</span><br>
+      参照画像機能は「この俳優さんで撮って」と指定するのに似ています。架空のキャラでも、自分が描いたイラストや撮った写真を「設定資料」として渡せるイメージです。著作権のあるキャラや実在人物の無断再現には使わないよう注意してください。
+    </div>
+
+    <div class="disclaimer">
+      ⚠️ Veo 3.1 の料金・クレジット数・対応地域・商用利用の可否は変更される場合があります。最新情報は <strong>Google DeepMind公式サイト</strong> および <strong>Google Flow / Gemini の利用規約</strong> でご確認ください。
+    </div>
+
+    <div class="source">
+      📎 出典：
+      <a href="https://deepmind.google/models/veo/" target="_blank">Veo 3.1 — Google DeepMind（公式）</a>（2026年5月確認）／
+      <a href="https://jp.cyberlink.com/blog/videoeditor/3916/what-is-veo3" target="_blank">Veo 3 / Veo 3.1 解説 — CyberLink</a>（2026年5月）／
+      <a href="https://weel.co.jp/media/innovator/veo3/" target="_blank">Veo3の使い方・料金解説 — WEEL</a>（2026年5月）
+    </div>
+  </div>
+</div>
+
+<!-- ===== トピック3 ===== -->
+<div class="card" id="topic3">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">✈️</span>
+      <h2 class="card-title">Runway Gen-4 ── 一貫したキャラクターと音声</h2>
+      <span class="topic-badge badge-orange">ツール情報</span>
+    </div>
+
+    <p style="font-size:0.95rem;line-height:1.8;margin-bottom:14px;">
+      <strong>Runway（ランウェイ）</strong>はAI動画制作のプロ向けツールとして人気のサービスです。2026年5月3日、最新版の<span class="hl-yellow">Gen-4</span>がリリースされました（出典：vo3ai.com 2026-05-03付け記事）。
+    </p>
+
+    <ul class="point-list">
+      <li>
+        <span class="marker marker-orange">①</span>
+        <div><strong>キャラクター一貫性</strong>：複数のカットをまたいでも<span class="hl-yellow">同じ人物・キャラクターの見た目を維持</span>できるようになった。これまでのAI動画の最大の弱点だった「カットが変わると顔が違う人になる」問題を大幅改善</div>
+      </li>
+      <li>
+        <span class="marker marker-orange">②</span>
+        <div><strong>カメラモーションの精密制御</strong>：「右にゆっくり回りながら近づく（ドリーイン＋パン）」などのカメラワーク指定が細かくできるように。プロの撮影指示に近い操作感</div>
+      </li>
+      <li>
+        <span class="marker marker-orange">③</span>
+        <div><strong>ネイティブ音声生成</strong>：映像に合わせた音声トラック（口の動きに合うセリフ、環境音）を同時出力できるようになった</div>
+      </li>
+      <li>
+        <span class="marker marker-orange">④</span>
+        <div><strong>Turboバリアント</strong>：高速生成モード。素早くドラフトを確認して方向性を決めてから、本番品質で仕上げる使い方ができる</div>
+      </li>
+    </ul>
+
+    <div class="sticky">
+      📝 Runwayはプロのクリエイターや映画制作現場でも使われているツールです。特に「キャラクターを一貫して登場させたい連続ドラマ風の動画」を作りたい場合に強みを発揮します。
+    </div>
+
+    <div class="disclaimer">
+      ⚠️ Runway Gen-4 の機能・料金・商用利用の可否は変更される場合があります。最新情報は <strong>Runway公式サイト（runwayml.com）</strong> でご確認ください。
+    </div>
+
+    <div class="source">
+      📎 出典：
+      <a href="https://www.vo3ai.com/blog/runway-gen-4-just-dropped-5-surprising-upgrades-ai-video-makers-need-to-know-2026-05-03" target="_blank">Runway Gen-4 リリース記事 — VO3 AI Blog（2026-05-03）</a>／
+      <a href="https://releasebot.io/updates/runwayai" target="_blank">Runway AI Release Notes — Releasebot（2026年5月）</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== トピック4 ===== -->
+<div class="card" id="topic4">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">📊</span>
+      <h2 class="card-title">主要ツール比較まとめ（2026年5月時点）</h2>
+      <span class="topic-badge badge-purple">比較</span>
+    </div>
+
+    <table class="compare-table">
+      <tr>
+        <th>ツール</th>
+        <th>ネイティブ音声</th>
+        <th>キャラ一貫性</th>
+        <th>縦型動画</th>
+        <th>こんな人向け</th>
+      </tr>
+      <tr>
+        <td><strong>Veo 3.1</strong><br><small>（Google / Flow）</small></td>
+        <td><span class="check">✔ セリフ・SE・BGM</span></td>
+        <td><span class="check">✔ 参照画像で維持</span></td>
+        <td><span class="check">✔ ネイティブ対応</span></td>
+        <td>音込みで完結させたい／ショート動画を作りたい人</td>
+      </tr>
+      <tr>
+        <td><strong>Runway Gen-4</strong><br><small>（runwayml.com）</small></td>
+        <td><span class="check">✔ 映像連動音声</span></td>
+        <td><span class="check">✔ マルチショット対応</span></td>
+        <td><span class="warn">△ テンプレート対応</span></td>
+        <td>プロ品質・キャラ登場の連続動画を作りたい人</td>
+      </tr>
+      <tr>
+        <td><strong>Kling 3.0</strong><br><small>（kuaishou）</small></td>
+        <td><span class="check">✔ カット間音声同期</span></td>
+        <td><span class="check">✔ 強い</span></td>
+        <td><span class="warn">△</span></td>
+        <td>映画的な動き（髪・液体・布）を重視する人</td>
+      </tr>
+    </table>
+
+    <div class="simple-box">
+      <span class="label">選び方ヒント</span><br>
+      🎬 <strong>TikTok・Shorts用の短い動画を音込みで素早く作りたい</strong> → Veo 3.1 が有力<br>
+      🎥 <strong>キャラが繰り返し登場する動画シリーズ</strong> → Runway Gen-4 が強い<br>
+      🌊 <strong>水や炎などリアルな物理表現にこだわる</strong> → Kling 3.0 も要チェック<br>
+      ※ どれも機能・料金は頻繁に変わるため、<span class="hl-pink">必ず公式サイトで最新情報を確認</span>してください。
+    </div>
+
+    <div class="source">
+      📎 出典：
+      <a href="https://tensoria.fr/en/tools/runway-pro-ai-video-generation" target="_blank">Runway Gen-4 vs Veo 3.1 vs Kling 比較 — Tensoria（2026年5月）</a>／
+      <a href="https://www.atlascloud.ai/blog/guides/runway-gen-4-vs-kling-3-0-which-image-to-video-ai-wins-for-professional-filmmaking" target="_blank">Runway Gen-4 vs Kling 3.0 プロ向け比較 — Atlas Cloud（2026年5月）</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== トピック5 ===== -->
+<div class="card" id="topic5">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">✏️</span>
+      <h2 class="card-title">今すぐ真似できる！プロンプトのコツ（Veo 3.1 実例）</h2>
+      <span class="topic-badge badge-green">実践</span>
+    </div>
+
+    <p style="font-size:0.95rem;line-height:1.8;margin-bottom:14px;">
+      AI動画ツールへの指示文（プロンプト）は、<span class="hl-yellow">「映像の内容」「カメラの動き」「音の内容」</span>の3つをセットで書くと完成度が上がります。
+    </p>
+
+    <div class="simple-box">
+      <span class="label">プロンプトの構造</span><br>
+      <strong>① 映像内容</strong>（何が・どこで・どんな雰囲気）<br>
+      <strong>② カメラワーク</strong>（引き・寄り・パン・固定など）<br>
+      <strong>③ 音の指定</strong>（セリフ・環境音・BGMジャンル）
+    </div>
+
+    <p style="font-size:0.93rem;color:#555;margin:8px 0 4px;"><strong>▼ 具体例（英語プロンプト ＋ 日本語解説）</strong></p>
+
+    <div class="prompt-box"><span class="comment">-- Veo 3.1 向けサンプルプロンプト --</span>
+A young woman in a yellow raincoat walks through
+a rainy Tokyo alley at night. Lanterns reflect
+on wet cobblestones. Slow dolly-in shot.
+<span class="comment">-- カメラ指定 --</span>
+Camera slowly pushes forward (dolly-in),
+eye-level, shallow depth of field.
+<span class="comment">-- 音の指定 --</span>
+Sound: gentle rain, distant thunder,
+soft lo-fi jazz music, her footsteps on wet stone.</div>
+
+    <ul class="point-list">
+      <li>
+        <span class="marker marker-green">①</span>
+        <div>「<strong>dolly-in（ドリーイン）</strong>」はカメラが被写体に向かって前進する動き。引き込まれるような緊張感が出る</div>
+      </li>
+      <li>
+        <span class="marker marker-green">②</span>
+        <div>「<strong>shallow depth of field（浅い被写界深度）</strong>」は主役だけピントが合い、背景がぼける一眼レフ風の映像表現</div>
+      </li>
+      <li>
+        <span class="marker marker-green">③</span>
+        <div>音を「雨・雷・ジャズ・足音」と複数書くと、AIが自然にミックスしてくれる。<span class="hl-green">音を具体的に指定するほどクオリティが上がる</span></div>
+      </li>
+    </ul>
+
+    <div class="sticky">
+      🎯 練習課題：上のプロンプトをベースに「場所を変える（砂漠・雪山・カフェなど）」「音楽ジャンルを変える（クラシック・EDMなど）」だけで全然違う動画になります。まず1回試してみてください！
+    </div>
+  </div>
+</div>
+
+<!-- ===== まとめ ===== -->
+<div class="summary-card">
+  <h2>📌 今日のまとめ</h2>
+  <div class="summary-grid">
+    <div class="summary-item">
+      <span class="s-emoji">🎵</span>
+      <div class="s-title">音声同時生成が常識に</div>
+      映像と音を1プロンプトで生成できる時代へ。Veo 3.1が先行。
+    </div>
+    <div class="summary-item">
+      <span class="s-emoji">🔵</span>
+      <div class="s-title">Veo 3.1 の3つの強み</div>
+      ①音声同時生成 ②参照画像でキャラ一貫 ③縦型動画ネイティブ対応
+    </div>
+    <div class="summary-item">
+      <span class="s-emoji">✈️</span>
+      <div class="s-title">Runway Gen-4 の強み</div>
+      複数カットをまたいだキャラ一貫性とカメラ精密制御でプロ向けに進化
+    </div>
+    <div class="summary-item">
+      <span class="s-emoji">✏️</span>
+      <div class="s-title">プロンプトの鉄則</div>
+      「映像内容＋カメラワーク＋音の指定」の3点セットで書くと完成度アップ
+    </div>
+  </div>
+</div>
+
+<!-- ===== フッター ===== -->
+<div class="footer">
+  ⚠️ <strong>免責事項</strong>：紹介したAIツールの名称・機能・料金・商用利用の可否は頻繁に変更されます。最新情報と利用規約は必ず各ツールの公式ページでご確認ください。<br><br>
+  AI動画制作 最新トピック 2026-05-30 ／ 出典URLは各カード内に記載
+</div>
+
+</body>
+</html>
