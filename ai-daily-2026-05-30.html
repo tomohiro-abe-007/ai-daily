@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>生成AI日報 2026-05-30</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  /* ノート表紙スタイル */
+  .cover {
+    background: linear-gradient(135deg, #2c5f8a 0%, #1a3d5c 100%);
+    color: white;
+    border-radius: 8px;
+    padding: 60px 40px;
+    text-align: center;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.3);
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 28px,
+      rgba(255,255,255,0.07) 28px,
+      rgba(255,255,255,0.07) 29px
+    );
+  }
+  .cover-emoji { font-size: 64px; display: block; margin-bottom: 16px; }
+  .cover h1 {
+    font-family: 'Klee One', sans-serif;
+    font-size: 2.4rem;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 12px;
+    position: relative;
+  }
+  .cover .subtitle {
+    font-size: 1.1rem;
+    opacity: 0.85;
+    margin-bottom: 8px;
+    position: relative;
+  }
+  .cover .date-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 20px;
+    padding: 6px 20px;
+    font-size: 1rem;
+    margin-top: 16px;
+    position: relative;
+  }
+  .cover .nomad {
+    position: absolute;
+    top: 16px; right: 20px;
+    font-size: 0.8rem;
+    opacity: 0.7;
+    letter-spacing: 1px;
+  }
+
+  /* カードスタイル */
+  .card {
+    background: #fff9f0;
+    border-radius: 6px;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.12);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* ノートの横線 */
+  .card-body {
+    padding: 28px 36px 28px 64px;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 31px,
+      #e0d8c8 31px,
+      #e0d8c8 32px
+    );
+    background-color: #fff9f0;
+    min-height: 200px;
+  }
+
+  /* 左の赤い縦線（ノートの余白線） */
+  .card-body::before {
+    content: '';
+    position: absolute;
+    left: 52px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #e8a0a0;
+    opacity: 0.7;
+  }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 8px;
+    border-bottom: 2px dashed #c8b89a;
+  }
+
+  .card-emoji { font-size: 2rem; }
+
+  .card-title {
+    font-family: 'Klee One', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #2c3e50;
+    line-height: 1.3;
+  }
+
+  .topic-badge {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-left: auto;
+    white-space: nowrap;
+  }
+  .badge-red    { background: #ffe0e0; color: #c0392b; border: 1px solid #f5a0a0; }
+  .badge-blue   { background: #e0eeff; color: #2255aa; border: 1px solid #a0c0f5; }
+  .badge-green  { background: #e0f5e0; color: #1e7e34; border: 1px solid #a0d8a0; }
+  .badge-purple { background: #f0e0ff; color: #7b2fbe; border: 1px solid #c8a0f0; }
+  .badge-orange { background: #fff0d0; color: #cc6600; border: 1px solid #f0c070; }
+  .badge-teal   { background: #d0f0f0; color: #006060; border: 1px solid #80d0d0; }
+
+  /* やさしい解説ボックス */
+  .simple-box {
+    background: #fff7e0;
+    border-left: 4px solid #f5c842;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin: 16px 0;
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+  .simple-box .label {
+    display: inline-block;
+    background: #f5c842;
+    color: #5a4000;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+  }
+
+  /* ポイントリスト */
+  .point-list {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0;
+  }
+  .point-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 0;
+    font-size: 0.97rem;
+    line-height: 1.7;
+    color: #333;
+    border-bottom: 1px dotted #ddd;
+  }
+  .point-list li:last-child { border-bottom: none; }
+  .point-list .marker {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-top: 2px;
+  }
+  .marker-red    { background: #c0392b; color: white; }
+  .marker-blue   { background: #2255aa; color: white; }
+  .marker-green  { background: #1e7e34; color: white; }
+  .marker-purple { background: #7b2fbe; color: white; }
+  .marker-orange { background: #cc6600; color: white; }
+  .marker-teal   { background: #006060; color: white; }
+
+  /* ハイライト文字 */
+  .hl-yellow { background: linear-gradient(transparent 60%, #ffe566 60%); }
+  .hl-pink   { background: linear-gradient(transparent 60%, #ffb3c6 60%); }
+  .hl-blue   { background: linear-gradient(transparent 60%, #b3d4ff 60%); }
+  .hl-green  { background: linear-gradient(transparent 60%, #b3f0b3 60%); }
+
+  /* 手書き風メモ帖 */
+  .sticky {
+    background: #fff9c4;
+    border-radius: 4px;
+    padding: 12px 16px;
+    margin: 14px 0;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.1);
+    transform: rotate(-0.5deg);
+    display: inline-block;
+    width: 100%;
+    color: #4a3800;
+  }
+
+  /* 出典 */
+  .source {
+    font-size: 0.78rem;
+    color: #888;
+    margin-top: 14px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+  }
+  .source a { color: #5577aa; text-decoration: none; }
+  .source a:hover { text-decoration: underline; }
+
+  /* まとめカード */
+  .summary-card {
+    background: linear-gradient(135deg, #1a3d5c 0%, #2c7744 100%);
+    color: white;
+    border-radius: 8px;
+    padding: 36px 40px;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.2);
+  }
+  .summary-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px dashed rgba(255,255,255,0.4);
+  }
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+  }
+  .summary-item {
+    background: rgba(255,255,255,0.12);
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  .summary-item .s-emoji { font-size: 1.6rem; display: block; margin-bottom: 6px; }
+  .summary-item .s-title { font-weight: 600; margin-bottom: 4px; font-size: 1rem; }
+
+  /* フッター */
+  .footer {
+    text-align: center;
+    color: #888;
+    font-size: 0.8rem;
+    padding: 20px;
+    max-width: 820px;
+    width: 100%;
+  }
+
+  /* スクロール用アンカー */
+  .toc {
+    background: #f8f4ec;
+    border: 2px solid #c8b89a;
+    border-radius: 8px;
+    padding: 20px 28px;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+  }
+  .toc h2 { font-size: 1.1rem; color: #5a4030; margin-bottom: 12px; }
+  .toc ol { padding-left: 20px; }
+  .toc li { padding: 4px 0; font-size: 0.93rem; }
+  .toc a { color: #2255aa; text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+
+  @media (max-width: 600px) {
+    .card-body { padding: 20px 20px 20px 44px; }
+    .card-title { font-size: 1.15rem; }
+    .cover h1 { font-size: 1.8rem; }
+    .summary-card { padding: 24px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== 表紙 ===== -->
+<div class="cover">
+  <span class="nomad">NOMAD ACADEMY</span>
+  <span class="cover-emoji">🤖📰</span>
+  <h1>生成AI 日報</h1>
+  <div class="subtitle">直近30日の超重要トピックを中学生でもわかるようにまとめました</div>
+  <div class="date-badge">📅 2026年5月30日号</div>
+</div>
+
+<!-- ===== 目次 ===== -->
+<div class="toc">
+  <h2>📋 今日の目次</h2>
+  <ol>
+    <li><a href="#topic1">GPT-5.5登場！「考えながら動くAI」が新時代へ</a></li>
+    <li><a href="#topic2">Claude Opus 4.7 ── 10個のAIが同時に動く！</a></li>
+    <li><a href="#topic3">Grok Build ── イーロン・マスクのAIもコーディング参戦</a></li>
+    <li><a href="#topic4">Gemini 3.5 Pro ── AIがGoogleのファイルを直接書き換える</a></li>
+    <li><a href="#topic5">ChatGPTがスマホからパソコンを操作できるように</a></li>
+    <li><a href="#topic6">日本のメガバンクもAIを本格導入へ</a></li>
+    <li><a href="#summary">今日のまとめ ── 2026年5月の大きな流れ</a></li>
+  </ol>
+</div>
+
+<!-- ===== トピック1 ===== -->
+<div class="card" id="topic1">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">🧠</span>
+      <div class="card-title">GPT-5.5 登場！<br>「考えながら動くAI」が新時代へ</div>
+      <span class="topic-badge badge-red">OpenAI</span>
+    </div>
+
+    <div class="simple-box">
+      <span class="label">🌱 やさしく解説</span><br>
+      これまでのAIは「質問されたら答える」だけでした。でも<span class="hl-yellow">GPT-5.5</span>は「自分でやることリストを作って、必要なツールを使いながら、順番に仕事をこなす」ことができます。まるで<strong>「優秀なアシスタント」</strong>が自動で動いてくれるイメージです。
+    </div>
+
+    <ul class="point-list">
+      <li>
+        <span class="marker marker-red">1</span>
+        <span><strong>複雑な目標を理解できる</strong> ── 「このデータを分析してレポートを作って」という複雑な指示でも、自分でステップを考えて実行できる</span>
+      </li>
+      <li>
+        <span class="marker marker-red">2</span>
+        <span><strong>ツールを使いながら思考する</strong> ── 計算が必要なら計算機を使い、検索が必要なら検索し、必要に応じて組み合わせる</span>
+      </li>
+      <li>
+        <span class="marker marker-red">3</span>
+        <span><strong>「実世界の仕事のための知能」</strong>と位置づけ ── ビジネス現場での実用に特化したモデルとして発表</span>
+      </li>
+    </ul>
+
+    <div class="sticky">
+      ✏️ <strong>中学生的に言うと：</strong>「宿題を手伝って」と言ったら、教科書を調べて、計算して、まとめノートも作ってくれる感じ！
+    </div>
+
+    <div class="source">
+      📎 出典：
+      <a href="https://vegcale.com/2026/05/02/gpt-5-5-claude-gemini-ai-news-may-2026/" target="_blank">文系エンジニアの日記 – GPT-5.5・Claude・Geminiで何が変わる？2026年5月のAI最新動向</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== トピック2 ===== -->
+<div class="card" id="topic2">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">🚀</span>
+      <div class="card-title">Claude Opus 4.7 ──<br>10個のAIが同時に動く！</div>
+      <span class="topic-badge badge-blue">Anthropic</span>
+    </div>
+
+    <div class="simple-box">
+      <span class="label">🌱 やさしく解説</span><br>
+      Anthropicが作る<span class="hl-blue">Claude Opus 4.7</span>は、<strong>最大10個のAIが同時にバラバラの仕事をこなせる</strong>「Agent Teams 2.0」を搭載。以前のバージョンより<span class="hl-yellow">本番の仕事を3倍多く</span>こなせるようになりました。
+    </div>
+
+    <ul class="point-list">
+      <li>
+        <span class="marker marker-blue">1</span>
+        <span><strong>Agent Teams 2.0</strong> ── 最大10個のAIが並列で動き、大きなプロジェクトを分担して高速処理</span>
+      </li>
+      <li>
+        <span class="marker marker-blue">2</span>
+        <span><strong>1Mトークンのコンテキスト</strong> ── 本約750冊分の文章を一度に読める（デフォルト設定で利用可能に）</span>
+      </li>
+      <li>
+        <span class="marker marker-blue">3</span>
+        <span><strong>コーディング精度81.5%</strong> ── プログラムを書く能力が業界トップクラスを維持。SWE-Benchで前バージョン比3倍の実績</span>
+      </li>
+      <li>
+        <span class="marker marker-blue">4</span>
+        <span><strong>Claude Codeの制限緩和</strong> ── ProやMaxプランの5時間利用制限を2倍に拡大、ピーク時の制限も撤廃</span>
+      </li>
+    </ul>
+
+    <div class="sticky">
+      ✏️ <strong>中学生的に言うと：</strong>1人の賢い子じゃなくて、クラス全員で分担して宿題を終わらせるイメージ！しかも全員めちゃくちゃ優秀。
+    </div>
+
+    <div class="source">
+      📎 出典：
+      <a href="https://llm-stats.com/ai-news" target="_blank">LLM News Today – May 2026</a> /
+      <a href="https://aiagentstore.ai/ai-agent-news/daily/2026-05-07" target="_blank">Daily AI Agent News – May 6, 2026</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== トピック3 ===== -->
+<div class="card" id="topic3">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">⚡</span>
+      <div class="card-title">Grok Build ──<br>イーロン・マスクのAIもコーディング参戦</div>
+      <span class="topic-badge badge-orange">xAI</span>
+    </div>
+
+    <div class="simple-box">
+      <span class="label">🌱 やさしく解説</span><br>
+      イーロン・マスクの会社xAIが、プログラマーのためのAI「<span class="hl-yellow">Grok Build</span>」を5月14日にリリース。1つの指示で<strong>最大8個のAIが同時に違う部分のコードを書く</strong>という、競合と一線を画す機能が話題に。
+    </div>
+
+    <ul class="point-list">
+      <li>
+        <span class="marker marker-orange">1</span>
+        <span><strong>8個の並列サブエージェント</strong> ── 1つのプロジェクトを8つに分けて同時進行。それぞれが独立したブランチで作業</span>
+      </li>
+      <li>
+        <span class="marker marker-orange">2</span>
+        <span><strong>計画モード</strong> ── 実行前に「こういう手順でやります」という計画を表示し、人間が確認・修正できる</span>
+      </li>
+      <li>
+        <span class="marker marker-orange">3</span>
+        <span><strong>256,000トークンのコンテキスト</strong> ── 中規模のコードベース全体を一度に読み込める大容量</span>
+      </li>
+      <li>
+        <span class="marker marker-orange">4</span>
+        <span><strong>SWE-Bench 70.8%</strong> ── プログラムのバグ修正テストで70.8%の正答率（業界水準は非常に高い）</span>
+      </li>
+    </ul>
+
+    <div class="sticky">
+      ✏️ <strong>中学生的に言うと：</strong>「ゲームを作って」と言ったら、キャラクター担当・ステージ担当・音楽担当が8人がかりで同時に作ってくれる感じ！
+    </div>
+
+    <div class="source">
+      📎 出典：
+      <a href="https://devops.com/xai-enters-the-coding-agent-race-with-grok-build/" target="_blank">DevOps.com – xAI Enters the Coding Agent Race With Grok Build</a> /
+      <a href="https://www.engadget.com/2173482/xai-coding-agent-grok-build/" target="_blank">Engadget – xAI introduces its coding agent called Grok Build</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== トピック4 ===== -->
+<div class="card" id="topic4">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">📂</span>
+      <div class="card-title">Gemini 3.5 Pro ──<br>AIがGoogleのファイルを直接書き換える</div>
+      <span class="topic-badge badge-green">Google</span>
+    </div>
+
+    <div class="simple-box">
+      <span class="label">🌱 やさしく解説</span><br>
+      Googleの<span class="hl-green">Gemini 3.5 Pro</span>が大幅アップデート。これまでは「AIが答えを出す」だけでしたが、今度は<strong>GoogleドキュメントやスプレッドシートをAIが直接作成・編集できる</strong>ようになりました。ファイル作業が劇的に変わります。
+    </div>
+
+    <ul class="point-list">
+      <li>
+        <span class="marker marker-green">1</span>
+        <span><strong>Google Docs・Sheets・Gmailへの書き込み対応</strong> ── AIが実際にファイルを作成・編集。「議事録をDocsにまとめて」が文字通り実現</span>
+      </li>
+      <li>
+        <span class="marker marker-green">2</span>
+        <span><strong>Deep Research 正式版</strong> ── 複数のウェブページを自動で読んで、まとめレポートを作る機能が全ユーザーに解放</span>
+      </li>
+      <li>
+        <span class="marker marker-green">3</span>
+        <span><strong>Googleカメラ連携</strong> ── カメラが特定のものを検出したら自動でスマートホームを動かせる機能を追加</span>
+      </li>
+      <li>
+        <span class="marker marker-green">4</span>
+        <span><strong>MCP経由でSaaSと自動連携</strong> ── 外部ツールとの接続が標準化され、AIが複数のサービスを横断して動ける</span>
+      </li>
+    </ul>
+
+    <div class="sticky">
+      ✏️ <strong>中学生的に言うと：</strong>「授業のノートをGoogle Docsにまとめておいて」と言ったら、本当に自動で整理されたドキュメントができあがってる！
+    </div>
+
+    <div class="source">
+      📎 出典：
+      <a href="https://note.com/nahouemura/n/ncefa9ea67054" target="_blank">note – AIは"相談相手"から"仕事の相棒"へ。2026年5月のChatGPT・Gemini・Claude最新アップデートまとめ</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== トピック5 ===== -->
+<div class="card" id="topic5">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">📱</span>
+      <div class="card-title">ChatGPTがスマホから<br>パソコンを遠隔操作できるように</div>
+      <span class="topic-badge badge-purple">OpenAI</span>
+    </div>
+
+    <div class="simple-box">
+      <span class="label">🌱 やさしく解説</span><br>
+      OpenAIの<span class="hl-pink">ChatGPT スマホアプリ</span>（iOS・Android）から、パソコン上で動く「Codex」というプログラミングAIをリモートで操作できるようになりました。外出中でもAIに仕事を任せ、スマホで確認・指示が出せます。
+    </div>
+
+    <ul class="point-list">
+      <li>
+        <span class="marker marker-purple">1</span>
+        <span><strong>スマホ → パソコンのAIを遠隔操作</strong> ── 外出中にスマホからコーディング作業を指示・確認・承認できる</span>
+      </li>
+      <li>
+        <span class="marker marker-purple">2</span>
+        <span><strong>ChatGPTがサイトリンクを回答内に表示</strong> ── 5月初旬から、ChatGPTの回答にブランドのリンクが表示されるようになり、参照トラフィックが157%急増</span>
+      </li>
+      <li>
+        <span class="marker marker-purple">3</span>
+        <span><strong>OpenAI × Novo Nordisk 提携</strong> ── 製薬大手がOpenAIと提携。創薬から製造ラインまでAIを全社導入し、肥満・糖尿病の新薬開発を加速</span>
+      </li>
+    </ul>
+
+    <div class="sticky">
+      ✏️ <strong>中学生的に言うと：</strong>電車の中でスマホを見ながら「さっきのコード直して」と送ったら、家のパソコンのAIが自動で修正してくれてる！
+    </div>
+
+    <div class="source">
+      📎 出典：
+      <a href="https://www.prismetric.com/weekly-ai-news-from-may-24-29-2026-grok-build-openai-cnn-perplexity-samsung-ai-chips/" target="_blank">Prismetric – Weekly AI News: May 24-29, 2026</a> /
+      <a href="https://www.similarweb.com/blog/marketing/geo/gen-ai-stats/" target="_blank">Similarweb – Gen AI Stats 2026</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== トピック6 ===== -->
+<div class="card" id="topic6">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">🏦</span>
+      <div class="card-title">日本のメガバンクも<br>Claudeを本格導入へ</div>
+      <span class="topic-badge badge-teal">日本・金融</span>
+    </div>
+
+    <div class="simple-box">
+      <span class="label">🌱 やさしく解説</span><br>
+      日本の財務大臣が発表。三菱UFJ・三井住友・みずほの<span class="hl-yellow">3大メガバンク</span>が、AnthropicのClaude（法人向けバージョン）を2週間以内に利用できるようになると発表されました。日本の金融のAI活用が加速します。
+    </div>
+
+    <ul class="point-list">
+      <li>
+        <span class="marker marker-teal">1</span>
+        <span><strong>MUFG・SMBC・みずほ</strong>の3大メガバンクがAnthropic Claudeの法人版にアクセス</span>
+      </li>
+      <li>
+        <span class="marker marker-teal">2</span>
+        <span><strong>金融機関向けセキュリティ対応版</strong> ── 「Claude Mythos」という法人・金融機関向けグレードの提供</span>
+      </li>
+      <li>
+        <span class="marker marker-teal">3</span>
+        <span><strong>日本政府がAI活用を後押し</strong> ── 経産省・総務省のガイドラインをベースに、企業の「AI管理体制」整備が本格化</span>
+      </li>
+    </ul>
+
+    <div class="sticky">
+      ✏️ <strong>中学生的に言うと：</strong>大手銀行でも「AIが書類を読んで確認したり、お客さんの質問に答えたり」する時代が本格的に来たということ！
+    </div>
+
+    <div class="source">
+      📎 出典：
+      <a href="https://www.prismetric.com/weekly-ai-news-from-may-24-29-2026-grok-build-openai-cnn-perplexity-samsung-ai-chips/" target="_blank">Prismetric – Weekly AI News: May 24-29, 2026</a> /
+      <a href="https://note.com/dsg_id/n/n17e11f5c7093" target="_blank">DESIGN STUDIO garden – 日本の生成AIニュースまとめ（2026年5月第2週）</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== まとめ ===== -->
+<div class="summary-card" id="summary">
+  <h2>📝 今月の大きな流れ ── 2026年5月のキーワード</h2>
+  <div class="summary-grid">
+    <div class="summary-item">
+      <span class="s-emoji">🤖</span>
+      <div class="s-title">「エージェント元年」</div>
+      AIが指示待ちから「自律的に動く存在」へ。GPT-5.5・Claude・Grokすべてが「AIが考えて動く」機能を強化
+    </div>
+    <div class="summary-item">
+      <span class="s-emoji">⚔️</span>
+      <div class="s-title">コーディングAI戦争</div>
+      Claude Code・Grok Build・ChatGPT Codexが三つ巴。プログラマーの仕事の形が根本から変わりつつある
+    </div>
+    <div class="summary-item">
+      <span class="s-emoji">🌏</span>
+      <div class="s-title">日本でも本格普及</div>
+      メガバンクがAIを導入。「使うか使わないか」ではなく「どう管理するか」の時代へ移行
+    </div>
+    <div class="summary-item">
+      <span class="s-emoji">📁</span>
+      <div class="s-title">「AIがファイルを作る」当たり前に</div>
+      GeminiがDocsを直接編集。AIとの関係が「答えを聞く」→「一緒に仕事をする」に変化
+    </div>
+  </div>
+</div>
+
+<!-- ===== フッター ===== -->
+<div class="footer">
+  <p>🏕️ <strong>NOMAD ACADEMY リサーチ担当</strong> ── 生成AI日報 2026-05-30号</p>
+  <p style="margin-top:6px;">各記事の出典URLは各トピック下部に記載しています。情報は収集時点のものです。</p>
+</div>
+
+</body>
+</html>
