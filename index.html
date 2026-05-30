@@ -3,111 +3,44 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>生成AI 最新トピック 日報アーカイブ</title>
-<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<title>毎朝の学び ダッシュボード</title>
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    background: #f0ece3;
-    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 40px 20px;
-  }
-  .hero {
-    background: linear-gradient(135deg, #2c5f8a 0%, #1a3d5c 100%);
-    color: white;
-    border-radius: 10px;
-    padding: 48px 40px;
-    text-align: center;
-    width: 100%;
-    max-width: 720px;
-    margin-bottom: 32px;
-    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
-  }
-  .hero h1 { font-size: 2rem; margin-bottom: 10px; }
-  .hero p  { opacity: 0.85; font-size: 1rem; }
-  .log {
-    background: #fff9f0;
-    border-radius: 8px;
-    padding: 28px 36px;
-    width: 100%;
-    max-width: 720px;
-    box-shadow: 3px 4px 12px rgba(0,0,0,0.1);
-  }
-  .log h2 {
-    font-size: 1.1rem;
-    color: #5a4030;
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-    border-bottom: 2px dashed #c8b89a;
-  }
-  .entry {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    padding: 12px 0;
-    border-bottom: 1px dotted #ddd;
-  }
-  .entry:last-child { border-bottom: none; }
-  .entry .date {
-    font-size: 0.85rem;
-    color: #888;
-    white-space: nowrap;
-    min-width: 90px;
-  }
-  .entry a {
-    color: #2255aa;
-    text-decoration: none;
-    font-size: 0.97rem;
-    line-height: 1.5;
-  }
-  .entry a:hover { text-decoration: underline; }
-  .entry .new-badge {
-    display: inline-block;
-    background: #e74c3c;
-    color: white;
-    font-size: 0.65rem;
-    font-weight: 700;
-    padding: 2px 7px;
-    border-radius: 10px;
-    margin-left: 8px;
-    vertical-align: middle;
-  }
-  .footer {
-    margin-top: 24px;
-    text-align: center;
-    color: #aaa;
-    font-size: 0.8rem;
-  }
+  :root{--bg:#ece8e1;--card:#faf6ec;--green:#1f4a38;--green2:#2d5e46;--accent:#2d6a4f;--text:#33403a;--muted:#7c8a82;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:-apple-system,"Hiragino Sans","Yu Gothic",sans-serif;line-height:1.7;padding:24px;}
+  .wrap{max-width:960px;margin:0 auto;}
+  header{background:linear-gradient(135deg,var(--green),var(--green2));color:#fff;border-radius:20px;padding:48px 32px;text-align:center;box-shadow:0 8px 24px rgba(31,74,56,.18);}
+  header h1{font-size:1.9rem;letter-spacing:.06em;margin-bottom:12px;}
+  header p{color:#d8e8dc;font-size:1rem;}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px;margin-top:28px;}
+  a.card{display:block;background:var(--card);border-radius:16px;padding:22px;text-decoration:none;color:inherit;box-shadow:0 3px 10px rgba(0,0,0,.05);border:1px solid #efe9db;transition:transform .15s,box-shadow .15s;}
+  a.card:hover{transform:translateY(-3px);box-shadow:0 10px 22px rgba(31,74,56,.14);}
+  .emoji{font-size:1.9rem;}
+  .card h2{font-size:1.12rem;color:var(--accent);margin:10px 0 6px;}
+  .card .desc{font-size:.9rem;color:var(--muted);}
+  .card .time{display:inline-block;margin-top:12px;font-size:.78rem;color:var(--accent);background:#e8f1ea;border-radius:999px;padding:3px 10px;}
+  footer{text-align:center;color:var(--muted);font-size:.82rem;margin-top:30px;line-height:1.9;}
 </style>
 </head>
 <body>
-
-<div class="hero">
-  <h1>🤖 生成AI 最新トピック</h1>
-  <p>生成AIの最新ニュースを毎日リサーチ<br>中学生にもわかるやさしい解説つき</p>
-</div>
-
-<div class="log">
-  <h2>📚 バックナンバー</h2>
-
-  <!-- 新しい日付を上に追記していく -->
-  <div class="entry">
-    <span class="date">2026-05-30</span>
-    <span>
-      <a href="ai-daily-2026-05-30.html">🤖 生成AI 最新トピック 2026-05-30号 ── Google I/O 2026・GPT-5.5 Instant・Grok Build・AI著作権 ほか</a>
-      <span class="new-badge">NEW</span>
-    </span>
+<div class="wrap">
+  <header>
+    <h1>📚 毎朝の学び ダッシュボード</h1>
+    <p>毎朝、各テーマの最新トピックを中学生にもわかるやさしい解説でお届け</p>
+  </header>
+  <div class="grid">
+    <a class="card" href="ai/"><div class="emoji">🤖</div><h2>生成AI 日報</h2><div class="desc">AIの最新トピック・新モデル・話題</div><span class="time">毎朝 7:01</span></a>
+    <a class="card" href="nomad/"><div class="emoji">🌍</div><h2>デジタルノマド</h2><div class="desc">海外移住・ビザ・外貨で稼ぐ</div><span class="time">毎朝 7:21</span></a>
+    <a class="card" href="language/"><div class="emoji">🗣️</div><h2>語学習得</h2><div class="desc">英語→スペイン語をゼロから</div><span class="time">毎朝 7:41</span></a>
+    <a class="card" href="aivideo/"><div class="emoji">🎬</div><h2>AI動画制作</h2><div class="desc">生成AI×動画・構図・カメラワーク</div><span class="time">毎朝 8:01</span></a>
+    <a class="card" href="health/"><div class="emoji">🥗</div><h2>健康・精密栄養学</h2><div class="desc">最新の医学・栄養をやさしく</div><span class="time">毎朝 8:21</span></a>
+    <a class="card" href="bizstart/"><div class="emoji">🏢</div><h2>1人法人スタート</h2><div class="desc">税務・経営マインド・AIで1人完結</div><span class="time">毎朝 8:41</span></a>
+    <a class="card" href="marketing/"><div class="emoji">📣</div><h2>集客・マーケティング</h2><div class="desc">世界中から質の良い顧客を集める</div><span class="time">毎朝 9:01</span></a>
   </div>
-
+  <footer>
+    毎朝自動更新 ・ 各記事には出典URLを掲載しています<br>
+    ビザ・税・健康など重要な判断は、必ず専門家・一次情報でご確認ください
+  </footer>
 </div>
-
-<div class="footer">
-  <p>毎朝更新 ・ 各記事には出典URLを掲載しています</p>
-</div>
-
 </body>
 </html>
