@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-05-31</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .cover {
+    background: linear-gradient(135deg, #5a3e20 0%, #3a2010 100%);
+    color: white;
+    border-radius: 8px;
+    padding: 60px 40px;
+    text-align: center;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.3);
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+      0deg, transparent, transparent 28px,
+      rgba(255,255,255,0.07) 28px, rgba(255,255,255,0.07) 29px
+    );
+  }
+  .cover-emoji { font-size: 64px; display: block; margin-bottom: 16px; }
+  .cover h1 {
+    font-family: 'Klee One', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 12px;
+    position: relative;
+  }
+  .cover .subtitle { font-size: 1.05rem; opacity: 0.85; margin-bottom: 8px; position: relative; }
+  .cover .date-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 20px;
+    padding: 6px 20px;
+    font-size: 1rem;
+    margin-top: 16px;
+    position: relative;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 6px;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.12);
+    position: relative;
+    overflow: hidden;
+  }
+  .card-body {
+    padding: 28px 36px 28px 64px;
+    background: repeating-linear-gradient(
+      0deg, transparent, transparent 31px,
+      #e0d8c8 31px, #e0d8c8 32px
+    );
+    background-color: #fff9f0;
+    min-height: 200px;
+  }
+  .card-body::before {
+    content: '';
+    position: absolute;
+    left: 52px; top: 0; bottom: 0;
+    width: 2px;
+    background: #e8a0a0;
+    opacity: 0.7;
+  }
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 8px;
+    border-bottom: 2px dashed #c8b89a;
+  }
+  .card-emoji { font-size: 2rem; }
+  .card-title {
+    font-family: 'Klee One', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #2c3e50;
+    line-height: 1.3;
+  }
+  .topic-badge {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-left: auto;
+    white-space: nowrap;
+  }
+  .badge-red    { background: #ffe0e0; color: #c0392b; border: 1px solid #f5a0a0; }
+  .badge-blue   { background: #e0eeff; color: #2255aa; border: 1px solid #a0c0f5; }
+  .badge-green  { background: #e0f5e0; color: #1e7e34; border: 1px solid #a0d8a0; }
+  .badge-purple { background: #f0e0ff; color: #7b2fbe; border: 1px solid #c8a0f0; }
+  .badge-orange { background: #fff0d0; color: #cc6600; border: 1px solid #f0c070; }
+  .badge-olive  { background: #eef5d0; color: #556600; border: 1px solid #b8d070; }
+  .badge-teal   { background: #d0f0f0; color: #006060; border: 1px solid #80d0d0; }
+  .badge-brown  { background: #f5e8d8; color: #6b3a10; border: 1px solid #d0a070; }
+
+  .simple-box {
+    background: #fff7e0;
+    border-left: 4px solid #f5c842;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin: 16px 0;
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+  .simple-box .label {
+    display: inline-block;
+    background: #f5c842;
+    color: #5a4000;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+  }
+
+  .point-list { list-style: none; padding: 0; margin: 12px 0; }
+  .point-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 0;
+    font-size: 0.97rem;
+    line-height: 1.7;
+    color: #333;
+    border-bottom: 1px dotted #ddd;
+  }
+  .point-list li:last-child { border-bottom: none; }
+  .point-list .marker {
+    flex-shrink: 0;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-top: 2px;
+  }
+  .marker-green  { background: #1e7e34; color: white; }
+  .marker-blue   { background: #2255aa; color: white; }
+  .marker-purple { background: #7b2fbe; color: white; }
+  .marker-orange { background: #cc6600; color: white; }
+  .marker-olive  { background: #556600; color: white; }
+  .marker-teal   { background: #006060; color: white; }
+  .marker-red    { background: #c0392b; color: white; }
+  .marker-brown  { background: #6b3a10; color: white; }
+
+  .hl-yellow { background: linear-gradient(transparent 60%, #ffe566 60%); }
+  .hl-pink   { background: linear-gradient(transparent 60%, #ffb3c6 60%); }
+  .hl-blue   { background: linear-gradient(transparent 60%, #b3d4ff 60%); }
+  .hl-green  { background: linear-gradient(transparent 60%, #b3f0b3 60%); }
+
+  .sticky {
+    background: #fff9c4;
+    border-radius: 4px;
+    padding: 12px 16px;
+    margin: 14px 0;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.1);
+    transform: rotate(-0.5deg);
+    display: inline-block;
+    width: 100%;
+    color: #4a3800;
+  }
+
+  .evidence-tag {
+    display: inline-block;
+    border-radius: 4px;
+    padding: 1px 7px;
+    font-size: 0.70rem;
+    margin: 0 2px;
+    font-weight: 600;
+    vertical-align: middle;
+  }
+  .evidence-tag.weak     { background: #fff3e0; border: 1px solid #f0c080; color: #884400; }
+  .evidence-tag.moderate { background: #e8f4f8; border: 1px solid #aaccdd; color: #336688; }
+  .evidence-tag.strong   { background: #e0f5e0; border: 1px solid #80cc80; color: #226622; }
+
+  .source {
+    font-size: 0.78rem;
+    color: #888;
+    margin-top: 14px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+    line-height: 1.7;
+  }
+  .source a { color: #5577aa; text-decoration: none; }
+  .source a:hover { text-decoration: underline; }
+
+  /* ── 比較カード ── */
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 16px 0;
+  }
+  .compare-card {
+    border-radius: 10px;
+    padding: 18px 16px;
+    text-align: center;
+    font-size: 0.92rem;
+    line-height: 1.7;
+  }
+  .compare-card.good {
+    background: #e8f5e0;
+    border: 2px solid #7ab840;
+  }
+  .compare-card.neutral {
+    background: #f0e8d8;
+    border: 2px solid #b07830;
+  }
+  .compare-card .c-icon { font-size: 2.2rem; display: block; margin-bottom: 8px; }
+  .compare-card .c-title { font-size: 1.05rem; font-weight: 600; margin-bottom: 10px; }
+  .compare-card.good .c-title { color: #336600; }
+  .compare-card.neutral .c-title { color: #6b3a10; }
+  .compare-card .c-row {
+    display: flex; align-items: flex-start; gap: 6px;
+    padding: 5px 0;
+    font-size: 0.85rem;
+    border-top: 1px dotted #ccc;
+    text-align: left;
+  }
+  .compare-card .c-row:first-of-type { border-top: none; margin-top: 6px; }
+  .compare-vs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #888;
+    align-self: center;
+  }
+
+  /* ── 数値カード ── */
+  .num-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: white;
+    border-radius: 10px;
+    padding: 16px 12px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.1);
+    border-top: 4px solid #5a3e20;
+  }
+  .num-card .num-val {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #3a2010;
+    line-height: 1.1;
+    display: block;
+  }
+  .num-card .num-unit { font-size: 0.85rem; color: #666; }
+  .num-card .num-label { font-size: 0.78rem; color: #888; margin-top: 6px; }
+
+  /* ── フロー図 ── */
+  .flow-container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 16px 0;
+    justify-content: center;
+  }
+  .flow-box {
+    background: #f5ece0;
+    border: 2px solid #b07830;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 0.85rem;
+    text-align: center;
+    min-width: 100px;
+    line-height: 1.4;
+    color: #3a2010;
+  }
+  .flow-box .f-icon { font-size: 1.4rem; display: block; margin-bottom: 4px; }
+  .flow-arrow {
+    font-size: 1.5rem;
+    color: #5a3e20;
+    flex-shrink: 0;
+  }
+  .flow-box.highlight {
+    background: #e0c8a8;
+    border-color: #7a4a10;
+    font-weight: 600;
+  }
+  .flow-box.effect-plus {
+    background: #e0f0d8;
+    border: 2px solid #5a9020;
+    color: #2a5000;
+  }
+  .flow-box.effect-minus {
+    background: #f8e8e0;
+    border: 2px solid #c06040;
+    color: #6a1000;
+  }
+
+  /* ── エビデンス強さ表 ── */
+  .evidence-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .evidence-table th {
+    background: #5a3e20;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+  }
+  .evidence-table td {
+    padding: 8px 12px;
+    border-bottom: 1px solid #e0d8c8;
+    vertical-align: top;
+    line-height: 1.6;
+  }
+  .evidence-table tr:nth-child(even) td { background: #f5f0e8; }
+
+  /* ── 菌・代謝産物カード ── */
+  .bacteria-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .bacteria-card {
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 0.88rem;
+    line-height: 1.6;
+  }
+  .bacteria-card.up {
+    background: #fff0d8;
+    border: 2px solid #d08030;
+  }
+  .bacteria-card.down {
+    background: #e8f5ff;
+    border: 2px solid #4080c0;
+  }
+  .bacteria-card .b-icon { font-size: 1.6rem; display: block; margin-bottom: 6px; }
+  .bacteria-card .b-name {
+    font-weight: 600;
+    margin-bottom: 4px;
+    font-style: italic;
+    font-size: 0.95rem;
+  }
+  .bacteria-card.up .b-name { color: #7a4000; }
+  .bacteria-card.down .b-name { color: #204080; }
+  .arrow-badge {
+    display: inline-block;
+    padding: 1px 8px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    margin-bottom: 4px;
+  }
+  .arrow-badge.up { background: #ffd080; color: #7a4000; }
+  .arrow-badge.down { background: #a0ccff; color: #102060; }
+
+  .summary-card {
+    background: linear-gradient(135deg, #3a2010 0%, #2a3a20 100%);
+    color: white;
+    border-radius: 8px;
+    padding: 36px 40px;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.2);
+  }
+  .summary-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px dashed rgba(255,255,255,0.4);
+  }
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+  }
+  .summary-item {
+    background: rgba(255,255,255,0.12);
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  .summary-item .s-emoji { font-size: 1.6rem; display: block; margin-bottom: 6px; }
+  .summary-item .s-title { font-weight: 600; margin-bottom: 4px; font-size: 1rem; }
+
+  .disclaimer {
+    background: #fff0f0;
+    border: 2px solid #ffaaaa;
+    border-radius: 8px;
+    padding: 20px 28px;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    font-size: 0.85rem;
+    line-height: 1.8;
+    color: #5a2020;
+  }
+  .disclaimer h3 { font-size: 0.95rem; color: #c0392b; margin-bottom: 10px; }
+
+  .footer {
+    text-align: center;
+    color: #888;
+    font-size: 0.8rem;
+    padding: 20px;
+    max-width: 820px;
+    width: 100%;
+  }
+
+  .toc {
+    background: #f8f4ec;
+    border: 2px solid #c8b89a;
+    border-radius: 8px;
+    padding: 20px 28px;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+  }
+  .toc h2 { font-size: 1.1rem; color: #5a4030; margin-bottom: 12px; }
+  .toc ol { padding-left: 20px; }
+  .toc li { padding: 4px 0; font-size: 0.93rem; }
+  .toc a { color: #2255aa; text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+
+  @media (max-width: 600px) {
+    .card-body { padding: 20px 20px 20px 44px; }
+    .card-title { font-size: 1.15rem; }
+    .cover h1 { font-size: 1.7rem; }
+    .compare-grid { grid-template-columns: 1fr; }
+    .compare-vs { transform: rotate(90deg); }
+    .flow-container { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+    .summary-card { padding: 24px 20px; }
+    .bacteria-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== 表紙 ===== -->
+<div class="cover">
+  <span class="cover-emoji">☕🦠🧠</span>
+  <h1>コーヒーが腸内細菌を変え、<br>脳に影響する？</h1>
+  <div class="subtitle">精密栄養学と最新の医学・科学論文をやさしく解説</div>
+  <div class="date-badge">📅 2026年5月31日号</div>
+</div>
+
+<!-- ===== 目次 ===== -->
+<div class="toc">
+  <h2>📋 今日の目次</h2>
+  <ol>
+    <li><a href="#topic1">「腸脳軸（ガット-ブレイン・アクシス）」って何？ ── コーヒーが関係する理由</a></li>
+    <li><a href="#topic2">2026年 新研究の概要 ── Nature Communications、n=62、臨床介入試験</a></li>
+    <li><a href="#topic3">コーヒーが変える腸内細菌と代謝産物 ── Eggerthella・GABA・インドールの話</a></li>
+    <li><a href="#topic4">カフェインあり vs デカフェ ── 認知機能への影響はこんなに違う</a></li>
+    <li><a href="#topic5">エビデンスの強さを正直に読む ── 小規模試験の限界と意義</a></li>
+    <li><a href="#summary">今日のまとめ</a></li>
+  </ol>
+</div>
+
+<!-- ===== トピック1 ===== -->
+<div class="card" id="topic1">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">🔗</span>
+      <div class="card-title">「腸脳軸」って何？ ──<br>コーヒーが関係する理由</div>
+      <span class="topic-badge badge-brown">基礎知識</span>
+    </div>
+
+    <div class="simple-box">
+      <span class="label">🌱 やさしく解説</span><br>
+      「お腹が緊張するとトイレに行きたくなる」「ストレスで食欲がなくなる」──これは腸と脳がつながっている証拠です。<span class="hl-yellow">この腸と脳の双方向の情報ネットワークを「腸脳軸（ガット-ブレイン・アクシス）」</span>といいます。近年の科学は「腸内細菌がこのルートを通じて気分・記憶・認知機能にまで影響する」ことを示し始めています。
+    </div>
+
+    <!-- フロー図 -->
+    <div class="flow-container">
+      <div class="flow-box highlight">
+        <span class="f-icon">🧠</span>
+        脳
+      </div>
+      <span class="flow-arrow">⇄</span>
+      <div class="flow-box">
+        <span class="f-icon">🫀</span>
+        迷走神経・<br>ホルモン・<br>免疫シグナル
+      </div>
+      <span class="flow-arrow">⇄</span>
+      <div class="flow-box highlight">
+        <span class="f-icon">🦠</span>
+        腸内細菌が<br>産生する物質
+      </div>
+      <span class="flow-arrow">⇄</span>
+      <div class="flow-box">
+        <span class="f-icon">🍵</span>
+        食事・<br>コーヒーなど
+      </div>
+    </div>
+
+    <ul class="point-list">
+      <li>
+        <span class="marker marker-brown">1</span>
+        <span><strong>腸内細菌と神経伝達物質</strong> ── 腸内の細菌は<strong>GABA（ガンマアミノ酪酸：不安を和らげる抑制性の神経伝達物質）</strong>やセロトニン前駆体など、脳の情動・認知機能に関わる物質を産生・代謝している。腸内細菌の組成が変わると、これらの物質量が変わる</span>
+      </li>
+      <li>
+        <span class="marker marker-brown">2</span>
+        <span><strong>コーヒーには何が入っている？</strong> ── コーヒーの主成分は①<strong>カフェイン</strong>（中枢神経刺激物質）、②<strong>クロロゲン酸などのポリフェノール</strong>（抗酸化物質）、③<strong>ジテルペン類（カフェストール・カウェオール）</strong>など。②のポリフェノールは腸内細菌のエサになり、腸内環境に影響する</span>
+      </li>
+      <li>
+        <span class="marker marker-brown">3</span>
+        <span><strong>カフェインとノンカフェイン成分の両方が鍵</strong> ── カフェインは直接的に覚醒・集中をもたらすが、クロロゲン酸などのノンカフェイン成分も腸内細菌を通じた「別ルート」で脳に影響する可能性がある、というのが2026年研究の核心です</span>
+      </li>
+    </ul>
+
+    <div class="sticky">
+      ✏️ <strong>中学生的に言うと：</strong>腸と脳はつながっていて、腸の菌が作る物質が気分や記憶に影響する。コーヒーはカフェインだけじゃなく、ポリフェノールでも腸内細菌を変えてしまうかもしれない、という話！
+    </div>
+  </div>
+</div>
+
+<!-- ===== トピック2 ===== -->
+<div class="card" id="topic2">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">🔬</span>
+      <div class="card-title">2026年 新研究の概要 ──<br>Nature Communications、n=62、臨床介入試験</div>
+      <span class="topic-badge badge-blue">2026年新研究</span>
+    </div>
+
+    <div class="simple-box">
+      <span class="label">🌱 やさしく解説</span><br>
+      2026年4月21日、権威ある査読誌 <strong>Nature Communications</strong>（自然科学分野の国際誌）に、コーヒーと腸内細菌・認知機能の関係を直接調べた<span class="hl-blue">初の本格的な臨床介入試験</span>が掲載されました。アイルランド・コーク大学（UCC）の <strong>APC Microbiome Ireland</strong> 研究チームによる Serena Boscaini 氏らの研究です。
+    </div>
+
+    <div class="num-grid">
+      <div class="num-card">
+        <span class="num-val">62</span>
+        <div class="num-unit">人（n=31+31）</div>
+        <div class="num-label">コーヒー習慣飲者 vs 非飲者</div>
+      </div>
+      <div class="num-card">
+        <span class="num-val">3〜5</span>
+        <div class="num-unit">杯/日</div>
+        <div class="num-label">「コーヒー飲者」の定義</div>
+      </div>
+      <div class="num-card">
+        <span class="num-val">2</span>
+        <div class="num-unit">週間</div>
+        <div class="num-label">コーヒー断ちの介入期間</div>
+      </div>
+      <div class="num-card">
+        <span class="num-val">2</span>
+        <div class="num-unit">試験登録</div>
+        <div class="num-label">NCT05927038・NCT05927103</div>
+      </div>
+    </div>
+
+    <ul class="point-list">
+      <li>
+        <span class="marker marker-blue">1</span>
+        <span><strong>研究デザイン</strong> ── 2つの登録臨床試験から構成される介入試験 <span class="evidence-tag moderate">登録臨床介入試験（n=62）</span>。①コーヒー習慣飲者（1日3〜5杯）31人と、②非飲者31人を比較した上で、飲者グループには<strong>2週間のコーヒー断ち → 再摂取</strong>という介入を実施</span>
+      </li>
+      <li>
+        <span class="marker marker-blue">2</span>
+        <span><strong>測定した項目</strong> ── (1)便サンプルによる腸内細菌の構成・機能、(2)尿サンプルによる代謝産物、(3)心理テストによる認知機能（記憶・学習・衝動性）、(4)気分・ストレス・コルチゾール（ストレスホルモン）、(5)食事日記・カフェイン摂取量記録</span>
+      </li>
+      <li>
+        <span class="marker marker-blue">3</span>
+        <span><strong>この研究が「初」である理由</strong> ── これまでコーヒーと腸内細菌の関係は観察研究レベルで報告されていたが、<strong>「コーヒーを断つ・再摂取する」介入フェーズを組み込み、腸内細菌・代謝産物・認知機能を同時に追跡した試みは初めて</strong>のこととされる</span>
+      </li>
+      <li>
+        <span class="marker marker-blue">4</span>
+        <span><strong>重要な注意点</strong> ── 参加者数 n=62 は<strong>「小規模」試験</strong>であり、結果の一般化には慎重さが必要。参加者の性別・年齢・BMI・基礎疾患の詳細な内訳は現時点の二次情報では未確認。完全なランダム化比較試験（RCT）とは構造が異なる（飲者 vs 非飲者の比較は観察的要素を含む）</span>
+      </li>
+    </ul>
+
+    <div class="source">
+      📎 出典：
+      <a href="https://www.nature.com/articles/s41467-026-71264-8" target="_blank">Boscaini S, et al. "Habitual coffee intake shapes the gut microbiome and modifies host physiology and cognition." <em>Nature Communications</em>. 2026 Apr 21;17:3439. DOI: 10.1038/s41467-026-71264-8</a> ／
+      <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC13100100/" target="_blank">PubMed Central（PMC13100100）</a> ／
+      <a href="https://clinicaltrials.gov/study/NCT05927038" target="_blank">ClinicalTrials.gov NCT05927038</a>・<a href="https://clinicaltrials.gov/study/NCT05927103" target="_blank">NCT05927103</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== トピック3 ===== -->
+<div class="card" id="topic3">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">🦠</span>
+      <div class="card-title">コーヒーが変える腸内細菌と代謝産物 ──<br><em>Eggerthella</em>・GABA・インドールの話</div>
+      <span class="topic-badge badge-purple">腸内細菌の科学</span>
+    </div>
+
+    <div class="simple-box">
+      <span class="label">🌱 やさしく解説</span><br>
+      コーヒーを習慣的に飲んでいる人の腸内では、<span class="hl-yellow">飲んでいない人と比べて特定の細菌が増え・減り、脳に関係する物質の量も変わっていた</span>ことが分かりました。変化のポイントを整理します。
+    </div>
+
+    <!-- 腸内細菌の変化カード -->
+    <div class="bacteria-grid">
+      <div class="bacteria-card up">
+        <span class="b-icon">☕</span>
+        <span class="arrow-badge up">↑ 増加</span>
+        <div class="b-name">Eggerthella 属</div>
+        コーヒー習慣飲者で相対的に増加。腸内のポリフェノールや植物性化合物を代謝する細菌。増加が何を意味するかは研究途上
+      </div>
+      <div class="bacteria-card up">
+        <span class="b-icon">☕</span>
+        <span class="arrow-badge up">↑ 増加</span>
+        <div class="b-name">Cryptobacterium 属</div>
+        コーヒー習慣飲者で増加。腸内でさまざまな有機酸を産生することが知られる細菌。健康への意義はまだ研究段階
+      </div>
+      <div class="bacteria-card down">
+        <span class="b-icon">🧪</span>
+        <span class="arrow-badge down">↓ 減少</span>
+        <div class="b-name">インドール-3-プロピオン酸（IPA）</div>
+        腸内細菌が産生する<strong>神経保護作用</strong>が報告されているトリプトファン代謝産物。コーヒー飲者で減少傾向
+      </div>
+      <div class="bacteria-card down">
+        <span class="b-icon">🧠</span>
+        <span class="arrow-badge down">↓ 減少</span>
+        <div class="b-name">GABA（γ-アミノ酪酸）</div>
+        腸内細菌が産生する<strong>抑制性の神経伝達物質</strong>。不安や緊張を和らげる役割。コーヒー飲者で糞便中の量が減少
+      </div>
+    </div>
+
+    <div class="simple-box" style="background:#ffe8d8; border-color:#d08030;">
+      <span class="label" style="background:#d08030; color:#fff;">🔄 コーヒー断ち・再摂取の実験から分かったこと</span><br>
+      コーヒーを<strong>2週間断つ</strong>と、一部の糞便代謝産物の変化が<strong>元に戻る傾向</strong>が確認された。さらにコーヒーを<strong>再摂取すると、急性の腸内細菌変化</strong>が再び起こった。そしてこの変化は<span class="hl-yellow">カフェインに依存しない成分（クロロゲン酸などのポリフェノール）によっても引き起こされる</span>ことが示された。
+    </div>
+
+    <!-- フロー図：コーヒーが脳に届くまで -->
+    <div class="flow-container">
+      <div class="flow-box highlight">
+        <span class="f-icon">☕</span>
+        コーヒー摂取<br>（カフェイン＋<br>ポリフェノール）
+      </div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-box">
+        <span class="f-icon">🦠</span>
+        腸内細菌の<br>組成変化<br>(Eggerthella↑)
+      </div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-box">
+        <span class="f-icon">⚗️</span>
+        GABA↓・IPA↓<br>インドール↓<br>（代謝産物変化）
+      </div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-box highlight">
+        <span class="f-icon">🧠</span>
+        気分・記憶・<br>衝動性・<br>感情反応に影響
+      </div>
+    </div>
+
+    <ul class="point-list">
+      <li>
+        <span class="marker marker-purple">1</span>
+        <span><strong>GABAが減ることは何を意味する？</strong> ── GABAは「ブレーキ」役の神経伝達物質。腸内のGABAが減ると、抑制がかかりにくくなり衝動性・感情の揺れが増す可能性がある。今回の研究でコーヒー飲者が「衝動性・感情反応の高さ」を示したことと整合性がある仮説だが、<strong>腸のGABA量と脳のGABA量は直接対応するわけではない</strong>点に注意</span>
+      </li>
+      <li>
+        <span class="marker marker-purple">2</span>
+        <span><strong>インドール-3-プロピオン酸（IPA）とは？</strong> ── 腸内細菌（<em>Clostridium sporogenes</em> など）がアミノ酸のトリプトファンを分解して作る物質。動物実験レベルで神経保護・抗酸化・抗炎症の作用が報告されている <span class="evidence-tag weak">動物実験・試験管レベルの知見（ヒトでは研究途上）</span></span>
+      </li>
+      <li>
+        <span class="marker marker-purple">3</span>
+        <span><strong>「変化が戻る」は重要な情報</strong> ── 2週間断つと代謝産物の一部が元に戻った事実は、<strong>これらの変化がコーヒーに起因する「可逆的」なもの</strong>であることを示唆する。慢性的な大規模ダメージではなく、飲む・飲まないで変動する動的な変化として理解されている</span>
+      </li>
+    </ul>
+
+    <div class="sticky">
+      ✏️ <strong>中学生的に言うと：</strong>コーヒーを毎日飲むと腸の中の菌が変わって、不安を和らげるGABAとか、神経を守るIPAが減るらしい。でもコーヒーをやめると少し戻る。コーヒーが腸の環境を「動かし続けている」感じ！
+    </div>
+  </div>
+</div>
+
+<!-- ===== トピック4 ===== -->
+<div class="card" id="topic4">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">⚖️</span>
+      <div class="card-title">カフェインあり vs デカフェ ──<br>認知機能への影響はこんなに違う</div>
+      <span class="topic-badge badge-orange">カフェインの科学</span>
+    </div>
+
+    <div class="simple-box">
+      <span class="label">🌱 やさしく解説</span><br>
+      研究の特に興味深い発見のひとつが、<span class="hl-pink">カフェイン入りコーヒーとデカフェ（カフェインなし）コーヒーで認知機能への影響が異なった</span>ことです。「コーヒー＝カフェインの覚醒効果」という単純な話ではありませんでした。
+    </div>
+
+    <div class="compare-grid">
+      <div class="compare-card neutral">
+        <span class="c-icon">☕</span>
+        <div class="c-title">カフェイン入りコーヒー</div>
+        <div class="c-row">⚡ <strong>衝動性・感情反応↑</strong>（より衝動的な行動傾向）</div>
+        <div class="c-row">😶 記憶パフォーマンスは<br>非飲者より低い傾向</div>
+        <div class="c-row">😤 感情的な揺れが大きい傾向</div>
+        <div class="c-row">💤 コルチゾール（ストレスホルモン）は<br>非飲者と差なし</div>
+        <div class="c-row">🦠 腸内細菌変化あり<br>（↑Eggerthella、↓GABA）</div>
+      </div>
+      <div class="compare-vs">VS</div>
+      <div class="compare-card good">
+        <span class="c-icon">☁️</span>
+        <div class="c-title">デカフェ（カフェインなし）</div>
+        <div class="c-row">📚 <strong>学習・記憶パフォーマンス↑</strong><br>（カフェイン入り群では見られなかった）</div>
+        <div class="c-row">😌 感情反応は比較的おだやか</div>
+        <div class="c-row">🦠 腸内細菌変化も確認<br>（ポリフェノール経由）</div>
+        <div class="c-row">✅ カフェイン抜きでも<br>腸内環境を変える作用あり</div>
+      </div>
+    </div>
+
+    <ul class="point-list">
+      <li>
+        <span class="marker marker-orange">1</span>
+        <span><strong>なぜデカフェで記憶が改善？</strong> ── カフェインには短期的な集中力を高める効果がある一方、過剰摂取では睡眠の質低下・不安増加が知られている。デカフェにはポリフェノール（クロロゲン酸）が残っており、これが腸内細菌を通じたより「穏やかな」認知改善ルートを持つ可能性が今回のデータから示唆された <span class="evidence-tag weak">小規模臨床試験・機序は仮説段階</span></span>
+      </li>
+      <li>
+        <span class="marker marker-orange">2</span>
+        <span><strong>コルチゾールは差がなかった</strong> ── ストレス反応を示す「起床時コルチゾール」はコーヒー飲者と非飲者で統計的な差がなかった。つまり<strong>コーヒーが「生理的ストレス応答」を大幅に変えているわけではない</strong>ようだ。衝動性・感情反応の差はコルチゾール以外の経路（腸脳軸・GABA減少など）が担っている可能性がある</span>
+      </li>
+      <li>
+        <span class="marker marker-orange">3</span>
+        <span><strong>「コーヒーは体に悪い」と言えるか？</strong> ── 今回の結果は複雑で、一方的に「悪い」とは言えない。カフェイン飲者のデータは「衝動性が高い・記憶が非飲者より劣る」という傾向だが、これは<strong>コーヒーが原因か・もともとそういう人がコーヒーを好むか</strong>（逆因果）の区別が難しい。断ち・再摂取の介入データが今後の解釈の鍵</span>
+      </li>
+    </ul>
+
+    <div class="sticky">
+      ✏️ <strong>中学生的に言うと：</strong>カフェイン入りコーヒーは「衝動的になりやすい・記憶が非飲者より劣る」傾向。でもデカフェは「学習・記憶が改善する」という別の効果があった。カフェインとポリフェノールは別々に働いているみたい！
+    </div>
+  </div>
+</div>
+
+<!-- ===== トピック5 ===== -->
+<div class="card" id="topic5">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">📊</span>
+      <div class="card-title">エビデンスの強さを正直に読む ──<br>小規模試験の限界と意義・日常への応用</div>
+      <span class="topic-badge badge-teal">科学リテラシー</span>
+    </div>
+
+    <div class="simple-box">
+      <span class="label">🌱 やさしく解説</span><br>
+      「コーヒーを飲むと記憶が悪くなる！」と断言できるほど今回の研究は強い証拠でしょうか？ <span class="hl-pink">正直に言うと、まだ途中段階の証拠</span>です。でも「最初の一歩」として価値ある研究です。
+    </div>
+
+    <table class="evidence-table">
+      <tr>
+        <th>評価項目</th>
+        <th>今回の研究</th>
+        <th>意味すること</th>
+      </tr>
+      <tr>
+        <td>🔬 研究の種類</td>
+        <td>登録臨床介入試験（断ち・再摂取あり）</td>
+        <td>観察研究より一歩強い。ただし飲者vs非飲者の比較部分は観察的要素あり</td>
+      </tr>
+      <tr>
+        <td>👥 サンプルサイズ</td>
+        <td>n=62（31+31）── 小規模</td>
+        <td>結果の再現性・一般化には慎重が必要。大規模研究での確認が必要</td>
+      </tr>
+      <tr>
+        <td>🔄 因果の証明</td>
+        <td>断ち→再摂取で可逆性を確認</td>
+        <td>可逆性の確認は因果関係に近いが、完全なRCTには及ばない</td>
+      </tr>
+      <tr>
+        <td>⚠️ 逆因果の可能性</td>
+        <td>「飲者vs非飲者」比較</td>
+        <td>もともと衝動的な人がコーヒーを好む可能性が排除しきれない</td>
+      </tr>
+      <tr>
+        <td>✅ 強み</td>
+        <td>腸内細菌+代謝産物+認知機能を同時追跡</td>
+        <td>コーヒー→腸内菌→脳の経路を一貫して示した初の試み。仮説生成として価値が高い</td>
+      </tr>
+    </table>
+
+    <ul class="point-list">
+      <li>
+        <span class="marker marker-teal">1</span>
+        <span><strong>「コーヒーをやめるべき」か？</strong> ── 今回の研究だけでは「コーヒーをやめると認知機能が上がる」とは言えない。多くの観察研究はむしろ<strong>適量のコーヒー摂取（1〜4杯/日）が認知症リスクを下げる傾向</strong>を示しており（例：2002年 J. Alzheimer's Disease の長期コホート研究）、今回の結果はこれと矛盾しない。腸内細菌の「変化」が直接的な害である証拠はまだない</span>
+      </li>
+      <li>
+        <span class="marker marker-teal">2</span>
+        <span><strong>デカフェへの切り替えは選択肢になり得る</strong> ── カフェインによる睡眠障害・不安の悩みがある人にとって、今回の「デカフェで学習・記憶が改善した」という知見は参考になる。ただし一般化するには追試が必要 <span class="evidence-tag weak">小規模、要追試</span></span>
+      </li>
+      <li>
+        <span class="marker marker-teal">3</span>
+        <span><strong>「量」の視点は今回の研究では限定的</strong> ── 飲者は1日3〜5杯という定義。2杯以下の「軽度飲者」や6杯以上の「大量飲者」の比較は今回は行われていない。「適量」の定義は今後の課題</span>
+      </li>
+      <li>
+        <span class="marker marker-teal">4</span>
+        <span><strong>腸内細菌を「育てる」視点</strong> ── コーヒーのポリフェノール（クロロゲン酸など）はプレバイオティクス的な効果も報告されている。単純に「コーヒー = 腸に悪い」ではなく、<strong>腸内細菌の組成を複雑に変化させる物質</strong>として、今後の精密栄養学的な研究対象として注目されている</span>
+      </li>
+    </ul>
+
+    <div class="sticky">
+      ✏️ <strong>中学生的に言うと：</strong>この研究は「コーヒーが腸と脳を変える経路を初めてちゃんと追った」という意義がある。でもn=62は小さいし「コーヒーをやめなさい」と言える段階じゃない。まず「カフェイン問題が気になる人はデカフェも試せる」くらいの話！
+    </div>
+  </div>
+</div>
+
+<!-- ===== まとめ ===== -->
+<div class="summary-card" id="summary">
+  <h2>📝 今日のまとめ</h2>
+  <div class="summary-grid">
+    <div class="summary-item">
+      <span class="s-emoji">🔬</span>
+      <div class="s-title">今回の研究</div>
+      Boscaini S. et al., <em>Nature Communications</em> 2026年4月21日。n=62（コーヒー飲者31名 vs 非飲者31名）、臨床介入試験（2週間断ち→再摂取）。DOI: 10.1038/s41467-026-71264-8
+    </div>
+    <div class="summary-item">
+      <span class="s-emoji">🦠</span>
+      <div class="s-title">腸内細菌への影響</div>
+      コーヒー習慣飲者でEggerthella・Cryptobacterium↑、腸内GABA・インドール-3-プロピオン酸↓。変化の一部は2週間の断ちで可逆的。ポリフェノール（非カフェイン成分）も菌を変える
+    </div>
+    <div class="summary-item">
+      <span class="s-emoji">🧠</span>
+      <div class="s-title">認知・気分への影響</div>
+      カフェイン入り飲者→衝動性・感情反応↑、記憶は非飲者より劣る傾向。デカフェ摂取→学習・記憶が改善（カフェイン入りでは見られず）。コルチゾールは両群で差なし
+    </div>
+    <div class="summary-item">
+      <span class="s-emoji">⚠️</span>
+      <div class="s-title">限界・注意点</div>
+      n=62は小規模。飲者vs非飲者の比較は逆因果の可能性あり。「コーヒーをやめるべき」と結論づけられる段階ではない。再現性の検証・大規模RCTが必要
+    </div>
+  </div>
+</div>
+
+<!-- ===== 免責事項 ===== -->
+<div class="disclaimer">
+  <h3>⚕️ ご注意・免責事項</h3>
+  本記事は一般的な情報提供を目的としており、<strong>医療上のアドバイスではありません</strong>。記載した研究結果の効果・必要量・リスクは、個人の体質・年齢・持病・服薬内容によって大きく異なります。とりわけカフェインの影響は個人差（代謝速度・感受性）が非常に大きく、妊娠中・授乳中の方、心疾患・不安障害・睡眠障害をお持ちの方への適用は特に個別の判断が必要です。コーヒー摂取量の変更やサプリメントの開始前に、<strong>かかりつけ医・管理栄養士・薬剤師など専門家にご相談ください</strong>。研究の引用は記載時点の情報に基づきます。
+</div>
+
+<!-- ===== フッター ===== -->
+<div class="footer">
+  <p><strong>健康・栄養 最新トピック</strong> ── 2026-05-31号</p>
+  <p style="margin-top:6px;">各記事の出典URLは各トピック下部に記載しています。情報は収集時点のものです。</p>
+  <p style="margin-top:4px;"><a href="index.html" style="color:#aaa;">← バックナンバー一覧へ</a></p>
+</div>
+
+</body>
+</html>
