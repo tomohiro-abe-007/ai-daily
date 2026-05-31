@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI動画制作 最新トピック 2026-06-01</title>
+<style>
+:root{
+  --bg:#ece8e1;--card:#faf6ec;--dark:#1a3a5c;--dark2:#1a5c3a;
+  --accent:#1a4a6b;--accent2:#1a5c3a;--warm:#c4762a;
+  --text:#2a3540;--muted:#7c8a82;--border:#e0d8c8;
+  --red:#8b2020;--redcard:#fff0f0;--redborder:#f0c8c8;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,"Hiragino Sans","Yu Gothic",sans-serif;line-height:1.7;padding:24px 16px;}
+.wrap{max-width:860px;margin:0 auto;}
+
+/* Header */
+.header{background:linear-gradient(135deg,var(--dark),var(--dark2));color:#fff;border-radius:20px;padding:40px 32px;text-align:center;box-shadow:0 8px 24px rgba(26,58,92,.22);margin-bottom:24px;}
+.date-badge{background:rgba(255,255,255,.18);color:#c8dde8;border-radius:20px;padding:4px 16px;font-size:.85rem;display:inline-block;margin-bottom:16px;letter-spacing:.08em;}
+.header h1{font-size:1.9rem;margin-bottom:8px;letter-spacing:.04em;}
+.header .subtitle{color:#c8dde8;font-size:1rem;}
+.tag-row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:14px;}
+.header .tag{background:rgba(255,255,255,.15);border-radius:12px;padding:3px 12px;font-size:.78rem;display:inline-block;color:#d8ecd4;}
+
+/* Section */
+.section{background:var(--card);border-radius:16px;padding:28px 24px;margin-bottom:20px;box-shadow:0 3px 12px rgba(0,0,0,.06);border:1px solid var(--border);}
+.section-title{font-size:1.1rem;font-weight:700;color:var(--accent);border-bottom:2px solid var(--border);padding-bottom:10px;margin-bottom:18px;display:flex;align-items:center;gap:8px;}
+
+/* Big number cards */
+.num-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:16px;}
+.num-card{background:linear-gradient(135deg,var(--accent),var(--dark2));color:#fff;border-radius:12px;padding:18px 12px;text-align:center;}
+.num-card .big{font-size:2.4rem;font-weight:800;line-height:1.1;display:block;}
+.num-card .label{font-size:.75rem;color:#c8dde8;margin-top:4px;display:block;}
+.num-card .note{font-size:.7rem;color:#a8ccd8;margin-top:2px;display:block;}
+
+/* Multi-shot flow diagram */
+.shot-flow{display:flex;align-items:center;gap:4px;flex-wrap:wrap;margin:18px 0;justify-content:center;}
+.shot-box{background:linear-gradient(135deg,#1a4a6b,#1a5c3a);color:#fff;border-radius:10px;padding:10px 8px;text-align:center;min-width:90px;flex:1;max-width:130px;}
+.shot-box .shot-num{font-size:.7rem;color:#c8dde8;}
+.shot-box .shot-label{font-size:.82rem;font-weight:700;margin-top:2px;}
+.shot-box .shot-sub{font-size:.68rem;color:#a8ccd8;margin-top:2px;}
+.arrow{font-size:1.4rem;color:var(--warm);flex-shrink:0;}
+.flow-caption{text-align:center;font-size:.82rem;color:var(--muted);margin-top:6px;}
+
+/* Feature cards */
+.feat-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:16px;}
+.feat-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:16px 14px;}
+.feat-card .icon{font-size:1.6rem;margin-bottom:8px;}
+.feat-card h3{font-size:.9rem;font-weight:700;color:var(--accent);margin-bottom:6px;}
+.feat-card p{font-size:.82rem;color:var(--text);line-height:1.5;}
+
+/* Pricing table */
+.price-table{width:100%;border-collapse:collapse;margin-top:16px;font-size:.85rem;}
+.price-table th{background:var(--accent);color:#fff;padding:10px 12px;text-align:left;}
+.price-table td{padding:10px 12px;border-bottom:1px solid var(--border);vertical-align:top;}
+.price-table tr:last-child td{border-bottom:none;}
+.price-table tr:nth-child(even) td{background:#f5f0e8;}
+.price-free{background:#e8f5ee;font-weight:700;color:var(--accent2);}
+.price-table th:first-child{border-radius:8px 0 0 0;}
+.price-table th:last-child{border-radius:0 8px 0 0;}
+
+/* Step list */
+.steps{counter-reset:step;margin-top:16px;}
+.step{display:flex;gap:14px;align-items:flex-start;margin-bottom:14px;}
+.step-num{counter-increment:step;background:var(--accent);color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:700;flex-shrink:0;margin-top:2px;}
+.step-body h4{font-size:.9rem;font-weight:700;color:var(--accent);margin-bottom:3px;}
+.step-body p{font-size:.83rem;color:var(--text);}
+.step-prompt{background:#1a3a5c;color:#c8e8ff;border-radius:8px;padding:10px 12px;font-size:.78rem;font-family:monospace;margin-top:6px;line-height:1.6;}
+
+/* News card (warning) */
+.news-warn{background:var(--redcard);border:1px solid var(--redborder);border-radius:12px;padding:18px 16px;margin-top:16px;}
+.news-warn h3{color:var(--red);font-size:.95rem;font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.news-warn p{font-size:.83rem;color:#5a2020;line-height:1.6;}
+.timeline{margin-top:10px;display:flex;flex-direction:column;gap:6px;}
+.tl-row{display:flex;gap:10px;align-items:center;font-size:.82rem;}
+.tl-date{background:var(--red);color:#fff;border-radius:6px;padding:2px 8px;font-weight:700;white-space:nowrap;flex-shrink:0;}
+.tl-text{color:#5a2020;}
+
+/* Disclaimer */
+.disclaimer{background:#f5f0e8;border:1px solid var(--border);border-radius:12px;padding:16px;margin-top:20px;font-size:.78rem;color:var(--muted);line-height:1.6;}
+.disclaimer strong{color:var(--warm);}
+
+/* Sources */
+.sources{margin-top:16px;}
+.sources a{color:var(--accent);font-size:.78rem;word-break:break-all;}
+.src-item{margin-bottom:4px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="date-badge">2026-06-01 ／ ツール最新情報</div>
+    <h1>AI動画制作 最新トピック</h1>
+    <div class="subtitle">Kling 3.0 マルチショット・ストーリーボード完全解説</div>
+    <div class="tag-row">
+      <span class="tag">🎬 ツール情報</span>
+      <span class="tag">🎞️ Kling 3.0</span>
+      <span class="tag">📋 マルチショット</span>
+      <span class="tag">🔊 ネイティブ音声</span>
+    </div>
+  </div>
+
+  <!-- 概要 -->
+  <div class="section">
+    <div class="section-title">🧩 Kling 3.0 ってどんなツール？</div>
+    <p>中国の動画アプリ「快手（Kuaishou）」が開発したAI動画生成ツールです。2026年2月4日にバージョン3.0がリリースされ、<strong>1回のプロンプト（指示文）で複数のカットをまとめて作れる「マルチショット・ストーリーボード」機能</strong>が大きな話題になっています。</p>
+    <p style="margin-top:10px;font-size:.88rem;color:var(--muted);">＊ストーリーボード＝映像のコマ割り（どのシーンをどの順番で撮るかを並べた設計図）のこと。</p>
+    <div class="num-cards">
+      <div class="num-card">
+        <span class="big">6</span>
+        <span class="label">1回で作れるカット数</span>
+        <span class="note">ショット(カット)を最大6つ</span>
+      </div>
+      <div class="num-card">
+        <span class="big">4K</span>
+        <span class="label">出力解像度</span>
+        <span class="note">3840×2160 / 60fps</span>
+      </div>
+      <div class="num-card">
+        <span class="big">5</span>
+        <span class="label">ネイティブ音声の言語数</span>
+        <span class="note">口の動きと自動同期</span>
+      </div>
+      <div class="num-card">
+        <span class="big">15秒</span>
+        <span class="label">1クリップの最大長</span>
+        <span class="note">連続した一貫した映像</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- マルチショット図解 -->
+  <div class="section">
+    <div class="section-title">🎞️ マルチショット・ストーリーボードの仕組み</div>
+    <p>これまでのAI動画ツールは「1プロンプト＝1カット」でした。Kling 3.0では<strong>最大6つのカットをまとめて指定</strong>でき、AI自身がシーン間のつながりを自動でつなげます。</p>
+
+    <div class="shot-flow">
+      <div class="shot-box">
+        <div class="shot-num">Shot 1</div>
+        <div class="shot-label">🚶 広角</div>
+        <div class="shot-sub">人物が歩いてくる</div>
+      </div>
+      <div class="arrow">→</div>
+      <div class="shot-box">
+        <div class="shot-num">Shot 2</div>
+        <div class="shot-label">😊 アップ</div>
+        <div class="shot-sub">顔のクローズアップ</div>
+      </div>
+      <div class="arrow">→</div>
+      <div class="shot-box">
+        <div class="shot-num">Shot 3</div>
+        <div class="shot-label">🏙️ 引き</div>
+        <div class="shot-sub">街の全体ショット</div>
+      </div>
+      <div class="arrow">→</div>
+      <div class="shot-box">
+        <div class="shot-num">Shot 4</div>
+        <div class="shot-label">👀 逆アングル</div>
+        <div class="shot-sub">背後から撮影</div>
+      </div>
+      <div class="arrow">→</div>
+      <div class="shot-box">
+        <div class="shot-num">〜 6</div>
+        <div class="shot-label">🎬 まとめて</div>
+        <div class="shot-sub">AIが自動でつなぐ</div>
+      </div>
+    </div>
+    <div class="flow-caption">↑ AIが各ショットのカメラ角度・動き・人物の一貫性を自動で維持してくれる</div>
+
+    <p style="margin-top:14px;font-size:.85rem;">各ショットに「カメラの動き（パン・ズームなど）」「構図のサイズ（引き・アップなど）」「尺」を個別に指定でき、全体のテンポや物語の流れはAIがまとめてくれます。</p>
+  </div>
+
+  <!-- 主な新機能 -->
+  <div class="section">
+    <div class="section-title">✨ Kling 3.0 の主な新機能</div>
+    <div class="feat-cards">
+      <div class="feat-card">
+        <div class="icon">🎬</div>
+        <h3>マルチショット自動生成</h3>
+        <p>1回の指示で最大6カット。シーン間のキャラクター一貫性も自動維持。</p>
+      </div>
+      <div class="feat-card">
+        <div class="icon">🖼️</div>
+        <h3>4K / 60fps 出力</h3>
+        <p>ネイティブ4K解像度（3840×2160）、60fpsに対応。放送品質の映像が生成可能。</p>
+      </div>
+      <div class="feat-card">
+        <div class="icon">🔊</div>
+        <h3>5言語ネイティブ音声</h3>
+        <p>テキストから口の動きと同期した音声を自動生成。複数言語・方言に対応。</p>
+      </div>
+      <div class="feat-card">
+        <div class="icon">⚖️</div>
+        <h3>物理シミュレーション</h3>
+        <p>重力・慣性・素材変形を3D空間でモデリング。バックフリップや水の動きが自然。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 料金プラン -->
+  <div class="section">
+    <div class="section-title">💰 料金プラン比較（2026年5月時点・公式で要確認）</div>
+    <table class="price-table">
+      <thead>
+        <tr>
+          <th>プラン</th>
+          <th>月額（目安）</th>
+          <th>クレジット</th>
+          <th>主な制限</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="price-free">🆓 無料</td>
+          <td class="price-free">$0</td>
+          <td class="price-free">66クレジット/日</td>
+          <td class="price-free">720p・透かし入り</td>
+        </tr>
+        <tr>
+          <td>Standard</td>
+          <td>$6.99〜</td>
+          <td>月660クレジット</td>
+          <td>1080p・透かしなし</td>
+        </tr>
+        <tr>
+          <td>Pro</td>
+          <td>$25.99〜</td>
+          <td>月3,000クレジット</td>
+          <td>4K対応・高優先処理</td>
+        </tr>
+        <tr>
+          <td>Premier</td>
+          <td>$64.99〜</td>
+          <td>月8,000クレジット</td>
+          <td>商用利用・API対応</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="margin-top:10px;font-size:.8rem;color:var(--muted);">クレジット消費量はプロンプトの複雑さや解像度によって変わります。マルチショット・4K生成はより多くのクレジットを消費します。</p>
+  </div>
+
+  <!-- 具体例 -->
+  <div class="section">
+    <div class="section-title">🛠️ 真似できる具体例：3ショット旅行ショート動画を作ろう</div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h4>Kling AIのサイトにアクセスして無料アカウントを作る</h4>
+          <p>klingai.com にアクセスし、Googleアカウントなどで登録。毎日66クレジットが補充されます（無料・カード不要）。</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <h4>「Multi-shot」または「Storyboard」モードを選ぶ</h4>
+          <p>動画生成画面でショット数（2〜6）を設定できます。今回は3ショットで試してみましょう。</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <h4>各ショットにプロンプトを入力する</h4>
+          <div class="step-prompt">
+Shot 1: Wide angle shot, a woman walking toward a torii gate in Kyoto at golden hour, warm light, slow push-in camera<br>
+Shot 2: Medium close-up, she looks up at the gate, soft smile, shallow depth of field<br>
+Shot 3: Aerial drone shot pulling back, revealing the full shrine path lined with orange gates
+          </div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <h4>生成を実行してダウンロード</h4>
+          <p>数分で3カットつながった動画が完成します。無料プランの場合は720p・透かしあり。SNS投稿用のテストに最適です。</p>
+        </div>
+      </div>
+    </div>
+    <p style="margin-top:8px;font-size:.82rem;color:var(--muted);">💡 ポイント：ショット間で同じキャラクター描写（服装・髪型など）を統一して書くと、AI が一貫性を保ちやすくなります。</p>
+  </div>
+
+  <!-- 速報: Sora 終了 -->
+  <div class="section">
+    <div class="section-title">📢 速報：OpenAI Sora コンシューマー版が終了</div>
+    <div class="news-warn">
+      <h3>⚠️ Sora のサービス状況（2026年5月時点）</h3>
+      <p>Sora を使っていた方は要注意です。OpenAIは2026年4月26日にSoraの一般向けアプリ（Web・iOS）を終了しました。APIは2026年9月24日まで使用可能ですが、その後は完全終了の予定とされています（公式で要確認）。</p>
+      <div class="timeline">
+        <div class="tl-row">
+          <span class="tl-date">2026/04/26</span>
+          <span class="tl-text">Soraコンシューマーアプリ（Web・iOS）終了</span>
+        </div>
+        <div class="tl-row">
+          <span class="tl-date">2026/09/24</span>
+          <span class="tl-text">Sora 2 API も終了予定</span>
+        </div>
+      </div>
+      <p style="margin-top:10px;font-size:.82rem;">📦 データのエクスポート：sora.chatgpt.com/exports/me から自分の生成動画をZIPでダウンロードできます（早めに確認を）。</p>
+      <p style="margin-top:8px;font-size:.82rem;color:#8b4040;">代替ツールとして <strong>Kling 3.0</strong>・<strong>Google Veo 3.1</strong>・<strong>Luma Dream Machine（Ray 3）</strong>などが挙げられています。</p>
+    </div>
+  </div>
+
+  <!-- 免責 -->
+  <div class="disclaimer">
+    <strong>⚠️ 免責事項：</strong>紹介したAIツールの名称・機能・料金・商用利用の可否は頻繁に変わります。最新情報と利用規約は必ず各公式ページでご確認ください。本記事の情報は収集時点（2026年5月末）のものです。
+  </div>
+
+  <!-- 出典 -->
+  <div class="section">
+    <div class="section-title">📚 出典・参考リンク（2026年5月収集）</div>
+    <div class="sources">
+      <div class="src-item">・ <a href="https://nofilmschool.com/kling-3-0-ai-video-model" target="_blank">No Film School — Kling 3.0 Announced（2026年）</a></div>
+      <div class="src-item">・ <a href="https://invideo.io/blog/kling-3-0-complete-guide/" target="_blank">invideo — Kling 3.0 Complete Guide（2026年）</a></div>
+      <div class="src-item">・ <a href="https://flowith.io/blog/kling-3-pricing-credits-pro-ultra/" target="_blank">Flowith Blog — Kling 3.0 Pricing & Credits（2026年）</a></div>
+      <div class="src-item">・ <a href="https://adcreate.com/blog/kling-3-ai-video-4k-multishot-guide" target="_blank">ADCreate — Kling 3.0 4K & Multi-Shot Guide（2026年）</a></div>
+      <div class="src-item">・ <a href="https://resource.digen.ai/sora-2-openai-shutdown-guide-2026/" target="_blank">Digen — Sora 2 Shutdown Guide（2026年）</a></div>
+      <div class="src-item">・ <a href="https://kaopiz.com/en/articles/sora-shutdown-guide/" target="_blank">Kaopiz — Sora Shutdown Timeline（2026年）</a></div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
