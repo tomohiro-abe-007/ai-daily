@@ -368,17 +368,62 @@
     margin-left: 4px;
     vertical-align: middle;
   }
-  .tag-end {
-    display: inline-block;
-    background: #888;
-    color: white;
-    font-size: 0.62rem;
-    font-weight: 700;
-    padding: 1px 6px;
-    border-radius: 8px;
-    margin-left: 4px;
-    vertical-align: middle;
+
+  /* 対比カード */
+  .vs-row {
+    display: flex;
+    gap: 12px;
+    margin: 18px 0;
+    align-items: stretch;
   }
+  .vs-card {
+    flex: 1;
+    border-radius: 10px;
+    padding: 16px;
+    font-size: 0.88rem;
+    line-height: 1.6;
+  }
+  .vs-card h4 { font-size: 0.95rem; margin-bottom: 8px; }
+  .vs-card.left  { background: #e8f4fd; border: 2px solid #6baed6; color: #1a3d5c; }
+  .vs-card.right { background: #fde8f4; border: 2px solid #d66bae; color: #5c1a3d; }
+  .vs-card.right2 { background: #e8fde8; border: 2px solid #6bd66b; color: #1a5c1a; }
+  .vs-divider {
+    display: flex;
+    align-items: center;
+    font-size: 1.4rem;
+    color: #aaa;
+    flex-shrink: 0;
+  }
+
+  /* フロー図 */
+  .flow-diagram {
+    background: #f8f4ec;
+    border: 2px dashed #c8b89a;
+    border-radius: 10px;
+    padding: 18px 16px;
+    margin: 18px 0;
+  }
+  .flow-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+  }
+  .flow-row:last-child { margin-bottom: 0; }
+  .flow-node {
+    background: white;
+    border: 2px solid #6baed6;
+    border-radius: 8px;
+    padding: 6px 14px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #1a3d5c;
+    text-align: center;
+  }
+  .flow-node.orange { border-color: #f0a030; color: #7a4000; background: #fff8e8; }
+  .flow-node.green  { border-color: #4caf50; color: #1a5c1a; background: #e8fde8; }
+  .flow-node.red    { border-color: #e74c3c; color: #7a1a1a; background: #fde8e8; }
 
   @media (max-width: 600px) {
     .card-body { padding: 20px 20px 20px 44px; }
@@ -387,6 +432,7 @@
     .summary-card { padding: 24px 20px; }
     .stat-row { gap: 10px; }
     .step-flow { gap: 4px; }
+    .vs-row { flex-direction: column; }
   }
 </style>
 </head>
@@ -404,356 +450,366 @@
 <div class="toc">
   <h2>📋 今日の目次</h2>
   <ol>
-    <li><a href="#topic1">Claude Opus 4.8 &amp; Dynamic Workflows ── 1,000体のAIが同時に働く新時代</a></li>
-    <li><a href="#topic2">OpenAI Codex「Goal Mode」── 目標を渡せば何日も自律で動くコーディングAI</a></li>
-    <li><a href="#topic3">AI動画生成の2026年マップ ── Sora（初代）終了と次世代ツール群</a></li>
-    <li><a href="#topic4">日本のAI国家戦略 GENIAC ── 製造業×ロボットAIに新テーマ11件を採択</a></li>
+    <li><a href="#topic1">Anthropic、1兆ドル目前の調達 ── OpenAIを超えた最高評価額の意味</a></li>
+    <li><a href="#topic2">Karpathy、Anthropicへ転籍 ── AIの「先生」がClaudeを教える</a></li>
+    <li><a href="#topic3">Metaの大転換 ── 8,000人削減とAI設備投資1,000億ドル超の構図</a></li>
+    <li><a href="#topic4">OpenAI Rosalind Biodefense ── 感染症・生物兵器対策AIを政府に無償提供</a></li>
     <li><a href="#summary">今日のまとめ</a></li>
   </ol>
 </div>
 
-<!-- トピック1: Claude Opus 4.8 -->
+<!-- トピック1: Anthropic 評価額 -->
 <div class="card" id="topic1">
   <div class="card-body">
     <div class="card-header">
-      <span class="card-emoji">🧬</span>
-      <div class="card-title">Claude Opus 4.8 &amp; Dynamic Workflows ──<br>1,000体のAIが同時に働く新時代</div>
+      <span class="card-emoji">💰</span>
+      <div class="card-title">Anthropic、1兆ドル目前の調達 ──<br>OpenAIを超えた最高評価額の意味</div>
       <span class="topic-badge badge-purple">Anthropic</span>
     </div>
 
     <div class="simple-box">
       <span class="label">🌱 やさしく解説</span><br>
-      5月28日にAnthropicが<span class="hl-yellow">Claude Opus 4.8</span>をリリースしました。最大の目玉は<span class="hl-blue">Dynamic Workflows（動的ワークフロー）</span>：AIが最大<strong>1,000個の「分身」を同時に動かして</strong>、巨大なタスクを一気に処理する機能です。コーディング性能も大幅アップし、ライバルAIを12以上の指標で上回りました。
+      5月28日、AIスタートアップ（新興企業）の<span class="hl-yellow">Anthropic（アンソロピック）</span>が<strong>650億ドル（約9.5兆円）</strong>の資金調達を発表しました。これで会社の評価額は<span class="hl-blue">9,650億ドル（約141兆円）</span>となり、ライバルのOpenAIを初めて上回りました。AIモデル「Claude」を作る会社が、なぜここまで注目されるようになったのかを解説します。
     </div>
 
-    <!-- ベンチマーク数値カード -->
+    <!-- 評価額比較数値カード -->
     <div class="stat-row">
       <div class="stat-card green">
-        <div class="stat-num">69.2%</div>
-        <div class="stat-label">SWE-bench Pro<br>Opus 4.8（最新）</div>
+        <div class="stat-num">$965B</div>
+        <div class="stat-label">Anthropic<br>今回の評価額</div>
       </div>
       <div class="stat-card gray">
-        <div class="stat-num">64.3%</div>
-        <div class="stat-label">SWE-bench Pro<br>Opus 4.7（前世代）</div>
-      </div>
-      <div class="stat-card red">
-        <div class="stat-num">58.6%</div>
-        <div class="stat-label">SWE-bench Pro<br>GPT-5.5（競合）</div>
+        <div class="stat-num">$852B</div>
+        <div class="stat-label">OpenAI<br>3月時点の評価額</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">1,000</div>
-        <div class="stat-label">最大並列<br>サブエージェント数</div>
+        <div class="stat-num">$65B</div>
+        <div class="stat-label">今回の<br>調達額</div>
+      </div>
+      <div class="stat-card amber">
+        <div class="stat-num">$47B</div>
+        <div class="stat-label">年換算の<br>売上高（推計）</div>
       </div>
     </div>
-    <p style="font-size:0.79rem; color:#999; margin-top:-6px; margin-bottom:16px;">※ SWE-bench Pro＝実際のソフトウェア開発課題をAIが解けるかを測るテスト</p>
+    <p style="font-size:0.79rem; color:#999; margin-top:-6px; margin-bottom:16px;">※ $1B＝約1,460億円（2026年5月時点の概算。為替は変動します）</p>
+
+    <!-- 評価額の推移フロー -->
+    <p style="font-size:0.85rem; font-weight:600; color:#555; margin-bottom:8px;">📈 Anthropic 評価額の急成長</p>
+    <div class="step-flow">
+      <div class="step-box">2023年<br><span style="font-size:0.73rem; font-weight:400;">$4.1B<br>約6,000億円</span></div>
+      <div class="step-arrow">→</div>
+      <div class="step-box">2025年初<br><span style="font-size:0.73rem; font-weight:400;">$61.5B<br>約9兆円</span></div>
+      <div class="step-arrow">→</div>
+      <div class="step-box">2026年2月<br><span style="font-size:0.73rem; font-weight:400;">$380B<br>約55兆円</span></div>
+      <div class="step-arrow">→</div>
+      <div class="step-box done">2026年5月<br><span style="font-size:0.73rem; font-weight:400;">$965B<br>約141兆円</span></div>
+    </div>
 
     <ul class="point-list">
       <li>
         <span class="marker marker-purple">1</span>
-        <span><strong>Dynamic Workflows（研究プレビュー公開）</strong> ── 最大1,000体のサブエージェント（分身AI）を並列実行。「75万行のコードを11日で生成し、テストの99.8%をパス」という事例が報告されている</span>
+        <span><strong>3年で240倍に膨らんだ評価額</strong> ── 2023年の$4.1Bから、わずか3年で$965Bへ。AIの商業化が思った以上に速く進んでいることを示す</span>
       </li>
       <li>
         <span class="marker marker-purple">2</span>
-        <span><strong>SWE-bench ProでGPT-5.5を超えた</strong> ── 実務コーディング評価69.2%は前世代（64.3%）・GPT-5.5（58.6%）を上回り、12以上のベンチマークで首位を獲得</span>
+        <span><strong>急成長の原動力は「Claude Code」</strong> ── プログラミング支援AIが企業に爆発的に採用された結果、年換算売上が$47B（約7兆円）という規模に急拡大。AIコーディングがビジネスになった</span>
       </li>
       <li>
         <span class="marker marker-purple">3</span>
-        <span><strong>Effort Control（努力量の調整）</strong> ── 「どれくらい深く考えるか」を<strong>低・中・高・最大</strong>の4段階で指定できる。速さが必要なら「低」、難問には「最大」を選ぶ</span>
+        <span><strong>主な出資者</strong> ── Altimeter・Dragoneer・Sequoia・Greenoaksが主導。Amazonからの$5B（約7,300億円）も含む。IPO（株式公開）に向けた準備段階との見方も</span>
       </li>
       <li>
         <span class="marker marker-purple">4</span>
-        <span><strong>誠実さ（Integrity）が向上</strong> ── 自分が生成したコードのバグを見逃す確率が前世代より大幅に改善。不確かな情報は「不確実」と自ら申告するよう強化された</span>
-      </li>
-      <li>
-        <span class="marker marker-purple">5</span>
-        <span><strong>価格は据え置き</strong> ── 入力100万トークン5ドル・出力25ドルは4.7から変わらず。性能だけが上がった「実質値下げ」アップデート（最新料金は公式サイトで要確認）</span>
+        <span><strong>「安全性を重視するAI会社」が最大手に</strong> ── Anthropicは「AIの安全性を最優先する」という方針で設立された会社。その姿勢が企業の信頼を集め、今や業界最高評価に</span>
       </li>
     </ul>
 
     <div class="sticky">
-      ✏️ <strong>中学生的に言うと：</strong>「1,000人の賢い分身が同時に宿題を手伝ってくれる」イメージ。しかも「ここ自信ない」とちゃんと言ってくれる、正直で賢いAIになった！
+      ✏️ <strong>中学生的に言うと：</strong>クラスで一番「ちゃんとやる」と評判だった子が、成績でもトップになったイメージ。「安全第一」を守り続けたら、一番信用される会社になった！
     </div>
 
     <div class="source">
       📎 出典：
-      <a href="https://www.marktechpost.com/2026/05/28/anthropic-ships-claude-opus-4-8-alongside-dynamic-workflows-and-cheaper-fast-mode-with-workflows-capped-at-1000-subagents/" target="_blank">MarkTechPost – Anthropic Ships Claude Opus 4.8 (2026-05-28)</a> /
-      <a href="https://gigazine.net/gsc_news/en/20260529-anthropic-claude-opus-4-8/" target="_blank">GIGAZINE – Anthropic announces Claude Opus 4.8 (2026-05-29)</a> /
-      <a href="https://earezki.com/ai-news/2026-05-29-opus-4-8/" target="_blank">Dev|Journal – Opus 4.8: #1 on Benchmarks (2026-05-29)</a>
+      <a href="https://techcrunch.com/2026/05/28/anthropic-raises-65-billion-nears-1t-valuation-ahead-of-ipo/" target="_blank">TechCrunch – Anthropic raises $65 billion (2026-05-28)</a> /
+      <a href="https://www.cnbc.com/2026/05/28/anthropic-open-ai-startup-value.html" target="_blank">CNBC – Anthropic tops OpenAI as most valuable AI startup (2026-05-28)</a> /
+      <a href="https://www.bloomberg.com/news/articles/2026-05-28/anthropic-raises-at-965-billion-valuation-eclipsing-openai" target="_blank">Bloomberg – Anthropic's Valuation Nears $1 Trillion (2026-05-28)</a>
     </div>
   </div>
 </div>
 
-<!-- トピック2: Codex Goal Mode -->
+<!-- トピック2: Karpathy joins Anthropic -->
 <div class="card" id="topic2">
   <div class="card-body">
     <div class="card-header">
-      <span class="card-emoji">🎯</span>
-      <div class="card-title">OpenAI Codex「Goal Mode」──<br>目標を渡せば何日も自律で動くコーディングAI</div>
+      <span class="card-emoji">🧑‍🔬</span>
+      <div class="card-title">Karpathy、Anthropicへ転籍 ──<br>AIの「先生」がClaudeを教える</div>
+      <span class="topic-badge badge-purple">人材・研究</span>
+    </div>
+
+    <div class="simple-box">
+      <span class="label">🌱 やさしく解説</span><br>
+      5月19日、AI研究の世界で大ニュースが飛び込みました。<span class="hl-yellow">Andrej Karpathy（アンドレイ・カーパシー）</span>氏がAnthropicに入社すると発表したのです。Karpathy氏はOpenAIの共同創設者のひとりで、「AIの仕組みをわかりやすく教える先生」として有名な研究者。その人物が、<span class="hl-blue">Claudeの「学習」そのものを改善するチームを立ち上げる</span>と聞いて、業界は騒然となりました。
+    </div>
+
+    <!-- Karpathy のキャリアフロー -->
+    <p style="font-size:0.85rem; font-weight:600; color:#555; margin-bottom:8px;">🗺️ Karpathy 氏のキャリアの流れ</p>
+    <div class="flow-diagram">
+      <div class="flow-row">
+        <div class="flow-node">2015年<br>OpenAI共同創設</div>
+        <span class="step-arrow">→</span>
+        <div class="flow-node orange">Tesla<br>AI部門トップ</div>
+        <span class="step-arrow">→</span>
+        <div class="flow-node">2023年<br>OpenAI復帰</div>
+        <span class="step-arrow">→</span>
+        <div class="flow-node orange">2024年<br>独立・Eureka Labs創業</div>
+        <span class="step-arrow">→</span>
+        <div class="flow-node green">2026年5月<br>Anthropic入社</div>
+      </div>
+    </div>
+
+    <ul class="point-list">
+      <li>
+        <span class="marker marker-purple">1</span>
+        <span><strong>役割は「プレトレーニング」研究チームの立ち上げ</strong> ── プレトレーニング（事前学習）とはAIに膨大なデータを読ませて基礎能力を身につけさせる作業。Claudeの「地頭」を作る最重要工程だ</span>
+      </li>
+      <li>
+        <span class="marker marker-purple">2</span>
+        <span><strong>「ClaudeでClaudeを訓練する」</strong> ── Anthropicが公式に発表したミッションは「Claudeを使って次世代Claudeの学習を加速させること」。AIがAI自身を教える自己進化の研究だ</span>
+      </li>
+      <li>
+        <span class="marker marker-purple">3</span>
+        <span><strong>なぜ今Anthropicを選んだ？</strong> ── Karpathy氏は「AIエージェントが主役になる時代、CLIなどシンプルなインターフェースが重要」と発言してきた。Anthropicの方向性と合致したとみられる</span>
+      </li>
+      <li>
+        <span class="marker marker-purple">4</span>
+        <span><strong>AI人材争奪戦のシンボル</strong> ── トップ研究者の移籍は、企業の技術力の変化を示す最大のシグナル。Google・OpenAI・Anthropicの「才能の奪い合い」がいよいよ激化している</span>
+      </li>
+    </ul>
+
+    <div class="sticky">
+      ✏️ <strong>中学生的に言うと：</strong>学校で一番わかりやすく数学を教えるベテラン先生が、突然ライバル校に移籍したようなもの。その先生の授業でどんな生徒が育つか、全校が注目している！
+    </div>
+
+    <div class="source">
+      📎 出典：
+      <a href="https://techcrunch.com/2026/05/19/openai-co-founder-andrej-karpathy-joins-anthropics-pre-training-team/" target="_blank">TechCrunch – Karpathy joins Anthropic's pre-training team (2026-05-19)</a> /
+      <a href="https://finance.biggo.jp/news/202605191933_Karpathy_joins_Anthropic_pre-training_team" target="_blank">BigGo Finance – Karpathy 氏が Anthropic に入社（2026-05-19）</a>
+    </div>
+  </div>
+</div>
+
+<!-- トピック3: Meta 大転換 -->
+<div class="card" id="topic3">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">🏗️</span>
+      <div class="card-title">Metaの大転換 ──<br>8,000人削減とAI設備投資1,000億ドル超の構図</div>
+      <span class="topic-badge badge-blue">Meta / 業界動向</span>
+    </div>
+
+    <div class="simple-box">
+      <span class="label">🌱 やさしく解説</span><br>
+      5月20日、Facebookなどを運営する<span class="hl-yellow">Meta（メタ）</span>が約<strong>8,000人の社員を解雇</strong>すると発表し、同時に2026年のAI関連設備投資の目標を<span class="hl-blue">最大1,350億ドル（約19.7兆円）</span>に引き上げました。「人を減らして、その分お金をAIインフラに注ぎ込む」という戦略転換が鮮明になっています。
+    </div>
+
+    <!-- 対比カード: 削減 vs 投資 -->
+    <div class="vs-row">
+      <div class="vs-card left">
+        <h4>📉 削減すること</h4>
+        <ul style="padding-left:16px; font-size:0.86rem; line-height:1.8;">
+          <li>約8,000人を解雇（全体の10%）</li>
+          <li>6,000件の採用計画を取り消し</li>
+          <li>コンテンツモデレーション等の間接部門</li>
+        </ul>
+      </div>
+      <div class="vs-divider">⇄</div>
+      <div class="vs-card right2">
+        <h4>📈 拡大すること</h4>
+        <ul style="padding-left:16px; font-size:0.86rem; line-height:1.8;">
+          <li>AI設備投資 $115〜135B（最大19.7兆円）</li>
+          <li>7,000人をAI関連部署へ異動</li>
+          <li>ルイジアナ州でギガワット級データセンター建設</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 数値カード -->
+    <div class="stat-row">
+      <div class="stat-card red">
+        <div class="stat-num">8,000</div>
+        <div class="stat-label">解雇される<br>社員数（人）</div>
+      </div>
+      <div class="stat-card green">
+        <div class="stat-num">$135B</div>
+        <div class="stat-label">2026年AI<br>設備投資上限</div>
+      </div>
+      <div class="stat-card gray">
+        <div class="stat-num">$72B</div>
+        <div class="stat-label">2025年の<br>設備投資額</div>
+      </div>
+      <div class="stat-card amber">
+        <div class="stat-num">$26.8B</div>
+        <div class="stat-label">2026年Q1<br>純利益（過去最高）</div>
+      </div>
+    </div>
+
+    <ul class="point-list">
+      <li>
+        <span class="marker marker-blue">1</span>
+        <span><strong>設備投資は前年の約2倍</strong> ── 2025年の$72Bから一気に$115〜135Bへ。AIデータセンター（コンピューターをたくさん置く巨大な施設）の建設が主な用途だ</span>
+      </li>
+      <li>
+        <span class="marker marker-blue">2</span>
+        <span><strong>Nebius社と$27B規模のデータセンター合弁</strong> ── ルイジアナ州に「1ギガワット級」の巨大AI計算施設を建設する計画。1GWとはおよそ100万世帯分の電力量に相当する</span>
+      </li>
+      <li>
+        <span class="marker marker-blue">3</span>
+        <span><strong>「赤字でも投資を続ける」と宣言</strong> ── Q1利益は過去最高の$26.8Bを記録したにもかかわらず、さらなる大規模支出を決定。AI覇権争いでは資金力が勝負になっている</span>
+      </li>
+      <li>
+        <span class="marker marker-blue">4</span>
+        <span><strong>業界全体の傾向</strong> ── Google・Microsoft・Amazonも同様に「人員削減＋AI投資拡大」を進めている。「AIが人の仕事を置き換え始めた」という現実を示す動きだ</span>
+      </li>
+    </ul>
+
+    <div class="sticky">
+      ✏️ <strong>中学生的に言うと：</strong>お店がアルバイトを減らして、その代わりに全自動のレジとロボットを大量導入するイメージ。長期的に見たら、AIへの投資の方が稼げると判断したということ。
+    </div>
+
+    <div class="source">
+      📎 出典：
+      <a href="https://thenextweb.com/news/meta-layoffs-8000-ai-restructuring-thousands" target="_blank">The Next Web – Meta to cut 8,000 jobs (2026-05-20)</a> /
+      <a href="https://www.hcamag.com/us/specialization/transformation/meta-to-cut-10-of-its-workforce-as-zuckerberg-redirects-billions-toward-ai/572933" target="_blank">HCA Magazine – Meta cuts 10% workforce (2026-05-20)</a> /
+      <a href="https://www.tomshardware.com/tech-industry/big-tech/mark-zuckerberg-says-meta-is-cutting-8000-jobs-to-pay-for-ai-infrastructure" target="_blank">Tom's Hardware – Zuckerberg on AI infrastructure (2026-05-20)</a>
+    </div>
+  </div>
+</div>
+
+<!-- トピック4: OpenAI Rosalind Biodefense -->
+<div class="card" id="topic4">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">🧬</span>
+      <div class="card-title">OpenAI Rosalind Biodefense ──<br>感染症・生物兵器対策AIを政府に無償提供</div>
       <span class="topic-badge badge-red">OpenAI</span>
     </div>
 
     <div class="simple-box">
       <span class="label">🌱 やさしく解説</span><br>
-      OpenAIのターミナル用コーディングAI「<span class="hl-yellow">Codex CLI</span>」が2026年5月に大きな進化を遂げました。新機能「<span class="hl-blue">Goal Mode（目標モード）</span>」では、<strong>「こんなものを作りたい」「完成の条件はこれ」</strong>と書くだけで、AIが何時間・何日もかけて自律的に作業を続けます。寝ている間に仕事が終わる時代です。
+      5月29日、OpenAIが「<span class="hl-yellow">Rosalind Biodefense（ロザリンド・バイオディフェンス）</span>」というプログラムを発表しました。これは<strong>感染症の早期警戒・生物兵器対策</strong>に特化したAI「GPT-Rosalind」を、アメリカ政府や研究機関に<span class="hl-blue">無償で提供する</span>取り組みです。AIが公衆衛生（みんなの健康を守る仕組み）の守り手になる、新しい段階に入りました。
     </div>
 
-    <!-- ステップフロー -->
-    <p style="font-size:0.85rem; font-weight:600; color:#555; margin-bottom:8px;">🔄 Goal Mode の流れ</p>
+    <!-- GPT-Rosalind の用途フロー -->
+    <p style="font-size:0.85rem; font-weight:600; color:#555; margin-bottom:8px;">🔬 GPT-Rosalind が担う生物防衛の流れ</p>
     <div class="step-flow">
-      <div class="step-box">① 目標を書く<br><span style="font-size:0.73rem; font-weight:400;">「何を作るか」<br>「完成の条件」</span></div>
+      <div class="step-box">① 感染症<br>早期検知<br><span style="font-size:0.73rem; font-weight:400;">異常な患者数や<br>症状パターンを察知</span></div>
       <div class="step-arrow">→</div>
-      <div class="step-box">② AIが計画<br><span style="font-size:0.73rem; font-weight:400;">実行手順を<br>自動生成</span></div>
+      <div class="step-box">② 病原体<br>スクリーニング<br><span style="font-size:0.73rem; font-weight:400;">未知の危険な<br>微生物を識別</span></div>
       <div class="step-arrow">→</div>
-      <div class="step-box">③ 自律実行<br><span style="font-size:0.73rem; font-weight:400;">数時間〜数日<br>自動で作業</span></div>
+      <div class="step-box">③ 感染<br>モデリング<br><span style="font-size:0.73rem; font-weight:400;">どう広がるかを<br>シミュレーション</span></div>
       <div class="step-arrow">→</div>
-      <div class="step-box">④ 中断・再開OK<br><span style="font-size:0.73rem; font-weight:400;">PC電源を切っても<br>続きから再開</span></div>
-      <div class="step-arrow">→</div>
-      <div class="step-box done">⑤ 目標達成！<br><span style="font-size:0.73rem; font-weight:400;">条件を満たす<br>まで繰り返す</span></div>
+      <div class="step-box done">④ 対策薬の<br>開発支援<br><span style="font-size:0.73rem; font-weight:400;">ワクチン・治療薬<br>の候補を提示</span></div>
     </div>
 
-    <ul class="point-list">
-      <li>
-        <span class="marker marker-red">1</span>
-        <span><strong>v0.133.0でGoal Modeがデフォルトに（5月21日）</strong> ── 5月だけで4回連続リリースした集大成。Codexが「手伝うツール」から「自律的に動くランタイム（実行環境）」へと変わった</span>
-      </li>
-      <li>
-        <span class="marker marker-red">2</span>
-        <span><strong>Goal Modeの仕組み</strong> ── 目標（goal）と成功基準（success criteria）を設定するとCodexが長時間・マルチセッションで自律実行。セッションをまたいで進捗が引き継がれる</span>
-      </li>
-      <li>
-        <span class="marker marker-red">3</span>
-        <span><strong>TUIコントロール搭載</strong> ── ターミナル画面から「Goal作成・一時停止・再開・削除」をリアルタイムで操作できるインターフェース。バックグラウンドでの長時間実行を想定した設計</span>
-      </li>
-      <li>
-        <span class="marker marker-red">4</span>
-        <span><strong>Permission Profiles（権限プロファイル）</strong> ── 「このAIにどこまで権限を与えるか」をプロファイルで管理。サンドボックス（隔離環境）での安全な実行も選択可能</span>
-      </li>
-    </ul>
-
-    <div class="sticky">
-      ✏️ <strong>中学生的に言うと：</strong>「夏休みの工作、全部やっておいて」と言って遊びに出かけたら、帰ってきたら完成してた！しかも電源が切れても続きからやってくれる！
-    </div>
-
-    <div class="source">
-      📎 出典：
-      <a href="https://openai.com/codex/" target="_blank">OpenAI Codex 公式ページ</a> /
-      <a href="https://releasebot.io/updates/openai/codex" target="_blank">Releasebot – Codex Updates by OpenAI（2026年5月）</a> /
-      <a href="https://codersera.com/blog/openai-may-2026-updates-roundup/" target="_blank">CoderSera – OpenAI May 2026 Updates Roundup</a>
-    </div>
-  </div>
-</div>
-
-<!-- トピック3: AI動画生成マップ -->
-<div class="card" id="topic3">
-  <div class="card-body">
-    <div class="card-header">
-      <span class="card-emoji">🎬</span>
-      <div class="card-title">AI動画生成の2026年マップ ──<br>Sora（初代）終了と次世代ツール群</div>
-      <span class="topic-badge badge-teal">動画AI</span>
-    </div>
-
-    <div class="simple-box">
-      <span class="label">🌱 やさしく解説</span><br>
-      2024年に鳴り物入りで登場したOpenAIの動画AI「<span class="hl-yellow">Sora（初代）</span>」が2026年3月にサービス終了しました。後継の「Sora 2」が公開されたほか、GoogleのVeo 3.1・RunwayのGen-4など、<span class="hl-blue">AI動画ツールは今や複数の選択肢</span>に広がっています。4K・60秒・音声同期が実現した2026年の現在地をまとめます。
-    </div>
-
-    <!-- 主要ツール比較表 -->
-    <p style="font-size:0.85rem; font-weight:600; color:#555; margin-bottom:8px;">📊 2026年 主要AI動画ツール比較</p>
+    <!-- 参加機関 -->
+    <p style="font-size:0.85rem; font-weight:600; color:#555; margin-bottom:8px;">🤝 主要な参加・連携機関（2026年5月時点）</p>
     <table class="compare-table">
       <thead>
         <tr>
-          <th>ツール名</th>
-          <th>提供元</th>
-          <th>特徴・状況（公式で要確認）</th>
+          <th>機関名</th>
+          <th>種別</th>
+          <th>主な役割</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td><strong>Sora 2</strong><span class="tag-new">NEW</span></td>
-          <td>OpenAI</td>
-          <td>初代の後継として公開。高品質映像生成</td>
+          <td><strong>ローレンス・リバモア国立研究所</strong></td>
+          <td>米政府研究所</td>
+          <td>核・生物脅威の分析</td>
         </tr>
         <tr>
-          <td><strong>Veo 3.1</strong></td>
-          <td>Google</td>
-          <td>縦動画（9:16）ネイティブ対応・1080p/4Kアップスケール（2026年1月更新）</td>
+          <td><strong>ジョンズ・ホプキンス APL</strong></td>
+          <td>大学附属研究所</td>
+          <td>公衆衛生・安全保障</td>
         </tr>
         <tr>
-          <td><strong>Runway Gen-4</strong></td>
-          <td>Runway AI</td>
-          <td>映画・広告品質、精密なカメラ制御が得意</td>
+          <td><strong>CEPI</strong></td>
+          <td>国際非営利組織</td>
+          <td>感染症流行への備え・ワクチン開発</td>
         </tr>
         <tr>
-          <td><strong>Kling 2</strong></td>
-          <td>快手（Kuaishou）</td>
-          <td>最長60秒・リップシンク（口の動きの音声同期）対応</td>
-        </tr>
-        <tr>
-          <td><strong>Pika 2</strong></td>
-          <td>Pika Labs</td>
-          <td>操作が手軽で手頃、小規模プロジェクト向け</td>
-        </tr>
-        <tr>
-          <td><strong>Sora（初代）</strong><span class="tag-end">終了</span></td>
-          <td>OpenAI</td>
-          <td>2026年3月サービス終了。GPU運用コストなどが課題に</td>
+          <td><strong>SecureDNA</strong></td>
+          <td>民間研究機関</td>
+          <td>危険なDNA合成の自動チェック</td>
         </tr>
       </tbody>
     </table>
 
-    <!-- 2024→2026の進化 -->
-    <p style="font-size:0.85rem; font-weight:600; color:#555; margin: 16px 0 8px;">📈 2024年→2026年の主な進化</p>
-    <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:16px;">
-      <div style="background:#e8f4fd; border:1px solid #a0c8f0; border-radius:8px; padding:10px 14px; font-size:0.85rem; flex:1; min-width:120px; text-align:center;">🖼️ <strong>4K</strong><br>高解像度対応</div>
-      <div style="background:#e8f4fd; border:1px solid #a0c8f0; border-radius:8px; padding:10px 14px; font-size:0.85rem; flex:1; min-width:120px; text-align:center;">⏱️ <strong>60秒</strong><br>連続動画生成</div>
-      <div style="background:#e8f4fd; border:1px solid #a0c8f0; border-radius:8px; padding:10px 14px; font-size:0.85rem; flex:1; min-width:120px; text-align:center;">🔊 <strong>音声自動生成</strong><br>BGM・効果音</div>
-      <div style="background:#e8f4fd; border:1px solid #a0c8f0; border-radius:8px; padding:10px 14px; font-size:0.85rem; flex:1; min-width:120px; text-align:center;">👄 <strong>リップシンク</strong><br>口の動き同期</div>
-      <div style="background:#e8f4fd; border:1px solid #a0c8f0; border-radius:8px; padding:10px 14px; font-size:0.85rem; flex:1; min-width:120px; text-align:center;">📱 <strong>縦動画対応</strong><br>Shorts・TikTok用</div>
-    </div>
-
     <ul class="point-list">
       <li>
-        <span class="marker marker-teal">1</span>
-        <span><strong>Sora（初代）が2026年3月にサービス終了</strong> ── 技術力の高さは実証したが、GPU運用コストなど現実的な課題が残った。「技術力だけでは持続できない」という教訓をAI業界に残した形</span>
+        <span class="marker marker-red">1</span>
+        <span><strong>GPT-Rosalindとは</strong> ── 2026年4月に登場した生命科学専門の推論AI（複雑なことを深く考えるAI）。化学・生化学・実験設計の分野でGPT-5系列を上回るという内部評価を持つ（詳細は公式で要確認）</span>
       </li>
       <li>
-        <span class="marker marker-teal">2</span>
-        <span><strong>Sora 2が後継として公開</strong> ── OpenAIは動画AI開発を継続し、改良版のSora 2をリリース。市場から撤退したわけではない（詳細は公式サイトで要確認）</span>
+        <span class="marker marker-red">2</span>
+        <span><strong>OpenAI史上初の大規模「政府向け無償提供」</strong> ── 商業優先だったOpenAIが、安全保障目的のモデルを無料で提供するのは異例。AIの軍・政府用途への本格参入を示す</span>
       </li>
       <li>
-        <span class="marker marker-teal">3</span>
-        <span><strong>縦動画がAI動画の新標準に</strong> ── YouTube Shorts・TikTok向けの9:16縦型動画を直接生成できる機能が各ツールで標準化。Veo 3.1は2026年1月にネイティブ対応した</span>
+        <span class="marker marker-red">3</span>
+        <span><strong>「ロザリンド」という名前の由来</strong> ── DNAの二重らせん構造の発見に貢献した科学者ロザリンド・フランクリンから取られている。女性科学者へのリスペクトも込められている</span>
       </li>
       <li>
-        <span class="marker marker-teal">4</span>
-        <span><strong>「ツールの淘汰」が始まった</strong> ── Soraの終了は氷山の一角。圧倒的な計算資源が必要な動画生成AIは「資本力」と「ビジネス継続性」が問われる分野になった</span>
+        <span class="marker marker-red">4</span>
+        <span><strong>懸念点も存在する</strong> ── 生物・化学兵器の研究に悪用される「デュアルユース（軍民両用）」リスクについて、OpenAIは「厳格な審査を通過した機関のみアクセス可能」と説明している</span>
       </li>
     </ul>
 
     <div class="sticky">
-      ✏️ <strong>中学生的に言うと：</strong>「文字を打つだけで音楽つき縦動画が作れる」時代になった。ただしAIでも「お金がかかりすぎて続けられない」ことがあると知れた年でもある！
+      ✏️ <strong>中学生的に言うと：</strong>「インフルエンザが流行り始めたかどうか」「どこに広がりそうか」を、AIがリアルタイムで見張ってくれる仕組み。しかも政府が無料で使えるようにした！
     </div>
 
     <div class="source">
       📎 出典：
-      <a href="https://openai.com/index/sora-2/" target="_blank">OpenAI – Sora 2 公式ページ</a> /
-      <a href="https://philipptarohiltl.com/openai-sora-discontinued-why-and-ai-video-alternatives/" target="_blank">解説 – OpenAI Soraが開発終了：なぜ消えたのか</a> /
-      <a href="https://note.com/sane_design2026/n/naa7f46e31085" target="_blank">note – 動画生成AI完全比較2026年最新版</a>
-    </div>
-  </div>
-</div>
-
-<!-- トピック4: GENIAC -->
-<div class="card" id="topic4">
-  <div class="card-body">
-    <div class="card-header">
-      <span class="card-emoji">🏭</span>
-      <div class="card-title">日本のAI国家戦略 GENIAC ──<br>製造業×ロボットAIに新テーマ11件を採択</div>
-      <span class="topic-badge badge-green">日本政府</span>
-    </div>
-
-    <div class="simple-box">
-      <span class="label">🌱 やさしく解説</span><br>
-      経済産業省が5月14日、国産AI開発プロジェクト「<span class="hl-yellow">GENIAC（ジーニアック）</span>」の新テーマを発表しました。<span class="hl-green">製造業のデータをAIが使える形に整える研究</span>が9件、<span class="hl-blue">多くのロボットが共通で使える「頭脳AI」</span>の研究が2件、計11件が国の支援を受けることになりました。
-    </div>
-
-    <!-- 採択数カード -->
-    <div class="stat-row">
-      <div class="stat-card green">
-        <div class="stat-num">9件</div>
-        <div class="stat-label">製造業データの<br>AI-Ready化テーマ</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num">2件</div>
-        <div class="stat-label">ロボット基盤<br>モデルテーマ</div>
-      </div>
-      <div class="stat-card amber">
-        <div class="stat-num">3年</div>
-        <div class="stat-label">支援期間（最大）<br>2026〜2029年度</div>
-      </div>
-    </div>
-
-    <!-- フロー: GENIACの構造 -->
-    <p style="font-size:0.85rem; font-weight:600; color:#555; margin-bottom:8px;">🔧 GENIACフェーズ2の構造</p>
-    <div class="step-flow">
-      <div class="step-box" style="background:#e0f5e0; border-color:#80d0a0; color:#1a4a20;">経産省・NEDO<br>国がGPUと<br>資金を提供</div>
-      <div class="step-arrow">→</div>
-      <div class="step-box">採択企業・研究機関<br>11テーマで<br>AI開発を推進</div>
-      <div class="step-arrow">→</div>
-      <div class="step-box">製造業データのAI化<br>（9テーマ）</div>
-      <div class="step-arrow">＋</div>
-      <div class="step-box">ロボット基盤モデル<br>（2テーマ）</div>
-      <div class="step-arrow">→</div>
-      <div class="step-box done">国産AI<br>競争力強化</div>
-    </div>
-
-    <ul class="point-list">
-      <li>
-        <span class="marker marker-green">1</span>
-        <span><strong>GENIACフェーズ2（5月14日発表）</strong> ── 経産省・NEDOが2024年2月に開始した国産AI開発プロジェクトの第二段階。製造業とロボットという日本の強みとAIを掛け合わせた</span>
-      </li>
-      <li>
-        <span class="marker marker-green">2</span>
-        <span><strong>「AI-Ready化」とは</strong> ── 工場などにある膨大なデータを「AIが学習・活用できる状態」に変換・整理する技術。日本の製造業が持つ豊富なデータをAIに活かすための前処理が課題だった</span>
-      </li>
-      <li>
-        <span class="marker marker-green">3</span>
-        <span><strong>ロボット基盤モデルとは</strong> ── 特定のロボット専用ではなく「多くのロボットが共通で使える頭脳AI」。ChatGPTが言語AIの共通基盤になったように、ロボット版の汎用AIを目指す</span>
-      </li>
-      <li>
-        <span class="marker marker-green">4</span>
-        <span><strong>支援期間は最大3年（2026〜2029年度）</strong> ── 採択テーマには計算資源（GPU）の提供とコミュニティ支援が含まれる。日本のAI開発力強化が目的</span>
-      </li>
-      <li>
-        <span class="marker marker-green">5</span>
-        <span><strong>背景：「使う国」から「作る国」へ</strong> ── 日本政府はAIを「使う」だけでなく「自ら開発できる力」を持つことを重視。国産モデルの開発支援を2024年から継続的に実施している</span>
-      </li>
-    </ul>
-
-    <div class="sticky">
-      ✏️ <strong>中学生的に言うと：</strong>「日本の工場のデータはすごいのに、バラバラすぎてAIが使いにくかった」問題に国が本気で取り組むプロジェクト！工場もロボットも、もっと賢くする計画が動き出した！
-    </div>
-
-    <div class="source">
-      📎 出典：
-      <a href="https://www.meti.go.jp/press/2026/05/20260514001/20260514001.html" target="_blank">経済産業省 – GENIACで製造業データAI-Ready化テーマ採択（2026-05-14）</a> /
-      <a href="https://www.meti.go.jp/policy/mono_info_service/geniac/index.html" target="_blank">経済産業省 – GENIAC 公式ページ</a>
+      <a href="https://openai.com/index/strengthening-societal-resilience-with-rosalind-biodefense/" target="_blank">OpenAI – Rosalind Biodefense 公式発表（2026-05-29）</a> /
+      <a href="https://www.axios.com/2026/05/29/openai-biodefense-program" target="_blank">Axios – OpenAI launches biodefense program（2026-05-29）</a> /
+      <a href="https://mlq.ai/news/openai-launches-rosalind-biodefense-offers-free-ai-model-to-governments-for-pandemic-preparedness/" target="_blank">MLQ.ai – Rosalind Biodefense overview（2026-05-29）</a>
     </div>
   </div>
 </div>
 
 <!-- まとめ -->
 <div class="summary-card" id="summary">
-  <h2>📝 今日の大きな流れ ── 2026年5月31日のキーワード</h2>
+  <h2>📌 今日のまとめ</h2>
   <div class="summary-grid">
     <div class="summary-item">
+      <span class="s-emoji">💰</span>
+      <div class="s-title">Anthropic 評価額$965B</div>
+      Claude Codeの躍進でOpenAIを初めて上回る評価額を達成。5/28調達完了。IPO準備段階か。
+    </div>
+    <div class="summary-item">
+      <span class="s-emoji">🧑‍🔬</span>
+      <div class="s-title">Karpathy → Anthropic</div>
+      OpenAI共同創設者がClaudeのプレトレーニング研究チームを設立。AIがAI自身を学習する研究を主導。
+    </div>
+    <div class="summary-item">
+      <span class="s-emoji">🏗️</span>
+      <div class="s-title">Meta 人員削減＋AI全振り</div>
+      8,000人解雇の一方、AI設備投資を前年比2倍の$135Bへ。業界全体の構造転換が加速。
+    </div>
+    <div class="summary-item">
       <span class="s-emoji">🧬</span>
-      <div class="s-title">AIの「分身」が増殖する</div>
-      Opus 4.8の1,000体並列サブエージェントが示すとおり、1つのAIが自分を何百個も複製して作業する「スウォーム型AI」が実用段階へ
+      <div class="s-title">OpenAI 生物防衛AI無償提供</div>
+      GPT-Rosalindを政府・研究機関に無料開放。感染症早期検知からワクチン開発支援まで。
     </div>
-    <div class="summary-item">
-      <span class="s-emoji">🎯</span>
-      <div class="s-title">AIに「目標を渡す」時代</div>
-      Codex Goal Modeは「細かく指示する」から「ゴールと基準だけ渡してあとは任せる」新しい人とAIの関係を体現している
-    </div>
-    <div class="summary-item">
-      <span class="s-emoji">🎬</span>
-      <div class="s-title">AI動画は「淘汰」の局面へ</div>
-      Soraの終了は「技術力だけでは生き残れない」現実を示した。音声・4K・60秒を実現しながら、ツールの集約が進む
-    </div>
-    <div class="summary-item">
-      <span class="s-emoji">🇯🇵</span>
-      <div class="s-title">日本は「作る側」へ転換</div>
-      GENIACフェーズ2は製造業×ロボットという日本の強みとAIを融合。「使う国」から「AIを作れる国」へのシフトが加速
-    </div>
+  </div>
+  <div style="margin-top: 24px; font-size: 0.9rem; opacity: 0.85; line-height: 1.8; border-top: 1px dashed rgba(255,255,255,0.3); padding-top: 16px;">
+    📝 <strong>今日の一言：</strong>今週のAIニュースに共通するテーマは「覇権争いの本格化」。評価額・人材・設備・用途…あらゆる面でトップ企業が全力を出し始めています。その余波は私たちの仕事・医療・安全保障にも広がっていきます。
   </div>
 </div>
 
-<!-- フッター -->
 <div class="footer">
-  <p><strong>生成AI 最新トピック</strong> ── 2026-05-31号</p>
-  <p style="margin-top:6px;">各記事の出典URLは各トピック下部に記載しています。情報は収集時点のものです。</p>
-  <p style="margin-top:4px;"><a href="index.html" style="color:#aaa;">← バックナンバー一覧へ</a></p>
+  <p>本日の情報は各出典 URL に記載の日時のものです。料金・仕様・サービス状況は変わることがあるため、重要な判断は必ず公式情報をご確認ください。<br>
+  生成AI情報は変化が速いため、記載内容の正確性については各出典をご参照ください。</p>
 </div>
 
 </body>
