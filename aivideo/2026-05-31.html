@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI動画制作 2026-05-31 カメラワーク基礎</title>
+<style>
+:root{
+  --bg:#ece8e1;--card:#faf6ec;--dark:#1a3a5c;--dark2:#1a5c3a;
+  --accent:#1a4a6b;--accent2:#1a5c3a;--warm:#c4762a;
+  --text:#2a3540;--muted:#7c8a82;--border:#e0d8c8;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,"Hiragino Sans","Yu Gothic",sans-serif;line-height:1.7;padding:24px 16px;}
+.wrap{max-width:860px;margin:0 auto;}
+
+/* Header */
+.header{background:linear-gradient(135deg,var(--dark),var(--dark2));color:#fff;border-radius:20px;padding:40px 32px;text-align:center;box-shadow:0 8px 24px rgba(26,58,92,.22);margin-bottom:24px;}
+.date-badge{background:rgba(255,255,255,.18);color:#c8dde8;border-radius:20px;padding:4px 16px;font-size:.85rem;display:inline-block;margin-bottom:16px;letter-spacing:.08em;}
+.header h1{font-size:1.8rem;margin-bottom:8px;letter-spacing:.04em;}
+.header .subtitle{color:#c8dde8;font-size:1rem;}
+.header .tag{background:rgba(255,255,255,.15);border-radius:12px;padding:3px 12px;font-size:.78rem;display:inline-block;margin-top:14px;color:#d8ecd4;}
+
+/* Section */
+.section{background:var(--card);border-radius:16px;padding:28px 24px;margin-bottom:20px;box-shadow:0 3px 12px rgba(0,0,0,.06);border:1px solid var(--border);}
+.section-title{font-size:1.1rem;font-weight:700;color:var(--accent);border-bottom:2px solid var(--border);padding-bottom:10px;margin-bottom:18px;display:flex;align-items:center;gap:8px;}
+
+/* Num cards */
+.num-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px;}
+.num-card{background:linear-gradient(135deg,var(--accent),var(--dark2));color:#fff;border-radius:12px;padding:16px;text-align:center;}
+.num-card .big-num{font-size:2rem;font-weight:900;}
+.num-card .num-label{font-size:.78rem;color:#c8dde8;margin-top:4px;line-height:1.4;}
+
+/* Camera grid */
+.cam-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:16px;}
+@media(min-width:600px){.cam-grid{grid-template-columns:repeat(4,1fr);}}
+.cam-card{background:var(--bg);border-radius:12px;padding:16px 12px;text-align:center;border:2px solid var(--border);}
+.cam-card .icon{font-size:2.2rem;margin-bottom:8px;}
+.cam-card .name{font-size:1rem;font-weight:700;color:var(--accent);}
+.cam-card .name-jp{font-size:.75rem;color:var(--muted);margin-bottom:6px;}
+.cam-card .move{font-size:.82rem;color:var(--text);line-height:1.4;}
+
+/* Effect table */
+.effect-table{width:100%;border-collapse:collapse;font-size:.9rem;}
+.effect-table th{background:var(--accent);color:#fff;padding:10px 12px;text-align:left;}
+.effect-table td{padding:10px 12px;border-bottom:1px solid var(--border);vertical-align:top;}
+.effect-table tr:last-child td{border-bottom:none;}
+.effect-table tr:nth-child(even) td{background:rgba(236,232,225,.4);}
+.em-tag{display:inline-block;background:var(--accent2);color:#fff;border-radius:6px;padding:1px 8px;font-size:.75rem;font-weight:700;margin-bottom:2px;}
+
+/* Steps */
+.step-list{display:flex;flex-direction:column;gap:12px;}
+.step-item{display:flex;gap:14px;align-items:flex-start;}
+.step-num{background:var(--accent);color:#fff;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem;flex-shrink:0;}
+.step-body{flex:1;}
+.step-body strong{color:var(--accent);}
+.step-sub{font-size:.88rem;color:var(--muted);}
+
+/* Prompt box */
+.prompt-wrap{margin-top:16px;display:flex;flex-direction:column;gap:10px;}
+.prompt-block{border-radius:10px;overflow:hidden;}
+.prompt-label{background:var(--warm);color:#fff;padding:5px 14px;font-size:.78rem;font-weight:700;display:block;}
+.prompt-code{background:#1a2a35;color:#a8d8b8;padding:12px 16px;font-family:"Courier New",monospace;font-size:.85rem;line-height:1.6;display:block;}
+
+/* Example box */
+.example-box{background:linear-gradient(135deg,#f0f7ee,#e8f4f0);border:2px solid #a8d8b8;border-radius:12px;padding:20px;}
+.ex-title{font-weight:700;color:var(--accent2);margin-bottom:12px;font-size:1rem;}
+.timeline{display:flex;flex-direction:column;gap:10px;}
+.tl-item{display:flex;gap:12px;align-items:flex-start;}
+.tl-time{background:var(--accent2);color:#fff;border-radius:8px;padding:2px 10px;font-size:.82rem;font-weight:700;white-space:nowrap;min-width:72px;text-align:center;margin-top:2px;}
+.tl-text{font-size:.9rem;}
+
+/* Flow diagram for dolly vs zoom */
+.compare-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0;}
+.cmp-card{border-radius:10px;padding:14px;text-align:center;}
+.cmp-left{background:#eaf2ff;border:2px solid #6a9fd8;}
+.cmp-right{background:#fff2e8;border:2px solid #d89a6a;}
+.cmp-card .c-title{font-weight:700;font-size:.95rem;margin-bottom:6px;}
+.cmp-card .c-icon{font-size:1.6rem;margin-bottom:6px;}
+.cmp-card .c-desc{font-size:.82rem;color:var(--muted);line-height:1.4;}
+.vs-arrow{display:flex;align-items:center;justify-content:center;font-weight:900;font-size:1.1rem;color:var(--warm);}
+
+/* Tip */
+.tip-box{background:#fff8e8;border-left:4px solid var(--warm);border-radius:0 8px 8px 0;padding:12px 16px;margin:12px 0;font-size:.9rem;}
+
+/* Summary */
+.sum-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:14px;}
+.sum-card{background:var(--bg);border-radius:10px;padding:14px;border:2px solid var(--border);}
+.sum-card .s-head{font-weight:700;color:var(--accent);font-size:.95rem;margin-bottom:4px;}
+.sum-card .s-body{font-size:.85rem;color:var(--muted);}
+
+/* Disclaimer */
+.disclaimer{background:#fff;border-radius:12px;padding:16px 20px;margin-top:20px;border:1px solid var(--border);font-size:.82rem;color:var(--muted);line-height:1.8;}
+.disclaimer strong{color:var(--text);}
+
+footer{text-align:center;color:var(--muted);font-size:.8rem;margin-top:24px;line-height:2;}
+footer a{color:var(--accent);}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- HEADER -->
+<header class="header">
+  <div class="date-badge">📅 2026-05-31（日）エバーグリーン回</div>
+  <h1>🎥 カメラワークの基礎知識</h1>
+  <div class="subtitle">映像に動きと感情を加える 4つの技法</div>
+  <div class="tag">🌿 AI動画プロンプトにも直結する永遠のスキル</div>
+</header>
+
+<!-- INTRO -->
+<div class="section">
+  <div class="section-title">📌 今日のポイント</div>
+  <p>カメラワークとは「カメラをどう動かすか」のこと。実写でも、AI動画生成でも、<strong>カメラの動き方を知っている人のプロンプト</strong>は圧倒的に質が高くなります。今日は基本4種類をマスターして、AI動画の完成度を上げましょう！</p>
+  <div class="num-cards">
+    <div class="num-card">
+      <div class="big-num">4</div>
+      <div class="num-label">基本の<br>カメラワーク</div>
+    </div>
+    <div class="num-card">
+      <div class="big-num">∞</div>
+      <div class="num-label">組み合わせで<br>広がる表現</div>
+    </div>
+    <div class="num-card">
+      <div class="big-num">¥0</div>
+      <div class="num-label">AI動画なら<br>機材費不要</div>
+    </div>
+  </div>
+</div>
+
+<!-- CAMERA TYPES -->
+<div class="section">
+  <div class="section-title">🎬 基本4種類のカメラワーク</div>
+  <div class="cam-grid">
+    <div class="cam-card">
+      <div class="icon">↔️</div>
+      <div class="name">パン</div>
+      <div class="name-jp">Pan（横振り）</div>
+      <div class="move">カメラ本体は固定したまま<br>左右に向きを変える</div>
+    </div>
+    <div class="cam-card">
+      <div class="icon">↕️</div>
+      <div class="name">ティルト</div>
+      <div class="name-jp">Tilt（縦振り）</div>
+      <div class="move">カメラ本体は固定したまま<br>上下に向きを変える</div>
+    </div>
+    <div class="cam-card">
+      <div class="icon">🚶</div>
+      <div class="name">ドリー</div>
+      <div class="name-jp">Dolly（前後移動）</div>
+      <div class="move">カメラごと<br>物理的に前後へ動かす</div>
+    </div>
+    <div class="cam-card">
+      <div class="icon">🔭</div>
+      <div class="name">ズーム</div>
+      <div class="name-jp">Zoom（拡大縮小）</div>
+      <div class="move">カメラは動かさず<br>レンズで拡大・縮小する</div>
+    </div>
+  </div>
+
+  <!-- Dolly vs Zoom 対比 -->
+  <p style="font-weight:700;color:var(--accent);margin-bottom:8px;">🆚 よく混同される「ドリー」と「ズーム」の違い</p>
+  <div class="compare-row">
+    <div class="cmp-card cmp-left">
+      <div class="c-icon">🚶</div>
+      <div class="c-title" style="color:#1a4a8c;">ドリー（移動）</div>
+      <div class="c-desc">カメラ自体が近づく<br>→ 背景も自然に変化する<br>→「体験・没入」の感覚</div>
+    </div>
+    <div class="cmp-card cmp-right">
+      <div class="c-icon">🔭</div>
+      <div class="c-title" style="color:#8c4a1a;">ズーム（レンズ）</div>
+      <div class="c-desc">レンズが引き寄せるだけ<br>→ 背景は圧縮されて見える<br>→「観察・強調」の感覚</div>
+    </div>
+  </div>
+  <div class="tip-box">
+    🎬 <strong>「ドリーズーム」（バーティゴ効果）：</strong>ドリーで引きながらズームで寄ると背景が歪んで見える特殊効果。映画『ジョーズ』や『シャイニング』で有名。AI動画プロンプトで「dolly out while zooming in」と書くと再現できるツールもあります。
+  </div>
+</div>
+
+<!-- EFFECT TABLE -->
+<div class="section">
+  <div class="section-title">💡 感情効果と使いどころ一覧</div>
+  <table class="effect-table">
+    <tr>
+      <th style="width:80px;">動き</th>
+      <th>生まれる感情・効果</th>
+      <th>使いどころの例</th>
+    </tr>
+    <tr>
+      <td><strong>↔ パン</strong></td>
+      <td><span class="em-tag">広がり</span> <span class="em-tag">追跡</span><br>「場所を教えてくれる」感覚</td>
+      <td>走る人を追う・絶景の全体を見せる・集団の規模を伝える</td>
+    </tr>
+    <tr>
+      <td><strong>↕ ティルト</strong></td>
+      <td><span class="em-tag">迫力</span> <span class="em-tag">発見</span><br>「大きさを体感させる」感覚</td>
+      <td>高層ビルを見上げる・人物を足元から顔へと紹介する</td>
+    </tr>
+    <tr>
+      <td><strong>🚶 ドリー</strong></td>
+      <td><span class="em-tag">没入</span> <span class="em-tag">緊張</span><br>「視聴者が引き込まれる」感覚</td>
+      <td>主人公に近づく・暗い廊下の奥へ進む・感動シーンを寄りで見せる</td>
+    </tr>
+    <tr>
+      <td><strong>🔭 ズーム</strong></td>
+      <td><span class="em-tag">強調</span> <span class="em-tag">驚き</span><br>「何かを見せたい」感覚</td>
+      <td>重要な小道具を強調・ホラーのびっくり演出・主人公の表情をクローズアップ</td>
+    </tr>
+  </table>
+</div>
+
+<!-- AI PROMPT SECTION -->
+<div class="section">
+  <div class="section-title">🤖 AIプロンプトでカメラワークを指定するコツ</div>
+  <p style="margin-bottom:14px;">Veo 3.1・Kling・Sora などの最新AI動画ツールは、英語または日本語でカメラの動きを指定できます。<strong>「動き → 被写体 → 雰囲気」の順</strong>で書くと効果的です。</p>
+
+  <div class="step-list">
+    <div class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <strong>カメラの動き</strong>を最初に書く
+        <div class="step-sub">「slow pan from left to right」「camera dollies forward slowly」など</div>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <strong>被写体と背景</strong>を明確に書く
+        <div class="step-sub">「a young woman walking in a cherry blossom forest at dusk」など</div>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <strong>速さ・映像の雰囲気</strong>を添える
+        <div class="step-sub">「slowly」「dramatic」「cinematic lighting」「4K」など</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="prompt-wrap">
+    <div class="prompt-block">
+      <span class="prompt-label">↔ パン（横振り）のプロンプト例</span>
+      <span class="prompt-code">slow pan from left to right, a serene mountain lake at sunrise, cinematic, 4K</span>
+    </div>
+    <div class="prompt-block">
+      <span class="prompt-label">↕ ティルト（縦振り）のプロンプト例</span>
+      <span class="prompt-code">camera tilts up slowly from the feet to the face of a detective standing in the rain, noir lighting</span>
+    </div>
+    <div class="prompt-block">
+      <span class="prompt-label">🚶 ドリー（前後移動）のプロンプト例</span>
+      <span class="prompt-code">slow dolly forward into a dark forest, mysterious atmosphere, soft fog, cinematic lighting</span>
+    </div>
+    <div class="prompt-block">
+      <span class="prompt-label">🔭 ズーム（拡大縮小）のプロンプト例</span>
+      <span class="prompt-code">dramatic zoom in on a golden pocket watch on a wooden table, shallow depth of field, warm light</span>
+    </div>
+  </div>
+</div>
+
+<!-- EXAMPLE -->
+<div class="section">
+  <div class="section-title">✅ 真似できる具体例：60秒ショート動画の3カット構成</div>
+  <div class="example-box">
+    <div class="ex-title">🎬 テーマ「夜の東京を歩く」── カメラワーク3種を使う構成</div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-time">0〜5秒</div>
+        <div class="tl-text">
+          <strong>パン（横）</strong>：渋谷スクランブル交差点の全景を左から右へ流す。<br>
+          <span style="color:var(--muted);font-size:.85rem;">→「今夜の舞台はここだ」と場所を紹介。視聴者に規模感を伝える。</span>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">6〜15秒</div>
+        <div class="tl-text">
+          <strong>ドリー（前進）</strong>：主人公の背中を追いながら人混みに入っていく。<br>
+          <span style="color:var(--muted);font-size:.85rem;">→ 視聴者が一緒に歩く「没入感」。スマホで見ても引き込まれる。</span>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">16〜25秒</div>
+        <div class="tl-text">
+          <strong>ティルト（上へ）</strong>：主人公が立ち止まり、カメラが足元から夜空へと上がる。<br>
+          <span style="color:var(--muted);font-size:.85rem;">→「旅のはじまり」の余韻・期待感を演出。</span>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:14px;font-size:.88rem;color:var(--muted);">
+      ➡ 各カットをVeo 3.1・Kling・Soraなど好みのAI動画ツールで生成し、CapCut・Premiere・DaVinci Resolveで繋げるだけで、プロ品質の短編映像が完成します。
+    </div>
+  </div>
+</div>
+
+<!-- SUMMARY -->
+<div class="section">
+  <div class="section-title">📖 まとめ ── 4種類を一目でおさらい</div>
+  <div class="sum-grid">
+    <div class="sum-card">
+      <div class="s-head">↔ パン</div>
+      <div class="s-body">横に振る → 広がり・全体・追跡</div>
+    </div>
+    <div class="sum-card">
+      <div class="s-head">↕ ティルト</div>
+      <div class="s-body">縦に振る → 迫力・大きさ・発見</div>
+    </div>
+    <div class="sum-card">
+      <div class="s-head">🚶 ドリー</div>
+      <div class="s-body">カメラが動く → 没入・臨場感・緊張</div>
+    </div>
+    <div class="sum-card">
+      <div class="s-head">🔭 ズーム</div>
+      <div class="s-body">レンズで拡縮 → 強調・驚き・観察</div>
+    </div>
+  </div>
+  <div class="tip-box" style="margin-top:14px;">
+    🎯 <strong>今日の宿題：</strong> 好きな映画やYouTube動画を5分見て「今のカット、パン？ドリー？ズーム？」と声に出して言い当ててみよう。目がどんどん鍛えられます！
+  </div>
+</div>
+
+<!-- DISCLAIMER -->
+<div class="disclaimer">
+  <strong>免責事項：</strong>本記事で参照したAIツール（Google Veo 3.1、Kling、Sora など）の名称・機能・料金・商用利用の可否は頻繁に変更されます。最新情報と利用規約は必ず各ツールの公式ページでご確認ください。
+</div>
+
+<footer>
+  AI動画制作 日報 2026-05-31 ／ エバーグリーン回（技法・知識）<br>
+  <a href="index.html">← 日報トップへ戻る</a>
+</footer>
+
+</div>
+</body>
+</html>
