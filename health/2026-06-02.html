@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-06-02</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .cover {
+    background: linear-gradient(135deg, #1a3a6c 0%, #0d1f4a 100%);
+    color: white;
+    border-radius: 8px;
+    padding: 60px 40px;
+    text-align: center;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.3);
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+      0deg, transparent, transparent 28px,
+      rgba(255,255,255,0.06) 28px, rgba(255,255,255,0.06) 29px
+    );
+  }
+  .cover-emoji { font-size: 64px; display: block; margin-bottom: 16px; }
+  .cover h1 {
+    font-family: 'Klee One', sans-serif;
+    font-size: 2.0rem;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 12px;
+    position: relative;
+  }
+  .cover .subtitle { font-size: 1.0rem; opacity: 0.85; margin-bottom: 8px; position: relative; }
+  .cover .date-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 20px;
+    padding: 6px 20px;
+    font-size: 1rem;
+    margin-top: 16px;
+    position: relative;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 6px;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.12);
+    position: relative;
+    overflow: hidden;
+  }
+  .card-body {
+    padding: 28px 36px 28px 64px;
+    background: repeating-linear-gradient(
+      0deg, transparent, transparent 31px,
+      #e0d8c8 31px, #e0d8c8 32px
+    );
+    background-color: #fff9f0;
+    min-height: 200px;
+  }
+  .card-body::before {
+    content: '';
+    position: absolute;
+    left: 52px; top: 0; bottom: 0;
+    width: 2px;
+    background: #a0b8e8;
+    opacity: 0.7;
+  }
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 8px;
+    border-bottom: 2px dashed #c8b89a;
+  }
+  .card-emoji { font-size: 2rem; }
+  .card-title {
+    font-family: 'Klee One', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #2c3e50;
+    line-height: 1.3;
+  }
+  .topic-badge {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-left: auto;
+    white-space: nowrap;
+  }
+  .badge-red    { background: #ffe0e0; color: #c0392b; border: 1px solid #f5a0a0; }
+  .badge-blue   { background: #e0eeff; color: #2255aa; border: 1px solid #a0c0f5; }
+  .badge-green  { background: #e0f5e0; color: #1e7e34; border: 1px solid #a0d8a0; }
+  .badge-purple { background: #f0e0ff; color: #7b2fbe; border: 1px solid #c8a0f0; }
+  .badge-orange { background: #fff0d0; color: #cc6600; border: 1px solid #f0c070; }
+  .badge-olive  { background: #eef5d0; color: #556600; border: 1px solid #b8d070; }
+  .badge-teal   { background: #d0f0f0; color: #006060; border: 1px solid #80d0d0; }
+  .badge-navy   { background: #dde8ff; color: #1a3a6c; border: 1px solid #8aabee; }
+
+  .simple-box {
+    background: #fff7e0;
+    border-left: 4px solid #f5c842;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin: 16px 0;
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+  .simple-box .label {
+    display: inline-block;
+    background: #f5c842;
+    color: #5a4000;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+  }
+
+  .info-box {
+    background: #eef4ff;
+    border-left: 4px solid #3366cc;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin: 16px 0;
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+  .info-box .label {
+    display: inline-block;
+    background: #3366cc;
+    color: white;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+  }
+
+  .alert-box {
+    background: #fff0f0;
+    border-left: 4px solid #e05050;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin: 16px 0;
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+  .alert-box .label {
+    display: inline-block;
+    background: #e05050;
+    color: white;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+  }
+
+  .point-list { list-style: none; padding: 0; margin: 12px 0; }
+  .point-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 0;
+    font-size: 0.97rem;
+    line-height: 1.7;
+    color: #333;
+    border-bottom: 1px dotted #ddd;
+  }
+  .point-list li:last-child { border-bottom: none; }
+  .point-list .marker {
+    flex-shrink: 0;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-top: 2px;
+  }
+  .marker-red    { background: #c0392b; color: white; }
+  .marker-orange { background: #cc6600; color: white; }
+  .marker-green  { background: #1e7e34; color: white; }
+  .marker-blue   { background: #2255aa; color: white; }
+  .marker-purple { background: #7b2fbe; color: white; }
+  .marker-olive  { background: #556600; color: white; }
+  .marker-teal   { background: #006060; color: white; }
+  .marker-navy   { background: #1a3a6c; color: white; }
+
+  .hl-yellow { background: linear-gradient(transparent 60%, #ffe566 60%); }
+  .hl-pink   { background: linear-gradient(transparent 60%, #ffb3c6 60%); }
+  .hl-blue   { background: linear-gradient(transparent 60%, #b3d4ff 60%); }
+  .hl-green  { background: linear-gradient(transparent 60%, #b3f0b3 60%); }
+
+  .sticky {
+    background: #fff9c4;
+    border-radius: 4px;
+    padding: 12px 16px;
+    margin: 14px 0;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.1);
+    transform: rotate(-0.5deg);
+    display: inline-block;
+    width: 100%;
+    color: #4a3800;
+  }
+
+  .evidence-tag {
+    display: inline-block;
+    border-radius: 4px;
+    padding: 1px 7px;
+    font-size: 0.70rem;
+    margin: 0 2px;
+    font-weight: 600;
+    vertical-align: middle;
+  }
+  .evidence-tag.weak     { background: #fff3e0; border: 1px solid #f0c080; color: #884400; }
+  .evidence-tag.moderate { background: #e8f4f8; border: 1px solid #aaccdd; color: #336688; }
+  .evidence-tag.strong   { background: #e0f5e0; border: 1px solid #80cc80; color: #226622; }
+
+  .source {
+    font-size: 0.78rem;
+    color: #888;
+    margin-top: 14px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+    line-height: 1.7;
+  }
+  .source a { color: #5577aa; text-decoration: none; }
+  .source a:hover { text-decoration: underline; }
+
+  /* ── 時間軸タイムライン ── */
+  .timeline {
+    display: flex;
+    align-items: stretch;
+    margin: 18px 0;
+    border: 2px solid #c0cce8;
+    border-radius: 10px;
+    overflow: hidden;
+    font-size: 0.85rem;
+  }
+  .tl-col {
+    flex: 1;
+    padding: 12px 10px;
+    text-align: center;
+    line-height: 1.5;
+  }
+  .tl-col.eat  { background: #e8f5e0; border-right: 2px solid #c0cce8; }
+  .tl-col.fast { background: #f5f0ff; border-right: 2px solid #c0cce8; }
+  .tl-col.sleep { background: #e0eeff; }
+  .tl-col .tl-icon { font-size: 1.6rem; display: block; margin-bottom: 4px; }
+  .tl-col .tl-label { font-weight: 600; font-size: 0.82rem; color: #333; }
+  .tl-col .tl-time { font-size: 1.0rem; font-weight: 700; margin: 4px 0; }
+  .tl-col.eat .tl-time  { color: #226600; }
+  .tl-col.fast .tl-time { color: #5a2299; }
+  .tl-col.sleep .tl-time { color: #1a3a6c; }
+  .tl-col .tl-desc { font-size: 0.75rem; color: #666; }
+
+  /* ── 比較グリッド（eTRE vs lTRE） ── */
+  .tre-compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 16px 0;
+  }
+  @media (max-width: 520px) { .tre-compare { grid-template-columns: 1fr; } }
+  .tre-card {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.88rem;
+    line-height: 1.7;
+  }
+  .tre-card.early {
+    background: #fff8e0;
+    border: 2px solid #d4a820;
+  }
+  .tre-card.late {
+    background: #eeeaff;
+    border: 2px solid #7055cc;
+  }
+  .tre-card .tc-head {
+    display: flex; align-items: center; gap: 8px;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px dashed #ccc;
+  }
+  .tre-card .tc-icon { font-size: 1.8rem; }
+  .tre-card .tc-title { font-weight: 600; font-size: 1.0rem; }
+  .tre-card.early .tc-title { color: #7a5000; }
+  .tre-card.late .tc-title  { color: #3d2288; }
+  .tre-card .tc-row { display: flex; gap: 6px; padding: 3px 0; font-size: 0.83rem; }
+  .tc-key { color: #666; min-width: 60px; flex-shrink: 0; }
+  .tc-val { color: #222; font-weight: 600; }
+
+  /* ── 結果カード（〇 ✕ 表示） ── */
+  .result-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .result-card {
+    border-radius: 10px;
+    padding: 14px 10px;
+    text-align: center;
+    font-size: 0.82rem;
+    line-height: 1.5;
+    box-shadow: 2px 3px 6px rgba(0,0,0,0.08);
+  }
+  .result-card.no-change {
+    background: #fff5f5;
+    border: 2px solid #e08080;
+  }
+  .result-card.changed {
+    background: #e8f5e0;
+    border: 2px solid #60a040;
+  }
+  .result-card .r-icon { font-size: 1.8rem; display: block; margin-bottom: 6px; }
+  .result-card .r-mark {
+    font-size: 2.0rem;
+    font-weight: 700;
+    display: block;
+    line-height: 1.0;
+    margin-bottom: 4px;
+  }
+  .result-card.no-change .r-mark { color: #c03030; }
+  .result-card.changed   .r-mark { color: #3a7020; }
+  .result-card .r-label { font-size: 0.80rem; color: #444; }
+
+  /* ── 数値カード ── */
+  .num-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: white;
+    border-radius: 10px;
+    padding: 16px 12px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.1);
+  }
+  .num-card.study-info  { border-top: 4px solid #1a3a6c; }
+  .num-card.positive    { border-top: 4px solid #3a8020; }
+  .num-card.caution     { border-top: 4px solid #d07030; }
+  .num-card .num-val {
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 1.1;
+    display: block;
+  }
+  .num-card.study-info .num-val { color: #1a3a6c; }
+  .num-card.positive .num-val   { color: #2a6010; }
+  .num-card.caution .num-val    { color: #7a4000; }
+  .num-card .num-unit { font-size: 0.85rem; color: #666; }
+  .num-card .num-label { font-size: 0.78rem; color: #888; margin-top: 6px; }
+
+  /* ── メカニズムフロー ── */
+  .mech-flow {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 14px 0;
+  }
+  .mech-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .mech-box {
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    text-align: center;
+    flex-shrink: 0;
+  }
+  .mech-box.cause {
+    background: #e0e8ff;
+    border: 2px solid #3366cc;
+    color: #1a3060;
+    font-weight: 600;
+  }
+  .mech-box.pathway {
+    background: #fff0d0;
+    border: 2px solid #c09020;
+    color: #6a4000;
+    min-width: 130px;
+  }
+  .mech-box.effect-yes {
+    background: #e0f5e0;
+    border: 2px solid #3a8020;
+    color: #1a5010;
+    font-weight: 600;
+  }
+  .mech-box.effect-no {
+    background: #fff0f0;
+    border: 2px solid #c03030;
+    color: #6a0000;
+    font-weight: 600;
+  }
+  .mech-arrow {
+    font-size: 1.2rem;
+    color: #888;
+    flex-shrink: 0;
+  }
+  .mech-label {
+    font-size: 0.72rem;
+    color: #888;
+    align-self: center;
+  }
+
+  /* ── 比較カード（一般的な前提 vs 今回の結果） ── */
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 16px 0;
+  }
+  @media (max-width: 520px) { .compare-grid { grid-template-columns: 1fr; } }
+  .compare-card {
+    border-radius: 10px;
+    padding: 18px 16px;
+    text-align: center;
+    font-size: 0.92rem;
+    line-height: 1.7;
+  }
+  .compare-card.before { background: #eef4ff; border: 2px solid #5577cc; }
+  .compare-card.after  { background: #fff0f5; border: 2px solid #cc4477; }
+  .compare-card .c-icon { font-size: 2.2rem; display: block; margin-bottom: 8px; }
+  .compare-card .c-title { font-size: 1.05rem; font-weight: 600; margin-bottom: 10px; }
+  .compare-card.before .c-title { color: #224488; }
+  .compare-card.after .c-title  { color: #882244; }
+  .compare-card .c-row {
+    display: flex; align-items: flex-start; gap: 6px;
+    padding: 5px 0;
+    font-size: 0.85rem;
+    border-top: 1px dotted #ccc;
+    text-align: left;
+  }
+  .compare-card .c-row:first-of-type { border-top: none; margin-top: 6px; }
+
+  /* ── サマリー ── */
+  .summary-card {
+    background: linear-gradient(135deg, #0d1f4a 0%, #1a3a6c 100%);
+    color: white;
+    border-radius: 8px;
+    padding: 36px 40px;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 16px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .summary-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+      0deg, transparent, transparent 28px,
+      rgba(255,255,255,0.05) 28px, rgba(255,255,255,0.05) 29px
+    );
+  }
+  .summary-card .s-title {
+    font-size: 1.35rem;
+    font-weight: 600;
+    margin-bottom: 18px;
+    position: relative;
+    padding-bottom: 10px;
+    border-bottom: 2px dashed rgba(255,255,255,0.3);
+  }
+  .summary-card ul {
+    list-style: none;
+    padding: 0;
+    position: relative;
+  }
+  .summary-card ul li {
+    padding: 9px 0 9px 28px;
+    font-size: 0.97rem;
+    line-height: 1.7;
+    border-bottom: 1px dotted rgba(255,255,255,0.2);
+    position: relative;
+  }
+  .summary-card ul li::before {
+    content: '✔';
+    position: absolute;
+    left: 0;
+    color: #a0c8ff;
+    font-size: 0.9rem;
+  }
+  .summary-card ul li:last-child { border-bottom: none; }
+
+  /* ── 免責 ── */
+  .disclaimer {
+    width: 100%;
+    max-width: 820px;
+    background: #f5f0e8;
+    border: 1px solid #d0c8b8;
+    border-radius: 6px;
+    padding: 18px 24px;
+    font-size: 0.82rem;
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 40px;
+  }
+  .disclaimer strong { color: #444; }
+</style>
+</head>
+<body>
+
+<!-- ▼ カバー -->
+<div class="cover">
+  <span class="cover-emoji">⏰🍽️</span>
+  <h1>「食べる時間」を変えるだけで<br>代謝は良くなる？<br>TRE研究が出した意外な答え</h1>
+  <div class="subtitle">時間制限食（TRE）のカロリー制御RCT ── ChronoFast試験・Science Translational Medicine 2025</div>
+  <div class="date-badge">健康・栄養 最新トピック ／ 2026-06-02</div>
+</div>
+
+<!-- ▼ 今日のキーワード -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">📌</span>
+      <span class="card-title">今日のキーワード</span>
+      <span class="topic-badge badge-navy">最新RCT 2025</span>
+    </div>
+    <div class="simple-box">
+      <div class="label">TRE（時間制限食）とは？</div>
+      <strong>時間制限食（Time-Restricted Eating / TRE）</strong>とは、1日の食事を「決まった時間帯」に限定する食べ方。例えば「午前8時〜午後4時の8時間だけ食べて、残り16時間は断食」。「プチ断食」「間欠的断食」とも呼ばれる。カロリーを数えずに体重・代謝を改善できると人気がある。
+    </div>
+    <div class="simple-box">
+      <div class="label">サーカディアンリズム（概日リズム）とは？</div>
+      私たちの体が持つ「約24時間周期の生体時計」のこと。体温・ホルモン・代謝・睡眠など体の機能が自動的に時間に合わせてリズムを刻んでいる。TREはこの体内時計に作用すると考えられていた。
+    </div>
+    <div class="sticky">
+      💡 今日のポイント：TREが人気なのは「カロリーを数えなくていい」からです。でも「カロリーを変えずに時間だけ変えたら代謝は良くなるのか？」──この問いに正面から答えたRCTの結果が2025年に発表されました。
+    </div>
+  </div>
+</div>
+
+<!-- ▼ 研究概要 -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">🔬</span>
+      <span class="card-title">今日の研究 ── ChronoFast試験</span>
+      <span class="topic-badge badge-blue">RCT クロスオーバー設計</span>
+    </div>
+    <p style="font-size:0.93rem;line-height:1.8;margin-bottom:14px;">
+      ドイツ栄養医学研究所（DIfE）・シャリテー大学病院・ドイツ糖尿病研究センター（DZD）の共同研究。<strong>Ramich教授ら</strong>が実施。
+    </p>
+
+    <!-- 研究の数値カード -->
+    <div class="num-grid">
+      <div class="num-card study-info">
+        <span class="num-val">31</span>
+        <div class="num-unit">参加者数（n）</div>
+        <div class="num-label">過体重・肥満の女性<br>（BMI 25以上）</div>
+      </div>
+      <div class="num-card study-info">
+        <span class="num-val">8h</span>
+        <div class="num-unit">食事を許可する時間帯</div>
+        <div class="num-label">残り16時間は断食<br>（両介入共通）</div>
+      </div>
+      <div class="num-card study-info">
+        <span class="num-val">14日</span>
+        <div class="num-unit">各介入の期間</div>
+        <div class="num-label">eTRE → 休息期間 → lTRE<br>（クロスオーバー）</div>
+      </div>
+      <div class="num-card caution">
+        <span class="num-val">同カロリー</span>
+        <div class="num-unit">カロリーを制御</div>
+        <div class="num-label">栄養士管理のもと<br>摂取量を同量に統制</div>
+      </div>
+    </div>
+
+    <!-- eTRE vs lTRE -->
+    <p style="font-size:0.93rem;font-weight:600;color:#333;margin-bottom:10px;">2種類のTREを比較（クロスオーバー）：</p>
+    <div class="tre-compare">
+      <div class="tre-card early">
+        <div class="tc-head">
+          <span class="tc-icon">🌅</span>
+          <span class="tc-title">eTRE（早い時間帯）</span>
+        </div>
+        <div class="tc-row"><span class="tc-key">食事OK</span><span class="tc-val">午前8時 〜 午後4時</span></div>
+        <div class="tc-row"><span class="tc-key">断食</span><span class="tc-val">午後4時 〜 翌朝8時（16時間）</span></div>
+        <div class="tc-row"><span class="tc-key">遵守率</span><span class="tc-val">96.5%</span></div>
+      </div>
+      <div class="tre-card late">
+        <div class="tc-head">
+          <span class="tc-icon">🌆</span>
+          <span class="tc-title">lTRE（遅い時間帯）</span>
+        </div>
+        <div class="tc-row"><span class="tc-key">食事OK</span><span class="tc-val">午後1時 〜 午後9時</span></div>
+        <div class="tc-row"><span class="tc-key">断食</span><span class="tc-val">午後9時 〜 翌午後1時（16時間）</span></div>
+        <div class="tc-row"><span class="tc-key">遵守率</span><span class="tc-val">97.7%</span></div>
+      </div>
+    </div>
+
+    <p style="font-size:0.88rem;color:#666;line-height:1.7;margin-top:4px;">
+      ※「クロスオーバー設計」= 同じ参加者が両方の介入を別の期間に経験する設計。個人差の影響を取り除きやすい。
+    </p>
+    <div class="source">
+      出典：Peters B, Schwarz J, et al. (Ramich O). <em>Science Translational Medicine</em> 2025;17(822):eadv6787.
+      DOI: <a href="https://doi.org/10.1126/scitranslmed.adv6787" target="_blank">10.1126/scitranslmed.adv6787</a>
+      ／ PubMed: <a href="https://pubmed.ncbi.nlm.nih.gov/41160666/" target="_blank">PMID 41160666</a>（2025年）<br>
+      DZD プレスリリース：<a href="https://www.dzd-ev.de/en/article/intervallfasten-ohne-kalorienreduktion-verbessert-nicht-die-stoffwechselgesundheit-verschiebt-aber-die-innere-uhr" target="_blank">DZD公式</a>
+    </div>
+  </div>
+</div>
+
+<!-- ▼ 結果 -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">📊</span>
+      <span class="card-title">結果は？ ── カロリーが同じなら代謝は変わらなかった</span>
+      <span class="topic-badge badge-red">主要結果</span>
+    </div>
+
+    <p style="font-size:0.93rem;line-height:1.8;margin-bottom:14px;">
+      eTRE・lTRE の両介入とも、<strong>「代謝・心血管の健康指標は改善されなかった」</strong>が主要な結論。
+    </p>
+
+    <div class="result-grid">
+      <div class="result-card no-change">
+        <span class="r-icon">🩸</span>
+        <span class="r-mark">✕</span>
+        <div class="r-label">インスリン感受性<br>（糖の利用効率）<br>改善なし</div>
+      </div>
+      <div class="result-card no-change">
+        <span class="r-icon">🍬</span>
+        <span class="r-mark">✕</span>
+        <div class="r-label">血糖値（24時間）<br>変化なし</div>
+      </div>
+      <div class="result-card no-change">
+        <span class="r-icon">🫀</span>
+        <span class="r-mark">✕</span>
+        <div class="r-label">血中脂質<br>（中性脂肪・コレステロール）<br>改善なし</div>
+      </div>
+      <div class="result-card no-change">
+        <span class="r-icon">🔥</span>
+        <span class="r-mark">✕</span>
+        <div class="r-label">炎症マーカー<br>（CRPなど）<br>改善なし</div>
+      </div>
+      <div class="result-card no-change">
+        <span class="r-icon">⚗️</span>
+        <span class="r-mark">✕</span>
+        <div class="r-label">酸化ストレス<br>改善なし</div>
+      </div>
+      <div class="result-card changed">
+        <span class="r-icon">🕐</span>
+        <span class="r-mark">〇</span>
+        <div class="r-label">体内時計（概日リズム）<br>食事時間に合わせて<br><strong>シフトした</strong></div>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <div class="label">体内時計のシフトとは？</div>
+      lTRE（遅い時間帯）を行った後は、体内時計が eTRE（早い時間帯）と比べて<strong>約40分後ろにずれた</strong>。就寝・起床時刻も lTRE 後の方が遅くなった。体は「食べる時間」に合わせてリズムを更新したが、それだけで代謝が改善するわけではなかった。
+    </div>
+
+    <div class="source">
+      出典：Peters et al. <em>Science Translational Medicine</em> 2025;17(822):eadv6787.
+      <a href="https://pubmed.ncbi.nlm.nih.gov/41160666/" target="_blank">PMID 41160666</a>
+    </div>
+  </div>
+</div>
+
+<!-- ▼ なぜ？仮説の整理 -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">🤔</span>
+      <span class="card-title">なぜこの結果？ ── 「TRE効果の正体」仮説</span>
+      <span class="topic-badge badge-purple">メカニズム解説</span>
+    </div>
+    <p style="font-size:0.93rem;line-height:1.8;margin-bottom:14px;">
+      多くの先行TRE研究では「体重減少・血糖改善・脂質改善」が報告されていた。しかし今回の研究が示したことは：
+    </p>
+
+    <!-- フロー図 -->
+    <div style="margin:16px 0;">
+      <p style="font-size:0.85rem;font-weight:600;color:#555;margin-bottom:8px;">【仮説A】カロリーが自然に減った → 代謝が改善した（今回の研究でテスト）</p>
+      <div class="mech-row">
+        <div class="mech-box cause">TRE実施<br>（時間制限）</div>
+        <span class="mech-arrow">→</span>
+        <div class="mech-box pathway">自然とカロリーが<br>減少する</div>
+        <span class="mech-arrow">→</span>
+        <div class="mech-box effect-yes">代謝改善 ✔</div>
+      </div>
+      <p style="font-size:0.82rem;color:#888;margin:6px 0 14px 0;">→ この仮説を検証するため、ChronoFast試験はカロリーを<strong>意図的に統一</strong>した</p>
+
+      <p style="font-size:0.85rem;font-weight:600;color:#555;margin-bottom:8px;">【仮説B】時間帯そのものが代謝を改善する</p>
+      <div class="mech-row">
+        <div class="mech-box cause">TRE実施<br>（時間制限）</div>
+        <span class="mech-arrow">→</span>
+        <div class="mech-box pathway">概日リズムとの<br>同期・最適化</div>
+        <span class="mech-arrow">→</span>
+        <div class="mech-box effect-no">代謝改善 ✕<br>（今回は確認されず）</div>
+      </div>
+    </div>
+
+    <div class="alert-box">
+      <div class="label">⚠️ 今回の研究が示唆すること</div>
+      以前の多くのTRE研究では<span class="hl-pink"><strong>カロリー摂取量がコントロールされていなかった</strong></span>。食べる時間を制限すると「自然と食べる量が減る」ため、代謝の改善はその<strong>カロリー減少</strong>によるものだった可能性が高い。<br>
+      カロリーが同じならば、「8時間以内に食べる」だけでは（少なくとも2週間・過体重女性の短期では）代謝は改善しなかった。
+    </div>
+
+    <div class="sticky">
+      📝 わかりやすく言うと：「何時に食べるか」より「どれだけ食べるか（カロリー）」の方が代謝への影響が大きい可能性がある。
+    </div>
+  </div>
+</div>
+
+<!-- ▼ 先行研究との比較 -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">⚖️</span>
+      <span class="card-title">他の研究との比較 ── 賛否が分かれる TRE</span>
+      <span class="topic-badge badge-teal">エビデンス全体像</span>
+    </div>
+    <div class="compare-grid">
+      <div class="compare-card before">
+        <span class="c-icon">📈</span>
+        <div class="c-title">TRE効果を支持する研究</div>
+        <div class="c-row">🔹 <span><strong>Sutton et al. 2018（Cell Metabolism）</strong>早期TRE（5週）で血圧・インスリン感受性が改善（n=8、前糖尿病男性、カロリー制限なし）</span></div>
+        <div class="c-row">🔹 <span>体重減少を伴うTRE研究の多くで血糖・脂質改善の報告あり</span></div>
+        <div class="c-row">🔹 <span>動物実験では概日リズムとの同期が独立した代謝改善を示すデータがある</span></div>
+      </div>
+      <div class="compare-card after">
+        <span class="c-icon">📉</span>
+        <div class="c-title">TRE効果に疑問を呈する研究</div>
+        <div class="c-row">🔸 <span><strong>Lowe et al. 2020（JAMA Internal Medicine）</strong>外来設定のTRE（12週、n=116）で体重・代謝指標は対照群と有意差なし</span></div>
+        <div class="c-row">🔸 <span>今回の<strong>ChronoFast試験</strong>：カロリーを統制した場合、代謝改善なし（n=31）</span></div>
+        <div class="c-row">🔸 <span>短期・小規模研究が多く、長期効果は不明</span></div>
+      </div>
+    </div>
+    <p style="font-size:0.88rem;color:#555;line-height:1.7;margin-top:8px;">
+      科学的合意としては「TRE≒カロリー制限の補助手段としては有用」であるが、「時間そのものが独立して代謝改善をもたらす」かは、まだ確立されていない。
+    </p>
+  </div>
+</div>
+
+<!-- ▼ 研究の限界 -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">🔍</span>
+      <span class="card-title">この研究の限界 ── 結論を出す前に知っておくこと</span>
+      <span class="topic-badge badge-orange">批判的思考</span>
+    </div>
+    <ul class="point-list">
+      <li>
+        <span class="marker marker-orange">1</span>
+        <span><strong>サンプルが小さい（n=31）</strong>──「統計的に有意な差が出なかった」のか、「そもそも人数が少なすぎて差を検出できなかった」のかの区別が難しい。</span>
+      </li>
+      <li>
+        <span class="marker marker-orange">2</span>
+        <span><strong>女性のみ・過体重・肥満に限定</strong>──健康な人・男性・やせ型には別の結果が出る可能性がある。女性だけの結果を「すべての人」に適用するのは注意が必要。</span>
+      </li>
+      <li>
+        <span class="marker marker-orange">3</span>
+        <span><strong>介入期間が2週間と短い</strong>──体内時計や代謝の変化は数ヶ月単位でゆっくり現れることもある。2週間では効果が現れなかっただけかもしれない。</span>
+      </li>
+      <li>
+        <span class="marker marker-blue">4</span>
+        <span><strong>「等カロリー設計」は現実の TRE と異なる</strong>──実際に TRE を実践すると多くの人は自然とカロリーが減る。今回の設計はあくまで「タイミング効果だけ」を測ったもの。</span>
+      </li>
+      <li>
+        <span class="marker marker-blue">5</span>
+        <span><strong>8時間ウィンドウだけを検証</strong>──6時間・4時間と窓をさらに狭めた場合や、異なる食事内容（低炭水化物・高タンパクなど）の組み合わせは未検証。</span>
+      </li>
+    </ul>
+    <div class="sticky">
+      📝 論文1本で「TRE は効かない」と結論づけるのは早計。ただしこの研究は「カロリー制限を伴わないTREの短期的代謝効果には限界がある」という重要な知見を加えた。
+    </div>
+  </div>
+</div>
+
+<!-- ▼ 実践ポイント -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">🧭</span>
+      <span class="card-title">今日からできること ── エビデンスに基づく現実的な視点</span>
+      <span class="topic-badge badge-green">実践</span>
+    </div>
+    <ul class="point-list">
+      <li>
+        <span class="marker marker-green">1</span>
+        <span><strong>TREは「食事量を自然に減らす」ツールとして有用かもしれない。</strong>時間帯を絞ることで夜間の間食・ダラダラ食いを防ぎ、カロリーが減った結果として体重・代謝が改善するなら、十分意義がある。</span>
+      </li>
+      <li>
+        <span class="marker marker-green">2</span>
+        <span><strong>「朝食を早く・夕食を早くする（早期TRE）」の方が体内時計との整合性は高い</strong>とされるが、代謝への直接効果は未確定。ライフスタイルに合わせて柔軟に判断でよい。</span>
+      </li>
+      <li>
+        <span class="marker marker-blue">3</span>
+        <span><strong>「食事ウィンドウを狭めるだけ」では不十分な可能性がある。</strong>食べる内容（野菜・たんぱく質・食物繊維の質と量）も同時に気をつけることが大切。</span>
+      </li>
+      <li>
+        <span class="marker marker-olive">4</span>
+        <span>糖尿病・胃腸疾患・摂食障害の既往がある人は、断食を伴う食事法は医師・管理栄養士に相談してから始める。妊娠中・授乳中は不向き。</span>
+      </li>
+      <li>
+        <span class="marker marker-navy">5</span>
+        <span>「16時間断食は誰でも必ずやるべき」というほどの強いエビデンスはまだない。体に合わない・続かないなら無理に続ける必要はない。</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- ▼ まとめ -->
+<div class="summary-card">
+  <div class="s-title">📝 今日のまとめ</div>
+  <ul>
+    <li>TRE（時間制限食）は「1日の食事を特定の時間帯（例：8時間）に限定する」食事法で、近年人気を集めている。</li>
+    <li>2025年の ChronoFast 試験（Science Translational Medicine, n=31）は<strong>カロリー量を同じに保った場合</strong>、eTRE・lTRE いずれも<strong>インスリン感受性・血糖・血中脂質・炎症・酸化ストレスを改善しなかった</strong>ことを示した。</li>
+    <li>一方で体内時計（概日リズム）は食事時間に合わせてシフトした（lTRE では約40分後ろへ）。体への影響がないわけではない。</li>
+    <li>過去のTRE研究で代謝改善が見られたのは、<span class="hl-blue" style="background:linear-gradient(transparent 60%,rgba(163,210,255,0.5) 60%);">TREによる「自然なカロリー減少」が主因</span>だった可能性が高い。</li>
+    <li>ただし n=31・女性のみ・2週間という限界があり、この研究1本で「TRE全体が効かない」とは言えない。長期・多様な集団での検証が引き続き必要。</li>
+    <li>現時点では「TREはカロリー管理の補助として有用」であり、時間だけを魔法のように変えても代謝が改善するという根拠は十分ではない。</li>
+  </ul>
+</div>
+
+<!-- ▼ 免責 -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な健康情報の解説であり、医療上のアドバイスではありません。時間制限食・断食・食事制限などを実践する際は、かかりつけ医・管理栄養士・薬剤師などの専門家にご相談ください。効果・リスクは個人の体質・年齢・持病（糖尿病・摂食障害・消化器疾患など）・服薬状況によって大きく異なります。本記事に記載の数値・研究結果は現時点（2026-06-02）で確認できる査読済み論文・公的資料に基づいていますが、科学は日々更新されます。最新情報は一次情報源をご確認ください。
+</div>
+
+</body>
+</html>
