@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>生成AI 最新トピック 2026-06-01</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .cover {
+    background: linear-gradient(135deg, #2c5f8a 0%, #1a3d5c 100%);
+    color: white;
+    border-radius: 8px;
+    padding: 60px 40px;
+    text-align: center;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.3);
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 28px,
+      rgba(255,255,255,0.07) 28px,
+      rgba(255,255,255,0.07) 29px
+    );
+  }
+  .cover-emoji { font-size: 64px; display: block; margin-bottom: 16px; }
+  .cover h1 {
+    font-family: 'Klee One', sans-serif;
+    font-size: 2.4rem;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 12px;
+    position: relative;
+  }
+  .cover .subtitle {
+    font-size: 1.05rem;
+    opacity: 0.85;
+    margin-bottom: 8px;
+    position: relative;
+  }
+  .cover .date-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 20px;
+    padding: 6px 20px;
+    font-size: 1rem;
+    margin-top: 16px;
+    position: relative;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 6px;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.12);
+    position: relative;
+    overflow: hidden;
+  }
+  .card-body {
+    padding: 28px 36px 28px 64px;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 31px,
+      #e0d8c8 31px,
+      #e0d8c8 32px
+    );
+    background-color: #fff9f0;
+    min-height: 200px;
+  }
+  .card-body::before {
+    content: '';
+    position: absolute;
+    left: 52px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #e8a0a0;
+    opacity: 0.7;
+  }
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 8px;
+    border-bottom: 2px dashed #c8b89a;
+  }
+  .card-emoji { font-size: 2rem; }
+  .card-title {
+    font-family: 'Klee One', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #2c3e50;
+    line-height: 1.3;
+  }
+  .topic-badge {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-left: auto;
+    white-space: nowrap;
+  }
+  .badge-red    { background: #ffe0e0; color: #c0392b; border: 1px solid #f5a0a0; }
+  .badge-blue   { background: #e0eeff; color: #2255aa; border: 1px solid #a0c0f5; }
+  .badge-green  { background: #e0f5e0; color: #1e7e34; border: 1px solid #a0d8a0; }
+  .badge-purple { background: #f0e0ff; color: #7b2fbe; border: 1px solid #c8a0f0; }
+  .badge-orange { background: #fff0d0; color: #cc6600; border: 1px solid #f0c070; }
+  .badge-teal   { background: #d0f0f0; color: #006060; border: 1px solid #80d0d0; }
+
+  .simple-box {
+    background: #fff7e0;
+    border-left: 4px solid #f5c842;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin: 16px 0;
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+  .simple-box .label {
+    display: inline-block;
+    background: #f5c842;
+    color: #5a4000;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+  }
+
+  .point-list {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0;
+  }
+  .point-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 0;
+    font-size: 0.97rem;
+    line-height: 1.7;
+    color: #333;
+    border-bottom: 1px dotted #ddd;
+  }
+  .point-list li:last-child { border-bottom: none; }
+  .point-list .marker {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-top: 2px;
+  }
+  .marker-red    { background: #c0392b; color: white; }
+  .marker-blue   { background: #2255aa; color: white; }
+  .marker-green  { background: #1e7e34; color: white; }
+  .marker-purple { background: #7b2fbe; color: white; }
+  .marker-orange { background: #cc6600; color: white; }
+  .marker-teal   { background: #006060; color: white; }
+
+  .hl-yellow { background: linear-gradient(transparent 60%, #ffe566 60%); }
+  .hl-pink   { background: linear-gradient(transparent 60%, #ffb3c6 60%); }
+  .hl-blue   { background: linear-gradient(transparent 60%, #b3d4ff 60%); }
+  .hl-green  { background: linear-gradient(transparent 60%, #b3f0b3 60%); }
+
+  .sticky {
+    background: #fff9c4;
+    border-radius: 4px;
+    padding: 12px 16px;
+    margin: 14px 0;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.1);
+    transform: rotate(-0.5deg);
+    display: inline-block;
+    width: 100%;
+    color: #4a3800;
+  }
+
+  .source {
+    font-size: 0.78rem;
+    color: #888;
+    margin-top: 14px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+  }
+  .source a { color: #5577aa; text-decoration: none; }
+  .source a:hover { text-decoration: underline; }
+
+  .summary-card {
+    background: linear-gradient(135deg, #1a3d5c 0%, #2c7744 100%);
+    color: white;
+    border-radius: 8px;
+    padding: 36px 40px;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.2);
+  }
+  .summary-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px dashed rgba(255,255,255,0.4);
+  }
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+  }
+  .summary-item {
+    background: rgba(255,255,255,0.12);
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  .summary-item .s-emoji { font-size: 1.6rem; display: block; margin-bottom: 6px; }
+  .summary-item .s-title { font-weight: 600; margin-bottom: 4px; font-size: 1rem; }
+
+  .footer {
+    text-align: center;
+    color: #888;
+    font-size: 0.8rem;
+    padding: 20px;
+    max-width: 820px;
+    width: 100%;
+  }
+
+  .toc {
+    background: #f8f4ec;
+    border: 2px solid #c8b89a;
+    border-radius: 8px;
+    padding: 20px 28px;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+  }
+  .toc h2 { font-size: 1.1rem; color: #5a4030; margin-bottom: 12px; }
+  .toc ol { padding-left: 20px; }
+  .toc li { padding: 4px 0; font-size: 0.93rem; }
+  .toc a { color: #2255aa; text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+
+  /* 大きな数値カード */
+  .stat-row {
+    display: flex;
+    gap: 14px;
+    margin: 18px 0;
+    flex-wrap: wrap;
+  }
+  .stat-card {
+    flex: 1;
+    min-width: 110px;
+    background: #f0f8ff;
+    border: 2px solid #a0c0f5;
+    border-radius: 10px;
+    padding: 14px 12px;
+    text-align: center;
+  }
+  .stat-card.green { background: #f0fff4; border-color: #80d0a0; }
+  .stat-card.red   { background: #fff0f0; border-color: #f5a0a0; }
+  .stat-card.gray  { background: #f4f4f4; border-color: #c0c0c0; }
+  .stat-card.amber { background: #fff8e8; border-color: #f0c070; }
+  .stat-card.purple { background: #f8f0ff; border-color: #c8a0f0; }
+  .stat-num {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #2255aa;
+    line-height: 1.1;
+    font-family: 'Caveat', cursive;
+  }
+  .stat-card.green .stat-num  { color: #1e7e34; }
+  .stat-card.red   .stat-num  { color: #c0392b; }
+  .stat-card.gray  .stat-num  { color: #555; }
+  .stat-card.amber .stat-num  { color: #cc6600; }
+  .stat-card.purple .stat-num { color: #7b2fbe; }
+  .stat-label {
+    font-size: 0.76rem;
+    color: #555;
+    margin-top: 6px;
+    line-height: 1.4;
+  }
+
+  /* ステップフロー */
+  .step-flow {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin: 18px 0;
+  }
+  .step-box {
+    background: #e8f4fd;
+    border: 2px solid #6baed6;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 0.83rem;
+    font-weight: 600;
+    color: #1a5276;
+    text-align: center;
+    min-width: 88px;
+    line-height: 1.4;
+  }
+  .step-box.done { background: #e0f5e0; border-color: #6ab87a; color: #1e5c2e; }
+  .step-arrow { font-size: 1.3rem; color: #aaa; flex-shrink: 0; }
+
+  /* 比較テーブル */
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 0.87rem;
+  }
+  .compare-table th {
+    background: #2c5f8a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .compare-table td {
+    padding: 9px 12px;
+    border-bottom: 1px solid #e0d8c8;
+    line-height: 1.5;
+    color: #333;
+  }
+  .compare-table tr:nth-child(even) td { background: #f8f4ec; }
+  .compare-table tr:last-child td { border-bottom: none; }
+
+  /* プラットフォームアイコン行 */
+  .platform-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 16px 0;
+  }
+  .platform-chip {
+    background: #e8f4fd;
+    border: 1px solid #a0c0e8;
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-size: 0.82rem;
+    color: #1a4a6a;
+    font-weight: 600;
+  }
+
+  /* タイムライン */
+  .timeline {
+    margin: 16px 0;
+    position: relative;
+    padding-left: 24px;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 4px;
+    bottom: 4px;
+    width: 2px;
+    background: #c8b89a;
+  }
+  .tl-item {
+    position: relative;
+    margin-bottom: 16px;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #333;
+  }
+  .tl-item::before {
+    content: '';
+    position: absolute;
+    left: -20px;
+    top: 7px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #2255aa;
+    border: 2px solid white;
+    box-shadow: 0 0 0 2px #2255aa;
+  }
+  .tl-item.done::before { background: #888; box-shadow: 0 0 0 2px #888; }
+  .tl-item.warn::before { background: #c0392b; box-shadow: 0 0 0 2px #c0392b; }
+  .tl-date {
+    font-size: 0.75rem;
+    color: #888;
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+  .tl-title { font-weight: 600; }
+
+  @media (max-width: 600px) {
+    .card-body { padding: 20px 20px 20px 44px; }
+    .card-title { font-size: 1.15rem; }
+    .cover h1 { font-size: 1.8rem; }
+    .summary-card { padding: 24px 20px; }
+    .stat-row { gap: 10px; }
+    .step-flow { gap: 4px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- 表紙 -->
+<div class="cover">
+  <span class="cover-emoji">🗺️🤖</span>
+  <h1>生成AI 最新トピック</h1>
+  <div class="subtitle">AI勢力地図の塗り替え ── Meta・中国勢・オープンモデルが急浮上</div>
+  <div class="date-badge">📅 2026年6月1日号</div>
+</div>
+
+<!-- 目次 -->
+<div class="toc">
+  <h2>📋 今日の目次</h2>
+  <ol>
+    <li><a href="#topic1">Meta Muse Spark ── 「超知能への道」を掲げるMetaの新AI組織・新モデル</a></li>
+    <li><a href="#topic2">中国AI対決：Qwen 3.7 Max vs DeepSeek V4 Pro ── 1Mトークン・激安価格で世界に挑む</a></li>
+    <li><a href="#topic3">Gemma 4 ── GoogleのオープンAI、スマホからワークステーションまで完全無料で使える</a></li>
+    <li><a href="#topic4">OpenAIのモデル整理 ── GPT-4.5が6月27日に引退、AI「世代交代」が加速</a></li>
+    <li><a href="#summary">今日のまとめ</a></li>
+  </ol>
+</div>
+
+<!-- トピック1: Meta Muse Spark -->
+<div class="card" id="topic1">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">🔵</span>
+      <div class="card-title">Meta Muse Spark ──<br>「超知能への道」を掲げるMetaの新AI組織・新モデル</div>
+      <span class="topic-badge badge-blue">Meta</span>
+    </div>
+
+    <div class="simple-box">
+      <span class="label">🌱 やさしく解説</span><br>
+      2026年4月8日、MetaのAI部門が9ヶ月かけてゼロから作り直した新しいAI「<span class="hl-yellow">Muse Spark</span>」を発表しました。WhatsApp・Instagram・Facebookなど<strong>30億人以上が使うアプリ</strong>に順次搭載されます。「誰でも使える個人の超知能アシスタント」を目指すという、大きな目標を掲げています。
+    </div>
+
+    <!-- 展開先プラットフォーム -->
+    <p style="font-size:0.85rem; font-weight:600; color:#555; margin-bottom:8px;">📱 Muse Spark の展開先</p>
+    <div class="platform-row">
+      <div class="platform-chip">💬 WhatsApp</div>
+      <div class="platform-chip">📸 Instagram</div>
+      <div class="platform-chip">👥 Facebook</div>
+      <div class="platform-chip">💬 Messenger</div>
+      <div class="platform-chip">👓 Ray-Ban Meta</div>
+      <div class="platform-chip">🕶️ Oakley Meta</div>
+      <div class="platform-chip">🌐 Meta AI アプリ</div>
+    </div>
+
+    <div class="stat-row">
+      <div class="stat-card">
+        <div class="stat-num">30億+</div>
+        <div class="stat-label">Muse Sparkが届く<br>ユーザー数（予定）</div>
+      </div>
+      <div class="stat-card amber">
+        <div class="stat-num">9ヶ月</div>
+        <div class="stat-label">AIスタックを<br>ゼロから再構築した期間</div>
+      </div>
+      <div class="stat-card green">
+        <div class="stat-num">無料</div>
+        <div class="stat-label">Meta AI経由で<br>誰でも使える</div>
+      </div>
+    </div>
+
+    <ul class="point-list">
+      <li>
+        <span class="marker marker-blue">1</span>
+        <span><strong>Meta Superintelligence Labs（MSL）の初モデル</strong> ── MetaはAlex Wang（元Scale AI CEO）を中心に「超知能」専門部門を設立。そこが9ヶ月でゼロからAIスタックを作り直した成果がMuse Spark</span>
+      </li>
+      <li>
+        <span class="marker marker-blue">2</span>
+        <span><strong>「小さく速く、でも賢い」設計思想</strong> ── 意図的に小型・高速な設計にしながら、科学・数学・健康などの難しい質問にも対応。スマートフォンやARグラスでの常時稼働を重視した</span>
+      </li>
+      <li>
+        <span class="marker marker-blue">3</span>
+        <span><strong>Contemplating Mode（熟考モード）</strong> ── 複数のサブエージェント（分身AI）を並列で動かして問題を解く機能。「家族旅行の計画」を頼むと、一体が行程を作り、別の一体が観光地を比較し、もう一体が子向け体験を探す</span>
+      </li>
+      <li>
+        <span class="marker marker-blue">4</span>
+        <span><strong>マルチモーダル対応</strong> ── テキストだけでなく「今見ているものを理解する」視覚（画像・映像）に標準対応。ARグラスとの親和性が高い</span>
+      </li>
+      <li>
+        <span class="marker marker-blue">5</span>
+        <span><strong>投資規模：2026年に1,150〜1,350億ドル</strong> ── MetaのAI関連設備投資は前年の約2倍。超知能への道のりをインフラ面でも全力で支えている（公式発表より）</span>
+      </li>
+    </ul>
+
+    <div class="sticky">
+      ✏️ <strong>中学生的に言うと：</strong>LINEやインスタで毎日使うアプリに、「科学の問題も解けて、旅行計画もできる賢いAI」が無料で入ってきた！グラスをかければ目に見えるものにも答えてくれる！
+    </div>
+
+    <div class="source">
+      📎 出典：
+      <a href="https://about.fb.com/news/2026/04/introducing-muse-spark-meta-superintelligence-labs/" target="_blank">Meta – Introducing Muse Spark（2026-04-08）</a> /
+      <a href="https://techcrunch.com/2026/04/08/meta-debuts-the-muse-spark-model-in-a-ground-up-overhaul-of-its-ai/" target="_blank">TechCrunch – Meta debuts Muse Spark（2026-04-08）</a> /
+      <a href="https://builtin.com/articles/meta-muse-spark-ai-model" target="_blank">Built In – Meta's Muse Spark AI Model</a> /
+      <a href="https://www.cnbc.com/2026/04/08/meta-debuts-first-major-ai-model-since-14-billion-deal-to-bring-in-alexandr-wang.html" target="_blank">CNBC – Meta debuts new AI model（2026-04-08）</a>
+    </div>
+  </div>
+</div>
+
+<!-- トピック2: 中国AI対決 -->
+<div class="card" id="topic2">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">⚔️</span>
+      <div class="card-title">中国AI対決：Qwen 3.7 Max vs DeepSeek V4 Pro ──<br>1Mトークン・激安価格で世界に挑む</div>
+      <span class="topic-badge badge-orange">中国AI</span>
+    </div>
+
+    <div class="simple-box">
+      <span class="label">🌱 やさしく解説</span><br>
+      2026年5月、アリババの<span class="hl-yellow">Qwen 3.7 Max</span>とDeepSeekの<span class="hl-pink">V4 Pro</span>が相次いで登場しました。どちらも<strong>「100万トークン」</strong>（文字にして約75万文字！）を一度に処理でき、欧米の最新AIに肩を並べる性能を持ちながら、価格はその数分の1以下。中国のAIが「追いかける側」から「競り合う側」へと変わっています。
+    </div>
+
+    <!-- 比較テーブル -->
+    <p style="font-size:0.85rem; font-weight:600; color:#555; margin-bottom:8px;">📊 Qwen 3.7 Max vs DeepSeek V4 Pro 比較</p>
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>比較項目</th>
+          <th>Qwen 3.7 Max（阿里巴巴）</th>
+          <th>DeepSeek V4 Pro（DeepSeek）</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>発表時期</strong></td>
+          <td>2026年5月20日（阿里雲サミット）</td>
+          <td>2026年5月頃</td>
+        </tr>
+        <tr>
+          <td><strong>コンテキスト</strong></td>
+          <td>1,000,000トークン（1Mトークン）</td>
+          <td>1,000,000トークン（1Mトークン）</td>
+        </tr>
+        <tr>
+          <td><strong>価格（入力/出力）</strong></td>
+          <td>$2.50 / $7.50（100万トークンあたり）</td>
+          <td>$0.40 / $1.20（100万トークンあたり）</td>
+        </tr>
+        <tr>
+          <td><strong>ライセンス・重み</strong></td>
+          <td>クローズド（APIのみ）</td>
+          <td>MITライセンス（完全公開）</td>
+        </tr>
+        <tr>
+          <td><strong>推論モード</strong></td>
+          <td>拡張思考モード（内部で考えてから回答）</td>
+          <td>強力な推論能力。詳細は公式で確認</td>
+        </tr>
+        <tr>
+          <td><strong>コーディング性能</strong></td>
+          <td>SWE-Pro 60.6% / Terminal-Bench 69.7%</td>
+          <td>コーディング・数学で最上位クラス</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-size:0.79rem; color:#999; margin-top:-6px; margin-bottom:16px;">※ 価格・機能は変更されることがあるため、利用前に公式サイトで要確認</p>
+
+    <!-- 1Mトークンのイメージ -->
+    <div style="background:#fff7e0; border:2px dashed #f0c070; border-radius:8px; padding:14px 18px; margin:16px 0;">
+      <p style="font-size:0.85rem; font-weight:600; color:#7a4a00; margin-bottom:8px;">💡「100万トークン」って何がすごいの？</p>
+      <div style="display:flex; gap:10px; flex-wrap:wrap;">
+        <div style="background:white; border:1px solid #f0c070; border-radius:6px; padding:8px 12px; font-size:0.82rem; flex:1; min-width:130px; text-align:center;">📚 小説 約7〜8冊分<br>（1冊10万文字として）</div>
+        <div style="background:white; border:1px solid #f0c070; border-radius:6px; padding:8px 12px; font-size:0.82rem; flex:1; min-width:130px; text-align:center;">💻 プログラム 約3〜5万行<br>を一度に読み込める</div>
+        <div style="background:white; border:1px solid #f0c070; border-radius:6px; padding:8px 12px; font-size:0.82rem; flex:1; min-width:130px; text-align:center;">📄 PDFファイル 約1,000ページ<br>を丸ごと把握できる</div>
+      </div>
+    </div>
+
+    <ul class="point-list">
+      <li>
+        <span class="marker marker-orange">1</span>
+        <span><strong>Qwen 3.7 Maxが1Mコンテキストを実現（5月20日）</strong> ── 前世代のQwen 3.6 Maxから4倍に拡張。「拡張思考モード」で複雑な問題に対して内部でじっくり考えてから回答する</span>
+      </li>
+      <li>
+        <span class="marker marker-orange">2</span>
+        <span><strong>DeepSeek V4 ProはMITライセンスで完全公開</strong> ── モデルの「重み（脳の中身）」が完全公開され、誰でも無制限に改造・商用利用が可能。価格もQwenの約6分の1以下と破格</span>
+      </li>
+      <li>
+        <span class="marker marker-orange">3</span>
+        <span><strong>欧米モデルとの価格差が明確に</strong> ── 同等性能帯の欧米AIと比べて、DeepSeek V4 Proは入力コストが最大10分の1以下のケースも。スタートアップや個人開発者の選択肢が広がった</span>
+      </li>
+      <li>
+        <span class="marker marker-orange">4</span>
+        <span><strong>「エージェント特化」を強調</strong> ── Qwen 3.7のブログタイトルは「The Agent Frontier（エージェントの最前線）」。単なる会話AIではなく、自律的に作業を行うエージェントとして設計されている</span>
+      </li>
+    </ul>
+
+    <div class="sticky">
+      ✏️ <strong>中学生的に言うと：</strong>「欧米の高い最新AIと同じ性能なのに、価格は10分の1」という中国製AIが現れた。しかも一方はモデルを丸ごと無料公開。世界のAI勢力図が変わりつつある！
+    </div>
+
+    <div class="source">
+      📎 出典：
+      <a href="https://qwen.ai/blog?id=qwen3.7" target="_blank">Qwen Blog – Qwen3.7: The Agent Frontier（2026-05-20）</a> /
+      <a href="https://www.digitalapplied.com/blog/qwen-3-7-max-alibaba-flagship-ai-model-2026" target="_blank">Digital Applied – Qwen 3.7 Max: Alibaba's New Flagship AI Model</a> /
+      <a href="https://openrouter.ai/compare/qwen/qwen3.7-max/deepseek/deepseek-v4-pro" target="_blank">OpenRouter – Qwen3.7 Max vs DeepSeek V4 Pro 比較</a>
+    </div>
+  </div>
+</div>
+
+<!-- トピック3: Gemma 4 -->
+<div class="card" id="topic3">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">💎</span>
+      <div class="card-title">Gemma 4 ──<br>GoogleのオープンAI、スマホからワークステーションまで完全無料</div>
+      <span class="topic-badge badge-green">Google・オープンAI</span>
+    </div>
+
+    <div class="simple-box">
+      <span class="label">🌱 やさしく解説</span><br>
+      2026年3月31日にGoogleが公開した<span class="hl-green">Gemma 4</span>は、<strong>「誰でも無料で使えるオープンAI」</strong>の最高峰です。スマートフォン向けから本格的なワークステーション向けまで<span class="hl-yellow">4つのサイズ</span>が揃い、Apache 2.0という自由度の高いライセンスで商用利用もOK。前世代から数学性能が4倍以上に跳ね上がりました。
+    </div>
+
+    <!-- 4サイズの図解 -->
+    <p style="font-size:0.85rem; font-weight:600; color:#555; margin-bottom:10px;">📐 Gemma 4 の4つのサイズ ── 使う場所に合わせて選べる</p>
+    <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom:18px;">
+      <div style="background:#e8f8e8; border:2px solid #6ab87a; border-radius:10px; padding:12px; flex:1; min-width:140px; text-align:center;">
+        <div style="font-size:1.5rem;">📱</div>
+        <div style="font-weight:700; color:#1e5c2e; font-size:0.9rem; margin:4px 0;">E2B（2B）</div>
+        <div style="font-size:0.75rem; color:#444;">スマートフォン・<br>省電力端末向け</div>
+      </div>
+      <div style="background:#e8f8e8; border:2px solid #6ab87a; border-radius:10px; padding:12px; flex:1; min-width:140px; text-align:center;">
+        <div style="font-size:1.5rem;">💻</div>
+        <div style="font-weight:700; color:#1e5c2e; font-size:0.9rem; margin:4px 0;">E4B（4B）</div>
+        <div style="font-size:0.75rem; color:#444;">タブレット・<br>エッジデバイス向け</div>
+      </div>
+      <div style="background:#d0f0e8; border:2px solid #2ca87a; border-radius:10px; padding:12px; flex:1; min-width:140px; text-align:center;">
+        <div style="font-size:1.5rem;">🖥️</div>
+        <div style="font-weight:700; color:#1a4a30; font-size:0.9rem; margin:4px 0;">26B MoE（3.8B実効）</div>
+        <div style="font-size:0.75rem; color:#444;">一般的なPC・<br>コンシューマーGPU向け</div>
+      </div>
+      <div style="background:#b8e8d8; border:2px solid #1a7a5a; border-radius:10px; padding:12px; flex:1; min-width:140px; text-align:center;">
+        <div style="font-size:1.5rem;">🖲️</div>
+        <div style="font-weight:700; color:#0a3a20; font-size:0.9rem; margin:4px 0;">31B Dense</div>
+        <div style="font-size:0.75rem; color:#444;">ワークステーション・<br>高性能サーバー向け</div>
+      </div>
+    </div>
+    <p style="font-size:0.79rem; color:#999; margin-top:-10px; margin-bottom:16px;">※ MoE＝Mixture of Experts（使う部分だけを動かす効率的な仕組み）/ 3.8B実効＝実際に動くパラメータ数</p>
+
+    <!-- ベンチマーク数値 -->
+    <div class="stat-row">
+      <div class="stat-card green">
+        <div class="stat-num">89.2%</div>
+        <div class="stat-label">AIME 2026（数学）<br>31Bモデルの正解率</div>
+      </div>
+      <div class="stat-card gray">
+        <div class="stat-num">20.8%</div>
+        <div class="stat-label">AIME（数学）<br>前世代Gemma 3 27B</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">256K</div>
+        <div class="stat-label">コンテキスト長<br>（処理できる文字量）</div>
+      </div>
+      <div class="stat-card amber">
+        <div class="stat-num">140+</div>
+        <div class="stat-label">対応言語数<br>日本語も含む</div>
+      </div>
+    </div>
+
+    <ul class="point-list">
+      <li>
+        <span class="marker marker-green">1</span>
+        <span><strong>Apache 2.0ライセンスで完全自由に使える</strong> ── ユーザー数制限なし・改造自由・商用利用自由・ロイヤリティ（使用料）なし。「Googleが作った、世界で一番自由に使えるオープンAI」とも評される</span>
+      </li>
+      <li>
+        <span class="marker marker-green">2</span>
+        <span><strong>数学性能が前世代の4倍超に跳ね上がった</strong> ── AIME 2026（全米数学コンクール）で31Bが89.2%を達成。前世代（Gemma 3）の20.8%から4倍以上の大幅改善</span>
+      </li>
+      <li>
+        <span class="marker marker-green">3</span>
+        <span><strong>マルチモーダル（テキスト・画像・音声）を標準搭載</strong> ── テキストだけでなく画像の説明、音声の理解も可能。小型モデル（E2B・E4B）は特にモバイルでの音声対応が優れている</span>
+      </li>
+      <li>
+        <span class="marker marker-green">4</span>
+        <span><strong>主要ツールが初日から対応（Day-0 support）</strong> ── Ollama・llama.cpp・MLX・Hugging Facetransformersといった人気フレームワークが発表当日から対応済み。すぐにローカル（自分のPC）で動かせる</span>
+      </li>
+      <li>
+        <span class="marker marker-green">5</span>
+        <span><strong>「パラメータあたりの性能」で歴代最高</strong> ── 26B MoEモデルは3.8Bパラメータしか実際に動かさないのに高性能。「少ない計算量で賢い」効率的な設計がGemma 4最大の特長の一つ</span>
+      </li>
+    </ul>
+
+    <div class="sticky">
+      ✏️ <strong>中学生的に言うと：</strong>「Googleが作った最高レベルのAIを、ゲーミングPCでも、スマホでも、無料で使える」という夢のような話。しかも数学の成績が前より4倍以上上がった！
+    </div>
+
+    <div class="source">
+      📎 出典：
+      <a href="https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/" target="_blank">Google Blog – Gemma 4: Byte for byte, the most capable open models（2026-03-31）</a> /
+      <a href="https://deepmind.google/models/gemma/gemma-4/" target="_blank">Google DeepMind – Gemma 4 公式ページ</a> /
+      <a href="https://news.cgtn.com/news/2026-04-03/Google-launches-open-model-Gemma-4-1M2WodjFYw8/p.html" target="_blank">CGTN – Google launches open model Gemma 4（2026-04-03）</a>
+    </div>
+  </div>
+</div>
+
+<!-- トピック4: OpenAIのモデル整理 -->
+<div class="card" id="topic4">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">🔄</span>
+      <div class="card-title">OpenAIのモデル整理 ──<br>GPT-4.5が6月27日引退、AI「世代交代」が加速</div>
+      <span class="topic-badge badge-red">OpenAI</span>
+    </div>
+
+    <div class="simple-box">
+      <span class="label">🌱 やさしく解説</span><br>
+      AIの世界では、新しいモデルが登場すると古いモデルが「引退」します。OpenAIは<span class="hl-yellow">GPT-4.5を6月27日</span>に、<span class="hl-pink">o3を8月26日</span>にChatGPTから引退させると発表しました。AI界の「スマートフォン更新」に似た世代交代が、<strong>年に何度も起きる時代</strong>になっています。
+    </div>
+
+    <!-- タイムライン -->
+    <p style="font-size:0.85rem; font-weight:600; color:#555; margin-bottom:10px;">📅 OpenAI モデル引退スケジュール（2026年）</p>
+    <div class="timeline">
+      <div class="tl-item done">
+        <div class="tl-date">2026年3月</div>
+        <div class="tl-title">Sora（初代）── 動画AI、サービス終了</div>
+        <div style="font-size:0.83rem; color:#666; margin-top:2px;">技術力の高さを実証したが、コスト面での課題から終了。後継Sora 2に移行</div>
+      </div>
+      <div class="tl-item warn">
+        <div class="tl-date">2026年6月27日 ⚠️ まもなく</div>
+        <div class="tl-title">GPT-4.5 ── ChatGPTから引退予定</div>
+        <div style="font-size:0.83rem; color:#666; margin-top:2px;">30日前通知後に実施予定。「文章の雰囲気が好き」という声もあり惜しむユーザーも</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">2026年8月26日</div>
+        <div class="tl-title">o3 ── ChatGPTから引退予定</div>
+        <div style="font-size:0.83rem; color:#666; margin-top:2px;">90日前通知後に実施予定。APIは別の引退スケジュールになる可能性がある（公式で要確認）</div>
+      </div>
+    </div>
+
+    <!-- なぜ引退するのかの説明 -->
+    <div style="background:#fff0f0; border-left:4px solid #e74c3c; border-radius:0 8px 8px 0; padding:12px 16px; margin:16px 0; font-size:0.93rem; line-height:1.7;">
+      <strong>🤔 なぜ古いモデルを「引退」させるの？</strong><br>
+      AIモデルは動かすのに巨大なコンピューターが必要で、費用もかかります。新しい高性能モデルを増やしながら古いモデルも維持するのは限界があるため、利用者が少なくなった古いモデルは段階的に引退させます。「より良い新モデルに移ってほしい」という意図もあります。
+    </div>
+
+    <ul class="point-list">
+      <li>
+        <span class="marker marker-red">1</span>
+        <span><strong>GPT-4.5 引退の背景</strong> ── GPT-5.5 InstantやGPT-5.5 Turboなど新世代が出揃い、GPT-4.5の利用者が大幅に減少。OpenAIは新世代モデルへの集中を優先。APIでの利用スケジュールは別途確認が必要</span>
+      </li>
+      <li>
+        <span class="marker marker-red">2</span>
+        <span><strong>「世代交代」のサイクルが急速化</strong> ── GPT-4が登場したのは2023年。わずか3年でGPT-4系列全体が引退フェーズに入った。AIモデルの「現役期間」は年々短くなっている</span>
+      </li>
+      <li>
+        <span class="marker marker-red">3</span>
+        <span><strong>ユーザーへの影響</strong> ── ChatGPT上ではGPT-5.5 Instantが自動的に置き換わるため、特別な操作は不要。ただし「GPT-4.5の文章が好き」という声もあり、モデル選択の難しさが浮き彫りに</span>
+      </li>
+      <li>
+        <span class="marker marker-red">4</span>
+        <span><strong>引退 ≠ 完全消滅ではない場合も</strong> ── ChatGPTからは削除されても、APIで一定期間使い続けられるケースがある。業務でAIを使う企業は引退スケジュールの管理が重要な課題になっている</span>
+      </li>
+    </ul>
+
+    <div class="sticky">
+      ✏️ <strong>中学生的に言うと：</strong>スマホのOSが毎年更新されてサポート切れになるように、AIも「モデルの世代交代」が起きてる。使っていたAIが突然なくなることもあるので、企業はスケジュール管理が大事！
+    </div>
+
+    <div class="source">
+      📎 出典：
+      <a href="https://help.openai.com/en/articles/9624314-model-release-notes" target="_blank">OpenAI Help Center – Model Release Notes</a> /
+      <a href="https://releasebot.io/updates/openai" target="_blank">Releasebot – OpenAI Release Notes（2026年5月）</a> /
+      <a href="https://www.techradar.com/ai-platforms-assistants/chatgpt/openai-just-quietly-retired-the-last-of-the-gpt-4-models-and-it-feels-like-the-end-of-an-ai-era" target="_blank">TechRadar – OpenAI quietly retired the final GPT-4 model</a>
+    </div>
+  </div>
+</div>
+
+<!-- まとめ -->
+<div class="summary-card" id="summary">
+  <h2>📝 今日の大きな流れ ── 2026年6月1日のキーワード</h2>
+  <div class="summary-grid">
+    <div class="summary-item">
+      <span class="s-emoji">🔵</span>
+      <div class="s-title">Metaが「超知能」へ本気始動</div>
+      9ヶ月でAIをゼロから作り直したMuse Spark。WhatsApp・インスタ・ARグラスで30億人超に届く「個人AI秘書」時代の扉を開いた
+    </div>
+    <div class="summary-item">
+      <span class="s-emoji">⚔️</span>
+      <div class="s-title">中国AIが「競り合う側」へ</div>
+      Qwen 3.7 MaxとDeepSeek V4 Proが1Mトークン対応・激安価格で参入。欧米モデルとの差が急速に縮まっている
+    </div>
+    <div class="summary-item">
+      <span class="s-emoji">💎</span>
+      <div class="s-title">オープンAIが次の段階へ</div>
+      Gemma 4は「完全無料・商用OK・スマホでも動く」を実現。数学性能4倍超の飛躍で、誰でもGoogleの最新AIを手元で使える時代に
+    </div>
+    <div class="summary-item">
+      <span class="s-emoji">🔄</span>
+      <div class="s-title">世代交代サイクルが加速</div>
+      GPT-4.5が3年で引退フェーズへ。AIモデルの「現役期間」は短くなり、企業は移行計画の常時管理が必要な時代になった
+    </div>
+  </div>
+</div>
+
+<!-- フッター -->
+<div class="footer">
+  <p><strong>生成AI 最新トピック</strong> ── 2026-06-01号</p>
+  <p style="margin-top:6px;">各記事の出典URLは各トピック下部に記載しています。情報は収集時点のものです。</p>
+  <p style="margin-top:4px;"><a href="index.html" style="color:#aaa;">← バックナンバー一覧へ</a></p>
+</div>
+
+</body>
+</html>
