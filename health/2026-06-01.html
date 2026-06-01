@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-06-01</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .cover {
+    background: linear-gradient(135deg, #8b1a1a 0%, #5a0d0d 100%);
+    color: white;
+    border-radius: 8px;
+    padding: 60px 40px;
+    text-align: center;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.3);
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+      0deg, transparent, transparent 28px,
+      rgba(255,255,255,0.06) 28px, rgba(255,255,255,0.06) 29px
+    );
+  }
+  .cover-emoji { font-size: 64px; display: block; margin-bottom: 16px; }
+  .cover h1 {
+    font-family: 'Klee One', sans-serif;
+    font-size: 2.1rem;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 12px;
+    position: relative;
+  }
+  .cover .subtitle { font-size: 1.0rem; opacity: 0.85; margin-bottom: 8px; position: relative; }
+  .cover .date-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 20px;
+    padding: 6px 20px;
+    font-size: 1rem;
+    margin-top: 16px;
+    position: relative;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 6px;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.12);
+    position: relative;
+    overflow: hidden;
+  }
+  .card-body {
+    padding: 28px 36px 28px 64px;
+    background: repeating-linear-gradient(
+      0deg, transparent, transparent 31px,
+      #e0d8c8 31px, #e0d8c8 32px
+    );
+    background-color: #fff9f0;
+    min-height: 200px;
+  }
+  .card-body::before {
+    content: '';
+    position: absolute;
+    left: 52px; top: 0; bottom: 0;
+    width: 2px;
+    background: #e8a0a0;
+    opacity: 0.7;
+  }
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 8px;
+    border-bottom: 2px dashed #c8b89a;
+  }
+  .card-emoji { font-size: 2rem; }
+  .card-title {
+    font-family: 'Klee One', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #2c3e50;
+    line-height: 1.3;
+  }
+  .topic-badge {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-left: auto;
+    white-space: nowrap;
+  }
+  .badge-red    { background: #ffe0e0; color: #c0392b; border: 1px solid #f5a0a0; }
+  .badge-blue   { background: #e0eeff; color: #2255aa; border: 1px solid #a0c0f5; }
+  .badge-green  { background: #e0f5e0; color: #1e7e34; border: 1px solid #a0d8a0; }
+  .badge-purple { background: #f0e0ff; color: #7b2fbe; border: 1px solid #c8a0f0; }
+  .badge-orange { background: #fff0d0; color: #cc6600; border: 1px solid #f0c070; }
+  .badge-olive  { background: #eef5d0; color: #556600; border: 1px solid #b8d070; }
+  .badge-teal   { background: #d0f0f0; color: #006060; border: 1px solid #80d0d0; }
+
+  .simple-box {
+    background: #fff7e0;
+    border-left: 4px solid #f5c842;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin: 16px 0;
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+  .simple-box .label {
+    display: inline-block;
+    background: #f5c842;
+    color: #5a4000;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+  }
+
+  .alert-box {
+    background: #fff0f0;
+    border-left: 4px solid #e05050;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin: 16px 0;
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+  .alert-box .label {
+    display: inline-block;
+    background: #e05050;
+    color: white;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+  }
+
+  .point-list { list-style: none; padding: 0; margin: 12px 0; }
+  .point-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 0;
+    font-size: 0.97rem;
+    line-height: 1.7;
+    color: #333;
+    border-bottom: 1px dotted #ddd;
+  }
+  .point-list li:last-child { border-bottom: none; }
+  .point-list .marker {
+    flex-shrink: 0;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-top: 2px;
+  }
+  .marker-red    { background: #c0392b; color: white; }
+  .marker-orange { background: #cc6600; color: white; }
+  .marker-green  { background: #1e7e34; color: white; }
+  .marker-blue   { background: #2255aa; color: white; }
+  .marker-purple { background: #7b2fbe; color: white; }
+  .marker-olive  { background: #556600; color: white; }
+  .marker-teal   { background: #006060; color: white; }
+
+  .hl-yellow { background: linear-gradient(transparent 60%, #ffe566 60%); }
+  .hl-pink   { background: linear-gradient(transparent 60%, #ffb3c6 60%); }
+  .hl-blue   { background: linear-gradient(transparent 60%, #b3d4ff 60%); }
+  .hl-green  { background: linear-gradient(transparent 60%, #b3f0b3 60%); }
+
+  .sticky {
+    background: #fff9c4;
+    border-radius: 4px;
+    padding: 12px 16px;
+    margin: 14px 0;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.1);
+    transform: rotate(-0.5deg);
+    display: inline-block;
+    width: 100%;
+    color: #4a3800;
+  }
+
+  .evidence-tag {
+    display: inline-block;
+    border-radius: 4px;
+    padding: 1px 7px;
+    font-size: 0.70rem;
+    margin: 0 2px;
+    font-weight: 600;
+    vertical-align: middle;
+  }
+  .evidence-tag.weak     { background: #fff3e0; border: 1px solid #f0c080; color: #884400; }
+  .evidence-tag.moderate { background: #e8f4f8; border: 1px solid #aaccdd; color: #336688; }
+  .evidence-tag.strong   { background: #e0f5e0; border: 1px solid #80cc80; color: #226622; }
+
+  .source {
+    font-size: 0.78rem;
+    color: #888;
+    margin-top: 14px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+    line-height: 1.7;
+  }
+  .source a { color: #5577aa; text-decoration: none; }
+  .source a:hover { text-decoration: underline; }
+
+  /* ── NOVA分類グリッド ── */
+  .nova-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin: 16px 0;
+  }
+  @media (max-width: 600px) {
+    .nova-grid { grid-template-columns: 1fr 1fr; }
+  }
+  .nova-card {
+    border-radius: 10px;
+    padding: 14px 10px;
+    text-align: center;
+    font-size: 0.82rem;
+    line-height: 1.6;
+  }
+  .nova-card .nova-num {
+    font-size: 1.8rem;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .nova-card .nova-icon { font-size: 1.8rem; display: block; margin-bottom: 6px; }
+  .nova-card .nova-title { font-size: 0.88rem; font-weight: 600; margin-bottom: 6px; }
+  .nova-card .nova-ex { font-size: 0.78rem; color: #555; }
+  .nova-card.g1 { background: #e8f5e0; border: 2px solid #5a9020; }
+  .nova-card.g1 .nova-num { color: #336600; }
+  .nova-card.g1 .nova-title { color: #336600; }
+  .nova-card.g2 { background: #e8f0ff; border: 2px solid #4070c0; }
+  .nova-card.g2 .nova-num { color: #204080; }
+  .nova-card.g2 .nova-title { color: #204080; }
+  .nova-card.g3 { background: #fff5d0; border: 2px solid #c09020; }
+  .nova-card.g3 .nova-num { color: #7a5000; }
+  .nova-card.g3 .nova-title { color: #7a5000; }
+  .nova-card.g4 { background: #ffe0e0; border: 2px solid #c03030; }
+  .nova-card.g4 .nova-num { color: #800000; }
+  .nova-card.g4 .nova-title { color: #800000; }
+
+  /* ── 数値カード ── */
+  .num-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: white;
+    border-radius: 10px;
+    padding: 16px 12px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.1);
+  }
+  .num-card.risk { border-top: 4px solid #c03030; }
+  .num-card.moderate-risk { border-top: 4px solid #d07030; }
+  .num-card.note { border-top: 4px solid #608050; }
+  .num-card .num-val {
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 1.1;
+    display: block;
+  }
+  .num-card.risk .num-val { color: #8b1a1a; }
+  .num-card.moderate-risk .num-val { color: #7a4000; }
+  .num-card.note .num-val { color: #3a5020; }
+  .num-card .num-unit { font-size: 0.85rem; color: #666; }
+  .num-card .num-label { font-size: 0.78rem; color: #888; margin-top: 6px; }
+
+  /* ── リスク一覧テーブル ── */
+  .risk-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .risk-table th {
+    background: #8b1a1a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .risk-table th:last-child { text-align: center; }
+  .risk-table td {
+    padding: 8px 12px;
+    border-bottom: 1px solid #e0d8c8;
+    vertical-align: middle;
+    line-height: 1.6;
+  }
+  .risk-table tr:nth-child(even) td { background: #fdf5f5; }
+  .risk-table .rr-val {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #8b1a1a;
+    text-align: center;
+  }
+  .risk-table .rr-val.mod { color: #c06000; }
+  .evid-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 0.70rem;
+    font-weight: 600;
+  }
+  .evid-badge.convincing { background: #ffe0e0; color: #800000; border: 1px solid #f0a0a0; }
+  .evid-badge.suggestive { background: #fff0d0; color: #7a4000; border: 1px solid #e0b050; }
+
+  /* ── メカニズムフロー ── */
+  .mech-flow {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 14px 0;
+  }
+  .mech-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .mech-box {
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    text-align: center;
+    flex-shrink: 0;
+  }
+  .mech-box.cause {
+    background: #ffe0e0;
+    border: 2px solid #c03030;
+    color: #600000;
+    font-weight: 600;
+  }
+  .mech-box.pathway {
+    background: #fff0d0;
+    border: 2px solid #c09020;
+    color: #6a4000;
+    min-width: 130px;
+  }
+  .mech-box.effect {
+    background: #f8e8e0;
+    border: 2px solid #a04020;
+    color: #5a2000;
+  }
+  .mech-arrow {
+    font-size: 1.2rem;
+    color: #888;
+    flex-shrink: 0;
+  }
+  .mech-vs {
+    font-size: 0.78rem;
+    color: #999;
+    align-self: center;
+  }
+
+  /* ── 比較カード ── */
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 16px 0;
+  }
+  .compare-card {
+    border-radius: 10px;
+    padding: 18px 16px;
+    text-align: center;
+    font-size: 0.92rem;
+    line-height: 1.7;
+  }
+  .compare-card.good { background: #e8f5e0; border: 2px solid #7ab840; }
+  .compare-card.bad  { background: #ffe8e8; border: 2px solid #c03030; }
+  .compare-card .c-icon { font-size: 2.2rem; display: block; margin-bottom: 8px; }
+  .compare-card .c-title { font-size: 1.05rem; font-weight: 600; margin-bottom: 10px; }
+  .compare-card.good .c-title { color: #336600; }
+  .compare-card.bad .c-title  { color: #800000; }
+  .compare-card .c-row {
+    display: flex; align-items: flex-start; gap: 6px;
+    padding: 5px 0;
+    font-size: 0.85rem;
+    border-top: 1px dotted #ccc;
+    text-align: left;
+  }
+  .compare-card .c-row:first-of-type { border-top: none; margin-top: 6px; }
+
+  /* ── サマリー ── */
+  .summary-card {
+    background: linear-gradient(135deg, #5a0d0d 0%, #2a1a0a 100%);
+    color: white;
+    border-radius: 8px;
+    padding: 36px 40px;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 16px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .summary-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+      0deg, transparent, transparent 28px,
+      rgba(255,255,255,0.05) 28px, rgba(255,255,255,0.05) 29px
+    );
+  }
+  .summary-card .s-title {
+    font-size: 1.35rem;
+    font-weight: 600;
+    margin-bottom: 18px;
+    position: relative;
+    padding-bottom: 10px;
+    border-bottom: 2px dashed rgba(255,255,255,0.3);
+  }
+  .summary-card ul {
+    list-style: none;
+    padding: 0;
+    position: relative;
+  }
+  .summary-card ul li {
+    padding: 9px 0 9px 28px;
+    font-size: 0.97rem;
+    line-height: 1.7;
+    border-bottom: 1px dotted rgba(255,255,255,0.2);
+    position: relative;
+  }
+  .summary-card ul li::before {
+    content: '✔';
+    position: absolute;
+    left: 0;
+    color: #ffb3b3;
+    font-size: 0.9rem;
+  }
+  .summary-card ul li:last-child { border-bottom: none; }
+
+  /* ── 免責 ── */
+  .disclaimer {
+    width: 100%;
+    max-width: 820px;
+    background: #f5f0e8;
+    border: 1px solid #d0c8b8;
+    border-radius: 6px;
+    padding: 18px 24px;
+    font-size: 0.82rem;
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 40px;
+  }
+  .disclaimer strong { color: #444; }
+</style>
+</head>
+<body>
+
+<!-- ▼ カバー -->
+<div class="cover">
+  <span class="cover-emoji">🍔🚨</span>
+  <h1>超加工食品と健康リスク<br>——何がどのくらい危ないのか？</h1>
+  <div class="subtitle">NOVA分類・BMJ傘型レビューで読み解く「加工度」と32の健康指標</div>
+  <div class="date-badge">健康・栄養 最新トピック ／ 2026-06-01</div>
+</div>
+
+<!-- ▼ 今日のキーワード -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">📌</span>
+      <span class="card-title">今日のキーワード</span>
+      <span class="topic-badge badge-red">基礎 × 最新エビデンス</span>
+    </div>
+    <div class="simple-box">
+      <div class="label">UPF（Ultra-Processed Food）とは？</div>
+      <strong>超加工食品</strong>とは、工場で複数の工程を経て作られた「食品由来成分＋添加物の組み合わせ」のこと。<br>
+      「加工」といっても幅広い。缶詰・干物・チーズは<span class="hl-green">「加工食品」</span>だが、<span class="hl-pink">インスタントラーメン・コーラ・市販菓子パン・チキンナゲット</span>などは「<strong>超</strong>加工」とブラジルの栄養学者グループ（NOVA分類）が区別した。
+    </div>
+    <div class="sticky">
+      💡 重要：この記事のデータの大部分は<strong>観察研究（コホート）のメタ分析</strong>をまとめた「傘型レビュー」から。相関は示されているが、<strong>因果関係が証明されたわけではない</strong>点に注意。
+    </div>
+  </div>
+</div>
+
+<!-- ▼ NOVA分類 -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">📊</span>
+      <span class="card-title">NOVA分類 ── 食品の「加工度」4段階</span>
+      <span class="topic-badge badge-blue">分類ツール</span>
+    </div>
+    <p style="font-size:0.93rem;line-height:1.8;margin-bottom:14px;">
+      ブラジル・サンパウロ大学の Monteiro グループが提案した分類。<strong>栄養素ではなく「加工の種類と目的」</strong>で食品を4グループに分ける。
+    </p>
+    <div class="nova-grid">
+      <div class="nova-card g1">
+        <span class="nova-icon">🥦</span>
+        <span class="nova-num">G1</span>
+        <div class="nova-title">未加工・最小加工</div>
+        <div class="nova-ex">野菜・果物・肉・魚・卵・牛乳・豆・玄米</div>
+      </div>
+      <div class="nova-card g2">
+        <span class="nova-icon">🫙</span>
+        <span class="nova-num">G2</span>
+        <div class="nova-title">調理用加工成分</div>
+        <div class="nova-ex">砂糖・塩・食用油・バター・酢・でんぷん</div>
+      </div>
+      <div class="nova-card g3">
+        <span class="nova-icon">🥫</span>
+        <span class="nova-num">G3</span>
+        <div class="nova-title">加工食品</div>
+        <div class="nova-ex">缶詰・燻製・漬物・チーズ・干物・ビール</div>
+      </div>
+      <div class="nova-card g4">
+        <span class="nova-icon">🍟</span>
+        <span class="nova-num">G4</span>
+        <div class="nova-title">超加工食品（UPF）</div>
+        <div class="nova-ex">袋菓子・ソフトドリンク・インスタント麺・大量生産パン・ファストフード・フレーバーヨーグルト</div>
+      </div>
+    </div>
+    <div class="simple-box">
+      <div class="label">G4の見分け方のヒント</div>
+      原材料表示に「乳化剤・増粘剤・人工甘味料・保存料・着色料・香料」など<strong>食品添加物が多数</strong>含まれ、家庭では再現しにくい製造工程を経ているものがG4の目安。ただし NOVA は曖昧さも持つ分類であり、学者間で改善の議論が続いている（Frontiers in Nutrition 2023）。
+    </div>
+    <div class="source">
+      出典：NOVA分類 ── Monteiro CA et al. <em>Public Health Nutrition</em>, 2018 Jan;21(1):5-17.
+      DOI: <a href="https://doi.org/10.1017/S1368980017000234" target="_blank">10.1017/S1368980017000234</a>（2018年1月）<br>
+      FAO解説：<a href="https://openknowledge.fao.org/server/api/core/bitstreams/5277b379-0acb-4d97-a6a3-602774104629/content" target="_blank">FAO NOVA分類資料</a>
+    </div>
+  </div>
+</div>
+
+<!-- ▼ エビデンスの強さ -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">🔬</span>
+      <span class="card-title">今回のエビデンス ── 傘型レビューとは？</span>
+      <span class="topic-badge badge-purple">研究デザイン</span>
+    </div>
+    <div class="mech-flow" style="flex-direction:row;align-items:center;flex-wrap:wrap;justify-content:center;gap:10px;margin-bottom:14px;">
+      <div class="mech-box cause" style="min-width:100px;">個別の<br>コホート研究</div>
+      <span class="mech-arrow">→</span>
+      <div class="mech-box pathway">メタ分析<br>（複数をまとめる）</div>
+      <span class="mech-arrow">→</span>
+      <div class="mech-box effect" style="background:#f5e0f5;border-color:#8040a0;color:#4a006a;">傘型レビュー<br>（メタ分析を<br>さらにまとめる）</div>
+    </div>
+    <p style="font-size:0.93rem;line-height:1.8;margin-bottom:10px;">
+      2024年に医学誌 <strong>BMJ</strong> に掲載された傘型レビュー（Srour et al. & Lane et al.）は、
+      UPFと健康の関連を調べた<strong>45本のメタ分析</strong>を統合し、<strong>32の健康指標（71%）</strong>で有害方向の関連を確認した。
+    </p>
+    <div class="alert-box">
+      <div class="label">⚠️ この研究の限界</div>
+      ほぼすべてが<span class="hl-pink"><strong>コホート（観察）研究</strong></span>であり、RCT（無作為化比較試験）ではない。<br>
+      ① 逆因果（病気だからUPFを食べる）の可能性がある<br>
+      ② 交絡因子（貧困・教育・喫煙など）の完全な除去は困難<br>
+      ③ NOVA G4 の中でも種類によりリスクが異なる可能性がある<br>
+      つまり「UPFが多い食事と病気には相関がある」と言えても、「UPFが直接病気を引き起こす」とはまだ断言できない。
+    </div>
+    <div class="source">
+      出典：Lane MM et al. <em>BMJ</em> 2024;384:e077310.
+      DOI: <a href="https://doi.org/10.1136/bmj-2023-077310" target="_blank">10.1136/bmj-2023-077310</a>（2024年2月）<br>
+      PubMed: <a href="https://pubmed.ncbi.nlm.nih.gov/38418082/" target="_blank">PMID 38418082</a> ／
+      PMC: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10899807/" target="_blank">PMC10899807</a>
+    </div>
+  </div>
+</div>
+
+<!-- ▼ 主な数値 -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">🔢</span>
+      <span class="card-title">主要な数値 ── どのくらいリスクが上がるのか</span>
+      <span class="topic-badge badge-red">リスク比</span>
+    </div>
+    <p style="font-size:0.9rem;line-height:1.7;margin-bottom:14px;color:#555;">
+      以下は「UPFを最も多く食べるグループ」と「最も少ないグループ」の比較。または摂取量10%増加あたりのリスク変化。<br>
+      <strong>RR/OR/HR &gt; 1.0</strong> はリスク増加を示す（1.5 = 1.5倍＝50%増）。
+    </p>
+    <div class="num-grid">
+      <div class="num-card risk">
+        <span class="num-val">×1.50</span>
+        <div class="num-unit">心血管疾患 死亡リスク比（RR）</div>
+        <div class="num-label">95%CI: 1.37–1.63<br><span class="evid-badge convincing">強い証拠</span></div>
+      </div>
+      <div class="num-card risk">
+        <span class="num-val">×1.53</span>
+        <div class="num-unit">一般的なメンタル疾患 リスク比（OR）</div>
+        <div class="num-label">95%CI: 1.43–1.63<br><span class="evid-badge convincing">強い証拠</span></div>
+      </div>
+      <div class="num-card risk">
+        <span class="num-val">×1.48</span>
+        <div class="num-unit">不安障害 リスク比（OR）</div>
+        <div class="num-label">95%CI: 1.37–1.59<br><span class="evid-badge convincing">強い証拠</span></div>
+      </div>
+      <div class="num-card moderate-risk">
+        <span class="num-val">×1.55</span>
+        <div class="num-unit">肥満リスク比（OR）</div>
+        <div class="num-label">95%CI: 1.36–1.77<br><span class="evid-badge suggestive">やや強い証拠</span></div>
+      </div>
+      <div class="num-card moderate-risk">
+        <span class="num-val">×1.41</span>
+        <div class="num-unit">睡眠の問題 リスク比（OR）</div>
+        <div class="num-label">95%CI: 1.24–1.61<br><span class="evid-badge suggestive">やや強い証拠</span></div>
+      </div>
+      <div class="num-card moderate-risk">
+        <span class="num-val">×1.21</span>
+        <div class="num-unit">全死亡リスク比（RR）</div>
+        <div class="num-label">95%CI: 1.15–1.27<br><span class="evid-badge suggestive">やや強い証拠</span></div>
+      </div>
+    </div>
+    <p style="font-size:0.82rem;color:#888;margin-top:4px;line-height:1.7;">
+      ※ 「2型糖尿病」はUPF摂取量が10%増加するごとにRR 1.12（用量依存的関係）で「強い証拠」に分類された。<br>
+      ※ 「強い証拠（convincing）」「やや強い証拠（highly suggestive）」はこの傘型レビュー独自の評価基準であり、絶対的証拠ではない。
+    </p>
+    <div class="source">
+      出典：Lane MM et al. <em>BMJ</em> 2024;384:e077310.
+      <a href="https://pubmed.ncbi.nlm.nih.gov/38418082/" target="_blank">PubMed PMID 38418082</a>（2024年2月）
+    </div>
+  </div>
+</div>
+
+<!-- ▼ 考えられるメカニズム -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">⚙️</span>
+      <span class="card-title">なぜUPFが悪影響？ ── 考えられる経路（仮説段階）</span>
+      <span class="topic-badge badge-orange">メカニズム</span>
+    </div>
+    <ul class="point-list">
+      <li>
+        <span class="marker marker-red">1</span>
+        <span><strong>栄養プロファイルの偏り</strong>──塩・糖・飽和脂肪が多く、食物繊維・ビタミン・ミネラルが少ない傾向。これ自体が健康への悪影響と直結しうる。</span>
+      </li>
+      <li>
+        <span class="marker marker-orange">2</span>
+        <span><strong>食品添加物（乳化剤・人工甘味料など）の影響</strong>──動物実験や一部の人体試験で腸内細菌叢の変化・腸管バリア機能の低下が示唆されている。ただし人での証拠はまだ限られている。</span>
+      </li>
+      <li>
+        <span class="marker marker-purple">3</span>
+        <span><strong>過食を促す設計（食品工学）</strong>──高カロリー・食べやすい食感・強い報酬シグナルが満腹感の前に多食につながりやすい（ホール博士のNIH-RCT、2019年）。</span>
+      </li>
+      <li>
+        <span class="marker marker-blue">4</span>
+        <span><strong>加熱・製造過程の副産物</strong>──アクリルアミドや最終糖化産物（AGEs）など、調理温度や加工由来の化合物が慢性炎症を引き起こすという仮説がある。</span>
+      </li>
+      <li>
+        <span class="marker marker-olive">5</span>
+        <span><strong>食べ方・ライフスタイルとの交絡</strong>──UPFを多く食べる人は運動が少なく喫煙率が高い傾向もある。リスクの一部は食品ではなくライフスタイル全体によるものかもしれない。</span>
+      </li>
+    </ul>
+    <div class="simple-box">
+      <div class="label">NIH の RCT（唯一の大規模無作為試験）</div>
+      Hall et al.（Cell Metabolism 2019, n=20）では、UPF中心の食事は非UPF食と比較して<strong>2週間で平均+500 kcal/日</strong>多く摂取し、<strong>体重+0.9 kg</strong> 増加した（クロスオーバー設計）。小規模ながら、UPFが過食を引き起こすことを示した唯一の RCT 。
+    </div>
+    <div class="source">
+      参考：Hall KD et al. <em>Cell Metabolism</em> 2019;30(1):67-77.e3.
+      DOI: <a href="https://doi.org/10.1016/j.cmet.2019.05.008" target="_blank">10.1016/j.cmet.2019.05.008</a>（2019年7月）
+    </div>
+  </div>
+</div>
+
+<!-- ▼ 批判的視点 -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">⚖️</span>
+      <span class="card-title">科学者からの反論・限界も知っておこう</span>
+      <span class="topic-badge badge-teal">批判的思考</span>
+    </div>
+    <div class="compare-grid">
+      <div class="compare-card good">
+        <span class="c-icon">✅</span>
+        <div class="c-title">UPF研究を支持する点</div>
+        <div class="c-row">🔹 <span>45本のメタ分析を統合した大規模エビデンス</span></div>
+        <div class="c-row">🔹 <span>心疾患・糖尿病・精神健康など多領域で一貫した関連</span></div>
+        <div class="c-row">🔹 <span>NIHのRCTで過食促進メカニズムを実証</span></div>
+        <div class="c-row">🔹 <span>用量依存的関係（食べれば食べるほどリスク増）が確認されている点</span></div>
+      </div>
+      <div class="compare-card bad">
+        <span class="c-icon">⚠️</span>
+        <div class="c-title">注意すべき限界・批判</div>
+        <div class="c-row">🔸 <span>観察研究が主体でRCTが極めて少ない</span></div>
+        <div class="c-row">🔸 <span>NOVA分類そのものの曖昧さ（G4内の多様性）</span></div>
+        <div class="c-row">🔸 <span>「UPFの何が」原因か特定できていない</span></div>
+        <div class="c-row">🔸 <span>食事記録の誤差・社会経済的交絡の除去困難</span></div>
+      </div>
+    </div>
+    <div class="sticky">
+      📝 一言まとめ：「UPFが多い食事パターンは複数の健康問題と相関する」は強いエビデンスがある。でも「UPFを食べると必ず病気になる」は過言。「なぜリスクが高まるか」の解明はまだ途中。
+    </div>
+  </div>
+</div>
+
+<!-- ▼ 日本の文脈 -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">🇯🇵</span>
+      <span class="card-title">日本での状況 ── どれくらい食べている？</span>
+      <span class="topic-badge badge-olive">日本の現状</span>
+    </div>
+    <ul class="point-list">
+      <li>
+        <span class="marker marker-orange">!</span>
+        <span>欧米（UK・US）ではカロリーの<strong>50〜60%</strong>がUPFから摂られているとされる研究がある。日本はやや低い（推定30〜40%台）が、コンビニ食・袋菓子・ペットボトル飲料の普及で増加傾向という指摘がある。ただし日本全国規模の詳細データはまだ限られている。</span>
+      </li>
+      <li>
+        <span class="marker marker-blue">?</span>
+        <span>「インスタントみそ汁」「和菓子の一部」「豆腐」など、日本特有の食品を NOVA G3 か G4 かで分類するには議論がある。NOVA は欧米食を念頭に開発された分類であるため、アジアの食文化への適用には慎重さが必要。</span>
+      </li>
+      <li>
+        <span class="marker marker-green">✓</span>
+        <span>農林水産省・厚生労働省の「食事バランスガイド」や「食生活指針」は加工度よりも食品グループのバランスを重視しており、UPFという用語は公式には使用されていない（2024年時点）。</span>
+      </li>
+    </ul>
+    <div class="source">
+      参考：Monteiro CA et al. <em>Public Health Nutrition</em> 2019; FAO NOVA分類資料
+      <a href="https://openknowledge.fao.org/server/api/core/bitstreams/5277b379-0acb-4d97-a6a3-602774104629/content" target="_blank">（FAO）</a>
+    </div>
+  </div>
+</div>
+
+<!-- ▼ 今日の実践ポイント -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">🧭</span>
+      <span class="card-title">今日からできること ── 現実的な視点で</span>
+      <span class="topic-badge badge-green">実践</span>
+    </div>
+    <ul class="point-list">
+      <li>
+        <span class="marker marker-green">1</span>
+        <span><strong>「完全に避ける」より「割合を下げる」</strong>発想で。食事の中心を G1（野菜・魚・豆・全粒穀物）にし、G4の比率を相対的に下げることが現実的なアプローチ。</span>
+      </li>
+      <li>
+        <span class="marker marker-green">2</span>
+        <span><strong>原材料表示を見る習慣</strong>。成分が多すぎる・聞いたことのない添加物が並ぶ食品は G4 の可能性が高い目安になる。</span>
+      </li>
+      <li>
+        <span class="marker marker-green">3</span>
+        <span><strong>ソフトドリンク・菓子類の頻度を減らす</strong>。これらは典型的な G4 であり、摂取カロリーのなかでも置き換えやすい部分。</span>
+      </li>
+      <li>
+        <span class="marker marker-blue">4</span>
+        <span><strong>G3（加工食品）は過度に恐れない</strong>。缶詰の豆・鮭フレーク・チーズなどは保存食として有用で、栄養面のメリットもある。「加工＝悪」ではなく「超加工」が焦点。</span>
+      </li>
+      <li>
+        <span class="marker marker-olive">5</span>
+        <span>個人の体質・経済状況・生活環境によって食選択の優先度は異なる。「食の多様性・バランス全体」を大切に。特定食品を完全排除する必要はない。</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- ▼ まとめ -->
+<div class="summary-card">
+  <div class="s-title">📝 今日のまとめ</div>
+  <ul>
+    <li>NOVA分類でいう「超加工食品（G4）」は、工場製造・多添加物・工業的再構成が特徴。コーラ・袋菓子・インスタント麺などが典型例。</li>
+    <li>BMJ 2024年の傘型レビュー（45本のメタ分析統合）は、UPFと心血管死・糖尿病・不安・肥満など<strong>32の健康指標</strong>との関連を報告。</li>
+    <li>心血管死亡リスク ×1.50、不安 ×1.48、肥満 ×1.55 など数値は大きいが、<strong>観察研究の相関であり因果関係の確認には至っていない</strong>。</li>
+    <li>唯一の大規模RCT（NIH、n=20）では、UPF中心の食事で2週間+500 kcal/日の過食が生じた。</li>
+    <li>「UPFを完全に排除」ではなく、「G1中心の食事でG4の比率を下げる」現実的なアプローチが推奨される。</li>
+    <li>NOVA はアジア・日本の食文化に完全には対応していないため、適用には文脈を考慮する必要がある。</li>
+  </ul>
+</div>
+
+<!-- ▼ 免責 -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な健康情報の解説であり、医療上のアドバイスではありません。食事制限・栄養変更・サプリメントの使用などを実践する際は、かかりつけ医・管理栄養士・薬剤師などの専門家にご相談ください。効果・リスクは個人の体質・年齢・持病・服薬状況によって異なります。本記事に記載の数値・研究結果は現時点（2026-06-01）で確認できる査読済み論文・公的資料に基づいていますが、科学は日々更新されます。最新情報は一次情報源をご確認ください。
+</div>
+
+</body>
+</html>

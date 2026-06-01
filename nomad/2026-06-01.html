@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>デジタルノマド 最新トピック 2026-06-01</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    color: #2a2a2a;
+  }
+  .hero {
+    background: linear-gradient(135deg, #7b3f00 0%, #4a2500 100%);
+    color: white;
+    border-radius: 10px;
+    padding: 48px 40px;
+    text-align: center;
+    width: 100%;
+    max-width: 760px;
+    margin-bottom: 28px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .hero .label {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 0.8rem;
+    margin-bottom: 14px;
+    letter-spacing: 0.05em;
+  }
+  .hero h1 { font-size: 1.6rem; margin-bottom: 12px; line-height: 1.5; }
+  .hero .meta { opacity: 0.8; font-size: 0.88rem; line-height: 1.7; }
+  .card {
+    background: #fff9f0;
+    border-radius: 8px;
+    padding: 28px 32px;
+    width: 100%;
+    max-width: 760px;
+    margin-bottom: 20px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.08);
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #7b3f00;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px dashed #d4a574;
+  }
+  .card p { font-size: 0.93rem; line-height: 1.85; margin-bottom: 10px; }
+  .card p:last-child { margin-bottom: 0; }
+  .highlight-box {
+    background: #fdf3e7;
+    border-left: 4px solid #7b3f00;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .highlight-box .hlabel {
+    font-size: 0.75rem;
+    color: #7b3f00;
+    font-weight: 600;
+    margin-bottom: 6px;
+    display: block;
+  }
+  .highlight-box p { font-size: 0.9rem; margin: 0; }
+  .alert-box {
+    background: #fff3cd;
+    border-left: 4px solid #e8a000;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .alert-box .alabel {
+    font-size: 0.75rem;
+    color: #b07700;
+    font-weight: 600;
+    margin-bottom: 6px;
+    display: block;
+  }
+  .alert-box p { font-size: 0.9rem; margin: 0; }
+  .good-box {
+    background: #e8f5ef;
+    border-left: 4px solid #2c6e4e;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .good-box .glabel {
+    font-size: 0.75rem;
+    color: #2c6e4e;
+    font-weight: 600;
+    margin-bottom: 6px;
+    display: block;
+  }
+  .good-box p { font-size: 0.9rem; margin: 0; }
+  .number-row {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin: 14px 0;
+  }
+  .number-card {
+    flex: 1;
+    min-width: 130px;
+    background: #7b3f00;
+    color: white;
+    border-radius: 8px;
+    padding: 16px 14px;
+    text-align: center;
+  }
+  .number-card.green { background: #2c6e4e; }
+  .number-card.amber { background: #b07700; }
+  .number-card.red   { background: #c0392b; }
+  .number-card.gray  { background: #666; }
+  .number-card .num {
+    font-size: 1.7rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+    line-height: 1.2;
+  }
+  .number-card .desc {
+    font-size: 0.72rem;
+    opacity: 0.9;
+    line-height: 1.5;
+  }
+  /* 比較表 */
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.88rem;
+  }
+  .compare-table th {
+    background: #7b3f00;
+    color: white;
+    padding: 10px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .compare-table th:first-child { border-radius: 6px 0 0 0; }
+  .compare-table th:last-child  { border-radius: 0 6px 0 0; }
+  .compare-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #e0d8cc;
+    vertical-align: top;
+    line-height: 1.65;
+  }
+  .compare-table tr:nth-child(even) td { background: #f5f0e8; }
+  .compare-table tr:last-child td { border-bottom: none; }
+  .tag-ok {
+    display: inline-block;
+    background: #e8f5ef;
+    color: #2c6e4e;
+    border: 1px solid #a8d5be;
+    border-radius: 10px;
+    padding: 1px 9px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .tag-no {
+    display: inline-block;
+    background: #fdecea;
+    color: #c0392b;
+    border: 1px solid #f0b0aa;
+    border-radius: 10px;
+    padding: 1px 9px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .tag-caution {
+    display: inline-block;
+    background: #fff3cd;
+    color: #b07700;
+    border: 1px solid #f0d080;
+    border-radius: 10px;
+    padding: 1px 9px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  /* フロー図 */
+  .flow {
+    margin: 16px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .flow-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .flow-line {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 36px;
+    flex-shrink: 0;
+  }
+  .flow-circle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #7b3f00;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+  .flow-circle.green { background: #2c6e4e; }
+  .flow-circle.amber { background: #b07700; }
+  .flow-connector {
+    width: 2px;
+    height: 24px;
+    background: #c0a880;
+    margin: 2px 0;
+  }
+  .flow-body {
+    padding: 6px 0 18px;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    flex: 1;
+  }
+  .flow-body strong { color: #7b3f00; }
+  /* ステップリスト */
+  .step-list { list-style: none; padding: 0; }
+  .step-list li {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    padding: 10px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+  .step-list li:last-child { border-bottom: none; }
+  .step-num {
+    background: #7b3f00;
+    color: white;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.78rem;
+    font-weight: 600;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  /* 用語カード */
+  .term-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 12px 0;
+  }
+  .term-card {
+    background: #f0ece3;
+    border-radius: 6px;
+    padding: 12px 14px;
+    font-size: 0.85rem;
+  }
+  .term-card .term-name {
+    font-weight: 600;
+    color: #7b3f00;
+    margin-bottom: 4px;
+    font-size: 0.87rem;
+  }
+  .term-card .term-def { line-height: 1.65; }
+  /* チェックリスト */
+  .check-list { list-style: none; padding: 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    padding: 9px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-icon {
+    width: 22px;
+    height: 22px;
+    min-width: 22px;
+    border-radius: 50%;
+    background: #2c6e4e;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .check-icon.amber { background: #b07700; }
+  /* 大きな税率カード */
+  .tax-compare {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 14px 0;
+    align-items: stretch;
+  }
+  .tax-card {
+    flex: 1;
+    min-width: 140px;
+    border-radius: 8px;
+    padding: 18px 16px;
+    text-align: center;
+  }
+  .tax-card.standard {
+    background: #fdecea;
+    border: 2px solid #f0b0aa;
+  }
+  .tax-card.beckham {
+    background: #e8f5ef;
+    border: 2px solid #a8d5be;
+  }
+  .tax-card .tax-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #555;
+    letter-spacing: 0.03em;
+  }
+  .tax-card .tax-rate {
+    font-size: 2.2rem;
+    font-weight: 600;
+    line-height: 1.1;
+    margin-bottom: 6px;
+  }
+  .tax-card.standard .tax-rate { color: #c0392b; }
+  .tax-card.beckham  .tax-rate { color: #2c6e4e; }
+  .tax-card .tax-note {
+    font-size: 0.72rem;
+    line-height: 1.5;
+    color: #666;
+  }
+  .vs-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: #aaa;
+    font-weight: 600;
+    padding: 0 4px;
+  }
+  /* マトリクス */
+  .matrix {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.85rem;
+  }
+  .matrix th {
+    background: #7b3f00;
+    color: white;
+    padding: 9px 10px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.8rem;
+  }
+  .matrix th:first-child { text-align: left; border-radius: 6px 0 0 0; }
+  .matrix th:last-child  { border-radius: 0 6px 0 0; }
+  .matrix td {
+    padding: 9px 10px;
+    border-bottom: 1px solid #e0d8cc;
+    vertical-align: middle;
+    line-height: 1.55;
+  }
+  .matrix td:first-child { font-weight: 600; color: #555; }
+  .matrix td:not(:first-child) { text-align: center; }
+  .matrix tr:nth-child(even) td { background: #f5f0e8; }
+  .matrix tr:last-child td { border-bottom: none; }
+  /* フッター */
+  .footer-card {
+    background: #f5f0e8;
+    border: 1px solid #d4c4b0;
+    border-radius: 8px;
+    padding: 22px 28px;
+    width: 100%;
+    max-width: 760px;
+    margin-bottom: 20px;
+    font-size: 0.82rem;
+    line-height: 1.8;
+    color: #666;
+  }
+  .footer-card strong { color: #7b3f00; }
+  .source-list { margin-top: 10px; }
+  .source-list a { color: #7b3f00; font-size: 0.8rem; }
+</style>
+</head>
+<body>
+
+<!-- ヒーロー -->
+<div class="hero">
+  <div class="label">💰 スペイン税制 バックログ解説 2026-06-01</div>
+  <h1>ベックハム法（Ley Beckham）入門<br>スペインで働くと税金はいくら？</h1>
+  <div class="meta">スペインの「外国人向け特別税制」が、デジタルノマドビザ保持者にも解放された<br>日本の1人法人オーナーはどう活用できるか？</div>
+</div>
+
+<!-- 3行まとめ -->
+<div class="card">
+  <h2>📋 今日のポイント（3行まとめ）</h2>
+  <div class="good-box">
+    <span class="glabel">✅ ポイント①</span>
+    <p>スペインには「外国から来た人は最大6年間、一律24%の税率でOK」という特別制度（ベックハム法）がある。通常のスペイン所得税（最高47%）と比べて大幅に安くなる可能性がある。</p>
+  </div>
+  <div class="good-box">
+    <span class="glabel">✅ ポイント②</span>
+    <p>2023年の「スタートアップ法」改正で、デジタルノマドビザ（国際遠隔就労ビザ）保持者も対象に。日本の法人から報酬をもらいながらスペインで働く人でも申請できる可能性が広がった。</p>
+  </div>
+  <div class="alert-box">
+    <span class="alabel">⚠️ ポイント③（注意）</span>
+    <p>申請は「スペインで働き始めてから6か月以内」にモデロ149という書類を提出する必要がある。期限を過ぎると適用されなくなるため、ビザ取得後すぐに動く必要がある。日本の1人法人代表への適用は個別判断が必要で、専門家への相談が必須。</p>
+  </div>
+</div>
+
+<!-- ベックハム法とは何か -->
+<div class="card">
+  <h2>⚽ 「ベックハム法」って何？ ── まず全体像を理解する</h2>
+  <p>正式名称は <strong>Régimen Especial de Trabajadores Desplazados（RETD）</strong>──「海外から派遣されてきた労働者のための特別税制」。2003年、サッカー選手のデビッド・ベッカムがレアル・マドリードに移籍した際に利用して広まった通称「ベックハム法」として知られている。<br>根拠法はスペインの所得税法（LIRPF）第93条。2023年の「スタートアップ法（Ley 28/2022）」で対象者が大幅に拡大された。</p>
+  <div class="highlight-box">
+    <span class="hlabel">🔑 一言でいうと</span>
+    <p>「スペインに引っ越して税務上の居住者になっても、一定期間は外国人扱いの税率でよい」という制度。スペインの重い累進税率（最高47%）ではなく、一律24%で済む。</p>
+  </div>
+
+  <div class="tax-compare">
+    <div class="tax-card standard">
+      <div class="tax-label">通常のスペイン所得税（IRPF）<br>高所得者の場合</div>
+      <div class="tax-rate">最高<br>47%</div>
+      <div class="tax-note">累進課税。年収が上がるほど税率も上昇。<br>（6万ユーロ超は45〜47%）</div>
+    </div>
+    <div class="vs-divider">VS</div>
+    <div class="tax-card beckham">
+      <div class="tax-label">ベックハム法適用時<br>（最大6年間）</div>
+      <div class="tax-rate">一律<br>24%</div>
+      <div class="tax-note">スペイン源泉収入600,000ユーロまで。<br>外国源泉収入は原則スペイン課税なし。</div>
+    </div>
+  </div>
+
+  <div class="number-row">
+    <div class="number-card green">
+      <div class="num">6年間</div>
+      <div class="desc">適用期間の上限<br>（取得年＋翌5年）</div>
+    </div>
+    <div class="number-card">
+      <div class="num">€600,000</div>
+      <div class="desc">24%が適用される<br>スペイン収入の上限<br>（超過分は47%）</div>
+    </div>
+    <div class="number-card amber">
+      <div class="num">5年</div>
+      <div class="desc">直近5年間<br>スペインに住んでいない<br>ことが条件</div>
+    </div>
+    <div class="number-card gray">
+      <div class="num">6か月</div>
+      <div class="desc">申請期限<br>（スペインで最初の<br>就業日から）</div>
+    </div>
+  </div>
+
+  <p>出典：スペイン所得税法（LIRPF）第93条、Ley 28/2022（スタートアップ法）<br>
+  ※ 税率・上限は2026年時点の情報。制度変更がある場合は一次ソース（BOE）を確認のこと。</p>
+</div>
+
+<!-- 誰が対象か：マトリクス -->
+<div class="card">
+  <h2>🙋 誰が対象になる？ ── 2023年改正後の適用マトリクス</h2>
+  <p>2023年の「スタートアップ法（Ley 28/2022）」によって、従来は除外されていたカテゴリーが新たに追加された。</p>
+
+  <table class="matrix">
+    <thead>
+      <tr>
+        <th>働き方のタイプ</th>
+        <th>ビザなし<br>（2022年以前）</th>
+        <th>デジタルノマド<br>ビザあり（2023〜）</th>
+        <th>備考</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>🏢 スペイン外法人の従業員</td>
+        <td><span class="tag-ok">○ 対象</span></td>
+        <td><span class="tag-ok">○ 対象</span></td>
+        <td>最も典型的なケース</td>
+      </tr>
+      <tr>
+        <td>💼 フリーランサー（autónomo）<br>スペイン外クライアント</td>
+        <td><span class="tag-no">✕ 対象外</span></td>
+        <td><span class="tag-ok">○ 対象に拡大</span></td>
+        <td>DNVビザ保持者のみ</td>
+      </tr>
+      <tr>
+        <td>🚀 起業家・イノベーター</td>
+        <td><span class="tag-no">✕ 対象外</span></td>
+        <td><span class="tag-ok">○ 対象に拡大</span></td>
+        <td>「革新性の証明」が必要な場合あり</td>
+      </tr>
+      <tr>
+        <td>🗂️ 日本法人の代表取締役<br>（持ち株25%以上）</td>
+        <td><span class="tag-no">✕ 除外規定あり</span></td>
+        <td><span class="tag-caution">△ 要専門家判断</span></td>
+        <td>DNVビザ経由で適用の余地。ケースバイケース</td>
+      </tr>
+      <tr>
+        <td>🏠 autónomo（スペイン自営業）<br>スペイン国内クライアント</td>
+        <td><span class="tag-no">✕ 対象外</span></td>
+        <td><span class="tag-no">✕ 対象外</span></td>
+        <td>スペイン国内活動は対象外</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="alert-box">
+    <span class="alabel">⚠️ 「日本の1人法人代表」への注意点</span>
+    <p>従来の法解釈では「自社株を25%以上保有する会社役員」はベックハム法の対象外とされていた。2023年改正でデジタルノマドビザ保持者への拡大が明記されたものの、日本の1人法人代表（= 代表取締役 ＋ 100%株主）への具体的な適用可否は、スペイン税務当局（AEAT）への個別照会や税理士の判断に依存する。「適用できる」と断言している情報には注意が必要。</p>
+  </div>
+
+  <p style="font-size:0.82rem; color:#888; margin-top:8px;">出典：costaluzlawyers.com（2026年）、orience.com（2026年）、carbrayinternational.com（2026年）<br>上記サイトは解説記事として参照。制度の正式な根拠はスペインの BOE（官報）掲載の Ley 28/2022 による。</p>
+</div>
+
+<!-- 申請の流れ -->
+<div class="card">
+  <h2>📝 申請の流れ ── 6か月の時計が動き出す</h2>
+  <p>ベックハム法の申請は「モデロ149（Modelo 149）」という書類をスペインの税務局（AEAT）に提出して行う。<strong>スペインで最初に就業した日、またはスペインの社会保障制度（Seguridad Social）に登録した日から6か月以内</strong>が期限。</p>
+
+  <div class="flow">
+    <div class="flow-step">
+      <div class="flow-line">
+        <div class="flow-circle">1</div>
+        <div class="flow-connector"></div>
+      </div>
+      <div class="flow-body">
+        <strong>デジタルノマドビザ取得・スペイン入国</strong><br>
+        ビザはスペイン大使館（日本国内申請）または入国後に申請。入国後30日以内に外国人登録（Empadronamiento）を済ませることを推奨。
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-line">
+        <div class="flow-circle">2</div>
+        <div class="flow-connector"></div>
+      </div>
+      <div class="flow-body">
+        <strong>NIE・TIE取得 ＋ 社会保障登録（Seguridad Social）</strong><br>
+        NIE（外国人識別番号）は税務・銀行・賃貸に必要。社会保障への登録が「6か月クロック」のスタート日になる可能性があるため日付を必ず記録する。
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-line">
+        <div class="flow-circle amber">!</div>
+        <div class="flow-connector"></div>
+      </div>
+      <div class="flow-body">
+        <strong>【ここが期限の起点】就業・社会保障登録の日から6か月以内にモデロ149を提出</strong><br>
+        この期限を過ぎると申請できなくなる。登録日を把握したら、すぐに税理士（gestor / asesor fiscal）に相談することを強くすすめる。
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-line">
+        <div class="flow-circle green">3</div>
+        <div class="flow-connector"></div>
+      </div>
+      <div class="flow-body">
+        <strong>AEATからの承認通知</strong><br>
+        申請が受理されると、取得年度から最大6年間、24%の一律税率が適用される。毎年の確定申告はモデロ151（Modelo 151）で行う。
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-line">
+        <div class="flow-circle green">4</div>
+      </div>
+      <div class="flow-body">
+        <strong>毎年6月末：確定申告（Modelo 151）</strong><br>
+        通常の居住者確定申告（Renta）ではなく、専用のモデロ151で申告する。スペイン外収入（日本の法人からの報酬・配当）は原則申告不要。
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 日本の1人法人オーナーとの関係 -->
+<div class="card">
+  <h2>🇯🇵🤝🇪🇸 日本の1人法人オーナーとの関係</h2>
+  <p>「日本法人の代表取締役が、スペインにデジタルノマドビザで滞在する」というケースを整理する。</p>
+
+  <table class="compare-table">
+    <thead>
+      <tr>
+        <th>論点</th>
+        <th>ポイント</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>📅 183日ルール<br>（税務居住地）</td>
+        <td>1年（暦年）のうちスペイン滞在が183日を超えるとスペインの税務上の居住者（residente fiscal）となる。日本にも住所がある場合、<strong>日西租税条約のタイブレーカー規定</strong>で居住地が決まる。</td>
+      </tr>
+      <tr>
+        <td>🏛️ 日西租税条約</td>
+        <td>2021年に新条約が発効（暦年2022年分から適用）。二重課税を回避する仕組みがある。スペインで課税された税額は日本での外国税額控除に使える。（出典：外務省・日西租税条約 2021年）</td>
+      </tr>
+      <tr>
+        <td>💴 日本法人からの給与・配当</td>
+        <td>スペインの税務居住者になった場合、日本法人からの報酬はスペインでの課税対象になる可能性がある。ベックハム法が適用されると、スペイン外（日本）源泉収入は原則としてスペインの所得税申告から除外できる。</td>
+      </tr>
+      <tr>
+        <td>🔄 日本への申告義務</td>
+        <td>日本の法人（会社）は引き続き日本で法人税を納める。代表者が非居住者になった場合でも、法人の設立・決算・申告義務は消えない。</td>
+      </tr>
+      <tr>
+        <td>⚖️ 恒久的施設（PE）リスク</td>
+        <td>代表者のスペイン滞在が「日本法人のスペインにおける恒久的施設（Permanent Establishment）」と認定されると、日本法人の利益がスペインでも課税される可能性がある。リスク判断は専門家に要相談。</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="highlight-box">
+    <span class="hlabel">💡 「日本↔スペイン行き来」生活の場合の考え方（あくまで一般論）</span>
+    <p>スペイン滞在が年183日未満に収まる場合は、スペインの税務居住者にならない（＝ベックハム法の適用を考える前に、そもそも居住者課税の問題が発生しにくい）。スペイン滞在が183日を超える年は、ベックハム法の申請を事前に済ませておくと、スペイン外の日本法人収入を分離しやすくなる可能性がある。ただし個別状況によって大きく異なるため、国際税務に詳しい税理士への相談が必須。</p>
+  </div>
+</div>
+
+<!-- 今すぐチェックリスト -->
+<div class="card">
+  <h2>✅ ビザ準備中の今すぐ確認チェックリスト</h2>
+  <ul class="check-list">
+    <li>
+      <div class="check-icon">✓</div>
+      <div><strong>直近5年間、スペインに住んでいないか確認する</strong><br>ベックハム法の前提条件。「スペイン税務居住者でなかった期間が5年以上」であることを確認する。</div>
+    </li>
+    <li>
+      <div class="check-icon">✓</div>
+      <div><strong>デジタルノマドビザの申請前に、ベックハム法の適用可否を税理士に確認する</strong><br>ビザ取得後に初めて相談すると6か月の期限が迫ることがある。ビザ申請と並行して動くのが理想。</div>
+    </li>
+    <li>
+      <div class="check-icon amber">!</div>
+      <div><strong>スペイン社会保障（Seguridad Social）への登録日を必ず記録する</strong><br>モデロ149の提出期限の起算日になる可能性がある。</div>
+    </li>
+    <li>
+      <div class="check-icon">✓</div>
+      <div><strong>日本法人の収入が「スペイン外源泉」であるか整理する</strong><br>日本の顧客・海外の顧客からの収入がどの国の源泉とみなされるか、構造を把握しておく。</div>
+    </li>
+    <li>
+      <div class="check-icon amber">!</div>
+      <div><strong>スペインでの「autónomo（自営業者）登録」との関係を確認する</strong><br>DNVビザ保持者はautónomoに登録することもある。この場合のベックハム法適用可否は個別判断が必要。</div>
+    </li>
+    <li>
+      <div class="check-icon">✓</div>
+      <div><strong>日西租税条約の「タイブレーカー規定」を把握しておく</strong><br>居住地が日本 or スペインのどちらか一方に確定しない場合、条約の基準で判断される。出典：外務省・日西租税条約（2021年発効）。</div>
+    </li>
+  </ul>
+</div>
+
+<!-- 用語まとめ -->
+<div class="card">
+  <h2>📖 今日の用語をまとめて確認</h2>
+  <div class="term-grid">
+    <div class="term-card">
+      <div class="term-name">RETD（ベックハム法）</div>
+      <div class="term-def">Régimen Especial de Trabajadores Desplazados。海外から来た人向けのスペイン特別税制。6年間、一律24%の税率。</div>
+    </div>
+    <div class="term-card">
+      <div class="term-name">LIRPF 第93条</div>
+      <div class="term-def">ベックハム法の根拠となるスペイン所得税法の条文。2023年のスタートアップ法（Ley 28/2022）で改正。</div>
+    </div>
+    <div class="term-card">
+      <div class="term-name">Modelo 149</div>
+      <div class="term-def">ベックハム法を申請するための書類。就業・社会保障登録から6か月以内にスペイン税務局（AEAT）へ提出する。</div>
+    </div>
+    <div class="term-card">
+      <div class="term-name">Modelo 151</div>
+      <div class="term-def">ベックハム法適用者向けの年次確定申告書。通常の居住者確定申告（Renta / Modelo 100）ではなく、専用フォームを使う。</div>
+    </div>
+    <div class="term-card">
+      <div class="term-name">AEAT</div>
+      <div class="term-def">Agencia Estatal de Administración Tributaria。スペインの国税庁。ベックハム法の申請・審査を行う。</div>
+    </div>
+    <div class="term-card">
+      <div class="term-name">Seguridad Social</div>
+      <div class="term-def">スペインの社会保障制度。autónomoとして登録する場合は保険料（cuota）が発生。2026年の月額はおよそ230ユーロ〜（収入に連動）。</div>
+    </div>
+    <div class="term-card">
+      <div class="term-name">PE（恒久的施設）</div>
+      <div class="term-def">Permanent Establishment。外国企業が現地に設けたとみなされる拠点。代表者の長期滞在がPEと認定されると外国法人もスペインで課税対象になる可能性。</div>
+    </div>
+    <div class="term-card">
+      <div class="term-name">日西租税条約</div>
+      <div class="term-def">日本とスペインの二重課税を防ぐ条約。2021年に新条約が発効（暦年2022年分より適用）。183日ルール・タイブレーカー規定が盛り込まれている。（出典：外務省）</div>
+    </div>
+  </div>
+</div>
+
+<!-- フッター・免責 -->
+<div class="footer-card">
+  <strong>📌 本記事の情報基準と免責事項</strong><br>
+  <br>
+  ● 税制情報は2026年時点の公開情報を基にしています。制度・税率は変更される場合があります。<br>
+  ● ベックハム法（RETD）の根拠法：スペイン所得税法（LIRPF）第93条、Ley 28/2022（スタートアップ法）。制度変更の詳細は BOE（スペイン官報）でご確認ください。<br>
+  ● 日西租税条約の発効：外務省の公式発表では「2021年に新条約署名・発効、暦年2022年分から適用」。正確な発効日は外務省 HP（mofa.go.jp）をご確認ください。<br>
+  ● <strong>ビザ・在留資格に関する正式な判断は、スペインの移民弁護士または日本の行政書士にお問い合わせください。</strong><br>
+  ● <strong>税務・社会保険に関する正式な判断は、日西両国の税制に精通した国際税務税理士にお問い合わせください。</strong><br>
+  ● 「必ず適用できる」「課税されない」といった断定的な解釈は避け、個別のケースに応じた専門家の判断を優先してください。<br>
+  <br>
+  <div class="source-list">
+    <strong>参考情報源：</strong><br>
+    ・ <a href="https://www.movewise.net/en/spain-beckham-law" target="_blank">movewise.net – Spain Beckham Law 2026</a><br>
+    ・ <a href="https://orience.com/blog/beckham-law-for-digital-nomads-tax-benefits-in-spain/" target="_blank">orience.com – Beckham Law for Digital Nomads</a><br>
+    ・ <a href="https://www.greenbacktaxservices.com/blog/beckham-law-spain/" target="_blank">greenbacktaxservices.com – Beckham Law Spain</a><br>
+    ・ <a href="https://www.bluselection.com/blog/2026/01/the-beckham-law-in-spain-a-game-changer-for-expats-and-employers" target="_blank">bluselection.com – Beckham Law 2026 Guide (2026年1月)</a><br>
+    ・ <a href="https://carbrayinternational.com/beckham-law-2026-24-income-tax-digital-nomads-executives-entrepreneurs/" target="_blank">carbrayinternational.com – Beckham Law 2026</a><br>
+    ・ <a href="https://www.mofa.go.jp/mofaj/ila/et/page25_001864.html" target="_blank">外務省 – 日・スペイン租税条約</a><br>
+    ・ <a href="https://spanishtaxcalculator.com/new-spanish-beckham-law-2023-tax-bonifications-for-digital-nomads-in-spain" target="_blank">spanishtaxcalculator.com – New Beckham Law 2023 for Digital Nomads</a>
+  </div>
+</div>
+
+</body>
+</html>
