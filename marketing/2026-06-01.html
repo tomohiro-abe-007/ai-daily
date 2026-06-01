@@ -160,44 +160,8 @@
     letter-spacing: 0.5px;
   }
 
-  .point-list {
-    list-style: none;
-    padding: 0;
-    margin: 12px 0;
-  }
-  .point-list li {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 8px 0;
-    font-size: 0.97rem;
-    line-height: 1.7;
-    color: #333;
-    border-bottom: 1px dotted #ddd;
-  }
-  .point-list li:last-child { border-bottom: none; }
-  .point-list .marker {
-    flex-shrink: 0;
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.75rem;
-    font-weight: 700;
-    margin-top: 2px;
-  }
-  .marker-green  { background: #1e7e34; color: white; }
-  .marker-orange { background: #cc6600; color: white; }
-  .marker-blue   { background: #2255aa; color: white; }
-  .marker-purple { background: #7b2fbe; color: white; }
-  .marker-red    { background: #c0392b; color: white; }
-  .marker-teal   { background: #006060; color: white; }
-
   .hl-yellow { background: linear-gradient(transparent 60%, #ffe566 60%); }
   .hl-pink   { background: linear-gradient(transparent 60%, #ffb3c6 60%); }
-  .hl-blue   { background: linear-gradient(transparent 60%, #b3d4ff 60%); }
   .hl-green  { background: linear-gradient(transparent 60%, #b3f0b3 60%); }
 
   .sticky {
@@ -275,7 +239,6 @@
   .source a { color: #5577aa; text-decoration: none; }
   .source a:hover { text-decoration: underline; }
 
-  /* 大きな数字カード */
   .num-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -310,7 +273,6 @@
   .num-card.red { border-top-color: #c0392b; }
   .num-card.red .big-num { color: #c0392b; }
 
-  /* ステップフロー */
   .step-flow {
     display: flex;
     flex-direction: column;
@@ -360,7 +322,6 @@
     line-height: 1.6;
   }
 
-  /* ファネル（横並びフロー） */
   .funnel-flow {
     display: flex;
     align-items: stretch;
@@ -376,11 +337,10 @@
     border-radius: 8px;
     padding: 14px 10px;
     text-align: center;
-    position: relative;
   }
   .funnel-step .f-icon { font-size: 1.8rem; display: block; margin-bottom: 6px; }
   .funnel-step .f-label {
-    font-size: 0.92rem;
+    font-size: 0.9rem;
     font-weight: 600;
     color: #2d5a3d;
     display: block;
@@ -406,38 +366,11 @@
   }
   .funnel-step.highlight-step .f-label { color: #1e5c30; }
 
-  /* カード2列グリッド */
-  .two-col-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 14px;
-    margin: 14px 0;
-  }
   @media (max-width: 560px) {
-    .two-col-grid { grid-template-columns: 1fr; }
     .funnel-flow { flex-direction: column; }
     .funnel-arrow { transform: rotate(90deg); align-self: center; }
   }
-  .mini-card {
-    background: white;
-    border-radius: 8px;
-    border: 1px solid #ddd;
-    padding: 14px 16px;
-    font-size: 0.9rem;
-    line-height: 1.7;
-    box-shadow: 1px 2px 6px rgba(0,0,0,0.06);
-  }
-  .mini-card .mc-title {
-    font-weight: 600;
-    color: #2d5a3d;
-    margin-bottom: 6px;
-    font-size: 0.95rem;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
 
-  /* 土地の比較 */
   .land-compare {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -449,24 +382,77 @@
     border-radius: 8px;
     padding: 16px;
     font-size: 0.9rem;
-    line-height: 1.7;
+    line-height: 1.8;
   }
-  .land-card.borrowed {
+  .land-card.push-type {
     background: #fff0f0;
     border: 2px solid #f5a0a0;
   }
-  .land-card.owned {
+  .land-card.pull-type {
     background: #f0fff0;
     border: 2px solid #a0d8a0;
   }
   .land-card .lc-title {
     font-weight: 700;
     font-size: 0.95rem;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     display: block;
   }
-  .land-card.borrowed .lc-title { color: #c0392b; }
-  .land-card.owned .lc-title { color: #1e7e34; }
+  .land-card.push-type .lc-title { color: #c0392b; }
+  .land-card.pull-type .lc-title { color: #1e7e34; }
+
+  /* 90:10 比率バー */
+  .ratio-bar-wrap {
+    margin: 20px 0;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.1);
+  }
+  .ratio-bar {
+    display: flex;
+    height: 64px;
+  }
+  .ratio-bar .part-value {
+    flex: 9;
+    background: #4a7c59;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+  .ratio-bar .part-sell {
+    flex: 1;
+    background: #f5a642;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-size: 0.88rem;
+    text-align: center;
+    line-height: 1.3;
+  }
+  .ratio-desc {
+    display: flex;
+  }
+  .ratio-desc .desc-value {
+    flex: 9;
+    padding: 14px 18px;
+    font-size: 0.88rem;
+    color: #2d5a3d;
+    line-height: 1.9;
+    border-right: 2px solid #e0d8c8;
+  }
+  .ratio-desc .desc-sell {
+    flex: 1;
+    padding: 14px 10px;
+    font-size: 0.82rem;
+    color: #a04800;
+    line-height: 1.9;
+  }
 
   .summary-card {
     background: linear-gradient(135deg, #2d5a3d 0%, #4a7c59 100%);
@@ -526,342 +512,306 @@
 
 <!-- ===== カバー ===== -->
 <div class="cover">
-  <span class="cover-emoji">🧲</span>
-  <h1>見込み客の集め方（リード獲得）<br>── 土台から学ぶ基本の流れ</h1>
+  <span class="cover-emoji">🎁</span>
+  <h1>価値提供で信頼を作る<br>── コンテンツマーケティングの考え方</h1>
   <p class="subtitle">集客・マーケティング 最新トピック</p>
   <span class="date-badge">2026-06-01</span>
 </div>
 
-<!-- ===== Section 1: 見込み客（リード）とは ===== -->
+<!-- ===== Section 1: コンテンツマーケティングとは ===== -->
 <div class="card">
   <div class="card-body">
     <div class="card-header">
       <span class="card-emoji">🤔</span>
-      <h2 class="card-title">「見込み客（リード）」とは何か？</h2>
+      <h2 class="card-title">「コンテンツマーケティング」とは何か？</h2>
       <span class="topic-badge badge-blue">定義</span>
     </div>
 
     <div class="simple-box">
       <div class="label">一言で言うと</div>
-      <strong>「まだ買っていないけど、あなたの商品・サービスに興味を持っている人」</strong><br>
-      ※リード（Lead）＝英語でそのまま使われるマーケティング用語。「手がかり」「見込み客の連絡先」の意味。
+      <strong>「商品を売る前に、役立つ情報を届けることで信頼を積み上げ、<br>
+      見込み客が "あなたから買いたい" と思う状態を作ること」</strong><br>
+      ※コンテンツ（Content）＝ 文章・動画・音声・画像などの「情報のかたまり」のこと。
     </div>
 
     <p style="font-size:0.95rem; line-height:1.8; color:#333; margin: 14px 0;">
-      「集客」とひとことで言っても、まったく知らない人が急に買ってくれることはほとんどありません。<br>
-      実際には <span class="hl-yellow">「知る → 興味を持つ → 信頼する → 買う」</span> という段階を踏みます。<br>
-      この流れの途中にいる人が<strong>「見込み客（リード）」</strong>です。
+      集客には大きく2つのアプローチがあります。<br>
+      かつて主流だった「プッシュ型」と、今の時代に力を発揮する「プル型（コンテンツ集客）」を比べてみましょう。
     </p>
 
-    <ul class="point-list">
-      <li>
-        <span class="marker marker-blue">例</span>
-        <div>あなたのSNS投稿を見て「面白そう」とフォローしてくれた人</div>
-      </li>
-      <li>
-        <span class="marker marker-blue">例</span>
-        <div>無料のPDFをダウンロードして、メールアドレスを登録してくれた人</div>
-      </li>
-      <li>
-        <span class="marker marker-blue">例</span>
-        <div>「詳しく聞きたい」と問い合わせフォームに書いてくれた人</div>
-      </li>
-    </ul>
+    <div class="land-compare">
+      <div class="land-card push-type">
+        <span class="lc-title">📢 プッシュ型（旧来の広告）</span>
+        「買ってください」と自分から押しかける方法<br><br>
+        • テレビCM・チラシ・電話営業・DM<br>
+        • 費用がかかり、スキップされやすい<br>
+        • 興味のない人にも同じメッセージが届く<br>
+        • 止めると即座に効果がゼロになる
+      </div>
+      <div class="land-card pull-type">
+        <span class="lc-title">🧲 プル型（コンテンツ集客）</span>
+        「役立つ情報」で自然に引き寄せる方法<br><br>
+        • ブログ・SNS・動画・ポッドキャスト・メルマガ<br>
+        • 低コストで始められる<br>
+        • 興味ある人だけが集まってくる<br>
+        • 一度作ったコンテンツが長期間集客し続ける
+      </div>
+    </div>
 
     <div class="sticky">
-      💡 見込み客を集めることを<strong>「リード獲得」</strong>または<strong>「リードジェネレーション」</strong>と呼びます。<br>
-      集客の仕事の大半は「この見込み客を増やす工夫」です。
+      💡 コンテンツマーケティングは「広告費がなくても情報が人を集め続ける仕組み」を作ること。<br>
+      インターネットがあれば<strong>世界中どこにいても発信でき、世界中の人に届けられる</strong>のが最大の強みです。
     </div>
   </div>
 </div>
 
-<!-- ===== Section 2: 知っておくべき数字 ===== -->
+<!-- ===== Section 2: 数字で見るコンテンツの力 ===== -->
 <div class="card">
   <div class="card-body">
     <div class="card-header">
       <span class="card-emoji">📊</span>
-      <h2 class="card-title">知っておくべき数字</h2>
+      <h2 class="card-title">数字で見るコンテンツの力</h2>
       <span class="topic-badge badge-orange">データ</span>
     </div>
 
     <div class="num-grid">
+      <div class="num-card">
+        <span class="big-num">3×</span>
+        <div class="num-label">アウトバウンド広告の<br><strong>約3倍</strong>のリードを獲得</div>
+      </div>
       <div class="num-card orange">
-        <span class="big-num">34%</span>
-        <div class="num-label">「リード獲得が最重要マーケ課題」<br>と答えた企業の割合</div>
+        <span class="big-num">62%</span>
+        <div class="num-label">コスト削減<br>アウトバウンドより<br><strong>62%低コスト</strong></div>
       </div>
       <div class="num-card blue">
-        <span class="big-num">68%</span>
-        <div class="num-label">「数より質（少数でも良い見込み客）を<br>優先したい」と答えたB2Bマーケターの割合</div>
+        <span class="big-num">72%</span>
+        <div class="num-label">コンテンツマーケが<br>リード獲得に貢献したと<br>回答した企業の割合</div>
       </div>
       <div class="num-card red">
-        <span class="big-num">98%</span>
-        <div class="num-label">Webサイトを初めて訪れたとき<br>フォームに記入しない訪問者の割合</div>
+        <span class="big-num">61%</span>
+        <div class="num-label">B2Bマーケターが<br>「信頼・信用の構築」を<br>最大の効果と回答</div>
       </div>
     </div>
 
-    <p style="font-size:0.9rem; color:#666; line-height:1.7; margin-top:8px;">
-      「98%が記入しない」というデータは、<span class="hl-yellow">1回見てもらっただけでは連絡先が取れない</span>ことを意味します。<br>
-      だからこそ「何度も接触できる仕組み」を作ることが集客の基本になります。
-    </p>
-
     <div class="source">
-      出典：<a href="https://thunderbit.com/blog/lead-generation-statistics" target="_blank">90 Lead Generation Statistics You Must Know｜Thunderbit</a>（参照 2026年5月）／
-      <a href="https://www.leadinfo.com/en/blog/b2b-lead-generation-trends-in-2026-the-7-channels-and-tactics-that-actually-work/" target="_blank">B2B Lead Generation Trends in 2026｜Leadinfo</a>（参照 2026年5月）
+      出典：<a href="https://www.demandsage.com/content-marketing-statistics/" target="_blank">49 Latest Content Marketing Statistics 2026 | DemandSage</a>（参照 2026年5月）／
+      <a href="https://www.designrush.com/agency/content-marketing/trends/content-marketing-statistics" target="_blank">50+ Content Marketing Stats 2026 | DesignRush</a>（参照 2026年5月）<br>
+      ※「3倍・62%」はDemandMetric/HubSpotによる調査の集計値。数値は調査対象・手法・時期によって異なります。参考値としてご覧ください。
     </div>
   </div>
 </div>
 
-<!-- ===== Section 3: 見込み客が生まれる流れ ===== -->
+<!-- ===== Section 3: なぜ「売り込まない」ほうが売れるのか ===== -->
 <div class="card">
   <div class="card-body">
     <div class="card-header">
-      <span class="card-emoji">🔄</span>
-      <h2 class="card-title">見込み客が生まれる 5 つのステップ</h2>
-      <span class="topic-badge badge-green">流れ</span>
+      <span class="card-emoji">🧠</span>
+      <h2 class="card-title">なぜ「売り込まない」ほうが売れるのか？ ── 信頼が生まれる仕組み</h2>
+      <span class="topic-badge badge-purple">心理</span>
     </div>
 
-    <p style="font-size:0.88rem; color:#666; margin-bottom:14px; line-height:1.6;">
-      ↓ 左から右へ、「まったく知らない人」が「お客様」になるまでの基本的な流れです。<br>
-      <strong>「連絡先を取得する」</strong>ステップが、リード獲得の核心です。
+    <p style="font-size:0.95rem; line-height:1.8; color:#333; margin-bottom:14px;">
+      「役立つ情報を発信したら、なぜ購入につながるの？」と感じる人は多いです。<br>
+      この仕組みを理解すると、発信を続けるモチベーションがまったく変わります。
     </p>
 
     <div class="funnel-flow">
       <div class="funnel-step">
-        <span class="f-icon">👀</span>
-        <span class="f-label">① 知る</span>
-        <span class="f-sub">SNS・検索・<br>口コミで発見</span>
+        <span class="f-icon">📝</span>
+        <span class="f-label">役立つ情報を発信</span>
+        <span class="f-sub">ブログ・SNS・<br>動画・メール</span>
       </div>
       <div class="funnel-arrow">→</div>
       <div class="funnel-step">
-        <span class="f-icon">💡</span>
-        <span class="f-label">② 興味</span>
-        <span class="f-sub">投稿・記事を<br>読んで関心UP</span>
+        <span class="f-icon">😊</span>
+        <span class="f-label">「助かった！」</span>
+        <span class="f-sub">見込み客が<br>価値を感じる</span>
       </div>
       <div class="funnel-arrow">→</div>
       <div class="funnel-step highlight-step">
-        <span class="f-icon">📬</span>
-        <span class="f-label">③ 連絡先取得</span>
-        <span class="f-sub">登録・フォロー・<br>問い合わせ</span>
+        <span class="f-icon">🤝</span>
+        <span class="f-label">信頼が積み上がる</span>
+        <span class="f-sub">「この人は<br>わかってる」</span>
       </div>
       <div class="funnel-arrow">→</div>
       <div class="funnel-step">
-        <span class="f-icon">🤝</span>
-        <span class="f-label">④ 信頼を育む</span>
-        <span class="f-sub">メール・SNSで<br>価値を届け続ける</span>
+        <span class="f-icon">💛</span>
+        <span class="f-label">「この人から<br>買いたい」</span>
+        <span class="f-sub">価格比較から<br>抜け出せる</span>
       </div>
       <div class="funnel-arrow">→</div>
       <div class="funnel-step">
         <span class="f-icon">🎉</span>
-        <span class="f-label">⑤ 購入・申込</span>
-        <span class="f-sub">納得して<br>お客様に</span>
+        <span class="f-label">自然な購入</span>
+        <span class="f-sub">押し売りなしで<br>成約</span>
       </div>
     </div>
 
     <div class="simple-box">
-      <div class="label">大事なポイント</div>
-      ③「連絡先取得」がゴールではありません。<br>
-      連絡先を取った後に<strong>「価値を届け続けて信頼を育てる（ナーチャリング）」</strong>ことが、質の良いお客様につながります。<br>
-      ※ナーチャリング（Nurturing）＝「育てる」という意味のマーケ用語。
+      <div class="label">心理学のポイント</div>
+      人は<strong>「先に助けてもらった人」「自分の悩みをわかってくれる人」</strong>から買いたいという心理があります。<br>
+      コンテンツは「売る前に信頼の貯金を作る」行為です。<br>
+      信頼が十分に積み上がると、見込み客の方から「お願いします」と来てくれるようになります。
     </div>
   </div>
 </div>
 
-<!-- ===== Section 4: 主なチャネル比較 ===== -->
+<!-- ===== Section 4: 9割価値提供・1割告知 ===== -->
 <div class="card">
   <div class="card-body">
     <div class="card-header">
-      <span class="card-emoji">🛣️</span>
-      <h2 class="card-title">見込み客を集める主なチャネル（経路）</h2>
-      <span class="topic-badge badge-purple">比較</span>
+      <span class="card-emoji">⚖️</span>
+      <h2 class="card-title">「9割は価値提供・1割だけ告知」── 黄金比の目安</h2>
+      <span class="topic-badge badge-green">配分の考え方</span>
     </div>
 
-    <p style="font-size:0.88rem; color:#666; margin-bottom:12px; line-height:1.6;">
-      ※チャネル＝「経路・手段」のこと。どのルートで見込み客を集めるか、という選択肢です。
+    <p style="font-size:0.95rem; line-height:1.8; color:#333; margin-bottom:14px;">
+      コンテンツを発信するとき「どのくらい売り込んでいいの？」と迷う人は多いです。<br>
+      欧米のコンテンツマーケターの間でよく使われる<span class="hl-yellow">経験則（あくまで目安）</span>を紹介します。
     </p>
+
+    <div class="ratio-bar-wrap">
+      <div class="ratio-bar">
+        <div class="part-value">✅ 90% ── 価値提供</div>
+        <div class="part-sell">📣<br>10%<br>告知</div>
+      </div>
+      <div class="ratio-desc">
+        <div class="desc-value">
+          ✅ 読んで「ためになった」と思える解説・Tips<br>
+          ✅ ペルソナの悩みに答えるQ&amp;A・事例紹介<br>
+          ✅ 失敗談・体験談・気づきの共有<br>
+          ✅ 業界トレンドや役立つ情報のまとめ
+        </div>
+        <div class="desc-sell">
+          📣 商品・<br>サービスの<br>案内<br><br>
+          📣 セール・<br>募集開始
+        </div>
+      </div>
+    </div>
+
+    <div class="sticky">
+      💡 これは厳密なルールではなく「目安」です。<br>
+      9割が価値提供なら、1割の告知は「邪魔」と感じられません。<br>
+      <strong>告知ばかりのアカウントは「また売り込みか…」とフォローを外されやすくなります。</strong>
+    </div>
+  </div>
+</div>
+
+<!-- ===== Section 5: 役立つコンテンツを作る3つの問い ===== -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">✏️</span>
+      <h2 class="card-title">「役立つコンテンツ」を作る 3 つの問い</h2>
+      <span class="topic-badge badge-teal">実践</span>
+    </div>
+
+    <p style="font-size:0.95rem; line-height:1.8; color:#333; margin-bottom:14px;">
+      「何を発信すればいいかわからない」── これは最も多い悩みの一つです。<br>
+      <span class="hl-yellow">ペルソナ（理想の顧客像）を一人思い浮かべながら</span>、次の3つの問いを自分に投げかけてみてください。
+    </p>
+
+    <div class="step-flow">
+      <div class="step-item">
+        <div class="step-num">Q1</div>
+        <div class="step-content">
+          <div class="step-title">今その人は、どんな悩み・疑問を抱えているか？</div>
+          <div class="step-desc">
+            悩みを「その人が使う言葉で」表現できると、「これは私のことだ！」と感じる人が反応します。<br>
+            例：「英語が全然伸びない」「どこで集客すればいいかわからない」「副業を始めたいけど何から…」
+          </div>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">Q2</div>
+        <div class="step-content">
+          <div class="step-title">その悩みに対して、あなたが持っている知識・体験・解決策は何か？</div>
+          <div class="step-desc">
+            専門家でなくても構いません。「3ヶ月前に同じ悩みを持ち、こうやって解決した」という体験談も立派なコンテンツです。<br>
+            「自分より少し先を歩いている人」の話が、実は一番刺さります。
+          </div>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">Q3</div>
+        <div class="step-content">
+          <div class="step-title">読んだ・見た後に「今日から試せること」はあるか？</div>
+          <div class="step-desc">
+            「知識」だけでなく「行動につながる橋渡し」があるコンテンツは、信頼が速く積み上がります。<br>
+            「まず○○だけやってみてください」という一文が、高品質コンテンツの証明です。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="simple-box">
+      <div class="label">ネタ切れ防止のコツ</div>
+      お客様から来た質問・問い合わせ・よくある相談をメモしておく。<br>
+      それが<strong>「ペルソナが本当に知りたいこと」＝最高のコンテンツネタ</strong>になります。
+    </div>
+  </div>
+</div>
+
+<!-- ===== Section 6: 形式・チャネル比較 ===== -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">📱</span>
+      <h2 class="card-title">形式別・コンテンツの特徴 ── リモート・海外でも使える</h2>
+      <span class="topic-badge badge-orange">比較</span>
+    </div>
 
     <table class="compare-table">
       <thead>
         <tr>
-          <th class="label-col">チャネル</th>
-          <th>特徴・向いている人</th>
-          <th>始めやすさ</th>
-          <th>効果が出るまで</th>
+          <th style="width:24%">形式</th>
+          <th>特徴・向いているケース</th>
+          <th style="width:13%">始めやすさ</th>
+          <th style="width:14%">リモート適性</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td class="label-col">📱 SNS発信<br><small>Instagram / X / TikTok</small></td>
-          <td>無料で始めやすい。拡散で認知が広がる。継続が必要</td>
+          <td class="label-col">📝 文章<br><small>ブログ・SNS・ニュースレター</small></td>
+          <td>検索経由の流入に強い。書いた記事が長期間集客し続ける</td>
           <td>★★★★★</td>
-          <td>1〜3ヶ月</td>
+          <td>✅ 場所不問</td>
         </tr>
         <tr>
-          <td class="label-col">📝 ブログ・SEO<br><small>検索エンジン経由</small></td>
-          <td>一度書いた記事が長期集客。時間はかかるが安定する</td>
+          <td class="label-col">🎬 動画<br><small>YouTube・Reels・TikTok</small></td>
+          <td>信頼感が高く拡散されやすい。顔出し不要の方法もある</td>
           <td>★★★</td>
-          <td>3〜12ヶ月</td>
+          <td>✅ スマホ1台で可</td>
         </tr>
         <tr>
-          <td class="label-col">📧 メルマガ・LINE<br><small>メール・LINE登録</small></td>
-          <td>登録者への到達率が高い。深い信頼関係を作りやすい</td>
+          <td class="label-col">🎙️ 音声<br><small>ポッドキャスト</small></td>
+          <td>移動中・作業中に聴いてもらえる。根強いファンが生まれやすい</td>
+          <td>★★★</td>
+          <td>✅ マイク1本で可</td>
+        </tr>
+        <tr>
+          <td class="label-col">🖼️ 画像・図解<br><small>Instagram・Pinterest</small></td>
+          <td>保存・シェアされやすい。視覚的に伝わる内容に向く</td>
           <td>★★★★</td>
-          <td>リスト次第</td>
+          <td>✅ デザインツールで作成</td>
         </tr>
         <tr>
-          <td class="label-col">🎙️ ウェビナー・イベント<br><small>オンラインセミナー等</small></td>
-          <td>一気に信頼を高められる。場所を問わず世界中に届く</td>
-          <td>★★★</td>
-          <td>準備次第</td>
-        </tr>
-        <tr>
-          <td class="label-col">💰 SNS広告・検索広告<br><small>Meta広告 / Google広告</small></td>
-          <td>即効性あり。予算が必要。止めると止まる</td>
-          <td>★★</td>
-          <td>即日〜数週間</td>
-        </tr>
-        <tr>
-          <td class="label-col">👥 紹介・口コミ<br><small>既存客からの紹介</small></td>
-          <td>信頼がすでにある状態で来るので成約しやすい</td>
-          <td>★★★</td>
-          <td>関係構築次第</td>
+          <td class="label-col">📧 メール・LINE<br><small>ニュースレター・ステップメール</small></td>
+          <td>到達率が高く深い関係が作れる。既存リストへの発信に最強</td>
+          <td>★★★★</td>
+          <td>✅ 世界中に配信可</td>
         </tr>
       </tbody>
     </table>
 
     <div class="sticky">
-      💡 最初から全部やろうとしない。<br>
-      <strong>「1つのチャネルを3ヶ月続けてみる」</strong>ことが、最も効率的なスタート方法です。
+      🌍 スマホとネット回線があれば、世界中どこからでもすべての形式で発信できます。<br>
+      <strong>最初は「自分が一番続けやすい形式」を1つだけ選んで3ヶ月続けることが最短ルートです。</strong>
     </div>
   </div>
 </div>
 
-<!-- ===== Section 5: リードマグネット ===== -->
-<div class="card">
-  <div class="card-body">
-    <div class="card-header">
-      <span class="card-emoji">🎁</span>
-      <h2 class="card-title">連絡先をもらうための「プレゼント」── リードマグネット</h2>
-      <span class="topic-badge badge-teal">手法</span>
-    </div>
-
-    <div class="simple-box">
-      <div class="label">リードマグネットとは</div>
-      <strong>「メールアドレスやLINEを登録してもらう代わりに渡す、無料の価値あるもの」</strong><br>
-      ※マグネット（Magnet）＝磁石。見込み客を引きつける「えさ」「おみやげ」のイメージ。
-    </div>
-
-    <p style="font-size:0.95rem; line-height:1.8; color:#333; margin: 12px 0;">
-      「無料登録してください」だけでは、なかなか登録してもらえません。<br>
-      登録することで<span class="hl-green">「得られるものが明確」</span>なとき、人は動きます。
-    </p>
-
-    <div class="two-col-grid">
-      <div class="mini-card">
-        <div class="mc-title">📄 無料PDF・チェックリスト</div>
-        すぐ使える「まとめ資料」や「チェックシート」。作成コストが低く始めやすい。
-      </div>
-      <div class="mini-card">
-        <div class="mc-title">🎬 無料動画講座・ミニ講義</div>
-        「3日間の無料メール講座」などシリーズ形式にすると接触回数が増える。
-      </div>
-      <div class="mini-card">
-        <div class="mc-title">🗓️ 無料相談・個別セッション</div>
-        高単価サービスへの入口として使いやすい。話して信頼を作る手法。
-      </div>
-      <div class="mini-card">
-        <div class="mc-title">🧪 無料トライアル・サンプル</div>
-        「まず試してみて」という体験を提供する。SaaSや教材に向く。
-      </div>
-    </div>
-
-    <div class="simple-box" style="margin-top:10px;">
-      <div class="label">効果的なリードマグネットの条件</div>
-      ① ペルソナの「今すぐ解決したい悩み」にピンポイントで刺さる<br>
-      ② 受け取ったらすぐ使える（ボリュームより即効性）<br>
-      ③ 「この人が作ったなら信用できる」と感じる品質がある
-    </div>
-  </div>
-</div>
-
-<!-- ===== Section 6: SNSリストと自分のリスト ===== -->
-<div class="card">
-  <div class="card-body">
-    <div class="card-header">
-      <span class="card-emoji">🏠</span>
-      <h2 class="card-title">「借り物の土地」と「自分の土地」── リストの重要性</h2>
-      <span class="topic-badge badge-orange">考え方</span>
-    </div>
-
-    <p style="font-size:0.95rem; line-height:1.8; color:#333; margin-bottom: 14px;">
-      SNSでフォロワーを集めるのは大切ですが、一つ大きなリスクがあります。<br>
-      <span class="hl-pink">プラットフォームのルールが変わると、一夜にして届かなくなる</span>可能性があります。
-    </p>
-
-    <div class="land-compare">
-      <div class="land-card borrowed">
-        <span class="lc-title">⚠️ 借り物の土地（SNSフォロワー）</span>
-        SNSのフォロワーはプラットフォームが管理する「借りた場所」<br><br>
-        • アルゴリズム変更で投稿が届かなくなる<br>
-        • アカウント凍結・BANで一瞬でゼロになる<br>
-        • 自分で連絡手段を持てない
-      </div>
-      <div class="land-card owned">
-        <span class="lc-title">✅ 自分の土地（メール・LINEリスト）</span>
-        メルマガ・LINEの登録者は「自分が持つ資産」<br><br>
-        • アルゴリズムに左右されず直接届く<br>
-        • プラットフォームが変わっても移転できる<br>
-        • 関係を長く深く育てられる
-      </div>
-    </div>
-
-    <div class="sticky">
-      🌍 海外・リモートからでも通用する集客の土台は「自分のリスト（メール・LINE）」を育てることにあります。<br>
-      SNSは「リストに誘導するための入口」として使うのが安定した考え方です。
-    </div>
-  </div>
-</div>
-
-<!-- ===== Section 7: 量より質 ===== -->
-<div class="card">
-  <div class="card-body">
-    <div class="card-header">
-      <span class="card-emoji">⚖️</span>
-      <h2 class="card-title">「量より質」── 初心者が陥りやすい罠</h2>
-      <span class="topic-badge badge-red">注意点</span>
-    </div>
-
-    <p style="font-size:0.95rem; line-height:1.8; color:#333; margin-bottom: 14px;">
-      見込み客を集めていると、「もっとたくさん集めなければ」という焦りが生まれます。<br>
-      しかし B2B マーケターの <span class="hl-yellow"><strong>68% が「数より質を優先したい」</strong></span>と答えています（出典：Thunderbit）。
-    </p>
-
-    <div class="step-flow">
-      <div class="step-item">
-        <div class="step-num">×</div>
-        <div class="step-content">
-          <div class="step-title">誰にでも来てもらおうとする</div>
-          <div class="step-desc">フォロワーが増えても「全然購入につながらない」という悩みは、ターゲットがズレているサインです。興味のない人を大量に集めると対応コストだけが増えます。</div>
-        </div>
-      </div>
-      <div class="step-item">
-        <div class="step-num">✓</div>
-        <div class="step-content">
-          <div class="step-title">「この人に刺さる」発信を続ける</div>
-          <div class="step-desc">前回学んだペルソナ（理想の顧客像）を意識した発信をすると、「これは私のための情報だ！」と感じる人だけが集まります。少数でも成約しやすいリードが増えます。</div>
-        </div>
-      </div>
-      <div class="step-item">
-        <div class="step-num">✓</div>
-        <div class="step-content">
-          <div class="step-title">「来てくれた人との関係」を育てる</div>
-          <div class="step-desc">一度連絡先をもらったら、役立つ情報を届け続けましょう。「買ってくれ」メッセージより「価値の提供」を9割にすると信頼が積み上がります。</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ===== Section 8: 今日からできる一歩 ===== -->
+<!-- ===== Section 7: 今日からできる一歩 ===== -->
 <div class="card">
   <div class="card-body">
     <div class="card-header">
@@ -875,25 +825,39 @@
         ✏️ <span>TODAY's ACTION</span>
         今日のひとつだけ
       </div>
-      <p style="line-height:1.8; margin-bottom:10px;">
-        <strong>「自分が今持っている見込み客リストを棚卸しする」</strong>
+      <p style="line-height:1.8; margin-bottom:12px;">
+        <strong>「ペルソナの悩みを1つ選び、それを解決する投稿を1本書いてみる」</strong>
       </p>
-      <ul style="margin: 0 0 10px 16px; font-size: 0.95rem; line-height: 2;">
-        <li>① SNSのフォロワー数を確認する（借り物の土地）</li>
-        <li>② メール・LINEリストの登録者数を確認する（自分の土地）</li>
-        <li>③ 「自分の土地がゼロなら、どこからリスト作りを始めるか」1つ決める</li>
-      </ul>
-      <p style="font-size:0.9rem; color:#666; line-height:1.7;">
-        もしメール・LINEリストがまだない場合は、<br>
-        「無料プレゼント（PDF1枚でOK）を作って、SNSで登録を呼びかける」ことが最初の一歩になります。
-      </p>
+
+      <div class="step-flow" style="margin: 12px 0 0;">
+        <div class="step-item">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <div class="step-title">ペルソナを1人思い浮かべ、今一番困っていることを言葉にする</div>
+            <div class="step-desc">「30代で副業を始めたい会社員」が今週つぶやきそうなことは何か？</div>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <div class="step-title">その悩みに答える「小さな解決策」を1つ選ぶ</div>
+            <div class="step-desc">長文不要。「○○で悩んでいる人へ。こうするとうまくいきました」の一言でもOK。</div>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <div class="step-title">使いやすいチャネル（SNS・ブログ等）に投稿する</div>
+            <div class="step-desc">完璧を目指さない。「まず1本出す」ことが習慣への第一歩です。</div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="simple-box">
-      <div class="label">海外・リモートでも使えるツール例（公式で最新情報を確認のこと）</div>
-      📧 メルマガ：Mailchimp（無料プランあり）・ ConvertKit（現Kitブランドに変更）・ Brevo など<br>
-      💬 LINEリスト：LINE公式アカウント（日本向け）<br>
-      🌐 ランディングページ：Canva・Notion・Carrd など
+      <div class="label">継続のコツ</div>
+      「毎日投稿しなければ」と思うと続きません。<br>
+      <strong>最初は「週1本」でも十分。</strong>質の良い1本が、10本の浅い投稿より長く信頼を積み上げます。
     </div>
   </div>
 </div>
@@ -903,20 +867,20 @@
   <h2>📌 今日のまとめ</h2>
   <div class="summary-grid">
     <div class="summary-item">
-      <span class="s-emoji">🧲</span>
-      <p>見込み客（リード）＝まだ買っていないが興味を持っている人。連絡先を取得することが集客の核心</p>
+      <span class="s-emoji">🎁</span>
+      <p>コンテンツマーケ＝「役立つ情報で信頼を積み上げ、見込み客が自然に"買いたい"と思う状態を作ること」</p>
     </div>
     <div class="summary-item">
-      <span class="s-emoji">🔄</span>
-      <p>「知る → 興味 → 連絡先取得 → 信頼を育てる → 購入」の流れが基本。③の後が大事</p>
-    </div>
-    <div class="summary-item">
-      <span class="s-emoji">🏠</span>
-      <p>SNSフォロワーは「借り物」。メール・LINEリストが「自分の土地」。長期的な安定集客の基盤になる</p>
+      <span class="s-emoji">📊</span>
+      <p>広告の約3倍のリードを62%低コストで生める。61%のB2Bマーケターが「信頼構築」こそ最大の効果と回答（参考値）</p>
     </div>
     <div class="summary-item">
       <span class="s-emoji">⚖️</span>
-      <p>量より質。ペルソナに刺さる発信で「少数でも成約しやすい見込み客」を集めるのが最短ルート</p>
+      <p>「9割は価値提供・1割だけ告知」の目安で発信すると、告知しても嫌がられない関係が生まれる</p>
+    </div>
+    <div class="summary-item">
+      <span class="s-emoji">✏️</span>
+      <p>「ペルソナの悩み → 自分の解決策 → 今日から試せる一歩」の3つを意識するとネタが尽きない</p>
     </div>
   </div>
 </div>
@@ -926,7 +890,7 @@
   <strong>【免責事項】</strong><br>
   集客・売上の結果は業種・商品・市場環境・個人の取り組み方によって大きく異なります。本記事の内容が特定の成果を保証するものではありません。<br>
   紹介しているツール・プラットフォームの機能・料金・規約は変更される場合があります。最新情報は各サービスの公式サイトでご確認ください。<br>
-  引用統計は参照時点（2026年5月）の数値です。数値は調査元・調査対象によって異なる場合があります。
+  引用統計は参照時点（2026年5月）の数値であり、調査機関・対象・方法によって異なる場合があります。数値はあくまで参考値としてご覧ください。
 </div>
 
 <div class="footer-nav">
