@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI動画制作 最新トピック 2026-06-02</title>
+<style>
+:root{
+  --bg:#ece8e1;--card:#faf6ec;--dark:#1a3a5c;--dark2:#1a5c3a;
+  --accent:#1a4a6b;--accent2:#1a5c3a;--warm:#c4762a;
+  --text:#2a3540;--muted:#7c8a82;--border:#e0d8c8;
+  --wide:#2a5c8c;--std:#1a5c3a;--tele:#6b2a5c;
+  --widel:#e8f0f8;--stdl:#e8f5ee;--telel:#f5e8f5;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,"Hiragino Sans","Yu Gothic",sans-serif;line-height:1.7;padding:24px 16px;}
+.wrap{max-width:860px;margin:0 auto;}
+
+/* Header */
+.header{background:linear-gradient(135deg,var(--dark),var(--dark2));color:#fff;border-radius:20px;padding:40px 32px;text-align:center;box-shadow:0 8px 24px rgba(26,58,92,.22);margin-bottom:24px;}
+.date-badge{background:rgba(255,255,255,.18);color:#c8dde8;border-radius:20px;padding:4px 16px;font-size:.85rem;display:inline-block;margin-bottom:16px;letter-spacing:.08em;}
+.header h1{font-size:1.9rem;margin-bottom:8px;letter-spacing:.04em;}
+.header .subtitle{color:#c8dde8;font-size:1rem;}
+.tag-row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:14px;}
+.header .tag{background:rgba(255,255,255,.15);border-radius:12px;padding:3px 12px;font-size:.78rem;display:inline-block;color:#d8ecd4;}
+
+/* Section */
+.section{background:var(--card);border-radius:16px;padding:28px 24px;margin-bottom:20px;box-shadow:0 3px 12px rgba(0,0,0,.06);border:1px solid var(--border);}
+.section-title{font-size:1.1rem;font-weight:700;color:var(--accent);border-bottom:2px solid var(--border);padding-bottom:10px;margin-bottom:18px;display:flex;align-items:center;gap:8px;}
+
+/* Big number cards */
+.num-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:16px;}
+.num-card{color:#fff;border-radius:12px;padding:18px 12px;text-align:center;}
+.nc-wide{background:linear-gradient(135deg,#2a5c8c,#1a4a6b);}
+.nc-std{background:linear-gradient(135deg,#1a5c3a,#1a4a30);}
+.nc-tele{background:linear-gradient(135deg,#6b2a5c,#4a1a40);}
+.num-card .big{font-size:2.4rem;font-weight:800;line-height:1.1;display:block;}
+.num-card .label{font-size:.75rem;color:#d8e8f0;margin-top:4px;display:block;}
+.num-card .note{font-size:.7rem;color:#b8d0e0;margin-top:2px;display:block;}
+
+/* Lens diagram */
+.lens-diagram{display:flex;align-items:stretch;gap:0;margin:18px 0;border-radius:12px;overflow:hidden;border:1px solid var(--border);}
+.lens-col{flex:1;padding:16px 12px;text-align:center;}
+.lens-col.wide{background:var(--widel);border-right:1px solid var(--border);}
+.lens-col.std{background:var(--stdl);border-right:1px solid var(--border);}
+.lens-col.tele{background:var(--telel);}
+.lens-col .lens-icon{font-size:2rem;margin-bottom:8px;}
+.lens-col .lens-name{font-size:.9rem;font-weight:700;margin-bottom:4px;}
+.lens-col.wide .lens-name{color:var(--wide);}
+.lens-col.std .lens-name{color:var(--std);}
+.lens-col.tele .lens-name{color:var(--tele);}
+.lens-col .lens-mm{font-size:1.3rem;font-weight:800;margin-bottom:6px;}
+.lens-col.wide .lens-mm{color:var(--wide);}
+.lens-col.std .lens-mm{color:var(--std);}
+.lens-col.tele .lens-mm{color:var(--tele);}
+.lens-col .lens-desc{font-size:.75rem;color:var(--muted);line-height:1.5;}
+
+/* FOV visual */
+.fov-visual{margin:18px 0;display:flex;flex-direction:column;gap:8px;}
+.fov-row{display:flex;align-items:center;gap:12px;}
+.fov-label{font-size:.82rem;font-weight:700;width:80px;flex-shrink:0;}
+.fov-label.wide{color:var(--wide);}
+.fov-label.std{color:var(--std);}
+.fov-label.tele{color:var(--tele);}
+.fov-bar{height:28px;border-radius:6px;display:flex;align-items:center;padding:0 10px;}
+.fov-bar.wide{width:90%;background:linear-gradient(90deg,#2a5c8c,#5a8cbf);color:#fff;}
+.fov-bar.std{width:55%;background:linear-gradient(90deg,#1a5c3a,#4a8c6a);color:#fff;}
+.fov-bar.tele{width:20%;background:linear-gradient(90deg,#6b2a5c,#9a5a8c);color:#fff;}
+.fov-bar span{font-size:.75rem;white-space:nowrap;}
+.fov-caption{font-size:.78rem;color:var(--muted);text-align:center;margin-top:4px;}
+
+/* Comparison table */
+.comp-table{width:100%;border-collapse:collapse;margin-top:16px;font-size:.83rem;}
+.comp-table th{padding:10px 12px;text-align:left;color:#fff;}
+.comp-table th.h-wide{background:var(--wide);}
+.comp-table th.h-std{background:var(--std);}
+.comp-table th.h-tele{background:var(--tele);}
+.comp-table th.h-item{background:#555;border-radius:8px 0 0 0;}
+.comp-table td{padding:9px 12px;border-bottom:1px solid var(--border);vertical-align:top;}
+.comp-table tr:last-child td{border-bottom:none;}
+.comp-table tr:nth-child(even) td{background:#f5f0e8;}
+.comp-table th:first-child{border-radius:8px 0 0 0;}
+.comp-table th:last-child{border-radius:0 8px 0 0;}
+
+/* Step list */
+.steps{counter-reset:step;margin-top:16px;}
+.step{display:flex;gap:14px;align-items:flex-start;margin-bottom:14px;}
+.step-num{counter-increment:step;background:var(--accent);color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:700;flex-shrink:0;margin-top:2px;}
+.step-body h4{font-size:.9rem;font-weight:700;color:var(--accent);margin-bottom:3px;}
+.step-body p{font-size:.83rem;color:var(--text);}
+.step-prompt{background:#1a3a5c;color:#c8e8ff;border-radius:8px;padding:10px 12px;font-size:.78rem;font-family:monospace;margin-top:6px;line-height:1.6;}
+
+/* Example box */
+.example-box{background:#f0f4f8;border-left:4px solid var(--accent);border-radius:0 10px 10px 0;padding:14px 16px;margin-top:14px;}
+.example-box h4{font-size:.9rem;font-weight:700;color:var(--accent);margin-bottom:6px;}
+.example-box p{font-size:.83rem;color:var(--text);}
+
+/* Scene mood */
+.mood-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-top:16px;}
+.mood-card{border-radius:12px;padding:16px 14px;border:1px solid var(--border);}
+.mood-card.wide{background:var(--widel);border-color:#b8d0e8;}
+.mood-card.std{background:var(--stdl);border-color:#b8d8c8;}
+.mood-card.tele{background:var(--telel);border-color:#d8b8d0;}
+.mood-card .m-head{font-size:.88rem;font-weight:700;margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.mood-card.wide .m-head{color:var(--wide);}
+.mood-card.std .m-head{color:var(--std);}
+.mood-card.tele .m-head{color:var(--tele);}
+.mood-card ul{padding-left:16px;font-size:.8rem;color:var(--text);}
+.mood-card ul li{margin-bottom:2px;}
+
+/* Disclaimer */
+.disclaimer{background:#f5f0e8;border:1px solid var(--border);border-radius:12px;padding:16px;margin-top:20px;font-size:.78rem;color:var(--muted);line-height:1.6;}
+.disclaimer strong{color:var(--warm);}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="date-badge">2026-06-02 ／ エバーグリーン・技法</div>
+    <h1>AI動画制作 最新トピック</h1>
+    <div class="subtitle">画角（レンズ）の使い分け ── 広角・標準・望遠で映像の「世界観」が変わる</div>
+    <div class="tag-row">
+      <span class="tag">📷 カメラ知識</span>
+      <span class="tag">🔭 画角・レンズ</span>
+      <span class="tag">🎬 構図・演出</span>
+      <span class="tag">📝 プロンプト活用</span>
+    </div>
+  </div>
+
+  <!-- 画角とは -->
+  <div class="section">
+    <div class="section-title">📐 「画角」ってなに？</div>
+    <p>
+      <strong>画角（がかく）</strong>とは、カメラがどれだけの範囲を写せるかを示す角度のことです。
+      焦点距離（ミリ数 ＝ mm）という数値で表され、<strong>数値が小さいほど広く、大きいほど狭く遠くを写します</strong>。
+    </p>
+    <p style="margin-top:10px;font-size:.85rem;color:var(--muted);">
+      ＊焦点距離（しょうてんきょり）＝レンズの光が集まる点までの距離。フルサイズカメラ基準で話すのが一般的です。
+    </p>
+
+    <!-- 画角の視野イメージ -->
+    <div class="fov-visual">
+      <div class="fov-row">
+        <span class="fov-label wide">広角</span>
+        <div class="fov-bar wide"><span>← 広い範囲が写る →</span></div>
+      </div>
+      <div class="fov-row">
+        <span class="fov-label std">標準</span>
+        <div class="fov-bar std"><span>人の目に近い自然な範囲</span></div>
+      </div>
+      <div class="fov-row">
+        <span class="fov-label tele">望遠</span>
+        <div class="fov-bar tele"><span>狭い範囲を拡大</span></div>
+      </div>
+    </div>
+    <div class="fov-caption">↑ バーの長さが「写る範囲の広さ」のイメージです</div>
+
+    <!-- 代表的な焦点距離 -->
+    <div class="num-cards">
+      <div class="num-card nc-wide">
+        <span class="big">16mm</span>
+        <span class="label">超広角の代表</span>
+        <span class="note">建物全体・ドラマチックな空間</span>
+      </div>
+      <div class="num-card nc-wide">
+        <span class="big">24mm</span>
+        <span class="label">広角の定番</span>
+        <span class="note">風景・Vlog・旅の映像</span>
+      </div>
+      <div class="num-card nc-std">
+        <span class="big">50mm</span>
+        <span class="label">標準レンズ</span>
+        <span class="note">人の目に最も近い自然な画</span>
+      </div>
+      <div class="num-card nc-std">
+        <span class="big">85mm</span>
+        <span class="label">ポートレートの王様</span>
+        <span class="note">人物を美しく・背景をぼかす</span>
+      </div>
+      <div class="num-card nc-tele">
+        <span class="big">200mm</span>
+        <span class="label">望遠の代表</span>
+        <span class="note">スポーツ・野生動物・圧縮効果</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3種類の特徴 -->
+  <div class="section">
+    <div class="section-title">🔍 広角・標準・望遠 ── 3種類の特徴まとめ</div>
+
+    <div class="lens-diagram">
+      <div class="lens-col wide">
+        <div class="lens-icon">🌅</div>
+        <div class="lens-name">広角レンズ</div>
+        <div class="lens-mm">〜35mm</div>
+        <div class="lens-desc">
+          広い範囲を1枚に収める<br>
+          遠近感が強調される<br>
+          迫力ある映像に
+        </div>
+      </div>
+      <div class="lens-col std">
+        <div class="lens-icon">👁️</div>
+        <div class="lens-name">標準レンズ</div>
+        <div class="lens-mm">40〜70mm</div>
+        <div class="lens-desc">
+          人の目に近い自然な見え方<br>
+          違和感なく観やすい<br>
+          日常・会話シーンに
+        </div>
+      </div>
+      <div class="lens-col tele">
+        <div class="lens-icon">🔭</div>
+        <div class="lens-name">望遠レンズ</div>
+        <div class="lens-mm">85mm〜</div>
+        <div class="lens-desc">
+          遠くを大きく写す<br>
+          背景がなめらかにぼける<br>
+          被写体を引き立てる
+        </div>
+      </div>
+    </div>
+
+    <!-- 詳細比較表 -->
+    <table class="comp-table">
+      <tr>
+        <th class="h-item">比較項目</th>
+        <th class="h-wide">📷 広角（〜35mm）</th>
+        <th class="h-std">👁️ 標準（40〜70mm）</th>
+        <th class="h-tele">🔭 望遠（85mm〜）</th>
+      </tr>
+      <tr>
+        <td><strong>写る範囲</strong></td>
+        <td>広い（背景が多く入る）</td>
+        <td>自然（ふつう）</td>
+        <td>狭い（被写体だけ）</td>
+      </tr>
+      <tr>
+        <td><strong>遠近感</strong></td>
+        <td>強調される（奥行きがある）</td>
+        <td>自然な遠近感</td>
+        <td>圧縮される（奥が近く見える）</td>
+      </tr>
+      <tr>
+        <td><strong>背景のぼけ</strong></td>
+        <td>ぼけにくい（全部くっきり）</td>
+        <td>少しぼける</td>
+        <td>大きくぼける（被写体が際立つ）</td>
+      </tr>
+      <tr>
+        <td><strong>与える印象</strong></td>
+        <td>ダイナミック・臨場感・孤独</td>
+        <td>リアル・親近感・日常</td>
+        <td>美しい・緊張感・接近</td>
+      </tr>
+      <tr>
+        <td><strong>向いている場面</strong></td>
+        <td>風景・建築・アクション</td>
+        <td>会話・ドキュメンタリー</td>
+        <td>人物ポートレート・スポーツ</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- 映像の雰囲気・使い分け -->
+  <div class="section">
+    <div class="section-title">🎭 どんな「気持ち」を伝えたいか？ 場面別の使い分け</div>
+    <p>同じ「人物が歩くシーン」でも、レンズによって伝わる感情がまったく変わります。</p>
+
+    <div class="mood-grid">
+      <div class="mood-card wide">
+        <div class="m-head">🌅 広角で撮ると…</div>
+        <ul>
+          <li>広大な空間の中で人が小さく見える</li>
+          <li>→「孤独感」「自由」「壮大さ」</li>
+          <li>旅Vlog・冒険・ドラマの出会いシーン</li>
+          <li>ドローン映像・都市の全景にも◎</li>
+        </ul>
+      </div>
+      <div class="mood-card std">
+        <div class="m-head">👁️ 標準で撮ると…</div>
+        <ul>
+          <li>観ている人が「その場にいる」感覚</li>
+          <li>→「日常」「リアル」「親近感」</li>
+          <li>インタビュー・食べ物Vlog・日常vlog</li>
+          <li>ドキュメンタリー・ニュース映像に◎</li>
+        </ul>
+      </div>
+      <div class="mood-card tele">
+        <div class="m-head">🔭 望遠で撮ると…</div>
+        <ul>
+          <li>背景がぼけて被写体に目が向く</li>
+          <li>→「美しさ」「緊張感」「重厚感」</li>
+          <li>スポーツの決定的瞬間・映画的なシーン</li>
+          <li>料理の質感・花のアップにも◎</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 圧縮効果の補足 -->
+    <div class="example-box">
+      <h4>🗜️ 望遠の「圧縮効果」って？</h4>
+      <p>
+        望遠レンズで遠くから撮ると、手前と奥の距離感が縮まって見えます（圧縮効果）。
+        たとえば東京の交差点を望遠で撮ると、人や車が重なり合って「ぎっしり詰まった都市」に見えます。
+        映画では「主人公が街の喧騒に飲み込まれていく」演出によく使われるテクニックです。
+      </p>
+    </div>
+  </div>
+
+  <!-- AIプロンプトへの応用 -->
+  <div class="section">
+    <div class="section-title">📝 AIプロンプトで画角を指定するコツ</div>
+    <p>
+      Sora、Veo、Kling、RunwayなどのテキストtoビデオAIに、<strong>レンズの種類や焦点距離をプロンプトに書くと画角を意識した映像が生成されます</strong>。
+      英語で書くほど精度が上がることが多いです。
+    </p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h4>🌅 広角（ダイナミック・風景）で指定する</h4>
+          <p>超広角やドラマチックな遠近感を出したいとき：</p>
+          <div class="step-prompt">wide-angle shot, 16mm lens, dramatic perspective,<br>
+a lone figure walking through a vast desert at sunset,<br>
+deep depth of field, cinematic</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <h4>👁️ 標準（リアル・日常感）で指定する</h4>
+          <p>自然で違和感のない日常的な映像にしたいとき：</p>
+          <div class="step-prompt">50mm lens, natural perspective, eye-level camera,<br>
+two friends talking in a cozy cafe,<br>
+warm natural light, documentary style</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <h4>🔭 望遠（美しいぼけ・圧縮効果）で指定する</h4>
+          <p>被写体を際立たせ映画的な美しさを出したいとき：</p>
+          <div class="step-prompt">85mm portrait lens, shallow depth of field,<br>
+beautiful bokeh background, close-up of a woman's face,<br>
+golden hour lighting, cinematic color grade</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <h4>🗜️ 圧縮効果（望遠×群衆）で指定する</h4>
+          <p>望遠の圧縮効果で都市の密度感を表現したいとき：</p>
+          <div class="step-prompt">200mm telephoto lens, compression effect,<br>
+crowded Tokyo crossing, telephoto perspective,<br>
+people stacked together, urban density</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 真似できる実践例 -->
+  <div class="section">
+    <div class="section-title">🎯 今日から真似できる！ 30秒ショート動画の画角プラン</div>
+    <p>
+      「旅先で出会う景色」をテーマに、<strong>3ショットで画角を切り替えるだけ</strong>で映画のような動画が作れます。
+      AIツールに以下の3つのプロンプトを順番に入力して生成し、つなげましょう。
+    </p>
+
+    <!-- ショットプラン -->
+    <div style="display:flex;flex-direction:column;gap:10px;margin-top:16px;">
+      <div style="display:flex;align-items:flex-start;gap:12px;background:var(--widel);border-radius:10px;padding:14px 16px;border:1px solid #b8d0e8;">
+        <div style="background:var(--wide);color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;flex-shrink:0;">1</div>
+        <div>
+          <div style="font-weight:700;color:var(--wide);margin-bottom:4px;">🌅 Shot 1：広角ショット（5〜7秒）</div>
+          <div style="font-size:.83rem;">広大な風景に小さく人が映る「つかみ」のシーン。観ている人に「どこ？」と興味を持たせる。</div>
+          <div style="background:#1a3a5c;color:#c8e8ff;border-radius:6px;padding:8px 10px;font-size:.75rem;font-family:monospace;margin-top:6px;">wide-angle shot, 16mm lens, a tiny traveler walking<br>toward ancient ruins at golden hour, epic vista</div>
+        </div>
+      </div>
+
+      <div style="text-align:center;font-size:1.2rem;color:var(--warm);">↓</div>
+
+      <div style="display:flex;align-items:flex-start;gap:12px;background:var(--stdl);border-radius:10px;padding:14px 16px;border:1px solid #b8d8c8;">
+        <div style="background:var(--std);color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;flex-shrink:0;">2</div>
+        <div>
+          <div style="font-weight:700;color:var(--std);margin-bottom:4px;">👁️ Shot 2：標準ショット（8〜10秒）</div>
+          <div style="font-size:.83rem;">人物の上半身〜全体が自然に映る「親近感」のシーン。表情や行動が伝わりやすい。</div>
+          <div style="background:#1a3a5c;color:#c8e8ff;border-radius:6px;padding:8px 10px;font-size:.75rem;font-family:monospace;margin-top:6px;">50mm lens, natural perspective, traveler<br>exploring the ruins, curious expression, warm light</div>
+        </div>
+      </div>
+
+      <div style="text-align:center;font-size:1.2rem;color:var(--warm);">↓</div>
+
+      <div style="display:flex;align-items:flex-start;gap:12px;background:var(--telel);border-radius:10px;padding:14px 16px;border:1px solid #d8b8d0;">
+        <div style="background:var(--tele);color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;flex-shrink:0;">3</div>
+        <div>
+          <div style="font-weight:700;color:var(--tele);margin-bottom:4px;">🔭 Shot 3：望遠ショット（5〜7秒）</div>
+          <div style="font-size:.83rem;">表情のアップで感情を締める「余韻」のシーン。背景のぼけが映画感を出す。</div>
+          <div style="background:#1a3a5c;color:#c8e8ff;border-radius:6px;padding:8px 10px;font-size:.75rem;font-family:monospace;margin-top:6px;">85mm lens, shallow depth of field, close-up<br>of traveler's face, peaceful smile, soft bokeh</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:#fff3e0;border:1px solid #e8d0a8;border-radius:10px;padding:12px 14px;margin-top:14px;font-size:.83rem;">
+      💡 <strong>ポイント：</strong>広角→標準→望遠の順は「引き→普通→寄り」の流れ。観る人の目が自然に被写体に引き込まれます。逆順（望遠→広角）にすると「詳細→全体明かし」のドラマが生まれます。
+    </div>
+  </div>
+
+  <!-- まとめ -->
+  <div class="section">
+    <div class="section-title">📌 今日のまとめ</div>
+    <p style="margin-bottom:14px;">画角（レンズ）の選択は「どこを写すか」ではなく<strong>「どんな感情を伝えるか」</strong>の選択です。</p>
+    <table class="comp-table">
+      <tr>
+        <th class="h-item">レンズ</th>
+        <th class="h-wide">🌅 広角（〜35mm）</th>
+        <th class="h-std">👁️ 標準（50mm前後）</th>
+        <th class="h-tele">🔭 望遠（85mm〜）</th>
+      </tr>
+      <tr>
+        <td><strong>キーワード</strong></td>
+        <td>壮大・孤独・ダイナミック</td>
+        <td>自然・親近感・リアル</td>
+        <td>美しさ・緊張・圧縮感</td>
+      </tr>
+      <tr>
+        <td><strong>プロンプトの鍵</strong></td>
+        <td>wide-angle / 16〜24mm lens</td>
+        <td>50mm / natural perspective</td>
+        <td>85〜200mm / shallow DOF / bokeh</td>
+      </tr>
+      <tr>
+        <td><strong>すぐ使えるシーン</strong></td>
+        <td>風景・旅・アクション</td>
+        <td>会話・Vlog・日常</td>
+        <td>ポートレート・スポーツ・料理</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- 免責 -->
+  <div class="disclaimer">
+    <strong>⚠️ 免責事項：</strong>
+    AIツールの機能・プロンプトの効き方・料金・商用利用の可否は頻繁に変わります。最新情報と利用規約は必ず各ツールの公式ページでご確認ください。
+    本記事の画角・レンズに関する解説は一般的な映像制作の知識に基づくエバーグリーンなコンテンツです。
+  </div>
+
+</div>
+</body>
+</html>
