@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-06-03</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .cover {
+    background: linear-gradient(135deg, #1a2050 0%, #0d1030 100%);
+    color: white;
+    border-radius: 8px;
+    padding: 60px 40px;
+    text-align: center;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.3);
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+      0deg, transparent, transparent 28px,
+      rgba(255,255,255,0.05) 28px, rgba(255,255,255,0.05) 29px
+    );
+  }
+  .cover-emoji { font-size: 64px; display: block; margin-bottom: 16px; }
+  .cover h1 {
+    font-family: 'Klee One', sans-serif;
+    font-size: 2.0rem;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 12px;
+    position: relative;
+  }
+  .cover .subtitle { font-size: 1.0rem; opacity: 0.85; margin-bottom: 8px; position: relative; }
+  .cover .date-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 20px;
+    padding: 6px 20px;
+    font-size: 1rem;
+    margin-top: 16px;
+    position: relative;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 6px;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.12);
+    position: relative;
+    overflow: hidden;
+  }
+  .card-body {
+    padding: 28px 36px 28px 64px;
+    background: repeating-linear-gradient(
+      0deg, transparent, transparent 31px,
+      #e0d8c8 31px, #e0d8c8 32px
+    );
+    background-color: #fff9f0;
+    min-height: 200px;
+  }
+  .card-body::before {
+    content: '';
+    position: absolute;
+    left: 52px; top: 0; bottom: 0;
+    width: 2px;
+    background: #a0b8e8;
+    opacity: 0.7;
+  }
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 8px;
+    border-bottom: 2px dashed #c8b89a;
+  }
+  .card-emoji { font-size: 2rem; }
+  .card-title {
+    font-family: 'Klee One', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #2c3e50;
+    line-height: 1.3;
+  }
+  .topic-badge {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-left: auto;
+    white-space: nowrap;
+  }
+  .badge-red    { background: #ffe0e0; color: #c0392b; border: 1px solid #f5a0a0; }
+  .badge-blue   { background: #e0eeff; color: #2255aa; border: 1px solid #a0c0f5; }
+  .badge-green  { background: #e0f5e0; color: #1e7e34; border: 1px solid #a0d8a0; }
+  .badge-purple { background: #f0e0ff; color: #7b2fbe; border: 1px solid #c8a0f0; }
+  .badge-orange { background: #fff0d0; color: #cc6600; border: 1px solid #f0c070; }
+  .badge-olive  { background: #eef5d0; color: #556600; border: 1px solid #b8d070; }
+  .badge-teal   { background: #d0f0f0; color: #006060; border: 1px solid #80d0d0; }
+  .badge-navy   { background: #dde8ff; color: #1a3a6c; border: 1px solid #8aabee; }
+  .badge-indigo { background: #e8e0ff; color: #3a1a8c; border: 1px solid #a890ee; }
+
+  .simple-box {
+    background: #fff7e0;
+    border-left: 4px solid #f5c842;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin: 16px 0;
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+  .simple-box .label {
+    display: inline-block;
+    background: #f5c842;
+    color: #5a4000;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+  }
+
+  .info-box {
+    background: #eef4ff;
+    border-left: 4px solid #3366cc;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin: 16px 0;
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+  .info-box .label {
+    display: inline-block;
+    background: #3366cc;
+    color: white;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+  }
+
+  .alert-box {
+    background: #fff0f0;
+    border-left: 4px solid #e05050;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin: 16px 0;
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+  .alert-box .label {
+    display: inline-block;
+    background: #e05050;
+    color: white;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+  }
+
+  .point-list { list-style: none; padding: 0; margin: 12px 0; }
+  .point-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 0;
+    font-size: 0.97rem;
+    line-height: 1.7;
+    color: #333;
+    border-bottom: 1px dotted #ddd;
+  }
+  .point-list li:last-child { border-bottom: none; }
+  .point-list .marker {
+    flex-shrink: 0;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-top: 2px;
+  }
+  .marker-red    { background: #c0392b; color: white; }
+  .marker-orange { background: #cc6600; color: white; }
+  .marker-green  { background: #1e7e34; color: white; }
+  .marker-blue   { background: #2255aa; color: white; }
+  .marker-purple { background: #7b2fbe; color: white; }
+  .marker-olive  { background: #556600; color: white; }
+  .marker-teal   { background: #006060; color: white; }
+  .marker-navy   { background: #1a3a6c; color: white; }
+
+  .sticky {
+    background: #fff9c4;
+    border-radius: 4px;
+    padding: 12px 16px;
+    margin: 14px 0;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.1);
+    transform: rotate(-0.5deg);
+    display: inline-block;
+    width: 100%;
+    color: #4a3800;
+  }
+
+  .evidence-tag {
+    display: inline-block;
+    border-radius: 4px;
+    padding: 1px 7px;
+    font-size: 0.70rem;
+    margin: 0 2px;
+    font-weight: 600;
+    vertical-align: middle;
+  }
+  .evidence-tag.weak     { background: #fff3e0; border: 1px solid #f0c080; color: #884400; }
+  .evidence-tag.moderate { background: #e8f4f8; border: 1px solid #aaccdd; color: #336688; }
+  .evidence-tag.strong   { background: #e0f5e0; border: 1px solid #80cc80; color: #226622; }
+
+  .source {
+    font-size: 0.78rem;
+    color: #888;
+    margin-top: 14px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+    line-height: 1.7;
+  }
+  .source a { color: #5577aa; text-decoration: none; }
+  .source a:hover { text-decoration: underline; }
+
+  /* ── 数値カード ── */
+  .num-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: white;
+    border-radius: 10px;
+    padding: 16px 12px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.1);
+  }
+  .num-card.study-info { border-top: 4px solid #1a2050; }
+  .num-card.danger     { border-top: 4px solid #c03030; }
+  .num-card.safe       { border-top: 4px solid #3a8020; }
+  .num-card .num-val {
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 1.1;
+    display: block;
+  }
+  .num-card.study-info .num-val { color: #1a2050; }
+  .num-card.danger .num-val     { color: #8a1010; }
+  .num-card.safe .num-val       { color: #2a6010; }
+  .num-card .num-unit  { font-size: 0.85rem; color: #666; }
+  .num-card .num-label { font-size: 0.78rem; color: #888; margin-top: 6px; }
+
+  /* ── U字型グラフ ── */
+  .u-chart-wrap { margin: 20px 0; }
+  .u-chart-ylabel { font-size: 0.78rem; color: #666; margin-bottom: 6px; }
+  .u-chart {
+    display: flex;
+    align-items: flex-end;
+    gap: 6px;
+    height: 130px;
+    border-bottom: 2px solid #999;
+    border-left: 2px solid #999;
+    padding: 0 4px;
+  }
+  .u-bar-wrap { flex: 1; display: flex; flex-direction: column; align-items: center; height: 100%; justify-content: flex-end; }
+  .u-bar {
+    width: 100%;
+    border-radius: 4px 4px 0 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 5px;
+  }
+  .u-bar span { font-size: 0.62rem; font-weight: 700; color: white; text-align: center; line-height: 1.3; }
+  .u-bar.hi  { background: #c03030; }
+  .u-bar.mid { background: #d06030; }
+  .u-bar.lo  { background: #3a8020; }
+  .u-chart-x { display: flex; gap: 6px; margin-top: 6px; padding: 0 4px; }
+  .u-chart-x .xl { flex: 1; text-align: center; font-size: 0.75rem; color: #333; font-weight: 600; }
+  .u-chart-xlabel { text-align: center; font-size: 0.75rem; color: #777; margin-top: 4px; }
+  .u-chart-note   { text-align: center; font-size: 0.70rem; color: #aaa; margin-top: 6px; }
+
+  /* ── 比較カード ── */
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 16px 0;
+  }
+  @media (max-width: 520px) { .compare-grid { grid-template-columns: 1fr; } }
+  .compare-card {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.88rem;
+    line-height: 1.6;
+  }
+  .compare-card.danger  { background: #fff0f0; border: 2px solid #c03030; }
+  .compare-card.warning { background: #fff8f0; border: 2px solid #c07030; }
+  .compare-card .cc-head {
+    display: flex; align-items: center; gap: 8px;
+    margin-bottom: 10px; padding-bottom: 8px;
+    border-bottom: 1px dashed #ccc;
+  }
+  .compare-card .cc-icon  { font-size: 1.8rem; }
+  .compare-card .cc-title { font-weight: 700; font-size: 0.97rem; }
+  .compare-card.danger  .cc-title { color: #8a1010; }
+  .compare-card.warning .cc-title { color: #7a4000; }
+  .compare-card .cc-row { display: flex; gap: 6px; padding: 3px 0; font-size: 0.82rem; }
+  .cc-arr-r { color: #c03030; font-weight: 700; }
+  .cc-arr-o { color: #c07030; font-weight: 700; }
+
+  /* ── メカニズムフロー ── */
+  .mech-flow { display: flex; flex-direction: column; gap: 10px; margin: 12px 0; }
+  .mech-row  { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+  .mech-box  { border-radius: 8px; padding: 7px 12px; font-size: 0.82rem; line-height: 1.4; text-align: center; flex-shrink: 0; }
+  .mech-box.cause   { background: #1a2050; color: white; font-weight: 600; min-width: 72px; }
+  .mech-box.path    { background: #fff0d0; border: 2px solid #c09020; color: #6a4000; min-width: 120px; }
+  .mech-box.bad     { background: #fff0f0; border: 2px solid #c03030; color: #6a0000; font-weight: 600; }
+  .mech-arrow       { font-size: 1.2rem; color: #888; flex-shrink: 0; }
+
+  /* ── サマリー ── */
+  .summary-card {
+    background: linear-gradient(135deg, #1a2050 0%, #0d1030 100%);
+    color: white;
+    border-radius: 8px;
+    padding: 36px 40px;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 16px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .summary-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+      0deg, transparent, transparent 28px,
+      rgba(255,255,255,0.05) 28px, rgba(255,255,255,0.05) 29px
+    );
+  }
+  .summary-card .s-title {
+    font-size: 1.35rem;
+    font-weight: 600;
+    margin-bottom: 18px;
+    position: relative;
+    padding-bottom: 10px;
+    border-bottom: 2px dashed rgba(255,255,255,0.3);
+  }
+  .summary-card ul { list-style: none; padding: 0; position: relative; }
+  .summary-card ul li {
+    padding: 9px 0 9px 28px;
+    font-size: 0.97rem;
+    line-height: 1.7;
+    border-bottom: 1px dotted rgba(255,255,255,0.2);
+    position: relative;
+  }
+  .summary-card ul li::before {
+    content: '✔';
+    position: absolute; left: 0;
+    color: #a0c8ff; font-size: 0.9rem;
+  }
+  .summary-card ul li:last-child { border-bottom: none; }
+
+  /* ── 免責 ── */
+  .disclaimer {
+    width: 100%;
+    max-width: 820px;
+    background: #f5f0e8;
+    border: 1px solid #d0c8b8;
+    border-radius: 6px;
+    padding: 18px 24px;
+    font-size: 0.82rem;
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 40px;
+  }
+  .disclaimer strong { color: #444; }
+</style>
+</head>
+<body>
+
+<!-- ▼ カバー -->
+<div class="cover">
+  <span class="cover-emoji">😴🌙</span>
+  <h1>「短すぎ」も「長すぎ」も危険<br>睡眠時間とメタボの<br>U字型リスクカーブ</h1>
+  <div class="subtitle">睡眠・不眠・概日リズムとメタボリックシンドローム ── 2026年統合レビュー（Frontiers in Clinical Diabetes and Healthcare）</div>
+  <div class="date-badge">健康・栄養 最新トピック ／ 2026-06-03</div>
+</div>
+
+<!-- ▼ キーワード -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">📌</span>
+      <span class="card-title">今日のキーワード</span>
+      <span class="topic-badge badge-indigo">2026年統合レビュー</span>
+    </div>
+
+    <div class="simple-box">
+      <div class="label">メタボリックシンドローム（MetS）とは？</div>
+      内臓脂肪型肥満を基盤として、<strong>高血糖・高血圧・脂質異常</strong>が重なった状態のこと。心臓病・脳卒中・2型糖尿病を引き起こすリスクが大幅に上がる。日本では「腹囲（男性85 cm以上・女性90 cm以上）＋高血圧・高血糖・脂質異常のうち2つ以上」が診断の目安。
+    </div>
+
+    <div class="simple-box">
+      <div class="label">U字型リスクカーブとは？</div>
+      グラフで描いたときに「U」の形になるリスクパターン。睡眠の場合は<strong>「短すぎても長すぎてもリスクが上がり、適度な中間が最もリスクが低い」</strong>という関係を指す。
+    </div>
+
+    <div class="sticky">
+      💡 今日のポイント：「寝不足は体に悪い」はよく知られていますが、実は「寝すぎ」もメタボリスクを上げる可能性があります。また睡眠の「長さ」だけでなく「質・不眠・夜型生活（概日リズムのずれ）」も代謝に影響することを、2026年の統合レビューが改めてまとめました。
+    </div>
+  </div>
+</div>
+
+<!-- ▼ 研究概要 -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">🔬</span>
+      <span class="card-title">今日の研究 ── 2026年統合レビュー</span>
+      <span class="topic-badge badge-blue">統合レビュー</span>
+    </div>
+
+    <p style="font-size:0.93rem;line-height:1.8;margin-bottom:14px;">
+      <strong>Bewket B と Pimenta AM</strong>（エチオピア・ブラジル）が2026年に発表。「睡眠時間・不眠症・睡眠パターン」とメタボリックシンドロームの関係を複数の横断研究・コホート研究（観察研究）を体系的に収集・比較した「統合レビュー（integrative review）」。
+    </p>
+
+    <!-- 数値カード -->
+    <div class="num-grid">
+      <div class="num-card study-info">
+        <span class="num-val">統合</span>
+        <div class="num-unit">レビュー</div>
+        <div class="num-label">複数の観察研究を<br>体系的に比較</div>
+      </div>
+      <div class="num-card danger">
+        <span class="num-val">+15%</span>
+        <div class="num-unit">短時間睡眠のリスク増加</div>
+        <div class="num-label">MetSリスク上昇<br>（複数メタ分析・30万人超）</div>
+      </div>
+      <div class="num-card danger">
+        <span class="num-val">+19%</span>
+        <div class="num-unit">長時間睡眠のリスク増加</div>
+        <div class="num-label">MetSリスク上昇<br>（複数メタ分析・30万人超）</div>
+      </div>
+      <div class="num-card safe">
+        <span class="num-val">7時間</span>
+        <div class="num-unit">最もリスクが低い目安</div>
+        <div class="num-label">複数の観察研究で<br>一致した傾向</div>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <div class="label">エビデンスの強さについて</div>
+      本研究は「統合レビュー」= <span class="evidence-tag moderate">中程度のエビデンス</span>。含まれるデータは主に観察研究（横断研究・コホート研究）<span class="evidence-tag weak">相関のみ</span>であり、因果関係を直接証明するものではない。研究間で睡眠時間の定義・MetSの診断基準・測定方法が異なるため、結果には一定のばらつきがある点も著者らが明記している。+15%・+19%の数値は本レビューが参照する先行メタ分析（観察研究の統合、参加者30万人超）から引用。
+    </div>
+
+    <div class="source">
+      主な出典：Bewket B, Pimenta AM. "The association between sleep duration, insomnia and sleep patterns with metabolic syndrome: an integrative review."
+      <em>Frontiers in Clinical Diabetes and Healthcare</em>, 2026.
+      DOI: <a href="https://doi.org/10.3389/fcdhc.2026.1794920" target="_blank">10.3389/fcdhc.2026.1794920</a><br>
+      支持するメタ分析（30万人超）：Guo W et al. <em>Frontiers in Endocrinology</em> 2021.
+      DOI: <a href="https://doi.org/10.3389/fendo.2021.773646" target="_blank">10.3389/fendo.2021.773646</a>
+    </div>
+  </div>
+</div>
+
+<!-- ▼ U字型カーブ -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">📈</span>
+      <span class="card-title">U字型リスクカーブ ── 何時間が「適切」？</span>
+      <span class="topic-badge badge-red">リスク可視化</span>
+    </div>
+
+    <p style="font-size:0.93rem;line-height:1.8;margin-bottom:12px;">
+      複数の観察研究を統合すると、睡眠時間とMetSリスクの関係は「U字型」に描ける。
+    </p>
+
+    <!-- U字型グラフ（概念図） -->
+    <div class="u-chart-wrap">
+      <div class="u-chart-ylabel">↑ MetSリスク（相対値・概念図）</div>
+      <div class="u-chart">
+        <div class="u-bar-wrap">
+          <div class="u-bar hi" style="height:88%;"><span>かなり高</span></div>
+        </div>
+        <div class="u-bar-wrap">
+          <div class="u-bar mid" style="height:56%;"><span>高め</span></div>
+        </div>
+        <div class="u-bar-wrap">
+          <div class="u-bar lo" style="height:18%;"><span>低い</span></div>
+        </div>
+        <div class="u-bar-wrap">
+          <div class="u-bar lo" style="height:14%;"><span>最低</span></div>
+        </div>
+        <div class="u-bar-wrap">
+          <div class="u-bar mid" style="height:50%;"><span>高め</span></div>
+        </div>
+        <div class="u-bar-wrap">
+          <div class="u-bar hi" style="height:76%;"><span>かなり高</span></div>
+        </div>
+      </div>
+      <div class="u-chart-x">
+        <div class="xl">≤5時間</div>
+        <div class="xl">6時間</div>
+        <div class="xl">7時間</div>
+        <div class="xl">8時間</div>
+        <div class="xl">9時間</div>
+        <div class="xl">≥10時間</div>
+      </div>
+      <div class="u-chart-xlabel">↑ 1日の睡眠時間</div>
+      <div class="u-chart-note">※ 複数の観察研究の傾向を概念的に示したもの。各値は個人差があり、この図の数値はあくまで相対的な目安。</div>
+    </div>
+
+    <!-- 短すぎ vs 長すぎ -->
+    <div class="compare-grid" style="margin-top:20px;">
+      <div class="compare-card danger">
+        <div class="cc-head">
+          <span class="cc-icon">😫</span>
+          <div class="cc-title">短時間睡眠（≤6時間）</div>
+        </div>
+        <div class="cc-row"><span class="cc-arr-r">↑</span> MetSリスク +15%（観察研究メタ分析）</div>
+        <div class="cc-row"><span class="cc-arr-r">↑</span> 内臓脂肪・腹囲が増えやすい</div>
+        <div class="cc-row"><span class="cc-arr-r">↑</span> 食欲増進・カロリー摂取過剰</div>
+        <div class="cc-row"><span class="cc-arr-r">↑</span> 血圧・血糖が上がりやすい</div>
+        <div class="cc-row"><span class="cc-arr-r">↑</span> インスリン抵抗性が高まる</div>
+      </div>
+      <div class="compare-card warning">
+        <div class="cc-head">
+          <span class="cc-icon">💤</span>
+          <div class="cc-title">長時間睡眠（≥9時間）</div>
+        </div>
+        <div class="cc-row"><span class="cc-arr-o">↑</span> MetSリスク +19%（観察研究メタ分析）</div>
+        <div class="cc-row"><span class="cc-arr-o">？</span> 長睡眠は「病気・低活動の結果」の可能性</div>
+        <div class="cc-row"><span class="cc-arr-o">↓</span> 身体活動量が少なくなりがち</div>
+        <div class="cc-row"><span class="cc-arr-o">？</span> 因果の方向は短睡眠より不明瞭</div>
+        <div class="cc-row"><span class="cc-arr-o">！</span> 意図せず長く眠っている可能性あり</div>
+      </div>
+    </div>
+
+    <div class="sticky">
+      📝 「7〜8時間」がゴールデンゾーンとされることが多いが、これはあくまで集団平均的な観察結果。「7時間眠れば必ずMetSが防げる」という意味ではなく、個人差も大きい。
+    </div>
+  </div>
+</div>
+
+<!-- ▼ メカニズム -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">⚙️</span>
+      <span class="card-title">体の中で何が起きている？ ── 3つのメカニズム</span>
+      <span class="topic-badge badge-purple">メカニズム</span>
+    </div>
+
+    <p style="font-size:0.93rem;line-height:1.8;margin-bottom:14px;">
+      睡眠不足がなぜ代謝に悪影響を与えるのか？複数の実験・観察研究から、主に3つの経路が考えられている。
+    </p>
+
+    <!-- ①食欲ホルモン -->
+    <div class="info-box" style="padding-bottom:6px;">
+      <div class="label">メカニズム① 食欲ホルモンの乱れ</div>
+    </div>
+    <div class="mech-flow">
+      <div class="mech-row">
+        <div class="mech-box cause">睡眠不足</div>
+        <span class="mech-arrow">→</span>
+        <div class="mech-box path">レプチン↓<br>（満腹ホルモン減少）</div>
+        <span class="mech-arrow">→</span>
+        <div class="mech-box bad">満腹感が来ない<br>→ 食べ過ぎ</div>
+      </div>
+      <div class="mech-row">
+        <div class="mech-box cause">睡眠不足</div>
+        <span class="mech-arrow">→</span>
+        <div class="mech-box path">グレリン↑<br>（空腹ホルモン増加）</div>
+        <span class="mech-arrow">→</span>
+        <div class="mech-box bad">常に空腹感<br>→ 肥満・MetS↑</div>
+      </div>
+    </div>
+    <p style="font-size:0.78rem;color:#777;margin:6px 0 16px 0;">
+      ※ レプチン＝脂肪細胞から出る「お腹いっぱい」シグナル。グレリン＝胃から出る「もっと食べたい」シグナル。<br>
+      出典：Spiegel K et al. "Brief communication: Sleep curtailment in healthy young men is associated with decreased leptin levels, elevated ghrelin levels, and increased hunger and appetite." <em>Annals of Internal Medicine</em> 2004;141(11):846-850. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/15583226/" target="_blank">15583226</a>（実験研究、n=12男性、4時間 vs 10時間の睡眠を比較）
+    </p>
+
+    <!-- ②コルチゾール -->
+    <div class="info-box" style="padding-bottom:6px;">
+      <div class="label">メカニズム② ストレスホルモン（コルチゾール）の増加</div>
+    </div>
+    <div class="mech-flow">
+      <div class="mech-row">
+        <div class="mech-box cause">不眠・<br>睡眠不足</div>
+        <span class="mech-arrow">→</span>
+        <div class="mech-box path">HPA軸が過活性化<br>（ストレス応答系）</div>
+        <span class="mech-arrow">→</span>
+        <div class="mech-box bad">コルチゾール↑<br>→ 内臓脂肪↑<br>→ 血圧↑・血糖↑</div>
+      </div>
+    </div>
+    <p style="font-size:0.78rem;color:#777;margin:6px 0 16px 0;">
+      ※ HPA軸（視床下部－下垂体－副腎軸）= ストレスに反応するホルモン調節系。慢性的な睡眠不足でコルチゾールの分泌パターンが乱れ、内臓脂肪の蓄積とインスリン抵抗性（インスリンが効きにくい状態）が進みやすくなる。
+    </p>
+
+    <!-- ③インスリン抵抗性 -->
+    <div class="info-box" style="padding-bottom:6px;">
+      <div class="label">メカニズム③ インスリン感受性の低下</div>
+    </div>
+    <div class="mech-flow">
+      <div class="mech-row">
+        <div class="mech-box cause">睡眠不足</div>
+        <span class="mech-arrow">→</span>
+        <div class="mech-box path">筋肉・肝臓が<br>インスリンに<br>反応しにくくなる</div>
+        <span class="mech-arrow">→</span>
+        <div class="mech-box bad">血糖が下がらない<br>→ 膵臓が疲弊<br>→ 2型糖尿病リスク↑</div>
+      </div>
+    </div>
+    <p style="font-size:0.78rem;color:#777;margin:6px 0 4px 0;">
+      複数の実験研究でインスリン感受性の低下が確認されている。なお「短時間睡眠→MetSリスク上昇」の方向の因果関係は<strong>メンデルランダム化解析</strong>（遺伝情報を用いた因果推定手法）でも支持されている。<span class="evidence-tag moderate">因果推定あり</span><br>
+      出典：Xu C et al. "Association between sleep duration and metabolic syndrome: linear and nonlinear Mendelian randomization analyses." <em>Journal of Translational Medicine</em> 2023. <a href="https://doi.org/10.1186/s12967-023-03920-2" target="_blank">DOI: 10.1186/s12967-023-03920-2</a>
+    </p>
+  </div>
+</div>
+
+<!-- ▼ 睡眠の「量」だけじゃない -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">🌀</span>
+      <span class="card-title">長さだけじゃない ── 質・不眠・生活リズムも重要</span>
+      <span class="topic-badge badge-teal">追加の知見</span>
+    </div>
+    <p style="font-size:0.93rem;line-height:1.8;margin-bottom:12px;">
+      2026年の統合レビューは、睡眠の「時間以外の側面」も代謝に関係することを示した。
+    </p>
+
+    <ul class="point-list">
+      <li>
+        <span class="marker marker-purple">①</span>
+        <span><strong>睡眠の質・断片化（途中で何度も目が覚める）</strong>── 総睡眠時間が十分でも質が低いと、内臓脂肪蓄積やインスリン抵抗性と関連するという研究がある。睡眠時無呼吸症候群（SAS）は特に MetS との関係が深く、相互に悪化させ合う可能性がある。</span>
+      </li>
+      <li>
+        <span class="marker marker-purple">②</span>
+        <span><strong>不眠症（入眠困難・中途覚醒・早朝覚醒）</strong>── 慢性的な不眠は HPA 軸の過活性を通じてコルチゾールを持続的に上昇させる。MetS の構成要素（高血圧・高血糖）との関連が複数の観察研究で報告されている。</span>
+      </li>
+      <li>
+        <span class="marker marker-teal">③</span>
+        <span><strong>概日リズムのずれ（夜型生活・交代勤務）</strong>── 夜勤などで「体内時計と生活リズムがずれた」状態は、昼夜の血糖・脂質プロファイルを乱しMetSリスクを高める。女性での影響が大きいという報告もある。</span>
+      </li>
+      <li>
+        <span class="marker marker-orange">④</span>
+        <span><strong>睡眠不足の「慢性化」</strong>── 数年単位で睡眠が不足している場合に MetS 発症リスクが高まる傾向がある。1〜2日の寝不足で即座に代謝が崩れるわけではないが、慢性化するほど影響が大きくなる。</span>
+      </li>
+    </ul>
+
+    <div class="alert-box">
+      <div class="label">⚠️ 結果には一定のばらつきあり</div>
+      Bewket &amp; Pimenta 2026 のレビューは「研究間での定義・測定方法の違いから、結果には一定のばらつきがある」と明記している。「7時間眠ればMetSが防げる」というシンプルな結論ではなく、<strong>睡眠の量・質・タイミングを総合的に整えることが重要</strong>という解釈が適切。
+    </div>
+  </div>
+</div>
+
+<!-- ▼ 研究の限界 -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">🔍</span>
+      <span class="card-title">結論を出す前に知っておきたい「研究の限界」</span>
+      <span class="topic-badge badge-orange">批判的思考</span>
+    </div>
+    <ul class="point-list">
+      <li>
+        <span class="marker marker-orange">1</span>
+        <span><strong>観察研究なので「因果」は確定しない</strong>──「MetS の人が眠れない・長く眠る」という逆因果の可能性もある。特に長時間睡眠は「病気の結果としての睡眠増加」かもしれない。</span>
+      </li>
+      <li>
+        <span class="marker marker-orange">2</span>
+        <span><strong>睡眠時間の測定が自己申告（主観的）</strong>──多くの研究でウェアラブルではなくアンケートで睡眠を測定しており、誤差が大きい。「寝たと思っていても実際は浅い睡眠」のケースを区別できない。</span>
+      </li>
+      <li>
+        <span class="marker marker-orange">3</span>
+        <span><strong>MetSの定義が研究によって異なる</strong>──IDF基準・米国成人基準・日本基準など様々な定義があり、直接比較が難しい。</span>
+      </li>
+      <li>
+        <span class="marker marker-blue">4</span>
+        <span><strong>交絡因子の除去が不十分</strong>──運動習慣・食事内容・精神的ストレス・遺伝などが睡眠にも MetS にも影響しており、「睡眠だけの効果」を取り出すのは困難。</span>
+      </li>
+      <li>
+        <span class="marker marker-blue">5</span>
+        <span><strong>個人差が大きい</strong>──年齢・性別・遺伝的背景により「最適な睡眠時間」は人によって異なる。「7時間」は集団平均的な目安であり、全員に当てはまるわけではない。</span>
+      </li>
+    </ul>
+    <div class="sticky">
+      📝 メンデルランダム化解析（遺伝情報を使って因果を推定する手法）では「短時間睡眠→MetSリスク上昇」の方向の因果関係を支持するデータがある（Xu et al. 2023）。純粋な観察研究より信頼性が高いが、それでも完全な「因果の証明」ではない。
+    </div>
+  </div>
+</div>
+
+<!-- ▼ 実践ポイント -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">🧭</span>
+      <span class="card-title">今日からできること ── 睡眠と代謝を整えるヒント</span>
+      <span class="topic-badge badge-green">実践</span>
+    </div>
+    <ul class="point-list">
+      <li>
+        <span class="marker marker-green">1</span>
+        <span><strong>「7〜8時間」を目安に睡眠時間を確保する。</strong>ただし「とにかく長く寝ればいい」ではなく、起きている時間の活動量・日光浴・就寝時刻の規則性とセットで考える。</span>
+      </li>
+      <li>
+        <span class="marker marker-green">2</span>
+        <span><strong>就寝・起床時刻を毎日一定に保つ。</strong>休日の大幅な寝坊は体内時計をずらし（いわゆる「社会的時差ぼけ」）、代謝に悪影響を与える可能性がある。</span>
+      </li>
+      <li>
+        <span class="marker marker-green">3</span>
+        <span><strong>寝室を暗く・涼しく・静かに。</strong>光・騒音・高温は睡眠の質を落とす主な原因。就寝前のスマートフォン使用は体内時計を夜型にシフトさせる（ブルーライトの影響）。</span>
+      </li>
+      <li>
+        <span class="marker marker-blue">4</span>
+        <span><strong>いびき・昼間の強い眠気・何度も目が覚める症状があれば、睡眠時無呼吸症候群（SAS）の検査を。</strong>SAS は MetS と双方向に関係し、見落とされやすいが治療可能な原因の一つ。</span>
+      </li>
+      <li>
+        <span class="marker marker-olive">5</span>
+        <span>「十分に眠れているはずなのに MetS 指標が悪い」「どうしても眠れない」場合は、睡眠専門医・内科医・管理栄養士に相談。睡眠薬・サプリの自己判断での使用は避ける。</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- ▼ まとめ -->
+<div class="summary-card">
+  <div class="s-title">📝 今日のまとめ</div>
+  <ul>
+    <li>睡眠時間とメタボリックシンドロームのリスクは「U字型」の関係がある。短すぎ（≤6時間）も長すぎ（≥9時間）もリスクを高め、7時間前後が最もリスクが低い傾向（複数の観察研究ベース）。</li>
+    <li>2026年の統合レビュー（Bewket &amp; Pimenta, Frontiers in Clinical Diabetes and Healthcare, DOI: 10.3389/fcdhc.2026.1794920）は、「不眠・睡眠の質・概日リズムのずれ」も代謝に影響することを示した。</li>
+    <li>主なメカニズムは ①食欲ホルモン（レプチン↓・グレリン↑）の乱れ → 過食、②ストレスホルモン（コルチゾール）増加 → 内臓脂肪↑、③インスリン感受性の低下 → 血糖管理の悪化。</li>
+    <li>ただし多くのデータは観察研究であり「相関」を示すもの。長時間睡眠は「MetS や疾患の結果」という逆因果の可能性もある。メンデルランダム化解析は短時間睡眠→MetS 上昇の方向の因果を支持している。</li>
+    <li>「7時間眠れば必ずMetSが防げる」ではなく、睡眠の量・質・規則性を総合的に整えることが重要。食事・運動・ストレス管理など他の生活習慣とのセットで考えることが大切。</li>
+  </ul>
+</div>
+
+<!-- ▼ 免責 -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な健康情報の解説であり、医療上のアドバイスではありません。睡眠に関する問題・生活習慣の改善・サプリメントの使用などを実践する際は、かかりつけ医・睡眠専門医・管理栄養士などの専門家にご相談ください。効果・リスクは個人の体質・年齢・持病（睡眠時無呼吸症候群・糖尿病・精神疾患など）・服薬状況によって大きく異なります。本記事に記載の数値・研究結果は現時点（2026-06-03）で確認できる査読済み論文・公的資料に基づいていますが、科学は日々更新されます。最新情報は一次情報源をご確認ください。
+</div>
+
+</body>
+</html>

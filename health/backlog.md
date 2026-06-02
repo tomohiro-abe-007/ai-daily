@@ -24,10 +24,11 @@
 - 胆汁酸と腸内細菌の相互作用 ── 代謝疾患・肝臓への影響
 - ポリフェノールの種類別エビデンス ── フラボノイド・レスベラトロール・クルクミンの比較
 - 地中海食の総合エビデンス ── PREDIMED・PREDIMED-Plusの全容と最新2026年結果
-- 睡眠不足と代謝・メタボリックシンドローム ── U字型リスクカーブと2026年統合レビュー
 - NOVA分類の限界と改善案 ── アジア・日本の食文化への適用問題（2023〜2025年論文）
 
 ## 使用済みテーマ
+
+- 2026-06-03: 睡眠時間とメタボリックシンドロームのU字型リスクカーブ ── Bewket B, Pimenta AM (Frontiers in Clinical Diabetes and Healthcare 2026, DOI: 10.3389/fcdhc.2026.1794920)
 
 - 2026-06-02: 時間制限食（TRE）とカロリー制御 ── ChronoFast試験（Peters et al., Science Translational Medicine 2025;17(822):eadv6787, PMID: 41160666、n=31, RCTクロスオーバー、DIfE/Charité/DZD）
 

@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>デジタルノマド 最新トピック 2026-06-03</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    color: #2a2a2a;
+  }
+  .hero {
+    background: linear-gradient(135deg, #2c6e4e 0%, #1a4033 100%);
+    color: white;
+    border-radius: 10px;
+    padding: 48px 40px;
+    text-align: center;
+    width: 100%;
+    max-width: 760px;
+    margin-bottom: 28px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .hero .label {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 0.8rem;
+    margin-bottom: 14px;
+    letter-spacing: 0.05em;
+  }
+  .hero h1 { font-size: 1.6rem; margin-bottom: 12px; line-height: 1.5; }
+  .hero .meta { opacity: 0.8; font-size: 0.88rem; line-height: 1.7; }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 8px;
+    padding: 28px 32px;
+    width: 100%;
+    max-width: 760px;
+    margin-bottom: 20px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.08);
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #2c6e4e;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px dashed #b2d4c4;
+  }
+  .card p { font-size: 0.93rem; line-height: 1.85; margin-bottom: 10px; }
+  .card p:last-child { margin-bottom: 0; }
+
+  /* ハイライト・アラートボックス */
+  .highlight-box {
+    background: #e8f5ef;
+    border-left: 4px solid #2c6e4e;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .highlight-box .hlabel {
+    font-size: 0.75rem;
+    color: #2c6e4e;
+    font-weight: 600;
+    margin-bottom: 6px;
+    display: block;
+  }
+  .highlight-box p { font-size: 0.9rem; margin: 0; }
+  .alert-box {
+    background: #fff3cd;
+    border-left: 4px solid #e8a000;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .alert-box .alabel {
+    font-size: 0.75rem;
+    color: #b07700;
+    font-weight: 600;
+    margin-bottom: 6px;
+    display: block;
+  }
+  .alert-box p { font-size: 0.9rem; margin: 0; }
+
+  /* 大きい数字カード */
+  .number-row {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin: 14px 0;
+  }
+  .number-card {
+    flex: 1;
+    min-width: 130px;
+    background: #2c6e4e;
+    color: white;
+    border-radius: 8px;
+    padding: 18px 14px;
+    text-align: center;
+  }
+  .number-card .num {
+    font-size: 1.7rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    line-height: 1.2;
+  }
+  .number-card .desc {
+    font-size: 0.75rem;
+    opacity: 0.9;
+    line-height: 1.5;
+  }
+
+  /* フロー図 */
+  .flow-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin: 14px 0;
+  }
+  .flow-row {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+  }
+  .flow-box {
+    flex: 1;
+    background: #2c6e4e;
+    color: white;
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+  .flow-box .fb-label {
+    font-size: 0.7rem;
+    opacity: 0.8;
+    margin-bottom: 4px;
+    display: block;
+  }
+  .flow-box strong { font-size: 0.95rem; }
+  .flow-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 8px;
+    font-size: 1.4rem;
+    color: #2c6e4e;
+    font-weight: bold;
+  }
+  .flow-box.sub {
+    background: #4a9e74;
+  }
+  .flow-box.light {
+    background: #e8f5ef;
+    color: #2a2a2a;
+    border: 1.5px solid #b2d4c4;
+  }
+
+  /* ステップリスト */
+  .step-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 12px 0;
+  }
+  .step-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .step-num {
+    background: #2c6e4e;
+    color: white;
+    border-radius: 50%;
+    min-width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.78rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .step-list li div { font-size: 0.9rem; line-height: 1.7; }
+
+  /* 書類リスト */
+  .doc-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 12px 0;
+  }
+  .doc-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 12px;
+    background: #f5fbf8;
+    border-radius: 6px;
+    border: 1px solid #c8e6d8;
+  }
+  .doc-list .ico {
+    font-size: 1.2rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .doc-list li div { font-size: 0.88rem; line-height: 1.7; }
+
+  /* 対比カード */
+  .compare-row {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin: 14px 0;
+  }
+  .compare-card {
+    flex: 1;
+    min-width: 180px;
+    border-radius: 8px;
+    padding: 16px 16px;
+    font-size: 0.88rem;
+    line-height: 1.7;
+  }
+  .compare-card h3 {
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+    padding-bottom: 6px;
+    border-bottom: 1.5px dashed;
+  }
+  .compare-card.green { background: #e8f5ef; border: 1.5px solid #2c6e4e; }
+  .compare-card.green h3 { color: #2c6e4e; border-color: #b2d4c4; }
+  .compare-card.amber { background: #fff8e8; border: 1.5px solid #c9920a; }
+  .compare-card.amber h3 { color: #a07800; border-color: #f0d080; }
+
+  /* タグ */
+  .tag {
+    display: inline-block;
+    background: #2c6e4e;
+    color: white;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+    vertical-align: middle;
+  }
+  .new-badge {
+    display: inline-block;
+    background: #e74c3c;
+    color: white;
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 10px;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+
+  /* 出典 */
+  .source-list {
+    font-size: 0.78rem;
+    color: #888;
+    margin-top: 12px;
+    line-height: 1.8;
+  }
+  .source-list a { color: #4a9e74; word-break: break-all; }
+
+  /* フッター */
+  .footer {
+    background: #e8e0d4;
+    border-radius: 8px;
+    padding: 22px 28px;
+    width: 100%;
+    max-width: 760px;
+    margin-top: 8px;
+    font-size: 0.82rem;
+    line-height: 1.85;
+    color: #555;
+  }
+  .footer strong { color: #2a2a2a; }
+</style>
+</head>
+<body>
+
+<!-- ヒーロー -->
+<div class="hero">
+  <div class="label">デジタルノマド日報 ・ 2026-06-03</div>
+  <h1>🇪🇸 国際遠隔就労ビザ 初回申請フロー<br>在日スペイン大使館 → 居住許可取得まで</h1>
+  <div class="meta">
+    バックログ解説：スペインDNV 新規申請要件と必要書類<br>
+    情報基準：2026年版各種申請ガイド ／ 出典複数確認
+  </div>
+</div>
+
+<!-- 3行まとめ -->
+<div class="card">
+  <h2>📌 今日のポイント（3行まとめ）</h2>
+  <p>スペインの国際遠隔就労ビザ（Visado para teletrabajo de carácter internacional）は、<strong>2段階の申請</strong>で完結します。まず日本のスペイン大使館で「査証（Visado）」を取得し、スペイン入国後60日以内に「居住許可（Autorización de residencia）」へ切り替えます。</p>
+  <p>必要書類は<strong>8〜10点</strong>で、収入証明・犯罪経歴証明・健康保険証明が3大難関です。アポスティーユ（外国書類を公的に認証する手続き）や西語翻訳に時間がかかるため、<strong>申請の3〜6か月前から動き出す</strong>のが鉄則です。</p>
+  <p>日本の1人法人を持つ方は「法人を通じて世界から稼いでいる」ことを書類で証明する必要があり、<strong>法人登記事項証明＋アポスティーユ</strong>が追加で必要です。</p>
+</div>
+
+<!-- 全体フロー図 -->
+<div class="card">
+  <h2>🗺️ 全体フロー：2段階で取得する仕組み</h2>
+  <p>スペインの国際遠隔就労ビザは「まず短期の査証で入国し、スペイン国内で長期の居住許可に切り替える」構造です。</p>
+
+  <div class="flow-wrap">
+    <!-- Step 1 -->
+    <div class="flow-row">
+      <div class="flow-box">
+        <span class="fb-label">📍 STEP 1 ── 日本（申請準備）</span>
+        <strong>書類収集・翻訳・認証</strong><br>
+        健康保険加入 ／ 犯罪経歴証明取得<br>
+        アポスティーユ申請 ／ 西語翻訳
+      </div>
+    </div>
+    <div class="flow-arrow">▼</div>
+
+    <!-- Step 2 -->
+    <div class="flow-row">
+      <div class="flow-box sub">
+        <span class="fb-label">📍 STEP 2 ── 在日スペイン大使館（東京）</span>
+        <strong>Visado（査証）の申請・取得</strong><br>
+        本人が窓口で申請 ／ 審査 20〜45営業日目安<br>
+        取得後：スペインへ入国可能（有効期間 最長1年）
+      </div>
+    </div>
+    <div class="flow-arrow">▼</div>
+
+    <!-- Step 3 -->
+    <div class="flow-row">
+      <div class="flow-box">
+        <span class="fb-label">📍 STEP 3 ── スペイン入国後（60日以内に手続き）</span>
+        <strong>住民登録（empadronamiento）＋ TIE 申請</strong><br>
+        市役所で住所登録 → 警察署で TIE（滞在許可証）申請
+      </div>
+    </div>
+    <div class="flow-arrow">▼</div>
+
+    <!-- Step 4 -->
+    <div class="flow-row">
+      <div class="flow-box sub">
+        <span class="fb-label">📍 STEP 4 ── UGE（スペイン移民局）</span>
+        <strong>Autorización de residencia（居住許可）の取得</strong><br>
+        有効期間：最初の3年間 → 更新で合計5年に<br>
+        社会保険（autónomo 等）への登録も義務
+      </div>
+    </div>
+  </div>
+
+  <div class="alert-box">
+    <span class="alabel">⚠️ 重要：日本↔スペインを行き来するケース</span>
+    <p>査証を持ってスペインに入国し、60日以内に TIE 申請と居住許可の切り替えを完了させる必要があります。観光ビザや他の在留資格（Non-Lucrative Visa等）からスペイン国内での切り替えは<strong>2026年に原則禁止</strong>が確認されています。</p>
+  </div>
+
+  <div class="source-list">
+    出典：
+    <a href="https://www.exteriores.gob.es/Consulados/nuevayork/en/ServiciosConsulares/Paginas/Consular/Visado-de-teletrabajo.aspx">スペイン外務省 Telework visa（NY領事館公式）</a>、
+    <a href="https://citizenremote.com/visas/spain-digital-nomad-visa/">CitizenRemote 2026 ガイド</a>
+  </div>
+</div>
+
+<!-- 資格要件 -->
+<div class="card">
+  <h2>✅ まず「自分は申請できる？」── 4つの資格要件</h2>
+  <p>書類収集の前に、次の4要件をすべて満たしているか確認してください。</p>
+
+  <ul class="step-list">
+    <li>
+      <div class="step-num">①</div>
+      <div><strong>スペイン国外の会社（または自分の法人）から収入を得ている</strong><br>
+      雇用主・取引先がスペイン国外に所在すること。日本の1人法人を通じた収入はこの要件を満たします。</div>
+    </li>
+    <li>
+      <div class="step-num">②</div>
+      <div><strong>スペイン国内の顧客からの収入が全体の20%以内</strong><br>
+      スペイン国内クライアントへの売上が全収入の20%を超えると資格を満たせません。（更新時に実績で審査される）</div>
+    </li>
+    <li>
+      <div class="step-num">③</div>
+      <div><strong>月収が最低ラインを超えている</strong><br>
+      1人なら月€2,849以上（2026年SMIの200%、12か月換算。詳細は下の数字カード参照）。</div>
+    </li>
+    <li>
+      <div class="step-num">④</div>
+      <div><strong>学歴または職歴を証明できる</strong><br>
+      大学・大学院卒の証明書、<em>または</em>現在の仕事分野で3年以上の職歴。どちらかひとつでOK。</div>
+    </li>
+  </ul>
+</div>
+
+<!-- 収入要件の数字カード -->
+<div class="card">
+  <h2>💶 2026年版 収入要件 ── 数字で見る</h2>
+
+  <div class="number-row">
+    <div class="number-card">
+      <div class="num">€2,849</div>
+      <div class="desc">単身者の<br>最低月収<br>（実務上の目安）</div>
+    </div>
+    <div class="number-card">
+      <div class="num">+€916</div>
+      <div class="desc">扶養家族<br>1人目の<br>上乗せ額</div>
+    </div>
+    <div class="number-card">
+      <div class="num">+€305</div>
+      <div class="desc">2人目以降の<br>扶養家族<br>（1人あたり）</div>
+    </div>
+    <div class="number-card">
+      <div class="num">20%</div>
+      <div class="desc">スペイン国内<br>収入の上限</div>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <span class="hlabel">なぜ「€2,849」なのか（05-30 解説のおさらい）</span>
+    <p>2026年スペイン最低賃金（SMI）の年額 €17,094 を12か月で割って2倍（200%）にすると <strong>€2,849</strong>。サイトによって €2,442 と書かれている場合は14払い換算です。移民弁護士に相談の際は「実際にどの計算式で判定されるか」を確認してください（基準：2026年2月、Royal Decree 126/2026）。</p>
+  </div>
+
+  <div class="source-list">
+    出典：
+    <a href="https://www.jobbatical.com/blog/spain-digital-nomad-visa-income-smi-increase">Jobbatical – €2,849 Income Guide（2026）</a>、
+    <a href="https://www.vissumlex.com/en/post/spain-digital-nomad-visa-requirements-2026-income-calculation-based-on-smi">Vissumlex – SMI 計算解説（2026）</a>
+  </div>
+</div>
+
+<!-- 必要書類リスト -->
+<div class="card">
+  <h2>📂 必要書類リスト（在日スペイン大使館での申請）</h2>
+  <p>以下が基本の必要書類です。書類によっては<strong>アポスティーユ（外国書類を公的に認証するハーグ条約の手続き）＋ 西語訳</strong>が必要です。</p>
+
+  <ul class="doc-list">
+    <li>
+      <span class="ico">📝</span>
+      <div><strong>ビザ申請書</strong>（スペイン外務省の公式様式）<br>
+      本人が署名。大使館窓口または公式サイトから取得。<br>
+      <span class="tag">無料</span></div>
+    </li>
+    <li>
+      <span class="ico">📸</span>
+      <div><strong>証明写真</strong>（最近のもの）<br>
+      申請書の所定欄に貼付。</div>
+    </li>
+    <li>
+      <span class="ico">🛂</span>
+      <div><strong>有効なパスポート</strong>（原本＋コピー）<br>
+      残存期間1年以上・空白ページ2枚以上が必要。<em>発行から10年超のパスポートは不可。</em></div>
+    </li>
+    <li>
+      <span class="ico">🔍</span>
+      <div><strong>犯罪経歴証明書</strong>（過去5年間に住んだすべての国から）<br>
+      日本在住の場合：法務省の「犯罪経歴証明書」を取得し、外務省のアポスティーユを取得後、スペイン語に翻訳（翻訳は公証または宣誓翻訳者による翻訳が必要な場合あり）。<br>
+      <span class="tag">アポスティーユ必須</span> <span class="tag">西語翻訳必須</span></div>
+    </li>
+    <li>
+      <span class="ico">🏥</span>
+      <div><strong>健康保険証明書</strong>（スペイン国内で有効なもの）<br>
+      スペインで認可された保険会社の保険に限る。<em>自己負担なし（コペイなし）・上限額なし・入院外来リハビリ含む全リスクカバー</em>が条件。旅行保険は不可。<br>
+      <span class="tag">スペイン認可保険会社に限る</span></div>
+    </li>
+    <li>
+      <span class="ico">💰</span>
+      <div><strong>収入証明</strong>（直近3か月以上の銀行明細 または 会計書類）<br>
+      月額€2,849以上を継続的に受け取っていることの証明。フィンテック銀行（Wise・Revolut等）のデジタル明細は認められない場合があります。<br>
+      <span class="tag">3か月分以上</span></div>
+    </li>
+    <li>
+      <span class="ico">📃</span>
+      <div><strong>雇用契約書 または 業務委託契約書</strong>（スペイン国外の雇用主・クライアントとの契約）<br>
+      ① 申請日の<em>3か月以上前</em>から有効な契約であること。② スペイン入国後も<em>1年以上継続予定</em>であることが示されていること。③ 仕事の内容が<em>完全にリモート</em>と分かる記述が必要（現地作業・対面業務を示す記述は拒否される）。<br>
+      <span class="tag">3か月以上の実績</span> <span class="tag">1年継続の見込み明記</span></div>
+    </li>
+    <li>
+      <span class="ico">🎓</span>
+      <div><strong>学歴証明書 または 職歴証明書</strong>（どちらかひとつ）<br>
+      ・大学卒業証書（学位記）＋アポスティーユ＋西語翻訳<br>
+      ・または：同一分野での3年以上の職歴証明（推薦状・在籍証明等）<br>
+      <span class="tag">アポスティーユ必須</span> <span class="tag">西語翻訳必須</span></div>
+    </li>
+  </ul>
+</div>
+
+<!-- 日本の1人法人オーナー向け追加書類 -->
+<div class="card">
+  <h2>🏢 日本の1人法人オーナーが追加で必要な書類</h2>
+  <p>「自分が代表の日本法人から役員報酬を受け取っている」ケースでは、通常の雇用者向け書類に加えて以下が必要です。</p>
+
+  <ul class="doc-list">
+    <li>
+      <span class="ico">📑</span>
+      <div><strong>法人登記事項証明書</strong>（法務局で取得）<br>
+      会社が実際に存在すること・自分が代表者であることを証明。アポスティーユ取得後、西語翻訳が必要。<br>
+      <span class="tag">アポスティーユ必須</span> <span class="tag">西語翻訳必須</span></div>
+    </li>
+    <li>
+      <span class="ico">📋</span>
+      <div><strong>役員委任契約書（Director Service Agreement）または定款</strong><br>
+      法人から自分への役員報酬支払いの根拠を示す書類。役員報酬の金額・継続性が分かること。</div>
+    </li>
+    <li>
+      <span class="ico">💼</span>
+      <div><strong>法人の売上・取引先の証明書類</strong><br>
+      日本法人がスペイン国外の顧客から収入を得ていること（スペイン国内収入が20%未満）を示す請求書・銀行明細・取引先一覧など。</div>
+    </li>
+    <li>
+      <span class="ico">🗂️</span>
+      <div><strong>法人税申告書（直近期）</strong><br>
+      会社の経営実態を証明する補足書類として求められることがある。</div>
+    </li>
+  </ul>
+
+  <div class="highlight-box">
+    <span class="hlabel">自分会社の「雇用主」と「従業員」が同一人物でOK？</span>
+    <p>スペインの移民法では、自分が代表者の法人を通じた申請（オーナー兼従業員）は認められています。ただし、法人の実態（稼働している、実際に取引がある）を書類でしっかり示すことが重要です。形式だけのペーパーカンパニーと判断されると拒否されます。</p>
+  </div>
+
+  <div class="source-list">
+    出典：
+    <a href="https://citizenremote.com/visas/spain-digital-nomad-visa/">CitizenRemote – Document requirements（2026）</a>、
+    <a href="https://www.exteriores.gob.es/Consulados/houston/en/ServiciosConsulares/Paginas/Consular/TELEWORK-Visa-(Digital-Nomad-Visa)-.aspx">スペイン外務省 Houston 領事館 公式ページ（英語）</a>
+  </div>
+</div>
+
+<!-- 申請ルートの比較 -->
+<div class="card">
+  <h2>⚖️ 申請ルートの比較：日本の大使館 vs スペイン国内</h2>
+
+  <div class="compare-row">
+    <div class="compare-card green">
+      <h3>🇯🇵 日本の大使館から申請（推奨）</h3>
+      <strong>対象：</strong>日本在住で初めてスペインに移住するケース<br><br>
+      <strong>窓口：</strong>在日スペイン大使館領事部（東京）<br><br>
+      <strong>取得できるもの：</strong>Visado（査証）1年間<br><br>
+      <strong>審査期間目安：</strong>20〜45営業日（約1〜2か月）<br><br>
+      <strong>費用：</strong>約 €90（円換算は申請時のレートを確認）<br><br>
+      <strong>メリット：</strong>日本にいながら申請でき、スペイン到着後に余裕を持って手続きできる
+    </div>
+    <div class="compare-card amber">
+      <h3>🇪🇸 スペイン国内から申請（条件あり）</h3>
+      <strong>対象：</strong>すでに有効な就労ビザで在留中のみ<br><br>
+      <strong>窓口：</strong>UGE（スペイン移民局）<br><br>
+      <strong>取得できるもの：</strong>Autorización de residencia 直接取得<br><br>
+      <strong>審査期間目安：</strong>16〜18営業日（法定20営業日以内）<br><br>
+      <strong>費用：</strong>€73.26<br><br>
+      <strong>⚠️ 注意：</strong>観光ビザ・Non-Lucrative Visa（非就労型）からの切り替えは<strong>2026年に原則禁止</strong>。必ず国外に出てスペイン大使館から申請し直す必要がある
+    </div>
+  </div>
+</div>
+
+<!-- スペイン到着後の手続き -->
+<div class="card">
+  <h2>🏠 スペイン到着後の手続き（60日以内に完了）</h2>
+  <p>査証（Visado）でスペインに入国したあと、<strong>60日以内</strong>に以下の手続きを完了してください。</p>
+
+  <ul class="step-list">
+    <li>
+      <div class="step-num">1</div>
+      <div>
+        <strong>empadronamiento（エンパドロナミエント） ── 住民登録</strong><br>
+        近くの市役所（Ayuntamiento）で住所登録する手続き。日本の「転入届」に相当します。<em>即日発行</em>が原則で、無料。この「Padrón（パドロン）」があらゆる手続きの起点になります。
+      </div>
+    </li>
+    <li>
+      <div class="step-num">2</div>
+      <div>
+        <strong>TIE（ティエ）の申請 ── 外国人滞在許可証</strong><br>
+        正式名称：Tarjeta de Identidad de Extranjero（外国人身分証明カード）。警察署の外国人窓口で指紋登録し申請。発行まで30〜45日かかります。発行手数料：€16.08。
+      </div>
+    </li>
+    <li>
+      <div class="step-num">3</div>
+      <div>
+        <strong>NIE（ニエ）の取得 ── 外国人識別番号</strong><br>
+        正式名称：Número de Identidad de Extranjero（外国人識別番号）。日本のマイナンバーに相当するスペインの税・行政番号。TIE 申請時に自動付与されることが多く、銀行口座開設や契約に必要です。
+      </div>
+    </li>
+    <li>
+      <div class="step-num">4</div>
+      <div>
+        <strong>社会保険の登録</strong><br>
+        2026年のUGE審査厳格化で、<em>社会保険未登録が拒否・更新失敗の主な原因</em>として明記されています。日本法人の役員報酬のみで生活する場合も登録方法を移民弁護士・社会保険の専門家に必ず確認してください。
+      </div>
+    </li>
+    <li>
+      <div class="step-num">5</div>
+      <div>
+        <strong>Autorización de residencia（居住許可）の切り替え申請</strong><br>
+        スペインの移民局（UGE）に書類を提出し、3年間有効の居住許可を取得。これが完了して初めて「正式にスペイン居住者」になります。
+      </div>
+    </li>
+  </ul>
+
+  <div class="source-list">
+    出典：
+    <a href="https://www.jobbatical.com/blog/spain-empadronamiento-guide">Jobbatical – Empadronamiento Guide（2026）</a>、
+    <a href="https://www.nomadlex.io/blog/spain-digital-nomad-visa-processing-time">NomadLex – Processing Time 解説（2026）</a>、
+    <a href="https://jurospain.com/guides/spanish-social-security-registration-expats/">JuroSpain – Social Security Registration Guide</a>
+  </div>
+</div>
+
+<!-- 費用と期間まとめ -->
+<div class="card">
+  <h2>⏱️ 費用・期間まとめ</h2>
+
+  <div class="number-row">
+    <div class="number-card">
+      <div class="num">€90</div>
+      <div class="desc">大使館での<br>査証申請費用<br>（目安）</div>
+    </div>
+    <div class="number-card">
+      <div class="num">€16</div>
+      <div class="desc">TIEカード<br>発行手数料<br>（€16.08）</div>
+    </div>
+    <div class="number-card">
+      <div class="num">3〜6か月</div>
+      <div class="desc">書類準備から<br>TIE取得までの<br>全体目安</div>
+    </div>
+    <div class="number-card">
+      <div class="num">60日</div>
+      <div class="desc">入国後に<br>手続き完了が<br>必要な期限</div>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <span class="hlabel">期間の内訳（目安）</span>
+    <p>
+      書類収集・アポスティーユ・翻訳：<strong>1〜3か月</strong><br>
+      大使館への申請（予約取得を含む）：<strong>+1〜2か月</strong>（予約が取れない場合はさらに長くなることも）<br>
+      大使館審査期間：<strong>+20〜45営業日</strong><br>
+      スペイン入国後 TIE 発行：<strong>+30〜45日</strong>
+    </p>
+  </div>
+
+  <div class="alert-box">
+    <span class="alabel">⚠️ 早め行動が鉄則</span>
+    <p>犯罪経歴証明書は発行から一定期間（3か月以内が目安）が有効期限の場合があるため、<em>他の書類が揃ってから取得する順序</em>が重要です。また、アポスティーユ申請と西語翻訳の手配が最も時間を要します。移民弁護士への相談は申請の4〜6か月前を推奨します。</p>
+  </div>
+</div>
+
+<!-- 今すぐ動けるToDoリスト -->
+<div class="card">
+  <h2>✅ 準備段階の今すぐToDoリスト</h2>
+  <p>「将来スペインに移住したい」という段階からできる具体的な行動です。</p>
+
+  <ul class="step-list">
+    <li>
+      <div class="step-num">✓</div>
+      <div><strong>収入要件を満たしているか確認する</strong><br>
+      直近3か月の月収が€2,849（約46万円前後、為替は申請時に確認）を超えているか。日本法人の役員報酬を含めて計算。</div>
+    </li>
+    <li>
+      <div class="step-num">✓</div>
+      <div><strong>スペイン収入20%以内のルールを守る構造になっているか確認</strong><br>
+      スペイン国内クライアントへの売上が全体の20%未満であることを証明できるよう、請求書・取引先を整理しておく。</div>
+    </li>
+    <li>
+      <div class="step-num">✓</div>
+      <div><strong>スペイン対応の健康保険を事前に調べる</strong><br>
+      スペイン認可・自己負担なし・全リスクカバーの保険を選ぶ。Allianz Care・AXA・Cigna Globalなど（各社の最新プランは直接確認してください）。</div>
+    </li>
+    <li>
+      <div class="step-num">✓</div>
+      <div><strong>日本法人の登記事項証明書を最新状態にしておく</strong><br>
+      役員や住所の変更があれば登記を更新。アポスティーユは申請直前に取得。</div>
+    </li>
+    <li>
+      <div class="step-num">✓</div>
+      <div><strong>在日スペイン大使館の最新手続き情報を確認する</strong><br>
+      大使館公式ページや電話で、現在の必要書類リスト・予約方法・受付時間を直接確認。ネット情報は古い場合があります。</div>
+    </li>
+    <li>
+      <div class="step-num">✓</div>
+      <div><strong>移民弁護士（スペイン語・日本語対応）を探し始める</strong><br>
+      書類の不備は即拒否に繋がります。専門家への早期相談が最も効率的な近道です。</div>
+    </li>
+  </ul>
+</div>
+
+<!-- 用語まとめ -->
+<div class="card">
+  <h2>📖 今日の用語まとめ</h2>
+  <p>
+    <span class="tag">Visado</span>査証（ビザ）。大使館で取得する短期の入国許可証。<br>
+    <span class="tag">Autorización de residencia</span>居住許可。スペイン移民局（UGE）で取得する長期滞在資格（3年間）。<br>
+    <span class="tag">TIE</span>Tarjeta de Identidad de Extranjero ／ 外国人滞在許可証カード。<br>
+    <span class="tag">NIE</span>Número de Identidad de Extranjero ／ 外国人識別番号（税・行政手続きに必須）。<br>
+    <span class="tag">empadronamiento</span>住民登録（市役所で行う）。全手続きの起点。<br>
+    <span class="tag">Ayuntamiento</span>市役所。<br>
+    <span class="tag">UGE</span>Unidad de Grandes Empresas ／ スペイン移民局の遠隔就労担当部署。<br>
+    <span class="tag">アポスティーユ</span>ハーグ条約に基づく外国書類の公的認証。日本では外務省が発行。<br>
+    <span class="tag">autónomo</span>スペインの個人事業主・フリーランス身分（日本の個人事業主開業届に相当）。<br>
+    <span class="tag">SMI</span>Salario Mínimo Interprofesional ／ スペイン最低賃金（2026年：年額€17,094）。
+  </p>
+</div>
+
+<!-- 免責フッター -->
+<div class="footer">
+  <strong>【重要な免責事項】</strong><br>
+  ・ ビザ・在留に関する手続きは個別状況により大きく異なります。<strong>正式な判断は行政書士・移民弁護士（スペイン入国管理専門）へ</strong>ご相談ください。<br>
+  ・ 税制・社会保険については<strong>国際税務に強い税理士・社会保険労務士</strong>へご確認ください。<br>
+  ・ 収入要件（€2,849/月）は2026年スペインSMI（Royal Decree 126/2026 ベース）の200%、12か月換算。計算方式により数値が異なる場合があります。基準：2026年版各申請ガイド。<br>
+  ・ 申請費用（€90・€16.08）は目安です。大使館・移民局の公式情報で必ず最新額を確認してください。<br>
+  ・ 為替レートは申請時点のものをご確認ください（本記事では基準レートを記載していません）。<br>
+  ・ 「必ず取得できる」「課税されない」などの断定的な保証は一切できません。<br>
+  ・ 本記事の情報は2026年版の各種申請ガイドをもとに作成しましたが、制度は随時変更されます。申請前には在日スペイン大使館の公式情報を必ず確認してください。
+</div>
+
+</body>
+</html>

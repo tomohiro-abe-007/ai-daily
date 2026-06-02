@@ -274,6 +274,7 @@
   .toc a { color: #2255aa; text-decoration: none; }
   .toc a:hover { text-decoration: underline; }
 
+  /* 大きな数値カード */
   .stat-row {
     display: flex;
     gap: 14px;
@@ -313,6 +314,7 @@
     line-height: 1.4;
   }
 
+  /* ステップフロー */
   .step-flow {
     display: flex;
     align-items: center;
@@ -333,9 +335,9 @@
     line-height: 1.4;
   }
   .step-box.green { background: #e0f5e0; border-color: #6ab87a; color: #1e5c2e; }
-  .step-box.orange { background: #fff0d8; border-color: #e8a040; color: #7a4000; }
   .step-arrow { font-size: 1.3rem; color: #aaa; flex-shrink: 0; }
 
+  /* 比較テーブル */
   .compare-table {
     width: 100%;
     border-collapse: collapse;
@@ -358,40 +360,89 @@
   .compare-table tr:nth-child(even) td { background: #f8f4ec; }
   .compare-table tr:last-child td { border-bottom: none; }
 
-  .cost-bar-wrap {
+  /* タイムライン */
+  .timeline {
+    margin: 16px 0;
+    position: relative;
+    padding-left: 24px;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 4px;
+    bottom: 4px;
+    width: 2px;
+    background: #c8b89a;
+  }
+  .tl-item {
+    position: relative;
+    margin-bottom: 16px;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #333;
+  }
+  .tl-item::before {
+    content: '';
+    position: absolute;
+    left: -20px;
+    top: 7px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #2255aa;
+    border: 2px solid white;
+    box-shadow: 0 0 0 2px #2255aa;
+  }
+  .tl-item.warn::before { background: #c0392b; box-shadow: 0 0 0 2px #c0392b; }
+  .tl-item.done::before { background: #1e7e34; box-shadow: 0 0 0 2px #1e7e34; }
+  .tl-date {
+    font-size: 0.75rem;
+    color: #888;
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+  .tl-title { font-weight: 600; }
+
+  /* バリュエーション変化グラフ */
+  .bar-chart {
+    display: flex;
+    align-items: flex-end;
+    gap: 12px;
     margin: 18px 0;
+    height: 120px;
+    padding-bottom: 24px;
+    border-bottom: 2px solid #c8b89a;
+    position: relative;
   }
-  .cost-bar-row {
+  .bar-item {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 10px;
-    margin-bottom: 10px;
-  }
-  .cost-bar-label {
-    font-size: 0.78rem;
-    color: #555;
-    min-width: 130px;
-    line-height: 1.4;
-  }
-  .cost-bar-bg {
     flex: 1;
-    background: #f0ece3;
-    border-radius: 4px;
-    height: 20px;
-    overflow: hidden;
+    position: relative;
   }
-  .cost-bar {
-    height: 100%;
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    padding-left: 8px;
+  .bar {
+    width: 100%;
+    border-radius: 4px 4px 0 0;
+    min-height: 8px;
+    position: relative;
   }
-  .cost-bar span {
+  .bar-label {
+    position: absolute;
+    bottom: -22px;
+    font-size: 0.72rem;
+    color: #555;
+    white-space: nowrap;
+    text-align: center;
+    width: 100%;
+  }
+  .bar-value {
     font-size: 0.72rem;
     font-weight: 700;
-    color: white;
-    white-space: nowrap;
+    text-align: center;
+    margin-bottom: 4px;
+    color: #333;
   }
 
   @media (max-width: 600px) {
@@ -401,7 +452,6 @@
     .summary-card { padding: 24px 20px; }
     .stat-row { gap: 10px; }
     .step-flow { gap: 4px; }
-    .cost-bar-label { min-width: 90px; font-size: 0.72rem; }
   }
 </style>
 </head>
@@ -409,9 +459,9 @@
 
 <!-- 表紙 -->
 <div class="cover">
-  <span class="cover-emoji">🏗️🤖</span>
+  <span class="cover-emoji">📈🤖</span>
   <h1>生成AI 最新トピック</h1>
-  <div class="subtitle">Microsoft Build・Copilot料金・NVIDIA ── 開発者の世界を変える3つのニュース</div>
+  <div class="subtitle">IPO・新モデル・企業参入・EU規制 ── AI産業が「次のステージ」へ</div>
   <div class="date-badge">📅 2026年6月2日号</div>
 </div>
 
@@ -419,440 +469,414 @@
 <div class="toc">
   <h2>📋 今日の目次</h2>
   <ol>
-    <li><a href="#topic1">Microsoft Build 2026 ── Windows が「AI エージェント基盤」に変わる</a></li>
-    <li><a href="#topic2">GitHub Copilot 従量課金化 ── 開発者に「10〜50倍の費用増」ショック</a></li>
-    <li><a href="#topic3">NVIDIA Nemotron 3 Ultra ── アメリカ最強のオープンウェイトAIモデル登場</a></li>
+    <li><a href="#topic1">AnthropicがIPO申請 ── 評価額が約96兆円、AI企業の「上場レース」が本格化</a></li>
+    <li><a href="#topic2">Google Gemini 3.5 Flash ── Google I/O 2026発表、他社比4倍速・100万トークン対応</a></li>
+    <li><a href="#topic3">AIモデル企業が「実装支援」に参入 ── AnthropicとOpenAIが相次いで企業向けJV設立</a></li>
+    <li><a href="#topic4">EU AI法 改正・施行が迫る ── 高リスクAIの義務が16ヶ月延長、8月から罰則スタート</a></li>
     <li><a href="#summary">今日のまとめ</a></li>
   </ol>
 </div>
 
-<!-- トピック1: Microsoft Build 2026 -->
+<!-- トピック1: Anthropic IPO -->
 <div class="card" id="topic1">
   <div class="card-body">
     <div class="card-header">
-      <span class="card-emoji">🏗️</span>
-      <div class="card-title">Microsoft Build 2026 ──<br>Windows が「AI エージェント基盤」に変わる</div>
-      <span class="topic-badge badge-blue">Microsoft</span>
+      <span class="card-emoji">📈</span>
+      <div class="card-title">AnthropicがIPO申請 ──<br>評価額が約96兆円、AI企業の「上場レース」が本格化</div>
+      <span class="topic-badge badge-purple">Anthropic</span>
     </div>
 
     <div class="simple-box">
       <span class="label">🌱 やさしく解説</span><br>
-      2026年6月2日、Microsoftの年次開発者向けイベント「<span class="hl-yellow">Build 2026</span>」が開幕しました。最大の発表は2つ。①自社開発のAI「<strong>Project Polaris（プロジェクト・ポラリス）</strong>」が2026年8月からGitHub Copilotの中心エンジンになること、②Windowsに「<strong>Windows Agent Framework（エージェント・フレームワーク）</strong>」を組み込み、AIエージェントが普通のアプリと同じようにWindowsで動けるようにすること。Microsoftが<span class="hl-pink">OpenAIへの依存をやめ、自社AIへの切り替えを本格化</span>させた歴史的な発表です。
+      2026年6月1日、Claude（クロード）を作っている<span class="hl-yellow">Anthropic（アンソロピック）</span>が、アメリカの証券取引委員会（SEC）に<strong>IPO（株式公開）</strong>の書類を非公開で提出しました。IPO（Initial Public Offering）とは「会社の株を世界中の人が買えるようにすること」です。現時点での企業評価額は<span class="hl-pink">9,650億ドル（約96兆円）</span>。これはOpenAIの評価額（8,520億ドル）を初めて上回った金額です。
     </div>
 
-    <!-- Project Polaris の位置づけ -->
-    <p style="font-size:0.85rem; font-weight:600; color:#555; margin-bottom:10px;">🔄 GitHub Copilotのエンジン切り替えスケジュール</p>
-    <div class="step-flow">
-      <div class="step-box" style="background:#fff0e8; border-color:#f0a060; color:#7a3000;">これまで<br>GPT-4 Turbo<br><span style="font-size:0.72rem; font-weight:400;">（OpenAI製）</span></div>
-      <div class="step-arrow">→</div>
-      <div class="step-box">2026年8月〜<br>Project Polaris<br><span style="font-size:0.72rem; font-weight:400;">（Microsoft自社製）</span></div>
-      <div class="step-arrow">→</div>
-      <div class="step-box green">3ヶ月の<br>移行期間あり<br><span style="font-size:0.72rem; font-weight:400;">（旧モデルも使える）</span></div>
+    <!-- バリュエーション変化 -->
+    <p style="font-size:0.85rem; font-weight:600; color:#555; margin-bottom:10px;">📊 Anthropicの企業評価額の推移（2026年）</p>
+    <div class="bar-chart">
+      <div class="bar-item">
+        <div class="bar-value">$380B</div>
+        <div class="bar" style="background:#a0c0e8; height:47px;"></div>
+        <div class="bar-label">2月</div>
+      </div>
+      <div class="bar-item">
+        <div class="bar-value">$965B</div>
+        <div class="bar" style="background:#2255aa; height:100px;"></div>
+        <div class="bar-label">5月末</div>
+      </div>
+      <div class="bar-item">
+        <div class="bar-value" style="color:#c0392b;">IPO申請</div>
+        <div class="bar" style="background:#c0392b; height:100px; opacity:0.85;"></div>
+        <div class="bar-label">6月1日</div>
+      </div>
+      <div class="bar-item" style="opacity:0.5;">
+        <div class="bar-value">?</div>
+        <div class="bar" style="background:#ccc; height:60px; border: 2px dashed #aaa; background: repeating-linear-gradient(45deg, #eee, #eee 4px, #ccc 4px, #ccc 8px);"></div>
+        <div class="bar-label">上場（予定）</div>
+      </div>
     </div>
-    <p style="font-size:0.75rem; color:#aaa; margin-bottom:16px;">※ 詳細スケジュールは公式アナウンスで要確認</p>
+    <p style="font-size:0.75rem; color:#aaa; margin-bottom:16px;">※ バーの高さは相対イメージ。実際の株価・評価額は変動します</p>
 
     <!-- 数値カード -->
     <div class="stat-row">
-      <div class="stat-card">
-        <div class="stat-num">MoE</div>
-        <div class="stat-label">アーキテクチャ<br>（言語別に専門モジュールあり）</div>
-      </div>
-      <div class="stat-card green">
-        <div class="stat-num">MIT</div>
-        <div class="stat-label">Windows Agent Framework<br>ライセンス（完全公開）</div>
+      <div class="stat-card purple">
+        <div class="stat-num">$965B</div>
+        <div class="stat-label">現時点の企業評価額<br>（約96兆円）</div>
       </div>
       <div class="stat-card amber">
-        <div class="stat-num">8月</div>
-        <div class="stat-label">Polaris切り替え<br>予定時期（2026年）</div>
+        <div class="stat-num">$47B</div>
+        <div class="stat-label">年換算収益<br>（売上ペース）</div>
+      </div>
+      <div class="stat-card red">
+        <div class="stat-num">4.7倍</div>
+        <div class="stat-label">2月比の評価額増<br>（$380B→$965B）</div>
       </div>
     </div>
 
-    <!-- Project Polaris vs GPT-4 Turbo 比較表 -->
-    <p style="font-size:0.85rem; font-weight:600; color:#555; margin-bottom:8px;">📊 Project Polaris vs GPT-4 Turbo 比較</p>
+    <ul class="point-list">
+      <li>
+        <span class="marker marker-purple">1</span>
+        <span><strong>非公開でSECに申請（2026年6月1日）</strong> ── 「機密申請（Confidential Filing）」という方式で、株式数や価格はまだ未定。正式な上場は早ければ2026年秋が見込まれているが、日程は未確定（公式発表で要確認）</span>
+      </li>
+      <li>
+        <span class="marker marker-purple">2</span>
+        <span><strong>評価額が$965B ── 初めてOpenAIを超えた</strong> ── 5月末に$65億を調達した結果、評価額はOpenAI（$852B）を初めて上回った。AI業界2強の評価額が接近・逆転するという歴史的な出来事</span>
+      </li>
+      <li>
+        <span class="marker marker-purple">3</span>
+        <span><strong>年換算収益が$47Bに急拡大</strong> ── 2025年の年商は$10Bだったが、2026年は$47Bのペースで推移。1年で5倍近くに拡大したことがIPO申請を後押しした</span>
+      </li>
+      <li>
+        <span class="marker marker-purple">4</span>
+        <span><strong>OpenAIとの上場レース</strong> ── OpenAIも上場を検討中とされており、どちらが先にウォール街（アメリカの株式市場）デビューするかが注目されている。2社合わせた評価額は約1,817億ドル（約180兆円）規模</span>
+      </li>
+      <li>
+        <span class="marker marker-purple">5</span>
+        <span><strong>投資家は誰？</strong> ── GoogleやAmazonが大口出資者として知られる。今回のIPOでは一般の人も株主になれる可能性が生まれる（最終条件は上場時に発表）</span>
+      </li>
+    </ul>
+
+    <div class="sticky">
+      ✏️ <strong>中学生的に言うと：</strong>「ChatGPTのライバル会社が、ついに株式市場に上場しようとしている！」。評価額は日本のトヨタ自動車（約30〜40兆円規模）の2倍以上。AI企業の成長スピードが現実を超えてきた！
+    </div>
+
+    <div class="source">
+      📎 出典：
+      <a href="https://fortune.com/2026/06/01/anthropic-confidentially-files-ipo-965-billion-valuation/" target="_blank">Fortune – Anthropic files for IPO at $965B valuation（2026-06-01）</a> /
+      <a href="https://www.cnbc.com/2026/06/01/anthropic-ipo-s1-prospectus.html" target="_blank">CNBC – Anthropic confidentially files IPO prospectus（2026-06-01）</a> /
+      <a href="https://www.cnn.com/2026/06/01/tech/anthropic-ipo-filing" target="_blank">CNN Business – Anthropic files for potentially trillion-dollar debut（2026-06-01）</a>
+    </div>
+  </div>
+</div>
+
+<!-- トピック2: Google Gemini 3.5 Flash -->
+<div class="card" id="topic2">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">⚡</span>
+      <div class="card-title">Google Gemini 3.5 Flash ──<br>Google I/O 2026発表、他社比4倍速・100万トークン対応</div>
+      <span class="topic-badge badge-blue">Google</span>
+    </div>
+
+    <div class="simple-box">
+      <span class="label">🌱 やさしく解説</span><br>
+      2026年5月19日のGoogle I/O（毎年恒例の開発者向けイベント）で、<span class="hl-yellow">Gemini 3.5 Flash</span>が発表されました。「Flash（フラッシュ）」という名前が示すとおり<strong>速さが最大の売り</strong>で、他の最先端AIの約4倍のスピードで回答を出せます。しかも前世代より大幅に賢くなり、コーディングやAIエージェント（自律的に動くAI）のタスクでは前モデルの「Pro」を上回るという逆転現象が起きています。
+    </div>
+
+    <!-- 速度比較 -->
+    <p style="font-size:0.85rem; font-weight:600; color:#555; margin-bottom:10px;">⚡ スピード比較（他の最先端AIとの比較イメージ）</p>
+    <div style="margin: 0 0 18px 0;">
+      <div style="margin-bottom:10px;">
+        <div style="font-size:0.8rem; color:#555; margin-bottom:3px; font-weight:600;">Gemini 3.5 Flash（今回）</div>
+        <div style="background:#2255aa; height:18px; border-radius:4px; width:100%; display:flex; align-items:center; padding-left:8px;">
+          <span style="color:white; font-size:0.75rem; font-weight:700;">████████████████████ ×4（最速）</span>
+        </div>
+      </div>
+      <div style="margin-bottom:10px;">
+        <div style="font-size:0.8rem; color:#555; margin-bottom:3px;">他の最先端AIモデル（比較対象）</div>
+        <div style="background:#a0b8d8; height:18px; border-radius:4px; width:25%; display:flex; align-items:center; padding-left:8px;">
+          <span style="color:white; font-size:0.75rem; font-weight:700;">█████</span>
+        </div>
+      </div>
+    </div>
+    <p style="font-size:0.75rem; color:#aaa; margin-top:-10px; margin-bottom:16px;">※ 速度は出力トークン毎秒での計測。実環境では条件により異なる場合があります</p>
+
+    <!-- スペック数値 -->
+    <div class="stat-row">
+      <div class="stat-card">
+        <div class="stat-num">4×</div>
+        <div class="stat-label">他の最先端AIより速い<br>（出力速度比較）</div>
+      </div>
+      <div class="stat-card green">
+        <div class="stat-num">1M</div>
+        <div class="stat-label">コンテキスト長<br>（トークン）</div>
+      </div>
+      <div class="stat-card amber">
+        <div class="stat-num">76.2%</div>
+        <div class="stat-label">Terminal-Bench 2.1<br>（エージェント操作性能）</div>
+      </div>
+      <div class="stat-card gray">
+        <div class="stat-num">$1.50</div>
+        <div class="stat-label">API入力価格<br>（100万トークンあたり）</div>
+      </div>
+    </div>
+    <p style="font-size:0.79rem; color:#999; margin-top:-6px; margin-bottom:16px;">※ 価格・性能は変更されることがあるため、利用前に公式サイトで要確認</p>
+
+    <!-- Gemini 3.5 Flash vs 3.1 Pro 比較表 -->
+    <p style="font-size:0.85rem; font-weight:600; color:#555; margin-bottom:8px;">📊 Gemini 3.5 Flash vs 前世代比較</p>
     <table class="compare-table">
       <thead>
         <tr>
           <th>比較項目</th>
-          <th>Project Polaris（新）</th>
-          <th>GPT-4 Turbo（旧・OpenAI製）</th>
+          <th>Gemini 3.5 Flash（新）</th>
+          <th>Gemini 3.1 Pro（旧・上位モデル）</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td><strong>開発元</strong></td>
-          <td>Microsoft（自社開発）</td>
-          <td>OpenAI</td>
+          <td><strong>コーディング性能</strong></td>
+          <td>✅ 上回る</td>
+          <td>これが基準</td>
         </tr>
         <tr>
-          <td><strong>コーディング性能（HumanEval）</strong></td>
-          <td>✅ GPT-4 Turboを上回る</td>
-          <td>これが従来の基準</td>
+          <td><strong>エージェント性能</strong></td>
+          <td>✅ 上回る（MCP Atlas 83.6%）</td>
+          <td>これが基準</td>
         </tr>
         <tr>
-          <td><strong>低リソース言語（Rust・Haskellなど）</strong></td>
-          <td>✅ 特に大きな改善</td>
-          <td>苦手な傾向あり</td>
+          <td><strong>マルチモーダル</strong></td>
+          <td>✅ 上回る（CharXiv 84.2%）</td>
+          <td>これが基準</td>
         </tr>
         <tr>
-          <td><strong>動作インフラ</strong></td>
-          <td>Microsoft自社製 Maia AIアクセラレータ</td>
-          <td>OpenAI API経由</td>
+          <td><strong>API価格（入力）</strong></td>
+          <td>$1.50/1M tokens</td>
+          <td>$2.50/1M tokens（40%高い）</td>
         </tr>
         <tr>
-          <td><strong>コスト効率</strong></td>
-          <td>✅ Maia活用でレイテンシ・コスト低減</td>
-          <td>外部API料金が発生</td>
+          <td><strong>コンテキスト</strong></td>
+          <td>1M tokens（100万）</td>
+          <td>1M tokens（同じ）</td>
         </tr>
         <tr>
-          <td><strong>アーキテクチャ</strong></td>
-          <td>MoE（言語・フレームワーク別の専門モジュール）</td>
-          <td>Dense Transformer</td>
+          <td><strong>速度</strong></td>
+          <td>他の最先端AIの約4倍</td>
+          <td>標準的な速度</td>
         </tr>
       </tbody>
     </table>
-    <p style="font-size:0.75rem; color:#999; margin-top:-6px; margin-bottom:16px;">※ MoE＝Mixture of Experts（複数の「専門家AI」が分担して答える仕組み）/ Maia＝Microsoftが設計した自社製AIチップ</p>
-
-    <!-- Windows Agent Framework の仕組み -->
-    <p style="font-size:0.85rem; font-weight:600; color:#555; margin-bottom:8px;">🖥️ Windows Agent Framework（WAF）── エージェントがどこでも動く仕組み</p>
-    <div class="step-flow">
-      <div class="step-box">YAML でエージェント<br>を定義する<br><span style="font-size:0.72rem; font-weight:400;">（コードではなく設定ファイル）</span></div>
-      <div class="step-arrow">→</div>
-      <div class="step-box">自分のPC（ローカル）<br>で実行<br><span style="font-size:0.72rem; font-weight:400;">（軽いタスク向け）</span></div>
-      <div class="step-arrow">→</div>
-      <div class="step-box orange">Windows 365<br>GPU ノードへ<br><span style="font-size:0.72rem; font-weight:400;">（重いタスクに自動昇格）</span></div>
-      <div class="step-arrow">→</div>
-      <div class="step-box green">Azure サービス<br>として公開<br><span style="font-size:0.72rem; font-weight:400;">（全社・外部に展開）</span></div>
-    </div>
-    <p style="font-size:0.75rem; color:#aaa; margin-bottom:16px;">※ 同じYAML定義ファイルで全段階を一貫して管理できるのが特徴（公式ドキュメントで要確認）</p>
+    <p style="font-size:0.79rem; color:#999; margin-top:-6px; margin-bottom:16px;">※ MCP Atlas＝AI同士が道具（ツール）を使い合う能力を測るテスト / CharXiv＝グラフや図の理解力テスト</p>
 
     <ul class="point-list">
       <li>
         <span class="marker marker-blue">1</span>
-        <span><strong>Project Polarisは「OpenAI脱却」の象徴</strong> ── MicrosoftはOpenAIへ多額投資をしているが、GitHub Copilotの中核エンジンを自社製に変えることで、API費用を削減しつつ開発速度を自社でコントロールできるようになる</span>
+        <span><strong>Google I/O 2026（5月19日）で発表</strong> ── Gemini 3.5ファミリーの最初のモデルとして登場。発表と同日にGeminiアプリ・API・Google AI Studio・Google検索AI Modeで利用可能になった</span>
       </li>
       <li>
         <span class="marker marker-blue">2</span>
-        <span><strong>Windowsが「AIエージェントが住む場所」に</strong> ── WAF v1.0はMITライセンスで公開。エージェントはアプリのように「Windows Agent Store（エージェントの配布場所）」で配布できる仕組みも整備される</span>
+        <span><strong>「FlashがProを超えた」という逆転現象</strong> ── 通常「Pro」は「Flash」より高性能だが、Gemini 3.5 Flashは前世代のGemini 3.1 Proよりもコーディング・エージェント・マルチモーダルのすべてで上回る。性能と速さを両立した新設計</span>
       </li>
       <li>
         <span class="marker marker-blue">3</span>
-        <span><strong>Azure Agent Mesh：複数AIが協力して仕事をする</strong> ── 「Azure Agent Mesh（エージェント・メッシュ）」は、複数のAIエージェントが役割分担しながら大きなタスクを完成させるための基盤。「プロジェクト管理AI」「コード生成AI」「テストAI」が連携するようなシステムが作れる</span>
+        <span><strong>100万トークンの文脈理解</strong> ── 小説7〜8冊分、プログラム数万行を一度に把握できる。大規模なコードベースのレビューや長文書類の一括分析が得意</span>
       </li>
       <li>
         <span class="marker marker-blue">4</span>
-        <span><strong>MAI モデルファミリーが拡張</strong> ── MAI-Image-2.5（画像理解）、MAI-Voice-2（音声）、MAI-Transcribe-1.5（書き起こし）が Microsoft Foundry 経由で正式公開予定（価格・GA日程は公式で要確認）</span>
+        <span><strong>AIエージェントとの相性が特に高い</strong> ── MCP（Model Context Protocol：AIが外部ツールと連携するための仕組み）への対応力が高く、自律的に複数のツールを使い分けるエージェント用途に最適化されている</span>
       </li>
       <li>
         <span class="marker marker-blue">5</span>
-        <span><strong>Office 365にもAgent Modeが登場</strong> ── Word・Excel・Teamsなどのビジネスツールで「AIエージェントモード」が使えるように。単なる補助ツールではなく、自律的にタスクをこなすAIがOfficeの中に入ってくる</span>
+        <span><strong>価格は前世代Flash比で3倍だが、それでもProより安い</strong> ── 前のGemini 3 Flash（$0.50/1M）に比べると3倍に値上がりしたが、Gemini 3.1 Proの$2.50に比べると約40%安い。「性能はProクラス、価格はFlashクラス」が特徴</span>
       </li>
     </ul>
 
     <div class="sticky">
-      ✏️ <strong>中学生的に言うと：</strong>「MicrosoftがWindowsをAIロボットが暮らせる家にした！」。しかも今まで外から買っていたAI頭脳を、自社で作った高性能な頭脳に切り替え中。iOSにApple独自のSiriが入っているように、Windowsにも「Microsoft自家製AI」が中心になる時代へ。
+      ✏️ <strong>中学生的に言うと：</strong>Googleの「速いけど普通クラス」AIが、今回「速い＆最高クラスを超えた」という大逆転に！しかもGoogleアプリで今すぐ使える。「安くて速くて賢い」三拍子が揃った！
     </div>
 
     <div class="source">
       📎 出典：
-      <a href="https://chatforest.com/builders-log/microsoft-build-2026-recap-windows-agent-platform-project-polaris-copilot-workspace/" target="_blank">ChatForest – Microsoft Build 2026 Recap: Project Polaris（2026-06-02）</a> /
-      <a href="https://aitoolsrecap.com/Blog/microsoft-build-2026-windows-agent-framework-wsl3-azure-mesh" target="_blank">AI Tools Recap – WAF, Azure Agent Mesh Explained（2026-06-02）</a> /
-      <a href="https://windowsnews.ai/article/microsoft-build-2026-windows-becomes-the-platform-for-ai-agents.420503" target="_blank">Windows News – Windows becomes the platform for AI agents（2026-06-02）</a>
+      <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/" target="_blank">Google Blog – Gemini 3.5: frontier intelligence with action（2026-05-19）</a> /
+      <a href="https://www.marktechpost.com/2026/05/20/google-introduces-gemini-3-5-flash-at-i-o-2026-a-faster-and-cheaper-model-for-ai-agents-and-coding/" target="_blank">MarkTechPost – Google Introduces Gemini 3.5 Flash at I/O 2026（2026-05-20）</a> /
+      <a href="https://codersera.com/blog/gemini-3-5-flash-gemini-spark-guide-2026/" target="_blank">CoderSera – Gemini 3.5 Flash + Gemini Spark: Google I/O 2026 Guide</a>
     </div>
   </div>
 </div>
 
-<!-- トピック2: GitHub Copilot 従量課金化 -->
-<div class="card" id="topic2">
-  <div class="card-body">
-    <div class="card-header">
-      <span class="card-emoji">💸</span>
-      <div class="card-title">GitHub Copilot 従量課金化 ──<br>開発者に「10〜50倍の費用増」ショック</div>
-      <span class="topic-badge badge-red">開発ツール・料金</span>
-    </div>
-
-    <div class="simple-box">
-      <span class="label">🌱 やさしく解説</span><br>
-      2026年6月1日、AIコード補助ツールの定番「<span class="hl-yellow">GitHub Copilot（ギットハブ・コパイロット）</span>」が、料金の仕組みを大きく変えました。今まで「月1,200円（Pro）で使い放題」だったのが、<strong>使った量（トークン数）に応じて課金される</strong>方式に変わったのです。普通に使う人はほぼ影響なしですが、AIに自律的に大量の作業をさせる「<span class="hl-pink">エージェント的な使い方</span>」をする開発者は月額費用が10倍〜50倍に跳ね上がるケースも報告されており、開発者コミュニティで大きな反発が起きています。
-    </div>
-
-    <!-- 旧 vs 新 の費用比較バーグラフ -->
-    <p style="font-size:0.85rem; font-weight:600; color:#555; margin-bottom:10px;">💰 月額費用の変化イメージ（Pro プランの例）</p>
-    <div class="cost-bar-wrap">
-      <div class="cost-bar-row">
-        <div class="cost-bar-label">旧プラン<br>（定額・使い放題）</div>
-        <div class="cost-bar-bg">
-          <div class="cost-bar" style="background:#2255aa; width:4%;">
-            <span>$10</span>
-          </div>
-        </div>
-      </div>
-      <div class="cost-bar-row">
-        <div class="cost-bar-label">新プラン<br>（軽い使い方）</div>
-        <div class="cost-bar-bg">
-          <div class="cost-bar" style="background:#2255aa; width:4%;">
-            <span>$10程度</span>
-          </div>
-        </div>
-      </div>
-      <div class="cost-bar-row">
-        <div class="cost-bar-label">新プラン<br>（ヘビーな使い方）</div>
-        <div class="cost-bar-bg">
-          <div class="cost-bar" style="background:#c0392b; width:100%;">
-            <span>$750〜 ⚠️</span>
-          </div>
-        </div>
-      </div>
-      <div class="cost-bar-row">
-        <div class="cost-bar-label">新プラン<br>（extreme使い方）</div>
-        <div class="cost-bar-bg">
-          <div class="cost-bar" style="background:#7b2fbe; width:100%;">
-            <span>$3,000+（報告例あり） ⚠️</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <p style="font-size:0.75rem; color:#aaa; margin-bottom:16px;">※ 金額はユーザーの報告例・見積もり。実費は使い方・モデル選択によって異なります。公式で要確認</p>
-
-    <!-- 新旧プラン比較表 -->
-    <p style="font-size:0.85rem; font-weight:600; color:#555; margin-bottom:8px;">📊 変更前後の料金体系（6月1日より）</p>
-    <table class="compare-table">
-      <thead>
-        <tr>
-          <th>プラン</th>
-          <th>月額（変わらず）</th>
-          <th>AI クレジット（新設）</th>
-          <th>超過分</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>Pro</strong></td>
-          <td>$10/月</td>
-          <td>$10相当のAIクレジット付き</td>
-          <td>使用量に応じて追加課金</td>
-        </tr>
-        <tr>
-          <td><strong>Pro+</strong></td>
-          <td>$39/月</td>
-          <td>$39相当のAIクレジット付き</td>
-          <td>使用量に応じて追加課金</td>
-        </tr>
-        <tr>
-          <td><strong>Business</strong></td>
-          <td>$19/ユーザー/月</td>
-          <td>$19相当のAIクレジット付き</td>
-          <td>使用量に応じて追加課金</td>
-        </tr>
-        <tr>
-          <td><strong>Enterprise</strong></td>
-          <td>$39/ユーザー/月</td>
-          <td>$39相当のAIクレジット付き</td>
-          <td>使用量に応じて追加課金</td>
-        </tr>
-        <tr>
-          <td><strong>コード補完・Next Edit</strong></td>
-          <td colspan="3">✅ 全プランで追加課金なし（クレジット消費しない）</td>
-        </tr>
-      </tbody>
-    </table>
-    <p style="font-size:0.75rem; color:#999; margin-top:-6px; margin-bottom:16px;">※ 価格・条件は変更されることがあるため、利用前に公式サイト（docs.github.com）で要確認</p>
-
-    <!-- どんな使い方が影響大？ -->
-    <p style="font-size:0.85rem; font-weight:600; color:#555; margin-bottom:8px;">⚠️ 費用が増えやすい使い方 vs 増えにくい使い方</p>
-    <div style="display:flex; gap:14px; flex-wrap:wrap; margin-bottom:18px;">
-      <div style="flex:1; min-width:200px; background:#fff0f0; border:2px solid #f5a0a0; border-radius:10px; padding:14px;">
-        <div style="font-size:1rem; font-weight:700; color:#c0392b; margin-bottom:8px;">🔺 費用が大きく増える使い方</div>
-        <div style="font-size:0.82rem; line-height:1.8; color:#444;">
-          ・AIに自律的に大量コードを書かせる<br>
-          ・大規模なコードベースの一括リファクタ<br>
-          ・推論モデル（思考系AI）を多用する<br>
-          ・エージェント型のセッションを頻繁に回す
-        </div>
-      </div>
-      <div style="flex:1; min-width:200px; background:#f0fff0; border:2px solid #80d0a0; border-radius:10px; padding:14px;">
-        <div style="font-size:1rem; font-weight:700; color:#1e7e34; margin-bottom:8px;">✅ 費用が増えにくい使い方</div>
-        <div style="font-size:0.82rem; line-height:1.8; color:#444;">
-          ・インライン補完（次の行を補完）<br>
-          ・Next Edit Suggestions（次の編集を提案）<br>
-          ・軽いチャット質問<br>
-          ・一般的なコード検索・説明依頼
-        </div>
-      </div>
-    </div>
-
-    <ul class="point-list">
-      <li>
-        <span class="marker marker-red">1</span>
-        <span><strong>「無制限」から「クレジット制」へ ── なぜ変えたのか</strong> ── AIエージェントが一度のセッションで数百万〜数千万トークンを消費するケースが増えたため、GitHubは「使った分だけ払ってもらう」方式に移行。企業として採算を取るための合理的な判断だが、ユーザーからは不満の声</span>
-      </li>
-      <li>
-        <span class="marker marker-red">2</span>
-        <span><strong>社会的な反発が広がっている</strong> ── TechCrunchの見出し「What a joke（笑えない）」など、開発者コミュニティで強い批判が続出。特に「フォールバックモデル（安いモデルへの切り替え）が廃止された」点も不満の原因</span>
-      </li>
-      <li>
-        <span class="marker marker-red">3</span>
-        <span><strong>企業ユーザーへの影響が深刻</strong> ── Business・Enterpriseプランで多数の開発者が重いエージェント作業をする場合、月額費用が予測不可能なレベルに膨らむ可能性がある。予算管理の観点から、利用制限や代替ツール検討に動く企業も</span>
-      </li>
-      <li>
-        <span class="marker marker-red">4</span>
-        <span><strong>Project Polaris切り替えとの関係</strong> ── 同じく6月2日に発表されたProject Polarisは「Maia AIアクセラレータを使ってコスト削減」を謳っている。コスト構造を変えながら収益モデルも変えるという、MicrosoftのAI事業の大転換が同時進行中</span>
-      </li>
-      <li>
-        <span class="marker marker-red">5</span>
-        <span><strong>競合への乗り換えが加速する可能性</strong> ── CursorやCline、Windsurf等の競合AIコーディングツールへの移行を検討する開発者の声が増加。「AIコーディングツール市場の勢力図が変わるきっかけになる」との見方も</span>
-      </li>
-    </ul>
-
-    <div class="sticky">
-      ✏️ <strong>中学生的に言うと：</strong>「食べ放題レストランが急に量り売りになった！」みたいな話。ちょっと食べる人は問題ないけど、大食いの人は月額が100倍近くになることも。AIを大量に使う人ほど打撃が大きい！
-    </div>
-
-    <div class="source">
-      📎 出典：
-      <a href="https://github.blog/news-insights/company-news/github-copilot-is-moving-to-usage-based-billing/" target="_blank">GitHub Blog – GitHub Copilot is moving to usage-based billing（2026-06-01）</a> /
-      <a href="https://techcrunch.com/2026/05/30/what-a-joke-github-copilots-new-token-based-billing-spurs-consternation-among-devs/" target="_blank">TechCrunch – 'What a joke': GitHub Copilot's token-based billing（2026-05-30）</a> /
-      <a href="https://www.techtimes.com/articles/317536/20260601/github-copilot-pricing-change-drives-backlash-agentic-bills-jump-10x-50x-power-users.htm" target="_blank">TechTimes – Agentic Bills Jump 10x to 50x for Power Users（2026-06-01）</a>
-    </div>
-  </div>
-</div>
-
-<!-- トピック3: NVIDIA Nemotron 3 Ultra -->
+<!-- トピック3: AI企業のエンタープライズ参入 -->
 <div class="card" id="topic3">
   <div class="card-body">
     <div class="card-header">
-      <span class="card-emoji">🟢</span>
-      <div class="card-title">NVIDIA Nemotron 3 Ultra ──<br>アメリカ最強のオープンウェイトAIモデル登場</div>
-      <span class="topic-badge badge-green">NVIDIA・オープンAI</span>
+      <span class="card-emoji">🤝</span>
+      <div class="card-title">AIモデル企業が「実装支援」に参入 ──<br>AnthropicとOpenAIが相次いで企業向けJV設立</div>
+      <span class="topic-badge badge-orange">業界動向</span>
     </div>
 
     <div class="simple-box">
       <span class="label">🌱 やさしく解説</span><br>
-      2026年6月1日、NVIDIA（エヌビディア）のジェンスン・フアンCEOが台湾の「Computex（コンピューテックス）2026」で新AIモデル「<span class="hl-green">Nemotron 3 Ultra（ネモトロン3ウルトラ）</span>」を発表しました。<strong>5,500億個</strong>というとてつもない数のパラメーター（AIの「脳細胞の繋がり」のようなもの）を持ちながら、実際に動くのは550億個だけという省エネ設計。しかもモデルの「重み（脳の中身）」を<span class="hl-yellow">完全公開（オープンウェイト）</span>しており、誰でも無料でダウンロードして使えます。
+      2026年5月4日、AnthropicとOpenAIがほぼ同時に「企業がAIを使いこなせるよう手伝う会社」を設立すると発表しました。<strong>JV（ジョイントベンチャー）</strong>とは、複数の会社が共同で作る新しい会社のことです。これまでAIを「作って売る」だけだった両社が、「実際に企業に導入するまで一緒に手伝う」という新しいビジネスへと踏み込んだことを意味します。
     </div>
 
-    <!-- パラメーター規模の視覚化 -->
-    <p style="font-size:0.85rem; font-weight:600; color:#555; margin-bottom:10px;">🧠「5,500億パラメーター」って何がすごいの？</p>
-    <div style="background:#f0fff0; border:2px dashed #6ab87a; border-radius:8px; padding:14px 18px; margin-bottom:18px;">
-      <div style="display:flex; gap:10px; flex-wrap:wrap;">
-        <div style="background:white; border:1px solid #80d0a0; border-radius:6px; padding:8px 12px; font-size:0.82rem; flex:1; min-width:130px; text-align:center;">🧬 人間の脳の<br>ニューロン（神経細胞）数<br><strong>約 860億個</strong></div>
-        <div style="font-size:1.3rem; color:#aaa; display:flex; align-items:center;">vs</div>
-        <div style="background:white; border:2px solid #2ca87a; border-radius:6px; padding:8px 12px; font-size:0.82rem; flex:1; min-width:130px; text-align:center;">🤖 Nemotron 3 Ultra<br>のパラメーター数<br><strong>約 5,500億個</strong><br>（実際に動くのは550億個）</div>
+    <!-- AnthropicとOpenAIのJVを並べて比較 -->
+    <p style="font-size:0.85rem; font-weight:600; color:#555; margin-bottom:10px;">📊 2社のJV比較（2026年5月4日、ほぼ同時発表）</p>
+    <div style="display:flex; gap:14px; flex-wrap:wrap; margin-bottom:18px;">
+      <!-- Anthropic JV -->
+      <div style="flex:1; min-width:220px; background:#f8f0ff; border:2px solid #c8a0f0; border-radius:10px; padding:16px;">
+        <div style="font-size:1.2rem; font-weight:700; color:#7b2fbe; margin-bottom:8px;">Anthropic JV</div>
+        <div style="font-size:0.82rem; line-height:1.7; color:#333;">
+          <div>💰 規模：<strong>15億ドル（約2,100億円）</strong></div>
+          <div>🤝 出資：Goldman Sachs、Blackstone、Hellman &amp; Friedman ほか</div>
+          <div>🎯 対象：PE（プライベートエクイティ＝非上場株式ファンド）が保有する数百社</div>
+          <div style="margin-top:8px; background:white; border-radius:6px; padding:8px; font-size:0.8rem;">📌 AIエンジニアを企業に常駐させ、業務を根本から再設計する</div>
+        </div>
       </div>
-      <p style="font-size:0.75rem; color:#888; margin-top:10px;">※ ニューロン数とパラメーター数は直接比較できるものではありませんが、「膨大なスケール」のイメージとして</p>
-    </div>
-
-    <!-- 数値カード -->
-    <div class="stat-row">
-      <div class="stat-card green">
-        <div class="stat-num">550B</div>
-        <div class="stat-label">総パラメーター数<br>（5,500億）</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num">55B</div>
-        <div class="stat-label">実際に動く<br>アクティブパラメーター</div>
-      </div>
-      <div class="stat-card amber">
-        <div class="stat-num">300+</div>
-        <div class="stat-label">トークン/秒<br>（出力速度）</div>
-      </div>
-      <div class="stat-card purple">
-        <div class="stat-num">48</div>
-        <div class="stat-label">Artificial Analysis<br>Intelligence Index スコア</div>
+      <!-- OpenAI JV -->
+      <div style="flex:1; min-width:220px; background:#fff0e8; border:2px solid #f0a870; border-radius:10px; padding:16px;">
+        <div style="font-size:1.2rem; font-weight:700; color:#c05000; margin-bottom:8px;">OpenAI JV（The Development Company）</div>
+        <div style="font-size:0.82rem; line-height:1.7; color:#333;">
+          <div>💰 規模：<strong>100億ドル規模（約1.4兆円）</strong>調達中</div>
+          <div>🤝 出資：TPG、Brookfield、Advent、Bain Capital ほか</div>
+          <div>🎯 対象：大企業・中堅企業全般</div>
+          <div style="margin-top:8px; background:white; border-radius:6px; padding:8px; font-size:0.8rem;">📌 AI導入の設計から実装・運用まで一括支援</div>
+        </div>
       </div>
     </div>
 
-    <!-- インテリジェンス指数の比較 -->
-    <p style="font-size:0.85rem; font-weight:600; color:#555; margin-bottom:8px;">📊 主要オープンウェイトモデルのインテリジェンス指数比較</p>
-    <table class="compare-table">
-      <thead>
-        <tr>
-          <th>モデル名</th>
-          <th>提供元</th>
-          <th>スコア（AA Intelligence Index）</th>
-          <th>備考</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>Kimi K2.6</strong></td>
-          <td>Moonshot（中国）</td>
-          <td>54（首位）</td>
-          <td>中国系オープンウェイト最強</td>
-        </tr>
-        <tr>
-          <td style="background:#e8f8e8;"><strong>Nemotron 3 Ultra</strong></td>
-          <td style="background:#e8f8e8;">NVIDIA（米国）</td>
-          <td style="background:#e8f8e8;"><strong>48（米国勢首位）</strong></td>
-          <td style="background:#e8f8e8;">今回の新モデル</td>
-        </tr>
-        <tr>
-          <td><strong>DeepSeek V4 Pro</strong></td>
-          <td>DeepSeek（中国）</td>
-          <td>上位クラス（詳細は公式で確認）</td>
-          <td>MITライセンスで公開中</td>
-        </tr>
-        <tr>
-          <td><strong>Gemma 4（31B Dense）</strong></td>
-          <td>Google</td>
-          <td>高性能（詳細は公式で確認）</td>
-          <td>Apache 2.0ライセンス</td>
-        </tr>
-      </tbody>
-    </table>
-    <p style="font-size:0.75rem; color:#999; margin-top:-6px; margin-bottom:16px;">※ スコアは収集時点の値。Artificial Analysis（外部評価機関）による測定値。ランキングは随時更新されます</p>
-
-    <!-- 公開内容の整理 -->
-    <p style="font-size:0.85rem; font-weight:600; color:#555; margin-bottom:8px;">📦 NVIDIAが今回公開したもの</p>
-    <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom:16px;">
-      <div style="background:#e0f5e0; border:2px solid #6ab87a; border-radius:8px; padding:10px 14px; flex:1; min-width:130px; text-align:center; font-size:0.82rem;">
-        <div style="font-size:1.3rem;">🧠</div>
-        <div style="font-weight:700; color:#1e5c2e; margin:4px 0;">モデルの重み</div>
-        <div style="color:#444;">Hugging Faceで無料公開</div>
-      </div>
-      <div style="background:#e0f5e0; border:2px solid #6ab87a; border-radius:8px; padding:10px 14px; flex:1; min-width:130px; text-align:center; font-size:0.82rem;">
-        <div style="font-size:1.3rem;">📋</div>
-        <div style="font-weight:700; color:#1e5c2e; margin:4px 0;">学習レシピ</div>
-        <div style="color:#444;">訓練手順も公開</div>
-      </div>
-      <div style="background:#e0f5e0; border:2px solid #6ab87a; border-radius:8px; padding:10px 14px; flex:1; min-width:130px; text-align:center; font-size:0.82rem;">
-        <div style="font-size:1.3rem;">💾</div>
-        <div style="font-weight:700; color:#1e5c2e; margin:4px 0;">学習データの一部</div>
-        <div style="color:#444;">NVIDIA-NeMoリポジトリ経由</div>
-      </div>
+    <!-- なぜこの動きが起きているか フロー -->
+    <p style="font-size:0.85rem; font-weight:600; color:#555; margin-bottom:8px;">🔄 なぜ「作って売る」から「一緒に使う」に変わるの？</p>
+    <div class="step-flow">
+      <div class="step-box">AIモデルが<br>コモディティ化<br><span style="font-size:0.73rem; font-weight:400;">（どこも似た性能）</span></div>
+      <div class="step-arrow">→</div>
+      <div class="step-box">差別化が難しく<br>価格競争に<br><span style="font-size:0.73rem; font-weight:400;">（収益が下がる）</span></div>
+      <div class="step-arrow">→</div>
+      <div class="step-box">「導入支援」で<br>高付加価値に<br><span style="font-size:0.73rem; font-weight:400;">（コンサル的役割）</span></div>
+      <div class="step-arrow">→</div>
+      <div class="step-box green">顧客を囲い込み<br>長期収益を確保<br><span style="font-size:0.73rem; font-weight:400;">（継続利用）</span></div>
     </div>
 
     <ul class="point-list">
       <li>
-        <span class="marker marker-green">1</span>
-        <span><strong>「チップ会社」からの本格AIモデル参入</strong> ── NVIDIAはGPUを売る会社として知られるが、今回のComputexでは「フルスタックAIプラットフォーム企業」として自社AIモデルを前面に押し出した。ハードとソフトを両方持つ強みを生かした戦略</span>
+        <span class="marker marker-orange">1</span>
+        <span><strong>両社が同じ日（5月4日）に発表した意味</strong> ── 偶然ではなく、「AI実装支援市場」を先に取りに行くための競争。Anthropicが先に発表する直前にOpenAIの計画が報道されたとされる</span>
       </li>
       <li>
-        <span class="marker marker-green">2</span>
-        <span><strong>「550B/55B」のMoE設計が省エネの鍵</strong> ── 全部で5,500億個のパラメーターを持つが、一度の推論では550億個だけが動く。使わない部分は眠っているため、実際の計算量は10分の1程度で済む。高性能かつ高速（300+ tokens/秒）を両立</span>
+        <span class="marker marker-orange">2</span>
+        <span><strong>「AIエンジニアを企業に常駐」という新しい形</strong> ── 従来のSI（システムインテグレーター）が担っていた役割に、AIモデル企業が直接参入する。「モデルを売る会社」から「AI変革を一緒に実現する会社」へ変わる宣言ともいえる</span>
       </li>
       <li>
-        <span class="marker marker-green">3</span>
-        <span><strong>「米国勢首位」だが中国には差がある</strong> ── インテリジェンス指数でNemotron 3 Ultraは48で米国のオープンウェイトモデルとして最高得点。一方、中国のKimi K2.6は54でリード。「アメリカのオープンAIが中国にまだ追いついていない」ことも明らかになった</span>
+        <span class="marker marker-orange">3</span>
+        <span><strong>PE（プライベートエクイティ）との連携が特徴</strong> ── AnthropicのJVはPE会社の傘下にある数百社を一気に顧客にできる戦略。「投資家の出資 → その投資先企業がAIを導入 → 収益が回る」というエコシステムを構築する</span>
       </li>
       <li>
-        <span class="marker marker-green">4</span>
-        <span><strong>出荷は6月4日から</strong> ── Computexで発表された時点（6月1日）は公開前。実際のHugging Faceへの重み公開は6月4日（予定）。研究者・企業が商用・研究利用でき、自分のGPUサーバーで動かせる</span>
-      </li>
-      <li>
-        <span class="marker marker-green">5</span>
-        <span><strong>Cosmos 3など周辺モデルも同時発表</strong> ── Computex 2026ではNemotron 3 Ultraに加え、物理世界理解向けの「Cosmos 3」、スペック非公開の「RTX Spark」も発表。NVIDIA全体が「AIのエコシステムを作る会社」へと変貌しつつある</span>
+        <span class="marker marker-orange">4</span>
+        <span><strong>既存のシステム会社（SIer）への影響</strong> ── アクセンチュアやIBMなどのコンサル・SI企業が担ってきた「AI導入支援」の市場に、AIモデル企業が直接参入することになる。業界の構造変化が予想される</span>
       </li>
     </ul>
 
     <div class="sticky">
-      ✏️ <strong>中学生的に言うと：</strong>「PlayStation（ゲーム機）を作っていたソニーが、突然世界最強のゲームも作り始めた！」みたいな話。GPUを売っていたNVIDIAが、そのGPUで動く最強AIも自分で作って無料公開！しかも5,500億個もの「頭の回路」を持つ超巨大AI！
+      ✏️ <strong>中学生的に言うと：</strong>「iPhoneを売るAppleが、iPhoneの使い方を企業に教えるコンサル会社も始めた」みたいな話。AIを作る会社が「使わせるお手伝い」もしてくれる時代に！
     </div>
 
     <div class="source">
       📎 出典：
-      <a href="https://cryptobriefing.com/nvidia-nemotron-3-ultra-computex-2026/" target="_blank">Crypto Briefing – NVIDIA Nemotron 3 Ultra at Computex 2026（2026-06-01）</a> /
-      <a href="https://blogs.nvidia.com/blog/nvidia-gtc-taipei-computex-2026-news/" target="_blank">NVIDIA Blog – GTC Taipei at COMPUTEX: Live Updates（2026-06-01）</a> /
-      <a href="https://decrypt.co/369689/nvidia-open-ai-model-nemotron-3-ultra" target="_blank">Decrypt – Nvidia Releases Its Best Open AI Model Yet（2026-06-01）</a>
+      <a href="https://techcrunch.com/2026/05/04/anthropic-and-openai-are-both-launching-joint-ventures-for-enterprise-ai-services/" target="_blank">TechCrunch – Anthropic and OpenAI both launching enterprise AI JVs（2026-05-04）</a> /
+      <a href="https://www.cnbc.com/2026/05/04/anthropic-goldman-blackstone-ai-venture.html" target="_blank">CNBC – Anthropic teams with Goldman, Blackstone on $1.5B AI venture（2026-05-04）</a> /
+      <a href="https://letsdatascience.com/blog/openai-anthropic-twin-pe-joint-ventures-may-4" target="_blank">Let's Data Science – OpenAI $10B + Anthropic $1.5B Twin PE JV（2026-05-04）</a>
+    </div>
+  </div>
+</div>
+
+<!-- トピック4: EU AI法 -->
+<div class="card" id="topic4">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">⚖️</span>
+      <div class="card-title">EU AI法 改正・施行が迫る ──<br>高リスクAI義務が16ヶ月延長、8月から罰則スタート</div>
+      <span class="topic-badge badge-teal">規制・法律</span>
+    </div>
+
+    <div class="simple-box">
+      <span class="label">🌱 やさしく解説</span><br>
+      ヨーロッパでは、AIに関する世界初の本格的な法律「<span class="hl-yellow">EU AI法（EU AI Act）</span>」が2024年に成立し、段階的に施行されています。2026年5月には<strong>法律の一部が修正される</strong>ことが決まり、企業が対応しなければならない期限が延びた部分もありました。一方で、<span class="hl-pink">2026年8月からはChatGPTのような「汎用AIモデル」への監督・罰則が始まる</span>という重要な締め切りが迫っています。
+    </div>
+
+    <!-- タイムライン -->
+    <p style="font-size:0.85rem; font-weight:600; color:#555; margin-bottom:10px;">📅 EU AI法 2026年 主要スケジュール</p>
+    <div class="timeline">
+      <div class="tl-item done">
+        <div class="tl-date">2026年5月7日 ✅ 完了</div>
+        <div class="tl-title">「デジタル・オムニバス」合意 ── 初の法律改正案が成立</div>
+        <div style="font-size:0.83rem; color:#666; margin-top:2px;">欧州委員会・議会・閣僚理事会が、EU AI Act成立（2024年6月）以来初めての修正に暫定合意。高リスクAI義務の延長などが含まれる</div>
+      </div>
+      <div class="tl-item done">
+        <div class="tl-date">2026年5月8日 ✅ 完了</div>
+        <div class="tl-title">透明性義務のガイドライン草案を公表</div>
+        <div style="font-size:0.83rem; color:#666; margin-top:2px;">「AI生成コンテンツだと表示する義務（第50条）」の実施ガイドラインを公表。6月3日まで意見募集</div>
+      </div>
+      <div class="tl-item done">
+        <div class="tl-date">2026年5月19日 ✅ 完了</div>
+        <div class="tl-title">高リスクAI分類ガイドライン草案を公表</div>
+        <div style="font-size:0.83rem; color:#666; margin-top:2px;">「自分のAIは高リスクに該当するか？」を判断するガイドライン。6月23日まで意見募集</div>
+      </div>
+      <div class="tl-item warn">
+        <div class="tl-date">2026年8月2日 ⚠️ まもなく</div>
+        <div class="tl-title">汎用AIモデル（GPAIモデル）への監督・罰則が始まる</div>
+        <div style="font-size:0.83rem; color:#666; margin-top:2px;">ChatGPT・Claude・Geminiのような「何でも使える汎用AI」を提供する企業への欧州委員会の監督権限がスタート。違反時は世界年商の3%または1,500万ユーロの高い方が上限</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">2027年12月2日（延長後）</div>
+        <div class="tl-title">高リスクAI（附属書III）への義務が始まる</div>
+        <div style="font-size:0.83rem; color:#666; margin-top:2px;">採用・与信・医療などで使うAIへの義務。当初は2026年8月の予定だったが、デジタル・オムニバス合意で16ヶ月延長された</div>
+      </div>
+    </div>
+
+    <!-- 罰則金額の視覚化 -->
+    <p style="font-size:0.85rem; font-weight:600; color:#555; margin: 16px 0 10px;">💶 罰則の上限（8月2日〜 GPAIモデル向け）</p>
+    <div style="display:flex; gap:12px; flex-wrap:wrap; margin-bottom:16px;">
+      <div style="flex:1; min-width:180px; background:#fff0e8; border:2px solid #f0a870; border-radius:8px; padding:14px; text-align:center;">
+        <div style="font-size:1.6rem; font-weight:700; color:#c05000; font-family:'Caveat',cursive;">3%</div>
+        <div style="font-size:0.8rem; color:#555; margin-top:4px;">世界年商の3%<br>（大企業の場合は巨額に）</div>
+      </div>
+      <div style="font-size:1.4rem; color:#aaa; display:flex; align-items:center;">または</div>
+      <div style="flex:1; min-width:180px; background:#fff0e8; border:2px solid #f0a870; border-radius:8px; padding:14px; text-align:center;">
+        <div style="font-size:1.6rem; font-weight:700; color:#c05000; font-family:'Caveat',cursive;">€1,500万</div>
+        <div style="font-size:0.8rem; color:#555; margin-top:4px;">1,500万ユーロ<br>（約25億円）</div>
+      </div>
+      <div style="font-size:1.4rem; color:#aaa; display:flex; align-items:center;">高い方</div>
+    </div>
+
+    <ul class="point-list">
+      <li>
+        <span class="marker marker-teal">1</span>
+        <span><strong>「デジタル・オムニバス」= EU AI法初の改正（5月7日）</strong> ── 法律が施行開始からわずか2年以内に修正された。企業の準備が追いつかないとして、高リスクAI（採用・与信など）への義務を16ヶ月延長する措置が取られた</span>
+      </li>
+      <li>
+        <span class="marker marker-teal">2</span>
+        <span><strong>「高リスクAI」とは何か</strong> ── EU AI法では「人の人生に大きく影響するAI」を高リスクと定義。就職審査・ローン審査・医療診断・重要インフラ管理などに使うAIが該当。これらには透明性や人の監視が義務づけられる</span>
+      </li>
+      <li>
+        <span class="marker marker-teal">3</span>
+        <span><strong>8月2日から「汎用AIモデル」への罰則スタート</strong> ── ChatGPT・Claude・Geminiのような「何にでも使えるAI」を提供する企業は、欧州委員会の監督・立入調査の対象になる。「AI生成コンテンツと分かるようにラベルを付ける」なども義務の一部</span>
+      </li>
+      <li>
+        <span class="marker marker-teal">4</span>
+        <span><strong>日本・米国への間接的な影響</strong> ── EU域内でサービスを提供するすべての企業が対象。日本やアメリカのAI企業もEUでの展開がある場合は対応が必要。「EU発の規制が世界標準になる」という「ブリュッセル効果」が起きる可能性がある</span>
+      </li>
+      <li>
+        <span class="marker marker-teal">5</span>
+        <span><strong>ガイドラインへのパブリックコメントが進行中</strong> ── 5月に公表された「透明性義務（6月3日締め切り）」「高リスクAI分類（6月23日締め切り）」のガイドライン草案に対して、企業・研究者が意見を提出できる段階（2026年6月2日時点）</span>
+      </li>
+    </ul>
+
+    <div class="sticky">
+      ✏️ <strong>中学生的に言うと：</strong>「ヨーロッパでは、AIを使うにもルールを守らないと数十億円の罰金になる」時代に！特に就活や銀行のローン審査にAIを使う企業は、ちゃんと説明できないとダメになった。
+    </div>
+
+    <div class="source">
+      📎 出典：
+      <a href="https://www.consilium.europa.eu/en/press/press-releases/2026/05/07/artificial-intelligence-council-and-parliament-agree-to-simplify-and-streamline-rules/" target="_blank">EU理事会 – AI Act: Council and Parliament agree on Digital Omnibus（2026-05-07）</a> /
+      <a href="https://www.globalpolicywatch.com/2026/05/eu-ai-act-update-timeline-relief-targeted-simplification-and-new-prohibitions/" target="_blank">Global Policy Watch – EU AI Act Update: Timeline Relief and New Prohibitions（2026年5月）</a> /
+      <a href="https://artificialintelligenceact.eu/enforcement-of-chapter-v-under-the-eu-ai-act/" target="_blank">EU AI Act – GPAI Enforcement Timeline（公式情報サイト）</a>
     </div>
   </div>
 </div>
@@ -862,24 +886,24 @@
   <h2>📝 今日の大きな流れ ── 2026年6月2日のキーワード</h2>
   <div class="summary-grid">
     <div class="summary-item">
-      <span class="s-emoji">🏗️</span>
-      <div class="s-title">Windowsが「AI の家」になる</div>
-      Microsoft Build 2026で発表されたWAFとProject Polarisは、PCのOSがAIエージェントの動作基盤に変わる歴史的な転換点。OpenAI依存からの自立も宣言した
+      <span class="s-emoji">📈</span>
+      <div class="s-title">AIが「株式市場」へ踏み出す</div>
+      AnthropicのIPO申請は、AI産業が「スタートアップの夢」から「社会インフラ企業」へと変わる象徴。評価額は96兆円規模、売上は1年で5倍近くに急拡大
     </div>
     <div class="summary-item">
-      <span class="s-emoji">💸</span>
-      <div class="s-title">AIの「食べ放題」が終わった</div>
-      GitHub Copilotの従量課金化は、AIをフル活用する開発者にとって費用が10〜50倍に膨らむ現実を突きつけた。「使った分だけ払う」時代が本格化
+      <span class="s-emoji">⚡</span>
+      <div class="s-title">「速い＆賢い」が両立した</div>
+      Gemini 3.5 Flashは「速い代わりに性能は下」という常識を覆し、前世代の上位モデルを超えた。エージェント向けに最適化された「次世代の標準」
     </div>
     <div class="summary-item">
-      <span class="s-emoji">🟢</span>
-      <div class="s-title">NVIDIAが「作る側」に参入</div>
-      チップ会社が米国最強のオープンAIモデルを無料公開。5,500億パラメーターの巨大AIが誰でも使えるようになり、オープンAIの競争が新段階へ
+      <span class="s-emoji">🤝</span>
+      <div class="s-title">「作る」から「使わせる」へ</div>
+      AI企業が実装支援JVを設立する動きは、収益の多様化だけでなく、企業のAI活用に「伴走する」新しい産業構造の誕生を示している
     </div>
     <div class="summary-item">
-      <span class="s-emoji">🌏</span>
-      <div class="s-title">米国 vs 中国の差が縮まらない</div>
-      NVIDIAが米国勢首位を取ったが、中国の Kimi K2.6 にはまだ差がある。オープンウェイトのランキングでは引き続き中国勢が上位を占める構図が続く
+      <span class="s-emoji">⚖️</span>
+      <div class="s-title">ルールが世界に広がる</div>
+      EU AI法の施行が本格化。8月からの汎用AIへの罰則は、全世界のAI企業に対応を迫る。「AI大航海時代」に国際ルールの枠組みが整い始めた
     </div>
   </div>
 </div>
