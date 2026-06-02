@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 基礎知識 2026-06-03</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .cover {
+    background: linear-gradient(135deg, #1a3a4a 0%, #1a5276 100%);
+    color: white;
+    border-radius: 8px;
+    padding: 60px 40px;
+    text-align: center;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.3);
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+      0deg, transparent, transparent 28px,
+      rgba(255,255,255,0.06) 28px, rgba(255,255,255,0.06) 29px
+    );
+  }
+  .cover-emoji { font-size: 64px; display: block; margin-bottom: 16px; }
+  .cover h1 {
+    font-family: 'Klee One', sans-serif;
+    font-size: 2.0rem;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 12px;
+    position: relative;
+  }
+  .cover .subtitle { font-size: 1.0rem; opacity: 0.85; margin-bottom: 8px; position: relative; }
+  .cover .key-badge {
+    display: inline-block;
+    background: #c0392b;
+    border: 2px solid #ff6b6b;
+    border-radius: 20px;
+    padding: 6px 20px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-top: 10px;
+    position: relative;
+  }
+  .cover .date-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 20px;
+    padding: 6px 20px;
+    font-size: 1rem;
+    margin-top: 10px;
+    margin-left: 8px;
+    position: relative;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 6px;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.12);
+    position: relative;
+    overflow: hidden;
+  }
+  .card-body {
+    padding: 28px 36px 28px 64px;
+    background: repeating-linear-gradient(
+      0deg, transparent, transparent 31px, #e0d8c8 31px, #e0d8c8 32px
+    );
+    background-color: #fff9f0;
+    min-height: 200px;
+  }
+  .card-body::before {
+    content: '';
+    position: absolute;
+    left: 52px; top: 0; bottom: 0;
+    width: 2px;
+    background: #e8a0a0;
+    opacity: 0.7;
+  }
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 8px;
+    border-bottom: 2px dashed #c8b89a;
+  }
+  .card-emoji { font-size: 2rem; }
+  .card-title {
+    font-family: 'Klee One', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #2c3e50;
+    line-height: 1.3;
+  }
+  .topic-badge {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-left: auto;
+    white-space: nowrap;
+  }
+  .badge-red    { background: #ffe0e0; color: #c0392b; border: 1px solid #f5a0a0; }
+  .badge-blue   { background: #e0eeff; color: #2255aa; border: 1px solid #a0c0f5; }
+  .badge-green  { background: #e0f5e0; color: #1e7e34; border: 1px solid #a0d8a0; }
+  .badge-purple { background: #f0e0ff; color: #7b2fbe; border: 1px solid #c8a0f0; }
+  .badge-orange { background: #fff0d0; color: #cc6600; border: 1px solid #f0c070; }
+  .badge-teal   { background: #d0f0f0; color: #006060; border: 1px solid #80d0d0; }
+  .badge-navy   { background: #e0e8f8; color: #1a3a6a; border: 1px solid #90b0e8; }
+
+  .simple-box {
+    background: #fff7e0;
+    border-left: 4px solid #f5c842;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin: 16px 0;
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+  .simple-box .label {
+    display: inline-block;
+    background: #f5c842;
+    color: #5a4000;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+  }
+
+  .alert-box {
+    background: #fff0f0;
+    border-left: 4px solid #e74c3c;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin: 16px 0;
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+  .alert-box .label {
+    display: inline-block;
+    background: #e74c3c;
+    color: white;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+  }
+
+  .info-box {
+    background: #e8f4fb;
+    border-left: 4px solid #1a5276;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin: 16px 0;
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+  .info-box .label {
+    display: inline-block;
+    background: #1a5276;
+    color: white;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+  }
+
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 0.9rem;
+  }
+  .compare-table th {
+    background: #1a5276;
+    color: white;
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .compare-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid #e0d8c8;
+    line-height: 1.6;
+    vertical-align: top;
+  }
+  .compare-table tr:nth-child(even) td { background: #fdf6ec; }
+  .compare-table tr:hover td { background: #fff3da; }
+  .compare-table .urgent-row td { background: #fff0f0; }
+  .compare-table .soon-row td { background: #fffbe0; }
+  .compare-table .normal-row td { background: #f0f8f0; }
+
+  .deadline-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 10px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  .db-red    { background: #c0392b; color: white; }
+  .db-orange { background: #cc6600; color: white; }
+  .db-green  { background: #1e7e34; color: white; }
+  .db-blue   { background: #1a5276; color: white; }
+
+  .point-list {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0;
+  }
+  .point-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 0;
+    font-size: 0.97rem;
+    line-height: 1.7;
+    color: #333;
+    border-bottom: 1px dotted #ddd;
+  }
+  .point-list li:last-child { border-bottom: none; }
+  .point-list .marker {
+    flex-shrink: 0;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-top: 2px;
+  }
+  .marker-red    { background: #c0392b; color: white; }
+  .marker-blue   { background: #1a5276; color: white; }
+  .marker-green  { background: #2d6a2d; color: white; }
+  .marker-orange { background: #cc6600; color: white; }
+  .marker-purple { background: #7b2fbe; color: white; }
+
+  .hl-yellow { background: linear-gradient(transparent 60%, #ffe566 60%); }
+  .hl-pink   { background: linear-gradient(transparent 60%, #ffb3c6 60%); }
+  .hl-blue   { background: linear-gradient(transparent 60%, #b3d4ff 60%); }
+  .hl-green  { background: linear-gradient(transparent 60%, #b3f0b3 60%); }
+  .hl-orange { background: linear-gradient(transparent 60%, #ffd0a0 60%); }
+
+  .sticky {
+    background: #fff9c4;
+    border-radius: 4px;
+    padding: 12px 16px;
+    margin: 14px 0;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.1);
+    transform: rotate(-0.5deg);
+    display: inline-block;
+    width: 100%;
+    color: #4a3800;
+  }
+
+  .source {
+    font-size: 0.78rem;
+    color: #888;
+    margin-top: 14px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+  }
+  .source a { color: #1a5276; text-decoration: none; }
+  .source a:hover { text-decoration: underline; }
+
+  .summary-card {
+    background: linear-gradient(135deg, #1a3a4a 0%, #1a5276 100%);
+    color: white;
+    border-radius: 8px;
+    padding: 36px 40px;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.2);
+  }
+  .summary-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px dashed rgba(255,255,255,0.4);
+  }
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+  }
+  .summary-item {
+    background: rgba(255,255,255,0.12);
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  .summary-item .s-emoji { font-size: 1.6rem; display: block; margin-bottom: 6px; }
+  .summary-item .s-title { font-weight: 600; margin-bottom: 4px; font-size: 1rem; }
+
+  .disclaimer {
+    background: #f8f4ec;
+    border: 2px solid #c8b89a;
+    border-radius: 8px;
+    padding: 20px 28px;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    font-size: 0.83rem;
+    color: #5a4830;
+    line-height: 1.8;
+  }
+  .disclaimer strong { color: #1a5276; }
+
+  .toc {
+    background: #f8f4ec;
+    border: 2px solid #c8b89a;
+    border-radius: 8px;
+    padding: 20px 28px;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+  }
+  .toc h2 { font-size: 1.1rem; color: #1a5276; margin-bottom: 12px; }
+  .toc ol { padding-left: 20px; }
+  .toc li { padding: 4px 0; font-size: 0.93rem; }
+  .toc a { color: #1a5276; text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+
+  .footer {
+    text-align: center;
+    color: #888;
+    font-size: 0.8rem;
+    padding: 20px;
+    max-width: 820px;
+    width: 100%;
+  }
+
+  /* 大きな数字カード */
+  .big-num-row {
+    display: flex;
+    gap: 16px;
+    margin: 16px 0;
+    flex-wrap: wrap;
+  }
+  .big-num-card {
+    background: #fff9f0;
+    border: 2px solid #1a5276;
+    border-radius: 10px;
+    padding: 16px 24px;
+    text-align: center;
+    flex: 1;
+    min-width: 140px;
+  }
+  .big-num-card .bn-number {
+    font-family: 'Caveat', cursive;
+    font-size: 3.2rem;
+    font-weight: 700;
+    color: #1a5276;
+    line-height: 1;
+    display: block;
+  }
+  .big-num-card .bn-unit { font-size: 1rem; color: #1a5276; font-weight: 600; }
+  .big-num-card .bn-label { font-size: 0.8rem; color: #666; margin-top: 6px; line-height: 1.5; }
+  .big-num-card.red-card { border-color: #c0392b; background: #fff0f0; }
+  .big-num-card.red-card .bn-number { color: #c0392b; }
+  .big-num-card.red-card .bn-unit { color: #c0392b; }
+  .big-num-card.orange-card { border-color: #cc6600; background: #fff0d0; }
+  .big-num-card.orange-card .bn-number { color: #cc6600; }
+  .big-num-card.orange-card .bn-unit { color: #cc6600; }
+  .big-num-card.green-card { border-color: #2d6a2d; background: #e8f4e8; }
+  .big-num-card.green-card .bn-number { color: #2d6a2d; }
+  .big-num-card.green-card .bn-unit { color: #2d6a2d; }
+
+  /* フロー */
+  .flow-wrap { margin: 20px 0; }
+  .flow-row {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #fff9f0;
+    border: 2px solid #1a5276;
+    border-radius: 8px;
+    padding: 14px 12px;
+    text-align: center;
+    flex: 1;
+    min-width: 130px;
+    max-width: 200px;
+  }
+  .flow-step .fs-num {
+    display: inline-block;
+    background: #1a5276;
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    line-height: 22px;
+    margin-bottom: 8px;
+  }
+  .flow-step .fs-emoji { font-size: 1.6rem; display: block; margin-bottom: 6px; }
+  .flow-step .fs-title { font-size: 0.85rem; font-weight: 700; color: #2c3e50; line-height: 1.4; }
+  .flow-step .fs-sub { font-size: 0.75rem; color: #777; margin-top: 4px; line-height: 1.4; }
+  .flow-step.highlight { background: #fdf0d0; border-color: #cc6600; }
+  .flow-step.highlight .fs-title { color: #cc6600; }
+  .flow-step.highlight .fs-num { background: #cc6600; }
+  .flow-step.red-step { background: #fff0f0; border-color: #c0392b; }
+  .flow-step.red-step .fs-title { color: #c0392b; }
+  .flow-step.red-step .fs-num { background: #c0392b; }
+  .flow-step.green-step { background: #e8f4e8; border-color: #2d6a2d; }
+  .flow-step.green-step .fs-title { color: #2d6a2d; }
+  .flow-arrow {
+    display: flex;
+    align-items: center;
+    padding: 0 6px;
+    color: #1a5276;
+    font-size: 1.6rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  /* Q&A */
+  .qa-box {
+    margin: 14px 0;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #ddd;
+  }
+  .qa-question {
+    background: #1a5276;
+    color: white;
+    padding: 10px 16px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.5;
+  }
+  .qa-question::before { content: 'Q  '; font-weight: 700; font-size: 1.1rem; }
+  .qa-answer {
+    background: #f0f6fb;
+    padding: 12px 16px;
+    font-size: 0.92rem;
+    line-height: 1.7;
+    color: #333;
+    border-left: 4px solid #1a5276;
+  }
+  .qa-answer::before { content: 'A  '; font-weight: 700; color: #1a5276; }
+
+  /* 判定フロー図 */
+  .decision-flow {
+    margin: 20px 0;
+  }
+  .df-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  .df-question {
+    background: #fff3cd;
+    border: 2px solid #cc6600;
+    border-radius: 50px;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #4a3000;
+    flex: 1;
+    text-align: center;
+  }
+  .df-yes {
+    background: #c0392b;
+    color: white;
+    border-radius: 6px;
+    padding: 6px 14px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-align: center;
+    min-width: 60px;
+  }
+  .df-no {
+    background: #2d6a2d;
+    color: white;
+    border-radius: 6px;
+    padding: 6px 14px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-align: center;
+    min-width: 60px;
+  }
+  .df-result-red {
+    background: #fff0f0;
+    border: 2px solid #c0392b;
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-size: 0.88rem;
+    color: #c0392b;
+    font-weight: 600;
+    flex: 1;
+    text-align: center;
+  }
+  .df-result-green {
+    background: #e8f4e8;
+    border: 2px solid #2d6a2d;
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-size: 0.88rem;
+    color: #2d6a2d;
+    font-weight: 600;
+    flex: 1;
+    text-align: center;
+  }
+  .df-indent {
+    padding-left: 36px;
+  }
+  .df-arrow-down {
+    text-align: left;
+    padding-left: 48px;
+    color: #2d6a2d;
+    font-size: 1.2rem;
+    margin-bottom: 4px;
+  }
+
+  /* カード2枚並び（比較） */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 16px 0;
+  }
+  .col-card {
+    border-radius: 8px;
+    padding: 16px;
+    font-size: 0.88rem;
+    line-height: 1.7;
+  }
+  .col-card.good  { background: #e8f4e8; border: 2px solid #2d6a2d; }
+  .col-card.bad   { background: #fff0f0; border: 2px solid #c0392b; }
+  .col-card .col-title {
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+    padding-bottom: 6px;
+    border-bottom: 1px dashed #ccc;
+  }
+  .col-card.good .col-title { color: #2d6a2d; }
+  .col-card.bad  .col-title { color: #c0392b; }
+  .col-card ul { padding-left: 16px; }
+  .col-card li { margin-bottom: 5px; }
+
+  @media (max-width: 600px) {
+    .card-body { padding: 20px 18px 20px 40px; }
+    .big-num-row { flex-direction: column; }
+    .two-col { grid-template-columns: 1fr; }
+    .df-row { flex-wrap: wrap; }
+  }
+</style>
+</head>
+<body>
+
+<!-- 表紙 -->
+<div class="cover">
+  <span class="cover-emoji">🧾</span>
+  <h1>消費税の課税・免税と<br>新設法人の2年免税ルール</h1>
+  <div class="subtitle">資本金の額で変わる！設立直後の消費税の考え方を図解</div>
+  <div class="subtitle">1人法人スタート 基礎知識</div>
+  <span class="key-badge">💡 資本金1,000万円未満 → 原則2年間免税</span>
+  <span class="date-badge">2026-06-03</span>
+</div>
+
+<!-- 目次 -->
+<div class="toc">
+  <h2>📋 今日の目次</h2>
+  <ol>
+    <li><a href="#sec1">消費税の「免税」「課税」って何が違うの？</a></li>
+    <li><a href="#sec2">通常の判定：前々事業年度の売上で決まる</a></li>
+    <li><a href="#sec3">新設法人の2年免税ルール（資本金がカギ）</a></li>
+    <li><a href="#sec4">課税事業者になってしまう3つのパターン</a></li>
+    <li><a href="#sec5">インボイス登録と免税の関係</a></li>
+    <li><a href="#sec6">免税期間中の会計処理と注意点</a></li>
+    <li><a href="#sec7">今日のまとめ</a></li>
+  </ol>
+</div>
+
+<!-- Section 1 -->
+<div class="card" id="sec1">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">🏪</span>
+      <span class="card-title">消費税の「免税」「課税」って何が違うの？</span>
+      <span class="topic-badge badge-blue">基本のキ</span>
+    </div>
+
+    <div class="simple-box">
+      <div class="label">やさしく言うと</div>
+      消費税（税率10%）は、お客さんから受け取っているお金です。
+      <strong>「免税事業者」</strong>はこれを国に納めなくてOK。
+      <strong>「課税事業者」</strong>はきちんと計算して納付する義務があります。
+      「免税 ＝ 消費税ゼロ」ではなく、<span class="hl-yellow">お客さんからは10%をもらっていいが、自分は国へ納付しなくていい</span>という状態です。
+    </div>
+
+    <div class="two-col">
+      <div class="col-card good">
+        <div class="col-title">✅ 免税事業者（メリット）</div>
+        <ul>
+          <li>売上の消費税を納付しなくてよい</li>
+          <li>消費税申告書の作成不要</li>
+          <li>設立初期の手元資金が増える</li>
+          <li>消費税の税務調査リスクがない</li>
+        </ul>
+      </div>
+      <div class="col-card bad">
+        <div class="col-title">⚠️ 免税事業者（デメリット）</div>
+        <ul>
+          <li>インボイス（適格請求書）を発行できない</li>
+          <li>B2B取引で取引先に不利益が生じる場合あり</li>
+          <li>仕入の消費税を取り戻せない（控除不可）</li>
+          <li>課税事業者になるタイミングで一時的な負担増</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <div class="label">📖 法令の根拠</div>
+      消費税法 第9条第1項：「事業者のうち、その課税期間に係る基準期間における課税売上高が
+      <strong>1,000万円以下</strong>である者については、その課税期間中に国内において行った課税資産の譲渡等…
+      については、消費税を納める義務を免除する。」（基準年度：2024年現在の消費税法）
+    </div>
+
+    <div class="source">
+      📌 出典：消費税法 第9条（小規模事業者に係る納税義務の免除）<br>
+      国税庁「No.6531 新たに事業を始めたときの届出など」
+      <a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shohi/6531.htm" target="_blank">https://www.nta.go.jp/taxes/shiraberu/taxanswer/shohi/6531.htm</a>（2024年確認）
+    </div>
+  </div>
+</div>
+
+<!-- Section 2 -->
+<div class="card" id="sec2">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">📊</span>
+      <span class="card-title">通常の判定：前々事業年度の売上で決まる</span>
+      <span class="topic-badge badge-navy">判定基準</span>
+    </div>
+
+    <div class="simple-box">
+      <div class="label">やさしく言うと</div>
+      「2年前の売上が1,000万円を超えたら、今年は消費税を納める」というルールです。
+      「前々事業年度（2年前の期）」を<strong>基準期間（きじゅんきかん）</strong>といいます。
+    </div>
+
+    <p style="font-weight:700; color:#1a5276; margin-bottom:12px;">■ 基準期間と課税・免税の関係</p>
+
+    <div class="flow-wrap">
+      <div class="flow-row">
+        <div class="flow-step">
+          <span class="fs-emoji">📅</span>
+          <div class="fs-title">基準期間<br>（2年前の期）</div>
+          <div class="fs-sub">前々事業年度</div>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step highlight">
+          <span class="fs-emoji">🔍</span>
+          <div class="fs-title">課税売上高を<br>チェック</div>
+          <div class="fs-sub">1,000万円 超？<br>以下？</div>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step red-step">
+          <span class="fs-emoji">💴</span>
+          <div class="fs-title">超えた<br>→ 課税事業者</div>
+          <div class="fs-sub">当期に消費税<br>申告・納付が必要</div>
+        </div>
+        <div class="flow-arrow">or</div>
+        <div class="flow-step green-step">
+          <span class="fs-emoji">✅</span>
+          <div class="fs-title">以下<br>→ 免税事業者</div>
+          <div class="fs-sub">当期は納付<br>不要（原則）</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="big-num-row">
+      <div class="big-num-card red-card">
+        <span class="bn-number">1,000</span>
+        <span class="bn-unit">万円</span>
+        <div class="bn-label">基準期間の課税売上高<br><strong>「超え」なら課税事業者</strong><br><span style="color:#888;font-size:0.72rem;">消費税法 第9条</span></div>
+      </div>
+      <div class="big-num-card">
+        <span class="bn-number">2</span>
+        <span class="bn-unit">年前</span>
+        <div class="bn-label">基準期間 ＝ 前々事業年度<br>（今年が4期目なら2期目が基準期間）</div>
+      </div>
+    </div>
+
+    <div class="qa-box">
+      <div class="qa-question">「課税売上高」って何を含む？</div>
+      <div class="qa-answer">
+        消費税がかかる売上の合計額です。サービス収入・商品売上など、国内で行う課税取引が対象です。
+        受取利息や非課税売上（住宅家賃など）は含みません。また、消費税込みの金額ではなく<strong>税抜きの売上高</strong>で判定します。
+      </div>
+    </div>
+
+    <div class="source">
+      📌 出典：消費税法 第9条・第19条（基準期間）<br>
+      国税庁「No.6501 納税義務の免除」
+      <a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shohi/6501.htm" target="_blank">https://www.nta.go.jp/taxes/shiraberu/taxanswer/shohi/6501.htm</a>（2024年確認）
+    </div>
+  </div>
+</div>
+
+<!-- Section 3 -->
+<div class="card" id="sec3">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">🆕</span>
+      <span class="card-title">新設法人の2年免税ルール（資本金がカギ）</span>
+      <span class="topic-badge badge-green">1人法人の特典</span>
+    </div>
+
+    <div class="simple-box">
+      <div class="label">やさしく言うと</div>
+      <strong>会社を立ち上げたばかりのとき「前々事業年度」は存在しません。</strong>
+      そのため、設立1期目と2期目は基準期間がなく、原則として消費税が免税になります。
+      ただし、<span class="hl-pink">資本金が1,000万円以上だと初年度から課税事業者</span>になってしまいます。
+    </div>
+
+    <p style="font-weight:700; color:#1a5276; margin-bottom:12px;">■ 資本金による免税の違い（設立1期目・2期目）</p>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>資本金の額</th>
+          <th>設立1期目</th>
+          <th>設立2期目</th>
+          <th>根拠条文</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="normal-row">
+          <td>
+            <strong>1,000万円未満</strong><br>
+            <span class="deadline-badge db-green" style="font-size:0.7rem;">一般的な1人法人</span>
+          </td>
+          <td>✅ <strong>免税</strong>（原則）</td>
+          <td>✅ <strong>免税</strong>（原則）</td>
+          <td>消費税法 第9条（基準期間なし）</td>
+        </tr>
+        <tr class="urgent-row">
+          <td>
+            <strong>1,000万円以上</strong><br>
+            <span class="deadline-badge db-red" style="font-size:0.7rem;">注意！</span>
+          </td>
+          <td>❌ <strong>課税事業者</strong></td>
+          <td>❌ <strong>課税事業者</strong></td>
+          <td>消費税法 第12条の2<br>（新設法人の特例）</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="alert-box">
+      <div class="label">⚠️ 「資本金1,000万円以上」に要注意</div>
+      会社設立時に<strong>資本金（または出資金）を1,000万円以上</strong>に設定すると、
+      設立1期目から消費税の課税事業者となります。
+      これは「基準期間がない」という免税特例の対象外になるからです。<br>
+      資金に余裕があっても、節税目的で資本金を999万円以下に設定する方も多くいます
+      （ただし設立コストや信用力とのバランスで判断を）。
+    </div>
+
+    <div class="big-num-row">
+      <div class="big-num-card green-card">
+        <span class="bn-number">999</span>
+        <span class="bn-unit">万円以下</span>
+        <div class="bn-label">資本金をこの額以下にすると<br>2年間免税の特典対象<br><span style="color:#888;font-size:0.72rem;">（他の要件を満たせば）</span></div>
+      </div>
+      <div class="big-num-card red-card">
+        <span class="bn-number">1,000</span>
+        <span class="bn-unit">万円以上</span>
+        <div class="bn-label">この額以上だと<br>初年度から課税事業者<br><span style="color:#888;font-size:0.72rem;">消費税法 第12条の2</span></div>
+      </div>
+    </div>
+
+    <div class="source">
+      📌 出典：消費税法 第12条の2（新設法人の納税義務の免除の特例）<br>
+      国税庁「No.6503 基準期間がない法人の納税義務の免除の特例」
+      <a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shohi/6503.htm" target="_blank">https://www.nta.go.jp/taxes/shiraberu/taxanswer/shohi/6503.htm</a>（2024年確認）
+    </div>
+  </div>
+</div>
+
+<!-- Section 4 -->
+<div class="card" id="sec4">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">⚡</span>
+      <span class="card-title">課税事業者になってしまう3つのパターン</span>
+      <span class="topic-badge badge-red">例外に注意</span>
+    </div>
+
+    <div class="simple-box">
+      <div class="label">やさしく言うと</div>
+      資本金が1,000万円未満でも、以下の3つに当てはまると免税になれません。
+      1人法人として設立する場合は主に①と③を確認しましょう。
+    </div>
+
+    <!-- 判定フロー -->
+    <p style="font-weight:700; color:#1a5276; margin-bottom:14px;">■ 設立1期目の消費税判定フロー</p>
+
+    <div class="decision-flow">
+      <!-- 質問1 -->
+      <div class="df-row">
+        <div style="width:24px; color:#c0392b; font-weight:700; flex-shrink:0;">①</div>
+        <div class="df-question">資本金（または出資金）が 1,000万円以上？</div>
+        <div class="df-yes">YES</div>
+        <div class="df-result-red">❌ 課税事業者<br><span style="font-size:0.78rem;">消費税法 第12条の2</span></div>
+      </div>
+      <div class="df-arrow-down">↓ NO</div>
+
+      <!-- 質問2 -->
+      <div class="df-row df-indent">
+        <div style="width:24px; color:#c0392b; font-weight:700; flex-shrink:0;">②</div>
+        <div class="df-question">特定新規設立法人に該当する？<br><span style="font-size:0.8rem;font-weight:400;">（課税売上5億円超の大企業の実質的な関連会社として設立など）</span></div>
+        <div class="df-yes">YES</div>
+        <div class="df-result-red">❌ 課税事業者<br><span style="font-size:0.78rem;">消費税法 第12条の3</span></div>
+      </div>
+      <div class="df-arrow-down" style="padding-left:72px;">↓ NO</div>
+
+      <!-- 質問3 -->
+      <div class="df-row" style="padding-left:48px;">
+        <div style="width:24px; color:#c0392b; font-weight:700; flex-shrink:0;">③</div>
+        <div class="df-question">自らインボイス（適格請求書発行事業者）に登録した？</div>
+        <div class="df-yes">YES</div>
+        <div class="df-result-red">❌ 課税事業者<br><span style="font-size:0.78rem;">（登録日から）</span></div>
+      </div>
+      <div class="df-arrow-down" style="padding-left:84px;">↓ NO</div>
+
+      <!-- 結果 -->
+      <div class="df-row" style="padding-left:84px; margin-top:4px;">
+        <div class="df-result-green" style="text-align:center; padding:12px 20px;">
+          ✅ 免税事業者<br><span style="font-size:0.82rem;">設立1期目・2期目は原則として消費税を納付しなくてOK</span>
+        </div>
+      </div>
+    </div>
+
+    <p style="font-weight:700; color:#1a5276; margin:20px 0 8px;">■ ②「特定新規設立法人」とは？（1人法人での該当ケース）</p>
+
+    <div class="info-box">
+      <div class="label">📖 特定新規設立法人の主な要件（消費税法 第12条の3）</div>
+      以下の<strong>両方を満たす</strong>場合、新設法人でも初年度から課税事業者になります：<br>
+      <ul style="padding-left:20px; margin-top:8px; line-height:2.0;">
+        <li>その事業年度の基準期間に相当する期間中に、<strong>課税売上高が5億円超の法人（判定対象者）が存在する</strong>こと</li>
+        <li>その判定対象者が新設法人の<strong>株式の50%超を直接・間接に保有</strong>しているなど、支配関係がある</li>
+      </ul>
+      <br>
+      👉 <strong>1人で設立した小規模法人</strong>で、設立者個人の前年の事業収入や他社の収入が5億円超でなければ、通常この要件には<span class="hl-yellow">ほとんど該当しません</span>。
+    </div>
+
+    <div class="source">
+      📌 出典：消費税法 第12条の3（特定新規設立法人）<br>
+      国税庁「No.6503 基準期間がない法人の納税義務の免除の特例」
+      <a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shohi/6503.htm" target="_blank">https://www.nta.go.jp/taxes/shiraberu/taxanswer/shohi/6503.htm</a>（2024年確認）
+    </div>
+  </div>
+</div>
+
+<!-- Section 5 -->
+<div class="card" id="sec5">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">🧾</span>
+      <span class="card-title">インボイス登録と免税の関係</span>
+      <span class="topic-badge badge-orange">重要な選択</span>
+    </div>
+
+    <div class="simple-box">
+      <div class="label">やさしく言うと</div>
+      インボイス（適格請求書）を発行するには、「適格請求書発行事業者」として登録が必要です。
+      <strong>免税事業者のままではインボイスを発行できません。</strong>
+      登録すると課税事業者になるため、<span class="hl-yellow">2年間の免税メリットを手放すことになります。</span>
+    </div>
+
+    <p style="font-weight:700; color:#1a5276; margin-bottom:12px;">■ インボイス登録するか・しないか（1人法人の場合）</p>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>判断ポイント</th>
+          <th>✅ 登録しない（免税を維持）</th>
+          <th>⚠️ 登録する（課税事業者に）</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>主な取引先</strong></td>
+          <td>個人向け（BtoC）が中心<br>一般消費者へのサービス</td>
+          <td>法人・個人事業主向け（BtoB）<br>取引先が仕入税額控除を使う</td>
+        </tr>
+        <tr>
+          <td><strong>手取りへの影響</strong></td>
+          <td>消費税を納付しなくていい分、手取りが多くなる</td>
+          <td>売上消費税から仕入消費税を引いた分を納付（原則課税）</td>
+        </tr>
+        <tr>
+          <td><strong>取引先への影響</strong></td>
+          <td>取引先が仕入税額控除できない<br>→ 価格交渉や取引見直しのリスク</td>
+          <td>取引先はインボイスで仕入税額控除できる<br>→ 取引関係が安定しやすい</td>
+        </tr>
+        <tr>
+          <td><strong>経理の手間</strong></td>
+          <td>消費税申告不要（免税のまま）</td>
+          <td>消費税申告書の作成・納付が必要</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="alert-box">
+      <div class="label">📌 2割特例（2023年10月〜2026年9月末）の終了に注意</div>
+      インボイス制度の開始に合わせて登録した免税事業者向けに「2割特例」がありました（売上消費税の2割のみ納付）。
+      この特例は<strong>2026年9月30日で終了</strong>します。詳しくは
+      <a href="2026-05-30.html" style="color:#c0392b; font-weight:600;">5月30日号</a>をご覧ください。
+    </div>
+
+    <div class="qa-box">
+      <div class="qa-question">免税事業者のまま取引先にどう説明する？</div>
+      <div class="qa-answer">
+        相手が課税事業者の場合、インボイスがないと仕入税額控除ができません。
+        ただし、2023〜2029年の経過措置期間中は「仕入税額相当額の一定割合（2026年9月まで80%、2029年9月まで50%）」を控除できる措置があります。
+        BtoB取引がメインなら、免税か登録かは取引先の意向も確認したうえで判断しましょう。
+      </div>
+    </div>
+
+    <div class="source">
+      📌 出典：消費税法 第9条の2（課税事業者の選択）、適格請求書等保存方式（インボイス制度）<br>
+      国税庁「インボイス制度（適格請求書等保存方式）の概要」
+      <a href="https://www.nta.go.jp/taxes/shiraberu/zeimokubetsu/shohi/keigenzeiritsu/invoice_about.htm" target="_blank">https://www.nta.go.jp/taxes/shiraberu/zeimokubetsu/shohi/keigenzeiritsu/invoice_about.htm</a>（2024年確認）
+    </div>
+  </div>
+</div>
+
+<!-- Section 6 -->
+<div class="card" id="sec6">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">📝</span>
+      <span class="card-title">免税期間中の会計処理と注意点</span>
+      <span class="topic-badge badge-purple">実務</span>
+    </div>
+
+    <div class="simple-box">
+      <div class="label">やさしく言うと</div>
+      免税事業者でも消費税はお客さんからもらっています。
+      ただし、会計ソフトへの入力方法（税込み・税抜き）によって帳簿の見え方が変わります。
+      また、3年目以降に課税事業者になるタイミングで<span class="hl-yellow">消費税の申告が突然発生</span>するので、早めに準備しましょう。
+    </div>
+
+    <ul class="point-list">
+      <li>
+        <span class="marker marker-blue">1</span>
+        <span>
+          <strong>会計ソフトは「税込み経理」でもOK（免税期間中）</strong><br>
+          免税事業者は消費税を申告しないため、帳簿を税込みで付けていても問題ありません。
+          ただし、将来の課税事業者転換を見越して「税抜き経理」に慣れておくのも一手です。
+        </span>
+      </li>
+      <li>
+        <span class="marker marker-blue">2</span>
+        <span>
+          <strong>2期目の途中（特定期間）に注意！</strong><br>
+          設立2期目でも、<strong>1期目の前半6か月の売上が1,000万円超</strong>かつ<strong>給与等支払額が1,000万円超</strong>の場合、
+          2期目から課税事業者になることがあります（特定期間の特例：消費税法 第9条の2）。
+          売上が伸びてきたら忘れずに確認しましょう。
+        </span>
+      </li>
+      <li>
+        <span class="marker marker-orange">3</span>
+        <span>
+          <strong>課税事業者になったら「消費税の申告書」を作成する</strong><br>
+          法人税・住民税とは別に、<strong>決算後2か月以内</strong>に消費税の確定申告書を提出して納付します。
+          会計ソフト（freee・マネーフォワード等）で自動計算できますが、消費税コースの追加料金が
+          必要な場合があります。早めに確認を。
+        </span>
+      </li>
+      <li>
+        <span class="marker marker-green">4</span>
+        <span>
+          <strong>課税事業者になる前に「簡易課税制度」の届出を検討</strong><br>
+          基準期間の課税売上が5,000万円以下の場合、<strong>簡易課税制度</strong>を選べます。
+          仕入れの実額を積み上げず、業種ごとの「みなし仕入率」で消費税を計算できるため、
+          少ない手間で済む場合があります。ただし、適用する課税期間の<span class="hl-yellow">前日まで</span>に届出が必要です。
+        </span>
+      </li>
+    </ul>
+
+    <div class="sticky">
+      💡 「特定期間」のチェックは設立1期目の後半（7〜12か月目あたり）に行いましょう。
+      売上が急増した場合、2期目から意図せず課税事業者になるケースがあります。
+      不安な場合は税理士に確認するのが最も確実です。
+    </div>
+
+    <div class="source">
+      📌 出典：消費税法 第9条の2（特定期間の課税売上高による納税義務の免除の特例）<br>
+      消費税法 第37条（中小事業者の仕入れに係る消費税額の控除の特例：簡易課税）<br>
+      国税庁「No.6505 簡易課税制度」
+      <a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shohi/6505.htm" target="_blank">https://www.nta.go.jp/taxes/shiraberu/taxanswer/shohi/6505.htm</a>（2024年確認）
+    </div>
+  </div>
+</div>
+
+<!-- まとめカード -->
+<div class="summary-card" id="sec7">
+  <h2>🎯 今日のまとめ ── 5つのポイント</h2>
+  <div class="summary-grid">
+    <div class="summary-item">
+      <span class="s-emoji">📊</span>
+      <div class="s-title">① 基本は「前々期の売上 1,000万円」</div>
+      2年前の課税売上が1,000万円超なら課税事業者。新設法人は前々期がないので原則免税スタート。
+    </div>
+    <div class="summary-item">
+      <span class="s-emoji">💰</span>
+      <div class="s-title">② 資本金 1,000万円未満が免税の条件</div>
+      設立時の資本金を1,000万円以上にすると初年度から課税事業者に。1人法人の多くは999万円以下で設立。
+    </div>
+    <div class="summary-item">
+      <span class="s-emoji">⚡</span>
+      <div class="s-title">③ 例外3パターンを必ず確認</div>
+      ①資本金1,000万円以上、②大企業グループ会社（特定新規設立法人）、③インボイス登録 → いずれか該当で課税事業者に。
+    </div>
+    <div class="summary-item">
+      <span class="s-emoji">🧾</span>
+      <div class="s-title">④ インボイス登録 ＝ 免税を手放す選択</div>
+      BtoB取引メインなら登録を検討。BtoC中心なら免税のままでも取引先への影響は小さい。
+    </div>
+    <div class="summary-item">
+      <span class="s-emoji">📅</span>
+      <div class="s-title">⑤ 2期目の「特定期間」に油断しない</div>
+      1期目前半6か月の売上・給与が1,000万円超になると2期目から課税事業者へ。売上が伸びたら要確認。
+    </div>
+  </div>
+</div>
+
+<!-- 免責 -->
+<div class="disclaimer">
+  <strong>📌 免責事項・基準年度について</strong><br>
+  本記事は一般的な情報提供を目的としており、個別の税務アドバイスではありません。
+  消費税の課税・免税の判定は会社の状況（取引内容・資本構成・グループ関係・インボイス登録の有無など）によって異なります。
+  具体的な判断・手続きは<strong>税理士</strong>などの専門家にご相談ください。<br><br>
+  <strong>基準年度</strong>：本記事の制度（消費税法）は2024年度現在の情報を基に作成。
+  税制は毎年改正されることがあります。申告・手続き前に必ず最新情報をご確認ください。<br><br>
+  <strong>インボイス制度の経過措置・2割特例</strong>については基準年度の内容を記載しており、
+  2026年9月30日以降は制度内容が変わる可能性があります。
+</div>
+
+<!-- フッター -->
+<div class="footer">
+  <p>1人法人スタート 日報 ── 毎朝1テーマをやさしく解説<br>
+  <a href="index.html" style="color:#1a5276;">← バックナンバー一覧</a></p>
+</div>
+
+</body>
+</html>
