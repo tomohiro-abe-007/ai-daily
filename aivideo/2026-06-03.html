@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI動画制作 最新トピック 2026-06-03</title>
+<style>
+:root{
+  --bg:#ece8e1;--card:#faf6ec;--dark:#1a2c5c;--dark2:#2a1a6c;
+  --accent:#1a2c7c;--accent2:#4a1a7c;--warm:#c4762a;
+  --text:#2a3540;--muted:#7c8a82;--border:#e0d8c8;
+  --c1:#1a2c7c;--c2:#4a1a7c;--c3:#1a5c6b;
+  --c1l:#e8ecf8;--c2l:#f0e8f8;--c3l:#e8f4f6;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,"Hiragino Sans","Yu Gothic",sans-serif;line-height:1.7;padding:24px 16px;}
+.wrap{max-width:860px;margin:0 auto;}
+
+/* Header */
+.header{background:linear-gradient(135deg,var(--dark),var(--dark2));color:#fff;border-radius:20px;padding:40px 32px;text-align:center;box-shadow:0 8px 24px rgba(26,44,92,.28);margin-bottom:24px;}
+.date-badge{background:rgba(255,255,255,.18);color:#c8d4f0;border-radius:20px;padding:4px 16px;font-size:.85rem;display:inline-block;margin-bottom:16px;letter-spacing:.08em;}
+.header h1{font-size:1.9rem;margin-bottom:8px;letter-spacing:.04em;}
+.header .subtitle{color:#c8d4f0;font-size:1rem;}
+.tag-row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:14px;}
+.header .tag{background:rgba(255,255,255,.15);border-radius:12px;padding:3px 12px;font-size:.78rem;display:inline-block;color:#d8d4f0;}
+
+/* Section */
+.section{background:var(--card);border-radius:16px;padding:28px 24px;margin-bottom:20px;box-shadow:0 3px 12px rgba(0,0,0,.06);border:1px solid var(--border);}
+.section-title{font-size:1.1rem;font-weight:700;color:var(--accent);border-bottom:2px solid var(--border);padding-bottom:10px;margin-bottom:18px;display:flex;align-items:center;gap:8px;}
+
+/* Big number cards */
+.num-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:16px;}
+.num-card{color:#fff;border-radius:12px;padding:18px 12px;text-align:center;}
+.nc-a{background:linear-gradient(135deg,#1a2c7c,#0f1c5a);}
+.nc-b{background:linear-gradient(135deg,#4a1a7c,#2a0a5a);}
+.nc-c{background:linear-gradient(135deg,#1a5c6b,#0f3a44);}
+.nc-d{background:linear-gradient(135deg,#c4762a,#8a4a10);}
+.num-card .big{font-size:2.4rem;font-weight:800;line-height:1.1;display:block;}
+.num-card .label{font-size:.75rem;color:#d8e0f4;margin-top:4px;display:block;}
+.num-card .note{font-size:.7rem;color:#b8c8e4;margin-top:2px;display:block;}
+
+/* Comparison table */
+.comp-table{width:100%;border-collapse:collapse;margin-top:16px;font-size:.83rem;}
+.comp-table th{padding:10px 12px;text-align:left;color:#fff;}
+.comp-table th.h-a{background:var(--c1);}
+.comp-table th.h-b{background:var(--c2);}
+.comp-table th.h-c{background:var(--c3);}
+.comp-table th.h-item{background:#555;}
+.comp-table td{padding:9px 12px;border-bottom:1px solid var(--border);vertical-align:top;}
+.comp-table tr:last-child td{border-bottom:none;}
+.comp-table tr:nth-child(even) td{background:#f5f0e8;}
+.comp-table th:first-child{border-radius:8px 0 0 0;}
+.comp-table th:last-child{border-radius:0 8px 0 0;}
+
+/* Step list */
+.steps{counter-reset:step;margin-top:16px;}
+.step{display:flex;gap:14px;align-items:flex-start;margin-bottom:14px;}
+.step-num{background:var(--accent);color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:700;flex-shrink:0;margin-top:2px;}
+.step-body h4{font-size:.9rem;font-weight:700;color:var(--accent);margin-bottom:3px;}
+.step-body p{font-size:.83rem;color:var(--text);}
+.step-prompt{background:#1a2c5c;color:#c8d8ff;border-radius:8px;padding:10px 12px;font-size:.78rem;font-family:monospace;margin-top:6px;line-height:1.6;}
+
+/* Example box */
+.example-box{background:#f0f2f8;border-left:4px solid var(--accent);border-radius:0 10px 10px 0;padding:14px 16px;margin-top:14px;}
+.example-box h4{font-size:.9rem;font-weight:700;color:var(--accent);margin-bottom:6px;}
+.example-box p{font-size:.83rem;color:var(--text);}
+
+/* Plan cards */
+.plan-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-top:16px;}
+.plan-card{border-radius:14px;padding:20px 16px;border:2px solid var(--border);text-align:center;}
+.plan-card.free{background:#f5f5f0;border-color:#d8d0c8;}
+.plan-card.std{background:var(--c1l);border-color:#a8b8e0;}
+.plan-card.pro{background:var(--c2l);border-color:#c8a8e0;}
+.plan-card .plan-name{font-size:.85rem;font-weight:700;margin-bottom:8px;}
+.plan-card.free .plan-name{color:#555;}
+.plan-card.std .plan-name{color:var(--c1);}
+.plan-card.pro .plan-name{color:var(--c2);}
+.plan-card .plan-price{font-size:1.8rem;font-weight:800;line-height:1.1;margin-bottom:4px;}
+.plan-card.free .plan-price{color:#555;}
+.plan-card.std .plan-price{color:var(--c1);}
+.plan-card.pro .plan-price{color:var(--c2);}
+.plan-card .plan-unit{font-size:.72rem;color:var(--muted);margin-bottom:10px;}
+.plan-card ul{list-style:none;font-size:.78rem;color:var(--text);text-align:left;}
+.plan-card ul li{padding:3px 0;border-bottom:1px dotted #d8d0c0;}
+.plan-card ul li:last-child{border-bottom:none;}
+
+/* Credit table */
+.credit-bar{display:flex;align-items:center;gap:10px;margin:8px 0;}
+.credit-label{font-size:.8rem;font-weight:700;width:100px;flex-shrink:0;}
+.credit-bar-inner{height:26px;border-radius:6px;display:flex;align-items:center;padding:0 10px;}
+.credit-bar-inner span{font-size:.75rem;color:#fff;white-space:nowrap;}
+.cb-540{width:12%;background:linear-gradient(90deg,var(--c3),#2a8c9c);}
+.cb-720{width:25%;background:linear-gradient(90deg,var(--c1),#3a5cbc);}
+.cb-1080{width:100%;background:linear-gradient(90deg,var(--c2),#7a3aac);}
+.credit-num{font-size:.82rem;font-weight:700;color:var(--muted);white-space:nowrap;}
+
+/* Workflow diagram */
+.flow-row{display:flex;align-items:stretch;gap:0;margin:16px 0;}
+.flow-box{flex:1;padding:14px 12px;text-align:center;border:1px solid var(--border);}
+.flow-box:first-child{border-radius:10px 0 0 10px;background:var(--c1l);}
+.flow-box:last-child{border-radius:0 10px 10px 0;background:var(--c3l);}
+.flow-box.mid{background:var(--c2l);}
+.flow-arrow{display:flex;align-items:center;padding:0 4px;font-size:1.4rem;color:var(--warm);}
+.flow-icon{font-size:1.6rem;margin-bottom:6px;}
+.flow-title{font-size:.82rem;font-weight:700;color:var(--accent);}
+.flow-desc{font-size:.72rem;color:var(--muted);margin-top:4px;}
+
+/* Shot plan */
+.shot-plan{display:flex;flex-direction:column;gap:10px;margin-top:16px;}
+.shot-item{display:flex;align-items:flex-start;gap:12px;border-radius:10px;padding:14px 16px;border:1px solid var(--border);}
+.shot-item.s1{background:var(--c1l);border-color:#a8b8e0;}
+.shot-item.s2{background:var(--c2l);border-color:#c8a8e0;}
+.shot-item.s3{background:var(--c3l);border-color:#a8d0d8;}
+.shot-num{color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;flex-shrink:0;}
+.shot-item.s1 .shot-num{background:var(--c1);}
+.shot-item.s2 .shot-num{background:var(--c2);}
+.shot-item.s3 .shot-num{background:var(--c3);}
+.shot-head{font-weight:700;font-size:.88rem;margin-bottom:4px;}
+.shot-item.s1 .shot-head{color:var(--c1);}
+.shot-item.s2 .shot-head{color:var(--c2);}
+.shot-item.s3 .shot-head{color:var(--c3);}
+.shot-desc{font-size:.8rem;color:var(--text);}
+.shot-prompt{background:#1a2c5c;color:#c8d8ff;border-radius:6px;padding:8px 10px;font-size:.75rem;font-family:monospace;margin-top:6px;line-height:1.6;}
+.arrow-center{text-align:center;font-size:1.2rem;color:var(--warm);}
+
+/* Disclaimer */
+.disclaimer{background:#f5f0e8;border:1px solid var(--border);border-radius:12px;padding:16px;margin-top:20px;font-size:.78rem;color:var(--muted);line-height:1.6;}
+.disclaimer strong{color:var(--warm);}
+
+/* Source */
+.source{font-size:.72rem;color:var(--muted);margin-top:10px;line-height:1.6;}
+.source a{color:var(--c1);text-decoration:none;}
+.source a:hover{text-decoration:underline;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="date-badge">2026-06-03 ／ ツール情報</div>
+    <h1>AI動画制作 最新トピック</h1>
+    <div class="subtitle">Luma Dream Machine Ray 3.14 ── 1080p・4倍速・Ray3 Modify で変わるAI映像制作</div>
+    <div class="tag-row">
+      <span class="tag">🎬 Luma Dream Machine</span>
+      <span class="tag">⚡ Ray 3.14</span>
+      <span class="tag">🎭 Ray3 Modify</span>
+      <span class="tag">📽️ 1080p ネイティブ生成</span>
+    </div>
+  </div>
+
+  <!-- Ray 3.14 とは -->
+  <div class="section">
+    <div class="section-title">🚀 Ray 3.14 ── 何がすごいの？</div>
+    <p>
+      <strong>Luma Dream Machine</strong>（AIで映像を自動生成するサービス）が、2026年に新モデル <strong>Ray 3.14</strong> を公開しました。
+      前世代の Ray3 から<strong>速度・画質・コストの3点が大幅に改善</strong>され、より気軽に高品質な映像が作れるようになりました。
+    </p>
+    <p style="margin-top:10px;font-size:.85rem;color:var(--muted);">
+      ＊Dream Machine ＝ テキストや画像から動画を自動生成できる Luma AI のサービス名。
+    </p>
+
+    <!-- 大きな数字カード -->
+    <div class="num-cards">
+      <div class="num-card nc-a">
+        <span class="big">4×</span>
+        <span class="label">生成速度が向上</span>
+        <span class="note">Ray3 比・同じ尺でも4倍速く完成</span>
+      </div>
+      <div class="num-card nc-b">
+        <span class="big">1080p</span>
+        <span class="label">フルHD ネイティブ生成</span>
+        <span class="note">アップスケール(引き伸ばし)なし</span>
+      </div>
+      <div class="num-card nc-c">
+        <span class="big">1/3</span>
+        <span class="label">コストが約3分の1に</span>
+        <span class="note">Ray3 比・同じクレジットで3倍多く作れる</span>
+      </div>
+      <div class="num-card nc-d">
+        <span class="big">90秒</span>
+        <span class="label">5秒クリップの生成目安</span>
+        <span class="note">1080p でも約90秒以内</span>
+      </div>
+    </div>
+
+    <div class="source">
+      出典：<a href="https://lumalabs.ai/ray" target="_blank">Luma AI 公式 – Ray3 ページ</a>（2026年）、
+      <a href="https://freeaitool.com/en/image-tools/003-luma-dream-machine-2026-complete-guide/" target="_blank">Free AI Tool – Dream Machine 2026 ガイド</a>（2026年）
+    </div>
+  </div>
+
+  <!-- Ray3 vs Ray 3.14 比較 -->
+  <div class="section">
+    <div class="section-title">📊 Ray3 と Ray 3.14 ── どこが変わった？</div>
+    <p>前のモデル（Ray3）と比べて、3点が特に大きく改善されています。</p>
+
+    <table class="comp-table">
+      <tr>
+        <th class="h-item">比較項目</th>
+        <th class="h-a">Ray 3（旧）</th>
+        <th class="h-b">Ray 3.14（新）</th>
+      </tr>
+      <tr>
+        <td><strong>最大解像度</strong></td>
+        <td>720p（アップスケールで1080pも可）</td>
+        <td>1080p フルHD ネイティブ（引き伸ばし不要）</td>
+      </tr>
+      <tr>
+        <td><strong>生成速度</strong></td>
+        <td>基準（Ray3 比 ×1）</td>
+        <td><strong>4倍速い</strong>（同じ尺なら待ち時間が約1/4）</td>
+      </tr>
+      <tr>
+        <td><strong>クレジット消費</strong></td>
+        <td>多め</td>
+        <td><strong>約3分の1</strong>に削減（同品質で長く使える）</td>
+      </tr>
+      <tr>
+        <td><strong>プロンプト理解力</strong></td>
+        <td>高い</td>
+        <td>さらに向上（細かい指示が通りやすい）</td>
+      </tr>
+      <tr>
+        <td><strong>フレーム間の一貫性</strong></td>
+        <td>良好</td>
+        <td>強化（人物・光・動きがブレにくい）</td>
+      </tr>
+      <tr>
+        <td><strong>HDR（高ダイナミックレンジ）</strong></td>
+        <td>非対応</td>
+        <td><strong>ネイティブ HDR 生成</strong>対応（16-bit EXR で書き出し可）</td>
+      </tr>
+    </table>
+
+    <div class="source" style="margin-top:14px;">
+      ＊HDR ＝ High Dynamic Range。明るい部分と暗い部分の差が大きい、より本物に近い映像のこと。
+      <br>出典：<a href="https://lumalabs.ai/ray" target="_blank">Luma AI 公式（2026年）</a>
+    </div>
+  </div>
+
+  <!-- クレジット消費量 -->
+  <div class="section">
+    <div class="section-title">💳 解像度別クレジット消費（5秒クリップの場合）</div>
+    <p>
+      Ray 3.14 では<strong>解像度が上がるほどクレジット消費も増えます</strong>。
+      SNS 用途なら 720p で十分なケースも多いので、用途に合わせて使い分けましょう。
+    </p>
+
+    <!-- クレジットバー -->
+    <div style="margin-top:20px;">
+      <div class="credit-bar">
+        <div class="credit-label" style="color:var(--c3);">🟢 540p</div>
+        <div class="credit-bar-inner cb-540"><span>50 cr</span></div>
+        <div class="credit-num">50 クレジット</div>
+      </div>
+      <div class="credit-bar">
+        <div class="credit-label" style="color:var(--c1);">🔵 720p</div>
+        <div class="credit-bar-inner cb-720"><span>100 cr</span></div>
+        <div class="credit-num">100 クレジット</div>
+      </div>
+      <div class="credit-bar">
+        <div class="credit-label" style="color:var(--c2);">🟣 1080p</div>
+        <div class="credit-bar-inner cb-1080"><span>400 cr</span></div>
+        <div class="credit-num">400 クレジット</div>
+      </div>
+    </div>
+    <p style="font-size:.78rem;color:var(--muted);margin-top:10px;">↑ 10秒クリップは上記の2倍のクレジットが必要です。</p>
+
+    <!-- プランカード -->
+    <div style="margin-top:22px;font-size:.9rem;font-weight:700;color:var(--text);">📦 プラン比較（公式で要確認）</div>
+    <div class="plan-grid">
+      <div class="plan-card free">
+        <div class="plan-name">🆓 Free</div>
+        <div class="plan-price">$0</div>
+        <div class="plan-unit">/月</div>
+        <ul>
+          <li>月30回 生成</li>
+          <li>540p 〜 720p</li>
+          <li>商用利用 ✗</li>
+          <li>透かし(ロゴ)あり</li>
+        </ul>
+      </div>
+      <div class="plan-card std">
+        <div class="plan-name">⚡ Standard</div>
+        <div class="plan-price">$30</div>
+        <div class="plan-unit">/月（年払いで割引あり）</div>
+        <ul>
+          <li>月120回 生成</li>
+          <li>540p〜1080p 対応</li>
+          <li>商用利用 ✓</li>
+          <li>透かしなし</li>
+        </ul>
+      </div>
+      <div class="plan-card pro">
+        <div class="plan-name">🎬 Pro</div>
+        <div class="plan-price">$90</div>
+        <div class="plan-unit">/月</div>
+        <ul>
+          <li>月400回 生成</li>
+          <li>全解像度 対応</li>
+          <li>商用利用 ✓</li>
+          <li>優先処理</li>
+        </ul>
+      </div>
+    </div>
+    <p style="font-size:.75rem;color:var(--muted);margin-top:8px;">
+      ＊料金・内容は変更される場合があります。最新情報は <a href="https://lumalabs.ai/pricing" target="_blank" style="color:var(--c1);">公式 Pricing ページ</a>でご確認ください。
+    </p>
+  </div>
+
+  <!-- Ray3 Modify -->
+  <div class="section">
+    <div class="section-title">🎭 Ray3 Modify ── 実写の演技を「そのまま活かす」AI</div>
+    <p>
+      2025年12月にリリースされた <strong>Ray3 Modify</strong> は、<strong>実写の動画をもとにシーンを丸ごと作り変えられる</strong> 新機能です。
+      俳優の演技・目線・表情・タイミングをそのままに、<strong>背景や衣装・雰囲気だけを変えられる</strong>のが最大の特長。
+    </p>
+
+    <!-- フロー図 -->
+    <div class="flow-row" style="margin-top:16px;">
+      <div class="flow-box">
+        <div class="flow-icon">🎥</div>
+        <div class="flow-title">元の実写映像</div>
+        <div class="flow-desc">俳優が演技した<br>リアル映像を入力</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box mid">
+        <div class="flow-icon">🤖</div>
+        <div class="flow-title">Ray3 Modify</div>
+        <div class="flow-desc">キーフレーム・<br>キャラ参照で変換</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box">
+        <div class="flow-icon">✨</div>
+        <div class="flow-title">AI変換後の映像</div>
+        <div class="flow-desc">演技は保持・<br>シーンを再構成</div>
+      </div>
+    </div>
+
+    <table class="comp-table" style="margin-top:20px;">
+      <tr>
+        <th class="h-item">機能</th>
+        <th class="h-a">できること</th>
+        <th class="h-b">活用例</th>
+      </tr>
+      <tr>
+        <td><strong>演技の保持</strong></td>
+        <td>目線・感情・タイミングを100%維持</td>
+        <td>違う衣装や時代設定に変えても演技がそのまま</td>
+      </tr>
+      <tr>
+        <td><strong>キーフレーム指定</strong></td>
+        <td>開始・終了フレームを画像で指定</td>
+        <td>「このポーズから始まってこの場所で終わる」動画を生成</td>
+      </tr>
+      <tr>
+        <td><strong>キャラクターリファレンス</strong></td>
+        <td>複数カット間でキャラの見た目を統一</td>
+        <td>同一キャラが別シーンでも同じ顔・衣装で登場</td>
+      </tr>
+    </table>
+
+    <div class="example-box">
+      <h4>💡 活用シーン例</h4>
+      <p>
+        自分が演技した10秒の動画を撮影 → Ray3 Modify に入力 →
+        「江戸時代の侍」「SF宇宙船のパイロット」「西部劇のガンマン」など
+        シーンだけを変えた映像を複数生成。演技はすべて同じなので、
+        <strong>1回の撮影から複数パターンの映像</strong>が作れます。
+      </p>
+    </div>
+
+    <div class="source" style="margin-top:10px;">
+      出典：<a href="https://lumalabs.ai/news/ray3-modify" target="_blank">Luma AI – Ray3 Modify 発表（2025年12月）</a>、
+      <a href="https://vitrina.ai/blog/luma-ai-launches-ray3-modify-for-precision-performance-based-video-editing/" target="_blank">Vitrina.ai – Ray3 Modify 解説（2025年）</a>
+    </div>
+  </div>
+
+  <!-- 実践例：今日から試せる -->
+  <div class="section">
+    <div class="section-title">🎯 今日から真似できる！ Ray 3.14 で30秒ショートを作る</div>
+    <p>
+      無料プランでも試せます。以下の3ステップで<strong>ショート動画1本分（3カット）</strong>を生成してみましょう。
+    </p>
+
+    <div class="shot-plan">
+      <div class="shot-item s1">
+        <div class="shot-num">1</div>
+        <div>
+          <div class="shot-head">🌆 オープニングカット（ワイドショット）</div>
+          <div class="shot-desc">シーンの舞台を紹介するつかみの映像。540p で生成してクレジットを節約。</div>
+          <div class="shot-prompt">wide-angle cinematic shot, futuristic city skyline at dusk,<br>
+neon lights reflecting on wet streets, aerial view,<br>
+Ray 3.14, HDR color, 5 seconds</div>
+        </div>
+      </div>
+
+      <div class="arrow-center">↓</div>
+
+      <div class="shot-item s2">
+        <div class="shot-num">2</div>
+        <div>
+          <div class="shot-head">👤 メインカット（人物クローズアップ）</div>
+          <div class="shot-desc">主役にフォーカス。720p で生成してコストと品質のバランスを取る。</div>
+          <div class="shot-prompt">medium close-up, young woman walking through the futuristic city,<br>
+confident expression, shallow depth of field,<br>
+cinematic lighting, 7 seconds, Ray 3.14</div>
+        </div>
+      </div>
+
+      <div class="arrow-center">↓</div>
+
+      <div class="shot-item s3">
+        <div class="shot-num">3</div>
+        <div>
+          <div class="shot-head">✨ エンディングカット（表情アップ）</div>
+          <div class="shot-desc">感情を締める余韻のシーン。ここだけ1080p で高品質に生成するとメリハリが出る。</div>
+          <div class="shot-prompt">extreme close-up, woman's face, soft smile, golden light,<br>
+bokeh city lights in background, HDR,<br>
+cinematic, Ray 3.14, 1080p, 5 seconds</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:#fff3e0;border:1px solid #e8d0a8;border-radius:10px;padding:12px 14px;margin-top:14px;font-size:.83rem;">
+      💡 <strong>コスト節約のコツ：</strong>最初のカットは 540p（50cr）、中間は 720p（100cr）、
+      クライマックスだけ 1080p（400cr）というように、<strong>重要シーンだけ高解像度にする</strong>と全体のクレジット消費を抑えられます。
+      Standard プランなら月120回分 = 50〜400crの組み合わせで複数本作れます。
+    </div>
+  </div>
+
+  <!-- まとめ -->
+  <div class="section">
+    <div class="section-title">📌 今日のまとめ</div>
+    <table class="comp-table">
+      <tr>
+        <th class="h-item">ポイント</th>
+        <th class="h-a">内容</th>
+      </tr>
+      <tr>
+        <td><strong>Ray 3.14</strong></td>
+        <td>1080p ネイティブ・4倍速・3分の1コスト。無料プランで試せる</td>
+      </tr>
+      <tr>
+        <td><strong>Ray3 Modify</strong></td>
+        <td>実写演技を保持したまま背景・世界観をAIで変換。1撮影で複数パターン生成</td>
+      </tr>
+      <tr>
+        <td><strong>コスト感覚</strong></td>
+        <td>540p=50cr、720p=100cr、1080p=400cr（5秒）。重要シーンだけ高解像度に</td>
+      </tr>
+      <tr>
+        <td><strong>プロンプトの鍵</strong></td>
+        <td>解像度・フレーム数・「Ray 3.14」と明記すると最新モデルが選ばれやすい</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- 免責 -->
+  <div class="disclaimer">
+    <strong>⚠️ 免責事項：</strong>
+    本記事で紹介したLuma Dream Machine（Ray 3.14 / Ray3 Modify）の機能・料金・プラン内容・商用利用の可否は頻繁に変更されます。
+    最新情報と利用規約は必ず <a href="https://lumalabs.ai/pricing" target="_blank" style="color:var(--c1);">Luma AI 公式サイト</a> でご確認ください。
+    記事内の数値（クレジット・生成速度・料金）は 2026年6月時点の調査に基づきます。
+  </div>
+
+</div>
+</body>
+</html>
