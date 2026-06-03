@@ -359,68 +359,6 @@
   .compare-table tr:nth-child(even) td { background: #f8f4ec; }
   .compare-table tr:last-child td { border-bottom: none; }
 
-  .timeline {
-    margin: 16px 0;
-    position: relative;
-    padding-left: 24px;
-  }
-  .timeline::before {
-    content: '';
-    position: absolute;
-    left: 8px;
-    top: 4px;
-    bottom: 4px;
-    width: 2px;
-    background: #c8b89a;
-  }
-  .tl-item {
-    position: relative;
-    margin-bottom: 16px;
-    font-size: 0.9rem;
-    line-height: 1.6;
-    color: #333;
-  }
-  .tl-item::before {
-    content: '';
-    position: absolute;
-    left: -20px;
-    top: 7px;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: #2255aa;
-    border: 2px solid white;
-    box-shadow: 0 0 0 2px #2255aa;
-  }
-  .tl-item.warn::before { background: #c0392b; box-shadow: 0 0 0 2px #c0392b; }
-  .tl-item.done::before { background: #1e7e34; box-shadow: 0 0 0 2px #1e7e34; }
-  .tl-date {
-    font-size: 0.75rem;
-    color: #888;
-    font-weight: 600;
-    margin-bottom: 2px;
-  }
-  .tl-title { font-weight: 600; }
-
-  .bottleneck-row {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin: 16px 0;
-  }
-  .bottleneck-item {
-    flex: 1;
-    min-width: 130px;
-    background: #fff0f0;
-    border: 2px solid #f5a0a0;
-    border-radius: 10px;
-    padding: 12px;
-    text-align: center;
-  }
-  .bottleneck-item .b-icon { font-size: 1.6rem; display: block; margin-bottom: 4px; }
-  .bottleneck-item .b-title { font-size: 0.82rem; font-weight: 700; color: #7a0000; margin-bottom: 4px; }
-  .bottleneck-item .b-desc  { font-size: 0.75rem; color: #555; line-height: 1.4; }
-
   .bench-bar-wrap { margin: 16px 0; }
   .bench-row {
     display: flex;
@@ -431,7 +369,7 @@
   .bench-label {
     font-size: 0.8rem;
     font-weight: 600;
-    min-width: 140px;
+    min-width: 160px;
     color: #333;
     flex-shrink: 0;
   }
@@ -451,7 +389,6 @@
     font-size: 0.75rem;
     font-weight: 700;
     color: white;
-    transition: width 0.3s;
   }
 
   @media (max-width: 600px) {
@@ -468,9 +405,9 @@
 
 <!-- 表紙 -->
 <div class="cover">
-  <span class="cover-emoji">🏗️🧠</span>
+  <span class="cover-emoji">🟢💻💸</span>
   <h1>生成AI 最新トピック</h1>
-  <div class="subtitle">インフラ危機・世界モデルの証明・ベンチマークの限界 ── 拡大するAIの「次の壁」</div>
+  <div class="subtitle">NVIDIAオープンモデル・WindowsのAIエージェント化・GitHub Copilotの課金ショック</div>
   <div class="date-badge">📅 2026年6月3日号</div>
 </div>
 
@@ -478,434 +415,444 @@
 <div class="toc">
   <h2>📋 今日の目次</h2>
   <ol>
-    <li><a href="#topic1">AIインフラ危機 ── GPU不足・変圧器不足・建設コスト167%増でAI拡大にブレーキ</a></li>
-    <li><a href="#topic2">世界モデルAI（LeWorldModel/LeJEPA）── 「AIが世界を理解する」理論の正式証明</a></li>
-    <li><a href="#topic3">AIコーディングベンチマークの限界 ── 93.9%でも偽陽性問題が露わに</a></li>
+    <li><a href="#topic1">NVIDIA Nemotron 3 Ultra ── 米国最高のオープンAIモデル、でも中国には差がある</a></li>
+    <li><a href="#topic2">Microsoft Build 2026 ── WindowsがAIエージェントの「動く場所」になった</a></li>
+    <li><a href="#topic3">GitHub Copilot 従量課金に移行 ── 月額$29が$750になった開発者も？</a></li>
     <li><a href="#summary">今日のまとめ</a></li>
   </ol>
 </div>
 
-<!-- トピック1: AIインフラ危機 -->
+<!-- トピック1: NVIDIA Nemotron 3 Ultra -->
 <div class="card" id="topic1">
   <div class="card-body">
     <div class="card-header">
-      <span class="card-emoji">🏗️</span>
-      <div class="card-title">AIインフラ危機 ──<br>GPU不足・変圧器不足・建設コスト167%増でAI拡大にブレーキ</div>
-      <span class="topic-badge badge-red">インフラ</span>
+      <span class="card-emoji">🟢</span>
+      <div class="card-title">NVIDIA Nemotron 3 Ultra ──<br>米国最高のオープンAIモデル、でも中国には差がある</div>
+      <span class="topic-badge badge-orange">オープンモデル</span>
     </div>
 
     <div class="simple-box">
       <span class="label">🌱 やさしく解説</span><br>
-      AIは膨大な計算をするために、巨大なコンピューター施設「<span class="hl-yellow">データセンター</span>」を大量に必要とします。ところが2026年、このデータセンターの建設・運用が「需要に全然追いつかない」という深刻な問題が表面化しています。原因はGPU（AIの計算チップ）の供給不足、電力設備の不足、そして建設コストの急騰。AI技術は急速に進歩しているのに、<span class="hl-pink">それを動かすハード面が壁になっている</span>という皮肉な状況です。
+      2026年6月1日、台湾・台北で開催された世界最大のコンピューター展示会「<span class="hl-yellow">Computex（コンピュータックス）</span>」で、NVIDIAのCEOジェンスン・フアン（Jensen Huang）氏が新モデル「<strong>Nemotron 3 Ultra</strong>（ネモトロン・スリー・ウルトラ）」を発表しました。このモデルは<span class="hl-pink">誰でも無料でダウンロードして使えるオープンウェイトモデル</span>（重みを公開したAI）で、「米国が作ったオープンAIの中で最も賢い」という評価を得ています。ただし中国のモデルにはまだ差があり、AIの国際競争が続いていることも示しています。
     </div>
 
-    <!-- 5つのボトルネック -->
-    <p style="font-size:0.85rem; font-weight:600; color:#555; margin-bottom:10px;">⚠️ AIインフラの5大ボトルネック（2026年）</p>
-    <div class="bottleneck-row">
-      <div class="bottleneck-item">
-        <span class="b-icon">🖥️</span>
-        <div class="b-title">GPU不足</div>
-        <div class="b-desc">データセンター向けGPUの納期が36〜52週（最大1年）に延長</div>
+    <!-- MoEの仕組み図解 -->
+    <p style="font-size:0.85rem; font-weight:600; color:#555; margin-bottom:10px;">🔧 「550B（5500億）パラメータなのに55Bしか使わない」── MoEとは？</p>
+    <div class="step-flow">
+      <div class="step-box">全体:<br>550B<br>パラメータ</div>
+      <div class="step-arrow">→</div>
+      <div class="step-box">MoE設計<br>（専門家チーム）<br>に分割</div>
+      <div class="step-arrow">→</div>
+      <div class="step-box">各タスクで<br>必要な専門家だけ<br>を呼び出す</div>
+      <div class="step-arrow">→</div>
+      <div class="step-box green">実際に動く<br>パラメータ:<br>55B のみ</div>
+    </div>
+    <p style="font-size:0.79rem; color:#999; margin-top:-6px; margin-bottom:16px;">※ MoE（Mixture of Experts）＝「専門家の混合」設計。必要な専門家チームだけを起動するので、全体パラメータが大きくても実際の計算量は抑えられる</p>
+
+    <!-- Intelligence Index 比較バーチャート -->
+    <p style="font-size:0.85rem; font-weight:600; color:#555; margin-bottom:10px;">📊 Artificial Analysis Intelligence Index（知性指数）比較</p>
+    <div class="bench-bar-wrap">
+      <div class="bench-row">
+        <div class="bench-label">🇨🇳 Kimi K2.6（中国）</div>
+        <div class="bench-bar-bg">
+          <div class="bench-bar-fill" style="width:100%; background:#c0392b;">54（首位）</div>
+        </div>
       </div>
-      <div class="bottleneck-item">
-        <span class="b-icon">⚡</span>
-        <div class="b-title">変圧器不足</div>
-        <div class="b-desc">電力供給に必要な変圧器が調達できず建設の多くが延期</div>
+      <div class="bench-row">
+        <div class="bench-label">🇨🇳 GLM-5.1（中国）</div>
+        <div class="bench-bar-bg">
+          <div class="bench-bar-fill" style="width:94.4%; background:#e07060;">51</div>
+        </div>
       </div>
-      <div class="bottleneck-item">
-        <span class="b-icon">🔬</span>
-        <div class="b-title">先端パッケージング</div>
-        <div class="b-desc">CoWoS（高密度実装技術）の世界供給の50%以上を1社が予約済み</div>
+      <div class="bench-row">
+        <div class="bench-label">🇨🇳 MiniMax-M2.7（中国）</div>
+        <div class="bench-bar-bg">
+          <div class="bench-bar-fill" style="width:90.7%; background:#e8a090;">49</div>
+        </div>
       </div>
-      <div class="bottleneck-item">
-        <span class="b-icon">🌡️</span>
-        <div class="b-title">冷却設備</div>
-        <div class="b-desc">AI向け高密度サーバーは従来の冷却設備では対応不能</div>
+      <div class="bench-row">
+        <div class="bench-label">🇺🇸 Nemotron 3 Ultra（米・今回）</div>
+        <div class="bench-bar-bg">
+          <div class="bench-bar-fill" style="width:88.9%; background:#1e7e34;">48（米国オープン首位）</div>
+        </div>
       </div>
-      <div class="bottleneck-item">
-        <span class="b-icon">👷</span>
-        <div class="b-title">人材不足</div>
-        <div class="b-desc">AI施設の設計・建設・運用を担える専門人材が世界的に不足</div>
+      <div class="bench-row">
+        <div class="bench-label">🇺🇸 Gemma 4 31B（米）</div>
+        <div class="bench-bar-bg">
+          <div class="bench-bar-fill" style="width:72.2%; background:#6ab87a;">39</div>
+        </div>
+      </div>
+      <div class="bench-row">
+        <div class="bench-label">🇺🇸 gpt-oss-120b（米）</div>
+        <div class="bench-bar-bg">
+          <div class="bench-bar-fill" style="width:61.1%; background:#88c8a0;">33</div>
+        </div>
       </div>
     </div>
+    <p style="font-size:0.79rem; color:#999; margin-top:-6px; margin-bottom:16px;">※ Intelligence Index＝Artificial Analysisが複数ベンチマークを総合した指数。2026年6月3日時点の参考値</p>
 
     <!-- 数値カード -->
     <div class="stat-row">
-      <div class="stat-card red">
-        <div class="stat-num">167%</div>
-        <div class="stat-label">データセンター<br>建設コスト増加<br>（2020→2026年）</div>
-      </div>
-      <div class="stat-card amber">
-        <div class="stat-num">36〜52週</div>
-        <div class="stat-label">GPU（データセンター向け）<br>の平均納期</div>
-      </div>
-      <div class="stat-card red">
-        <div class="stat-num">約1/3</div>
-        <div class="stat-label">2026年計画分12GWのうち<br>実際に建設中の割合</div>
+      <div class="stat-card green">
+        <div class="stat-num">550B</div>
+        <div class="stat-label">総パラメータ数<br>（うち55Bが常時稼働）</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">$400B</div>
-        <div class="stat-label">2026年のAI<br>インフラ建設投資額</div>
+        <div class="stat-num">300+</div>
+        <div class="stat-label">トークン/秒<br>（中国モデルの3〜6倍速）</div>
+      </div>
+      <div class="stat-card amber">
+        <div class="stat-num">48</div>
+        <div class="stat-label">Intelligence Index<br>（米国オープン首位）</div>
+      </div>
+      <div class="stat-card red">
+        <div class="stat-num">▲6</div>
+        <div class="stat-label">中国首位との差<br>（Kimi K2.6 = 54）</div>
       </div>
     </div>
-    <p style="font-size:0.79rem; color:#999; margin-top:-6px; margin-bottom:16px;">※ GW＝ギガワット（電力容量の単位。1GWは大型発電所1基分相当） / $400B＝約56兆円</p>
 
-    <!-- コスト増加の可視化 -->
-    <p style="font-size:0.85rem; font-weight:600; color:#555; margin-bottom:10px;">📈 データセンター建設コストの変化（1平方フィートあたり）</p>
-    <div style="margin-bottom:18px;">
-      <div style="margin-bottom:10px;">
-        <div style="font-size:0.8rem; color:#555; margin-bottom:3px;">2020年：<strong>$183 / sqft</strong></div>
-        <div style="background:#a0c0e8; height:20px; border-radius:4px; width:37%; display:flex; align-items:center; padding-left:8px;">
-          <span style="color:white; font-size:0.75rem; font-weight:700;">$183</span>
-        </div>
+    <!-- 強み・弱み 対比 -->
+    <p style="font-size:0.85rem; font-weight:600; color:#555; margin-bottom:8px;">⚖️ Nemotron 3 Ultra の強みと弱み</p>
+    <div style="display:flex; gap:12px; flex-wrap:wrap; margin-bottom:16px;">
+      <div style="flex:1; min-width:180px; background:#e0f5e0; border:2px solid #80d0a0; border-radius:8px; padding:12px; font-size:0.82rem; line-height:1.7;">
+        <strong style="color:#1e7e34;">✅ 得意なこと</strong><br>
+        ・指示への正確な従い方<br>
+        ・長文の文脈理解<br>
+        ・法律・医療など専門知識<br>
+        ・速度（300+ tok/sec）<br>
+        ・無料でダウンロード可能
       </div>
-      <div style="margin-bottom:6px;">
-        <div style="font-size:0.8rem; color:#555; margin-bottom:3px;">2026年：<strong>$488 / sqft（+167%）</strong></div>
-        <div style="background:#c0392b; height:20px; border-radius:4px; width:100%; display:flex; align-items:center; padding-left:8px;">
-          <span style="color:white; font-size:0.75rem; font-weight:700;">$488（6年で約2.7倍）</span>
-        </div>
+      <div style="flex:1; min-width:180px; background:#fff0f0; border:2px solid #f5a0a0; border-radius:8px; padding:12px; font-size:0.82rem; line-height:1.7;">
+        <strong style="color:#c0392b;">⚠️ まだ苦手なこと</strong><br>
+        ・複雑なコーディング<br>
+        ・長期的な計画立て<br>
+        ・これらは中国モデルが上回る<br>
+        ・あくまでオープンウェイトでの比較（APIクローズドモデルは含まず）
       </div>
     </div>
-    <p style="font-size:0.75rem; color:#aaa; margin-top:-10px; margin-bottom:16px;">※ sqft＝平方フィート（約0.09平方メートル）/ 出典：複数の業界報告より</p>
 
-    <!-- CoWoS ボトルネック説明 -->
-    <div style="background:#fff0f0; border:2px dashed #f5a0a0; border-radius:8px; padding:14px 18px; margin:16px 0;">
-      <p style="font-size:0.85rem; font-weight:600; color:#7a0000; margin-bottom:8px;">🔬 「CoWoS（コウオス）」って何？なぜ重要？</p>
+    <!-- 入手方法 -->
+    <p style="font-size:0.85rem; font-weight:600; color:#555; margin-bottom:8px;">📥 どこで使えるの？（2026年6月4日出荷予定）</p>
+    <div class="step-flow">
+      <div class="step-box">Hugging Face<br>でダウンロード</div>
+      <div class="step-arrow">or</div>
+      <div class="step-box">ModelScope<br>（中国クラウド）</div>
+      <div class="step-arrow">or</div>
+      <div class="step-box">OpenRouter<br>（API利用）</div>
+      <div class="step-arrow">or</div>
+      <div class="step-box green">NVIDIA NIM<br>マイクロサービスとして</div>
+    </div>
+
+    <ul class="point-list">
+      <li>
+        <span class="marker marker-orange">1</span>
+        <span><strong>Computex 2026 で基調講演（6月1日）</strong> ── ジェンスン・フアン氏がNemotron 3 Ultraを発表。「米国のオープンウェイトモデルで最高の知性指数」と紹介。Nemotron 3シリーズは同時にCosmos 3（物理AIモデル）やRTX Spark（AI開発向けPC）も発表された</span>
+      </li>
+      <li>
+        <span class="marker marker-orange">2</span>
+        <span><strong>MoE（Mixture of Experts）アーキテクチャ</strong> ── 550Bのパラメータを持つが、実際に動くのは55B（10分の1）。これは「550人の専門家がいても、各タスクで関係する55人だけが仕事する」イメージ。計算効率と高性能を両立した現代的な設計</span>
+      </li>
+      <li>
+        <span class="marker marker-orange">3</span>
+        <span><strong>速度が中国モデルの3〜6倍</strong> ── Intelligence Indexでは中国モデルに追いついていないが、処理速度では300+トークン/秒と圧倒。中国のDeepSeekやKimiが50〜100トークン/秒程度と比べると大幅に速い。「速いが知性では負けている」という状況</span>
+      </li>
+      <li>
+        <span class="marker marker-orange">4</span>
+        <span><strong>「米国最高」はオープンウェイトの中での話</strong> ── ChatGPT（GPT-5.5）やClaude Opus 4.8などの閉鎖型APIモデルは比較対象外。オープンウェイトとは「モデルのパラメータデータを公開し、誰でもダウンロードして自分のサーバーで動かせる」モデルのこと</span>
+      </li>
+      <li>
+        <span class="marker marker-orange">5</span>
+        <span><strong>AIの米中競争が「オープン」の場でも表面化</strong> ── これまでAIの覇権争いはChatGPTなどの商用APIサービスで議論されることが多かったが、誰でも使えるオープンモデルでも中国勢（Kimi K2.6=54、GLM-5.1=51）がリードしている状況。NVIDIAはこれを取り戻すための戦略モデルと位置づけている</span>
+      </li>
+    </ul>
+
+    <div class="sticky">
+      ✏️ <strong>中学生的に言うと：</strong>「ゲームのGPUで有名なNVIDIAが、ついに『誰でもダウンロードして使えるAI』を出した！スピードは速いけど、賢さでは中国のAIに負けている」という状況。AI大国競争はAIのモデルそのものでも起きているんだ！
+    </div>
+
+    <div class="source">
+      📎 出典：
+      <a href="https://decrypt.co/369689/nvidia-open-ai-model-nemotron-3-ultra" target="_blank">Decrypt – Nvidia Releases Its Best Open AI Model Yet—But Still Lags Behind China（2026年6月）</a> /
+      <a href="https://www.latent.space/p/ainews-nvidia-cosmos-3-nemotron-3" target="_blank">Latent Space – [AINews] NVIDIA Cosmos 3, Nemotron 3 Ultra, and RTX Spark（2026年6月）</a> /
+      <a href="https://officechai.com/ai/nvidias-nemotron-3-becomes-most-intelligent-open-weights-model-from-the-us/" target="_blank">OfficeChai – NVIDIA's Nemotron 3 Becomes Most Intelligent Open Weights Model From The US（2026年6月）</a>
+    </div>
+  </div>
+</div>
+
+<!-- トピック2: Microsoft Build 2026 -->
+<div class="card" id="topic2">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">💻</span>
+      <div class="card-title">Microsoft Build 2026 ──<br>WindowsがAIエージェントの「動く場所」になった</div>
+      <span class="topic-badge badge-blue">AIエージェント基盤</span>
+    </div>
+
+    <div class="simple-box">
+      <span class="label">🌱 やさしく解説</span><br>
+      2026年6月2日、Microsoftが年次開発者会議「<span class="hl-yellow">Build 2026</span>」を開催しました。最大のテーマは「<span class="hl-blue">AIエージェント</span>（自律的に複数の作業をこなすAI）をWindowsで動かす」こと。これまでWindowsは「人が使うソフトを動かすOS（基本ソフト）」でしたが、今後は<span class="hl-pink">AIエージェントを直接動かす基盤</span>としてWindowsを再設計するという大きな方向転換が示されました。同時にMicrosoftが自社開発した新AIモデル「<strong>MAI-Thinking-1</strong>」も発表されました。
+    </div>
+
+    <!-- Windows Agent Runtimeの仕組み -->
+    <p style="font-size:0.85rem; font-weight:600; color:#555; margin-bottom:10px;">🏗️ Windows Agent Runtime の仕組み（新設計）</p>
+    <div class="step-flow">
+      <div class="step-box">AIエージェント<br>（タスクを自律実行）</div>
+      <div class="step-arrow">↕️</div>
+      <div class="step-box">Apollo<br>プロトコル<br><span style="font-size:0.73rem; font-weight:400;">（新しい通信ルール）</span></div>
+      <div class="step-arrow">↕️</div>
+      <div class="step-box">Windows<br>アプリ群<br><span style="font-size:0.73rem; font-weight:400;">（新旧両対応）</span></div>
+      <div class="step-arrow">↕️</div>
+      <div class="step-box warn">安全なサンドボックス<br>（隔離環境）<br><span style="font-size:0.73rem; font-weight:400;">Hyper-V 分離</span></div>
+    </div>
+    <p style="font-size:0.79rem; color:#999; margin-top:-6px; margin-bottom:16px;">※ サンドボックス＝AIエージェントが暴走してもPC全体に影響しないよう隔離する仕組み / Apollo＝エージェントとアプリが会話するための新プロトコル</p>
+
+    <!-- 数値カード -->
+    <div class="stat-row">
+      <div class="stat-card">
+        <div class="stat-num">12台</div>
+        <div class="stat-label">16インチPCで<br>同時稼働可能な<br>エージェント数</div>
+      </div>
+      <div class="stat-card green">
+        <div class="stat-num">12h+</div>
+        <div class="stat-label">12エージェント稼働時の<br>バッテリー持続時間<br>（参考値）</div>
+      </div>
+      <div class="stat-card purple">
+        <div class="stat-num">35B</div>
+        <div class="stat-label">MAI-Thinking-1<br>稼働パラメータ数<br>（中サイズモデル）</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">256K</div>
+        <div class="stat-label">MAI-Thinking-1の<br>コンテキスト長<br>（トークン）</div>
+      </div>
+    </div>
+
+    <!-- MAI-Thinking-1 解説 -->
+    <div style="background:#e8f4fd; border:2px solid #6baed6; border-radius:8px; padding:14px 18px; margin:16px 0;">
+      <p style="font-size:0.85rem; font-weight:600; color:#1a5276; margin-bottom:10px;">🧠 MAI-Thinking-1 ── Microsoftが初めて作った「推論モデル」</p>
       <div style="display:flex; gap:10px; flex-wrap:wrap;">
-        <div style="background:white; border:1px solid #f5a0a0; border-radius:6px; padding:8px 12px; font-size:0.82rem; flex:1; min-width:140px;">
-          <strong>CoWoS＝Chip-on-Wafer-on-Substrate</strong><br>複数のチップを超高密度で一体化する最先端の半導体実装技術。A100・H100・H200などのAI向けGPUに必須
+        <div style="background:white; border:1px solid #6baed6; border-radius:6px; padding:8px 12px; font-size:0.82rem; flex:1; min-width:140px; line-height:1.6;">
+          <strong>何が新しい？</strong><br>Microsoft自社開発の初の「推論（Thinking）」モデル。数学・コーディング・長文理解に強い中サイズモデル（35Bアクティブパラメータ）
         </div>
-        <div style="background:white; border:1px solid #f5a0a0; border-radius:6px; padding:8px 12px; font-size:0.82rem; flex:1; min-width:140px;">
-          <strong>なぜ不足？</strong><br>世界で製造できるのはほぼTSMC（台湾）のみ。世界供給の50%超を一社（GPU大手）が2027年まで予約済みとの報告あり。中国企業も200万個以上注文との情報がある
+        <div style="background:white; border:1px solid #6baed6; border-radius:6px; padding:8px 12px; font-size:0.82rem; flex:1; min-width:140px; line-height:1.6;">
+          <strong>性能は？</strong><br>コーディングベンチマークでClaude Sonnet 4.6に近い水準と報告。256Kトークンの長文対応で複雑な指示も得意（公式で要確認）
         </div>
-        <div style="background:white; border:1px solid #f5a0a0; border-radius:6px; padding:8px 12px; font-size:0.82rem; flex:1; min-width:140px;">
-          <strong>影響</strong><br>大手クラウド（ハイパースケーラー）が優先され、中小企業・研究機関は最大1年待ち。「AIを使いたいのに、チップが買えない」という状況が現実に
+        <div style="background:white; border:1px solid #6baed6; border-radius:6px; padding:8px 12px; font-size:0.82rem; flex:1; min-width:140px; line-height:1.6;">
+          <strong>どこで使える？</strong><br>現時点はMicrosoft Foundry（開発者向けクラウド）のプライベートプレビュー。一般公開は今後の予定
         </div>
+      </div>
+    </div>
+
+    <!-- Build 2026 主要発表一覧 -->
+    <p style="font-size:0.85rem; font-weight:600; color:#555; margin-bottom:8px;">📋 Build 2026 主な発表まとめ</p>
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>発表項目</th>
+          <th>内容</th>
+          <th>ポイント</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Windows Agent Runtime</strong></td>
+          <td>エージェントをWindowsで直接動かす基盤。新プロトコル「Apollo」でアプリと連携</td>
+          <td>旧来アプリ（Win32）も対応予定</td>
+        </tr>
+        <tr>
+          <td><strong>MAI-Thinking-1</strong></td>
+          <td>Microsoft初の自社推論モデル（35Bアクティブ、256K文脈）</td>
+          <td>Foundryプライベートプレビュー</td>
+        </tr>
+        <tr>
+          <td><strong>GitHub Copilot アプリ</strong></td>
+          <td>スタンドアロンのCopilotアプリを発表（詳細はトピック3参照）</td>
+          <td>エディタ不要でCopilotが使える</td>
+        </tr>
+        <tr>
+          <td><strong>RTX Spark Dev Box</strong></td>
+          <td>ローカルAI開発向けのコンパクトPC。NVIDIA RTX搭載</td>
+          <td>オフラインでAI開発・テスト可</td>
+        </tr>
+        <tr>
+          <td><strong>Visual Studio エージェント設計ツール</strong></td>
+          <td>ドラッグ＆ドロップでエージェントのワークフローを設計できる新ツール</td>
+          <td>C#・Python両対応</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <ul class="point-list">
+      <li>
+        <span class="marker marker-blue">1</span>
+        <span><strong>「Windowsがエージェントの実行環境になる」という大転換</strong> ── これまでWindowsは「Word・Excelを動かすOS」だったが、2026年以降は「コーディングエージェント・会議要約エージェント・家計管理エージェントなどを同時に動かすOS」へ変わる。Windows 11 26H2で導入予定</span>
+      </li>
+      <li>
+        <span class="marker marker-blue">2</span>
+        <span><strong>Apollo プロトコルで「エージェントとアプリが対話」</strong> ── エージェントがWordを操作したりブラウザを制御したりするための新しい共通言語（プロトコル）。新しいWindowsアプリだけでなく、昔からあるWin32アプリ向けの互換シムも開発中</span>
+      </li>
+      <li>
+        <span class="marker marker-blue">3</span>
+        <span><strong>安全対策もセットで設計</strong> ── エージェントが動く「サンドボックス（隔離環境）」はAppContainers・Hyper-V仮想化・Windows Filtering Platformを組み合わせて実現。「エージェントが特定のIPにしか通信できない」「9時〜17時のみ許可」のような細かい設定も可能</span>
+      </li>
+      <li>
+        <span class="marker marker-blue">4</span>
+        <span><strong>Maia 200チップで最適化</strong> ── MAI-Thinking-1はMicrosoft独自のAIチップ「Maia 200」で最適化されており、同チップ上では1.4倍の性能/電力比を実現。「クラウドでもエッジでも動かせる」という戦略が見える</span>
+      </li>
+      <li>
+        <span class="marker marker-blue">5</span>
+        <span><strong>GoogleやMetaと異なる「開発者・企業向け」路線</strong> ── Google（Gemini）・Meta（LLaMA）が一般消費者やリサーチ者向けにモデルを広く配布するのに対し、Microsoftは「企業でのAIエージェント導入」を最優先に設計。Windowsとの統合が最大の差別化点</span>
+      </li>
+    </ul>
+
+    <div class="sticky">
+      ✏️ <strong>中学生的に言うと：</strong>「WindowsがただのOSから、AIの会社に変わろうとしている！」。AIがWindowsの中で12個同時に動いて、コードを書いたり、会議をまとめたり、家計を管理したりする時代がすぐそこに来ている。
+    </div>
+
+    <div class="source">
+      📎 出典：
+      <a href="https://www.tomsguide.com/news/live/microsoft-build-2026" target="_blank">Tom's Guide – Biggest Microsoft Build 2026 announcements（2026-06-02）</a> /
+      <a href="https://dev.to/akaranjkar08/microsoft-build-2026-developer-preview-windows-agent-runtime-multi-model-copilot-and-the-agentic-5pi" target="_blank">DEV Community – Microsoft Build 2026: Windows Agent Runtime（2026-06-02）</a> /
+      <a href="https://www.tradingkey.com/analysis/stocks/us-stocks/261943322-microsoft-build-2026-highlights-7-proprietary-ai-models-tradingkey" target="_blank">TradingKey – Microsoft Build 2026 Highlights（2026-06-02）</a>
+    </div>
+  </div>
+</div>
+
+<!-- トピック3: GitHub Copilot 従量課金 -->
+<div class="card" id="topic3">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">💸</span>
+      <div class="card-title">GitHub Copilot 従量課金に移行 ──<br>月額$29が$750になった開発者も？</div>
+      <span class="topic-badge badge-red">開発ツール</span>
+    </div>
+
+    <div class="simple-box">
+      <span class="label">🌱 やさしく解説</span><br>
+      2026年6月1日から、プログラマー向けAIツール「<span class="hl-yellow">GitHub Copilot（コパイロット）</span>」の課金方式が大きく変わりました。これまでは<span class="hl-blue">月額固定料金</span>（いくら使っても同じ金額）でしたが、6月1日からは<span class="hl-pink">使った分だけ払う「従量課金（GitHub AI Credits）」</span>に移行しました。AIエージェント機能を多用する開発者ほどコストが増え、<span class="hl-yellow">「2時間で月のクレジットの8%を使い切った」</span>「月額が最大50倍に跳ね上がった」という報告が相次ぎ、大きな反発が起きています。
+    </div>
+
+    <!-- 料金変化のインパクト比較 -->
+    <p style="font-size:0.85rem; font-weight:600; color:#555; margin-bottom:10px;">💰 「請求ショック」── 実際の報告例（開発者コミュニティより）</p>
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>ユーザー報告</th>
+          <th>旧：月額固定</th>
+          <th>新：従量課金（試算）</th>
+          <th>変化率</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>個人開発者 A</td>
+          <td>$29/月（Pro）</td>
+          <td>$750/月（試算）</td>
+          <td style="color:#c0392b; font-weight:700;">約26倍</td>
+        </tr>
+        <tr>
+          <td>個人開発者 B</td>
+          <td>$50/月</td>
+          <td>$3,000/月（試算）</td>
+          <td style="color:#c0392b; font-weight:700;">約60倍</td>
+        </tr>
+        <tr>
+          <td>Copilot Pro+ユーザー</td>
+          <td>$39/月（固定）</td>
+          <td>2時間で月クレジットの8%消費</td>
+          <td style="color:#c0392b; font-weight:700;">2日以内に枯渇可能</td>
+        </tr>
+        <tr>
+          <td>1リクエストの実例</td>
+          <td>（無制限）</td>
+          <td>$6（1回の変更依頼のみで）</td>
+          <td style="color:#c0392b; font-weight:700;">予測不可能</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-size:0.79rem; color:#999; margin-top:-6px; margin-bottom:16px;">※ 上記は開発者コミュニティの報告例。個人の使い方・プラン・モデル選択によって大きく異なります。最新の価格は公式サイトで要確認</p>
+
+    <!-- 反発の規模 数値カード -->
+    <div class="stat-row">
+      <div class="stat-card red">
+        <div class="stat-num">400+</div>
+        <div class="stat-label">GitHubディスカッションへの<br>反発コメント数</div>
+      </div>
+      <div class="stat-card red">
+        <div class="stat-num">900+</div>
+        <div class="stat-label">同スレッドの<br>ダウンボート（反対票）</div>
+      </div>
+      <div class="stat-card amber">
+        <div class="stat-num">最大<br>50×</div>
+        <div class="stat-label">エージェント多用ユーザーの<br>コスト増加倍率</div>
+      </div>
+    </div>
+
+    <!-- なぜこうなったか：フロー -->
+    <p style="font-size:0.85rem; font-weight:600; color:#555; margin-bottom:8px;">🔄 なぜ従量課金に変わったのか？</p>
+    <div class="step-flow">
+      <div class="step-box">2021〜2024年<br>Copilot＝<br>コード補完ツール<br><span style="font-size:0.73rem; font-weight:400;">トークン消費が少ない</span></div>
+      <div class="step-arrow">→</div>
+      <div class="step-box warn">2025〜2026年<br>Copilot＝<br>AIエージェント化<br><span style="font-size:0.73rem; font-weight:400;">長時間タスクに変化</span></div>
+      <div class="step-arrow">→</div>
+      <div class="step-box warn">1タスクで<br>数万〜数十万<br>トークン消費<br><span style="font-size:0.73rem; font-weight:400;">コストが急増</span></div>
+      <div class="step-arrow">→</div>
+      <div class="step-box red">固定料金では<br>採算が取れず<br>従量課金へ移行<br><span style="font-size:0.73rem; font-weight:400;">6月1日〜</span></div>
+    </div>
+
+    <!-- 開発者の移行先 -->
+    <p style="font-size:0.85rem; font-weight:600; color:#555; margin-bottom:8px;">🚀 「Copilotをやめる」と言い出した開発者の移行先</p>
+    <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom:16px;">
+      <div style="flex:1; min-width:140px; background:#f8f4ec; border:2px solid #c8b89a; border-radius:8px; padding:10px; text-align:center; font-size:0.82rem;">
+        <div style="font-size:1.4rem;">🤖</div>
+        <strong>直接API</strong><br>Anthropic Claude / OpenAI 直接契約
+      </div>
+      <div style="flex:1; min-width:140px; background:#f8f4ec; border:2px solid #c8b89a; border-radius:8px; padding:10px; text-align:center; font-size:0.82rem;">
+        <div style="font-size:1.4rem;">🔀</div>
+        <strong>OpenRouter</strong><br>複数モデルを柔軟に切り替えられる中継サービス
+      </div>
+      <div style="flex:1; min-width:140px; background:#f8f4ec; border:2px solid #c8b89a; border-radius:8px; padding:10px; text-align:center; font-size:0.82rem;">
+        <div style="font-size:1.4rem;">🖥️</div>
+        <strong>ローカル実行</strong><br>LM Studio / Ollama でローカルモデルを動かす
+      </div>
+      <div style="flex:1; min-width:140px; background:#f8f4ec; border:2px solid #c8b89a; border-radius:8px; padding:10px; text-align:center; font-size:0.82rem;">
+        <div style="font-size:1.4rem;">🔧</div>
+        <strong>RooCode</strong><br>Copilot代替のオープンソースAIコーディングツール
       </div>
     </div>
 
     <ul class="point-list">
       <li>
         <span class="marker marker-red">1</span>
-        <span><strong>2026年計画分12GWのうち着工は約1/3</strong> ── 米国で計画されていたデータセンター容量12GWのうち、実際に建設中なのは約4GW。残りは変圧器・土地・許認可などの問題で複数四半期の延期に直面しているとされる</span>
+        <span><strong>6月1日から全プランが従量課金（GitHub AI Credits）に統一</strong> ── 従来のPRU（プレミアムリクエストユニット）に代わり、入力・出力・キャッシュトークンをベースにした課金へ。使うモデルによってクレジットの消費量が異なる</span>
       </li>
       <li>
         <span class="marker marker-red">2</span>
-        <span><strong>建設コストが6年で2.7倍に急騰</strong> ── 2020年の1平方フィートあたり$183から、2026年には$488へと167%増加。AI向けデータセンターは冷却・電力密度が従来の3〜5倍必要なことがコスト高騰の主因</span>
+        <span><strong>「エージェント化」がコスト急増の主因</strong> ── 従来のCopilotはコードをちょっと補完するだけ（1行＝数百トークン）だったが、2026年版CopilotはAIエージェントとして長時間タスクを実行。1タスクで数万〜数十万トークンを使うことがある</span>
       </li>
       <li>
         <span class="marker marker-red">3</span>
-        <span><strong>GPU納期が最大1年に</strong> ── データセンター向けGPUの平均調達期間は36〜52週。大手クラウドは優先供給を受けるが、一般企業は大幅な待機を強いられる。「AI活用が遅れる企業」と「クラウドで使う企業」の格差が広がりつつある</span>
+        <span><strong>GitHubは「ほとんどのユーザーは影響ない」と主張</strong> ── 「通常の使い方をしているユーザーには月額上限内で収まる」と説明。ただしエージェント機能（Copilot Workspaceなど）を多用するヘビーユーザーは大幅なコスト増を経験している</span>
       </li>
       <li>
         <span class="marker marker-red">4</span>
-        <span><strong>$400B規模の建設ブームも間に合わない</strong> ── 2026年のAIインフラ建設投資は$400B（約56兆円）規模にのぼるが、ハードウェア・電力・人材すべてが供給不足のため「お金があっても建てられない」という構造的な問題が露わになっている</span>
+        <span><strong>課金の「予測不能さ」が最大の不満</strong> ── 「1回の変更依頼で$6かかるとは思わなかった」という声が多い。固定料金と違い、1回の操作でどれだけコストがかかるか事前に分からない「メーターショック」が発生している</span>
       </li>
       <li>
         <span class="marker marker-red">5</span>
-        <span><strong>「局所的・一時的ではなく、構造的・グローバルな問題」</strong> ── 業界の分析では、この不足は一時的な需給ギャップではなく、製造・電力・スキルすべての面での構造問題と位置づけられている。解消には数年単位の時間がかかるとの見方が多い</span>
+        <span><strong>AIツールの「従量課金化」は業界全体の流れ</strong> ── CopilotだけでなくCursor・GitHub ActionsなどもAIクレジット消費を取り込み始めている。開発ツールの「AIエージェント化」が進むにつれ、「AIを使うほど請求が増える」という新しい時代が始まっている</span>
       </li>
     </ul>
 
     <div class="sticky">
-      ✏️ <strong>中学生的に言うと：</strong>「AIが賢くなっても、動かすコンピューターが足りない」という皮肉な問題が起きている！工場でも電池でも「製品は作れるのに材料が足りない」みたいなことが、世界中のAIでも起きているんだ。
+      ✏️ <strong>中学生的に言うと：</strong>「Netflixが月額定額から『見た分だけ課金』に変わった」みたいなことがAIツールでも起きている！AIが自分で長時間作業するようになったせいで、昔の「使い放題」プランが維持できなくなってきた。開発者が請求を見て驚く「AIショック」が発生中！
     </div>
 
     <div class="source">
       📎 出典：
-      <a href="https://www.datacenters.com/news/ai-demand-is-resetting-2026-data-center-capacity-forecasts" target="_blank">DataCenters.com – AI Demand Is Resetting 2026 Data Center Capacity Forecasts（2026年）</a> /
-      <a href="https://explainthistech.com/ai/why-ai-cloud-infrastructure-demand-outpacing-supply/" target="_blank">ExplainThisTech – Why AI &amp; Cloud Infrastructure Demand Is Outpacing Supply（2026年）</a> /
-      <a href="https://thebirmgroup.com/ai-infrastructure-construction-the-next-400b-boom-in-2026/" target="_blank">The BIRM Group – AI Infrastructure Construction: The $400 Billion Boom in 2026</a> /
-      <a href="https://vexxhost.com/blog/gpu-capacity-crisis-ai-infrastructure-2026/" target="_blank">VEXXHOST – The GPU Capacity Crisis: Why Enterprises Are Rethinking（2026年）</a>
-    </div>
-  </div>
-</div>
-
-<!-- トピック2: 世界モデルAI -->
-<div class="card" id="topic2">
-  <div class="card-body">
-    <div class="card-header">
-      <span class="card-emoji">🧠</span>
-      <div class="card-title">世界モデルAI（LeWorldModel / LeJEPA）──<br>「AIが世界を理解する」理論の正式証明が出た</div>
-      <span class="topic-badge badge-purple">AI研究</span>
-    </div>
-
-    <div class="simple-box">
-      <span class="label">🌱 やさしく解説</span><br>
-      現在の主流AIは「膨大な文章を覚えて次の言葉を予測する」方法で作られています。一方、<span class="hl-yellow">ヤン・ルカン（Yann LeCun）</span>氏（MetaのチーフAIサイエンティスト）は「本当に賢いAIは<span class="hl-blue">世界のしくみを自分でモデル化</span>して理解しなければならない」と主張してきました。そのAIのアーキテクチャ（設計図）「<span class="hl-green">LeJEPA（ルジェパ）</span>」が、2026年5月25日、数学的に「条件を満たせば確かに世界を学べる」ことが証明されました。さらに同グループが作った<strong>LeWorldModel</strong>は、たった1500万個のパラメータで、高性能GPUを使わずに1台のGPUで数時間で学習でき、計画速度が従来手法の<strong>48倍</strong>速くなりました。
-    </div>
-
-    <!-- LLM vs LeJEPA の対比 -->
-    <p style="font-size:0.85rem; font-weight:600; color:#555; margin-bottom:10px;">📊 今のAI（LLM）と LeJEPA アプローチの違い</p>
-    <table class="compare-table">
-      <thead>
-        <tr>
-          <th>比較項目</th>
-          <th>現在主流のLLM（大規模言語モデル）</th>
-          <th>LeJEPA / LeWorldModel（新アプローチ）</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>学習の仕方</strong></td>
-          <td>膨大なテキストを覚えて「次の単語」を予測</td>
-          <td>世界の「潜在的な構造（法則）」を直接学習</td>
-        </tr>
-        <tr>
-          <td><strong>パラメータ数</strong></td>
-          <td>数百億〜数兆個</td>
-          <td>LeWorldModel：1,500万個（約1,000〜数万分の1）</td>
-        </tr>
-        <tr>
-          <td><strong>計画・シミュレーション</strong></td>
-          <td>テキスト上の推論は得意だが物理的な計画は苦手</td>
-          <td>1秒で軌道計画を実行（DINO-WMの48倍速）</td>
-        </tr>
-        <tr>
-          <td><strong>ロボットへの応用</strong></td>
-          <td>動作の記述はできるが自律的な運動計画は難</td>
-          <td>リアルタイムの動作計画・自律移動に向く</td>
-        </tr>
-        <tr>
-          <td><strong>学習に必要な計算資源</strong></td>
-          <td>数千〜数万枚のGPUで数週間〜数ヶ月</td>
-          <td>1台のGPUで数時間</td>
-        </tr>
-        <tr>
-          <td><strong>理論的な裏付け</strong></td>
-          <td>経験則が主、理論的保証は限定的</td>
-          <td>2026年5月25日に数学的証明（arXiv論文）が公開</td>
-        </tr>
-      </tbody>
-    </table>
-    <p style="font-size:0.79rem; color:#999; margin-top:-6px; margin-bottom:16px;">※ DINO-WM＝従来の代表的な世界モデル手法 / パラメータ＝AIが学習する変数の数、多いほど一般的に高性能だが学習コストも増大</p>
-
-    <!-- 数値カード -->
-    <div class="stat-row">
-      <div class="stat-card purple">
-        <div class="stat-num">15M</div>
-        <div class="stat-label">LeWorldModelの<br>パラメータ数<br>（1,500万個）</div>
-      </div>
-      <div class="stat-card green">
-        <div class="stat-num">48×</div>
-        <div class="stat-label">計画速度の向上<br>（1秒 vs 47秒）</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num">192次元</div>
-        <div class="stat-label">1フレームを<br>圧縮する埋め込みベクトル<br>（非常にコンパクト）</div>
-      </div>
-      <div class="stat-card amber">
-        <div class="stat-num">$1.03B</div>
-        <div class="stat-label">AMI Labs<br>調達額（2026年3月）<br>約1,450億円</div>
-      </div>
-    </div>
-
-    <!-- タイムライン: 研究の流れ -->
-    <p style="font-size:0.85rem; font-weight:600; color:#555; margin-bottom:10px;">📅 世界モデルAI 最近の動き</p>
-    <div class="timeline">
-      <div class="tl-item done">
-        <div class="tl-date">2026年3月 ✅</div>
-        <div class="tl-title">AMI Labs設立・LeWorldModel arXiv公開</div>
-        <div style="font-size:0.83rem; color:#666; margin-top:2px;">ルカン氏のパリ拠点スタートアップAMI Labsが$1.03Bを調達（ロボット・医療・産業自動化が対象）。同時期にLeWorldModelをarXivで公開（2026-03-24）</div>
-      </div>
-      <div class="tl-item done">
-        <div class="tl-date">2026年5月25日 ✅</div>
-        <div class="tl-title">LeJEPA正式証明論文をarXivで公開</div>
-        <div style="font-size:0.83rem; color:#666; margin-top:2px;">「When Does LeJEPA Learn a World Model?」と題した論文。ガウス型の潜在変数ダイナミクスという条件のもとで、LeJEPAが真の世界構造を「線形回転の差を除いて」正確に復元できることを数学的に証明</div>
-      </div>
-      <div class="tl-item warn">
-        <div class="tl-date">2026年5月31日 ⚡ 最新報道</div>
-        <div class="tl-title">「現在の視覚AIモデルが小さな変化に脆い」と報告</div>
-        <div style="font-size:0.83rem; color:#666; margin-top:2px;">同時期に公開された別のベンチマーク研究で、現在の視覚AIモデルが微妙な視覚的変化に対して脆い（brittle）ことが判明。これがLeJEPAアプローチの必要性をさらに強調する結果に</div>
-      </div>
-    </div>
-
-    <!-- 「世界モデル」の応用例 -->
-    <p style="font-size:0.85rem; font-weight:600; color:#555; margin: 16px 0 10px;">🤖 「世界モデルAI」ができると何が変わるの？</p>
-    <div class="step-flow">
-      <div class="step-box">AIが世界の<br>物理法則を学ぶ<br><span style="font-size:0.73rem; font-weight:400;">（重力・衝突など）</span></div>
-      <div class="step-arrow">→</div>
-      <div class="step-box">実行前に<br>「頭の中で」<br>シミュレーション</div>
-      <div class="step-arrow">→</div>
-      <div class="step-box">ロボットが<br>転ばずに動ける<br>軌道を計画</div>
-      <div class="step-arrow">→</div>
-      <div class="step-box green">自律ロボット・<br>自動運転が<br>より安全に</div>
-    </div>
-
-    <ul class="point-list">
-      <li>
-        <span class="marker marker-purple">1</span>
-        <span><strong>「世界モデル」とは何か</strong> ── 物理学で言う「法則」をAI自身が内部に持つこと。「物を落としたら下に落ちる」「重いものは動かしにくい」という世界のしくみを、データから自分で抽出する。これができれば「経験のない状況にも対処できる」</span>
-      </li>
-      <li>
-        <span class="marker marker-purple">2</span>
-        <span><strong>LeJEPAの設計思想</strong> ── JEPA（Joint Embedding Predictive Architecture）は「次の状態をピクセルではなく抽象表現で予測する」という仕組み。人間が「次にどうなるか」を具体的な映像ではなく概念で考えるのに近い</span>
-      </li>
-      <li>
-        <span class="marker marker-purple">3</span>
-        <span><strong>LeWorldModelが「1台のGPUで動く」意義</strong> ── 大規模LLMとは対照的に、LeWorldModelは15Mパラメータで1台のGPUで数時間学習できる。これは「世界モデルAIが特定のリッチな研究機関だけのものではない」可能性を示す</span>
-      </li>
-      <li>
-        <span class="marker marker-purple">4</span>
-        <span><strong>現在の限界も正直に示されている</strong> ── 論文では「長期計画・オープンワールドのロボティクスはまだ苦手」と認めている。現在のベンチマークは比較的単純な2D/3D制御タスクに限定されており、実世界ロボットへの直接適用には課題が残る</span>
-      </li>
-      <li>
-        <span class="marker marker-purple">5</span>
-        <span><strong>なぜ今これが注目されるのか</strong> ── LLMが「テキストの世界」でほぼ飽和しつつある一方、「物理世界で動くAI（ロボット・自動運転）」は次の大きな市場。AMI Labsへの$1B超の資金調達はその期待を反映している</span>
-      </li>
-    </ul>
-
-    <div class="sticky">
-      ✏️ <strong>中学生的に言うと：</strong>「世界の物理法則を自分で覚えるAI」の理論が数学で証明された！しかもこのAI、普通のパソコン用GPUで数時間で学習できる小ささで、計画を出すのが従来の48倍速い。ロボットが「考えてから動く」時代に一歩近づいた！
-    </div>
-
-    <div class="source">
-      📎 出典：
-      <a href="https://www.marktechpost.com/2026/03/23/yann-lecuns-new-leworldmodel-lewm-research-targets-jepa-collapse-in-pixel-based-predictive-world-modeling/" target="_blank">MarkTechPost – Yann LeCun's LeWorldModel（2026-03-23）</a> /
-      <a href="https://cryptobriefing.com/lejepa-world-model-conditions-lecun/" target="_blank">CryptoBriefing – Yann LeCun's paper reveals conditions for LeJEPA（2026年）</a> /
-      <a href="https://www.humanoidsdaily.com/news/yann-lecun-s-world-model-vision-gets-a-leaner-engine-introducing-leworldmodel" target="_blank">Humanoids Daily – LeWorldModel: Leaner Engine for World Models</a> /
-      <a href="https://le-wm.github.io/" target="_blank">LeWorldModel 公式プロジェクトページ</a>
-    </div>
-  </div>
-</div>
-
-<!-- トピック3: AIコーディングベンチマーク問題 -->
-<div class="card" id="topic3">
-  <div class="card-body">
-    <div class="card-header">
-      <span class="card-emoji">🧪</span>
-      <div class="card-title">AIコーディングベンチマークの限界 ──<br>スコア93.9%でも偽陽性19.78%問題が露わに</div>
-      <span class="topic-badge badge-orange">AIコーディング</span>
-    </div>
-
-    <div class="simple-box">
-      <span class="label">🌱 やさしく解説</span><br>
-      AIがプログラムを書く能力を測る「<span class="hl-yellow">SWE-Bench</span>（スウィーベンチ）」というテストで、最新AIのスコアが93%を超えてきました。しかし別の研究が「このテスト、<span class="hl-pink">実は解けていない問題を『解けた』と誤判定している</span>ケースが約20%ある」と指摘しました。本当に使えるコーディングAIかどうかは、どうやって測ればいいのでしょうか？
-    </div>
-
-    <!-- SWE-Bench スコアのバーチャート -->
-    <p style="font-size:0.85rem; font-weight:600; color:#555; margin-bottom:10px;">📊 SWE-Bench Verified スコア（2026年5月末時点）</p>
-    <div class="bench-bar-wrap">
-      <div class="bench-row">
-        <div class="bench-label">Claude Mythos Preview</div>
-        <div class="bench-bar-bg">
-          <div class="bench-bar-fill" style="width:93.9%; background:#7b2fbe;">93.9%</div>
-        </div>
-      </div>
-      <div class="bench-row">
-        <div class="bench-label">Claude Opus 4.7</div>
-        <div class="bench-bar-bg">
-          <div class="bench-bar-fill" style="width:87.6%; background:#9b4fde;">87.6%</div>
-        </div>
-      </div>
-      <div class="bench-row">
-        <div class="bench-label">GPT-5.3 Codex</div>
-        <div class="bench-bar-bg">
-          <div class="bench-bar-fill" style="width:85%; background:#c0392b;">85.0%</div>
-        </div>
-      </div>
-    </div>
-    <p style="font-size:0.79rem; color:#999; margin-bottom:16px;">※ Claude Mythos Previewはプレビュー版（2026年5月末時点）。スコアは変動する可能性があります。公式サイトで要確認</p>
-
-    <!-- 問題点の説明 -->
-    <div style="background:#fff0e8; border:2px solid #f0a870; border-radius:8px; padding:14px 18px; margin:16px 0;">
-      <p style="font-size:0.85rem; font-weight:600; color:#7a3000; margin-bottom:10px;">⚠️「スコア高くても実は解けてない？」── 偽陽性（false positive）問題</p>
-      <div style="display:flex; gap:12px; flex-wrap:wrap;">
-        <div style="flex:1; min-width:180px; background:white; border:1px solid #f0a870; border-radius:6px; padding:10px 12px; font-size:0.82rem; line-height:1.6;">
-          <strong>偽陽性とは？</strong><br>
-          テスト上は「パス（合格）」と判定されても、実際には問題をちゃんと解けていない（コードの意味が間違っている）状態のこと
-        </div>
-        <div style="flex:1; min-width:180px; background:white; border:1px solid #f0a870; border-radius:6px; padding:10px 12px; font-size:0.82rem; line-height:1.6;">
-          <strong>研究が指摘した数字</strong><br>
-          2025年の分析で、主要なSWE-Benchリーダーボードの上位モデルの「解けた」判定のうち、<span style="color:#c0392b; font-weight:700;">約19.78%は意味的に間違っていた</span>ことが判明した
-        </div>
-        <div style="flex:1; min-width:180px; background:white; border:1px solid #f0a870; border-radius:6px; padding:10px 12px; font-size:0.82rem; line-height:1.6;">
-          <strong>なぜ起きるの？</strong><br>
-          SWE-Benchのテストケース（正誤判定の仕組み）が不完全で、「バグを直したように見えるが別の方法でテストを通っているだけ」なケースを正解と誤判定することがある
-        </div>
-      </div>
-    </div>
-
-    <!-- より現実的な3つのベンチマーク比較 -->
-    <p style="font-size:0.85rem; font-weight:600; color:#555; margin-bottom:10px;">📐 コーディングAIを測る3つのベンチマーク</p>
-    <table class="compare-table">
-      <thead>
-        <tr>
-          <th>ベンチマーク名</th>
-          <th>何を測るか</th>
-          <th>最高スコアと上位モデル（参考）</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>SWE-Bench Verified</strong></td>
-          <td>実際のGitHubバグ修正・機能追加（単一ファイル中心）</td>
-          <td>Claude Mythos Preview: 93.9%（2026年5月）</td>
-        </tr>
-        <tr>
-          <td><strong>SWE-bench Pro</strong></td>
-          <td>より大規模なリポジトリ横断の長期タスク</td>
-          <td>Claude Opus 4.8: 69.2%（2026年5月）</td>
-        </tr>
-        <tr>
-          <td><strong>Terminal-Bench 2.0</strong></td>
-          <td>ターミナル操作89タスク（コンパイル・学習・設定・デバッグ）</td>
-          <td>GPT-5.5: 82.7% / Claude Opus 4.7: 69.4%</td>
-        </tr>
-      </tbody>
-    </table>
-    <p style="font-size:0.79rem; color:#999; margin-top:-6px; margin-bottom:16px;">※ スコアはすべて参考値。ベンチマーク手法・バージョンにより変化します。最新値は各公式サイトで確認ください</p>
-
-    <!-- SWE-Bench Verified vs SWE-bench Pro の差の視覚化 -->
-    <p style="font-size:0.85rem; font-weight:600; color:#555; margin-bottom:10px;">🔍 「上位モデル」でも難しいタスクになると一気にスコアが下がる</p>
-    <div style="display:flex; gap:12px; flex-wrap:wrap; margin-bottom:16px;">
-      <div style="flex:1; min-width:200px; background:#f8f0ff; border:2px solid #c8a0f0; border-radius:10px; padding:14px; text-align:center;">
-        <div style="font-size:0.8rem; font-weight:600; color:#555; margin-bottom:6px;">SWE-Bench Verified<br>（比較的シンプルなタスク）</div>
-        <div style="font-size:2.4rem; font-weight:700; color:#7b2fbe; font-family:'Caveat',cursive;">93.9%</div>
-        <div style="font-size:0.75rem; color:#888;">Claude Mythos Preview</div>
-      </div>
-      <div style="display:flex; align-items:center; font-size:2rem; color:#aaa;">→</div>
-      <div style="flex:1; min-width:200px; background:#fff8e8; border:2px solid #f0c070; border-radius:10px; padding:14px; text-align:center;">
-        <div style="font-size:0.8rem; font-weight:600; color:#555; margin-bottom:6px;">SWE-bench Pro<br>（長期・リポジトリ横断タスク）</div>
-        <div style="font-size:2.4rem; font-weight:700; color:#cc6600; font-family:'Caveat',cursive;">69.2%</div>
-        <div style="font-size:0.75rem; color:#888;">Claude Opus 4.8（異なるモデル）</div>
-      </div>
-    </div>
-    <p style="font-size:0.79rem; color:#aaa; margin-top:-10px; margin-bottom:16px;">※ 2つは別モデル・別ベンチマークの比較。あくまで「難しいタスクでスコアが下がる」傾向を示すための参考比較です</p>
-
-    <ul class="point-list">
-      <li>
-        <span class="marker marker-orange">1</span>
-        <span><strong>Claude Mythos Preview が SWE-Bench 93.9%を達成（2026年5月末）</strong> ── プレビュー（試験公開）版としてSWE-Bench Verifiedで93.9%を記録。これは「100件のGitHubバグ修正課題のうち93件以上を自動修正できる」スコアだが、前述の偽陽性問題に注意が必要</span>
-      </li>
-      <li>
-        <span class="marker marker-orange">2</span>
-        <span><strong>「解けた」の約20%は本当は解けていなかった（2025年分析）</strong> ── SWE-Benchの「パス」判定の約19.78%は意味的に誤っている可能性があるとの研究結果。これを考慮すると実質的な正解率はスコアより低い。業界では「ベンチマーク汚染」とも呼ばれる問題</span>
-      </li>
-      <li>
-        <span class="marker marker-orange">3</span>
-        <span><strong>Terminal-Bench 2.0という代替指標が登場</strong> ── ターミナルで「実際にコンパイルして動かす・設定する・デバッグする」89タスクを評価。「テストを通す」だけでなく「実行環境で動くか」を重視したより現実的な評価軸</span>
-      </li>
-      <li>
-        <span class="marker marker-orange">4</span>
-        <span><strong>長期タスクになるほどスコアが下がる</strong> ── SWE-bench Verified（単一ファイル中心）では90%超でも、SWE-bench Pro（リポジトリ横断・長期タスク）では同等モデル群で60〜70%台に落ちる。「現実のソフトウェア開発に使えるか」はまだ課題が多い</span>
-      </li>
-      <li>
-        <span class="marker marker-orange">5</span>
-        <span><strong>開発者の生産性向上は確実にある</strong> ── それでもAIコーディングツールの実測では一部の作業で20〜40%の生産性向上を示すデータも出ている。「完全自動化」はまだ遠いが、「人間と協働」での効果は現実的</span>
-      </li>
-    </ul>
-
-    <div class="sticky">
-      ✏️ <strong>中学生的に言うと：</strong>「テストの点が93点でも、採点が甘くて実は本当の実力は75点かも…」というのと同じ問題がAIの評価でも起きている！「いいスコアを出すための勉強」じゃなくて「本当に使えるか」の測り方が大事。
-    </div>
-
-    <div class="source">
-      📎 出典：
-      <a href="https://www.8seneca.com/en/blog/technology/i-ranked-every-ai-coding-tool-2026-swe-bench" target="_blank">8seneca – Every AI Coding Assistant Ranked by SWE-bench（2026年）</a> /
-      <a href="https://www.birjob.com/blog/agent-benchmarks-2026" target="_blank">BirJob – AI Coding Agent Benchmarks Beyond SWE-Bench in 2026（2026年）</a> /
-      <a href="https://www.buildmvpfast.com/articles/best-llms-2026-guide/coding-ai" target="_blank">BuildMVPFast – Best AI for Coding June 2026: Top 10 Coding Models Ranked</a> /
-      <a href="https://larridin.com/developer-productivity-hub/developer-productivity-benchmarks-2026" target="_blank">Larridin – Developer Productivity Benchmarks 2026</a>
+      <a href="https://www.ghacks.net/2026/06/02/github-copilot-usage-based-billing-takes-effect-drawing-developer-backlash-over-rapid-credit-depletion/" target="_blank">gHacks Tech News – GitHub Copilot Usage-Based Billing Takes Effect（2026-06-02）</a> /
+      <a href="https://www.theregister.com/ai-and-ml/2026/06/02/github-copilot-users-threaten-exit-as-metered-billing-kicks-in/5249826" target="_blank">The Register – Angry devs vow to flee GitHub Copilot as metered billing takes hold（2026-06-02）</a> /
+      <a href="https://www.techtimes.com/articles/317536/20260601/github-copilot-pricing-change-drives-backlash-agentic-bills-jump-10x-50x-power-users.htm" target="_blank">TechTimes – GitHub Copilot Pricing Change Drives Backlash（2026-06-01）</a> /
+      <a href="https://github.blog/news-insights/company-news/github-copilot-is-moving-to-usage-based-billing/" target="_blank">GitHub Blog – GitHub Copilot is moving to usage-based billing（公式）</a>
     </div>
   </div>
 </div>
@@ -915,19 +862,19 @@
   <h2>📝 今日の大きな流れ ── 2026年6月3日のキーワード</h2>
   <div class="summary-grid">
     <div class="summary-item">
-      <span class="s-emoji">🏗️</span>
-      <div class="s-title">「作れるのに動かせない」逆説</div>
-      AIモデルは進化し続けているが、それを動かすインフラ（GPU・電力・建物）が需要に追いつかない。技術の「天井」ではなく「床」が問われる時代に
+      <span class="s-emoji">🟢</span>
+      <div class="s-title">オープンAIの米中格差</div>
+      NVIDIAが米国最高のオープンウェイトモデルを出したが、中国勢（Kimi K2.6）には知性指数でまだ届かない。AIのオープンな世界でも国際競争は続く
     </div>
     <div class="summary-item">
-      <span class="s-emoji">🧠</span>
-      <div class="s-title">理論が「次のAI」を定義した</div>
-      LeJEPAの数学的証明は、「テキストを覚えるAI」から「世界の法則を学ぶAI」へのパラダイムシフトに理論的根拠を与えた。ロボットAIの次のフロンティアが見えてきた
+      <span class="s-emoji">💻</span>
+      <div class="s-title">WindowsがAIの土台になる</div>
+      Microsoft Build 2026はAIエージェントを動かすための「OS再設計」を宣言。PCがAIエージェントの並列実行基盤に変わる時代が近づいている
     </div>
     <div class="summary-item">
-      <span class="s-emoji">🧪</span>
-      <div class="s-title">「スコア＝実力」ではない</div>
-      93%超のベンチマークスコアも、測り方の問題で実力を誇張しているケースがある。AIを評価する「物差し」そのものの信頼性が問われるようになった
+      <span class="s-emoji">💸</span>
+      <div class="s-title">「AIが働くほど課金が増える」時代へ</div>
+      GitHub Copilotの従量課金化は、AIエージェントが「自律的に長時間働く」ことで生じる新しいコスト問題を象徴している。開発ツールの経済モデルが根本から変わり始めた
     </div>
   </div>
 </div>
