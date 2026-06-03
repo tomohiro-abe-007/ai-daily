@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI動画制作 技法解説 2026-06-04</title>
+<style>
+:root{
+  --bg:#ece8e1;--card:#faf6ec;--dark:#1a3a5c;--dark2:#2a4a1c;
+  --accent:#1a4a6b;--warm:#c4762a;
+  --text:#2a3540;--muted:#7c8a82;--border:#e0d8c8;
+  /* 三分割 */
+  --thirds:#6b3a1a;--thirdsl:#f5ede8;
+  /* リーディングライン */
+  --leading:#1a3a6b;--leadingl:#e8edf5;
+  /* 対称 */
+  --sym:#1a5c3a;--syml:#e8f5ee;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,"Hiragino Sans","Yu Gothic",sans-serif;line-height:1.7;padding:24px 16px;}
+.wrap{max-width:860px;margin:0 auto;}
+
+/* Header */
+.header{background:linear-gradient(135deg,var(--dark),var(--dark2));color:#fff;border-radius:20px;padding:40px 32px;text-align:center;box-shadow:0 8px 24px rgba(26,58,92,.22);margin-bottom:24px;}
+.date-badge{background:rgba(255,255,255,.18);color:#c8dde8;border-radius:20px;padding:4px 16px;font-size:.85rem;display:inline-block;margin-bottom:16px;letter-spacing:.08em;}
+.header h1{font-size:1.9rem;margin-bottom:8px;letter-spacing:.04em;}
+.header .subtitle{color:#c8dde8;font-size:1rem;}
+.tag-row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:14px;}
+.header .tag{background:rgba(255,255,255,.15);border-radius:12px;padding:3px 12px;font-size:.78rem;display:inline-block;color:#d8ecd4;}
+
+/* Section */
+.section{background:var(--card);border-radius:16px;padding:28px 24px;margin-bottom:20px;box-shadow:0 3px 12px rgba(0,0,0,.06);border:1px solid var(--border);}
+.section-title{font-size:1.1rem;font-weight:700;color:var(--accent);border-bottom:2px solid var(--border);padding-bottom:10px;margin-bottom:18px;display:flex;align-items:center;gap:8px;}
+
+/* Comp type cards */
+.comp-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:16px;}
+.comp-card{border-radius:12px;padding:16px 14px;border:1px solid var(--border);}
+.comp-card.thirds{background:var(--thirdsl);border-color:#ddc0a8;}
+.comp-card.leading{background:var(--leadingl);border-color:#a8c0dd;}
+.comp-card.sym{background:var(--syml);border-color:#a8ddc0;}
+.comp-card.ng{background:#f8f0f0;border-color:#ddb8b8;}
+.comp-card .c-head{font-size:.9rem;font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.comp-card.thirds .c-head{color:var(--thirds);}
+.comp-card.leading .c-head{color:var(--leading);}
+.comp-card.sym .c-head{color:var(--sym);}
+.comp-card.ng .c-head{color:#8c3a3a;}
+.comp-card p{font-size:.8rem;color:var(--text);line-height:1.6;}
+
+/* 三分割グリッド図 */
+.thirds-frame{
+  position:relative;width:100%;max-width:480px;margin:18px auto;
+  aspect-ratio:16/9;background:#1e2a38;border-radius:10px;overflow:hidden;
+}
+.grid-vline{position:absolute;top:0;bottom:0;width:1px;background:rgba(255,193,7,.55);}
+.grid-hline{position:absolute;left:0;right:0;height:1px;background:rgba(255,193,7,.55);}
+.power-dot{position:absolute;width:13px;height:13px;background:#ffc107;border-radius:50%;border:2px solid #fff;transform:translate(-50%,-50%);}
+
+/* リーディングライン図 */
+.leading-frame{
+  position:relative;width:100%;max-width:480px;margin:18px auto;
+  aspect-ratio:16/9;background:linear-gradient(180deg,#0d1a2a,#1e2a3a);border-radius:10px;overflow:hidden;
+}
+
+/* 対称構図図 */
+.sym-frame{
+  display:flex;width:100%;max-width:480px;margin:18px auto;
+  aspect-ratio:16/9;border-radius:10px;overflow:hidden;border:1px solid var(--border);
+}
+
+/* Comparison table */
+.comp-table{width:100%;border-collapse:collapse;margin-top:16px;font-size:.83rem;}
+.comp-table th{padding:10px 12px;text-align:left;color:#fff;}
+.comp-table th.h-thirds{background:var(--thirds);}
+.comp-table th.h-leading{background:var(--leading);}
+.comp-table th.h-sym{background:var(--sym);}
+.comp-table th.h-item{background:#555;}
+.comp-table td{padding:9px 12px;border-bottom:1px solid var(--border);vertical-align:top;}
+.comp-table tr:last-child td{border-bottom:none;}
+.comp-table tr:nth-child(even) td{background:#f5f0e8;}
+.comp-table th:first-child{border-radius:8px 0 0 0;}
+.comp-table th:last-child{border-radius:0 8px 0 0;}
+
+/* Steps */
+.steps{counter-reset:step;margin-top:16px;}
+.step{display:flex;gap:14px;align-items:flex-start;margin-bottom:14px;}
+.step-num{counter-increment:step;background:var(--accent);color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:700;flex-shrink:0;margin-top:2px;}
+.step-body h4{font-size:.9rem;font-weight:700;color:var(--accent);margin-bottom:3px;}
+.step-body p{font-size:.83rem;color:var(--text);}
+.step-prompt{background:#1a3a5c;color:#c8e8ff;border-radius:8px;padding:10px 12px;font-size:.78rem;font-family:monospace;margin-top:6px;line-height:1.6;}
+
+/* Tip / Example boxes */
+.tip-box{background:#fff3e0;border:1px solid #e8d0a8;border-radius:10px;padding:12px 14px;margin-top:14px;font-size:.83rem;}
+.example-box{background:#f0f4f8;border-left:4px solid var(--accent);border-radius:0 10px 10px 0;padding:14px 16px;margin-top:14px;}
+.example-box h4{font-size:.9rem;font-weight:700;color:var(--accent);margin-bottom:6px;}
+.example-box p{font-size:.83rem;color:var(--text);}
+
+/* Shot plan */
+.shot-item{display:flex;align-items:flex-start;gap:12px;border-radius:10px;padding:14px 16px;border:1px solid var(--border);}
+.shot-num{color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;flex-shrink:0;}
+.shot-arrow{text-align:center;font-size:1.2rem;color:var(--warm);}
+.mono{background:#1a3a5c;color:#c8e8ff;border-radius:6px;padding:8px 10px;font-size:.75rem;font-family:monospace;margin-top:6px;line-height:1.6;}
+
+/* Disclaimer */
+.disclaimer{background:#f5f0e8;border:1px solid var(--border);border-radius:12px;padding:16px;margin-top:20px;font-size:.78rem;color:var(--muted);line-height:1.6;}
+.disclaimer strong{color:var(--warm);}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="date-badge">2026-06-04 ／ エバーグリーン・技法</div>
+    <h1>AI動画制作 技法解説</h1>
+    <div class="subtitle">構図の基本 ── 三分割・リーディングライン・対称で「見やすい映像」を作る</div>
+    <div class="tag-row">
+      <span class="tag">📐 構図・フレーミング</span>
+      <span class="tag">🎬 映像演出</span>
+      <span class="tag">📝 プロンプト活用</span>
+      <span class="tag">🖼️ 視線誘導</span>
+    </div>
+  </div>
+
+  <!-- 構図とは -->
+  <div class="section">
+    <div class="section-title">🖼️ 「構図」ってなに？</div>
+    <p>
+      <strong>構図（こうず）</strong>とは、映像や写真の中で
+      <strong>「写したいもの（被写体）をどこに配置するか」</strong>を決めることです。
+      同じ場所・同じ光でも、構図が変わるだけで伝わる印象がまったく違います。
+    </p>
+    <p style="margin-top:10px;font-size:.85rem;color:var(--muted);">
+      ＊被写体（ひしゃたい）＝写したい人・物・風景のこと。「フレーミング」とも呼ばれます。
+    </p>
+
+    <div class="comp-cards">
+      <div class="comp-card thirds">
+        <div class="c-head">📐 三分割法</div>
+        <p>画面を縦横3等分して、交わる4点（パワーポイント）に被写体を置く。自然で安定した「見やすさ」を作る基本中の基本。</p>
+      </div>
+      <div class="comp-card leading">
+        <div class="c-head">📏 リーディングライン</div>
+        <p>道・川・線路など映像の中にある「線」を使って、観る人の目を被写体へ自然に誘導する。奥行きと期待感が生まれる。</p>
+      </div>
+      <div class="comp-card sym">
+        <div class="c-head">🪞 対称構図</div>
+        <p>左右や上下を鏡のように対称にする構図。整った美しさ・荘厳さ・静けさを表現したいときに有効。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 三分割法 -->
+  <div class="section">
+    <div class="section-title">📐 三分割法（サードルール）── 「なんとなく良い」の正体</div>
+    <p>
+      縦横それぞれを3等分するように4本の線を引き、その
+      <strong>交差点4か所（パワーポイント）に被写体を置く</strong>とバランスよく見えます。
+      人の目は画面の「少しズレた場所」に自然と引き寄せられるためです。
+    </p>
+
+    <!-- 三分割グリッド図 -->
+    <div class="thirds-frame">
+      <!-- 縦線 -->
+      <div class="grid-vline" style="left:33.33%;"></div>
+      <div class="grid-vline" style="left:66.66%;"></div>
+      <!-- 横線 -->
+      <div class="grid-hline" style="top:33.33%;"></div>
+      <div class="grid-hline" style="top:66.66%;"></div>
+      <!-- パワーポイント 4か所 -->
+      <div class="power-dot" style="left:33.33%;top:33.33%;"></div>
+      <div class="power-dot" style="left:66.66%;top:33.33%;"></div>
+      <div class="power-dot" style="left:33.33%;top:66.66%;"></div>
+      <div class="power-dot" style="left:66.66%;top:66.66%;"></div>
+      <!-- 被写体（右上パワーポイントに配置） -->
+      <div style="position:absolute;left:66.66%;top:33.33%;transform:translate(-50%,-50%);margin-top:16px;text-align:center;">
+        <div style="font-size:2rem;line-height:1;">🧍</div>
+        <div style="font-size:.55rem;color:#ffc107;margin-top:3px;white-space:nowrap;background:rgba(0,0,0,.4);padding:2px 5px;border-radius:4px;">← 被写体をここに</div>
+      </div>
+      <!-- ラベル類 -->
+      <div style="position:absolute;top:6px;left:8px;font-size:.58rem;color:rgba(255,255,255,.45);">● ＝ パワーポイント（交差点）</div>
+      <div style="position:absolute;bottom:6px;right:8px;font-size:.58rem;color:rgba(255,255,255,.35);">16:9 フレーム</div>
+      <!-- 中心がNGエリアの表示 -->
+      <div style="position:absolute;left:33.33%;top:33.33%;width:33.33%;height:33.33%;display:flex;align-items:center;justify-content:center;opacity:.2;">
+        <div style="font-size:1.2rem;color:#ff6b6b;">✗</div>
+      </div>
+      <div style="position:absolute;left:33.33%;top:33.33%;width:33.33%;height:33.33%;display:flex;align-items:center;justify-content:center;">
+        <div style="font-size:.55rem;color:rgba(255,100,100,.6);">中心はNG</div>
+      </div>
+    </div>
+
+    <div class="comp-cards" style="margin-top:4px;">
+      <div class="comp-card thirds">
+        <div class="c-head">✅ 良い例</div>
+        <p>人物を右の交差点に配置。左に余白ができて「行く先・空間」が生まれ、動きと奥行きを感じさせる</p>
+      </div>
+      <div class="comp-card ng">
+        <div class="c-head">❌ 避けたい例</div>
+        <p>人物を画面の真ん中に置く。安定しすぎて動きが感じられず、静的で単調な印象になる</p>
+      </div>
+    </div>
+
+    <div class="tip-box" style="margin-top:14px;">
+      💡 <strong>スマホカメラのグリッド線をONにしよう！</strong><br>
+      iPhone：設定→カメラ→グリッド線をオン。Android：カメラアプリ→設定→グリッド線（機種による）。
+      これだけで三分割のガイドが画面に表示されます。
+    </div>
+  </div>
+
+  <!-- リーディングライン -->
+  <div class="section">
+    <div class="section-title">📏 リーディングライン ── 目を「引き込む」線の力</div>
+    <p>
+      <strong>リーディングライン</strong>（leading lines ＝ 誘導線）とは、
+      映像の中に存在する道・線路・川・建物の縁などの「線」を使って、
+      <strong>観る人の視線を自然に被写体へ向けさせる</strong>技法です。
+    </p>
+
+    <!-- リーディングライン図 -->
+    <div class="leading-frame">
+      <!-- 地面グラデ -->
+      <div style="position:absolute;bottom:0;left:0;right:0;height:55%;background:linear-gradient(to top,#2a3a20,transparent);"></div>
+      <!-- 道路の左右ライン（消失点へ収束） -->
+      <div style="position:absolute;bottom:0;left:50%;height:70%;width:2px;background:linear-gradient(to top,rgba(220,190,100,.8),transparent);transform-origin:bottom center;transform:translateX(-45px) rotate(-12deg);"></div>
+      <div style="position:absolute;bottom:0;left:50%;height:70%;width:2px;background:linear-gradient(to top,rgba(220,190,100,.8),transparent);transform-origin:bottom center;transform:translateX(45px) rotate(12deg);"></div>
+      <!-- 補助線（さらに外側） -->
+      <div style="position:absolute;bottom:0;left:22%;height:60%;width:1px;background:linear-gradient(to top,rgba(180,160,80,.4),transparent);transform-origin:bottom center;transform:rotate(-22deg);"></div>
+      <div style="position:absolute;bottom:0;right:22%;height:60%;width:1px;background:linear-gradient(to top,rgba(180,160,80,.4),transparent);transform-origin:bottom center;transform:rotate(22deg);"></div>
+      <!-- 消失点・被写体 -->
+      <div style="position:absolute;left:50%;top:26%;transform:translate(-50%,-50%);text-align:center;">
+        <div style="font-size:2rem;filter:drop-shadow(0 0 8px rgba(255,220,100,.6));">🏔️</div>
+        <div style="font-size:.58rem;color:#90caf9;margin-top:2px;background:rgba(0,0,0,.4);padding:2px 6px;border-radius:4px;white-space:nowrap;">被写体（目の行き先）</div>
+      </div>
+      <!-- 矢印ラベル -->
+      <div style="position:absolute;bottom:8px;left:50%;transform:translateX(-50%);font-size:.58rem;color:rgba(255,255,255,.4);white-space:nowrap;">← 手前（線が始まる場所）→</div>
+      <div style="position:absolute;top:7px;left:8px;font-size:.58rem;color:rgba(255,255,255,.38);">線が消失点へ向かい、目を引き込む</div>
+    </div>
+
+    <p style="margin-top:10px;font-size:.85rem;">よく使われるリーディングラインの例：</p>
+    <ul style="padding-left:20px;font-size:.83rem;margin-top:6px;line-height:1.9;">
+      <li>🛤️ 一本道・線路が地平線まで続く</li>
+      <li>🏙️ ビルや壁の縁が画面奥へ向かう</li>
+      <li>🌊 海岸線・川の流れが被写体方向に向く</li>
+      <li>🌿 木の枝・植物が被写体を「囲む・向く」</li>
+      <li>👆 人物の視線・腕・指先が被写体を「指す」</li>
+    </ul>
+
+    <div class="example-box">
+      <h4>🎬 映像での活用例</h4>
+      <p>
+        主人公が歩いてくるシーンで、両脇にビルが続く路地を使うと、
+        ビルの縁がリーディングラインになって観る人の目が自然と主人公に集まります。
+        「主人公が重要な場所へ向かう」感が増し、物語への引き込みが強まります。
+      </p>
+    </div>
+  </div>
+
+  <!-- 対称構図 -->
+  <div class="section">
+    <div class="section-title">🪞 対称構図 ── 左右・上下が「鏡」のような美しさ</div>
+    <p>
+      <strong>対称構図</strong>とは、画面の中心線を軸として
+      左右や上下がほぼ同じに見える構図です。建物・廊下・水面の反射など
+      <strong>自然や人工物にある対称を正面から捉える</strong>だけで作れます。
+    </p>
+
+    <!-- 対称構図図 -->
+    <div class="sym-frame">
+      <!-- 左半分 -->
+      <div style="flex:1;background:linear-gradient(135deg,#1e3a5c,#2a5c8c);display:flex;align-items:center;justify-content:center;padding:12px;position:relative;">
+        <div style="text-align:center;color:rgba(255,255,255,.85);">
+          <div style="font-size:2.2rem;">🏛️</div>
+          <div style="font-size:.58rem;margin-top:6px;color:rgba(255,255,255,.5);">建物の左側</div>
+        </div>
+        <!-- 左矢印 -->
+        <div style="position:absolute;bottom:10px;right:8px;font-size:.6rem;color:rgba(255,255,255,.35);">←</div>
+      </div>
+      <!-- 中心軸 -->
+      <div style="width:2px;background:rgba(255,255,255,.55);flex-shrink:0;position:relative;display:flex;align-items:center;justify-content:center;">
+        <div style="background:#fff;border-radius:50%;width:20px;height:20px;display:flex;align-items:center;justify-content:center;font-size:.65rem;color:#1a3a5c;font-weight:700;z-index:2;">軸</div>
+      </div>
+      <!-- 右半分（鏡） -->
+      <div style="flex:1;background:linear-gradient(225deg,#1e3a5c,#2a5c8c);display:flex;align-items:center;justify-content:center;padding:12px;position:relative;">
+        <div style="text-align:center;color:rgba(255,255,255,.85);">
+          <div style="font-size:2.2rem;">🏛️</div>
+          <div style="font-size:.58rem;margin-top:6px;color:rgba(255,255,255,.5);">建物の右側（鏡）</div>
+        </div>
+        <!-- 右矢印 -->
+        <div style="position:absolute;bottom:10px;left:8px;font-size:.6rem;color:rgba(255,255,255,.35);">→</div>
+      </div>
+    </div>
+
+    <div class="comp-cards" style="margin-top:4px;">
+      <div class="comp-card sym">
+        <div class="c-head">🏛️ 建築・廊下</div>
+        <p>左右対称の廊下や寺院を正面から撮ると、荘厳さ・格式・圧倒感が生まれる</p>
+      </div>
+      <div class="comp-card sym">
+        <div class="c-head">🌊 水面の反射</div>
+        <p>湖・川に映る山や建物は上下対称。静けさ・幻想的な美しさを演出できる</p>
+      </div>
+      <div class="comp-card sym">
+        <div class="c-head">🤝 人物の対称</div>
+        <p>2人を左右対称に配置すると対等な関係・緊張感・対決感を表現できる</p>
+      </div>
+    </div>
+
+    <div class="tip-box" style="margin-top:14px;">
+      💡 <strong>完全な対称でなくてOK！</strong><br>
+      「ほぼ対称」でも効果は十分です。また、対称の中に1つだけ「ズレた要素」を入れると
+      「整った中の違和感」という緊張感が生まれ、より印象的な映像になります。
+    </div>
+  </div>
+
+  <!-- 3構図の使い分け -->
+  <div class="section">
+    <div class="section-title">🎭 どんな気持ちを伝えたいか？ 3構図の使い分け</div>
+
+    <table class="comp-table">
+      <tr>
+        <th class="h-item">比較項目</th>
+        <th class="h-thirds">📐 三分割法</th>
+        <th class="h-leading">📏 リーディングライン</th>
+        <th class="h-sym">🪞 対称構図</th>
+      </tr>
+      <tr>
+        <td><strong>感じさせる感情</strong></td>
+        <td>自然・安定・見やすさ</td>
+        <td>奥行き・期待・引き込み</td>
+        <td>美しさ・静寂・荘厳さ</td>
+      </tr>
+      <tr>
+        <td><strong>向いているシーン</strong></td>
+        <td>人物・風景・日常Vlog</td>
+        <td>旅・移動・目的地への歩み</td>
+        <td>建築・水面・格式ある場所</td>
+      </tr>
+      <tr>
+        <td><strong>AIプロンプトの鍵</strong></td>
+        <td>rule of thirds, off-center</td>
+        <td>leading lines, vanishing point</td>
+        <td>symmetrical, reflection, centered</td>
+      </tr>
+      <tr>
+        <td><strong>難易度</strong></td>
+        <td>⭐ まず覚える基本</td>
+        <td>⭐⭐ 場所・線の選択が大事</td>
+        <td>⭐⭐ 水平・正面が命</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- AIプロンプト応用 -->
+  <div class="section">
+    <div class="section-title">📝 AIプロンプトで構図を指定するコツ</div>
+    <p>
+      Veo 3・Kling・Runway などのテキストtoビデオAIに構図の英語キーワードを書くと、
+      <strong>意図した構図に近い映像が生成されやすくなります</strong>。
+    </p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h4>📐 三分割法を指定する</h4>
+          <p>被写体をフレームの3分の1の位置に置くよう指示。右に被写体、左に余白を作るパターン：</p>
+          <div class="step-prompt">rule of thirds composition, subject at the right<br>
+intersection point, negative space on the left,<br>
+a woman walking through a sunlit forest, cinematic</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <h4>📏 リーディングラインを指定する</h4>
+          <p>視線を引き込む誘導線を作るよう指示。道・廊下・線路などを使うと効果的：</p>
+          <div class="step-prompt">leading lines composition, vanishing point perspective,<br>
+long empty road stretching to the horizon, subject<br>
+standing at the far end, golden hour, dramatic sky</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <h4>🪞 対称構図を指定する</h4>
+          <p>左右対称・建築の荘厳さを出したいとき：</p>
+          <div class="step-prompt">perfectly symmetrical composition, centered framing,<br>
+grand cathedral corridor, polished floor reflection,<br>
+low-angle shot, cinematic lighting</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <h4>🌊 水面反射（上下対称）を指定する</h4>
+          <p>上下対称の水面反射で幻想的な映像に：</p>
+          <div class="step-prompt">mirror reflection on calm lake, vertical symmetry,<br>
+mountain perfectly reflected in the water,<br>
+early morning mist, serene atmosphere, wide shot</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 今日から真似できる実践例 -->
+  <div class="section">
+    <div class="section-title">🎯 今日から真似できる！ 3構図を使った30秒動画プラン</div>
+    <p>
+      「街を歩く人」をテーマに、<strong>3構図を切り替えるだけで映画のような動画</strong>が作れます。
+      AIツールに以下の3プロンプトを順番に入力して生成し、つなげましょう。
+    </p>
+
+    <div style="display:flex;flex-direction:column;gap:10px;margin-top:16px;">
+
+      <div class="shot-item" style="background:var(--thirdsl);border-color:#ddc0a8;">
+        <div class="shot-num" style="background:var(--thirds);">1</div>
+        <div style="flex:1;">
+          <div style="font-weight:700;color:var(--thirds);margin-bottom:4px;font-size:.9rem;">📐 Shot 1：三分割（5〜7秒）── つかみ</div>
+          <div style="font-size:.83rem;">右の交差点に人物を配置し、左に街並みの余白。「誰？何をしてるの？」と興味を引くオープニング。</div>
+          <div class="mono">rule of thirds, person at right third,<br>busy city street, wide establishing shot</div>
+        </div>
+      </div>
+
+      <div class="shot-arrow">↓</div>
+
+      <div class="shot-item" style="background:var(--leadingl);border-color:#a8c0dd;">
+        <div class="shot-num" style="background:var(--leading);">2</div>
+        <div style="flex:1;">
+          <div style="font-weight:700;color:var(--leading);margin-bottom:4px;font-size:.9rem;">📏 Shot 2：リーディングライン（8〜10秒）── 展開</div>
+          <div style="font-size:.83rem;">石畳の路地や橋を使って奥行きを表現。人物が歩いてくる様子が「どこへ向かうの？」という期待感を生む。</div>
+          <div class="mono">leading lines, cobblestone alley, person<br>walking toward camera, vanishing point perspective</div>
+        </div>
+      </div>
+
+      <div class="shot-arrow">↓</div>
+
+      <div class="shot-item" style="background:var(--syml);border-color:#a8ddc0;">
+        <div class="shot-num" style="background:var(--sym);">3</div>
+        <div style="flex:1;">
+          <div style="font-weight:700;color:var(--sym);margin-bottom:4px;font-size:.9rem;">🪞 Shot 3：対称構図（5〜7秒）── 余韻</div>
+          <div style="font-size:.83rem;">建物の正面や水たまりの反射を使った対称ショットで締め。静かな美しさが「また見たい」という余韻を生む。</div>
+          <div class="mono">symmetrical composition, person standing<br>in front of grand entrance, centered framing</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="tip-box" style="margin-top:14px;">
+      💡 <strong>ポイント：</strong>1本の動画に3つの構図を混ぜると「変化とリズム」が生まれます。
+      全部同じ構図にするより観る人が飽きにくくなり、プロっぽい仕上がりに近づきます。
+    </div>
+  </div>
+
+  <!-- まとめ -->
+  <div class="section">
+    <div class="section-title">📌 今日のまとめ</div>
+    <p style="margin-bottom:14px;">
+      構図は「どこに置くか」ではなく<strong>「観る人に何を感じさせるか」</strong>を決める技術です。
+      まず三分割法を全ショットに試し、慣れたらリーディングラインと対称構図を混ぜてみましょう。
+    </p>
+    <table class="comp-table">
+      <tr>
+        <th class="h-item">構図</th>
+        <th class="h-thirds">📐 三分割法</th>
+        <th class="h-leading">📏 リーディングライン</th>
+        <th class="h-sym">🪞 対称構図</th>
+      </tr>
+      <tr>
+        <td><strong>キーワード</strong></td>
+        <td>安定・自然・見やすい</td>
+        <td>奥行き・期待・引き込み</td>
+        <td>美しさ・静寂・荘厳</td>
+      </tr>
+      <tr>
+        <td><strong>プロンプトの鍵</strong></td>
+        <td>rule of thirds / off-center</td>
+        <td>leading lines / vanishing point</td>
+        <td>symmetrical / reflection / centered</td>
+      </tr>
+      <tr>
+        <td><strong>最初に使うシーン</strong></td>
+        <td>まず全ショットで試す</td>
+        <td>旅・目的地・移動シーン</td>
+        <td>建築・風景・締めのカット</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- 免責 -->
+  <div class="disclaimer">
+    <strong>⚠️ 免責事項：</strong>
+    AIツールの機能・プロンプトの効き方・料金・商用利用の可否は頻繁に変わります。
+    最新情報と利用規約は必ず各ツールの公式ページでご確認ください。
+    本記事の構図に関する解説は一般的な映像・写真制作の知識に基づくエバーグリーンなコンテンツです。
+  </div>
+
+</div>
+</body>
+</html>
