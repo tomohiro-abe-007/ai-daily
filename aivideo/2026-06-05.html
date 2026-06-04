@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI動画制作 最新トピック 2026-06-05</title>
+<style>
+:root{
+  --bg:#ece8e1;--card:#faf6ec;--dark:#1a4a1c;--dark2:#1a3a5c;
+  --accent:#1a5c2c;--accent2:#1a3a7c;--warm:#c4762a;
+  --text:#2a3540;--muted:#7c8a82;--border:#e0d8c8;
+  --c1:#1a5c2c;--c2:#1a3a7c;--c3:#c4762a;
+  --c1l:#e8f4ec;--c2l:#e8eef8;--c3l:#fdf0e0;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,"Hiragino Sans","Yu Gothic",sans-serif;line-height:1.7;padding:24px 16px;}
+.wrap{max-width:860px;margin:0 auto;}
+
+/* Header */
+.header{background:linear-gradient(135deg,var(--dark),var(--dark2));color:#fff;border-radius:20px;padding:40px 32px;text-align:center;box-shadow:0 8px 24px rgba(26,74,28,.28);margin-bottom:24px;}
+.date-badge{background:rgba(255,255,255,.18);color:#c8f0d0;border-radius:20px;padding:4px 16px;font-size:.85rem;display:inline-block;margin-bottom:16px;letter-spacing:.08em;}
+.header h1{font-size:1.9rem;margin-bottom:8px;letter-spacing:.04em;}
+.header .subtitle{color:#c8f0d0;font-size:1rem;}
+.tag-row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:14px;}
+.header .tag{background:rgba(255,255,255,.15);border-radius:12px;padding:3px 12px;font-size:.78rem;display:inline-block;color:#d4f0d8;}
+
+/* Section */
+.section{background:var(--card);border-radius:16px;padding:28px 24px;margin-bottom:20px;box-shadow:0 3px 12px rgba(0,0,0,.06);border:1px solid var(--border);}
+.section-title{font-size:1.1rem;font-weight:700;color:var(--accent);border-bottom:2px solid var(--border);padding-bottom:10px;margin-bottom:18px;display:flex;align-items:center;gap:8px;}
+
+/* Big number cards */
+.num-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:16px;}
+.num-card{color:#fff;border-radius:12px;padding:18px 12px;text-align:center;}
+.nc-a{background:linear-gradient(135deg,#1a5c2c,#0f3a1c);}
+.nc-b{background:linear-gradient(135deg,#1a3a7c,#0f2458);}
+.nc-c{background:linear-gradient(135deg,#c4762a,#8a4a10);}
+.nc-d{background:linear-gradient(135deg,#4a1a7c,#2a0a5a);}
+.num-card .big{font-size:2.4rem;font-weight:800;line-height:1.1;display:block;}
+.num-card .label{font-size:.75rem;color:#d8f0e0;margin-top:4px;display:block;}
+.num-card .note{font-size:.7rem;color:#b8e0c0;margin-top:2px;display:block;}
+
+/* Comparison table */
+.comp-table{width:100%;border-collapse:collapse;margin-top:16px;font-size:.83rem;}
+.comp-table th{padding:10px 12px;text-align:left;color:#fff;}
+.comp-table th.h-a{background:var(--c1);}
+.comp-table th.h-b{background:var(--c2);}
+.comp-table th.h-c{background:var(--c3);}
+.comp-table th.h-item{background:#555;}
+.comp-table td{padding:9px 12px;border-bottom:1px solid var(--border);vertical-align:top;}
+.comp-table tr:last-child td{border-bottom:none;}
+.comp-table tr:nth-child(even) td{background:#f5f0e8;}
+.comp-table th:first-child{border-radius:8px 0 0 0;}
+.comp-table th:last-child{border-radius:0 8px 0 0;}
+
+/* Step list */
+.steps{margin-top:16px;}
+.step{display:flex;gap:14px;align-items:flex-start;margin-bottom:14px;}
+.step-num{background:var(--accent);color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:700;flex-shrink:0;margin-top:2px;}
+.step-body h4{font-size:.9rem;font-weight:700;color:var(--accent);margin-bottom:3px;}
+.step-body p{font-size:.83rem;color:var(--text);}
+
+/* Model cards */
+.model-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-top:16px;}
+.model-card{border-radius:12px;padding:16px 12px;text-align:center;border:2px solid var(--border);}
+.mc-g{background:var(--c1l);border-color:#a8d8b8;}
+.mc-b{background:var(--c2l);border-color:#a8c0e0;}
+.mc-o{background:var(--c3l);border-color:#e0c098;}
+.mc-p{background:#f4ecf8;border-color:#c8a8e0;}
+.model-card .mc-icon{font-size:1.6rem;margin-bottom:6px;}
+.model-card .mc-name{font-size:.82rem;font-weight:700;margin-bottom:4px;}
+.mc-g .mc-name{color:var(--c1);}
+.mc-b .mc-name{color:var(--c2);}
+.mc-o .mc-name{color:var(--c3);}
+.mc-p .mc-name{color:#6a2aac;}
+.model-card .mc-desc{font-size:.72rem;color:var(--muted);}
+
+/* Plan cards */
+.plan-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin-top:16px;}
+.plan-card{border-radius:14px;padding:20px 16px;border:2px solid var(--border);}
+.plan-card.free{background:#f5f5f0;border-color:#d8d0c8;}
+.plan-card.pro{background:var(--c2l);border-color:#a8c0e0;}
+.plan-card.ultra{background:#f4ecf8;border-color:#c8a8e0;}
+.plan-card .plan-name{font-size:.9rem;font-weight:700;margin-bottom:8px;}
+.plan-card.free .plan-name{color:#555;}
+.plan-card.pro .plan-name{color:var(--c2);}
+.plan-card.ultra .plan-name{color:#6a2aac;}
+.plan-card .plan-price{font-size:2rem;font-weight:800;line-height:1.1;margin-bottom:2px;}
+.plan-card.free .plan-price{color:#555;}
+.plan-card.pro .plan-price{color:var(--c2);}
+.plan-card.ultra .plan-price{color:#6a2aac;}
+.plan-card .plan-unit{font-size:.72rem;color:var(--muted);margin-bottom:10px;}
+.plan-card ul{list-style:none;font-size:.78rem;color:var(--text);}
+.plan-card ul li{padding:4px 0;border-bottom:1px dotted #d8d0c0;}
+.plan-card ul li:last-child{border-bottom:none;}
+.check{color:#1a8c3c;font-weight:700;}
+.cross{color:#c43a2a;font-weight:700;}
+.lock{color:var(--c3);}
+
+/* Workflow */
+.flow-row{display:flex;align-items:stretch;gap:0;margin:16px 0;}
+.flow-box{flex:1;padding:14px 10px;text-align:center;border:1px solid var(--border);}
+.flow-box:first-child{border-radius:10px 0 0 10px;background:var(--c2l);}
+.flow-box:last-child{border-radius:0 10px 10px 0;background:var(--c1l);}
+.flow-box.mid{background:var(--c3l);}
+.flow-arrow{display:flex;align-items:center;padding:0 4px;font-size:1.4rem;color:var(--warm);}
+.flow-icon{font-size:1.6rem;margin-bottom:6px;}
+.flow-title{font-size:.82rem;font-weight:700;color:var(--accent);}
+.flow-desc{font-size:.72rem;color:var(--muted);margin-top:4px;}
+
+/* Highlight box */
+.hl-box{border-radius:12px;padding:16px 18px;margin-top:14px;}
+.hl-green{background:#e8f8ec;border:2px solid #a0d8b0;}
+.hl-blue{background:#e8eef8;border:2px solid #a0b8e0;}
+.hl-orange{background:#fdf0e0;border:2px solid #e8c090;}
+.hl-box h4{font-size:.9rem;font-weight:700;margin-bottom:6px;}
+.hl-green h4{color:var(--c1);}
+.hl-blue h4{color:var(--c2);}
+.hl-orange h4{color:var(--c3);}
+.hl-box p{font-size:.83rem;color:var(--text);}
+
+/* Runway model badge row */
+.badge-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
+.badge{display:inline-flex;align-items:center;gap:4px;border-radius:20px;padding:5px 14px;font-size:.8rem;font-weight:700;}
+.bdg-g{background:#1a5c2c;color:#fff;}
+.bdg-b{background:#1a3a7c;color:#fff;}
+.bdg-o{background:#c4762a;color:#fff;}
+.bdg-p{background:#4a1a7c;color:#fff;}
+.bdg-k{background:#1a4a5c;color:#fff;}
+.bdg-r{background:#5c1a2c;color:#fff;}
+
+/* Steps for practice */
+.practice-steps{margin-top:16px;}
+.pstep{display:flex;gap:14px;align-items:flex-start;margin-bottom:18px;}
+.pstep-num{background:var(--c2);color:#fff;border-radius:50%;width:32px;height:32px;min-width:32px;display:flex;align-items:center;justify-content:center;font-size:.9rem;font-weight:700;margin-top:2px;}
+.pstep-body h4{font-size:.9rem;font-weight:700;color:var(--c2);margin-bottom:4px;}
+.pstep-body p{font-size:.83rem;color:var(--text);}
+.prompt-box{background:#1a2c5c;color:#c8e0ff;border-radius:8px;padding:10px 14px;font-size:.78rem;font-family:monospace;margin-top:8px;line-height:1.7;}
+
+/* Disclaimer */
+.disclaimer{background:#f5f0e8;border:1px solid var(--border);border-radius:12px;padding:16px;margin-top:20px;font-size:.78rem;color:var(--muted);line-height:1.6;}
+.disclaimer strong{color:var(--warm);}
+
+/* Source */
+.source{font-size:.72rem;color:var(--muted);margin-top:10px;line-height:1.6;}
+.source a{color:var(--c2);text-decoration:none;}
+.source a:hover{text-decoration:underline;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="date-badge">2026-06-05 ／ ツール情報</div>
+    <h1>AI動画制作 最新トピック</h1>
+    <div class="subtitle">AI動画の「無料化」と「マルチモデル化」── Google Vids &amp; Runway の大型アップデート</div>
+    <div class="tag-row">
+      <span class="tag">🟢 Google Vids</span>
+      <span class="tag">🎬 Veo 3.1 無料開放</span>
+      <span class="tag">🎵 Lyria 3</span>
+      <span class="tag">🔀 Runway マルチモデル</span>
+      <span class="tag">💳 月10本 無料</span>
+    </div>
+  </div>
+
+  <!-- BIG NEWS -->
+  <div class="section">
+    <div class="section-title">📢 今週の最大ニュース：AI動画が「Googleアカウント1つ」で無料に</div>
+    <p>
+      2026年、<strong>Google Vids</strong>（グーグル・ビズ：Googleが提供する動画制作サービス）に大型アップデートが入りました。
+      これまで一部の有料プランだけに提供されていた <strong>Veo 3.1</strong>（グーグルの最新AI動画生成モデル）が、
+      <strong>Googleアカウントを持つ全ユーザーに月10本まで無料</strong>で開放されました。
+    </p>
+    <p style="margin-top:8px;font-size:.85rem;color:var(--muted);">
+      ＊Veo 3.1 ＝ Googleの最新AI動画生成モデル。テキストや写真を入力するだけで動画を自動生成できる。
+    </p>
+
+    <!-- 数字カード -->
+    <div class="num-cards">
+      <div class="num-card nc-a">
+        <span class="big">10本</span>
+        <span class="label">月の無料生成枠</span>
+        <span class="note">全Googleアカウントに適用</span>
+      </div>
+      <div class="num-card nc-b">
+        <span class="big">$0</span>
+        <span class="label">無料プランの月額</span>
+        <span class="note">Gmailアドレスだけで使える</span>
+      </div>
+      <div class="num-card nc-c">
+        <span class="big">6種</span>
+        <span class="label">Runwayで使える<br>AIモデル数</span>
+        <span class="note">1サブスクリプションで全部OK</span>
+      </div>
+      <div class="num-card nc-d">
+        <span class="big">50%↓</span>
+        <span class="label">Veo 3.1 Lite のコスト</span>
+        <span class="note">Veo 3.1 Fast 比・同じ速度で半額以下</span>
+      </div>
+    </div>
+
+    <div class="source">
+      出典：<a href="https://helentech.jp/news-google-workspace-84196/" target="_blank">HelenTech – Google Vids 全ユーザー無料枠発表（2026年）</a>、
+      <a href="https://blog.google/innovation-and-ai/technology/ai/veo-3-1-lite/" target="_blank">Google Blog – Veo 3.1 Lite 発表（2026年）</a>
+    </div>
+  </div>
+
+  <!-- Google Vids 機能比較 -->
+  <div class="section">
+    <div class="section-title">🟢 Google Vids ── 無料 vs 有料、何が違う？</div>
+    <p>
+      Google Vids の新機能は大きく3つ。ただし<strong>Lyria 3（AI音楽）とAIアバターは有料プラン限定</strong>です。
+      まずは無料で動画生成を試してみましょう。
+    </p>
+
+    <div class="plan-grid">
+      <div class="plan-card free">
+        <div class="plan-name">🆓 無料</div>
+        <div class="plan-price">$0</div>
+        <div class="plan-unit">/月（Googleアカウントで使える）</div>
+        <ul>
+          <li><span class="check">✓</span> Veo 3.1 で動画生成</li>
+          <li><span class="check">✓</span> 月<strong>10本</strong>まで無料</li>
+          <li><span class="check">✓</span> テキスト → 動画</li>
+          <li><span class="check">✓</span> 画像 → 動画</li>
+          <li><span class="cross">✗</span> Lyria 3（AI音楽）</li>
+          <li><span class="cross">✗</span> AIアバター機能</li>
+        </ul>
+      </div>
+      <div class="plan-card pro">
+        <div class="plan-name">⭐ Google AI Pro</div>
+        <div class="plan-price">有料</div>
+        <div class="plan-unit">/月（公式で要確認）</div>
+        <ul>
+          <li><span class="check">✓</span> Veo 3.1 で動画生成（枠拡張）</li>
+          <li><span class="lock">🔒</span> Lyria 3 でAI音楽生成</li>
+          <li><span class="lock">🔒</span> AIアバター（基本）</li>
+          <li><span class="check">✓</span> YouTube へ直接投稿</li>
+        </ul>
+      </div>
+      <div class="plan-card ultra">
+        <div class="plan-name">💎 Google AI Ultra</div>
+        <div class="plan-price">有料</div>
+        <div class="plan-unit">/月（公式で要確認）</div>
+        <ul>
+          <li><span class="check">✓</span> Veo 3.1 で動画生成（最大枠）</li>
+          <li><span class="lock">🔒</span> Lyria 3 Pro（3分まで生成）</li>
+          <li><span class="lock">🔒</span> AIアバター（声・顔の一貫性）</li>
+          <li><span class="check">✓</span> Chrome 拡張機能連携</li>
+        </ul>
+      </div>
+    </div>
+    <p style="font-size:.75rem;color:var(--muted);margin-top:10px;">
+      ＊Lyria 3 ＝ Googleが開発したAI音楽生成モデル。30秒〜3分のBGMをテキストから自動作曲できる。
+      料金・機能の詳細は <a href="https://workspace.google.com/products/vids/" target="_blank" style="color:var(--c2);">Google Vids 公式ページ</a>でご確認ください。
+    </p>
+
+    <!-- 3つの新機能フロー -->
+    <div style="margin-top:22px;font-size:.9rem;font-weight:700;color:var(--text);">🚀 Google Vids 2026年アップデートの3本柱</div>
+    <div class="flow-row" style="margin-top:12px;">
+      <div class="flow-box">
+        <div class="flow-icon">🎬</div>
+        <div class="flow-title">Veo 3.1 動画生成</div>
+        <div class="flow-desc">テキスト・画像から<br>高品質動画を自動生成<br><strong>全ユーザー無料</strong></div>
+      </div>
+      <div class="flow-arrow">＋</div>
+      <div class="flow-box mid">
+        <div class="flow-icon">🎵</div>
+        <div class="flow-title">Lyria 3 AI音楽</div>
+        <div class="flow-desc">動画に合わせた<br>オリジナルBGMを<br>自動作曲（有料）</div>
+      </div>
+      <div class="flow-arrow">＋</div>
+      <div class="flow-box">
+        <div class="flow-icon">🧑‍💼</div>
+        <div class="flow-title">AI アバター</div>
+        <div class="flow-desc">声・顔が一貫した<br>バーチャル話者を<br>生成（有料）</div>
+      </div>
+    </div>
+
+    <div class="source">
+      出典：<a href="https://helentech.jp/news-google-workspace-84196/" target="_blank">HelenTech – Google Vids 無料枠発表（2026年）</a>、
+      <a href="https://jetstream.blog/en/google-vids-veo-3-1-lyria-3-integration/" target="_blank">Jetstream Blog – Google Vids × Lyria 3（2026年）</a>
+    </div>
+  </div>
+
+  <!-- Runway マルチモデル化 -->
+  <div class="section">
+    <div class="section-title">🔀 Runway の大転換 ── 「1サブスクで6モデル」時代へ</div>
+    <p>
+      AI動画ツール <strong>Runway</strong>（ランウェイ）が2026年に大きな方針転換をしました。
+      これまで自社モデル（Gen-4.5）しか使えなかったのが、
+      <strong>月12〜15ドルのプランで Google Veo・Kling・Seedance・FLUX など6種類以上のモデル</strong>にアクセスできるようになりました。
+    </p>
+    <p style="margin-top:8px;font-size:.85rem;color:var(--muted);">
+      ＊Runway ＝ AIで動画・画像を生成・編集できるプロ向けプラットフォーム。映像制作の現場でも使われている。
+    </p>
+
+    <!-- 使えるモデルのバッジ -->
+    <div style="margin-top:16px;font-size:.88rem;font-weight:700;color:var(--text);">1つの契約で使えるモデル一覧（2026年時点）</div>
+    <div class="badge-row">
+      <span class="badge bdg-r">🎬 Runway Gen-4.5</span>
+      <span class="badge bdg-g">🟢 Google Veo 3.1</span>
+      <span class="badge bdg-b">🔵 Kling 3.0 Pro</span>
+      <span class="badge bdg-o">🟠 Seedance</span>
+      <span class="badge bdg-p">🟣 FLUX（画像生成）</span>
+      <span class="badge bdg-k">💠 Seedream</span>
+    </div>
+
+    <!-- 比較表：バラバラに契約 vs Runway 1本 -->
+    <div style="margin-top:22px;font-size:.9rem;font-weight:700;color:var(--text);">📊 バラバラに契約した場合 vs Runway 1本 の比較</div>
+    <table class="comp-table" style="margin-top:10px;">
+      <tr>
+        <th class="h-item">比較</th>
+        <th class="h-a">各サービスを個別に契約</th>
+        <th class="h-b">Runway 1本（Standardプラン）</th>
+      </tr>
+      <tr>
+        <td><strong>月額（目安）</strong></td>
+        <td>各ツールの料金×本数分（割高になりやすい）</td>
+        <td><strong>$12〜15 / 月</strong>（年払いで$12〜）</td>
+      </tr>
+      <tr>
+        <td><strong>使えるモデル数</strong></td>
+        <td>契約した分だけ</td>
+        <td><strong>6モデル以上</strong>を1ダッシュボードから</td>
+      </tr>
+      <tr>
+        <td><strong>ログイン数</strong></td>
+        <td>サービスごとに別々</td>
+        <td>Runway だけ</td>
+      </tr>
+      <tr>
+        <td><strong>クレジット管理</strong></td>
+        <td>各サービスで別々に管理</td>
+        <td>Runway の共通クレジット（625cr/月）で一元管理</td>
+      </tr>
+    </table>
+
+    <div class="hl-box hl-orange" style="margin-top:16px;">
+      <h4>💡 どんな人に向いている？</h4>
+      <p>
+        「Kling で試して、Veo 3.1 でも同じプロンプトを試して比べたい」という
+        <strong>モデルの使い分け・比較検討をしたい人</strong>に特に便利。
+        一方、1つのモデルだけをヘビーに使うなら、そのモデルの専用プランの方がクレジット効率が良い場合もあります。
+      </p>
+    </div>
+
+    <div class="source">
+      出典：<a href="https://runwayml.com/pricing" target="_blank">Runway 公式 Pricing（2026年）</a>、
+      <a href="https://www.somake.ai/blog/runway-ai-pricing" target="_blank">Somake AI – Runway 料金解説（2026年）</a>
+    </div>
+  </div>
+
+  <!-- 今日から試せる！Google Vids 実践 -->
+  <div class="section">
+    <div class="section-title">🎯 今日から真似できる！ Google Vids で初めての無料AI動画</div>
+    <p>
+      Gmailアカウントがあれば今すぐ試せます。<strong>テキスト1文を入力するだけで動画が完成</strong>します。
+      以下のステップで5分以内に体験できます。
+    </p>
+
+    <div class="practice-steps">
+      <div class="pstep">
+        <div class="pstep-num">1</div>
+        <div class="pstep-body">
+          <h4>🌐 Google Vids を開く</h4>
+          <p>
+            ブラウザで「Google Vids」と検索し、公式サイト（vids.google.com）にアクセス。
+            Googleアカウントでログインします。
+          </p>
+        </div>
+      </div>
+      <div class="pstep">
+        <div class="pstep-num">2</div>
+        <div class="pstep-body">
+          <h4>✏️ テキストを入力する</h4>
+          <p>
+            「新しい動画を作成」から <strong>Veo 3.1</strong> を選び、作りたい映像を日本語または英語で入力します。
+            具体的に書くほど、イメージに近い動画になります。
+          </p>
+          <div class="prompt-box">
+            （プロンプト例）<br>
+            A golden retriever puppy running on a sunlit beach,<br>
+            slow motion, cinematic, shallow depth of field,<br>
+            warm afternoon light, 5 seconds
+          </div>
+          <p style="font-size:.8rem;color:var(--muted);margin-top:6px;">→ 日本語訳：「明るい太陽の浜辺を走るゴールデンレトリバーの子犬、スローモーション、映画風、背景ぼかし、温かい午後の光、5秒」</p>
+        </div>
+      </div>
+      <div class="pstep">
+        <div class="pstep-num">3</div>
+        <div class="pstep-body">
+          <h4>⏳ 生成を待つ・ダウンロードする</h4>
+          <p>
+            数分待つと動画が完成します。気に入ったらダウンロードや YouTube 投稿もできます。
+            無料プランでは<strong>月10本まで生成可能</strong>なのでいろいろ試してみましょう。
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="hl-box hl-green">
+      <h4>✅ 上手くいくプロンプトの3つのコツ</h4>
+      <p>
+        ① <strong>被写体</strong>（何が映るか）＋ ② <strong>動き</strong>（走る・揺れる・飛ぶ）＋ ③ <strong>雰囲気</strong>（cinematic / warm / dramatic）
+        の3要素をセットで書くと、ぐっとイメージに近づきます。
+        「5 seconds」「slow motion」など時間と速度も添えると◎。
+      </p>
+    </div>
+  </div>
+
+  <!-- まとめ -->
+  <div class="section">
+    <div class="section-title">📌 今日のまとめ</div>
+    <table class="comp-table">
+      <tr>
+        <th class="h-item">ポイント</th>
+        <th class="h-a">内容</th>
+      </tr>
+      <tr>
+        <td><strong>Google Vids 無料化</strong></td>
+        <td>全Googleアカウントで Veo 3.1 が月10本まで無料。テキスト・画像→動画に対応</td>
+      </tr>
+      <tr>
+        <td><strong>有料限定機能</strong></td>
+        <td>Lyria 3（AI音楽）・AIアバターは AI Pro / Ultra プラン限定（公式で要確認）</td>
+      </tr>
+      <tr>
+        <td><strong>Runway マルチモデル</strong></td>
+        <td>月$12〜で Veo 3.1・Kling 3.0・Seedance・FLUX など6モデル以上を一元管理</td>
+      </tr>
+      <tr>
+        <td><strong>Veo 3.1 Lite</strong></td>
+        <td>開発者向け API で Veo 3.1 Fast 比50%以下のコストで利用可能（Gemini API 経由）</td>
+      </tr>
+      <tr>
+        <td><strong>今日から試すなら</strong></td>
+        <td>Google Vids（無料・登録不要）で Veo 3.1 をまず体験してみよう</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- 免責 -->
+  <div class="disclaimer">
+    <strong>⚠️ 免責事項：</strong>
+    本記事で紹介した Google Vids・Veo 3.1・Lyria 3・Runway の機能・料金・無料枠・商用利用の可否は頻繁に変更されます。
+    最新情報と利用規約は必ず
+    <a href="https://workspace.google.com/products/vids/" target="_blank" style="color:var(--c2);">Google Vids 公式サイト</a>および
+    <a href="https://runwayml.com/pricing" target="_blank" style="color:var(--c2);">Runway 公式サイト</a>でご確認ください。
+    記事内の数値・機能内容は 2026年6月時点の調査に基づきます。
+  </div>
+
+</div>
+</body>
+</html>
