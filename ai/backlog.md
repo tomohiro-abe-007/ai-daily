@@ -8,6 +8,7 @@
 - 2026-06-02: Anthropic IPO申請 / Gemini 3.5 Flash（詳報・Google I/O） / AnthropicとOpenAIのJV / EU AI法施行
 - 2026-06-03: Microsoft Build 2026 / MAIシリーズ7種 / NVIDIA Nemotron 3 Ultra 550B / トランプ政権AI行政命令
 - 2026-06-04: NVIDIA物理AIオープンソース（Cosmos 3 / Alpamayo 2 Super / Isaac / Metropolis）/ ChatGPT求人検索・履歴書機能
+- 2026-06-05: GitHub Copilot従量課金移行（AI Credits / 定額→トークンベース課金 / 2026-06-01）
 
 ## 未解説の候補トピック（今後の参考）
 
