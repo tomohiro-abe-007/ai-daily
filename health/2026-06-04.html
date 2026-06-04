@@ -20,7 +20,7 @@
 
   /* ── カバー ── */
   .cover {
-    background: linear-gradient(135deg, #0a3d5c 0%, #0d6688 60%, #118899 100%);
+    background: linear-gradient(135deg, #4a2000 0%, #8a4010 60%, #a85c2a 100%);
     color: white;
     border-radius: 8px;
     padding: 60px 40px;
@@ -88,7 +88,7 @@
     position: absolute;
     left: 52px; top: 0; bottom: 0;
     width: 2px;
-    background: #6ab0d8;
+    background: #c87840;
     opacity: 0.7;
   }
   .card-header {
@@ -122,6 +122,7 @@
   .badge-red    { background: #ffe0e0; color: #c0392b; border: 1px solid #f5a0a0; }
   .badge-green  { background: #e0f5e0; color: #1e7e34; border: 1px solid #a0d8a0; }
   .badge-purple { background: #f0e0ff; color: #7b2fbe; border: 1px solid #c8a0f0; }
+  .badge-brown  { background: #f5e8d8; color: #7a3800; border: 1px solid #d4a880; }
   .badge-navy   { background: #dde8ff; color: #1a3a6c; border: 1px solid #8aabee; }
 
   /* ── テキスト要素 ── */
@@ -216,6 +217,27 @@
     letter-spacing: 0.5px;
   }
 
+  .orange-box {
+    background: #fff6ec;
+    border-left: 4px solid #cc6600;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin: 16px 0;
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+  .orange-box .label {
+    display: inline-block;
+    background: #cc6600;
+    color: white;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+  }
+
   .point-list { list-style: none; padding: 0; margin: 12px 0; }
   .point-list li {
     display: flex;
@@ -243,7 +265,7 @@
   .marker-red    { background: #c03030; color: white; }
   .marker-orange { background: #cc6600; color: white; }
   .marker-purple { background: #7b2fbe; color: white; }
-  .marker-navy   { background: #1a3a6c; color: white; }
+  .marker-brown  { background: #7a3800; color: white; }
 
   .sticky {
     background: #fff9c4;
@@ -297,131 +319,152 @@
     text-align: center;
     box-shadow: 2px 3px 8px rgba(0,0,0,0.1);
   }
-  .num-card.study-info { border-top: 4px solid #0a3d5c; }
-  .num-card.danger     { border-top: 4px solid #c03030; }
-  .num-card.safe       { border-top: 4px solid #3a8020; }
-  .num-card.teal-info  { border-top: 4px solid #009999; }
+  .num-card.brown-info  { border-top: 4px solid #7a3800; }
   .num-card.orange-info { border-top: 4px solid #cc6600; }
+  .num-card.teal-info   { border-top: 4px solid #009999; }
+  .num-card.green-info  { border-top: 4px solid #2d7a2d; }
+  .num-card.study-info  { border-top: 4px solid #2255aa; }
   .num-card .num-val {
-    font-size: 2.4rem;
+    font-size: 2.2rem;
     font-weight: 700;
     line-height: 1.1;
     display: block;
   }
-  .num-card.study-info  .num-val { color: #0a3d5c; }
-  .num-card.danger      .num-val { color: #8a1010; }
-  .num-card.safe        .num-val { color: #2a6010; }
+  .num-card.brown-info  .num-val { color: #7a3800; }
+  .num-card.orange-info .num-val { color: #8a4400; }
   .num-card.teal-info   .num-val { color: #006060; }
-  .num-card.orange-info .num-val { color: #8a4000; }
-  .num-card .num-unit  { font-size: 0.85rem; color: #666; }
-  .num-card .num-label { font-size: 0.78rem; color: #888; margin-top: 6px; line-height: 1.4; }
+  .num-card.green-info  .num-val { color: #1a5a1a; }
+  .num-card.study-info  .num-val { color: #2255aa; }
+  .num-card .num-unit   { font-size: 0.85rem; color: #666; }
+  .num-card .num-label  { font-size: 0.78rem; color: #888; margin-top: 6px; line-height: 1.4; }
 
-  /* ── 3分類フロー図 ── */
-  .omega3-types {
+  /* ── 体内フロー図 ── */
+  .flow-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin: 16px 0;
+    justify-content: center;
+  }
+  .flow-node {
+    background: white;
+    border-radius: 8px;
+    padding: 10px 14px;
+    text-align: center;
+    font-size: 0.82rem;
+    line-height: 1.5;
+    font-weight: 600;
+    box-shadow: 1px 2px 6px rgba(0,0,0,0.1);
+    min-width: 90px;
+  }
+  .flow-node.input  { background: #fff6ec; border: 2px solid #cc6600; color: #7a3800; }
+  .flow-node.digest { background: #fff0f8; border: 2px solid #cc4488; color: #880044; }
+  .flow-node.amino  { background: #eef6ff; border: 2px solid #3377cc; color: #1a4488; }
+  .flow-node.muscle { background: #edfaf5; border: 2px solid #1a7a50; color: #0a4a30; }
+  .flow-node.other  { background: #f5f0ff; border: 2px solid #7755cc; color: #442288; }
+  .flow-arrow {
+    font-size: 1.4rem;
+    color: #aaa;
+    flex-shrink: 0;
+  }
+
+  /* ── 摂取量比較テーブル ── */
+  .intake-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 0.88rem;
+  }
+  .intake-table th {
+    background: #4a2000;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .intake-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #e8e0d0;
+    vertical-align: middle;
+  }
+  .intake-table tr:nth-child(even) td { background: #faf5ec; }
+  .intake-table tr:nth-child(odd) td  { background: #fffdf8; }
+  .intake-bar-cell { min-width: 120px; }
+  .intake-bar {
+    height: 12px;
+    border-radius: 6px;
+    background: linear-gradient(90deg, #4a2000 0%, #a85c2a 100%);
+    margin-bottom: 3px;
+  }
+  .intake-note { font-size: 0.75rem; color: #888; }
+
+  /* ── 運動×栄養 マトリクス ── */
+  .matrix-wrap {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr 1fr;
     gap: 12px;
     margin: 16px 0;
   }
-  @media (max-width: 560px) { .omega3-types { grid-template-columns: 1fr; } }
-  .type-card {
+  @media (max-width: 480px) { .matrix-wrap { grid-template-columns: 1fr; } }
+  .mx-card {
     border-radius: 10px;
-    padding: 16px 12px;
+    padding: 14px;
+    font-size: 0.85rem;
+    line-height: 1.6;
     text-align: center;
-    font-size: 0.85rem;
-    line-height: 1.6;
   }
-  .type-card.epa  { background: #dbeeff; border: 2px solid #3377cc; }
-  .type-card.dha  { background: #ddf0ee; border: 2px solid #008080; }
-  .type-card.ala  { background: #eef5dd; border: 2px solid #558822; }
-  .type-card .t-icon { font-size: 2rem; display: block; margin-bottom: 6px; }
-  .type-card .t-name { font-weight: 700; font-size: 1.0rem; display: block; margin-bottom: 4px; }
-  .type-card.epa  .t-name { color: #2255aa; }
-  .type-card.dha  .t-name { color: #006666; }
-  .type-card.ala  .t-name { color: #446611; }
-  .type-card .t-full { font-size: 0.72rem; color: #666; display: block; margin-bottom: 6px; }
-  .type-card .t-src  { font-size: 0.78rem; font-weight: 600; }
-  .type-card.epa  .t-src { color: #3377cc; }
-  .type-card.dha  .t-src { color: #008080; }
-  .type-card.ala  .t-src { color: #558822; }
-  .type-card .t-effect { font-size: 0.78rem; color: #555; margin-top: 6px; }
-  .convert-arrow {
+  .mx-card .mx-icon { font-size: 1.8rem; display: block; margin-bottom: 6px; }
+  .mx-card .mx-label { font-weight: 700; font-size: 0.9rem; display: block; margin-bottom: 6px; }
+  .mx-card .mx-result { font-size: 0.8rem; }
+  .mx-card.bad    { background: #fff0f0; border: 2px solid #cc4040; }
+  .mx-card.bad    .mx-label { color: #aa2020; }
+  .mx-card.ok     { background: #fffae0; border: 2px solid #cc9900; }
+  .mx-card.ok     .mx-label { color: #886600; }
+  .mx-card.ok2    { background: #f0f4ff; border: 2px solid #5577cc; }
+  .mx-card.ok2    .mx-label { color: #334488; }
+  .mx-card.best   { background: #edfaf5; border: 2px solid #1a7a50; }
+  .mx-card.best   .mx-label { color: #0a5030; }
+  .mx-header { text-align: center; font-size: 0.8rem; color: #888; margin-bottom: 6px; }
+  .mx-axis {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.75rem;
-    color: #888;
-    margin: -6px 0 8px;
-    gap: 4px;
+    justify-content: space-between;
+    font-size: 0.78rem;
+    color: #666;
+    margin-bottom: 4px;
   }
 
-  /* ── 試験比較 ── */
-  .trial-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin: 16px 0;
-  }
-  @media (max-width: 560px) { .trial-grid { grid-template-columns: 1fr; } }
-  .trial-card {
-    border-radius: 10px;
-    padding: 16px 14px;
-    font-size: 0.85rem;
-    line-height: 1.6;
-  }
-  .trial-card.positive { background: #edfaf5; border: 2px solid #1a7a50; }
-  .trial-card.neutral  { background: #f5f5ff; border: 2px solid #6655aa; }
-  .trial-card .tr-head {
-    display: flex; align-items: center; gap: 8px;
-    margin-bottom: 10px; padding-bottom: 8px;
-    border-bottom: 1px dashed #ccc;
-  }
-  .trial-card .tr-icon { font-size: 1.6rem; }
-  .trial-card .tr-name { font-weight: 700; font-size: 0.95rem; }
-  .trial-card.positive .tr-name { color: #1a5c3a; }
-  .trial-card.neutral  .tr-name { color: #4433aa; }
-  .trial-card .tr-row { padding: 3px 0; display: flex; gap: 6px; font-size: 0.82rem; }
-  .tr-key { color: #666; min-width: 60px; flex-shrink: 0; }
-  .tr-val { color: #222; font-weight: 600; }
-  .tr-result-pos { color: #1a7a50; font-weight: 700; font-size: 0.88rem; margin-top: 8px; }
-  .tr-result-neu { color: #5544aa; font-weight: 700; font-size: 0.88rem; margin-top: 8px; }
-
-  /* ── 摂取量ビジュアル ── */
-  .intake-visual {
+  /* ── 食品別プロテイン ── */
+  .food-list {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
     margin: 16px 0;
   }
-  .intake-row {
+  .food-row {
     display: flex;
     align-items: center;
     gap: 12px;
     background: white;
     border-radius: 8px;
-    padding: 12px 16px;
-    box-shadow: 1px 2px 6px rgba(0,0,0,0.07);
+    padding: 10px 14px;
+    box-shadow: 1px 2px 5px rgba(0,0,0,0.07);
   }
-  .intake-icon { font-size: 1.8rem; flex-shrink: 0; }
-  .intake-name { font-weight: 600; font-size: 0.9rem; color: #333; min-width: 100px; }
-  .intake-bar-wrap { flex: 1; }
-  .intake-bar {
-    height: 14px;
-    border-radius: 7px;
-    margin-bottom: 4px;
-    position: relative;
+  .food-icon { font-size: 1.6rem; flex-shrink: 0; }
+  .food-name { font-size: 0.88rem; font-weight: 600; color: #333; min-width: 130px; }
+  .food-bar-wrap { flex: 1; }
+  .food-bar {
+    height: 12px;
+    border-radius: 6px;
+    margin-bottom: 3px;
+    background: linear-gradient(90deg, #8a4010 0%, #c87840 100%);
   }
-  .intake-bar.fish     { background: linear-gradient(90deg, #3377cc 0%, #66aaff 100%); width: 85%; }
-  .intake-bar.sardine  { background: linear-gradient(90deg, #2266bb 0%, #5599ee 100%); width: 100%; }
-  .intake-bar.mackerel { background: linear-gradient(90deg, #3388cc 0%, #55aadd 100%); width: 90%; }
-  .intake-bar.salmon   { background: linear-gradient(90deg, #cc6644 0%, #ee9977 100%); width: 70%; }
-  .intake-bar.seed     { background: linear-gradient(90deg, #558822 0%, #88bb44 100%); width: 20%; }
-  .intake-label { font-size: 0.78rem; color: #555; }
-  .intake-amount { font-size: 0.88rem; font-weight: 700; color: #333; min-width: 80px; text-align: right; }
+  .food-meta { font-size: 0.75rem; color: #888; }
+  .food-amount { font-size: 0.88rem; font-weight: 700; color: #4a2000; min-width: 60px; text-align: right; }
 
   /* ── 総まとめ ── */
   .summary-card {
-    background: linear-gradient(135deg, #0a3d5c 0%, #0d1a30 100%);
+    background: linear-gradient(135deg, #4a2000 0%, #1a0800 100%);
     color: white;
     border-radius: 8px;
     padding: 36px 40px;
@@ -459,7 +502,7 @@
   .summary-item:last-child { border-bottom: none; }
   .summary-icon { font-size: 1.4rem; flex-shrink: 0; }
   .summary-text { font-size: 0.93rem; line-height: 1.75; opacity: 0.92; }
-  .summary-text strong { color: #a0e8f8; }
+  .summary-text strong { color: #f8c878; }
 
   /* ── 目次 ── */
   .toc {
@@ -497,7 +540,7 @@
     .cover h1 { font-size: 1.6rem; }
     .card-body { padding: 20px 20px 20px 44px; }
     .card-body::before { left: 34px; }
-    .num-card .num-val { font-size: 1.9rem; }
+    .num-card .num-val { font-size: 1.8rem; }
     .summary-card { padding: 24px 20px; }
   }
 </style>
@@ -506,9 +549,9 @@
 
 <!-- ── カバー ── -->
 <div class="cover">
-  <span class="cover-emoji">🐟</span>
-  <h1>オメガ3脂肪酸（EPA・DHA）の<br>正直なエビデンス</h1>
-  <div class="subtitle">「万能サプリ」なのか？──大規模試験が示す複雑な真実</div>
+  <span class="cover-emoji">🥩</span>
+  <h1>たんぱく質の必要量の考え方</h1>
+  <div class="subtitle">「0.8g/kgで本当に足りる？」── 年齢・活動量・目的で変わる"正解"と最新エビデンス</div>
   <div class="tagline">精密栄養学と最新の医学・科学論文をやさしく解説</div>
   <div class="date-badge">2026-06-04</div>
 </div>
@@ -517,382 +560,425 @@
 <div class="toc">
   <h2>📋 今日の目次</h2>
   <ol>
-    <li><a href="#topic1">EPA・DHA・ALA ── 3種類のオメガ3の違い</a></li>
-    <li><a href="#topic2">何に「効く」のか？── 大規模RCTを読む（REDUCE-IT・VITAL試験）</a></li>
-    <li><a href="#topic3">2025年メタ分析の新知見 ── 高用量サプリと心房細動リスク（n=114,326）</a></li>
-    <li><a href="#topic4">食事からの摂り方 ── 日本の食事摂取基準と実践のポイント</a></li>
-    <li><a href="#topic5">エビデンスを正直に読む ── 限界と個人差・まとめ</a></li>
+    <li><a href="#topic1">たんぱく質は体の中で何をしているか ── 基礎から整理</a></li>
+    <li><a href="#topic2">「0.8g/kg」は正解？── 日本の推奨量と研究値のギャップ</a></li>
+    <li><a href="#topic3">高齢者はもっと必要：サルコペニアと2025年メタ分析の新知見</a></li>
+    <li><a href="#topic4">「1食に20〜25g上限」説の見直し ── 最新RCTが示すこと</a></li>
+    <li><a href="#topic5">食品からの摂り方と精密栄養学の視点 ── 「量だけ」じゃない理由</a></li>
   </ol>
 </div>
 
-<!-- ── Card 1: 3種類のオメガ3 ── -->
+<!-- ── Card 1: 基礎 ── -->
 <div class="card" id="topic1">
   <div class="card-body">
     <div class="card-header">
-      <span class="card-emoji">🧪</span>
-      <div class="card-title">EPA・DHA・ALA ──<br>3種類のオメガ3の違い</div>
-      <span class="topic-badge badge-blue">基礎知識</span>
+      <span class="card-emoji">🧬</span>
+      <div class="card-title">たんぱく質は体の中で<br>何をしているか</div>
+      <span class="topic-badge badge-brown">基礎知識</span>
     </div>
 
     <p class="body-text">
-      「オメガ3」とひと言で言っても、実は種類が違います。体の中での働きも、含まれる食品も異なります。まず3種類を整理しましょう。
+      「たんぱく質＝筋肉」というイメージがありますが、実際には体のほぼすべてを支える材料です。筋肉だけでなく、酵素（体内の化学反応を進める触媒）・ホルモン（情報を伝える物質）・免疫細胞・血液のヘモグロビンもたんぱく質でできています。
     </p>
 
-    <div class="omega3-types">
-      <div class="type-card epa">
-        <span class="t-icon">🐠</span>
-        <span class="t-name">EPA</span>
-        <span class="t-full">エイコサペンタエン酸</span>
-        <span class="t-src">🐟 主に魚介類</span>
-        <div class="t-effect">炎症を抑える・中性脂肪（血の脂）を下げる・心血管系への作用が特に研究されている</div>
-      </div>
-      <div class="type-card dha">
-        <span class="t-icon">🧠</span>
-        <span class="t-name">DHA</span>
-        <span class="t-full">ドコサヘキサエン酸</span>
-        <span class="t-src">🐡 主に魚介類・藻類</span>
-        <div class="t-effect">脳や目の神経細胞に豊富・中性脂肪を下げる・EPAと合わせてセットで摂取されることが多い</div>
-      </div>
-      <div class="type-card ala">
-        <span class="t-icon">🌿</span>
-        <span class="t-name">ALA</span>
-        <span class="t-full">α-リノレン酸</span>
-        <span class="t-src">🫚 亜麻仁油・えごま油・くるみ</span>
-        <div class="t-effect">植物由来。体内でEPA・DHAに変換されるが、変換率は数%と低い（人によって差がある）</div>
-      </div>
+    <div class="flow-row">
+      <div class="flow-node input">🥩 食事の<br>たんぱく質</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-node digest">🫧 消化<br>（胃・小腸）</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-node amino">🔷 アミノ酸<br>（材料）</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-node muscle">💪 筋タンパク<br>合成（mTOR）</div>
     </div>
-
-    <div class="convert-arrow">
-      <span>🌿 ALA</span>
-      <span>──（変換率 数% 程度）──▶</span>
-      <span>🐠 EPA・🧠 DHA</span>
+    <div class="flow-row" style="margin-top: -8px;">
+      <div style="font-size:0.75rem; color:#888; text-align:center;">▲ 合成されるのは筋肉だけでなく、酵素・ホルモン・免疫細胞なども同じプロセスで作られる</div>
     </div>
 
     <div class="simple-box">
-      <div class="label">ポイント</div>
-      植物性食品だけでオメガ3を補おうとすると、変換率が低いため、EPA・DHAが不足しやすいことが課題です。
-      特に完全な植物性食（ビーガン）の人は、藻類由来のDHAサプリが選択肢になります。
+      <div class="label">ロイシンの役割（重要）</div>
+      必須アミノ酸（体内で作れないため食事から摂る必要があるアミノ酸）の中でも、<strong>ロイシン</strong>は筋タンパク合成のスイッチ（mTOR経路）を入れる特別な役割を持ちます。
+      1食あたり2〜3g以上のロイシンが、筋合成を最大化するのに必要だと考えられています。
+      ロイシンは肉・魚・卵・乳製品・大豆製品に豊富です。
     </div>
 
+    <p class="body-text">
+      体のたんぱく質は「合成」と「分解」を常にくり返しています（タンパク質の代謝回転）。
+      筋肉は1日に約1〜2%が入れ替わっており、食事でアミノ酸を補給しないと分解が上回り、筋肉が落ちていきます。
+      これが「毎日たんぱく質を摂ることが大切」な理由です。
+    </p>
+
     <div class="source">
-      📚 出典：厚生労働省「日本人の食事摂取基準（2020年版）」脂質の章 ／
-      NIH Office of Dietary Supplements, Omega-3 Fatty Acids Fact Sheet for Health Professionals
-      <a href="https://ods.od.nih.gov/factsheets/Omega3FattyAcids-HealthProfessional/" target="_blank">（ods.od.nih.gov）</a>（2025年更新）
+      📚 出典：Wolfe RR. "Branched-chain amino acids and muscle protein synthesis in humans: myth or reality?" J Int Soc Sports Nutr. 2017;14:30.
+      <a href="https://pubmed.ncbi.nlm.nih.gov/28852372/" target="_blank">PMID: 28852372</a>（2017年）
     </div>
   </div>
 </div>
 
-<!-- ── Card 2: 主要RCT ── -->
+<!-- ── Card 2: 推奨量の整理 ── -->
 <div class="card" id="topic2">
   <div class="card-body">
     <div class="card-header">
-      <span class="card-emoji">🔬</span>
-      <div class="card-title">何に「効く」のか？──<br>大規模RCTを読む</div>
-      <span class="topic-badge badge-teal">大規模試験</span>
+      <span class="card-emoji">📊</span>
+      <div class="card-title">「0.8g/kgで足りる？」──<br>日本の推奨量と研究値のギャップ</div>
+      <span class="topic-badge badge-orange">基準値・推奨量</span>
     </div>
 
     <p class="body-text">
-      オメガ3の研究で最も重要な2つのRCT（ランダム化比較試験＝くじ引きで介入群と対照群に分ける、信頼性の高い試験設計）を見てみましょう。
-      「効く」という研究と「効かなかった」という研究が両方あります。
+      よく「たんぱく質は体重1kgあたり○g」という話を聞きますが、その数字は「目的」と「情報源」によって大きく違います。まず日本の公式推奨量（日本人の食事摂取基準 2020年版）を確認しましょう。
     </p>
 
-    <div class="trial-grid">
-      <div class="trial-card positive">
-        <div class="tr-head">
-          <span class="tr-icon">📈</span>
-          <div class="tr-name">REDUCE-IT 試験</div>
-        </div>
-        <div class="tr-row"><span class="tr-key">発表</span><span class="tr-val">NEJM 2019（Bhatt DL ら）</span></div>
-        <div class="tr-row"><span class="tr-key">人数</span><span class="tr-val">n = 8,179名</span></div>
-        <div class="tr-row"><span class="tr-key">対象</span><span class="tr-val">スタチン服用中で中性脂肪が高い心血管リスク患者</span></div>
-        <div class="tr-row"><span class="tr-key">介入</span><span class="tr-val">EPA（イコサペント酸エチル）4g/日 vs 鉱物油プラセボ</span></div>
-        <div class="tr-row"><span class="tr-key">期間</span><span class="tr-val">中央値 4.9年</span></div>
-        <div class="tr-result-pos">✅ 結果：心血管イベント（心筋梗塞・脳卒中など）を約25%（相対リスク）減少</div>
-        <div style="font-size:0.78rem; color:#555; margin-top:6px;">⚠️ 注意：プラセボに使った鉱物油が対照群の脂質を悪化させた可能性があり、効果の大きさには議論が続く</div>
+    <div class="num-grid">
+      <div class="num-card brown-info">
+        <span class="num-val">0.83</span>
+        <div class="num-unit">g/kg/日</div>
+        <div class="num-label">日本・WHO 成人の推奨量（推定平均必要量 0.66g から算出）</div>
       </div>
-
-      <div class="trial-card neutral">
-        <div class="tr-head">
-          <span class="tr-icon">📊</span>
-          <div class="tr-name">VITAL 試験</div>
-        </div>
-        <div class="tr-row"><span class="tr-key">発表</span><span class="tr-val">NEJM 2019（Manson JE ら）</span></div>
-        <div class="tr-row"><span class="tr-key">人数</span><span class="tr-val">n = 25,871名</span></div>
-        <div class="tr-row"><span class="tr-key">対象</span><span class="tr-val">心血管疾患のない一般成人（平均67歳）</span></div>
-        <div class="tr-row"><span class="tr-key">介入</span><span class="tr-val">EPA+DHA 1g/日 vs プラセボ</span></div>
-        <div class="tr-row"><span class="tr-key">期間</span><span class="tr-val">中央値 5.3年</span></div>
-        <div class="tr-result-neu">📌 結果：主要心血管イベントに有意差なし。ただし心筋梗塞リスクは有意に低下（28%減、副次的解析）</div>
-        <div style="font-size:0.78rem; color:#555; margin-top:6px;">💡 魚をあまり食べないグループでより効果が見られたという傾向あり（層別解析）</div>
+      <div class="num-card orange-info">
+        <span class="num-val">1.0〜1.2</span>
+        <div class="num-unit">g/kg/日</div>
+        <div class="num-label">高齢者向け国際ガイドライン（ESPEN / PROT-AGE コンセンサス）</div>
+      </div>
+      <div class="num-card teal-info">
+        <span class="num-val">1.6〜2.2</span>
+        <div class="num-unit">g/kg/日</div>
+        <div class="num-label">筋肉増加を目的とした運動（筋トレ）との組み合わせで研究が示す最適域</div>
       </div>
     </div>
 
     <div class="info-box">
-      <div class="label">ここが重要</div>
-      2つの試験の違いを整理すると：<br>
-      ① <strong>用量が全然違う</strong>（4g vs 1g）<br>
-      ② <strong>対象が違う</strong>（心血管リスク高 vs 一般成人）<br>
-      ③ <strong>成分が違う</strong>（EPA単独 vs EPA+DHA混合）<br>
-      「オメガ3が効く/効かない」と一括りにできないことが分かります。<span class="evidence-tag strong">RCT</span>
+      <div class="label">体重別に換算すると（60kgの人の場合）</div>
     </div>
 
-    <p class="body-text">
-      <strong>中性脂肪（TG）低下についてはエビデンスが強い：</strong>
-      EPA・DHAが中性脂肪を20〜30%程度下げる効果は、複数のRCTで一貫して示されており、
-      日本でもEPAの処方薬（エパデール）・DHAを含む薬（ロトリガ）が高TG血症の治療に使用されています。
-    </p>
+    <table class="intake-table">
+      <thead>
+        <tr>
+          <th>対象・目的</th>
+          <th>推奨量の目安</th>
+          <th>60kgなら/日</th>
+          <th>根拠の強さ</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>成人（一般）<br><span class="intake-note">健康維持・体の維持</span></td>
+          <td>
+            <div class="intake-bar-cell">
+              <div class="intake-bar" style="width:32%;"></div>
+            </div>
+            0.83 g/kg
+          </td>
+          <td><strong>約50g</strong></td>
+          <td><span class="evidence-tag strong">強（窒素平衡試験）</span></td>
+        </tr>
+        <tr>
+          <td>高齢者（65歳〜）<br><span class="intake-note">筋肉量・機能の維持</span></td>
+          <td>
+            <div class="intake-bar-cell">
+              <div class="intake-bar" style="width:50%;"></div>
+            </div>
+            1.0〜1.2 g/kg
+          </td>
+          <td><strong>約60〜72g</strong></td>
+          <td><span class="evidence-tag moderate">中（複数RCT・観察研究）</span></td>
+        </tr>
+        <tr>
+          <td>慢性疾患・回復期の高齢者<br><span class="intake-note">サルコペニア・フレイル</span></td>
+          <td>
+            <div class="intake-bar-cell">
+              <div class="intake-bar" style="width:65%;"></div>
+            </div>
+            1.2〜1.5 g/kg
+          </td>
+          <td><strong>約72〜90g</strong></td>
+          <td><span class="evidence-tag moderate">中（専門家コンセンサス）</span></td>
+        </tr>
+        <tr>
+          <td>筋肉増加目的<br><span class="intake-note">筋トレと組み合わせ</span></td>
+          <td>
+            <div class="intake-bar-cell">
+              <div class="intake-bar" style="width:85%;"></div>
+            </div>
+            1.6〜2.2 g/kg
+          </td>
+          <td><strong>約96〜132g</strong></td>
+          <td><span class="evidence-tag strong">強（複数RCTのメタ分析）</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="alert-box">
+      <div class="label">⚠️ 「0.8g/kg」について知っておくべきこと</div>
+      日本の推奨量 0.83g/kg は「体の維持（窒素出納の均衡）」を保つための最低ラインに近い値です。
+      加齢による筋肉量低下（サルコペニア）の予防や、病気・手術後の回復を目的とする場合は、この値では<strong>不十分な可能性がある</strong>と多くの専門家団体が指摘しています。
+    </div>
 
     <div class="source">
       📚 出典：<br>
-      Bhatt DL et al., N Engl J Med. 2019;380:11-22. PMID: 30415628<br>
-      <a href="https://www.nejm.org/doi/10.1056/NEJMoa1812792" target="_blank">doi:10.1056/NEJMoa1812792</a>（REDUCE-IT、2018年公開）<br>
-      Manson JE et al., N Engl J Med. 2019;380:23-32. PMID: 30415629<br>
-      <a href="https://www.nejm.org/doi/10.1056/NEJMoa1811403" target="_blank">doi:10.1056/NEJMoa1811403</a>（VITAL、2019年公開）
+      厚生労働省「日本人の食事摂取基準（2020年版）」たんぱく質の章
+      <a href="https://www.mhlw.go.jp/content/10904750/000586553.pdf" target="_blank">（mhlw.go.jp）</a>（2019年公表）<br>
+      Cederholm T et al. "ESPEN guidelines on clinical nutrition and hydration in geriatrics"
+      Clin Nutr. 2019;38:10-47. <a href="https://pubmed.ncbi.nlm.nih.gov/30401541/" target="_blank">PMID: 30401541</a>（2018年公表）<br>
+      Morton RW et al. "A systematic review, meta-analysis and meta-regression of the effect of protein supplementation on resistance training-induced gains in muscle mass and strength"
+      Br J Sports Med. 2018;52:376-384. <a href="https://pubmed.ncbi.nlm.nih.gov/28698222/" target="_blank">PMID: 28698222</a>
     </div>
   </div>
 </div>
 
-<!-- ── Card 3: 心房細動メタ分析 ── -->
+<!-- ── Card 3: 高齢者・サルコペニア ── -->
 <div class="card" id="topic3">
   <div class="card-body">
     <div class="card-header">
-      <span class="card-emoji">❤️</span>
-      <div class="card-title">2025年メタ分析の新知見 ──<br>高用量サプリと心房細動リスク</div>
+      <span class="card-emoji">🏋️</span>
+      <div class="card-title">高齢者はもっと必要？──<br>サルコペニアと2025年メタ分析の新知見</div>
       <span class="topic-badge badge-red">2025年最新研究</span>
     </div>
 
     <p class="body-text">
-      2025年12月、34件のRCTをまとめた大規模メタ分析が発表されました。
-      オメガ3サプリメントと<strong>心房細動（AF）</strong>（心臓のリズム異常。脈が不規則になる状態）のリスクの関係を詳しく調べた研究です。
+      <strong>サルコペニア</strong>（加齢に伴う筋肉量・筋力の低下）は、転倒・骨折・要介護の大きなリスクです。
+      「たんぱく質を増やせば筋肉が守られる」と考えがちですが、2025年の研究は重要な条件を示しています。
     </p>
 
     <div class="num-grid">
       <div class="num-card study-info">
-        <span class="num-val">34</span>
-        <div class="num-unit">件のRCT</div>
-        <div class="num-label">メタ分析に含まれた試験数</div>
+        <span class="num-val">6</span>
+        <div class="num-unit">件 RCT</div>
+        <div class="num-label">BMC Geriatrics 2025 メタ分析に含まれた試験数（不活動高齢者対象）</div>
       </div>
       <div class="num-card study-info">
-        <span class="num-val">114,326</span>
-        <div class="num-unit">名</div>
-        <div class="num-label">総参加者数</div>
-      </div>
-      <div class="num-card danger">
-        <span class="num-val">OR<br>1.48</span>
-        <div class="num-unit">倍</div>
-        <div class="num-label">高用量＋高リスク患者での心房細動の相対リスク増加</div>
+        <span class="num-val">p &gt; 0.05</span>
+        <div class="num-unit"></div>
+        <div class="num-label">たんぱく質補充「単独」では除脂肪体重（筋肉量）への有意な効果なし</div>
       </div>
     </div>
 
-    <div class="alert-box">
-      <div class="label">⚠️ 重要な発見</div>
-      この研究が示したのは：<br>
-      <strong>「心血管リスクが高い人」が「高用量（≥1,500 mg/日程度以上）のEPA/DHA」を摂ると、心房細動のリスクが有意に上昇する可能性がある</strong><br>
-      一方、低用量での一般的な使用では、リスク増加は見られにくかった。
+    <div class="orange-box">
+      <div class="label">BMC Geriatrics 2025 メタ分析（PMID: 40200135）の要点</div>
+      <strong>対象</strong>：身体活動が少ない（不活動の）高齢者<br>
+      <strong>介入</strong>：たんぱく質サプリメントの補充のみ（運動プログラムなし）<br>
+      <strong>結果</strong>：<span style="color:#cc3300;">除脂肪体重（筋肉量の指標）に統計的に有意な増加は認められなかった（p &gt; 0.05）</span><br>
+      <strong>エビデンス評価</strong>：<span class="evidence-tag moderate">システマティックレビュー＋メタ分析（RCT）</span><br>
+      <strong>限界</strong>：含まれたRCTは6件（小規模）、参加者数・介入期間にばらつきあり
     </div>
 
     <p class="body-text">
-      <strong>実はREDUCE-IT試験でも：</strong>
-      EPA 4g/日を摂ったグループで、プラセボ群と比べ心房細動の発症率が高かった（5.3% vs 3.9%）ことが報告されていました。
-      今回のメタ分析はこの傾向を114,000人以上のデータで再確認したものです。
+      一方、たんぱく質摂取を<strong>「筋力トレーニングと組み合わせた場合」</strong>の効果を調べた2025年の Frontiers in Nutrition 研究では、健康な高齢者において筋肉量・筋力の有意な改善が示されています。
     </p>
 
-    <div class="info-box">
-      <div class="label">用量と対象による違い（図解）</div>
-      <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:8px; margin-top:8px; text-align:center; font-size:0.82rem;">
-        <div style="background:#e0f5e0; border-radius:8px; padding:10px; border:2px solid #80cc80;">
-          <div style="font-size:1.4rem;">✅</div>
-          <div style="font-weight:700; color:#226622;">低用量<br>一般集団</div>
-          <div style="color:#444; margin-top:4px;">AF リスク増加<br>みられにくい</div>
-        </div>
-        <div style="background:#fff8e0; border-radius:8px; padding:10px; border:2px solid #d4a020;">
-          <div style="font-size:1.4rem;">⚠️</div>
-          <div style="font-weight:700; color:#7a5000;">高用量<br>一般集団</div>
-          <div style="color:#444; margin-top:4px;">証拠が<br>少ない</div>
-        </div>
-        <div style="background:#fff0f0; border-radius:8px; padding:10px; border:2px solid #c03030;">
-          <div style="font-size:1.4rem;">❗</div>
-          <div style="font-weight:700; color:#8a1010;">高用量<br>高CVDリスク</div>
-          <div style="color:#444; margin-top:4px;">AF リスク<br>有意に上昇</div>
-        </div>
+    <div class="mx-axis">
+      <span>← たんぱく質摂取量（少）</span>
+      <span>（多）→</span>
+    </div>
+    <div class="matrix-wrap">
+      <div class="mx-card bad">
+        <span class="mx-icon">😔</span>
+        <span class="mx-label">低たんぱく＋<br>運動なし</span>
+        <div class="mx-result">筋肉量が徐々に低下<br>サルコペニアリスク↑</div>
+      </div>
+      <div class="mx-card ok">
+        <span class="mx-icon">😐</span>
+        <span class="mx-label">高たんぱく＋<br>運動なし</span>
+        <div class="mx-result">有意な筋肉増加なし<br>（2025年メタ分析）</div>
+      </div>
+      <div class="mx-card ok2">
+        <span class="mx-icon">🙂</span>
+        <span class="mx-label">低たんぱく＋<br>筋トレあり</span>
+        <div class="mx-result">ある程度の効果あり<br>ただし材料不足で限界</div>
+      </div>
+      <div class="mx-card best">
+        <span class="mx-icon">💪</span>
+        <span class="mx-label">≥1.2g/kg＋<br>筋トレあり</span>
+        <div class="mx-result">筋肉量・筋力の<br>有意な向上（2025年研究）</div>
       </div>
     </div>
+    <div class="mx-header">▲ たんぱく質摂取量 × 運動の組み合わせによる効果の違い（概念図）</div>
 
-    <div class="simple-box">
-      <div class="label">エビデンスの読み方</div>
-      <span class="evidence-tag strong">メタ分析・RCT</span> 研究デザインとしては信頼性が高い。
-      ただし「観察研究では血中オメガ3濃度が高い人ほどAFリスクが低い」というデータもあり、
-      「サプリで高用量を摂ること」と「魚を食べること」の効果は別物かもしれない、という議論が続いています。
+    <div class="info-box">
+      <div class="label">なぜ「たんぱく質だけ」では限界があるのか</div>
+      高齢になると筋肉を作る信号（アナボリックシグナル）への感受性が下がります（<strong>アナボリック抵抗性</strong>）。
+      たんぱく質はあくまでも「材料」であり、筋力トレーニングが「材料を使って作る命令」を出してくれます。
+      両方が揃って初めて最大効果を発揮します。
     </div>
 
     <div class="source">
-      📚 出典：
-      "Effects of Omega-3 Fatty Acid Treatment on Risk for Atrial Fibrillation: An Updated Meta-Analysis of 34 Trials including 114,326 Individuals"<br>
-      PMID: 41445624 ／ PMC: PMC12723971
-      <a href="https://pubmed.ncbi.nlm.nih.gov/41445624/" target="_blank">（PubMed）</a>
-      （preprint公開：2025年12月）
+      📚 出典：<br>
+      Gao Y et al. "Effects of protein supplementation on muscle mass, muscle strength, and physical performance in older adults with physical inactivity: a systematic review and meta-analysis"
+      BMC Geriatrics. 2025;25:228.
+      <a href="https://pubmed.ncbi.nlm.nih.gov/40200135/" target="_blank">PMID: 40200135</a>
+      <a href="https://link.springer.com/article/10.1186/s12877-025-05885-x" target="_blank">（Springer Link）</a>（2025年4月公表）<br>
+      "The impact of nutritional intervention and resistance training on muscle strength and mass in healthy older adults — a comparative analysis"
+      Frontiers in Nutrition. 2025.
+      <a href="https://www.frontiersin.org/journals/nutrition/articles/10.3389/fnut.2025.1640858/full" target="_blank">doi:10.3389/fnut.2025.1640858</a>（2025年）
     </div>
   </div>
 </div>
 
-<!-- ── Card 4: 日本の基準・食事 ── -->
+<!-- ── Card 4: 1食あたりの量 ── -->
 <div class="card" id="topic4">
   <div class="card-body">
     <div class="card-header">
-      <span class="card-emoji">🍱</span>
-      <div class="card-title">食事からの摂り方 ──<br>日本の食事摂取基準と実践のポイント</div>
+      <span class="card-emoji">🍽️</span>
+      <div class="card-title">「1食あたり20〜25g上限」説の<br>見直し ── 最新RCTが示すこと</div>
+      <span class="topic-badge badge-blue">研究アップデート</span>
+    </div>
+
+    <p class="body-text">
+      以前は「1食に20〜25g以上のたんぱく質を摂っても、筋タンパク合成は頭打ちになり、残りは燃えてしまう（酸化される）」という考え方が広まっていました。この「上限説」は現在、見直しが進んでいます。
+    </p>
+
+    <div class="num-grid">
+      <div class="num-card brown-info">
+        <span class="num-val">20〜25</span>
+        <div class="num-unit">g / 食</div>
+        <div class="num-label">旧説：若年男性での研究。速消化タンパク（ホエイのみ）を安静時に摂った場合に筋合成が頭打ちになる量</div>
+      </div>
+      <div class="num-card teal-info">
+        <span class="num-val">40</span>
+        <div class="num-unit">g / 食</div>
+        <div class="num-label">高齢者では40g/食が除脂肪体重（筋肉量）をより増やした研究結果（Yang Y et al., ランダム化クロスオーバー試験）</div>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <div class="label">「上限説」が修正された理由（3つのポイント）</div>
+      <ol style="padding-left: 18px; margin-top: 8px; font-size: 0.92rem; line-height: 1.9;">
+        <li><strong>研究対象の限定：</strong>旧来の「20〜25g」は主に若い男性・安静時・速消化タンパクで測定。実際の食事（運動後・混合食・消化が遅いたんぱく質）では異なる。</li>
+        <li><strong>高齢者のアナボリック抵抗性：</strong>年齢を重ねると筋合成のスイッチが鈍くなるため、より多いたんぱく質が必要になる可能性がある。</li>
+        <li><strong>アミノ酸の利用経路：</strong>筋合成に使われなかったアミノ酸も、すべてが「無駄」ではなく、他の組織（酵素・免疫など）の合成に使われる。</li>
+      </ol>
+    </div>
+
+    <div class="simple-box">
+      <div class="label">実践での考え方</div>
+      <strong>「1食で多く摂りすぎるくらいなら3食に分散」</strong>という原則は変わりません。<br>
+      ただし「1食20gを超えたら意味がない」という厳密な制限はなく、特に高齢者・運動後・食事全体として混合食の場合は<br>
+      30〜40g程度を1食で摂っても有効に使われると考えられています。
+    </div>
+
+    <div class="sticky">
+      🗒️ <strong>覚えておきたい目安：</strong>
+      ①1食あたり30g前後を意識する（朝食にたんぱく質が少なくなりがちなので特に注意）
+      ②1日の合計量を3食に均等に近く分散するとより効果的という研究もある
+    </div>
+
+    <div class="source">
+      📚 出典：<br>
+      Moore DR et al. "Ingested protein dose response of muscle and albumin protein synthesis after resistance exercise in young men"
+      Am J Clin Nutr. 2009;89:161-168. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC2777469/" target="_blank">PMC2777469</a>（旧説の根拠・2009年）<br>
+      Trommelen J et al. "The Anabolic Response to Dietary Protein Is Not Limited by the Maximal Stimulation of Protein Synthesis in Healthy Older Adults: A Randomized Crossover Trial"
+      J Nutr. 2021;151(11):3262-3273. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7693481/" target="_blank">PMC7693481</a>（見直しの根拠・2020年）
+    </div>
+  </div>
+</div>
+
+<!-- ── Card 5: 食品 & 精密栄養 ── -->
+<div class="card" id="topic5">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">🎯</span>
+      <div class="card-title">食品からの摂り方と<br>精密栄養学の視点</div>
       <span class="topic-badge badge-green">実践ガイド</span>
     </div>
 
     <p class="body-text">
-      大きな試験では「4g/日の処方EPA」が使われましたが、日常生活で私たちが目指すべき目安量は全く別の話です。
-      まず日本の基準を確認しましょう。
+      主な食品のたんぱく質量（概算）と、質の違いを整理します。
+      たんぱく質の「量」だけでなく「質」（アミノ酸バランス）も重要です。
     </p>
 
-    <div class="num-grid">
-      <div class="num-card teal-info">
-        <span class="num-val">1.6〜<br>2.2</span>
-        <div class="num-unit">g/日</div>
-        <div class="num-label">日本食事摂取基準（2020年版）成人の n-3 PUFA 目安量（性別・年齢で異なる）</div>
-      </div>
-      <div class="num-card safe">
-        <span class="num-val">≈1</span>
-        <div class="num-unit">g/日</div>
-        <div class="num-label">EPA＋DHAとして目指したい量（目安。上限設定なし）</div>
-      </div>
-      <div class="num-card orange-info">
-        <span class="num-val">≤3〜5</span>
-        <div class="num-unit">g/日</div>
-        <div class="num-label">FDA≤3g、EFSA≤5g が安全上限の目安（サプリ）</div>
-      </div>
-    </div>
-
-    <p class="body-text">
-      <strong>魚を食べることが基本：</strong>
-      以下の食品を参考にしてみてください（数値は概算であり、調理法や個体差があります）。
-    </p>
-
-    <div class="intake-visual">
-      <div class="intake-row">
-        <span class="intake-icon">🐟</span>
-        <span class="intake-name">サンマ（1切れ・約80g）</span>
-        <div class="intake-bar-wrap">
-          <div class="intake-bar sardine"></div>
-          <div class="intake-label">EPA+DHA 約2,000mg以上（豊富）</div>
+    <div class="food-list">
+      <div class="food-row">
+        <span class="food-icon">🍗</span>
+        <span class="food-name">鶏むね肉（100g）</span>
+        <div class="food-bar-wrap">
+          <div class="food-bar" style="width:90%;"></div>
+          <div class="food-meta">必須アミノ酸スコア高・低脂質・ロイシン豊富</div>
         </div>
-        <span class="intake-amount">≈2,000mg</span>
+        <span class="food-amount">約23g</span>
       </div>
-      <div class="intake-row">
-        <span class="intake-icon">🐟</span>
-        <span class="intake-name">サバ（1切れ・約80g）</span>
-        <div class="intake-bar-wrap">
-          <div class="intake-bar mackerel"></div>
-          <div class="intake-label">EPA+DHA 約1,500mg前後</div>
+      <div class="food-row">
+        <span class="food-icon">🐟</span>
+        <span class="food-name">マグロ赤身（100g）</span>
+        <div class="food-bar-wrap">
+          <div class="food-bar" style="width:88%;"></div>
+          <div class="food-meta">必須アミノ酸バランス良好・EPA/DHAも含む</div>
         </div>
-        <span class="intake-amount">≈1,500mg</span>
+        <span class="food-amount">約26g</span>
       </div>
-      <div class="intake-row">
-        <span class="intake-icon">🐟</span>
-        <span class="intake-name">サーモン（1切れ・約80g）</span>
-        <div class="intake-bar-wrap">
-          <div class="intake-bar salmon"></div>
-          <div class="intake-bar salmon" style="width:30%"></div>
-          <div class="intake-label">EPA+DHA 約600〜1,000mg（種類で変動大）</div>
+      <div class="food-row">
+        <span class="food-icon">🥚</span>
+        <span class="food-name">卵（1個・約50g）</span>
+        <div class="food-bar-wrap">
+          <div class="food-bar" style="width:35%;"></div>
+          <div class="food-meta">アミノ酸スコア100（最高）。消化吸収率が高い</div>
         </div>
-        <span class="intake-amount">≈600〜1,000mg</span>
+        <span class="food-amount">約6g</span>
       </div>
-      <div class="intake-row">
-        <span class="intake-icon">🌱</span>
-        <span class="intake-name">えごま油（大さじ1）</span>
-        <div class="intake-bar-wrap">
-          <div class="intake-bar seed"></div>
-          <div class="intake-label">ALA として約2,000mg（EPA/DHAへの変換率は低い）</div>
+      <div class="food-row">
+        <span class="food-icon">🫘</span>
+        <span class="food-name">木綿豆腐（150g）</span>
+        <div class="food-bar-wrap">
+          <div class="food-bar" style="width:32%;"></div>
+          <div class="food-meta">植物性だが大豆はアミノ酸スコア高。ロイシンは動物性より少ない</div>
         </div>
-        <span class="intake-amount">ALA ≈2,000mg</span>
+        <span class="food-amount">約7〜8g</span>
+      </div>
+      <div class="food-row">
+        <span class="food-icon">🫙</span>
+        <span class="food-name">ギリシャヨーグルト（170g）</span>
+        <div class="food-bar-wrap">
+          <div class="food-bar" style="width:65%;"></div>
+          <div class="food-meta">乳清タンパク（ホエイ）含む・消化が速い・朝食向き</div>
+        </div>
+        <span class="food-amount">約15〜17g</span>
+      </div>
+      <div class="food-row">
+        <span class="food-icon">🌾</span>
+        <span class="food-name">白米（茶碗1杯・150g）</span>
+        <div class="food-bar-wrap">
+          <div class="food-bar" style="width:16%;"></div>
+          <div class="food-meta">意外とたんぱく質あり。リジン（必須AA）が少ないため他食品との組み合わせを</div>
+        </div>
+        <span class="food-amount">約3.8g</span>
       </div>
     </div>
 
     <div class="teal-box">
-      <div class="label">実践のコツ</div>
-      週に2〜3回、青魚（サバ・イワシ・サンマ・アジなど）を食べることで、
-      EPA＋DHAの目安量（≈1g/日）をほぼ満たせます。
-      缶詰（水煮・味噌煮）でも十分で、コスパよく摂れるのがポイントです。
+      <div class="label">動物性 vs 植物性たんぱく質の違い</div>
+      <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:8px; font-size:0.85rem;">
+        <div style="background:#fff8ec; border-radius:8px; padding:12px; border:1px solid #e8c080;">
+          <strong>動物性（肉・魚・卵・乳）</strong><br>
+          ✅ アミノ酸スコアが高い<br>
+          ✅ ロイシン含量が多い<br>
+          ✅ 消化吸収率が高い<br>
+          ⚠️ 飽和脂肪・コレステロールも摂る場合あり
+        </div>
+        <div style="background:#f0f8f0; border-radius:8px; padding:12px; border:1px solid #80c880;">
+          <strong>植物性（大豆・豆類・穀物）</strong><br>
+          ✅ 食物繊維・フィトケミカルも摂れる<br>
+          ✅ 大豆はアミノ酸スコアが高い（植物性の例外）<br>
+          ⚠️ ロイシン含量が少なめ<br>
+          💡 複数の植物性食品を組み合わせると補完できる
+        </div>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <div class="label">精密栄養学（Precision Nutrition）の視点</div>
+      「たんぱく質は○g」という一律の答えは存在しません。以下の要因で必要量が変わります：<br>
+      <ul style="padding-left: 18px; margin-top: 6px; font-size: 0.9rem; line-height: 1.9;">
+        <li><strong>年齢</strong>：高齢になるほど多く必要（アナボリック抵抗性）</li>
+        <li><strong>筋肉量・体組成</strong>：体重より除脂肪体重（脂肪を除いた体重）を基準にする考え方もある</li>
+        <li><strong>活動量・運動の種類</strong>：筋トレの有無が最大の変数</li>
+        <li><strong>病気・回復の状態</strong>：術後・感染症・がん治療中は需要が急増</li>
+        <li><strong>腸内細菌・消化能力</strong>：消化吸収率も個人差がある</li>
+      </ul>
     </div>
 
     <div class="source">
       📚 出典：
-      厚生労働省「日本人の食事摂取基準（2020年版）」脂質（n-3系脂肪酸）<br>
-      <a href="https://www.mhlw.go.jp/content/10904750/000586553.pdf" target="_blank">（mhlw.go.jp）</a><br>
-      FDA: "Qualified Health Claims: Omega-3 Fatty Acids"（米国）／
-      EFSA Journal 2010;8(10):1796（欧州食品安全機関、上限設定）
-    </div>
-  </div>
-</div>
-
-<!-- ── Card 5: エビデンスを正直に読む ── -->
-<div class="card" id="topic5">
-  <div class="card-body">
-    <div class="card-header">
-      <span class="card-emoji">📖</span>
-      <div class="card-title">エビデンスを正直に読む ──<br>限界と個人差・まとめ</div>
-      <span class="topic-badge badge-purple">科学リテラシー</span>
-    </div>
-
-    <p class="body-text">
-      オメガ3は「何でも効く万能オイル」でも「全く意味がない」でもありません。
-      エビデンスをフェアに読むための視点をまとめます。
-    </p>
-
-    <ul class="point-list">
-      <li>
-        <span class="marker marker-green">✓</span>
-        <div>
-          <strong>中性脂肪の低下</strong>はエビデンスが強い。<span class="evidence-tag strong">複数RCT一致</span>
-          EPA・DHAが中性脂肪を下げる効果は一貫しており、処方薬としても使用されている。
-        </div>
-      </li>
-      <li>
-        <span class="marker marker-teal">✓</span>
-        <div>
-          <strong>心血管リスクが高い人の高用量EPA</strong>（処方薬レベル）は、特定の条件で有効な可能性がある（REDUCE-IT）。<span class="evidence-tag moderate">RCT 1件</span>
-          ただし試験設計に議論があり、すべての人に当てはまるわけではない。
-        </div>
-      </li>
-      <li>
-        <span class="marker marker-orange">！</span>
-        <div>
-          <strong>一般的なサプリ（低〜中用量）</strong>が、健康な人の心臓病を「予防」するかは不明確。<span class="evidence-tag weak">エビデンス不十分</span>
-          VITAL試験（n=25,871）では主要エンドポイントに有意差なし。
-        </div>
-      </li>
-      <li>
-        <span class="marker marker-red">⚠</span>
-        <div>
-          <strong>高用量サプリ＋心血管リスク高い人</strong>は、心房細動リスクに注意が必要。<span class="evidence-tag strong">メタ分析（34試験・n=114,326）</span>
-          自己判断で高用量を摂るのは避け、医師に相談すること。
-        </div>
-      </li>
-      <li>
-        <span class="marker marker-blue">i</span>
-        <div>
-          <strong>「相関」と「因果」の違い：</strong>
-          「青魚をよく食べる人は心臓病が少ない」という観察研究は、他の生活習慣の違いが影響している可能性がある。
-          そのためRCTで確かめることが重要だが、食事全体のパターンで評価することも大切。
-        </div>
-      </li>
-      <li>
-        <span class="marker marker-purple">★</span>
-        <div>
-          <strong>個人差が大きい領域：</strong>
-          ALAからEPA/DHAへの変換率は人によって異なり（遺伝子の影響あり）、
-          ベースライン時の摂取量によっても効果が変わる可能性があります。これが「精密栄養学」が注目する点でもあります。
-        </div>
-      </li>
-    </ul>
-
-    <div class="sticky">
-      🗒️ <strong>今日の一言まとめ：</strong>
-      オメガ3は「薬ではない」が「全く意味がない」わけでもない。
-      基本は週2〜3回の青魚。サプリを使うなら、用量・目的・自分の健康状態をよく確認して、専門家と話し合ってから。
+      文部科学省「日本食品標準成分表2020年版（八訂）」（食品たんぱく質値）
+      <a href="https://www.mext.go.jp/a_menu/syokuhinseibun/mext_01110.html" target="_blank">（mext.go.jp）</a><br>
+      Gorissen SHM et al. "Protein content and amino acid composition of commercially available plant-based protein isolates"
+      Amino Acids. 2018;50:1685-1695. <a href="https://pubmed.ncbi.nlm.nih.gov/30167963/" target="_blank">PMID: 30167963</a>（植物性たんぱく質のアミノ酸比較）
     </div>
   </div>
 </div>
@@ -902,33 +988,33 @@
   <div style="position:relative;">
     <div class="s-title">📝 今日のまとめ</div>
     <div class="summary-item">
-      <span class="summary-icon">🐠</span>
+      <span class="summary-icon">🧬</span>
       <div class="summary-text">
-        <strong>EPA・DHA・ALA</strong>の3種類があり、効果と食品源が異なる。植物性のALAはEPA/DHAへの変換率が低い。
+        たんぱく質は筋肉だけでなく酵素・ホルモン・免疫細胞の材料。毎日摂り続けることが大切で、<strong>ロイシン</strong>（必須アミノ酸）が筋合成の鍵を握る。
       </div>
     </div>
     <div class="summary-item">
-      <span class="summary-icon">🔬</span>
+      <span class="summary-icon">📊</span>
       <div class="summary-text">
-        <strong>大規模RCT</strong>：中性脂肪低下は一貫したエビデンス。心血管予防は「誰に・何を・どれくらい」で結果が大きく異なる。
+        日本の推奨量（0.83g/kg）は維持のための最低ラインに近い。<strong>高齢者は1.0〜1.2g/kg以上</strong>、筋肉を増やしたい人は1.6g/kg以上が研究では示されている。
       </div>
     </div>
     <div class="summary-item">
-      <span class="summary-icon">❤️</span>
+      <span class="summary-icon">🏋️</span>
       <div class="summary-text">
-        <strong>2025年メタ分析（34RCT・n=114,326）</strong>：心血管リスクが高い人が高用量EPA/DHAを摂ると、心房細動リスクが上昇する可能性（OR≈1.48）。
+        <strong>2025年メタ分析（BMC Geriatrics・6RCT）</strong>：身体活動が少ない高齢者では、たんぱく質補充「単独」では筋肉量への有意な効果が認められなかった。<strong>筋力トレーニングとの組み合わせが不可欠。</strong>
       </div>
     </div>
     <div class="summary-item">
-      <span class="summary-icon">🍱</span>
+      <span class="summary-icon">🍽️</span>
       <div class="summary-text">
-        <strong>実践の基本は食事から</strong>：週2〜3回の青魚でEPA+DHA約1g/日が摂れる。えごま油・亜麻仁油はALA源として補助的に活用。
+        「1食20〜25gで頭打ち」という旧説は見直し中。特に高齢者では<strong>1食40g程度が有効</strong>な可能性があり、1日を通して分散させることが大切。
       </div>
     </div>
     <div class="summary-item">
-      <span class="summary-icon">⚖️</span>
+      <span class="summary-icon">🎯</span>
       <div class="summary-text">
-        高用量サプリ（≥3g/日）は<strong>医師の指示なしに自己流で摂るのは注意</strong>。特に心疾患リスクがある人は必ず専門家に相談を。
+        たんぱく質の「正解」は年齢・活動量・健康状態によって異なる。<strong>精密栄養学的には、自分の体重・年齢・目的に合わせて考えること</strong>が出発点。
       </div>
     </div>
   </div>
@@ -938,9 +1024,9 @@
 <div class="footer-disclaimer">
   <strong>【免責事項】</strong><br>
   本記事は一般的な情報提供を目的としたものであり、医療アドバイスではありません。
-  オメガ3脂肪酸の効果・必要量・リスクは、個人の体質・年齢・持病（特に心疾患・出血傾向）・服薬状況によって大きく異なります。<br>
-  サプリメントの使用・食事の変更を検討される際は、かかりつけ医・管理栄養士・薬剤師など医療の専門家にご相談ください。
-  特に抗凝固薬・抗血小板薬を服用中の方は、魚油サプリが出血時間に影響する可能性がありますので、必ず医師にお伝えください。
+  たんぱく質の必要量・補充方法の効果とリスクは、個人の体質・年齢・持病（腎機能障害など）・服薬状況によって大きく異なります。
+  腎臓病をお持ちの方は、高たんぱく食が腎機能に負担をかける場合がありますので、必ずかかりつけ医にご相談ください。<br>
+  食事内容の変更・プロテインサプリメントの使用などを検討される際は、管理栄養士・医師など医療の専門家にご相談ください。
 </div>
 
 </body>
