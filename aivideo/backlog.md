@@ -13,7 +13,6 @@
 
 - Sora 2 の最新機能・料金（直近情報で確認）
 - LTX 2.3 Pro の特徴（速度・解像度）
-- Google Flow の使い方ガイド（Veo 3.1 + Imagen）
 - Seedance の概要と使いどころ
 - Google Vids 無料枠（月10本）の使い方
 
@@ -25,6 +24,8 @@
 - C2PA 透かし・AI映像の識別技術（2026年業界標準化）
 
 ## 済み（扱ったテーマ）
+
+- 2026-06-05（ツール）：Google Flow 完全ガイド（Veo 3.1 + Nano Banana/Imagen・Scenebuilder・Ingredients）
 
 - 2026-05-30（ツール）：映像と音を同時に生成（Veo 3.1 / Runway Gen-4 / ネイティブ音声生成）
 - 2026-05-30（エバーグリーン）：ストーリーテリングの基本（3幕構成・フック）
