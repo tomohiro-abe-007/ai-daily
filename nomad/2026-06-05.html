@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>デジタルノマド 最新トピック 2026-06-05</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    color: #2a2a2a;
+  }
+  .hero {
+    background: linear-gradient(135deg, #2c6e4e 0%, #1a4033 100%);
+    color: white;
+    border-radius: 10px;
+    padding: 48px 40px;
+    text-align: center;
+    width: 100%;
+    max-width: 760px;
+    margin-bottom: 28px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .hero .label {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 0.8rem;
+    margin-bottom: 14px;
+    letter-spacing: 0.05em;
+  }
+  .hero h1 { font-size: 1.6rem; margin-bottom: 12px; line-height: 1.5; }
+  .hero .meta { opacity: 0.8; font-size: 0.88rem; line-height: 1.7; }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 8px;
+    padding: 28px 32px;
+    width: 100%;
+    max-width: 760px;
+    margin-bottom: 20px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.08);
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #2c6e4e;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px dashed #b2d4c4;
+  }
+  .card p { font-size: 0.93rem; line-height: 1.85; margin-bottom: 10px; }
+  .card p:last-child { margin-bottom: 0; }
+
+  .highlight-box {
+    background: #e8f5ef;
+    border-left: 4px solid #2c6e4e;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .highlight-box .hlabel {
+    font-size: 0.75rem;
+    color: #2c6e4e;
+    font-weight: 600;
+    margin-bottom: 6px;
+    display: block;
+  }
+  .highlight-box p { font-size: 0.9rem; margin: 0; }
+
+  .alert-box {
+    background: #fff3cd;
+    border-left: 4px solid #e8a000;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .alert-box .alabel {
+    font-size: 0.75rem;
+    color: #b07700;
+    font-weight: 600;
+    margin-bottom: 6px;
+    display: block;
+  }
+  .alert-box p { font-size: 0.9rem; margin: 0; }
+
+  .danger-box {
+    background: #fde8e8;
+    border-left: 4px solid #c0392b;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .danger-box .dlabel {
+    font-size: 0.75rem;
+    color: #c0392b;
+    font-weight: 600;
+    margin-bottom: 6px;
+    display: block;
+  }
+  .danger-box p { font-size: 0.9rem; margin: 0; }
+
+  .news-box {
+    background: #e8f0fd;
+    border-left: 4px solid #2a5e8e;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .news-box .nlabel {
+    font-size: 0.75rem;
+    color: #2a5e8e;
+    font-weight: 600;
+    margin-bottom: 6px;
+    display: block;
+  }
+  .news-box p { font-size: 0.9rem; margin: 0; }
+
+  .number-row {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin: 14px 0;
+  }
+  .number-card {
+    flex: 1;
+    min-width: 130px;
+    background: #2c6e4e;
+    color: white;
+    border-radius: 8px;
+    padding: 18px 14px;
+    text-align: center;
+  }
+  .number-card .num {
+    font-size: 1.55rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    line-height: 1.2;
+    letter-spacing: 0.03em;
+  }
+  .number-card .desc {
+    font-size: 0.72rem;
+    opacity: 0.9;
+    line-height: 1.5;
+  }
+  .number-card.amber { background: #b07700; }
+  .number-card.blue  { background: #2a5e8e; }
+  .number-card.red   { background: #922b2b; }
+
+  .flow-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin: 14px 0;
+  }
+  .flow-box {
+    background: #2c6e4e;
+    color: white;
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 0.88rem;
+    line-height: 1.6;
+  }
+  .flow-box .fb-label {
+    font-size: 0.7rem;
+    opacity: 0.8;
+    margin-bottom: 4px;
+    display: block;
+  }
+  .flow-box strong { font-size: 0.95rem; }
+  .flow-box.sub   { background: #4a9e74; }
+  .flow-box.light { background: #e8f5ef; color: #2a2a2a; border: 1.5px solid #b2d4c4; }
+  .flow-box.amber { background: #8a5e00; }
+  .flow-box.blue  { background: #2a5e8e; }
+  .flow-box.red   { background: #922b2b; }
+
+  .arrow-down {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #2c6e4e;
+    margin: 4px 0;
+    line-height: 1;
+  }
+
+  .step-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 12px 0;
+  }
+  .step-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .step-num {
+    background: #2c6e4e;
+    color: white;
+    border-radius: 50%;
+    min-width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.78rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .step-list li div { font-size: 0.9rem; line-height: 1.7; }
+
+  .compare-row {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin: 14px 0;
+  }
+  .compare-card {
+    flex: 1;
+    min-width: 180px;
+    border-radius: 8px;
+    padding: 16px 16px;
+    font-size: 0.88rem;
+    line-height: 1.7;
+  }
+  .compare-card h3 {
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+    padding-bottom: 6px;
+    border-bottom: 1.5px dashed;
+  }
+  .compare-card.green { background: #e8f5ef; border: 1.5px solid #2c6e4e; }
+  .compare-card.green h3 { color: #2c6e4e; border-color: #b2d4c4; }
+  .compare-card.amber { background: #fff8e8; border: 1.5px solid #c9920a; }
+  .compare-card.amber h3 { color: #a07800; border-color: #f0d080; }
+  .compare-card.red   { background: #fdeaea; border: 1.5px solid #c0392b; }
+  .compare-card.red h3 { color: #922b2b; border-color: #e8a0a0; }
+  .compare-card.blue  { background: #e8f0fd; border: 1.5px solid #2a5e8e; }
+  .compare-card.blue h3 { color: #2a5e8e; border-color: #a0c0e8; }
+
+  .matrix-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.87rem;
+    margin: 14px 0;
+  }
+  .matrix-table th {
+    background: #2c6e4e;
+    color: white;
+    padding: 10px 12px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.82rem;
+  }
+  .matrix-table th:first-child { border-radius: 6px 0 0 0; }
+  .matrix-table th:last-child  { border-radius: 0 6px 0 0; }
+  .matrix-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #d4e8dc;
+    vertical-align: top;
+    line-height: 1.55;
+  }
+  .matrix-table tr:nth-child(even) td { background: #f0f8f4; }
+  .matrix-table .ok   { color: #2c6e4e; font-weight: 700; }
+  .matrix-table .ng   { color: #c0392b; font-weight: 700; }
+  .matrix-table .warn { color: #b07700; font-weight: 700; }
+  .matrix-table .row-warn td { background: #fff8e8 !important; }
+  .matrix-table .row-danger td { background: #fdeaea !important; }
+
+  .check-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 12px 0;
+  }
+  .check-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 14px;
+    background: #f5fbf8;
+    border-radius: 6px;
+    border: 1px solid #c8e6d8;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  .check-list .ico { font-size: 1.1rem; flex-shrink: 0; margin-top: 2px; }
+
+  .source-list {
+    font-size: 0.78rem;
+    color: #888;
+    margin-top: 12px;
+    line-height: 1.8;
+  }
+  .source-list a { color: #4a9e74; word-break: break-all; }
+
+  .footer-note {
+    width: 100%;
+    max-width: 760px;
+    font-size: 0.78rem;
+    color: #777;
+    line-height: 1.8;
+    margin-top: 8px;
+    padding: 20px 24px;
+    background: #f5f2ec;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+  }
+  .footer-note strong { color: #555; }
+
+  .nav-bar {
+    width: 100%;
+    max-width: 760px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-size: 0.82rem;
+  }
+  .nav-bar a {
+    color: #2c6e4e;
+    text-decoration: none;
+    padding: 6px 14px;
+    border: 1px solid #b2d4c4;
+    border-radius: 20px;
+    background: #fff;
+  }
+  .nav-bar a:hover { background: #e8f5ef; }
+
+  .tag {
+    display: inline-block;
+    background: #2c6e4e;
+    color: white;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 6px;
+    vertical-align: middle;
+  }
+  .tag.amber { background: #b07700; }
+  .tag.blue  { background: #2a5e8e; }
+  .tag.red   { background: #922b2b; }
+</style>
+</head>
+<body>
+
+<!-- ナビゲーション -->
+<div class="nav-bar">
+  <a href="index.html">&larr; アーカイブ一覧</a>
+  <a href="2026-06-04.html">前の日報 &rarr;</a>
+</div>
+
+<!-- ヒーロー -->
+<div class="hero">
+  <div class="label">&#x1F4D3; デジタルノマド日報</div>
+  <h1>&#x1F6AB; スペイン国内からの「ビザ切り替え禁止」<br>&amp; UGE 取り締まり強化 ── 2026年版</h1>
+  <p class="meta">
+    2026年6月5日（金）｜バックログ解説：Non-Lucrative Visa（非収益ビザ）からDNVへの国内切り替え禁止の経緯と対策<br>
+    関連ニュース（2026年）：UGE-CE 審査品質管理ユニット新設・社会保険未登録の自動検出・代理人1件不正→全件見直しリスク<br>
+    「スペインに入ってからビザを変えよう」は通用しない ── DNV準備中の日本の1人法人オーナーが知るべきこと
+  </p>
+</div>
+
+<!-- 今日の数字 -->
+<div class="card">
+  <h2>&#x1F4CC; 今日の数字で見るポイント</h2>
+  <div class="number-row">
+    <div class="number-card red">
+      <div class="num">0件</div>
+      <div class="desc">スペイン国内からの<br>NLV&rarr;DNV切り替え<br>（2026年：UGEが不可を確認）</div>
+    </div>
+    <div class="number-card amber">
+      <div class="num">30日</div>
+      <div class="desc">社会保険未払い後に<br>自動アラート発動まで<br>の猶予（2026年強化）</div>
+    </div>
+    <div class="number-card blue">
+      <div class="num">1か月</div>
+      <div class="desc">クライアント変更時に<br>UGEへ届け出る期限<br>（超えると取り消しリスク）</div>
+    </div>
+    <div class="number-card">
+      <div class="num">&euro;2,850</div>
+      <div class="desc">2026年 単身申請者の<br>最低月収基準<br>（SMI &euro;1,221 の200%）</div>
+    </div>
+  </div>
+  <p style="font-size:0.82rem; color:#777; margin-top:8px;">
+    ※ &euro;2,850/月の基準は Royal Decree 126/2026 による SMI 改定（&euro;1,221/月）に基づく 2026年の基準です。<br>
+    ※ NLV&rarr;DNV 切り替え禁止は「2026年に UGE-CE が確認」として複数の移民法専門サイトが報告。BOE（スペイン官報）上の正式発令日は本記事時点では未確認のため断定しません。<br>
+    ※ 社会保険 30日アラートは 2026年の Seguridad Social と UGE のデータ連携強化によるもの（施行の正確な日付は一次ソースで要確認）。
+  </p>
+</div>
+
+<!-- NLV vs DNV -->
+<div class="card">
+  <h2>&#x1F4D8; NLV と DNV ── 「働けない」vs「海外向けに働ける」</h2>
+  <p>
+    スペインの在留資格の中で、デジタルノマドがよく混同する2つが
+    <strong>NLV（Non-Lucrative Visa / Visa No Lucrativa：非収益ビザ）</strong> と
+    <strong>DNV（国際遠隔就労ビザ / Autorizaci&oacute;n de residencia para teletrabajo de car&aacute;cter internacional）</strong>です。
+    根本的な性格がまったく異なります。
+  </p>
+
+  <div class="compare-row">
+    <div class="compare-card amber">
+      <h3>&#x1F512; NLV（Non-Lucrative Visa）</h3>
+      <strong>対象</strong>：年金・貯蓄・配当など「すでにある財産・収入」で生活できる人<br><br>
+      <strong>就労</strong>：<span style="color:#c0392b;font-weight:700;">スペイン国内・国外問わず就労は原則不可</span><br><br>
+      <strong>収入証明</strong>：IPREM 指標の 400% 以上<br>（約&euro;2,400/月相当・2026年目安）<br><br>
+      <strong>ベックハム法</strong>：適用不可<br><br>
+      <strong>主な利用者</strong>：富裕層の退職者・長期滞在者など
+    </div>
+    <div class="compare-card green">
+      <h3>&#x2705; DNV（国際遠隔就労ビザ）</h3>
+      <strong>対象</strong>：スペイン国外の企業・クライアントのためにリモートワークする外国人<br><br>
+      <strong>就労</strong>：<span style="color:#2c6e4e;font-weight:700;">海外クライアント向けの就労は可</span><br>（スペイン国内クライアントは収入の 20% 以内）<br><br>
+      <strong>収入証明</strong>：SMI の 200% ＝ &euro;2,850/月（2026年）<br><br>
+      <strong>ベックハム法</strong>：適用申請可（24% 一律税率・要件あり）<br><br>
+      <strong>根拠法</strong>：スタートアップ法（2022年12月制定）
+    </div>
+  </div>
+
+  <div class="alert-box">
+    <span class="alabel">&#x26A0;&#xFE0F; よくある誤解：「NLV でスペインに入ってから DNV に切り替えれば楽」は通用しない</span>
+    <p>
+      「NLV や観光ビザでスペインに滞在しながら、DNV を国内申請で切り替えられる」という認識が一部に広まっていましたが、
+      2026年に UGE-CE はこれを<strong>明確に否定</strong>しました。
+      スペイン国内からの切り替え申請は受理されません。
+    </p>
+  </div>
+</div>
+
+<!-- 国内切り替えNGの理由とフロー -->
+<div class="card">
+  <h2>&#x1F50D; なぜ「スペイン国内での切り替え」は不可なのか</h2>
+  <p>
+    DNV は「国際的なリモートワーカー向けの<strong>就労系在留資格</strong>」（スタートアップ法に基づく）です。
+    NLV は「就労しない人向けの<strong>非就労ビザ</strong>」です。
+    この性格の根本的な違いが、国内切り替えを認めない理由にあります。
+    また UGE は不正防止の観点から、NLV からの切り替え申請が書類偽造温床になっていることも確認しており、
+    2026年の取り締まり強化の一環として受理しない立場を明確にしました。
+  </p>
+
+  <div class="flow-wrap">
+    <div class="flow-box red">
+      <span class="fb-label">&#x274C; NG パターン：スペイン国内での切り替え（UGE が受理しない）</span>
+      <strong>NLV・観光ビザ・その他非就労ビザ でスペインに入国</strong><br>
+      &rarr; スペイン国内で DNV 申請<br>
+      &rarr; <span style="color:#ffb3b3;">UGE-CE が受理しない（2026年確認）</span>
+    </div>
+    <div class="arrow-down">&#x2193;</div>
+    <div class="flow-box">
+      <span class="fb-label">&#x2705; OK パターン①：日本（国外）から DNV を申請する</span>
+      <strong>在日スペイン大使館に DNV（Visado）を申請・承認を取得</strong><br>
+      &rarr; ビザ取得後にスペインへ渡航<br>
+      &rarr; 入国後 60日以内に TIE（外国人身分証カード）を申請
+    </div>
+    <div class="arrow-down">&#x2193;</div>
+    <div class="flow-box sub">
+      <span class="fb-label">&#x2705; OK パターン②：NLV 保持者が DNV に変更したい場合</span>
+      <strong>スペインを出国して日本（または他国）に戻る</strong><br>
+      &rarr; 在日スペイン大使館で DNV を正式申請<br>
+      &rarr; 承認後、DNV でスペインに改めて入国
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <span class="hlabel">&#x1F4A1; 日本から DNV を申請する人への実務的影響</span>
+    <p>
+      日本在住で最初から在日スペイン大使館に DNV を申請するケースは、この「国内切り替え禁止」には<strong>直接影響しません</strong>。
+      ただし「先にスペインを観光・下見してから、スペイン国内で DNV を申請しよう」という計画は実行できません。
+      <strong>必ずビザ承認が出てから渡航する</strong>か、出発前に全手続きを完了させてください。
+    </p>
+  </div>
+
+  <div class="source-list">
+    情報源：nodisea.com・globalcitizensolutions.com・remoteworkeurope.eu・remotefromspain.com 等の複数の 2026年移民法専門サイトが
+    UGE-CE の確認内容として報告。BOE（スペイン官報）の正式発令日は本記事時点では未確認のため「UGEが2026年に確認」と表記。
+  </div>
+</div>
+
+<!-- UGE-CE とは -->
+<div class="card">
+  <h2>&#x1F3DB;&#xFE0F; UGE-CE とは ── スペインの DNV 審査を担う専門組織</h2>
+  <p>
+    <strong>UGE-CE（Unidad de Grandes Empresas y Colectivos Estrat&eacute;gicos＝大企業・戦略的集団ユニット）</strong>は、
+    スペイン移民局（SEGIe）内にある専門部署で、DNV の審査・承認・更新・取り消しを一手に担います。
+  </p>
+  <p>
+    2026年に入り UGE-CE は組織的な強化を実施し、単なる書類審査から
+    <strong>不正検知・承認後のコンプライアンス確認</strong>まで行う体制に移行しました。
+  </p>
+
+  <div class="news-box">
+    <span class="nlabel">&#x1F4F0; 2026年の UGE-CE 組織強化（spainguru.es 2026年3月・複数の専門サイトが報告）</span>
+    <p>
+      &#x2022; <strong>上級審査官チームへの刷新</strong>：審査の質が向上し、「疑わしいときは却下」の判断が増加。審査通過の難度が上昇<br>
+      &#x2022; <strong>Unidad de Control（審査品質管理ユニット）を新設</strong>：社会保険登録状況の照合・承認後の実態確認を専門に担当<br>
+      &#x2022; <strong>Seguridad Social（スペイン社会保険庁）とのデータ連携強化</strong>：社会保険料の未納を自動検出し、<strong>30日以内</strong>に通知・対応がなければ調査開始<br>
+      &#x2022; <strong>代理人（エージェント）単位の横断審査</strong>：1件の不正書類が発覚した場合、同じ代理人が提出した全件を見直し（取り消しの波及リスク）<br>
+      &#x2022; 「みなし承認（positive administrative silence：期限内に当局が応答しない場合に申請が承認とみなされる仕組み）」案件の遡及調査を開始
+    </p>
+  </div>
+
+  <div class="danger-box">
+    <span class="dlabel">&#x1F534; 主な不正パターン（UGE が検出した実例）</span>
+    <p>
+      &#x2460; <strong>架空の雇用契約書</strong>：実際には存在しない、または活動していない会社との契約書<br>
+      &#x2461; <strong>複数申請者で同一書類</strong>：名前だけ変えてほぼ同じ書類を複数人分提出（代理人による一括量産）<br>
+      &#x2462; <strong>承認後の社会保険未登録</strong>：DNV を取得したにも関わらず Seguridad Social に登録しない<br>
+      &#x2463; <strong>スペイン国内収入の 20% 超え</strong>：DNV の要件（スペイン国内クライアントは収入の 20% 以内）の違反
+    </p>
+  </div>
+</div>
+
+<!-- 承認後の取り消しリスク一覧 -->
+<div class="card">
+  <h2>&#x26A0;&#xFE0F; DNV 承認後の「取り消しリスク」一覧</h2>
+  <p>
+    DNV を取得した後も、以下の条件を満たさないと在留資格が取り消される可能性があります。
+    2026年の取り締まり強化により、以前より厳しく確認されます。
+  </p>
+
+  <table class="matrix-table">
+    <thead>
+      <tr>
+        <th>リスク事由</th>
+        <th>具体的な内容</th>
+        <th>対策</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="row-danger">
+        <td>&#x1F534; <strong>社会保険未登録</strong></td>
+        <td>承認後に Seguridad Social（RETA または適用証明書ルート）への登録をしない</td>
+        <td>入国後速やかに登録。未払い 30日で自動アラート発動</td>
+      </tr>
+      <tr class="row-danger">
+        <td>&#x1F534; <strong>クライアント変更の未届け</strong></td>
+        <td>雇用主・主要クライアントが変わったのに 1か月以内に UGE へ届け出ない</td>
+        <td>変更は必ず 1か月以内に届け出。新クライアントは「市場存在 1年以上・収入基準を満たす」が条件</td>
+      </tr>
+      <tr class="row-warn">
+        <td>&#x1F7E1; <strong>6か月滞在要件の未達</strong></td>
+        <td>1年間にスペインで 6か月未満しか過ごさない（更新時に厳格確認）</td>
+        <td>入出国記録・交通費明細などを保管。物理的滞在の実態を証明できるよう準備</td>
+      </tr>
+      <tr class="row-warn">
+        <td>&#x1F7E1; <strong>スペイン収入 20% 超え</strong></td>
+        <td>スペイン国内クライアントからの収入が総収入の 20% を超える</td>
+        <td>請求書・口座明細で割合を管理。スペイン国内案件の比率に注意</td>
+      </tr>
+      <tr class="row-danger">
+        <td>&#x1F534; <strong>不正書類の事後発覚</strong></td>
+        <td>申請時の書類に虚偽・偽造が含まれていた（代理人によるものも含む）</td>
+        <td>信頼できる移民弁護士を選ぶ。自分で書類の中身を必ず確認する</td>
+      </tr>
+      <tr class="row-warn">
+        <td>&#x1F7E1; <strong>収入基準の未達</strong></td>
+        <td>更新時点で &euro;2,850/月（2026年基準）を下回る</td>
+        <td>更新の 3か月前から収入証明書類を整理しておく</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="source-list">
+    出典：spainguru.es「Spanish Digital Nomad Visa: New Clarifications, Stricter Controls, and Documentation Updates」（2026年3月16日公開）、
+    spainguru.es「Spain Digital Nomad Visa Denials 2026」（2026年3月18日公開）、
+    vissumlex.com「Digital Nomad Visa 2026: UGE Cancellations」（2026年）、
+    nodisea.com「Spain Digital Nomad Visa in 2026」（2026年）
+  </div>
+</div>
+
+<!-- 日本の1人法人オーナーへの影響 -->
+<div class="card">
+  <h2>&#x1F1EF;&#x1F1F5; 日本の1人法人オーナーへの実務的影響まとめ</h2>
+  <p>
+    「日本の法人を保持しながら世界中の顧客から売上を稼ぎ、スペインに住む」スタイルでは、特に以下の点に注意が必要です。
+  </p>
+
+  <div class="compare-row">
+    <div class="compare-card green">
+      <h3>&#x2705; 適切な DNV 申請ルート（日本から）</h3>
+      在日スペイン大使館に DNV を申請<br>
+      &darr; 大使館承認（ビザ取得）<br>
+      &darr; スペインへ渡航<br>
+      &darr; 60日以内に TIE 申請<br><br>
+      &#x2611; 「日本からの申請」は国内切り替え NG に<strong>該当しない</strong><br>
+      &#x2611; 下見渡航後は帰国してから正式申請
+    </div>
+    <div class="compare-card red">
+      <h3>&#x274C; やってはいけないこと</h3>
+      観光や NLV でスペインに入国したまま<br>
+      &rarr; スペイン国内で DNV 申請<br>
+      &rarr; <strong>受理されない（2026年 UGE 確認）</strong><br><br>
+      &#x2612; 代理人任せで書類を確認しない<br>
+      &rarr; 不正に巻き込まれリスクあり<br><br>
+      &#x2612; DNV 取得後に社会保険登録を放置<br>
+      &rarr; 30日で自動アラート・取り消しリスク
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <span class="hlabel">&#x1F4A1; 日本の1人法人から DNV 申請する際の「収入証明」</span>
+    <p>
+      日本の1人法人オーナーとして役員報酬を受け取っている場合、収入証明として使える主な書類：<br>
+      &#x2022; 法人の確定申告書（直近 2年分）<br>
+      &#x2022; 銀行口座の入出金明細（3〜6か月分）<br>
+      &#x2022; 役員報酬の支払いが分かる書類<br>
+      &#x2022; 法人と顧客との契約書（継続性を示すもの）<br><br>
+      「架空の収入」「過大申告」は現在 UGE が最も注視するポイントです。
+      実際の売上・報酬の水準が &euro;2,850/月を確実に超えていることを確認してから申請してください。
+    </p>
+  </div>
+
+  <div class="alert-box">
+    <span class="alabel">&#x26A0;&#xFE0F; 代理人（移民弁護士）選びの重要性が増している</span>
+    <p>
+      2026年の UGE 強化により「代理人単位の横断審査」が実施されています。
+      依頼した代理人の他の案件に不正が発覚すると、
+      <strong>あなたの申請も見直し対象になる可能性</strong>があります。
+      代理人（スペインの移民弁護士・行政書士）の実績・信頼性・承認実績を事前に必ず確認してください。
+    </p>
+  </div>
+</div>
+
+<!-- 社会保険登録フロー -->
+<div class="card">
+  <h2>&#x1F3DB;&#xFE0F; DNV 承認後の「社会保険登録」── 何に登録するのか</h2>
+  <p>
+    DNV を取得してスペインで活動するには、<strong>Seguridad Social（スペイン社会保険庁）</strong>への登録が必要です。
+    2026年の自動検出強化により、未登録は取り消しリスクに直結します。
+  </p>
+
+  <div class="flow-wrap">
+    <div class="flow-box">
+      <span class="fb-label">&#x1F4CD; ルート A：スペインの autónomo（自営業者）として登録</span>
+      <strong>RETA（R&eacute;gimen Especial de Trabajadores Aut&oacute;nomos）に登録</strong><br>
+      &rarr; 月額保険料：収入に応じた変動制（2026年目安：最低約 &euro;230/月〜）<br>
+      &rarr; 公的医療・傷病手当・老齢年金の対象になる<br>
+      &rarr; スペイン国内クライアントの 20% キャップに注意
+    </div>
+    <div class="arrow-down">または</div>
+    <div class="flow-box blue">
+      <span class="fb-label">&#x1F4CD; ルート B：日西社会保障協定の「適用証明書」を活用（日本の1人法人オーナー向け）</span>
+      <strong>日本年金機構に「適用証明書（Certificate of Coverage）」を申請</strong><br>
+      &rarr; スペインの TGSS（社会保険庁）に提出<br>
+      &rarr; 条件を満たす場合：RETA への二重加入が免除可能<br>
+      &rarr; 「自分の法人から自分を派遣」の形態が協定要件を満たすかは個別確認が必要<br>
+      &#x26A0;&#xFE0F; 詳細は 2026-06-04 の日報（日西社会保障協定）も参照
+    </div>
+  </div>
+
+  <div class="danger-box">
+    <span class="dlabel">&#x1F534; 2026年強化：社会保険未登録は 30日で自動通知</span>
+    <p>
+      2026年に強化された Seguridad Social と UGE のシステム連携により、
+      DNV 保持者が<strong>社会保険料を 1回でも滞納すると自動でアラートが発生</strong>し、
+      30日以内に解消されなければ調査（inspecci&oacute;n）が開始されます。
+      「うっかり忘れ」も取り消しリスクに直結するため、
+      口座引き落とし設定など確実な支払い方法を整えておくことが重要です。<br><br>
+      ※ このシステム連携の詳細・施行日は一次ソース（BOE・TGSS 公式）での確認を推奨します。
+    </p>
+  </div>
+</div>
+
+<!-- NLV保持者向け手順 -->
+<div class="card">
+  <h2>&#x1F504; 「NLV を持っているが DNV に変更したい」── 具体的な手順</h2>
+  <p>
+    現在スペインの NLV を保持しており DNV に変更したい場合の手順です。<strong>移民弁護士に必ず個別相談してください。</strong>
+  </p>
+
+  <ul class="step-list">
+    <li>
+      <span class="step-num">1</span>
+      <div>
+        <strong>スペインを出国する</strong>。NLV 滞在中にスペイン国内で DNV の申請を試みない。
+        シェンゲン圏外（日本など）に戻る。
+      </div>
+    </li>
+    <li>
+      <span class="step-num">2</span>
+      <div>
+        <strong>在日スペイン大使館で DNV を申請する</strong>。
+        必要書類（収入証明・健康保険・犯罪経歴証明・学歴職歴・法人関連書類など）を準備。
+        詳細は 2026-06-03 の日報（初回申請フロー）を参照。
+      </div>
+    </li>
+    <li>
+      <span class="step-num">3</span>
+      <div>
+        <strong>大使館から DNV（Visado）を取得し、スペインに入国する</strong>。
+        入国後 60日以内に TIE（Tarjeta de Identidad de Extranjero：外国人身分証カード）を申請。
+      </div>
+    </li>
+    <li>
+      <span class="step-num">4</span>
+      <div>
+        <strong>速やかに Seguridad Social 登録を行う</strong>。
+        RETA 登録か日西社会保障協定の適用証明書ルートかを選択し、手続きを開始する。
+      </div>
+    </li>
+  </ul>
+
+  <div class="highlight-box">
+    <span class="hlabel">&#x1F4CC; 注意：旧 NLV の残存期間と DNV の関係</span>
+    <p>
+      NLV の有効期間が残っている場合でも、DNV は<strong>別の在留資格として新規申請</strong>になります。
+      NLV の有効期限終了後に自動で DNV に切り替わるわけではありません。
+      タイミング・シェンゲン 90/180日ルールへの影響については移民弁護士に個別相談してください。
+    </p>
+  </div>
+</div>
+
+<!-- アクションチェックリスト -->
+<div class="card">
+  <h2>&#x2705; アクションチェックリスト ── やること・やってはいけないこと</h2>
+
+  <ul class="check-list">
+    <li>
+      <span class="ico">&#x1F1EF;&#x1F1F5;</span>
+      <div>
+        <strong>DNV は在日スペイン大使館から申請する</strong>。スペイン観光中に DNV 申請を試みない。
+        下見渡航をする場合は、必ず日本に帰国してから正式申請を行う。
+      </div>
+    </li>
+    <li>
+      <span class="ico">&#x1F4CB;</span>
+      <div>
+        <strong>書類はすべて自分で内容を確認する</strong>。代理人任せにせず、
+        収入証明・雇用契約書・法人登記証明が実態に即しているか確認する。
+        「代理人が用意した」書類でも、提出者（あなた）の責任になる。
+      </div>
+    </li>
+    <li>
+      <span class="ico">&#x1F3DB;&#xFE0F;</span>
+      <div>
+        <strong>DNV 取得後は速やかに Seguridad Social 登録</strong>。
+        RETA への登録か適用証明書ルートかを決め、入国後すぐに手続きを開始。
+        保険料の支払いは口座引き落とし設定を推奨。30日のアラートシステムを念頭に。
+      </div>
+    </li>
+    <li>
+      <span class="ico">&#x1F4C6;</span>
+      <div>
+        <strong>クライアント変更は 1か月以内に UGE へ届け出る</strong>。
+        新クライアントは「市場に 1年以上存在する企業」で「収入基準を満たす」が条件。
+        変更前後の収入水準の記録も残しておく。
+      </div>
+    </li>
+    <li>
+      <span class="ico">&#x1F5C2;&#xFE0F;</span>
+      <div>
+        <strong>スペイン滞在日数を月次で記録する</strong>。
+        更新時に「6か月以上の物理的滞在」が厳しく確認される（2026年強化）。
+        パスポートの EES 記録・交通費明細・宿泊領収書などを保管。
+      </div>
+    </li>
+    <li>
+      <span class="ico">&#x1F468;&#x200D;&#x2696;&#xFE0F;</span>
+      <div>
+        <strong>代理人（移民弁護士）を慎重に選ぶ</strong>。
+        UGE は同一エージェント提出の全件を横断調査することがある。
+        依頼先の弁護士・行政書士の実績・承認率を事前に確認する。
+      </div>
+    </li>
+    <li>
+      <span class="ico">&#x1F4B4;</span>
+      <div>
+        <strong>スペイン国内収入は 20% 以内に管理する</strong>。
+        日本の法人として世界中から稼ぐスタイルなら、
+        スペイン国内クライアントの割合を請求書ベースで 20% 以下に抑える。
+      </div>
+    </li>
+  </ul>
+</div>
+
+<!-- 用語まとめ -->
+<div class="card">
+  <h2>&#x1F4D6; 今日の用語まとめ</h2>
+  <p>
+    <span class="tag">NLV（Non-Lucrative Visa）</span>スペインの「非収益ビザ（Visa No Lucrativa）」。就労禁止。貯蓄・年金・配当で生活できる人向け。<br>
+    <span class="tag">DNV</span>国際遠隔就労ビザ。正式名称：Autorizaci&oacute;n de residencia para teletrabajo de car&aacute;cter internacional。2022年12月のスタートアップ法に基づく。<br>
+    <span class="tag">UGE-CE</span>Unidad de Grandes Empresas y Colect­ivos Estrat&eacute;gicos。スペイン移民局内の DNV 審査専門部署。<br>
+    <span class="tag">Unidad de Control</span>UGE 内に 2026年設置の審査品質管理ユニット。承認後のコンプライアンス確認・社会保険照合を担う。<br>
+    <span class="tag">IPREM</span>Indicador P&uacute;blico de Renta de Efectos M&uacute;ltiples。スペインの行政給付の基準となる公的指標。NLV の収入証明に使われる（DNV は SMI ベース）。<br>
+    <span class="tag">SMI</span>Salario M&iacute;nimo Interprofesional。スペインの法定最低賃金。2026年は Royal Decree 126/2026 により月額 &euro;1,221 に改定。DNV の収入要件（200%）の基準。<br>
+    <span class="tag">Seguridad Social</span>スペインの社会保険制度全体を指す。<br>
+    <span class="tag">RETA</span>R&eacute;gimen Especial de Trabajadores Aut&oacute;nomos。スペインの自営業者向け社会保険制度。月額は収入に応じた変動制。<br>
+    <span class="tag">TGSS</span>Tesorer&iacute;a General de la Seguridad Social。スペイン社会保険庁の徴収部門。登録・保険料管理を担当。<br>
+    <span class="tag">TIE</span>Tarjeta de Identidad de Extranjero。外国人身分証カード。スペイン入国後 60日以内に申請。<br>
+    <span class="tag">適用証明書（Certificate of Coverage）</span>日本年金機構が発行する証明書。スペインの TGSS に提出して RETA 免除を申請する際に使用（日西社会保障協定）。<br>
+    <span class="tag">Positive Administrative Silence</span>一定期間内に当局が応答しない場合に申請が承認とみなされる仕組み。2026年の UGE 遡及調査の対象に。
+  </p>
+</div>
+
+<!-- 出典 -->
+<div class="card">
+  <h2>&#x1F4DA; 参照した出典（2026年）</h2>
+  <div class="source-list" style="font-size:0.88rem; line-height:2.0;">
+    &#x2022; spainguru.es「Spanish Digital Nomad Visa: New Clarifications, Stricter Controls, and Documentation Updates」（公開：2026年3月16日）<br>
+    &nbsp;&nbsp;<a href="https://spainguru.es/2026/03/16/spanish-digital-nomad-visa-updates-requirements-fraud-controls/" target="_blank">https://spainguru.es/2026/03/16/...</a><br>
+    &#x2022; spainguru.es「Spain Digital Nomad Visa Denials 2026: Why You Get Rejected」（公開：2026年3月18日）<br>
+    &nbsp;&nbsp;<a href="https://spainguru.es/2026/03/18/spain-digital-nomad-visa-denials-2026/" target="_blank">https://spainguru.es/2026/03/18/...</a><br>
+    &#x2022; vissumlex.com「Digital Nomad Visa 2026: UGE Cancellations」（2026年）<br>
+    &nbsp;&nbsp;<a href="https://www.vissumlex.com/en/post/digital-nomad-visa-2026-uge-cancellations" target="_blank">https://www.vissumlex.com/...</a><br>
+    &#x2022; nodisea.com「Spain Digital Nomad Visa in 2026: New Updates and Renewal Requirements Explained」（2026年）<br>
+    &nbsp;&nbsp;<a href="https://nodisea.com/spain-digital-nomad-visa-in-2026/" target="_blank">https://nodisea.com/...</a><br>
+    &#x2022; remotefromspain.com「Spain's Digital Nomad Permit 2026 Update」（2026年）<br>
+    &nbsp;&nbsp;<a href="https://remotefromspain.com/spains-digital-nomad-permit-2026-update/" target="_blank">https://remotefromspain.com/...</a><br>
+    &#x2022; remoteworkeurope.eu「Spain digital nomad visa 2026: what's changed and what you need to know」（2026年）<br>
+    &nbsp;&nbsp;<a href="https://remoteworkeurope.eu/insights/spain-digital-nomad-visa/" target="_blank">https://remoteworkeurope.eu/...</a><br>
+    &#x2022; globalcitizensolutions.com「Spain Digital Nomad Visa 2026」（2026年）<br>
+    &nbsp;&nbsp;<a href="https://www.globalcitizensolutions.com/spain-digital-nomad-visa/" target="_blank">https://www.globalcitizensolutions.com/...</a><br>
+    &#x2022; jobbatical.com「Spain Digital Nomad Visa 2026: &euro;2,849 Income Guide」（2026年）<br>
+    &nbsp;&nbsp;<a href="https://www.jobbatical.com/blog/spain-digital-nomad-visa-income-smi-increase" target="_blank">https://www.jobbatical.com/...</a><br>
+    <p style="margin-top:10px; color:#999;">
+      ※ 上記はいずれも移民法専門弁護士事務所またはビザ専門サービスのサイトです。<br>
+      ※ UGE の公式声明（BOE 等）の直接リンクは本記事時点では未確認のため、「UGE が 2026年に確認した内容として専門家サイトが報告」と位置づけています。
+    </p>
+  </div>
+</div>
+
+<!-- 免責事項 -->
+<div class="footer-note">
+  <strong>&#x26A0;&#xFE0F; 免責事項</strong><br>
+  本記事はデジタルノマド・海外在住者向けのスペインビザ・税務・社会保険に関する情報提供を目的としています。<br><br>
+  &#x2022; ビザ・在留資格（NLV&rarr;DNV 切り替え・UGE 審査・取り消し要件等）に関する正式な判断は<strong>スペイン入国管理法を専門とする移民弁護士（abogado de extranjer&iacute;a）</strong>へ。<br>
+  &#x2022; 税務（社会保険料の取り扱い・役員報酬の源泉徴収・ベックハム法の適用等）に関する正式な判断は<strong>国際税務に精通した税理士</strong>へ。<br>
+  &#x2022; NLV&rarr;DNV 切り替え禁止：2026年に UGE-CE が確認した内容として複数の移民法専門サイトが報告していますが、BOE（スペイン官報）上での正式な公示日は本記事時点では未確認です。<br>
+  &#x2022; 社会保険 30日自動アラート：2026年の強化措置として専門サイトが報告。詳細条件は Seguridad Social 公式（<a href="https://www.seg-social.es" target="_blank">seg-social.es</a>）で確認してください。<br>
+  &#x2022; 収入基準（&euro;2,850/月）は Royal Decree 126/2026 による SMI 改定（&euro;1,221/月）に基づく 2026年の基準です。毎年変更の可能性があります。<br>
+  &#x2022; 「必ず承認される」「取り消されない」などの断定は一切しておりません。<br>
+  &#x2022; 本記事の情報は 2026年6月時点の各種情報源をもとに作成。制度は随時変更されます。
+</div>
+
+</body>
+</html>
