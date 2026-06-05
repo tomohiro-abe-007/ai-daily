@@ -9,6 +9,7 @@
 - 2026-06-03: Microsoft Build 2026 / MAIシリーズ7種 / NVIDIA Nemotron 3 Ultra 550B / トランプ政権AI行政命令
 - 2026-06-04: NVIDIA物理AIオープンソース（Cosmos 3 / Alpamayo 2 Super / Isaac / Metropolis）/ ChatGPT求人検索・履歴書機能
 - 2026-06-05: GitHub Copilot従量課金移行（AI Credits / 定額→トークンベース課金 / 2026-06-01）
+- 2026-06-06: CVPR 2026（米デンバー・6月3-7日）/ 採択論文4,090本・前年比+42% / Embodied AI急増 / マルチモーダルAI拡大
 
 ## 未解説の候補トピック（今後の参考）
 
@@ -16,7 +17,6 @@
 - ServiceNow Project Arc（2026年5月）：企業向け自律型デスクトップAIエージェント
 - xAI Grok 4.3 Beta（2026年4月）：動画・スライド・音声API対応のマルチモーダル推論
 - OpenAI o3-pro（2026年6月10日リリース予定）：最も信頼性が高いと位置づけるモデル
-- CVPR 2026 研究成果（6月3-7日・米デンバー）：物理AI・自律走行・ニューラルレンダリングの最先端論文
 - AI×医療（創薬・診断）最新動向：製薬大手とAI企業の提携が相次ぐ
 - AI半導体競争：AMD・Intelの対抗策と次世代GPU市場
 - 日本のAI活用事例：製造業・金融・官公庁での実装事例
