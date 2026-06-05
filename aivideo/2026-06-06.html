@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI動画制作 技法解説 2026-06-06</title>
+<style>
+:root{
+  --bg:#ece8e1;--card:#faf6ec;--dark:#3a2a0a;--dark2:#1a3a5c;
+  --accent:#5c3a0a;--warm:#c4762a;
+  --text:#2a3540;--muted:#7c8a82;--border:#e0d8c8;
+  /* 順光 */
+  --front:#7c5a1a;--frontl:#f6f0e2;
+  /* 逆光 */
+  --back:#1a1a5c;--backl:#e8e8f8;
+  /* サイドライト */
+  --side:#3a1a5c;--sidel:#f0e8f8;
+  /* ゴールデンアワー */
+  --gold:#8c3a0a;--goldl:#f8ede4;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,"Hiragino Sans","Yu Gothic",sans-serif;line-height:1.7;padding:24px 16px;}
+.wrap{max-width:860px;margin:0 auto;}
+
+/* Header */
+.header{background:linear-gradient(135deg,#3a2a0a,#1a3a5c);color:#fff;border-radius:20px;padding:40px 32px;text-align:center;box-shadow:0 8px 24px rgba(58,42,10,.32);margin-bottom:24px;}
+.date-badge{background:rgba(255,255,255,.18);color:#f0d8a8;border-radius:20px;padding:4px 16px;font-size:.85rem;display:inline-block;margin-bottom:16px;letter-spacing:.08em;}
+.header h1{font-size:1.9rem;margin-bottom:8px;letter-spacing:.04em;}
+.header .subtitle{color:#f0d8a8;font-size:1rem;}
+.tag-row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:14px;}
+.header .tag{background:rgba(255,255,255,.15);border-radius:12px;padding:3px 12px;font-size:.78rem;display:inline-block;color:#ffe4a8;}
+
+/* Section */
+.section{background:var(--card);border-radius:16px;padding:28px 24px;margin-bottom:20px;box-shadow:0 3px 12px rgba(0,0,0,.06);border:1px solid var(--border);}
+.section-title{font-size:1.1rem;font-weight:700;color:var(--accent);border-bottom:2px solid var(--border);padding-bottom:10px;margin-bottom:18px;display:flex;align-items:center;gap:8px;}
+
+/* 光タイプカード */
+.light-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:16px;}
+.light-card{border-radius:12px;padding:16px 14px;border:1px solid var(--border);}
+.light-card.front{background:var(--frontl);border-color:#e0c888;}
+.light-card.back{background:var(--backl);border-color:#b0b0d8;}
+.light-card.side{background:var(--sidel);border-color:#c8b0d8;}
+.light-card.gold{background:var(--goldl);border-color:#e0b890;}
+.light-card .c-head{font-size:.9rem;font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.light-card.front .c-head{color:var(--front);}
+.light-card.back .c-head{color:var(--back);}
+.light-card.side .c-head{color:var(--side);}
+.light-card.gold .c-head{color:var(--gold);}
+.light-card p{font-size:.8rem;color:var(--text);line-height:1.6;}
+
+/* 光の方向図（CSS描画） */
+.light-diagram{position:relative;width:100%;max-width:520px;margin:18px auto;aspect-ratio:16/9;border-radius:12px;overflow:hidden;}
+
+/* 順光図 */
+.front-scene{background:linear-gradient(180deg,#b8d4f0 0%,#e8e0c8 70%,#c8b870 100%);}
+
+/* 逆光図 */
+.back-scene{background:linear-gradient(180deg,#0a1020 0%,#1a2840 40%,#1a1a0a 100%);}
+
+/* サイドライト図 */
+.side-scene{background:linear-gradient(180deg,#1a0a2a 0%,#2a1a3a 60%,#0a0a10 100%);}
+
+/* ゴールデン図 */
+.golden-scene{background:linear-gradient(180deg,#8c3a00 0%,#c06010 30%,#e8a020 55%,#f0c060 70%,#e8c870 85%,#c8b858 100%);}
+
+/* Comparison table */
+.light-table{width:100%;border-collapse:collapse;margin-top:16px;font-size:.82rem;}
+.light-table th{padding:10px 12px;text-align:left;color:#fff;}
+.light-table th.h-front{background:var(--front);}
+.light-table th.h-back{background:var(--back);}
+.light-table th.h-side{background:var(--side);}
+.light-table th.h-gold{background:var(--gold);}
+.light-table th.h-item{background:#555;}
+.light-table td{padding:9px 12px;border-bottom:1px solid var(--border);vertical-align:top;}
+.light-table tr:last-child td{border-bottom:none;}
+.light-table tr:nth-child(even) td{background:#f5f0e8;}
+.light-table th:first-child{border-radius:8px 0 0 0;}
+.light-table th:last-child{border-radius:0 8px 0 0;}
+
+/* Steps */
+.steps{counter-reset:step;margin-top:16px;}
+.step{display:flex;gap:14px;align-items:flex-start;margin-bottom:14px;}
+.step-num{counter-increment:step;background:var(--accent);color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:700;flex-shrink:0;margin-top:2px;}
+.step-body h4{font-size:.9rem;font-weight:700;color:var(--accent);margin-bottom:3px;}
+.step-body p{font-size:.83rem;color:var(--text);}
+.step-prompt{background:#2a1a0a;color:#f0d8a8;border-radius:8px;padding:10px 12px;font-size:.78rem;font-family:monospace;margin-top:6px;line-height:1.6;}
+
+/* Tip / Example boxes */
+.tip-box{background:#fff8e8;border:1px solid #e8d0a0;border-radius:10px;padding:12px 14px;margin-top:14px;font-size:.83rem;}
+.example-box{background:#f4f0f8;border-left:4px solid var(--side);border-radius:0 10px 10px 0;padding:14px 16px;margin-top:14px;}
+.example-box h4{font-size:.9rem;font-weight:700;color:var(--side);margin-bottom:6px;}
+.example-box p{font-size:.83rem;color:var(--text);}
+
+/* Shot plan */
+.shot-item{display:flex;align-items:flex-start;gap:12px;border-radius:10px;padding:14px 16px;border:1px solid var(--border);}
+.shot-num{color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;flex-shrink:0;margin-top:2px;}
+.shot-arrow{text-align:center;font-size:1.2rem;color:var(--warm);}
+.mono{background:#2a1a0a;color:#f0d8a8;border-radius:6px;padding:8px 10px;font-size:.75rem;font-family:monospace;margin-top:6px;line-height:1.6;}
+
+/* Hour comparison */
+.hour-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-top:14px;}
+.hour-card{border-radius:10px;padding:12px;text-align:center;border:1px solid var(--border);}
+.hour-card .h-icon{font-size:1.8rem;margin-bottom:6px;}
+.hour-card .h-time{font-size:.72rem;font-weight:700;margin-bottom:4px;}
+.hour-card .h-desc{font-size:.72rem;color:var(--muted);line-height:1.5;}
+
+/* Disclaimer */
+.disclaimer{background:#f5f0e8;border:1px solid var(--border);border-radius:12px;padding:16px;margin-top:20px;font-size:.78rem;color:var(--muted);line-height:1.6;}
+.disclaimer strong{color:var(--warm);}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="date-badge">2026-06-06 ／ エバーグリーン・技法</div>
+    <h1>AI動画制作 技法解説</h1>
+    <div class="subtitle">光の使い方 ── 順光・逆光・サイドライト・ゴールデンアワーで映像の「感情」を操る</div>
+    <div class="tag-row">
+      <span class="tag">☀️ ライティング</span>
+      <span class="tag">🎬 映像演出</span>
+      <span class="tag">📝 プロンプト活用</span>
+      <span class="tag">🌅 ゴールデンアワー</span>
+    </div>
+  </div>
+
+  <!-- 光とは -->
+  <div class="section">
+    <div class="section-title">☀️ 「光の向き」がなぜそんなに大事？</div>
+    <p>
+      映像で「雰囲気が違う」「プロっぽく見える」と感じる差の多くは、
+      <strong>光がどこから来るか（光の方向）</strong>によって生まれます。
+      同じ場所・同じ人物・同じカメラでも、光の方向を変えるだけで
+      <strong>明るく楽しい雰囲気⇔暗くミステリアスな雰囲気</strong>に変えられます。
+    </p>
+    <p style="margin-top:10px;font-size:.85rem;color:var(--muted);">
+      ＊ライティング＝映像に使う光の当て方のこと。自然光（太陽・空）でも人工光（ライト）でも同じ原理が使えます。
+    </p>
+
+    <div class="light-cards">
+      <div class="light-card front">
+        <div class="c-head">☀️ 順光</div>
+        <p>カメラと同じ方向から光が当たる。顔が均一に明るく、見やすい・安全な印象。初心者に向いている。</p>
+      </div>
+      <div class="light-card back">
+        <div class="c-head">🌒 逆光</div>
+        <p>被写体の後ろから光が当たる。シルエット・縁取り（リムライト）が生まれ、ドラマチック・神秘的な印象に。</p>
+      </div>
+      <div class="light-card side">
+        <div class="c-head">🌗 サイドライト</div>
+        <p>横から光が当たる。顔・物の凹凸（おうとつ）が強調されて立体感が増し、力強い・緊張感ある雰囲気に。</p>
+      </div>
+      <div class="light-card gold">
+        <div class="c-head">🌅 ゴールデンアワー</div>
+        <p>日の出直後・日没前後の黄金色の光。すべてが温かく美しく見える「魔法の時間帯」。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 順光 -->
+  <div class="section">
+    <div class="section-title">☀️ 順光（じゅんこう）── 「見やすい・安全・親しみやすい」</div>
+    <p>
+      <strong>順光</strong>とは、カメラ（観る人の目）と<strong>同じ方向から光が来る</strong>状態です。
+      被写体の正面が均一に照らされるため、影が少なく人物の顔がはっきり映ります。
+      インタビュー動画・商品紹介・子ども動画など「見やすさ」が最優先の場面で活躍します。
+    </p>
+
+    <!-- 順光 図 -->
+    <div class="light-diagram front-scene" style="background:linear-gradient(180deg,#c8e0f8 0%,#e8e4d0 60%,#d0c890 100%);">
+      <!-- 太陽（前方） -->
+      <div style="position:absolute;top:14%;left:12%;text-align:center;">
+        <div style="font-size:2.4rem;filter:drop-shadow(0 0 12px rgba(255,220,80,.9));">☀️</div>
+        <div style="font-size:.55rem;color:#7c5a1a;background:rgba(255,255,255,.65);border-radius:4px;padding:1px 5px;margin-top:2px;">光源（カメラ側）</div>
+      </div>
+      <!-- 光の矢印（前→被写体） -->
+      <div style="position:absolute;top:28%;left:24%;width:28%;height:2px;background:linear-gradient(to right,rgba(255,220,80,.9),rgba(255,220,80,.1));border-radius:1px;"></div>
+      <div style="position:absolute;top:24%;left:49%;font-size:1rem;color:rgba(255,180,20,.8);">→</div>
+      <!-- カメラ -->
+      <div style="position:absolute;bottom:18%;left:10%;text-align:center;">
+        <div style="font-size:1.6rem;">📷</div>
+        <div style="font-size:.52rem;color:#2a3540;background:rgba(255,255,255,.65);border-radius:4px;padding:1px 5px;">カメラ</div>
+      </div>
+      <!-- 被写体 -->
+      <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);text-align:center;">
+        <div style="font-size:2.8rem;">😊</div>
+        <div style="font-size:.58rem;color:#2a3540;background:rgba(255,255,255,.7);border-radius:4px;padding:2px 6px;margin-top:2px;">顔が均一に明るい</div>
+      </div>
+      <!-- NG影なし表示 -->
+      <div style="position:absolute;right:12%;top:50%;transform:translateY(-50%);text-align:center;">
+        <div style="font-size:.65rem;color:rgba(100,80,20,.7);background:rgba(255,255,220,.6);border-radius:6px;padding:4px 8px;border:1px solid rgba(200,160,40,.4);">影が少ない<br>見やすい✓</div>
+      </div>
+      <!-- ラベル -->
+      <div style="position:absolute;bottom:6px;right:10px;font-size:.55rem;color:rgba(60,40,10,.4);">順光イメージ図</div>
+    </div>
+
+    <div class="light-cards" style="margin-top:4px;">
+      <div class="light-card front">
+        <div class="c-head">✅ 向いているシーン</div>
+        <p>インタビュー・解説動画・商品紹介・子ども記録・日常Vlog。人物の表情が伝わりやすい場面すべて。</p>
+      </div>
+      <div class="light-card front" style="background:#f8f0f0;border-color:#ddb8b8;">
+        <div class="c-head" style="color:#8c3a3a;">⚠️ 弱点</div>
+        <p>影がなくて「のっぺり・平面的」に見えることがある。立体感や深みが出にくく、ドラマ性は低め。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 逆光 -->
+  <div class="section">
+    <div class="section-title">🌒 逆光（ぎゃっこう）── 「ドラマ・神秘・シルエット」</div>
+    <p>
+      <strong>逆光</strong>とは、<strong>光が被写体の後ろから来る</strong>状態です。
+      被写体の輪郭に光の縁取り（<strong>リムライト</strong>）が生まれ、
+      シルエット・ハロー（光の輪）が出て映像が一気にドラマチックになります。
+    </p>
+    <p style="margin-top:8px;font-size:.85rem;color:var(--muted);">
+      ＊リムライト＝「縁（ふち）の光」のこと。被写体の輪郭が光で縁取られる現象。
+    </p>
+
+    <!-- 逆光 図 -->
+    <div class="light-diagram back-scene">
+      <!-- 背景の光（後ろ） -->
+      <div style="position:absolute;top:8%;right:10%;text-align:center;">
+        <div style="font-size:2.4rem;filter:drop-shadow(0 0 20px rgba(255,200,80,1));">☀️</div>
+        <div style="font-size:.55rem;color:#f0d870;background:rgba(0,0,0,.5);border-radius:4px;padding:1px 5px;margin-top:2px;">光源（後ろ側）</div>
+      </div>
+      <!-- 光矢印（後→被写体） -->
+      <div style="position:absolute;top:28%;right:24%;width:22%;height:2px;background:linear-gradient(to left,rgba(255,220,80,.9),rgba(255,220,80,.1));border-radius:1px;"></div>
+      <div style="position:absolute;top:24%;right:44%;font-size:1rem;color:rgba(255,180,20,.8);">←</div>
+      <!-- カメラ -->
+      <div style="position:absolute;bottom:18%;left:10%;text-align:center;">
+        <div style="font-size:1.6rem;">📷</div>
+        <div style="font-size:.52rem;color:#d8d8f0;background:rgba(0,0,0,.4);border-radius:4px;padding:1px 5px;">カメラ</div>
+      </div>
+      <!-- 被写体（シルエット） -->
+      <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);text-align:center;">
+        <!-- リムライトグロウ -->
+        <div style="position:relative;display:inline-block;">
+          <div style="font-size:2.8rem;filter:drop-shadow(0 0 14px rgba(255,200,60,1)) drop-shadow(0 0 6px rgba(255,160,20,.8));opacity:.55;">🧍</div>
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
+            <div style="font-size:2.8rem;opacity:.25;color:#000;">🧍</div>
+          </div>
+        </div>
+        <div style="font-size:.58rem;color:#f0d878;background:rgba(0,0,0,.55);border-radius:4px;padding:2px 6px;margin-top:2px;">輪郭が光る（リムライト）</div>
+      </div>
+      <!-- 説明 -->
+      <div style="position:absolute;left:10%;top:50%;transform:translateY(-50%);font-size:.6rem;color:rgba(200,190,240,.7);background:rgba(0,0,0,.4);border-radius:6px;padding:4px 8px;line-height:1.5;">正面は暗く<br>輪郭が光る<br>→ ドラマチック</div>
+      <div style="position:absolute;bottom:6px;right:10px;font-size:.55rem;color:rgba(200,200,255,.3);">逆光イメージ図</div>
+    </div>
+
+    <div class="light-cards" style="margin-top:4px;">
+      <div class="light-card back">
+        <div class="c-head">✅ 向いているシーン</div>
+        <p>感動の再会・ヒーローの登場・別れのシーン・正体を隠したい人物。「誰？」「すごい…」を引き出したい場面。</p>
+      </div>
+      <div class="light-card back">
+        <div class="c-head">🎭 シルエット活用</div>
+        <p>被写体を完全に黒くして形だけ見せる。「顔を見せない演出」「ミステリアスな出だし」に効果的。日没を背景に使うと映画風に。</p>
+      </div>
+    </div>
+
+    <div class="tip-box">
+      💡 <strong>逆光で顔も映したいときは？</strong><br>
+      スマホ・カメラの<strong>露出補正（画面をタップ→明るさ調整）</strong>で顔を明るくしましょう。
+      プロは「レフ板（光を反射させる白いボード）」や「補助ライト」で顔を起こします。
+    </div>
+  </div>
+
+  <!-- サイドライト -->
+  <div class="section">
+    <div class="section-title">🌗 サイドライト（横光）── 「立体感・緊張感・力強さ」</div>
+    <p>
+      <strong>サイドライト</strong>とは、<strong>横から光が当たる</strong>状態です。
+      顔や物の<strong>凹凸（でこぼこ）が影になって強調</strong>されるため、
+      立体的でリアルに見えます。映画・ポートレート・料理動画でよく使われます。
+    </p>
+
+    <!-- サイドライト 図 -->
+    <div class="light-diagram side-scene">
+      <!-- 背景 -->
+      <div style="position:absolute;inset:0;background:linear-gradient(to right,#e8b050 0%,#5c4030 25%,#1a0a2a 55%,#0a050f 100%);"></div>
+      <!-- 太陽（左側面） -->
+      <div style="position:absolute;top:20%;left:6%;text-align:center;">
+        <div style="font-size:2rem;filter:drop-shadow(0 0 16px rgba(255,180,60,1));">☀️</div>
+        <div style="font-size:.52rem;color:#f0c870;background:rgba(0,0,0,.5);border-radius:4px;padding:1px 5px;margin-top:2px;">光源（横）</div>
+      </div>
+      <!-- 光矢印（左→被写体） -->
+      <div style="position:absolute;top:33%;left:18%;width:18%;height:2px;background:linear-gradient(to right,rgba(255,180,60,.9),rgba(255,180,60,.1));"></div>
+      <div style="position:absolute;top:29%;left:34%;font-size:.9rem;color:rgba(255,160,20,.8);">→</div>
+      <!-- 被写体（左半分明・右半分暗） -->
+      <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;gap:0;">
+        <!-- 明るい半分 -->
+        <div style="font-size:2.8rem;filter:drop-shadow(0 0 8px rgba(255,160,40,.6));clip-path:inset(0 50% 0 0);opacity:.9;position:absolute;left:50%;transform:translateX(-50%);">😊</div>
+        <!-- 暗い半分 -->
+        <div style="font-size:2.8rem;filter:brightness(0.18);clip-path:inset(0 0 0 50%);position:absolute;left:50%;transform:translateX(-50%);">😊</div>
+        <!-- ベース -->
+        <div style="font-size:2.8rem;opacity:0;">😊</div>
+      </div>
+      <!-- 説明テキスト -->
+      <div style="position:absolute;left:50%;top:68%;transform:translateX(-50%);font-size:.58rem;color:#f0c870;background:rgba(0,0,0,.55);border-radius:4px;padding:2px 8px;white-space:nowrap;">左が明るく・右に影→立体感</div>
+      <!-- 暗部ラベル -->
+      <div style="position:absolute;right:10%;top:50%;transform:translateY(-50%);font-size:.6rem;color:rgba(200,160,240,.6);background:rgba(0,0,0,.4);border-radius:6px;padding:4px 7px;line-height:1.5;">影で奥行き<br>凹凸が強調<br>→ 立体的</div>
+      <div style="position:absolute;bottom:6px;right:10px;font-size:.55rem;color:rgba(200,200,255,.25);">サイドライトイメージ図</div>
+    </div>
+
+    <div class="light-cards" style="margin-top:4px;">
+      <div class="light-card side">
+        <div class="c-head">✅ 向いているシーン</div>
+        <p>人物のドラマチックなモノローグ・悪役・決意の場面・料理の盛り付け・彫刻・建物のテクスチャ撮影。</p>
+      </div>
+      <div class="light-card side">
+        <div class="c-head">💡 1/4光（クォーターライト）</div>
+        <p>サイドとフロントの中間から当てる「斜め光」。立体感を出しつつ影が暗くなりすぎない、バランスの良い光。ポートレートの定番。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ゴールデンアワー＆ブルーアワー -->
+  <div class="section">
+    <div class="section-title">🌅 ゴールデンアワー＆ブルーアワー ── 時間帯が生む「魔法の光」</div>
+    <p>
+      屋外撮影で一番「映える（ばえる）」光は<strong>時間帯で決まります</strong>。
+      特に<strong>ゴールデンアワー</strong>（黄金の時間帯）は
+      プロも口を揃えて「この時間に撮れ」と言う最高の自然光です。
+    </p>
+
+    <!-- ゴールデンアワー 図 -->
+    <div class="light-diagram golden-scene" style="aspect-ratio:16/6;">
+      <!-- 地平線グラデ -->
+      <div style="position:absolute;bottom:0;left:0;right:0;height:35%;background:linear-gradient(to top,#8c6010,transparent);"></div>
+      <!-- 太陽（低い位置） -->
+      <div style="position:absolute;bottom:30%;left:50%;transform:translateX(-50%);text-align:center;">
+        <div style="font-size:2.8rem;filter:drop-shadow(0 0 24px rgba(255,160,20,1)) drop-shadow(0 0 48px rgba(255,100,0,.6));">🌅</div>
+      </div>
+      <!-- 光の帯 -->
+      <div style="position:absolute;bottom:28%;left:0;right:0;height:3px;background:linear-gradient(to right,transparent,rgba(255,220,80,.6) 30%,rgba(255,180,40,.8) 50%,rgba(255,220,80,.6) 70%,transparent);"></div>
+      <!-- ラベル -->
+      <div style="position:absolute;top:8px;left:12px;font-size:.62rem;color:#fff8d0;background:rgba(0,0,0,.35);border-radius:6px;padding:3px 8px;">太陽が地平線に近い低い角度 → 長い影・暖かい色</div>
+      <div style="position:absolute;bottom:6px;right:10px;font-size:.55rem;color:rgba(255,240,180,.4);">ゴールデンアワーイメージ</div>
+    </div>
+
+    <div class="hour-row">
+      <div class="hour-card" style="background:#fff8e0;border-color:#e8d090;">
+        <div class="h-icon">🌅</div>
+        <div class="h-time" style="color:#8c4a00;">日の出 ±30分<br>ゴールデンアワー（朝）</div>
+        <div class="h-desc">温かいオレンジ・ピンク。静けさ・清らかさ・新しい始まりの雰囲気。</div>
+      </div>
+      <div class="hour-card" style="background:#fff4e4;border-color:#e8c8a0;">
+        <div class="h-icon">🌇</div>
+        <div class="h-time" style="color:#7c3a00;">日没 ±30分<br>ゴールデンアワー（夕）</div>
+        <div class="h-desc">深いオレンジ・赤。感動・終わり・切なさ・ドラマチック。最も人気の時間帯。</div>
+      </div>
+      <div class="hour-card" style="background:#e8eaf8;border-color:#b0b8e0;">
+        <div class="h-icon">🌆</div>
+        <div class="h-time" style="color:#1a2a6c;">日没後 15〜30分<br>ブルーアワー</div>
+        <div class="h-desc">青・藍色の柔らかい光。都市の街明かりとのコントラストが幻想的。クールな雰囲気。</div>
+      </div>
+      <div class="hour-card" style="background:#f5f5f5;border-color:#c8c8d0;">
+        <div class="h-icon">☁️</div>
+        <div class="h-time" style="color:#3a3a5c;">曇りの昼間<br>ソフトボックス効果</div>
+        <div class="h-desc">雲が光を拡散させ、影が出ない柔らかい光に。ポートレートに向く「自然のディフューザー」。</div>
+      </div>
+    </div>
+
+    <div class="tip-box">
+      💡 <strong>ゴールデンアワーは「短い！」</strong><br>
+      良い光は約15〜30分しか続きません。事前に構図・設定・被写体の配置をすべて決めておいて、
+      その瞬間に集中して撮りましょう。スマホのアプリ「PhotoPills」「Sun Surveyor」などで
+      その日・その場所の正確なゴールデンアワー時刻を調べられます。
+    </div>
+
+    <div class="example-box">
+      <h4>🎬 真似できる実践例：ゴールデンアワー逆光シルエット</h4>
+      <p>
+        日没の30分前に公園へ。夕日を背に人物を立たせ、カメラを低めに構えます。
+        人物のシルエットと黄金色の空が重なり、3秒のショットでも映画のような1枚が撮れます。
+        スマホなら画面を空にタップして露出を暗めに調整するだけ。
+      </p>
+    </div>
+  </div>
+
+  <!-- 4種類の比較表 -->
+  <div class="section">
+    <div class="section-title">📊 4種の光 ── 「何を感じさせたいか」で選ぶ</div>
+
+    <table class="light-table">
+      <tr>
+        <th class="h-item">比較項目</th>
+        <th class="h-front">☀️ 順光</th>
+        <th class="h-back">🌒 逆光</th>
+        <th class="h-side">🌗 サイドライト</th>
+        <th class="h-gold">🌅 ゴールデンアワー</th>
+      </tr>
+      <tr>
+        <td><strong>感じさせる感情</strong></td>
+        <td>明るさ・安心・親しみやすさ</td>
+        <td>謎・ドラマ・神秘・感動</td>
+        <td>力強さ・緊張・立体感・リアル</td>
+        <td>温かみ・感動・切なさ・美しさ</td>
+      </tr>
+      <tr>
+        <td><strong>向いているシーン</strong></td>
+        <td>インタビュー・解説・日常</td>
+        <td>登場・別れ・ヒーロー演出</td>
+        <td>独白・悪役・料理・テクスチャ</td>
+        <td>感動シーン・恋愛・旅動画全般</td>
+      </tr>
+      <tr>
+        <td><strong>プロンプトの英語キーワード</strong></td>
+        <td>flat front lighting,<br>even illumination</td>
+        <td>backlit, rim light,<br>silhouette, contre-jour</td>
+        <td>side lighting, split lighting,<br>rembrandt lighting</td>
+        <td>golden hour, warm sunlight,<br>magic hour, low sun angle</td>
+      </tr>
+      <tr>
+        <td><strong>難易度（実写）</strong></td>
+        <td>⭐ 太陽を背にするだけ</td>
+        <td>⭐⭐ 露出調整が必要</td>
+        <td>⭐⭐ 窓・ライトの位置調整</td>
+        <td>⭐⭐⭐ 時間が短い・事前準備必須</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- AIプロンプトで光を指定 -->
+  <div class="section">
+    <div class="section-title">📝 AIプロンプトで「光」を指定するコツ</div>
+    <p>
+      Veo 3・Kling・Runway などのテキストto映像AIも、
+      <strong>光の指定キーワードを入れると映像の雰囲気が大きく変わります</strong>。
+      光の種類・方向・時間帯の3要素をプロンプトに含めましょう。
+    </p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h4>☀️ 順光で「明るく見やすい」映像を作る</h4>
+          <p>人物の顔をはっきり映したい解説・Vlog系に。「flat lighting（フラット照明）」が鍵：</p>
+          <div class="step-prompt">flat front lighting, even illumination, bright and cheerful,<br>
+a young woman explaining something to the camera,<br>
+clean background, natural daylight, eye-level shot</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <h4>🌒 逆光でシルエット・ドラマを演出する</h4>
+          <p>ヒーローの登場・感動シーンに。「backlit」「rim light」「silhouette」が鍵：</p>
+          <div class="step-prompt">backlit scene, strong rim light outlining the figure,<br>
+silhouette of a person standing in a doorway,<br>
+bright light flooding from behind, cinematic, slow motion</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <h4>🌗 サイドライトで立体感・緊張感を出す</h4>
+          <p>ドラマのモノローグ・料理・建築のテクスチャに。「split lighting」が鍵：</p>
+          <div class="step-prompt">split side lighting, half the face in shadow,<br>
+rembrandt lighting style, dramatic chiaroscuro,<br>
+close-up of a determined person, dark moody background</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <h4>🌅 ゴールデンアワーで温かみのある映像に</h4>
+          <p>旅Vlog・恋愛・感動シーンのすべてに使える万能プロンプト：</p>
+          <div class="step-prompt">golden hour lighting, warm orange sunlight,<br>
+low sun angle casting long shadows,<br>
+two people walking on the beach at sunset, magic hour,<br>
+lens flare, cinematic wide shot</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 実践例：光だけで変わる30秒動画 -->
+  <div class="section">
+    <div class="section-title">🎯 今日から真似できる！ 光を切り替える30秒動画プラン</div>
+    <p>
+      「同じ場所・同じ人物」でも光の当て方を変えるだけで
+      <strong>1本の動画が「喜怒哀楽」すべてを表現できます</strong>。
+      次の3ショット構成を試してみましょう。
+    </p>
+
+    <div style="display:flex;flex-direction:column;gap:10px;margin-top:16px;">
+
+      <div class="shot-item" style="background:var(--frontl);border-color:#e0c888;">
+        <div class="shot-num" style="background:var(--front);">1</div>
+        <div style="flex:1;">
+          <div style="font-weight:700;color:var(--front);margin-bottom:4px;font-size:.9rem;">☀️ Shot 1：順光（5〜7秒）── 日常・出発</div>
+          <div style="font-size:.83rem;">明るい順光で人物の顔をしっかり見せる。「この人物は誰で、何をしているか」を観る人に伝えるオープニング。</div>
+          <div class="mono">flat front lighting, bright daylight,<br>person smiling at camera, establishing shot</div>
+        </div>
+      </div>
+
+      <div class="shot-arrow">↓</div>
+
+      <div class="shot-item" style="background:var(--sidel);border-color:#c8b0d8;">
+        <div class="shot-num" style="background:var(--side);">2</div>
+        <div style="flex:1;">
+          <div style="font-weight:700;color:var(--side);margin-bottom:4px;font-size:.9rem;">🌗 Shot 2：サイドライト（8〜10秒）── 葛藤・決意</div>
+          <div style="font-size:.83rem;">横から当たる硬い光で顔に影を作る。「悩んでいる・決意する」感情の変化をリアルに表現。</div>
+          <div class="mono">side lighting, dramatic shadows on face,<br>person looking away, close-up, moody atmosphere</div>
+        </div>
+      </div>
+
+      <div class="shot-arrow">↓</div>
+
+      <div class="shot-item" style="background:var(--goldl);border-color:#e0b890;">
+        <div class="shot-num" style="background:var(--gold);">3</div>
+        <div style="flex:1;">
+          <div style="font-weight:700;color:var(--gold);margin-bottom:4px;font-size:.9rem;">🌅 Shot 3：逆光×ゴールデンアワー（5〜7秒）── 感動の締め</div>
+          <div style="font-size:.83rem;">夕日を背にしたシルエット＋リムライトで締め。言葉なしで「終わった・前へ進む」感動を演出。</div>
+          <div class="mono">golden hour backlit, rim light silhouette,<br>person standing against sunset, wide shot, cinematic</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="tip-box" style="margin-top:14px;">
+      💡 <strong>実写でもAI生成でも同じ原理が使えます！</strong><br>
+      実写なら時間・場所・ライトの位置を工夫。AI生成ツールならプロンプトのキーワードを変えるだけ。
+      構図（前回）＋光（今回）を組み合わせると、映像のクオリティが一気に上がります。
+    </div>
+  </div>
+
+  <!-- まとめ -->
+  <div class="section">
+    <div class="section-title">📌 今日のまとめ</div>
+    <p style="margin-bottom:14px;">
+      光の方向を意識するだけで映像の「感情」が変わります。
+      <strong>まずは順光で慣れ、次に逆光やサイドライトを試してみましょう。</strong>
+      ゴールデンアワーは実写で撮れる最高の光 ── 準備万端で臨んでください。
+    </p>
+    <table class="light-table">
+      <tr>
+        <th class="h-item">光の種類</th>
+        <th class="h-front">☀️ 順光</th>
+        <th class="h-back">🌒 逆光</th>
+        <th class="h-side">🌗 サイドライト</th>
+        <th class="h-gold">🌅 ゴールデンアワー</th>
+      </tr>
+      <tr>
+        <td><strong>キーワード</strong></td>
+        <td>明るい・安心・見やすい</td>
+        <td>謎・ドラマ・シルエット</td>
+        <td>立体感・緊張・力強さ</td>
+        <td>温かみ・感動・美しさ</td>
+      </tr>
+      <tr>
+        <td><strong>プロンプトの鍵</strong></td>
+        <td>flat front lighting<br>even illumination</td>
+        <td>backlit / rim light<br>silhouette</td>
+        <td>side lighting<br>split / rembrandt</td>
+        <td>golden hour<br>magic hour / warm sunlight</td>
+      </tr>
+      <tr>
+        <td><strong>まず使うシーン</strong></td>
+        <td>全ショットの基本</td>
+        <td>登場・別れ・エンディング</td>
+        <td>感情のピーク・料理・テクスチャ</td>
+        <td>屋外動画の「締め」や「見せ場」</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- 免責 -->
+  <div class="disclaimer">
+    <strong>⚠️ 免責事項：</strong>
+    AIツールの機能・プロンプトの効き方・料金・商用利用の可否は頻繁に変わります。
+    最新情報と利用規約は必ず各ツールの公式ページでご確認ください。
+    本記事の「光の使い方」に関する解説は一般的な映像・写真制作の知識に基づくエバーグリーンなコンテンツです。
+  </div>
+
+</div>
+</body>
+</html>
