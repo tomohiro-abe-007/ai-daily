@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI動画制作 最新トピック 2026-06-05</title>
+<style>
+:root{
+  --bg:#ece8e1;--card:#faf6ec;--dark:#0d3a6e;--dark2:#0d6e3a;
+  --accent:#1a4a7c;--warm:#c4762a;
+  --text:#2a3540;--muted:#7c8a82;--border:#e0d8c8;
+  --c1:#1a4a7c;--c2:#1a7c4a;--c3:#7c4a1a;
+  --c1l:#e8edf8;--c2l:#e8f6ee;--c3l:#f6ede8;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,"Hiragino Sans","Yu Gothic",sans-serif;line-height:1.7;padding:24px 16px;}
+.wrap{max-width:860px;margin:0 auto;}
+
+/* Header */
+.header{background:linear-gradient(135deg,var(--dark),var(--dark2));color:#fff;border-radius:20px;padding:40px 32px;text-align:center;box-shadow:0 8px 24px rgba(13,58,110,.28);margin-bottom:24px;}
+.date-badge{background:rgba(255,255,255,.18);color:#c8e4f0;border-radius:20px;padding:4px 16px;font-size:.85rem;display:inline-block;margin-bottom:16px;letter-spacing:.08em;}
+.header h1{font-size:1.9rem;margin-bottom:8px;letter-spacing:.04em;}
+.header .subtitle{color:#c8e4f0;font-size:1rem;}
+.tag-row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:14px;}
+.header .tag{background:rgba(255,255,255,.15);border-radius:12px;padding:3px 12px;font-size:.78rem;display:inline-block;color:#d8f0d4;}
+
+/* Section */
+.section{background:var(--card);border-radius:16px;padding:28px 24px;margin-bottom:20px;box-shadow:0 3px 12px rgba(0,0,0,.06);border:1px solid var(--border);}
+.section-title{font-size:1.1rem;font-weight:700;color:var(--accent);border-bottom:2px solid var(--border);padding-bottom:10px;margin-bottom:18px;display:flex;align-items:center;gap:8px;}
+
+/* Big number cards */
+.num-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:16px;}
+.num-card{color:#fff;border-radius:12px;padding:18px 12px;text-align:center;}
+.nc-a{background:linear-gradient(135deg,#1a4a7c,#0d2e5c);}
+.nc-b{background:linear-gradient(135deg,#1a7c4a,#0d5030);}
+.nc-c{background:linear-gradient(135deg,#c4762a,#8a4a10);}
+.nc-d{background:linear-gradient(135deg,#4a1a7c,#2a0a5a);}
+.num-card .big{font-size:2.4rem;font-weight:800;line-height:1.1;display:block;}
+.num-card .label{font-size:.75rem;color:#d8eef4;margin-top:4px;display:block;}
+.num-card .note{font-size:.7rem;color:#b8d8e4;margin-top:2px;display:block;}
+
+/* 3-model arch */
+.model-row{display:flex;align-items:stretch;gap:0;margin:16px 0;}
+.model-box{flex:1;padding:18px 14px;text-align:center;border:2px solid var(--border);}
+.model-box:first-child{border-radius:12px 0 0 12px;background:var(--c1l);border-color:#a8c0e0;}
+.model-box.mid{background:var(--c2l);border-color:#a0d0b0;border-left:0;border-right:0;}
+.model-box:last-child{border-radius:0 12px 12px 0;background:var(--c3l);border-color:#e0c0a0;}
+.model-icon{font-size:2rem;margin-bottom:8px;}
+.model-name{font-size:.88rem;font-weight:800;margin-bottom:4px;}
+.model-box:first-child .model-name{color:var(--c1);}
+.model-box.mid .model-name{color:var(--c2);}
+.model-box:last-child .model-name{color:var(--c3);}
+.model-role{font-size:.74rem;color:var(--muted);line-height:1.5;}
+.model-arrow{display:flex;align-items:center;padding:0 6px;font-size:1.4rem;color:var(--warm);flex-shrink:0;}
+
+/* Feature cards */
+.feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin-top:16px;}
+.feat-card{border-radius:14px;padding:18px 16px;border:2px solid var(--border);}
+.feat-card.fc1{background:var(--c1l);border-color:#a8c0e0;}
+.feat-card.fc2{background:var(--c2l);border-color:#a0d0b0;}
+.feat-card.fc3{background:var(--c3l);border-color:#e0c0a0;}
+.feat-card.fc4{background:#f0eaf8;border-color:#c8a8e8;}
+.feat-icon{font-size:1.6rem;margin-bottom:8px;}
+.feat-title{font-size:.88rem;font-weight:700;margin-bottom:6px;}
+.feat-card.fc1 .feat-title{color:var(--c1);}
+.feat-card.fc2 .feat-title{color:var(--c2);}
+.feat-card.fc3 .feat-title{color:var(--c3);}
+.feat-card.fc4 .feat-title{color:#4a1a7c;}
+.feat-desc{font-size:.78rem;color:var(--text);line-height:1.6;}
+
+/* Steps */
+.steps{margin-top:16px;}
+.step{display:flex;gap:14px;align-items:flex-start;margin-bottom:14px;}
+.step-num{background:var(--accent);color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:700;flex-shrink:0;margin-top:2px;}
+.step-body h4{font-size:.9rem;font-weight:700;color:var(--accent);margin-bottom:3px;}
+.step-body p{font-size:.83rem;color:var(--text);}
+.step-prompt{background:#0d2e5c;color:#c8d8ff;border-radius:8px;padding:10px 12px;font-size:.78rem;font-family:monospace;margin-top:6px;line-height:1.6;}
+.step-note{background:#f0f6f0;border-left:4px solid var(--c2);border-radius:0 8px 8px 0;padding:8px 12px;font-size:.78rem;color:var(--text);margin-top:6px;}
+
+/* Compare table */
+.comp-table{width:100%;border-collapse:collapse;margin-top:16px;font-size:.83rem;}
+.comp-table th{padding:10px 12px;text-align:left;color:#fff;}
+.comp-table th.h-a{background:var(--c1);}
+.comp-table th.h-b{background:var(--c2);}
+.comp-table th.h-c{background:var(--c3);}
+.comp-table th.h-d{background:#4a1a7c;}
+.comp-table th.h-item{background:#555;}
+.comp-table td{padding:9px 12px;border-bottom:1px solid var(--border);vertical-align:top;}
+.comp-table tr:last-child td{border-bottom:none;}
+.comp-table tr:nth-child(even) td{background:#f5f0e8;}
+.comp-table th:first-child{border-radius:8px 0 0 0;}
+.comp-table th:last-child{border-radius:0 8px 0 0;}
+.badge-ok{background:#1a7c4a;color:#fff;border-radius:6px;padding:2px 8px;font-size:.72rem;}
+.badge-no{background:#888;color:#fff;border-radius:6px;padding:2px 8px;font-size:.72rem;}
+.badge-tri{background:#c4762a;color:#fff;border-radius:6px;padding:2px 8px;font-size:.72rem;}
+
+/* Plan cards */
+.plan-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-top:16px;}
+.plan-card{border-radius:14px;padding:20px 16px;border:2px solid var(--border);text-align:center;}
+.plan-card.p-plus{background:var(--c1l);border-color:#a8c0e0;}
+.plan-card.p-pro{background:var(--c2l);border-color:#a0d0b0;}
+.plan-card.p-ultra{background:#fdf0e8;border-color:#e0b888;}
+.plan-card .plan-name{font-size:.85rem;font-weight:700;margin-bottom:8px;}
+.plan-card.p-plus .plan-name{color:var(--c1);}
+.plan-card.p-pro .plan-name{color:var(--c2);}
+.plan-card.p-ultra .plan-name{color:var(--c3);}
+.plan-card .plan-price{font-size:1.8rem;font-weight:800;line-height:1.1;margin-bottom:4px;}
+.plan-card.p-plus .plan-price{color:var(--c1);}
+.plan-card.p-pro .plan-price{color:var(--c2);}
+.plan-card.p-ultra .plan-price{color:var(--c3);}
+.plan-card .plan-unit{font-size:.72rem;color:var(--muted);margin-bottom:10px;}
+.plan-card ul{list-style:none;font-size:.78rem;color:var(--text);text-align:left;}
+.plan-card ul li{padding:3px 0;border-bottom:1px dotted #d8d0c0;}
+.plan-card ul li:last-child{border-bottom:none;}
+
+/* Example box */
+.example-box{background:#eef6f0;border-left:4px solid var(--c2);border-radius:0 12px 12px 0;padding:16px 18px;margin-top:14px;}
+.example-box h4{font-size:.9rem;font-weight:700;color:var(--c2);margin-bottom:8px;}
+.example-box p{font-size:.83rem;color:var(--text);}
+.example-box .ex-step{display:flex;align-items:flex-start;gap:10px;margin-top:8px;}
+.example-box .ex-step-num{background:var(--c2);color:#fff;border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-size:.74rem;font-weight:700;flex-shrink:0;margin-top:1px;}
+.example-box .ex-step-text{font-size:.8rem;color:var(--text);}
+
+/* Workflow flow */
+.wf-row{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-top:14px;}
+.wf-box{background:var(--c1l);border:1px solid #a8c0e0;border-radius:10px;padding:12px 14px;text-align:center;flex:1;min-width:90px;}
+.wf-box.wf-green{background:var(--c2l);border-color:#a0d0b0;}
+.wf-box.wf-warm{background:var(--c3l);border-color:#e0c0a0;}
+.wf-icon{font-size:1.4rem;display:block;margin-bottom:4px;}
+.wf-title{font-size:.76rem;font-weight:700;color:var(--accent);}
+.wf-box.wf-green .wf-title{color:var(--c2);}
+.wf-box.wf-warm .wf-title{color:var(--c3);}
+.wf-sub{font-size:.68rem;color:var(--muted);margin-top:2px;}
+.wf-arrow{font-size:1.2rem;color:var(--warm);flex-shrink:0;}
+
+/* Disclaimer */
+.disclaimer{background:#f5f0e8;border:1px solid var(--border);border-radius:12px;padding:16px;margin-top:20px;font-size:.78rem;color:var(--muted);line-height:1.6;}
+.disclaimer strong{color:var(--warm);}
+
+/* Source */
+.source{font-size:.72rem;color:var(--muted);margin-top:10px;line-height:1.6;}
+.source a{color:var(--c1);text-decoration:none;}
+.source a:hover{text-decoration:underline;}
+
+@media(max-width:600px){
+  .model-row,.wf-row{flex-direction:column;}
+  .model-box:first-child,.model-box:last-child,.model-box.mid{border-radius:10px;border:2px solid var(--border);}
+  .model-box.mid{border-top:2px solid #a0d0b0;border-bottom:2px solid #a0d0b0;}
+  .model-arrow,.wf-arrow{transform:rotate(90deg);}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="date-badge">2026-06-05 ／ ツール情報</div>
+    <h1>AI動画制作 最新トピック</h1>
+    <div class="subtitle">Google Flow 完全ガイド ── Veo 3.1 + Imagen で「撮影・編集・音声」をひとつの画面で</div>
+    <div class="tag-row">
+      <span class="tag">🎬 Google Flow</span>
+      <span class="tag">🎥 Veo 3.1</span>
+      <span class="tag">🖼️ Nano Banana（Imagen）</span>
+      <span class="tag">🔊 ネイティブ音声生成</span>
+      <span class="tag">👤 キャラクター一貫性</span>
+    </div>
+  </div>
+
+  <!-- Google Flow とは -->
+  <div class="section">
+    <div class="section-title">🎬 Google Flow とは？ ── 3つのAIを束ねた「映像制作スタジオ」</div>
+    <p>
+      <strong>Google Flow</strong>（flow.google.com）は、Google が提供する
+      <strong>AIフィルムメイキングスタジオ</strong>（AIを使った映像制作ツール）です。
+    </p>
+    <p style="margin-top:10px;">
+      2026年2月25日に大型リニューアルを実施し、それまで別々だった
+      <strong>Flow（動画）・Whisk（画像）・ImageFX（画像加工）</strong> の3つが
+      <strong>ひとつの画面に統合</strong>されました。
+      「アイデアを考える → 画像を作る → 映像を生成する → 音声を加える」
+      という動画制作の全工程を、1か所で完結できるのが最大の特長です。
+    </p>
+
+    <!-- 大きな数字カード -->
+    <div class="num-cards">
+      <div class="num-card nc-a">
+        <span class="big">3in1</span>
+        <span class="label">動画・画像・加工が統合</span>
+        <span class="note">Flow + Whisk + ImageFX が一体化</span>
+      </div>
+      <div class="num-card nc-b">
+        <span class="big">4K</span>
+        <span class="label">出力解像度</span>
+        <span class="note">1080p へのアップスケールも対応</span>
+      </div>
+      <div class="num-card nc-c">
+        <span class="big">1分</span>
+        <span class="label">マルチショット動画の最大尺</span>
+        <span class="note">複数カットをシーン一貫性で繋げる</span>
+      </div>
+      <div class="num-card nc-d">
+        <span class="big">音声</span>
+        <span class="label">セリフ・SE・音楽を同時生成</span>
+        <span class="note">Veo 3.1 のネイティブ音声生成機能</span>
+      </div>
+    </div>
+
+    <div class="source">
+      出典：<a href="https://blog.google/innovation-and-ai/products/veo-updates-flow/" target="_blank">Google Blog – Veo updates in Flow（2026年）</a>、
+      <a href="https://blog.google/innovation-and-ai/models-and-research/google-labs/flow-updates-february-2026/" target="_blank">Google Blog – Flow Updates February 2026</a>
+    </div>
+  </div>
+
+  <!-- 3つのAIモデル構成 -->
+  <div class="section">
+    <div class="section-title">🧩 Flow を動かす3つの AI ── それぞれの役割</div>
+    <p>Flow の中では、用途に応じた3つのモデルが連携して動いています。</p>
+
+    <div class="model-row">
+      <div class="model-box">
+        <div class="model-icon">🎥</div>
+        <div class="model-name">Veo 3.1</div>
+        <div class="model-role">
+          テキスト・画像から<br>
+          <strong>動画を生成</strong><br>
+          ネイティブ音声付き<br>
+          縦型・横型どちらも対応
+        </div>
+      </div>
+      <div class="model-arrow">⇌</div>
+      <div class="model-box mid">
+        <div class="model-icon">💡</div>
+        <div class="model-name">Gemini</div>
+        <div class="model-role">
+          Flow 全体の<strong>頭脳</strong><br>
+          プロンプトを理解し<br>
+          シーンの一貫性を保つ<br>
+          自然言語で編集指示も可
+        </div>
+      </div>
+      <div class="model-arrow">⇌</div>
+      <div class="model-box">
+        <div class="model-icon">🖼️</div>
+        <div class="model-name">Nano Banana<br><small>（旧 Imagen 系）</small></div>
+        <div class="model-role">
+          高精細な<strong>画像を生成</strong><br>
+          キャラクター見本・<br>
+          場所・背景を作成<br>
+          動画の素材として活用
+        </div>
+      </div>
+    </div>
+
+    <p style="font-size:.8rem;color:var(--muted);margin-top:8px;">
+      ＊ Nano Banana は Google DeepMind の高品質画像生成モデルの通称。Flow 内で Imagen 的役割を担っています（公式で要確認）。
+    </p>
+  </div>
+
+  <!-- 4大機能 -->
+  <div class="section">
+    <div class="section-title">⚙️ Flow の主な機能 4 つ</div>
+    <p>Flow では次の4つの機能を組み合わせてプロ品質の映像を作れます。</p>
+
+    <div class="feat-grid">
+      <div class="feat-card fc1">
+        <div class="feat-icon">🎞️</div>
+        <div class="feat-title">Scenebuilder（シーンビルダー）</div>
+        <div class="feat-desc">
+          複数のカット（場面）をタイムライン上に並べて、
+          <strong>映画のような連続した映像</strong>を組み立てる機能。
+          各カットの長さや順序を自由に編集できます。
+        </div>
+      </div>
+      <div class="feat-card fc2">
+        <div class="feat-icon">👤</div>
+        <div class="feat-title">Ingredients（イングリーディエンツ）</div>
+        <div class="feat-desc">
+          キャラクターや場所を「素材」として登録し、
+          <strong>複数カットで同じ見た目を保つ</strong>機能（キャラクター一貫性）。
+          参照画像を1枚アップするだけで設定完了。
+        </div>
+      </div>
+      <div class="feat-card fc3">
+        <div class="feat-icon">🎦</div>
+        <div class="feat-title">Camera Controls（カメラコントロール）</div>
+        <div class="feat-desc">
+          カメラの動き（パン・ティルト・ズーム・ドリー）を
+          テキストで指定できる機能。
+          「映画監督の意図」を AI に伝えられます。
+        </div>
+      </div>
+      <div class="feat-card fc4">
+        <div class="feat-icon">🔊</div>
+        <div class="feat-title">ネイティブ音声生成</div>
+        <div class="feat-desc">
+          Veo 3.1 が動画と<strong>音声を同時に生成</strong>。
+          セリフ・環境音・BGM が自動で付き、
+          リップシンク（口の動きに音声を合わせる）も7言語対応。
+        </div>
+      </div>
+    </div>
+
+    <div class="source" style="margin-top:14px;">
+      出典：<a href="https://labs.google/flow/about" target="_blank">Google Flow 公式 About ページ</a>（2026年）、
+      <a href="https://blog.google/innovation-and-ai/products/flow-video-tips/" target="_blank">Google Blog – 5 tips for using Flow（2026年）</a>
+    </div>
+  </div>
+
+  <!-- 使い方 ステップ -->
+  <div class="section">
+    <div class="section-title">🚶 基本の使い方 ── 5ステップ</div>
+    <p>
+      Google Flow（flow.google.com）は <strong>ブラウザから使えるWebツール</strong>（アプリのインストール不要）。
+      以下の流れで最初の AI 動画を作れます。
+    </p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h4>アカウント準備 ── Google AI Pro 以上に登録</h4>
+          <p>
+            Flow フル機能は <strong>Google AI Pro（月$19.99〜）</strong> 以上で利用可能。
+            まず Google One または Google AI Studio のサブスクリプションページで登録します。
+          </p>
+          <div class="step-note">📌 料金・プラン名は変更される場合があります。最新情報は <strong>公式ページで要確認</strong>。</div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <h4>Ingredients でキャラクターと場所を登録</h4>
+          <p>
+            登場人物の写真（または Nano Banana で生成した画像）をアップロードし、
+            名前と簡単な説明を入力。<strong>Flow がこのキャラクターをすべてのシーンで記憶</strong>します。
+          </p>
+          <div class="step-prompt">例：名前「Aoi」、説明「20代の女性、黒髪ショート、白いジャケット」</div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <h4>Scenebuilder でシーン構成を組む</h4>
+          <p>
+            「どんな場面がいくつ必要か」をタイムラインに並べます。
+            各シーンにテキストプロンプトを書いてカメラの動きを指定。
+          </p>
+          <div class="step-prompt">例：Scene 1「Aoi が朝の公園を歩く、wide shot, slow push forward」<br>Scene 2「Aoi がカフェでコーヒーを飲む、close-up, static camera」</div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <h4>音声プロンプトを加えて生成</h4>
+          <p>
+            各シーンに「セリフ」「環境音」「BGMの雰囲気」を書き添えると、
+            Veo 3.1 が映像と音声を同時に生成します。
+          </p>
+          <div class="step-prompt">例：「sound: birds chirping, light jazz music, Aoi says 'Good morning' softly」</div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-body">
+          <h4>書き出し ── 縦型／横型・1080p〜4K で出力</h4>
+          <p>
+            YouTube 用の横型（16:9）・Shorts / TikTok 用の縦型（9:16）を選んで書き出し。
+            Gemini を使って「自然言語」でシーンを修正することも可能です。
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="source">
+      出典：<a href="https://support.google.com/flow/answer/16353333?hl=en" target="_blank">Google Flow ヘルプ – Get started with Google Flow</a>（2026年）、
+      <a href="https://www.solidaitech.com/2026/05/google-flow.html" target="_blank">SolidAI Tech – Google Flow Complete Guide（2026年5月）</a>
+    </div>
+  </div>
+
+  <!-- 実践ワークフロー図 -->
+  <div class="section">
+    <div class="section-title">🔄 制作ワークフロー ── アイデア → 完成動画の流れ</div>
+    <p>Flow 内での実際の制作フローを図にしました。</p>
+
+    <div class="wf-row">
+      <div class="wf-box">
+        <span class="wf-icon">💡</span>
+        <div class="wf-title">アイデア</div>
+        <div class="wf-sub">テキストで入力</div>
+      </div>
+      <div class="wf-arrow">→</div>
+      <div class="wf-box wf-green">
+        <span class="wf-icon">🖼️</span>
+        <div class="wf-title">画像生成</div>
+        <div class="wf-sub">Nano Banana でキャラ・背景を作成</div>
+      </div>
+      <div class="wf-arrow">→</div>
+      <div class="wf-box">
+        <span class="wf-icon">🎞️</span>
+        <div class="wf-title">シーン組み立て</div>
+        <div class="wf-sub">Scenebuilder でタイムライン構築</div>
+      </div>
+      <div class="wf-arrow">→</div>
+      <div class="wf-box wf-green">
+        <span class="wf-icon">🎥</span>
+        <div class="wf-title">動画＋音声生成</div>
+        <div class="wf-sub">Veo 3.1 がまとめて生成</div>
+      </div>
+      <div class="wf-arrow">→</div>
+      <div class="wf-box wf-warm">
+        <span class="wf-icon">✅</span>
+        <div class="wf-title">書き出し</div>
+        <div class="wf-sub">1080p / 4K<br>横型・縦型</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 真似できる具体例 -->
+  <div class="section">
+    <div class="section-title">💡 真似できる具体例 ── 「30秒 観光PR動画」を Flow で作る</div>
+    <p>
+      「地元の観光地を紹介する30秒のショート動画」を1人でゼロから作る手順例です。
+      スマホで撮影した写真が1枚あれば始められます。
+    </p>
+
+    <div class="example-box">
+      <h4>🗾 例：地元の神社を紹介する30秒 PR ショート動画</h4>
+
+      <div class="ex-step">
+        <div class="ex-step-num">①</div>
+        <div class="ex-step-text">
+          <strong>Ingredients に「神社の鳥居写真」を登録</strong>（場所素材として）。
+          Nano Banana で「和服姿の案内役キャラ」の画像を生成してキャラクターとして登録。
+        </div>
+      </div>
+      <div class="ex-step">
+        <div class="ex-step-num">②</div>
+        <div class="ex-step-text">
+          <strong>Scenebuilder で3シーン設定</strong>：
+          ① 鳥居の前でキャラが手を振る（wide shot, slow push in）
+          ② 境内を歩くシーン（follow shot）
+          ③ カメラが引いて全景を映す（crane up）
+        </div>
+      </div>
+      <div class="ex-step">
+        <div class="ex-step-num">③</div>
+        <div class="ex-step-text">
+          <strong>音声プロンプト</strong>：「sound: cicadas chirping, traditional Japanese flute, guide says 'Welcome to our shrine' in Japanese」
+        </div>
+      </div>
+      <div class="ex-step">
+        <div class="ex-step-num">④</div>
+        <div class="ex-step-text">
+          縦型（9:16）で書き出し → <strong>YouTube Shorts に投稿</strong>。
+          撮影機材ゼロ・BGM 手配ゼロで完成。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- プラン比較 -->
+  <div class="section">
+    <div class="section-title">💳 プラン比較（公式で要確認）</div>
+    <p>
+      Google Flow は <strong>Google AI サブスクリプション</strong>の一部として提供されています。
+      2026年5月時点の情報ですが、料金・内容は頻繁に変わります。
+    </p>
+
+    <div class="plan-grid">
+      <div class="plan-card p-plus">
+        <div class="plan-name">🔵 AI Plus</div>
+        <div class="plan-price">$19.99</div>
+        <div class="plan-unit">/月（参考値）</div>
+        <ul>
+          <li>Flow 基本機能</li>
+          <li>Veo 3.1（制限あり）</li>
+          <li>1080p 出力</li>
+          <li>Gemini 統合</li>
+        </ul>
+      </div>
+      <div class="plan-card p-pro">
+        <div class="plan-name">🟢 AI Pro</div>
+        <div class="plan-price">$19.99〜</div>
+        <div class="plan-unit">/月（参考値・要確認）</div>
+        <ul>
+          <li>Scenebuilder フル機能</li>
+          <li>Ingredients フル機能</li>
+          <li>Gemini Omni Flash</li>
+          <li>4K 書き出し対応</li>
+        </ul>
+      </div>
+      <div class="plan-card p-ultra">
+        <div class="plan-name">🟠 AI Ultra</div>
+        <div class="plan-price">高性能</div>
+        <div class="plan-unit">最上位プラン（参考値）</div>
+        <ul>
+          <li>最大生成量</li>
+          <li>全機能アクセス</li>
+          <li>優先処理</li>
+          <li>研究者・プロ向け</li>
+        </ul>
+      </div>
+    </div>
+    <p style="font-size:.75rem;color:var(--muted);margin-top:10px;">
+      ＊料金・プラン名・機能内容は変更される場合があります。最新情報は
+      <a href="https://labs.google/flow/about" target="_blank" style="color:var(--c1);">Google Flow 公式ページ</a> および
+      <a href="https://one.google.com/about/plans" target="_blank" style="color:var(--c1);">Google One プランページ</a> でご確認ください。
+    </p>
+  </div>
+
+  <!-- 他ツールとの比較 -->
+  <div class="section">
+    <div class="section-title">📊 主要 AI 動画ツールの使い分け（2026年6月時点）</div>
+    <p>
+      ツールが増えてきたので、得意分野ごとに使い分けるのがプロの流儀。
+      Google Flow はオールラウンダーですが、シーンによっては別ツールが最適な場合もあります。
+    </p>
+
+    <table class="comp-table">
+      <tr>
+        <th class="h-item">ツール</th>
+        <th class="h-a">音声生成</th>
+        <th class="h-b">キャラ一貫性</th>
+        <th class="h-c">物理演算（水・煙）</th>
+        <th class="h-d">クリエイティブ制御</th>
+      </tr>
+      <tr>
+        <td><strong>Google Flow (Veo 3.1)</strong></td>
+        <td><span class="badge-ok">◎ ネイティブ</span></td>
+        <td><span class="badge-ok">◎ Ingredients</span></td>
+        <td><span class="badge-tri">△ 普通</span></td>
+        <td><span class="badge-ok">◎ Scenebuilder</span></td>
+      </tr>
+      <tr>
+        <td><strong>Kling 3.0</strong></td>
+        <td><span class="badge-ok">○ ネイティブ</span></td>
+        <td><span class="badge-ok">◎ ストーリーボード</span></td>
+        <td><span class="badge-ok">◎ 得意</span></td>
+        <td><span class="badge-tri">△ やや限定</span></td>
+      </tr>
+      <tr>
+        <td><strong>Luma Ray 3.14</strong></td>
+        <td><span class="badge-no">✗ 別途必要</span></td>
+        <td><span class="badge-tri">△ 参照のみ</span></td>
+        <td><span class="badge-tri">△ 普通</span></td>
+        <td><span class="badge-ok">○ 速い・安い</span></td>
+      </tr>
+      <tr>
+        <td><strong>Runway Gen-4.5</strong></td>
+        <td><span class="badge-ok">○ ネイティブ</span></td>
+        <td><span class="badge-ok">○ キャラ参照</span></td>
+        <td><span class="badge-tri">△ 普通</span></td>
+        <td><span class="badge-ok">◎ モーションブラシ</span></td>
+      </tr>
+    </table>
+
+    <div class="source" style="margin-top:14px;">
+      ＊◎＝特に得意、○＝対応、△＝普通、✗＝非対応・別途必要。2026年6月時点の概況。各ツールは頻繁に更新されます。<br>
+      出典：<a href="https://pixflow.net/blog/best-ai-video-generator/" target="_blank">Pixflow – Best AI Video Generator in 2026</a>、
+      <a href="https://www.buildmvpfast.com/articles/best-llms-2026-guide/video-generation-ai" target="_blank">BuildMVPFast – Best Text-to-Video AI Generators June 2026</a>
+    </div>
+  </div>
+
+  <!-- 免責 -->
+  <div class="disclaimer">
+    <strong>⚠️ ご確認ください（免責事項）</strong><br>
+    本記事で紹介しているAIツールの名称・機能・料金・商用利用の可否は<strong>頻繁に変更されます</strong>。
+    実際にご利用の前に、各サービスの公式ページおよび利用規約を必ずご確認ください。<br>
+    ・Google Flow：<a href="https://labs.google/flow/about" target="_blank">labs.google/flow/about</a><br>
+    ・記事中の料金は参考値であり、正確な料金は公式ページで要確認です。
+  </div>
+
+</div>
+</body>
+</html>

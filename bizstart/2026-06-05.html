@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 基礎知識 2026-06-05</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .cover {
+    background: linear-gradient(135deg, #1a4a7a 0%, #2a6aaa 100%);
+    color: white;
+    border-radius: 8px;
+    padding: 60px 40px;
+    text-align: center;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.3);
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+      0deg, transparent, transparent 28px,
+      rgba(255,255,255,0.06) 28px, rgba(255,255,255,0.06) 29px
+    );
+  }
+  .cover-emoji { font-size: 64px; display: block; margin-bottom: 16px; }
+  .cover h1 {
+    font-family: 'Klee One', sans-serif;
+    font-size: 2.0rem;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 12px;
+    position: relative;
+  }
+  .cover .subtitle { font-size: 1.0rem; opacity: 0.85; margin-bottom: 8px; position: relative; }
+  .cover .key-badge {
+    display: inline-block;
+    background: #c0392b;
+    border: 2px solid #ff6b6b;
+    border-radius: 20px;
+    padding: 6px 20px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-top: 10px;
+    position: relative;
+  }
+  .cover .date-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 20px;
+    padding: 6px 20px;
+    font-size: 1rem;
+    margin-top: 10px;
+    margin-left: 8px;
+    position: relative;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 6px;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.12);
+    position: relative;
+    overflow: hidden;
+  }
+  .card-body {
+    padding: 28px 36px 28px 64px;
+    background: repeating-linear-gradient(
+      0deg, transparent, transparent 31px, #e0d8c8 31px, #e0d8c8 32px
+    );
+    background-color: #fff9f0;
+    min-height: 200px;
+  }
+  .card-body::before {
+    content: '';
+    position: absolute;
+    left: 52px; top: 0; bottom: 0;
+    width: 2px;
+    background: #a0c0e8;
+    opacity: 0.7;
+  }
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 8px;
+    border-bottom: 2px dashed #c8b89a;
+  }
+  .card-emoji { font-size: 2rem; }
+  .card-title {
+    font-family: 'Klee One', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #2c3e50;
+    line-height: 1.3;
+  }
+  .topic-badge {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-left: auto;
+    white-space: nowrap;
+  }
+  .badge-red    { background: #ffe0e0; color: #c0392b; border: 1px solid #f5a0a0; }
+  .badge-blue   { background: #e0eeff; color: #2255aa; border: 1px solid #a0c0f5; }
+  .badge-green  { background: #e0f5e0; color: #1e7e34; border: 1px solid #a0d8a0; }
+  .badge-purple { background: #f0e0ff; color: #7b2fbe; border: 1px solid #c8a0f0; }
+  .badge-orange { background: #fff0d0; color: #cc6600; border: 1px solid #f0c070; }
+  .badge-teal   { background: #d0f0f0; color: #006060; border: 1px solid #80d0d0; }
+  .badge-navy   { background: #e0e8f8; color: #1a3a6a; border: 1px solid #90b0e8; }
+
+  .simple-box {
+    background: #fff7e0;
+    border-left: 4px solid #f5c842;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin: 16px 0;
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+  .simple-box .label {
+    display: inline-block;
+    background: #f5c842;
+    color: #5a4000;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+  }
+
+  .alert-box {
+    background: #fff0f0;
+    border-left: 4px solid #e74c3c;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin: 16px 0;
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+  .alert-box .label {
+    display: inline-block;
+    background: #e74c3c;
+    color: white;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+  }
+
+  .info-box {
+    background: #e8f4fb;
+    border-left: 4px solid #1a5276;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin: 16px 0;
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+  .info-box .label {
+    display: inline-block;
+    background: #1a5276;
+    color: white;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+  }
+
+  .green-box {
+    background: #eaf7ea;
+    border-left: 4px solid #2d7a2d;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin: 16px 0;
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+  .green-box .label {
+    display: inline-block;
+    background: #2d7a2d;
+    color: white;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+  }
+
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 0.9rem;
+  }
+  .compare-table th {
+    background: #1a4a7a;
+    color: white;
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .compare-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid #e0d8c8;
+    line-height: 1.6;
+    vertical-align: top;
+  }
+  .compare-table tr:nth-child(even) td { background: #fdf6ec; }
+  .compare-table tr:hover td { background: #fff3da; }
+  .compare-table .ok-row td { background: #f0faf0; }
+  .compare-table .ng-row td { background: #fff0f0; }
+  .compare-table .warn-row td { background: #fffbe0; }
+
+  .point-list {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0;
+  }
+  .point-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 0;
+    font-size: 0.97rem;
+    line-height: 1.7;
+    color: #333;
+    border-bottom: 1px dotted #ddd;
+  }
+  .point-list li:last-child { border-bottom: none; }
+  .point-list .marker {
+    flex-shrink: 0;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-top: 2px;
+  }
+  .marker-red    { background: #c0392b; color: white; }
+  .marker-blue   { background: #1a5276; color: white; }
+  .marker-green  { background: #2d6a2d; color: white; }
+  .marker-orange { background: #cc6600; color: white; }
+  .marker-purple { background: #7b2fbe; color: white; }
+  .marker-navy   { background: #1a4a7a; color: white; }
+
+  .hl-yellow { background: linear-gradient(transparent 60%, #ffe566 60%); }
+  .hl-pink   { background: linear-gradient(transparent 60%, #ffb3c6 60%); }
+  .hl-blue   { background: linear-gradient(transparent 60%, #b3d4ff 60%); }
+  .hl-green  { background: linear-gradient(transparent 60%, #b3f0b3 60%); }
+  .hl-orange { background: linear-gradient(transparent 60%, #ffd0a0 60%); }
+
+  .sticky {
+    background: #fff9c4;
+    border-radius: 4px;
+    padding: 12px 16px;
+    margin: 14px 0;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.1);
+    transform: rotate(-0.5deg);
+    display: inline-block;
+    width: 100%;
+    color: #4a3800;
+  }
+
+  .source {
+    font-size: 0.78rem;
+    color: #888;
+    margin-top: 14px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+  }
+  .source a { color: #1a5276; text-decoration: none; }
+  .source a:hover { text-decoration: underline; }
+
+  .summary-card {
+    background: linear-gradient(135deg, #1a4a7a 0%, #2a6aaa 100%);
+    color: white;
+    border-radius: 8px;
+    padding: 36px 40px;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.2);
+  }
+  .summary-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px dashed rgba(255,255,255,0.4);
+  }
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+  }
+  .summary-item {
+    background: rgba(255,255,255,0.12);
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  .summary-item .s-emoji { font-size: 1.6rem; display: block; margin-bottom: 6px; }
+  .summary-item .s-title { font-weight: 600; margin-bottom: 4px; font-size: 1rem; }
+
+  .disclaimer {
+    background: #f8f4ec;
+    border: 2px solid #c8b89a;
+    border-radius: 8px;
+    padding: 20px 28px;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    font-size: 0.83rem;
+    color: #5a4830;
+    line-height: 1.8;
+  }
+  .disclaimer strong { color: #1a4a7a; }
+
+  .toc {
+    background: #f8f4ec;
+    border: 2px solid #c8b89a;
+    border-radius: 8px;
+    padding: 20px 28px;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+  }
+  .toc h2 { font-size: 1.1rem; color: #1a4a7a; margin-bottom: 12px; }
+  .toc ol { padding-left: 20px; }
+  .toc li { padding: 4px 0; font-size: 0.93rem; }
+  .toc a { color: #1a4a7a; text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+
+  .footer {
+    text-align: center;
+    color: #888;
+    font-size: 0.8rem;
+    padding: 20px;
+    max-width: 820px;
+    width: 100%;
+  }
+
+  /* 大きな数字カード */
+  .big-num-row {
+    display: flex;
+    gap: 16px;
+    margin: 16px 0;
+    flex-wrap: wrap;
+  }
+  .big-num-card {
+    background: #fff9f0;
+    border: 2px solid #1a4a7a;
+    border-radius: 10px;
+    padding: 16px 24px;
+    text-align: center;
+    flex: 1;
+    min-width: 140px;
+  }
+  .big-num-card .bn-number {
+    font-family: 'Caveat', cursive;
+    font-size: 3.2rem;
+    font-weight: 700;
+    color: #1a4a7a;
+    line-height: 1;
+    display: block;
+  }
+  .big-num-card .bn-unit { font-size: 1rem; color: #1a4a7a; font-weight: 600; }
+  .big-num-card .bn-label { font-size: 0.8rem; color: #666; margin-top: 6px; line-height: 1.5; }
+  .big-num-card.red-card { border-color: #c0392b; background: #fff0f0; }
+  .big-num-card.red-card .bn-number { color: #c0392b; }
+  .big-num-card.red-card .bn-unit { color: #c0392b; }
+  .big-num-card.orange-card { border-color: #cc6600; background: #fff0d0; }
+  .big-num-card.orange-card .bn-number { color: #cc6600; }
+  .big-num-card.orange-card .bn-unit { color: #cc6600; }
+  .big-num-card.green-card { border-color: #2d7a2d; background: #e8f4e8; }
+  .big-num-card.green-card .bn-number { color: #2d7a2d; }
+  .big-num-card.green-card .bn-unit { color: #2d7a2d; }
+
+  /* 2カラム */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 16px 0;
+  }
+  .col-card {
+    border-radius: 8px;
+    padding: 16px;
+    font-size: 0.88rem;
+    line-height: 1.7;
+  }
+  .col-card.good  { background: #e8f4e8; border: 2px solid #2d6a2d; }
+  .col-card.bad   { background: #fff0f0; border: 2px solid #c0392b; }
+  .col-card.warn  { background: #fffbe0; border: 2px solid #cc9900; }
+  .col-card.info  { background: #e8f0ff; border: 2px solid #1a4a7a; }
+  .col-card .col-title {
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+    padding-bottom: 6px;
+    border-bottom: 1px dashed #ccc;
+  }
+  .col-card.good .col-title { color: #2d6a2d; }
+  .col-card.bad  .col-title { color: #c0392b; }
+  .col-card.warn .col-title { color: #cc6600; }
+  .col-card.info .col-title { color: #1a4a7a; }
+  .col-card ul { padding-left: 16px; }
+  .col-card li { margin-bottom: 5px; }
+
+  /* Q&A */
+  .qa-box {
+    margin: 14px 0;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #ddd;
+  }
+  .qa-question {
+    background: #1a4a7a;
+    color: white;
+    padding: 10px 16px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.5;
+  }
+  .qa-question::before { content: 'Q  '; font-weight: 700; font-size: 1.1rem; }
+  .qa-answer {
+    background: #eef4fb;
+    padding: 12px 16px;
+    font-size: 0.92rem;
+    line-height: 1.7;
+    color: #333;
+    border-left: 4px solid #1a4a7a;
+  }
+  .qa-answer::before { content: 'A  '; font-weight: 700; color: #1a4a7a; }
+
+  /* ステップフロー */
+  .step-flow {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin: 16px 0;
+  }
+  .step-row {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+  }
+  .step-num-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    width: 44px;
+  }
+  .step-num {
+    width: 36px; height: 36px;
+    background: #1a4a7a;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1rem;
+    flex-shrink: 0;
+    z-index: 1;
+  }
+  .step-line {
+    width: 2px;
+    background: #a0b8d8;
+    flex: 1;
+    margin: 2px 0;
+    min-height: 20px;
+  }
+  .step-row:last-child .step-line { display: none; }
+  .step-content {
+    background: #eef4fb;
+    border: 1px solid #b0c8e8;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 4px 0 8px 8px;
+    flex: 1;
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+  .step-content .step-title {
+    font-weight: 700;
+    color: #1a4a7a;
+    font-size: 0.97rem;
+    margin-bottom: 4px;
+  }
+
+  /* 仕訳図解 */
+  .shiwake-box {
+    background: #f8f4ff;
+    border: 2px solid #7b2fbe;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 16px 0;
+  }
+  .shiwake-box .sw-title {
+    color: #7b2fbe;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 14px;
+    text-align: center;
+  }
+  .shiwake-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 2px solid #7b2fbe;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .sw-left {
+    background: #f0e8ff;
+    padding: 14px 16px;
+    border-right: 2px solid #7b2fbe;
+  }
+  .sw-right {
+    background: #fff8e8;
+    padding: 14px 16px;
+  }
+  .sw-side-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom: 8px;
+  }
+  .sw-left .sw-side-label { background: #7b2fbe; color: white; }
+  .sw-right .sw-side-label { background: #cc6600; color: white; }
+  .sw-item {
+    font-size: 0.88rem;
+    margin: 4px 0;
+    line-height: 1.6;
+    padding-left: 6px;
+    border-left: 3px solid;
+  }
+  .sw-left .sw-item { border-color: #7b2fbe; }
+  .sw-right .sw-item { border-color: #cc6600; }
+  .sw-hint {
+    font-size: 0.78rem;
+    color: #666;
+    margin-top: 10px;
+    text-align: center;
+    line-height: 1.6;
+  }
+
+  /* ソフト比較カード */
+  .soft-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .soft-card {
+    border-radius: 10px;
+    padding: 16px;
+    font-size: 0.84rem;
+    line-height: 1.6;
+    border: 2px solid;
+  }
+  .soft-card.freee   { background: #e8f7ef; border-color: #1db87e; }
+  .soft-card.mf      { background: #e8f0ff; border-color: #2e5fcc; }
+  .soft-card.yayoi   { background: #fff3e0; border-color: #e67e22; }
+  .soft-card .sc-name {
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 4px;
+  }
+  .freee .sc-name   { color: #1db87e; }
+  .mf .sc-name      { color: #2e5fcc; }
+  .yayoi .sc-name   { color: #e67e22; }
+  .soft-card .sc-tag {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 600;
+    padding: 2px 6px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+  }
+  .freee .sc-tag   { background: #1db87e; color: white; }
+  .mf .sc-tag      { background: #2e5fcc; color: white; }
+  .yayoi .sc-tag   { background: #e67e22; color: white; }
+  .soft-card ul { padding-left: 14px; margin-top: 6px; }
+  .soft-card li { margin-bottom: 3px; font-size: 0.82rem; }
+
+  /* ルーティン月次 */
+  .routine-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .routine-item {
+    background: #f0f6ff;
+    border: 1px solid #b0c8e8;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+    line-height: 1.6;
+  }
+  .routine-item .ri-timing {
+    font-size: 0.72rem;
+    font-weight: 700;
+    background: #1a4a7a;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 8px;
+    display: inline-block;
+    margin-bottom: 6px;
+  }
+  .routine-item .ri-emoji { font-size: 1.4rem; display: block; margin-bottom: 4px; }
+  .routine-item strong { color: #1a4a7a; }
+
+  @media (max-width: 600px) {
+    .card-body { padding: 20px 18px 20px 40px; }
+    .big-num-row { flex-direction: column; }
+    .two-col, .soft-row, .routine-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- 表紙 -->
+<div class="cover">
+  <span class="cover-emoji">📒</span>
+  <h1>記帳と会計ソフトの始め方<br>freee・マネーフォワード・弥生を比較</h1>
+  <div class="subtitle">複式簿記・仕訳・月次ルーティンを中学生でもわかるように図解</div>
+  <div class="subtitle">1人法人スタート 基礎知識</div>
+  <span class="key-badge">📌 記帳 ＝ お金の出入りを帳簿に記録すること</span>
+  <span class="date-badge">2026-06-05</span>
+</div>
+
+<!-- 目次 -->
+<div class="toc">
+  <h2>📋 今日の目次</h2>
+  <ol>
+    <li><a href="#sec1">「記帳」って何？なぜ法人は必ずやらなければならないの？</a></li>
+    <li><a href="#sec2">クラウド会計ソフト3選の比較（freee・マネーフォワード・弥生）</a></li>
+    <li><a href="#sec3">設立直後のセットアップ手順（4ステップで始める）</a></li>
+    <li><a href="#sec4">仕訳（しわけ）の基本 ── 借方・貸方を図解</a></li>
+    <li><a href="#sec5">毎月の経理ルーティン（月次作業カレンダー）</a></li>
+    <li><a href="#sec6">電子帳簿保存法（電帳法） ── 2024年から義務化された注意点</a></li>
+    <li><a href="#sec7">今日のまとめ</a></li>
+  </ol>
+</div>
+
+<!-- Section 1 -->
+<div class="card" id="sec1">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">📖</span>
+      <span class="card-title">「記帳」って何？なぜ法人は必ずやらなければならないの？</span>
+      <span class="topic-badge badge-blue">基本のキ</span>
+    </div>
+
+    <div class="simple-box">
+      <div class="label">やさしく言うと</div>
+      <strong>記帳（きちょう）</strong>とは、「会社のお金の出入りをルールに従って帳簿に記録すること」です。
+      家計簿の法人版と思えばOK。ただし法人は個人と違い、<strong>法律で記帳が義務付けられています</strong>。
+      売上・仕入れ・給料・税金……すべての取引を正確に記録することで、
+      「いくら利益が出たか」を計算し、税金を正しく申告できます。
+    </div>
+
+    <div class="big-num-row">
+      <div class="big-num-card red-card">
+        <span class="bn-number">7</span>
+        <span class="bn-unit">年間</span>
+        <div class="bn-label">帳簿・領収書の<br>保存義務期間<br><span style="color:#888;font-size:0.72rem;">法人税法 第126条（基準年度：2024年）</span></div>
+      </div>
+      <div class="big-num-card">
+        <span class="bn-number">複式</span>
+        <span class="bn-unit">簿記</span>
+        <div class="bn-label">法人が原則として使う<br>記帳方式<br><span style="color:#888;font-size:0.72rem;">法人税法施行規則 第54条</span></div>
+      </div>
+      <div class="big-num-card green-card">
+        <span class="bn-number">青色</span>
+        <span class="bn-unit">申告</span>
+        <div class="bn-label">記帳のご褒美で<br>税務上の特典が多い<br><span style="color:#888;font-size:0.72rem;">法人税法 第121条</span></div>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div class="col-card good">
+        <div class="col-title">✅ 記帳が必要な理由（3つ）</div>
+        <ul>
+          <li>① <strong>税務申告</strong>のため ── 利益を計算して法人税等を申告する</li>
+          <li>② <strong>税務調査</strong>への備え ── 根拠がないと追徴課税リスク</li>
+          <li>③ <strong>経営判断</strong>のため ── 資金繰り・損益を数字で把握する</li>
+        </ul>
+      </div>
+      <div class="col-card info">
+        <div class="col-title">📚 複式簿記（ふくしきぼき）って？</div>
+        「1つの取引を2つの面から記録する」方式です。<br>
+        例）事務用品を1,000円で買った<br>
+        → 「消耗品費が増えた」&「現金が減った」<br>
+        の<strong>2つを同時に記録</strong>します。これがすべての会計の基本！
+      </div>
+    </div>
+
+    <div class="info-box">
+      <div class="label">📖 法令の根拠</div>
+      法人税法 第126条：法人は「帳簿書類を備え付けてこれに取引を記録し、かつ、当該帳簿書類を保存しなければならない」と定めています。
+      保存期間は原則7年（欠損金がある事業年度は10年）。（基準年度：2024年）
+    </div>
+
+    <div class="source">
+      📌 出典：法人税法 第126条（帳簿書類の備付け等）<br>
+      国税庁「帳簿の記帳のしかた（法人用）」<br>
+      <a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/hojin/5930.htm" target="_blank">https://www.nta.go.jp/taxes/shiraberu/taxanswer/hojin/5930.htm</a>（2024年確認）
+    </div>
+  </div>
+</div>
+
+<!-- Section 2 -->
+<div class="card" id="sec2">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">🖥️</span>
+      <span class="card-title">クラウド会計ソフト3選の比較</span>
+      <span class="topic-badge badge-green">ツール選び</span>
+    </div>
+
+    <div class="simple-box">
+      <div class="label">やさしく言うと</div>
+      昔は帳簿を手書きしていましたが、今は<strong>クラウド会計ソフト</strong>を使えばほぼ自動で記帳できます。
+      銀行口座やクレジットカードと連携して、入出金を自動で仕訳してくれる優れものです。
+      主要3社を比較して、自分に合うものを選びましょう。
+    </div>
+
+    <div class="soft-row">
+      <div class="soft-card freee">
+        <div class="sc-name">freee会計</div>
+        <span class="sc-tag">直感操作派向け</span>
+        <ul>
+          <li>✅ UIが最もシンプル</li>
+          <li>✅ 簿記知識がなくても使いやすい</li>
+          <li>✅ freee人事労務と連携可</li>
+          <li>✅ スマホアプリが充実</li>
+          <li>⚠️ 独自の画面操作に慣れが必要</li>
+        </ul>
+        <div style="margin-top:8px; font-size:0.78rem; color:#555;">
+          🔗 公式: freee.co.jp
+        </div>
+      </div>
+      <div class="soft-card mf">
+        <div class="sc-name">マネーフォワード<br>クラウド会計</div>
+        <span class="sc-tag">簿記経験者向け</span>
+        <ul>
+          <li>✅ 銀行・クレカの連携数が多い</li>
+          <li>✅ 複式簿記の概念に忠実</li>
+          <li>✅ MFクラウドシリーズで請求書・給与と連携</li>
+          <li>✅ スモールビジネス向けプランあり</li>
+          <li>⚠️ 簿記の基礎があると使いやすい</li>
+        </ul>
+        <div style="margin-top:8px; font-size:0.78rem; color:#555;">
+          🔗 公式: biz.moneyforward.com
+        </div>
+      </div>
+      <div class="soft-card yayoi">
+        <div class="sc-name">弥生会計<br>オンライン</div>
+        <span class="sc-tag">サポート重視派向け</span>
+        <ul>
+          <li>✅ 業界最大シェアで税理士との連携が多い</li>
+          <li>✅ 電話・チャットサポートが手厚い</li>
+          <li>✅ セルフプランは年額が抑えめ</li>
+          <li>⚠️ インターフェースがやや旧来型</li>
+          <li>⚠️ 法人プランは機能に応じて価格帯あり</li>
+        </ul>
+        <div style="margin-top:8px; font-size:0.78rem; color:#555;">
+          🔗 公式: yayoi-kk.co.jp
+        </div>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <div class="label">💡 1人法人の選び方のポイント</div>
+      <table class="compare-table" style="margin:8px 0; font-size:0.85rem;">
+        <thead>
+          <tr>
+            <th>状況</th>
+            <th>おすすめ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>簿記知識がゼロ・とにかく簡単に始めたい</td>
+            <td><strong>freee</strong></td>
+          </tr>
+          <tr>
+            <td>銀行口座・カードが多い・MFで個人家計も管理している</td>
+            <td><strong>マネーフォワード</strong></td>
+          </tr>
+          <tr>
+            <td>税理士と一緒に使う・電話サポートが欲しい</td>
+            <td><strong>弥生</strong></td>
+          </tr>
+          <tr>
+            <td>まず無料で試したい</td>
+            <td>どのソフトも無料トライアルあり（各社公式サイトで確認）</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="sticky">
+      💡 どのソフトも「銀行・クレカ自動連携」「レシートのスマホ撮影」「自動仕訳のAI提案」が使えます。
+      料金・機能は毎年変わるため、導入前に必ず各社の公式サイトで最新プランを確認してください。
+    </div>
+
+    <div class="source">
+      📌 各社公式サイト（価格・機能の最新情報は各社へ）<br>
+      freee株式会社: <a href="https://www.freee.co.jp/accounting/" target="_blank">https://www.freee.co.jp/accounting/</a><br>
+      マネーフォワード: <a href="https://biz.moneyforward.com/accounting/" target="_blank">https://biz.moneyforward.com/accounting/</a><br>
+      弥生株式会社: <a href="https://www.yayoi-kk.co.jp/products/account_ol/" target="_blank">https://www.yayoi-kk.co.jp/products/account_ol/</a>
+    </div>
+  </div>
+</div>
+
+<!-- Section 3 -->
+<div class="card" id="sec3">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">🚀</span>
+      <span class="card-title">設立直後のセットアップ手順（4ステップで始める）</span>
+      <span class="topic-badge badge-navy">はじめの一歩</span>
+    </div>
+
+    <div class="simple-box">
+      <div class="label">やさしく言うと</div>
+      会計ソフトは「入れてすぐ使える」ではなく、最初に<strong>会社情報・口座・科目を設定</strong>する必要があります。
+      設立直後に一度セットアップすれば、あとは毎月の入力だけで済みます。
+    </div>
+
+    <div class="step-flow">
+      <div class="step-row">
+        <div class="step-num-col">
+          <div class="step-num">1</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-title">🏢 会社の基本情報を登録する</div>
+          法人名・法人番号・住所・決算月・資本金・事業年度の開始日を入力します。
+          <strong>決算月は間違えないよう</strong>に登録しましょう（後から変更すると入力が大変です）。
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-num-col">
+          <div class="step-num">2</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-title">🏦 銀行口座・クレジットカードを連携する</div>
+          法人用の銀行口座（メインバンク）とクレジットカードを会計ソフトと連携します。
+          連携すると入出金が自動取得され、仕訳の提案が来ます。
+          <span class="hl-yellow">法人口座を事前に開設しておく</span>のが前提です。
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-num-col">
+          <div class="step-num">3</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-title">📂 勘定科目（かんじょうかもく）の初期設定を確認する</div>
+          「勘定科目」とは「費用の分類名」です（例：消耗品費・通信費・旅費交通費など）。
+          ソフトに標準科目が用意されているので、最初は<strong>デフォルトのままで十分</strong>です。
+          業種や取引に合わせて後から追加できます。
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-num-col">
+          <div class="step-num">4</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-title">💰 資本金・設立時の仕訳を入力する</div>
+          設立時に出資した資本金を「設立仕訳」として入力します。
+          例：資本金100万円を法人口座に入金した場合、
+          「普通預金 100万円 ／ 資本金 100万円」と記録します（詳細は次のセクションで図解）。
+          ここで<strong>事業年度の開始時点の残高</strong>が確定します。
+        </div>
+      </div>
+    </div>
+
+    <div class="qa-box">
+      <div class="qa-question">設立前の準備費用（印鑑・登記費用など）は経費にできる？</div>
+      <div class="qa-answer">
+        法人設立前に代表者個人が立て替えた費用（登記費用・定款認証費用・印鑑代等）は、
+        「創立費（そうりつひ）」として会社が負担したものとして処理できます。
+        会計ソフトで「創立費」の勘定科目を使い、立替精算の形で記帳します。
+        具体的な処理方法は税理士に確認するか、各ソフトのヘルプを参照しましょう。
+      </div>
+    </div>
+
+    <div class="source">
+      📌 参考：J-Net21「法人設立後の手続き」<br>
+      <a href="https://j-net21.smrj.go.jp/startup/" target="_blank">https://j-net21.smrj.go.jp/startup/</a>（2024年確認）<br>
+      国税庁「法人税の申告の概要」<br>
+      <a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/hojin/5200.htm" target="_blank">https://www.nta.go.jp/taxes/shiraberu/taxanswer/hojin/5200.htm</a>（2024年確認）
+    </div>
+  </div>
+</div>
+
+<!-- Section 4 -->
+<div class="card" id="sec4">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">⚖️</span>
+      <span class="card-title">仕訳（しわけ）の基本 ── 借方・貸方を図解</span>
+      <span class="topic-badge badge-purple">複式簿記の核心</span>
+    </div>
+
+    <div class="simple-box">
+      <div class="label">やさしく言うと</div>
+      <strong>仕訳（しわけ）</strong>とは「1つの取引を左右2つに分けて記録すること」です。
+      左側を「<strong>借方（かりかた）</strong>」、右側を「<strong>貸方（かしかた）</strong>」と呼びます。
+      名前に深い意味はなく、ただの「ルール」と覚えれば大丈夫。
+      左右を合計すると必ず同じ金額になります（バランスが取れる）。
+    </div>
+
+    <p style="font-weight:700; color:#7b2fbe; margin:14px 0 8px;">■ 仕訳の基本パターン（図解）</p>
+
+    <div class="shiwake-box">
+      <div class="sw-title">仕訳の「型」</div>
+      <div class="shiwake-grid">
+        <div class="sw-left">
+          <span class="sw-side-label">借方（左）</span><br>
+          <div class="sw-item">資産が増えたとき</div>
+          <div class="sw-item">費用が発生したとき</div>
+        </div>
+        <div class="sw-right">
+          <span class="sw-side-label">貸方（右）</span><br>
+          <div class="sw-item">資産が減ったとき</div>
+          <div class="sw-item">負債・資本が増えたとき</div>
+          <div class="sw-item">収益が発生したとき</div>
+        </div>
+      </div>
+      <div class="sw-hint">左右の合計は必ず一致します（これを「貸借一致の原則」といいます）</div>
+    </div>
+
+    <p style="font-weight:700; color:#7b2fbe; margin:14px 0 6px;">■ 具体例で見る仕訳3パターン</p>
+
+    <table class="compare-table" style="font-size:0.85rem;">
+      <thead>
+        <tr>
+          <th>取引の内容</th>
+          <th>借方（左）</th>
+          <th>貸方（右）</th>
+          <th>考え方</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>💻 PCを20万円で購入（銀行振込）</td>
+          <td>工具器具備品 20万円</td>
+          <td>普通預金 20万円</td>
+          <td>資産（PC）増↑、銀行残高減↓</td>
+        </tr>
+        <tr>
+          <td>📬 電話代5,000円が引落し</td>
+          <td>通信費 5,000円</td>
+          <td>普通預金 5,000円</td>
+          <td>費用発生↑、銀行残高減↓</td>
+        </tr>
+        <tr>
+          <td>💴 売上50万円が入金</td>
+          <td>普通預金 50万円</td>
+          <td>売上高 50万円</td>
+          <td>銀行残高増↑、収益発生↑</td>
+        </tr>
+        <tr>
+          <td>🏠 家賃10万円を支払い</td>
+          <td>地代家賃 10万円</td>
+          <td>普通預金 10万円</td>
+          <td>費用発生↑、銀行残高減↓</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="green-box">
+      <div class="label">✅ クラウド会計ソフトなら仕訳は自動提案</div>
+      銀行口座と連携すると、ソフトが「この入出金はたぶん〇〇費では？」と<strong>自動で仕訳を提案</strong>してくれます。
+      最初は提案が合っているか確認しながら「承認」するだけでOK。
+      同じ取引が続くと、ソフトが学習して次からは自動で仕訳されるようになります。
+    </div>
+
+    <div class="source">
+      📌 参考：国税庁「帳簿の記帳のしかた（法人用）」<br>
+      <a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/hojin/5930.htm" target="_blank">https://www.nta.go.jp/taxes/shiraberu/taxanswer/hojin/5930.htm</a>（2024年確認）
+    </div>
+  </div>
+</div>
+
+<!-- Section 5 -->
+<div class="card" id="sec5">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">📅</span>
+      <span class="card-title">毎月の経理ルーティン（月次作業カレンダー）</span>
+      <span class="topic-badge badge-teal">月次サイクル</span>
+    </div>
+
+    <div class="simple-box">
+      <div class="label">やさしく言うと</div>
+      1人で会社を回す場合、「いつ・何をやるか」を決めておくと経理が滞りません。
+      毎月<strong>3〜5時間</strong>を確保すれば、クラウド会計ソフトを使えば1人でも十分回せます。
+    </div>
+
+    <div class="routine-grid">
+      <div class="routine-item">
+        <span class="ri-timing">月初 1〜5日</span>
+        <span class="ri-emoji">🏦</span>
+        <strong>口座明細の取得・確認</strong><br>
+        前月分の銀行・クレカ明細をソフトに取り込む（自動連携の場合は同期確認）。
+        未処理の取引がないかチェック。
+      </div>
+      <div class="routine-item">
+        <span class="ri-timing">月初 1〜10日</span>
+        <span class="ri-emoji">📄</span>
+        <strong>領収書・レシートの整理</strong><br>
+        前月の領収書をスキャン or スマホ撮影してソフトに登録。
+        現金払いがあった場合は特に忘れずに。
+      </div>
+      <div class="routine-item">
+        <span class="ri-timing">月初 1〜10日</span>
+        <span class="ri-emoji">✍️</span>
+        <strong>仕訳の確認・承認</strong><br>
+        ソフトが自動提案した仕訳を確認・修正・承認する。
+        按分が必要なもの（家賃・通信費）は割合を入力。
+      </div>
+      <div class="routine-item">
+        <span class="ri-timing">月中</span>
+        <span class="ri-emoji">🧾</span>
+        <strong>請求書の発行・入金確認</strong><br>
+        売上の請求書を発行し、入金を確認する。
+        未回収があれば取引先へ連絡。売掛金（うりかけきん：まだもらっていない売上）を把握。
+      </div>
+      <div class="routine-item">
+        <span class="ri-timing">月末</span>
+        <span class="ri-emoji">💰</span>
+        <strong>役員報酬の支払い・源泉徴収</strong><br>
+        代表者への役員報酬を支払い、<span class="hl-yellow">源泉所得税を差し引いて</span>記帳する。
+        翌月10日までに源泉税を納付（納期特例なら7月・1月の年2回）。
+      </div>
+      <div class="routine-item">
+        <span class="ri-timing">月末</span>
+        <span class="ri-emoji">📊</span>
+        <strong>損益・残高の確認</strong><br>
+        「損益計算書（PL）」で今月の利益を確認。「貸借対照表（BS）」で会社の財産状況を確認。
+        数字に違和感があれば早めに確認。
+      </div>
+    </div>
+
+    <div class="alert-box">
+      <div class="label">⚠️ 源泉所得税の納付期限に注意！</div>
+      役員報酬（給与）から差し引いた<strong>源泉所得税</strong>は、翌月10日までに納付が原則です。
+      「納期の特例」を申請すると、従業員10人未満の場合は<span class="hl-yellow">7月10日・1月20日の年2回</span>にまとめて納付できます。
+      期限を過ぎると不納付加算税（10〜15%）がかかるので要注意！
+    </div>
+
+    <div class="source">
+      📌 出典：国税庁「No.2505 源泉所得税及び復興特別所得税の納付期限と納期の特例」<br>
+      <a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/gensen/2505.htm" target="_blank">https://www.nta.go.jp/taxes/shiraberu/taxanswer/gensen/2505.htm</a>（2024年確認）
+    </div>
+  </div>
+</div>
+
+<!-- Section 6 -->
+<div class="card" id="sec6">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">📨</span>
+      <span class="card-title">電子帳簿保存法（電帳法） ── 2024年から義務化された注意点</span>
+      <span class="topic-badge badge-red">要注意・義務化</span>
+    </div>
+
+    <div class="simple-box">
+      <div class="label">やさしく言うと</div>
+      <strong>電子帳簿保存法（でんちょほぞんほう）</strong>とは「電子データ（メール・PDF等）で受け取った書類は、
+      紙に印刷せず<strong>電子のまま保存しなければならない</strong>」という法律です。
+      2024年1月1日から<span class="hl-yellow">「電子取引の電子データ保存」</span>が完全義務化されました。
+    </div>
+
+    <p style="font-weight:700; color:#c0392b; margin-bottom:8px;">■ 電帳法の3つのルール（要点）</p>
+
+    <ul class="point-list">
+      <li>
+        <span class="marker marker-red">①</span>
+        <span>
+          <strong>電子取引データの保存（義務）</strong><br>
+          メールやWebサイトで受け取った請求書・領収書のPDFは、
+          <span class="hl-yellow">電子データのまま保存する義務</span>があります（紙に印刷して終わり、はNG）。
+          クラウド会計ソフトの多くが対応機能を持っているので活用しましょう。<br>
+          <span style="font-size:0.82rem; color:#666;">（令和6年1月1日より完全義務化。国税庁「電子帳簿保存法一問一答」参照）</span>
+        </span>
+      </li>
+      <li>
+        <span class="marker marker-blue">②</span>
+        <span>
+          <strong>スキャナ保存（任意・条件あり）</strong><br>
+          紙で受け取った領収書をスキャンしてデータ保存することも認められています（任意）。
+          ただし「解像度・タイムスタンプ・入力期限」などの要件を満たす必要があります。
+          スマホ撮影でも要件を満たせば可能。各クラウド会計ソフトの機能を使うと便利です。
+        </span>
+      </li>
+      <li>
+        <span class="marker marker-green">③</span>
+        <span>
+          <strong>電子帳簿の任意保存（青色申告の特典に関係）</strong><br>
+          会計ソフトで作成した帳簿を「優良な電子帳簿」として保存すると、
+          過少申告加算税が軽減（5%→0%）される特典があります（任意）。
+          主要クラウド会計ソフトは要件を満たす設計になっているものが多いです。
+        </span>
+      </li>
+    </ul>
+
+    <div class="two-col">
+      <div class="col-card good">
+        <div class="col-title">✅ 実務でやること（最低限）</div>
+        <ul>
+          <li>ECサイト・Webサービスの領収書はPDFでダウンロード・保存</li>
+          <li>メール添付の請求書PDFは削除しない</li>
+          <li>クラウド会計ソフトの「電帳法対応機能」でまとめて管理</li>
+          <li>保存先は検索できるフォルダ構成にする（日付・取引先名）</li>
+        </ul>
+      </div>
+      <div class="col-card warn">
+        <div class="col-title">⚠️ やってはいけないこと</div>
+        <ul>
+          <li>電子で受け取った書類を「紙に印刷して電子は削除」（義務違反）</li>
+          <li>データの保存先が不明・検索できない状態で放置</li>
+          <li>Gmailのメール本文に領収書情報があるのに何も保存しない</li>
+          <li>「よく分からないから何もしない」（税務調査で問題になるリスク）</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="source">
+      📌 出典：国税庁「電子帳簿保存法の概要」<br>
+      <a href="https://www.nta.go.jp/law/joho-zeikaishaku/sonota/jirei/4-3.htm" target="_blank">https://www.nta.go.jp/law/joho-zeikaishaku/sonota/jirei/4-3.htm</a>（2024年確認）<br>
+      国税庁「電子帳簿保存法一問一答（電子取引関係）」<br>
+      <a href="https://www.nta.go.jp/law/joho-zeikaishaku/sonota/jirei/0021006-031_03.pdf" target="_blank">https://www.nta.go.jp/law/joho-zeikaishaku/sonota/jirei/0021006-031_03.pdf</a>（2024年確認）<br>
+      ※ 電子取引のデータ保存義務：令和6年（2024年）1月1日以後の電子取引から完全義務化
+    </div>
+  </div>
+</div>
+
+<!-- まとめカード -->
+<div class="summary-card" id="sec7">
+  <h2>🎯 今日のまとめ ── 5つのポイント</h2>
+  <div class="summary-grid">
+    <div class="summary-item">
+      <span class="s-emoji">📒</span>
+      <div class="s-title">① 記帳は法人の義務（7年保存）</div>
+      法人税法 第126条により、法人は複式簿記での帳簿記録と7年間の保存が義務。会計ソフトを使えば帳簿は自動的に作成される。
+    </div>
+    <div class="summary-item">
+      <span class="s-emoji">🖥️</span>
+      <div class="s-title">② クラウド会計ソフトは3社が主要</div>
+      freee（直感派）・マネーフォワード（簿記経験者向け）・弥生（サポート重視）の3択。無料トライアルで試してから選ぶ。
+    </div>
+    <div class="summary-item">
+      <span class="s-emoji">🚀</span>
+      <div class="s-title">③ セットアップは4ステップ</div>
+      「会社情報登録 → 銀行口座連携 → 科目確認 → 資本金仕訳入力」の順で設定すれば自動化の基盤が整う。
+    </div>
+    <div class="summary-item">
+      <span class="s-emoji">⚖️</span>
+      <div class="s-title">④ 仕訳は「左＝借方、右＝貸方」</div>
+      1取引を必ず左右2面で記録する複式簿記のルール。ソフトが自動提案してくれるので、最初は提案を確認・承認するだけでOK。
+    </div>
+    <div class="summary-item">
+      <span class="s-emoji">📨</span>
+      <div class="s-title">⑤ 電子データはデータのまま保存（義務）</div>
+      2024年1月から「電子取引の電子保存」が完全義務化。メールやWebで受け取った領収書・請求書PDFは削除しないこと。
+    </div>
+  </div>
+</div>
+
+<!-- 免責 -->
+<div class="disclaimer">
+  <strong>📌 免責事項・基準年度について</strong><br>
+  本記事は一般的な情報提供を目的としており、個別の税務・法務・会計アドバイスではありません。
+  記帳方法・経費処理・電帳法への対応方法は、会社の業種・規模・取引内容によって異なります。
+  具体的な判断・帳簿の設定・申告の方法は<strong>税理士</strong>などの専門家にご相談ください。<br><br>
+  <strong>基準年度</strong>：本記事の制度（法人税法・電子帳簿保存法）は2024年度（令和6年度）現在の情報を基に作成。
+  税制・法令は毎年改正されることがあります。申告・手続き前に必ず最新情報をご確認ください。<br><br>
+  <strong>各会計ソフトの料金・機能</strong>は変更される場合があります。導入前に各社公式サイトで最新情報をご確認ください。<br>
+  <strong>電子帳簿保存法の電子取引データ保存義務</strong>：令和6年（2024年）1月1日以後の電子取引から完全義務化。
+</div>
+
+<!-- フッター -->
+<div class="footer">
+  <p>1人法人スタート 日報 ── 毎朝1テーマをやさしく解説<br>
+  <a href="index.html" style="color:#1a4a7a;">← バックナンバー一覧</a></p>
+</div>
+
+</body>
+</html>
