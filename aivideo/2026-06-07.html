@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI動画制作 最新ツール比較 2026-06-07</title>
+<style>
+:root{
+  --bg:#ece8e1;--card:#faf6ec;--dark:#1a2a4a;--dark2:#1a4a2a;
+  --accent:#1a3a6e;--accent2:#1a5c3a;
+  --text:#2a3540;--muted:#7c8a82;--border:#e0d8c8;
+  --warm:#c4762a;
+  --seed:#1a3a6e;--seedl:#e8f0fb;--seedm:#4a6a9e;
+  --ltx:#1a5c3a;--ltxl:#e8f8f0;--ltxm:#3a8a5a;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,"Hiragino Sans","Yu Gothic",sans-serif;line-height:1.7;padding:24px 16px;}
+.wrap{max-width:860px;margin:0 auto;}
+
+.header{background:linear-gradient(135deg,#1a2a4a,#1a4a2a);color:#fff;border-radius:20px;padding:40px 32px;text-align:center;box-shadow:0 8px 24px rgba(26,42,74,.32);margin-bottom:24px;}
+.date-badge{background:rgba(255,255,255,.18);color:#a8e0d8;border-radius:20px;padding:4px 16px;font-size:.85rem;display:inline-block;margin-bottom:16px;letter-spacing:.08em;}
+.header h1{font-size:1.9rem;margin-bottom:8px;letter-spacing:.04em;}
+.header .subtitle{color:#a8d8f0;font-size:1rem;}
+.tag-row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:14px;}
+.header .tag{background:rgba(255,255,255,.15);border-radius:12px;padding:3px 12px;font-size:.78rem;display:inline-block;color:#ffe4a8;}
+
+.section{background:var(--card);border-radius:16px;padding:28px 24px;margin-bottom:20px;box-shadow:0 3px 12px rgba(0,0,0,.06);border:1px solid var(--border);}
+.section-title{font-size:1.1rem;font-weight:700;color:var(--accent);border-bottom:2px solid var(--border);padding-bottom:10px;margin-bottom:18px;display:flex;align-items:center;gap:8px;}
+
+.tool-heroes{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px;}
+@media(max-width:600px){.tool-heroes{grid-template-columns:1fr;}}
+.hero-card{border-radius:14px;padding:22px 18px;border:2px solid;}
+.hero-card.seed{background:var(--seedl);border-color:#b0c4e8;}
+.hero-card.ltx{background:var(--ltxl);border-color:#a0d0b0;}
+.hero-card .hc-label{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px;}
+.hero-card.seed .hc-label{color:var(--seedm);}
+.hero-card.ltx .hc-label{color:var(--ltxm);}
+.hero-card .hc-title{font-size:1.3rem;font-weight:700;margin-bottom:3px;}
+.hero-card.seed .hc-title{color:var(--seed);}
+.hero-card.ltx .hc-title{color:var(--ltx);}
+.hero-card .hc-by{font-size:.78rem;color:var(--muted);margin-bottom:10px;}
+.hero-card .hc-badge{display:inline-block;border-radius:8px;padding:2px 10px;font-size:.72rem;font-weight:700;color:#fff;margin-bottom:10px;}
+.hero-card.seed .hc-badge{background:var(--seed);}
+.hero-card.ltx .hc-badge{background:var(--ltx);}
+
+.stat-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px;}
+.stat-item{border-radius:10px;padding:10px 12px;text-align:center;flex:1;min-width:68px;}
+.stat-item.seed{background:var(--seed);color:#fff;}
+.stat-item.ltx{background:var(--ltx);color:#fff;}
+.stat-num{font-size:1.4rem;font-weight:800;letter-spacing:-.02em;line-height:1.1;}
+.stat-label{font-size:.62rem;margin-top:3px;opacity:.85;}
+
+.comp-table{width:100%;border-collapse:collapse;margin-top:16px;font-size:.82rem;}
+.comp-table th{padding:10px 12px;text-align:center;color:#fff;}
+.comp-table th.h-item{background:#555;text-align:left;}
+.comp-table th.h-seed{background:var(--seed);}
+.comp-table th.h-ltx{background:var(--ltx);}
+.comp-table th:first-child{border-radius:8px 0 0 0;}
+.comp-table th:last-child{border-radius:0 8px 0 0;}
+.comp-table td{padding:9px 12px;border-bottom:1px solid var(--border);vertical-align:middle;}
+.comp-table td:first-child{font-weight:600;color:#4a4a5a;}
+.comp-table td:not(:first-child){text-align:center;}
+.comp-table tr:last-child td{border-bottom:none;}
+.comp-table tr:nth-child(even) td{background:#f5f0e8;}
+.badge-good{background:#e0f4e0;color:#1a6a2a;border-radius:6px;padding:2px 8px;font-size:.75rem;font-weight:700;display:inline-block;}
+.badge-ok{background:#f8f4e0;color:#7a5a10;border-radius:6px;padding:2px 8px;font-size:.75rem;font-weight:700;display:inline-block;}
+.badge-limited{background:#f8e8e8;color:#8a2a1a;border-radius:6px;padding:2px 8px;font-size:.75rem;display:inline-block;}
+
+.flow-q{background:linear-gradient(135deg,#2a3a5a,#2a5a3a);color:#fff;border-radius:10px;padding:12px 16px;font-weight:700;font-size:.9rem;text-align:center;margin-bottom:14px;}
+.flow-row{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:center;}
+@media(max-width:580px){.flow-row{grid-template-columns:1fr;}.flow-arrow{text-align:center;}}
+.flow-yes{background:var(--seedl);border:2px solid var(--seedm);border-radius:10px;padding:14px;}
+.flow-no{background:var(--ltxl);border:2px solid var(--ltxm);border-radius:10px;padding:14px;}
+.flow-arrow{text-align:center;font-size:1.6rem;color:var(--warm);}
+.flow-label{font-size:.75rem;font-weight:700;display:block;margin-bottom:6px;}
+.flow-label.seed{color:var(--seed);}
+.flow-label.ltx{color:var(--ltx);}
+.flow-item{font-size:.8rem;line-height:1.7;color:var(--text);}
+
+.steps{counter-reset:step;margin-top:12px;}
+.step{display:flex;gap:14px;align-items:flex-start;margin-bottom:14px;}
+.step-num{background:var(--seed);color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:700;flex-shrink:0;margin-top:2px;}
+.step.ltx-step .step-num{background:var(--ltx);}
+.step-body h4{font-size:.9rem;font-weight:700;color:var(--seed);margin-bottom:3px;}
+.step.ltx-step .step-body h4{color:var(--ltx);}
+.step-body p{font-size:.83rem;color:var(--text);}
+
+.prompt-box{background:#1a1a2a;color:#a8f0d8;border-radius:8px;padding:10px 14px;font-size:.78rem;font-family:monospace;margin-top:6px;line-height:1.65;}
+.prompt-box.ltx-prompt{background:#0a1e14;color:#a8f0c0;}
+
+.example-box{border-radius:12px;border-left:4px solid;padding:16px 18px;margin-top:0;}
+.example-box.seed{background:var(--seedl);border-color:var(--seed);}
+.example-box.ltx{background:var(--ltxl);border-color:var(--ltx);}
+.example-box h4{font-size:.95rem;font-weight:700;margin-bottom:10px;}
+.example-box.seed h4{color:var(--seed);}
+.example-box.ltx h4{color:var(--ltx);}
+.example-box p{font-size:.83rem;color:var(--text);}
+
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+@media(max-width:580px){.two-col{grid-template-columns:1fr;}}
+.col-card{border-radius:12px;padding:16px;border:1px solid;}
+.col-card.seed{background:var(--seedl);border-color:#b0c4e8;}
+.col-card.ltx{background:var(--ltxl);border-color:#a0d0b0;}
+.col-card .col-head{font-weight:700;margin-bottom:8px;font-size:.88rem;}
+.col-card.seed .col-head{color:var(--seed);}
+.col-card.ltx .col-head{color:var(--ltx);}
+
+.info-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;}
+.info-pill{border-radius:20px;padding:4px 12px;font-size:.75rem;font-weight:600;}
+.info-pill.seed{background:var(--seed);color:#fff;}
+.info-pill.ltx{background:var(--ltx);color:#fff;}
+.info-pill.neutral{background:#e8e0d0;color:#4a4040;}
+
+.source-list{margin-top:10px;padding-left:16px;}
+.source-list li{font-size:.75rem;color:var(--muted);margin-bottom:4px;}
+.source-list a{color:var(--seedm);text-decoration:none;}
+.source-list a:hover{text-decoration:underline;}
+
+.disclaimer{background:#f5f0e8;border:1px solid var(--border);border-radius:12px;padding:16px;margin-top:20px;font-size:.78rem;color:var(--muted);line-height:1.7;}
+.disclaimer strong{color:var(--warm);}
+.footer{text-align:center;color:var(--muted);font-size:.78rem;margin-top:24px;line-height:1.8;}
+.footer a{color:var(--seedm);text-decoration:none;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="date-badge">2026-06-07 ／ ツール情報</div>
+    <h1>AI動画制作 最新ツール比較</h1>
+    <div class="subtitle">Seedance 2.0 vs LTX-2.3 ── 選び方完全ガイド</div>
+    <div class="tag-row">
+      <span class="tag">🤖 Seedance 2.0</span>
+      <span class="tag">🔓 LTX-2.3 オープンソース</span>
+      <span class="tag">🔊 ネイティブ音声</span>
+      <span class="tag">📱 縦型動画</span>
+      <span class="tag">🎬 4K / 50fps</span>
+    </div>
+  </div>
+
+  <!-- 今日のポイント -->
+  <div class="section">
+    <div class="section-title">💡 今日のポイント</div>
+    <p style="font-size:.9rem;margin-bottom:12px;">2026年春、AI動画生成ツールの新星が2本登場しました。<strong>Seedance 2.0</strong>（ByteDance製）と<strong>LTX-2.3</strong>（Lightricks製）です。どちらも「テキストや画像から<em>動画＋音声</em>を自動生成」できますが、使い方・向いている用途・コストが全く異なります。今日は数値カードと比較表で一発でわかるよう整理しました。</p>
+    <div class="info-row">
+      <span class="info-pill seed">🎵 Seedance 2.0：CapCutで手軽に</span>
+      <span class="info-pill ltx">🔓 LTX-2.3：無料オープンソース</span>
+      <span class="info-pill neutral">📅 両方 2026年2〜3月リリース</span>
+    </div>
+  </div>
+
+  <!-- ツール概要カード -->
+  <div class="section">
+    <div class="section-title">🃏 ツール概要カード</div>
+    <div class="tool-heroes">
+
+      <div class="hero-card seed">
+        <div class="hc-label">ByteDance</div>
+        <div class="hc-title">Seedance 2.0</div>
+        <div class="hc-by">CapCut / Dreamina 経由で利用</div>
+        <span class="hc-badge">2026年2月12日リリース確認</span>
+        <div class="stat-row">
+          <div class="stat-item seed">
+            <div class="stat-num">15s</div>
+            <div class="stat-label">最大生成尺</div>
+          </div>
+          <div class="stat-item seed">
+            <div class="stat-num">720p</div>
+            <div class="stat-label">解像度</div>
+          </div>
+          <div class="stat-item seed">
+            <div class="stat-num">🔊</div>
+            <div class="stat-label">音声自動生成</div>
+          </div>
+        </div>
+        <p style="font-size:.75rem;color:var(--muted);margin-top:10px;">✅ 日本では2026年4月〜CapCut Proで利用開始</p>
+      </div>
+
+      <div class="hero-card ltx">
+        <div class="hc-label">Lightricks</div>
+        <div class="hc-title">LTX-2.3</div>
+        <div class="hc-by">オープンソース（Apache 2.0）</div>
+        <span class="hc-badge">2026年3月5日リリース確認</span>
+        <div class="stat-row">
+          <div class="stat-item ltx">
+            <div class="stat-num">4K</div>
+            <div class="stat-label">最大解像度</div>
+          </div>
+          <div class="stat-item ltx">
+            <div class="stat-num">50fps</div>
+            <div class="stat-label">フレームレート</div>
+          </div>
+          <div class="stat-item ltx">
+            <div class="stat-num">20s</div>
+            <div class="stat-label">最大生成尺</div>
+          </div>
+        </div>
+        <p style="font-size:.75rem;color:var(--muted);margin-top:10px;">✅ 22Bパラメータ。ローカル実行・API・Studioで利用可</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 機能比較表 -->
+  <div class="section">
+    <div class="section-title">📊 機能比較表</div>
+    <p style="font-size:.8rem;color:var(--muted);margin-bottom:12px;">◎ 優秀 ／ ○ 対応 ／ △ 制限あり ／ × 非対応</p>
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th class="h-item">比較項目</th>
+          <th class="h-seed">🤖 Seedance 2.0</th>
+          <th class="h-ltx">🔓 LTX-2.3</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>🎬 最大解像度</td>
+          <td><span class="badge-ok">720p</span></td>
+          <td><span class="badge-good">4K（最大）</span></td>
+        </tr>
+        <tr>
+          <td>⏱ 最大生成尺</td>
+          <td><span class="badge-ok">15秒</span></td>
+          <td><span class="badge-good">20秒</span></td>
+        </tr>
+        <tr>
+          <td>🎞 フレームレート</td>
+          <td><span class="badge-ok">標準fps</span></td>
+          <td><span class="badge-good">最大50fps</span></td>
+        </tr>
+        <tr>
+          <td>🔊 音声自動生成</td>
+          <td><span class="badge-good">◎ ネイティブ</span></td>
+          <td><span class="badge-good">◎ ネイティブ</span></td>
+        </tr>
+        <tr>
+          <td>📱 縦型（9:16）動画</td>
+          <td><span class="badge-ok">○ 対応</span></td>
+          <td><span class="badge-good">◎ ネイティブ学習済</span></td>
+        </tr>
+        <tr>
+          <td>🎥 カメラ動き参照</td>
+          <td><span class="badge-good">◎ 動画からコピー可</span></td>
+          <td><span class="badge-ok">○ プロンプトで指定</span></td>
+        </tr>
+        <tr>
+          <td>📸 マルチ入力（画像+音声+映像）</td>
+          <td><span class="badge-good">◎ 最大12ファイル</span></td>
+          <td><span class="badge-ok">○ 複数パイプライン</span></td>
+        </tr>
+        <tr>
+          <td>💰 無料利用</td>
+          <td><span class="badge-limited">△ CapCut Pro必要</span></td>
+          <td><span class="badge-good">◎ OSS・ローカル無料</span></td>
+        </tr>
+        <tr>
+          <td>💻 ローカルPC実行</td>
+          <td><span class="badge-limited">× クラウドのみ</span></td>
+          <td><span class="badge-good">◎ VRAM 12GB〜対応</span></td>
+        </tr>
+        <tr>
+          <td>🔓 オープンソース</td>
+          <td><span class="badge-limited">× 非公開</span></td>
+          <td><span class="badge-good">◎ Apache 2.0</span></td>
+        </tr>
+        <tr>
+          <td>😊 初心者向け</td>
+          <td><span class="badge-good">◎ CapCutで直感操作</span></td>
+          <td><span class="badge-ok">△ 設定やや必要</span></td>
+        </tr>
+        <tr>
+          <td>💵 API料金目安</td>
+          <td><span class="badge-ok">公式で要確認</span></td>
+          <td><span class="badge-good">約$0.04/秒（Fast）</span></td>
+        </tr>
+        <tr>
+          <td>🛡 AI透かし（C2PA）</td>
+          <td><span class="badge-good">◎ C2PAメタデータ自動付与</span></td>
+          <td><span class="badge-ok">○（公式で要確認）</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- どちらを選ぶ？ -->
+  <div class="section">
+    <div class="section-title">🔀 どちらを選ぶ？ ── 判断フロー</div>
+    <div class="flow-q">❓ あなたはどのタイプ？</div>
+    <div class="flow-row">
+      <div class="flow-yes">
+        <span class="flow-label seed">→ Seedance 2.0 向き</span>
+        <div class="flow-item">
+          📱 スマホ・CapCutで手軽に作りたい<br>
+          🎵 効果音・BGMも自動でほしい<br>
+          🎥 カメラの動きを参照したい<br>
+          🌏 ショートムービーを量産したい<br>
+          🔰 AIに詳しくなくてOK
+        </div>
+      </div>
+      <div class="flow-arrow">⚡</div>
+      <div class="flow-no">
+        <span class="flow-label ltx">→ LTX-2.3 向き</span>
+        <div class="flow-item">
+          💻 高解像度・高フレームで仕上げたい<br>
+          🆓 無料で商用利用したい<br>
+          🔧 ComfyUIで細かく制御したい<br>
+          📱 縦型(9:16)を最高品質で作りたい<br>
+          🏠 ローカルPCで完結させたい
+        </div>
+      </div>
+    </div>
+    <p style="font-size:.78rem;color:var(--muted);margin-top:10px;">💡 両方使い分けるのがベスト。アイデア出し → Seedance、仕上げ → LTX というフローも有効です。</p>
+  </div>
+
+  <!-- 使い方ステップ -->
+  <div class="section">
+    <div class="section-title">▶️ 使い方ステップ</div>
+
+    <div class="example-box seed" style="margin-bottom:16px;">
+      <h4>🎬 Seedance 2.0（CapCut経由）の始め方</h4>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <h4>CapCutをインストール・ログイン</h4>
+            <p>スマホまたはPCで CapCut を開き、<strong>CapCut Pro</strong>（※料金は公式で確認）に加入。日本では2026年4月以降に順次展開。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <h4>「AI Media」→「AI Video」で Seedance 2.0 を選ぶ</h4>
+            <p>メニュー：メディア → AI Media → AI Video → モデルで「Dreamina Seedance 2.0」を選択。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <h4>「テキスト→動画」か「画像→動画」でプロンプト入力</h4>
+            <p>英語プロンプトで細かく指定すると品質が上がります。生成ボタンを押すだけで音声も自動付与。</p>
+            <div class="prompt-box">A golden retriever running on a sunny beach, slow motion, cinematic, soft ocean waves in background, natural ambient sound</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <h4>（応用）カメラ動きを参照する</h4>
+            <p>既存の動画をアップロードすると、そのカメラの動きをコピーした映像が生成できます。ドリーインやパンを手軽に再現可能。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="example-box ltx">
+      <h4>🔓 LTX-2.3（LTX Studio / ローカル）の始め方</h4>
+      <div class="steps">
+        <div class="step ltx-step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <h4>LTX Studio でブラウザから試す（最速）</h4>
+            <p><code style="font-size:.78rem;background:#d0f0e4;padding:1px 6px;border-radius:4px;">ltx.io/studio</code> にアクセスしてアカウント作成。ブラウザ上でテキスト→動画・画像→動画がすぐ試せます。</p>
+          </div>
+        </div>
+        <div class="step ltx-step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <h4>（上級）LTX Desktop でローカル無料生成</h4>
+            <p>Windows / Linuxの NVIDIA GPU（VRAM <strong>12GB以上</strong>・RTX 3060〜）があれば完全無料。GitHubの LTX-Desktop リポジトリからダウンロード。</p>
+          </div>
+        </div>
+        <div class="step ltx-step">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <h4>（上級）ComfyUI ワークフローで詳細制御</h4>
+            <p>ComfyUI-LTXVideo を使えば、縦型・アップスケール・LipDub（口の動き合成）など8種のパイプラインを細かく設定できます。</p>
+            <div class="prompt-box ltx-prompt">Portrait 9:16, 1080x1920, A traveler walking through Arashiyama bamboo grove Kyoto, cinematic, morning golden light, 4K detail, smooth camera dolly forward</div>
+          </div>
+        </div>
+        <div class="step ltx-step">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <h4>API（Lightricks）でコスト管理</h4>
+            <p>Fastモード 約$0.04/秒。10秒の動画 ≒ 約$0.40（≒60円）。ltx-2-3-fast（試作）・ltx-2-3-pro（仕上げ）を使い分けると節約できます。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 真似できる具体例 -->
+  <div class="section">
+    <div class="section-title">🎯 真似できる具体例 ── 旅行縦型ショート（9:16）を作る</div>
+    <p style="font-size:.88rem;margin-bottom:14px;">「京都・嵐山の旅Vlog（縦型・15〜20秒）」を作るとしたら？ 2つのプロンプトを比べてみましょう。</p>
+    <div class="two-col">
+      <div class="col-card seed">
+        <div class="col-head">🎬 Seedance 2.0 プロンプト例</div>
+        <div class="prompt-box">A traveler walking through Arashiyama bamboo grove, Kyoto, soft morning light, gentle dolly forward, ambient wind and bird sounds</div>
+        <p style="font-size:.78rem;margin-top:10px;">→ 効果音（風・鳥の声）が自動生成。カメラ動き参照機能で他の動画のドリー感を複製可能。CapCutでそのまま編集できる。</p>
+      </div>
+      <div class="col-card ltx">
+        <div class="col-head">🔓 LTX-2.3 プロンプト例</div>
+        <div class="prompt-box ltx-prompt">Portrait 9:16, 1080x1920, traveler in bamboo forest Arashiyama Kyoto, cinematic golden hour, 4K, 50fps, handheld feel</div>
+        <p style="font-size:.78rem;margin-top:10px;">→ 縦型1080×1920をネイティブ学習済みで高品質生成。4K・50fpsで映画的な仕上がり。Apache 2.0で商用利用可。</p>
+      </div>
+    </div>
+    <p style="font-size:.78rem;color:var(--muted);margin-top:12px;">⚠️ 実在する人物の肖像や著作権のあるキャラクターの再現は、両ツールの利用規約・著作権法で制限または禁止されています。</p>
+  </div>
+
+  <!-- ハードウェアメモ（LTX-2.3） -->
+  <div class="section">
+    <div class="section-title">💻 LTX-2.3 ローカル実行の目安（VRAM）</div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:8px;">
+      <div style="background:#fff8e8;border:1px solid #e0c888;border-radius:12px;padding:16px;text-align:center;">
+        <div style="font-size:1.5rem;font-weight:800;color:#8a5a10;">12 GB</div>
+        <div style="font-size:.72rem;color:#8a5a10;font-weight:700;margin-top:2px;">VRAM（最低ライン）</div>
+        <div style="font-size:.75rem;color:var(--muted);margin-top:6px;">RTX 3060 など<br>速度は遅め</div>
+      </div>
+      <div style="background:#e8f8f0;border:1px solid #90c8a8;border-radius:12px;padding:16px;text-align:center;">
+        <div style="font-size:1.5rem;font-weight:800;color:var(--ltx);">16 GB+</div>
+        <div style="font-size:.72rem;color:var(--ltx);font-weight:700;margin-top:2px;">VRAM（推奨）</div>
+        <div style="font-size:.75rem;color:var(--muted);margin-top:6px;">RTX 4080 / 3090<br>1080p が快適</div>
+      </div>
+      <div style="background:#e8f0fb;border:1px solid #b0c4e8;border-radius:12px;padding:16px;text-align:center;">
+        <div style="font-size:1.5rem;font-weight:800;color:var(--seed);">160 GB</div>
+        <div style="font-size:.72rem;color:var(--seed);font-weight:700;margin-top:2px;">ストレージ（必要）</div>
+        <div style="font-size:.75rem;color:var(--muted);margin-top:6px;">モデル重み +<br>Python環境 + 出力</div>
+      </div>
+    </div>
+    <p style="font-size:.78rem;color:var(--muted);margin-top:10px;">GPUが無い場合は <code style="font-size:.75rem;background:#e8f8f0;padding:1px 5px;border-radius:4px;">ltx.io/studio</code> のブラウザ版か Lightricks API が手軽です。</p>
+  </div>
+
+  <!-- 出典 -->
+  <div class="section">
+    <div class="section-title">📚 参考・出典</div>
+    <p style="font-size:.8rem;color:var(--muted);margin-bottom:6px;">各情報は2026年6月時点の出典に基づいています。</p>
+    <ul class="source-list">
+      <li><a href="https://seed.bytedance.com/en/seedance2_0" target="_blank">ByteDance Seedance 2.0 公式（bytedance.com）</a> — 2026年2月〜確認</li>
+      <li><a href="https://techcrunch.com/2026/03/26/bytedances-new-ai-video-generation-model-dreamina-seedance-2-0-comes-to-capcut/" target="_blank">TechCrunch「Seedance 2.0 comes to CapCut」</a> — 2026年3月26日</li>
+      <li><a href="https://dreamina.capcut.com/tools/seedance-2-0" target="_blank">CapCut / Dreamina Seedance 2.0 ページ（capcut.com）</a> — 2026年4月〜確認</li>
+      <li><a href="https://ltx.io/model/ltx-2-3" target="_blank">LTX公式 LTX-2.3 モデルページ（ltx.io）</a> — 2026年3月〜確認</li>
+      <li><a href="https://dev.to/gary_yan_86eb77d35e0070f5/ltx-23-open-source-audio-video-sync-20s-4k-video-on-gpu-471e" target="_blank">DEV Community「LTX-2.3 OSS 4K Audio-Video Sync」</a> — 2026年3月</li>
+      <li><a href="https://www.mindstudio.ai/blog/what-is-seedance-2-release-guide" target="_blank">MindStudio「What is Seedance 2.0?」</a> — 2026年2〜4月確認</li>
+    </ul>
+  </div>
+
+  <!-- 免責 -->
+  <div class="disclaimer">
+    <strong>⚠️ ご注意（免責事項）</strong><br>
+    本記事で紹介しているAIツールの名称・機能・料金・商用利用の可否は<strong>頻繁に変更</strong>されます。最新情報・利用規約・商用利用の可否は必ず各ツールの<strong>公式ページ</strong>でご確認ください。LTX-2.3のAPIコスト（約$0.04/秒）は2026年3月時点の情報であり変動します。Seedance 2.0のCapCut Pro料金も公式で最新情報をご確認ください。また、著作権のある実在人物の肖像・既存キャラクターの無断再現は各ツールの利用規約および著作権法上問題になる場合があります。
+  </div>
+
+  <div class="footer">AI動画制作 日報 ／ <a href="index.html">← 一覧へ戻る</a></div>
+
+</div>
+</body>
+</html>
