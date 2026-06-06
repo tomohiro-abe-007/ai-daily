@@ -11,8 +11,6 @@
 ## ツール・新機能（要WebSearch更新）
 
 - Sora 2 の最新機能・料金（直近情報で確認）
-- LTX 2.3 Pro の特徴（速度・解像度）
-- Seedance の概要と使いどころ
 - Google Vids 無料枠（月10本）の使い方
 
 ## 新テーマ候補（追加）
@@ -24,6 +22,7 @@
 
 ## 済み（扱ったテーマ）
 
+- 2026-06-07（ツール）：Seedance 2.0 vs LTX-2.3 徹底比較（ByteDance×Lightricks、音声生成・4K・縦型）
 - 2026-06-06（エバーグリーン）：光の使い方（順光・逆光・サイドライト・ゴールデンアワー）
 - 2026-06-05（ツール）：Google Flow 完全ガイド（Veo 3.1 + Nano Banana/Imagen・Scenebuilder・Ingredients）
 
