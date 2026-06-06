@@ -10,10 +10,10 @@
 - 2026-06-04: NVIDIA物理AIオープンソース（Cosmos 3 / Alpamayo 2 Super / Isaac / Metropolis）/ ChatGPT求人検索・履歴書機能
 - 2026-06-05: GitHub Copilot従量課金移行（AI Credits / 定額→トークンベース課金 / 2026-06-01）
 - 2026-06-06: CVPR 2026（米デンバー・6月3-7日）/ 採択論文4,090本・前年比+42% / Embodied AI急増 / マルチモーダルAI拡大
+- 2026-06-07: Apple WWDC 2026（6月8日開幕）/ Apple×Google Gemini AI提携（2026年1月公式発表）/ Siri刷新 / iOS 27・macOS 27
 
 ## 未解説の候補トピック（今後の参考）
-
-- Apple WWDC 2026（6月8日予定）：オンデバイスAI・Siri大刷新・Apple Intelligence強化
+- WWDC 2026 正式発表まとめ（6月8日以降）：実際に発表された内容の詳報
 - ServiceNow Project Arc（2026年5月）：企業向け自律型デスクトップAIエージェント
 - xAI Grok 4.3 Beta（2026年4月）：動画・スライド・音声API対応のマルチモーダル推論
 - OpenAI o3-pro（2026年6月10日リリース予定）：最も信頼性が高いと位置づけるモデル
