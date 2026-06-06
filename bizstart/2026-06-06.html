@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-06-06</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #3d2b1a;
+    padding-bottom: 60px;
+  }
+
+  .header {
+    background: linear-gradient(135deg, #7a4f1e 0%, #4a2e08 100%);
+    color: white;
+    padding: 48px 24px 40px;
+    text-align: center;
+  }
+  .header .date-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border-radius: 20px;
+    padding: 4px 16px;
+    font-size: 0.85rem;
+    margin-bottom: 16px;
+  }
+  .header h1 {
+    font-size: clamp(1.4rem, 4vw, 2rem);
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+  .header p {
+    opacity: 0.85;
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+
+  .section {
+    background: #fff9f0;
+    border-radius: 12px;
+    padding: 28px 24px;
+    margin-top: 24px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.08);
+  }
+  .section h2 {
+    font-size: 1.15rem;
+    color: #7a4f1e;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px dashed #d4b898;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .big-number-cards {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 16px 0;
+  }
+  .big-number-card {
+    background: linear-gradient(135deg, #7a4f1e, #5c3510);
+    color: white;
+    border-radius: 12px;
+    padding: 24px 32px;
+    text-align: center;
+    min-width: 160px;
+    flex: 1;
+  }
+  .big-number-card .num {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1;
+  }
+  .big-number-card .unit {
+    font-size: 1.1rem;
+    margin-top: 4px;
+  }
+  .big-number-card .label {
+    font-size: 0.78rem;
+    opacity: 0.85;
+    margin-top: 8px;
+    line-height: 1.5;
+  }
+
+  .steps { display: flex; flex-direction: column; gap: 0; }
+  .step {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 12px 0;
+    position: relative;
+  }
+  .step-num {
+    background: #7a4f1e;
+    color: white;
+    border-radius: 50%;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+    z-index: 1;
+  }
+  .step-connector {
+    position: absolute;
+    left: 16px;
+    top: 46px;
+    width: 2px;
+    height: calc(100% - 10px);
+    background: #d4b898;
+  }
+  .step:last-child .step-connector { display: none; }
+  .step-body { flex: 1; padding-bottom: 4px; }
+  .step-body h3 {
+    font-size: 0.97rem;
+    color: #4a2e08;
+    margin-bottom: 4px;
+  }
+  .step-body p {
+    font-size: 0.87rem;
+    color: #666;
+    line-height: 1.65;
+  }
+
+  .cards { display: flex; gap: 14px; flex-wrap: wrap; }
+  .card {
+    background: #fdf5e8;
+    border: 1.5px solid #d4b898;
+    border-radius: 10px;
+    padding: 18px;
+    flex: 1;
+    min-width: 180px;
+  }
+  .card .card-icon { font-size: 1.8rem; margin-bottom: 8px; }
+  .card h3 { font-size: 0.95rem; color: #7a4f1e; margin-bottom: 6px; }
+  .card p { font-size: 0.83rem; color: #555; line-height: 1.65; }
+  .card .tag {
+    display: inline-block;
+    background: #7a4f1e;
+    color: white;
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+  }
+  .card .tag-local {
+    background: #3a7a5e;
+  }
+
+  .two-panel {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  @media (max-width: 500px) {
+    .two-panel { grid-template-columns: 1fr; }
+    .cards { flex-direction: column; }
+    .big-number-cards { flex-direction: column; align-items: center; }
+    .big-number-card { min-width: 200px; }
+  }
+  .panel {
+    border-radius: 10px;
+    padding: 18px;
+    font-size: 0.88rem;
+    line-height: 1.7;
+  }
+  .panel h3 { font-size: 0.95rem; margin-bottom: 8px; }
+  .panel-green { background: #e8f5e9; border: 1.5px solid #81c784; }
+  .panel-green h3 { color: #2e7d32; }
+  .panel-red { background: #fce4ec; border: 1.5px solid #f48fb1; }
+  .panel-red h3 { color: #c62828; }
+  .panel-blue { background: #e3f2fd; border: 1.5px solid #90caf9; }
+  .panel-blue h3 { color: #1565c0; }
+  .panel-teal { background: #e0f2f1; border: 1.5px solid #80cbc4; }
+  .panel-teal h3 { color: #00695c; }
+
+  .highlight {
+    background: #fff3cd;
+    border-left: 4px solid #e6a817;
+    border-radius: 0 8px 8px 0;
+    padding: 14px 16px;
+    margin: 14px 0;
+    font-size: 0.9rem;
+    line-height: 1.75;
+  }
+  .highlight strong { color: #7a4f1e; }
+
+  .info-box {
+    background: #e8f4fd;
+    border-left: 4px solid #3498db;
+    border-radius: 0 8px 8px 0;
+    padding: 14px 16px;
+    margin: 14px 0;
+    font-size: 0.88rem;
+    line-height: 1.75;
+  }
+  .info-box strong { color: #1565c0; }
+
+  .qa-item {
+    margin-bottom: 18px;
+    padding-bottom: 18px;
+    border-bottom: 1px dashed #d4b898;
+  }
+  .qa-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .qa-q {
+    font-weight: 600;
+    color: #7a4f1e;
+    font-size: 0.95rem;
+    margin-bottom: 6px;
+  }
+  .qa-a {
+    font-size: 0.88rem;
+    color: #444;
+    line-height: 1.75;
+    padding-left: 12px;
+    border-left: 3px solid #d4b898;
+  }
+
+  .checklist { list-style: none; padding: 0; }
+  .checklist li {
+    padding: 9px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.92rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    line-height: 1.65;
+  }
+  .checklist li:last-child { border-bottom: none; }
+  .checklist li::before {
+    content: '☑';
+    color: #7a4f1e;
+    font-size: 1rem;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .sources { font-size: 0.82rem; color: #666; line-height: 2; }
+  .sources a { color: #7a4f1e; word-break: break-all; }
+  .sources p { margin-bottom: 2px; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border-radius: 8px;
+    padding: 18px;
+    margin-top: 24px;
+    font-size: 0.82rem;
+    color: #777;
+    line-height: 1.85;
+  }
+  .disclaimer strong { color: #555; }
+
+  .timeline-wrap {
+    overflow-x: auto;
+    margin: 16px 0;
+  }
+  .timeline {
+    display: flex;
+    align-items: stretch;
+    min-width: 500px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1.5px solid #d4b898;
+  }
+  .tl-item {
+    flex: 1;
+    padding: 12px 10px;
+    text-align: center;
+    border-right: 1px dashed #d4b898;
+  }
+  .tl-item:last-child { border-right: none; }
+  .tl-date { font-size: 0.72rem; color: #888; }
+  .tl-title { font-size: 0.9rem; font-weight: 600; margin-top: 4px; }
+  .tl-sub { font-size: 0.72rem; color: #666; margin-top: 4px; line-height: 1.4; }
+  .tl-arrow {
+    display: flex;
+    align-items: center;
+    padding: 0 6px;
+    font-size: 1.2rem;
+    color: #7a4f1e;
+    flex-shrink: 0;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="date-badge">2026-06-06</div>
+  <h1>🏁 決算と申告の全体像<br>1人法人スタート 最新トピック 2026-06-06</h1>
+  <p>法人税・消費税・地方税の申告手順と期限を徹底図解<br>（2025年度・令和7年度の税制に基づく）</p>
+</div>
+
+<div class="container">
+
+  <!-- 今日学ぶこと -->
+  <div class="section">
+    <h2>📌 今日学ぶこと</h2>
+    <p style="font-size:0.95rem;line-height:1.85;">
+      会計ソフトで記帳をはじめたら、次に来るのが<strong>「決算」と「申告」</strong>です。<br>
+      この2つは似ているようで別物。それぞれ何をするのか、いつまでにやるのか、
+      どんな税金を誰に申告するのかを、順番に図解します。
+    </p>
+    <div class="info-box" style="margin-top:16px;">
+      <strong>💡 こんな人に読んでほしい：</strong>
+      設立1年目でもうすぐ決算を迎える1人社長 ／ 申告のながれをざっくり把握したい方
+    </div>
+  </div>
+
+  <!-- 決算 vs 申告 -->
+  <div class="section">
+    <h2>📚 「決算」と「申告」の違い</h2>
+    <div class="two-panel">
+      <div class="panel panel-green">
+        <h3>📒 決算（けっさん）</h3>
+        <p>1年間の<strong>お金の動きを整理してまとめる</strong>作業。<br>
+        貸借対照表（B/S）・損益計算書（P/L）という「成績表」を作る。<br>
+        <em style="color:#2e7d32;">→ 会計の世界の話</em></p>
+      </div>
+      <div class="panel panel-red">
+        <h3>📋 申告（しんこく）</h3>
+        <p>決算書をもとに<strong>税金を計算して国・自治体に報告＋納税</strong>する手続き。<br>
+        e-Taxなどで申告書を送信し、税金を振り込む。<br>
+        <em style="color:#c62828;">→ 税務の世界の話</em></p>
+      </div>
+    </div>
+    <div class="highlight">
+      <strong>ひとことでいうと：</strong><br>
+      決算＝「今期いくら儲かった（または損した）か」をまとめる作業。<br>
+      申告＝「儲かった分の税金をこれだけ払います」と国・自治体に届け出て、実際に納める手続き。
+    </div>
+  </div>
+
+  <!-- ステップ図 -->
+  <div class="section">
+    <h2>➡️ 決算から納税まで 7ステップ</h2>
+    <div class="steps">
+
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-connector"></div>
+        <div class="step-body">
+          <h3>📆 事業年度終了（決算日）</h3>
+          <p>定款で定めた事業年度の最終日。例：3月末決算なら3月31日、12月末決算なら12月31日。</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-connector"></div>
+        <div class="step-body">
+          <h3>🗂️ 決算整理仕訳（けっさんせいりしわけ）</h3>
+          <p>減価償却費（固定資産の年間分）・未払費用・前払費用・棚卸資産などを最終確認して仕訳を行う。会計ソフトにガイド機能がある場合が多い。</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-connector"></div>
+        <div class="step-body">
+          <h3>📊 財務諸表（ざいむしょひょう）の確定</h3>
+          <p>損益計算書（P/L）・貸借対照表（B/S）を完成させる。会計ソフトなら自動生成できる。</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-connector"></div>
+        <div class="step-body">
+          <h3>🧮 税額の計算</h3>
+          <p>法人税・法人住民税・法人事業税・消費税（課税事業者の場合）を計算する。申告ソフトや税理士に依頼して行う。</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-connector"></div>
+        <div class="step-body">
+          <h3>💻 申告書の作成・電子申告</h3>
+          <p>国税（法人税・消費税）→ <strong>e-Tax</strong>、地方税（住民税・事業税）→ <strong>eLTAX</strong> で送信。freee申告・マネーフォワードクラウド申告などから直接送信も可能。</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">6</div>
+        <div class="step-connector"></div>
+        <div class="step-body">
+          <h3>💰 納税</h3>
+          <p>申告書の提出と同時か、期限内に納税。口座振替・Pay-easy・クレジットカード（手数料あり）などが使える。</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">7</div>
+        <div class="step-body">
+          <h3>📁 書類の保管（原則7年）</h3>
+          <p>申告書・領収書・帳簿等は法人税法施行規則に基づき原則7年間の保存が必要。電帳法（電子帳簿保存法）により電子データでの保存も認められている。</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 期限カード -->
+  <div class="section">
+    <h2>⏰ 申告・納税の期限</h2>
+    <div class="big-number-cards">
+      <div class="big-number-card">
+        <div class="num">2</div>
+        <div class="unit">か月以内</div>
+        <div class="label">原則の申告・納税期限<br>（決算日の翌日から起算）</div>
+      </div>
+      <div class="big-number-card" style="background: linear-gradient(135deg, #5c6bc0, #3949ab);">
+        <div class="num">+1</div>
+        <div class="unit">か月延長可</div>
+        <div class="label">申告期限延長の特例を<br>届け出た場合（※）</div>
+      </div>
+    </div>
+    <div class="highlight">
+      <strong>例）3月31日決算の会社の場合：</strong><br>
+      原則 → <strong>5月31日</strong>までに申告・納税<br>
+      延長申請あり → <strong>6月30日</strong>まで申告OK<br>
+      ただし<strong style="color:#c62828;">納税は5月31日まで</strong>に行わないと、延長した期間分の「利子税」が発生するので注意。
+    </div>
+    <p style="font-size:0.8rem;color:#888;line-height:1.6;">
+      ※「申告期限の延長の特例」は法人税法第75条に基づく届出が必要です。定款等で株主総会を決算日から3か月以内に開催すると定めている場合などが対象になります。
+    </p>
+  </div>
+
+  <!-- タイムライン -->
+  <div class="section">
+    <h2>📅 3月決算の場合のタイムライン例</h2>
+    <div class="timeline-wrap">
+      <div class="timeline">
+        <div class="tl-item" style="background:#fdf5e8;">
+          <div class="tl-date">3月31日</div>
+          <div class="tl-title" style="color:#7a4f1e;">決算日</div>
+          <div class="tl-sub">事業年度<br>終了</div>
+        </div>
+        <div class="tl-arrow">▶</div>
+        <div class="tl-item" style="background:#fff9f0;">
+          <div class="tl-date">4月〜5月</div>
+          <div class="tl-title" style="color:#4a2e08;">決算整理<br>申告書作成</div>
+          <div class="tl-sub">仕訳・税額計算<br>申告書チェック</div>
+        </div>
+        <div class="tl-arrow">▶</div>
+        <div class="tl-item" style="background:#fce4ec;">
+          <div class="tl-date">5月31日</div>
+          <div class="tl-title" style="color:#c62828;">申告・納税</div>
+          <div class="tl-sub">e-Tax・eLTAX<br>送信＋振込</div>
+        </div>
+        <div class="tl-arrow">▶</div>
+        <div class="tl-item" style="background:#e8f5e9;">
+          <div class="tl-date">6月30日</div>
+          <div class="tl-title" style="color:#2e7d32;">延長時の<br>申告期限</div>
+          <div class="tl-sub">届出が必要<br>納税は5/31まで</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 税金3種 -->
+  <div class="section">
+    <h2>🧾 申告する税金 3種類</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="card-icon">🏛️</div>
+        <span class="tag">国税</span>
+        <h3>法人税</h3>
+        <p>1年間の利益（所得）に課税。<br>
+        中小法人（資本金1億円以下）は年800万円以下の所得部分に<strong>15%</strong>、超過部分に<strong>23.2%</strong>の税率。<br>
+        → e-Taxで申告</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🏙️</div>
+        <span class="tag tag-local">地方税</span>
+        <h3>法人住民税・<br>法人事業税</h3>
+        <p>都道府県・市町村に申告・納付。<br>
+        法人税額を元にした「法人税割」と、赤字でも払う「均等割」（年約7万円〜）がある。<br>
+        → eLTAXで申告</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🛒</div>
+        <span class="tag">国税</span>
+        <h3>消費税</h3>
+        <p>課税事業者のみ申告。<br>
+        新設法人の2年免税ルール適用中は不要（資本金・特定期間要件に注意）。<br>
+        → e-Taxで申告</p>
+      </div>
+    </div>
+    <div class="info-box" style="margin-top:16px;">
+      <strong>💡 均等割（きんとうわり）とは？</strong><br>
+      利益ゼロ・赤字でも払う法人住民税の「固定料金」部分。会社があるだけで課税される。<br>
+      資本金1千万円以下・従業員50人以下の会社の目安：<strong>都道府県分2万円＋市町村分5万円＝年約7万円</strong>（自治体により異なる）
+    </div>
+  </div>
+
+  <!-- e-Tax vs eLTAX -->
+  <div class="section">
+    <h2>💻 e-Tax と eLTAX ── 2つの電子申告システム</h2>
+    <div class="two-panel">
+      <div class="panel panel-blue">
+        <h3>🖥️ e-Tax（国税電子申告）</h3>
+        <p><strong>国税庁</strong>が運営する電子申告システム。<br>
+        法人税・消費税・源泉所得税などを申告・納税できる。<br>
+        会計ソフト（freee・マネーフォワード等）から直接送信できるものが多い。<br>
+        マイナンバーカードまたは電子証明書が必要。</p>
+      </div>
+      <div class="panel panel-teal">
+        <h3>🏢 eLTAX（地方税電子申告）</h3>
+        <p><strong>地方税共同機構</strong>が運営する地方税専用システム。<br>
+        法人住民税・法人事業税を申告できる。<br>
+        「PCdeSHINKOKU」アプリまたは対応会計ソフトから申告できる。</p>
+      </div>
+    </div>
+    <div class="highlight">
+      <strong>freee申告・マネーフォワードクラウド申告</strong> などの申告ソフトは、仕訳データから申告書を自動作成し、e-Tax・eLTAXへ直接送信できる。1人法人にとって強力な時短ツール！<br>
+      ただし月額料金が別途かかるケースが多いので、コストと照らして判断しよう。
+    </div>
+  </div>
+
+  <!-- Q&A -->
+  <div class="section">
+    <h2>❓ よくある疑問</h2>
+
+    <div class="qa-item">
+      <div class="qa-q">Q1. 税理士なしで申告できる？</div>
+      <div class="qa-a">
+        できる。e-Taxソフト（無料）や会計ソフトの申告機能で申告書を作成・送信できる。<br>
+        ただし法人税の申告書には「別表」と呼ぶ複数の書類があり、初年度は税理士に確認してもらうと安心。<br>
+        <strong>費用目安：</strong>決算・申告のみの依頼で年間10〜30万円程度が多い。
+      </div>
+    </div>
+
+    <div class="qa-item">
+      <div class="qa-q">Q2. 赤字（利益ゼロ）でも申告は必要？</div>
+      <div class="qa-a">
+        必要。赤字でも法人住民税の均等割は発生する。<br>
+        また、申告書を提出しないと「欠損金の繰越控除」（赤字を最大10年間繰り越して将来の黒字と相殺できる制度）が使えなくなる。赤字こそ申告が大切！
+      </div>
+    </div>
+
+    <div class="qa-item">
+      <div class="qa-q">Q3. 中間申告（前払い）は必要？</div>
+      <div class="qa-a">
+        前事業年度の法人税額を前事業年度の月数で割り、6を掛けた金額が10万円を超える場合（=前年の年間法人税が約20万円超の場合が目安）に、事業年度開始から6か月後に中間申告・納税が必要（法人税法第71条）。<br>
+        <strong>設立第1期は中間申告不要。</strong>
+      </div>
+    </div>
+
+    <div class="qa-item">
+      <div class="qa-q">Q4. 決算日は変えられる？</div>
+      <div class="qa-a">
+        定款を変更し、法務局に変更登記を行えば変更できる。ただし変更した事業年度は短くなる場合があり、税務・社会保険の届出も伴う。安易な変更は避けよう。
+      </div>
+    </div>
+
+    <div class="qa-item">
+      <div class="qa-q">Q5. 申告期限を過ぎたらどうなる？</div>
+      <div class="qa-a">
+        <strong>無申告加算税</strong>（未申告の税額に対して原則15〜20%）と<strong>延滞税</strong>が発生する。また、青色申告の承認が取り消されるリスクもある。期限厳守が鉄則！
+      </div>
+    </div>
+
+  </div>
+
+  <!-- まとめ -->
+  <div class="section">
+    <h2>✅ 今日のまとめ</h2>
+    <ul class="checklist">
+      <li>決算＝会計のまとめ、申告＝税金の報告・納税。2つはセットで動く</li>
+      <li>申告・納税の期限は<strong>決算日の翌日から原則2か月以内</strong>（法人税法第74条）</li>
+      <li>申告する税金は3種類：<strong>法人税（国）・法人住民税＆事業税（地方）・消費税（課税事業者のみ）</strong></li>
+      <li>国税はe-Tax、地方税はeLTAXで電子申告できる。会計ソフトから直接送れるものも多い</li>
+      <li>赤字でも申告は必要。欠損金の繰越控除を守るために必ず提出する</li>
+      <li>初年度は税理士に依頼するか、会計ソフトのサポートを積極的に活用しよう</li>
+    </ul>
+  </div>
+
+  <!-- 出典 -->
+  <div class="section">
+    <h2>📎 出典・参考リンク（2025年度・令和7年度基準）</h2>
+    <div class="sources">
+      <p>・法人税の確定申告期限（法人税法第74条）<br>
+      　<a href="https://www.nta.go.jp/taxes/tetsuzuki/shinsei/annai/hojin/annai/1554_03.htm" target="_blank">国税庁：法人税の申告・納付手続き</a></p>
+      <p>・法人税率・中小法人の軽減税率15%<br>
+      　<a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/hojin/5759.htm" target="_blank">国税庁：法人税の税率（タックスアンサー No.5759）</a></p>
+      <p>・消費税の確定申告（消費税法第45条）<br>
+      　<a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shohi/6405.htm" target="_blank">国税庁：消費税及び地方消費税の申告（No.6405）</a></p>
+      <p>・中間申告（法人税法第71条）<br>
+      　<a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/hojin/5208.htm" target="_blank">国税庁：中間申告（No.5208）</a></p>
+      <p>・帳簿書類の保存（法人税法施行規則第59条等）<br>
+      　<a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/hojin/5930.htm" target="_blank">国税庁：帳簿書類の保存（No.5930）</a></p>
+      <p>・地方税電子申告 eLTAX<br>
+      　<a href="https://www.eltax.lta.go.jp/" target="_blank">地方税ポータルシステム eLTAX（地方税共同機構）</a></p>
+      <p>・国税電子申告・納税システム e-Tax<br>
+      　<a href="https://www.e-tax.nta.go.jp/" target="_blank">e-Tax（国税庁）</a></p>
+      <p style="margin-top:6px;color:#aaa;font-size:0.78rem;">※本記事の税率・金額・制度は2025年度（令和7年度）時点の情報です。最新情報は各公的機関のウェブサイトでご確認ください。</p>
+    </div>
+  </div>
+
+  <!-- 免責 -->
+  <div class="disclaimer">
+    <strong>【免責事項】</strong><br>
+    本記事は一般的な情報提供を目的としており、税務・法務・会計に関する個別アドバイスではありません。会社の状況・事業年度・資本金・インボイス登録の有無・消費税の課税区分などにより、結論は異なる場合があります。<br>
+    具体的な申告手続き・税額計算については、<strong>税理士・公認会計士</strong>など国家資格を持つ専門家にご相談ください。<br>
+    制度・税率・金額は2025年度（令和7年度）時点の情報です。税制は毎年改正される可能性があるため、最新情報は必ず国税庁ウェブサイト等でご確認ください。
+  </div>
+
+  <div style="text-align:center;margin-top:32px;">
+    <a href="index.html" style="color:#7a4f1e;font-size:0.9rem;text-decoration:none;">← バックナンバー一覧へ戻る</a>
+  </div>
+
+</div>
+
+</body>
+</html>
