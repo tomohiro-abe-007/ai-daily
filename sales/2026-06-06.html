@@ -101,62 +101,120 @@
   }
   p { line-height: 1.85; color: #333; font-size: 0.97rem; margin-bottom: 12px; }
 
-  /* ── 数値カード ── */
-  .num-grid {
+  /* ── 定義カード3枚 ── */
+  .def-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 14px;
     margin: 20px 0;
   }
-  .num-card {
-    background: #f5edff;
-    border: 2px solid #c39de0;
-    border-radius: 8px;
-    padding: 16px;
+  .def-card {
+    border-radius: 10px;
+    padding: 20px 16px;
     text-align: center;
   }
-  .num-card .big { font-size: 2.2rem; font-weight: 700; color: #5a2d82; line-height: 1.1; }
-  .num-card .label { font-size: 0.78rem; color: #666; margin-top: 6px; line-height: 1.5; }
+  .def-card.teleapo { background: #fff3e0; border: 2px solid #e67e22; }
+  .def-card.inside  { background: #e8f4fd; border: 2px solid #2980b9; }
+  .def-card.outbound{ background: #eafaf1; border: 2px solid #27ae60; }
+  .def-card .icon { font-size: 2.2rem; display: block; margin-bottom: 8px; }
+  .def-card .name { font-size: 1.05rem; font-weight: 700; margin-bottom: 4px; }
+  .def-card.teleapo .name { color: #d35400; }
+  .def-card.inside  .name { color: #1a6ba0; }
+  .def-card.outbound .name { color: #1e8449; }
+  .def-card .ruby { font-size: 0.75rem; color: #888; margin-bottom: 10px; }
+  .def-card .desc { font-size: 0.82rem; color: #444; line-height: 1.65; text-align: left; }
 
-  /* ── 要件テーブル ── */
-  .req-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.93rem; }
-  .req-table th { padding: 10px 14px; text-align: left; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.03em; }
-  .req-table td { padding: 10px 14px; border-bottom: 1px dotted #ccc; vertical-align: top; line-height: 1.65; }
-  .req-table tr:last-child td { border-bottom: none; }
-  .th-must { background: #d4a0ff; color: #3d0a6e; }
-  .th-want { background: #ffd6a5; color: #7a3800; }
-  .badge-must {
-    display: inline-block; background: #8e44ad; color: white;
-    font-size: 0.68rem; font-weight: 700; padding: 2px 8px;
-    border-radius: 10px; margin-right: 5px; vertical-align: middle;
+  /* ── 包含関係図 ── */
+  .hierarchy {
+    background: #f5edff;
+    border: 2px dashed #c39de0;
+    border-radius: 12px;
+    padding: 24px 20px;
+    margin: 20px 0;
   }
-  .badge-want {
-    display: inline-block; background: #e67e22; color: white;
-    font-size: 0.68rem; font-weight: 700; padding: 2px 8px;
-    border-radius: 10px; margin-right: 5px; vertical-align: middle;
+  .h-outer {
+    background: rgba(39,174,96,0.10);
+    border: 2px solid #27ae60;
+    border-radius: 10px;
+    padding: 20px;
+    position: relative;
+  }
+  .h-outer-label {
+    position: absolute;
+    top: -13px; left: 16px;
+    background: #27ae60; color: white;
+    font-size: 0.78rem; font-weight: 700;
+    padding: 2px 10px; border-radius: 8px;
+  }
+  .h-inner-row {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+  }
+  .h-box {
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-align: center;
+  }
+  .h-box .h-sub { font-size: 0.72rem; font-weight: normal; display: block; margin-top: 3px; }
+  .h-box.tele     { background: #fff3e0; border: 2px solid #e67e22; color: #d35400; }
+  .h-box.email    { background: #fdeef7; border: 2px solid #d98ee5; color: #8e44ad; }
+  .h-box.linkedin { background: #e8f0fe; border: 2px solid #0a66c2; color: #0a4d96; }
+  .h-inside-box {
+    background: rgba(41,128,185,0.12);
+    border: 2px solid #2980b9;
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 0.85rem; font-weight: 700; color: #1a6ba0;
+    margin-top: 16px;
+    text-align: center;
+    line-height: 1.7;
   }
 
-  /* ── ステップ ── */
-  .steps { display: flex; flex-direction: column; gap: 14px; margin: 16px 0; }
-  .step {
-    display: flex; align-items: flex-start; gap: 14px;
-    background: #f5edff; border-radius: 8px; padding: 14px 16px;
-  }
-  .step-num {
-    background: #8e44ad; color: white;
-    font-size: 1.1rem; font-weight: 700;
-    min-width: 36px; height: 36px; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-  }
-  .step-content { flex: 1; }
-  .step-content strong { color: #5a2d82; font-size: 0.97rem; display: block; margin-bottom: 4px; }
-  .step-content p { font-size: 0.88rem; margin-bottom: 0; color: #444; }
+  /* ── 比較表 ── */
+  .cmp-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.87rem; }
+  .cmp-table th { padding: 10px 10px; text-align: center; font-size: 0.82rem; font-weight: 700; }
+  .cmp-table td { padding: 10px 10px; border-bottom: 1px dotted #ccc; vertical-align: top; line-height: 1.65; }
+  .cmp-table tr:last-child td { border-bottom: none; }
+  .row-label { background: #f5edff; color: #5a2d82; font-weight: 700; font-size: 0.82rem; text-align: center; }
+  .th-tele   { background: #fff3e0; color: #d35400; }
+  .th-inside { background: #e8f4fd; color: #1a6ba0; }
+  .th-out    { background: #eafaf1; color: #1e8449; }
 
-  /* ── Q&A ── */
-  .qa-list { margin: 16px 0; display: flex; flex-direction: column; gap: 12px; }
-  .qa-item { background: #fff; border: 1px solid #d4b8f0; border-radius: 8px; overflow: hidden; }
-  .qa-q { background: #8e44ad; color: white; padding: 8px 14px; font-size: 0.88rem; font-weight: 600; }
-  .qa-a { padding: 10px 14px; font-size: 0.88rem; color: #555; line-height: 1.65; }
+  /* ── キャリアフロー ── */
+  .career-flow {
+    display: flex;
+    align-items: stretch;
+    gap: 6px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+  }
+  .cf-box {
+    flex: 1;
+    min-width: 130px;
+    border-radius: 8px;
+    padding: 14px 12px;
+    text-align: center;
+  }
+  .cf-box .cf-num   { font-size: 0.72rem; color: #888; margin-bottom: 4px; }
+  .cf-box .cf-title { font-size: 0.92rem; font-weight: 700; margin-bottom: 6px; }
+  .cf-box .cf-desc  { font-size: 0.74rem; color: #555; line-height: 1.55; }
+  .cf-box.c1 { background: #fff3e0; border: 2px solid #e67e22; }
+  .cf-box.c1 .cf-title { color: #d35400; }
+  .cf-box.c2 { background: #eafaf1; border: 2px solid #27ae60; }
+  .cf-box.c2 .cf-title { color: #1e8449; }
+  .cf-box.c3 { background: #e8f4fd; border: 2px solid #2980b9; }
+  .cf-box.c3 .cf-title { color: #1a6ba0; }
+  .cf-box.c4 { background: #f5edff; border: 2px solid #8e44ad; }
+  .cf-box.c4 .cf-title { color: #5a2d82; }
+  .cf-arrow {
+    display: flex; align-items: center;
+    color: #aaa; font-size: 1.4rem; flex-shrink: 0;
+  }
 
   /* ── 今日の一歩 ── */
   .today-box {
@@ -166,16 +224,16 @@
   }
   .today-box .emoji { font-size: 2.2rem; display: block; margin-bottom: 8px; }
   .today-box .title { font-size: 1.1rem; font-weight: 600; margin-bottom: 10px; }
-  .today-box .desc { font-size: 0.92rem; opacity: 0.92; line-height: 1.8; }
-
-  /* ── チップス ── */
-  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
-  .chip { background: #e8d5f7; color: #5a2d82; font-size: 0.82rem; border-radius: 16px; padding: 4px 12px; }
-  .chip.orange { background: #ffe0b0; color: #7a3800; }
+  .today-box .desc  { font-size: 0.92rem; opacity: 0.92; line-height: 1.8; }
 
   /* ── 共通 ── */
   .highlight { background: #f5edff; border-radius: 4px; padding: 1px 6px; color: #5a2d82; font-weight: 600; }
   .note { font-size: 0.8rem; color: #999; margin-top: 4px; }
+  .callout {
+    border-radius: 6px; padding: 14px 16px; margin-top: 14px;
+  }
+  .callout.yellow { background: #fef9e7; border-left: 4px solid #f39c12; }
+  .callout.blue   { background: #e8f4fd; border-left: 4px solid #2980b9; }
 
   /* ── 免責 ── */
   .disclaimer {
@@ -206,137 +264,173 @@
 
 <!-- ── カバー ── -->
 <div class="cover">
-  <span class="cover-emoji">🌱</span>
-  <h1>未経験から始める準備と<br>よくある募集要件</h1>
+  <span class="cover-emoji">🗺️</span>
+  <h1>テレアポ・インサイドセールス・<br>アウトバウンドの違い</h1>
   <div class="subtitle">インサイドセールス 最新トピック 2026-06-06</div>
   <div class="date-badge">テレアポ・インサイドセールス 毎朝解説</div>
 </div>
 
-<!-- ── Section 1: なぜ未経験歓迎が多いの？ ── -->
+<!-- ── Section 1: 3つの言葉の定義 ── -->
 <div class="card">
-  <span class="card-tab">01 なぜ「未経験歓迎」が多いの？</span>
+  <span class="card-tab">01 まず「3つの言葉」を整理しよう</span>
   <div class="card-body">
-    <h2>🌟 インサイドセールスは「育てる前提」で採用している</h2>
-    <p>インサイドセールス（電話・メール・ウェブ会議で営業する仕事）は、今まさに日本中の企業が<span class="highlight">採用を急拡大</span>しています。トークスクリプト（台本）やマニュアルが整備されており、「完成形の人材」より「意欲のある人材」を採って育てる体制を作っている企業が増えているためです。</p>
+    <h2>📖 テレアポ・インサイドセールス・アウトバウンドは何が違う？</h2>
+    <p>営業の求人票でよく見かけるこの3つの言葉。似ているようで、<span class="highlight">役割・目的・使うスキル</span>がかなり異なります。まず「どんな仕事か」を一言で押さえましょう。</p>
 
-    <div class="num-grid">
-      <div class="num-card">
-        <div class="big">7,000<span style="font-size:1.1rem">件+</span></div>
-        <div class="label">フルリモート<br>インサイドセールス<br>求人数の目安<br>（2026年6月時点）</div>
+    <div class="def-grid">
+      <div class="def-card teleapo">
+        <span class="icon">📞</span>
+        <div class="name">テレアポ</div>
+        <div class="ruby">テレフォン・アポイントメント</div>
+        <div class="desc">電話で「まだ会ったことのない相手」にかけて、打ち合わせの予約（アポ）を取ることだけを専門にする仕事。商品説明や成約は別の担当者（営業）が行う。</div>
       </div>
-      <div class="num-card">
-        <div class="big">約<span style="font-size:1.5rem">8</span>割</div>
-        <div class="label">求人媒体で<br>「未経験歓迎」または<br>「第二新卒歓迎」を<br>記載している割合（目安）</div>
+      <div class="def-card inside">
+        <span class="icon">💻</span>
+        <div class="name">インサイドセールス</div>
+        <div class="ruby">内勤営業・非対面営業</div>
+        <div class="desc">電話・メール・ウェブ会議など「非対面」の手段を組み合わせ、見込み客を育てながらアポ〜成約補助まで幅広く担当する役割。テレアポより工程が深く広い。</div>
       </div>
-      <div class="num-card">
-        <div class="big">250〜<br><span style="font-size:1.5rem">360</span>万</div>
-        <div class="label">未経験入社の<br>想定年収の幅（円）<br>正社員・中途採用</div>
+      <div class="def-card outbound">
+        <span class="icon">📤</span>
+        <div class="name">アウトバウンド</div>
+        <div class="ruby">能動的・外向きの営業</div>
+        <div class="desc">「こちらから先に連絡を取りにいく」スタイル全体の総称。テレアポも営業メールもSNS DMも、すべてアウトバウンドの一種。「インバウンド（問い合わせ対応）」の反対語。</div>
       </div>
     </div>
-    <p class="note">※ 求人数は求人ボックス掲載情報の目安、年収はdoda掲載情報をもとにした参考値（2026年6月時点）。市場・時期・スキル・企業規模により変動します。</p>
+    <p class="note">※ 企業によって言葉の使い方に差があります。求人票は必ず業務内容の詳細を確認しましょう。</p>
   </div>
 </div>
 
-<!-- ── Section 2: よくある募集要件 ── -->
+<!-- ── Section 2: 包含関係 ── -->
 <div class="card">
-  <span class="card-tab">02 よくある募集要件</span>
+  <span class="card-tab">02 「どの言葉がどの言葉を含む？」を図で理解しよう</span>
   <div class="card-body">
-    <h2>📋 「絶対必要」と「あると歓迎」を分けて把握しよう</h2>
-    <p>求人票には <strong>必須（Must）</strong> と <strong>歓迎（Want）</strong> が分けて書かれています。Mustが全て揃っていなくても応募できる場合が多いので、まず「自分に何がある / ないか」を整理しましょう。</p>
+    <h2>🗂️ 3つは並列ではなく「包む・包まれる」関係</h2>
+    <p>3つの言葉は対等ではなく、<span class="highlight">大きい言葉が小さい言葉を含む</span>という関係があります。この図を頭に入れておくと、求人票の読み方が変わります。</p>
 
-    <table class="req-table">
+    <div class="hierarchy">
+      <div class="h-outer">
+        <span class="h-outer-label">📤 アウトバウンド（大分類）── こちらから先に連絡を取りに行くすべてのアクション</span>
+        <div style="color:#1e8449; font-size:0.8rem; margin-top:14px; margin-bottom:4px;">アウトバウンドの手段の例：</div>
+        <div class="h-inner-row">
+          <div class="h-box tele">📞 テレアポ<span class="h-sub">電話でアポ取り</span></div>
+          <div class="h-box email">📧 メール営業<span class="h-sub">メールで興味喚起</span></div>
+          <div class="h-box linkedin">🔗 SNS DM<span class="h-sub">LinkedIn等で接触</span></div>
+        </div>
+        <div class="h-inside-box">
+          💻 インサイドセールス（横断的な役割）<br>
+          <span style="font-size:0.78rem; font-weight:normal;">テレアポ・メール・ウェブ会議を組み合わせて、アポ取りから関係構築・成約補助まで担当する「役割名」</span>
+        </div>
+      </div>
+    </div>
+
+    <p><strong>「アウトバウンド」</strong>は手法の方向性を示す大きな言葉、<strong>「テレアポ」</strong>はその中の電話限定の手段、<strong>「インサイドセールス」</strong>は複数の手段をまたぐ担当者の役割名、と整理できます。</p>
+
+    <div class="callout yellow">
+      <strong>💡 たとえ話：</strong><br>
+      アウトバウンドを「外へ出る移動手段の総称」とすると、テレアポは「自転車」、メール営業は「バス」。<br>
+      インサイドセールスはそれらをTPOで使いこなす「総合的な旅人」のイメージです。
+    </div>
+  </div>
+</div>
+
+<!-- ── Section 3: 比較表 ── -->
+<div class="card">
+  <span class="card-tab">03 仕事内容を横並びで比べてみよう</span>
+  <div class="card-body">
+    <h2>📊 テレアポ vs インサイドセールス vs アウトバウンド全般</h2>
+    <p>同じ「こちらから連絡する」仕事でも、目的・深さ・ゴールがまったく違います。</p>
+
+    <table class="cmp-table">
       <thead>
         <tr>
-          <th class="th-must" style="width:50%">✅ 必須（Must）── よく見る条件</th>
-          <th class="th-want" style="width:50%">⭐ 歓迎（Want）── あると有利</th>
+          <th class="row-label" style="width:16%">比較項目</th>
+          <th class="th-tele" style="width:28%">📞 テレアポ</th>
+          <th class="th-inside" style="width:28%">💻 インサイドセールス</th>
+          <th class="th-out" style="width:28%">📤 アウトバウンド全般</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td><span class="badge-must">必須</span>基本的なPCスキル<br><span style="font-size:0.82rem;color:#777">Word・Excel・メール操作レベルでOK</span></td>
-          <td><span class="badge-want">歓迎</span>接客・コールセンター・販売経験<br><span style="font-size:0.82rem;color:#777">人と話すことに慣れている</span></td>
+          <td class="row-label">ゴール</td>
+          <td>打ち合わせの予約（アポ）を取ること</td>
+          <td>見込み客を育て、成約・商談につなげること</td>
+          <td>相手に存在を知ってもらい、関心を引くこと</td>
         </tr>
         <tr>
-          <td><span class="badge-must">必須</span>コミュニケーション能力<br><span style="font-size:0.82rem;color:#777">明るく話せる・相手の話を聞ける</span></td>
-          <td><span class="badge-want">歓迎</span>SFA/CRM操作経験<br><span style="font-size:0.82rem;color:#777">Salesforce・HubSpot など</span></td>
+          <td class="row-label">主な手段</td>
+          <td>電話のみ</td>
+          <td>電話＋メール＋ウェブ会議を組み合わせる</td>
+          <td>電話・メール・SNS・広告など多様</td>
         </tr>
         <tr>
-          <td><span class="badge-must">必須</span>向上心・素直さ<br><span style="font-size:0.82rem;color:#777">フィードバックを活かせる姿勢</span></td>
-          <td><span class="badge-want">歓迎</span>営業経験（職種・業種不問）</td>
+          <td class="row-label">1日の仕事</td>
+          <td>台本に沿って大量に電話（50〜100件/日も）</td>
+          <td>メール送信→電話フォロー→ウェブ会議と段階的に関係構築</td>
+          <td>リスト作成・コンテンツ制作・配信管理なども含む</td>
         </tr>
         <tr>
-          <td><span class="badge-must">必須</span>安定したインターネット環境<br><span style="font-size:0.82rem;color:#777">フルリモート案件の場合</span></td>
-          <td><span class="badge-want">歓迎</span>Excel・スプレッドシートで<br>データ整理ができる</td>
+          <td class="row-label">使うツール</td>
+          <td>電話（CTI）・リスト管理シート</td>
+          <td>CRM/SFA（Salesforce等）・メールツール・Zoom</td>
+          <td>MA（マーケ自動化）・広告管理・分析ツールなど</td>
         </tr>
         <tr>
-          <td>—</td>
-          <td><span class="badge-want">歓迎</span>論理的思考・課題発見力</td>
+          <td class="row-label">向いている人</td>
+          <td>断られても切り替えられる・テンポよく話せる</td>
+          <td>相手のニーズを丁寧に聞ける・データ管理が得意</td>
+          <td>戦略的に動きたい・複数の手段を使いこなしたい</td>
+        </tr>
+        <tr>
+          <td class="row-label">未経験の入りやすさ</td>
+          <td style="color:#d35400; font-weight:700;">◎ 台本があり入りやすい</td>
+          <td style="color:#1a6ba0; font-weight:700;">○ 覚えることが多いが成長実感が大きい</td>
+          <td style="color:#888;">△ 幅が広く役割が定まらないことも</td>
         </tr>
       </tbody>
     </table>
-    <p class="note">※ 要件は各社・各案件により異なります。最新情報は各求人票・公式サイトでご確認ください。</p>
-
-    <p style="margin-top:14px;">💡 <strong>ポイント：</strong>「コミュニケーション能力」は「おしゃべりが得意」ではなく、<span class="highlight">「相手の話をちゃんと聞いて理解できる力」</span>のこと。電話越しでも誠実に聞いて、相手の悩みを掴める人は高く評価されます。</p>
+    <p class="note">※ 各職種・企業の実態は異なります。求人票の業務詳細を必ず確認してください。</p>
   </div>
 </div>
 
-<!-- ── Section 3: 応募前に揃えたい準備 ── -->
+<!-- ── Section 4: キャリアパス ── -->
 <div class="card">
-  <span class="card-tab">03 応募前に揃えたい3つの準備</span>
+  <span class="card-tab">04 キャリアの観点：どれから始めるとよい？</span>
   <div class="card-body">
-    <h2>🎒 「準備ゼロ」と「準備あり」では合格率が変わる</h2>
-    <p>採用担当者が「この人は本気だ」と感じるポイントは、スキルより<strong>準備の姿勢</strong>にあることが多いです。以下の3ステップで基礎を固めましょう。</p>
+    <h2>🚀 未経験からのステップアップルート</h2>
+    <p>3つの役割は、<span class="highlight">スキルが積み上がるほど担当範囲が広がる</span>方向で繋がっています。最初から「インサイドセールス」を狙うのもアリですが、「テレアポ」でトーク力を磨いてからステップアップする人も多いです。</p>
 
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">1</div>
-        <div class="step-content">
-          <strong>📞 インサイドセールスの仕事を「自分の言葉で説明できる」ようにする</strong>
-          <p>「電話・メール・ウェブ会議で、まだ会ったことのない企業の担当者に自社の商品を紹介して、打ち合わせのアポを取る仕事」と話せるか確認。面接で必ず聞かれます。</p>
-        </div>
+    <div class="career-flow">
+      <div class="cf-box c1">
+        <div class="cf-num">STEP 1</div>
+        <div class="cf-title">📞 テレアポ</div>
+        <div class="cf-desc">電話で話す慣れ・断られ慣れ・台本の使い方を習得。入りやすく即戦力になりやすい。</div>
       </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <div class="step-content">
-          <strong>🖥️ Zoom / Google Meet を使える状態にしておく</strong>
-          <p>フルリモート案件では面接もオンラインが基本。カメラ・マイクの動作確認と、背景・照明の整備まで済ませると、面接でのトラブルがなく第一印象がよくなります。</p>
-        </div>
+      <div class="cf-arrow">→</div>
+      <div class="cf-box c2">
+        <div class="cf-num">STEP 2</div>
+        <div class="cf-title">📤 アウトバウンド</div>
+        <div class="cf-desc">電話＋メール＋SNSなど複数チャネルを活用。リストや数字の管理も覚える。</div>
       </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <div class="step-content">
-          <strong>📝 「過去の接客・会話経験」をエピソードで1つ用意する</strong>
-          <p>アルバイトの接客、学校の委員会、友人への提案など、<span class="highlight">「相手の気持ちを考えて話した経験」</span>があれば立派なアピール材料。具体的なエピソードとして整理しておきましょう。</p>
-        </div>
+      <div class="cf-arrow">→</div>
+      <div class="cf-box c3">
+        <div class="cf-num">STEP 3</div>
+        <div class="cf-title">💻 インサイドセールス</div>
+        <div class="cf-desc">見込み客の育成から商談設定まで担当。CRM/SFAを使いこなしPDCAを回す。</div>
+      </div>
+      <div class="cf-arrow">→</div>
+      <div class="cf-box c4">
+        <div class="cf-num">STEP 4+</div>
+        <div class="cf-title">🎯 ISリーダー・BDR</div>
+        <div class="cf-desc">チーム設計・スクリプト改善・KPI管理など「仕組みを作る」役割へ。</div>
       </div>
     </div>
-  </div>
-</div>
 
-<!-- ── Section 4: 面接でよく聞かれること ── -->
-<div class="card">
-  <span class="card-tab">04 面接でよく聞かれること</span>
-  <div class="card-body">
-    <h2>🎤 典型的な質問と「答え方の方向性」</h2>
-    <p>インサイドセールス職の面接では、過去の実績より<strong>考え方・姿勢・耐久力</strong>が見られます。以下は典型的な質問と、回答で押さえるべきポイントです。</p>
-
-    <div class="qa-list">
-      <div class="qa-item">
-        <div class="qa-q">Q. なぜインサイドセールスを選んだのですか？</div>
-        <div class="qa-a">→ 「在宅で働きたい」だけでなく、<strong>「電話・ウェブで人の課題を解決することに興味がある」</strong>という軸を加えると説得力が増します。</div>
-      </div>
-      <div class="qa-item">
-        <div class="qa-q">Q. 断られたときどうしますか？</div>
-        <div class="qa-a">→ 「落ち込まずに次を頑張ります」だけでなく、<strong>「断られた理由を考えてトークを改善する姿勢」</strong>を示すと高評価。数字への向き合い方も見られています。</div>
-      </div>
-      <div class="qa-item">
-        <div class="qa-q">Q. ノルマ・数字へのプレッシャーは大丈夫ですか？</div>
-        <div class="qa-a">→ 「数字は苦手」より、<strong>「目標があった方が集中できる」「進捗を自分で把握して動きたい」</strong>という言い方が好まれます。</div>
-      </div>
-      <div class="qa-item">
-        <div class="qa-q">Q. リモートで孤独を感じませんか？</div>
-        <div class="qa-a">→ 自己管理の工夫を具体的に話す。<strong>「チャット・日報で積極的に報告する習慣がある」</strong>と伝えると安心感を与えられます。</div>
-      </div>
+    <div class="callout blue">
+      <strong>💡 どれから始めるかの判断軸：</strong><br>
+      即収入が欲しい → <span style="color:#d35400; font-weight:700;">テレアポ（業務委託・成果報酬型）</span>から始める<br>
+      スキルを体系的に身につけたい → <span style="color:#1a6ba0; font-weight:700;">インサイドセールス（正社員・未経験歓迎）</span>を狙う<br>
+      副業・兼業で試したい → <span style="color:#d35400; font-weight:700;">テレアポ代行の成果報酬型</span>が入りやすい
     </div>
   </div>
 </div>
@@ -345,25 +439,16 @@
 <div class="card">
   <span class="card-tab">05 今日からできる一歩</span>
   <div class="card-body">
-    <h2>👣 まず「自己紹介トーク30秒版」を声に出して練習する</h2>
+    <h2>👣 求人票を1枚開いて「この仕事はどれ？」を判定してみる</h2>
 
     <div class="today-box">
-      <span class="emoji">🎙️</span>
-      <div class="title">今日の一歩：30秒の「自己紹介トーク」を声に出して録音してみる</div>
+      <span class="emoji">🔍</span>
+      <div class="title">今日の一歩：求人票を1件読んで「テレアポ寄り？IS寄り？」を分類してみる</div>
       <div class="desc">
-        「名前・直近の経験（学校や仕事）・インサイドセールスに挑戦したい理由・一言の強み」を30秒で話す練習をしましょう。<br><br>
-        スマホで録音 → 聞き返す → 修正の繰り返しが、面接本番でも電話営業でも使えるトーク力の土台になります。<br><br>
-        <strong>「話すことに慣れる」こと自体が、インサイドセールスの訓練です。</strong>
+        doda・Indeed・エン転職で「インサイドセールス」「テレアポ」「アウトバウンド営業」と検索し、出てきた求人の業務内容を1件だけ読んでみましょう。<br><br>
+        「これは電話だけ？メールも使う？ウェブ会議もある？」と確認するだけで、<strong>求人の読み方の精度が劇的に上がります。</strong><br><br>
+        面接では「この3つの違いを説明してください」と聞かれることも。今日中に自分の言葉で話せるように準備しておきましょう。
       </div>
-    </div>
-
-    <p style="margin-top:16px;">求人への応募は「準備ができたら」ではなく、<span class="highlight">「準備しながら」進めるのがコツ</span>。まず求人を眺めて要件の感覚をつかみ、足りないと感じたスキルを1つずつ補うサイクルで動き始めましょう。</p>
-
-    <div class="chips" style="margin-top:14px;">
-      <span class="chip">doda でインサイドセールス検索</span>
-      <span class="chip">en転職で「未経験歓迎」絞り込み</span>
-      <span class="chip orange">Zoom の音声・画質を確認</span>
-      <span class="chip orange">接客エピソードを1つ書き出す</span>
     </div>
   </div>
 </div>
@@ -376,19 +461,18 @@
 
 <!-- ── 出典 ── -->
 <div class="sources">
-  <h3>📎 出典・参考情報（2026年6月時点）</h3>
+  <h3>📎 参考情報</h3>
   <ul>
-    <li><a href="https://employment.en-japan.com/s_inhouse-sales/t_mikeiken/" target="_blank">エン転職：職種未経験歓迎 インサイドセールス求人一覧</a></li>
+    <li><a href="https://blog.hubspot.jp/sales/inbound-vs-outbound" target="_blank">HubSpot：インバウンドセールスとアウトバウンドセールスの違い</a></li>
+    <li><a href="https://www.salesforce.com/jp/blog/inside-sales/" target="_blank">Salesforce ブログ：インサイドセールスとは？（参考）</a></li>
+    <li><a href="https://mazrica.com/product/senseslab/sales/inside-sales2" target="_blank">Mazrica：インサイドセールスとは？概要・役割・手法</a></li>
     <li><a href="https://doda.jp/keyword/%E3%82%A4%E3%83%B3%E3%82%B5%E3%82%A4%E3%83%89%E3%82%BB%E3%83%BC%E3%83%AB%E3%82%B9/" target="_blank">doda：インサイドセールス 転職・求人情報</a></li>
-    <li><a href="https://9e-career-insidesales.com/jobs/full-remote" target="_blank">9Eキャリア：インサイドセールス フルリモート求人一覧</a></li>
-    <li><a href="https://www.salesforce.com/jp/blog/jp-insidesales-telephoneappointment/" target="_blank">Salesforce ブログ：インサイドセールスとテレアポの違いとは？</a></li>
-    <li><a href="https://mazrica.com/product/senseslab/sales/inside-sales2" target="_blank">Mazrica：インサイドセールスとは？概要やメリット・おすすめツール解説</a></li>
   </ul>
 </div>
 
 <!-- ── バックリンク ── -->
 <div class="back-link">
-  <a href="index.html">← バックナンバー一覧へ</a>
+  <a href="index.html">&larr; バックナンバー一覧へ</a>
 </div>
 
 </body>
