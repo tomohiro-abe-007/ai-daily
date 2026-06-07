@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI動画制作 技法解説 2026-06-08</title>
+<style>
+:root{
+  --bg:#e8ecf0;--card:#f4f8fc;--dark:#0a2a3a;--dark2:#1a3a5c;
+  --accent:#1a4a7c;--warm:#c45a1a;
+  --text:#1a2a38;--muted:#6a7a82;--border:#d0dce8;
+  /* カメラ */
+  --cam:#1a4a7c;--caml:#e4eef8;
+  /* 構図 */
+  --comp:#2a6a3a;--compl:#e4f0e8;
+  /* 光 */
+  --light:#7c4a0a;--lightl:#f8f0e4;
+  /* 組み合わせ */
+  --mix:#4a1a7c;--mixl:#ede4f8;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,"Hiragino Sans","Yu Gothic",sans-serif;line-height:1.7;padding:24px 16px;}
+.wrap{max-width:860px;margin:0 auto;}
+
+/* Header */
+.header{background:linear-gradient(135deg,#0a2a3a,#1a4a7c,#2a1a5c);color:#fff;border-radius:20px;padding:40px 32px;text-align:center;box-shadow:0 8px 24px rgba(10,42,58,.32);margin-bottom:24px;}
+.date-badge{background:rgba(255,255,255,.18);color:#a8d8f0;border-radius:20px;padding:4px 16px;font-size:.85rem;display:inline-block;margin-bottom:16px;letter-spacing:.08em;}
+.header h1{font-size:1.9rem;margin-bottom:8px;letter-spacing:.04em;}
+.header .subtitle{color:#a8d8f0;font-size:1rem;}
+.tag-row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:14px;}
+.header .tag{background:rgba(255,255,255,.15);border-radius:12px;padding:3px 12px;font-size:.78rem;display:inline-block;color:#c8e8f8;}
+
+/* Section */
+.section{background:var(--card);border-radius:16px;padding:28px 24px;margin-bottom:20px;box-shadow:0 3px 12px rgba(0,0,0,.06);border:1px solid var(--border);}
+.section-title{font-size:1.1rem;font-weight:700;color:var(--accent);border-bottom:2px solid var(--border);padding-bottom:10px;margin-bottom:18px;display:flex;align-items:center;gap:8px;}
+
+/* 数字カード */
+.num-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0;}
+.num-card{border-radius:14px;padding:18px 12px;text-align:center;border:1px solid var(--border);}
+.num-card .big-num{font-size:2.6rem;font-weight:900;line-height:1;margin-bottom:4px;}
+.num-card .n-label{font-size:.72rem;font-weight:700;margin-bottom:4px;}
+.num-card .n-desc{font-size:.7rem;color:var(--muted);line-height:1.5;}
+.num-card.cam{background:var(--caml);border-color:#b0cce8;} .num-card.cam .big-num{color:var(--cam);} .num-card.cam .n-label{color:var(--cam);}
+.num-card.comp{background:var(--compl);border-color:#a0c8b0;} .num-card.comp .big-num{color:var(--comp);} .num-card.comp .n-label{color:var(--comp);}
+.num-card.light{background:var(--lightl);border-color:#e0c8a0;} .num-card.light .big-num{color:var(--light);} .num-card.light .n-label{color:var(--light);}
+
+/* プロンプト公式フロー */
+.formula{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px;margin:18px 0;padding:16px;background:linear-gradient(135deg,#0a1a2a,#1a2a4a);border-radius:14px;}
+.f-block{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:8px;padding:8px 12px;text-align:center;min-width:90px;}
+.f-block .f-label{font-size:.6rem;color:rgba(200,220,240,.7);margin-bottom:3px;}
+.f-block .f-val{font-size:.75rem;font-weight:700;color:#a8e0f8;font-family:monospace;}
+.f-plus{font-size:1.2rem;color:rgba(200,220,255,.6);font-weight:700;}
+
+/* キーワードカード群 */
+.kw-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-top:14px;}
+.kw-card{border-radius:12px;padding:14px 12px;border:1px solid var(--border);}
+.kw-card.cam{background:var(--caml);border-color:#b0cce8;}
+.kw-card.comp{background:var(--compl);border-color:#a0c8b0;}
+.kw-card.light{background:var(--lightl);border-color:#e0c8a0;}
+.kw-card .kw-head{font-size:.85rem;font-weight:700;margin-bottom:8px;}
+.kw-card.cam .kw-head{color:var(--cam);}
+.kw-card.comp .kw-head{color:var(--comp);}
+.kw-card.light .kw-head{color:var(--light);}
+.kw-list{list-style:none;}
+.kw-list li{font-size:.78rem;display:flex;gap:6px;margin-bottom:5px;align-items:flex-start;}
+.kw-list li .kw-en{font-family:monospace;background:rgba(0,0,0,.08);border-radius:4px;padding:1px 5px;font-size:.72rem;white-space:nowrap;}
+.kw-list li .kw-ja{color:var(--muted);}
+
+/* ステップ */
+.steps{counter-reset:step;margin-top:16px;}
+.step{display:flex;gap:14px;align-items:flex-start;margin-bottom:14px;}
+.step-num{counter-increment:step;background:var(--accent);color:#fff;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:700;flex-shrink:0;margin-top:2px;}
+.step-body h4{font-size:.9rem;font-weight:700;color:var(--accent);margin-bottom:4px;}
+.step-body p{font-size:.83rem;color:var(--text);margin-bottom:6px;}
+.prompt-block{background:#0d1b2a;color:#a8e0f8;border-radius:10px;padding:12px 14px;font-size:.75rem;font-family:monospace;line-height:1.8;margin-top:6px;border:1px solid rgba(100,160,200,.2);}
+.prompt-block .p-cam{color:#7ec8f8;}
+.prompt-block .p-comp{color:#7ef8a8;}
+.prompt-block .p-light{color:#f8d87e;}
+.prompt-block .p-sub{color:#d0e8f0;}
+
+/* 比較テーブル */
+.kw-table{width:100%;border-collapse:collapse;margin-top:14px;font-size:.8rem;}
+.kw-table th{padding:10px 12px;text-align:left;color:#fff;background:var(--accent);}
+.kw-table th:first-child{border-radius:8px 0 0 0;}
+.kw-table th:last-child{border-radius:0 8px 0 0;}
+.kw-table td{padding:8px 12px;border-bottom:1px solid var(--border);vertical-align:top;}
+.kw-table tr:nth-child(even) td{background:#edf3f8;}
+.kw-table tr:last-child td{border-bottom:none;}
+.kw-table .code{font-family:monospace;font-size:.73rem;background:rgba(0,40,80,.08);border-radius:4px;padding:1px 5px;}
+
+/* シーン例カード */
+.scene-cards{display:flex;flex-direction:column;gap:10px;margin-top:14px;}
+.scene-card{border-radius:12px;padding:16px 18px;border:1px solid var(--border);}
+.scene-card.s-cam{background:var(--caml);border-color:#b0cce8;}
+.scene-card.s-comp{background:var(--compl);border-color:#a0c8b0;}
+.scene-card.s-mix{background:var(--mixl);border-color:#c0b0e0;}
+.scene-card .sc-head{font-size:.9rem;font-weight:700;margin-bottom:6px;}
+.scene-card.s-cam .sc-head{color:var(--cam);}
+.scene-card.s-comp .sc-head{color:var(--comp);}
+.scene-card.s-mix .sc-head{color:var(--mix);}
+.scene-card p{font-size:.82rem;color:var(--text);margin-bottom:8px;}
+.scene-arrow{text-align:center;font-size:1.2rem;color:var(--warm);}
+
+/* マトリクス */
+.matrix{width:100%;border-collapse:collapse;margin-top:14px;font-size:.78rem;}
+.matrix th{padding:9px 10px;text-align:center;color:#fff;background:var(--dark);}
+.matrix th.c-cam{background:var(--cam);}
+.matrix th.c-comp{background:var(--comp);}
+.matrix th.c-light{background:var(--light);}
+.matrix th.c-blank{background:#4a4a5a;}
+.matrix td{padding:8px 10px;border:1px solid var(--border);text-align:center;font-size:.73rem;vertical-align:middle;}
+.matrix .td-cam{background:#e8f4ff;}
+.matrix .td-comp{background:#e8f8ec;}
+.matrix .td-light{background:#fff4e4;}
+.matrix .td-mix{background:#f0eaf8;}
+
+/* Tip / Example */
+.tip-box{background:#fff8e8;border:1px solid #e8d0a0;border-radius:10px;padding:12px 14px;margin-top:14px;font-size:.83rem;}
+.example-box{background:#e8f0f8;border-left:4px solid var(--cam);border-radius:0 10px 10px 0;padding:14px 16px;margin-top:14px;}
+.example-box h4{font-size:.9rem;font-weight:700;color:var(--cam);margin-bottom:6px;}
+.example-box p{font-size:.83rem;color:var(--text);}
+
+/* 凡例バー */
+.legend{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 4px;}
+.legend-item{display:flex;align-items:center;gap:4px;font-size:.72rem;}
+.legend-dot{width:10px;height:10px;border-radius:3px;flex-shrink:0;}
+.ld-cam{background:var(--cam);}
+.ld-comp{background:var(--comp);}
+.ld-light{background:var(--light);}
+
+/* Disclaimer */
+.disclaimer{background:#f0f4f8;border:1px solid var(--border);border-radius:12px;padding:16px;margin-top:20px;font-size:.78rem;color:var(--muted);line-height:1.6;}
+.disclaimer strong{color:var(--warm);}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="date-badge">2026-06-08 ／ エバーグリーン・技法</div>
+    <h1>AI動画制作 技法解説</h1>
+    <div class="subtitle">プロンプトでカメラ・構図・光を指定するコツ<br>── 3要素を組み合わせると映像が激変する</div>
+    <div class="tag-row">
+      <span class="tag">📷 カメラワーク</span>
+      <span class="tag">🖼️ 構図</span>
+      <span class="tag">☀️ ライティング</span>
+      <span class="tag">✍️ プロンプト設計</span>
+    </div>
+  </div>
+
+  <!-- なぜ3要素が重要か -->
+  <div class="section">
+    <div class="section-title">🎯 AIに映像を作らせるときの「3つの軸」とは？</div>
+    <p>
+      Veo 3・Kling・Runway・Hailuo などのテキストto動画AIは、
+      <strong>プロンプトに書いたことしか再現できません</strong>。
+      「雰囲気よくして」「映画っぽく」だけでは運任せになります。
+      映像のクオリティを確実に上げる3要素を意識的に指定しましょう。
+    </p>
+
+    <div class="num-cards">
+      <div class="num-card cam">
+        <div class="big-num">📷</div>
+        <div class="n-label">① カメラワーク</div>
+        <div class="n-desc">ショットの種類・動き・距離<br>「どう撮るか」</div>
+      </div>
+      <div class="num-card comp">
+        <div class="big-num">🖼️</div>
+        <div class="n-label">② 構図</div>
+        <div class="n-desc">被写体の配置・画面の使い方<br>「どこに何を置くか」</div>
+      </div>
+      <div class="num-card light">
+        <div class="big-num">☀️</div>
+        <div class="n-label">③ 光</div>
+        <div class="n-desc">光源・方向・時間帯・色温度<br>「どんな光を当てるか」</div>
+      </div>
+    </div>
+
+    <p style="font-size:.85rem;margin-top:8px;color:var(--muted);">
+      ＊この3要素を組み合わせるだけで、同じ被写体・同じシーンでも
+      <strong>まるで別の映像のような仕上がり</strong>になります。
+    </p>
+
+    <!-- プロンプト公式フロー -->
+    <p style="font-weight:700;margin:18px 0 6px;font-size:.9rem;color:var(--accent);">🔑 プロンプトの基本公式</p>
+    <div class="formula">
+      <div class="f-block">
+        <div class="f-label">① カメラ</div>
+        <div class="f-val">shot type<br>+ movement</div>
+      </div>
+      <div class="f-plus">＋</div>
+      <div class="f-block">
+        <div class="f-label">② 構図</div>
+        <div class="f-val">composition<br>+ framing</div>
+      </div>
+      <div class="f-plus">＋</div>
+      <div class="f-block">
+        <div class="f-label">③ 光</div>
+        <div class="f-val">lighting<br>+ time of day</div>
+      </div>
+      <div class="f-plus">＋</div>
+      <div class="f-block">
+        <div class="f-label">④ 雰囲気</div>
+        <div class="f-val">mood<br>+ style</div>
+      </div>
+      <div class="f-plus">＝</div>
+      <div class="f-block" style="background:rgba(255,220,80,.2);border-color:rgba(255,220,80,.4);">
+        <div class="f-label" style="color:#f8e888;">完成形</div>
+        <div class="f-val" style="color:#f8e888;">プロ品質<br>の映像</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- カメラワークキーワード -->
+  <div class="section">
+    <div class="section-title">📷 ① カメラワークのプロンプトキーワード</div>
+    <p>
+      「どう撮るか」を決める2種類のキーワードを覚えましょう。
+      <strong>ショットの距離</strong>（被写体をどこまで映すか）と
+      <strong>カメラの動き</strong>（カメラが動くかどうか）です。
+    </p>
+
+    <div class="kw-grid">
+      <div class="kw-card cam">
+        <div class="kw-head">📏 ショットの距離</div>
+        <ul class="kw-list">
+          <li><span class="kw-en">extreme close-up</span><span class="kw-ja">超アップ（目・口のみ）</span></li>
+          <li><span class="kw-en">close-up shot</span><span class="kw-ja">顔のアップ</span></li>
+          <li><span class="kw-en">medium shot</span><span class="kw-ja">胸から上</span></li>
+          <li><span class="kw-en">full body shot</span><span class="kw-ja">全身</span></li>
+          <li><span class="kw-en">wide shot</span><span class="kw-ja">全体と周囲</span></li>
+          <li><span class="kw-en">establishing shot</span><span class="kw-ja">場所を示す引き画</span></li>
+          <li><span class="kw-en">aerial shot</span><span class="kw-ja">空撮・俯瞰</span></li>
+        </ul>
+      </div>
+      <div class="kw-card cam">
+        <div class="kw-head">🎥 カメラの動き</div>
+        <ul class="kw-list">
+          <li><span class="kw-en">camera pans left/right</span><span class="kw-ja">横にスライド（パン）</span></li>
+          <li><span class="kw-en">camera tilts up/down</span><span class="kw-ja">上下に回転（ティルト）</span></li>
+          <li><span class="kw-en">slow dolly in</span><span class="kw-ja">ゆっくり近づく（ドリー）</span></li>
+          <li><span class="kw-en">dolly out / pull back</span><span class="kw-ja">引いていく</span></li>
+          <li><span class="kw-en">handheld camera</span><span class="kw-ja">手持ちのブレ感</span></li>
+          <li><span class="kw-en">static camera</span><span class="kw-ja">固定カメラ（動かない）</span></li>
+          <li><span class="kw-en">orbit around subject</span><span class="kw-ja">被写体を回り込む</span></li>
+        </ul>
+      </div>
+      <div class="kw-card cam">
+        <div class="kw-head">🎞️ カメラのアングル</div>
+        <ul class="kw-list">
+          <li><span class="kw-en">eye-level shot</span><span class="kw-ja">目線の高さ（標準）</span></li>
+          <li><span class="kw-en">low angle shot</span><span class="kw-ja">見上げる（迫力・強さ）</span></li>
+          <li><span class="kw-en">high angle shot</span><span class="kw-ja">見下ろす（小ささ・俯瞰）</span></li>
+          <li><span class="kw-en">bird's eye view</span><span class="kw-ja">真上から（空撮風）</span></li>
+          <li><span class="kw-en">worm's eye view</span><span class="kw-ja">極端な見上げ</span></li>
+          <li><span class="kw-en">dutch angle</span><span class="kw-ja">斜め（緊張・不安）</span></li>
+          <li><span class="kw-en">over-the-shoulder</span><span class="kw-ja">肩越しに対話シーン</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tip-box" style="margin-top:14px;">
+      💡 <strong>距離＋動き＋アングルの3つ全部書くと精度が上がります</strong><br>
+      例：<code style="background:#f0e8c8;padding:1px 5px;border-radius:3px;">close-up shot, slow dolly in, low angle</code>
+      →「顔に近い、ゆっくり近づいてくる、少し見上げた構図」
+    </div>
+  </div>
+
+  <!-- 構図キーワード -->
+  <div class="section">
+    <div class="section-title">🖼️ ② 構図のプロンプトキーワード</div>
+    <p>
+      「画面の中にどう配置するか」を指定します。
+      構図のキーワードを入れると、AIが被写体を<strong>意図した場所に配置</strong>してくれます。
+    </p>
+
+    <div class="kw-grid">
+      <div class="kw-card comp">
+        <div class="kw-head">📐 主要な構図</div>
+        <ul class="kw-list">
+          <li><span class="kw-en">rule of thirds</span><span class="kw-ja">三分割法（プロの基本）</span></li>
+          <li><span class="kw-en">centered composition</span><span class="kw-ja">中央に配置（対称・重厚）</span></li>
+          <li><span class="kw-en">symmetrical composition</span><span class="kw-ja">左右対称構図</span></li>
+          <li><span class="kw-en">leading lines</span><span class="kw-ja">視線を誘導する線</span></li>
+          <li><span class="kw-en">framing within frame</span><span class="kw-ja">窓や扉でフレームを作る</span></li>
+          <li><span class="kw-en">negative space</span><span class="kw-ja">余白を活かした構図</span></li>
+        </ul>
+      </div>
+      <div class="kw-card comp">
+        <div class="kw-head">🎬 映像らしい構図指定</div>
+        <ul class="kw-list">
+          <li><span class="kw-en">cinematic composition</span><span class="kw-ja">映画的な構図全般</span></li>
+          <li><span class="kw-en">widescreen 2.39:1</span><span class="kw-ja">シネマスコープ比率</span></li>
+          <li><span class="kw-en">subject in foreground</span><span class="kw-ja">被写体を前景に</span></li>
+          <li><span class="kw-en">depth of field</span><span class="kw-ja">前後のぼかし（被写界深度）</span></li>
+          <li><span class="kw-en">shallow depth of field</span><span class="kw-ja">背景をボカす</span></li>
+          <li><span class="kw-en">bokeh background</span><span class="kw-ja">背景がきれいにボケた状態</span></li>
+        </ul>
+      </div>
+      <div class="kw-card comp">
+        <div class="kw-head">📌 縦・横・比率の指定</div>
+        <ul class="kw-list">
+          <li><span class="kw-en">vertical video 9:16</span><span class="kw-ja">縦型（スマホ・ショート）</span></li>
+          <li><span class="kw-en">horizontal 16:9</span><span class="kw-ja">横型（YouTube標準）</span></li>
+          <li><span class="kw-en">square 1:1</span><span class="kw-ja">正方形</span></li>
+          <li><span class="kw-en">portrait orientation</span><span class="kw-ja">縦長（人物中心）</span></li>
+          <li><span class="kw-en">wide panoramic view</span><span class="kw-ja">パノラマ風の横広構図</span></li>
+          <li><span class="kw-en">tight framing</span><span class="kw-ja">被写体をきっちり収める</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 光キーワード（前回のまとめ表から要約） -->
+  <div class="section">
+    <div class="section-title">☀️ ③ 光のプロンプトキーワード（速習まとめ）</div>
+    <p>
+      光の種類・方向・時間帯・色温度の4項目を指定します。
+      詳しくは前回（2026-06-06 光の使い方）を参照してください。
+    </p>
+
+    <table class="kw-table">
+      <tr>
+        <th>項目</th>
+        <th>キーワード（英語）</th>
+        <th>効果・雰囲気</th>
+      </tr>
+      <tr>
+        <td><strong>方向：順光</strong></td>
+        <td><span class="code">flat front lighting, even illumination</span></td>
+        <td>明るく安心・見やすい。インタビュー向き</td>
+      </tr>
+      <tr>
+        <td><strong>方向：逆光</strong></td>
+        <td><span class="code">backlit, rim light, silhouette, contre-jour</span></td>
+        <td>ドラマチック・神秘的。輪郭が光る</td>
+      </tr>
+      <tr>
+        <td><strong>方向：サイドライト</strong></td>
+        <td><span class="code">side lighting, split lighting, rembrandt lighting</span></td>
+        <td>立体感・緊張感。モノローグ・悪役</td>
+      </tr>
+      <tr>
+        <td><strong>時間帯</strong></td>
+        <td><span class="code">golden hour, magic hour, blue hour, midday sun</span></td>
+        <td>黄金＝温かみ、ブルー＝クール、真昼＝鮮明</td>
+      </tr>
+      <tr>
+        <td><strong>色温度</strong></td>
+        <td><span class="code">warm light, cool blue light, neutral white light</span></td>
+        <td>温→暖かさ、寒→冷たさ・恐怖、中性→自然</td>
+      </tr>
+      <tr>
+        <td><strong>光の質</strong></td>
+        <td><span class="code">soft diffused light, hard harsh light, dappled light</span></td>
+        <td>柔→優しい、硬→力強い、木漏れ日→自然感</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- 3要素の組み合わせ実践 -->
+  <div class="section">
+    <div class="section-title">🔀 3要素を組み合わせたプロンプト実践例</div>
+    <p>
+      ここからが本番です。カメラ・構図・光の3要素をセットで書くことで、
+      AIが<strong>意図通りの映像を生成できる確率が大きく上がります</strong>。
+      色分けで3要素を確認しながら読んでみてください。
+    </p>
+
+    <div class="legend">
+      <div class="legend-item"><div class="legend-dot ld-cam"></div><span>📷 カメラ</span></div>
+      <div class="legend-item"><div class="legend-dot ld-comp"></div><span>🖼️ 構図</span></div>
+      <div class="legend-item"><div class="legend-dot ld-light"></div><span>☀️ 光</span></div>
+    </div>
+
+    <div class="steps">
+
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h4>🧘 「静けさ・孤独」── 引きのある哲学的シーン</h4>
+          <p>人物が自然の中で一人たたずむ、内省的なシーンのプロンプト例。</p>
+          <div class="prompt-block">
+<span class="p-cam">wide establishing shot, static camera, eye-level angle,</span>
+<span class="p-comp">centered composition, subject small in vast landscape, negative space above,</span>
+<span class="p-light">blue hour lighting, soft diffused light, cool desaturated tones,</span>
+<span class="p-sub">a lone person standing on a misty hilltop, cinematic, 16:9</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <h4>💪 「力強さ・登場」── ヒーローが現れるシーン</h4>
+          <p>主人公の登場・迫力ある演出に。見上げ＋逆光の組み合わせが定番。</p>
+          <div class="prompt-block">
+<span class="p-cam">low angle shot, slow dolly in toward subject, camera rises from ground,</span>
+<span class="p-comp">subject centered and dominant, framed against the sky, tight framing,</span>
+<span class="p-light">strong backlit silhouette, golden hour rim light, lens flare,</span>
+<span class="p-sub">a warrior standing tall with weapon raised, epic cinematic mood, slow motion</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <h4>🌆 「緊張・葛藤」── 都市の夜に悩む人物</h4>
+          <p>スリラー・ドラマの葛藤シーンに向く、ノワール（暗めのフィルム映画風）スタイル。</p>
+          <div class="prompt-block">
+<span class="p-cam">medium close-up shot, camera pans slowly right, dutch angle,</span>
+<span class="p-comp">rule of thirds, subject off-center, leading lines from street lights,</span>
+<span class="p-light">harsh side lighting from neon signs, cool blue and red mixed light, deep shadows,</span>
+<span class="p-sub">a man in a coat standing in rainy alley, film noir style, cinematic 2.39:1</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <h4>❤️ 「温かさ・つながり」── 家族の日常シーン</h4>
+          <p>Vlog・家族記録・感動系コンテンツに向く、ナチュラルで明るいスタイル。</p>
+          <div class="prompt-block">
+<span class="p-cam">handheld close-up shot, gentle camera movement, eye-level,</span>
+<span class="p-comp">loose framing with natural negative space, bokeh background,</span>
+<span class="p-light">warm soft morning light through window, golden hour indoor, shallow depth of field,</span>
+<span class="p-sub">a parent and child laughing together at breakfast table, candid and cozy, natural colors</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 「気分×目的」マトリクス -->
+  <div class="section">
+    <div class="section-title">📊 「気分×目的」別 キーワード選び方マトリクス</div>
+    <p style="font-size:.85rem;margin-bottom:4px;">
+      作りたい映像の雰囲気（縦）と目的（横）を組み合わせてキーワードを選びましょう。
+    </p>
+
+    <table class="matrix">
+      <tr>
+        <th class="c-blank">気分 ＼ 目的</th>
+        <th class="c-cam">📷 カメラ選択</th>
+        <th class="c-comp">🖼️ 構図選択</th>
+        <th class="c-light">☀️ 光の選択</th>
+      </tr>
+      <tr>
+        <td style="font-weight:700;background:#f5f5f5;">明るく楽しい<br>（Vlog・日常）</td>
+        <td class="td-cam">eye-level shot<br>handheld movement</td>
+        <td class="td-comp">loose framing<br>bokeh background</td>
+        <td class="td-light">flat front lighting<br>warm morning light</td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;background:#f5f5f5;">壮大・感動的<br>（旅・自然）</td>
+        <td class="td-cam">wide establishing shot<br>slow dolly in / aerial</td>
+        <td class="td-comp">subject small in landscape<br>negative space</td>
+        <td class="td-light">golden hour<br>magic hour / warm sunlight</td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;background:#f5f5f5;">力強い・迫力<br>（スポーツ・アクション）</td>
+        <td class="td-cam">low angle shot<br>orbit around subject</td>
+        <td class="td-comp">centered dominant<br>rule of thirds</td>
+        <td class="td-light">side lighting<br>hard harsh light</td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;background:#f5f5f5;">神秘的・緊張<br>（ドラマ・ホラー）</td>
+        <td class="td-cam">dutch angle<br>slow dolly in</td>
+        <td class="td-comp">framing within frame<br>subject off-center</td>
+        <td class="td-light">rembrandt lighting<br>backlit / deep shadows</td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;background:#f5f5f5;">洗練・シック<br>（ファッション・商品）</td>
+        <td class="td-cam">medium/close-up<br>static or slow pan</td>
+        <td class="td-comp">symmetrical / centered<br>shallow depth of field</td>
+        <td class="td-light">soft diffused light<br>studio lighting / blue hour</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- 真似できる実践例 -->
+  <div class="section">
+    <div class="section-title">🎯 今日から真似できる！ 「3要素チェックリスト」</div>
+    <p>
+      プロンプトを書いたあと、この3つを確認するだけでクオリティが上がります。
+    </p>
+
+    <div class="steps" style="margin-top:18px;">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h4>📷 カメラの確認：「距離・動き・アングル」3点セットが入っているか？</h4>
+          <p>NG例：<code style="background:#f0e8c8;padding:1px 5px;border-radius:3px;">a person walking</code>（カメラ情報がない）</p>
+          <p>OK例：<code style="background:#e8f0e8;padding:1px 5px;border-radius:3px;">wide shot, camera slowly pans right, eye-level — a person walking</code></p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <h4>🖼️ 構図の確認：「被写体の配置」か「背景の扱い」が書いてあるか？</h4>
+          <p>NG例：<code style="background:#f0e8c8;padding:1px 5px;border-radius:3px;">a city skyline</code></p>
+          <p>OK例：<code style="background:#e8f0e8;padding:1px 5px;border-radius:3px;">a city skyline, rule of thirds, subject in foreground, leading lines from the bridge</code></p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <h4>☀️ 光の確認：「方向 or 時間帯」と「色温度 or 質」が入っているか？</h4>
+          <p>NG例：<code style="background:#f0e8c8;padding:1px 5px;border-radius:3px;">outdoor scene</code>（光の指定なし）</p>
+          <p>OK例：<code style="background:#e8f0e8;padding:1px 5px;border-radius:3px;">outdoor scene, golden hour, warm soft light, long shadows</code></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="example-box">
+      <h4>🎬 真似できる実践例：「30秒のショート動画プロンプトセット」</h4>
+      <p>
+        テーマ：コーヒーを淹れる静かな朝のひととき（縦型ショート動画・30秒・3カット）<br><br>
+        <strong>カット1（5秒）：場所を見せる引き画</strong><br>
+        <code style="background:#e8f0e8;display:block;padding:6px 8px;border-radius:6px;font-size:.78rem;margin:4px 0 10px;">wide shot, static camera, eye-level — a cozy kitchen bathed in warm morning light through the window, golden hour, soft diffused light, negative space above</code>
+        <strong>カット2（15秒）：手元のアップで行動を見せる</strong><br>
+        <code style="background:#e8f0e8;display:block;padding:6px 8px;border-radius:6px;font-size:.78rem;margin:4px 0 10px;">extreme close-up, slow dolly in, eye-level — hands pouring hot water over coffee grounds, steam rising, shallow depth of field bokeh, warm soft side lighting from the window, cinematic</code>
+        <strong>カット3（10秒）：感情の締め・顔を見せる</strong><br>
+        <code style="background:#e8f0e8;display:block;padding:6px 8px;border-radius:6px;font-size:.78rem;margin:4px 0 10px;">medium close-up, camera tilts up slowly, eye-level — person lifting the cup and smiling, bokeh background, warm golden light from behind, rim light outline, vertical 9:16 framing</code>
+      </p>
+    </div>
+  </div>
+
+  <!-- まとめ -->
+  <div class="section">
+    <div class="section-title">📌 今日のまとめ</div>
+    <p style="margin-bottom:14px;">
+      プロンプトに<strong>カメラ・構図・光の3要素を意識的に組み込む</strong>ことで、
+      AIの生成結果が「偶然」から「意図通り」へと変わります。
+      今日紹介したキーワードを1つずつ足していくだけで構いません。
+    </p>
+    <table class="kw-table">
+      <tr>
+        <th>要素</th>
+        <th>最初に覚える1フレーズ</th>
+        <th>使えるシーン</th>
+      </tr>
+      <tr>
+        <td><strong>📷 カメラ</strong></td>
+        <td><span class="code">close-up shot, slow dolly in, eye-level</span></td>
+        <td>感情を伝えたい・人物中心</td>
+      </tr>
+      <tr>
+        <td><strong>🖼️ 構図</strong></td>
+        <td><span class="code">rule of thirds, bokeh background</span></td>
+        <td>プロっぽく見せたいとき全般</td>
+      </tr>
+      <tr>
+        <td><strong>☀️ 光</strong></td>
+        <td><span class="code">golden hour, warm soft light</span></td>
+        <td>感動・温かみ・映える映像</td>
+      </tr>
+      <tr>
+        <td><strong>🔀 組み合わせ</strong></td>
+        <td><span class="code">3要素 ＋ mood/style でまとめる</span></td>
+        <td>すべてのシーンで品質アップ</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- 免責 -->
+  <div class="disclaimer">
+    <strong>⚠️ 免責事項：</strong>
+    本記事で紹介するプロンプトキーワードの効果はAIツールの種類・バージョンによって異なります。
+    Veo 3・Kling・Runway・Hailuo などの各ツールの機能・料金・商用利用の可否は頻繁に変わるため、
+    最新情報と利用規約は必ず各ツールの公式ページでご確認ください。
+    本記事のカメラ・構図・光に関する解説は映像制作の一般的な知識に基づくエバーグリーンなコンテンツです。
+  </div>
+
+</div>
+</body>
+</html>

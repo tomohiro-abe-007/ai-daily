@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-06-08</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  /* ── カバー ── */
+  .cover {
+    background: linear-gradient(135deg, #8b1a1a 0%, #c0392b 55%, #e74c3c 100%);
+    color: white;
+    border-radius: 8px;
+    padding: 60px 40px;
+    text-align: center;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.3);
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+      0deg, transparent, transparent 28px,
+      rgba(255,255,255,0.05) 28px, rgba(255,255,255,0.05) 29px
+    );
+  }
+  .cover-emoji { font-size: 64px; display: block; margin-bottom: 16px; }
+  .cover h1 {
+    font-family: 'Klee One', sans-serif;
+    font-size: 2.0rem;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 12px;
+    position: relative;
+  }
+  .cover .subtitle { font-size: 1.0rem; opacity: 0.85; margin-bottom: 8px; position: relative; }
+  .cover .tagline  { font-size: 0.88rem; opacity: 0.7; position: relative; margin-bottom: 4px; }
+  .cover .date-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 20px;
+    padding: 6px 20px;
+    font-size: 1rem;
+    margin-top: 16px;
+    position: relative;
+  }
+
+  /* ── カード ── */
+  .card {
+    background: #fff9f0;
+    border-radius: 6px;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.12);
+    position: relative;
+    overflow: hidden;
+  }
+  .card-body {
+    padding: 28px 36px 28px 64px;
+    background: repeating-linear-gradient(
+      0deg, transparent, transparent 31px,
+      #e0d8c8 31px, #e0d8c8 32px
+    );
+    background-color: #fff9f0;
+    min-height: 200px;
+  }
+  .card-body::before {
+    content: '';
+    position: absolute;
+    left: 52px; top: 0; bottom: 0;
+    width: 2px;
+    background: #c0392b;
+    opacity: 0.7;
+  }
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 8px;
+    border-bottom: 2px dashed #c8b89a;
+  }
+  .card-emoji { font-size: 2rem; }
+  .card-title {
+    font-family: 'Klee One', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #2c3e50;
+    line-height: 1.3;
+  }
+  .topic-badge {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-left: auto;
+    white-space: nowrap;
+  }
+  .badge-blue   { background: #e0eeff; color: #2255aa; border: 1px solid #a0c0f5; }
+  .badge-teal   { background: #d0f0f0; color: #006060; border: 1px solid #80d0d0; }
+  .badge-orange { background: #fff0d0; color: #cc6600; border: 1px solid #f0c070; }
+  .badge-red    { background: #ffe0e0; color: #c0392b; border: 1px solid #f5a0a0; }
+  .badge-green  { background: #e0f5e0; color: #1e7e34; border: 1px solid #a0d8a0; }
+  .badge-purple { background: #f0e0ff; color: #7b2fbe; border: 1px solid #c8a0f0; }
+  .badge-navy   { background: #e0eaff; color: #1a3a6a; border: 1px solid #90b0e8; }
+  .badge-amber  { background: #fff3d0; color: #8a5000; border: 1px solid #e0b860; }
+
+  /* ── テキスト要素 ── */
+  .body-text {
+    font-size: 0.97rem;
+    line-height: 1.85;
+    color: #333;
+    margin: 8px 0;
+  }
+
+  .simple-box {
+    background: #fff7e0;
+    border-left: 4px solid #f5c842;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin: 16px 0;
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+  .simple-box .label {
+    display: inline-block;
+    background: #f5c842;
+    color: #5a4000;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+  }
+
+  .info-box {
+    background: #eef4ff;
+    border-left: 4px solid #3366cc;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin: 16px 0;
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+  .info-box .label {
+    display: inline-block;
+    background: #3366cc;
+    color: white;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+  }
+
+  .alert-box {
+    background: #fff0f0;
+    border-left: 4px solid #e05050;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin: 16px 0;
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+  .alert-box .label {
+    display: inline-block;
+    background: #e05050;
+    color: white;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+  }
+
+  .teal-box {
+    background: #e8f8f5;
+    border-left: 4px solid #1abc9c;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin: 16px 0;
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+  .teal-box .label {
+    display: inline-block;
+    background: #1abc9c;
+    color: white;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+  }
+
+  .green-box {
+    background: #eafaf0;
+    border-left: 4px solid #27ae60;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin: 16px 0;
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+  .green-box .label {
+    display: inline-block;
+    background: #27ae60;
+    color: white;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+  }
+
+  /* ── 数値カード ── */
+  .num-cards {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+    justify-content: center;
+  }
+  .num-card {
+    background: white;
+    border-radius: 10px;
+    padding: 20px 24px;
+    text-align: center;
+    flex: 1;
+    min-width: 150px;
+    max-width: 220px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.1);
+    border-top: 5px solid #c0392b;
+  }
+  .num-card .big-num {
+    font-size: 2.5rem;
+    font-weight: 700;
+    font-family: 'Caveat', cursive;
+    color: #c0392b;
+    line-height: 1.1;
+  }
+  .num-card .num-unit {
+    font-size: 1.1rem;
+    color: #c0392b;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .num-card .num-label {
+    font-size: 0.8rem;
+    color: #555;
+    line-height: 1.5;
+    margin-top: 4px;
+  }
+  .num-card.blue { border-top-color: #2980b9; }
+  .num-card.blue .big-num { color: #2980b9; }
+  .num-card.blue .num-unit { color: #2980b9; }
+  .num-card.green { border-top-color: #27ae60; }
+  .num-card.green .big-num { color: #27ae60; }
+  .num-card.green .num-unit { color: #27ae60; }
+  .num-card.orange { border-top-color: #e67e22; }
+  .num-card.orange .big-num { color: #e67e22; }
+  .num-card.orange .num-unit { color: #e67e22; }
+
+  /* ── フロー図 ── */
+  .flow-wrap {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px 0;
+  }
+  .flow-item {
+    background: white;
+    border: 2px solid #c0392b;
+    border-radius: 10px;
+    padding: 14px 18px;
+    text-align: center;
+    min-width: 110px;
+    font-size: 0.88rem;
+    line-height: 1.4;
+    color: #333;
+  }
+  .flow-item .flow-emoji { font-size: 1.6rem; display: block; margin-bottom: 4px; }
+  .flow-item .flow-main { font-weight: 600; color: #8b1a1a; }
+  .flow-item .flow-sub  { font-size: 0.77rem; color: #888; margin-top: 2px; }
+  .flow-arrow {
+    font-size: 1.6rem;
+    color: #c0392b;
+    line-height: 1;
+  }
+
+  /* ── 食品グループ ── */
+  .food-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .food-card {
+    background: white;
+    border-radius: 8px;
+    padding: 14px 16px;
+    border: 2px solid #e8e0d0;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .food-card .food-icon { font-size: 1.8rem; flex-shrink: 0; margin-top: 2px; }
+  .food-card .food-text { font-size: 0.87rem; line-height: 1.5; color: #444; }
+  .food-card .food-name { font-weight: 600; color: #8b1a1a; font-size: 0.95rem; display: block; margin-bottom: 2px; }
+
+  /* ── 比較表 ── */
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 0.9rem;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 1px 2px 8px rgba(0,0,0,0.08);
+  }
+  .compare-table th {
+    background: #8b1a1a;
+    color: white;
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.85rem;
+  }
+  .compare-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid #eee;
+    vertical-align: top;
+    line-height: 1.55;
+    color: #333;
+  }
+  .compare-table tr:last-child td { border-bottom: none; }
+  .compare-table tr:nth-child(even) td { background: #fafaf8; }
+  .compare-table .risk-high { color: #c0392b; font-weight: 600; }
+  .compare-table .risk-note { font-size: 0.82rem; color: #777; }
+
+  /* ── ステップリスト ── */
+  .step-list { margin: 16px 0; display: flex; flex-direction: column; gap: 12px; }
+  .step-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .step-num {
+    background: #c0392b;
+    color: white;
+    font-size: 1rem;
+    font-weight: 700;
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .step-content { font-size: 0.95rem; line-height: 1.7; color: #333; }
+  .step-content strong { color: #8b1a1a; }
+
+  /* ── 精密栄養マトリクス ── */
+  .factor-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .factor-card {
+    background: white;
+    border-radius: 8px;
+    padding: 14px;
+    text-align: center;
+    border: 2px solid #e0d0d0;
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+  .factor-card .fc-icon { font-size: 1.8rem; display: block; margin-bottom: 6px; }
+  .factor-card .fc-name { font-weight: 600; color: #8b1a1a; display: block; margin-bottom: 4px; }
+  .factor-card .fc-desc { color: #666; font-size: 0.82rem; }
+
+  /* ── 論文引用 ── */
+  .ref-list { margin: 0; padding: 0; list-style: none; }
+  .ref-list li {
+    font-size: 0.83rem;
+    line-height: 1.65;
+    color: #555;
+    padding: 8px 0;
+    border-bottom: 1px dotted #ddd;
+  }
+  .ref-list li:last-child { border-bottom: none; }
+  .ref-list a { color: #2980b9; text-decoration: none; font-style: italic; word-break: break-all; }
+  .ref-list a:hover { text-decoration: underline; }
+
+  /* ── 免責 ── */
+  .disclaimer {
+    background: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 14px 18px;
+    font-size: 0.82rem;
+    color: #777;
+    line-height: 1.7;
+    margin-top: 4px;
+  }
+
+  /* ── フッター ── */
+  .footer {
+    margin: 24px 0 8px;
+    text-align: center;
+    color: #aaa;
+    font-size: 0.8rem;
+  }
+
+  /* ── レスポンシブ ── */
+  @media (max-width: 600px) {
+    .cover { padding: 40px 20px; }
+    .cover h1 { font-size: 1.5rem; }
+    .card-body { padding: 20px 18px 20px 44px; }
+    .num-cards { gap: 10px; }
+    .num-card { min-width: 120px; padding: 14px 16px; }
+    .num-card .big-num { font-size: 2rem; }
+    .factor-cards { grid-template-columns: repeat(2, 1fr); }
+    .food-grid { grid-template-columns: 1fr; }
+    .flow-item { min-width: 90px; padding: 10px 12px; }
+    .compare-table th, .compare-table td { padding: 8px 10px; font-size: 0.83rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════ カバー ══════════════════════ -->
+<div class="cover">
+  <span class="cover-emoji">🧫</span>
+  <h1>腸内細菌が血管を老化させる？<br>TMAOという物質のエビデンス</h1>
+  <p class="subtitle">赤肉・卵・乳製品から腸内細菌が作る代謝物と心血管リスク</p>
+  <p class="tagline">精密栄養学 ✕ 腸内細菌 ✕ 心臓血管病　最新エビデンス</p>
+  <div class="date-badge">健康・栄養 最新トピック 2026-06-08</div>
+</div>
+
+<!-- ══════════════════════ 1. TMAOとは ══════════════════════ -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">🔬</span>
+      <span class="card-title">TMAOって何？ まず仕組みから</span>
+      <span class="topic-badge badge-red">基礎知識</span>
+    </div>
+
+    <p class="body-text">
+      <strong>TMAO（トリメチルアミン-N-オキシド）</strong>とは、腸内細菌が食事の成分を分解するときに作る物質です。名前は難しいですが、仕組みはシンプルです。
+    </p>
+
+    <!-- フロー図 -->
+    <div class="flow-wrap">
+      <div class="flow-item">
+        <span class="flow-emoji">🥩🥚🐟</span>
+        <span class="flow-main">食事</span>
+        <span class="flow-sub">コリン・L-カルニチン・ベタイン</span>
+      </div>
+      <span class="flow-arrow">▶</span>
+      <div class="flow-item">
+        <span class="flow-emoji">🦠</span>
+        <span class="flow-main">腸内細菌</span>
+        <span class="flow-sub">TMAリアーゼという酵素で分解</span>
+      </div>
+      <span class="flow-arrow">▶</span>
+      <div class="flow-item">
+        <span class="flow-emoji">⚗️</span>
+        <span class="flow-main">TMA</span>
+        <span class="flow-sub">トリメチルアミン（腸で吸収）</span>
+      </div>
+      <span class="flow-arrow">▶</span>
+      <div class="flow-item">
+        <span class="flow-emoji">🫁</span>
+        <span class="flow-main">肝臓で変換</span>
+        <span class="flow-sub">FMO3という酵素が酸化</span>
+      </div>
+      <span class="flow-arrow">▶</span>
+      <div class="flow-item">
+        <span class="flow-emoji">🩸</span>
+        <span class="flow-main">TMAO</span>
+        <span class="flow-sub">血液中を循環し血管に影響</span>
+      </div>
+    </div>
+
+    <div class="simple-box">
+      <div class="label">やさしく言うと</div>
+      赤肉や卵に含まれる「コリン」「L-カルニチン」という成分を、腸内細菌がエサにして「TMA」に変え、それが肝臓で「TMAO」に変わって血液に入ります。このTMAOが多い人は、心臓・血管の病気リスクが高い可能性が複数の研究で示されています。
+    </div>
+
+    <p class="body-text">
+      TMAOは2011年にアメリカ・クリーブランドクリニックのHazen博士らが初めて心血管リスクと結びつけて報告し、以来「腸内細菌と心臓病をつなぐ物質」として世界的に研究が進んでいます。
+    </p>
+  </div>
+</div>
+
+<!-- ══════════════════════ 2. どんな食品が原因？ ══════════════════════ -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">🍽️</span>
+      <span class="card-title">TMAOを増やす食品・成分とは</span>
+      <span class="topic-badge badge-orange">食事との関係</span>
+    </div>
+
+    <p class="body-text">
+      TMAOの前駆物質（もとになる成分）を多く含む食品はおもに以下のとおりです。
+    </p>
+
+    <div class="food-grid">
+      <div class="food-card">
+        <span class="food-icon">🥩</span>
+        <div class="food-text">
+          <span class="food-name">赤肉（牛・豚・羊）</span>
+          L-カルニチンを豊富に含む。赤身肉100g中に約50〜160 mg のL-カルニチン。
+        </div>
+      </div>
+      <div class="food-card">
+        <span class="food-icon">🥚</span>
+        <div class="food-text">
+          <span class="food-name">卵黄・レシチン</span>
+          コリンが非常に豊富。卵1個に約130 mgのコリンを含む。
+        </div>
+      </div>
+      <div class="food-card">
+        <span class="food-icon">🧀</span>
+        <div class="food-text">
+          <span class="food-name">乳製品</span>
+          コリン・ベタインを含む。全脂乳製品は複数の前駆物質を含む。
+        </div>
+      </div>
+      <div class="food-card">
+        <span class="food-icon">🐚</span>
+        <div class="food-text">
+          <span class="food-name">魚介類（特に貝類・海水魚）</span>
+          TMAを直接含む食品。ただし魚食とTMAO・心血管リスクの関係は複雑（後述）。
+        </div>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <div class="label">注意：魚は特別なケース</div>
+      魚介類はTMAO自体を多く含みますが、「魚食による血中TMAO上昇＝心血管リスク増加」とは一概に言えません。魚には不飽和脂肪酸など心臓に有益な成分も豊富です。多くのガイドラインは今も魚の摂取を推奨しています。腸内細菌が体内で作るTMAOと、食品に元から含まれるTMAOでは意味が異なる可能性があります。
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════ 3. エビデンス：どれくらいリスクが上がる？ ══════════════════════ -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">📊</span>
+      <span class="card-title">エビデンスが示すリスクの数字</span>
+      <span class="topic-badge badge-navy">コホート研究・メタ分析</span>
+    </div>
+
+    <p class="body-text">
+      TMAO と心血管リスクの関係を示すデータは、大規模なコホート研究（長期追跡調査）とそれらを統合したメタ分析（複数の研究を集計する分析）で確認されています。エビデンスの強さとしては「相関関係は確認済み」ですが、「因果関係（TMAOが直接病気を引き起こす）」はまだ議論中です。
+    </p>
+
+    <div class="num-cards">
+      <div class="num-card">
+        <div class="big-num">+23%</div>
+        <div class="num-label">高TMAO群の<br>心血管イベントリスク<br><small>（HR=1.23, 95%CI 1.07–1.42）</small></div>
+      </div>
+      <div class="num-card">
+        <div class="big-num">+55%</div>
+        <div class="num-label">高TMAO群の<br>全死亡リスク<br><small>（HR=1.55, 95%CI 1.19–2.02）</small></div>
+      </div>
+      <div class="num-card blue">
+        <div class="big-num">+58%</div>
+        <div class="num-label">冠動脈疾患患者の<br>主要心血管イベント<br><small>（HR=1.58、メタ分析）</small></div>
+      </div>
+      <div class="num-card orange">
+        <div class="big-num">+32%</div>
+        <div class="num-label">ASCVD（動脈硬化性疾患）<br>発症リスク<br><small>（MESA研究 2025・最高 vs 最低五分位）</small></div>
+      </div>
+    </div>
+
+    <table class="compare-table">
+      <tr>
+        <th>研究の種類</th>
+        <th>規模・対象</th>
+        <th>主な結果</th>
+      </tr>
+      <tr>
+        <td><strong>メタ分析</strong><br><span class="risk-note">Tang et al., 2017<br>JAHA (PMID: 29017572)</span></td>
+        <td>プロスペクティブコホート 11件を統合</td>
+        <td>
+          <span class="risk-high">心血管イベント HR 1.23</span><br>
+          <span class="risk-high">全死亡 HR 1.55</span>
+        </td>
+      </tr>
+      <tr>
+        <td><strong>メタ分析</strong><br><span class="risk-note">Gut Microbiota Metabolites<br>2024（PMC11142832）</span></td>
+        <td>プロスペクティブコホート 27件を統合</td>
+        <td>
+          <span class="risk-high">全死亡 HR 1.38</span><br>
+          <span class="risk-note">（95%CI 1.306–1.460）</span>
+        </td>
+      </tr>
+      <tr>
+        <td><strong>メタ分析</strong><br><span class="risk-note">Frontiers Cardiovascular Med.<br>2024（PMC11666687）</span></td>
+        <td>心筋梗塞患者を対象にした複数研究の統合</td>
+        <td>
+          <span class="risk-high">主要心血管イベント HR 1.58</span>
+        </td>
+      </tr>
+      <tr>
+        <td><strong>大規模コホート研究</strong><br><span class="risk-note">MESA研究<br>Sci. Reports 2025</span></td>
+        <td>多民族成人コホート、血清TMAO繰り返し測定</td>
+        <td>
+          <span class="risk-high">ASCVD発症リスク +32%</span><br>
+          <span class="risk-note">（最高五分位 vs 最低五分位）</span>
+        </td>
+      </tr>
+    </table>
+
+    <div class="alert-box">
+      <div class="label">エビデンスの限界（重要）</div>
+      これらの研究はすべて<strong>観察研究・コホート研究</strong>です。「TMAO が高い人は心臓病になりやすい」という「相関」は確認されましたが、「TMAOが原因で病気になる（因果関係）」はRCT（ランダム化比較試験）で証明されていません。TMAO が高い人が他にも不健康な習慣を持ちやすいという「交絡因子」の問題も残ります。
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════ 4. 精密栄養学：個人差がある！ ══════════════════════ -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">🧬</span>
+      <span class="card-title">精密栄養学の視点：同じ食事でもTMAOの量は人それぞれ</span>
+      <span class="topic-badge badge-purple">精密栄養学</span>
+    </div>
+
+    <p class="body-text">
+      同じ量の赤肉や卵を食べても、血中TMAO濃度は人によって大きく異なります。これはTMAOの産生量が「食事だけで決まらない」からです。
+    </p>
+
+    <div class="factor-cards">
+      <div class="factor-card">
+        <span class="fc-icon">🦠</span>
+        <span class="fc-name">腸内細菌の違い</span>
+        <span class="fc-desc">TMA産生能力を持つ菌種（gbu遺伝子保有菌など）の量が人によって異なる</span>
+      </div>
+      <div class="factor-card">
+        <span class="fc-icon">🧬</span>
+        <span class="fc-name">遺伝子の差（FMO3）</span>
+        <span class="fc-desc">肝臓でTMAをTMAOに変換する酵素の働きに個人差がある</span>
+      </div>
+      <div class="factor-card">
+        <span class="fc-icon">🫘</span>
+        <span class="fc-name">腎機能</span>
+        <span class="fc-desc">TMAOは腎臓から排出される。腎機能が低い人はTMAOが高くなりやすい</span>
+      </div>
+      <div class="factor-card">
+        <span class="fc-icon">👤</span>
+        <span class="fc-name">年齢・性別</span>
+        <span class="fc-desc">加齢や性ホルモンの差もTMAO産生量に影響する</span>
+      </div>
+      <div class="factor-card">
+        <span class="fc-icon">🌾</span>
+        <span class="fc-name">食事パターン全体</span>
+        <span class="fc-desc">食物繊維の量・植物性食品の割合がTMA産生菌の増殖を左右する</span>
+      </div>
+      <div class="factor-card">
+        <span class="fc-icon">🏃</span>
+        <span class="fc-name">生活習慣</span>
+        <span class="fc-desc">運動・喫煙・飲酒もTMAO産生に関わる菌のバランスに影響</span>
+      </div>
+    </div>
+
+    <div class="teal-box">
+      <div class="label">2025年の新発見</div>
+      2025年の研究で、<strong>L-カルニチンからのTMAO産生は「gbu（γ-ブチロベタイン利用）遺伝子を持つ腸内細菌の量」がカギ</strong>であることが示されました。将来的には「この菌が少ないからL-カルニチンを多く含む赤肉を食べても大丈夫」「この菌が多いから赤肉は控えよう」という個別アドバイスが可能になる可能性があります（現時点では研究段階）。
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════ 5. TMAOを下げるには？ ══════════════════════ -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">🥗</span>
+      <span class="card-title">TMAOを下げるための食事戦略</span>
+      <span class="topic-badge badge-green">介入研究・実践</span>
+    </div>
+
+    <p class="body-text">
+      TMAOを減らすための食事介入は、いくつかの臨床試験で効果が確認されています。
+    </p>
+
+    <div class="step-list">
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <strong>地中海食に切り替える</strong>：2025年の研究（Nutrients誌, DOI: 10.3390/nu17193135）では、健康な成人を対象に<strong>4週間の地中海食介入</strong>でTMAO が有意に低下（p &lt; 0.001）しました。もともと地中海食への習慣的な順守度が低かった人ほど効果が大きく出ました。
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <strong>赤肉を減らす</strong>：地中海食パターンの中でも<strong>赤肉の量を「少量」に抑えた群</strong>で血中TMAO低下が顕著でした。植物性たんぱく質（豆類・全粒穀物）への置き換えが効果的です。
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <strong>食物繊維を増やす</strong>：高食物繊維食はTMA産生菌（大腸菌・クロストリジウム属など）の過剰な増殖を抑え、有益菌（ビフィズス菌・ファエカリバクテリウム属など）を増やします。2025年のライフスタイル介入レビュー（PMC11990624）でも食物繊維とTMAO低下の関係が確認されています。
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <strong>植物性食品中心にする</strong>：ビーガン食・菜食主義者は一般的にTMAO値が低い傾向があります。ただし、完全菜食でなくても「赤肉・卵黄・乳製品を食べ過ぎない」という変化でも差が出ます。
+        </div>
+      </div>
+    </div>
+
+    <div class="simple-box">
+      <div class="label">まだわかっていないこと</div>
+      プロバイオティクス（乳酸菌・ビフィズス菌サプリ）でTMAOが下がるかは研究が少なく、現時点では確実なエビデンスがありません。「TMAO専用のサプリ」もまだ実用化されていません。食事全体のパターンを変えることが最も現実的なアプローチです。
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════ 6. 今日のまとめ ══════════════════════ -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">📝</span>
+      <span class="card-title">今日のまとめ</span>
+      <span class="topic-badge badge-amber">3行サマリー</span>
+    </div>
+
+    <div class="green-box">
+      <div class="label">3つのポイント</div>
+      ① 腸内細菌が赤肉・卵・乳製品を分解して作る<strong>TMAO</strong>は、複数のコホート研究・メタ分析で<strong>心血管リスク・死亡リスクとの相関</strong>が確認されている（HR 1.23〜1.58）。<br><br>
+      ② 同じ食事でも<strong>腸内細菌の種類・遺伝子・腎機能の差</strong>でTMAO産生量が大きく違う ── これが「精密栄養学」の観点から注目される理由。<br><br>
+      ③ <strong>地中海食・植物性食品中心・食物繊維の増加</strong>はTMAOを下げる現実的な方法として介入研究でも支持されている。ただし現在の証拠はあくまで「相関」であり、TMAOを下げると病気が減るかの直接的RCTはまだ不足している。
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════ 出典 ══════════════════════ -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">📚</span>
+      <span class="card-title">主な出典・参考文献</span>
+      <span class="topic-badge badge-blue">査読論文・一次情報</span>
+    </div>
+
+    <ul class="ref-list">
+      <li>
+        <strong>[1]</strong> Tang WH et al. "Gut Microbiota–Dependent Trimethylamine N-Oxide Associates with Cardiovascular Disease" <em>JAHA</em> 2017 (PMID: 29017572)<br>
+        → 11コホート研究メタ分析。HR: CVE 1.23、全死亡 1.55。
+        <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5742728/" target="_blank">PMC5742728</a>
+        （基準日：2017年）
+      </li>
+      <li>
+        <strong>[2]</strong> Zhu W et al. "Gut Microbiota Metabolites and Risk of Major Adverse Cardiovascular Events and Death: A Systematic Review and Meta-Analysis" 2024
+        <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11142832/" target="_blank">PMC11142832</a>
+        → 27コホート研究。全死亡 HR 1.38（95%CI 1.306–1.460）。（基準日：2024年）
+      </li>
+      <li>
+        <strong>[3]</strong> "Association between trimethylamine N-oxide and prognosis of patients with myocardial infarction: a meta-analysis" <em>Frontiers in Cardiovascular Medicine</em> 2024
+        <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11666687/" target="_blank">PMC11666687</a>
+        → 心筋梗塞患者対象。MACE リスク HR 1.58。（基準日：2024年）
+      </li>
+      <li>
+        <strong>[4]</strong> "Trimethylamine N-oxide and risk of incident cardiovascular events in the Multi Ethnic Study of Atherosclerosis" <em>Scientific Reports</em> 2025<br>
+        <a href="https://www.nature.com/articles/s41598-025-05903-3" target="_blank">nature.com/articles/s41598-025-05903-3</a>
+        → MESA研究。最高 vs 最低五分位でASCVD +32%。（基準日：2025年）
+      </li>
+      <li>
+        <strong>[5]</strong> "Short-Term Mediterranean Dietary Intervention Reduces Plasma TMAO Levels in Healthy Individuals" <em>Nutrients</em> 2025 (DOI: 10.3390/nu17193135)
+        <a href="https://doi.org/10.3390/nu17193135" target="_blank">doi.org/10.3390/nu17193135</a>
+        → 地中海食4週間介入でTMAO有意低下（p &lt; 0.001）。（基準日：2025年）
+      </li>
+      <li>
+        <strong>[6]</strong> "The Association Between Lifestyle Interventions and TMAO: A Systematic-Narrative Hybrid Literature Review" <em>Nutrients</em> 2025
+        <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11990624/" target="_blank">PMC11990624</a>
+        → 食事・運動介入とTMAOの系統的レビュー。（基準日：2025年）
+      </li>
+      <li>
+        <strong>[7]</strong> "Unraveling interindividual variation of TMAO and its precursors at the population level" 2024
+        <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11183189/" target="_blank">PMC11183189</a>
+        → 腸内細菌・遺伝子・腎機能がTMAO個人差を作る機序のレビュー。（基準日：2024年）
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- ══════════════════════ 免責 ══════════════════════ -->
+<div class="card">
+  <div class="card-body" style="min-height:auto;">
+    <div class="disclaimer">
+      ⚠️ <strong>免責事項：</strong>本記事は一般的な健康・栄養情報の提供を目的としており、医療アドバイスではありません。TMAOと心血管リスクの関連を示す研究は増えていますが、現時点では観察研究・コホート研究が中心であり、「TMAOを下げれば病気が予防できる」という因果関係はRCTでは十分に証明されていません。食事制限・サプリメント・食事パターンの大幅な変更を検討する際は、必ずかかりつけ医・管理栄養士・薬剤師などの専門家にご相談ください。特に持病のある方・妊婦・服薬中の方は自己判断での変更は避けてください。
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <p>健康・栄養 最新トピック 2026-06-08 ｜ 一次情報（査読論文・公的機関）を優先して掲載<br>
+  毎朝更新 ・ <a href="index.html" style="color:#aaa;">バックナンバーはこちら</a></p>
+</div>
+
+</body>
+</html>
