@@ -101,159 +101,135 @@
   }
   p { line-height: 1.85; color: #333; font-size: 0.97rem; margin-bottom: 12px; }
 
-  /* ── 対比カード（成果出る vs 出ない） ── */
-  .vs-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
+  /* ── 大きな数字カード ── */
+  .bignum-row {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
     margin: 20px 0;
   }
-  .vs-card {
+  .bignum-card {
+    flex: 1;
+    min-width: 140px;
     border-radius: 10px;
-    padding: 20px 16px;
+    padding: 20px 14px;
+    text-align: center;
   }
-  .vs-card.bad  { background: #fef0f0; border: 2px solid #e74c3c; }
-  .vs-card.good { background: #eafaf1; border: 2px solid #27ae60; }
-  .vs-card .vs-label {
-    font-size: 0.78rem;
+  .bignum-card.green { background: #eafaf1; border: 2px solid #27ae60; }
+  .bignum-card.blue  { background: #e8f4fd; border: 2px solid #2980b9; }
+  .bignum-card.amber { background: #fef9e7; border: 2px solid #f39c12; }
+  .bignum-card .num {
+    font-size: 2.2rem;
+    font-weight: 700;
+    line-height: 1.1;
+    display: block;
+  }
+  .bignum-card.green .num { color: #1e8449; }
+  .bignum-card.blue  .num { color: #1a6ba0; }
+  .bignum-card.amber .num { color: #d68910; }
+  .bignum-card .unit  { font-size: 0.75rem; color: #888; }
+  .bignum-card .label { font-size: 0.82rem; font-weight: 700; margin-top: 6px; color: #555; line-height: 1.4; }
+
+  /* ── 必須 vs 歓迎 対比表 ── */
+  .req-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 18px 0;
+    font-size: 0.87rem;
+  }
+  .req-table th {
+    padding: 10px 14px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-align: left;
+  }
+  .req-table th.must  { background: #2c3e50; color: white; border-radius: 4px 0 0 0; }
+  .req-table th.want  { background: #27ae60; color: white; border-radius: 0 4px 0 0; }
+  .req-table td {
+    padding: 10px 14px;
+    border-bottom: 1px dotted #ccc;
+    vertical-align: top;
+    line-height: 1.7;
+  }
+  .req-table tr:last-child td { border-bottom: none; }
+  .req-table td.must-col { background: #f7f9fc; border-right: 2px solid #e8edf2; }
+  .req-table td.want-col { background: #f0faf5; }
+  .req-icon { display: inline-block; width: 20px; text-align: center; margin-right: 4px; }
+
+  /* ── 5ステップ フロー ── */
+  .step-flow {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin: 20px 0;
+  }
+  .step-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px dotted #ddd;
+  }
+  .step-item:last-child { border-bottom: none; }
+  .step-num {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #1a6b5a;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .step-body { flex: 1; }
+  .step-title {
+    font-size: 0.97rem;
+    font-weight: 700;
+    color: #1a6b5a;
+    margin-bottom: 4px;
+  }
+  .step-desc { font-size: 0.85rem; color: #555; line-height: 1.7; margin: 0; }
+  .step-arrow {
+    text-align: center;
+    color: #27ae60;
+    font-size: 1.3rem;
+    line-height: 1;
+    padding: 2px 0;
+  }
+
+  /* ── 求人タイプ別カード ── */
+  .job-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+    margin: 18px 0;
+  }
+  .job-card {
+    border-radius: 10px;
+    padding: 18px 14px;
+    border: 2px solid;
+  }
+  .job-card.easy   { background: #eafaf1; border-color: #27ae60; }
+  .job-card.mid    { background: #e8f4fd; border-color: #2980b9; }
+  .job-card.hard   { background: #fef9e7; border-color: #f39c12; }
+  .job-card .j-level {
+    font-size: 0.72rem;
     font-weight: 700;
     padding: 3px 10px;
     border-radius: 10px;
     display: inline-block;
     margin-bottom: 10px;
-  }
-  .vs-card.bad  .vs-label { background: #e74c3c; color: white; }
-  .vs-card.good .vs-label { background: #27ae60; color: white; }
-  .vs-card .vs-title {
-    font-size: 1rem;
-    font-weight: 700;
-    margin-bottom: 10px;
-    line-height: 1.4;
-  }
-  .vs-card.bad  .vs-title { color: #c0392b; }
-  .vs-card.good .vs-title { color: #1e8449; }
-  .vs-item {
-    font-size: 0.82rem;
-    color: #555;
-    padding: 5px 0;
-    border-bottom: 1px dotted #ddd;
-    line-height: 1.6;
-  }
-  .vs-item:last-child { border-bottom: none; }
-
-  /* ── 環境の3本柱 ── */
-  .pillar-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 14px;
-    margin: 20px 0;
-  }
-  .pillar-card {
-    border-radius: 10px;
-    padding: 20px 14px;
-    text-align: center;
-  }
-  .pillar-card.phys { background: #fef9e7; border: 2px solid #f39c12; }
-  .pillar-card.tool { background: #e8f4fd; border: 2px solid #2980b9; }
-  .pillar-card.rule { background: #f5edff; border: 2px solid #8e44ad; }
-  .pillar-card .p-icon { font-size: 2.2rem; display: block; margin-bottom: 8px; }
-  .pillar-card .p-name { font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; }
-  .pillar-card.phys .p-name { color: #e67e22; }
-  .pillar-card.tool .p-name { color: #1a6ba0; }
-  .pillar-card.rule .p-name { color: #6c3483; }
-  .pillar-card .p-list { font-size: 0.78rem; color: #555; text-align: left; line-height: 1.8; }
-
-  /* ── ポモドーロ・ステップ ── */
-  .pomo-row {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin: 20px 0;
-    flex-wrap: wrap;
-  }
-  .pomo-box {
-    border-radius: 8px;
-    padding: 14px 12px;
-    text-align: center;
-    flex: 1;
-    min-width: 100px;
-  }
-  .pomo-box.work  { background: #fff3e0; border: 2px solid #e67e22; }
-  .pomo-box.rest  { background: #e8f4fd; border: 2px solid #2980b9; }
-  .pomo-box.long  { background: #eafaf1; border: 2px solid #27ae60; }
-  .pomo-box .pomo-num  { font-size: 1.8rem; font-weight: 700; display: block; line-height: 1.1; }
-  .pomo-box.work  .pomo-num { color: #d35400; }
-  .pomo-box.rest  .pomo-num { color: #1a6ba0; }
-  .pomo-box.long  .pomo-num { color: #1e8449; }
-  .pomo-box .pomo-unit { font-size: 0.75rem; color: #888; }
-  .pomo-box .pomo-label{ font-size: 0.78rem; font-weight: 700; margin-top: 4px; }
-  .pomo-arrow {
-    color: #aaa; font-size: 1.4rem; flex-shrink: 0;
-  }
-  .pomo-repeat {
-    background: #fef9e7;
-    border: 1px dashed #f39c12;
-    border-radius: 6px;
-    padding: 10px 16px;
-    font-size: 0.82rem;
-    color: #888;
-    text-align: center;
-    margin-top: 10px;
-  }
-
-  /* ── 1日タイムブロック ── */
-  .timeblock-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 16px 0;
-    font-size: 0.87rem;
-  }
-  .timeblock-table th {
-    padding: 10px;
-    text-align: center;
-    font-size: 0.82rem;
-    font-weight: 700;
-    background: #1a6b5a;
     color: white;
   }
-  .timeblock-table td {
-    padding: 10px 12px;
-    border-bottom: 1px dotted #ccc;
-    vertical-align: middle;
-    line-height: 1.65;
-  }
-  .timeblock-table tr:last-child td { border-bottom: none; }
-  .time-col { background: #f0faf5; color: #1a6b5a; font-weight: 700; text-align: center; white-space: nowrap; width: 18%; }
-  .block-badge {
-    display: inline-block;
-    border-radius: 4px;
-    padding: 2px 8px;
-    font-size: 0.73rem;
-    font-weight: 700;
-    margin-right: 6px;
-  }
-  .b-call   { background: #fff3e0; color: #d35400; border: 1px solid #e67e22; }
-  .b-admin  { background: #e8f4fd; color: #1a6ba0; border: 1px solid #2980b9; }
-  .b-focus  { background: #eafaf1; color: #1e8449; border: 1px solid #27ae60; }
-  .b-rest   { background: #f5edff; color: #6c3483; border: 1px solid #8e44ad; }
-  .b-review { background: #fef9e7; color: #e67e22; border: 1px solid #f39c12; }
-
-  /* ── 失敗あるある ── */
-  .fail-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 12px;
-    margin: 20px 0;
-  }
-  .fail-card {
-    background: #fff;
-    border-radius: 8px;
-    padding: 16px;
-    border-left: 4px solid #e74c3c;
-  }
-  .fail-card .f-problem { font-size: 0.85rem; font-weight: 700; color: #c0392b; margin-bottom: 6px; }
-  .fail-card .f-arrow   { font-size: 0.78rem; color: #aaa; margin: 4px 0; }
-  .fail-card .f-fix     { font-size: 0.82rem; color: #1e8449; font-weight: 600; }
+  .job-card.easy  .j-level { background: #27ae60; }
+  .job-card.mid   .j-level { background: #2980b9; }
+  .job-card.hard  .j-level { background: #d68910; }
+  .job-card .j-title { font-size: 0.95rem; font-weight: 700; color: #333; margin-bottom: 8px; }
+  .job-card .j-item  { font-size: 0.8rem; color: #555; padding: 3px 0; border-bottom: 1px dotted #ddd; line-height: 1.6; }
+  .job-card .j-item:last-child { border-bottom: none; }
 
   /* ── 今日の一歩 ── */
   .today-box {
@@ -265,7 +241,7 @@
   .today-box .title { font-size: 1.1rem; font-weight: 600; margin-bottom: 10px; }
   .today-box .desc  { font-size: 0.92rem; opacity: 0.92; line-height: 1.8; }
 
-  /* ── 共通 ── */
+  /* ── 共通パーツ ── */
   .highlight { background: #e8f8f0; border-radius: 4px; padding: 1px 6px; color: #1a6b5a; font-weight: 600; }
   .note { font-size: 0.8rem; color: #999; margin-top: 4px; }
   .callout {
@@ -273,6 +249,7 @@
   }
   .callout.yellow { background: #fef9e7; border-left: 4px solid #f39c12; }
   .callout.green  { background: #eafaf1; border-left: 4px solid #27ae60; }
+  .callout.blue   { background: #e8f4fd; border-left: 4px solid #2980b9; }
 
   /* ── 免責 ── */
   .disclaimer {
@@ -300,10 +277,8 @@
 
   @media (max-width: 520px) {
     .card-body { padding: 40px 18px 24px 24px; }
-    .vs-grid { grid-template-columns: 1fr; }
-    .pillar-grid { grid-template-columns: 1fr; }
-    .pomo-row { flex-direction: column; }
-    .pomo-arrow { transform: rotate(90deg); }
+    .bignum-row { flex-direction: column; }
+    .job-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -311,250 +286,220 @@
 
 <!-- ── カバー ── -->
 <div class="cover">
-  <span class="cover-emoji">🏠</span>
-  <h1>在宅で成果を出す<br>環境と時間管理</h1>
+  <span class="cover-emoji">🌱</span>
+  <h1>未経験から始める準備と<br>よくある募集要件</h1>
   <div class="subtitle">インサイドセールス 最新トピック 2026-06-07</div>
   <div class="date-badge">テレアポ・インサイドセールス 毎朝解説</div>
 </div>
 
-<!-- ── Section 1: 成果が出る人 vs 出ない人 ── -->
+<!-- ── Section 1: 実態の数字 ── -->
 <div class="card">
-  <span class="card-tab">01 まず「2つのパターン」を比べてみよう</span>
+  <span class="card-tab">01 まず数字で「未経験OKの実態」を確認しよう</span>
   <div class="card-body">
-    <h2>📊 在宅営業で成果が出る人・出ない人の違い</h2>
-    <p>テレアポやインサイドセールスをフルリモートでやる場合、<span class="highlight">「環境づくり」と「時間の使い方」</span>が成果の差を生みます。会社に毎日出勤する場合と違い、自己管理が全部自分の仕事になるからです。</p>
+    <h2>📊 未経験でも本当に採用される？リアルな数字</h2>
+    <p>求人媒体を見ると、インサイドセールス・テレアポの求人の多くが<span class="highlight">「未経験歓迎・学歴不問」</span>を掲げています。「特別なスキルがないと無理」と思いがちですが、実際の募集条件は入口が広いのが特徴です。</p>
 
-    <div class="vs-grid">
-      <div class="vs-card bad">
-        <div class="vs-label">😔 成果が出にくい人</div>
-        <div class="vs-title">環境・時間が「なんとなく」</div>
-        <div class="vs-item">📱 スマホが常に手の届く場所にある</div>
-        <div class="vs-item">🛋️ 作業する場所が毎日バラバラ</div>
-        <div class="vs-item">⏰ 何時から架電するか決めていない</div>
-        <div class="vs-item">📋 その日の目標（件数・アポ数）が曖昧</div>
-        <div class="vs-item">💤 起きた時刻によって仕事開始がズレる</div>
-        <div class="vs-item">🔔 通知・SNSで集中が途切れる</div>
+    <div class="bignum-row">
+      <div class="bignum-card green">
+        <span class="num">24万〜<br>42万</span>
+        <div class="unit">円 / 月（正社員）</div>
+        <div class="label">インサイドセールス<br>月給の相場（日本）</div>
       </div>
-      <div class="vs-card good">
-        <div class="vs-label">😊 成果が出やすい人</div>
-        <div class="vs-title">環境・時間が「仕組み化」されている</div>
-        <div class="vs-item">📞 架電専用のデスクが決まっている</div>
-        <div class="vs-item">🎯 毎日「架電◯件・アポ◯件」を紙に書く</div>
-        <div class="vs-item">⏱️ 1日の時間割（タイムブロック）が固定</div>
-        <div class="vs-item">📵 集中時間中はスマホを裏返しに置く</div>
-        <div class="vs-item">🌅 起床・着替え・仕事開始の時刻を固定</div>
-        <div class="vs-item">📝 振り返りの時間を毎日15分確保</div>
+      <div class="bignum-card blue">
+        <span class="num">1,200〜<br>1,600</span>
+        <div class="unit">円 / 時（アルバイト）</div>
+        <div class="label">テレアポ求人の<br>時給の目安</div>
+      </div>
+      <div class="bignum-card amber">
+        <span class="num">学歴<br>不問</span>
+        <div class="unit">が多数</div>
+        <div class="label">応募資格の<br>ハードルが低い</div>
       </div>
     </div>
+    <p class="note">※ 月給・時給は2026年6月時点の求人媒体（doda・Indeed等）掲載情報をもとにした目安。経験・スキル・会社規模・地域により変動します。</p>
 
     <div class="callout yellow">
-      <strong>💡 ポイント：</strong> 在宅は「自由」ではなく「自己管理できる人が有利な環境」です。意識的に「オフィスのルーティン」を自分で再現することが成果への近道です。
+      <strong>💡 なぜ未経験OKが多いの？</strong><br>
+      インサイドセールス市場は拡大中で、各社が人手を必要としています。多くの会社が研修・トークスクリプト・CRMなどの仕組みを整えており、「ゼロから育てる」前提で採用することが増えています。つまり、<strong>入口の広さは業界の成長の証</strong>でもあります。
     </div>
   </div>
 </div>
 
-<!-- ── Section 2: 環境の3本柱 ── -->
+<!-- ── Section 2: 募集要件マトリクス ── -->
 <div class="card">
-  <span class="card-tab">02 環境構築の3本柱</span>
+  <span class="card-tab">02 求人票に書いてある「必須条件」と「歓迎条件」の違い</span>
   <div class="card-body">
-    <h2>🏗️ 在宅営業の環境は「3つの柱」で整える</h2>
-    <p>在宅で成果を出すための環境は、<span class="highlight">物理環境・ツール環境・ルール環境</span>の3つに分けて考えると整理しやすいです。</p>
+    <h2>📋 よくある募集要件：必須 vs 歓迎を整理しよう</h2>
+    <p>求人票には「<span class="highlight">必須条件（MUST）</span>」と「<span class="highlight">歓迎条件（WANT）</span>」の2種類が書かれています。歓迎条件は「あれば嬉しいけど、なくてもOK」という意味です。両方をしっかり区別して読みましょう。</p>
 
-    <div class="pillar-grid">
-      <div class="pillar-card phys">
-        <span class="p-icon">🪑</span>
-        <div class="p-name">① 物理環境</div>
-        <div class="p-list">
-          📍 作業スペースを固定する<br>
-          🎧 ノイズキャンセリングイヤホン<br>
-          💡 照明は手元が明るく<br>
-          🌡️ 室温は18〜22℃が集中しやすい<br>
-          📵 スマホは引き出しの中へ<br>
-          🖥️ モニターは目線の高さに
-        </div>
-      </div>
-      <div class="pillar-card tool">
-        <span class="p-icon">🛠️</span>
-        <div class="p-name">② ツール環境</div>
-        <div class="p-list">
-          📞 IP電話（例：MiiTel, Zoom Phone）<br>
-          📋 CRM/SFA（Salesforce, HubSpot等）<br>
-          ✅ タスク管理（Notion, Todoist等）<br>
-          ⏱️ タイマー（ポモドーロ管理用）<br>
-          📅 カレンダー（Google Calendar等）<br>
-          💬 チャット（Slack, ChatWork等）
-        </div>
-      </div>
-      <div class="pillar-card rule">
-        <span class="p-icon">📜</span>
-        <div class="p-name">③ ルール環境</div>
-        <div class="p-list">
-          🕗 「仕事開始」時刻を固定する<br>
-          🎯 1日の目標数値を紙に書く<br>
-          🚫 集中時間はチャット通知OFF<br>
-          ☕ 休憩のタイミングを決める<br>
-          📓 夕方15分で振り返り日記<br>
-          🛑 「仕事終わり」の合図を決める
-        </div>
-      </div>
-    </div>
-
-    <div class="callout green">
-      <strong>🔑 3本柱の中でいちばん大切：</strong> 実は「③ ルール環境」が最重要です。高価なイヤホンや最新のツールより、<strong>「毎日同じ時間に始めて同じ時間に終わる」</strong> というルールが、在宅の成果を最も安定させます。
-    </div>
-  </div>
-</div>
-
-<!-- ── Section 3: ポモドーロ・テクニック ── -->
-<div class="card">
-  <span class="card-tab">03 集中力を保つ時間術①：ポモドーロ・テクニック</span>
-  <div class="card-body">
-    <h2>⏱️ 「25分 × 集中」で電話しまくる方法</h2>
-    <p><span class="highlight">ポモドーロ・テクニック</span>とは、「25分集中 → 5分休憩」を1セットとして繰り返す時間管理術です。1980年代にイタリアで生まれ、在宅ワーカーの間で今も広く使われています。テレアポやインサイドセールスの架電業務と相性がよい手法です。</p>
-
-    <div class="pomo-row">
-      <div class="pomo-box work">
-        <span class="pomo-num">25</span>
-        <div class="pomo-unit">分</div>
-        <div class="pomo-label">🔥 集中架電</div>
-      </div>
-      <div class="pomo-arrow">→</div>
-      <div class="pomo-box rest">
-        <span class="pomo-num">5</span>
-        <div class="pomo-unit">分</div>
-        <div class="pomo-label">☕ 短い休憩</div>
-      </div>
-      <div class="pomo-arrow">→</div>
-      <div class="pomo-box work">
-        <span class="pomo-num">×4</span>
-        <div class="pomo-unit">セット</div>
-        <div class="pomo-label">🔁 繰り返す</div>
-      </div>
-      <div class="pomo-arrow">→</div>
-      <div class="pomo-box long">
-        <span class="pomo-num">30</span>
-        <div class="pomo-unit">分</div>
-        <div class="pomo-label">🌿 長い休憩</div>
-      </div>
-    </div>
-
-    <div class="pomo-repeat">
-      ↻ 4セット（約2時間）消化 → 30分の長い休憩 → また4セット… を繰り返す
-    </div>
-
-    <p style="margin-top:14px;">テレアポの場合、<strong>1ポモドーロ（25分）で5〜10件電話するのが目安</strong>。「あと何件かけないといけない」とプレッシャーを感じるより、「あと◯分この時間を集中するだけ」と考えると気持ちがラクになります。</p>
-
-    <div class="callout yellow">
-      <strong>💡 無料タイマーアプリ例：</strong><br>
-      「Pomofocus（https://pomofocus.io）」はブラウザで使える無料ポモドーロタイマー。アカウント不要で今すぐ使えます。架電の合間の集中管理に便利です。
-    </div>
-  </div>
-</div>
-
-<!-- ── Section 4: タイムブロッキング ── -->
-<div class="card">
-  <span class="card-tab">04 集中力を保つ時間術②：タイムブロッキング</span>
-  <div class="card-body">
-    <h2>📅 1日を「時間割」で管理するだけで架電数が変わる</h2>
-    <p><span class="highlight">タイムブロッキング</span>とは、1日の時間帯ごとにやることをあらかじめ決めておく方法です。「今日何をやろうか…」と迷う時間ゼロになり、在宅特有の「だらだら感」が消えます。</p>
-
-    <p>以下はテレアポ・インサイドセールスの在宅ワーカー向けの<strong>1日モデルスケジュール</strong>例です。</p>
-
-    <table class="timeblock-table">
+    <table class="req-table">
       <thead>
         <tr>
-          <th style="width:18%">時間帯</th>
-          <th style="width:22%">ブロック</th>
-          <th>内容と理由</th>
+          <th class="must" style="width:48%">🔒 必須条件（MUST）── これがないと応募できない</th>
+          <th class="want" style="width:52%">⭐ 歓迎条件（WANT）── あると選考で有利になる</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td class="time-col">8:30〜9:00</td>
-          <td><span class="block-badge b-admin">準備</span>朝のルーティン</td>
-          <td>着替え・架電リスト確認・目標数値を紙に書く。「仕事モード」にスイッチを入れる儀式として大切。</td>
-        </tr>
-        <tr>
-          <td class="time-col">9:00〜11:30</td>
-          <td><span class="block-badge b-call">架電①</span>集中架電タイム</td>
-          <td>午前中は相手が出やすく、集中力も高い黄金時間。ポモドーロ×5セット。CRM入力もこの時間に合わせて行う。</td>
-        </tr>
-        <tr>
-          <td class="time-col">11:30〜12:30</td>
-          <td><span class="block-badge b-rest">休憩</span>昼休憩</td>
-          <td>必ず席を離れる。外の空気を吸うと午後の集中力が戻る。スマホチェックはここで。</td>
-        </tr>
-        <tr>
-          <td class="time-col">12:30〜14:00</td>
-          <td><span class="block-badge b-admin">管理</span>メール・CRM整理</td>
-          <td>昼食後は集中力が下がりやすいため、頭を使わない入力・整理作業をあてる。スクリプトの修正もここ。</td>
-        </tr>
-        <tr>
-          <td class="time-col">14:00〜16:30</td>
-          <td><span class="block-badge b-call">架電②</span>午後の架電タイム</td>
-          <td>14〜17時台は再び相手がつながりやすくなる。ポモドーロ×5セット。アポのフォロー電話もこの時間に。</td>
-        </tr>
-        <tr>
-          <td class="time-col">16:30〜17:00</td>
-          <td><span class="block-badge b-review">振り返り</span>日次レビュー</td>
-          <td>架電数・アポ数・断られ内容をメモ。「明日こうしてみよう」を1つ書いて終わる。翌日の架電リストも準備。</td>
-        </tr>
-        <tr>
-          <td class="time-col">17:00〜</td>
-          <td><span class="block-badge b-rest">終業</span>仕事終了の合図</td>
-          <td>PCを閉じる・作業スペースを片付けるなど「終わりの儀式」を決めておくと、オンオフが切り替わりやすい。</td>
+          <td class="must-col">
+            <span class="req-icon">💬</span>基本的なコミュニケーション能力<br>
+            <span class="req-icon">💻</span>PCの基本操作（文字入力・メール）<br>
+            <span class="req-icon">📞</span>電話に抵抗がないこと<br>
+            <span class="req-icon">🕗</span>指定の就業時間に働けること<br>
+            <span class="req-icon">📶</span>在宅の場合：安定したネット環境
+          </td>
+          <td class="want-col">
+            <span class="req-icon">🎧</span>コールセンター・カスタマーサポート経験<br>
+            <span class="req-icon">📊</span>Excelやスプレッドシートの操作<br>
+            <span class="req-icon">🤝</span>接客・営業・販売の経験（業種不問）<br>
+            <span class="req-icon">📱</span>CRM/SFA（Salesforce等）使用経験<br>
+            <span class="req-icon">🔄</span>PDCAを回した経験・数字を追った経験<br>
+            <span class="req-icon">🌏</span>英語やその他の語学スキル
+          </td>
         </tr>
       </tbody>
     </table>
-    <p class="note">※ 上記は参考例です。契約する会社の指定時間や、担当する見込み客の属性（BtoB/BtoC等）に合わせてアレンジしてください。</p>
-  </div>
-</div>
-
-<!-- ── Section 5: よくある失敗パターン ── -->
-<div class="card">
-  <span class="card-tab">05 よくある失敗パターンと対策</span>
-  <div class="card-body">
-    <h2>⚠️ 在宅営業でハマりやすい「3大落とし穴」</h2>
-    <p>リモートで営業を始めた人がつまずきやすいパターンと、すぐできる対策をまとめました。</p>
-
-    <div class="fail-grid">
-      <div class="fail-card">
-        <div class="f-problem">😰 落とし穴①：「孤独感で集中できない」</div>
-        <div class="f-arrow">▼ 対策</div>
-        <div class="f-fix">チームのSlackで「今日の目標」を朝に宣言する習慣をつくる。報告相手がいると緊張感が生まれる。</div>
-      </div>
-      <div class="fail-card">
-        <div class="f-problem">⏰ 落とし穴②：「気づいたら昼になってた」</div>
-        <div class="f-arrow">▼ 対策</div>
-        <div class="f-fix">前日夜に「翌朝9時から架電開始」と決め、アラームを2つセット。起床後すぐ着替える習慣で仕事モードに切り替える。</div>
-      </div>
-      <div class="fail-card">
-        <div class="f-problem">📱 落とし穴③：「SNS・動画をついつい見てしまう」</div>
-        <div class="f-arrow">▼ 対策</div>
-        <div class="f-fix">架電中はスマホを引き出しの中か別室に置く。PCも仕事専用タブのみ開く。「SNS禁止」より「見る時間を決める」が続く。</div>
-      </div>
-    </div>
 
     <div class="callout green">
-      <strong>💡 プロが実践する「もう1つのコツ」：</strong><br>
-      仕事終わりに「今日の架電数・アポ数・一言感想」を15秒でメモするだけで、翌日の改善アクションが自然と浮かびやすくなります。手帳でも付箋でも、とにかく「紙に書く」ことがポイント。
+      <strong>✅ チェックポイント：</strong> 「歓迎条件が全部なければ応募できない」と思わないことが大切です。多くの会社は<strong>「人柄・意欲・素直さ」を最も重視</strong>しています。接客・事務・教育・介護など、どんな職歴でも応用できるコミュニケーション経験は強みになります。
     </div>
   </div>
 </div>
 
-<!-- ── Section 6: 今日からできる一歩 ── -->
+<!-- ── Section 3: 5ステップ ── -->
+<div class="card">
+  <span class="card-tab">03 応募前にやること：準備の5ステップ</span>
+  <div class="card-body">
+    <h2>👣 未経験者が応募前にやっておくと差がつく「5つの準備」</h2>
+    <p>「準備ゼロで応募する人」と「少しだけ準備した人」では、書類選考・面接の通過率に差が出ます。難しいことは何もありません。<span class="highlight">1つ1つ順番にやるだけ</span>で大丈夫です。</p>
+
+    <div class="step-flow">
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-title">📚 「インサイドセールス・テレアポとは何か」を言葉で説明できるようにする</div>
+          <p class="step-desc">面接で「この仕事に興味を持った理由は？」と必ず聞かれます。「電話やオンラインで見込み客にアプローチし、商談のアポを取る仕事」と一言で言えるようにしておきましょう。</p>
+        </div>
+      </div>
+      <div class="step-arrow">↓</div>
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <div class="step-title">🔍 応募する会社・扱う商品/サービスを事前に調べる</div>
+          <p class="step-desc">「何を売る会社か？」「誰に電話するのか（BtoB or BtoC）？」を確認しておきましょう。会社のホームページを見るだけでOK。面接で「御社の〇〇サービスに興味があり…」と言えると好印象です。</p>
+        </div>
+      </div>
+      <div class="step-arrow">↓</div>
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <div class="step-title">🖊️ 職務経歴書に「コミュニケーション経験」を言語化する</div>
+          <p class="step-desc">飲食・販売・事務・介護など、どんな仕事でも「電話対応をした」「お客様の要望を聞いた」「目標件数をこなした」などの経験は立派な強みです。具体的な数字（〇件対応/日 など）を添えると説得力が増します。</p>
+        </div>
+      </div>
+      <div class="step-arrow">↓</div>
+      <div class="step-item">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <div class="step-title">📞 自己紹介トークを30秒で練習してみる</div>
+          <p class="step-desc">電話営業の仕事に応募するので、面接官は「この人の話し方」を特に見ています。電話口で話すような、はっきり・ゆっくり・明るい口調で自己紹介を練習しましょう。鏡の前か録音して聞き返すのが効果的です。</p>
+        </div>
+      </div>
+      <div class="step-arrow">↓</div>
+      <div class="step-item">
+        <div class="step-num">5</div>
+        <div class="step-body">
+          <div class="step-title">🛠️ 無料のCRM体験版やGoogle スプレッドシートで「ツール慣れ」を始める</div>
+          <p class="step-desc">HubSpotの無料版やGoogleスプレッドシートに「名前・会社名・電話番号・対応内容」を入力してみるだけでOK。「CRMを触ったことがあります」と言えるだけで他の未経験者より頭一つ抜けます。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Section 4: 求人タイプ別 ── -->
+<div class="card">
+  <span class="card-tab">04 求人タイプ別：未経験者が狙いやすい求人の特徴</span>
+  <div class="card-body">
+    <h2>🎯 「入りやすい求人」から「スキルアップできる求人」まで</h2>
+    <p>インサイドセールス・テレアポの求人は、ハードルの高さによって大きく3つに分かれます。初めての人は<span class="highlight">入りやすい求人</span>から実績を積むのが王道の戦略です。</p>
+
+    <div class="job-grid">
+      <div class="job-card easy">
+        <div class="j-level">🟢 入りやすい</div>
+        <div class="j-title">アルバイト・業務委託<br>テレアポ代行</div>
+        <div class="j-item">⏱️ 1日数時間〜OK</div>
+        <div class="j-item">📋 スクリプト（台本）完全支給</div>
+        <div class="j-item">🎓 研修あり・即日スタート可</div>
+        <div class="j-item">💰 時給1,200〜1,600円＋歩合</div>
+        <div class="j-item">✅ 電話に慣れる最初の一歩に最適</div>
+      </div>
+      <div class="job-card mid">
+        <div class="j-level">🔵 ステップアップ</div>
+        <div class="j-title">正社員・契約社員<br>インサイドセールス（SDR）</div>
+        <div class="j-item">⏱️ フルタイム or 時短勤務</div>
+        <div class="j-item">📊 KPI管理・CRM使用あり</div>
+        <div class="j-item">🌱 未経験OKだが意欲・人柄重視</div>
+        <div class="j-item">💰 月給24万〜30万円程度</div>
+        <div class="j-item">📈 半年〜1年で成果を求められる</div>
+      </div>
+      <div class="job-card hard">
+        <div class="j-level">🟡 経験者優遇</div>
+        <div class="j-title">SaaS・IT企業の<br>インサイドセールス（BDR）</div>
+        <div class="j-item">📊 商談獲得数などの数値目標が明確</div>
+        <div class="j-item">🔧 Salesforce等のCRM必須</div>
+        <div class="j-item">💡 IT・SaaS知識が求められることも</div>
+        <div class="j-item">💰 月給30万〜42万円以上も</div>
+        <div class="j-item">🏆 1〜2年の実績があると応募しやすい</div>
+      </div>
+    </div>
+
+    <div class="callout blue">
+      <strong>💡 おすすめのルート：</strong><br>
+      ① アルバイトやテレアポ代行で「架電の数字（架電数・アポ率）」を実績として作る<br>
+      → ② 正社員インサイドセールス（SDR）に転換<br>
+      → ③ SaaS企業や高単価案件へキャリアアップ<br>
+      このルートは多くの現役インサイドセールス担当者が実際に歩んできた道です。
+    </div>
+  </div>
+</div>
+
+<!-- ── Section 5: 自己PR例 ── -->
+<div class="card">
+  <span class="card-tab">05 面接で使える「未経験者の自己PR」フレーム</span>
+  <div class="card-body">
+    <h2>🗣️ 「経験がない」を「これから伸びる理由」に変える言い方</h2>
+    <p>未経験者が面接で最も困るのが「なぜ未経験でこの職種を選んだの？」という質問です。次のフレームに当てはめると、説得力のある答えが作れます。</p>
+
+    <div class="callout green" style="margin-bottom:14px;">
+      <strong>📝 自己PR フレーム（3ステップ）</strong><br><br>
+      <strong>① 過去の経験を一言で述べる</strong><br>
+      「私はこれまで〇〇（接客・事務・コールセンター等）を〇年やってきました。」<br><br>
+      <strong>② そこで得た「電話・会話・数値管理」との接点を伝える</strong><br>
+      「その中で、電話対応や〇〇（お客様の要望を整理する・クレームを解決する等）を経験し、会話でお客様の課題を引き出す面白さを感じました。」<br><br>
+      <strong>③ インサイドセールスを選んだ理由と意欲を締める</strong><br>
+      「インサイドセールスは〇〇（フルリモートで働ける・数字で成果が見える・BtoB商材に関わりたい等）点に魅力を感じており、早期に結果を出したいと思っています。」
+    </div>
+
+    <div class="callout yellow">
+      <strong>⚠️ 注意：</strong> 「すぐ稼げると思って」「手軽そうだから」は避けましょう。面接官は<strong>「長く働いてくれるか」「辛くなってもやめないか」</strong>を見ています。「成長の意欲」と「続けられる理由」をセットで伝えるのがポイントです。
+    </div>
+  </div>
+</div>
+
+<!-- ── Section 6: 今日の一歩 ── -->
 <div class="card">
   <span class="card-tab">06 今日からできる一歩</span>
   <div class="card-body">
-    <h2>👣 今日の夜に「明日の時間割」を5分で書いてみる</h2>
+    <h2>👣 求人票を1枚だけ読んで「必須条件」と「歓迎条件」を書き出す</h2>
 
     <div class="today-box">
-      <span class="emoji">📝</span>
-      <div class="title">今日の一歩：紙かメモアプリに「明日の架電タイム割」を書く</div>
+      <span class="emoji">📄</span>
+      <div class="title">今日の一歩：Indeed・doda・エン転職で「インサイドセールス 未経験歓迎」と検索し、求人票を1枚だけ読む</div>
       <div class="desc">
-        今夜5分だけ使って、明日の「架電①は何時〜何時」「休憩は何時」「振り返りは何時」を書いてみましょう。<br><br>
-        完璧なスケジュールでなくてOK。<strong>「何時にスタートするか」だけ決めるだけでも、明日の行動量がガラっと変わります。</strong><br><br>
-        さらに一歩進めたい人は、無料の「Pomofocus.io」を開いてタイマーをセットしてみてください。25分のカウントダウンが始まるだけで、不思議と電話が自然に手が伸びます。
+        読んだら、ノートや紙に2列を書いて「必須条件」と「歓迎条件」を書き出してみましょう。<br><br>
+        <strong>「必須条件は全部クリアできるか？」「歓迎条件のうちいくつかは自分にも当てはまるか？」</strong>を確認するだけでOK。求人票を読み慣れると、自分に合った案件かどうかをすばやく判断できるようになります。<br><br>
+        今日できることは「1枚読んで書き出す」だけ。それだけでも、次の応募が格段にスムーズになります。
       </div>
     </div>
   </div>
@@ -563,19 +508,19 @@
 <!-- ── 免責 ── -->
 <div class="disclaimer">
   <strong>【免責事項】</strong><br>
-  本記事の報酬・採用の結果には個人差があり、市場・時期・スキルにより変動します。紹介しているツール・サービスの機能や料金は変更される場合があるため、最新情報は必ず公式サイトでご確認ください。「誰でも稼げる」「必ず採用される」といった成果の保証はできません。
+  本記事に掲載している時給・月給・募集条件は、2026年6月時点の求人媒体掲載情報をもとにした目安です。報酬・採用の結果には個人差があり、市場・時期・スキル・企業規模により大きく変動します。紹介している求人媒体・ツール・企業の条件は予告なく変更されることがあるため、最新情報は必ず各公式サイトでご確認ください。「誰でも採用される」「必ず稼げる」といった成果の保証はできません。
 </div>
 
 <!-- ── 出典 ── -->
 <div class="sources">
-  <h3>📎 参考情報</h3>
+  <h3>📎 参考情報・出典</h3>
   <ul>
-    <li><a href="https://asana.com/ja/resources/pomodoro-technique" target="_blank">Asana：ポモドーロとは？仕事の生産性を上げる時間管理術（2026年）</a></li>
-    <li><a href="https://asana.com/ja/resources/how-to-be-productive-at-home" target="_blank">Asana：生産的に在宅勤務をする方法 ─ 作業効率をアップさせるコツ11選（2025年）</a></li>
-    <li><a href="https://tasukaru39.com/%E3%83%86%E3%83%AC%E3%82%A2%E3%83%9D%E3%81%A8%E3%83%AA%E3%83%A2%E3%83%BC%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E5%96%B6%E6%A5%AD%E3%81%AE%E6%99%82%E9%96%93%E7%AE%A1%E7%90%86%E8%A1%93/" target="_blank">Tasukaru：テレアポとリモートワーク営業の時間管理術</a></li>
-    <li><a href="https://www.sei-san-sei.com/blog/blog-0067.html" target="_blank">Sei San Sei：テレワーク・リモートワークで生産性を上げる方法｜在宅勤務の落とし穴と対策</a></li>
-    <li><a href="https://geniee.co.jp/media/management/inside-sales-start/" target="_blank">GENIEE：インサイドセールスとは？基本知識・特徴・メリット（2026年版）</a></li>
-    <li><a href="https://salesgrid.biz/knowledge/future-of-inside-sales/" target="_blank">salesgrid.biz：インサイドセールスの将来性と市場動向 – 2026年以降の展望</a></li>
+    <li><a href="https://doda.jp/keyword/%E3%82%A4%E3%83%B3%E3%82%B5%E3%82%A4%E3%83%89%E3%82%BB%E3%83%BC%E3%83%AB%E3%82%B9/" target="_blank">doda：インサイドセールスの転職・求人情報（2026年6月参照）</a></li>
+    <li><a href="https://employment.en-japan.com/s_inhouse-sales/t_mikeiken/" target="_blank">エン転職：職種未経験歓迎 インサイドセールスの求人（2026年6月参照）</a></li>
+    <li><a href="https://www.marketenterprise.co.jp/recruit/guideline/career/insidesales/" target="_blank">マーケットエンタープライズ：インサイドセールス 未経験歓迎 募集要項（2026年6月参照）</a></li>
+    <li><a href="https://comdesk.com/magazine/teleapo-shigoto" target="_blank">comdesk：テレアポの仕事とは？仕事内容・給料・向いている人・きついと言われる理由まで解説（2026年）</a></li>
+    <li><a href="https://type.career-agent.jp/knowhow/sales/inside_sales.html" target="_blank">type転職エージェント：インサイドセールスの仕事内容・市場価値・転職ポイント（2026年6月参照）</a></li>
+    <li><a href="https://jp.indeed.com/q-%E3%82%A4%E3%83%B3%E3%82%B5%E3%82%A4%E3%83%89%E3%82%BB%E3%83%BC%E3%83%AB%E3%82%B9-%E6%9C%AA%E7%B5%8C%E9%A8%93-saas-l-%E6%9D%B1%E4%BA%AC%E9%83%BD-%E6%B1%82%E4%BA%BA.html" target="_blank">Indeed：インサイドセールス 未経験 SaaS 東京都の求人（2026年6月参照）</a></li>
   </ul>
 </div>
 
