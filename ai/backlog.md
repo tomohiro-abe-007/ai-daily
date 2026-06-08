@@ -12,9 +12,9 @@
 - 2026-06-06: CVPR 2026（米デンバー・6月3-7日）/ 採択論文4,090本・前年比+42% / Embodied AI急増 / マルチモーダルAI拡大
 - 2026-06-07: Apple WWDC 2026（6月8日開幕）/ Apple×Google Gemini AI提携（2026年1月公式発表）/ Siri刷新 / iOS 27・macOS 27
 - 2026-06-08: ServiceNow + NVIDIA「Project Arc」（2026年5月発表）/ デスクトップAIエージェント / NVIDIA OpenShell（オープンソース安全実行環境）/ ServiceNow AI Control Tower（ガバナンス）
+- 2026-06-09: WWDC 2026 基調講演（6月8日）/ Siri → Google Gemini 搭載・3層ルーティング / homeOS デベロッパープレビュー / iOS 27・macOS 27 ほか6OS即日ベータ配信
 
 ## 未解説の候補トピック（今後の参考）
-- WWDC 2026 正式発表まとめ（6月8日以降）：実際に発表された内容の詳報
 - xAI Grok 4.3 Beta（2026年4月）：動画・スライド・音声API対応のマルチモーダル推論
 - OpenAI o3-pro（2026年6月10日リリース予定）：最も信頼性が高いと位置づけるモデル
 - AI×医療（創薬・診断）最新動向：製薬大手とAI企業の提携が相次ぐ
