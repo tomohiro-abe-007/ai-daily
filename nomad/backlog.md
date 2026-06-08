@@ -5,22 +5,24 @@
 
 ## 未解説テーマ
 
-- Stripe・PayPalでの海外請求と手数料（日本法人口座への入金）
 - スペイン語A1→B1ロードマップ（DNVビザ保持者の言語要件と実用レベル）
 - 海外向け英語の提案・見積テンプレ（1人法人が使える実用フォーマット）
 - タイムゾーンをまたぐ受注運用（日本・EU・米国の顧客を同時対応する方法）
 - EU長期居住資格（Long-term EU Residence）への移行条件と手続き
 - スペイン・プロフェッショナルビザ（Visado para profesionales）との比較
 - 海外法人から日本法人への配当・役員報酬の最適化
-- DNV保持者の健康保険実務（スペイン公的医療 vs 民間医療保険・sin copagos / sin carencias 要件）
 - スペインの領事館経由口座開設サービス（Sabadell 等の海外向けプログラム）の実態
 - クラウド会計（freee / マネーフォワード）とWise・スペイン口座の連携設定
 - 非居住者への役員報酬と源泉徴収（20%ルール・日西租税条約による軽減）
 - スペインの empadronamiento（住民登録）後の各種行政サービスの使い方
 - Wise の手数料比較：JPY→EUR vs JPY→USD→EUR ルートの実際のコスト
+- UGE 審査強化 2026：Non-Lucrative Visa からの変更不可ルールと申請差し戻し傾向
+- PayPal Business アカウントの日本法人での開設手順と制限事項
+- Stripe Connect と日本1人法人：マーケットプレイス決済・税務処理の注意点
 
 ## 解説済みテーマ
 
+- 2026-06-08：Stripe・PayPal・Wise 日本1人法人の決済スタック実務 ── 手数料比較（Stripe 3.6%/5.1%・PayPal 3.5〜6%・Wise 〜0.8%）・月コスト試算・DNV収入証明との関係・80%外国収入ルール・全体フロー図
 - 2026-06-07：スペインの Gestor（税務・社会保険の実務代理人）── Gestor / Asesor Fiscal / Abogado の違い・autónomo 登録・Tarifa Plana（月 €80）・Cuota Cero・Beckham 法6か月期限・日本の1人法人オーナー向け論点
 - 2026-06-06：スペイン銀行口座 開設実務 ── Wise（ベルギー IBAN）が Seguridad Social の口座振替に使えない理由・BBVA / Sabadell（Key Account）/ CaixaBank（HolaBank）/ Santander の比較・日本人リモート開設の可否・非居住者→居住者口座2段階フロー・日本法人からの送金スタック（日本法人口座→Wise→ES IBAN）
 - 2026-06-05：スペイン確定申告 入門 ── Modelo 100（標準年次申告）・Modelo 149（ベックハム法申請書・社会保険登録から6か月以内）・Modelo 151（ベックハム法年次申告）の違いと申告タイムライン・2025年分申告期限（2026年6月30日）・DNV更新に税務申告証明が必要（2026年）
