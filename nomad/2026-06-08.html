@@ -210,6 +210,7 @@
   }
   .step-num.amber { background: #b07700; }
   .step-num.blue  { background: #2a5e8e; }
+  .step-num.red   { background: #922b2b; }
   .step-list li div { font-size: 0.9rem; line-height: 1.7; }
   .compare-row {
     display: flex;
@@ -239,6 +240,8 @@
   .compare-card.red h3 { color: #922b2b; border-color: #e8a0a0; }
   .compare-card.blue  { background: #e8f0fd; border: 1.5px solid #2a5e8e; }
   .compare-card.blue h3 { color: #2a5e8e; border-color: #a0c0e8; }
+  .compare-card.gray  { background: #f0f0f0; border: 1.5px solid #aaa; }
+  .compare-card.gray h3 { color: #555; border-color: #ccc; }
   .matrix-table {
     width: 100%;
     border-collapse: collapse;
@@ -265,682 +268,380 @@
   .matrix-table .ok   { color: #2c6e4e; font-weight: 700; }
   .matrix-table .ng   { color: #c0392b; font-weight: 700; }
   .matrix-table .warn { color: #b07700; font-weight: 700; }
-  .matrix-table .row-warn td { background: #fff8e8 !important; }
-  .matrix-table .row-danger td { background: #fdeaea !important; }
-  .matrix-table .row-blue td { background: #e8f0fd !important; }
   .check-list {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
     margin: 12px 0;
   }
   .check-list li {
     display: flex;
     align-items: flex-start;
-    gap: 12px;
-    padding: 10px 14px;
-    background: #f5fbf8;
-    border-radius: 6px;
-    border: 1px solid #c8e6d8;
+    gap: 10px;
     font-size: 0.9rem;
-    line-height: 1.6;
+    line-height: 1.65;
   }
-  .check-list .ico { font-size: 1.1rem; flex-shrink: 0; margin-top: 2px; }
-  .source-list {
-    font-size: 0.78rem;
-    color: #888;
-    margin-top: 12px;
-    line-height: 1.8;
+  .check-icon {
+    font-size: 1rem;
+    flex-shrink: 0;
+    margin-top: 2px;
   }
-  .source-list a { color: #4a9e74; word-break: break-all; }
-  .footer-note {
+  .footer {
     width: 100%;
     max-width: 760px;
-    font-size: 0.78rem;
-    color: #777;
+    background: #f5ede0;
+    border: 1px solid #d4c8b8;
+    border-radius: 8px;
+    padding: 20px 28px;
+    font-size: 0.8rem;
+    color: #666;
     line-height: 1.8;
     margin-top: 8px;
-    padding: 20px 24px;
-    background: #f5f2ec;
-    border-radius: 8px;
-    border: 1px solid #ddd;
   }
-  .footer-note strong { color: #555; }
-  .nav-bar {
+  .footer strong { color: #444; }
+  .source-list {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    line-height: 1.9;
+  }
+  .source-list a { color: #2a5e8e; word-break: break-all; }
+  .badge {
+    display: inline-block;
+    background: #e8f5ef;
+    border: 1px solid #8cc4a8;
+    color: #2c6e4e;
+    border-radius: 4px;
+    padding: 2px 8px;
+    font-size: 0.75rem;
+    margin-right: 4px;
+  }
+  .badge.red { background: #fde8e8; border-color: #e8a0a0; color: #922b2b; }
+  .badge.amber { background: #fff3cd; border-color: #f0d080; color: #a07800; }
+  .badge.blue { background: #e8f0fd; border-color: #a0c0e8; color: #2a5e8e; }
+  .divider {
     width: 100%;
     max-width: 760px;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-    font-size: 0.82rem;
-  }
-  .nav-bar a {
-    color: #2c6e4e;
-    text-decoration: none;
-    padding: 6px 14px;
-    border: 1px solid #b2d4c4;
-    border-radius: 20px;
-    background: #fff;
-  }
-  .nav-bar a:hover { background: #e8f5ef; }
-  .tag {
-    display: inline-block;
-    background: #2c6e4e;
-    color: white;
-    font-size: 0.72rem;
-    padding: 2px 8px;
-    border-radius: 10px;
-    margin-right: 4px;
-    margin-bottom: 6px;
-    vertical-align: middle;
-  }
-  .tag.amber { background: #b07700; }
-  .tag.blue  { background: #2a5e8e; }
-  .tag.red   { background: #922b2b; }
-  .tag.gray  { background: #666; }
-  .two-col {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 14px;
-    margin: 14px 0;
-  }
-  @media (max-width: 500px) { .two-col { grid-template-columns: 1fr; } }
-  .mini-card {
-    background: #f5fbf8;
-    border: 1.5px solid #b2d4c4;
-    border-radius: 8px;
-    padding: 14px 16px;
-    font-size: 0.88rem;
-    line-height: 1.65;
-  }
-  .mini-card h4 { color: #2c6e4e; font-size: 0.88rem; margin-bottom: 6px; }
-  .mini-card.amber-bg { background: #fff8e8; border-color: #e8c060; }
-  .mini-card.amber-bg h4 { color: #a07800; }
-  .mini-card.blue-bg { background: #e8f0fd; border-color: #a0c0e8; }
-  .mini-card.blue-bg h4 { color: #2a5e8e; }
-  .mini-card.red-bg { background: #fdeaea; border-color: #e8a0a0; }
-  .mini-card.red-bg h4 { color: #922b2b; }
-  .service-row {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-    margin: 14px 0;
-  }
-  .service-card {
-    flex: 1;
-    min-width: 190px;
-    border-radius: 8px;
-    padding: 18px 16px;
-    font-size: 0.86rem;
-    line-height: 1.65;
-  }
-  .service-card .sname {
-    font-size: 1rem;
-    font-weight: 700;
-    margin-bottom: 10px;
-    padding-bottom: 8px;
-    border-bottom: 2px solid;
-    display: block;
-  }
-  .service-card .fee-big {
-    font-size: 1.5rem;
-    font-weight: 700;
-    line-height: 1.2;
-  }
-  .service-card .fee-sub {
-    font-size: 0.72rem;
-    opacity: 0.8;
-    margin-bottom: 10px;
-    display: block;
-  }
-  .service-card.s-blue { background: #e8f0fd; border: 1.5px solid #2a5e8e; }
-  .service-card.s-blue .sname { color: #2a5e8e; border-color: #2a5e8e; }
-  .service-card.s-blue .fee-big { color: #2a5e8e; }
-  .service-card.s-amber { background: #fff8e8; border: 1.5px solid #c9920a; }
-  .service-card.s-amber .sname { color: #a07800; border-color: #c9920a; }
-  .service-card.s-amber .fee-big { color: #a07800; }
-  .service-card.s-green { background: #e8f5ef; border: 1.5px solid #2c6e4e; }
-  .service-card.s-green .sname { color: #2c6e4e; border-color: #2c6e4e; }
-  .service-card.s-green .fee-big { color: #2c6e4e; }
-  .flow-h-row {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    flex-wrap: wrap;
-    margin: 14px 0;
-  }
-  .flow-h-box {
-    flex: 1;
-    min-width: 120px;
-    background: #2c6e4e;
-    color: white;
-    border-radius: 8px;
-    padding: 14px 12px;
-    text-align: center;
-    font-size: 0.82rem;
-    line-height: 1.55;
-  }
-  .flow-h-box .fh-label { font-size: 0.68rem; opacity: 0.8; display: block; margin-bottom: 4px; }
-  .flow-h-box strong { font-size: 0.9rem; }
-  .flow-h-box.fh-amber { background: #8a5e00; }
-  .flow-h-box.fh-blue  { background: #2a5e8e; }
-  .flow-h-box.fh-gray  { background: #555; }
-  .flow-h-box.fh-sub   { background: #4a9e74; }
-  .flow-h-box.fh-light { background: #e8f5ef; color: #2a2a2a; border: 1.5px solid #b2d4c4; }
-  .arrow-right {
-    font-size: 1.3rem;
-    color: #2c6e4e;
-    flex-shrink: 0;
-  }
-  @media (max-width: 520px) {
-    .flow-h-row { flex-direction: column; }
-    .arrow-right { transform: rotate(90deg); }
+    border: none;
+    border-top: 1.5px dashed #c4bdb0;
+    margin: 4px 0 24px;
   }
 </style>
 </head>
 <body>
 
-<!-- ナビゲーション -->
-<div class="nav-bar">
-  <a href="index.html">&larr; アーカイブ一覧</a>
-  <a href="2026-06-07.html">前の日報 &rarr;</a>
-</div>
-
 <!-- ヒーロー -->
 <div class="hero">
-  <div class="label">&#x1F4D3; デジタルノマド日報</div>
-  <h1>&#x1F4B3; Stripe・PayPal・Wise<br>日本の1人法人が世界から稼ぐ<br>「決済スタック」実務ガイド</h1>
-  <p class="meta">
-    2026年6月8日（月）｜バックログ解説：Stripe・PayPalでの海外請求と手数料<br>
-    日本法人口座への入金フロー・手数料比較・DNV収入証明との関係<br>
-    Wise Business 活用・スペイン口座への送金スタック
-  </p>
-</div>
-
-<!-- 今日の数字 -->
-<div class="card">
-  <h2>&#x1F4CC; 今日の数字で見るポイント</h2>
-  <div class="number-row">
-    <div class="number-card blue">
-      <div class="num">3.6%</div>
-      <div class="desc">Stripe の国内カード<br>手数料（基本）<br>国際カードは+1.5%<br>→ 5.1%（2026年）</div>
-    </div>
-    <div class="number-card amber">
-      <div class="num">3.5〜<br>6%+</div>
-      <div class="desc">PayPal の総コスト目安<br>（受取手数料＋<br>通貨変換2.5%）<br>基準：2026年</div>
-    </div>
-    <div class="number-card">
-      <div class="num">〜0.8%</div>
-      <div class="desc">Wise Business の<br>外貨受取+変換コスト<br>（受取は無料<br>変換時のみ発生）</div>
-    </div>
-    <div class="number-card red">
-      <div class="num">80%</div>
-      <div class="desc">DNV（国際遠隔就労<br>ビザ）で必要な<br>「外国収入の割合」<br>収入の最低80%が<br>非スペイン源泉</div>
-    </div>
+  <div class="label">🔍 ノマド日報 2026-06-08</div>
+  <h1>スペイン DNV 審査強化 2026<br>収入基準 €2,849 引き上げ・不正摘発・<br>Non-Lucrative 変更不可のトリプル改定</h1>
+  <div class="meta">
+    バックログテーマ「UGE 審査強化 2026」／
+    ビザ・税務・生活実務の観点で整理<br>
+    情報基準：2026年1〜4月公表（各出典の公開日は末尾に記載）
   </div>
-  <p style="font-size:0.82rem; color:#777; margin-top:8px;">
-    ※ 手数料はサービス・カード種類・取引規模・契約状況で変動します。2026年6月時点の公開情報をもとにした目安です。為替レートは随時変動するため、本記事では換算例に参考値（¥160/€）を使いますが、実際のレートで計算してください。
-  </p>
 </div>
 
-<!-- なぜ決済スタック選びが重要か -->
+<!-- ① UGEとは？ -->
 <div class="card">
-  <h2>&#x1F4A1; なぜ「決済スタック」選びが重要なのか</h2>
+  <h2>🏛️ まずこれを知ろう ── UGE とは何か？</h2>
   <p>
-    日本の1人法人として世界中の顧客から稼ぐ場合、<strong>「どの決済サービスを使うか」で毎月の手取りが大きく変わります</strong>。
-    たとえば月€3,000（約48万円）を受け取る場合、サービスによっては年間で数万〜十数万円のコスト差が生まれます。
-  </p>
-  <p>
-    さらに、<strong>スペインの国際遠隔就労ビザ（DNV）の申請・更新には収入証明が必要</strong>です。
-    どのサービスで受け取るかによって、証明書の出しやすさが変わります。
-    また、80%以上を「非スペイン源泉」の収入にしないとDNVの条件を満たせないため、<strong>収入の流れを証明できる記録を残す仕組み</strong>が重要です。
+    <strong>UGE（Unidad de Grandes Empresas y Colectivos Estratégicos：大規模法人・戦略的集団ユニット）</strong>は、スペイン労働・社会保障省の傘下にある専門審査機関です。日本語では「大規模事業者ユニット」と訳せます。
+    International Telework Visa（スペイン語：teletrabajo de carácter internacional、いわゆるデジタルノマドビザ）の審査は、通常の地方移民局ではなく、この UGE が一元的に担当しています。
   </p>
   <div class="highlight-box">
-    <span class="hlabel">&#x1F517; 今日の解説の位置づけ（全体フローの「前半」）</span>
-    <p>
-      【顧客→決済サービス→<strong>日本法人口座</strong>】の部分が今日の対象です。<br>
-      【日本法人口座→Wise→スペインIBAN口座】の部分は 2026-06-06 の日報（スペイン銀行口座 開設実務）で解説済みです。今日の内容はその前段階にあたります。
-    </p>
+    <span class="hlabel">📌 ポイント</span>
+    <p>「審査が厳しくなった」とよく言われますが、それは UGE が 2026年に入って体制を刷新し、より経験豊富な専門チームに引き継がれたからです。<br>
+    新チームは「疑わしい場合は差し戻す」ではなく「疑わしい場合は棄却する」スタンスに変わったと、複数の移民法律事務所が報告しています（発表日は各事務所のブログ参照、UGE 公式発表は未確認）。</p>
   </div>
 </div>
 
-<!-- 3サービスの特性比較 -->
+<!-- ② 2026年 3大変化 -->
 <div class="card">
-  <h2>&#x1F3E6; Stripe・PayPal・Wise Business ── 3つの決済経路の特性</h2>
-  <p>それぞれ得意な用途と手数料が異なります。一つに絞る必要はなく、<strong>顧客のニーズに合わせて複数を使い分けるのが実務的な正解</strong>です。</p>
+  <h2>📋 2026年の3大変化を整理する</h2>
 
-  <div class="service-row">
-    <div class="service-card s-blue">
-      <span class="sname">&#x1F535; Stripe</span>
-      <div class="fee-big">3.6%</div>
-      <span class="fee-sub">国内発行カード（日本）基本手数料<br>国際カード：+1.5% → 5.1%<br>Amex：+1.5% 追加<br>（2026年 Stripe 日本公式）</span>
-      &#x2022; <strong>クレジットカード・デビットカード決済</strong>が主力<br>
-      &#x2022; 月額固定費・初期費用・解約費用：<strong>なし</strong><br>
-      &#x2022; 自動的に円（JPY）で日本法人口座へ振り込まれる<br>
-      &#x2022; ダッシュボードから請求書・入金明細をCSV/PDFで出力可能<br>
-      &#x2022; 欧米の法人顧客への<strong>オンライン請求書（Stripe Invoicing）</strong>に強い<br>
-      &#x2022; サブスクリプション・定額制サービスにも対応<br>
-      &#x2022; ⚠️ 外国発行カードはすべて「国際カード扱い」→ 5.1%が実質コスト
+  <div class="number-row">
+    <div class="number-card">
+      <div class="num">€2,849</div>
+      <div class="desc">月収下限<br>（単身申請・2026年）</div>
     </div>
-    <div class="service-card s-amber">
-      <span class="sname">&#x1F7E1; PayPal</span>
-      <div class="fee-big">3.5〜4.4%</div>
-      <span class="fee-sub">受取手数料（取引規模で変動）<br>＋ 通貨変換：+2.5%<br>→ 合計5.0〜6.9%+が目安<br>（2026年 PayPal 公式）</span>
-      &#x2022; <strong>North America・欧州のフリーランス取引</strong>でまだ需要が多い<br>
-      &#x2022; 顧客側に PayPal アカウントが必要（近年は不要な決済フローも増加）<br>
-      &#x2022; 外貨（USD・EUR など）で残高保持が可能<br>
-      &#x2022; <strong>外貨残高→Wiseに出金</strong>することで通貨変換コストを節約できる<br>
-      &#x2022; 日本法人口座への直接出金：円換算レート（PayPalのレート）が適用され割高<br>
-      &#x2022; ⚠️ PayPal 独自の為替レートは中間レートより約2.5%不利<br>
-      &#x2022; ⚠️ 取引額が少ないと固定手数料の比率が高くなる
+    <div class="number-card amber">
+      <div class="num">€34,188</div>
+      <div class="desc">年収換算<br>（同上）</div>
     </div>
-    <div class="service-card s-green">
-      <span class="sname">&#x1F7E2; Wise Business</span>
-      <div class="fee-big">〜0.8%</div>
-      <span class="fee-sub">外貨→JPY 変換時のみ<br>外貨受取：無料<br>（EUR・USD・GBP 等 40+通貨）<br>（2026年6月 Wise 公式）</span>
-      &#x2022; <strong>外貨での銀行振込受け取り</strong>（ACH・SEPA・SWIFT）に最強<br>
-      &#x2022; EUR・USD・GBP など40通貨以上の<strong>仮想口座番号</strong>を無料発行<br>
-      &#x2022; 受取手数料：0円（Wiseアカウント宛ての送金）<br>
-      &#x2022; 変換手数料：通貨ペアにより<strong>0.6〜0.8%</strong>（中間レートに近い）<br>
-      &#x2022; 日本法人口座への払い出し：通常1〜2営業日<br>
-      &#x2022; 取引明細PDF・CSV出力対応 → DNV収入証明に活用しやすい<br>
-      &#x2022; ⚠️ カード決済（クレカ・デビカ）は対応しない（銀行振込のみ）<br>
-      &#x2022; ⚠️ 法人アカウントは個人と別登録が必要（Japan 法人登記書類が必要）
+    <div class="number-card red">
+      <div class="num">国内変更不可</div>
+      <div class="desc">Non-Lucrative → DNV<br>スペイン国内では禁止</div>
     </div>
   </div>
-</div>
 
-<!-- コスト試算 -->
-<div class="card">
-  <h2>&#x1F9EE; コスト試算 ── 月€3,000（約48万円）を受け取る場合</h2>
-  <p>
-    月€3,000はDNVの収入下限（2026年: €2,849/月）をわずかに上回る水準です。
-    参考レート：1€＝¥160（2026年6月の参考値。実際のレートで再計算してください）。月€3,000 ≒ 約¥480,000。
-  </p>
-
-  <table class="matrix-table">
-    <thead>
-      <tr>
-        <th>サービス</th>
-        <th>手数料率（目安）</th>
-        <th>月コスト目安</th>
-        <th>年コスト目安</th>
-        <th>コスト評価</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr class="row-blue">
-        <td><strong>Stripe（国際カード）</strong></td>
-        <td>5.1%（国際カード基本）</td>
-        <td>約¥24,500</td>
-        <td>約¥294,000</td>
-        <td class="warn">中</td>
-      </tr>
-      <tr>
-        <td><strong>Stripe（国内カード）</strong></td>
-        <td>3.6%</td>
-        <td>約¥17,300</td>
-        <td>約¥207,000</td>
-        <td class="warn">やや低</td>
-      </tr>
-      <tr class="row-warn">
-        <td><strong>PayPal（円出金）</strong></td>
-        <td>約6%（受取+変換合計）</td>
-        <td>約¥28,800</td>
-        <td>約¥345,000</td>
-        <td class="ng">高</td>
-      </tr>
-      <tr>
-        <td><strong>PayPal → Wise 出金</strong></td>
-        <td>受取3.5〜4.4%+Wise0.7%</td>
-        <td>約¥20,000〜24,500</td>
-        <td>約¥240,000〜294,000</td>
-        <td class="warn">中</td>
-      </tr>
-      <tr>
-        <td><strong>Wise Business（銀行振込）</strong></td>
-        <td>〜0.8%（変換時のみ）</td>
-        <td>約¥3,800</td>
-        <td>約¥46,000</td>
-        <td class="ok">最安</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <div class="alert-box">
-    <span class="alabel">&#x26A0;&#xFE0F; 「一番安いからWise一択」にならない理由</span>
-    <p>
-      Wiseは<strong>銀行振込（Wire Transfer）のみ対応</strong>です。顧客がカード払いを希望する場合はWiseだけでは対応できません。
-      特にBtoC（一般消費者向け）のサービスや、欧米企業がクレジットカードで払いたいケースでは<strong>Stripeと組み合わせる</strong>のが実務的です。
-      また、北米のフリーランス・エージェンシーとの取引でPayPalを指定されることがまだあります。<strong>複数サービスを持っておき、顧客に選ばせる</strong>のが取りこぼしを防ぐ最善策です。
-    </p>
-  </div>
-</div>
-
-<!-- 全体フロー -->
-<div class="card">
-  <h2>&#x1F500; 全体フロー ── 顧客 → 日本法人口座 → スペイン口座</h2>
-  <p style="margin-bottom:12px;">1人法人代表がスペインに住みながら世界の顧客から稼ぐ資金の流れ全体像です。</p>
-
-  <!-- Stripe ルート -->
-  <p style="font-size:0.82rem; color:#2a5e8e; font-weight:600; margin-bottom:4px;">&#x1F535; Stripe ルート（カード決済）</p>
-  <div class="flow-h-row">
-    <div class="flow-h-box fh-blue"><span class="fh-label">顧客</span><strong>クレカ払い</strong></div>
-    <div class="arrow-right">&#x279C;</div>
-    <div class="flow-h-box fh-blue"><span class="fh-label">Stripe</span><strong>3.6〜5.1%<br>差し引き</strong></div>
-    <div class="arrow-right">&#x279C;</div>
-    <div class="flow-h-box fh-blue"><span class="fh-label">自動で円換算</span><strong>日本法人<br>銀行口座（JPY）</strong></div>
-    <div class="arrow-right">&#x279C;</div>
-    <div class="flow-h-box fh-sub"><span class="fh-label">Wise経由（06-06参照）</span><strong>スペイン<br>IBAN口座（EUR）</strong></div>
-  </div>
-
-  <!-- PayPal ルート -->
-  <p style="font-size:0.82rem; color:#a07800; font-weight:600; margin: 14px 0 4px;">&#x1F7E1; PayPal ルート（コスト最適化版）</p>
-  <div class="flow-h-row">
-    <div class="flow-h-box fh-amber"><span class="fh-label">顧客</span><strong>PayPal払い</strong></div>
-    <div class="arrow-right">&#x279C;</div>
-    <div class="flow-h-box fh-amber"><span class="fh-label">PayPal残高</span><strong>外貨（USD/EUR）<br>で保持</strong></div>
-    <div class="arrow-right">&#x279C;</div>
-    <div class="flow-h-box fh-amber"><span class="fh-label">Wise法人アカウントに出金</span><strong>Wise変換<br>（〜0.7%）</strong></div>
-    <div class="arrow-right">&#x279C;</div>
-    <div class="flow-h-box fh-light"><span class="fh-label">日本法人口座 or スペイン口座</span><strong>任意の<br>通貨で受取</strong></div>
-  </div>
-
-  <!-- Wise ルート -->
-  <p style="font-size:0.82rem; color:#2c6e4e; font-weight:600; margin: 14px 0 4px;">&#x1F7E2; Wise Business ルート（銀行振込・最安）</p>
-  <div class="flow-h-row">
-    <div class="flow-h-box"><span class="fh-label">顧客（法人・フリーランス）</span><strong>銀行振込<br>（SEPA/ACH/SWIFT）</strong></div>
-    <div class="arrow-right">&#x279C;</div>
-    <div class="flow-h-box"><span class="fh-label">Wise Business（仮想IBAN/ACH口座）</span><strong>外貨（EUR/USD）<br>で受取・無料</strong></div>
-    <div class="arrow-right">&#x279C;</div>
-    <div class="flow-h-box sub"><span class="fh-label">変換（〜0.8%）</span><strong>JPY → 日本<br>法人口座</strong></div>
-    <div class="arrow-right">&#x279C;</div>
-    <div class="flow-h-box sub"><span class="fh-label">または EUR のまま</span><strong>スペイン<br>IBAN口座</strong></div>
-  </div>
-
-  <div class="highlight-box" style="margin-top:16px;">
-    <span class="hlabel">&#x1F4B0; Wise Business のEURを「そのままスペイン口座に送れるか？」</span>
-    <p>
-      可能です。Wise Business で EUR として保持した残高を、スペインの IBAN（BBVA / Sabadell など）に EUR のまま送金できます。
-      この場合、JPYへの変換コストは発生せず、<strong>Wise→スペインIBAN の送金手数料（EUR→EUR）は約€0.4〜0.8程度</strong>（取引規模による）です。
-      これは 2026-06-06 で解説した「日本法人口座→Wise→ES IBAN スタック」よりもさらにシンプルなルートです。ただし日本法人の帳簿には<strong>外貨建て取引の会計処理（外貨換算）が必要</strong>になるため、会計ソフト（freee・マネーフォワード）との連携を事前に確認してください。
-    </p>
-  </div>
-</div>
-
-<!-- DNV収入証明との関係 -->
-<div class="card">
-  <h2>&#x1F4DC; DNV収入証明との関係 ── 80%外国収入ルールを証明するには</h2>
-  <p>
-    スペインの国際遠隔就労ビザ（DNV）を取得・更新するには、<strong>収入の80%以上が非スペイン源泉（外国の顧客・雇用主から）</strong>であることを証明する必要があります。
-    決済サービスの選び方によって、この証明がしやすいかどうかが変わります。
-  </p>
-
-  <table class="matrix-table">
-    <thead>
-      <tr>
-        <th>サービス</th>
-        <th>収入証明として使える書類</th>
-        <th>外国収入の証明しやすさ</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><strong>Stripe</strong></td>
-        <td>・ダッシュボードのPayment履歴（CSV/PDF）<br>・Stripe Invoicing の請求書控え<br>・Tax報告レポート</td>
-        <td class="ok">◎ 顧客の所在国・請求先が記録される</td>
-      </tr>
-      <tr class="row-warn">
-        <td><strong>PayPal</strong></td>
-        <td>・取引履歴PDF（Monthly/Annual statement）<br>・個別の請求書（PayPal Invoice）</td>
-        <td class="warn">△ 取引国の記録はあるが、書式がやや複雑</td>
-      </tr>
-      <tr>
-        <td><strong>Wise Business</strong></td>
-        <td>・口座明細PDF（月次）<br>・個別取引の送金元国記録<br>・CSV出力 → freee/マネーフォワード連携</td>
-        <td class="ok">◎ 送金元の国・IBAN/BICが明細に残る</td>
-      </tr>
-      <tr class="row-blue">
-        <td><strong>日本法人の銀行口座</strong></td>
-        <td>・通帳・取引明細書<br>・法人口座の外貨入金履歴</td>
-        <td class="warn">△ 入金元が「Wise」「Stripe」と表示され<br>顧客国が直接見えない場合あり</td>
-      </tr>
-    </tbody>
-  </table>
-
+  <!-- 変化1: 収入基準 -->
   <div class="news-box">
-    <span class="nlabel">&#x1F4F0; 2026年 UGE 審査強化 ── 収入証明の質が問われる</span>
+    <span class="nlabel">📐 変化①：収入基準の引き上げ</span>
     <p>
-      2026年初頭、スペイン移民局（UGE-CE）はDNV審査を強化し、<strong>書類の不備・偽造が増加していることへの対応として専門チームを再編成した</strong>と報じられています（remotefromspain.com 2026年、remoteworkeurope.eu 2026年）。
-      収入証明には「実際に外国の顧客・雇用主から継続的に入金されていること」が求められます。<strong>銀行明細だけでなく、請求書（Invoice）と決済記録の両方を揃えておくことが推奨</strong>されています。「新ルールとして制度が変更されたか」は一次ソース（BOE等）で確認できていないため、断定は避けますが、以前から求められていた水準の確認が厳格になっていることは複数のソースが指摘しています。
+      スペイン政府は王令（Real Decreto）126/2026 号を 2026年2月26日付の官報（BOE）に掲載し、最低賃金（SMI：Salario Mínimo Interprofesional）を 3.1% 引き上げて月額 €1,221 にしました（2026年1月1日に遡及適用）。
+      DNV の収入要件は「SMI の 200%（年額）÷ 12」で自動的に決まるため、2025年の €2,763/月 から <strong>2026年は €2,849/月</strong> に上昇しました。
+    </p>
+    <p style="margin-top:8px; font-size:0.85rem; color:#555;">
+      計算式：SMI €1,221 × 14 ヵ月払い = 年 €17,094 → 200% = €34,188 → 月換算 = <strong>€2,849</strong>
     </p>
   </div>
 
-  <ul class="step-list">
+  <!-- 扶養者追加の表 -->
+  <table class="matrix-table" style="margin-top:0;">
+    <thead>
+      <tr>
+        <th>申請者の構成</th>
+        <th>月収要件（目安）</th>
+        <th>年収換算</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>単身</td>
+        <td class="ok">€2,849</td>
+        <td>€34,188</td>
+      </tr>
+      <tr>
+        <td>配偶者 or 第1扶養者を同行</td>
+        <td class="warn">€3,765</td>
+        <td>€45,180</td>
+      </tr>
+      <tr>
+        <td>さらに追加1名ごと</td>
+        <td class="warn">+€305</td>
+        <td>+€3,660</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="font-size:0.8rem; color:#888; margin-top:-10px; margin-bottom:10px;">
+    ※ 扶養者加算：第1扶養者 +€916（SMI の75%）、追加1名ごと +€305（25%）。2026年基準。数値は複数の移民法律事務所の解説から確認（一次ソース BOE の当該条文は未直接確認）。
+  </p>
+
+  <!-- 変化2: 不正摘発 -->
+  <div class="danger-box">
+    <span class="dlabel">🚨 変化②：UGE による不正摘発と「代理人汚染」ルール</span>
+    <p>
+      UGE が 2026年に検知した主な不正パターンは次の2つです。<br>
+      ① 存在しない会社との偽の雇用契約書、② 複数の申請書でほぼ同一の書類を使い回す代理人による「テンプレ申請」。<br><br>
+      <strong>代理人汚染ルール（Agent Contamination Rule）</strong>：ある代理人（Gestor・弁護士事務所など）が提出した1件のファイルで不正が見つかると、同じ代理人が関与する<strong>すべての申請</strong>が審査・取り消しの対象になりえます。代理人の選択が今まで以上に重要です。
+    </p>
+  </div>
+
+  <!-- 変化3: Non-Lucrative 変更不可 -->
+  <div class="alert-box">
+    <span class="alabel">⚠️ 変化③：Non-Lucrative Visa（非収益ビザ）からの国内変更が禁止に</span>
+    <p>
+      <strong>Non-Lucrative Visa（Visado de residencia no lucrativa）</strong>とは、スペインへの資産持ち込み型の居住ビザで、就労は原則禁止です。これまでは一部のケースで「国内変更（modificación de autorización）」手続きを使い、スペイン国内にいながら DNV に切り替えることができました。
+    </p>
+    <p style="margin-top:8px;">
+      2026年の UGE 方針転換により、<strong>Non-Lucrative Visa や観光入国などの非就労資格から、国内にいたまま DNV に変更することは認められなくなりました</strong>。該当する方は一度スペインを出国し、在外スペイン大使館・総領事館で新たに DNV を申請する必要があります。
+    </p>
+    <p style="margin-top:8px; font-size:0.82rem; color:#8a6500;">
+      ※ この変更の施行日は複数の移民法律事務所が「2026年初頭」と報告していますが、BOE 上の発効日は現時点で未確認です。詳細は移民弁護士にご確認ください。
+    </p>
+  </div>
+</div>
+
+<!-- ③ 差し戻しリスクチェック -->
+<div class="card">
+  <h2>✅ 申請差し戻しを防ぐ 実務チェックリスト</h2>
+  <p>UGE が 2026年に指摘している差し戻し・棄却の主な原因です。申請前に確認してください。</p>
+
+  <ul class="check-list">
     <li>
-      <span class="step-num">1</span>
+      <span class="check-icon">🏦</span>
       <div>
-        <strong>&#x1F4CB; 請求書（Invoice）は必ず英語 or スペイン語で発行する</strong><br>
-        顧客の所在国・会社名・支払い条件・金額（外貨建て）を明記します。
-        Stripe Invoicing・Wise Invoice・専用請求書ソフト（MismaFactura / Holded 等）が使えます。
-        日本語のみの請求書は審査で弱くなります。
+        <strong>銀行残高証明は「物理スタンプ入り原本」</strong>で用意する。<br>
+        銀行ウェブサイトからダウンロードした PDF は UGE で頻繁に棄却されています。銀行窓口で物理的なスタンプを押してもらった書類が必要です。
       </div>
     </li>
     <li>
-      <span class="step-num">2</span>
+      <span class="check-icon">📄</span>
       <div>
-        <strong>&#x1F4F1; 月次・年次の入金明細を保管する</strong><br>
-        StripeダッシュボードCSV、Wise口座明細PDF、PayPalステートメントPDFを毎月ダウンロードして保存します。
-        freee や マネーフォワード クラウドとの自動連携を設定しておくと、DNV更新時に会計ソフトから抽出しやすくなります。
+        <strong>雇用契約書・業務委託契約書は「実在する取引先」との本物を用意する。</strong><br>
+        書類上だけの契約・実態のない法人は不正として検知されます。スペイン外の顧客との現行契約書が最も有効です。
       </div>
     </li>
     <li>
-      <span class="step-num amber">3</span>
+      <span class="check-icon">🏥</span>
       <div>
-        <strong>&#x1F30D; 顧客別に「非スペイン収入」であることが分かるようにする</strong><br>
-        日本・米国・EU（スペイン以外）・東南アジアなど、顧客の所在国を請求書・CRMで管理します。
-        スペイン国内の顧客からの収入が20%を超えないよう、売上構成を把握しておきましょう（2026年の20%キャップルール。詳細は 2026-05-30 参照）。
+        <strong>スペイン全土をカバーする海外対応医療保険</strong>を取得する。<br>
+        保険証券に保障期間・スペインでの有効性が明記されていることを確認します。
       </div>
     </li>
     <li>
-      <span class="step-num blue">4</span>
+      <span class="check-icon">🎓</span>
       <div>
-        <strong>&#x1F4CA; 年間の収入サマリーを作っておく</strong><br>
-        DNV更新時に「過去1年間の収入の80%以上が非スペイン源泉であること」を示す一覧表（顧客名・所在国・入金額・通貨・決済手段）をGestor（税務代理人）と一緒に作成しておくとスムーズです。
-        Wise Business と freee の連携があれば、自動仕訳から抽出できます。
+        <strong>学歴証明または職務経歴（3年以上）のいずれか</strong>を用意する。<br>
+        学位証明書はアポスティーユ付きのスペイン語訳が必要です（2026-06-03 の日報参照）。
+      </div>
+    </li>
+    <li>
+      <span class="check-icon">🤝</span>
+      <div>
+        <strong>代理人（Gestor・弁護士）の実績と評判を確認する。</strong><br>
+        代理人汚染ルールが導入されたため、過去に問題があった代理人が関与すると自分の申請まで影響を受ける可能性があります。
+      </div>
+    </li>
+    <li>
+      <span class="check-icon">🧾</span>
+      <div>
+        <strong>承認後は Social Security（Seguridad Social）に速やかに登録する。</strong><br>
+        登録しないまま滞在を続けると、更新時の棄却・許可取り消しのリスクがあります。
+      </div>
+    </li>
+    <li>
+      <span class="check-icon">📅</span>
+      <div>
+        <strong>初回 TIE 取得後、最初の 12 ヵ月のうち最低 6 ヵ月はスペイン国内に滞在する。</strong><br>
+        2026年より物理的な滞在実績の確認が強化されています（出入国記録で照合）。
       </div>
     </li>
   </ul>
 </div>
 
-<!-- 使い分けの考え方 -->
+<!-- ④ 日本の1人法人代表として収入証明をどう揃えるか -->
 <div class="card">
-  <h2>&#x1F9ED; どのサービスを使う？ ── 顧客タイプ別の使い分け</h2>
+  <h2>🇯🇵 日本の1人法人代表として「収入証明」をどう揃えるか</h2>
+  <p>DNV の収入要件は「申請者個人の収入」が €2,849/月 以上であることです。法人の売上ではなく、<strong>代表者個人に支払われた役員報酬・配当など</strong>の合計額で判断されます。</p>
+
+  <div class="flow-wrap">
+    <div class="flow-box">
+      <span class="fb-label">STEP 1｜証明できる収入の種類を整理する</span>
+      <strong>役員報酬（毎月同額の定期同額給与）</strong> ── 最も証明しやすい。給与明細＋振込記録で示せる。
+    </div>
+    <div class="arrow-down">▼</div>
+    <div class="flow-box sub">
+      <span class="fb-label">STEP 2｜書類を準備する（直近12ヵ月分が目安）</span>
+      ① 役員報酬の給与明細（12ヵ月分）<br>
+      ② 銀行振込記録または通帳コピー（物理スタンプ入り原本）<br>
+      ③ 法人の財務諸表（直近2〜3期分。会計士が作成したもの推奨）<br>
+      ④ 法人登記事項証明書＋アポスティーユ（スペイン語公証翻訳付き）
+    </div>
+    <div class="arrow-down">▼</div>
+    <div class="flow-box amber">
+      <span class="fb-label">STEP 3｜「スペイン外顧客からの売上が 80% 以上」を示す</span>
+      DNV の要件として「収入の 80% 以上がスペイン国外の顧客・使用者から得られること」が求められます。<br>
+      契約書・請求書・入金記録でスペイン外からの売上比率を示す書類を用意します。
+    </div>
+    <div class="arrow-down">▼</div>
+    <div class="flow-box light">
+      <span class="fb-label">STEP 4｜不足する場合の補強</span>
+      役員報酬だけで €2,849/月（約 50〜55 万円、参考レートは要確認）に届かない場合は、役員報酬を引き上げるか、配当収入を合算できるかを事前に税理士に確認します。<br>
+      ※ 配当が収入証明として認められるかは大使館・領事館の運用による。Gestor に事前相談推奨。
+    </div>
+  </div>
+
+  <div class="alert-box">
+    <span class="alabel">💡 役員報酬の設定タイミングに注意</span>
+    <p>日本の会計年度開始から3ヵ月以内に定期同額給与を設定しないと損金として認められません。DNV 申請に間に合わせるため、<strong>申請の少なくとも1期前（12ヵ月以上前）から役員報酬を設定しておく</strong>のが理想です。</p>
+  </div>
+</div>
+
+<!-- ⑤ 申請者の状況別・影響マップ -->
+<div class="card">
+  <h2>🗺️ 申請者の状況別 ── 2026年改定の影響マップ</h2>
 
   <table class="matrix-table">
     <thead>
       <tr>
-        <th>顧客のタイプ</th>
-        <th>推奨する決済手段</th>
-        <th>理由</th>
+        <th>あなたの状況</th>
+        <th>2026年改定の影響</th>
+        <th>必要なアクション</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td><strong>欧米の法人顧客<br>（定期請求・大口）</strong></td>
-        <td class="ok">Wise Business（銀行振込）</td>
-        <td>手数料最安・SEPA/ACH 対応・請求書送付可・明細が収入証明に使いやすい</td>
-      </tr>
-      <tr class="row-blue">
-        <td><strong>欧米のフリーランス<br>・個人クライアント</strong></td>
-        <td class="ok">Stripe Invoicing + Wise</td>
-        <td>カード払いに対応（Stripe）しつつ、大口はWise振込も選べるよう両方案内する</td>
-      </tr>
-      <tr class="row-warn">
-        <td><strong>北米クライアント<br>（PayPalを指定）</strong></td>
-        <td class="warn">PayPal受取 → Wise出金</td>
-        <td>PayPalでの受取は避けられないが、円出金よりWiseへの外貨出金でコスト削減</td>
+        <td>🇯🇵 日本から新規申請準備中</td>
+        <td>収入基準が €2,849 に。銀行書類はスタンプ原本が必要。</td>
+        <td class="ok">影響小。準備を進めてよい。書類は物理原本で揃える。</td>
       </tr>
       <tr>
-        <td><strong>日本国内の顧客<br>（1人法人の既存顧客）</strong></td>
-        <td>Stripe または<br>国内銀行振込</td>
-        <td>日本カードなら 3.6%。大口は銀行振込のほうが手数料ゼロに近い</td>
+        <td>🇪🇸 Non-Lucrative で在西中</td>
+        <td><strong>国内変更が禁止に。</strong>DNV に切り替えたければ出国が必要。</td>
+        <td class="ng">一度出国→日本大使館経由で DNV 申請→再入国の流れになる。</td>
       </tr>
-      <tr class="row-blue">
-        <td><strong>東南アジア・<br>グローバルなクライアント</strong></td>
-        <td class="ok">Wise Business（USD/EUR）</td>
-        <td>USD・EUR建て請求にして Wise 仮想口座に受け取るのが最もシンプル</td>
+      <tr>
+        <td>🇪🇸 観光ビザ（短期）で在西中</td>
+        <td>Non-Lucrative 同様、国内変更不可。</td>
+        <td class="ng">日本へ帰国し、在日スペイン大使館で申請する。</td>
+      </tr>
+      <tr>
+        <td>✅ DNV 取得済み・更新準備中</td>
+        <td>Seguridad Social 登録と 6ヵ月滞在が厳格審査される。</td>
+        <td class="warn">登録証明・スペイン滞在履歴・税務申告書を準備する。</td>
+      </tr>
+      <tr>
+        <td>🤝 代理人（Gestor 等）に依頼中</td>
+        <td>代理人汚染ルールで代理人の問題が自分に波及するリスクあり。</td>
+        <td class="warn">代理人の実績・評判を再確認し、問題があれば変更を検討する。</td>
       </tr>
     </tbody>
   </table>
+</div>
+
+<!-- ⑥ まとめ -->
+<div class="card">
+  <h2>📝 まとめ ── 今日のポイント</h2>
 
   <div class="compare-row">
     <div class="compare-card green">
-      <h3>&#x2705; Wise Business が最適な場面</h3>
-      &#x2022; 法人間の定期請求（月払い・四半期払い）<br>
-      &#x2022; EUR・USD・GBP 建て請求ができる取引<br>
-      &#x2022; 顧客がSEPAまたはACH銀行振込を使える<br>
-      &#x2022; 手数料を最小化したい大口取引<br>
-      &#x2022; DNV収入証明のための入金記録を整理したい
+      <h3>✅ 変わっていないこと</h3>
+      ・収入要件の計算式（SMI × 200%）<br>
+      ・80% スペイン外収入ルール<br>
+      ・ビザ有効期間（初回1年、更新2年 × 2回 = 最長5年）<br>
+      ・ベックハム法（特別税制）との組み合わせ可能
     </div>
-    <div class="compare-card blue">
-      <h3>&#x2714; Stripe が最適な場面</h3>
-      &#x2022; 顧客がカード払いを希望する<br>
-      &#x2022; オンラインサービス・コンテンツ販売<br>
-      &#x2022; サブスクリプション・定額制<br>
-      &#x2022; 請求書（Invoice）の送付・管理を自動化したい<br>
-      &#x2022; 即時の支払い確定が必要
-    </div>
-    <div class="compare-card amber">
-      <h3>&#x26A0;&#xFE0F; PayPal を使わざるを得ない場面</h3>
-      &#x2022; 顧客に PayPal 払いを指定される<br>
-      &#x2022; 北米フリーランス・エージェンシーとの取引<br>
-      &#x2614; 使う場合は<strong>必ず外貨残高のままWiseに出金</strong>して通貨変換コストを節約する<br>
-      &#x2614; PayPalの円換算レートは不利なので<strong>円出金は最後の手段</strong>
+    <div class="compare-card red">
+      <h3>🚨 2026年から変わったこと</h3>
+      ・月収下限 €2,763 → <strong>€2,849</strong>（BOE 2026年2月26日・遡及2026年1月1日）<br>
+      ・UGE の審査体制が専門チームに刷新<br>
+      ・Non-Lucrative Visa から国内変更不可<br>
+      ・銀行書類：PDF 不可・物理スタンプ必須<br>
+      ・代理人汚染ルールの導入
     </div>
   </div>
-</div>
 
-<!-- アクションチェックリスト -->
-<div class="card">
-  <h2>&#x2705; アクションチェックリスト</h2>
-  <ul class="check-list">
-    <li>
-      <span class="ico">&#x1F4B3;</span>
-      <div>
-        <strong>Stripe と Wise Business の法人アカウントを両方開設する</strong>。
-        Stripeはカード払い対応、Wiseは銀行振込・外貨受取対応。2つを持つことで顧客の支払い手段を幅広くカバーできます。
-        Wise法人アカウントには日本の登記事項証明書（英語版）が必要なので、事前に用意を。
-      </div>
-    </li>
-    <li>
-      <span class="ico">&#x1F4CB;</span>
-      <div>
-        <strong>請求書（Invoice）は英語 or スペイン語で発行し、顧客の所在国を必ず記載する</strong>。
-        Stripe Invoicing または Wise Invoice 機能を使えば自動化できます。
-        日本語のみの請求書はDNV収入証明として弱くなります。
-      </div>
-    </li>
-    <li>
-      <span class="ico">&#x1F4C5;</span>
-      <div>
-        <strong>毎月の入金明細を3サービス分ダウンロードして保管する</strong>。
-        Stripe：ダッシュボード→CSV、Wise：口座明細PDF、PayPal：ステートメントPDF。
-        freee または マネーフォワード クラウドと連携しておくと、DNV更新時の収入サマリー作成が楽になります。
-      </div>
-    </li>
-    <li>
-      <span class="ico">&#x1F4CA;</span>
-      <div>
-        <strong>非スペイン収入の比率を四半期ごとに確認する</strong>。
-        DNVの80%外国収入ルールを満たしているか、スペイン国内顧客が20%を超えていないかを定期チェック。
-        超えそうな場合はGestor（税務代理人）に相談してください。
-      </div>
-    </li>
-    <li>
-      <span class="ico">&#x1F4B8;</span>
-      <div>
-        <strong>PayPalは「外貨残高 → Wise出金」ルートに切り替える</strong>。
-        PayPalアカウント設定でWiseのUSD/EUR口座番号を登録し、外貨のままWiseに引き出します。
-        PayPalの円換算出金（直接日本口座）は約2.5%の余分なコストがかかります。
-      </div>
-    </li>
-    <li>
-      <span class="ico">&#x1F4C8;</span>
-      <div>
-        <strong>Wise Business でEURのまま保持し、スペインIBAN口座への直送金も検討する</strong>。
-        EUR建て収入はWise BusinessのEUR残高で保持 → BBVA/SabadellのスペインIBANへ直接送金が最安ルートです（06-06参照）。ただし日本法人の外貨建て会計処理が必要なため、freeeの外貨設定を確認してから実施を。
-      </div>
-    </li>
-    <li>
-      <span class="ico">&#x1F4DD;</span>
-      <div>
-        <strong>消費税（インボイス制度）に注意する</strong>。
-        Stripeは2023年10月以降、インボイス登録事業者として手数料に10%消費税が加算されます（課税売上高1,000万円超の法人は仕入税額控除として回収可能）。
-        Wise・PayPalの手数料は基本的に非課税扱い（国外取引）ですが、会計処理は税理士に確認を。
-      </div>
-    </li>
-  </ul>
-</div>
-
-<!-- 用語まとめ -->
-<div class="card">
-  <h2>&#x1F4D6; 今日の用語まとめ</h2>
-  <p>
-    <span class="tag blue">Stripe</span>オンライン決済サービス。クレジットカード・デビットカードで支払いを受け取れます。日本の1人法人が海外クライアントから「カード払い」を受け付けるのに最もよく使われます。手数料は国内カード3.6%、海外カード5.1%（2026年）。<br>
-    <span class="tag amber">PayPal</span>メールアドレスで送金・受取ができるサービス。欧米のフリーランスに今も多く使われます。受取手数料に加えて通貨変換コストが2.5%かかるため、外貨残高のままWiseに出金するのがコスト的に有利です。<br>
-    <span class="tag">Wise Business</span>法人向けWiseアカウント。EUR・USD・GBPなど40通貨以上の仮想口座（銀行口座番号）を発行でき、外貨での受取が無料です。変換手数料は0.6〜0.8%と業界最安水準（2026年6月）。個人Wiseとは別に登録が必要。<br>
-    <span class="tag">仮想口座（Virtual Account）</span>Wiseが発行するEUR用のIBAN番号やUSD用のルーティング番号のこと。実際には自分専用の番号が割り当てられ、顧客はその番号に銀行送金することで支払えます。<br>
-    <span class="tag amber">SEPA</span>Single Euro Payments Area（単一ユーロ決済圏）の略。EU・EEA内のユーロ建て銀行振込の仕組みで、手数料が安く・速い。欧州の顧客にはSEPA振込を案内するのが最もコスト効率がよいです。<br>
-    <span class="tag blue">ACH</span>米国の銀行間振込の仕組み。Wise Business に ACH 用の口座番号（Routing Number + Account Number）が発行されるため、米国顧客からの USD 振込を受け取れます。<br>
-    <span class="tag red">80%ルール</span>DNV（国際遠隔就労ビザ）の条件の一つ。収入の80%以上が「スペイン以外」の顧客・雇用主から来ていることが必要です。スペイン国内の顧客からの収入は最大20%までとされています（2026年時点）。<br>
-    <span class="tag">インボイス制度</span>日本の2023年10月から始まった消費税の制度。適格請求書発行事業者（インボイス登録業者）の手数料には消費税が加算されます。Stripeは登録済みのため、手数料3.6%に消費税10%が加算された実質3.96%程度になります。<br>
-    <span class="tag amber">決済スタック</span>複数の決済サービスを組み合わせて使う仕組みのこと。「Stripe + Wise + PayPal」のように複数持つことで、顧客の支払い手段を幅広く受け付けられます。
-  </p>
-</div>
-
-<!-- 出典 -->
-<div class="card">
-  <h2>&#x1F4DA; 参照した出典（2026年）</h2>
-  <div class="source-list" style="font-size:0.88rem; line-height:2.0;">
-    &#x2022; Stripe 日本公式「料金体系 &amp; 手数料」（2026年）<br>
-    &nbsp;&nbsp;<a href="https://stripe.com/pricing" target="_blank">https://stripe.com/pricing</a><br>
-    &#x2022; Wise 公式ヘルプ「WiseでPayPalから資金を受け取る方法について」（2026年6月2日時点）<br>
-    &nbsp;&nbsp;<a href="https://wise.com/ja/help/articles/5G6pZYCN1QXWYIlskNykYJ/" target="_blank">https://wise.com/ja/help/articles/5G6pZYCN1QXWYIlskNykYJ/</a><br>
-    &#x2022; Wise 日本語ブログ「PaypalからWise（ワイズ）に送金する方法」（2026年）<br>
-    &nbsp;&nbsp;<a href="https://wise.com/jp/blog/how-to-send-money-from-paypal-to-wise" target="_blank">https://wise.com/jp/blog/how-to-send-money-from-paypal-to-wise</a><br>
-    &#x2022; Exiap「【2026版最新】Wise法人アカウントを徹底解説！使い方、メリット・デメリット」（2026年）<br>
-    &nbsp;&nbsp;<a href="https://exiap.jp/reviews/wise-business-account" target="_blank">https://exiap.jp/reviews/wise-business-account</a><br>
-    &#x2022; Exiap「【2026版最新】Wiseを使った海外送金の受け取り方法を解説」（2026年）<br>
-    &nbsp;&nbsp;<a href="https://exiap.jp/guides/how-to-receive-overseas-remittance-on-wise" target="_blank">https://exiap.jp/guides/how-to-receive-overseas-remittance-on-wise</a><br>
-    &#x2022; remotefromspain.com「Spain's Digital Nomad Permit 2026 Update」（2026年）<br>
-    &nbsp;&nbsp;<a href="https://remotefromspain.com/spains-digital-nomad-permit-2026-update/" target="_blank">https://remotefromspain.com/spains-digital-nomad-permit-2026-update/</a><br>
-    &#x2022; remoteworkeurope.eu「Spain digital nomad visa 2026: what's changed and what you need to know」（2026年）<br>
-    &nbsp;&nbsp;<a href="https://remoteworkeurope.eu/insights/spain-digital-nomad-visa/" target="_blank">https://remoteworkeurope.eu/insights/spain-digital-nomad-visa/</a><br>
-    &#x2022; jobbatical.com「Spain Digital Nomad Visa 2026: €2,849 Income Guide」（2026年）<br>
-    &nbsp;&nbsp;<a href="https://www.jobbatical.com/blog/spain-digital-nomad-visa-income-smi-increase" target="_blank">https://www.jobbatical.com/blog/spain-digital-nomad-visa-income-smi-increase</a><br>
-    &#x2022; digima-japan.com「海外送金の手数料を徹底比較！個人・法人おすすめサービス4社の特徴と選び方」（2026年）<br>
-    &nbsp;&nbsp;<a href="https://www.digima-japan.com/knowhow/world/16093.php" target="_blank">https://www.digima-japan.com/knowhow/world/16093.php</a><br>
-    <p style="margin-top:10px; color:#999;">
-      ※ Stripe の手数料（3.6%国内カード・5.1%国際カード）は 2026年 Stripe 日本公式サイトの公開情報に基づきます。<br>
-      ※ Wise の変換手数料（0.6〜0.8%）はWise公式の目安。通貨ペアにより異なります。2026年6月時点。<br>
-      ※ PayPalの手数料（3.5〜4.4%受取+2.5%変換）はPayPal日本公式の料金体系より。取引規模や会員ステータスで変動します。<br>
-      ※ 80%外国収入ルールは国際遠隔就労ビザの要件として複数の専門家サイトが言及（2026年）。スペイン官報（BOE）での一次確認を推奨。<br>
-      ※ 月€3,000コスト試算は参考レート¥160/€（2026年6月参考値）による概算。実際のレートで再計算してください。
+  <div class="highlight-box" style="margin-top:16px;">
+    <span class="hlabel">🎯 日本の1人法人オーナーへの具体的アドバイス</span>
+    <p>
+      ① 役員報酬を月 €2,849（参考：現在のレートで約 50〜55 万円程度。レートは変動するため申請時点の為替で確認要）以上に設定し、12ヵ月分の実績を作る。<br>
+      ② 銀行残高証明は必ず窓口で物理スタンプを取得する。<br>
+      ③ 代理人（Gestor・弁護士）は実績と評判を複数ソースで確認してから選ぶ。<br>
+      ④ Non-Lucrative で在西中の場合は移民弁護士に早急に相談する。
     </p>
   </div>
 </div>
 
-<!-- 免責事項 -->
-<div class="footer-note">
-  <strong>&#x26A0;&#xFE0F; 免責事項</strong><br>
-  本記事はデジタルノマド・海外在住者向けの情報提供を目的としています。<br><br>
-  &#x2022; ビザ・在留資格（DNV の申請・更新・収入証明要件）に関する正式な判断は<strong>スペイン移民法を専門とする移民弁護士（Abogado de Extranjería）</strong>へ。<br>
-  &#x2022; 税務（消費税・法人税・外貨換算・インボイス制度）に関する正式な判断は<strong>日本の税理士および国際税務に強い税理士</strong>へ。<br>
-  &#x2022; 本記事中の手数料・為替レートは 2026年6月時点の目安です。各サービスの公式サイトで最新情報を確認してください。<br>
-  &#x2022; 「必ずこのサービスを使えばDNVが通る」などの断定はしていません。収入証明の具体的な書類要件は移民弁護士またはGestorにご確認ください。<br>
-  &#x2022; 月コスト・年コストの試算は参考レート（¥160/€）による概算です。実際の為替レートで必ず再計算してください（基準日：2026年6月）。
+<hr class="divider">
+
+<!-- フッター -->
+<div class="footer">
+  <strong>⚠️ 免責事項</strong><br>
+  本資料はデジタルノマドビザ（International Telework Visa）・税務・社会保険に関する一般的な情報提供を目的としたものです。<br>
+  <strong>ビザ・在留に関する正式な判断は、行政書士または移民専門の弁護士（Abogado de extranjería）にご相談ください。</strong><br>
+  <strong>税務・社会保険に関する正式な判断は、国際税務に強い税理士にご相談ください。</strong><br>
+  記載の収入基準・金額は 2026年基準（Royal Decree 126/2026 を二次ソースにて確認）。制度変更の一次ソースは スペイン官報（BOE：https://www.boe.es）でご確認ください。<br>
+  為替レートは変動します。EUR/JPY の換算は申請時点の実勢レートで必ずご確認ください。<br>
+  「必ず取得できる」「課税されない」などの断定はしていません。制度の詳細・個別事情については専門家にご確認ください。
+
+  <div class="source-list">
+    <strong>📚 参考出典（情報基準：2026年1〜4月公表、各サイト公開日）</strong><br>
+    ・VisaHQ「Spain Increases Digital Nomad Visa Income Requirement to €2,849」（2026-02-26）<br>
+    　<a href="https://www.visahq.com/news/2026-02-26/es/spain-increases-digital-nomad-visa-income-requirement-to-2849-per-month/">https://www.visahq.com/news/2026-02-26/...</a><br>
+    ・VisaHQ「Digital Nomad Visa income floor rises to €2,849 after Spain's 2026 minimum-wage hike」（2026-04-07）<br>
+    　<a href="https://www.visahq.com/news/2026-04-07/es/digital-nomad-visa-income-floor-rises-to-2849-after-spains-2026-minimum-wage-hike/">https://www.visahq.com/news/2026-04-07/...</a><br>
+    ・SpainGuru「Spain Digital Nomad Visa Denials 2026: Why You Get Rejected」（2026-03-18）<br>
+    　<a href="https://spainguru.es/2026/03/18/spain-digital-nomad-visa-denials-2026/">https://spainguru.es/2026/03/18/...</a><br>
+    ・Nodisea（移民弁護士）「Spain Digital Nomad Visa in 2026: New Updates and Renewal Requirements Explained」<br>
+    　<a href="https://nodisea.com/spain-digital-nomad-visa-in-2026/">https://nodisea.com/spain-digital-nomad-visa-in-2026/</a><br>
+    ・NimExtranjería「Spain is cracking down on digital nomads in 2026」<br>
+    　<a href="https://nimextranjeria.com/spain-is-cracking-down-on-digital-nomads-fines-back-taxes-or-immediate-permit-cancellation/">https://nimextranjeria.com/spain-is-cracking-down-...</a><br>
+    ・RemoteFromSpain「Spain Digital Nomad Visa 2026: New UGE Rules &amp; Renewals」<br>
+    　<a href="https://remotefromspain.com/spains-digital-nomad-permit-2026-update/">https://remotefromspain.com/spains-digital-nomad-permit-2026-update/</a><br>
+    ・スペイン外務省 Consular Section「Telework (Digital Nomad) Visa」（公式）<br>
+    　<a href="https://www.exteriores.gob.es/Consulados/washington/en/ServiciosConsulares/Paginas/Consular/Telework-visa.aspx">https://www.exteriores.gob.es/Consulados/washington/...</a>
+  </div>
 </div>
 
 </body>
