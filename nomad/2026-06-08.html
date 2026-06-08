@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>デジタルノマド 最新トピック 2026-06-08</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    color: #2a2a2a;
+  }
+  .hero {
+    background: linear-gradient(135deg, #2c3e8e 0%, #1a2760 100%);
+    color: white;
+    border-radius: 10px;
+    padding: 48px 40px;
+    text-align: center;
+    width: 100%;
+    max-width: 760px;
+    margin-bottom: 28px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .hero .label {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 0.8rem;
+    margin-bottom: 14px;
+    letter-spacing: 0.05em;
+  }
+  .hero h1 { font-size: 1.6rem; margin-bottom: 12px; line-height: 1.5; }
+  .hero .meta { opacity: 0.8; font-size: 0.88rem; line-height: 1.7; }
+  .card {
+    background: #fff9f0;
+    border-radius: 8px;
+    padding: 28px 32px;
+    width: 100%;
+    max-width: 760px;
+    margin-bottom: 20px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.08);
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #2c3e8e;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px dashed #b0bce0;
+  }
+  .card p { font-size: 0.93rem; line-height: 1.85; margin-bottom: 10px; }
+  .card p:last-child { margin-bottom: 0; }
+  .highlight-box {
+    background: #e8ecf8;
+    border-left: 4px solid #2c3e8e;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .highlight-box .hlabel {
+    font-size: 0.75rem;
+    color: #2c3e8e;
+    font-weight: 600;
+    margin-bottom: 6px;
+    display: block;
+  }
+  .highlight-box p { font-size: 0.9rem; margin: 0; }
+  .alert-box {
+    background: #fff3cd;
+    border-left: 4px solid #e8a000;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .alert-box .alabel {
+    font-size: 0.75rem;
+    color: #b07700;
+    font-weight: 600;
+    margin-bottom: 6px;
+    display: block;
+  }
+  .alert-box p { font-size: 0.9rem; margin: 0; }
+  .danger-box {
+    background: #fde8e8;
+    border-left: 4px solid #c0392b;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .danger-box .dlabel {
+    font-size: 0.75rem;
+    color: #c0392b;
+    font-weight: 600;
+    margin-bottom: 6px;
+    display: block;
+  }
+  .danger-box p { font-size: 0.9rem; margin: 0; }
+  .news-box {
+    background: #e8f0fd;
+    border-left: 4px solid #2a5e8e;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .news-box .nlabel {
+    font-size: 0.75rem;
+    color: #2a5e8e;
+    font-weight: 600;
+    margin-bottom: 6px;
+    display: block;
+  }
+  .news-box p { font-size: 0.9rem; margin: 0; }
+  .number-row {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin: 14px 0;
+  }
+  .number-card {
+    flex: 1;
+    min-width: 130px;
+    background: #2c3e8e;
+    color: white;
+    border-radius: 8px;
+    padding: 18px 14px;
+    text-align: center;
+  }
+  .number-card .num {
+    font-size: 1.55rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    line-height: 1.2;
+    letter-spacing: 0.03em;
+  }
+  .number-card .desc {
+    font-size: 0.72rem;
+    opacity: 0.9;
+    line-height: 1.5;
+  }
+  .number-card.amber { background: #b07700; }
+  .number-card.green { background: #2c6e4e; }
+  .number-card.red   { background: #922b2b; }
+  .number-card.gray  { background: #555; }
+  .flow-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin: 14px 0;
+  }
+  .flow-box {
+    background: #2c3e8e;
+    color: white;
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 0.88rem;
+    line-height: 1.6;
+  }
+  .flow-box .fb-label {
+    font-size: 0.7rem;
+    opacity: 0.8;
+    margin-bottom: 4px;
+    display: block;
+  }
+  .flow-box strong { font-size: 0.95rem; }
+  .flow-box.sub   { background: #4a5fc0; }
+  .flow-box.light { background: #eaecf8; color: #2a2a2a; border: 1.5px solid #b0bce0; }
+  .flow-box.amber { background: #8a5e00; }
+  .flow-box.green { background: #2c6e4e; }
+  .flow-box.red   { background: #922b2b; }
+  .flow-box.gray  { background: #666; }
+  .arrow-down {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #2c3e8e;
+    margin: 4px 0;
+    line-height: 1;
+  }
+  .step-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 12px 0;
+  }
+  .step-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .step-num {
+    background: #2c3e8e;
+    color: white;
+    border-radius: 50%;
+    min-width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.78rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .step-num.amber { background: #b07700; }
+  .step-num.green { background: #2c6e4e; }
+  .step-num.red   { background: #922b2b; }
+  .step-list li div { font-size: 0.9rem; line-height: 1.7; }
+  .compare-row {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin: 14px 0;
+  }
+  .compare-card {
+    flex: 1;
+    min-width: 200px;
+    border-radius: 8px;
+    padding: 16px 16px;
+    font-size: 0.88rem;
+    line-height: 1.7;
+  }
+  .compare-card h3 {
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+    padding-bottom: 6px;
+    border-bottom: 1.5px dashed;
+  }
+  .compare-card.green { background: #e8f5ef; border: 1.5px solid #2c6e4e; }
+  .compare-card.green h3 { color: #2c6e4e; border-color: #b2d4c4; }
+  .compare-card.amber { background: #fff8e8; border: 1.5px solid #c9920a; }
+  .compare-card.amber h3 { color: #a07800; border-color: #f0d080; }
+  .compare-card.red   { background: #fdeaea; border: 1.5px solid #c0392b; }
+  .compare-card.red h3 { color: #922b2b; border-color: #e8a0a0; }
+  .compare-card.blue  { background: #e8ecf8; border: 1.5px solid #2c3e8e; }
+  .compare-card.blue h3 { color: #2c3e8e; border-color: #b0bce0; }
+  .compare-card.gray  { background: #f0f0f0; border: 1.5px solid #aaa; }
+  .compare-card.gray h3 { color: #555; border-color: #ccc; }
+  .matrix-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.87rem;
+    margin: 14px 0;
+  }
+  .matrix-table th {
+    background: #2c3e8e;
+    color: white;
+    padding: 10px 12px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.82rem;
+  }
+  .matrix-table th:first-child { border-radius: 6px 0 0 0; }
+  .matrix-table th:last-child  { border-radius: 0 6px 0 0; }
+  .matrix-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #d0d8f0;
+    vertical-align: top;
+    line-height: 1.55;
+  }
+  .matrix-table tr:nth-child(even) td { background: #f4f6fb; }
+  .matrix-table .ok   { color: #2c6e4e; font-weight: 700; }
+  .matrix-table .ng   { color: #c0392b; font-weight: 700; }
+  .matrix-table .warn { color: #b07700; font-weight: 700; }
+  .matrix-table .row-warn td { background: #fff8e8 !important; }
+  .matrix-table .row-danger td { background: #fdeaea !important; }
+  .matrix-table .row-blue td { background: #e8ecf8 !important; }
+  .matrix-table .row-green td { background: #e8f5ef !important; }
+  .check-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 12px 0;
+  }
+  .check-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 14px;
+    background: #f0f3fa;
+    border-radius: 6px;
+    border: 1px solid #c0cae8;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  .check-list .ico { font-size: 1.1rem; flex-shrink: 0; margin-top: 2px; }
+  .source-list {
+    font-size: 0.78rem;
+    color: #888;
+    margin-top: 12px;
+    line-height: 1.8;
+  }
+  .source-list a { color: #4a5fc0; word-break: break-all; }
+  .footer-note {
+    width: 100%;
+    max-width: 760px;
+    font-size: 0.78rem;
+    color: #777;
+    line-height: 1.8;
+    margin-top: 8px;
+    padding: 20px 24px;
+    background: #f5f2ec;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+  }
+  .footer-note strong { color: #555; }
+  .nav-bar {
+    width: 100%;
+    max-width: 760px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-size: 0.82rem;
+  }
+  .nav-bar a {
+    color: #2c3e8e;
+    text-decoration: none;
+    padding: 6px 14px;
+    border: 1px solid #b0bce0;
+    border-radius: 20px;
+    background: #fff;
+  }
+  .nav-bar a:hover { background: #e8ecf8; }
+  .tag {
+    display: inline-block;
+    background: #2c3e8e;
+    color: white;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 6px;
+    vertical-align: middle;
+  }
+  .tag.amber { background: #b07700; }
+  .tag.green { background: #2c6e4e; }
+  .tag.red   { background: #922b2b; }
+  .tag.gray  { background: #666; }
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 14px 0;
+  }
+  @media (max-width: 500px) { .two-col { grid-template-columns: 1fr; } }
+  .mini-card {
+    background: #f0f3fa;
+    border: 1.5px solid #b0bce0;
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 0.88rem;
+    line-height: 1.65;
+  }
+  .mini-card h4 { color: #2c3e8e; font-size: 0.88rem; margin-bottom: 6px; }
+  .mini-card.amber-bg { background: #fff8e8; border-color: #e8c060; }
+  .mini-card.amber-bg h4 { color: #a07800; }
+  .mini-card.green-bg { background: #e8f5ef; border-color: #b2d4c4; }
+  .mini-card.green-bg h4 { color: #2c6e4e; }
+  .mini-card.red-bg { background: #fdeaea; border-color: #e8a0a0; }
+  .mini-card.red-bg h4 { color: #922b2b; }
+  .mini-card.gray-bg { background: #f0f0f0; border-color: #ccc; }
+  .mini-card.gray-bg h4 { color: #555; }
+  /* 大きな比較ブロック */
+  .tax-scenario {
+    border-radius: 10px;
+    padding: 20px 20px;
+    margin: 10px 0;
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+  .tax-scenario .ts-head {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px dashed;
+  }
+  .tax-scenario .ts-rate {
+    font-size: 2.2rem;
+    font-weight: 700;
+    line-height: 1.1;
+    display: block;
+    margin: 10px 0;
+  }
+  .tax-scenario.sc-blue  { background: #e8ecf8; border: 2px solid #2c3e8e; }
+  .tax-scenario.sc-blue .ts-head { color: #2c3e8e; border-color: #b0bce0; }
+  .tax-scenario.sc-blue .ts-rate { color: #2c3e8e; }
+  .tax-scenario.sc-green { background: #e8f5ef; border: 2px solid #2c6e4e; }
+  .tax-scenario.sc-green .ts-head { color: #2c6e4e; border-color: #b2d4c4; }
+  .tax-scenario.sc-green .ts-rate { color: #2c6e4e; }
+  .tax-scenario.sc-amber { background: #fff8e8; border: 2px solid #c9920a; }
+  .tax-scenario.sc-amber .ts-head { color: #a07800; border-color: #f0d080; }
+  .tax-scenario.sc-amber .ts-rate { color: #a07800; }
+  .tax-scenario.sc-red   { background: #fdeaea; border: 2px solid #c0392b; }
+  .tax-scenario.sc-red .ts-head { color: #922b2b; border-color: #e8a0a0; }
+  .tax-scenario.sc-red .ts-rate { color: #922b2b; }
+  /* 治療フロー */
+  .phase-row {
+    display: flex;
+    gap: 0;
+    margin: 16px 0;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 2px solid #b0bce0;
+  }
+  .phase-block {
+    flex: 1;
+    padding: 18px 16px;
+    font-size: 0.87rem;
+    line-height: 1.6;
+    position: relative;
+  }
+  .phase-block .ph-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    display: block;
+  }
+  .phase-block .ph-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .phase-block.ph-blue  { background: #e8ecf8; }
+  .phase-block.ph-blue .ph-label { color: #2c3e8e; }
+  .phase-block.ph-green { background: #e8f5ef; }
+  .phase-block.ph-green .ph-label { color: #2c6e4e; }
+  .phase-block.ph-amber { background: #fff8e8; }
+  .phase-block.ph-amber .ph-label { color: #a07800; }
+  .phase-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #2c3e8e;
+    color: white;
+    font-size: 1.4rem;
+    padding: 0 10px;
+    min-width: 36px;
+  }
+  @media (max-width: 480px) {
+    .phase-row { flex-direction: column; }
+    .phase-arrow { padding: 8px; font-size: 1.2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ナビゲーション -->
+<div class="nav-bar">
+  <a href="index.html">&larr; アーカイブ一覧</a>
+  <a href="2026-06-07.html">前の日報 &rarr;</a>
+</div>
+
+<!-- ヒーロー -->
+<div class="hero">
+  <div class="label">&#x1F4D3; デジタルノマド日報</div>
+  <h1>&#x1F4B8; 日本1人法人の役員報酬と源泉徴収<br>非居住者になると「20.42%」が自動的に引かれる<br>日西租税条約とベックハム法の組み合わせ術</h1>
+  <p class="meta">
+    2026年6月8日（月）｜バックログ解説：非居住者への役員報酬と源泉徴収<br>
+    日本国内源泉所得ルール・新日西租税条約（2022年〜）の配当/利子/使用料との違い<br>
+    ベックハム法下での外国源泉所得免税・届出書手続き
+  </p>
+</div>
+
+<!-- 今日の数字 -->
+<div class="card">
+  <h2>&#x1F4CC; 今日の数字で見るポイント</h2>
+
+  <div class="number-row">
+    <div class="number-card red">
+      <div class="num">20.42%</div>
+      <div class="desc">非居住者への役員報酬に<br>日本が自動的に源泉徴収<br>（2037年12月31日まで）<br>20%所得税＋0.42%復興税</div>
+    </div>
+    <div class="number-card">
+      <div class="num">5% / 0%<br>/ 0%</div>
+      <div class="desc">新日西条約（2022年〜）の<br>配当 / 利子 / 使用料<br>役員報酬には<br>この恩恵なし</div>
+    </div>
+    <div class="number-card green">
+      <div class="num">0%</div>
+      <div class="desc">ベックハム法適用時の<br>「外国源泉所得」への<br>スペイン税率<br>（潜在的に免税）</div>
+    </div>
+    <div class="number-card amber">
+      <div class="num">前日<br>まで</div>
+      <div class="desc">租税条約の恩恵を<br>受けるための<br>「届出書」提出期限<br>（最初の支払日の前日）</div>
+    </div>
+  </div>
+  <p style="font-size:0.82rem; color:#777; margin-top:8px;">
+    ※ 20.42%は2026年現在の所得税（20%）＋復興特別所得税（0.42%）の合計。源泉徴収額は日本円で計算。
+    役員報酬への日西租税条約の軽減効果については下記セクションで詳しく解説。
+  </p>
+</div>
+
+<!-- なぜ役員報酬は「国内源泉所得」なのか -->
+<div class="card">
+  <h2>&#x1F1EF;&#x1F1F5; なぜ「スペインで働いても日本で源泉徴収されるのか？」── 国内源泉所得ルール</h2>
+  <p>
+    日本で法人（合同会社・株式会社など）を設立した場合、その法人の役員（代表取締役・代表社員など）が
+    たとえスペインから仕事をしていても、日本の税法（所得税法第161条）は
+    <strong>役員報酬をすべて「国内源泉所得（こくないげんせんしょとく）」として扱います</strong>。
+  </p>
+
+  <div class="highlight-box">
+    <span class="hlabel">&#x1F4D6; 「国内源泉所得」を中学生向けに説明</span>
+    <p>
+      「どこで仕事をしていても、その会社が日本の会社（法人）である限り、その会社からもらう役員報酬は
+      日本で稼いだお金とみなします」というルールです。<br>
+      つまり、あなたがスペインのカフェからリモートワークをして、スペインに住んでいても、
+      <strong>日本の1人法人からもらう役員報酬は「日本の収入」として日本で課税される</strong>のです。
+    </p>
+  </div>
+
+  <p>
+    この結果、日本の法人は役員報酬を支払う際に、<strong>20.42%（所得税20%＋復興特別所得税0.42%）</strong>を
+    差し引いて支払う義務があります。これを「源泉徴収（げんせんちょうしゅう）」と言います。
+  </p>
+
+  <div class="danger-box">
+    <span class="dlabel">&#x26A0;&#xFE0F; よくある誤解：「海外で働いているから日本の税金はかからない」は間違い</span>
+    <p>
+      ✘「スペインに移住したから、日本の法人からの役員報酬は日本の所得税がかからない」<br>
+      ✘「日本の法人から報酬をもらっていないので、日本には源泉徴収義務がない」<br><br>
+      これらは誤りです。日本の法人の役員（取締役・代表社員等）は、<strong>勤務地がどこであっても</strong>
+      報酬全額が国内源泉所得扱いになります。法人は支払うたびに20.42%を差し引いて
+      翌月10日までに日本の税務署に納付しなければなりません。<br>
+      <strong>例：月50万円の役員報酬 → 法人が20.42%（10万2,100円）を差し引いて→ あなたの手元には39万7,900円</strong>
+    </p>
+  </div>
+
+  <p>
+    なお、日本の税法では「役員と従業員を兼ねて海外勤務」する場合は例外があります。
+    役員ではなく「使用人（社員）として常時海外で勤務する人」への給与は国内源泉所得にならない場合もありますが、
+    <strong>1人法人の代表者（役員専任）には、この例外はほぼ適用されません</strong>。
+    詳細は国税庁 No.1929 をご参照ください。
+  </p>
+</div>
+
+<!-- 新日西租税条約での役員報酬の扱い -->
+<div class="card">
+  <h2>&#x1F4DC; 新日西租税条約（2022年〜）── 配当・利子・使用料は恩恵あり、役員報酬は？</h2>
+  <p>
+    日本とスペインの間には新しい租税条約（新日西租税条約）があります。
+    2019年に署名され、2021年5月1日に発効、<strong>源泉所得税については2022年1月1日から適用開始</strong>です。
+    この新条約は、1974年発効の旧条約を全面的に改定した画期的な内容です。
+  </p>
+
+  <p>
+    特に配当・利子・使用料については、大幅な軽減が実現しました。
+    ところが、役員報酬（取締役報酬）についてはどうでしょうか？
+  </p>
+
+  <table class="matrix-table">
+    <thead>
+      <tr>
+        <th>所得の種類</th>
+        <th>旧条約（1974年〜）</th>
+        <th>新条約（2022年〜）</th>
+        <th>変化</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="row-green">
+        <td><strong>配当（Dividends）</strong></td>
+        <td>10〜15%</td>
+        <td class="ok"><strong>5%</strong>（または0%）</td>
+        <td class="ok">大幅軽減</td>
+      </tr>
+      <tr class="row-green">
+        <td><strong>利子（Interest）</strong></td>
+        <td>10%</td>
+        <td class="ok"><strong>0%</strong>（一部例外あり）</td>
+        <td class="ok">免除</td>
+      </tr>
+      <tr class="row-green">
+        <td><strong>使用料（Royalties）</strong></td>
+        <td>10%</td>
+        <td class="ok"><strong>0%</strong></td>
+        <td class="ok">免除</td>
+      </tr>
+      <tr class="row-warn">
+        <td><strong>役員報酬（Directors' Fees）</strong></td>
+        <td>20%（国内法）</td>
+        <td class="warn">20.42%（国内法のまま）</td>
+        <td class="warn">変化なし</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="alert-box">
+    <span class="alabel">&#x1F4A1; なぜ役員報酬だけ恩恵がないのか？</span>
+    <p>
+      租税条約のお手本（OECD モデル条約）では、役員報酬は「源泉地国（支払側の国）が国内レートで課税できる」と定める
+      <strong>第16条（Directors' Fees）</strong>が設けられています。配当・利子・使用料のような「上限税率を条約で定める」
+      仕組みがなく、<strong>「日本の国内法（20.42%）がそのまま適用される」</strong>のが一般的です。<br>
+      新日西租税条約も OECD モデルに準拠していると考えられており、<strong>役員報酬については日本が国内法レートで
+      課税し続けます</strong>。ただし、条約の正式な第16条の条文内容は
+      外務省・国税庁の一次ソースで最終確認することを推奨します（注記：記事作成時点で原文の日本語訳を
+      直接確認できなかったため、一般的な OECD モデルに基づいた解釈で記載しています）。
+    </p>
+  </div>
+
+  <p>
+    ただし、条約が完全に意味がないわけではありません。
+    <strong>日西租税条約の「二重課税の排除」条項</strong>（通常、免除法または外国税額控除法）により、
+    日本で源泉徴収された20.42%分はスペイン側での課税計算で考慮されます。
+    つまり、日本とスペイン両方に同じ所得に対して「二重に満額課税される」ことは条約で防がれています。
+  </p>
+</div>
+
+<!-- 3つのシナリオで比較 -->
+<div class="card">
+  <h2>&#x1F4CA; 3つのシナリオで比べる ── 役員報酬への実効税率</h2>
+  <p>
+    スペインに移住した後、同じ「日本の1人法人からの役員報酬（例：年間600万円）」に対して、
+    どのくらいの税金がかかるか？ 3つのケースで比較します。
+  </p>
+
+  <div class="compare-row">
+    <div class="tax-scenario sc-red">
+      <div class="ts-head">&#x274C; ケース①：日本居住者のまま（移住しない）</div>
+      <span class="ts-rate">最大55%</span>
+      &#x2022; 日本の累進税率（所得税＋住民税）で課税<br>
+      &#x2022; 年収600万円なら税率目安：所得税20%＋住民税10%＝30%前後<br>
+      &#x2022; 高収入ほど：最大で所得税45%＋住民税10%＝55%<br>
+      &#x2022; 源泉徴収後に確定申告で精算（扶養控除・所得控除適用可）
+    </div>
+    <div class="tax-scenario sc-amber">
+      <div class="ts-head">&#x26A0;&#xFE0F; ケース②：スペイン移住（ベックハム法なし）</div>
+      <span class="ts-rate">約34〜47%+α</span>
+      &#x2022; 日本：20.42%を源泉徴収（日本での課税は完結）<br>
+      &#x2022; スペイン：世界中の所得に対して累進税率（最大47%）で課税<br>
+      &#x2022; スペインでの税計算から日本の源泉徴収額（20.42%）を「外国税額控除」<br>
+      &#x2022; 実質的な追加スペイン税：(スペイン税率)−20.42%<br>
+      &#x2022; 例：スペイン税率が34%の場合 → 追加で約13.58%をスペインに納付<br>
+      &#x2022; ※ 外国税額控除の上限や計算方法は Asesor Fiscal に確認が必要
+    </div>
+    <div class="tax-scenario sc-green">
+      <div class="ts-head">&#x2705; ケース③：スペイン移住＋ベックハム法適用</div>
+      <span class="ts-rate">約20.42%</span>
+      &#x2022; 日本：20.42%を源泉徴収（日本での課税は完結）<br>
+      &#x2022; スペイン：ベックハム法（IRNR）では<strong>「外国源泉所得」は原則非課税</strong><br>
+      &#x2022; 日本法人からの役員報酬 = 外国源泉所得として免税の可能性<br>
+      &#x2022; 実効税率：日本の20.42%のみ（スペインへの追加課税なし）<br>
+      &#x2022; ※「外国源泉所得」の認定はケースバイケースで要専門家確認
+    </div>
+  </div>
+
+  <div class="alert-box">
+    <span class="alabel">&#x26A0;&#xFE0F; ケース③の重要な注意点</span>
+    <p>
+      <strong>「日本法人からの役員報酬が外国源泉所得として免税になる」ケースには条件があります。</strong><br>
+      &#x2022; スペインから実際に日本法人の業務を行っていても、「国際遠隔就労ビザ（DNV）」の80%外国顧客要件を満たしていれば、多くの場合は外国源泉所得と判断される<br>
+      &#x2022; しかし、スペイン国内で実際のサービス提供（スペイン顧客への業務）が発生している場合、その分の報酬はスペイン源泉所得として24%課税される可能性がある<br>
+      &#x2022; この判定は個別の状況により異なり、<strong>スペインの Asesor Fiscal（税務顧問）と日本の国際税務税理士の両方に確認することが必須</strong><br>
+      &#x2022; 「必ず免税になる」とは断言できないため、事前の専門家相談を強く推奨します
+    </p>
+  </div>
+</div>
+
+<!-- 手続きフロー -->
+<div class="card">
+  <h2>&#x1F6E0; 非居住者になったときの手続きフロー ── 法人と個人でやること</h2>
+  <p>
+    日本の1人法人の代表者が日本を出て海外（スペイン）に移住した場合、「法人側」と「個人側」の両方で手続きが必要です。
+    特に源泉徴収の切り替えは法人側の義務であり、見落とすと後で問題になります。
+  </p>
+
+  <div class="flow-wrap">
+    <div class="flow-box blue">
+      <span class="fb-label">&#x1F1EF;&#x1F1F5; ステップ①：転出届（個人）── 日本を出る前</span>
+      <strong>市区町村役場で「転出届」を提出 → 日本の住民票から除票される</strong><br>
+      出国日の2週間前〜出国後に手続き可能。転出届を出すと住民税の課税は翌年度からなくなる。
+      ただし、1月1日時点で日本に住民票があれば、その年の住民税（翌年6月〜支払）は課税される（「1月1日ルール」）。
+      ← 詳細は 2026-06-04 の日報参照。
+    </div>
+    <div class="arrow-down">&#x2193;</div>
+    <div class="flow-box sub">
+      <span class="fb-label">&#x1F4C4; ステップ②：法人側の源泉徴収区分変更（法人の義務）</span>
+      <strong>代表者が非居住者になった日から、役員報酬の源泉徴収を「20.42%」に切り替える</strong><br>
+      居住者への源泉徴収（給与所得の源泉徴収税額表による）とは計算方法が異なります。
+      非居住者になった月から、翌月10日の納付期限までに国内源泉所得分として税務署に納付します。
+      ← 税理士または自社の会計ソフトの設定変更が必要です。
+    </div>
+    <div class="arrow-down">&#x2193;</div>
+    <div class="flow-box amber">
+      <span class="fb-label">&#x1F4CB; ステップ③：租税条約に関する届出書（役員報酬への効果は限定的）</span>
+      <strong>配当・利子・使用料については届出書で新条約の優遇税率（5%/0%/0%）を適用できる</strong><br>
+      役員報酬については、国内法（20.42%）がそのまま適用されるため、届出書を提出しても
+      「軽減される税率」がありません。配当などを日本法人から受け取る場合（利益配当）には届出書が有効です。
+      提出期限：最初の支払い日の前日まで。提出先：法人の本店所在地を管轄する税務署。
+    </div>
+    <div class="arrow-down">&#x2193;</div>
+    <div class="flow-box green">
+      <span class="fb-label">&#x1F1EA;&#x1F1F8; ステップ④：スペイン側の手続き（Beckham 法申請）</span>
+      <strong>RETA（autónomo）登録後6か月以内に Modelo 149 を提出 → ベックハム法（IRNR）を選択</strong><br>
+      ベックハム法を適用することで、日本法人からの役員報酬が「外国源泉所得」として
+      スペインで免税になる可能性が生まれます（要・Asesor Fiscal 確認）。
+      6か月の期限を過ぎると申請できなくなるため注意。← 詳細は 2026-06-01 と 2026-06-05 の日報参照。
+    </div>
+    <div class="arrow-down">&#x2193;</div>
+    <div class="flow-box light">
+      <span class="fb-label">&#x1F4CA; ステップ⑤：毎年の申告（日本・スペイン両方）</span>
+      <strong>日本：法人が年間の源泉徴収票を作成・提出 / スペイン：Modelo 151（IRNR 年次申告）</strong><br>
+      ベックハム法適用者はスペインで Modelo 151 を申告（通常翌年6月末が期限）。
+      日本法人は毎年1月末に「給与所得の源泉徴収票・支払調書」を提出。
+      ← 確定申告の詳細は 2026-06-05 の日報参照。
+    </div>
+  </div>
+</div>
+
+<!-- 配当という選択肢 -->
+<div class="card">
+  <h2>&#x1F4B0; 「役員報酬」vs「配当」── 新日西条約で配当が有利になる？</h2>
+  <p>
+    ここまで役員報酬（20.42%源泉徴収）の話をしてきましたが、実は新日西条約で
+    <strong>配当の源泉徴収率が5%（一定条件では0%）に下がったこと</strong>で、
+    利益の受け取り方について新しい選択肢が生まれました。
+  </p>
+
+  <div class="compare-row">
+    <div class="compare-card blue">
+      <h3>&#x1F4B8; 役員報酬（毎月）</h3>
+      &#x2022; 日本源泉徴収：<strong>20.42%</strong><br>
+      &#x2022; 法人の損金算入：できる（税務上の費用になる）<br>
+      &#x2022; 定期同額給与として事前確定が必要<br>
+      &#x2022; ベックハム法下：外国源泉として免税の可能性<br>
+      &#x2022; 毎月の安定収入として機能
+    </div>
+    <div class="compare-card green">
+      <h3>&#x1F4C8; 配当（年1〜2回）</h3>
+      &#x2022; 日本源泉徴収：<strong>5%</strong>（新日西条約・2022年〜）<br>
+      &#x2022; 法人の損金算入：できない（税引き後利益から配当）<br>
+      &#x2022; 株主総会決議が必要（合同会社は社員総会または定款）<br>
+      &#x2022; ベックハム法下：配当は外国源泉として免税の可能性<br>
+      &#x2022; 源泉徴収率が役員報酬の4分の1以下
+    </div>
+  </div>
+
+  <div class="alert-box">
+    <span class="alabel">&#x26A0;&#xFE0F; 「配当の方が有利」と単純には言えない理由</span>
+    <p>
+      配当を出すには法人に利益（課税後）が必要です。役員報酬は法人の費用（損金）になるため
+      法人税を減らしますが、配当は法人税を払った後の利益から出すため、法人税が追加でかかります。<br>
+      例えば、法人利益100万円に対して：<br>
+      &#x2022; 役員報酬として100万円支払う → 法人税0円、個人で20.42%源泉徴収 → 実効約20.42%<br>
+      &#x2022; 配当として100万円出す → 法人税約15〜23%を先に払い、残り77〜85万円に5%源泉 → 実効約19〜27%<br>
+      どちらが有利かは法人の課税所得規模・個人の税率・ベックハム法の適用状況によって異なります。
+      <strong>必ず国際税務に詳しい税理士に試算を依頼してから決断する</strong>ことを強くお勧めします。
+    </p>
+  </div>
+</div>
+
+<!-- アクションチェックリスト -->
+<div class="card">
+  <h2>&#x2705; アクションチェックリスト ── スペイン移住前後にやること</h2>
+
+  <ul class="check-list">
+    <li>
+      <span class="ico">&#x1F4C5;</span>
+      <div>
+        <strong>移住前に「1月1日をまたがないタイミング」を意識して転出届を計画する</strong>。
+        1月1日に日本の住民票が残っていると、その年の住民税（翌年6月支払）が発生する。
+        年末年始をスペインで迎えるなら12月中に転出届を出すのが有利。← 2026-06-04 日報参照。
+      </div>
+    </li>
+    <li>
+      <span class="ico">&#x1F4CA;</span>
+      <div>
+        <strong>法人の税理士に「代表者が非居住者になる日」を事前に伝え、源泉徴収の計算方法を切り替えてもらう</strong>。
+        非居住者になった月の翌月10日までに20.42%で源泉納付する必要があるため、法人側の手続きは早めに確認しておく。
+      </div>
+    </li>
+    <li>
+      <span class="ico">&#x1F4CB;</span>
+      <div>
+        <strong>法人から日本法人株式・持分に係る「配当」を受け取る場合は、新日西条約の5%適用のため「租税条約に関する届出書」を最初の配当支払日の前日までに提出する</strong>。
+        役員報酬への届出書は率軽減効果がないが、配当には有効。税理士に依頼する。
+      </div>
+    </li>
+    <li>
+      <span class="ico">&#x1F1EA;&#x1F1F8;</span>
+      <div>
+        <strong>スペインでの RETA 登録（autónomo として自営業登録）後6か月以内に Modelo 149 を提出し、ベックハム法を選択する</strong>。
+        この申請を逃すと、スペインで世界中の所得に対して累進税率（最大47%）が課税される。
+        ← 2026-06-01 と 2026-06-05 の日報参照。
+      </div>
+    </li>
+    <li>
+      <span class="ico">&#x1F4B8;</span>
+      <div>
+        <strong>ベックハム法を適用したうえで「役員報酬が外国源泉所得と認定されるか」をスペインの Asesor Fiscal に確認する</strong>。
+        日本法人からの役員報酬がスペインで免税になるか、あるいは一部がスペイン源泉として24%課税されるかは、
+        業務の実態・顧客の所在地などによって変わる可能性がある。
+      </div>
+    </li>
+    <li>
+      <span class="ico">&#x1F4C2;</span>
+      <div>
+        <strong>日本で受け取る「給与所得の源泉徴収票」を毎年保管し、スペインの申告（Modelo 151）の際に添付できるよう準備する</strong>。
+        日本で源泉徴収された税額は、スペインの申告で外国税額控除として活用できる可能性がある（ベックハム法非適用の場合）。
+      </div>
+    </li>
+    <li>
+      <span class="ico">&#x1F4A1;</span>
+      <div>
+        <strong>役員報酬 vs 配当の最適な組み合わせを国際税務税理士に試算させる</strong>。
+        新日西条約で配当源泉が5%になったことで、役員報酬一本より配当を組み合わせた方が有利になる可能性がある。
+        ただし、法人税・社会保険・ベックハム法の相互作用が複雑なため、必ずプロに試算を依頼する。
+      </div>
+    </li>
+  </ul>
+</div>
+
+<!-- 用語まとめ -->
+<div class="card">
+  <h2>&#x1F4D6; 今日の用語まとめ</h2>
+  <p>
+    <span class="tag red">国内源泉所得</span>日本の税法（所得税法第161条）が定める「日本で生じた収入」のカテゴリ。役員報酬はたとえ海外から仕事をしていても、日本の法人が支払う限り全額が国内源泉所得として扱われる。<br>
+    <span class="tag red">源泉徴収（非居住者）</span>日本の法人が非居住者の役員に報酬を支払う際に、支払い時に20.42%を差し引いて税務署に納める義務。差し引いた後の残額が役員の手取りとなる。<br>
+    <span class="tag">20.42%</span>所得税20%＋復興特別所得税（所得税の2.1%相当）0.42%の合計。復興特別所得税は2037年12月31日まで適用される予定。<br>
+    <span class="tag">新日西租税条約</span>日本とスペインの間で締結した租税条約の改定版。2021年5月発効・2022年1月から源泉税に適用。配当5%・利子0%・使用料0%の優遇税率が特徴。役員報酬への特別軽減はない。<br>
+    <span class="tag amber">OECD モデル条約第16条</span>取締役報酬（Directors' Fees）に関するモデル規定。「源泉地国（支払国）が国内レートで課税できる」という内容で、多くの二国間条約でこれに準拠している。<br>
+    <span class="tag green">租税条約に関する届出書</span>税条約の優遇（軽減・免除）を受けるために、最初の支払日の前日までに支払者を通じて税務署に提出する書類。配当・利子・使用料に有効。役員報酬には軽減効果が限定的。<br>
+    <span class="tag green">外国源泉所得</span>スペインの税務上「スペイン国外で生じた所得」のこと。ベックハム法（IRNR）を適用しているDNV保持者は、外国源泉所得がスペインの課税対象外となる可能性がある。<br>
+    <span class="tag amber">外国税額控除</span>二重課税を防ぐために、一方の国で払った税金を他方の国の税額から控除する仕組み。日本で源泉徴収された20.42%は、スペインの税申告で控除できる場合がある。<br>
+    <span class="tag">Modelo 149</span>スペインのベックハム法（IRNR 特別税制）への申請書類。RETA 登録後6か月以内に提出が必要。← 2026-06-05 の日報参照。<br>
+    <span class="tag amber">Asesor Fiscal</span>スペインの税務顧問（フリーランスの税務専門家）。Gestor よりも税務専門性が高い。役員報酬の外国源泉所得認定など複雑な国際税務は、Asesor Fiscal または Abogado Fiscalista に相談する。
+  </p>
+</div>
+
+<!-- 出典 -->
+<div class="card">
+  <h2>&#x1F4DA; 参照した出典（2026年）</h2>
+  <div class="source-list" style="font-size:0.88rem; line-height:2.0;">
+    &#x2022; 国税庁「No.1929 海外で勤務する法人の役員などに対する給与の支払と税務」<br>
+    &nbsp;&nbsp;<a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1929.htm" target="_blank">https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1929.htm</a><br>
+    &#x2022; 国税庁「No.2884 非居住者等に対する源泉徴収・源泉徴収の税率」<br>
+    &nbsp;&nbsp;<a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/gensen/2884.htm" target="_blank">https://www.nta.go.jp/taxes/shiraberu/taxanswer/gensen/2884.htm</a><br>
+    &#x2022; 国税庁「No.2885 非居住者等に対する源泉徴収のしくみ」<br>
+    &nbsp;&nbsp;<a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/gensen/2885.htm" target="_blank">https://www.nta.go.jp/taxes/shiraberu/taxanswer/gensen/2885.htm</a><br>
+    &#x2022; 国税庁「No.2888 租税条約に関する届出書の提出（源泉徴収関係）」<br>
+    &nbsp;&nbsp;<a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/gensen/2888.htm" target="_blank">https://www.nta.go.jp/taxes/shiraberu/taxanswer/gensen/2888.htm</a><br>
+    &#x2022; 外務省「日・スペイン租税条約」（新条約：2021年発効・2022年適用開始）<br>
+    &nbsp;&nbsp;<a href="https://www.mofa.go.jp/mofaj/ila/et/page25_001864.html" target="_blank">https://www.mofa.go.jp/mofaj/ila/et/page25_001864.html</a><br>
+    &#x2022; European Tax Blog「Japan and Spain update their double taxation treaty: no withholding on dividends, interest and royalties」<br>
+    &nbsp;&nbsp;<a href="https://www.europeantax.blog/post/102gwtw/japan-and-spain-update-their-double-taxation-treaty-no-withholding-on-dividends" target="_blank">https://www.europeantax.blog/post/102gwtw/japan-and-spain-update-their-double-taxation-treaty-no-withholding-on-dividends</a><br>
+    &#x2022; getrenn.com「Beckham Law for Expats - Spain's 24% Flat Tax」（2026年）<br>
+    &nbsp;&nbsp;<a href="https://getrenn.com/blog/beckham-law-for-expats" target="_blank">https://getrenn.com/blog/beckham-law-for-expats</a><br>
+    &#x2022; JURO Spain「Beckham Law Spain 2026: The Ultimate Tax Guide for Digital Nomads &amp; Expats」（2026年）<br>
+    &nbsp;&nbsp;<a href="https://jurospain.com/guides/beckham-law-spain-2026-guide/" target="_blank">https://jurospain.com/guides/beckham-law-spain-2026-guide/</a><br>
+    <p style="margin-top:10px; color:#999;">
+      ※ 「役員報酬が国内源泉所得として扱われ、非居住者への支払い時に20.42%を源泉徴収する」という点は、
+      国税庁 No.1929・No.2884・No.2885 に基づきます（2026年現在）。<br>
+      ※ 新日西租税条約の配当5%・利子0%・使用料0%の優遇については、外務省・European Tax Blog 等複数ソースで確認済み（2022年1月適用開始）。<br>
+      ※ 役員報酬に対する新日西条約の具体的条文（第16条）は、記事作成時点で原文を直接確認できなかったため、OECD モデル条約の一般的解釈に基づいて記載しています。正式な確認は外務省・国税庁の一次ソース、または専門家への相談を推奨します。<br>
+      ※ ベックハム法下での「日本法人役員報酬が外国源泉所得として免税になる」という解釈は、ベックハム法（IRNR）の一般原則に基づくものです。個別の状況によって異なるため、スペインの Asesor Fiscal への確認が必須です。
+    </p>
+  </div>
+</div>
+
+<!-- 免責事項 -->
+<div class="footer-note">
+  <strong>&#x26A0;&#xFE0F; 免責事項</strong><br>
+  本記事は日本の1人法人の代表者がスペインに移住した場合の税務・源泉徴収に関する情報提供を目的としています。<br><br>
+  &#x2022; ビザ・在留資格（DNV の申請・TIE・書類要件）に関する正式な判断は<strong>スペイン移民法を専門とする移民弁護士（Abogado de Extranjería）</strong>へ。<br>
+  &#x2022; 役員報酬の源泉徴収・租税条約の適用・非居住者認定などの税務は<strong>日本の国際税務に強い税理士</strong>へ。<br>
+  &#x2022; ベックハム法の申請・外国源泉所得の認定・Modelo 149/151 の作成は<strong>スペインの Asesor Fiscal（税務顧問）</strong>に相談を。<br>
+  &#x2022; 20.42%（所得税20%＋復興特別所得税0.42%）は2026年現在の税率。2037年12月31日以降は復興特別所得税がなくなる予定（変更の可能性あり）。<br>
+  &#x2022; 新日西租税条約の適用税率（配当5%・利子0%・使用料0%）は2022年1月1日から適用。基準年度：2022年（変更の可能性あり）。<br>
+  &#x2022; 「必ず免税になる」「必ず有利になる」などの断定はしていません。個別の状況により結果は大きく異なります。<br>
+  &#x2022; 本記事の情報は 2026年6月時点の各種情報源をもとに作成。制度・条約・税率は随時変更されます。
+</div>
+
+</body>
+</html>
