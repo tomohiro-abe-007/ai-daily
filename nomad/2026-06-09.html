@@ -383,24 +383,27 @@
   .mini-card.green-bg h4 { color: #2c6e4e; }
   .flow-h-row {
     display: flex;
-    align-items: center;
+    align-items: stretch;
     gap: 4px;
     flex-wrap: wrap;
     margin: 14px 0;
   }
   .flow-h-box {
     flex: 1;
-    min-width: 110px;
+    min-width: 90px;
     background: #7b3232;
     color: white;
     border-radius: 8px;
-    padding: 14px 12px;
+    padding: 12px 10px;
     text-align: center;
-    font-size: 0.82rem;
-    line-height: 1.55;
+    font-size: 0.78rem;
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
-  .flow-h-box .fh-label { font-size: 0.68rem; opacity: 0.8; display: block; margin-bottom: 4px; }
-  .flow-h-box strong { font-size: 0.9rem; }
+  .flow-h-box .fh-label { font-size: 0.65rem; opacity: 0.8; display: block; margin-bottom: 4px; }
+  .flow-h-box strong { font-size: 0.85rem; }
   .flow-h-box.fh-amber { background: #8a5e00; }
   .flow-h-box.fh-blue  { background: #2a5e8e; }
   .flow-h-box.fh-gray  { background: #555; }
@@ -411,10 +414,12 @@
     font-size: 1.3rem;
     color: #7b3232;
     flex-shrink: 0;
+    display: flex;
+    align-items: center;
   }
   @media (max-width: 520px) {
     .flow-h-row { flex-direction: column; }
-    .arrow-right { transform: rotate(90deg); }
+    .arrow-right { transform: rotate(90deg); justify-content: center; }
   }
   .badge-ng {
     display: inline-block;
@@ -449,6 +454,58 @@
     margin-left: 4px;
     vertical-align: middle;
   }
+  .doc-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 14px 0;
+  }
+  @media (max-width: 500px) { .doc-row { grid-template-columns: 1fr; } }
+  .doc-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    background: #fdf5f5;
+    border: 1px solid #e8c8c8;
+    border-radius: 6px;
+    padding: 12px 14px;
+    font-size: 0.87rem;
+    line-height: 1.6;
+  }
+  .doc-num {
+    background: #7b3232;
+    color: white;
+    border-radius: 4px;
+    min-width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.72rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .doc-num.amber { background: #b07700; }
+  .doc-item .doc-title { font-weight: 600; font-size: 0.88rem; display: block; margin-bottom: 2px; }
+  .doc-item .doc-note  { font-size: 0.8rem; color: #777; }
+  .pilot-banner {
+    background: linear-gradient(135deg, #1a4033 0%, #2c6e4e 100%);
+    color: white;
+    border-radius: 8px;
+    padding: 18px 22px;
+    margin: 14px 0;
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+  .pilot-banner .pb-label {
+    font-size: 0.72rem;
+    opacity: 0.85;
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+  }
 </style>
 </head>
 <body>
@@ -462,11 +519,11 @@
 <!-- ヒーロー -->
 <div class="hero">
   <div class="label">&#x1F4D3; デジタルノマド日報</div>
-  <h1>&#x26A0;&#xFE0F; スペイン 国際遠隔就労ビザ 2026年<br>UGE 審査強化アップデート<br>Non-Lucrative Visa 変更不可・<br>社会保険未登録でビザ取消リスク</h1>
+  <h1>&#x1F4B3; スペイン TIE カード取得実務 2026<br>外国人在留カード：指紋登録・書類7点・<br>Cita Previa 予約競争と 2026年自動化パイロット</h1>
   <p class="meta">
-    2026年6月9日（火）｜バックログ解説：UGE 審査強化 2026<br>
-    Non-Lucrative Visa からの変更不可ルール・申請差し戻し傾向<br>
-    社会保険（Seguridad Social）登録の義務と更新時の居住証明強化
+    2026年6月9日（火）｜バックログ解説：TIE 取得実務<br>
+    Tarjeta de Identidad de Extranjero（外国人身分証カード）の申請フロー<br>
+    Cita Previa 予約難問題 &#x26; L&#39;Hospitalet 自動予約パイロット（2026年2月〜）
   </p>
 </div>
 
@@ -475,446 +532,452 @@
   <h2>&#x1F4CC; 今日の数字で見るポイント</h2>
   <div class="number-row">
     <div class="number-card">
-      <div class="num">2026年<br>初頭</div>
-      <div class="desc">UGE 専門審査チーム<br>が発足・厳格化開始<br>（複数移民法律事務所<br>が2026年初報告）</div>
+      <div class="num">30日</div>
+      <div class="desc">スペイン入国後の<br>TIE 申請目安期限<br>（入国日から起算）</div>
     </div>
     <div class="number-card amber">
-      <div class="num">€2,850<br>/月</div>
-      <div class="desc">2026年の収入下限<br>（SMI €1,221×200%）<br>Royal Decree 126/2026<br>による SMI 改定</div>
+      <div class="num">€16.32</div>
+      <div class="desc">TIE 発行手数料<br>Modelo 790<br>Código 012<br>（2026年時点）</div>
     </div>
     <div class="number-card blue">
-      <div class="num">6か月<br>/年</div>
-      <div class="desc">更新に必要な<br>スペイン居住の目安<br>（≒183日/年）<br>パドロン履歴で証明</div>
+      <div class="num">3年間</div>
+      <div class="desc">DNV ホルダーの<br>TIE 初回有効期間<br>（更新で＋2年）</div>
     </div>
     <div class="number-card green">
-      <div class="num">0円</div>
-      <div class="desc">社会保険未登録の<br>「その場のコスト」<br>→ 更新拒否・<br>ビザ取消のリスクあり</div>
+      <div class="num">2.5〜4<br>か月</div>
+      <div class="desc">マドリード・バルセロナ<br>等大都市での<br>2026年 実態スケジュール<br>（バックログ影響）</div>
     </div>
   </div>
   <p style="font-size:0.82rem; color:#777; margin-top:8px;">
-    ※ 収入下限（€2,850/月）は 2026年 SMI 改定（Royal Decree 126/2026）をもとにした目安値。正確な審査ライン・適用日は一次ソース（BOE・大使館）で確認を。「必ず€2,850で通る」ことは保証できません。
+    ※ TIE 申請期限（30日）は多くの専門サイト・移民弁護士が案内する目安です。一部資料では60日との記載もあります。正確な期限は在スペイン日本大使館・移民弁護士にご確認ください。手数料（€16.32）は2026年時点の各情報サイトの記載をもとにした目安値です。
   </p>
 </div>
 
-<!-- Section 1: UGE 審査強化の全体像 -->
+<!-- Section 1: TIEとNIEの違い -->
 <div class="card">
-  <h2>&#x1F6A8; UGE 審査強化 ── 2026年に何が変わったか</h2>
+  <h2>&#x2753; そもそも「TIE」と「NIE」は何が違う？</h2>
   <p>
-    スペインの国際遠隔就労ビザ（Autorización de residencia para teletrabajo de carácter internacional、通称「デジタルノマドビザ」）を担当する移民局部門<strong>「UGE-CE（Unidad de Grandes Empresas - Cuenta Especial）」</strong>は、
-    2026年初頭に専門審査チームを再編・強化しました。
-    複数の移民専門法律事務所が2026年1〜3月に報告しており、<strong>審査が以前より格段に厳しくなっています</strong>。
-  </p>
-
-  <div class="danger-box">
-    <span class="dlabel">&#x1F6A8; UGE が特定した「2つの深刻な問題」</span>
-    <p>
-      ① <strong>書類の偽造・不正申請</strong>：存在しない雇用契約・実態のない会社登録を提出する申請が増加。同じ行政書士・代理人が多数の申請者に同一書式を使い回す事例も発覚。<br>
-      ② <strong>許可取得後の社会保険（Seguridad Social）未登録</strong>：ビザを取得したのに、スペインの社会保険制度に登録しないままでいるケースが多発。
-    </p>
-  </div>
-
-  <p style="margin-top:10px;">
-    その結果、UGE は<strong>書類の真偽確認を厳格化</strong>し、代理人（行政書士・移民弁護士）の申請ファイル全体を横断的にチェックする体制を整えました。
-    <strong>1件でも不正が発覚した代理人のすべての申請が審査対象</strong>になりうると複数の専門家が警告しています。
-  </p>
-
-  <table class="matrix-table" style="margin-top:14px;">
-    <thead>
-      <tr>
-        <th>項目</th>
-        <th>2025年以前の傾向</th>
-        <th>2026年の傾向</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><strong>書類の審査</strong></td>
-        <td>比較的ゆるやか</td>
-        <td class="ng">厳格化・真偽確認強化</td>
-      </tr>
-      <tr class="row-warn">
-        <td><strong>社会保険登録</strong></td>
-        <td>未登録でも更新できたケースあり</td>
-        <td class="ng">未登録は更新・取消リスク大</td>
-      </tr>
-      <tr>
-        <td><strong>Non-Lucrative Visa → DNV<br>への変更</strong></td>
-        <td>スペイン国内からの変更を<br>受け付けていたケースあり</td>
-        <td class="ng">スペイン国内からの変更は不可<br>（出国して領事館で申請が必要）</td>
-      </tr>
-      <tr class="row-warn">
-        <td><strong>更新時の居住証明</strong></td>
-        <td>緩やかな確認</td>
-        <td class="warn">パドロン履歴・居住実態の確認強化</td>
-      </tr>
-      <tr>
-        <td><strong>代理人の申請チェック</strong></td>
-        <td>個別案件ごと</td>
-        <td class="ng">同一代理人の申請を横断チェック</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <div class="news-box">
-    <span class="nlabel">&#x1F4F0; 情報の出所について</span>
-    <p>
-      この変化は2026年1月・3月に複数の移民専門法律事務所（spainguru.es, remotefromspain.com, remoteworkeurope.eu 等）が報告したものです。
-      <strong>「いつからこのルールが始まったか」を示す一次ソース（スペイン官報BOE等）での確認はできていません</strong>。
-      既存のルールが厳格に適用されるようになった、という側面が強く、単純な「新制度」とは言い切れません。
-      正確な適用日・ルール変更日は移民弁護士への確認を推奨します。
-    </p>
-  </div>
-</div>
-
-<!-- Section 2: Non-Lucrative Visa → DNV 変更不可 -->
-<div class="card">
-  <h2>&#x1F6AB; Non-Lucrative Visa（非収益ビザ）からの変更不可</h2>
-  <p>
-    2026年、UGE は<strong>「Non-Lucrative Visa（非収益滞在許可 = Visado de No Lucrativa）やその他の非就労系ビザからデジタルノマドビザへの変更（Modificación）は、スペイン国内からは受け付けない」</strong>ことを明確にしました。
+    スペインで生活・仕事をする外国人には <strong>「NIE」</strong> と <strong>「TIE」</strong> という2つの重要なIDが登場します。
+    まず名前が似ていて紛らわしいので整理しましょう。
   </p>
 
   <div class="compare-row">
-    <div class="compare-card red">
-      <h3>&#x274C; できないこと（2026年）</h3>
-      &#x2022; スペイン国内に滞在したまま Non-Lucrative Visa → DNV に変更申請<br>
-      &#x2022; 観光ビザ（短期滞在）のまま DNV の在留資格申請<br>
-      &#x2022; 他の非就労系ビザからスペイン国内での変更<br>
-      <br>
-      <span style="font-size:0.82rem; color:#922b2b;">→ これらはすべて「差し戻し」または「拒否」になります</span>
+    <div class="compare-card blue">
+      <h3>&#x1F522; NIE（ニエ）= 番号だけ</h3>
+      <strong>Número de Identidad de Extranjero</strong><br>
+      （外国人識別番号）<br><br>
+      &#x2022; スペインでの税務・法律上の<strong>識別番号</strong>（日本のマイナンバーに近い）<br>
+      &#x2022; 形式例：X-1234567-A<br>
+      &#x2022; <strong>DNV 承認時に自動的に付与</strong>される（多くの場合、別途申請不要）<br>
+      &#x2022; 銀行口座開設・契約・納税など「番号」が必要な場面で使う<br>
+      &#x2022; 物理的なカードではなく<strong>番号のみ</strong>
     </div>
     <div class="compare-card green">
-      <h3>&#x2705; 正しい手順（2026年）</h3>
-      &#x2022; <strong>スペインを出国</strong>して日本（または母国）に戻る<br>
-      &#x2022; 在日スペイン大使館・領事館で <strong>Visado de teletrabajo（国際テレワークビザ）</strong>を新規申請<br>
-      &#x2022; ビザ取得後にスペインへ入国<br>
-      &#x2022; 入国後60日以内に TIE（在留許可カード）を申請<br>
-      <br>
-      <span style="font-size:0.82rem; color:#2c6e4e;">→ 在日スペイン大使館からの申請フロー（2026-06-03 参照）</span>
+      <h3>&#x1F4B3; TIE（ティエ）= 物理カード</h3>
+      <strong>Tarjeta de Identidad de Extranjero</strong><br>
+      （外国人在留カード）<br><br>
+      &#x2022; 在留資格・NIE番号・顔写真・指紋が入った<strong>ICカード</strong>（日本の在留カードに相当）<br>
+      &#x2022; 「法的にスペインに住んでいる」証明として常時携帯が必要<br>
+      &#x2022; <strong>指紋登録（Cita Previa 予約が必要）</strong>を経て国家警察が発行<br>
+      &#x2022; DNV 初回：<strong>有効期間3年</strong><br>
+      &#x2022; 更新：さらに<strong>2年</strong>
     </div>
-  </div>
-
-  <p style="margin-bottom:12px;">Non-Lucrative Visa → DNV の変更を考えている場合は、以下のフローが必要です：</p>
-
-  <div class="flow-h-row">
-    <div class="flow-h-box fh-sub"><span class="fh-label">現在の状況</span><strong>スペイン国内に<br>Non-Lucrative Visa<br>で滞在中</strong></div>
-    <div class="arrow-right">&#x279C;</div>
-    <div class="flow-h-box fh-amber"><span class="fh-label">必須ステップ</span><strong>スペインを<br>出国する<br>（帰国 or 第三国）</strong></div>
-    <div class="arrow-right">&#x279C;</div>
-    <div class="flow-h-box"><span class="fh-label">在日スペイン大使館</span><strong>Visado de<br>teletrabajo<br>を新規申請</strong></div>
-    <div class="arrow-right">&#x279C;</div>
-    <div class="flow-h-box fh-green"><span class="fh-label">ビザ取得後にスペイン入国</span><strong>TIE 申請<br>（入国後60日<br>以内が目安）</strong></div>
-  </div>
-
-  <div class="alert-box" style="margin-top:14px;">
-    <span class="alabel">&#x26A0;&#xFE0F; 「Non-Lucrative Visa（非収益ビザ）」とは？</span>
-    <p>
-      <strong>スペインの Non-Lucrative Visa（非収益滞在ビザ）</strong>は、スペインで働かずに生活費を自分で賄える財力を証明して取得する滞在許可です。
-      スペイン語では「Visado de residencia no lucrativa」と言います。
-      かつては「DNV取得の橋渡し」として使われることがありましたが、<strong>2026年のUGE通達により、国内からの変更が認められなくなりました</strong>（この変更の正確な開始日は一次ソースで未確認です）。
-    </p>
   </div>
 
   <div class="highlight-box">
-    <span class="hlabel">&#x1F1EF;&#x1F1F5; 日本↔スペインを行き来する人への影響</span>
+    <span class="hlabel">&#x1F4A1; DNV ホルダーの場合</span>
     <p>
-      Non-Lucrative Visa でスペインに入った後、「やっぱりDNVに切り替えたい」と思っても、<strong>いったん日本に帰国してから大使館申請を行う必要があります</strong>。
-      日本に戻る予定がある人は、むしろ「最初から日本でDNV（国際遠隔就労ビザ）を申請する」方がシンプルです。
-      申請フローの詳細は <strong>2026-06-03 の日報</strong>をご参照ください。
+      在日スペイン大使館でビザを申請し、承認された時点でNIE番号が付与されます（承認書に記載）。
+      スペイン入国後に<strong>TIEカードを申請することで、初めて「物理的な在留証明書」が手に入ります</strong>。
+      TIE申請前でも、<strong>NIE番号と承認書（Resolución Favorable）があれば銀行口座開設などの手続きは可能</strong>な場合があります（2026-06-06 参照）。
     </p>
   </div>
 </div>
 
-<!-- Section 3: 社会保険登録 -->
+<!-- Section 2: 全体フロー -->
 <div class="card">
-  <h2>&#x1F3E5; 社会保険（Seguridad Social）登録 ── 未登録でビザ取消リスク</h2>
-  <p>
-    DNVを取得した後、多くの保持者は<strong>スペインの社会保険（Seguridad Social＝セグリダ・ソシアル）への登録義務がある</strong>にもかかわらず、これを行っていないケースが増えています。
-    2026年、UGEはこの未登録問題を「審査強化の2大理由の一つ」として明示しました。
-  </p>
+  <h2>&#x1F5FA;&#xFE0F; TIE 取得の全体フロー（入国〜カード受け取り）</h2>
+  <p style="margin-bottom:14px;">DNVビザでスペインに入国してからTIEカードを手にするまでの7ステップです。</p>
 
-  <div class="two-col">
-    <div class="mini-card">
-      <h4>&#x1F7E2; 社会保険「登録が必要」なケース</h4>
-      スペイン国内で自営業活動（= autónomo登録）をして稼ぐ場合 → <strong>RETA（自営業者向け社会保険）への登録が必要</strong><br><br>
-      スペイン国内のクライアントへのサービス提供（スペイン収入が20%以下でも）が発生する場合<br><br>
-      スペインを税務居住地として選んだ場合
-    </div>
-    <div class="mini-card amber-bg">
-      <h4>&#x26A0;&#xFE0F; 「免除」が認められる可能性があるケース</h4>
-      <strong>日西社会保障協定</strong>（日本とスペイン間の社会保険二重払い防止協定）が適用される場合 → 最大5年間、日本の社会保険継続でスペインの登録が免除される可能性<br><br>
-      ただし自営業者（1人法人代表）への適用は複雑 → <strong>Gestorまたは移民弁護士への確認が必須</strong>
-    </div>
+  <div class="flow-h-row">
+    <div class="flow-h-box"><span class="fh-label">&#x1F1EF;&#x1F1F5; STEP 0</span><strong>日本で<br>DNVビザ取得</strong><br><span style="font-size:0.65rem; opacity:0.8;">在日スペイン大使館<br>（06-03 参照）</span></div>
+    <div class="arrow-right">&#x279C;</div>
+    <div class="flow-h-box fh-sub"><span class="fh-label">&#x2708;&#xFE0F; STEP 1</span><strong>スペイン入国</strong><br><span style="font-size:0.65rem; opacity:0.8;">ここから<br>30日カウント開始</span></div>
+    <div class="arrow-right">&#x279C;</div>
+    <div class="flow-h-box fh-amber"><span class="fh-label">&#x1F3E0; STEP 2</span><strong>empadronamiento<br>（住民登録）</strong><br><span style="font-size:0.65rem; opacity:0.8;">市役所で即日登録</span></div>
+    <div class="arrow-right">&#x279C;</div>
+    <div class="flow-h-box fh-blue"><span class="fh-label">&#x1F3E6; STEP 3</span><strong>Modelo 790-012<br>手数料支払い</strong><br><span style="font-size:0.65rem; opacity:0.8;">銀行窓口で€16.32</span></div>
+  </div>
+  <div style="margin: 6px 0; text-align:center; font-size:1.3rem; color:#7b3232;">&#x279C;</div>
+  <div class="flow-h-row">
+    <div class="flow-h-box"><span class="fh-label">&#x1F4BB; STEP 4</span><strong>Cita Previa<br>（予約）取得</strong><br><span style="font-size:0.65rem; opacity:0.8;">公式サイトで予約<br>競争率高め</span></div>
+    <div class="arrow-right">&#x279C;</div>
+    <div class="flow-h-box fh-sub"><span class="fh-label">&#x1F46E; STEP 5</span><strong>警察で<br>指紋登録</strong><br><span style="font-size:0.65rem; opacity:0.8;">書類提出＋指紋<br>Resguardo 受領</span></div>
+    <div class="arrow-right">&#x279C;</div>
+    <div class="flow-h-box fh-amber"><span class="fh-label">&#x23F3; STEP 6</span><strong>30〜45日<br>待機</strong><br><span style="font-size:0.65rem; opacity:0.8;">Lote番号で進捗確認</span></div>
+    <div class="arrow-right">&#x279C;</div>
+    <div class="flow-h-box fh-green"><span class="fh-label">&#x1F4B3; STEP 7</span><strong>TIEカード<br>受け取り</strong><br><span style="font-size:0.65rem; opacity:0.8;">同じ警察署へ</span></div>
   </div>
 
-  <div class="danger-box">
-    <span class="dlabel">&#x1F6A8; 社会保険未登録のリスク（2026年）</span>
+  <div class="alert-box" style="margin-top:14px;">
+    <span class="alabel">&#x26A0;&#xFE0F; 2026年の現実：STEP 4（予約）が最大の難関</span>
     <p>
-      &#x2022; <strong>更新（Renovación）拒否</strong>：更新審査時に社会保険の納付証明書（Certificado de estar al corriente con la Seguridad Social）が出せない場合、更新が拒否される可能性があります。<br>
-      &#x2022; <strong>ビザ・在留許可の取消（Extinción）</strong>：UGEはビザ保持者が社会保険に登録していないことを確認した場合、在留許可を取り消す権限を持ちます。<br>
-      &#x2022; <strong>過去分の保険料の請求</strong>：登録漏れが発覚した場合、未納分を遡って請求される可能性があります。
-    </p>
-  </div>
-
-  <p>では、日本の1人法人の代表者として、スペインに住みながらリモートワークをする場合、どうなるのでしょうか？</p>
-
-  <table class="matrix-table">
-    <thead>
-      <tr>
-        <th>あなたの状況</th>
-        <th>社会保険の扱い</th>
-        <th>対応</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr class="row-green">
-        <td><strong>日本法人の役員として給与を受け取り、日本の社会保険（健康保険・厚生年金）に加入している</strong></td>
-        <td class="warn">日西社会保障協定の適用可能性あり<br>（最大5年間、日本加入継続）</td>
-        <td>Gestorと協定適用の可否を確認。適用されれば RETA 登録は不要かもしれない</td>
-      </tr>
-      <tr class="row-warn">
-        <td><strong>スペイン国内で autónomo（個人事業主）として活動する場合</strong></td>
-        <td class="ng">RETA（Régimen Especial de Trabajadores Autónomos）への登録が必要</td>
-        <td>活動開始前に RETA 登録。月額保険料：2026年は最低 約€200〜（収入連動制）。Tarifa Plana（月€80割引）あり（06-07参照）</td>
-      </tr>
-      <tr>
-        <td><strong>スペイン国外の顧客のみに請求（スペイン収入ゼロ）で、日本法人の役員報酬のみ受け取る</strong></td>
-        <td class="warn">協定の適用・RETA登録の要否がグレーゾーン</td>
-        <td><strong>必ずGestorまたは移民弁護士に確認する</strong>。自己判断で「不要」と決めるのは危険</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <div class="green-box">
-    <span class="glabel">&#x1F517; 関連する日報リンク</span>
-    <p>
-      日西社会保障協定・RETA・Tarifa Plana・Gestorの詳細は <strong>2026-06-07（Gestor 入門）</strong>で解説済みです。社会保険の登録場所としてスペインの銀行口座が必要な理由は <strong>2026-06-06（スペイン銀行口座 開設実務）</strong>で解説しています。
+      大都市（マドリード・バルセロナ・バレンシア等）では Cita Previa の予約スロットが<strong>公開直後に数十秒〜数分で満席</strong>になります。
+      エンドツーエンドのスケジュールが <strong>2.5〜4か月</strong>になるのは、主にSTEP 4の「予約待ち」が原因です。
+      STEP 1（入国）直後に STEP 4の予約確保を急ぐことが最重要です。
     </p>
   </div>
 </div>
 
-<!-- Section 4: 更新要件 -->
+<!-- Section 3: 必要書類 -->
 <div class="card">
-  <h2>&#x1F504; 更新（Renovación）時に問われる5つの条件 ── 2026年版</h2>
+  <h2>&#x1F4CB; 必要書類 7点チェックリスト</h2>
+  <p>指紋登録（STEP 5）の当日に以下すべてを持参します。<strong>1点でも欠けると当日に手続きが進まない</strong>ため、事前にすべて揃えてください。</p>
+
+  <div class="doc-row">
+    <div class="doc-item">
+      <div class="doc-num">1</div>
+      <div>
+        <span class="doc-title">&#x1F4D4; パスポート（原本＋全ページのコピー）</span>
+        <span class="doc-note">有効なパスポート原本。全ページのコピーを忘れずに。</span>
+      </div>
+    </div>
+    <div class="doc-item">
+      <div class="doc-num">2</div>
+      <div>
+        <span class="doc-title">&#x1F4DC; DNV 承認書（Resolución Favorable）</span>
+        <span class="doc-note">UGE から届いた在留許可の承認書。ビザシールではなく承認書。</span>
+      </div>
+    </div>
+    <div class="doc-item">
+      <div class="doc-num">3</div>
+      <div>
+        <span class="doc-title">&#x1F4DD; EX-17 書式（記入・印刷済み）</span>
+        <span class="doc-note">TIE申請用の公式書式。スペイン警察庁のサイトからダウンロード可能。</span>
+      </div>
+    </div>
+    <div class="doc-item">
+      <div class="doc-num">4</div>
+      <div>
+        <span class="doc-title">&#x1F5BC;&#xFE0F; 証明写真 1枚（32×26mm・白背景）</span>
+        <span class="doc-note">縦32mm×横26mm、正面・白背景、最近撮影のもの。</span>
+      </div>
+    </div>
+    <div class="doc-item">
+      <div class="doc-num">5</div>
+      <div>
+        <span class="doc-title">&#x1F3E0; Empadronamiento 証明書（発行3か月以内）</span>
+        <span class="doc-note">住民登録（empadronamiento）を証明する書類。市役所で発行。STEP 2を先に済ませておく。</span>
+      </div>
+    </div>
+    <div class="doc-item">
+      <div class="doc-num amber">6</div>
+      <div>
+        <span class="doc-title">&#x1F4B0; Modelo 790 Código 012 支払い証明</span>
+        <span class="doc-note">銀行窓口で€16.32を支払い、<strong>銀行スタンプ付きの領収書</strong>を持参。警察署では支払いできないため必ず事前に。</span>
+      </div>
+    </div>
+    <div class="doc-item">
+      <div class="doc-num amber">7</div>
+      <div>
+        <span class="doc-title">&#x1F5A8;&#xFE0F; 予約確認書（Cita Previa のPDF）印刷</span>
+        <span class="doc-note">予約時に発行されるPDFを必ず印刷して持参。スマートフォン表示は不可の場合がある。</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="alert-box">
+    <span class="alabel">&#x1F4B3; Modelo 790 Código 012 の支払い方法</span>
+    <p>
+      1. スペイン国家警察庁のウェブサイト（sede.policia.gob.es/Tasa790_012）でフォームに記入・印刷する。<br>
+      2. <strong>銀行窓口（あなたのスペイン口座がある銀行）</strong>に行き、手数料を支払う（€16.32）。<br>
+      3. 銀行がスタンプを押した領収書3枚のうち、<strong>スタンプ付きの1枚</strong>を当日持参する。<br>
+      ※ 2026年現在、一部の銀行ではオンライン支払いも可能になってきていますが、窓口支払いが最も確実です。
+    </p>
+  </div>
+</div>
+
+<!-- Section 4: Cita Previa の取り方 -->
+<div class="card">
+  <h2>&#x1F4BB; Cita Previa（予約）の取り方 ── ステップ5</h2>
   <p>
-    DNVの初回ビザ（Visado）は在外スペイン大使館で取得し、有効期間は<strong>1年間</strong>です。
-    スペイン国内で取得する在留許可（Autorización de residencia）は<strong>最長3年</strong>で、さらに2年更新が可能（最大5年）。
-    <strong>2026年の更新審査では、以下の条件の確認が以前より厳しくなっています。</strong>
+    <strong>Cita Previa（シタ・プレビア）</strong>＝「事前予約」のことです。
+    スペインの移民局・警察署での手続きはすべてこの事前予約制です。
+    以下のステップで予約を取ります。
   </p>
 
   <ul class="step-list">
     <li>
-      <span class="step-num">1</span>
+      <span class="step-num blue">1</span>
       <div>
-        <strong>&#x1F3E0; 実際にスペインに住んでいる証明（パドロン＋居住実態）</strong><br>
-        <strong>Padrón Histórico（パドロン・イストリコ）</strong>：市役所（Ayuntamiento）に住民登録（empadronamiento）した履歴を証明する書類。
-        更新では「この1〜3年間、実際にスペインに住んでいたこと」を証明する必要があります。
-        <strong>目安：年間6か月（≒183日）以上スペインに滞在していることが推奨</strong>されています（複数の移民専門家が言及）。
-        これを大幅に下回ると「実際には住んでいない」と判断される可能性があります。
+        <strong>公式サイトにアクセス</strong><br>
+        スペイン行政共通電子窓口（<code>sede.administracionespublicas.gob.es</code>）にアクセスします。
+        ブラウザは <strong>Chrome または Firefox</strong> を使用してください（Safari は最終ページでPDF生成が失敗することがあります）。
+        スペイン国外からアクセスする場合、一部のIPがブロックされることがあるため、<strong>スペインのVPNサーバーを使うか、スペイン入国後に操作する</strong>のが確実です。
       </div>
     </li>
     <li>
-      <span class="step-num">2</span>
+      <span class="step-num blue">2</span>
       <div>
-        <strong>&#x1F4B0; 収入要件の継続（2026年：€2,850/月以上）</strong><br>
-        更新時も申請時と同じ収入要件（SMIの200%）を満たしていることを証明します。
-        2026年の SMI は月€1,221（Royal Decree 126/2026）なので、収入下限の目安は<strong>月€2,850前後</strong>です。
-        収入証明には請求書・決済明細・銀行口座の入金履歴などを使います（06-08参照）。
+        <strong>在住する県（Provincia）を選択</strong><br>
+        ご自分がempadronamientoを登録した市区町村がある県を選びます。
+        例：バルセロナに住んでいれば「Barcelona」、マドリードなら「Madrid」を選択します。
       </div>
     </li>
     <li>
-      <span class="step-num amber">3</span>
+      <span class="step-num blue">3</span>
       <div>
-        <strong>&#x1F3E5; 社会保険の納付証明書（最重要）</strong><br>
-        <strong>「Certificado de estar al corriente con la Seguridad Social」</strong>（社会保険の未払い債務がないことの証明書）が必要です。
-        これはスペイン社会保険事務所（Tesorería General de la Seguridad Social）で発行してもらいます。
-        登録していない、または保険料を滞納している場合、この証明書が取れず<strong>更新が拒否</strong>されます。
+        <strong>手続きの種類を選択（TIEの場合）</strong><br>
+        「<strong>EXPEDICIÓN DE TARJETA DE IDENTIDAD DE EXTRANJERO</strong>」（外国人在留カード発行）を選択します。
+        氏名・パスポート番号・国籍・NIE番号（承認書に記載）などを入力します。
       </div>
     </li>
     <li>
       <span class="step-num blue">4</span>
       <div>
-        <strong>&#x2714; 外国収入80%以上の維持（スペイン収入は最大20%）</strong><br>
-        DNVの核心条件。引き続き<strong>収入の80%以上が非スペイン源泉（外国顧客・外国雇用主）</strong>であることが必要です。
-        2026-05-30の日報で解説した「20%キャップルール」は更新時も適用されます。
-        顧客別の入金記録をきちんと保管しておきましょう（06-08参照）。
+        <strong>日時を選択 → SMS確認コードを受信</strong><br>
+        空きスロットが表示されたら日時を選択します。<strong>SMSで確認コードが届くため、スペインの電話番号（SIM）が強く推奨されます</strong>。
+        日本の電話番号でもSMSが届く場合がありますが、届かないケースも報告されています。
       </div>
     </li>
     <li>
-      <span class="step-num green">5</span>
+      <span class="step-num blue">5</span>
       <div>
-        <strong>&#x1F4CB; その他の継続条件</strong><br>
-        &#x2022; <strong>有効な健康保険</strong>（スペインの公的医療か、同等の民間保険）の継続<br>
-        &#x2022; <strong>刑事犯罪歴がないこと</strong>（更新前3〜5年分の証明が求められる場合あり）<br>
-        &#x2022; <strong>スペインの税務当局（AEAT）への申告義務</strong>の遵守（183日超なら居住者として確定申告：Modelo 100 または Modelo 151。詳細は06-05参照）<br>
-        &#x2022; <strong>雇用・業務状況の継続</strong>（申請時と同様の外国雇用主・業務内容）
+        <strong>予約確認書（PDF）を印刷して保存</strong><br>
+        予約完了後にPDFが発行されます。<strong>必ず印刷して当日持参</strong>してください。
+        参照番号（Número de referencia）も記録しておきます。
       </div>
     </li>
   </ul>
 
-  <div class="alert-box">
-    <span class="alabel">&#x23F0; 更新申請のタイミング</span>
+  <div class="green-box">
+    <span class="glabel">&#x1F4A1; 予約を取るコツ（2026年版）</span>
     <p>
-      更新申請は<strong>在留許可の有効期限の60日前から3か月前の間</strong>に行うのが一般的です。
-      期限切れで申請すると失効扱いになる場合があるため、<strong>Gestorへの早めの相談（期限の4〜5か月前）</strong>を推奨します。
+      &#x2022; <strong>金曜朝9時</strong>に新しいスロットがリリースされることが多いです（平日昼12〜14時にも追加されることあり）。<br>
+      &#x2022; 人気の警察署は<strong>数十秒〜数分で満席</strong>になります。瞬時の操作が必要です。<br>
+      &#x2022; <strong>Cita Ping（citaping.es）</strong>などのスロット監視サービスを使うと、空きが出た瞬間に通知を受け取れます（予約自体は公式サイトで行う）。<br>
+      &#x2022; <strong>Gestorや移民弁護士</strong>に予約代行を依頼することもできます（€50〜150が相場）。<br>
+      &#x2022; 「どの警察署でもよい」なら<strong>郊外・小都市の警察署</strong>の方が空きやすいです。
     </p>
   </div>
 </div>
 
-<!-- Section 5: 日本↔スペイン往来の影響 -->
+<!-- Section 5: 2026年の予約難問題 -->
 <div class="card">
-  <h2>&#x2708;&#xFE0F; 日本&#x21D4;スペインを行き来する生活への影響 ── 「6か月ルール」の実務的な意味</h2>
+  <h2>&#x26A0;&#xFE0F; 2026年の予約難問題 ── なぜ Cita Previa が取れないのか</h2>
+
+  <div class="danger-box">
+    <span class="dlabel">&#x1F6A8; 2026年：マドリード・バルセロナ・バレンシアで「2.5〜4か月待ち」が常態化</span>
+    <p>
+      複数の移民専門サイト・移民弁護士が2026年初頭から報告しています。
+      主要都市では書類提出から TIE カード取得まで <strong>2.5〜4か月</strong>かかる状況が続いています。
+      原因は以下の2点です：<br><br>
+      ① <strong>予約システム（Cita Previa）が旧式</strong>：従来の処理量を想定した設計のため、外国人居住者の急増に追いつけていない。<br>
+      ② <strong>大規模移民正規化プログラムの影響</strong>：スペイン政府の不法滞在者正規化プログラム（約50万人規模）が2026年中旬から本格化し、手続き件数がさらに増加する見込み。
+    </p>
+  </div>
+
+  <div class="alert-box">
+    <span class="alabel">&#x1F916; 「ボット問題」── Cita Previa のブラックマーケット</span>
+    <p>
+      ボットプログラムが大量の予約スロットを占拠し、<strong>1〜3万円で転売する</strong>ヤミ市場が存在します（Cita Previa ブラックマーケット）。
+      スペイン内務省（Interior Ministry）は2026年2月、この問題に対処するため <strong>L'Hospitalet de Llobregat でパーソナライズされた確認コードを使った自動予約システムのパイロット</strong>を開始しました。
+      このシステムにより、ボットによる大量予約が困難になることが期待されています。
+    </p>
+  </div>
+
+  <div class="pilot-banner">
+    <span class="pb-label">&#x1F7E2; 2026年2月12日〜 パイロット稼働中：自動 TIE 予約システム（L'Hospitalet de Llobregat）</span>
+    <strong>スペイン内務省が2026年2月12日に発表・開始した新しい仕組みです。</strong><br><br>
+    &#x2022; 場所：L'Hospitalet de Llobregat（バルセロナ近郊）の国家警察署<br>
+    &#x2022; 仕組み：在留許可（DNV）の承認書（Resolución Favorable）が発行されると、
+    <strong>自動的に指紋登録の予約日時がSMSまたはメールで通知</strong>される。自分で予約しなくてよい。<br>
+    &#x2022; 規模：バルセロナ県の月間TIE予約件数（約1,400件）の約3分の1をカバー<br>
+    &#x2022; 予約通知は承認後<strong>約1週間以内</strong>に届く<br>
+    &#x2022; 2026年6月時点：パイロットは継続中。ジローナ（Girona）・カステジョン（Castellón）への展開も計画中<br>
+    &#x2022; 注意：L'Hospitalet 以外・DNV以外の手続きは対象外。承認書に「自動予約」の旨が明記されている場合のみ適用。
+  </div>
+
+  <div class="news-box">
+    <span class="nlabel">&#x1F4F0; 政府の対応（2026年）</span>
+    <p>
+      スペイン内務省（Interior Ministry）は<strong>2026年6月までに移民担当部署に120名のスタッフを追加配置する</strong>と発表しました。ただし専門家の多くは「これだけでは不十分」と指摘しています。L'Hospitalet のパイロットが成功すれば全国展開が予定されますが、2026年6月時点ではまだ限定的な実施にとどまっています。
+    </p>
+  </div>
+</div>
+
+<!-- Section 6: 当日の流れ -->
+<div class="card">
+  <h2>&#x1F46E; 指紋登録当日の流れ ── 警察署で何が起きるか</h2>
+
+  <ul class="step-list">
+    <li>
+      <span class="step-num">1</span>
+      <div>
+        <strong>&#x23F0; 予約時間の少し前に到着</strong><br>
+        警察署（Comisaría＝コミサリア）の「移民担当窓口（Extranjería）」に向かいます。
+        7点の書類一式をすべて持参していることを最終確認します。
+        待合室で番号が呼ばれるまで待機します。
+      </div>
+    </li>
+    <li>
+      <span class="step-num">2</span>
+      <div>
+        <strong>&#x1F4C1; 書類の提出・確認</strong><br>
+        担当者に書類一式（予約確認書・パスポート・DNV承認書・EX-17・写真・Modelo 790-012・empadronamiento）を提出します。
+        担当者が内容を確認し、問題がなければ次のステップへ進みます。
+        <strong>書類に不備があると当日手続き不可</strong>になるため、事前確認が重要です。
+      </div>
+    </li>
+    <li>
+      <span class="step-num">3</span>
+      <div>
+        <strong>&#x270B; 指紋採取（全10本）</strong><br>
+        指紋登録機で<strong>両手全10本の指の指紋を採取</strong>します。数分で完了します。
+        あわせて顔写真のデジタル確認が行われる場合もあります。
+      </div>
+    </li>
+    <li>
+      <span class="step-num green">4</span>
+      <div>
+        <strong>&#x1F9FE; Resguardo（仮証明書）の受け取り</strong><br>
+        手続き完了後、<strong>Resguardo（レスグアルド）</strong>と呼ばれるA4サイズの仮証明書が渡されます。
+        この紙には <strong>Lote番号（ロテ番号）</strong>が記載されており、TIEカードの受け取り状況を追跡するのに使います。
+        TIEカードが出来上がるまでの間、<strong>この Resguardo が在留資格を証明する書類</strong>として機能します。
+      </div>
+    </li>
+  </ul>
+
+  <div class="highlight-box">
+    <span class="hlabel">&#x1F4A1; 所要時間の目安</span>
+    <p>
+      警察署での実際の手続き時間は<strong>15〜30分</strong>程度です。ただし待合室での待ち時間（混雑によって数十分〜1時間以上）が加わります。
+      予約時間より少し早めに到着し、余裕を持ったスケジュールを組んでください。
+    </p>
+  </div>
+</div>
+
+<!-- Section 7: カード受け取り -->
+<div class="card">
+  <h2>&#x1F4B3; TIE カードの受け取り ── Lote 番号の確認方法</h2>
   <p>
-    「日本とスペインを行き来しながら日本の1人法人として稼ぐ」という生活スタイルにとって、<strong>「年間何日スペインにいるべきか」は非常に重要な問題</strong>です。
-    2026年の審査強化でこのテーマがより現実的な課題になりました。
+    指紋登録の <strong>30〜45日後</strong>（大都市では最大2か月かかる場合も）にTIEカードが完成します。
+    完成するとそのまま受け取りに行けますが、<strong>準備できていない状態で行っても無駄足</strong>になります。
+    事前に確認する方法があります。
   </p>
+
+  <div class="flow-wrap">
+    <div class="flow-box light">
+      <span class="fb-label">Resguardo に記載の情報</span>
+      <strong>Lote番号（ロテ番号）</strong>を確認する。
+      Lote＝TIEカードを作る「バッチ番号」のこと。警察署は複数人分をまとめて処理します。
+    </div>
+    <div class="arrow-down">&#x25BC;</div>
+    <div class="flow-box blue">
+      <span class="fb-label">確認方法 ① 警察署の掲示板</span>
+      受け取り可能な最新のLote番号が警察署の窓口付近に掲示されています。
+      <strong>「現在のLote番号 ≥ 自分のLote番号」になったら受け取り可能</strong>。
+    </div>
+    <div class="arrow-down">&#x25BC;</div>
+    <div class="flow-box blue">
+      <span class="fb-label">確認方法 ② オンライン（spainguru.es 等）</span>
+      spainguru.es の「Check TIE Card Status」ツールなどでLote番号を入力すると確認できます（一部の警察署に対応）。
+    </div>
+    <div class="arrow-down">&#x25BC;</div>
+    <div class="flow-box green">
+      <span class="fb-label">受け取り当日</span>
+      <strong>Resguardo（仮証明書）+ パスポート</strong> を持って、指紋登録をした<strong>同じ警察署</strong>へ行く。
+      担当窓口でLote番号を伝え、TIEカードを受け取る。
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div class="mini-card">
+      <h4>&#x2705; Resguardo でできること</h4>
+      &#x2022; 在留資格の一時的な証明として使用可能<br>
+      &#x2022; スペイン国外への出国（一時帰国等）も可能<br>
+      &#x2022; 銀行・賃貸等の手続きで提示できる場合あり<br>
+      &#x2022; 期限：Resguardo に記載の有効期限まで
+    </div>
+    <div class="mini-card amber-bg">
+      <h4>&#x26A0;&#xFE0F; Resguardo の注意点</h4>
+      &#x2022; Resguardo は<strong>TIEカードの代替品ではない</strong><br>
+      &#x2022; 常時携帯が法的に義務付けられているのはTIEカード<br>
+      &#x2022; 紛失すると再発行手続きが必要<br>
+      &#x2022; 出国時は念のためパスポートとセットで携行
+    </div>
+  </div>
+</div>
+
+<!-- Section 8: 日本人・1人法人向け注意点 -->
+<div class="card">
+  <h2>&#x1F1EF;&#x1F1F5; 日本の1人法人オーナー向け ── TIE 取得で押さえるポイント</h2>
 
   <table class="matrix-table">
     <thead>
       <tr>
-        <th>スペイン滞在日数/年</th>
-        <th>税務上の居住（日西租税条約）</th>
-        <th>DNV 更新への影響</th>
-        <th>総合的なリスク</th>
+        <th>チェックポイント</th>
+        <th>注意内容</th>
+        <th>対策</th>
       </tr>
     </thead>
     <tbody>
-      <tr class="row-green">
-        <td><strong>183日以上</strong><br>（約6か月以上）</td>
-        <td class="ok">スペイン税務居住者<br>（Beckham法 or 通常課税）</td>
-        <td class="ok">◎ 更新要件を満たしやすい<br>パドロン証明が有効</td>
-        <td class="ok">低リスク（税務・ビザとも安定）</td>
+      <tr class="row-warn">
+        <td><strong>&#x1F4F1; スペインのSIMカードが必須</strong></td>
+        <td class="warn">Cita Previa の予約時にSMSで確認コードが送られる。日本番号だと届かないことが多い</td>
+        <td>スペイン入国後すぐにSIMを購入（空港・Carrefour・Vodafone店舗等で購入可）。eSIMサービス（Holafly等）も利用可能</td>
+      </tr>
+      <tr>
+        <td><strong>&#x1F3E0; Empadronamiento を先に済ませる</strong></td>
+        <td>TIE申請書類に「empadronamiento証明書（3か月以内）」が必要。先に住民登録（06-04参照）を済ませておかないとTIE申請が進まない</td>
+        <td>入国直後に住む住所を決め、市役所（Ayuntamiento）に住民登録。住所が不安定な場合はシェアハウス・ゲストハウスの住所でも可（オーナーの同意要）</td>
       </tr>
       <tr class="row-warn">
-        <td><strong>120〜182日</strong><br>（4〜6か月未満）</td>
-        <td class="warn">日本が税務居住地になりやすい<br>（183日未満なら非居住者主張が可能）</td>
-        <td class="warn">△ グレーゾーン。更新時に<br>「実際に住んでいるか」を問われる可能性</td>
-        <td class="warn">中リスク（更新拒否の可能性あり）</td>
+        <td><strong>&#x23F0; 30日ルールと予約難のジレンマ</strong></td>
+        <td class="warn">「30日以内に申請」が目安だが、大都市では予約スロット自体が取れないことがある。予約が取れていても30日を超えた場合の対処方法は不明確な部分あり</td>
+        <td>入国当日または翌日に Cita Previa の予約を試みる。取れない場合は Gestor（代理人）に依頼するか、予約が早い郊外・中小都市の警察署を選ぶ</td>
       </tr>
-      <tr class="row-danger">
-        <td><strong>119日以下</strong><br>（4か月未満）</td>
-        <td>日本が税務居住地（183日未満）</td>
-        <td class="ng">✕ 「スペインに実態として住んでいない」と判断されリスク大</td>
-        <td class="ng">高リスク（更新拒否・取消の可能性）</td>
+      <tr>
+        <td><strong>&#x2708;&#xFE0F; Resguardo があれば日本に帰国できる</strong></td>
+        <td>TIEカードが届く前（Resguardo 期間中）に日本に一時帰国する場合、Resguardo＋パスポートで対応可能</td>
+        <td>Resguardo の有効期限を確認し、期限内に帰国・再入国するスケジュールを組む。TIEカード受け取り前に帰国する場合は移民弁護士に事前相談推奨</td>
+      </tr>
+      <tr class="row-green">
+        <td><strong>&#x1F3E6; NIE番号はTIE前から使える</strong></td>
+        <td class="ok">DNV承認書（Resolución Favorable）にNIE番号が記載されている。TIEカード到着前でも銀行口座開設等にNIE番号を使用可能なケースが多い</td>
+        <td>銀行口座開設（06-06参照）はTIEカード到着前に進められる場合がある。窓口の対応は銀行・支店による</td>
+      </tr>
+      <tr class="row-warn">
+        <td><strong>&#x1F5C2;&#xFE0F; 承認書（Resolución Favorable）の保管</strong></td>
+        <td class="warn">承認書はTIE申請だけでなく、銀行口座開設・empadronamiento・社会保険登録のすべてで必要。紛失すると再取得が困難</td>
+        <td>スキャンしてクラウドに保存。物理コピーを複数枚作成。紛失した場合はUGEへの問い合わせが必要</td>
       </tr>
     </tbody>
   </table>
 
-  <div class="alert-box">
-    <span class="alabel">&#x26A0;&#xFE0F; 「183日ルール」と「6か月ルール」は別モノ</span>
-    <p>
-      <strong>183日（約6か月）</strong>は「税務上のスペイン居住者かどうかを判定するライン」（日西租税条約・スペイン所得税法）です（2026-06-02参照）。<br>
-      一方、DNV更新のための「6か月」は「実際にスペインで生活しているかの目安」として複数の移民専門家が使っている数値で、法律に明記された数字とは限りません。
-      <strong>この2つは「同じ数字」ですが「目的が異なります」。</strong>どちらも満たすことで税務・ビザの両面でリスクが低くなります。
-    </p>
-  </div>
-
-  <div class="compare-row">
-    <div class="compare-card amber">
-      <h3>&#x26A0;&#xFE0F; 「行き来生活」の現実的な懸念点</h3>
-      &#x2022; 日本の家族・仕事の都合でスペインに長く居られない時期がある<br>
-      &#x2022; 日本帰国中はスペインのパドロン住所に誰もいないため「居住実態」として疑われる可能性<br>
-      &#x2022; 183日を超えないようにすると、ビザ更新上は「住んでいない扱い」になるリスク<br>
-      &#x2022; 逆に183日以上いると日本の非居住者証明に影響し、日本の住民税・マイナンバーに影響（06-04参照）
-    </div>
-    <div class="compare-card green">
-      <h3>&#x2705; 現実的な対策</h3>
-      &#x2022; <strong>183日以上スペインに滞在</strong>して、税務・ビザ両方の居住要件を安定させる<br>
-      &#x2022; 日本に帰国する際は<strong>パドロンを維持</strong>したまま（抹消しない）<br>
-      &#x2022; スペイン国外6か月以上連続して不在にしない（連続不在が長いと問題になりやすい）<br>
-      &#x2022; <strong>Gestorと事前に「行き来スケジュール」を共有</strong>し、更新時に不利にならないよう計画する
-    </div>
-  </div>
-
   <div class="highlight-box">
-    <span class="hlabel">&#x1F4A1; シェンゲン90/180日ルールとDNV居住の違い</span>
+    <span class="hlabel">&#x1F4A1; Gestorへの相談タイミング</span>
     <p>
-      シェンゲン協定の「90日/180日ルール」（2026-05-31参照）はビザなし短期滞在の上限です。
-      <strong>DNV（在留許可）を持っている人はこのルールの適用外</strong>で、スペインに長期間住めます。
-      むしろDNV更新のためには「もっと多く（183日以上）スペインにいてください」という状況になります。
-      日本に帰国する際はシェンゲン圏外（スペイン国外）への出国記録が残りますが、それ自体は問題ありません。
+      TIE取得は書類さえ揃えれば自力でできる手続きですが、<strong>「Cita Previaが取れない」「30日を過ぎそう」「書類の不備が心配」</strong>という場合はGestorや移民弁護士に早めに相談しましょう（06-07参照）。
+      予約代行（€50〜150）や書類確認サービスを提供しているGestorが多く、初回相談は無料のケースも多いです。
     </p>
   </div>
-</div>
-
-<!-- Section 6: Action checklist -->
-<div class="card">
-  <h2>&#x2705; アクションチェックリスト ── 審査強化時代を生き抜く準備</h2>
-  <ul class="check-list">
-    <li>
-      <span class="ico">&#x1F4C5;</span>
-      <div>
-        <strong>「最初から日本の大使館でDNVを申請する」ルートを選ぶ</strong><br>
-        Non-Lucrative Visa 経由でスペインに入ってからDNVに変更する、という方法はもう使えません。
-        スペインのデジタルノマドビザを目指すなら、<strong>日本にいるうちに在日スペイン大使館（東京）で申請する</strong>のがシンプルで確実です（詳細は2026-06-03参照）。
-      </div>
-    </li>
-    <li>
-      <span class="ico">&#x1F3E5;</span>
-      <div>
-        <strong>スペイン入国後はできる限り早く社会保険（Seguridad Social）の登録を行う</strong><br>
-        登録が必要かどうか（日西社会保障協定の適用可否）は状況によって異なるため、<strong>入国直後にGestorに相談</strong>してください。
-        「日本の社会保険に入っているから大丈夫」と自己判断せず、専門家に確認することが重要です（06-07参照）。
-      </div>
-    </li>
-    <li>
-      <span class="ico">&#x1F3E0;</span>
-      <div>
-        <strong>empadronamiento（住民登録）を早期に行い、パドロン記録を蓄積する</strong><br>
-        住民登録は市役所（Ayuntamiento）で行います（06-04参照）。更新時には<strong>Padrón Histórico（住民登録履歴）</strong>を提出するため、<strong>早く登録するほど更新時の証明力が高くなります</strong>。
-        引っ越した場合は新住所で再登録し、古い登録が残らないようにします。
-      </div>
-    </li>
-    <li>
-      <span class="ico">&#x1F4CA;</span>
-      <div>
-        <strong>年間のスペイン滞在日数を記録・管理する</strong><br>
-        パスポートのスタンプ、フライト予約確認書、ホテル・賃貸契約などで入出国日を記録します。
-        <strong>目標：年間183日以上スペインに滞在</strong>することで、税務居住とDNV更新の両面を安定させます。
-        日本帰国の際も「不在が連続して何か月になるか」を意識してください。
-      </div>
-    </li>
-    <li>
-      <span class="ico">&#x1F4BC;</span>
-      <div>
-        <strong>代理人（行政書士・移民弁護士）を選ぶ際は実績と評判を確認する</strong><br>
-        2026年のUGE審査強化では「同一代理人の申請を横断チェック」する体制になっています。
-        <strong>不正申請の実績がある代理人を使っていると、無関係のあなたの申請まで巻き添えになる可能性</strong>があります。
-        評判の良い移民弁護士（Abogado de Extranjería）またはGestorを選びましょう。
-      </div>
-    </li>
-    <li>
-      <span class="ico">&#x1F4DD;</span>
-      <div>
-        <strong>申請書類は正確に、「盛らない」</strong><br>
-        収入・雇用形態・業務内容を実態以上に見せようとすると、書類不一致で即差し戻し・拒否になります。
-        2026年のUGEは書類の真偽確認を強化しているため、<strong>誠実で正確な書類が最も強い申請</strong>です。
-        日本語の書類にはスペイン語または英語の翻訳を添付し、アポスティーユ（公文書の国際認証）を取得してください。
-      </div>
-    </li>
-    <li>
-      <span class="ico">&#x23F0;</span>
-      <div>
-        <strong>更新はGestorと組んで期限の4〜5か月前から準備する</strong><br>
-        社会保険証明書・パドロン・収入証明・健康保険などの書類収集には時間がかかります。
-        <strong>期限ギリギリに動くと書類が揃わず失効リスク</strong>があります。
-        Gestorに「更新リマインダー」をお願いし、スケジュールを管理してもらうと安心です。
-      </div>
-    </li>
-  </ul>
 </div>
 
 <!-- 用語まとめ -->
 <div class="card">
   <h2>&#x1F4D6; 今日の用語まとめ</h2>
   <p>
-    <span class="tag">UGE-CE</span>Unidad de Grandes Empresas - Cuenta Especial の略。スペイン移民局の中でデジタルノマドビザ（国際遠隔就労ビザ）などを担当する専門部門。2026年初頭に専門審査チームを発足させ、審査を強化しました。<br><br>
-    <span class="tag">Non-Lucrative Visa（非収益ビザ）</span>スペイン語では「Visado de residencia no lucrativa」。スペインで働かずに自己資産・収入で生活できる外国人向けの滞在許可。2026年からスペイン国内でこのビザからDNVへの変更ができなくなりました（出国して大使館申請が必要）。<br><br>
-    <span class="tag amber">Seguridad Social（社会保険）</span>セグリダ・ソシアル。スペインの社会保険制度。日本の「健康保険＋年金」にあたります。DNV保持者で自営業活動をする場合は<strong>RETA（Régimen Especial de Trabajadores Autónomos）</strong>への登録が必要になるケースがあります。<br><br>
-    <span class="tag blue">Padrón Histórico（パドロン・イストリコ）</span>スペインの住民登録（empadronamiento）の履歴証明書。市役所（Ayuntamiento）で発行してもらいます。DNV更新時に「実際にスペインに住んでいた」ことを証明するために使います。<br><br>
-    <span class="tag">Renovación（更新）</span>在留許可の更新のこと。DNVの在留許可（最初は3年）の期限前に申請して延長します。2026年の強化された審査では社会保険証明・パドロン・収入証明が特に重視されます。<br><br>
-    <span class="tag amber">Tesorería General de la Seguridad Social</span>スペインの社会保険資金管理事務所（TGSS）。社会保険への登録・保険料の支払い・未払い債務がないことの証明書（Certificado de estar al corriente）の発行を行います。<br><br>
-    <span class="tag blue">日西社会保障協定</span>日本とスペイン間の「社会保障に関する協定」。日本の会社から派遣されてスペインで働く場合、最大5年間スペインの社会保険への登録が免除される場合があります。ただし自営業者・1人法人代表への適用は複雑で、専門家への確認が必須です。<br><br>
-    <span class="tag">Visado de teletrabajo de carácter internacional</span>スペインの国際遠隔就労ビザの正式名称（スペイン語）。英語では「International Telework Visa」。在外スペイン大使館・領事館で申請します。有効期間は1年（入国後にスペイン国内で3年の在留許可に切り替え可能）。
+    <span class="tag">TIE</span>Tarjeta de Identidad de Extranjero（タルヘタ・デ・イデンティダ・デ・エクストランヘロ）の略。日本語訳：外国人在留カード。スペインで法的に居住していることを証明する物理的なICカードです。DNVホルダーは初回3年、更新で2年間有効。<br><br>
+    <span class="tag">NIE</span>Número de Identidad de Extranjero（ヌメロ・デ・イデンティダ・デ・エクストランヘロ）の略。外国人識別番号。DNV承認時に自動付与。形式：X-1234567-A。数字とアルファベットの組み合わせ。物理カードではなく番号のみ。<br><br>
+    <span class="tag amber">EX-17</span>TIE申請書式の正式名称。スペイン語での正式名：「Solicitud de Tarjeta de Identidad de Extranjero」。スペイン警察庁（国家警察）のウェブサイトから無料ダウンロード可能。<br><br>
+    <span class="tag amber">Modelo 790 Código 012</span>TIE発行手数料の支払いに使うスペイン政府の税務書式。2026年時点の手数料は€16.32。銀行窓口で支払い後、スタンプ付き領収書を持参する。<br><br>
+    <span class="tag blue">Cita Previa（シタ・プレビア）</span>「事前予約」の意。スペインの移民局・警察署での手続きはすべてこの予約制。公式サイト（sede.administracionespublicas.gob.es）で予約。2026年は大都市でスロットが即埋まる状況が続いている。<br><br>
+    <span class="tag blue">Resguardo（レスグアルド）</span>「仮証明書・受取証」の意。指紋登録後に受け取るA4の紙。TIEカードが完成するまでの間、在留資格を証明する一時的な書類として機能する。Lote番号が記載されている。<br><br>
+    <span class="tag">Lote（ロテ）</span>TIEカードの製造バッチ番号。Resguardoに記載されている。警察署が「現在Lote〇〇まで完成しました」と掲示する形で進捗管理される。自分のLote番号が呼ばれたらカードを受け取りに行く。<br><br>
+    <span class="tag">Comisaría（コミサリア）</span>警察署のこと。TIE手続き（指紋登録・カード受け取り）は、Extranjería（移民担当窓口）がある国家警察の Comisaría で行う。<br><br>
+    <span class="tag green">L'Hospitalet de Llobregat</span>バルセロナ近郊の都市。2026年2月12日に自動TIE予約パイロットプログラムの対象として選ばれた最初の警察署。承認書（Resolución Favorable）が出ると自動的にTIE指紋登録の予約が割り当てられるシステムを試験中。<br><br>
+    <span class="tag green">empadronamiento（エンパドロナミエント）</span>スペインの住民登録制度。市役所（Ayuntamiento）で行う。TIE申請の必要書類「empadronamiento証明書」を得るために必要。登録後すぐに証明書（Certificado de Empadronamiento）が発行される（06-04参照）。
   </p>
 </div>
 
@@ -922,28 +985,32 @@
 <div class="card">
   <h2>&#x1F4DA; 参照した出典（2026年）</h2>
   <div class="source-list" style="font-size:0.88rem; line-height:2.2;">
-    &#x2022; remotefromspain.com「Spain's Digital Nomad Permit 2026 Update: New UGE Rules &amp; Renewals」（2026年）<br>
-    &nbsp;&nbsp;<a href="https://remotefromspain.com/spains-digital-nomad-permit-2026-update/" target="_blank">https://remotefromspain.com/spains-digital-nomad-permit-2026-update/</a><br>
-    &#x2022; spainguru.es「Spanish Digital Nomad Visa: New Clarifications, Stricter Controls, and Documentation Updates」（公開日：2026年3月16日）<br>
-    &nbsp;&nbsp;<a href="https://spainguru.es/2026/03/16/spanish-digital-nomad-visa-updates-requirements-fraud-controls/" target="_blank">https://spainguru.es/2026/03/16/spanish-digital-nomad-visa-updates-requirements-fraud-controls/</a><br>
-    &#x2022; spainguru.es「Spain Digital Nomad Visa and Social Security Registration After Approval」（公開日：2026年1月22日）<br>
-    &nbsp;&nbsp;<a href="https://spainguru.es/2026/01/22/spain-digital-nomad-visa-social-security-registration/" target="_blank">https://spainguru.es/2026/01/22/spain-digital-nomad-visa-social-security-registration/</a><br>
-    &#x2022; spainguru.es「Spain Digital Nomad Visa: Self-Employed Registration Requirement 2026」（公開日：2026年3月3日）<br>
-    &nbsp;&nbsp;<a href="https://spainguru.es/2026/03/03/spain-digital-nomad-visa-self-employed-registration-update/" target="_blank">https://spainguru.es/2026/03/03/spain-digital-nomad-visa-self-employed-registration-update/</a><br>
-    &#x2022; nimextranjeria.com「Spain is cracking down on digital nomads in 2026! Avoid huge fines, back taxes &amp; permit cancellation.」（2026年）<br>
-    &nbsp;&nbsp;<a href="https://nimextranjeria.com/spain-is-cracking-down-on-digital-nomads-fines-back-taxes-or-immediate-permit-cancellation/" target="_blank">https://nimextranjeria.com/spain-is-cracking-down-on-digital-nomads-fines-back-taxes-or-immediate-permit-cancellation/</a><br>
-    &#x2022; remoteworkeurope.eu「Spain digital nomad visa 2026: what's changed and what you need to know」（2026年）<br>
-    &nbsp;&nbsp;<a href="https://remoteworkeurope.eu/insights/spain-digital-nomad-visa/" target="_blank">https://remoteworkeurope.eu/insights/spain-digital-nomad-visa/</a><br>
-    &#x2022; bm.consulting「Renew Digital Nomad Visa Spain 2026: Deadlines &amp; Requirements」（2026年）<br>
-    &nbsp;&nbsp;<a href="https://bm.consulting/en/insights/digital-nomad-visa-renewal-deadlines-requirements-2026/" target="_blank">https://bm.consulting/en/insights/digital-nomad-visa-renewal-deadlines-requirements-2026/</a><br>
-    &#x2022; jobbatical.com「Spain Digital Nomad Visa 2026: €2,849 Income Guide」（2026年）<br>
-    &nbsp;&nbsp;<a href="https://www.jobbatical.com/blog/spain-digital-nomad-visa-income-smi-increase" target="_blank">https://www.jobbatical.com/blog/spain-digital-nomad-visa-income-smi-increase</a><br>
+    &#x2022; visahq.com「Police Pilot Automated TIE-Appointment System in Catalonia to Crush 'Cita Previa' Black Market」（2026年2月12日）<br>
+    &nbsp;&nbsp;<a href="https://www.visahq.com/news/2026-02-12/es/police-pilot-automated-tie-appointment-system-in-catalonia-to-crush-cita-previa-black-market/" target="_blank">https://www.visahq.com/news/2026-02-12/es/police-pilot-automated-tie-appointment-system-in-catalonia-to-crush-cita-previa-black-market/</a><br>
+    &#x2022; visahq.com「TIE appointment backlog worsens as Spain's police booking portal struggles under post-pandemic demand」（2026年4月12日）<br>
+    &nbsp;&nbsp;<a href="https://www.visahq.com/news/2026-04-12/es/tie-appointment-backlog-worsens-as-spains-police-booking-portal-struggles-under-post-pandemic-demand/" target="_blank">https://www.visahq.com/news/2026-04-12/es/tie-appointment-backlog-worsens-as-spains-police-booking-portal-struggles-under-post-pandemic-demand/</a><br>
+    &#x2022; catalannews.com「New pilot launched to introduce automatic TIE appointments and end system chaos」（2026年）<br>
+    &nbsp;&nbsp;<a href="https://www.catalannews.com/society-science/item/new-pilot-launched-to-introduce-automatic-tie-appointments-and-end-system-chaos" target="_blank">https://www.catalannews.com/society-science/item/new-pilot-launched-to-introduce-automatic-tie-appointments-and-end-system-chaos</a><br>
+    &#x2022; xifaes.com「New pilot program to automate TIE fingerprinting appointments in L'Hospitalet de Llobregat」（2026年）<br>
+    &nbsp;&nbsp;<a href="https://www.xifaes.com/new-pilot-program-to-automate-tie/" target="_blank">https://www.xifaes.com/new-pilot-program-to-automate-tie/</a><br>
+    &#x2022; remoteworkeurope.eu「Spain's TIE appointment backlog worsens as regularisation looms」（2026年4月）<br>
+    &nbsp;&nbsp;<a href="https://remoteworkeurope.eu/news/2026/spain-tie-appointment-backlog-worsens-april/" target="_blank">https://remoteworkeurope.eu/news/2026/spain-tie-appointment-backlog-worsens-april/</a><br>
+    &#x2022; jobbatical.com「Cita Previa Extranjería 2026: Spain Immigration Appointment」（2026年）<br>
+    &nbsp;&nbsp;<a href="https://www.jobbatical.com/blog/spain-cita-previa-extranjeria-guide" target="_blank">https://www.jobbatical.com/blog/spain-cita-previa-extranjeria-guide</a><br>
+    &#x2022; spainguru.es「Check TIE Card Status Madrid 2026 (Ready for Pickup?)」（2026年）<br>
+    &nbsp;&nbsp;<a href="https://spainguru.es/2024/11/14/how-to-check-if-your-tie-card-is-ready-for-pickup-in-madrid/" target="_blank">https://spainguru.es/2024/11/14/how-to-check-if-your-tie-card-is-ready-for-pickup-in-madrid/</a><br>
+    &#x2022; immigrationspain.es「NIE Fingerprint Appointment: Requirements + Step by Step Process」（2026年）<br>
+    &nbsp;&nbsp;<a href="https://www.immigrationspain.es/en/fingerprint-appointment-nie/" target="_blank">https://www.immigrationspain.es/en/fingerprint-appointment-nie/</a><br>
     &#x2022; globalcitizensolutions.com「Spain Digital Nomad Visa 2026」（2026年）<br>
     &nbsp;&nbsp;<a href="https://www.globalcitizensolutions.com/spain-digital-nomad-visa/" target="_blank">https://www.globalcitizensolutions.com/spain-digital-nomad-visa/</a><br>
+    &#x2022; balcellsgroup.com「How to Pay Tasa 790/012 for your TIE/Fingerprints」（2026年）<br>
+    &nbsp;&nbsp;<a href="https://balcellsgroup.com/fee-790-012/" target="_blank">https://balcellsgroup.com/fee-790-012/</a><br>
+    &#x2022; easytospain.com「TIE Card Spain: What Non EU Residents Need to Know in 2026」（2026年）<br>
+    &nbsp;&nbsp;<a href="https://easytospain.com/blogs/tie-card-spain-what-non-eu-residents-need-to-know" target="_blank">https://easytospain.com/blogs/tie-card-spain-what-non-eu-residents-need-to-know</a><br>
     <p style="margin-top:10px; color:#999;">
-      ※ 上記の出典はすべて民間の移民法律事務所・情報サイトによるものです。スペイン官報（BOE）等の一次ソースでの確認が取れていない事項については本文中に「未確認」と明記しています。<br>
-      ※ 収入下限（€2,850/月）はRoyal Decree 126/2026によるSMI改定（€1,221/月）の200%として各サイトが計算した目安値です。<br>
-      ※ 更新時の6か月居住要件は複数の移民専門家が「目安」として言及しているものですが、法律条文への明示的な参照は確認できていません。
+      ※ L'Hospitalet 自動予約パイロットの発表日（2026年2月12日）はvisahq.com・catalannews.comが一次報道として確認できています。スペイン内務省（Ministerio del Interior）の公式発表原文については公式ウェブサイトでの直接確認を推奨します。<br>
+      ※ TIE手数料（€16.32）、30日期限、30〜45日待機期間は複数の移民専門サイトが一致して記載している目安値です。個別のケース・地域・時期によって異なる可能性があります。<br>
+      ※ Cita Previa の予約スロットリリース時刻（金曜朝9時等）は各サイトが案内する傾向値であり、変更される場合があります。
     </p>
   </div>
 </div>
@@ -952,11 +1019,11 @@
 <div class="footer-note">
   <strong>&#x26A0;&#xFE0F; 免責事項</strong><br>
   本記事はデジタルノマド・海外在住者向けの情報提供を目的としています。<br><br>
-  &#x2022; ビザ・在留資格（DNVの申請・更新・変更・取消・社会保険要件）に関する正式な判断は<strong>スペイン移民法を専門とする移民弁護士（Abogado de Extranjería）</strong>へ。<br>
-  &#x2022; 税務（居住者判定・二重課税・スペイン社会保険と日本社会保険の二重払い防止）に関する正式な判断は<strong>国際税務に強い税理士およびGestor</strong>へ。<br>
-  &#x2022; 本記事のUGE審査強化に関する情報は、民間の移民法律事務所・情報サイトの2026年1〜3月時点の報告に基づきます。一次ソース（スペイン官報BOE・UGE公式通達）での確認ができていない点があります。<br>
-  &#x2022; 「必ずビザが取れる」「必ず更新できる」「必ず社会保険が免除される」などの断定はしていません。個々の状況によって結果は異なります。<br>
-  &#x2022; 収入下限（€2,850/月）・更新居住要件（6か月）はいずれも2026年時点の目安値です。制度改定が行われる場合があるため、申請前に必ず最新情報を確認してください。
+  &#x2022; ビザ・在留資格（TIE・NIE・DNVの申請・書類・手続き・期限）に関する正式な判断は<strong>スペイン移民法を専門とする移民弁護士（Abogado de Extranjería）</strong>へ。<br>
+  &#x2022; 税務（居住者判定・二重課税・社会保険）に関する正式な判断は<strong>国際税務に強い税理士およびGestor</strong>へ。<br>
+  &#x2022; 本記事のTIE手数料・申請期限・必要書類は2026年時点の各情報サイト・移民専門家の情報に基づきます。制度改定が行われる場合があるため、申請前に必ずスペイン国家警察庁の公式サイトまたは移民弁護士で最新情報を確認してください。<br>
+  &#x2022; Cita Previa の予約状況・空き状況はリアルタイムで変化します。本記事記載の情報は記事作成時点のものです。<br>
+  &#x2022; L'Hospitalet の自動予約パイロットは2026年6月時点でまだ試験段階であり、全国展開の時期・規模は未確定です。
 </div>
 
 </body>
