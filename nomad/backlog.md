@@ -16,12 +16,17 @@
 - 非居住者への役員報酬と源泉徴収（20%ルール・日西租税条約による軽減）
 - スペインの empadronamiento（住民登録）後の各種行政サービスの使い方
 - Wise の手数料比較：JPY→EUR vs JPY→USD→EUR ルートの実際のコスト
-- UGE 審査強化 2026：Non-Lucrative Visa からの変更不可ルールと申請差し戻し傾向
 - PayPal Business アカウントの日本法人での開設手順と制限事項
 - Stripe Connect と日本1人法人：マーケットプレイス決済・税務処理の注意点
+- TIE（Tarjeta de Identidad de Extranjero）取得の実務：予約・書類・当日の流れ
+- スペインの NIE 番号：DNV申請前に取得する方法と用途
+- DNV 保持者の家族帯同（Reagrupación Familiar）：配偶者・子どもの在留資格
+- スペイン国内での住居探し（賃貸）：外国人オーナー・保証人なし物件の探し方
+- 日本の法人口座からスペイン個人口座への資金移動と税務処理
 
 ## 解説済みテーマ
 
+- 2026-06-09：UGE 審査強化 2026 ── Non-Lucrative Visa からの変更不可ルール・社会保険未登録でビザ取消リスク・更新時の居住証明（パドロン・6か月ルール）・日本↔スペイン往来生活の実務影響
 - 2026-06-08：Stripe・PayPal・Wise 日本1人法人の決済スタック実務 ── 手数料比較（Stripe 3.6%/5.1%・PayPal 3.5〜6%・Wise 〜0.8%）・月コスト試算・DNV収入証明との関係・80%外国収入ルール・全体フロー図
 - 2026-06-07：スペインの Gestor（税務・社会保険の実務代理人）── Gestor / Asesor Fiscal / Abogado の違い・autónomo 登録・Tarifa Plana（月 €80）・Cuota Cero・Beckham 法6か月期限・日本の1人法人オーナー向け論点
 - 2026-06-06：スペイン銀行口座 開設実務 ── Wise（ベルギー IBAN）が Seguridad Social の口座振替に使えない理由・BBVA / Sabadell（Key Account）/ CaixaBank（HolaBank）/ Santander の比較・日本人リモート開設の可否・非居住者→居住者口座2段階フロー・日本法人からの送金スタック（日本法人口座→Wise→ES IBAN）
