@@ -13,10 +13,11 @@
 - 2026-06-07: Apple WWDC 2026（6月8日開幕）/ Apple×Google Gemini AI提携（2026年1月公式発表）/ Siri刷新 / iOS 27・macOS 27
 - 2026-06-08: ServiceNow + NVIDIA「Project Arc」（2026年5月発表）/ デスクトップAIエージェント / NVIDIA OpenShell（オープンソース安全実行環境）/ ServiceNow AI Control Tower（ガバナンス）
 - 2026-06-09: WWDC 2026 基調講演（6月8日）/ Siri → Google Gemini 搭載・3層ルーティング / homeOS デベロッパープレビュー / iOS 27・macOS 27 ほか6OS即日ベータ配信
+- 2026-06-10: OpenAI o3-pro（2026年6月10日リリース）：「速さより信頼性」最上位推論モデル・o1-proの後継・ChatGPT Pro/Teamプランから利用可能
 
 ## 未解説の候補トピック（今後の参考）
+
 - xAI Grok 4.3 Beta（2026年4月）：動画・スライド・音声API対応のマルチモーダル推論
-- OpenAI o3-pro（2026年6月10日リリース予定）：最も信頼性が高いと位置づけるモデル
 - AI×医療（創薬・診断）最新動向：製薬大手とAI企業の提携が相次ぐ
 - AI半導体競争：AMD・Intelの対抗策と次世代GPU市場
 - 日本のAI活用事例：製造業・金融・官公庁での実装事例
