@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI動画制作 技法解説 2026-06-10</title>
+<style>
+:root{
+  --bg:#f0ede8;--card:#faf8f4;--dark:#2a1a0a;--dark2:#5a2a00;
+  --accent:#8a3a00;--warm:#c45a00;--amber:#e07820;
+  --text:#2a1e14;--muted:#7a6a58;--border:#e0d4c0;
+  /* Platform colors */
+  --tik:#0a0a0a;--tikl:#f0f0f4;
+  --ins:#833ab4;--insl:#f6f0fb;
+  --yt:#cc0000;--ytl:#fff0f0;
+  /* Structure colors */
+  --hook:#c00020;--hookl:#fff0f2;
+  --rise:#c06000;--risel:#fff8ee;
+  --peak:#006040;--peakl:#f0fbf6;
+  --cta:#003a8a;--ctal:#eef2fb;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,"Hiragino Sans","Yu Gothic",sans-serif;line-height:1.7;padding:24px 16px;}
+.wrap{max-width:860px;margin:0 auto;}
+
+/* Header */
+.header{background:linear-gradient(135deg,#2a1a0a,#7a3a00,#1a2a5a);color:#fff;border-radius:20px;padding:40px 32px;text-align:center;box-shadow:0 8px 24px rgba(42,26,10,.38);margin-bottom:24px;}
+.date-badge{background:rgba(255,255,255,.18);color:#ffd0a0;border-radius:20px;padding:4px 16px;font-size:.85rem;display:inline-block;margin-bottom:16px;letter-spacing:.08em;}
+.header h1{font-size:1.9rem;margin-bottom:8px;letter-spacing:.04em;}
+.header .subtitle{color:#ffd0a0;font-size:1rem;}
+.tag-row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:14px;}
+.header .tag{background:rgba(255,255,255,.15);border-radius:12px;padding:3px 12px;font-size:.78rem;display:inline-block;color:#ffe4a8;}
+
+/* Sections */
+.section{background:var(--card);border-radius:16px;padding:28px 24px;margin-bottom:20px;box-shadow:0 3px 12px rgba(0,0,0,.06);border:1px solid var(--border);}
+.section-title{font-size:1.1rem;font-weight:700;color:var(--accent);border-bottom:2px solid var(--border);padding-bottom:10px;margin-bottom:18px;display:flex;align-items:center;gap:8px;}
+
+/* Intro cards */
+.concept-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:4px;}
+.concept-card{border-radius:14px;padding:18px 14px;text-align:center;}
+.concept-card .icon{font-size:2rem;margin-bottom:8px;}
+.concept-card .label{font-size:1rem;font-weight:700;margin-bottom:4px;}
+.concept-card .desc{font-size:.82rem;color:var(--muted);line-height:1.5;}
+.c-dur{background:#fff8ee;border:2px solid #e07820;}
+.c-tmp{background:#fff0f2;border:2px solid #c00020;}
+.c-cut{background:#eef4fb;border:2px solid #2a5aaa;}
+
+/* Platform duration cards */
+.platform-row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:4px;}
+.plat-card{border-radius:14px;padding:16px 12px;text-align:center;}
+.plat-card .plat-name{font-size:.85rem;font-weight:700;margin-bottom:6px;}
+.plat-card .plat-num{font-size:2.4rem;font-weight:900;line-height:1;margin-bottom:2px;}
+.plat-card .plat-unit{font-size:.75rem;margin-bottom:6px;}
+.plat-card .plat-tip{font-size:.78rem;line-height:1.4;}
+.p-tik{background:var(--tikl);border:2px solid #aaa;}
+.p-ins{background:var(--insl);border:2px solid var(--ins);}
+.p-yt{background:var(--ytl);border:2px solid var(--yt);}
+.p-tik .plat-name{color:#222;}
+.p-ins .plat-name{color:var(--ins);}
+.p-yt .plat-name{color:var(--yt);}
+.p-tik .plat-num{color:#222;}
+.p-ins .plat-num{color:var(--ins);}
+.p-yt .plat-num{color:var(--yt);}
+
+/* 3 seconds rule */
+.rule-box{background:linear-gradient(120deg,#fff0f2,#fff8ee);border:2.5px solid #c00020;border-radius:14px;padding:20px 22px;margin:16px 0;display:flex;align-items:flex-start;gap:16px;}
+.rule-num{font-size:4rem;font-weight:900;color:#c00020;line-height:1;min-width:64px;text-align:center;}
+.rule-text{flex:1;}
+.rule-text strong{font-size:1.05rem;color:#c00020;}
+.rule-text p{font-size:.9rem;color:var(--muted);margin-top:4px;}
+
+/* Timeline */
+.timeline{margin-top:16px;}
+.tl-track{display:flex;border-radius:10px;overflow:hidden;height:44px;box-shadow:0 2px 8px rgba(0,0,0,.08);}
+.tl-seg{display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700;color:#fff;flex-shrink:0;}
+.tl-hook{background:#c00020;width:10%;}
+.tl-rise{background:#c06000;width:25%;}
+.tl-peak{background:#006040;width:45%;}
+.tl-cta{background:#003a8a;width:20%;}
+.tl-labels{display:flex;margin-top:8px;}
+.tl-label{text-align:center;font-size:.75rem;color:var(--muted);}
+.tl-l1{width:10%;}
+.tl-l2{width:25%;}
+.tl-l3{width:45%;}
+.tl-l4{width:20%;}
+
+/* Structure blocks */
+.struct-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:16px;}
+.struct-card{border-radius:14px;padding:16px 16px 14px;}
+.struct-head{display:flex;align-items:center;gap:8px;font-weight:700;font-size:.98rem;margin-bottom:8px;}
+.struct-time{font-size:1.6rem;font-weight:900;margin-right:2px;}
+.s-hook{background:var(--hookl);border:2px solid var(--hook);}
+.s-rise{background:var(--risel);border:2px solid var(--rise);}
+.s-peak{background:var(--peakl);border:2px solid var(--peak);}
+.s-cta{background:var(--ctal);border:2px solid var(--cta);}
+.s-hook .struct-time{color:var(--hook);}
+.s-rise .struct-time{color:var(--rise);}
+.s-peak .struct-time{color:var(--peak);}
+.s-cta .struct-time{color:var(--cta);}
+.struct-card ul{font-size:.83rem;color:var(--muted);padding-left:18px;line-height:1.7;}
+
+/* Cut rules */
+.cut-steps{display:flex;flex-direction:column;gap:12px;margin-top:4px;}
+.cut-step{display:flex;align-items:flex-start;gap:14px;background:#fff;border-radius:12px;padding:14px 16px;border:1px solid var(--border);}
+.cut-num{background:var(--warm);color:#fff;border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.95rem;flex-shrink:0;margin-top:2px;}
+.cut-body strong{font-size:.95rem;display:block;margin-bottom:2px;}
+.cut-body span{font-size:.82rem;color:var(--muted);}
+
+/* Tempo dial visual */
+.tempo-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px;}
+.tempo-card{border-radius:12px;padding:14px 12px;text-align:center;border:2px solid;}
+.tempo-card .t-label{font-size:.85rem;font-weight:700;margin-bottom:4px;}
+.tempo-card .t-sec{font-size:1.6rem;font-weight:900;margin-bottom:4px;}
+.tempo-card .t-desc{font-size:.75rem;line-height:1.4;}
+.t-fast{background:#fff0f2;border-color:#c00020;color:#c00020;}
+.t-fast .t-desc{color:#8a0020;}
+.t-mid{background:#fff8ee;border-color:#c06000;color:#c06000;}
+.t-mid .t-desc{color:#6a3000;}
+.t-slow{background:#f0fbf6;border-color:#006040;color:#006040;}
+.t-slow .t-desc{color:#003a20;}
+
+/* Example */
+.example-box{background:linear-gradient(120deg,#eef4fb,#f6f8ff);border:2px solid #3a6aaa;border-radius:14px;padding:20px 22px;margin-top:4px;}
+.example-title{font-weight:700;color:#1a3a7c;font-size:1rem;margin-bottom:14px;display:flex;align-items:center;gap:6px;}
+.ex-steps{display:flex;flex-direction:column;gap:8px;}
+.ex-step{display:flex;align-items:flex-start;gap:12px;font-size:.85rem;}
+.ex-arrow{color:#3a6aaa;font-weight:700;min-width:20px;}
+.ex-time{background:#3a6aaa;color:#fff;border-radius:6px;padding:1px 8px;font-size:.78rem;font-weight:700;white-space:nowrap;margin-right:4px;}
+.ex-text{color:var(--text);}
+
+/* Checklist */
+.checklist{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px;}
+.check-item{display:flex;align-items:flex-start;gap:8px;background:#fff;border-radius:10px;padding:10px 12px;border:1px solid var(--border);font-size:.84rem;}
+.check-icon{font-size:1.1rem;flex-shrink:0;}
+
+/* AI tips */
+.ai-tip-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:4px;}
+.ai-tip{border-radius:12px;padding:14px 14px;border:1px solid var(--border);}
+.ai-tip-head{font-weight:700;font-size:.9rem;margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.ai-tip-body{font-size:.82rem;color:var(--muted);line-height:1.6;}
+.ai-tip code{background:#f0ede8;border-radius:4px;padding:1px 5px;font-size:.8rem;color:var(--warm);}
+
+/* Disclaimer */
+.disclaimer{background:#f5f2ee;border-radius:12px;padding:14px 18px;border:1px solid var(--border);font-size:.78rem;color:var(--muted);line-height:1.7;}
+
+@media(max-width:600px){
+  .concept-grid,.platform-row,.struct-grid,.tempo-row,.ai-tip-grid,.checklist{grid-template-columns:1fr;}
+  .tl-hook,.tl-rise,.tl-peak,.tl-cta{font-size:.65rem;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="date-badge">📅 2026-06-10 ｜ エバーグリーン技法回</div>
+    <h1>🎬 尺・テンポ・カット割り</h1>
+    <div class="subtitle">ショート動画で「最後まで見てもらう」3つの技術</div>
+    <div class="tag-row">
+      <span class="tag">⏱ 尺の決め方</span>
+      <span class="tag">✂️ カット割り</span>
+      <span class="tag">🥁 テンポコントロール</span>
+      <span class="tag">🤖 AI動画対応</span>
+    </div>
+  </div>
+
+  <!-- 3つの概念 -->
+  <div class="section">
+    <div class="section-title">💡 まずこの3つを整理しよう</div>
+    <div class="concept-grid">
+      <div class="concept-card c-dur">
+        <div class="icon">⏱</div>
+        <div class="label">尺（しゃく）</div>
+        <div class="desc">動画の全体の長さ。プラットフォームに合わせて最適な秒数がある</div>
+      </div>
+      <div class="concept-card c-tmp">
+        <div class="icon">🥁</div>
+        <div class="label">テンポ</div>
+        <div class="desc">映像の「リズム感」。カットの長さや音楽でスピード感を出す</div>
+      </div>
+      <div class="concept-card c-cut">
+        <div class="icon">✂️</div>
+        <div class="label">カット割り</div>
+        <div class="desc">どの場面でシーンを切り替えるか。飽きさせないために必須</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- プラットフォーム別の推奨尺 -->
+  <div class="section">
+    <div class="section-title">📱 プラットフォーム別「最適な尺」</div>
+    <div class="platform-row">
+      <div class="plat-card p-tik">
+        <div class="plat-name">TikTok</div>
+        <div class="plat-num">15</div>
+        <div class="plat-unit">〜 60秒（推奨）</div>
+        <div class="plat-tip">短いほど完視聴率↑。15–30秒が最もループされやすい</div>
+      </div>
+      <div class="plat-card p-ins">
+        <div class="plat-name">Instagram Reels</div>
+        <div class="plat-num">30</div>
+        <div class="plat-unit">〜 90秒（推奨）</div>
+        <div class="plat-tip">30–60秒が拡散されやすい。音楽ありが強い</div>
+      </div>
+      <div class="plat-card p-yt">
+        <div class="plat-name">YouTube Shorts</div>
+        <div class="plat-num">60</div>
+        <div class="plat-unit">秒以内（上限）</div>
+        <div class="plat-tip">55–58秒まで使い切るほどインプレッション有利</div>
+      </div>
+    </div>
+    <p style="font-size:.8rem;color:var(--muted);margin-top:12px;">※ アルゴリズムは変わります。公式ヘルプで最新の推奨尺を確認してください。</p>
+  </div>
+
+  <!-- 最初の3秒ルール -->
+  <div class="section">
+    <div class="section-title">🚨 「最初の3秒ルール」が全てを決める</div>
+    <div class="rule-box">
+      <div class="rule-num">3<br><span style="font-size:1.4rem;">秒</span></div>
+      <div class="rule-text">
+        <strong>この3秒で視聴者はスワイプするか続けるかを決める</strong>
+        <p>ほとんどのプラットフォームで、離脱の大半が最初の3秒以内に起きます。インパクトある映像・テキスト・問いかけを冒頭に置くことが最重要。</p>
+      </div>
+    </div>
+
+    <div style="margin-top:16px;">
+      <div style="font-size:.9rem;font-weight:700;margin-bottom:10px;color:var(--accent);">効果的な「3秒フック」の型</div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">
+        <div style="background:#fff0f2;border-radius:10px;padding:12px;text-align:center;border:1.5px solid #e08080;">
+          <div style="font-size:1.3rem;">❓</div>
+          <div style="font-size:.82rem;font-weight:700;margin:4px 0;color:#800020;">疑問形フック</div>
+          <div style="font-size:.76rem;color:var(--muted);">「え、これ知らないの？」「〇〇してる人、実は損してます」</div>
+        </div>
+        <div style="background:#fff8ee;border-radius:10px;padding:12px;text-align:center;border:1.5px solid #e09040;">
+          <div style="font-size:1.3rem;">😮</div>
+          <div style="font-size:.82rem;font-weight:700;margin:4px 0;color:#804000;">衝撃映像フック</div>
+          <div style="font-size:.76rem;color:var(--muted);">最もインパクトある映像を0秒から見せる（説明は後）</div>
+        </div>
+        <div style="background:#eef4fb;border-radius:10px;padding:12px;text-align:center;border:1.5px solid #7aacda;">
+          <div style="font-size:1.3rem;">📌</div>
+          <div style="font-size:.82rem;font-weight:700;margin:4px 0;color:#003a7c;">予告フック</div>
+          <div style="font-size:.76rem;color:var(--muted);">「30秒で分かる〇〇」「最後まで見ると〇〇がわかります」</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 黄金構成 タイムライン -->
+  <div class="section">
+    <div class="section-title">🏗 ショート動画の「黄金4幕構成」</div>
+
+    <!-- Timeline bar -->
+    <div class="timeline">
+      <div class="tl-track">
+        <div class="tl-seg tl-hook">HOOK</div>
+        <div class="tl-seg tl-rise">BUILD UP</div>
+        <div class="tl-seg tl-peak">MAIN CONTENT</div>
+        <div class="tl-seg tl-cta">CTA</div>
+      </div>
+      <div class="tl-labels">
+        <div class="tl-label tl-l1">0–3秒</div>
+        <div class="tl-label tl-l2">3–12秒</div>
+        <div class="tl-label tl-l3">12–50秒</div>
+        <div class="tl-label tl-l4">50–60秒</div>
+      </div>
+    </div>
+
+    <div class="struct-grid" style="margin-top:18px;">
+      <div class="struct-card s-hook">
+        <div class="struct-head">
+          <span class="struct-time">0–3</span><span>秒 ｜ 🎣 フック</span>
+        </div>
+        <ul>
+          <li>インパクトある映像か問いかけで即つかむ</li>
+          <li>テロップは大きく・短く（5文字以内推奨）</li>
+          <li>音声オフでも内容が伝わるよう字幕を入れる</li>
+        </ul>
+      </div>
+      <div class="struct-card s-rise">
+        <div class="struct-head">
+          <span class="struct-time">3–12</span><span>秒 ｜ 🌀 引き込み</span>
+        </div>
+        <ul>
+          <li>「なぜ見続けるか」の理由を示す</li>
+          <li>問題提起・ビフォーを見せる</li>
+          <li>ここで離脱する人を減らすのが技術</li>
+        </ul>
+      </div>
+      <div class="struct-card s-peak">
+        <div class="struct-head">
+          <span class="struct-time">12–50</span><span>秒 ｜ 🎯 本編</span>
+        </div>
+        <ul>
+          <li>約束した情報・価値を届ける</li>
+          <li>1カット3–5秒を目安に刻む</li>
+          <li>テンポを一定に保ち「ダレ」を防ぐ</li>
+        </ul>
+      </div>
+      <div class="struct-card s-cta">
+        <div class="struct-head">
+          <span class="struct-time">50–60</span><span>秒 ｜ 📢 CTA</span>
+        </div>
+        <ul>
+          <li>CTA＝Call to Action（行動を促す言葉）</li>
+          <li>「フォロー」「保存」「コメント」1つだけ</li>
+          <li>ループするように終わるとなお良い</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- カット割りの基本ルール -->
+  <div class="section">
+    <div class="section-title">✂️ カット割り 5つのルール</div>
+    <div class="cut-steps">
+      <div class="cut-step">
+        <div class="cut-num">1</div>
+        <div class="cut-body">
+          <strong>「動きが始まる瞬間」でカットする</strong>
+          <span>人が歩き出す・手を挙げる・口を開く ── 動作の起点で切ると自然に見える。「ジャンプカット」（同じ場所・構図での時間省略）も使いやすい技法。</span>
+        </div>
+      </div>
+      <div class="cut-step">
+        <div class="cut-num">2</div>
+        <div class="cut-body">
+          <strong>1カットは最短1秒・最長7秒を目安に</strong>
+          <span>TikTokなどのショートでは1カット平均2–3秒が主流。7秒超えると視聴者の目が「飽きて」次に移る心理がある。</span>
+        </div>
+      </div>
+      <div class="cut-step">
+        <div class="cut-num">3</div>
+        <div class="cut-body">
+          <strong>カット数は60秒で12〜20が目安</strong>
+          <span>カットが少なすぎると間延び、多すぎると疲れる。15カット前後＝平均4秒/カットが安定した体感テンポ。</span>
+        </div>
+      </div>
+      <div class="cut-step">
+        <div class="cut-num">4</div>
+        <div class="cut-body">
+          <strong>「引き」と「寄り」を交互に入れる</strong>
+          <span>全体を映す広角ショット（引き）と、顔や手元のクローズアップ（寄り）を交互にすると単調にならない。</span>
+        </div>
+      </div>
+      <div class="cut-step">
+        <div class="cut-num">5</div>
+        <div class="cut-body">
+          <strong>音楽のビート・フレーズの頭に合わせてカット</strong>
+          <span>BGMのドラムのキック音や小節の頭でカットを入れると、映像がリズミカルで「気持ちいい」と感じられる。</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- テンポのコントロール -->
+  <div class="section">
+    <div class="section-title">🥁 テンポの「緩急」で感情を動かす</div>
+    <p style="font-size:.87rem;color:var(--muted);margin-bottom:12px;">全部速い・全部遅いは逆効果。意図的に緩急をつけることで感情が動く。</p>
+    <div class="tempo-row">
+      <div class="tempo-card t-fast">
+        <div class="t-label">⚡ 速テンポ</div>
+        <div class="t-sec">1–2秒/カット</div>
+        <div class="t-desc">エネルギー・興奮・スピード感を出す。フックや盛り上がりの場面に使う</div>
+      </div>
+      <div class="tempo-card t-mid">
+        <div class="t-label">🎯 中テンポ</div>
+        <div class="t-sec">3–5秒/カット</div>
+        <div class="t-desc">情報を届ける本編部分に最適。視聴者が内容を理解しやすい</div>
+      </div>
+      <div class="tempo-card t-slow">
+        <div class="t-label">🌿 遅テンポ</div>
+        <div class="t-sec">5–7秒/カット</div>
+        <div class="t-desc">感動・余韻・美しさを伝える。ラストカットや風景に使う</div>
+      </div>
+    </div>
+    <div style="background:#fff8ee;border-radius:10px;padding:12px 16px;margin-top:14px;border:1.5px solid #e09040;font-size:.84rem;">
+      <strong>💡 プロのコツ：</strong> フック（速）→ 本編（中）→ クライマックス（速）→ エンド（遅） の流れが「飽きさせない」黄金パターン
+    </div>
+  </div>
+
+  <!-- 具体例 -->
+  <div class="section">
+    <div class="section-title">🎬 真似できる具体例：「朝の珈琲レシピ」60秒動画</div>
+    <div class="example-box">
+      <div class="example-title">📋 カット割りシート（例）</div>
+      <div class="ex-steps">
+        <div class="ex-step">
+          <span class="ex-arrow">▶</span>
+          <div>
+            <span class="ex-time">0–2秒</span>
+            <span class="ex-text"><strong>[HOOK]</strong> コーヒーがカップに注がれる寄りショット。テロップ「このコツ知らないと損」</span>
+          </div>
+        </div>
+        <div class="ex-step">
+          <span class="ex-arrow">▶</span>
+          <div>
+            <span class="ex-time">2–6秒</span>
+            <span class="ex-text"><strong>[引き込み]</strong> キッチン全体の引きショット。「プロが教える30秒テクニック」</span>
+          </div>
+        </div>
+        <div class="ex-step">
+          <span class="ex-arrow">▶</span>
+          <div>
+            <span class="ex-time">6–12秒</span>
+            <span class="ex-text"><strong>[材料]</strong> 豆・水・器具を3カット（各2秒）で次々見せる ← <em>速テンポで興味キープ</em></span>
+          </div>
+        </div>
+        <div class="ex-step">
+          <span class="ex-arrow">▶</span>
+          <div>
+            <span class="ex-time">12–48秒</span>
+            <span class="ex-text"><strong>[本編]</strong> 手順を4ステップ（各9秒）。中テンポ・ナレーション付き。引きと寄りを交互に使用</span>
+          </div>
+        </div>
+        <div class="ex-step">
+          <span class="ex-arrow">▶</span>
+          <div>
+            <span class="ex-time">48–54秒</span>
+            <span class="ex-text"><strong>[クライマックス]</strong> 完成カップの寄り、湯気の美しいスローカット ← <em>遅テンポで余韻</em></span>
+          </div>
+        </div>
+        <div class="ex-step">
+          <span class="ex-arrow">▶</span>
+          <div>
+            <span class="ex-time">54–60秒</span>
+            <span class="ex-text"><strong>[CTA]</strong> 「保存して週末試してみてね☕」テロップ。ループ用に注ぐ映像へ戻る</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AI動画への応用 -->
+  <div class="section">
+    <div class="section-title">🤖 AI動画制作（Kling / Runway / Veo 等）への応用</div>
+    <div class="ai-tip-grid">
+      <div class="ai-tip">
+        <div class="ai-tip-head">🎣 フック用プロンプトの型</div>
+        <div class="ai-tip-body">
+          <code>extreme close-up</code>（超寄り）＋<code>slow motion</code>（スローモーション）の組み合わせが掴みに効く。生成後に冒頭2秒だけトリミングしてフックとして使う手法も有効。
+        </div>
+      </div>
+      <div class="ai-tip">
+        <div class="ai-tip-head">✂️ カット割りは生成後に編集する</div>
+        <div class="ai-tip-body">
+          AIで「5秒クリップ」を複数生成し、CapCut・DaVinci Resolve などで繋ぐのが現在の主流ワークフロー。1本の長い動画を頼むより、シーン単位で生成する方がコントロールしやすい。
+        </div>
+      </div>
+      <div class="ai-tip">
+        <div class="ai-tip-head">🥁 テンポは音楽が先</div>
+        <div class="ai-tip-body">
+          BGMを先に選んでからカット数を逆算すると一貫したテンポになる。BPM（テンポの単位）が120なら1拍=0.5秒 → 2拍（1秒）ごとのカットがリズムに合う。
+        </div>
+      </div>
+      <div class="ai-tip">
+        <div class="ai-tip-head">📋 AI生成前にカット割りシートを作る</div>
+        <div class="ai-tip-body">
+          「何秒のカットを何本生成するか」をシートに書いてからプロンプトを作ると、生成回数を無駄にしない。特に有料クレジット節約に効果的。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 今日のチェックリスト -->
+  <div class="section">
+    <div class="section-title">✅ 今日から使えるチェックリスト</div>
+    <div class="checklist">
+      <div class="check-item"><span class="check-icon">⏱</span><span>プラットフォームに合わせた尺（15/30/60秒）を決めたか</span></div>
+      <div class="check-item"><span class="check-icon">🎣</span><span>最初の3秒に「続きを見たい」フックがあるか</span></div>
+      <div class="check-item"><span class="check-icon">🏗</span><span>HOOK → 引き込み → 本編 → CTA の4幕になっているか</span></div>
+      <div class="check-item"><span class="check-icon">✂️</span><span>1カット3–5秒・合計12–20カットの範囲に収まっているか</span></div>
+      <div class="check-item"><span class="check-icon">🔄</span><span>引きショットと寄りショットを交互に使っているか</span></div>
+      <div class="check-item"><span class="check-icon">🎵</span><span>音楽のビートに合わせてカットを入れているか</span></div>
+      <div class="check-item"><span class="check-icon">⚡</span><span>緩急（速→中→遅）でテンポが変化しているか</span></div>
+      <div class="check-item"><span class="check-icon">📢</span><span>CTAは1つだけ・最後に来ているか</span></div>
+    </div>
+  </div>
+
+  <!-- Disclaimer -->
+  <div class="disclaimer">
+    ⚠️ <strong>免責・補足</strong>：本記事で紹介するプラットフォームの推奨尺・アルゴリズム仕様は変更されることがあります。最新情報は各プラットフォームの公式クリエイター向けページでご確認ください。AIツール（Kling / Runway / Veo / Sora 等）の機能・料金・商用利用条件も頻繁に更新されます。ご利用前に必ず公式サイトの利用規約をご確認ください。
+  </div>
+
+</div>
+</body>
+</html>
