@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>デジタルノマド 最新トピック 2026-06-11</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    color: #2a2a2a;
+  }
+  .hero {
+    background: linear-gradient(135deg, #5e2a8e 0%, #3b1a5e 100%);
+    color: white;
+    border-radius: 10px;
+    padding: 48px 40px;
+    text-align: center;
+    width: 100%;
+    max-width: 760px;
+    margin-bottom: 28px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .hero .label {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 0.8rem;
+    margin-bottom: 14px;
+    letter-spacing: 0.05em;
+  }
+  .hero h1 { font-size: 1.55rem; margin-bottom: 12px; line-height: 1.5; }
+  .hero .meta { opacity: 0.85; font-size: 0.88rem; line-height: 1.75; }
+  /* ── カード共通 ── */
+  .card {
+    background: #fff9f0;
+    border-radius: 8px;
+    padding: 28px 32px;
+    width: 100%;
+    max-width: 760px;
+    margin-bottom: 20px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.08);
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #5e2a8e;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px dashed #d0b0f0;
+  }
+  .card p { font-size: 0.93rem; line-height: 1.85; margin-bottom: 10px; }
+  .card p:last-child { margin-bottom: 0; }
+  /* ── ボックス ── */
+  .highlight-box {
+    background: #f2eafc;
+    border-left: 4px solid #5e2a8e;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .highlight-box .hlabel {
+    font-size: 0.75rem; color: #5e2a8e; font-weight: 600;
+    margin-bottom: 6px; display: block;
+  }
+  .highlight-box p { font-size: 0.9rem; margin: 0; }
+  .alert-box {
+    background: #fff3cd;
+    border-left: 4px solid #e8a000;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .alert-box .alabel {
+    font-size: 0.75rem; color: #b07700; font-weight: 600;
+    margin-bottom: 6px; display: block;
+  }
+  .alert-box p { font-size: 0.9rem; margin: 0; }
+  .danger-box {
+    background: #fde8e8;
+    border-left: 4px solid #c0392b;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .danger-box .dlabel {
+    font-size: 0.75rem; color: #c0392b; font-weight: 600;
+    margin-bottom: 6px; display: block;
+  }
+  .danger-box p { font-size: 0.9rem; margin: 0; }
+  .news-box {
+    background: #e8f0fd;
+    border-left: 4px solid #2a5e8e;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .news-box .nlabel {
+    font-size: 0.75rem; color: #2a5e8e; font-weight: 600;
+    margin-bottom: 6px; display: block;
+  }
+  .news-box p { font-size: 0.9rem; margin: 0; }
+  /* ── 数字カード ── */
+  .number-row {
+    display: flex; gap: 14px; flex-wrap: wrap; margin: 14px 0;
+  }
+  .number-card {
+    flex: 1; min-width: 130px;
+    background: #5e2a8e; color: white;
+    border-radius: 8px; padding: 18px 14px; text-align: center;
+  }
+  .number-card .num {
+    font-size: 1.55rem; font-weight: 700;
+    margin-bottom: 6px; line-height: 1.2; letter-spacing: 0.03em;
+  }
+  .number-card .desc { font-size: 0.72rem; opacity: 0.9; line-height: 1.5; }
+  .number-card.amber { background: #b07700; }
+  .number-card.blue  { background: #2a5e8e; }
+  .number-card.red   { background: #922b2b; }
+  .number-card.green { background: #2c6e4e; }
+  /* ── フロー（縦） ── */
+  .flow-wrap {
+    display: flex; flex-direction: column; gap: 4px; margin: 14px 0;
+  }
+  .flow-box {
+    background: #5e2a8e; color: white;
+    border-radius: 8px; padding: 14px 16px;
+    font-size: 0.88rem; line-height: 1.6;
+  }
+  .flow-box .fb-label {
+    font-size: 0.7rem; opacity: 0.8; margin-bottom: 4px; display: block;
+  }
+  .flow-box strong { font-size: 0.95rem; }
+  .flow-box.sub   { background: #8040b8; }
+  .flow-box.light { background: #f2eafc; color: #2a2a2a; border: 1.5px solid #d0b0f0; }
+  .flow-box.amber { background: #8a5e00; }
+  .flow-box.blue  { background: #2a5e8e; }
+  .flow-box.red   { background: #922b2b; }
+  .flow-box.green { background: #2c6e4e; }
+  .flow-box.gray  { background: #666; }
+  .arrow-down {
+    text-align: center; font-size: 1.5rem; color: #5e2a8e;
+    margin: 4px 0; line-height: 1;
+  }
+  /* ── フロー（横） ── */
+  .flow-h-row {
+    display: flex; align-items: center; gap: 4px; flex-wrap: wrap; margin: 14px 0;
+  }
+  .flow-h-box {
+    flex: 1; min-width: 110px;
+    background: #5e2a8e; color: white;
+    border-radius: 8px; padding: 14px 12px; text-align: center;
+    font-size: 0.82rem; line-height: 1.55;
+  }
+  .flow-h-box .fh-label { font-size: 0.68rem; opacity: 0.8; display: block; margin-bottom: 4px; }
+  .flow-h-box strong { font-size: 0.9rem; }
+  .flow-h-box.fh-sub    { background: #8040b8; }
+  .flow-h-box.fh-amber  { background: #8a5e00; }
+  .flow-h-box.fh-blue   { background: #2a5e8e; }
+  .flow-h-box.fh-green  { background: #2c6e4e; }
+  .flow-h-box.fh-red    { background: #922b2b; }
+  .flow-h-box.fh-light  { background: #f2eafc; color: #2a2a2a; border: 1.5px solid #d0b0f0; }
+  .arrow-right { font-size: 1.3rem; color: #5e2a8e; flex-shrink: 0; }
+  @media (max-width: 520px) {
+    .flow-h-row { flex-direction: column; }
+    .arrow-right { transform: rotate(90deg); }
+  }
+  /* ── ステップリスト ── */
+  .step-list {
+    list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 12px 0;
+  }
+  .step-list li {
+    display: flex; align-items: flex-start; gap: 12px;
+  }
+  .step-num {
+    background: #5e2a8e; color: white; border-radius: 50%;
+    min-width: 28px; height: 28px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.78rem; font-weight: 700; flex-shrink: 0; margin-top: 2px;
+  }
+  .step-num.amber { background: #b07700; }
+  .step-num.blue  { background: #2a5e8e; }
+  .step-num.green { background: #2c6e4e; }
+  .step-list li div { font-size: 0.9rem; line-height: 1.7; }
+  /* ── テーブル ── */
+  .matrix-table {
+    width: 100%; border-collapse: collapse; font-size: 0.87rem; margin: 14px 0;
+  }
+  .matrix-table th {
+    background: #5e2a8e; color: white; padding: 10px 12px;
+    text-align: left; font-weight: 600; font-size: 0.82rem;
+  }
+  .matrix-table th:first-child { border-radius: 6px 0 0 0; }
+  .matrix-table th:last-child  { border-radius: 0 6px 0 0; }
+  .matrix-table td {
+    padding: 10px 12px; border-bottom: 1px solid #e0d0f4;
+    vertical-align: top; line-height: 1.55;
+  }
+  .matrix-table tr:nth-child(even) td { background: #faf5ff; }
+  .matrix-table .ok   { color: #2c6e4e; font-weight: 700; }
+  .matrix-table .ng   { color: #c0392b; font-weight: 700; }
+  .matrix-table .warn { color: #b07700; font-weight: 700; }
+  .matrix-table .row-warn   td { background: #fff8e8 !important; }
+  .matrix-table .row-danger td { background: #fdeaea !important; }
+  .matrix-table .row-blue   td { background: #e8f0fd !important; }
+  .matrix-table .row-purple td { background: #f2eafc !important; }
+  /* ── チェックリスト ── */
+  .check-list {
+    list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 12px 0;
+  }
+  .check-list li {
+    display: flex; align-items: flex-start; gap: 12px;
+    padding: 10px 14px;
+    background: #faf5ff; border-radius: 6px; border: 1px solid #d8c0f0;
+    font-size: 0.9rem; line-height: 1.6;
+  }
+  .check-list .ico { font-size: 1.1rem; flex-shrink: 0; margin-top: 2px; }
+  /* ── 比較カード ── */
+  .compare-row { display: flex; gap: 14px; flex-wrap: wrap; margin: 14px 0; }
+  .compare-card {
+    flex: 1; min-width: 200px; border-radius: 8px;
+    padding: 16px 16px; font-size: 0.88rem; line-height: 1.7;
+  }
+  .compare-card h3 {
+    font-size: 0.85rem; margin-bottom: 8px; padding-bottom: 6px; border-bottom: 1.5px dashed;
+  }
+  .compare-card.purple { background: #f2eafc; border: 1.5px solid #5e2a8e; }
+  .compare-card.purple h3 { color: #5e2a8e; border-color: #d0b0f0; }
+  .compare-card.amber  { background: #fff8e8; border: 1.5px solid #c9920a; }
+  .compare-card.amber  h3 { color: #a07800; border-color: #f0d080; }
+  .compare-card.green  { background: #e8f5ef; border: 1.5px solid #2c6e4e; }
+  .compare-card.green  h3 { color: #2c6e4e; border-color: #b2d4c4; }
+  .compare-card.blue   { background: #e8f0fd; border: 1.5px solid #2a5e8e; }
+  .compare-card.blue   h3 { color: #2a5e8e; border-color: #a0c0e8; }
+  /* ── ミニカード ── */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 14px 0; }
+  @media (max-width: 500px) { .two-col { grid-template-columns: 1fr; } }
+  .mini-card {
+    background: #faf5ff; border: 1.5px solid #d8c0f0;
+    border-radius: 8px; padding: 14px 16px; font-size: 0.88rem; line-height: 1.65;
+  }
+  .mini-card h4 { color: #5e2a8e; font-size: 0.88rem; margin-bottom: 6px; }
+  .mini-card.amber-bg { background: #fff8e8; border-color: #e8c060; }
+  .mini-card.amber-bg h4 { color: #a07800; }
+  .mini-card.green-bg { background: #e8f5ef; border-color: #b2d4c4; }
+  .mini-card.green-bg h4 { color: #2c6e4e; }
+  .mini-card.red-bg   { background: #fdeaea; border-color: #e8a0a0; }
+  .mini-card.red-bg   h4 { color: #922b2b; }
+  /* ── タグ・その他 ── */
+  .tag {
+    display: inline-block; background: #5e2a8e; color: white;
+    font-size: 0.72rem; padding: 2px 8px; border-radius: 10px;
+    margin-right: 4px; margin-bottom: 6px; vertical-align: middle;
+  }
+  .tag.amber { background: #b07700; }
+  .tag.blue  { background: #2a5e8e; }
+  .tag.red   { background: #922b2b; }
+  .tag.green { background: #2c6e4e; }
+  .source-list {
+    font-size: 0.78rem; color: #888; margin-top: 12px; line-height: 1.8;
+  }
+  .source-list a { color: #8040b8; word-break: break-all; }
+  .footer-note {
+    width: 100%; max-width: 760px;
+    font-size: 0.78rem; color: #777; line-height: 1.8;
+    margin-top: 8px; padding: 20px 24px;
+    background: #f5f2ec; border-radius: 8px; border: 1px solid #ddd;
+  }
+  .footer-note strong { color: #555; }
+  .nav-bar {
+    width: 100%; max-width: 760px;
+    display: flex; justify-content: space-between;
+    margin-bottom: 20px; font-size: 0.82rem;
+  }
+  .nav-bar a {
+    color: #5e2a8e; text-decoration: none;
+    padding: 6px 14px; border: 1px solid #d0b0f0;
+    border-radius: 20px; background: #fff;
+  }
+  .nav-bar a:hover { background: #f2eafc; }
+</style>
+</head>
+<body>
+
+<!-- ナビゲーション -->
+<div class="nav-bar">
+  <a href="index.html">&larr; アーカイブ一覧</a>
+  <a href="2026-06-10.html">前の日報 &rarr;</a>
+</div>
+
+<!-- ヒーロー -->
+<div class="hero">
+  <div class="label">&#x1F4D3; デジタルノマド日報</div>
+  <h1>&#x1F4B4; 役員報酬の源泉徴収と日西租税条約<br>日本の1人法人代表がスペインに移住したら<br>「税金」はどう変わるか</h1>
+  <p class="meta">
+    2026年6月11日（木）｜バックログ解説：非居住者への役員報酬と源泉徴収<br>
+    20.42%ルール（国内源泉所得）・日西新租税条約（2022年適用開始）<br>
+    ベックハム法との二重課税解消・届出書の手続き
+  </p>
+</div>
+
+<!-- 今日の数字 -->
+<div class="card">
+  <h2>&#x1F4CC; 今日の数字で見るポイント</h2>
+  <div class="number-row">
+    <div class="number-card red">
+      <div class="num">20.42%</div>
+      <div class="desc">スペイン居住後も<br>日本法人から役員報酬を<br>受け取ると<br>かかる日本の源泉徴収税率<br>（基準：所得税法）</div>
+    </div>
+    <div class="number-card amber">
+      <div class="num">24%</div>
+      <div class="desc">ベックハム法（特別制度）<br>適用時の<br>スペイン側税率<br>（€60万以下の所得、<br>2026年時点）</div>
+    </div>
+    <div class="number-card blue">
+      <div class="num">20%</div>
+      <div class="desc">スペイン確定申告で<br>「外国税額控除」として<br>引ける日本の源泉税分<br>（二重課税の解消）</div>
+    </div>
+    <div class="number-card green">
+      <div class="num">6年</div>
+      <div class="desc">ベックハム法の<br>適用可能期間<br>（到着年＋5年）<br>（2026年現在）</div>
+    </div>
+  </div>
+  <p style="font-size:0.82rem;color:#777;margin-top:8px;">
+    ※ 源泉徴収税率（所得税20%＋復興特別所得税0.42%）は令和19年（2037年）まで復興特別税が上乗せされます。税率・制度は変更される場合があります。2026年6月時点の公開情報をもとにした記載です。
+  </p>
+</div>
+
+<!-- 「非居住者」になると何が変わるか -->
+<div class="card">
+  <h2>&#x1F310; 「非居住者」になると何が変わるか</h2>
+  <p>
+    スペインに住み始めて「税務上の非居住者」（日本に住所・生活の本拠がない状態）になると、<strong>日本の所得税の仕組みが大きく変わります</strong>。
+    普段は「全世界の所得」を日本で申告しますが、非居住者になると<strong>「国内源泉所得」だけ</strong>が日本の課税対象に。
+  </p>
+  <div class="compare-row">
+    <div class="compare-card purple">
+      <h3>&#x1F1EF;&#x1F1F5; 居住者のとき（日本在住）</h3>
+      &#x2022; 全世界の所得を日本で確定申告<br>
+      &#x2022; 役員報酬は給与所得として総合課税<br>
+      &#x2022; 源泉徴収 → 年末調整 → 必要なら確定申告<br>
+      &#x2022; 最高税率55%（所得税45%＋住民税10%）
+    </div>
+    <div class="compare-card amber">
+      <h3>&#x1F1EA;&#x1F1F8; 非居住者になったとき（スペイン在住）</h3>
+      &#x2022; 日本では「国内源泉所得」のみ課税<br>
+      &#x2022; 役員報酬は<strong>20.42%で源泉分離課税</strong>（確定申告不要）<br>
+      &#x2022; 天引きされたら課税関係は完了<br>
+      &#x2022; スペインでは別途申告（IRPF またはベックハム法）
+    </div>
+  </div>
+  <div class="alert-box">
+    <span class="alabel">&#x26A0;&#xFE0F; 「非居住者」の判定は個人ごと・年単位</span>
+    <p>
+      日本の非居住者かどうかは、<strong>住所が日本にあるか、継続1年以上居所があるか</strong>で判定されます（所得税法第2条）。
+      スペインのDNV取得＝即・非居住者ではなく、実際の生活の本拠がどこにあるかが基準です。
+      判定が難しいケースは国際税務に強い税理士に相談してください。
+    </p>
+  </div>
+</div>
+
+<!-- 役員報酬はなぜ20%源泉が続くのか -->
+<div class="card">
+  <h2>&#x1F4DD; 役員報酬は「国内源泉所得」── なぜ20%源泉が続くのか</h2>
+  <p>
+    一般の会社員が海外勤務になった場合、<strong>一定の条件（183日ルールなど）を満たせば日本の所得税が免除</strong>されることがあります（租税条約の「短期滞在者免税」）。
+    しかし、<strong>役員報酬（取締役報酬）は別ルール</strong>が適用されます。
+  </p>
+  <div class="highlight-box">
+    <span class="hlabel">&#x1F4D6; 所得税法 第161条 第1項 第12号</span>
+    <p>
+      日本の内国法人（日本で設立された法人）の役員が受け取る報酬は、<strong>勤務地がどこにあっても「国内源泉所得」として全額が日本の課税対象</strong>になります。
+      つまり、スペインで仕事をしていても、日本法人の取締役である限り<strong>役員報酬は全額、日本で20.42%の源泉徴収が必要</strong>です。
+      （出典：国税庁 No.1929「海外で勤務する法人の役員などに対する給与の支払と税務」）
+    </p>
+  </div>
+
+  <div class="two-col">
+    <div class="mini-card">
+      <h4>&#x2705; 短期滞在者免税が使えるケース</h4>
+      <strong>「従業員」としての給与所得</strong><br>
+      &#x2022; 183日以下の滞在<br>
+      &#x2022; 現地（スペイン）の法人から給与が出ていない<br>
+      &#x2022; 勤務コストが日本法人の事業に帰属する<br>
+      → <strong>1人法人で「代表取締役のみ」の場合は原則使えない</strong>
+    </div>
+    <div class="mini-card red-bg">
+      <h4>&#x274C; 短期滞在者免税が使えないケース</h4>
+      <strong>「役員報酬（取締役報酬）」</strong><br>
+      &#x2022; 勤務地や滞在日数に関係なく国内源泉所得<br>
+      &#x2022; 租税条約の第14条・第15条（給与所得）ではなく<strong>取締役報酬条項（第16条相当）</strong>が適用<br>
+      &#x2022; 日本が課税権を保持 → <strong>免税にならない</strong>
+    </div>
+  </div>
+</div>
+
+<!-- 日西租税条約と役員報酬 -->
+<div class="card">
+  <h2>&#x1F4C3; 日西新租税条約（2022年1月1日適用開始）と役員報酬</h2>
+  <p>
+    日本とスペインの「新・租税条約」（正式名称：所得に対する租税に関する二重課税の除去並びに脱税及び租税回避の防止のための日本国とスペイン王国との間の条約）は、
+    <strong>2021年5月1日に発効し、2022年1月1日以後の支払いから適用</strong>されています。
+    （出典：財務省 2021年、外務省 日・スペイン租税条約）
+  </p>
+
+  <table class="matrix-table">
+    <thead>
+      <tr>
+        <th>所得の種類</th>
+        <th>日西新租税条約の取り扱い</th>
+        <th>日本源泉徴収</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="row-danger">
+        <td><strong>役員報酬（取締役報酬）</strong></td>
+        <td>法人の所在地国（日本）が課税権を保持<br>（OECD モデル条約第16条相当）</td>
+        <td class="ng">20.42%（免税なし）</td>
+      </tr>
+      <tr>
+        <td><strong>配当金（法人利益の配当）</strong></td>
+        <td>条件次第で軽減あり<br>（新条約：直接所有10%以上→0%、その他5%等）</td>
+        <td class="warn">0〜15%<br>（条件次第）</td>
+      </tr>
+      <tr>
+        <td><strong>利子</strong></td>
+        <td>新条約：原則10%（一定条件で0%・5%）</td>
+        <td class="warn">0〜10%</td>
+      </tr>
+      <tr>
+        <td><strong>使用料（ロイヤルティ）</strong></td>
+        <td>新条約：5%（文学・芸術）または10%（工業等）</td>
+        <td class="warn">5〜10%</td>
+      </tr>
+      <tr class="row-blue">
+        <td><strong>従業員の給与所得</strong></td>
+        <td>183日以下滞在 等の条件を満たせば免税<br>（短期滞在者免税：第14条相当）</td>
+        <td class="ok">免税（条件付き）</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="danger-box">
+    <span class="dlabel">&#x1F6A8; 1人法人オーナーへの重要な示唆</span>
+    <p>
+      日本の1人法人の代表取締役がスペインに移住しても、<strong>役員報酬には引き続き20.42%の源泉徴収義務が残ります</strong>。
+      租税条約の届出書を提出しても、取締役報酬の免税適用はできません（条約上、日本に課税権がある所得のため）。
+      配当金は条件次第で優遇税率になりますが、役員報酬は別扱いです。
+      ただし、スペイン側での確定申告時に「外国税額控除」を申請することで<strong>二重課税を解消</strong>できます。
+    </p>
+  </div>
+
+  <div class="news-box">
+    <span class="nlabel">&#x1F4DA; 「届出書」が必要なケース（配当・利子・使用料の場合）</span>
+    <p>
+      スペイン居住者が新条約による<strong>配当・利子・使用料の軽減税率</strong>を受けるには、
+      「租税条約に関する届出書」＋「特典条項に関する付表（スペイン王国）」を、
+      <strong>源泉徴収義務者（日本法人＝自分）を経由して所轄税務署に提出する必要</strong>があります。
+      初回支払前日までの提出が条件です（国税庁 日スペイン租税条約関係事務手引 令和3年6月）。
+    </p>
+  </div>
+</div>
+
+<!-- 課税の流れ全体 -->
+<div class="card">
+  <h2>&#x1F504; 課税フロー全体 ── 日本とスペインで何が起きるか</h2>
+  <p style="margin-bottom:14px;">
+    日本法人の代表取締役がスペインに移住した後、毎月の役員報酬の流れは次のようになります。
+    <strong>「自分が法人から自分に払う」ので、源泉徴収・納付も自分（法人として）が行います。</strong>
+  </p>
+
+  <!-- 日本側フロー -->
+  <p style="font-size:0.82rem; color:#5e2a8e; font-weight:600; margin-bottom:6px;">&#x1F1EF;&#x1F1F5; 日本側の流れ（毎月）</p>
+  <div class="flow-h-row">
+    <div class="flow-h-box">
+      <span class="fh-label">法人の決定</span>
+      <strong>役員報酬<br>月額（例: 30万円）</strong>
+    </div>
+    <div class="arrow-right">&#x279C;</div>
+    <div class="flow-h-box fh-red">
+      <span class="fh-label">天引き・法人が納付</span>
+      <strong>源泉徴収<br>20.42%</strong>
+    </div>
+    <div class="arrow-right">&#x279C;</div>
+    <div class="flow-h-box fh-sub">
+      <span class="fh-label">自分の口座へ</span>
+      <strong>手取り入金<br>（〜79.58%）</strong>
+    </div>
+    <div class="arrow-right">&#x279C;</div>
+    <div class="flow-h-box fh-light">
+      <span class="fh-label">法人が翌月10日までに</span>
+      <strong>源泉所得税<br>税務署へ納付</strong>
+    </div>
+  </div>
+
+  <!-- スペイン側フロー -->
+  <p style="font-size:0.82rem; color:#2a5e8e; font-weight:600; margin: 16px 0 6px;">&#x1F1EA;&#x1F1F8; スペイン側の流れ（年次）</p>
+  <div class="flow-h-row">
+    <div class="flow-h-box fh-blue">
+      <span class="fh-label">スペインでの確定申告</span>
+      <strong>IRPF（累進課税）<br>またはベックハム法<br>（24%一律）</strong>
+    </div>
+    <div class="arrow-right">&#x279C;</div>
+    <div class="flow-h-box fh-blue">
+      <span class="fh-label">外国税額控除を申請</span>
+      <strong>日本で払った<br>20%分を控除</strong>
+    </div>
+    <div class="arrow-right">&#x279C;</div>
+    <div class="flow-h-box fh-green">
+      <span class="fh-label">二重課税が解消</span>
+      <strong>スペインでの<br>実質追加税負担<br>≒ 4%（ベックハム法）<br>※ 試算参照</strong>
+    </div>
+  </div>
+
+  <div class="highlight-box" style="margin-top:14px;">
+    <span class="hlabel">&#x1F9EE; ベックハム法＋外国税額控除のイメージ（試算）</span>
+    <p>
+      役員報酬 月30万円（年360万円、参考レート 1€＝¥160 → 年約€22,500）の場合：<br>
+      &#x2022; 日本での源泉徴収：20%（復興特別0.42%別）→ 年約€4,500 を日本に納付<br>
+      &#x2022; スペイン・ベックハム法の税率：24% → 税額 年約€5,400<br>
+      &#x2022; 外国税額控除（日本で払った€4,500 を控除）→ スペインへの追加納付 約€900<br>
+      &#x2022; <strong>合計税負担 = 日本€4,500 ＋ スペイン€900 ≒ 年€5,400（実質24%）</strong><br>
+      ※ これは概算です。実際は控除限度額・適用ルールがあり、税理士による計算が必要です。
+    </p>
+  </div>
+</div>
+
+<!-- 月額別試算 -->
+<div class="card">
+  <h2>&#x1F9EE; 月額役員報酬別の税負担イメージ（概算）</h2>
+  <p style="margin-bottom:8px;">参考レート 1€＝¥160 で換算。ベックハム法（24%）＋外国税額控除（日本20%分）を前提とした概算です。</p>
+
+  <table class="matrix-table">
+    <thead>
+      <tr>
+        <th>月額役員報酬</th>
+        <th>日本源泉（20%）</th>
+        <th>手取り入金</th>
+        <th>スペイン税額（24%）</th>
+        <th>外国税額控除</th>
+        <th>スペイン追加納付</th>
+        <th>実質税率目安</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>月 10万円</td>
+        <td>月 2万円</td>
+        <td>月 8万円</td>
+        <td>年 28.8万円</td>
+        <td>年 24万円</td>
+        <td>年 約4.8万円</td>
+        <td class="warn">24%</td>
+      </tr>
+      <tr class="row-purple">
+        <td>月 30万円</td>
+        <td>月 6万円</td>
+        <td>月 24万円</td>
+        <td>年 86.4万円</td>
+        <td>年 72万円</td>
+        <td>年 約14.4万円</td>
+        <td class="warn">24%</td>
+      </tr>
+      <tr>
+        <td>月 50万円</td>
+        <td>月 10万円</td>
+        <td>月 40万円</td>
+        <td>年 144万円</td>
+        <td>年 120万円</td>
+        <td>年 約24万円</td>
+        <td class="warn">24%</td>
+      </tr>
+      <tr class="row-warn">
+        <td>月 100万円</td>
+        <td>月 20万円</td>
+        <td>月 80万円</td>
+        <td>年 288万円</td>
+        <td>年 240万円</td>
+        <td>年 約48万円</td>
+        <td class="warn">24%</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="alert-box">
+    <span class="alabel">&#x26A0;&#xFE0F; この試算の注意点</span>
+    <p>
+      &#x2022; <strong>外国税額控除には上限（控除限度額）</strong>があり、スペイン税額を上回る日本税額は控除しきれないことがあります。<br>
+      &#x2022; ベックハム法は社会保険（RETA: autónomo 保険料）登録から<strong>6か月以内にモデロ149を提出</strong>しないと適用できません。<br>
+      &#x2022; <strong>スペインの居住者判定</strong>（183日超などの条件）によっては IRPF（累進課税）が適用され、税率が変わります。<br>
+      &#x2022; 復興特別所得税（0.42%）は2037年まで継続予定。試算では簡略化のため20%で計算しています。<br>
+      &#x2022; 為替レートは参考値です（¥160/€、2026年6月の参考水準）。実際のレートで再計算してください。
+    </p>
+  </div>
+</div>
+
+<!-- 届出書の手続き -->
+<div class="card">
+  <h2>&#x1F4CB; 届出書の手続き ── 何をいつ出すか</h2>
+  <p>
+    「役員報酬の場合、租税条約の届出書を出しても免税にはならない」と書きましたが、
+    <strong>日本法人が関わるすべての所得が免税にならないわけではありません</strong>。
+    日本法人からスペイン居住者（自分）への<strong>配当・利子・使用料</strong>については、新条約による軽減税率が適用できる場合があります。
+    その際は届出書が必要です。
+  </p>
+
+  <ul class="step-list">
+    <li>
+      <div class="step-num">①</div>
+      <div>
+        <strong>スペインの居住者証明書（Certificado de Residencia Fiscal）を取得</strong><br>
+        スペインの税務当局（AEAT: Agencia Estatal de Administración Tributaria）が発行。
+        条約の特典を受けるために必要な「スペイン居住者であること」の証明書です。
+      </div>
+    </li>
+    <li>
+      <div class="step-num">②</div>
+      <div>
+        <strong>「租税条約に関する届出書」を国税庁ウェブサイトから入手</strong><br>
+        所得の種類に応じた様式（配当は様式7号、使用料は様式13号等）を使用。
+        「特典条項に関する付表（スペイン王国）」の添付も必要です（2022年1月以後の支払から）。
+      </div>
+    </li>
+    <li>
+      <div class="step-num blue">③</div>
+      <div>
+        <strong>源泉徴収義務者（自分＝日本法人）経由で税務署に提出</strong><br>
+        日本法人の納税地の所轄税務署に提出。<strong>初回支払前日までに提出</strong>する必要があります。
+        期限を過ぎると軽減税率の適用が遅れる場合があります。
+      </div>
+    </li>
+    <li>
+      <div class="step-num green">④</div>
+      <div>
+        <strong>1人法人では「自分が届出書を自分に渡して税務署に持っていく」形になる</strong><br>
+        法人の代表者として届出書を受け取り、法人として管理し、税務署に提出します。
+        実務上は、担当税理士に依頼するのが一般的です。
+      </div>
+    </li>
+  </ul>
+
+  <div class="highlight-box">
+    <span class="hlabel">&#x1F4A1; 役員報酬への「源泉徴収不要」の判断は慎重に</span>
+    <p>
+      一部の解説で「租税条約があるから源泉しなくてよい」という誤解が見られますが、
+      <strong>日本法人の取締役報酬は条約に関わらず国内源泉所得（全額課税）</strong>です。
+      源泉徴収を誤って行わなかった場合、日本法人が不納付加算税・延滞税のリスクを負います。
+      不明点は国際税務に強い税理士にご相談ください。
+    </p>
+  </div>
+</div>
+
+<!-- 実務チェックリスト -->
+<div class="card">
+  <h2>&#x2705; 実務チェックリスト ── スペイン移住前後にやること</h2>
+  <ul class="check-list">
+    <li>
+      <span class="ico">&#x1F1EF;&#x1F1F5;</span>
+      <div>
+        <strong>【日本法人】役員報酬の源泉徴収を「非居住者用」の計算に切り替える</strong><br>
+        移住後は年末調整不要・源泉分離課税。毎月20.42%を計算して翌月10日までに納付。
+      </div>
+    </li>
+    <li>
+      <span class="ico">&#x1F4DD;</span>
+      <div>
+        <strong>【日本法人】役員報酬額を「定期同額給与」として年1回の設定変更期限に合わせる</strong><br>
+        原則として期末から3か月以内の株主総会決議が必要。期中の変更は損金算入できなくなるリスクあり。
+      </div>
+    </li>
+    <li>
+      <span class="ico">&#x1F1EA;&#x1F1F8;</span>
+      <div>
+        <strong>【スペイン】ベックハム法を使う場合、RETA 社会保険登録から6か月以内にモデロ149を提出</strong><br>
+        この期限を過ぎると、ベックハム法は適用できず通常の IRPF（累進課税）になります（2026-06-05 参照）。
+      </div>
+    </li>
+    <li>
+      <span class="ico">&#x1F4B0;</span>
+      <div>
+        <strong>【スペイン確定申告】モデロ151 でベックハム法年次申告 → 外国税額控除（Deducción por doble imposición internacional）を申請</strong><br>
+        日本の源泉徴収で徴収された金額をスペイン側の税額から控除。証明として日本の「源泉徴収票」が必要です。
+      </div>
+    </li>
+    <li>
+      <span class="ico">&#x1F4C4;</span>
+      <div>
+        <strong>【届出書】配当・使用料などで新条約の軽減税率を使う場合、「租税条約に関する届出書」を初回支払前日までに提出</strong><br>
+        「特典条項に関する付表（スペイン王国）」を必ず添付。スペインの居住者証明書も用意する。
+      </div>
+    </li>
+    <li>
+      <span class="ico">&#x1F9FE;</span>
+      <div>
+        <strong>【記録保管】源泉徴収票・納付書控え・スペインの税務申告書類を最低7年間保管</strong><br>
+        税務調査・ビザ更新時の収入証明・二重課税還付申請などに使います。
+      </div>
+    </li>
+    <li>
+      <span class="ico">&#x1F4DE;</span>
+      <div>
+        <strong>【専門家】日本側：国際税務対応の税理士、スペイン側：Gestor Fiscal / Asesor Fiscal に相談</strong><br>
+        両国の税務申告を連携して処理できる専門家を早めに確保する（2026-06-07 参照）。
+      </div>
+    </li>
+  </ul>
+</div>
+
+<!-- まとめ -->
+<div class="card">
+  <h2>&#x1F4A1; まとめ ── 1人法人代表のスペイン移住と役員報酬</h2>
+  <div class="flow-wrap">
+    <div class="flow-box">
+      <span class="fb-label">&#x1F535; 原則（変わらないこと）</span>
+      <strong>日本法人の役員報酬は「国内源泉所得」→ スペインに移住後も20.42%源泉徴収が続く</strong>
+    </div>
+    <div class="arrow-down">&#x2B07;</div>
+    <div class="flow-box sub">
+      <span class="fb-label">&#x1F7E3; 租税条約の効果</span>
+      <strong>役員報酬は免税にならないが「配当・使用料」では軽減税率あり。届出書の提出が必要</strong>
+    </div>
+    <div class="arrow-down">&#x2B07;</div>
+    <div class="flow-box blue">
+      <span class="fb-label">&#x1F535; スペイン側の対応</span>
+      <strong>ベックハム法（24%）適用 → 外国税額控除で日本20%分を控除 → 実質追加負担は約4%</strong>
+    </div>
+    <div class="arrow-down">&#x2B07;</div>
+    <div class="flow-box green">
+      <span class="fb-label">&#x1F7E2; 重要な実務ポイント</span>
+      <strong>ベックハム法の6か月申請期限・年1回の役員報酬設定・専門家との連携 が鍵</strong>
+    </div>
+  </div>
+
+  <div class="source-list">
+    <strong>情報ソース：</strong><br>
+    &#x2022; 国税庁 No.1929「海外で勤務する法人の役員などに対する給与の支払と税務」
+    <a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1929.htm" target="_blank">https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1929.htm</a>（参照：2026年6月）<br>
+    &#x2022; 国税庁 No.2884「非居住者等に対する源泉徴収・源泉徴収の税率」
+    <a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/gensen/2884.htm" target="_blank">https://www.nta.go.jp/taxes/shiraberu/taxanswer/gensen/2884.htm</a>（参照：2026年6月）<br>
+    &#x2022; 外務省「日・スペイン租税条約」
+    <a href="https://www.mofa.go.jp/mofaj/ila/et/page25_001864.html" target="_blank">https://www.mofa.go.jp/mofaj/ila/et/page25_001864.html</a>（発効：2021年5月、適用：2022年1月〜）<br>
+    &#x2022; 国税庁「日スペイン新租税条約関係 源泉所得税の改正のあらまし」（令和3年6月）<br>
+    &#x2022; 財務省「スペインとの新租税条約のポイント」（2018年10月公表）
+    <a href="https://www.mof.go.jp/tax_policy/summary/international/tax_convention/press_release/20181017es_pt.htm" target="_blank">https://www.mof.go.jp/tax_policy/summary/international/tax_convention/</a><br>
+    &#x2022; 長島・大野・常松法律事務所「新日西租税条約の発効とスペインを経由した投資に係る税務上の優遇取扱い」（2022年10月）
+    <a href="https://www.noandt.com/publications/publication20221018-1/" target="_blank">https://www.noandt.com/publications/publication20221018-1/</a><br>
+    &#x2022; 各ソースの情報の基準年度：2022年（条約発効・適用開始年）〜2026年6月（直近確認）
+  </div>
+</div>
+
+<!-- フッター免責 -->
+<div class="footer-note">
+  <strong>&#x26A0;&#xFE0F; 免責事項</strong><br>
+  &#x2022; <strong>ビザ・在留資格に関する判断は、行政書士または移民専門の弁護士（Abogado de extranjería）にご相談ください。</strong><br>
+  &#x2022; <strong>税務・社会保険に関する判断は、国際税務に強い税理士（日本）および Asesor Fiscal / Gestor（スペイン）にご相談ください。</strong><br>
+  &#x2022; 本記事に記載の税率・制度・条約解釈は、2026年6月時点の公開情報をもとにした概説です。税率・制度は変更される場合があり、個別の事情によって結論が異なります。<br>
+  &#x2022; 「必ず免税になる」「必ず二重課税が解消される」などの断定はできません。外国税額控除の適用可否・限度額は個別計算が必要です。<br>
+  &#x2022; 復興特別所得税（0.42%）は令和19年（2037年）12月31日まで継続予定（2026年6月時点）。<br>
+  &#x2022; 為替レートの参考値（¥160/€）は2026年6月の参考水準です。実際の税額は申告時の適用レートで計算してください。
+</div>
+
+</body>
+</html>
