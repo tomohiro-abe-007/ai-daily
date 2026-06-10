@@ -508,93 +508,79 @@
     margin-top: 8px;
   }
 
-  /* コグネイト（同根語）カード */
-  .cognate-grid {
+  /* 干渉タイプカード */
+  .interference-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 10px;
-    margin: 14px 0;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin: 16px 0;
   }
-  .cognate-card {
-    background: white;
+  .interference-card {
     border-radius: 10px;
-    padding: 12px 14px;
+    padding: 14px 12px;
     text-align: center;
-    box-shadow: 1px 2px 6px rgba(0,0,0,0.08);
-    border: 2px solid #c8e8c8;
-  }
-  .cog-en {
-    font-size: 1.0rem;
-    font-weight: 700;
-    color: #1a3888;
-    margin-bottom: 4px;
-  }
-  .cog-es {
-    font-size: 1.0rem;
-    font-weight: 700;
-    color: #c0392b;
-    margin-bottom: 4px;
-  }
-  .cog-jp {
-    font-size: 0.78rem;
-    color: #777;
-  }
-  .cog-arrow {
-    font-size: 0.85rem;
-    color: #888;
-    margin: 2px 0;
-  }
-
-  /* 「注意！」警告ボックス */
-  .warn-box {
-    background: #fff8e0;
-    border: 2px solid #f0a030;
-    border-radius: 8px;
-    padding: 14px 18px;
-    margin: 12px 0;
-    font-size: 0.93rem;
-    line-height: 1.8;
-  }
-  .warn-box .warn-head {
-    font-weight: 700;
-    color: #9a5000;
-    margin-bottom: 8px;
-    font-size: 0.95rem;
-  }
-
-  /* 「混乱パターン」マトリクス */
-  .matrix-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 14px 0;
-    font-size: 0.9rem;
-  }
-  .matrix-table th, .matrix-table td {
-    padding: 10px 12px;
-    border: 1px solid #ddd;
-    vertical-align: top;
+    font-size: 0.88rem;
     line-height: 1.6;
   }
-  .matrix-table th {
-    background: #f0f0f0;
+  .interference-card .ic-icon { font-size: 2rem; display: block; margin-bottom: 8px; }
+  .interference-card .ic-name { font-weight: 700; font-size: 0.95rem; margin-bottom: 6px; }
+  .ic-vocab  { background: #fef3e2; border: 2px solid #f5a830; }
+  .ic-gram   { background: #e8f0ff; border: 2px solid #4466cc; }
+  .ic-sound  { background: #fce8f3; border: 2px solid #cc44aa; }
+
+  /* コグネイト表示 */
+  .cognate-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    margin: 6px 0;
+    font-size: 0.92rem;
+  }
+  .cog-jp   { background: #fffce8; border: 1px solid #e8d860; flex: 1; text-align: center; font-weight: 600; color: #5a4a00; }
+  .cog-en   { background: #e8f0ff; border: 1px solid #8099e0; flex: 1; text-align: center; font-weight: 600; color: #1a3888; }
+  .cog-es   { background: #f5e8ff; border: 1px solid #aa70e0; flex: 1; text-align: center; font-weight: 600; color: #6a0e9a; }
+  .cog-arrow { font-size: 1.1rem; color: #888; flex-shrink: 0; }
+
+  /* フォールスフレンズ */
+  .false-friend {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    background: #fff0f0;
+    border: 2px solid #f5a0a0;
+    border-radius: 8px;
+    padding: 12px 14px;
+    margin: 8px 0;
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+  .ff-icon { font-size: 1.5rem; flex-shrink: 0; }
+  .ff-en   { font-weight: 700; color: #1a3888; }
+  .ff-es   { font-weight: 700; color: #7b2fbe; }
+  .ff-note { color: #c0392b; font-size: 0.85rem; }
+
+  /* スイッチング図 */
+  .lang-switch {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 18px 0;
+    flex-wrap: wrap;
+  }
+  .lang-bubble {
+    border-radius: 50px;
+    padding: 10px 20px;
     font-weight: 700;
-    font-size: 0.82rem;
+    font-size: 0.95rem;
     text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.12);
   }
-  .matrix-table td.row-head {
-    background: #e8f8e8;
-    font-weight: 700;
-    color: #1e6a34;
-    white-space: nowrap;
-  }
-  .matrix-table td.interference {
-    background: #fff5f5;
-    color: #c0392b;
-  }
-  .matrix-table td.positive {
-    background: #f5fff5;
-    color: #1e6a34;
-  }
+  .lb-en { background: #e0eeff; border: 3px solid #4488cc; color: #1a3888; }
+  .lb-es { background: #f5e8ff; border: 3px solid #aa70e0; color: #6a0e9a; }
+  .lb-mix{ background: #fff0d0; border: 3px dashed #f5a830; color: #7a4000; }
 
   @media (max-width: 600px) {
     .card-body { padding: 20px 20px 20px 44px; }
@@ -605,11 +591,10 @@
     .flow-arrow { transform: rotate(90deg); align-self: center; }
     .ngok-grid { grid-template-columns: 1fr; }
     .big-stat-row { grid-template-columns: 1fr; }
+    .interference-grid { grid-template-columns: 1fr; }
     .compare-table { font-size: 0.82rem; }
     .compare-table th, .compare-table td { padding: 8px 8px; }
-    .cognate-grid { grid-template-columns: repeat(2, 1fr); }
-    .matrix-table { font-size: 0.8rem; }
-    .matrix-table th, .matrix-table td { padding: 7px 8px; }
+    .lang-switch { flex-direction: column; }
   }
 </style>
 </head>
@@ -625,14 +610,14 @@
 
 <!-- ===== 目次 ===== -->
 <div class="toc">
-  <h2>📋 今日の目次 ─ 英語とスペイン語が混ざる問題への対処</h2>
+  <h2>📋 今日の目次 ─ 英語とスペイン語が「混ざる」問題への対処</h2>
   <ol>
-    <li><a href="#topic1">「言語の干渉」とは何か ─ 混ざる理由を知る</a></li>
-    <li><a href="#topic2">混ざりやすい3パターン ─ 発音・文法・語彙</a></li>
-    <li><a href="#topic3">「混ざること」は悪くない ─ 英語学習がスペイン語を助ける</a></li>
-    <li><a href="#topic4">注意！「偽の友人（False Friends）」─ 似ているのに意味が違う単語</a></li>
-    <li><a href="#topic5">干渉を防ぐ3つの実践テクニック</a></li>
-    <li><a href="#topic6">スペイン語モードへの切り替え方</a></li>
+    <li><a href="#topic1">なぜ「混ざる」のか？ ─ 脳の仕組みから理解する</a></li>
+    <li><a href="#topic2">混ざり方の3パターン ─ 語彙・語順・発音の干渉</a></li>
+    <li><a href="#topic3">英語→スペイン語で起きやすい具体的な干渉例</a></li>
+    <li><a href="#topic4">「プラス転移」という強力な武器 ─ 同族語（コグネイト）を活かす</a></li>
+    <li><a href="#topic5">混ざりを防ぐ5つの実践テクニック</a></li>
+    <li><a href="#topic6">混ざったときの心がまえと対処法</a></li>
     <li><a href="#topic7">今日からできる一歩</a></li>
   </ol>
 </div>
@@ -642,62 +627,64 @@
   <div class="card-body">
     <div class="card-header">
       <span class="card-emoji">🧠</span>
-      <div class="card-title">「言語の干渉」とは何か ─ 混ざる理由を知る</div>
+      <div class="card-title">なぜ「混ざる」のか？ ─ 脳の仕組みから理解する</div>
       <span class="topic-badge badge-blue">仕組みを知る</span>
     </div>
 
     <div class="simple-box">
       <span class="label">かんたん解説</span><br>
-      <strong>「言語の干渉（language interference）」</strong>とは、学んでいる言語に別の言語のルールが
-      うっかり混ざり込む現象です。これは初心者だけでなく、プロの通訳でさえ経験する<span class="hl-yellow">「脳の正常な反応」</span>です。
+      2つの言語を学ぶとき、脳は両方を<span class="hl-yellow">「同じ引き出しの中に」近くに置いて管理</span>します。
+      そのため、一方の言語を使おうとすると、もう一方が「ちょっと待って、私も使える！」と顔を出します。
+      これは失敗ではなく、<strong>脳が正しく両方の言語を記憶しているサインです</strong>。
     </div>
 
-    <!-- 3種類の干渉 -->
-    <div style="font-weight:700; color:#1b4332; margin:16px 0 12px; font-size:1rem;">🔀 干渉が起きる3つの方向</div>
+    <!-- 大数字カード -->
+    <div class="big-stat-row">
+      <div class="big-stat">
+        <div class="bs-num">7,000+</div>
+        <div class="bs-unit">世界に存在する<br><strong>言語の数</strong><br><span style="font-size:0.75rem; color:#999;">（世界人口の半数以上が2言語以上を日常的に使う）</span></div>
+      </div>
+      <div class="big-stat" style="border-color:#a0b8f0;">
+        <div class="bs-num" style="color:#1a3888;">2種類</div>
+        <div class="bs-unit">言語間の影響の種類<br><strong>プラス転移</strong>（助ける）<br><strong>マイナス転移</strong>（邪魔する）<br><span style="font-size:0.75rem; color:#999;">どちらも自然な現象</span></div>
+      </div>
+      <div class="big-stat" style="border-color:#e0a8e0;">
+        <div class="bs-num" style="color:#7b2fbe;">30%</div>
+        <div class="bs-unit">英語とスペイン語の<br><strong>語彙の重複率の目安</strong><br><span style="font-size:0.75rem; color:#999;">（ラテン語起源の共通語が豊富）</span></div>
+      </div>
+    </div>
 
-    <div class="flow-steps" style="flex-direction:column; gap:8px;">
-      <div class="flow-step" style="background:#4a4a80; display:flex; align-items:center; gap:16px; text-align:left;">
-        <span style="font-size:1.5rem; min-width:40px; text-align:center;">①</span>
-        <span>
-          <strong>日本語 → 英語への干渉</strong><br>
-          <span style="font-weight:400; font-size:0.85rem; opacity:0.9;">
-            例：日本語の語順で英語を作ろうとする（「私は昨日買い物した」→ "I yesterday shopping did"）。
-            これが「英語が苦手な日本人」の典型的なつまずきです。
-          </span>
-        </span>
+    <!-- 脳の図 -->
+    <div style="font-weight:700; color:#1b4332; margin:16px 0 12px; font-size:1rem;">🧠 脳の中でのイメージ</div>
+
+    <div style="background:#f8f0ff; border:2px solid #c8a0e8; border-radius:10px; padding:18px 20px; margin:14px 0; font-size:0.93rem; line-height:1.8;">
+      <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap; justify-content:center; margin-bottom:14px;">
+        <div style="background:#e0f0ff; border:2px solid #80aae0; border-radius:8px; padding:10px 16px; text-align:center; font-weight:700; color:#1a3888; min-width:120px;">
+          🇯🇵 日本語<br><span style="font-weight:400; font-size:0.8rem;">（母語：最優先）</span>
+        </div>
+        <div style="font-size:1.5rem; color:#888;">←→</div>
+        <div style="background:#e0eeff; border:2px solid #5588cc; border-radius:8px; padding:10px 16px; text-align:center; font-weight:700; color:#1a3888; min-width:120px;">
+          🇬🇧 英語<br><span style="font-weight:400; font-size:0.8rem;">（学習中）</span>
+        </div>
+        <div style="font-size:1.5rem; color:#888;">←→</div>
+        <div style="background:#f0e0ff; border:2px solid #aa70e0; border-radius:8px; padding:10px 16px; text-align:center; font-weight:700; color:#6a0e9a; min-width:120px;">
+          🇪🇸 スペイン語<br><span style="font-weight:400; font-size:0.8rem;">（これから）</span>
+        </div>
       </div>
-      <div class="flow-step" style="background:#1a3888; display:flex; align-items:center; gap:16px; text-align:left;">
-        <span style="font-size:1.5rem; min-width:40px; text-align:center;">②</span>
-        <span>
-          <strong>英語 → スペイン語への干渉</strong><br>
-          <span style="font-weight:400; font-size:0.85rem; opacity:0.9;">
-            例：スペイン語の単語に英語の発音ルールを当ててしまう（"música" を「ミュジック」と発音しようとする）。
-            英語を学んでからスペイン語に移るときに起きやすいパターンです。
-          </span>
-        </span>
-      </div>
-      <div class="flow-step" style="background:#2d6a4f; display:flex; align-items:center; gap:16px; text-align:left;">
-        <span style="font-size:1.5rem; min-width:40px; text-align:center;">③</span>
-        <span>
-          <strong>スペイン語 → 英語への逆干渉（後から起きる）</strong><br>
-          <span style="font-weight:400; font-size:0.85rem; opacity:0.9;">
-            スペイン語が上達すると、英語を話しているときにスペイン語単語が出てくることがある。
-            これは「バイリンガルの特徴」でもあり、悪いことではありません。
-          </span>
-        </span>
-      </div>
+      <p>脳の中では、習得した全ての言語が互いに影響を与え合っています。<br>
+      特に<span class="hl-blue">「最近よく使っている言語」が他の言語に滲み出やすい</span>という特徴があります。<br>
+      つまり、英語を集中的に練習している期間は、英語がスペイン語学習に影響します。これは正常です。</p>
     </div>
 
     <div class="sticky">
-      💡 「混ざるのはダメなこと」ではありません。
-      <span style="text-decoration:underline;">混ざることに気づいて修正できる力</span>を育てることが、
-      2言語を使いこなす近道です。
+      💡「混ざる」ことへの不安は不要です。世界中のバイリンガル・マルチリンガルは全員、
+      最初はこの経験をします。<span style="text-decoration:underline;">問題は「混ざること」ではなく「混ざっても対処できるか」</span>です。
     </div>
 
     <div class="source">
       参考:
-      <a href="https://www.sciencedirect.com/science/article/abs/pii/S0346251X19302052" target="_blank">Cross-linguistic influence in second language acquisition - System (ScienceDirect)</a> /
-      <a href="https://www.cambridge.org/core/journals/bilingualism-language-and-cognition" target="_blank">Bilingualism: Language and Cognition - Cambridge</a>
+      <a href="https://www.cambridge.org/core/journals/bilingualism-language-and-cognition" target="_blank">Bilingualism: Language and Cognition - Cambridge University Press</a> /
+      <a href="https://psychology.illinoisstate.edu/ktkleff/courses/psy312/readings/lado_1957.pdf" target="_blank">Linguistics Across Cultures - Robert Lado（対照分析仮説の原点）</a>
     </div>
   </div>
 </div>
@@ -706,70 +693,72 @@
 <div class="card" id="topic2">
   <div class="card-body">
     <div class="card-header">
-      <span class="card-emoji">🔍</span>
-      <div class="card-title">混ざりやすい3パターン ─ 発音・文法・語彙</div>
-      <span class="topic-badge badge-orange">具体例で理解</span>
+      <span class="card-emoji">🔀</span>
+      <div class="card-title">混ざり方の3パターン ─ 語彙・語順・発音の干渉</div>
+      <span class="topic-badge badge-orange">パターンを知る</span>
     </div>
 
-    <p style="font-size:0.95rem; line-height:1.8; margin-bottom:16px; color:#333;">
-      英語→スペイン語の移行で実際に「混ざりやすい」箇所を知っておくと、
-      <span class="hl-yellow">事前に意識するだけで干渉を大きく減らせます</span>。
-    </p>
+    <div class="simple-box">
+      <span class="label">かんたん解説</span><br>
+      言語の「干渉（かんしょう）」とは、一方の言語のルールや単語が、もう一方の言語に入り込むことです。
+      <span class="hl-yellow">3種類のパターン</span>をあらかじめ知っておくと、起きたときに慌てずに対処できます。
+    </div>
 
-    <table class="matrix-table">
+    <!-- 3パターンカード -->
+    <div class="interference-grid">
+      <div class="interference-card ic-vocab">
+        <span class="ic-icon">📝</span>
+        <div class="ic-name">① 語彙の干渉</div>
+        スペイン語の単語を<br>思い出せず英語が出る<br><br>
+        <span style="font-size:0.82rem; color:#7a4000;">例：「私は疲れた」を<br>スペイン語で言いたいのに<br>英語の "tired" が出る</span>
+      </div>
+      <div class="interference-card ic-gram">
+        <span class="ic-icon">📐</span>
+        <div class="ic-name">② 語順の干渉</div>
+        英語の語順のまま<br>スペイン語を組み立てる<br><br>
+        <span style="font-size:0.82rem; color:#1a3888;">例：「赤い車」を英語式に<br>「rojo carro」と言ってしまう<br>（正解はcarro rojo）</span>
+      </div>
+      <div class="interference-card ic-sound">
+        <span class="ic-icon">🔊</span>
+        <div class="ic-name">③ 発音の干渉</div>
+        スペイン語を英語の<br>発音ルールで読む<br><br>
+        <span style="font-size:0.82rem; color:#aa40aa;">例：スペイン語の "hacer"を<br>英語式に「ハサー」と読む<br>（正解はアセール）</span>
+      </div>
+    </div>
+
+    <!-- 比較表 -->
+    <div style="font-weight:700; color:#1b4332; margin:18px 0 12px; font-size:1rem;">📋 3パターンの比較一覧</div>
+
+    <table class="compare-table">
       <tr>
-        <th style="width:18%;">分野</th>
-        <th style="width:36%;">🔴 干渉が起きやすい例</th>
-        <th style="width:46%;">✅ 正しいスペイン語のルール</th>
+        <th class="col-item">干渉の種類</th>
+        <th class="col-b">起きる場面</th>
+        <th class="col-a">対処のヒント</th>
+        <th class="col-c">深刻度</th>
       </tr>
       <tr>
-        <td class="row-head">🔊 発音</td>
-        <td class="interference">
-          英語の感覚で "hotel" を「ホウテル」と読もうとする
-        </td>
-        <td class="positive">
-          スペイン語は「オテル（hotel）」。母音はローマ字読みが基本（前回の号で解説）。英語の変則発音は忘れてOK。
-        </td>
+        <td class="col-item">📝 語彙の干渉</td>
+        <td class="col-b">スペイン語の単語を言おうとするとき</td>
+        <td class="col-a">単語帳で英・西を分けて練習する</td>
+        <td class="col-c">低〜中<br>（自然に解消されやすい）</td>
       </tr>
       <tr>
-        <td class="row-head">🏷️ 名詞の性</td>
-        <td class="interference">
-          英語には性別がないので忘れやすい：「a book」のように性なしで言おうとする
-        </td>
-        <td class="positive">
-          スペイン語の名詞には「男性（el）・女性（la）」がある。<br>
-          el libro（本）/ la mesa（テーブル）<br>
-          最初は間違えてOK。繰り返して慣れていく。
-        </td>
+        <td class="col-item">📐 語順の干渉</td>
+        <td class="col-b">文を作ろうとするとき</td>
+        <td class="col-a">スペイン語の語順パターンを丸ごと暗記する</td>
+        <td class="col-c">中<br>（意識すれば直せる）</td>
       </tr>
       <tr>
-        <td class="row-head">📝 語順</td>
-        <td class="interference">
-          英語と同じ語順で作ろうとする："a car red"（英語の形容詞は名詞の前）
-        </td>
-        <td class="positive">
-          スペイン語の形容詞は名詞の後に置くことが多い：<br>
-          "un coche rojo"（赤い車）。<br>
-          ただし語順は英語より柔軟で、初心者はまず基本語順を守れればOK。
-        </td>
-      </tr>
-      <tr>
-        <td class="row-head">📢 動詞変化</td>
-        <td class="interference">
-          英語の感覚で主語を省略しない："I go, you go, he goes"のように常に主語を置く
-        </td>
-        <td class="positive">
-          スペイン語は動詞の語尾で「誰が」が分かるので主語を省略できる：<br>
-          "voy"（私は行く）"vas"（あなたは行く）<br>
-          初心者は主語を入れても間違いではないので焦らなくてOK。
-        </td>
+        <td class="col-item">🔊 発音の干渉</td>
+        <td class="col-b">スペイン語の文字を読むとき</td>
+        <td class="col-a">スペイン語はローマ字読みが基本と意識する</td>
+        <td class="col-c">中<br>（スペイン語は規則的で直しやすい）</td>
       </tr>
     </table>
 
     <div class="sticky">
-      🌟 「発音」の干渉が最も起きやすく、かつ最も直しやすいです。
-      スペイン語を読むとき「英語の発音ルールをいったんリセットして、ローマ字で読む」と意識するだけで、
-      大部分の発音干渉は防げます。
+      🌟 良いニュース：英語とスペイン語は語順（主語→動詞→目的語）がほぼ同じです。
+      語順の干渉は、日本語→英語で経験した苦労よりずっと小さいです。
     </div>
   </div>
 </div>
@@ -778,121 +767,86 @@
 <div class="card" id="topic3">
   <div class="card-body">
     <div class="card-header">
-      <span class="card-emoji">🎁</span>
-      <div class="card-title">「混ざること」は悪くない ─ 英語学習がスペイン語を助ける</div>
-      <span class="topic-badge badge-green">ポジティブ転移</span>
+      <span class="card-emoji">⚠️</span>
+      <div class="card-title">英語→スペイン語で起きやすい具体的な干渉例</div>
+      <span class="topic-badge badge-red">注意ポイント</span>
     </div>
+
+    <p style="font-size:0.95rem; line-height:1.8; margin-bottom:16px; color:#333;">
+      英語とスペイン語の間で特に起きやすい「混ざり」のパターンを具体例で見ておきましょう。
+      <span class="hl-pink">あらかじめ知っておくだけで、うっかりミスが大幅に減ります</span>。
+    </p>
+
+    <!-- 形容詞の語順 -->
+    <div class="step-box" style="border-color:#f5a0a0;">
+      <span class="step-num" style="background:#c0392b;">注意①</span>
+      <span class="step-title" style="color:#c0392b;">形容詞の位置が英語と逆になる</span>
+      <div class="step-body">
+        <div style="display:flex; gap:12px; flex-wrap:wrap; margin:12px 0;">
+          <div style="flex:1; min-width:200px; background:#e0eeff; border:2px solid #5588cc; border-radius:8px; padding:12px; text-align:center;">
+            <div style="font-weight:700; color:#1a3888; font-size:0.85rem; margin-bottom:6px;">🇬🇧 英語</div>
+            <div style="font-size:1.1rem; font-weight:700; color:#1a3888;">red car</div>
+            <div style="font-size:0.82rem; color:#888; margin-top:4px;">形容詞 → 名詞</div>
+          </div>
+          <div style="align-self:center; font-size:1.8rem; color:#888;">→</div>
+          <div style="flex:1; min-width:200px; background:#f5e8ff; border:2px solid #aa70e0; border-radius:8px; padding:12px; text-align:center;">
+            <div style="font-weight:700; color:#6a0e9a; font-size:0.85rem; margin-bottom:6px;">🇪🇸 スペイン語（正解）</div>
+            <div style="font-size:1.1rem; font-weight:700; color:#6a0e9a;">carro <u>rojo</u></div>
+            <div style="font-size:0.82rem; color:#888; margin-top:4px;">名詞 → 形容詞（後ろに来る）</div>
+          </div>
+        </div>
+        <p style="font-size:0.88rem; color:#555; margin-top:4px;">
+          スペイン語では多くの形容詞が名詞の後ろに来ます。英語の習慣で前に置きたくなりますが、
+          「名詞が先、説明が後」と意識しておきましょう。
+        </p>
+      </div>
+    </div>
+
+    <!-- フォールスフレンズ（偽の友人） -->
+    <div style="font-weight:700; color:#1b4332; margin:18px 0 12px; font-size:1rem;">🚨 フォールスフレンズ（False Friends）─ 「似てるのに意味が全然違う」罠</div>
 
     <div class="simple-box">
-      <span class="label">かんたん解説</span><br>
-      言語の干渉には「害になる干渉（負の転移）」と<span class="hl-green">「助けになる干渉（正の転移）」</span>の
-      2種類があります。英語→スペイン語の場合、実は<strong>助けになる部分がとても多い</strong>のです。
+      <span class="label">フォールスフレンズとは？</span><br>
+      英語とスペイン語でスペリングや発音が似ているのに、<span class="hl-pink">全く違う意味を持つ単語</span>のことです。
+      「これ知ってる！」と思って間違えやすい、初心者の落とし穴です。
     </div>
 
-    <!-- 大数字カード：コグネイト数 -->
-    <div class="big-stat-row">
-      <div class="big-stat">
-        <div class="bs-num">3,000+</div>
-        <div class="bs-unit">英語とスペイン語で<br><strong>形が似ている単語の数</strong><br><span style="font-size:0.75rem; color:#999;">（コグネイト：共通ラテン語起源の語）</span></div>
-      </div>
-      <div class="big-stat" style="border-color:#f0a840;">
-        <div class="bs-num" style="color:#cc6600;">85%</div>
-        <div class="bs-unit">英語の「-tion」で終わる単語が<br><strong>スペイン語で「-ción」に対応</strong><br><span style="font-size:0.75rem; color:#999;">（nation→nación, action→acciónなど）</span></div>
-      </div>
-      <div class="big-stat" style="border-color:#80b0e0;">
-        <div class="bs-num" style="color:#1a3888;">S≈E</div>
-        <div class="bs-unit">スペイン語と英語の<br><strong>基本語順はほぼ同じ</strong><br><span style="font-size:0.75rem; color:#999;">（主語＋動詞＋目的語。日本語と最も違う点）</span></div>
+    <div class="false-friend">
+      <div class="ff-icon">⚠️</div>
+      <div>
+        <div><span class="ff-en">英語: embarrassed</span>（恥ずかしい）</div>
+        <div><span class="ff-es">スペイン語: embarazada</span>（妊娠している）</div>
+        <div class="ff-note">→「私は embarrassed です」とスペイン語で言うと、「妊娠しています」に！</div>
       </div>
     </div>
 
-    <!-- コグネイト例 -->
-    <div style="font-weight:700; color:#1b4332; margin:20px 0 12px; font-size:1rem;">🔗 英語を知っていれば即スペイン語が読める「コグネイト」の例</div>
-
-    <div class="cognate-grid">
-      <div class="cognate-card">
-        <div class="cog-en">nation</div>
-        <div class="cog-arrow">↕</div>
-        <div class="cog-es">nación</div>
-        <div class="cog-jp">国・民族</div>
-      </div>
-      <div class="cognate-card">
-        <div class="cog-en">hospital</div>
-        <div class="cog-arrow">↕</div>
-        <div class="cog-es">hospital</div>
-        <div class="cog-jp">病院（同じ！）</div>
-      </div>
-      <div class="cognate-card">
-        <div class="cog-en">music</div>
-        <div class="cog-arrow">↕</div>
-        <div class="cog-es">música</div>
-        <div class="cog-jp">音楽</div>
-      </div>
-      <div class="cognate-card">
-        <div class="cog-en">information</div>
-        <div class="cog-arrow">↕</div>
-        <div class="cog-es">información</div>
-        <div class="cog-jp">情報</div>
-      </div>
-      <div class="cognate-card">
-        <div class="cog-en">animal</div>
-        <div class="cog-arrow">↕</div>
-        <div class="cog-es">animal</div>
-        <div class="cog-jp">動物（同じ！）</div>
-      </div>
-      <div class="cognate-card">
-        <div class="cog-en">possible</div>
-        <div class="cog-arrow">↕</div>
-        <div class="cog-es">posible</div>
-        <div class="cog-jp">可能な</div>
+    <div class="false-friend">
+      <div class="ff-icon">⚠️</div>
+      <div>
+        <div><span class="ff-en">英語: actual</span>（実際の）</div>
+        <div><span class="ff-es">スペイン語: actual</span>（現在の・今の）</div>
+        <div class="ff-note">→ 英語の "actual" とスペイン語の "actual" は意味がズレています</div>
       </div>
     </div>
 
-    <!-- 語尾パターン -->
-    <div style="font-weight:700; color:#1b4332; margin:20px 0 12px; font-size:1rem;">📐 英語→スペイン語に変換できる語尾パターン</div>
-
-    <table class="compare-table">
-      <tr>
-        <th class="col-item">英語の語尾</th>
-        <th class="col-a">スペイン語の語尾</th>
-        <th class="col-b">例（英語→スペイン語）</th>
-        <th class="col-c">注意点</th>
-      </tr>
-      <tr>
-        <td class="col-item">-tion</td>
-        <td class="col-a">-ción</td>
-        <td class="col-b">action → acción<br>nation → nación</td>
-        <td class="col-c">ほぼ確実に対応。スペルと発音を変えるだけ</td>
-      </tr>
-      <tr>
-        <td class="col-item">-ty</td>
-        <td class="col-a">-dad / -tad</td>
-        <td class="col-b">university → universidad<br>liberty → libertad</td>
-        <td class="col-c">英語の -ty をそのまま当てはめず -dad/tad に変える</td>
-      </tr>
-      <tr>
-        <td class="col-item">-ble</td>
-        <td class="col-a">-ble</td>
-        <td class="col-b">possible → posible<br>terrible → terrible</td>
-        <td class="col-c">語尾は同じ！スペルをわずかに調整するだけ</td>
-      </tr>
-      <tr>
-        <td class="col-item">-ment</td>
-        <td class="col-a">-mento / -mente</td>
-        <td class="col-b">moment → momento<br>document → documento</td>
-        <td class="col-c">-o を加えるパターンが多い</td>
-      </tr>
-    </table>
+    <div class="false-friend">
+      <div class="ff-icon">⚠️</div>
+      <div>
+        <div><span class="ff-en">英語: library</span>（図書館）</div>
+        <div><span class="ff-es">スペイン語: librería</span>（本屋・書店）</div>
+        <div class="ff-note">→ 図書館はスペイン語で "biblioteca"。"librería" は本屋さんです</div>
+      </div>
+    </div>
 
     <div class="sticky">
-      🎉 英語を学んでいるあなたは、すでにスペイン語の語彙を3,000語以上「潜在的に知っている」かもしれません。
-      英語力はスペイン語習得の強力な武器です。「混ざる」のを恐れず、積極的に活用しましょう。
+      💡 フォールスフレンズは数十〜数百語程度。一覧を見て「こういう罠があるんだな」と知っておくだけで十分です。
+      初心者のうちは深追い不要。よく使う単語から少しずつ覚えましょう。
     </div>
 
     <div class="source">
       参考:
-      <a href="https://en.wikibooks.org/wiki/Spanish/Cognates" target="_blank">Spanish Cognates - Wikibooks</a> /
-      <a href="https://www.bbc.com/languages/spanish" target="_blank">BBC Languages: Spanish overview</a><br>
-      ※ 上記のコグネイト数は目安です。詳しくは言語学の資料や語彙研究を参照ください。
+      <a href="https://www.babbel.com/en/magazine/false-friends-spanish-english" target="_blank">Spanish-English False Friends - Babbel Magazine</a>（英語記事。最新情報は公式で要確認）/
+      <a href="https://linguistics.stackexchange.com/questions/36928/how-common-are-false-friends-between-spanish-and-english" target="_blank">False friends between Spanish and English - Linguistics Stack Exchange</a>
     </div>
   </div>
 </div>
@@ -901,74 +855,111 @@
 <div class="card" id="topic4">
   <div class="card-body">
     <div class="card-header">
-      <span class="card-emoji">⚠️</span>
-      <div class="card-title">注意！「偽の友人（False Friends）」─ 似ているのに意味が違う単語</div>
-      <span class="topic-badge badge-red">要注意</span>
+      <span class="card-emoji">🤝</span>
+      <div class="card-title">「プラス転移」という強力な武器 ─ 同族語（コグネイト）を活かす</div>
+      <span class="topic-badge badge-green">英語→スペイン語の強み</span>
     </div>
 
     <div class="simple-box">
       <span class="label">かんたん解説</span><br>
-      <strong>「偽の友人（False Friends）」</strong>とは、英語とスペイン語で形が似ているのに
-      <span class="hl-pink">意味がまったく違う単語</span>のことです。
-      コグネイト（助けになる似た語）と混同しないよう、代表例を知っておきましょう。
+      「混ざる」問題の怖い面ばかり見てきましたが、実は<span class="hl-green">英語とスペイン語はお互いにとって最高の「助け合いパートナー」</span>でもあります。
+      英語で学んだ語彙がそのままスペイン語に通じるケースが非常に多いのです。
+      これを「プラス転移（正の転移）」または「同族語（コグネイト）」と呼びます。
     </div>
 
-    <!-- 偽の友人リスト -->
-    <div style="font-weight:700; color:#c0392b; margin:16px 0 12px; font-size:1rem;">🚫 代表的な「偽の友人」一覧（英語→スペイン語）</div>
+    <!-- コグネイト例 -->
+    <div style="font-weight:700; color:#1b4332; margin:16px 0 12px; font-size:1rem;">🔤 同族語（コグネイト）の例 ─ 英語を知っていればスペイン語も読める！</div>
 
-    <table class="matrix-table">
+    <!-- ヘッダー行 -->
+    <div style="display:flex; gap:8px; margin-bottom:4px; font-size:0.78rem; font-weight:700; color:#888;">
+      <div style="flex:1; text-align:center;">🇯🇵 日本語</div>
+      <div style="font-size:0.8rem; opacity:0;">→</div>
+      <div style="flex:1; text-align:center;">🇬🇧 英語</div>
+      <div style="font-size:0.8rem; opacity:0;">→</div>
+      <div style="flex:1; text-align:center;">🇪🇸 スペイン語</div>
+    </div>
+
+    <div class="cognate-row">
+      <div class="cog-jp">コミュニケーション</div>
+      <div class="cog-arrow">→</div>
+      <div class="cog-en">communication</div>
+      <div class="cog-arrow">→</div>
+      <div class="cog-es">comunicación</div>
+    </div>
+    <div class="cognate-row">
+      <div class="cog-jp">情報</div>
+      <div class="cog-arrow">→</div>
+      <div class="cog-en">information</div>
+      <div class="cog-arrow">→</div>
+      <div class="cog-es">información</div>
+    </div>
+    <div class="cognate-row">
+      <div class="cog-jp">国際的な</div>
+      <div class="cog-arrow">→</div>
+      <div class="cog-en">international</div>
+      <div class="cog-arrow">→</div>
+      <div class="cog-es">internacional</div>
+    </div>
+    <div class="cognate-row">
+      <div class="cog-jp">重要な</div>
+      <div class="cog-arrow">→</div>
+      <div class="cog-en">important</div>
+      <div class="cog-arrow">→</div>
+      <div class="cog-es">importante</div>
+    </div>
+    <div class="cognate-row">
+      <div class="cog-jp">可能な</div>
+      <div class="cog-arrow">→</div>
+      <div class="cog-en">possible</div>
+      <div class="cog-arrow">→</div>
+      <div class="cog-es">posible</div>
+    </div>
+
+    <!-- パターン -->
+    <div style="font-weight:700; color:#1b4332; margin:18px 0 12px; font-size:1rem;">🔑 覚えておくべき「語尾パターン」</div>
+
+    <table class="compare-table">
       <tr>
-        <th>英語の単語</th>
-        <th>英語の意味</th>
-        <th>スペイン語の似た語</th>
-        <th>スペイン語の意味</th>
+        <th class="col-item">英語の語尾</th>
+        <th class="col-a">スペイン語の語尾</th>
+        <th class="col-b">例（英語 → スペイン語）</th>
       </tr>
       <tr>
-        <td style="font-weight:700; color:#1a3888;">embarrassed</td>
-        <td>恥ずかしい</td>
-        <td style="font-weight:700; color:#c0392b;">embarazada</td>
-        <td style="color:#c0392b;"><strong>妊娠している</strong>（！）</td>
+        <td class="col-item">-tion</td>
+        <td class="col-a">-ción</td>
+        <td class="col-b">nation → nación / situation → situación</td>
       </tr>
       <tr>
-        <td style="font-weight:700; color:#1a3888;">sensible</td>
-        <td>分別がある・賢明な</td>
-        <td style="font-weight:700; color:#c0392b;">sensible</td>
-        <td style="color:#c0392b;"><strong>感受性が強い・繊細な</strong></td>
+        <td class="col-item">-ty</td>
+        <td class="col-a">-dad / -tad</td>
+        <td class="col-b">university → universidad / liberty → libertad</td>
       </tr>
       <tr>
-        <td style="font-weight:700; color:#1a3888;">library</td>
-        <td>図書館</td>
-        <td style="font-weight:700; color:#c0392b;">librería</td>
-        <td style="color:#c0392b;"><strong>本屋（書店）</strong></td>
+        <td class="col-item">-ous</td>
+        <td class="col-a">-oso/osa</td>
+        <td class="col-b">famous → famoso / delicious → delicioso</td>
       </tr>
       <tr>
-        <td style="font-weight:700; color:#1a3888;">rope</td>
-        <td>ロープ・綱</td>
-        <td style="font-weight:700; color:#c0392b;">ropa</td>
-        <td style="color:#c0392b;"><strong>服・衣類</strong></td>
+        <td class="col-item">-al</td>
+        <td class="col-a">-al（ほぼ同じ）</td>
+        <td class="col-b">natural → natural / final → final</td>
       </tr>
       <tr>
-        <td style="font-weight:700; color:#1a3888;">actual</td>
-        <td>実際の・本当の</td>
-        <td style="font-weight:700; color:#c0392b;">actual</td>
-        <td style="color:#c0392b;"><strong>現在の・今の</strong></td>
+        <td class="col-item">-ment</td>
+        <td class="col-a">-mento / -miento</td>
+        <td class="col-b">moment → momento / movement → movimiento</td>
       </tr>
     </table>
 
-    <div class="warn-box">
-      <div class="warn-head">⚠️ どう対処するか</div>
-      <ul style="padding-left:18px; line-height:1.9; font-size:0.93rem;">
-        <li>「見た目で判断せず、一度辞書を確認する」習慣をつける</li>
-        <li>偽の友人はそれほど多くない。代表例10〜20語を覚えればほぼ対応できる</li>
-        <li>間違えても笑い話にする。<strong>embarazada の間違いは有名なあるあるネタ</strong>なので、覚えやすいです</li>
-      </ul>
+    <div class="sticky">
+      🌟 英語学習で単語を増やすほど、スペイン語に移行したとき「この単語知ってる！」と感じる回数が増えます。
+      英語の語彙力は、スペイン語学習への最強の「貯金」です。
     </div>
 
     <div class="source">
       参考:
-      <a href="https://en.wikipedia.org/wiki/False_friend" target="_blank">False friend - Wikipedia</a> /
-      <a href="https://www.spanishdict.com/guide/false-cognates-in-spanish-and-english" target="_blank">False Cognates in Spanish and English - SpanishDict</a><br>
-      ※ SpanishDict の料金・機能は変わることがあります。最新情報は公式ページでご確認ください。
+      <a href="https://www.fluentu.com/blog/spanish/spanish-english-cognates/" target="_blank">Spanish-English Cognates List - FluentU</a>（英語記事。最新情報は公式で要確認）/
+      <a href="https://www.britannica.com/topic/Romance-languages" target="_blank">Romance Languages - Britannica</a>
     </div>
   </div>
 </div>
@@ -977,79 +968,87 @@
 <div class="card" id="topic5">
   <div class="card-body">
     <div class="card-header">
-      <span class="card-emoji">🛡️</span>
-      <div class="card-title">干渉を防ぐ3つの実践テクニック</div>
+      <span class="card-emoji">🛠️</span>
+      <div class="card-title">混ざりを防ぐ5つの実践テクニック</div>
       <span class="topic-badge badge-purple">テクニック</span>
     </div>
 
     <p style="font-size:0.95rem; line-height:1.8; margin-bottom:16px; color:#333;">
-      言語の混ざりを「完全に消す」のは難しいですが、
-      <span class="hl-yellow">以下の3つを意識するだけで大幅に干渉を減らせます</span>。
+      言語の「干渉」を完全になくすことはできませんが、
+      <span class="hl-yellow">環境と学習方法を工夫することで大幅に減らすことができます</span>。
     </p>
 
     <div class="step-box">
       <span class="step-num">テクニック①</span>
-      <span class="step-title">学習時間を「英語の日」と「スペイン語の日」に分ける</span>
+      <span class="step-title">「言語モード」をはっきり切り替える</span>
       <div class="step-body">
-        <p style="margin-bottom:10px;">
-          同じ日に英語とスペイン語を「同じ種類の内容」で学ぶと混ざりやすくなります。
-          例えば「今日は英語だけ」「明日はスペイン語だけ」とメリハリをつけるか、
-          <span class="hl-blue">「英語は午前中、スペイン語は夕方」と時間帯を分ける</span>と効果的です。
-        </p>
-        <div style="background:#fff; border-radius:8px; padding:12px 16px; border:2px dashed #4488cc; font-size:0.9rem;">
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
-            <div style="background:#e0eeff; border-radius:6px; padding:10px; text-align:center;">
-              <div style="font-weight:700; color:#1a3888; margin-bottom:4px;">🌅 午前</div>
-              <div style="font-size:0.88rem; color:#333;">🇬🇧 英語学習<br>（メインの習慣）</div>
-            </div>
-            <div style="background:#fff5f0; border-radius:6px; padding:10px; text-align:center;">
-              <div style="font-weight:700; color:#c05000; margin-bottom:4px;">🌆 夕方</div>
-              <div style="font-size:0.88rem; color:#333;">🇪🇸 スペイン語<br>（フレーズを1〜2個）</div>
-            </div>
-          </div>
+        学習を始める前に「今日は英語モード」か「今日はスペイン語モード」と決めます。
+        両方を同じ日に混ぜない（特に初心者のうちは）のがベストです。<br>
+        <div style="display:flex; gap:12px; margin:12px 0; flex-wrap:wrap;">
+          <div class="lang-bubble lb-en">🇬🇧 月・水・金<br>→ 英語の日</div>
+          <div style="align-self:center; font-size:1.2rem; color:#888;">or</div>
+          <div class="lang-bubble lb-es">🇪🇸 火・木・土<br>→ スペイン語の日</div>
+          <div style="align-self:center; font-size:1.2rem; color:#888;">or</div>
+          <div class="lang-bubble lb-mix">🔄 英語10分 → スペイン語5分<br>（順番を固定して切替を明確に）</div>
         </div>
       </div>
     </div>
 
     <div class="step-box" style="border-color:#4488cc;">
       <span class="step-num" style="background:#1a3888;">テクニック②</span>
-      <span class="step-title" style="color:#1a3888;">ノートや媒体の色・種類を分ける</span>
+      <span class="step-title" style="color:#1a3888;">英語とスペイン語を「別の場所・色・アプリ」で管理する</span>
       <div class="step-body">
-        <p style="margin-bottom:10px;">
-          脳は「視覚的なコンテキスト」を言語モードの切り替えに使います。
-          <span class="hl-blue">英語は青いノート、スペイン語は赤いノート</span>というように、
-          物理的な「色の違い」を作るだけで干渉が減ります。
-        </p>
-        <div style="background:#f0f4ff; border-radius:8px; padding:12px; border:1px solid #b0c8f0; font-size:0.9rem; line-height:1.7;">
-          📘 <strong>英語用</strong>：青いノート / 英語アプリ（例：Anki英語デッキ）<br>
-          📕 <strong>スペイン語用</strong>：赤いノート / スペイン語アプリ（例：別のAnkiデッキ）<br>
-          📱 ホーム画面のウィジェットも言語ごとに色を変えると効果的
-        </div>
+        脳に「これは英語の時間、こっちはスペイン語の時間」とシグナルを送る環境を作ります。<br>
+        <ul style="margin:10px 0 0 16px; font-size:0.9rem; line-height:1.9;">
+          <li>📓 ノートの色を分ける：英語＝青、スペイン語＝赤など</li>
+          <li>📱 アプリを分ける：英語用・スペイン語用それぞれ別のアプリを使う</li>
+          <li>⏰ 時間帯を分ける：朝に英語、夜にスペイン語など</li>
+        </ul>
       </div>
     </div>
 
     <div class="step-box" style="border-color:#e0a000;">
       <span class="step-num" style="background:#cc6600;">テクニック③</span>
-      <span class="step-title" style="color:#7a4000;">混ざった単語を「メモして後で確認」する</span>
+      <span class="step-title" style="color:#7a4000;">スペイン語を「英語経由」で学ぶ（橋渡し学習）</span>
       <div class="step-body">
-        <p style="margin-bottom:10px;">
-          スペイン語を話すときに英語の単語が出てきたら、それを「間違い」として恥じるのではなく、
-          <span class="hl-yellow">「あとで調べるリスト」にメモする</span>のが最も効果的です。
-          これを繰り返すと、自分の弱点パターンが見えてきます。
-        </p>
-        <div style="background:#fff9e0; border-radius:8px; padding:12px; border:1px solid #f0d070; font-size:0.88rem; line-height:1.7;">
-          例：スペイン語で話しているときに "library" と言ってしまった<br>
-          → メモ：「図書館 = biblioteca（ビブリオテカ）※ librería は本屋」<br>
-          → 翌朝のAnkiに追加する<br>
-          → 3日後に再確認する（間隔反復）
+        日本語→スペイン語で学ぼうとすると、語順が全く違う日本語の影響が大きくなります。
+        英語とスペイン語は語順が近いため、<span class="hl-yellow">英語をハブ（中間橋）として使う</span>方が効果的です。<br>
+
+        <div style="background:#fff; border:2px dashed #e0a000; border-radius:8px; padding:14px; margin:12px 0; text-align:center; font-size:0.92rem; line-height:2;">
+          <span style="background:#fffce8; border:1px solid #e8d860; padding:4px 10px; border-radius:6px; font-weight:700; color:#5a4a00;">🇯🇵 日本語で考える</span>
+          &nbsp;→&nbsp;
+          <span style="background:#e0eeff; border:1px solid #5588cc; padding:4px 10px; border-radius:6px; font-weight:700; color:#1a3888;">🇬🇧 英語に直す</span>
+          &nbsp;→&nbsp;
+          <span style="background:#f0e0ff; border:1px solid #aa70e0; padding:4px 10px; border-radius:6px; font-weight:700; color:#6a0e9a;">🇪🇸 スペイン語に変換</span>
+          <div style="font-size:0.82rem; color:#888; margin-top:8px;">例：「疲れた」 → "I am tired" → "Estoy cansado/a"</div>
         </div>
       </div>
     </div>
 
-    <div class="sticky">
-      🌿 「混ざること」を気にしすぎると、話すのが怖くなります。
-      大切なのは「混ざったことに気づいて修正する」練習を積むこと。
-      スペイン語ネイティブは英語混じりのスペイン語でも十分に理解してくれます。
+    <div class="step-box" style="border-color:#aa70e0;">
+      <span class="step-num" style="background:#7b2fbe;">テクニック④</span>
+      <span class="step-title" style="color:#7b2fbe;">スペイン語の文はまるごとフレーズで覚える</span>
+      <div class="step-body">
+        単語をバラバラに覚えると組み立てるときに英語の語順で組んでしまいがちです。
+        <span class="hl-yellow">文をひとかたまりで暗記する「チャンク学習」</span>が語順の干渉を防ぐ近道です。<br>
+        <div style="background:#f5e8ff; border:1px solid #c0a0e8; border-radius:8px; padding:12px 16px; margin:10px 0; font-size:0.9rem; line-height:1.9;">
+          ✅「<strong>Tengo veinte años</strong>（私は20歳です）」をひとつの塊として覚える<br>
+          ✅「<strong>¿Dónde está el baño?</strong>（トイレはどこですか？）」をまるごと暗記<br>
+          ✅ 組み合わせは後からでOK。まずは「使える文」のストックを作る
+        </div>
+      </div>
+    </div>
+
+    <div class="step-box" style="border-color:#52b788;">
+      <span class="step-num">テクニック⑤</span>
+      <span class="step-title">「混ざったとき」の合言葉を決めておく</span>
+      <div class="step-body">
+        練習中に混ざってしまったら、慌てず一呼吸置いて「いまはスペイン語モード」と頭の中で言います。
+        パニックにならないための<span class="hl-green">「リセット合言葉」</span>を決めておくだけで、脳が落ち着きます。<br>
+        <div style="background:#f0faf5; border:1px solid #80d0a0; border-radius:8px; padding:10px 14px; margin:10px 0; font-size:0.9rem; color:#1e6a34; font-weight:600;">
+          合言葉の例：「まあいいか。スペイン語でもう一度」　/　"Vamos. En español." 😄
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -1058,77 +1057,80 @@
 <div class="card" id="topic6">
   <div class="card-body">
     <div class="card-header">
-      <span class="card-emoji">🔄</span>
-      <div class="card-title">スペイン語モードへの切り替え方</div>
-      <span class="topic-badge badge-teal">切り替えトレーニング</span>
+      <span class="card-emoji">🧘</span>
+      <div class="card-title">混ざったときの心がまえと対処法</div>
+      <span class="topic-badge badge-teal">メンタル管理</span>
     </div>
 
     <div class="simple-box">
-      <span class="label">かんたん解説</span><br>
-      言語の切り替えは「筋トレ」のようなものです。
-      <span class="hl-green">意識的に「切り替えの合図（スイッチ）」を作る</span>ことで、
-      脳が「今から別の言語モードに入る」と認識するようになります。
+      <span class="label">最重要ポイント</span><br>
+      語学学習において「混ざること」は<span class="hl-yellow">「失敗」でも「退化」でもありません</span>。
+      バイリンガル研究の世界では、言語間の干渉は「脳が両言語を積極的に処理している証拠」と解釈されています。
+      混ざったときにどう反応するかが、長期的な成長に大きく影響します。
     </div>
 
-    <!-- 切り替えスイッチの例 -->
-    <div style="font-weight:700; color:#1b4332; margin:16px 0 12px; font-size:1rem;">🔀 「スペイン語モード」に入るためのスイッチ例</div>
+    <div class="ngok-grid">
+      <div class="ngok-cell ng-cell">
+        <div class="ngok-head">❌ やってしまいがちなNG反応</div>
+        <strong>自己批判する</strong><br>
+        「また英語が出てきた…自分はダメだ」<br>
+        → 自信喪失してやめてしまう<br><br>
+        <strong>混ざることを過剰に恐れる</strong><br>
+        「混ざったら困るから2言語は同時に学ばない」<br>
+        → スペイン語の開始が無限延期に<br><br>
+        <strong>無理に「完全分離」しようとする</strong><br>
+        「絶対に混ぜない！」とプレッシャーをかける<br>
+        → 緊張で学習が楽しくなくなる
+      </div>
+      <div class="ngok-cell ok-cell">
+        <div class="ngok-head">✅ 効果的なOK反応</div>
+        <strong>「あ、出てきたな」と観察する</strong><br>
+        混ざりを「気づけた」=成長のサイン<br>
+        → 修正して次に進む<br><br>
+        <strong>混ざりを「データ」として使う</strong><br>
+        「この表現は英語と混ざりやすいな」とメモ<br>
+        → 重点的に練習する項目がわかる<br><br>
+        <strong>笑い飛ばして続ける</strong><br>
+        「スペイン語に英語が混入した！まあいいか」<br>
+        → 軽いノリが長続きの秘訣
+      </div>
+    </div>
 
-    <ul class="point-list">
-      <li>
-        <span class="marker marker-teal">🇪🇸</span>
-        <span>
-          <strong>「合言葉」で切り替える：</strong>
-          学習を始める前に「<em>En español ahora</em>（エン・エスパニョール・アオラ＝今からスペイン語）」と
-          声に出す。英語で言うなら "Spanish mode on!" でもOK。声に出すことで脳に合図が送られます。
-        </span>
-      </li>
-      <li>
-        <span class="marker marker-blue">🏳️</span>
-        <span>
-          <strong>スペインの国旗や写真を視覚キューにする：</strong>
-          スペイン語を学ぶとき、スペインの景色（フラメンコ、サグラダファミリアなど）の
-          画像をスクリーンの背景にするだけで、脳がコンテキストを切り替えやすくなります。
-        </span>
-      </li>
-      <li>
-        <span class="marker marker-orange">🎵</span>
-        <span>
-          <strong>スペイン語の音楽・BGMを流す：</strong>
-          学習中にスペイン語圏の音楽を小さく流すと、「スペイン語の音の世界」に入りやすくなります。
-          内容を理解できなくてもOK。耳にスペイン語の「音の雰囲気」を慣れさせることが目的です。
-        </span>
-      </li>
-      <li>
-        <span class="marker marker-green">📍</span>
-        <span>
-          <strong>場所を変える：</strong>
-          英語はダイニング、スペイン語はデスクなど、
-          「学習する場所」を分けると脳の切り替えがスムーズになります。
-          スペインに住む将来を想像しながら勉強すると、モチベーションも上がります。
-        </span>
-      </li>
-    </ul>
-
-    <!-- 英語とスペイン語の接続 -->
-    <div style="font-weight:700; color:#1b4332; margin:20px 0 12px; font-size:1rem;">🌉 英語とスペイン語 ─ どちらも「ラテン語」につながっている</div>
+    <!-- 上達曲線の図 -->
+    <div style="font-weight:700; color:#1b4332; margin:18px 0 12px; font-size:1rem;">📈 「混ざり」は学習曲線の一部</div>
 
     <div class="bridge-box">
-      <span class="bridge-label">英語→スペイン語 つながりの図</span>
-      <div style="margin-top:12px; font-size:0.93rem; line-height:2;">
-        <div style="text-align:center; padding:8px;">
-          <span style="background:#8040c0; color:white; padding:6px 16px; border-radius:8px; font-weight:700;">ラテン語（共通のルーツ）</span>
-          <br>↙　　　　　　↘
-          <br>
-          <span style="background:#1a3888; color:white; padding:6px 14px; border-radius:8px; font-weight:700;">英語（約60%がラテン語起源）</span>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <span style="background:#c0392b; color:white; padding:6px 14px; border-radius:8px; font-weight:700;">スペイン語（ほぼ100%ラテン語起源）</span>
-        </div>
-        <div style="margin-top:12px; background:white; border-radius:6px; padding:10px 14px; border:1px solid #c0b0e0; font-size:0.88rem; line-height:1.8;">
-          英語を学ぶことで「ラテン語起源の語彙」が脳に蓄積されています。
-          スペイン語はほぼすべてがラテン語起源なので、英語の語彙力がそのままスペイン語習得の「土台」になります。
-          英語→スペイン語の順は、決して遠回りではなく、<strong>最も効率的なルートのひとつ</strong>です。
+      <span class="bridge-label">語学習得の典型的な流れ</span>
+      <div style="margin-top:12px;">
+        <div class="flow-steps" style="flex-direction:column; gap:8px;">
+          <div style="display:flex; align-items:center; gap:10px; background:#fff; border-radius:8px; padding:10px 14px; border:2px solid #e0e8f0; font-size:0.9rem; line-height:1.6;">
+            <span style="font-size:1.2rem; min-width:28px;">🌱</span>
+            <div><strong>初期（〜数週間）：</strong>混ざりが多い。でも正常。脳が2言語を同時に処理し始めた証拠。</div>
+          </div>
+          <div style="text-align:center; font-size:1.2rem; color:#888;">↓</div>
+          <div style="display:flex; align-items:center; gap:10px; background:#fff; border-radius:8px; padding:10px 14px; border:2px solid #c0e8c0; font-size:0.9rem; line-height:1.6;">
+            <span style="font-size:1.2rem; min-width:28px;">🌿</span>
+            <div><strong>中期（数週間〜数ヶ月）：</strong>混ざりに気づく力がつく。修正できるようになる。</div>
+          </div>
+          <div style="text-align:center; font-size:1.2rem; color:#888;">↓</div>
+          <div style="display:flex; align-items:center; gap:10px; background:#fff; border-radius:8px; padding:10px 14px; border:2px solid #80c080; font-size:0.9rem; line-height:1.6;">
+            <span style="font-size:1.2rem; min-width:28px;">🌳</span>
+            <div><strong>後期（数ヶ月〜）：</strong>「切り替える」感覚が自然になる。混ざりは激減。</div>
+          </div>
         </div>
       </div>
+    </div>
+
+    <div class="sticky">
+      🌟 世界中の多言語話者も全員、この「混ざる時期」を通過しています。
+      混ざることは「途中の通過点」であって「終着点」ではありません。
+      今混ざっているなら、それはあなたが確実に前進している証拠です。
+    </div>
+
+    <div class="source">
+      参考:
+      <a href="https://www.sciencedirect.com/science/article/pii/S0749596X10000483" target="_blank">Cross-linguistic transfer in second language acquisition - ScienceDirect</a> /
+      <a href="https://www.ted.com/talks/tim_doner_breaking_the_language_barrier" target="_blank">Breaking the language barrier - Tim Doner (TED)</a>
     </div>
   </div>
 </div>
@@ -1145,84 +1147,73 @@
     <div class="action-box">
       <div class="action-title">🎯 今日の一歩</div>
       <p style="line-height:1.8;">
-        <strong>「偽の友人」5語を手書きメモにまとめる。</strong><br>
-        今日のスライドで紹介した "embarrassed / embarazada" "library / librería" など、
-        5語をノートまたはメモ帳に手書きして、英語とスペイン語の意味の違いを並べて書いてみましょう。
-        「手書きで書くこと」自体が記憶の定着を高めます。
+        <strong>英語とスペイン語を「別のノート（またはメモ帳）」に書き分けることを決める。</strong><br>
+        今日から使うノートや学習アプリを「英語用」「スペイン語用」とはっきり分けてください。
+        色を変えるだけでも構いません。脳に「これは別の言語」という合図を送る環境を作るのが目的です。
       </p>
     </div>
 
-    <!-- 今後の流れ -->
-    <div style="font-weight:700; color:#1b4332; margin:16px 0 10px; font-size:1rem;">🗺️ 英語→スペイン語 学習のロードマップ（今日の位置確認）</div>
+    <!-- 今日の3ステップ -->
+    <div style="font-weight:700; color:#1b4332; margin:16px 0 10px; font-size:1rem;">📋 今日やること（3つだけ）</div>
 
-    <div class="flow-steps">
-      <div class="flow-step" style="background:#555; font-size:0.82rem;">
-        <span class="fs-num">✅</span>
-        英語の<br>基礎を固める<br>
-        <span style="font-weight:400; font-size:0.78rem; opacity:0.85;">（2026年5月〜）</span>
+    <div class="flow-steps" style="flex-direction:column; gap:8px;">
+      <div class="flow-step" style="background:#1a3888; flex-direction:row; display:flex; align-items:center; gap:12px; text-align:left;">
+        <span style="font-size:1.8rem; font-weight:700; min-width:36px; text-align:center;">①</span>
+        <span>英語ノートとスペイン語ノート（またはメモ帳のページ）を「色・場所・アプリ」で区別する<br><span style="font-weight:400; font-size:0.85rem; opacity:0.9;">（例：英語＝青ペン、スペイン語＝赤ペン。スマホなら英語アプリと西語アプリを別に）</span></span>
       </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step" style="background:#1a3888; font-size:0.82rem;">
-        <span class="fs-num">📍</span>
-        英語→スペイン語<br>の接続を理解<br>
-        <span style="font-weight:400; font-size:0.78rem; opacity:0.85;">（今ここ！）</span>
+      <div class="flow-step" style="background:#2d6a4f; flex-direction:row; display:flex; align-items:center; gap:12px; text-align:left;">
+        <span style="font-size:1.8rem; font-weight:700; min-width:36px; text-align:center;">②</span>
+        <span>今日学ぶ英単語1〜3語について「スペイン語でも何と言うか？」を調べてみる<br><span style="font-weight:400; font-size:0.85rem; opacity:0.9;">（Google翻訳やDeepL等で「コグネイトかどうか」確かめると楽しい発見があります）</span></span>
       </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step" style="background:#2d6a4f; font-size:0.82rem;">
-        <span class="fs-num">🇪🇸</span>
-        スペイン語A1<br>を本格的に学ぶ<br>
-        <span style="font-weight:400; font-size:0.78rem; opacity:0.85;">（次のフェーズ）</span>
+      <div class="flow-step" style="background:#cc5500; flex-direction:row; display:flex; align-items:center; gap:12px; text-align:left;">
+        <span style="font-size:1.8rem; font-weight:700; min-width:36px; text-align:center;">③</span>
+        <span>「混ざったときの合言葉」を決めておく<br><span style="font-weight:400; font-size:0.85rem; opacity:0.9;">（例：「あ、出た。もう一回スペイン語で」など。メモや付箋に書いて机やスマホに貼る）</span></span>
       </div>
     </div>
 
     <div class="prompt-box" style="margin-top:20px;">
-      <div class="pb-label">AIに送るプロンプト ─ 偽の友人を学ぶ</div>
-      <span class="pb-en">I am learning Spanish after English. I am a beginner.
-Please give me a list of 10 common "false friends" between English and Spanish.
-For each word, show: the English word and its meaning, the similar Spanish word and its real meaning.
-Keep explanations short and simple. Add a memory tip for each pair.</span>
-      <div class="pb-note">→（意味）「英語の後にスペイン語を学んでいます。初心者です。<br>英語とスペイン語のよくある偽の友人（見た目が似ているが意味が違う単語）を10組教えてください。<br>それぞれ：英語の単語と意味、似たスペイン語の単語と本当の意味、を示してください。<br>説明は短くシンプルにしてください。各ペアに覚え方のヒントも添えてください。」</div>
+      <div class="pb-label">AIに送るプロンプト ─ 混ざりを「学習データ」に変える</div>
+      <span class="pb-en">I am learning English and plan to learn Spanish next.
+When I practice speaking, I sometimes mix English words into my Spanish (or vice versa).
+Can you help me with the following?
+1. Give me 5 examples of common false friends between English and Spanish.
+2. Give me 5 "cognate pairs" (words that look similar and have the same meaning).
+3. Give me a short tip on how to mentally separate English and Spanish when I study.
+Please keep the explanations simple and beginner-friendly.</span>
+      <div class="pb-note">→（意味）「英語を学んでおり、次にスペイン語を学ぶ予定です。練習中に英語とスペイン語が混ざってしまいます。<br>①よくあるフォールスフレンズ5例、②同族語ペア5例、③英語とスペイン語を頭の中で分けるコツを教えてください。初心者向けにシンプルにお願いします。」</div>
     </div>
 
     <ul class="point-list" style="margin-top:20px;">
       <li>
         <span class="marker marker-green">✓</span>
         <span>
-          <strong>「混ざること」を歓迎する姿勢を持つ：</strong>
-          英語とスペイン語が混ざるのは「脳が2言語を学んでいる証拠」です。
-          間違いを怖れず、気づいて直す経験を積み重ねることが上達の近道です。
+          <strong>「混ざる」を怖がらない：</strong>
+          混ざることは脳が2言語を同時に活性化させているサインです。
+          今の段階でそれが起きているなら、むしろ理想的なペースで進んでいます。
         </span>
       </li>
       <li>
         <span class="marker marker-blue">✓</span>
         <span>
-          <strong>コグネイトを積極的に活用する：</strong>
-          英語で知っている単語の「スペイン語版」を探す遊びをしてみましょう。
-          "information → información" のように、語尾パターンを覚えると
-          スペイン語の語彙が爆発的に増えます。
+          <strong>コグネイトを「宝の地図」として使う：</strong>
+          英語を学びながら「この単語はスペイン語でも似た形がありそうだ」と常に意識するだけで、
+          スペイン語への移行がスムーズになります。
         </span>
       </li>
       <li>
         <span class="marker marker-orange">✓</span>
         <span>
-          <strong>スペイン語の学習は「英語の邪魔」にならない：</strong>
-          研究によれば、2言語の同時学習は、片方に集中した学習と比べて
-          認知的柔軟性（頭の切り替え力）を高めることが報告されています。
-          英語もスペイン語も、学ぶことで互いを強化し合います。
+          <strong>完璧分離は目指さない：</strong>
+          プロの翻訳者や通訳者でも、頭の中で2言語が一時的に共存します。
+          目標は「分離」ではなく「必要なときに正しく切り替えられる」ことです。
         </span>
       </li>
     </ul>
 
     <div class="sticky">
-      🌟 英語とスペイン語はラテン語という「親戚」。
-      2つの言語は混ざりやすい分だけ、互いの習得を助け合います。
-      今日「偽の友人」を5語覚えるだけで、スペイン語の落とし穴が5つ減ります。
-    </div>
-
-    <div class="source">
-      参考:
-      <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3314080/" target="_blank">Bilingualism as a protection against the onset of symptoms of dementia - NIH/PubMed</a> /
-      <a href="https://spanishdict.com" target="_blank">SpanishDict（スペイン語辞書・コグネイト確認に便利 ※ 公式で最新情報を確認）</a>
+      🌟 英語とスペイン語が「混ざる」のは、あなたが2言語を脳に入れ始めた証拠です。
+      その「混ざり」は、スペインで生活を始めたとき自然と解消されていきます。
+      今は焦らず、英語をメインに積み上げながら、スペイン語の「感触」に少しずつ慣れていきましょう。
     </div>
   </div>
 </div>
@@ -1233,33 +1224,33 @@ Keep explanations short and simple. Add a memory tip for each pair.</span>
   <div class="summary-grid">
     <div class="summary-item">
       <span class="s-emoji">🧠</span>
-      <div class="s-title">干渉は「正常な反応」</div>
-      英語とスペイン語が混ざるのは脳の正常な反応。悪いことではなく「気づいて直す」練習が大切。
+      <div class="s-title">混ざるのは正常</div>
+      2言語を学ぶと脳が両方を同時に活性化させる。干渉は「失敗」ではなく「脳が頑張っているサイン」。
     </div>
     <div class="summary-item">
       <span class="s-emoji">🔀</span>
-      <div class="s-title">3パターンの干渉</div>
-      発音（英語読みしてしまう）・文法（名詞の性を忘れる）・語順（形容詞の位置）が混ざりやすい。
-    </div>
-    <div class="summary-item">
-      <span class="s-emoji">🎁</span>
-      <div class="s-title">3,000語のコグネイト</div>
-      英語→スペイン語には助けになる「似た語」が3,000語以上。英語力はスペイン語の強力な武器。
+      <div class="s-title">干渉の3パターン</div>
+      語彙の干渉・語順の干渉・発音の干渉。英語とスペイン語は語順が近いため、語順の干渉は日本語よりずっと小さい。
     </div>
     <div class="summary-item">
       <span class="s-emoji">⚠️</span>
-      <div class="s-title">偽の友人に注意</div>
-      embarazada（妊娠）≠embarrassed（恥ずかしい）など。代表例10〜20語を覚えれば対処できる。
+      <div class="s-title">フォールスフレンズに注意</div>
+      似ているのに意味が違う単語が存在する。embarazada（妊娠中）、librería（本屋）などを代表例として頭に入れておく。
     </div>
     <div class="summary-item">
-      <span class="s-emoji">🛡️</span>
-      <div class="s-title">3つの防ぐテクニック</div>
-      ①時間帯を分ける ②ノートの色を変える ③混ざった語をメモして後で確認する。
+      <span class="s-emoji">🤝</span>
+      <div class="s-title">コグネイトは宝の山</div>
+      英語の語彙の約30%はスペイン語と共通のラテン語起源。-tion→-ción などのパターンを使えば単語が増やせる。
     </div>
     <div class="summary-item">
-      <span class="s-emoji">🔄</span>
-      <div class="s-title">切り替えスイッチを作る</div>
-      「En español ahora」の合言葉や国旗の視覚キューで、脳にスペイン語モードへの信号を送る。
+      <span class="s-emoji">🛠️</span>
+      <div class="s-title">5つの対策テクニック</div>
+      ①言語モードを切替、②別ノート・別アプリ、③英語を橋渡しに、④チャンク暗記、⑤リセット合言葉。
+    </div>
+    <div class="summary-item">
+      <span class="s-emoji">🧘</span>
+      <div class="s-title">混ざりへの正しい心がまえ</div>
+      自己批判NG。「あ、出た。もう一回」と軽く修正して続けるのが最も効果的。笑い飛ばして前進あるのみ。
     </div>
   </div>
 </div>
@@ -1268,9 +1259,9 @@ Keep explanations short and simple. Add a memory tip for each pair.</span>
 <div class="footer">
   <p>⚠️ <strong>免責事項</strong></p>
   <p>・学習の到達スピードや効果には個人差があります。記載の内容はあくまで参考情報です。</p>
-  <p>・記載の語数・割合などの数値は参考目安です。個人の学習環境・方法・経験によって結果は大きく異なります。</p>
-  <p>・紹介したアプリ・サービスの料金・機能は変更になることがあります。最新情報は各公式ページでご確認ください。</p>
-  <p>・言語研究の内容は発表時点のものであり、その後の研究で見解が変わる場合があります。</p>
+  <p>・干渉の発生頻度や解消時期は、個人の学習環境・学習量・先行学習経験によって大きく異なります。</p>
+  <p>・紹介したサービス・アプリの料金・機能は変更になることがあります。最新情報は各公式ページでご確認ください。</p>
+  <p>・記載の研究・書籍の内容は発表時点のものであり、その後の研究で見解が変わる場合があります。</p>
   <p style="margin-top:10px; color:#aaa;">語学習得 最新トピック 2026-06-10 ｜ 英語→スペイン語 ゼロからの毎朝一歩</p>
 </div>
 
