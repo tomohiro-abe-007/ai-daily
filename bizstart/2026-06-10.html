@@ -3,10 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>1人法人スタート 最新トピック 2026-06-10</title>
-<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<title>1人法人スタート 制度改正 2026-06-10</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
+
   body {
     background: #f0ece3;
     font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
@@ -16,8 +17,10 @@
     align-items: center;
     padding: 20px;
   }
+
+  /* ===== COVER ===== */
   .cover {
-    background: linear-gradient(135deg, #0a3a6e 0%, #1a5cb5 60%, #0e3f8e 100%);
+    background: linear-gradient(135deg, #1a3a6e 0%, #2a5298 60%, #1e4aaa 100%);
     color: white;
     border-radius: 8px;
     padding: 60px 40px;
@@ -58,6 +61,20 @@
     margin-top: 10px;
     position: relative;
   }
+  .cover .count-down {
+    display: inline-block;
+    background: #e74c3c;
+    color: white;
+    border-radius: 20px;
+    padding: 4px 16px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-top: 12px;
+    margin-left: 8px;
+    position: relative;
+  }
+
+  /* ===== CARD ===== */
   .card {
     background: #fff9f0;
     border-radius: 6px;
@@ -113,7 +130,10 @@
   .badge-orange { background: #fff0d0; color: #cc6600; border: 1px solid #f0c070; }
   .badge-red    { background: #ffe0e0; color: #c0392b; border: 1px solid #f5a0a0; }
   .badge-green  { background: #e0f5e0; color: #1e7e34; border: 1px solid #a0d8a0; }
+  .badge-purple { background: #f0e0ff; color: #7b2fbe; border: 1px solid #c8a0f0; }
   .badge-teal   { background: #d0f5ef; color: #0a6a5a; border: 1px solid #80d8c8; }
+
+  /* ===== BOXES ===== */
   .simple-box {
     background: #fff7e0;
     border-left: 4px solid #f5c842;
@@ -191,9 +211,12 @@
     border-radius: 4px;
     margin-bottom: 6px;
   }
+
   p { font-size: 0.95rem; line-height: 1.9; margin-bottom: 12px; color: #333; }
   ul { padding-left: 20px; margin-bottom: 12px; }
   ul li { font-size: 0.93rem; line-height: 1.85; color: #333; }
+
+  /* ===== BIG NUMBER CARDS ===== */
   .num-cards {
     display: flex;
     gap: 16px;
@@ -216,6 +239,8 @@
   .num-card.red    { border-color: #e74c3c; }
   .num-card.green  { border-color: #27ae60; }
   .num-card.teal   { border-color: #16a085; }
+  .num-card.purple { border-color: #8e44ad; }
+  .num-card.gray   { border-color: #95a5a6; }
   .num-card .num-label { font-size: 0.78rem; color: #666; margin-bottom: 4px; }
   .num-card .num-value { font-size: 2.2rem; font-weight: 700; line-height: 1.1; }
   .num-card.blue   .num-value { color: #1a3a6e; }
@@ -223,7 +248,11 @@
   .num-card.red    .num-value { color: #c0392b; }
   .num-card.green  .num-value { color: #1e7e34; }
   .num-card.teal   .num-value { color: #0a6a5a; }
+  .num-card.purple .num-value { color: #6c0faa; }
+  .num-card.gray   .num-value { color: #7f8c8d; }
   .num-card .num-unit { font-size: 0.85rem; color: #555; margin-top: 4px; }
+
+  /* ===== COMPARE BOXES ===== */
   .compare-wrap {
     display: flex;
     gap: 16px;
@@ -238,89 +267,179 @@
     font-size: 0.9rem;
     line-height: 1.8;
   }
-  .compare-box.bad     { background: #fff0f0; border: 2px solid #e74c3c; }
-  .compare-box.good    { background: #eafaf1; border: 2px solid #27ae60; }
-  .compare-box.neutral { background: #f0f4ff; border: 2px solid #2a5298; }
-  .compare-box.warning { background: #fff8e0; border: 2px solid #e67e22; }
+  .compare-box.bad  { background: #fff0f0; border: 2px solid #e74c3c; }
+  .compare-box.good { background: #eafaf1; border: 2px solid #27ae60; }
+  .compare-box.neutral { background: #f8f4ff; border: 2px solid #8e44ad; }
+  .compare-box.blue-box { background: #eaf0ff; border: 2px solid #2a5298; }
   .compare-box h3 { font-size: 1.0rem; font-weight: 700; margin-bottom: 8px; }
-  .compare-box.bad     h3 { color: #c0392b; }
-  .compare-box.good    h3 { color: #1e7e34; }
-  .compare-box.neutral h3 { color: #1a3a6e; }
-  .compare-box.warning h3 { color: #b7510a; }
-  .timeline-row {
+  .compare-box.bad  h3 { color: #c0392b; }
+  .compare-box.good h3 { color: #1e7e34; }
+  .compare-box.neutral h3 { color: #6c0faa; }
+  .compare-box.blue-box h3 { color: #1a3a6e; }
+
+  /* ===== CONDITION LIST ===== */
+  .cond-list {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0;
+  }
+  .cond-list li {
     display: flex;
     align-items: flex-start;
-    gap: 0;
-    margin: 20px 0;
-    overflow-x: auto;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  .tl-block {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-width: 120px;
-    padding: 0 4px;
-  }
-  .tl-circle {
-    width: 44px; height: 44px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-    color: white;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    gap: 10px;
+    padding: 10px 12px;
     margin-bottom: 8px;
-    flex-shrink: 0;
+    background: white;
+    border-radius: 6px;
+    box-shadow: 1px 2px 6px rgba(0,0,0,0.08);
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: #333;
   }
-  .tl-circle.past { background: #aaa; }
-  .tl-circle.done { background: #2a5298; }
-  .tl-circle.next { background: #e67e22; }
-  .tl-text { text-align: center; font-size: 0.78rem; line-height: 1.5; }
-  .tl-text .year { font-weight: 700; font-size: 0.9rem; color: #333; }
-  .tl-text .desc { color: #555; }
-  .tl-arrow {
-    font-size: 1.6rem;
-    color: #aaa;
-    padding: 0 4px;
-    margin-top: 12px;
-    flex-shrink: 0;
-  }
-  .cond-cards {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-    margin: 16px 0;
+  .cond-list li .cond-num {
+    display: inline-flex;
+    align-items: center;
     justify-content: center;
+    min-width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
   }
-  .cond-card {
+  .cond-num.blue-num   { background: #2a5298; color: white; }
+  .cond-num.red-num    { background: #e74c3c; color: white; }
+  .cond-num.green-num  { background: #27ae60; color: white; }
+  .cond-num.gray-num   { background: #95a5a6; color: white; text-decoration: line-through; }
+
+  /* ===== TIMELINE ===== */
+  .timeline {
+    position: relative;
+    padding-left: 20px;
+    margin: 20px 0;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 18px; top: 10px; bottom: 10px;
+    width: 4px;
+    background: linear-gradient(to bottom, #e74c3c 0%, #e67e22 30%, #f5c842 55%, #27ae60 80%, #2a5298 100%);
+    border-radius: 2px;
+  }
+  .tl-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 16px;
+    padding-left: 24px;
+    position: relative;
+  }
+  .tl-dot {
+    position: absolute;
+    left: 12px;
+    top: 8px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 0 0 0 2px rgba(0,0,0,0.15);
+    flex-shrink: 0;
+  }
+  .tl-item.current .tl-dot { background: #e74c3c; }
+  .tl-item.y2026   .tl-dot { background: #e67e22; }
+  .tl-item.y2027   .tl-dot { background: #f5a623; }
+  .tl-item.y2029   .tl-dot { background: #27ae60; }
+  .tl-item.y2032   .tl-dot { background: #16a085; }
+  .tl-item.y2035   .tl-dot { background: #2a5298; }
+  .tl-content {
+    background: white;
+    border-radius: 8px;
+    padding: 12px 16px;
+    flex: 1;
+    box-shadow: 1px 2px 6px rgba(0,0,0,0.09);
+    font-size: 0.88rem;
+    line-height: 1.7;
+  }
+  .tl-date {
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-bottom: 4px;
+  }
+  .tl-item.current .tl-date { color: #c0392b; }
+  .tl-item.y2026   .tl-date { color: #cc6600; }
+  .tl-item.y2027   .tl-date { color: #e67e22; }
+  .tl-item.y2029   .tl-date { color: #1e7e34; }
+  .tl-item.y2032   .tl-date { color: #0a6a5a; }
+  .tl-item.y2035   .tl-date { color: #1a3a6e; }
+  .tl-badge {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+  .badge-now  { background: #ffe0e0; color: #c0392b; }
+  .badge-soon { background: #fff0d0; color: #cc6600; }
+  .badge-future { background: #e0f5e0; color: #1e7e34; }
+
+  /* ===== ACTION LIST ===== */
+  .action-list {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0;
+  }
+  .action-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 10px;
+    margin-bottom: 8px;
+    background: #eaf7ea;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: #333;
+  }
+  .action-list li .icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 1px; }
+
+  /* ===== IMPACT CARDS ===== */
+  .impact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 16px 0;
+  }
+  @media (max-width: 600px) {
+    .impact-grid { grid-template-columns: 1fr; }
+  }
+  .impact-card {
     background: white;
     border-radius: 8px;
     padding: 14px 16px;
-    min-width: 160px;
-    flex: 1;
-    box-shadow: 2px 3px 8px rgba(0,0,0,0.1);
-    border-left: 4px solid #2a5298;
+    box-shadow: 1px 2px 6px rgba(0,0,0,0.09);
     font-size: 0.88rem;
-    line-height: 1.6;
+    line-height: 1.7;
   }
-  .cond-card .cond-num {
-    display: inline-block;
-    background: #2a5298;
-    color: white;
-    width: 24px; height: 24px;
-    border-radius: 50%;
-    text-align: center;
-    line-height: 24px;
-    font-size: 0.8rem;
+  .impact-card .ic-title {
     font-weight: 700;
+    font-size: 0.95rem;
     margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
   }
-  .cond-card .cond-title { font-weight: 700; font-size: 0.95rem; color: #1a3a6e; margin-bottom: 4px; }
-  .cond-card .cond-val { font-size: 1.2rem; font-weight: 700; color: #e67e22; display: block; margin: 4px 0; }
-  .cond-card .cond-note { font-size: 0.78rem; color: #666; }
+  .impact-card.now-low  { border-top: 3px solid #27ae60; }
+  .impact-card.now-low  .ic-title { color: #1e7e34; }
+  .impact-card.future   { border-top: 3px solid #e67e22; }
+  .impact-card.future   .ic-title { color: #cc6600; }
+  .impact-card.cost     { border-top: 3px solid #8e44ad; }
+  .impact-card.cost     .ic-title { color: #6c0faa; }
+  .impact-card.support  { border-top: 3px solid #2a5298; }
+  .impact-card.support  .ic-title { color: #1a3a6e; }
+
+  /* ===== COST TABLE ===== */
   .cost-table {
     width: 100%;
     border-collapse: collapse;
@@ -328,7 +447,7 @@
     font-size: 0.88rem;
   }
   .cost-table th {
-    background: #1a3a6e;
+    background: #2a5298;
     color: white;
     padding: 8px 12px;
     text-align: center;
@@ -338,45 +457,13 @@
     padding: 8px 12px;
     border-bottom: 1px solid #e0d8c8;
     vertical-align: middle;
+    text-align: center;
   }
   .cost-table tr:nth-child(even) td { background: #f7f3ec; }
-  .cost-table .row-total td { background: #e8f0fb !important; font-weight: 700; color: #1a3a6e; }
-  .flow-wrap {
-    display: flex;
-    align-items: center;
-    gap: 0;
-    margin: 20px 0;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .flow-step {
-    background: white;
-    border-radius: 8px;
-    padding: 12px 14px;
-    text-align: center;
-    min-width: 110px;
-    box-shadow: 2px 3px 8px rgba(0,0,0,0.1);
-    font-size: 0.82rem;
-    line-height: 1.5;
-    border-top: 3px solid;
-  }
-  .flow-step .step-num {
-    display: inline-block;
-    width: 22px; height: 22px;
-    border-radius: 50%;
-    font-size: 0.75rem;
-    font-weight: 700;
-    line-height: 22px;
-    margin-bottom: 4px;
-  }
-  .flow-step .step-title { font-weight: 700; font-size: 0.88rem; }
-  .flow-arrow { font-size: 1.6rem; color: #aaa; padding: 0 4px; flex-shrink: 0; }
-  .flow-step.s1 { border-color: #2a5298; }
-  .flow-step.s1 .step-num { background: #2a5298; color: white; }
-  .flow-step.s2 { border-color: #27ae60; }
-  .flow-step.s2 .step-num { background: #27ae60; color: white; }
-  .flow-step.s3 { border-color: #e67e22; }
-  .flow-step.s3 .step-num { background: #e67e22; color: white; }
+  .cost-table tr:last-child td { border-bottom: none; }
+  .cost-table .highlight td { background: #fff0d0 !important; font-weight: 700; }
+
+  /* ===== DISCLAIMER ===== */
   .disclaimer {
     background: #f0f0f0;
     border-radius: 6px;
@@ -393,351 +480,331 @@
 </head>
 <body>
 
-<!-- COVER -->
+<!-- ========== COVER ========== -->
 <div class="cover">
-  <span class="cover-emoji">🏥</span>
-  <h1>社会保険 適用拡大<br>2026年10月 予定</h1>
-  <div class="subtitle">短時間労働者の加入要件変更 ── 1人会社が今から準備すること</div>
-  <div class="date-badge">1人法人スタート 最新トピック 2026-06-10</div>
+  <span class="cover-emoji">🛡️</span>
+  <h1>社会保険 2026年10月改正<br>「106万円の壁」撤廃と適用拡大ロードマップ</h1>
+  <div class="subtitle">短時間労働者の加入要件はどう変わる？1人会社への影響を整理</div>
+  <div class="date-badge">1人法人スタート 制度改正 2026-06-10</div>
+  <div class="count-down">⏰ 改正まであと約4か月</div>
 </div>
 
-<!-- 1. キーポイント -->
+<!-- ========== 1. 今日学ぶこと ========== -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">📋</span>
+      <span class="card-title">今日学ぶこと</span>
+      <span class="topic-badge badge-blue">制度改正</span>
+    </div>
+
+    <p><strong>2026年10月、パートやアルバイトなど短時間で働く人の社会保険加入ルールが大きく変わります。</strong>「106万円の壁」と呼ばれていた<strong>賃金要件が撤廃</strong>され、週20時間以上働けば収入にかかわらず社会保険に入ることになります。</p>
+
+    <div class="num-cards">
+      <div class="num-card orange">
+        <div class="num-label">賃金要件が撤廃される</div>
+        <div class="num-value">106万円</div>
+        <div class="num-unit">の壁が消える（2026年10月〜）</div>
+      </div>
+      <div class="num-card blue">
+        <div class="num-label">企業規模要件が最終的に廃止</div>
+        <div class="num-value">2035年</div>
+        <div class="num-unit">全企業が対象に（段階的に拡大）</div>
+      </div>
+      <div class="num-card green">
+        <div class="num-label">残る加入条件（2026年10月以降）</div>
+        <div class="num-value">週20時間</div>
+        <div class="num-unit">以上勤務で原則加入対象</div>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <span class="label">💡 1人会社の代表者への直接影響は？</span><br>
+      代表者（役員）は別の制度で<strong>すでに社会保険加入が義務</strong>です（法人設立と同時に加入）。この改正は「従業員・スタッフを雇う場合」の話です。今後パートやアルバイトを採用する予定があれば要チェックです。
+    </div>
+  </div>
+</div>
+
+<!-- ========== 2. 現在の加入要件 ========== -->
 <div class="card">
   <div class="card-body">
     <div class="card-header">
       <span class="card-emoji">📌</span>
-      <span class="card-title">今日のキーポイント</span>
-      <span class="topic-badge badge-blue">2026年10月 予定</span>
+      <span class="card-title">まず整理！ 現在の短時間労働者 社会保険加入の4要件</span>
+      <span class="topic-badge badge-orange">2026年9月まで</span>
     </div>
-    <div class="num-cards">
-      <div class="num-card orange">
-        <div class="num-label">施行まで</div>
-        <div class="num-value">約4</div>
-        <div class="num-unit">ヶ月（2026年10月予定）</div>
-      </div>
-      <div class="num-card red">
-        <div class="num-label">変わること</div>
-        <div class="num-value">全</div>
-        <div class="num-unit">事業所が対象に<br>（従業員数要件 撤廃予定）</div>
-      </div>
-      <div class="num-card blue">
-        <div class="num-label">月88,000円パート採用時</div>
-        <div class="num-value">+1.2万</div>
-        <div class="num-unit">円/月 の事業主負担（概算）</div>
-      </div>
-    </div>
-    <div class="info-box">
-      <span class="label">📋 この記事で分かること</span><br>
-      ① 短時間労働者の社会保険加入とはどういうものか<br>
-      ② 2016年から続く「適用拡大」の3段階の流れ<br>
-      ③ 加入が必要になる4つの条件（2024年10月〜確定事項）<br>
-      ④ 1人会社への具体的な影響と事業主コストの試算<br>
-      ⑤ 今から動くべき3つのアクション
+
+    <p>パート・アルバイトなどの「短時間労働者」が勤め先の社会保険（健康保険・厚生年金）に入るためには、<strong>現在は4つの条件をすべて満たす必要</strong>があります。</p>
+
+    <ul class="cond-list">
+      <li>
+        <span class="cond-num blue-num">①</span>
+        <div><strong>週の所定労働時間が 20時間以上</strong><br>1週間の決まった労働時間が20時間以上であること</div>
+      </li>
+      <li>
+        <span class="cond-num red-num">②</span>
+        <div><strong>月額賃金が 88,000円以上（ ≒ 年収106万円）</strong><br>残業代・賞与・交通費などは含まない。<strong>これが2026年10月に撤廃される要件</strong></div>
+      </li>
+      <li>
+        <span class="cond-num blue-num">③</span>
+        <div><strong>2か月を超える雇用見込みがある</strong><br>短期バイトや2か月以内の雇用契約は対象外</div>
+      </li>
+      <li>
+        <span class="cond-num blue-num">④</span>
+        <div><strong>学生でない</strong><br>学校に通っている学生は対象外（休学中・夜間・通信制は対象）</div>
+      </li>
+    </ul>
+
+    <div class="simple-box">
+      <span class="label">🏢 企業規模要件（現在）</span><br>
+      上記4要件に加えて、現在は<strong>「従業員51人以上の会社」でのみ</strong>短時間労働者の社会保険加入が義務です。50人以下の会社は今のところ対象外（ただし今後段階的に拡大予定）。
     </div>
   </div>
 </div>
 
-<!-- 2. 短時間労働者とは -->
+<!-- ========== 3. 2026年10月の変更内容 ========== -->
 <div class="card">
   <div class="card-body">
     <div class="card-header">
-      <span class="card-emoji">🤔</span>
-      <span class="card-title">そもそも「短時間労働者の社会保険」とは？</span>
-      <span class="topic-badge badge-blue">基礎知識</span>
+      <span class="card-emoji">🔄</span>
+      <span class="card-title">2026年10月の変更：「106万円の壁」が消える理由</span>
+      <span class="topic-badge badge-red">2026年10月〜</span>
     </div>
-    <p>社会保険（健康保険＋厚生年金）は、法人であれば役員（社長）も含めて原則全員加入です。ただし、パート・アルバイトなどの<strong>「短時間労働者」は別の基準</strong>で加入の要否が決まります。</p>
+
+    <p>賃金要件「月88,000円以上」が設けられた当時は、全国最低賃金が低く、週20時間でも月88,000円を下回るパートが多くいました。しかし<strong>2026年3月末、全都道府県の最低賃金が時給1,016円を超え</strong>、状況が変わりました。</p>
+
     <div class="compare-wrap">
-      <div class="compare-box neutral">
-        <h3>🏢 通常の従業員（正社員など）</h3>
-        <p>加入の目安：正社員の<strong>週所定労働時間の3/4以上</strong>かつ<strong>月の所定労働日数の3/4以上</strong>働く人</p>
-        <p style="font-size:0.85rem;color:#555;margin-top:6px">例：正社員が週40時間なら、週30時間以上の人は通常ルールで加入</p>
+      <div class="compare-box bad">
+        <h3>❌ 撤廃前（〜2026年9月）</h3>
+        <ul>
+          <li>週20時間以上でも<br><strong>月収88,000円未満</strong>なら加入不要</li>
+          <li>時給800円×週20時間＝月約7万円<br>→ 未加入でOKだった</li>
+          <li>賃金が少ない短時間労働者は<br>国民健康保険・国民年金のまま</li>
+        </ul>
       </div>
-      <div class="compare-box warning">
-        <h3>⏰ 短時間労働者（パート・アルバイト）</h3>
-        <p>3/4未満でも、<strong>別途4つの条件</strong>をすべて満たすと加入対象になる</p>
-        <p style="color:#b7510a;font-weight:700;margin-top:6px">🔑 この4条件に加えて「事業所の規模要件」があった</p>
-        <p style="font-size:0.85rem;color:#555">→ この規模要件が2026年10月に撤廃予定</p>
+      <div class="compare-box good">
+        <h3>✅ 撤廃後（2026年10月〜）</h3>
+        <ul>
+          <li>週20時間以上であれば<br><strong>賃金額にかかわらず</strong>加入対象</li>
+          <li>最低賃金が上がったことで<br>賃金要件の意味が薄れた</li>
+          <li>残る要件は①週20時間以上<br>③2か月超の雇用見込み　④学生でない　の3つのみ</li>
+        </ul>
       </div>
     </div>
-    <div class="simple-box">
-      <span class="label">📖 用語メモ</span><br>
-      <strong>短時間労働者</strong>＝週所定労働時間が通常の労働者の3/4未満のパート・アルバイト<br>
-      <strong>所定内賃金</strong>＝基本給＋固定手当。残業代・賞与・通勤手当・家族手当は含まない<br>
-      <strong>適用拡大</strong>＝社会保険の加入対象を段階的に広げていく国の政策
+
+    <div class="alert-box">
+      <span class="label">⚠️ 注意：企業規模要件（51人以上）は2026年10月でも継続</span><br>
+      賃金要件が撤廃されても、<strong>2026年10月時点では「従業員51人以上の会社」だけが対象</strong>です。50人以下の会社（多くの1人法人を含む）は、この段階ではまだ短時間労働者の強制加入義務はありません。ただし、その要件も2035年までに段階的に撤廃されます。
     </div>
   </div>
 </div>
 
-<!-- 3. ロードマップ -->
+<!-- ========== 4. 企業規模要件 廃止スケジュール ========== -->
 <div class="card">
   <div class="card-body">
     <div class="card-header">
       <span class="card-emoji">📅</span>
-      <span class="card-title">適用拡大ロードマップ ── 3段階の変遷</span>
-      <span class="topic-badge badge-orange">歴史・流れ</span>
+      <span class="card-title">企業規模要件の廃止ロードマップ（2025年6月 年金制度改正法成立）</span>
+      <span class="topic-badge badge-purple">2027〜2035</span>
     </div>
-    <p>2016年から段階的に対象企業が広がり、2026年10月にはついに<strong>従業員数による区切りが撤廃される予定</strong>です。</p>
-    <div class="timeline-row">
-      <div class="tl-block">
-        <div class="tl-circle past">✓</div>
-        <div class="tl-text">
-          <div class="year">2016年10月</div>
-          <div class="desc">501人以上<br>の企業</div>
+
+    <p>2025年6月、<strong>年金制度改正法が国会で成立</strong>し、短時間労働者の社会保険加入義務の対象企業を段階的に全企業へと拡大するスケジュールが法律で定まりました。1人会社も<strong>2035年10月には対象</strong>になります。</p>
+
+    <div class="timeline">
+      <div class="tl-item current">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-date">〜2026年9月（現在）<span class="tl-badge badge-now">今</span></div>
+          <strong>企業規模 51人以上</strong> のみ短時間労働者の社会保険加入義務あり<br>
+          賃金要件：月88,000円以上（年収106万円の壁）が存在
         </div>
       </div>
-      <div class="tl-arrow">→</div>
-      <div class="tl-block">
-        <div class="tl-circle done">✓</div>
-        <div class="tl-text">
-          <div class="year">2022年10月</div>
-          <div class="desc">101人以上<br>の企業</div>
+      <div class="tl-item y2026">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-date">2026年10月〜<span class="tl-badge badge-soon">4か月後</span></div>
+          企業規模は引き続き<strong>51人以上</strong>のまま<br>
+          ✨ <strong>賃金要件（88,000円/月）が撤廃</strong>。週20時間以上働けば収入不問で加入
         </div>
       </div>
-      <div class="tl-arrow">→</div>
-      <div class="tl-block">
-        <div class="tl-circle done">✓</div>
-        <div class="tl-text">
-          <div class="year">2024年10月</div>
-          <div class="desc">51人以上<br>の企業</div>
+      <div class="tl-item y2027">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-date">2027年10月〜</div>
+          企業規模要件が <strong>36人以上</strong> に拡大<br>
+          （36〜50人規模の会社でも短時間労働者の加入義務が発生）
         </div>
       </div>
-      <div class="tl-arrow">→</div>
-      <div class="tl-block">
-        <div class="tl-circle next">!</div>
-        <div class="tl-text">
-          <div class="year" style="color:#e67e22">2026年10月（予定）</div>
-          <div class="desc" style="color:#b7510a;font-weight:700">全事業所<br>規模要件 撤廃</div>
+      <div class="tl-item y2029">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-date">2029年10月〜<span class="tl-badge badge-future">要計画</span></div>
+          企業規模要件が <strong>21人以上</strong> に拡大
+        </div>
+      </div>
+      <div class="tl-item y2032">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-date">2032年10月〜</div>
+          企業規模要件が <strong>11人以上</strong> に拡大
+        </div>
+      </div>
+      <div class="tl-item y2035">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-date">2035年10月〜<span class="tl-badge badge-future">全企業</span></div>
+          企業規模要件が<strong>完全撤廃</strong>。<strong>1人会社を含む全ての法人</strong>で、週20時間以上・2か月超勤務の短時間労働者に社会保険加入義務
         </div>
       </div>
     </div>
+
     <div class="info-box">
-      <span class="label">📚 法的根拠（確認済み）</span><br>
-      2022年・2024年の拡大は<strong>令和4年年金制度改正法（令和4年法律第40号）</strong>に基づく段階的施行。<br>
-      出典：厚生労働省「令和4年年金制度改正法について」（基準：2022〜2024年）<br>
-      <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000147284_00004.html" style="color:#2a5298;font-size:0.85rem">https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000147284_00004.html</a><br><br>
-      2026年10月の従業員数要件撤廃は政府・与党で立法化が進められていた措置です。<strong>最新の施行確定状況は必ず厚生労働省の公式情報でご確認ください。</strong>
-    </div>
-    <div class="alert-box">
-      <span class="label">⚠️ 週10時間への引き下げ議論</span><br>
-      社会保障審議会年金部会では「週20時間」要件を「週10時間」に引き下げる案も議論されていました。<strong>2026年10月改正への包含可否は記事作成時点で未確定</strong>です。採用計画がある場合は厚生労働省・日本年金機構の最新情報をご確認ください。
+      <span class="label">📖 出典</span><br>
+      厚生労働省「社会保険の加入対象の拡大について」（令和7年6月改正年金法成立）<br>
+      <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000147284_00021.html" style="color:#2a5298;font-size:0.85rem">https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000147284_00021.html</a><br>
+      基準：令和7年（2025年）6月成立の年金制度改正法による。企業規模は「常時使用する被保険者数」。
     </div>
   </div>
 </div>
 
-<!-- 4. 加入の4条件 -->
-<div class="card">
-  <div class="card-body">
-    <div class="card-header">
-      <span class="card-emoji">✅</span>
-      <span class="card-title">短時間労働者が社会保険に加入する 4つの条件</span>
-      <span class="topic-badge badge-blue">2024年10月〜確定</span>
-    </div>
-    <p>2024年10月以降（51人以上の企業）で確定している条件です。<strong>4つ全てを満たす</strong>と、その短時間労働者は社会保険（健康保険・厚生年金）に加入する義務があります。</p>
-    <div class="cond-cards">
-      <div class="cond-card">
-        <div class="cond-num">①</div>
-        <div class="cond-title">週の所定労働時間</div>
-        <span class="cond-val">20時間以上</span>
-        <div class="cond-note">実労働時間ではなく「契約上の所定時間」で判断</div>
-      </div>
-      <div class="cond-card">
-        <div class="cond-num">②</div>
-        <div class="cond-title">所定内賃金（月額）</div>
-        <span class="cond-val">88,000円以上</span>
-        <div class="cond-note">残業・賞与・通勤手当・家族手当は除外して計算</div>
-      </div>
-      <div class="cond-card">
-        <div class="cond-num">③</div>
-        <div class="cond-title">雇用見込み期間</div>
-        <span class="cond-val">2ヶ月超</span>
-        <div class="cond-note">2022年10月に「1年以上」から変更。実態継続なら対象</div>
-      </div>
-      <div class="cond-card">
-        <div class="cond-num">④</div>
-        <div class="cond-title">学生でない</div>
-        <span class="cond-val">学生除外</span>
-        <div class="cond-note">夜間・通信制・休学中の学生は加入対象になる場合あり</div>
-      </div>
-    </div>
-    <div class="simple-box">
-      <span class="label">🔑 2026年10月以降の変化点</span><br>
-      現在：4条件を満たしても、<strong>企業規模が51人未満なら加入不要</strong><br>
-      2026年10月〜：4条件を満たせば、<strong>企業規模を問わず全員加入</strong>（予定）<br>
-      → 1人会社でも「4条件を満たすパート1人」を雇ったら加入させる必要がある
-    </div>
-    <div class="info-box">
-      <span class="label">📚 出典（確定事項）</span><br>
-      日本年金機構「短時間労働者に対する健康保険・厚生年金保険の適用の拡大」<br>
-      <a href="https://www.nenkin.go.jp/service/kounen/tekiyo/jigyosho/tannjikan.html" style="color:#2a5298;font-size:0.85rem">https://www.nenkin.go.jp/service/kounen/tekiyo/jigyosho/tannjikan.html</a>
-    </div>
-  </div>
-</div>
-
-<!-- 5. 1人会社への影響 -->
+<!-- ========== 5. 1人会社への影響 ========== -->
 <div class="card">
   <div class="card-body">
     <div class="card-header">
       <span class="card-emoji">🏢</span>
-      <span class="card-title">1人会社への影響 ── タイプ別に確認しよう</span>
-      <span class="topic-badge badge-orange">影響チェック</span>
+      <span class="card-title">1人会社への影響を整理する</span>
+      <span class="topic-badge badge-teal">あなたへの影響</span>
     </div>
-    <p>「うちは1人だから関係ない」は半分正解・半分注意が必要です。会社の状況によって影響の大きさが変わります。</p>
-    <div class="compare-wrap">
-      <div class="compare-box good">
-        <h3>✅ 今すぐの直接影響なし</h3>
-        <strong>社長1人だけの会社</strong>
-        <ul style="margin-top:8px">
-          <li>短時間労働者が0人のため、2026年10月改正は直接関係なし</li>
-          <li>社長（役員）自身の社会保険加入は以前から義務（別ルール）で変更なし</li>
-        </ul>
+
+    <div class="impact-grid">
+      <div class="impact-card now-low">
+        <div class="ic-title">✅ 今すぐの影響（2026年10月）</div>
+        従業員が0〜50人の1人会社は<strong>直接的な加入義務変更はなし</strong>。ただし将来雇用を見越した理解が必要。
       </div>
-      <div class="compare-box bad">
-        <h3>⚠️ 影響あり・要確認</h3>
-        <strong>パートや家族従業員がいる会社</strong>
-        <ul style="margin-top:8px">
-          <li>現在（51人未満）：4条件を満たす人でも加入義務なし</li>
-          <li>2026年10月以降：4条件を満たす人は全員加入義務（予定）</li>
-          <li>家族でも指揮命令関係のある従業員なら対象になる場合あり</li>
-        </ul>
+      <div class="impact-card future">
+        <div class="ic-title">⏰ 将来の影響（2027〜2035年）</div>
+        パート・アルバイトを雇う計画があれば、段階的に社会保険コストが増加。2035年に全企業対象。
       </div>
-    </div>
-    <div class="compare-wrap">
-      <div class="compare-box neutral">
-        <h3>📋 今後採用計画がある会社</h3>
-        <ul>
-          <li>2026年10月以降に「週20時間以上・月88,000円以上」のパートを採用するなら社会保険加入が必要になる可能性が高い</li>
-          <li>採用コストに<strong>事業主負担の社会保険料（月約12,000〜13,000円/人）</strong>を予算に組み込む必要あり</li>
-          <li>本人の手取りも大きく変わるため、採用時の丁寧な説明が重要</li>
-        </ul>
+      <div class="impact-card cost">
+        <div class="ic-title">💰 コストのイメージ（参考）</div>
+        短時間社員1人（時給1,100円×週20時間）を雇った場合、会社負担の社会保険料が月約2〜3万円追加発生する見込み。
+      </div>
+      <div class="impact-card support">
+        <div class="ic-title">🤝 中小企業向け支援措置</div>
+        新たに加入対象となった短時間労働者（標準報酬月額12.6万円以下）に対し、会社負担分を軽減する<strong>3年間の保険料調整</strong>措置が設けられる予定。
       </div>
     </div>
-    <div class="green-box">
-      <span class="label">💡 社長自身はどうなる？</span><br>
-      役員（社長）は「短時間労働者」の規定の対象外です。役員報酬を受けている社長は2016年以前から1人でも社会保険に強制加入です。今回の2026年改正は社長自身の加入には影響しません。
+
+    <p>また、自分（代表者）が<strong>他社で副業・パート勤務をしている場合</strong>も要注意です。将来、週20時間以上の副業勤務は、その会社での社会保険加入義務が生じる場合があります。</p>
+
+    <div class="simple-box">
+      <span class="label">🔑 ポイントまとめ</span><br>
+      ① <strong>代表者自身の社会保険</strong>：法人設立時から強制加入。この改正の対象外。<br>
+      ② <strong>短時間スタッフを雇う場合</strong>：50人以下の会社は2035年10月まで猶予あり。しかし今から計画的に。<br>
+      ③ <strong>支援措置を活用</strong>：新たに加入対象になった際は、3年間の保険料調整措置が使えるか確認。
     </div>
   </div>
 </div>
 
-<!-- 6. コスト試算 -->
+<!-- ========== 6. 社会保険コストのざっくり試算 ========== -->
 <div class="card">
   <div class="card-body">
     <div class="card-header">
-      <span class="card-emoji">💴</span>
-      <span class="card-title">事業主負担の試算例 ── 月給88,000円のパート1人採用</span>
-      <span class="topic-badge badge-red">コスト試算</span>
+      <span class="card-emoji">🧮</span>
+      <span class="card-title">短時間スタッフを雇ったら？ 社会保険コストの試算例</span>
+      <span class="topic-badge badge-orange">数字で理解</span>
     </div>
-    <p>週20時間以上・月給88,000円のパートを1人雇った場合の<strong>事業主（会社）が負担する社会保険料の概算</strong>です。</p>
+
+    <p>将来、週20時間のパートスタッフを1人雇うケースでの<strong>会社の社会保険料負担の目安</strong>です（2026年度目安・概算）。</p>
+
     <table class="cost-table">
       <tr>
-        <th>保険の種類</th>
-        <th>事業主負担率</th>
-        <th>月額概算</th>
-        <th>年額概算</th>
+        <th>条件</th>
+        <th>月収（概算）</th>
+        <th>会社負担（概算）</th>
+        <th>本人負担（概算）</th>
       </tr>
       <tr>
-        <td>🏥 健康保険<br><span style="font-size:0.8rem;color:#666">（40歳未満・東京）</span></td>
-        <td style="text-align:center">約4.99%</td>
-        <td style="text-align:right">約 4,391円</td>
-        <td style="text-align:right">約 52,700円</td>
+        <td>時給1,100円 × 週20時間</td>
+        <td>約 88,000円</td>
+        <td>約 13,000円</td>
+        <td>約 13,000円</td>
       </tr>
       <tr>
-        <td>👴 厚生年金保険</td>
-        <td style="text-align:center">9.15%</td>
-        <td style="text-align:right">約 8,052円</td>
-        <td style="text-align:right">約 96,600円</td>
+        <td>時給1,200円 × 週20時間</td>
+        <td>約 96,000円</td>
+        <td>約 14,000円</td>
+        <td>約 14,000円</td>
       </tr>
-      <tr>
-        <td>👶 子ども・子育て拠出金<br><span style="font-size:0.8rem;color:#666">（全額事業主負担）</span></td>
-        <td style="text-align:center">0.36%</td>
-        <td style="text-align:right">約 317円</td>
-        <td style="text-align:right">約 3,800円</td>
-      </tr>
-      <tr class="row-total">
-        <td>💰 合計事業主負担（概算）</td>
-        <td style="text-align:center">—</td>
-        <td style="text-align:right">約 12,760円/月</td>
-        <td style="text-align:right">約 153,100円/年</td>
+      <tr class="highlight">
+        <td>時給1,500円 × 週25時間</td>
+        <td>約 150,000円</td>
+        <td>約 22,000円</td>
+        <td>約 22,000円</td>
       </tr>
     </table>
-    <div class="alert-box">
-      <span class="label">⚠️ 本人（パート）の負担もある</span><br>
-      上記は<strong>会社が払う金額</strong>のみです。パート本人も同程度を給与から天引きされます。月給88,000円から約12,500〜13,000円が天引きされ、手取りは大きく減ります。採用時に必ず本人に説明しましょう。
-    </div>
-    <div class="simple-box">
-      <span class="label">📌 概算の注意点（基準：2025年度）</span><br>
-      実際の保険料は<strong>標準報酬月額の等級表</strong>で計算します。雇用保険料（週20時間以上は別途発生）、40〜64歳なら介護保険料も加算されます。<br>
-      出典：協会けんぽ「保険料額表（令和7年度）」
-      <a href="https://www.kyoukaikenpo.or.jp/g7/cat330/sb3150/" style="color:#2a5298;font-size:0.85rem">https://www.kyoukaikenpo.or.jp/g7/cat330/sb3150/</a>
+
+    <div class="info-box">
+      <span class="label">📝 計算の目安</span><br>
+      社会保険料（健康保険＋厚生年金）は報酬月額の<strong>約28〜30%</strong>で、会社と本人が<strong>折半（50%ずつ）</strong>負担します。上表は2026年度概算。実際の保険料率は都道府県・年度により異なります。正確な額は<a href="https://www.nenkin.go.jp/service/kounen/hokenryo-kankei/hoshu/20150120.html" style="color:#2a5298">日本年金機構の標準報酬月額表</a>で確認を。
     </div>
   </div>
 </div>
 
-<!-- 7. 今から準備 -->
+<!-- ========== 7. 今からできる準備 ========== -->
 <div class="card">
   <div class="card-body">
     <div class="card-header">
-      <span class="card-emoji">🛠️</span>
-      <span class="card-title">今から準備する 3つのアクション</span>
-      <span class="topic-badge badge-green">実践</span>
+      <span class="card-emoji">🎯</span>
+      <span class="card-title">今からできる 4つの準備</span>
+      <span class="topic-badge badge-green">アクション</span>
     </div>
-    <div class="flow-wrap">
-      <div class="flow-step s1">
-        <div class="step-num">1</div>
-        <div class="step-title">現状の雇用を確認</div>
-        <div style="font-size:0.78rem;color:#555;margin-top:4px">パート・家族従業員の<br>週時間・月給をチェック</div>
-      </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step s2">
-        <div class="step-num">2</div>
-        <div class="step-title">採用計画に<br>コストを反映</div>
-        <div style="font-size:0.78rem;color:#555;margin-top:4px">事業主負担の<br>社会保険料を予算化</div>
-      </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-step s3">
-        <div class="step-num">3</div>
-        <div class="step-title">公式情報を<br>定期チェック</div>
-        <div style="font-size:0.78rem;color:#555;margin-top:4px">厚労省・年金機構で<br>最新施行情報を確認</div>
-      </div>
-    </div>
-    <ul>
-      <li style="margin-bottom:10px"><strong>① 現状確認</strong>：今いるパート・家族従業員が「週20時間以上かつ月88,000円以上かつ2ヶ月超勤務見込み」に該当するかを確認する。</li>
-      <li style="margin-bottom:10px"><strong>② 採用計画の見直し</strong>：新しくパートを雇う場合、週20時間未満または月88,000円未満に設定すれば現時点では加入義務が生じないケースがある。ただし労働条件の設計は労働者の生活にも影響するため慎重に。</li>
-      <li><strong>③ 社会保険労務士への相談</strong>：複数のパートがいる場合や採用コストの詳細試算が必要な場合は、社労士への相談が最も確実です。</li>
+
+    <ul class="action-list">
+      <li><span class="icon">✅</span><div><strong>雇用計画の見直し</strong>：将来パートやアルバイトを雇う予定があれば、社会保険コストを事業計画に組み込んでおく。月2〜3万円の追加負担を「人件費」として試算する。</div></li>
+      <li><span class="icon">✅</span><div><strong>週20時間の把握</strong>：業務委託やスポット依頼ではなく、継続的に週20時間以上を依頼する関係になる場合は、雇用関係の判定が必要。<strong>偽装請負（フリーランスと見せかけた実質雇用）</strong>は法的リスクがあるため注意。</div></li>
+      <li><span class="icon">✅</span><div><strong>2026年10月の変更内容を確認</strong>：現在51人以上規模の下請け・協力会社と取引がある場合、先方のコスト増→値上げ交渉に繋がる可能性も。情報として把握しておく。</div></li>
+      <li><span class="icon">✅</span><div><strong>社会保険労務士への相談</strong>：雇用を考え始めたら早めに社会保険労務士（社労士）に相談を。加入手続き・保険料計算・労働条件通知書の作成をサポートしてくれます。</div></li>
     </ul>
+
     <div class="green-box">
-      <span class="label">🤖 生成AI活用のヒント</span><br>
-      「短時間労働者の社会保険加入判断フロー図を作って」とAIに頼むと、確認チェックリストや判断チャートをすぐに作ってくれます。ただし<strong>制度の最終確認は必ず公的機関で</strong>行いましょう。
+      <span class="label">🤖 生成AIの使い方</span><br>
+      「週20時間のパートを雇う場合の社会保険料の概算を教えて」とAIに聞くと、計算の考え方を教えてくれます。ただし<strong>正確な保険料率は年度・都道府県で変わる</strong>ため、必ず日本年金機構・協会けんぽの公式情報で確認してください。AIはあくまで「概算と理解の補助」として使いましょう。
     </div>
   </div>
 </div>
 
-<!-- 8. 出典 -->
+<!-- ========== 8. 出典 ========== -->
 <div class="card">
   <div class="card-body">
     <div class="card-header">
       <span class="card-emoji">📚</span>
-      <span class="card-title">出典・参考情報（一次情報）</span>
-      <span class="topic-badge badge-blue">公的情報</span>
+      <span class="card-title">参考・出典情報</span>
+      <span class="topic-badge badge-blue">一次情報</span>
     </div>
+
     <ul>
-      <li>厚生労働省「社会保険適用拡大 特設サイト」（基準：2024年〜）<br>
+      <li>厚生労働省「社会保険の加入対象の拡大について」（令和7年6月改正年金法成立）<br>
+        <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000147284_00021.html" style="color:#2a5298;font-size:0.85rem">https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000147284_00021.html</a></li>
+      <li style="margin-top:8px">厚生労働省「社会保険適用拡大特設サイト」<br>
         <a href="https://www.mhlw.go.jp/tekiyoukakudai/" style="color:#2a5298;font-size:0.85rem">https://www.mhlw.go.jp/tekiyoukakudai/</a></li>
-      <li style="margin-top:8px">厚生労働省「令和4年年金制度改正法について」<br>
-        <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000147284_00004.html" style="color:#2a5298;font-size:0.85rem">https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000147284_00004.html</a></li>
-      <li style="margin-top:8px">日本年金機構「短時間労働者に対する健康保険・厚生年金保険の適用拡大」<br>
-        <a href="https://www.nenkin.go.jp/service/kounen/tekiyo/jigyosho/tannjikan.html" style="color:#2a5298;font-size:0.85rem">https://www.nenkin.go.jp/service/kounen/tekiyo/jigyosho/tannjikan.html</a></li>
-      <li style="margin-top:8px">全国健康保険協会（協会けんぽ）「保険料額表（令和7年度）」（基準：2025年度）<br>
-        <a href="https://www.kyoukaikenpo.or.jp/g7/cat330/sb3150/" style="color:#2a5298;font-size:0.85rem">https://www.kyoukaikenpo.or.jp/g7/cat330/sb3150/</a></li>
-      <li style="margin-top:8px">厚生労働省「社会保障審議会 年金部会」（適用拡大の審議動向）<br>
-        <a href="https://www.mhlw.go.jp/stf/shingi/shingi-hosho_126719.html" style="color:#2a5298;font-size:0.85rem">https://www.mhlw.go.jp/stf/shingi/shingi-hosho_126719.html</a></li>
+      <li style="margin-top:8px">日本年金機構「短時間労働者に対する健康保険・厚生年金保険の適用の拡大」<br>
+        <a href="https://www.nenkin.go.jp/service/kounen/tekiyo/jigyosho/tanjikan.html" style="color:#2a5298;font-size:0.85rem">https://www.nenkin.go.jp/service/kounen/tekiyo/jigyosho/tanjikan.html</a></li>
+      <li style="margin-top:8px">厚生労働省リーフレット「最低賃金の上昇により、週20時間以上働く方は、自動的に社会保険の加入要件を満たすため、賃金要件を意識する必要がなくなります」<br>
+        <a href="https://www.mhlw.go.jp/content/12500000/001633788.pdf" style="color:#2a5298;font-size:0.85rem">https://www.mhlw.go.jp/content/12500000/001633788.pdf</a></li>
     </ul>
+
+    <div class="info-box">
+      <span class="label">📅 基準年度・制度情報</span><br>
+      本記事は<strong>2025年6月に成立した年金制度改正法</strong>および<strong>2026年6月時点の制度情報</strong>を基準としています。企業規模要件の施行時期・保険料率は変更される場合があります。最新情報は厚生労働省・日本年金機構のウェブサイトでご確認ください。
+    </div>
   </div>
 </div>
 
-<!-- 免責 -->
+<!-- ========== 免責事項 ========== -->
 <div class="disclaimer">
   <strong>【免責事項】</strong><br>
-  本記事は一般的な情報提供を目的としており、個別の税務・法務・社会保険アドバイスではありません。会社の規模・業種・雇用状況によって判断は異なります。2026年10月の制度改正は記事作成時点の情報に基づくものであり、最新の施行確定状況は厚生労働省・日本年金機構の公式情報でご確認ください。具体的な手続き・加入判断については、社会保険労務士・税理士など専門家にご相談ください。記載の保険料率・金額は2025年度時点を基準としています。
+  本記事は一般的な情報提供を目的としており、個別の税務・法務・労務アドバイスではありません。社会保険の加入義務・保険料の計算・労働条件の判断は、会社の規模・業種・雇用形態によって異なります。具体的な対応については、<strong>社会保険労務士・税理士など専門家にご相談ください</strong>。記載の制度・数値には基準年度を明記しています。
 </div>
 
 </body>
