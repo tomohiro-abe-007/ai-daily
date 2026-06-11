@@ -9,16 +9,21 @@
 ## ツール・新機能（要WebSearch更新）
 
 - Sora 2 の最新機能・料金（直近情報で確認）
-- Google Vids 無料枠（月10本）の使い方
+- Google Vids 無料枠（月10本）の使い方（Veo 3.1 + Lyria 3 + AIアバター）
+- Soraの代替ツール比較（Kling / Veo / Luma / Runway）
+- C2PA 透かし・AI映像の識別技術（2026年業界標準化）
+- Sondo AI Professional Video Editor（AIミュージックビデオ専用エディタ、2026年5月ローンチ）
+- Gemini Omni Flash の動画編集機能（Google I/O 2026発表、会話型動画生成・編集）
 
 ## 新テーマ候補（追加）
 
-- Soraの代替ツール比較（Kling / Veo / Luma / Runway）
-- Google Vids 無料枠（月10本）の使い方（Veo 3.1 + Lyria 3）
-- C2PA 透かし・AI映像の識別技術（2026年業界標準化）
+- AI広告動画の自動生成ワークフロー（Edimakor AI Ads / Canva AI など）
+- 長尺AI動画（10〜30分）の生成・活用法（2026年の新トレンド）
+- 音楽×AI動画（Lyria 3 / Sondo AI による音楽ビデオ制作フロー）
 
 ## 済み（扱ったテーマ）
 
+- 2026-06-11（ツール）：Edimakor V5.0.0 ── Reference to Video・AI Ads・Video Cloning（Wan 2.7モデル・料金比較・5ステップ実践例）
 - 2026-06-10（エバーグリーン）：尺・テンポ・カット割り（ショート動画向け）── 最初の3秒ルール・4幕構成・緩急テンポ・AI動画応用
 - 2026-06-09（ツール）：Runway最新アップデート（Gen-4.5 A2D技術・HappyHorse 1.0 API・Aleph 2.0 Edit Studio・Maxプラン改名）
 - 2026-06-08（エバーグリーン）：プロンプトでカメラ・構図・光を指定するコツ（3要素×キーワード×マトリクス・プロンプト実例付き）
