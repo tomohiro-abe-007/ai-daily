@@ -3,169 +3,266 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>1人法人スタート 最新トピック 2026-06-11</title>
-<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<title>1人法人スタート 基礎知識 2026-06-11</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
+
   body {
     background: #f0ece3;
     font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
     min-height: 100vh;
-    padding: 40px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 20px;
   }
-  .slide {
-    background: #fff9f0;
-    border-radius: 10px;
-    padding: 36px 44px;
-    width: 100%;
-    max-width: 780px;
-    box-shadow: 4px 6px 20px rgba(0,0,0,0.12);
-    margin-bottom: 24px;
-  }
-  .hero {
-    background: linear-gradient(135deg, #1a5c38 0%, #0d3320 100%);
+
+  /* ===== COVER ===== */
+  .cover {
+    background: linear-gradient(135deg, #1a4a2e 0%, #2d7a4f 60%, #1e6040 100%);
     color: white;
-    border-radius: 10px;
-    padding: 48px 40px;
+    border-radius: 8px;
+    padding: 60px 40px;
     text-align: center;
     width: 100%;
-    max-width: 780px;
+    max-width: 820px;
     margin-bottom: 24px;
     box-shadow: 4px 6px 20px rgba(0,0,0,0.3);
+    position: relative;
+    overflow: hidden;
   }
-  .hero .date-tag {
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+      0deg, transparent, transparent 28px,
+      rgba(255,255,255,0.05) 28px, rgba(255,255,255,0.05) 29px
+    );
+  }
+  .cover-emoji { font-size: 64px; display: block; margin-bottom: 16px; }
+  .cover h1 {
+    font-family: 'Klee One', sans-serif;
+    font-size: 2.0rem;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 12px;
+    position: relative;
+  }
+  .cover .subtitle { font-size: 1.0rem; opacity: 0.85; margin-bottom: 8px; position: relative; }
+  .cover .date-badge {
     display: inline-block;
     background: rgba(255,255,255,0.2);
+    border: 2px solid rgba(255,255,255,0.5);
     border-radius: 20px;
-    padding: 4px 16px;
-    font-size: 0.82rem;
-    margin-bottom: 16px;
+    padding: 6px 20px;
+    font-size: 1rem;
+    margin-top: 10px;
+    position: relative;
   }
-  .hero h1 { font-size: 1.75rem; line-height: 1.5; margin-bottom: 12px; }
-  .hero .subtitle { font-size: 0.95rem; opacity: 0.85; line-height: 1.8; }
-  h2 {
-    font-size: 1.12rem;
-    color: #1a5c38;
-    margin-bottom: 18px;
-    padding-bottom: 10px;
-    border-bottom: 2px dashed #8fc5a8;
+
+  /* ===== CARD ===== */
+  .card {
+    background: #fff9f0;
+    border-radius: 6px;
+    padding: 28px 32px;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 20px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.1);
+    border-left: 5px solid #2d7a4f;
+    position: relative;
+  }
+  .card.blue  { border-left-color: #2a5298; }
+  .card.orange{ border-left-color: #d4721f; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.purple{ border-left-color: #6c3483; }
+  .card.teal  { border-left-color: #1a7a6e; }
+  .card.gray  { border-left-color: #7f8c8d; background: #f8f6f3; }
+
+  .card h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 16px;
     display: flex;
     align-items: center;
     gap: 8px;
   }
-  p { line-height: 1.8; color: #333; font-size: 0.95rem; margin-bottom: 12px; }
-  .num-cards {
+  .card h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    margin-top: 20px;
+  }
+  .card p  { font-size: 0.95rem; line-height: 1.8; color: #3a3028; }
+  .card ul { padding-left: 1.4em; }
+  .card li { font-size: 0.93rem; line-height: 1.9; color: #3a3028; }
+
+  /* ===== HIGHLIGHT BOX ===== */
+  .highlight {
+    background: #e8f5ee;
+    border: 2px solid #2d7a4f;
+    border-radius: 6px;
+    padding: 14px 18px;
+    margin: 14px 0;
+    font-size: 0.93rem;
+    line-height: 1.7;
+  }
+  .highlight.blue   { background: #e8eef8; border-color: #2a5298; }
+  .highlight.orange { background: #fdf3e7; border-color: #d4721f; }
+  .highlight.red    { background: #fdecea; border-color: #c0392b; }
+  .highlight.purple { background: #f3eaf8; border-color: #6c3483; }
+  .highlight.gray   { background: #f2f3f4; border-color: #7f8c8d; }
+
+  /* ===== NUMBER CARD ===== */
+  .num-row {
     display: flex;
-    gap: 14px;
+    gap: 16px;
     flex-wrap: wrap;
-    margin: 18px 0;
+    margin: 16px 0;
   }
   .num-card {
     flex: 1;
-    min-width: 130px;
-    background: #e8f5ee;
+    min-width: 140px;
+    background: linear-gradient(135deg, #2d7a4f, #1a4a2e);
+    color: white;
     border-radius: 10px;
-    padding: 18px 14px;
+    padding: 20px 16px;
     text-align: center;
-    border: 2px solid #8fc5a8;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.18);
   }
-  .num-card .big { font-size: 1.9rem; font-weight: 700; color: #1a5c38; line-height: 1.2; }
-  .num-card .label { font-size: 0.78rem; color: #555; margin-top: 6px; line-height: 1.5; }
-  .steps { margin: 16px 0; }
-  .step {
+  .num-card.blue   { background: linear-gradient(135deg, #2a5298, #1a3a6e); }
+  .num-card.orange { background: linear-gradient(135deg, #d4721f, #9c4a0a); }
+  .num-card.purple { background: linear-gradient(135deg, #6c3483, #4a1f5e); }
+  .num-card .big  { font-size: 2.4rem; font-weight: 700; line-height: 1.1; font-family: 'Caveat', cursive; }
+  .num-card .unit { font-size: 0.85rem; opacity: 0.9; margin-top: 4px; }
+  .num-card .label{ font-size: 0.78rem; opacity: 0.8; margin-top: 6px; line-height: 1.4; }
+
+  /* ===== STEP FLOW ===== */
+  .step-flow {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin: 16px 0;
+  }
+  .step-item {
     display: flex;
     align-items: flex-start;
-    gap: 14px;
-    margin-bottom: 12px;
-    padding: 14px 16px;
-    background: #f0faf4;
-    border-radius: 8px;
-    border-left: 4px solid #1a5c38;
+    gap: 16px;
+  }
+  .step-connector {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 48px;
   }
   .step-num {
-    background: #1a5c38;
-    color: white;
+    width: 40px; height: 40px;
     border-radius: 50%;
-    width: 28px;
-    height: 28px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.85rem;
+    background: #2d7a4f;
+    color: white;
+    font-size: 1.1rem;
     font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
     flex-shrink: 0;
-    margin-top: 2px;
   }
-  .step-num.warn { background: #c0392b; }
-  .step-content h3 { font-size: 0.95rem; color: #1a5c38; margin-bottom: 4px; }
-  .step-content p { font-size: 0.87rem; margin: 0; color: #444; }
-  .usecase-grid {
+  .step-num.blue   { background: #2a5298; }
+  .step-num.orange { background: #d4721f; }
+  .step-num.purple { background: #6c3483; }
+  .step-line {
+    width: 3px;
+    height: 32px;
+    background: linear-gradient(to bottom, #2d7a4f, rgba(45,122,79,0.2));
+    margin: 2px 0;
+  }
+  .step-line.blue   { background: linear-gradient(to bottom, #2a5298, rgba(42,82,152,0.2)); }
+  .step-body {
+    background: #f5faf7;
+    border: 1px solid #c0dcc8;
+    border-radius: 8px;
+    padding: 12px 16px;
+    flex: 1;
+    margin-bottom: 8px;
+    font-size: 0.93rem;
+    line-height: 1.7;
+  }
+  .step-body.blue   { background: #eff3fb; border-color: #b0c4e8; }
+  .step-body strong { color: #1a4a2e; }
+  .step-body.blue strong { color: #1a3a6e; }
+
+  /* ===== PROMPT BOX ===== */
+  .prompt-box {
+    background: #1e2a3a;
+    color: #e8f4e8;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 12px 0;
+    font-size: 0.88rem;
+    line-height: 1.8;
+    font-family: 'Courier New', monospace;
+    position: relative;
+    overflow: hidden;
+  }
+  .prompt-box::before {
+    content: '💬 プロンプト例';
+    display: block;
+    font-family: 'Klee One', sans-serif;
+    font-size: 0.78rem;
+    color: #90c090;
+    margin-bottom: 8px;
+    font-style: italic;
+  }
+  .prompt-box .user-line { color: #7ec8e3; }
+  .prompt-box .key { color: #f5c842; }
+
+  /* ===== 3-COL GRID ===== */
+  .grid3 {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 14px;
     margin: 16px 0;
   }
-  .usecase-card {
+  .grid3-cell {
     background: white;
-    border-radius: 10px;
+    border-radius: 8px;
     padding: 16px 14px;
-    border: 1.5px solid #8fc5a8;
-    box-shadow: 2px 3px 8px rgba(0,0,0,0.07);
+    border: 1px solid #d4e6da;
+    text-align: center;
   }
-  .usecase-card .icon { font-size: 1.8rem; margin-bottom: 8px; }
-  .usecase-card h3 { font-size: 0.88rem; color: #1a5c38; margin-bottom: 8px; font-weight: 600; }
-  .usecase-card ul { list-style: none; padding: 0; }
-  .usecase-card ul li { font-size: 0.82rem; color: #444; padding: 3px 0; }
-  .usecase-card ul li::before { content: "\25B8 "; color: #1a5c38; }
+  .grid3-cell .icon { font-size: 2rem; display: block; margin-bottom: 8px; }
+  .grid3-cell .title { font-size: 0.92rem; font-weight: 600; color: #1a4a2e; margin-bottom: 6px; }
+  .grid3-cell .desc  { font-size: 0.82rem; color: #555; line-height: 1.5; }
+
+  /* ===== COMPARE TABLE ===== */
   .compare-table {
     width: 100%;
     border-collapse: collapse;
     margin: 16px 0;
-    font-size: 0.86rem;
+    font-size: 0.9rem;
   }
   .compare-table th {
-    background: #1a5c38;
+    background: #2d7a4f;
     color: white;
     padding: 10px 14px;
     text-align: left;
   }
+  .compare-table th:first-child { border-radius: 6px 0 0 0; }
+  .compare-table th:last-child  { border-radius: 0 6px 0 0; }
   .compare-table td {
     padding: 10px 14px;
-    border-bottom: 1px solid #dde;
-    vertical-align: top;
+    border-bottom: 1px solid #d8e8dc;
+    color: #3a3028;
     line-height: 1.6;
+    vertical-align: top;
   }
-  .compare-table tr:nth-child(even) td { background: #f0faf4; }
-  .compare-table .cat { font-weight: 600; color: #1a5c38; min-width: 110px; }
-  .flow-wrap { margin: 16px 0; }
-  .flow {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 0;
-    margin: 8px 0;
-    justify-content: center;
-  }
-  .flow-box {
-    background: #1a5c38;
-    color: white;
-    border-radius: 8px;
-    padding: 10px 14px;
-    font-size: 0.82rem;
-    text-align: center;
-    min-width: 90px;
-    line-height: 1.5;
-  }
-  .flow-box.light {
-    background: #e8f5ee;
-    color: #1a5c38;
-    border: 1.5px solid #8fc5a8;
-  }
-  .flow-arrow { font-size: 1.3rem; color: #1a5c38; padding: 0 6px; }
-  .flow-down { text-align: center; font-size: 1.4rem; color: #1a5c38; margin: 4px 0; }
+  .compare-table tr:nth-child(even) td { background: #f0f8f3; }
+  .compare-table tr:hover td { background: #e4f3ea; }
+  .compare-table .ok  { color: #2d7a4f; font-weight: 600; }
+  .compare-table .ng  { color: #c0392b; font-weight: 600; }
+  .compare-table .caution { color: #d4721f; font-weight: 600; }
+
+  /* ===== MATRIX ===== */
   .matrix {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -173,358 +270,480 @@
     margin: 16px 0;
   }
   .matrix-cell {
-    background: #f0faf4;
     border-radius: 8px;
-    padding: 14px;
-    border: 1.5px solid #8fc5a8;
+    padding: 16px;
+    font-size: 0.9rem;
+    line-height: 1.65;
   }
-  .matrix-cell h4 { font-size: 0.88rem; color: #1a5c38; margin-bottom: 6px; font-weight: 600; }
-  .matrix-cell p { font-size: 0.82rem; margin: 0; line-height: 1.6; }
-  .tip-box {
-    background: #fff3cd;
-    border-left: 4px solid #f0a500;
-    border-radius: 0 8px 8px 0;
-    padding: 14px 18px;
-    margin: 14px 0;
-    font-size: 0.88rem;
-    line-height: 1.7;
-  }
-  .tip-box strong { color: #7a5000; }
-  .warn-box {
-    background: #ffeef0;
-    border-left: 4px solid #c0392b;
-    border-radius: 0 8px 8px 0;
-    padding: 14px 18px;
-    margin: 14px 0;
-    font-size: 0.88rem;
-    line-height: 1.7;
-  }
-  .warn-box strong { color: #8a0000; }
+  .matrix-cell .label { font-weight: 700; font-size: 0.95rem; margin-bottom: 6px; }
+  .matrix-cell.a { background: #e8f5ee; border: 2px solid #2d7a4f; }
+  .matrix-cell.a .label { color: #1a4a2e; }
+  .matrix-cell.b { background: #e8eef8; border: 2px solid #2a5298; }
+  .matrix-cell.b .label { color: #1a3a6e; }
+  .matrix-cell.c { background: #fdf3e7; border: 2px solid #d4721f; }
+  .matrix-cell.c .label { color: #7a3a0a; }
+  .matrix-cell.d { background: #fdecea; border: 2px solid #c0392b; }
+  .matrix-cell.d .label { color: #7a1e1e; }
+
+  /* ===== DISCLAIMER ===== */
   .disclaimer {
-    background: #f5f5f5;
-    border-radius: 8px;
-    padding: 16px 20px;
-    font-size: 0.82rem;
-    color: #666;
-    line-height: 1.8;
-  }
-  .disclaimer a { color: #1a5c38; }
-  .source { font-size: 0.77rem; color: #888; margin-top: 8px; line-height: 1.6; }
-  .source a { color: #1a5c38; }
-  .footer {
-    text-align: center;
-    color: #aaa;
-    font-size: 0.8rem;
+    background: #f5f0e8;
+    border: 2px dashed #b0a090;
+    border-radius: 6px;
+    padding: 18px 22px;
+    width: 100%;
+    max-width: 820px;
     margin-top: 8px;
-    padding-bottom: 40px;
+    font-size: 0.82rem;
+    color: #6a5a4a;
+    line-height: 1.7;
   }
+  .disclaimer strong { color: #4a3a2a; }
+
+  /* ===== SOURCE ===== */
+  .source {
+    font-size: 0.78rem;
+    color: #888;
+    margin-top: 10px;
+    padding-top: 8px;
+    border-top: 1px dotted #ccc;
+  }
+  .source a { color: #2d7a4f; text-decoration: none; }
+  .source a:hover { text-decoration: underline; }
+
+  /* ===== BADGE ===== */
+  .badge {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 0.76rem;
+    font-weight: 600;
+    margin: 0 3px;
+  }
+  .badge.green  { background: #d0edda; color: #1a5c2a; }
+  .badge.blue   { background: #d0dff0; color: #1a3a6e; }
+  .badge.orange { background: #fce8d0; color: #7a3a0a; }
+  .badge.red    { background: #fdd8d8; color: #7a1e1e; }
+
+  /* ===== FLOW HORIZONTAL ===== */
+  .flow-h {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin: 14px 0;
+  }
+  .flow-box {
+    background: #e8f5ee;
+    border: 2px solid #2d7a4f;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #1a4a2e;
+    text-align: center;
+    min-width: 80px;
+  }
+  .flow-box.blue   { background: #e8eef8; border-color: #2a5298; color: #1a3a6e; }
+  .flow-box.orange { background: #fdf3e7; border-color: #d4721f; color: #7a3a0a; }
+  .flow-arrow {
+    font-size: 1.2rem;
+    color: #888;
+    font-weight: 700;
+  }
+
   @media (max-width: 600px) {
-    .slide { padding: 24px 20px; }
+    .cover { padding: 40px 20px; }
+    .cover h1 { font-size: 1.5rem; }
+    .grid3 { grid-template-columns: 1fr; }
     .matrix { grid-template-columns: 1fr; }
-    .hero { padding: 36px 24px; }
-    .hero h1 { font-size: 1.4rem; }
-    .flow-box { min-width: 72px; font-size: 0.76rem; padding: 8px 10px; }
+    .num-row { flex-direction: column; }
   }
 </style>
 </head>
 <body>
 
-<!-- Hero -->
-<div class="hero">
-  <div class="date-tag">2026-06-11 ／ 生成AI × 1人会社</div>
-  <h1>🚀 生成AIで1人で営業・制作を回す</h1>
-  <p class="subtitle">提案書・営業メール・SNS投稿・動画スクリプトを<br>AI × 1人で「チーム並み」に量産する実践ガイド</p>
+<!-- ===== COVER ===== -->
+<div class="cover">
+  <span class="cover-emoji">🤖</span>
+  <h1>生成AI で経理・事務を<br>効率化する</h1>
+  <p class="subtitle">請求書・仕訳・申告補助まで — 1人で全部回すための AI 活用法</p>
+  <span class="date-badge">2026-06-11（木）</span>
 </div>
 
-<!-- Section 1 -->
-<div class="slide">
-  <h2>📌 1人会社の「営業・制作」の壁</h2>
-  <p>1人社長にとって<strong>営業と制作は最も時間を奪う作業</strong>です。提案書1本書くだけで半日、SNS投稿のネタ出しに毎週悩む——そのサイクルを生成AIが根本から変えます。</p>
+<!-- ===== WHY AI ===== -->
+<div class="card">
+  <h2>📌 なぜ1人社長に生成AIが強い味方なのか</h2>
+  <p>1人会社では<strong>「経理担当」も「総務」も「営業事務」も全部自分</strong>。専門知識を持つスタッフを雇う余裕はなくても、AIを使えばプロ品質の下書きや計算チェックを即座に出せます。</p>
 
-  <div class="num-cards">
+  <div class="num-row" style="margin-top:18px;">
     <div class="num-card">
-      <div class="big">3〜5h</div>
-      <div class="label">提案書1本を<br>ゼロから書く時間</div>
+      <div class="big">3</div>
+      <div class="unit">大活用シーン</div>
+      <div class="label">請求書・仕訳・申告補助</div>
     </div>
-    <div class="num-card">
-      <div class="big">→ 20〜40分</div>
-      <div class="label">AIドラフト後に<br>仕上げる目安時間</div>
+    <div class="num-card blue">
+      <div class="big">0</div>
+      <div class="unit">円〜</div>
+      <div class="label">無料プランで始められるAIツール多数</div>
     </div>
-    <div class="num-card">
-      <div class="big">週5本</div>
-      <div class="label">SNS投稿 ──<br>AIで月曜に一括生成可</div>
+    <div class="num-card orange">
+      <div class="big">24</div>
+      <div class="unit">時間対応</div>
+      <div class="label">深夜の経理作業にも即アドバイス</div>
     </div>
   </div>
 
-  <div class="tip-box">
-    <strong>💡 AIの正しい使い方：</strong>AIは「代わりに考える」ツールではなく「素案を10倍速で作る」ツールです。最終確認・クライアントへの責任は常に自分が持ちます。
+  <div class="highlight">
+    💡 <strong>大原則：</strong>AIは「下書き・チェック・学習のサポーター」。<br>
+    最終判断・申告書への転記・専門家への相談は必ず人間が行うこと。
   </div>
 </div>
 
-<!-- Section 2 -->
-<div class="slide">
-  <h2>📝 営業に使えるAI活用 4ステップ</h2>
-  <p>1人会社の営業で最も時間を取るのは<strong>「文章を書く作業」</strong>です。AIでこの部分を一気に短縮できます。</p>
+<!-- ===== 3 SCENES ===== -->
+<div class="card blue">
+  <h2>📂 3大活用シーン</h2>
 
-  <div class="steps">
-    <div class="step">
-      <div class="step-num">1</div>
-      <div class="step-content">
-        <h3>提案書・見積書の素案生成</h3>
-        <p>「クライアントの課題・提供サービス・価格帯」を箇条書きでAIへ渡す → 構成と本文をドラフト生成 → 数字・固有名詞を自分で確認して完成。</p>
-      </div>
+  <div class="grid3">
+    <div class="grid3-cell">
+      <span class="icon">🧾</span>
+      <div class="title">① 請求書・見積書<br>の作成補助</div>
+      <div class="desc">文面・金額レイアウト・消費税計算を下書き。電帳法保存もチェック。</div>
     </div>
-    <div class="step">
-      <div class="step-num">2</div>
-      <div class="step-content">
-        <h3>営業メール・問い合わせ返信の文章</h3>
-        <p>「シチュエーション・要点・トーン（丁寧 or カジュアル）」を指示 → メール文章をひな形生成 → 固有名詞・日付を挿入して送信。</p>
-      </div>
+    <div class="grid3-cell">
+      <span class="icon">📒</span>
+      <div class="title">② 仕訳・勘定科目<br>の相談</div>
+      <div class="desc">「これは何費？」をAIに聞いて会計ソフトへ入力。ミスを減らす。</div>
     </div>
-    <div class="step">
-      <div class="step-num">3</div>
-      <div class="step-content">
-        <h3>クライアント向け議事録・報告書</h3>
-        <p>打ち合わせ音声を文字起こしツールでテキスト化 → AIで要点整理・議事録フォーマット化 → 確認後送付。</p>
-      </div>
-    </div>
-    <div class="step">
-      <div class="step-num">4</div>
-      <div class="step-content">
-        <h3>FAQ・会社紹介・LPの文章</h3>
-        <p>サービスの特徴・価格・よくある質問をAIで文章化 → ホームページのコピーやLP（ランディングページ＝商品・サービスの説明ページ）のテキストとして活用。</p>
-      </div>
+    <div class="grid3-cell">
+      <span class="icon">📊</span>
+      <div class="title">③ 決算・申告書<br>の学習補助</div>
+      <div class="desc">制度の仕組みを平易に解説。税理士への質問事項整理にも活用。</div>
     </div>
   </div>
 </div>
 
-<!-- Section 3 -->
-<div class="slide">
-  <h2>📱 SNS・コンテンツ制作でのAI活用</h2>
-  <p>SNSの継続発信は「ネタ出し＋文章化」で止まりがち。AIを<strong>コンテンツの製造ライン</strong>として使いましょう。</p>
+<!-- ===== SCENE 1: 請求書 ===== -->
+<div class="card orange">
+  <h2>🧾 シーン① 請求書・見積書の作成</h2>
+  <p>「請求書の書き方が分からない」「インボイス番号を入れ忘れた」——AIに雛形を作らせ、自社情報を当てはめるだけで完成します。</p>
 
-  <div class="usecase-grid">
-    <div class="usecase-card">
-      <div class="icon">🐦</div>
-      <h3>X（旧Twitter）・LinkedIn</h3>
-      <ul>
-        <li>投稿案を5〜10パターン一括生成</li>
-        <li>テーマ → ハッシュタグ案を自動作成</li>
-        <li>長文ブログ → 短文ポストに変換</li>
-      </ul>
-    </div>
-    <div class="usecase-card">
-      <div class="icon">📸</div>
-      <h3>Instagram・note</h3>
-      <ul>
-        <li>投稿のキャプション・説明文を生成</li>
-        <li>記事の見出し・構成案を複数提案</li>
-        <li>既存記事 → 要約カード文章化</li>
-      </ul>
-    </div>
-    <div class="usecase-card">
-      <div class="icon">📧</div>
-      <h3>メルマガ・ニュースレター</h3>
-      <ul>
-        <li>週次・月次の配信テンプレ生成</li>
-        <li>件名・本文・CTAの複数案作成</li>
-        <li>顧客属性別の文体を調整</li>
-      </ul>
-    </div>
-    <div class="usecase-card">
-      <div class="icon">📊</div>
-      <h3>資料・プレゼンスライド</h3>
-      <ul>
-        <li>プレゼン構成（アウトライン）生成</li>
-        <li>スライド説明文 → 話し言葉へ変換</li>
-        <li>想定Q&amp;Aを事前作成</li>
-      </ul>
-    </div>
+  <h3>▼ ワークフロー</h3>
+  <div class="flow-h">
+    <div class="flow-box">取引内容をメモ</div>
+    <span class="flow-arrow">→</span>
+    <div class="flow-box orange">AIに下書き依頼</div>
+    <span class="flow-arrow">→</span>
+    <div class="flow-box blue">金額・日付を確認</div>
+    <span class="flow-arrow">→</span>
+    <div class="flow-box">PDF保存・送付</div>
   </div>
 
-  <div class="tip-box">
-    <strong>⏱ 実践的な時短フロー：</strong>月曜30分でAIに「今週の5投稿案を作って」と指示 → 微調整 → Buffer・Hootsuite等の<strong>予約投稿ツール</strong>に入力 → あとは自動配信。週の発信作業を月曜だけに集約できます。
+  <div class="prompt-box">
+以下の条件で請求書の本文テキストを作成してください。
+<span class="key">・取引先：株式会社〇〇様</span>
+<span class="key">・品目：Webサイト制作費（1式）</span>
+<span class="key">・金額：300,000円（税抜）</span>
+<span class="key">・消費税率：10%</span>
+<span class="key">・登録番号：T1234567890123（インボイス番号）</span>
+<span class="key">・支払期限：2026年7月31日</span>
+振込先欄も含めて、PDF化しやすいシンプルなレイアウトでお願いします。
+  </div>
+
+  <div class="highlight orange">
+    ⚠️ <strong>インボイス制度（適格請求書）対応チェック：</strong><br>
+    登録番号（T＋13桁）・税率・税額の記載が必須。AIに確認させると抜け漏れを防げる。<br>
+    <span class="source">出典：国税庁「適格請求書等保存方式（インボイス制度）」
+    <a href="https://www.nta.go.jp/taxes/shiraberu/zeimokubetsu/shohi/keigenzeiritsu/invoice.htm" target="_blank">nta.go.jp</a>（2025年基準）</span>
   </div>
 </div>
 
-<!-- Section 4 -->
-<div class="slide">
-  <h2>🎬 動画・デザイン制作でのAI活用</h2>
+<!-- ===== SCENE 2: 仕訳 ===== -->
+<div class="card teal">
+  <h2>📒 シーン② 仕訳・勘定科目の相談</h2>
+  <p>仕訳（しわけ）とは、お金の出入りを「借方（左）」「貸方（右）」に分類して記録する作業のこと。AIを使えばイチから勉強しなくても、取引ごとに正しい勘定科目の候補を教えてもらえます。</p>
 
+  <h3>▼ よくある質問と仕訳の例</h3>
   <table class="compare-table">
-    <thead>
-      <tr>
-        <th>作業</th>
-        <th>従来の方法</th>
-        <th>AI活用後</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="cat">動画スクリプト</td>
-        <td>ゼロから原稿作成（1〜3時間）</td>
-        <td>テーマと構成をAIに渡してドラフト生成（15〜30分）</td>
-      </tr>
-      <tr>
-        <td class="cat">ショート動画テロップ</td>
-        <td>手入力・編集ソフトで時間割</td>
-        <td>音声文字起こしAI（Whisperなど）→ 自動テロップ生成</td>
-      </tr>
-      <tr>
-        <td class="cat">サムネイル・バナー</td>
-        <td>デザイナー依頼 or 自作（2〜4時間）</td>
-        <td>Canva AI・Adobe Fireflyなどで素早く生成・調整</td>
-      </tr>
-      <tr>
-        <td class="cat">ブログ用アイキャッチ</td>
-        <td>素材サイトで検索（著作権確認も必要）</td>
-        <td>画像生成AI（利用規約の商用OK確認が必須）</td>
-      </tr>
-      <tr>
-        <td class="cat">多言語対応</td>
-        <td>翻訳会社・数万円〜</td>
-        <td>DeepL・Claudeなどで即時翻訳（重要箇所は専門家確認）</td>
-      </tr>
-    </tbody>
+    <tr>
+      <th>支出・取引</th>
+      <th>勘定科目（例）</th>
+      <th>注意点</th>
+    </tr>
+    <tr>
+      <td>クラウド会計ソフト（月額）</td>
+      <td class="ok">通信費 または 支払手数料</td>
+      <td>ソフトウェア料金は消耗品費ではなく通信費が多い</td>
+    </tr>
+    <tr>
+      <td>自宅の家賃（按分）</td>
+      <td class="ok">地代家賃（業務割合分のみ）</td>
+      <td>按分割合の根拠（㎡比・日数比）を記録しておく</td>
+    </tr>
+    <tr>
+      <td>スマホ代（プライベート兼用）</td>
+      <td class="ok">通信費（業務割合分）</td>
+      <td>全額は計上不可。50〜80%が実務的な按分の目安</td>
+    </tr>
+    <tr>
+      <td>役員への貸付金</td>
+      <td class="caution">役員貸付金（資産）</td>
+      <td>利息計上が必要。経費にはならない</td>
+    </tr>
+    <tr>
+      <td>取引先との飲食費</td>
+      <td class="ok">交際費（中小法人は800万円/年まで全額損金）</td>
+      <td>参加者・目的をメモとして残す</td>
+    </tr>
   </table>
 
-  <div class="warn-box">
-    ⚠️ <strong>著作権・商用利用に注意：</strong>画像生成AIの出力を商業利用する場合、各ツールの利用規約（商用OK／NG）を必ず確認してください。生成物に第三者の著作物が混入するリスクもゼロではありません。重要な制作物には法的確認を推奨します。
+  <div class="prompt-box">
+私は1人法人の代表です。以下の支出を仕訳してください。
+<span class="key">「Amazonで購入したUSBハブ 3,280円（税込）。
+　仕事用PCの周辺機器として購入。プライベート使用なし。」</span>
+借方・貸方の勘定科目と金額、消費税の取り扱い（課税・非課税）も教えてください。
+  </div>
+
+  <div class="highlight">
+    💡 <strong>AIの回答はあくまで「候補」：</strong>同じ取引でも会社の状況・業種によって最適な勘定科目は変わります。
+    最終的には会計ソフトの分類や税理士の確認を通じて記帳してください。
   </div>
 </div>
 
-<!-- Section 5 -->
-<div class="slide">
-  <h2>🔄 AI × 1人 ── 営業から発信まで全体フロー</h2>
-  <p>営業 → 制作 → 納品 → 発信 のサイクルをAIが補完することで、<strong>1人でもチームに近い出力</strong>が実現します。</p>
+<!-- ===== SCENE 3: 申告補助 ===== -->
+<div class="card purple">
+  <h2>📊 シーン③ 決算・申告の「学習」補助</h2>
+  <p>法人税の申告書は複雑で、初めての決算は何が何だか分からないもの。AIを使って<strong>「制度の仕組み」</strong>を事前に理解しておくと、税理士とのやりとりが格段にスムーズになります。</p>
 
-  <div class="flow-wrap">
-    <p style="font-size:0.85rem; color:#1a5c38; font-weight:600; margin-bottom:8px;">◆ 営業サイクル</p>
-    <div class="flow">
-      <div class="flow-box">📞 問い合わせ<br>受付</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-box">📝 提案書・見積<br>AIでドラフト</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-box">✅ 自分で<br>確認・修正</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-box">📤 送付・<br>受注</div>
-    </div>
-
-    <div class="flow-down">↓ 受注後</div>
-
-    <p style="font-size:0.85rem; color:#1a5c38; font-weight:600; margin-bottom:8px;">◆ 制作サイクル</p>
-    <div class="flow">
-      <div class="flow-box">🎯 制作物の<br>構成をAI生成</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-box">🎨 デザイン・<br>素材をAI補助</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-box">📦 納品物<br>最終チェック</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-box">🧾 報告書・<br>請求書も自動化</div>
-    </div>
-
-    <div class="flow-down">↕ 同時並行</div>
-
-    <p style="font-size:0.85rem; color:#1a5c38; font-weight:600; margin-bottom:8px;">◆ 発信サイクル（毎週）</p>
-    <div class="flow">
-      <div class="flow-box light">📱 SNS投稿案<br>週次でAI生成</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-box light">📅 予約投稿<br>ツールで自動配信</div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-box light">📈 反応を見て<br>次回改善</div>
-    </div>
-  </div>
-</div>
-
-<!-- Section 6 -->
-<div class="slide">
-  <h2>🛠 カテゴリ別 AIツール早見表（2026年6月現在）</h2>
-
+  <h3>▼ AIに聞けること・聞けないこと</h3>
   <div class="matrix">
-    <div class="matrix-cell">
-      <h4>📝 文章生成・提案書・メール</h4>
-      <p>Claude / ChatGPT / Gemini<br>→ 提案書・メール・報告書の素案作成。日本語精度が高く、1人法人の「文章仕事」全般に使える。</p>
+    <div class="matrix-cell a">
+      <div class="label">✅ 得意（聞いてよい）</div>
+      <ul>
+        <li>「別表四とは何？」などの制度解説</li>
+        <li>「法人税率はいくら？」の確認</li>
+        <li>「消費税の仮払・仮受とは？」</li>
+        <li>税理士への質問リスト作成</li>
+        <li>申告スケジュールの整理</li>
+      </ul>
     </div>
-    <div class="matrix-cell">
-      <h4>🎬 動画スクリプト・台本</h4>
-      <p>Claude / ChatGPT<br>→ 構成・起承転結・想定Q&amp;Aまで一気に生成。YouTube・ショート動画向けの台本に最適。</p>
+    <div class="matrix-cell b">
+      <div class="label">⚠️ 要注意（鵜呑みにしない）</div>
+      <ul>
+        <li>自社の節税額の計算</li>
+        <li>「このケースは損金になる?」の断定</li>
+        <li>最新の税制改正の詳細内容</li>
+      </ul>
     </div>
-    <div class="matrix-cell">
-      <h4>🎨 画像・バナー・デザイン</h4>
-      <p>Canva AI / Adobe Firefly / DALL-E<br>→ SNS画像・サムネ・バナー生成。<strong>商用利用規約を必ず確認。</strong></p>
+    <div class="matrix-cell c">
+      <div class="label">🚫 AIに任せてはいけない</div>
+      <ul>
+        <li>e-Tax への申告書データ入力</li>
+        <li>税務署への提出物の作成・送信</li>
+        <li>節税スキームの判断</li>
+      </ul>
     </div>
-    <div class="matrix-cell">
-      <h4>🎤 音声文字起こし・字幕</h4>
-      <p>Whisper（OpenAI）/ Notta / CLOVA Note<br>→ 打ち合わせ録音 → テキスト化 → 議事録をAIで整形。</p>
+    <div class="matrix-cell d">
+      <div class="label">👨‍💼 専門家に相談すべき事項</div>
+      <ul>
+        <li>役員報酬の変更タイミング</li>
+        <li>設立初年度の消費税選択</li>
+        <li>個人から法人への資産移転</li>
+      </ul>
     </div>
-    <div class="matrix-cell">
-      <h4>📱 SNS予約投稿・管理</h4>
-      <p>Buffer / Hootsuite<br>→ AI生成した投稿を週1回まとめて予約投稿。発信作業を1日に集約できる。</p>
-    </div>
-    <div class="matrix-cell">
-      <h4>🔁 業務自動化（ノーコード）</h4>
-      <p>Make（旧Integromat）/ Zapier<br>→ 「フォーム送信 → AI処理 → メール送信」などをノーコード（プログラムを書かずに）で自動化。</p>
-    </div>
-  </div>
-
-  <p class="source">※ ツールの料金・プランは随時変更されます。利用前に各公式サイトを確認してください。</p>
-</div>
-
-<!-- Section 7 -->
-<div class="slide">
-  <h2>⚠️ AI活用の注意点 ── 1人法人として意識すること</h2>
-
-  <div class="steps">
-    <div class="step">
-      <div class="step-num warn">!</div>
-      <div class="step-content">
-        <h3>個人情報・機密情報をAIに入力しない</h3>
-        <p>クライアントの個人情報・契約金額・秘密保持事項はクラウド型AIに入力してはいけません。各サービスの「学習利用」設定を確認し、必要に応じてAPI経由での利用を検討します。</p>
-      </div>
-    </div>
-    <div class="step">
-      <div class="step-num warn">!</div>
-      <div class="step-content">
-        <h3>生成内容は必ず自分で確認・最終責任を持つ</h3>
-        <p>AIは事実誤認（ハルシネーション＝もっともらしい嘘をつくこと）を起こすことがあります。数字・日付・法律・制度名は必ず公的一次情報で確認してから使用します。</p>
-      </div>
-    </div>
-    <div class="step">
-      <div class="step-num warn">!</div>
-      <div class="step-content">
-        <h3>著作権・知的財産権への配慮</h3>
-        <p>生成AIの出力が第三者の著作物と類似する可能性はゼロではありません。重要コンテンツ・商品名・ロゴ等は弁護士・弁理士への確認を推奨します。</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="tip-box">
-    <strong>🎯 1人法人でのAI活用の心得：</strong>AIは「優秀なアシスタント」です。最終判断・クライアントへの責任・品質保証は常に代表者にあります。AIを使いこなすほど、あなた自身の「編集力・判断力・責任感」がより重要になります。
   </div>
 </div>
 
-<!-- Disclaimer -->
-<div class="slide">
-  <h2>📋 免責事項・参考情報</h2>
-  <div class="disclaimer">
-    <p>本記事は一般的な情報提供を目的としており、個別の法務・税務・経営アドバイスではありません。会社の状況・業種・契約内容によって最適な方法は異なります。具体的な判断は<strong>税理士・社会保険労務士・司法書士・弁護士・弁理士</strong>など各専門家にご相談ください。</p>
-    <br>
-    <p>■ AIツールの利用規約・プライバシーポリシーは随時変更されます。ビジネス利用前に必ず最新の公式情報を確認してください。</p>
-    <br>
-    <p>■ 参考情報（2026年6月現在）：<br>
-    経済産業省「AI事業者ガイドライン（第1.0版）」（2024年4月公表）<br>
-    <a href="https://www.meti.go.jp/press/2024/04/20240419004/20240419004.html" target="_blank">https://www.meti.go.jp/press/2024/04/20240419004/20240419004.html</a><br><br>
-    内閣府「AI戦略会議」資料（随時更新）<br>
-    <a href="https://www8.cao.go.jp/cstp/ai/index.html" target="_blank">https://www8.cao.go.jp/cstp/ai/index.html</a><br><br>
-    中小企業庁「中小企業・小規模事業者のDX推進」<br>
-    <a href="https://www.chusho.meti.go.jp/keiei/dx/" target="_blank">https://www.chusho.meti.go.jp/keiei/dx/</a>
-    </p>
+<!-- ===== RECOMMENDED WORKFLOW ===== -->
+<div class="card">
+  <h2>🔄 おすすめ「月次経理」AIワークフロー</h2>
+  <p>毎月5〜10分で経理をまわす習慣をつくりましょう。</p>
+
+  <div class="step-flow" style="margin-top:16px;">
+    <div class="step-item">
+      <div class="step-connector">
+        <div class="step-num">1</div>
+        <div class="step-line"></div>
+      </div>
+      <div class="step-body">
+        <strong>レシート・明細を集める（月末）</strong><br>
+        クレジットカード明細・銀行通帳・レシートを1フォルダにまとめる。
+        スマホで撮影してもOK。
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-connector">
+        <div class="step-num blue">2</div>
+        <div class="step-line blue"></div>
+      </div>
+      <div class="step-body blue">
+        <strong>不明な勘定科目をAIに質問</strong><br>
+        「この購入品は何費になりますか？」とAIに聞いて、仮の勘定科目メモを作る。
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-connector">
+        <div class="step-num orange">3</div>
+        <div class="step-line" style="background: linear-gradient(to bottom, #d4721f, rgba(212,114,31,0.2));"></div>
+      </div>
+      <div class="step-body" style="background:#fdf3e7; border-color:#e8c090;">
+        <strong>会計ソフトに入力（freee・MFクラウド等）</strong><br>
+        銀行口座・クレカ連携で自動取込。AIメモを参考に科目を選んで確認。
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-connector">
+        <div class="step-num purple">4</div>
+        <div class="step-line" style="background: linear-gradient(to bottom, #6c3483, rgba(108,52,131,0.2));"></div>
+      </div>
+      <div class="step-body" style="background:#f3eaf8; border-color:#c8a0d8;">
+        <strong>試算表をAIに読ませて異常チェック（任意）</strong><br>
+        CSVを貼り付けて「売上と費用のバランスに違和感はありますか？」と質問。<br>
+        <span style="font-size:0.82rem; color:#666;">※機密情報は匿名化・数値加工してから入力すること</span>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-connector">
+        <div class="step-num">5</div>
+      </div>
+      <div class="step-body">
+        <strong>四半期に一度、税理士に共有・相談</strong><br>
+        AIで整理したメモを持参すると質問が具体的になり、相談時間を有効活用できる。
+      </div>
+    </div>
   </div>
 </div>
 
-<div class="footer">
-  <p>1人法人スタート 日報 2026-06-11<br>
-  本記事は一般的な情報提供です。具体的な判断は専門家にご相談ください</p>
+<!-- ===== TOOLS ===== -->
+<div class="card blue">
+  <h2>🛠️ 使えるAIツール 早見表</h2>
+  <table class="compare-table">
+    <tr>
+      <th>ツール</th>
+      <th>無料プラン</th>
+      <th>得意な経理・事務用途</th>
+      <th>注意点</th>
+    </tr>
+    <tr>
+      <td><strong>Claude（Anthropic）</strong></td>
+      <td class="ok">◎ あり</td>
+      <td>長文の仕訳相談・制度解説・文書作成</td>
+      <td>税務の最新制度は基準年度を確認する</td>
+    </tr>
+    <tr>
+      <td><strong>ChatGPT（OpenAI）</strong></td>
+      <td class="ok">◎ あり</td>
+      <td>仕訳・テンプレ作成・計算チェック</td>
+      <td>同上。有料版でファイルアップロード可</td>
+    </tr>
+    <tr>
+      <td><strong>Gemini（Google）</strong></td>
+      <td class="ok">◎ あり</td>
+      <td>Googleドキュメント連携・表整理</td>
+      <td>スプレッドシートとの連携が便利</td>
+    </tr>
+    <tr>
+      <td><strong>freee AI（会計ソフト内）</strong></td>
+      <td class="caution">△ 有料プラン</td>
+      <td>仕訳提案・確定申告ガイド（日本語・日本法令特化）</td>
+      <td>freee契約者限定</td>
+    </tr>
+    <tr>
+      <td><strong>マネーフォワード AI</strong></td>
+      <td class="caution">△ 有料プラン</td>
+      <td>取引自動仕訳・異常検知</td>
+      <td>MFクラウド契約者限定</td>
+    </tr>
+  </table>
+
+  <div class="highlight blue">
+    🔐 <strong>情報セキュリティに注意：</strong>取引先名・口座番号・個人情報などの機密情報は
+    AIのチャット画面に直接入力しない。金額・科目のみ匿名化して相談するのが安全。
+  </div>
+</div>
+
+<!-- ===== CAUTION ===== -->
+<div class="card red">
+  <h2>⚠️ AIを使う上での4つの注意点</h2>
+
+  <div class="step-flow">
+    <div class="step-item">
+      <div class="step-connector">
+        <div class="step-num" style="background:#c0392b;">①</div>
+        <div class="step-line" style="background: linear-gradient(to bottom, #c0392b, rgba(192,57,43,0.2));"></div>
+      </div>
+      <div class="step-body" style="background:#fdecea; border-color:#e0b0b0;">
+        <strong>「ハルシネーション」に注意</strong><br>
+        AIは存在しない制度や間違った税率を自信たっぷりに答えることがある。
+        金額・期限・制度名は必ず国税庁などの一次情報で確認する。
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-connector">
+        <div class="step-num" style="background:#c0392b;">②</div>
+        <div class="step-line" style="background: linear-gradient(to bottom, #c0392b, rgba(192,57,43,0.2));"></div>
+      </div>
+      <div class="step-body" style="background:#fdecea; border-color:#e0b0b0;">
+        <strong>学習データの基準年度が古い場合がある</strong><br>
+        税制は毎年改正されるため、「令和○年版」かどうかを確認してから使う。
+        AIに「これは何年の情報ですか？」と聞く習慣をつけよう。
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-connector">
+        <div class="step-num" style="background:#c0392b;">③</div>
+        <div class="step-line" style="background: linear-gradient(to bottom, #c0392b, rgba(192,57,43,0.2));"></div>
+      </div>
+      <div class="step-body" style="background:#fdecea; border-color:#e0b0b0;">
+        <strong>個別判断はAIにさせない</strong><br>
+        「私のケースでは節税できますか？」という個別相談はAIの得意分野ではない。
+        税理士・社労士への相談コストは「保険料」として捉えよう。
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-connector">
+        <div class="step-num" style="background:#c0392b;">④</div>
+      </div>
+      <div class="step-body" style="background:#fdecea; border-color:#e0b0b0;">
+        <strong>申告書・公文書の作成代行は非弁・非税理士行為</strong><br>
+        AIが「申告書を作ります」と言っても、それは補助にすぎない。
+        電子申告（e-Tax）は代表者本人または税理士が行う。
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== TODAY'S ACTION ===== -->
+<div class="card">
+  <h2>✅ 今日のアクション</h2>
+  <ul>
+    <li>📌 手持ちの領収書を1枚選び、「この費用の勘定科目を教えてください」とAIに聞いてみる</li>
+    <li>📌 請求書の雛形をAIに作ってもらい、自社用にカスタマイズしてみる</li>
+    <li>📌 「インボイス制度の登録番号はどこに記載すればいいか」をAIに質問してみる</li>
+    <li>📌 AIの回答は必ず国税庁サイトで一次確認する癖をつける</li>
+  </ul>
+
+  <div class="highlight" style="margin-top:16px;">
+    🎯 <strong>まとめ：</strong>AIは「24時間対応の経理の先生」として使う。
+    ただし最終チェックと申告は人間が行う。これだけ守れば、1人でも経理品質が格段に上がる。
+  </div>
+
+  <div class="source">
+    参考：国税庁「インボイス制度」<a href="https://www.nta.go.jp/taxes/shiraberu/zeimokubetsu/shohi/keigenzeiritsu/invoice.htm" target="_blank">nta.go.jp</a> ／
+    国税庁「法人税」<a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/hojin/hojin.htm" target="_blank">nta.go.jp</a> ／
+    e-Gov 法令「税理士法」<a href="https://laws.e-gov.go.jp/law/326AC0000000237" target="_blank">e-gov.go.jp</a>（2025年基準）
+  </div>
+</div>
+
+<!-- ===== DISCLAIMER ===== -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報提供を目的としており、税務・法務・会計の個別アドバイスではありません。
+  掲載内容は作成時点（2026年6月）の情報を元にしており、税制・制度は年度ごとに改正されるため、
+  必ず最新の公的情報（国税庁・日本年金機構等）をご確認ください。<br>
+  具体的な経理処理・申告・節税の判断は、税理士・公認会計士・社会保険労務士などの
+  専門家にご相談ください。AIツールの出力は補助情報であり、申告書類・公文書への転記には
+  専門家のレビューが必要です。
 </div>
 
 </body>
