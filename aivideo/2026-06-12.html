@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI動画制作 技法解説 2026-06-12</title>
+<style>
+:root{
+  --bg:#f0edf6;--card:#faf8fd;--text:#1e1230;--muted:#6a5a80;--border:#dcd0f0;
+  --vi:#3a0a6a;--vil:#f0e8fc;--vim:#6020b0;--via:#4a10a0;
+  --in:#0a3a7a;--inl:#e0ecfc;--inm:#1a60c8;
+  --gr:#0a4a2a;--grl:#e0f5ea;--grm:#1a8048;
+  --am:#7a4000;--aml:#fff5e0;--amm:#c06010;
+  --re:#7a0a2a;--rel:#fde8ee;--rem:#c01040;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,"Hiragino Sans","Yu Gothic",sans-serif;line-height:1.7;padding:24px 16px;}
+.wrap{max-width:860px;margin:0 auto;}
+
+/* Header */
+.header{background:linear-gradient(135deg,#1a0440,#3a0a6a,#0a2060);color:#fff;border-radius:20px;padding:40px 32px;text-align:center;box-shadow:0 8px 24px rgba(26,4,64,.45);margin-bottom:24px;}
+.date-badge{background:rgba(255,255,255,.16);color:#c8a8ff;border-radius:20px;padding:4px 16px;font-size:.85rem;display:inline-block;margin-bottom:16px;letter-spacing:.08em;}
+.header h1{font-size:1.9rem;margin-bottom:8px;letter-spacing:.04em;}
+.header .subtitle{color:#c8a8ff;font-size:1rem;}
+.tag-row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:14px;}
+.header .tag{background:rgba(255,255,255,.14);border-radius:12px;padding:3px 12px;font-size:.78rem;color:#ffe4a8;}
+
+/* Section */
+.section{background:var(--card);border-radius:16px;padding:28px 24px;margin-bottom:20px;box-shadow:0 3px 12px rgba(0,0,0,.06);border:1px solid var(--border);}
+.section-title{font-size:1.1rem;font-weight:700;color:var(--vi);border-bottom:2px solid var(--border);padding-bottom:10px;margin-bottom:18px;display:flex;align-items:center;gap:8px;}
+
+/* 3 approach cards */
+.approach-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.ap-card{border-radius:14px;padding:20px 16px;text-align:center;}
+.ap-card .icon{font-size:2.4rem;margin-bottom:10px;}
+.ap-card .name{font-size:1rem;font-weight:700;margin-bottom:6px;}
+.ap-card .desc{font-size:.82rem;line-height:1.5;}
+.ap-card .example{font-size:.78rem;margin-top:8px;padding:6px 8px;border-radius:8px;font-style:italic;}
+.ap-txt{background:var(--vil);border:2px solid var(--vim);}
+.ap-txt .name{color:var(--vim);}
+.ap-txt .example{background:#ede0ff;color:var(--via);}
+.ap-img{background:var(--inl);border:2px solid var(--inm);}
+.ap-img .name{color:var(--inm);}
+.ap-img .example{background:#d8e8ff;color:var(--in);}
+.ap-sty{background:var(--aml);border:2px solid var(--amm);}
+.ap-sty .name{color:var(--amm);}
+.ap-sty .example{background:#ffe8c0;color:var(--am);}
+
+/* Step flow */
+.flow{display:flex;flex-direction:column;gap:0;}
+.flow-item{display:flex;align-items:flex-start;gap:16px;padding:16px 0;border-bottom:1px dashed var(--border);}
+.flow-item:last-child{border-bottom:none;}
+.step-num{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:900;color:#fff;flex-shrink:0;margin-top:2px;}
+.s1{background:var(--vim);}
+.s2{background:var(--inm);}
+.s3{background:var(--grm);}
+.s4{background:var(--amm);}
+.s5{background:var(--rem);}
+.flow-body{flex:1;}
+.flow-title{font-size:1rem;font-weight:700;margin-bottom:4px;}
+.flow-desc{font-size:.88rem;color:var(--muted);line-height:1.5;}
+.flow-tip{display:inline-block;font-size:.78rem;padding:3px 10px;border-radius:8px;margin-top:6px;font-weight:600;}
+.t1{background:var(--vil);color:var(--via);}
+.t2{background:var(--inl);color:var(--in);}
+.t3{background:var(--grl);color:var(--gr);}
+.t4{background:var(--aml);color:var(--am);}
+.t5{background:var(--rel);color:var(--re);}
+.arrow-down{text-align:center;color:var(--muted);font-size:1.4rem;padding:0 0 0 20px;line-height:1;}
+
+/* Tool compare cards */
+.tool-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+.tool-card{border-radius:14px;padding:18px 16px;}
+.tool-head{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+.tool-icon{font-size:1.8rem;}
+.tool-name{font-size:1rem;font-weight:700;}
+.tool-tag{font-size:.72rem;padding:2px 8px;border-radius:8px;font-weight:700;margin-top:2px;display:inline-block;}
+.tool-row{display:flex;justify-content:space-between;align-items:center;font-size:.82rem;padding:5px 0;border-bottom:1px solid rgba(0,0,0,.06);}
+.tool-row:last-child{border-bottom:none;}
+.tool-label{color:var(--muted);}
+.tool-val{font-weight:600;}
+.tc-kling{background:#eef4fb;border:2px solid #3a70c0;}
+.tc-kling .tool-name{color:#1a50a8;}
+.tc-kling .tool-tag{background:#ddeeff;color:#1a50a8;}
+.tc-run{background:#fff0f4;border:2px solid #c03060;}
+.tc-run .tool-name{color:#a01040;}
+.tc-run .tool-tag{background:#ffd8e4;color:#a01040;}
+.tc-pika{background:#f0fff4;border:2px solid #30a060;}
+.tc-pika .tool-name{color:#1a7040;}
+.tc-pika .tool-tag{background:#d0f4e0;color:#1a7040;}
+.tc-comfy{background:#fff8e8;border:2px solid #c06810;}
+.tc-comfy .tool-name{color:#a04800;}
+.tc-comfy .tool-tag{background:#ffe0b0;color:#a04800;}
+
+/* Practical example */
+.example-box{background:linear-gradient(135deg,#f4eeff,#eef4ff);border:2px solid #8040c0;border-radius:16px;padding:24px;}
+.example-title{font-size:1.05rem;font-weight:700;color:var(--via);margin-bottom:16px;}
+.ex-flow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:16px;}
+.ex-step{background:#fff;border:1.5px solid #c090ff;border-radius:10px;padding:10px 14px;text-align:center;min-width:120px;}
+.ex-step .es-num{font-size:.7rem;color:var(--muted);margin-bottom:2px;}
+.ex-step .es-tool{font-size:.8rem;font-weight:700;color:var(--via);}
+.ex-step .es-action{font-size:.75rem;color:var(--muted);margin-top:2px;}
+.ex-arrow{font-size:1.4rem;color:#8040c0;}
+.prompt-box{background:#fff;border:1.5px solid #c090ff;border-radius:10px;padding:14px 16px;margin-top:4px;}
+.prompt-label{font-size:.75rem;font-weight:700;color:var(--muted);margin-bottom:6px;}
+.prompt-text{font-family:'Courier New',monospace;font-size:.83rem;color:#3a0a6a;line-height:1.6;background:#f8f0ff;padding:10px 12px;border-radius:8px;}
+
+/* Character consistency tips */
+.tip-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+.tip-card{border-radius:12px;padding:16px 14px;}
+.tip-card .tip-icon{font-size:1.6rem;margin-bottom:8px;}
+.tip-card .tip-title{font-size:.95rem;font-weight:700;margin-bottom:6px;}
+.tip-card .tip-desc{font-size:.83rem;color:var(--muted);line-height:1.5;}
+.tip-a{background:var(--vil);border:1.5px solid #b080e8;}
+.tip-b{background:var(--inl);border:1.5px solid #80a8e8;}
+.tip-c{background:var(--grl);border:1.5px solid #70c090;}
+.tip-d{background:var(--aml);border:1.5px solid #d09050;}
+.tip-a .tip-title{color:var(--via);}
+.tip-b .tip-title{color:var(--in);}
+.tip-c .tip-title{color:var(--gr);}
+.tip-d .tip-title{color:var(--am);}
+
+/* Difficulty bar */
+.diff-row{display:flex;gap:12px;align-items:center;margin:6px 0;}
+.diff-label{font-size:.85rem;width:160px;flex-shrink:0;}
+.diff-bar{flex:1;height:14px;background:#e8e0f4;border-radius:8px;overflow:hidden;}
+.diff-fill{height:100%;border-radius:8px;}
+.diff-text{font-size:.8rem;color:var(--muted);width:40px;text-align:right;}
+
+/* Disclaimer */
+.disclaimer{background:#f8f6fc;border:1.5px solid var(--border);border-radius:12px;padding:16px 18px;font-size:.8rem;color:var(--muted);line-height:1.6;}
+.disclaimer strong{color:var(--vim);}
+
+@media(max-width:600px){
+  .approach-grid{grid-template-columns:1fr;}
+  .tool-grid{grid-template-columns:1fr;}
+  .tip-grid{grid-template-columns:1fr;}
+  .ex-flow{flex-direction:column;align-items:flex-start;}
+  .ex-arrow{transform:rotate(90deg);}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="date-badge">📅 2026-06-12（木）エバーグリーン回</div>
+    <h1>🎬 AIアニメーション動画の作り方</h1>
+    <div class="subtitle">ゼロからはじめる AI アニメ制作 完全ガイド</div>
+    <div class="tag-row">
+      <span class="tag">🖋️ テキスト→アニメ</span>
+      <span class="tag">🖼️ 画像→アニメ</span>
+      <span class="tag">🎨 スタイル変換</span>
+      <span class="tag">📱 5ステップ</span>
+      <span class="tag">🛠️ ツール比較</span>
+    </div>
+  </div>
+
+  <!-- Section 1: 3 approaches -->
+  <div class="section">
+    <div class="section-title">🎯 AIアニメの「3つのアプローチ」</div>
+    <p style="font-size:.9rem;color:var(--muted);margin-bottom:16px;">AIでアニメを作る方法は大きく3種類。自分の目的に合ったものを選ぼう。</p>
+    <div class="approach-grid">
+      <div class="ap-card ap-txt">
+        <div class="icon">✍️</div>
+        <div class="name">テキスト → アニメ</div>
+        <div class="desc">文章（プロンプト）を入力するだけでAIがアニメシーンを自動生成。絵が描けなくても大丈夫。</div>
+        <div class="example">「夜の森を歩く少年。星が降る空。ジブリ風」</div>
+      </div>
+      <div class="ap-card ap-img">
+        <div class="icon">🖼️</div>
+        <div class="name">画像 → アニメ</div>
+        <div class="desc">既存の絵やAI生成画像をアップロードして「動かす」。キャラクターをそのまま使える。</div>
+        <div class="example">自分で描いたキャラ画像をアップ → 歩いたり話したりする</div>
+      </div>
+      <div class="ap-card ap-sty">
+        <div class="icon">🎨</div>
+        <div class="name">スタイル変換</div>
+        <div class="desc">実写動画（スマホ撮影OKを日本アニメ風・水彩画風などのスタイルに変換する手法。</div>
+        <div class="example">自分が歩く動画 → アニメキャラが歩く動画に変換</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 2: 5-step workflow -->
+  <div class="section">
+    <div class="section-title">🚀 基本ワークフロー ── 5ステップ</div>
+    <div class="flow">
+      <div class="flow-item">
+        <div class="step-num s1">1</div>
+        <div class="flow-body">
+          <div class="flow-title">📋 企画・スクリプト作成</div>
+          <div class="flow-desc">「何を伝えたいか」を決める。登場人物・場面・流れを箇条書きにするだけでOK。AI動画は1シーン3〜10秒が基本なので、シーンを細かく区切って考える。</div>
+          <span class="flow-tip t1">💡 ポイント：まず5行の「場面リスト」を作る</span>
+        </div>
+      </div>
+      <div class="flow-item">
+        <div class="step-num s2">2</div>
+        <div class="flow-body">
+          <div class="flow-title">🎭 キャラクター・スタイル設定</div>
+          <div class="flow-desc">キャラクターの「見た目の設定書」を作る。Midjourney や Stable Diffusion などで<strong>基準画像</strong>（リファレンス画像）を1枚作っておくと、全シーンで見た目がブレにくくなる。</div>
+          <span class="flow-tip t2">💡 ポイント：キャラ設定を「Reference画像1枚」に固定</span>
+        </div>
+      </div>
+      <div class="flow-item">
+        <div class="step-num s3">3</div>
+        <div class="flow-body">
+          <div class="flow-title">🎬 シーン生成（AI動画ツールで制作）</div>
+          <div class="flow-desc">各シーンのプロンプトを入力してAIに動画を生成させる。<strong>1シーンずつ生成 → 確認 → 採用/再生成</strong>を繰り返す。最初から完璧を求めず、まず全シーン揃えることを優先。</div>
+          <span class="flow-tip t3">💡 ポイント：1回で決めようとしない。3〜5回試す</span>
+        </div>
+      </div>
+      <div class="flow-item">
+        <div class="step-num s4">4</div>
+        <div class="flow-body">
+          <div class="flow-title">✂️ 編集・つなぎ合わせ</div>
+          <div class="flow-desc">生成した動画クリップをCapCut・DaVinci Resolve などの編集ソフトで並べる。シーンの順番、長さ、トランジション（場面転換のアニメ）を整える。テロップ（字幕）も追加。</div>
+          <span class="flow-tip t4">💡 ポイント：カット間は0.5秒の黒フェードが馴染みやすい</span>
+        </div>
+      </div>
+      <div class="flow-item">
+        <div class="step-num s5">5</div>
+        <div class="flow-body">
+          <div class="flow-title">🎵 音声・音楽の追加 → 書き出し</div>
+          <div class="flow-desc">BGM（背景音楽）・効果音・ナレーションを追加すると一気にクオリティが上がる。Udio・Suno・ElevenLabs などのAI音声ツールも活用できる。最後に MP4 で書き出して完成。</div>
+          <span class="flow-tip t5">💡 ポイント：BGMは「著作権フリー」か「AI生成」を使う</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 3: Tool comparison -->
+  <div class="section">
+    <div class="section-title">🛠️ 主要AIアニメツール 比較（2026年6月時点）</div>
+    <p style="font-size:.88rem;color:var(--muted);margin-bottom:16px;">用途によって得意分野が違う。最初は無料プランから試してみよう。</p>
+    <div class="tool-grid">
+      <div class="tool-card tc-kling">
+        <div class="tool-head">
+          <div class="tool-icon">🐉</div>
+          <div>
+            <div class="tool-name">Kling 3.0</div>
+            <div class="tool-tag">マルチショット・ナラティブ向け</div>
+          </div>
+        </div>
+        <div class="tool-row"><span class="tool-label">得意なこと</span><span class="tool-val">複数シーンの連続生成</span></div>
+        <div class="tool-row"><span class="tool-label">解像度</span><span class="tool-val">4K対応</span></div>
+        <div class="tool-row"><span class="tool-label">音声生成</span><span class="tool-val">✅ ネイティブ対応</span></div>
+        <div class="tool-row"><span class="tool-label">無料プラン</span><span class="tool-val">あり（制限付き）</span></div>
+        <div class="tool-row"><span class="tool-label">おすすめ</span><span class="tool-val">ショートアニメ全体制作</span></div>
+      </div>
+      <div class="tool-card tc-run">
+        <div class="tool-head">
+          <div class="tool-icon">✈️</div>
+          <div>
+            <div class="tool-name">Runway Gen-4.5</div>
+            <div class="tool-tag">キャラクター一貫性 No.1</div>
+          </div>
+        </div>
+        <div class="tool-row"><span class="tool-label">得意なこと</span><span class="tool-val">キャラ一貫性・世界観維持</span></div>
+        <div class="tool-row"><span class="tool-label">解像度</span><span class="tool-val">1080p（4K準備中）</span></div>
+        <div class="tool-row"><span class="tool-label">音声生成</span><span class="tool-val">△ 別途追加</span></div>
+        <div class="tool-row"><span class="tool-label">無料プラン</span><span class="tool-val">あり（クレジット制）</span></div>
+        <div class="tool-row"><span class="tool-label">おすすめ</span><span class="tool-val">同キャラを複数シーンに</span></div>
+      </div>
+      <div class="tool-card tc-pika">
+        <div class="tool-head">
+          <div class="tool-icon">⚡</div>
+          <div>
+            <div class="tool-name">Pika 2.5</div>
+            <div class="tool-tag">高速生成・SNS向け</div>
+          </div>
+        </div>
+        <div class="tool-row"><span class="tool-label">得意なこと</span><span class="tool-val">素早い試作・短尺動画</span></div>
+        <div class="tool-row"><span class="tool-label">生成速度</span><span class="tool-val">15〜30秒（最速クラス）</span></div>
+        <div class="tool-row"><span class="tool-label">画像→動画</span><span class="tool-val">✅ 得意</span></div>
+        <div class="tool-row"><span class="tool-label">無料プラン</span><span class="tool-val">あり（週次リセット）</span></div>
+        <div class="tool-row"><span class="tool-label">おすすめ</span><span class="tool-val">TikTok・Reels向け短尺</span></div>
+      </div>
+      <div class="tool-card tc-comfy">
+        <div class="tool-head">
+          <div class="tool-icon">🔧</div>
+          <div>
+            <div class="tool-name">ComfyUI + LTX-2.3</div>
+            <div class="tool-tag">無料・上級者向け</div>
+          </div>
+        </div>
+        <div class="tool-row"><span class="tool-label">得意なこと</span><span class="tool-val">細かいカスタマイズ</span></div>
+        <div class="tool-row"><span class="tool-label">費用</span><span class="tool-val">完全無料（ローカル実行）</span></div>
+        <div class="tool-row"><span class="tool-label">必要スペック</span><span class="tool-val">GPU 8GB VRAM以上推奨</span></div>
+        <div class="tool-row"><span class="tool-label">難易度</span><span class="tool-val">⭐⭐⭐⭐（高め）</span></div>
+        <div class="tool-row"><span class="tool-label">おすすめ</span><span class="tool-val">コスト0で試したい人</span></div>
+      </div>
+    </div>
+    <div style="margin-top:14px;padding:12px 16px;background:var(--vil);border-radius:10px;font-size:.83rem;color:var(--via);">
+      ⭐ <strong>初心者なら Pika 2.5 か Kling 3.0 の無料プランからスタートがおすすめ。</strong>アカウント登録だけで今日から試せる。
+    </div>
+  </div>
+
+  <!-- Section 4: Practical example -->
+  <div class="section">
+    <div class="section-title">🎮 真似できる実践例：30秒ショートアニメを作る</div>
+    <div class="example-box">
+      <div class="example-title">📖 テーマ：「魔法図書館の少年が光る石を見つける」（30秒）</div>
+
+      <div style="font-size:.85rem;color:var(--muted);margin-bottom:14px;">必要なもの：無料アカウント（Pika 2.5 or Kling）、ブラウザだけ。所要時間 約60分。</div>
+
+      <div class="ex-flow">
+        <div class="ex-step">
+          <div class="es-num">STEP 1</div>
+          <div class="es-tool">📋 ChatGPT</div>
+          <div class="es-action">5シーンの場面割り<br>を作成</div>
+        </div>
+        <div class="ex-arrow">→</div>
+        <div class="ex-step">
+          <div class="es-num">STEP 2</div>
+          <div class="es-tool">🖼️ Midjourney</div>
+          <div class="es-action">キャラクター<br>リファレンス画像</div>
+        </div>
+        <div class="ex-arrow">→</div>
+        <div class="ex-step">
+          <div class="es-num">STEP 3</div>
+          <div class="es-tool">⚡ Pika 2.5</div>
+          <div class="es-action">各シーンを<br>動画生成</div>
+        </div>
+        <div class="ex-arrow">→</div>
+        <div class="ex-step">
+          <div class="es-num">STEP 4</div>
+          <div class="es-tool">✂️ CapCut</div>
+          <div class="es-action">編集・字幕<br>BGM追加</div>
+        </div>
+      </div>
+
+      <div class="prompt-box">
+        <div class="prompt-label">🖊️ プロンプト例（シーン1：図書館の入口）</div>
+        <div class="prompt-text">
+          A young boy in a dark blue robe enters an ancient magical library,<br>
+          tall bookshelves reaching the ceiling, warm candlelight,<br>
+          anime style, soft watercolor shading, slow pan forward,<br>
+          cinematic atmosphere, 4K
+        </div>
+      </div>
+
+      <div style="margin-top:14px;padding:12px 14px;background:rgba(255,255,255,.7);border-radius:10px;font-size:.83rem;">
+        <strong>📌 シーン割り（5場面 × 約6秒）：</strong><br>
+        ① 図書館の入口に少年が入る　② 本棚の間を歩く　③ 奥に光るものを見つける　④ 近づいて石に手を伸ばす　⑤ 石が輝き、本が舞い上がる
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 5: Character consistency tips -->
+  <div class="section">
+    <div class="section-title">🔑 キャラクターを「ブレさせない」4つのコツ</div>
+    <p style="font-size:.88rem;color:var(--muted);margin-bottom:16px;">AI動画の最難関は「同じキャラが別シーンでも同じ見た目に見える」こと。以下のコツが有効。</p>
+    <div class="tip-grid">
+      <div class="tip-card tip-a">
+        <div class="tip-icon">📸</div>
+        <div class="tip-title">① リファレンス画像を固定する</div>
+        <div class="tip-desc">キャラクターの「正面立ち絵」を1枚作り、全シーンのプロンプトに「refer to this character」として添付する。RunwayのActor機能やKlingのキャラクター参照機能を使う。</div>
+      </div>
+      <div class="tip-card tip-b">
+        <div class="tip-icon">🏷️</div>
+        <div class="tip-title">② キャラクター描写を毎回コピペ</div>
+        <div class="tip-desc">「青いローブ・黒髪・丸眼鏡」など外見の特徴をテキストで毎回プロンプトに入れる。Notionやメモ帳に「キャラカード」を作ってコピペするだけでOK。</div>
+      </div>
+      <div class="tip-card tip-c">
+        <div class="tip-icon">🌈</div>
+        <div class="tip-title">③ スタイルシードを固定する</div>
+        <div class="tip-desc">ツールによって「スタイルシード番号」や「Style Reference」機能がある。最初に気に入ったスタイルが出たらその番号をメモ。全シーンで同じ番号を使うと統一感が出る。</div>
+      </div>
+      <div class="tip-card tip-d">
+        <div class="tip-icon">✂️</div>
+        <div class="tip-title">④ ブレたシーンだけ再生成</div>
+        <div class="tip-desc">完璧な一発生成は難しいので「気に入らないシーンだけ」再生成する。同じプロンプトで3〜5回試すと良いものが出てくる。平均3回は当たり前と思っておこう。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 6: Difficulty guide -->
+  <div class="section">
+    <div class="section-title">📊 アプローチ別 難易度ガイド</div>
+    <div style="margin-bottom:12px;">
+      <div class="diff-row">
+        <div class="diff-label">✍️ テキスト→アニメ（初心者）</div>
+        <div class="diff-bar"><div class="diff-fill" style="width:25%;background:var(--grm);"></div></div>
+        <div class="diff-text" style="color:var(--grm);">低</div>
+      </div>
+      <div class="diff-row">
+        <div class="diff-label">🖼️ 画像→アニメ（初中級）</div>
+        <div class="diff-bar"><div class="diff-fill" style="width:50%;background:var(--amm);"></div></div>
+        <div class="diff-text" style="color:var(--amm);">中</div>
+      </div>
+      <div class="diff-row">
+        <div class="diff-label">🎨 スタイル変換（中級）</div>
+        <div class="diff-bar"><div class="diff-fill" style="width:65%;background:#c06030;"></div></div>
+        <div class="diff-text" style="color:#c06030;">中高</div>
+      </div>
+      <div class="diff-row">
+        <div class="diff-label">🔧 ComfyUI ローカル（上級）</div>
+        <div class="diff-bar"><div class="diff-fill" style="width:88%;background:var(--rem);"></div></div>
+        <div class="diff-text" style="color:var(--rem);">高</div>
+      </div>
+    </div>
+    <div style="padding:12px 16px;background:var(--vil);border-radius:10px;font-size:.85rem;color:var(--via);">
+      🚀 <strong>今日のチャレンジ：</strong>Pika 2.5（無料）で「自分の好きなキャラが歩くシーン」を1本だけ作ってみよう。
+      プロンプトに「anime style, walking slowly, cinematic」を足すだけでそれらしくなる。
+    </div>
+  </div>
+
+  <!-- Disclaimer -->
+  <div class="disclaimer">
+    <strong>⚠️ 免責事項：</strong>
+    紹介しているAIツール（Kling・Runway・Pika・ComfyUI等）の名称・機能・料金・商用利用の可否は頻繁に変更されます。
+    最新情報と利用規約は必ず各ツールの<strong>公式ページ</strong>でご確認ください。
+    また、著作権のあるキャラクターや実在人物の肖像を無断で学習・再現する用途への使用は避けてください。<br>
+    <span style="margin-top:6px;display:block;">出典：
+      <a href="https://www.neolemon.com/blog/how-to-animate-ai-generated-characters/" style="color:var(--vim);">neolemon.com - How to Animate AI Characters</a>（参照：2026年6月）／
+      <a href="https://soloa.ai/blog/runway-vs-kling-vs-pika-vs-luma-ai-video-2026" style="color:var(--vim);">soloa.ai - Runway vs Kling vs Pika vs Luma 2026</a>（参照：2026年6月）／
+      <a href="https://www.buildmvpfast.com/articles/best-llms-2026-guide/video-generation-ai" style="color:var(--vim);">buildmvpfast.com - Best Text-to-Video AI Generators June 2026</a>（参照：2026年6月）
+    </span>
+  </div>
+
+</div>
+</body>
+</html>
