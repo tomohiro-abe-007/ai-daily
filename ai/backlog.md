@@ -16,6 +16,7 @@
 - 2026-06-10: OpenAI o3-pro（2026年6月10日リリース）：「速さより信頼性」最上位推論モデル・o1-proの後継・ChatGPT Pro/Teamプランから利用可能
 - 2026-06-11: Robin（FutureHouse）マルチエージェントAIシステム・科学的発見の全工程を自律化・Nature誌掲載（2026年）・乾燥型加齢黄斑変性（dAMD）でABCA1を新規治療標的候補として発見
 - 2026-06-12: Claude Fable 5（2026年6月9日一般公開）・Mythosクラスの一般向けバージョン・SWE-Bench Pro 80.3%（当時2位に11pt差）・高リスク領域は自動ブロック+Opus 4.8へフォールバック・API料金は公式要確認
+- 2026-06-13: OpenAI × Oracle Cloud 連携（2026年6月10日発表）・Enterprise向けにOracle Universal CreditsでOpenAIモデル＆Codexを利用可能に・独占契約終了（2026年4月27日）後のマルチクラウド展開・提供開始時期・料金は公式要確認
 
 ## 未解説の候補トピック（今後の参考）
 
