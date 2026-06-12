@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-06-13</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: #f5f0e8;
+  font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+  color: #2d1f0e;
+  line-height: 1.75;
+  padding: 32px 16px 60px;
+}
+.page {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+/* ─── HEADER ─── */
+.header {
+  background: linear-gradient(135deg, #1a4a6e 0%, #0d2d47 100%);
+  color: #fff;
+  border-radius: 12px;
+  padding: 40px 36px 32px;
+  margin-bottom: 28px;
+  box-shadow: 4px 6px 22px rgba(0,0,0,0.28);
+  position: relative;
+}
+.header .date-tag {
+  display: inline-block;
+  background: rgba(255,255,255,0.18);
+  border-radius: 20px;
+  font-size: 0.8rem;
+  padding: 3px 14px;
+  margin-bottom: 14px;
+  letter-spacing: 0.05em;
+}
+.header h1 { font-size: 1.65rem; line-height: 1.4; margin-bottom: 10px; }
+.header .subtitle { font-size: 0.95rem; opacity: 0.85; line-height: 1.65; }
+
+/* ─── SECTION CARD ─── */
+.card {
+  background: #fffdf8;
+  border-radius: 10px;
+  padding: 28px 28px 24px;
+  margin-bottom: 20px;
+  box-shadow: 3px 4px 14px rgba(0,0,0,0.09);
+  border-left: 5px solid #c8924a;
+}
+.card.blue   { border-left-color: #4a7fc8; }
+.card.green  { border-left-color: #4a9a5c; }
+.card.red    { border-left-color: #c84a4a; }
+.card.purple { border-left-color: #7a4ac8; }
+.card.teal   { border-left-color: #4a9aaa; }
+.card.navy   { border-left-color: #1a4a6e; }
+
+.card h2 {
+  font-size: 1.15rem;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #3a2510;
+}
+.card h3 {
+  font-size: 0.98rem;
+  font-weight: 600;
+  margin: 14px 0 6px;
+  color: #1a3a5c;
+}
+.card p, .card li {
+  font-size: 0.93rem;
+  margin-bottom: 6px;
+}
+.card ul { padding-left: 1.4em; }
+.card li { list-style: disc; }
+
+/* ─── 3-COLUMN SYSTEM OVERVIEW ─── */
+.sys-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 18px 0;
+}
+@media (max-width: 500px) { .sys-grid { grid-template-columns: 1fr; } }
+.sys-card {
+  border-radius: 9px;
+  padding: 14px 12px;
+  text-align: center;
+  font-size: 0.82rem;
+  line-height: 1.55;
+}
+.sys-card .sys-icon { font-size: 1.6rem; margin-bottom: 6px; display: block; }
+.sys-card .sys-name { font-weight: 700; font-size: 0.9rem; margin-bottom: 4px; }
+.sys-card .sys-duty {
+  display: inline-block;
+  border-radius: 4px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  margin-bottom: 6px;
+}
+.obligatory { background: #c84a4a; color: #fff; }
+.optional   { background: #888; color: #fff; }
+.sys-card.c1 { background: #fff0e8; border: 2px solid #c84a4a; }
+.sys-card.c2 { background: #e8f0ff; border: 2px solid #4a7fc8; }
+.sys-card.c3 { background: #eaf4eb; border: 2px solid #4a9a5c; }
+
+/* ─── BIG NUMBER ─── */
+.big-num-row {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin: 16px 0;
+}
+.big-num {
+  flex: 1;
+  min-width: 130px;
+  background: #fff7ed;
+  border: 2px solid #e0b87a;
+  border-radius: 10px;
+  text-align: center;
+  padding: 16px 10px 12px;
+}
+.big-num .num {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #1a4a6e;
+  line-height: 1.1;
+}
+.big-num .unit { font-size: 0.8rem; color: #888; margin-top: 4px; }
+.big-num .label { font-size: 0.8rem; color: #2d1f0e; margin-top: 6px; font-weight: 600; }
+
+/* ─── FLOW ─── */
+.flow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 16px 0 10px;
+}
+.flow-box {
+  background: #fff3e0;
+  border: 2px solid #d4944a;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 0.85rem;
+  text-align: center;
+  flex: 1;
+  min-width: 100px;
+  line-height: 1.4;
+}
+.flow-box.ok  { background: #e8f5e9; border-color: #4a9a5c; }
+.flow-box.ng  { background: #fde8e8; border-color: #c84a4a; }
+.flow-box.key { background: #e3f2fd; border-color: #4a7fc8; }
+.arrow { font-size: 1.2rem; color: #c8924a; flex-shrink: 0; }
+
+/* ─── STEP LIST ─── */
+.steps { list-style: none; padding: 0; margin: 12px 0; }
+.steps li {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin-bottom: 12px;
+  font-size: 0.92rem;
+}
+.step-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  background: #1a4a6e;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+.step-body { padding-top: 3px; }
+.step-body strong { color: #1a3a5c; }
+
+/* ─── REQUIREMENT BOX ─── */
+.req-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+  margin: 14px 0;
+}
+.req-card {
+  border-radius: 8px;
+  padding: 14px 14px 12px;
+  font-size: 0.85rem;
+}
+.req-card .req-title {
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+}
+.req-card.r1 { background: #fce4ec; border: 1.5px solid #e57373; }
+.req-card.r1 .req-title { color: #b71c1c; }
+.req-card.r2 { background: #e8eaf6; border: 1.5px solid #7986cb; }
+.req-card.r2 .req-title { color: #283593; }
+.req-card.r3 { background: #e0f2f1; border: 1.5px solid #4db6ac; }
+.req-card.r3 .req-title { color: #004d40; }
+
+/* ─── EXAMPLE LIST ─── */
+.eg-list { list-style: none; padding: 0; margin: 10px 0; }
+.eg-list li {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  font-size: 0.88rem;
+  padding: 5px 0;
+  border-bottom: 1px dotted #ddd;
+}
+.eg-list li:last-child { border-bottom: none; }
+.eg-tag {
+  display: inline-block;
+  min-width: 60px;
+  text-align: center;
+  border-radius: 4px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  flex-shrink: 0;
+}
+.eg-tag.must { background: #c84a4a; color: #fff; }
+.eg-tag.opt  { background: #4a7fc8; color: #fff; }
+
+/* ─── COMPARE TABLE ─── */
+.cmp-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  margin: 14px 0;
+}
+.cmp-table th {
+  background: #1a4a6e;
+  color: #fff;
+  padding: 8px 10px;
+  text-align: center;
+  font-weight: 600;
+}
+.cmp-table td {
+  padding: 8px 10px;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+  vertical-align: middle;
+}
+.cmp-table tr:nth-child(even) td { background: #f0f5fa; }
+.cmp-table .good { color: #2e7d32; font-weight: 700; }
+.cmp-table .mid  { color: #e65100; }
+.cmp-table .bad  { color: #c62828; }
+.cmp-table td:first-child { text-align: left; }
+
+/* ─── CAUTION ─── */
+.caution-box {
+  background: #fff8e1;
+  border: 2px dashed #f0c060;
+  border-radius: 8px;
+  padding: 16px 18px;
+  font-size: 0.88rem;
+  margin: 12px 0;
+}
+.caution-box .caution-title { font-weight: 700; color: #8a4a00; margin-bottom: 8px; }
+
+.info-box {
+  background: #e3f2fd;
+  border: 2px solid #90caf9;
+  border-radius: 8px;
+  padding: 14px 16px;
+  font-size: 0.88rem;
+  margin: 12px 0;
+}
+.info-box .info-title { font-weight: 700; color: #0d47a1; margin-bottom: 6px; }
+
+/* ─── HIGHLIGHT ─── */
+.hl  { background: #fff3cd; border-radius: 3px; padding: 0 3px; }
+.red { color: #c84a4a; font-weight: 700; }
+.bl  { color: #1a5fa8; font-weight: 700; }
+.gr  { color: #2e7d32; font-weight: 700; }
+
+/* ─── DISCLAIMER ─── */
+.disclaimer {
+  background: #f0ebe0;
+  border-radius: 8px;
+  padding: 16px 20px;
+  font-size: 0.8rem;
+  color: #666;
+  margin-top: 8px;
+  line-height: 1.65;
+}
+.disclaimer strong { color: #444; }
+
+/* ─── SOURCE ─── */
+.source {
+  font-size: 0.73rem;
+  color: #999;
+  margin-top: 10px;
+  line-height: 1.55;
+}
+.source a { color: #1a4a6e; }
+
+/* ─── BACK LINK ─── */
+.back-link { text-align: center; margin-top: 36px; }
+.back-link a {
+  color: #1a4a6e;
+  font-size: 0.9rem;
+  text-decoration: none;
+  border-bottom: 1px solid #1a4a6e;
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ══════ HEADER ══════ -->
+<div class="header">
+  <div class="date-tag">2026-06-13 ・ 1人法人スタート 最新トピック</div>
+  <h1>📂 電子帳簿保存法（電帳法）の実務対応<br><span style="font-size:1.05rem;opacity:0.9">── 2024年1月から「紙に印刷して捨てる」は違反！1人法人が今すぐやることを図解</span></h1>
+  <div class="subtitle">「電帳法って聞いたことあるけど、自分には関係ない？」と思っていた方へ。Amazonの領収書・PDFのインボイス・クラウドサービスの請求書を受け取っているなら、すでに対象です。今日でスッキリ理解しましょう。</div>
+</div>
+
+<!-- ══════ 1. 電帳法とは ══════ -->
+<div class="card navy">
+  <h2>📖 1. 電子帳簿保存法（電帳法）とは？</h2>
+  <p>電子帳簿保存法（でんちょほぞんほう）とは、<span class="hl">帳簿や書類を電子データで保存するルール</span>を定めた法律です（1998年制定・その後複数回改正）。</p>
+  <p>大事なのは「3つの制度」があること。それぞれ<span class="red">「義務」か「任意」か</span>が違います。</p>
+
+  <div class="sys-grid">
+    <div class="sys-card c1">
+      <span class="sys-icon">🌐</span>
+      <div class="sys-name">① 電子取引<br>データ保存</div>
+      <span class="sys-duty obligatory">2024年〜義務</span>
+      <div>メール・ネット通販などの電子取引データを<br>電子のまま保存するルール</div>
+    </div>
+    <div class="sys-card c2">
+      <span class="sys-icon">📷</span>
+      <div class="sys-name">② スキャナ<br>保存</div>
+      <span class="sys-duty optional">任意</span>
+      <div>紙の領収書・請求書をスキャンして電子保存できる制度</div>
+    </div>
+    <div class="sys-card c3">
+      <span class="sys-icon">💻</span>
+      <div class="sys-name">③ 電子帳簿等<br>保存</div>
+      <span class="sys-duty optional">任意</span>
+      <div>自社で作った帳簿・書類を最初から電子データで保存する制度</div>
+    </div>
+  </div>
+
+  <div class="caution-box">
+    <div class="caution-title">⚡ 1人法人が最優先で対応すること</div>
+    <strong>①の「電子取引データ保存」だけが義務</strong>です。②③は任意（やると便利だが、やらなくても違法にはならない）。まず①に集中しましょう。
+  </div>
+</div>
+
+<!-- ══════ 2. 電子取引とは何か ══════ -->
+<div class="card blue">
+  <h2>🌐 2. 「電子取引」って何？ ── 実は身近なものだらけ</h2>
+  <p><span class="hl">電子取引</span>（でんし とりひき）とは、<span class="bl">取引情報をデータでやり取りすること</span>です。紙の請求書を郵送でもらうのは対象外ですが、以下はすべて電子取引に該当します。</p>
+
+  <ul class="eg-list">
+    <li><span class="eg-tag must">対象</span>メールに添付されたPDFの請求書・見積書・領収書</li>
+    <li><span class="eg-tag must">対象</span>AmazonビジネスやYahooショッピングの購入明細（Web画面・PDF）</li>
+    <li><span class="eg-tag must">対象</span>freee・マネーフォワードなどのクラウド会計ソフトから発行された請求書</li>
+    <li><span class="eg-tag must">対象</span>AWS・Google Cloud・Adobe等のクラウドサービス利用料明細（ダウンロードPDF）</li>
+    <li><span class="eg-tag must">対象</span>インターネットバンキングの振込明細（電子データ）</li>
+    <li><span class="eg-tag must">対象</span>電子インボイス（Peppol等）</li>
+    <li><span class="eg-tag opt">対象外</span>紙の請求書を郵便・手渡しで受け取ったもの（ただし②スキャナ保存を活用できる）</li>
+  </ul>
+
+  <p style="margin-top:12px">つまり、<span class="red">オンラインで何かを購入・契約している会社はすべて対象</span>です。1人法人でも例外はありません。</p>
+</div>
+
+<!-- ══════ 3. 何が変わったか ══════ -->
+<div class="card red">
+  <h2>📅 3. 2024年1月1日から何が変わった？</h2>
+
+  <div class="flow">
+    <div class="flow-box ng" style="min-width:160px">
+      ❌ 2023年12月まで<br>
+      <span style="font-size:0.8rem">猶予あり：<br>電子データを紙に印刷<br>して保存してもOK</span>
+    </div>
+    <div class="arrow">→</div>
+    <div class="flow-box ok" style="min-width:160px">
+      ✅ 2024年1月1日〜<br>
+      <span style="font-size:0.8rem"><strong>完全義務化</strong>：<br>電子取引データは<br>電子のまま保存が必須</span>
+    </div>
+  </div>
+
+  <p>2022年・2023年は「宥恕（ゆうじょ）措置」という猶予期間がありましたが、<span class="red">2024年1月1日以降はその猶予がなくなりました。</span></p>
+  <p>PDF請求書を受け取ったあと「Excelに転記してPDFは削除」「印刷して紙保存してデータ捨てる」は<span class="red">法令違反</span>になります（税務調査時に指摘対象になります）。</p>
+
+  <div class="info-box" style="margin-top:12px">
+    <div class="info-title">📌 基準年度について</div>
+    本記事の内容は令和5年度改正後の電子帳簿保存法（令和6年1月1日施行）に基づきます。
+    出典：国税庁「電子帳簿保存法が改正されました」
+    <a href="https://www.nta.go.jp/law/joho-zeikaishaku/sonota/jirei/index.htm" target="_blank" style="color:#1a4a6e">https://www.nta.go.jp/</a>（2026年6月確認）
+  </div>
+</div>
+
+<!-- ══════ 4. 保存要件 ══════ -->
+<div class="card">
+  <h2>📋 4. 電子取引データ保存の「3つの要件」</h2>
+  <p>ただ保存すれば良いわけではありません。以下の3要件を満たす必要があります。</p>
+
+  <div class="req-grid">
+    <div class="req-card r1">
+      <div class="req-title">① 真実性（しんじつせい）</div>
+      データが改ざんされていないことを担保する措置<br>
+      <br>→ 以下のどれか1つでOK：<br>
+      ・タイムスタンプを付ける<br>
+      ・クラウドサービス（改ざん防止機能付き）で保存<br>
+      ・訂正削除の事実がわかるシステムで管理<br>
+      ・訂正削除の防止に関する事務処理規程を作る
+    </div>
+    <div class="req-card r2">
+      <div class="req-title">② 可視性（かしせい）</div>
+      いつでも画面・紙で見られる状態<br>
+      <br>→ パソコンのモニターやプリンターで見られれば基本OK。<br>
+      フォルダに整理して保存しておくだけで概ね満たせます。
+    </div>
+    <div class="req-card r3">
+      <div class="req-title">③ 検索性（けんさくせい）</div>
+      ①取引年月日<br>②取引金額<br>③取引先の3項目で検索できること<br>
+      <br>→ ただし<strong>売上高が5,000万円以下</strong>の事業者は<br>この要件が免除！（下記参照）
+    </div>
+  </div>
+
+  <div class="info-box">
+    <div class="info-title">🎉 売上高5,000万円以下なら検索要件が免除！</div>
+    基準期間（前々事業年度）の売上高が <strong>5,000万円以下</strong> の事業者は、③検索要件が免除されます。
+    ただし「税務調査の際にダウンロードに応じること」が条件です。<br>
+    設立初年度・2年目の1人法人のほとんどはこの免除対象です。<br>
+    <span style="font-size:0.8rem;color:#555">出典：国税庁「電子帳簿保存法一問一答〔電子取引関係〕」問42
+    <a href="https://www.nta.go.jp/law/joho-zeikaishaku/sonota/jirei/4-3.htm" target="_blank" style="color:#1a4a6e">https://www.nta.go.jp/law/joho-zeikaishaku/sonota/jirei/4-3.htm</a></span>
+  </div>
+</div>
+
+<!-- ══════ 5. 1人法人の対応方法 ══════ -->
+<div class="card green">
+  <h2>✅ 5. 1人法人の実践対応 ── 最小コストで始める3ステップ</h2>
+  <p>複雑に考える必要はありません。売上5,000万円以下のうちは、<span class="hl">「受け取ったデータを捨てず、フォルダに整理して保存」</span>するだけで実務上の基本要件はほぼ満たせます。</p>
+
+  <ul class="steps">
+    <li>
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <strong>フォルダ構造を決める</strong><br>
+        保存場所はクラウドストレージ（Googleドライブ・OneDrive・Dropbox等）を推奨。<br>
+        フォルダ名の例：<br>
+        <code style="background:#f0f0f0;padding:2px 6px;border-radius:3px;font-size:0.8rem">
+          電子取引/<br>
+          &nbsp; 2026年/<br>
+          &nbsp;&nbsp; 01月/<br>
+          &nbsp;&nbsp;&nbsp; 2026-01-15_Amazon_12800円.pdf<br>
+          &nbsp;&nbsp;&nbsp; 2026-01-20_AWS_8000円.pdf
+        </code><br>
+        <span style="font-size:0.82rem;color:#555">ファイル名に「日付・取引先・金額」を入れておくと後で探しやすい。</span>
+      </div>
+    </li>
+    <li>
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <strong>「訂正削除の防止に関する事務処理規程」を作る</strong>（真実性の確保）<br>
+        国税庁が無料のサンプルを公開しています。A4・1ページの社内ルール書類を作るだけです。<br>
+        <span style="font-size:0.82rem">出典：国税庁「電子帳簿保存法取扱通達の解説（サンプル規程）」
+        <a href="https://www.nta.go.jp/law/joho-zeikaishaku/sonota/jirei/0021006-031.htm" target="_blank" style="color:#1a4a6e">https://www.nta.go.jp/</a></span><br>
+        <span style="font-size:0.82rem;color:#2e7d32">→ 1人会社でもこの書類を作っておくと「真実性の確保」要件をクリアできます。</span>
+      </div>
+    </li>
+    <li>
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <strong>受け取った電子データは「その日のうちに」保存フォルダへ移す習慣をつける</strong><br>
+        メールに添付されたPDF → そのままクラウドフォルダへ保存。<br>
+        Amazonの購入明細 → PDF形式でダウンロードして保存。<br>
+        クラウドサービスの請求書 → ログインして月次でダウンロード・保存。<br>
+        <span style="font-size:0.82rem;color:#555">「あとでまとめて」は忘れの元。受け取ったその場で保存を習慣化しましょう。</span>
+      </div>
+    </li>
+  </ul>
+
+  <div class="big-num-row" style="margin-top:18px">
+    <div class="big-num" style="border-color:#4a9a5c;background:#f1f8f3">
+      <div class="num" style="color:#1a4a6e;font-size:1.5rem">7年</div>
+      <div class="unit">保存期間（原則）</div>
+      <div class="label">法人税法上の帳簿書類保存期間</div>
+    </div>
+    <div class="big-num" style="border-color:#4a9a5c;background:#f1f8f3">
+      <div class="num" style="color:#1a4a6e;font-size:1.5rem">10年</div>
+      <div class="unit">欠損金が出た場合</div>
+      <div class="label">繰越欠損金のある事業年度の書類</div>
+    </div>
+    <div class="big-num" style="border-color:#4a9a5c;background:#f1f8f3">
+      <div class="num" style="color:#1a4a6e;font-size:1.3rem">0円〜</div>
+      <div class="unit">フォルダ管理なら</div>
+      <div class="label">追加コストゼロで始められる</div>
+    </div>
+  </div>
+  <div class="source">保存期間：法人税法施行規則 第59条、国税庁「帳簿書類の保存期間」<br>
+  <a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/hojin/5930.htm" target="_blank">https://www.nta.go.jp/taxes/shiraberu/taxanswer/hojin/5930.htm</a>（2026年6月確認）</div>
+</div>
+
+<!-- ══════ 6. ツール活用 ══════ -->
+<div class="card blue">
+  <h2>🛠️ 6. 対応をラクにするツール（2026年6月時点）</h2>
+  <p>フォルダ管理より自動化したい場合は、以下のツールが使えます。</p>
+  <table class="cmp-table">
+    <tr>
+      <th>ツール</th>
+      <th>電帳法対応</th>
+      <th>タイムスタンプ</th>
+      <th>検索機能</th>
+      <th>費用目安</th>
+    </tr>
+    <tr>
+      <td><strong>freee会計</strong><br><span style="font-size:0.75rem">freee株式会社</span></td>
+      <td class="good">◎</td>
+      <td class="good">○</td>
+      <td class="good">◎</td>
+      <td>月2,980円〜</td>
+    </tr>
+    <tr>
+      <td><strong>マネーフォワード クラウド</strong><br><span style="font-size:0.75rem">マネーフォワード</span></td>
+      <td class="good">◎</td>
+      <td class="good">○</td>
+      <td class="good">◎</td>
+      <td>月3,316円〜</td>
+    </tr>
+    <tr>
+      <td><strong>弥生会計オンライン</strong><br><span style="font-size:0.75rem">弥生株式会社</span></td>
+      <td class="good">◎</td>
+      <td class="mid">△</td>
+      <td class="good">○</td>
+      <td>年28,600円〜</td>
+    </tr>
+    <tr>
+      <td><strong>Googleドライブ＋手動命名</strong><br><span style="font-size:0.75rem">（フォルダ管理）</span></td>
+      <td class="mid">△</td>
+      <td class="bad">×</td>
+      <td class="mid">△</td>
+      <td>無料〜</td>
+    </tr>
+  </table>
+  <p style="font-size:0.8rem;color:#666;margin-top:8px">◎=得意 ○=対応 △=部分対応 ×=非対応。料金・機能は随時変更されます。各社公式サイトで最新情報をご確認ください。</p>
+  <p style="margin-top:10px;font-size:0.88rem">会計ソフトを使っていれば、<span class="hl">電帳法対応・記帳・申告補助がまとめてできます</span>。月3,000円程度のコストで税務調査のリスクを下げられるなら、多くの場合「割に合う投資」です。</p>
+</div>
+
+<!-- ══════ 7. スキャナ保存（任意） ══════ -->
+<div class="card teal">
+  <h2>📷 7. スキャナ保存（任意）── 紙の書類もデジタル化できる</h2>
+  <p>スキャナ保存は、<span class="hl">紙で受け取った領収書・請求書をスキャンして電子保存</span>できる任意制度です。上手に活用すれば「紙の山」を減らせます。</p>
+  <p>ただし要件があります：</p>
+  <ul style="margin: 10px 0 0 1.4em;">
+    <li>解像度：200dpi以上・カラー保存</li>
+    <li>タイムスタンプ：受領後「最速2ヶ月以内」（スマホアプリなら当日付与が可能）</li>
+    <li>入力期間：定められた期間内</li>
+    <li>検索機能：取引年月日・金額・取引先で検索できること（5,000万円以下は緩和あり）</li>
+  </ul>
+  <div class="caution-box" style="margin-top:12px">
+    <div class="caution-title">💡 スキャナ保存後の「原本の扱い」</div>
+    スキャナ保存の要件を満たした場合、<strong>原則として原本（紙）の破棄が認められます</strong>。ただし重要な契約書など、別の法律で原本保存が必要な場合もあります。税理士に確認してから捨てましょう。
+  </div>
+  <div class="source">出典：国税庁「スキャナ保存制度の概要」<a href="https://www.nta.go.jp/law/joho-zeikaishaku/sonota/jirei/4-2.htm" target="_blank">https://www.nta.go.jp/law/joho-zeikaishaku/sonota/jirei/4-2.htm</a>（2026年6月確認）</div>
+</div>
+
+<!-- ══════ 8. よくある誤解 ══════ -->
+<div class="card red">
+  <h2>❌ 8. やりがちなNG行動と正しい対応</h2>
+  <ul class="steps">
+    <li>
+      <div class="step-num" style="background:#c84a4a">!</div>
+      <div class="step-body">
+        <strong>NG：「PDFで来た請求書を印刷して、データを削除する」</strong><br>
+        → 2024年1月以降はこれが違法。電子で受け取ったものは電子のまま保存。紙に印刷してもよいが<span class="red">電子データを消してはいけない</span>。
+      </div>
+    </li>
+    <li>
+      <div class="step-num" style="background:#c84a4a">!</div>
+      <div class="step-body">
+        <strong>NG：「Amazonの注文確認メールを開いてそのまま放置」</strong><br>
+        → メール自体が電子取引の証拠です。PDFで保存するか、スクリーンショットを規程に従って保存。Amazonの購入明細はAmazonのサイトからPDFダウンロードが確実。
+      </div>
+    </li>
+    <li>
+      <div class="step-num" style="background:#c84a4a">!</div>
+      <div class="step-body">
+        <strong>NG：「会計ソフトに入力したから原本データは消した」</strong><br>
+        → 帳簿への入力と「原本データの保存」は別物です。両方必要。
+      </div>
+    </li>
+    <li>
+      <div class="step-num" style="background:#4a9a5c">✓</div>
+      <div class="step-body">
+        <strong>正解：メールに添付されたPDFは → 即日クラウドフォルダへ保存</strong><br>
+        日付・取引先・金額をファイル名に入れて7年間保管。これだけで基本はOK。
+      </div>
+    </li>
+  </ul>
+</div>
+
+<!-- ══════ 9. 今日のアクション ══════ -->
+<div class="card green">
+  <h2>🚀 9. 今日できる3分アクション</h2>
+  <div class="flow" style="flex-direction:column;align-items:stretch;gap:10px">
+    <div class="flow-box ok" style="flex:none;text-align:left;padding:12px 16px">
+      <strong>① クラウドストレージにフォルダを作る</strong>（1分）<br>
+      <span style="font-size:0.82rem">Googleドライブ等に「電子取引/2026年/」フォルダを作成</span>
+    </div>
+    <div class="arrow" style="transform:rotate(90deg);text-align:center">→</div>
+    <div class="flow-box ok" style="flex:none;text-align:left;padding:12px 16px">
+      <strong>② 過去に受け取った電子取引データを探して移動</strong>（2分）<br>
+      <span style="font-size:0.82rem">メールのPDF添付・Amazonの明細・クラウドサービス請求書をフォルダへ</span>
+    </div>
+    <div class="arrow" style="transform:rotate(90deg);text-align:center">→</div>
+    <div class="flow-box ok" style="flex:none;text-align:left;padding:12px 16px">
+      <strong>③ 国税庁のサンプル規程をダウンロードして社名を入れる</strong>（別途30分）<br>
+      <span style="font-size:0.82rem">「訂正削除防止に関する事務処理規程」を会社の書類フォルダに保存</span>
+    </div>
+  </div>
+  <p style="margin-top:14px;font-size:0.88rem">これだけで「電子帳簿保存法の基本対応」は完了です。あとは毎月の習慣として続けるだけです。</p>
+</div>
+
+<!-- ══════ DISCLAIMER ══════ -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報提供を目的としており、特定の税務・法務に関する個別アドバイスではありません。電子帳簿保存法の要件・解釈は会社の状況・使用システムにより異なります。具体的な対応方法・規程の内容については、税理士・公認会計士など専門家にご相談ください。<br>
+  本記事の内容は令和5年度改正後の電子帳簿保存法（令和6年1月1日施行）に基づいており、2026年6月時点の情報です。制度は改正される場合があります。必ず国税庁の公式情報をご確認ください。
+</div>
+
+<div class="source">
+  【主な参考・出典】<br>
+  ・国税庁「電子帳簿保存法の概要」<a href="https://www.nta.go.jp/law/joho-zeikaishaku/sonota/jirei/index.htm" target="_blank">https://www.nta.go.jp/law/joho-zeikaishaku/sonota/jirei/index.htm</a>（2026年6月確認）<br>
+  ・国税庁「電子帳簿保存法一問一答〔電子取引関係〕」<a href="https://www.nta.go.jp/law/joho-zeikaishaku/sonota/jirei/4-3.htm" target="_blank">https://www.nta.go.jp/law/joho-zeikaishaku/sonota/jirei/4-3.htm</a><br>
+  ・国税庁「スキャナ保存制度の概要」<a href="https://www.nta.go.jp/law/joho-zeikaishaku/sonota/jirei/4-2.htm" target="_blank">https://www.nta.go.jp/law/joho-zeikaishaku/sonota/jirei/4-2.htm</a><br>
+  ・国税庁「帳簿書類の保存期間」<a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/hojin/5930.htm" target="_blank">https://www.nta.go.jp/taxes/shiraberu/taxanswer/hojin/5930.htm</a><br>
+  ・基準年度：令和6年（2024年）1月1日施行・令和5年度税制改正
+</div>
+
+<div class="back-link">
+  <a href="index.html">← バックナンバー一覧に戻る</a>
+</div>
+
+</div>
+</body>
+</html>
