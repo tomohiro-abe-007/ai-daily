@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-06-13</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #f0ece3; font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif; min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 20px; }
+
+  /* COVER */
+  .cover { background: linear-gradient(135deg, #1a6640 0%, #2e9e62 55%, #1a6640 100%); color: white; border-radius: 8px; padding: 60px 40px; text-align: center; width: 100%; max-width: 820px; margin-bottom: 24px; box-shadow: 4px 6px 20px rgba(0,0,0,0.3); position: relative; overflow: hidden; }
+  .cover::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: repeating-linear-gradient(0deg, transparent, transparent 28px, rgba(255,255,255,0.05) 28px, rgba(255,255,255,0.05) 29px); }
+  .cover-emoji { font-size: 64px; display: block; margin-bottom: 16px; }
+  .cover h1 { font-family: 'Klee One', sans-serif; font-size: 2.0rem; font-weight: 600; line-height: 1.3; margin-bottom: 12px; position: relative; }
+  .cover .subtitle { font-size: 1.0rem; opacity: 0.88; margin-bottom: 8px; position: relative; }
+  .cover .tagline { font-size: 0.88rem; opacity: 0.7; position: relative; margin-bottom: 4px; }
+  .cover .date-badge { display: inline-block; background: rgba(255,255,255,0.2); border: 2px solid rgba(255,255,255,0.5); border-radius: 20px; padding: 6px 20px; font-size: 1rem; margin-top: 16px; position: relative; }
+
+  /* CARDS */
+  .card { background: #fff9f0; border-radius: 6px; width: 100%; max-width: 820px; margin-bottom: 24px; box-shadow: 3px 4px 12px rgba(0,0,0,0.12); position: relative; overflow: hidden; }
+  .card-body { padding: 28px 36px 28px 64px; background: repeating-linear-gradient(0deg, transparent, transparent 31px, #e0d8c8 31px, #e0d8c8 32px); background-color: #fff9f0; min-height: 200px; }
+  .card-body::before { content: ''; position: absolute; left: 52px; top: 0; bottom: 0; width: 2px; background: #2e9e62; opacity: 0.7; }
+  .card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; padding-bottom: 8px; border-bottom: 2px dashed #c8b89a; }
+  .card-emoji { font-size: 2rem; }
+  .card-title { font-family: 'Klee One', sans-serif; font-size: 1.4rem; font-weight: 600; color: #2c3e50; line-height: 1.3; }
+  .topic-badge { display: inline-block; padding: 3px 12px; border-radius: 12px; font-size: 0.75rem; font-weight: 600; margin-left: auto; white-space: nowrap; }
+  .badge-green  { background: #e0f5e8; color: #1a6640; border: 1px solid #90d4aa; }
+  .badge-red    { background: #ffe0e0; color: #aa2222; border: 1px solid #f0a0a0; }
+  .badge-teal   { background: #d0f0f0; color: #006060; border: 1px solid #80d0d0; }
+  .badge-blue   { background: #e0eeff; color: #2255aa; border: 1px solid #a0c0f5; }
+  .badge-orange { background: #fff0d0; color: #cc6600; border: 1px solid #f0c070; }
+  .badge-amber  { background: #fff3d0; color: #8a5000; border: 1px solid #e0b860; }
+  .badge-gray   { background: #f0f0f0; color: #555555; border: 1px solid #cccccc; }
+
+  .body-text { font-size: 0.97rem; line-height: 1.85; color: #333; margin: 8px 0; }
+
+  /* BOXES */
+  .simple-box { background: #fff7e0; border-left: 4px solid #f5c842; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 16px 0; font-size: 0.95rem; line-height: 1.8; }
+  .simple-box .label { display: inline-block; background: #f5c842; color: #5a4000; font-size: 0.72rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-bottom: 6px; letter-spacing: 0.5px; }
+  .info-box { background: #eef4ff; border-left: 4px solid #3366cc; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 16px 0; font-size: 0.95rem; line-height: 1.8; }
+  .info-box .label { display: inline-block; background: #3366cc; color: white; font-size: 0.72rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-bottom: 6px; letter-spacing: 0.5px; }
+  .alert-box { background: #fff0f0; border-left: 4px solid #c0392b; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 16px 0; font-size: 0.95rem; line-height: 1.8; }
+  .alert-box .label { display: inline-block; background: #c0392b; color: white; font-size: 0.72rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-bottom: 6px; letter-spacing: 0.5px; }
+  .green-box { background: #eafaf1; border-left: 4px solid #27ae60; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 16px 0; font-size: 0.95rem; line-height: 1.8; }
+  .green-box .label { display: inline-block; background: #27ae60; color: white; font-size: 0.72rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-bottom: 6px; letter-spacing: 0.5px; }
+  .teal-box { background: #e8f8f5; border-left: 4px solid #1abc9c; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 16px 0; font-size: 0.95rem; line-height: 1.8; }
+  .teal-box .label { display: inline-block; background: #1abc9c; color: white; font-size: 0.72rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-bottom: 6px; letter-spacing: 0.5px; }
+  .purple-box { background: #f8f0ff; border-left: 4px solid #8e44ad; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 16px 0; font-size: 0.95rem; line-height: 1.8; }
+  .purple-box .label { display: inline-block; background: #8e44ad; color: white; font-size: 0.72rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-bottom: 6px; letter-spacing: 0.5px; }
+  .orange-box { background: #fff4e0; border-left: 4px solid #e67e22; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 16px 0; font-size: 0.95rem; line-height: 1.8; }
+  .orange-box .label { display: inline-block; background: #e67e22; color: white; font-size: 0.72rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-bottom: 6px; letter-spacing: 0.5px; }
+
+  /* NUMBER CARDS */
+  .num-cards { display: flex; gap: 16px; flex-wrap: wrap; margin: 20px 0; justify-content: center; }
+  .num-card { background: white; border-radius: 10px; padding: 18px 20px; text-align: center; flex: 1; min-width: 130px; max-width: 190px; box-shadow: 2px 3px 10px rgba(0,0,0,0.1); border-top: 5px solid #2e9e62; }
+  .num-card .big-num { font-size: 2.1rem; font-weight: 700; font-family: 'Caveat', cursive; color: #2e9e62; line-height: 1.1; }
+  .num-card .num-unit { font-size: 0.95rem; color: #2e9e62; font-weight: 600; margin-bottom: 4px; }
+  .num-card .num-label { font-size: 0.77rem; color: #555; line-height: 1.5; margin-top: 4px; }
+  .num-card.red    { border-top-color: #c0392b; } .num-card.red    .big-num, .num-card.red    .num-unit { color: #c0392b; }
+  .num-card.blue   { border-top-color: #2980b9; } .num-card.blue   .big-num, .num-card.blue   .num-unit { color: #2980b9; }
+  .num-card.orange { border-top-color: #e67e22; } .num-card.orange .big-num, .num-card.orange .num-unit { color: #e67e22; }
+  .num-card.teal   { border-top-color: #1abc9c; } .num-card.teal   .big-num, .num-card.teal   .num-unit { color: #1abc9c; }
+  .num-card.gray   { border-top-color: #888888; } .num-card.gray   .big-num, .num-card.gray   .num-unit { color: #666666; }
+
+  /* FLOW */
+  .flow-wrap { display: flex; align-items: stretch; gap: 6px; flex-wrap: wrap; justify-content: center; margin: 20px 0; }
+  .flow-item { background: white; border: 2px solid #2e9e62; border-radius: 10px; padding: 14px 10px; text-align: center; min-width: 110px; font-size: 0.84rem; line-height: 1.4; color: #333; flex: 1; max-width: 175px; }
+  .flow-item .flow-emoji { font-size: 1.5rem; display: block; margin-bottom: 4px; }
+  .flow-item .flow-main  { font-weight: 600; }
+  .flow-item .flow-sub   { font-size: 0.74rem; color: #888; margin-top: 3px; }
+  .flow-plus  { font-size: 1.5rem; color: #aaa; line-height: 1; align-self: center; flex-shrink: 0; }
+  .flow-arrow { font-size: 1.8rem; color: #2e9e62; align-self: center; flex-shrink: 0; }
+  .flow-arrow.red { color: #c0392b; }
+
+  /* STEP LIST */
+  .step-list { list-style: none; margin: 16px 0; }
+  .step-list li { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 14px; }
+  .step-num { background: #2e9e62; color: white; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+  .step-num.red { background: #c0392b; }
+  .step-text { font-size: 0.95rem; line-height: 1.75; color: #333; }
+
+  /* COMPARE TABLE */
+  .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0; }
+  .cmp { background: white; border-radius: 10px; padding: 16px; border: 2px solid #e0e0e0; }
+  .cmp.green { border-color: #27ae60; background: #eafaf1; }
+  .cmp.red   { border-color: #c0392b; background: #fff0f0; }
+  .cmp-emoji  { font-size: 1.8rem; margin-bottom: 8px; }
+  .cmp-title  { font-weight: 700; font-size: 0.95rem; margin-bottom: 8px; color: #333; }
+  .cmp-body   { font-size: 0.82rem; color: #555; line-height: 1.7; }
+
+  /* SOURCE TABLE */
+  .source-table { width: 100%; border-collapse: collapse; font-size: 0.87rem; margin: 16px 0; }
+  .source-table th { background: #1a6640; color: white; padding: 9px 12px; text-align: left; font-weight: 600; }
+  .source-table td { padding: 10px 12px; border-bottom: 1px solid #d0e8d8; line-height: 1.55; vertical-align: middle; }
+  .source-table tr:nth-child(even) td { background: #f4fbf6; }
+  .source-table tr:last-child td { border-bottom: none; }
+  .risk-up   { color: #c0392b; font-weight: 700; }
+  .risk-down { color: #1a6640; font-weight: 700; }
+
+  /* EVIDENCE BARS */
+  .ev-row { display: flex; align-items: center; gap: 12px; margin: 10px 0; }
+  .ev-label { font-size: 0.85rem; color: #555; min-width: 180px; }
+  .ev-bg { flex: 1; background: #e0e0e0; border-radius: 8px; height: 12px; }
+  .ev-bar { height: 12px; border-radius: 8px; background: #2e9e62; }
+  .ev-bar.orange { background: #e67e22; }
+  .ev-bar.red    { background: #c0392b; }
+  .ev-bar.blue   { background: #2980b9; }
+  .ev-note { font-size: 0.77rem; color: #666; min-width: 110px; text-align: right; }
+
+  /* STUDY CARD */
+  .study-card { background: white; border-radius: 10px; padding: 15px 17px; border-left: 5px solid #2e9e62; box-shadow: 1px 2px 8px rgba(0,0,0,0.08); margin-bottom: 14px; }
+  .study-journal { font-size: 0.76rem; font-weight: 700; color: #1a6640; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 5px; }
+  .study-title { font-size: 0.95rem; font-weight: 600; color: #2c3e50; margin-bottom: 7px; line-height: 1.5; }
+  .study-meta { font-size: 0.81rem; color: #666; line-height: 1.8; }
+  .study-meta a { color: #1a6640; }
+
+  /* SOURCES */
+  .sources-list { list-style: none; font-size: 0.83rem; line-height: 1.9; color: #555; }
+  .sources-list li { margin-bottom: 10px; padding-left: 22px; position: relative; }
+  .sources-list li::before { content: "📄"; position: absolute; left: 0; }
+  .sources-list a { color: #1a6640; text-decoration: none; }
+  .sources-list a:hover { text-decoration: underline; }
+
+  /* DISCLAIMER */
+  .disclaimer { background: #fff9f0; border-radius: 6px; width: 100%; max-width: 820px; padding: 20px 30px; margin-top: 8px; box-shadow: 1px 2px 8px rgba(0,0,0,0.08); font-size: 0.82rem; line-height: 1.85; color: #555; border: 1px dashed #c8b89a; }
+  .disclaimer strong { color: #333; }
+
+  /* MECHANISM BOX */
+  .mech-row { display: flex; flex-direction: column; gap: 0; margin: 16px 0; }
+  .mech-item { display: flex; align-items: center; gap: 12px; padding: 10px 14px; border-radius: 8px; margin-bottom: 6px; }
+  .mech-item.good { background: #eafaf1; border: 1.5px solid #a0d8b0; }
+  .mech-item.bad  { background: #fff0f0; border: 1.5px solid #f0a0a0; }
+  .mech-icon { font-size: 1.6rem; flex-shrink: 0; width: 36px; text-align: center; }
+  .mech-text { font-size: 0.88rem; line-height: 1.65; color: #333; }
+  .mech-arrow-row { text-align: center; font-size: 1.4rem; margin: 2px 0 4px; color: #aaa; }
+
+  @media (max-width: 540px) {
+    .compare-grid { grid-template-columns: 1fr; }
+    .card-body { padding: 20px 20px 20px 42px; }
+    .card-body::before { left: 30px; }
+    .ev-label { min-width: 120px; }
+    .ev-note  { min-width: 70px; }
+    .flow-wrap { flex-direction: column; }
+    .flow-item { max-width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══ COVER ══ -->
+<div class="cover">
+  <span class="cover-emoji">🥦🧠💧</span>
+  <h1>「同じ硝酸塩」なのに<br>なぜ真逆の結果が出るのか？</h1>
+  <p class="subtitle">野菜で認知症リスクが下がり、水道水・加工肉で上がる ── 5万4千人・27年追跡の大規模コホートが示す「摂取源」の重要性</p>
+  <p class="tagline">硝酸塩 × 腸内細菌 × 一酸化窒素 × N-ニトロソアミン × 認知症リスクをやさしく解説</p>
+  <span class="date-badge">健康・栄養 最新トピック 2026-06-13</span>
+</div>
+
+<!-- ══ CARD 1: 3つのポイント ══ -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">💡</span>
+      <span class="card-title">きょう押さえる3つのポイント</span>
+      <span class="topic-badge badge-green">まとめ</span>
+    </div>
+    <ul class="step-list">
+      <li>
+        <span class="step-num">1</span>
+        <span class="step-text"><strong>野菜から摂る硝酸塩（しょうさんえん）は認知症リスクを下げる</strong>方向に関連し、<strong>水道水・加工肉・動物性食品から摂る硝酸塩はリスクを上げる</strong>方向に関連した。同じ化合物でも「どこから摂るか」で正反対の結果になるという、直感に反する発見。</span>
+      </li>
+      <li>
+        <span class="step-num">2</span>
+        <span class="step-text">この知見は、デンマークの<strong>54,804人・平均27年追跡</strong>の大規模前向きコホート研究による。2025年12月に権威ある認知症専門誌 <em>Alzheimer's &amp; Dementia</em>（Wiley Online Library）に掲載。<strong>ただし「相関」を示した観察研究</strong>であり、「野菜の硝酸塩が認知症を直接防ぐ」と断言できるわけではない。</span>
+      </li>
+      <li>
+        <span class="step-num">3</span>
+        <span class="step-text">水道水中の硝酸塩濃度が<strong>EU・デンマークの規制限界値（50 mg/L）を大きく下回る 5 mg/L 程度</strong>でも認知症リスクとの関連が見られた点は注目に値し、研究者らは現行規制基準の再検討を呼びかけている。ただし、1研究の観察結果であり因果関係の証明には至っていない。</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- ══ CARD 2: 硝酸塩とは ══ -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">🔍</span>
+      <span class="card-title">そもそも「硝酸塩・亜硝酸塩」とは？</span>
+      <span class="topic-badge badge-blue">基礎知識</span>
+    </div>
+
+    <p class="body-text">「硝酸塩」「亜硝酸塩」と聞くと難しく感じるが、実は毎日食べているものに自然に含まれている物質だ。まず基本を整理しよう。</p>
+
+    <div class="flow-wrap">
+      <div class="flow-item" style="border-color:#2e9e62;">
+        <span class="flow-emoji">🥬</span>
+        <span class="flow-main" style="color:#1a6640;">野菜に豊富</span>
+        <span class="flow-sub">ほうれん草・ルッコラ・<br>かぶ・大根などの<br>葉野菜・根菜類</span>
+      </div>
+      <div class="flow-plus">｜</div>
+      <div class="flow-item" style="border-color:#e67e22;">
+        <span class="flow-emoji">🥩</span>
+        <span class="flow-main" style="color:#cc6600;">加工肉に添加</span>
+        <span class="flow-sub">ハム・ベーコン・ソーセージ<br>など発色剤・保存料として<br>意図的に使用</span>
+      </div>
+      <div class="flow-plus">｜</div>
+      <div class="flow-item" style="border-color:#2980b9;">
+        <span class="flow-emoji">🚰</span>
+        <span class="flow-main" style="color:#2255aa;">水道水に混入</span>
+        <span class="flow-sub">農業用肥料の流出などで<br>地下水・水道水に<br>自然に混入</span>
+      </div>
+    </div>
+
+    <div class="simple-box">
+      <span class="label">📌 化学的な基礎（中学理科レベル）</span><br>
+      <strong>硝酸塩（NO₃⁻）</strong> ＝ 窒素と酸素が結びついたイオン。土の中に多く、植物はこれを栄養として吸収する。<br>
+      <strong>亜硝酸塩（NO₂⁻）</strong> ＝ 硝酸塩が変化したもの。体内でも口の中の細菌によって硝酸塩から作られる。<br>
+      どちらも体内でさらに変化し、<strong>有益な物質</strong>にも<strong>有害な物質</strong>にもなりうる。その「どちらになるか」が今回の研究の核心だ。
+    </div>
+
+    <div class="info-box">
+      <span class="label">💡 なぜ同じ化合物で逆の効果が起きるのか（仮説）</span><br>
+      野菜にはポリフェノールやビタミンCなど、硝酸塩が<strong>一酸化窒素（NO）</strong>という血管を広げる有益な物質に変わるのを助ける成分が豊富に含まれている。一方、加工肉にはそれらがなく、タンパク質と反応して<strong>N-ニトロソアミン</strong>（N-nitrosamines）という有害物質を作りやすいと考えられている。
+    </div>
+  </div>
+</div>
+
+<!-- ══ CARD 3: 研究の概要 ══ -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">📊</span>
+      <span class="card-title">研究の概要 ── 5万人超・27年の大規模追跡</span>
+      <span class="topic-badge badge-green">コホート研究</span>
+    </div>
+
+    <div class="study-card">
+      <div class="study-journal">Alzheimer's &amp; Dementia（Wiley）｜ 2025年12月掲載</div>
+      <div class="study-title">Source‐specific nitrate intake and incident dementia in the Danish Diet, Cancer and Health Study</div>
+      <div class="study-meta">
+        著者：Bondonno CP ら（エディス・コーワン大学 豪州 ／ デンマーク癌研究所）<br>
+        PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/41416568/" target="_blank">41416568</a>｜
+        DOI: <a href="https://alz-journals.onlinelibrary.wiley.com/doi/10.1002/alz.70995" target="_blank">10.1002/alz.70995</a>｜
+        フルテキスト: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12715690/" target="_blank">PMC12715690</a>
+      </div>
+    </div>
+
+    <div class="num-cards">
+      <div class="num-card">
+        <div class="big-num">54,804</div>
+        <div class="num-unit">人</div>
+        <div class="num-label">研究開始時に認知症がない<br>デンマーク成人<br>（男女・中高年）</div>
+      </div>
+      <div class="num-card teal">
+        <div class="big-num">約27</div>
+        <div class="num-unit">年</div>
+        <div class="num-label">平均追跡期間<br>（長期・前向き<br>コホート研究）</div>
+      </div>
+      <div class="num-card red">
+        <div class="big-num">6,133</div>
+        <div class="num-unit">例</div>
+        <div class="num-label">追跡期間中に<br>発症した認知症<br>（アルツハイマーを含む）</div>
+      </div>
+      <div class="num-card blue">
+        <div class="big-num">1990</div>
+        <div class="num-unit">年代開始</div>
+        <div class="num-label">Danish Diet, Cancer<br>and Health Study<br>（デンマーク国民健康コホート）</div>
+      </div>
+    </div>
+
+    <p class="body-text">研究開始時の食事内容は<strong>食事調査票（FFQ＝食物摂取頻度調査票）</strong>で詳しく把握。硝酸塩の摂取量を「野菜」「動物性食品」「加工肉」「水道水」という摂取源ごとに分けて分析した。認知症の発症は国家医療登録システムで追跡した。</p>
+
+    <div class="simple-box">
+      <span class="label">📌 研究デザインについて（重要）</span><br>
+      これは<strong>前向きコホート研究（観察研究）</strong>である。生活習慣と病気の発症を長期間追いかける研究で、大規模かつ信頼性は高いが、<strong>RCT（無作為化比較試験）ではない</strong>。交絡因子（他の生活習慣・遺伝・社会経済状況など）の影響が完全に排除できるわけではなく、「相関関係」を示す研究だ。「Xが原因でYになった」という因果関係の証明はできない。
+    </div>
+  </div>
+</div>
+
+<!-- ══ CARD 4: 摂取源別の結果 ══ -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">⚖️</span>
+      <span class="card-title">「どこから摂るか」で真逆の関連 ── 摂取源別の結果</span>
+      <span class="topic-badge badge-orange">主要結果</span>
+    </div>
+
+    <p class="body-text">研究の最も重要な発見は、硝酸塩・亜硝酸塩の<strong>量よりも「摂取源（どの食べ物や水から摂るか）」</strong>が認知症リスクと深く関わっていた点だ。</p>
+
+    <table class="source-table">
+      <tr>
+        <th>硝酸塩の摂取源</th>
+        <th>認知症との関連</th>
+        <th>特記事項</th>
+      </tr>
+      <tr>
+        <td>🥦 <strong>野菜</strong>（葉野菜・根菜類など）</td>
+        <td><span class="risk-down">↓ リスク低下</span>（非線形）</td>
+        <td>摂取量が増えると認知症発症率が低下する傾向。量が多すぎると効果が頭打ちになる非線形パターン。</td>
+      </tr>
+      <tr>
+        <td>🥩 <strong>動物性食品</strong>（肉・乳製品全般）</td>
+        <td><span class="risk-up">↑ リスク上昇</span></td>
+        <td>動物由来の硝酸塩が多いほど認知症リスクが高い方向に関連。</td>
+      </tr>
+      <tr>
+        <td>🌭 <strong>加工肉</strong>（ハム・ソーセージなど）</td>
+        <td><span class="risk-up">↑ リスク上昇</span>（より顕著）</td>
+        <td>保存料・発色剤として意図的に添加された亜硝酸塩の影響。特に65歳未満の若年性認知症でより強い関連。</td>
+      </tr>
+      <tr>
+        <td>🚰 <strong>水道水</strong></td>
+        <td><span class="risk-up">↑ リスク上昇</span></td>
+        <td>規制値（50 mg/L）を大幅に下回る<strong>5 mg/L</strong>程度でもリスク上昇との関連が見られた。</td>
+      </tr>
+    </table>
+
+    <div class="alert-box">
+      <span class="label">⚠️ 水道水の硝酸塩濃度について</span><br>
+      現在のEU・デンマークの規制基準は<strong>50 mg/L</strong>。今回の研究では、その10分の1以下の<strong>5 mg/L</strong>程度でもリスク上昇の傾向が示された。研究著者らは「現行規制の見直しが必要かもしれない」と述べているが、著者自身も<strong>「これは1研究の結果であり、さらなる研究が必要」</strong>と強調している。なお、日本の水道水質基準は硝酸性窒素として10 mg/L（硝酸塩換算では約44 mg/L相当）。
+    </div>
+
+    <div class="compare-grid">
+      <div class="cmp green">
+        <div class="cmp-emoji">🥦</div>
+        <div class="cmp-title" style="color:#1a6640;">野菜の硝酸塩（保護的？）</div>
+        <div class="cmp-body">
+          ✅ 抗酸化物質（ビタミンC・ポリフェノール）と共存<br>
+          ✅ 一酸化窒素（NO）産生を助ける<br>
+          ✅ 食物繊維・フィトケミカルの相乗効果<br>
+          ✅ 腸内細菌が硝酸塩を有益な形に変換しやすい
+        </div>
+      </div>
+      <div class="cmp red">
+        <div class="cmp-emoji">🌭</div>
+        <div class="cmp-title" style="color:#aa2222;">加工肉・水道水の硝酸塩（リスク的？）</div>
+        <div class="cmp-body">
+          ❌ 保護成分を伴わない「裸の硝酸塩」<br>
+          ❌ アミノ酸と反応しN-ニトロソアミンを生成しやすい<br>
+          ❌ N-ニトロソアミンは神経毒性の可能性<br>
+          ❌ 加工肉には飽和脂肪酸・塩分も多い（複合影響）
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ CARD 5: メカニズム ══ -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">🧬</span>
+      <span class="card-title">なぜ同じ硝酸塩でも逆の結果に？ ── 仮説のメカニズム</span>
+      <span class="topic-badge badge-teal">メカニズム（仮説）</span>
+    </div>
+
+    <p class="body-text">研究者らが考える「摂取源によって効果が変わる理由」を図解する。これはまだ仮説の段階であり、すべてがヒトで証明されているわけではない。</p>
+
+    <p class="body-text" style="font-weight:600; color:#1a6640; margin-top:16px;">【経路 A】野菜経由 → 有益な一酸化窒素（NO）へ</p>
+    <div class="mech-row">
+      <div class="mech-item good">
+        <div class="mech-icon">🥬</div>
+        <div class="mech-text"><strong>野菜の硝酸塩（NO₃⁻）</strong><br>ポリフェノール・ビタミンCと一緒に摂取される</div>
+      </div>
+      <div class="mech-arrow-row">↓</div>
+      <div class="mech-item good">
+        <div class="mech-icon">🦠</div>
+        <div class="mech-text"><strong>口の中の細菌が変換</strong><br>硝酸塩 → 亜硝酸塩（NO₂⁻）に変換（舌の上で起こる）</div>
+      </div>
+      <div class="mech-arrow-row">↓</div>
+      <div class="mech-item good">
+        <div class="mech-icon">💨</div>
+        <div class="mech-text"><strong>一酸化窒素（NO）を産生</strong><br>血管を広げ・血流改善・脳への血液供給維持に貢献<br>抗酸化成分がN-ニトロソアミンの生成を抑制</div>
+      </div>
+      <div class="mech-arrow-row">↓</div>
+      <div class="mech-item good">
+        <div class="mech-icon">🧠</div>
+        <div class="mech-text"><strong>脳への好影響（仮説）</strong><br>血管性認知症・アルツハイマー型認知症の予防に寄与する可能性</div>
+      </div>
+    </div>
+
+    <p class="body-text" style="font-weight:600; color:#c0392b; margin-top:20px;">【経路 B】加工肉・水道水経由 → 有害なN-ニトロソアミンへ</p>
+    <div class="mech-row">
+      <div class="mech-item bad">
+        <div class="mech-icon">🌭</div>
+        <div class="mech-text"><strong>加工肉の亜硝酸塩</strong><br>保護成分（ビタミンC等）がなく、肉のアミノ酸と共存</div>
+      </div>
+      <div class="mech-arrow-row" style="color:#c0392b;">↓</div>
+      <div class="mech-item bad">
+        <div class="mech-icon">⚗️</div>
+        <div class="mech-text"><strong>N-ニトロソアミンが生成</strong><br>（N-nitrosamines）<br>アミノ酸と亜硝酸塩が反応。特に加熱調理・胃の酸性環境で促進</div>
+      </div>
+      <div class="mech-arrow-row" style="color:#c0392b;">↓</div>
+      <div class="mech-item bad">
+        <div class="mech-icon">🧠</div>
+        <div class="mech-text"><strong>神経への悪影響（仮説）</strong><br>N-ニトロソアミンは動物実験で神経毒性・発がん性が示されており、脳神経細胞への負担が懸念される</div>
+      </div>
+    </div>
+
+    <div class="alert-box">
+      <span class="label">⚠️ 大事な注意点：これはあくまで「仮説」</span><br>
+      上の経路はヒトでの観察データとin vitro（試験管内）・動物実験の知見をもとにした研究者の仮説だ。ヒトで実際に「野菜の硝酸塩が認知症を直接防いだ」ことはまだ証明されていない。交絡因子（野菜をたくさん食べる人は運動量も多く、喫煙率が低い傾向など）の影響が残っている可能性も常に考慮が必要。
+    </div>
+  </div>
+</div>
+
+<!-- ══ CARD 6: 実践ポイント ══ -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">🌱</span>
+      <span class="card-title">今日から意識できること ── 研究から得られる示唆</span>
+      <span class="topic-badge badge-green">実践のヒント</span>
+    </div>
+
+    <p class="body-text">「野菜をたくさん食べ、加工肉を控える」という示唆はこれまでの多くの研究とも一致しており、総合的な健康にとって合理的な選択だ。以下はあくまで参考だが、現時点のエビデンスからいえる生活上のヒントを整理する。</p>
+
+    <ul class="step-list">
+      <li>
+        <span class="step-num">1</span>
+        <span class="step-text"><strong>野菜を意識的に増やす</strong>：ほうれん草・小松菜・ルッコラ・大根・かぶなど、葉野菜・根菜類は硝酸塩の自然な供給源であり、同時にポリフェノールやビタミンCも豊富。生のまま（サラダ）でも加熱しても摂取できる。「1日350g以上の野菜」（厚生労働省の目標値）は今回の知見とも方向性が一致する。</span>
+      </li>
+      <li>
+        <span class="step-num">2</span>
+        <span class="step-text"><strong>加工肉は「日常食」から「たまの楽しみ」に</strong>：ハム・ベーコン・ソーセージなどは今回の研究でも認知症との関連が見られた。WHO（世界保健機関）はすでに加工肉を「グループ1発がん性物質」に分類しており、食べないに越したことはないが、完全排除よりも「頻度を下げる」ことが現実的。</span>
+      </li>
+      <li>
+        <span class="step-num">3</span>
+        <span class="step-text"><strong>水道水の硝酸塩は過度に心配しすぎない</strong>：日本の水道水は基準値（硝酸性窒素として 10 mg/L）が設けられており、通常の都市部では大幅に下回ることが多い。農業地帯の井戸水などを使用している場合は測定を検討する価値があるが、一般的な水道水を「飲まない」という必要性を示す根拠はまだない。</span>
+      </li>
+      <li>
+        <span class="step-num">4</span>
+        <span class="step-text"><strong>「野菜のパワー」はトータルで評価する</strong>：野菜の有益性は硝酸塩だけでなく、食物繊維・フィトケミカル・ビタミン・ミネラルの総合的な作用によるものが大きい。特定の栄養素だけを「サプリで取れば同じ」という考え方は現在のエビデンスでは支持されていない。</span>
+      </li>
+    </ul>
+
+    <div class="green-box">
+      <span class="label">🥗 野菜の硝酸塩が豊富な食品（参考）</span><br>
+      <strong>特に多い：</strong>ほうれん草・ルッコラ・ビーツ（てんさい）・セロリ・レタス・小松菜<br>
+      <strong>中程度：</strong>大根・かぶ・キャベツ・パセリ・ニンジン<br>
+      ※硝酸塩含量は土壌の肥料状況・品種・収穫時期によって大きく変動する
+    </div>
+  </div>
+</div>
+
+<!-- ══ CARD 7: エビデンスの強さと限界 ══ -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">🔬</span>
+      <span class="card-title">この研究の強みと限界 ── エビデンスを正しく読む</span>
+      <span class="topic-badge badge-gray">科学リテラシー</span>
+    </div>
+
+    <p class="body-text">今回の研究は規模と追跡期間が大きな強みだが、観察研究特有の限界もある。研究者自身が論文内で述べている点を正直に紹介する。</p>
+
+    <div class="ev-row">
+      <div class="ev-label">📌 研究規模（n=54,804）</div>
+      <div class="ev-bg"><div class="ev-bar" style="width:90%;"></div></div>
+      <div class="ev-note">★★★★★ 大規模</div>
+    </div>
+    <div class="ev-row">
+      <div class="ev-label">📌 追跡期間（約27年）</div>
+      <div class="ev-bg"><div class="ev-bar" style="width:95%;"></div></div>
+      <div class="ev-note">★★★★★ 超長期</div>
+    </div>
+    <div class="ev-row">
+      <div class="ev-label">📌 研究デザイン（コホート）</div>
+      <div class="ev-bg"><div class="ev-bar blue" style="width:65%;"></div></div>
+      <div class="ev-note">観察研究（相関）</div>
+    </div>
+    <div class="ev-row">
+      <div class="ev-label">📌 因果関係の証明</div>
+      <div class="ev-bg"><div class="ev-bar red" style="width:20%;"></div></div>
+      <div class="ev-note">証明されていない</div>
+    </div>
+    <div class="ev-row">
+      <div class="ev-label">📌 交絡因子の除去</div>
+      <div class="ev-bg"><div class="ev-bar orange" style="width:50%;"></div></div>
+      <div class="ev-note">統計調整あり（完全ではない）</div>
+    </div>
+
+    <div class="simple-box" style="margin-top:16px;">
+      <span class="label">📋 研究の主な限界（論文記載より）</span><br>
+      ① <strong>食事調査は研究開始時の1回のみ</strong>：27年間の食生活の変化は反映されていない<br>
+      ② <strong>デンマーク人限定</strong>：食文化・遺伝的背景が異なるアジア人への直接適用は慎重に<br>
+      ③ <strong>水道水の測定は郵便番号ベース</strong>：個人の正確な摂取量ではない<br>
+      ④ <strong>観察研究の宿命</strong>：野菜をよく食べる人は他の健康習慣も良い可能性（healthy user bias）が排除しきれない<br>
+      ⑤ <strong>認知症診断は登録システム依存</strong>：軽度認知障害（MCI）は含まれない
+    </div>
+
+    <div class="teal-box">
+      <span class="label">💡 次に必要な研究</span><br>
+      研究者らは、この結果を確認・深化させるために<strong>介入研究（RCT）</strong>や、異なる国・人種のコホートでの再現研究が必要だと述べている。現時点では「野菜を多く食べる食習慣は全体的な健康に良い」という従来の推奨を支持する一致点として解釈するのが適切。
+    </div>
+  </div>
+</div>
+
+<!-- ══ CARD 8: 出典 ══ -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">📚</span>
+      <span class="card-title">出典・参考文献</span>
+      <span class="topic-badge badge-gray">一次情報</span>
+    </div>
+    <ul class="sources-list">
+      <li>
+        <strong>主論文：</strong> Bondonno CP et al. "Source‐specific nitrate intake and incident dementia in the Danish Diet, Cancer and Health Study."
+        <em>Alzheimer's &amp; Dementia</em>. 2025 Dec; DOI: <a href="https://alz-journals.onlinelibrary.wiley.com/doi/10.1002/alz.70995" target="_blank">10.1002/alz.70995</a>
+        ／ PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/41416568/" target="_blank">41416568</a>
+        ／ フルテキスト(PMC): <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12715690/" target="_blank">PMC12715690</a>
+        （2025年12月掲載、査読済み）
+      </li>
+      <li>
+        <strong>プレスリリース：</strong> "Dementia risk linked to nitrate in drinking water, study finds." <em>ScienceDaily</em>. 2026年6月6日.
+        <a href="https://www.sciencedaily.com/releases/2026/06/260606075852.htm" target="_blank">sciencedaily.com</a>
+      </li>
+      <li>
+        <strong>解説：</strong> "Nitrate in Drinking Water May Raise Dementia Risk, Study Warns." <em>SciTechDaily</em>. 2026.
+        <a href="https://scitechdaily.com/nitrate-in-drinking-water-may-raise-dementia-risk-study-warns/" target="_blank">scitechdaily.com</a>
+      </li>
+      <li>
+        <strong>関連（WHO・国際機関）：</strong> WHO "Nitrates and nitrites in drinking water." WHO Guidelines for Drinking Water Quality.
+        硝酸塩の水質基準・健康影響評価に関する公式見解。
+      </li>
+      <li>
+        <strong>日本水道水質基準：</strong> 厚生労働省「水質基準に関する省令（平成15年厚生労働省令第101号）」 硝酸性窒素および亜硝酸性窒素の基準値：10 mg/L以下（2025年現在）
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- ══ DISCLAIMER ══ -->
+<div class="disclaimer">
+  <strong>【免責事項・ご注意】</strong><br>
+  本記事は公開されている査読論文・公的機関の情報をもとにした一般的な情報提供を目的としており、<strong>医療アドバイスや診断・治療の推奨ではありません</strong>。紹介した研究は主に観察研究（コホート研究）であり、「相関関係」を示すものです。因果関係の証明には至っておらず、個人の効果を保証するものではありません。<br><br>
+  栄養・食事に関する具体的な変更（特定食品の制限・増量・サプリメント摂取など）を行う場合は、事前に<strong>かかりつけ医・管理栄養士・薬剤師</strong>などの専門家にご相談ください。特に持病がある方、妊娠中・授乳中の方、薬を服用している方は必ずご確認ください。健康効果・リスクは個人の体質・年齢・生活環境によって大きく異なります。
+</div>
+
+</body>
+</html>
