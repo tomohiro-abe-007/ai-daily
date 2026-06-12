@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>デジタルノマド 最新トピック 2026-06-13</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    color: #2a2a2a;
+  }
+  .hero {
+    background: linear-gradient(135deg, #1a6e49 0%, #0e4530 100%);
+    color: white;
+    border-radius: 10px;
+    padding: 48px 40px;
+    text-align: center;
+    width: 100%;
+    max-width: 760px;
+    margin-bottom: 28px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .hero .label {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 0.8rem;
+    margin-bottom: 14px;
+    letter-spacing: 0.05em;
+  }
+  .hero h1 { font-size: 1.5rem; margin-bottom: 12px; line-height: 1.55; }
+  .hero .meta { opacity: 0.85; font-size: 0.88rem; line-height: 1.75; }
+  .card {
+    background: #fff9f0;
+    border-radius: 8px;
+    padding: 28px 32px;
+    width: 100%;
+    max-width: 760px;
+    margin-bottom: 20px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.08);
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a6e49;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px dashed #90c8a8;
+  }
+  .card p { font-size: 0.93rem; line-height: 1.85; margin-bottom: 10px; }
+  .card p:last-child { margin-bottom: 0; }
+  .highlight-box {
+    background: #e8f5ef;
+    border-left: 4px solid #1a6e49;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .highlight-box .hlabel { font-size: 0.75rem; color: #1a6e49; font-weight: 600; margin-bottom: 6px; display: block; }
+  .highlight-box p { font-size: 0.9rem; margin: 0; }
+  .alert-box {
+    background: #fff3cd;
+    border-left: 4px solid #e8a000;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .alert-box .alabel { font-size: 0.75rem; color: #b07700; font-weight: 600; margin-bottom: 6px; display: block; }
+  .alert-box p { font-size: 0.9rem; margin: 0; }
+  .danger-box {
+    background: #fde8e8;
+    border-left: 4px solid #c0392b;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .danger-box .dlabel { font-size: 0.75rem; color: #c0392b; font-weight: 600; margin-bottom: 6px; display: block; }
+  .danger-box p { font-size: 0.9rem; margin: 0; }
+  .news-box {
+    background: #e8f0fd;
+    border-left: 4px solid #2a5e8e;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .news-box .nlabel { font-size: 0.75rem; color: #2a5e8e; font-weight: 600; margin-bottom: 6px; display: block; }
+  .news-box p { font-size: 0.9rem; margin: 0; }
+  .number-row { display: flex; gap: 14px; flex-wrap: wrap; margin: 14px 0; }
+  .number-card {
+    flex: 1; min-width: 130px;
+    background: #1a6e49; color: white;
+    border-radius: 8px; padding: 18px 14px; text-align: center;
+  }
+  .number-card .num { font-size: 1.5rem; font-weight: 700; margin-bottom: 6px; line-height: 1.2; letter-spacing: 0.03em; }
+  .number-card .desc { font-size: 0.72rem; opacity: 0.9; line-height: 1.5; }
+  .number-card.amber { background: #b07700; }
+  .number-card.blue  { background: #2a5e8e; }
+  .number-card.red   { background: #922b2b; }
+  .number-card.gray  { background: #555; }
+  .flow-wrap { display: flex; flex-direction: column; gap: 4px; margin: 14px 0; }
+  .flow-box {
+    background: #1a6e49; color: white;
+    border-radius: 8px; padding: 14px 16px;
+    font-size: 0.88rem; line-height: 1.6;
+  }
+  .flow-box .fb-label { font-size: 0.7rem; opacity: 0.8; margin-bottom: 4px; display: block; }
+  .flow-box strong { font-size: 0.95rem; }
+  .flow-box.sub   { background: #2a9464; }
+  .flow-box.light { background: #e8f5ef; color: #2a2a2a; border: 1.5px solid #90c8a8; }
+  .flow-box.amber { background: #8a5e00; }
+  .flow-box.blue  { background: #2a5e8e; }
+  .flow-box.red   { background: #922b2b; }
+  .flow-box.gray  { background: #666; }
+  .arrow-down { text-align: center; font-size: 1.5rem; color: #1a6e49; margin: 4px 0; line-height: 1; }
+  .flow-h-row { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; margin: 14px 0; }
+  .flow-h-box {
+    flex: 1; min-width: 100px;
+    background: #1a6e49; color: white;
+    border-radius: 8px; padding: 14px 12px; text-align: center;
+    font-size: 0.82rem; line-height: 1.55;
+  }
+  .flow-h-box .fh-label { font-size: 0.68rem; opacity: 0.8; display: block; margin-bottom: 4px; }
+  .flow-h-box strong { font-size: 0.9rem; }
+  .flow-h-box.fh-sub   { background: #2a9464; }
+  .flow-h-box.fh-amber { background: #8a5e00; }
+  .flow-h-box.fh-blue  { background: #2a5e8e; }
+  .flow-h-box.fh-red   { background: #922b2b; }
+  .flow-h-box.fh-light { background: #e8f5ef; color: #2a2a2a; border: 1.5px solid #90c8a8; }
+  .flow-h-box.fh-gray  { background: #666; }
+  .arrow-right { font-size: 1.3rem; color: #1a6e49; flex-shrink: 0; }
+  @media (max-width: 520px) { .flow-h-row { flex-direction: column; } .arrow-right { transform: rotate(90deg); } }
+  .step-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 12px 0; }
+  .step-list li { display: flex; align-items: flex-start; gap: 12px; }
+  .step-num {
+    background: #1a6e49; color: white; border-radius: 50%;
+    min-width: 28px; height: 28px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.78rem; font-weight: 700; flex-shrink: 0; margin-top: 2px;
+  }
+  .step-num.amber { background: #b07700; }
+  .step-num.blue  { background: #2a5e8e; }
+  .step-num.red   { background: #922b2b; }
+  .step-list li div { font-size: 0.9rem; line-height: 1.7; }
+  .matrix-table { width: 100%; border-collapse: collapse; font-size: 0.87rem; margin: 14px 0; }
+  .matrix-table th { background: #1a6e49; color: white; padding: 10px 12px; text-align: left; font-weight: 600; font-size: 0.82rem; }
+  .matrix-table th:first-child { border-radius: 6px 0 0 0; }
+  .matrix-table th:last-child  { border-radius: 0 6px 0 0; }
+  .matrix-table td { padding: 10px 12px; border-bottom: 1px solid #c0dcc8; vertical-align: top; line-height: 1.55; }
+  .matrix-table tr:nth-child(even) td { background: #f0faf5; }
+  .matrix-table .ok   { color: #1a6e49; font-weight: 700; }
+  .matrix-table .ng   { color: #c0392b; font-weight: 700; }
+  .matrix-table .warn { color: #b07700; font-weight: 700; }
+  .matrix-table .row-warn td   { background: #fff8e8 !important; }
+  .matrix-table .row-danger td { background: #fdeaea !important; }
+  .matrix-table .row-green td  { background: #e8f5ef !important; }
+  .matrix-table .row-blue td   { background: #e8f0fd !important; }
+  .check-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 12px 0; }
+  .check-list li {
+    display: flex; align-items: flex-start; gap: 12px;
+    padding: 10px 14px;
+    background: #e8f5ef; border-radius: 6px; border: 1px solid #90c8a8;
+    font-size: 0.9rem; line-height: 1.6;
+  }
+  .check-list .ico { font-size: 1.1rem; flex-shrink: 0; margin-top: 2px; }
+  .compare-row { display: flex; gap: 14px; flex-wrap: wrap; margin: 14px 0; }
+  .compare-card {
+    flex: 1; min-width: 200px; border-radius: 8px;
+    padding: 16px 16px; font-size: 0.88rem; line-height: 1.7;
+  }
+  .compare-card h3 { font-size: 0.85rem; margin-bottom: 8px; padding-bottom: 6px; border-bottom: 1.5px dashed; }
+  .compare-card.green  { background: #e8f5ef; border: 1.5px solid #1a6e49; }
+  .compare-card.green h3  { color: #1a6e49; border-color: #90c8a8; }
+  .compare-card.amber  { background: #fff8e8; border: 1.5px solid #c9920a; }
+  .compare-card.amber h3  { color: #a07800; border-color: #f0d080; }
+  .compare-card.blue   { background: #e8f0fd; border: 1.5px solid #2a5e8e; }
+  .compare-card.blue h3   { color: #2a5e8e; border-color: #a0c0e8; }
+  .compare-card.red    { background: #fdeaea; border: 1.5px solid #c0392b; }
+  .compare-card.red h3    { color: #922b2b; border-color: #e8a0a0; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 14px 0; }
+  @media (max-width: 500px) { .two-col { grid-template-columns: 1fr; } }
+  .mini-card {
+    background: #e8f5ef; border: 1.5px solid #90c8a8;
+    border-radius: 8px; padding: 14px 16px; font-size: 0.88rem; line-height: 1.65;
+  }
+  .mini-card h4 { color: #1a6e49; font-size: 0.88rem; margin-bottom: 6px; }
+  .mini-card.amber-bg { background: #fff8e8; border-color: #e8c060; }
+  .mini-card.amber-bg h4 { color: #a07800; }
+  .mini-card.red-bg { background: #fdeaea; border-color: #e8a0a0; }
+  .mini-card.red-bg h4 { color: #922b2b; }
+  .mini-card.blue-bg { background: #e8f0fd; border-color: #a0c0e8; }
+  .mini-card.blue-bg h4 { color: #2a5e8e; }
+  .tag { display: inline-block; background: #1a6e49; color: white; font-size: 0.72rem; padding: 2px 8px; border-radius: 10px; margin-right: 4px; margin-bottom: 6px; vertical-align: middle; }
+  .tag.amber { background: #b07700; }
+  .tag.blue  { background: #2a5e8e; }
+  .tag.red   { background: #922b2b; }
+  .source-list { font-size: 0.78rem; color: #888; margin-top: 12px; line-height: 1.8; }
+  .source-list a { color: #1a6e49; word-break: break-all; }
+  .footer-note {
+    width: 100%; max-width: 760px;
+    font-size: 0.78rem; color: #777; line-height: 1.8;
+    margin-top: 8px; padding: 20px 24px;
+    background: #f5f2ec; border-radius: 8px; border: 1px solid #ddd;
+  }
+  .footer-note strong { color: #555; }
+  .nav-bar {
+    width: 100%; max-width: 760px;
+    display: flex; justify-content: space-between;
+    margin-bottom: 20px; font-size: 0.82rem;
+  }
+  .nav-bar a { color: #1a6e49; text-decoration: none; padding: 6px 14px; border: 1px solid #90c8a8; border-radius: 20px; background: #fff; }
+  .nav-bar a:hover { background: #e8f5ef; }
+  /* NIE番号表示専用 */
+  .nie-display {
+    background: #1a6e49; color: white;
+    border-radius: 10px; padding: 20px 24px;
+    text-align: center; margin: 14px 0;
+    font-family: 'Courier New', monospace;
+  }
+  .nie-display .nie-num {
+    font-size: 2.2rem; font-weight: 700; letter-spacing: 0.18em;
+    display: block; margin-bottom: 8px;
+  }
+  .nie-display .nie-parts {
+    display: flex; justify-content: center; gap: 24px;
+    font-size: 0.8rem; opacity: 0.85; flex-wrap: wrap;
+  }
+  .nie-display .nie-part { text-align: center; line-height: 1.5; }
+  .nie-display .nie-part span { display: block; font-size: 1.1rem; font-weight: 700; }
+</style>
+</head>
+<body>
+
+<!-- ナビゲーション -->
+<div class="nav-bar">
+  <a href="index.html">&larr; アーカイブ一覧</a>
+  <a href="2026-06-12.html">前の日報 &rarr;</a>
+</div>
+
+<!-- ヒーロー -->
+<div class="hero">
+  <div class="label">&#x1F4D3; デジタルノマド日報</div>
+  <h1>&#x1F9FE; NIE番号ってなに？<br>外国人識別番号 完全ガイド 2026<br>DNV申請者が知っておくべき仕組みと取得ルート</h1>
+  <p class="meta">
+    2026年6月13日（土）｜バックログ解説：スペインの NIE 番号<br>
+    DNV申請前に取得する方法・用途（在外申請ルート）<br>
+    NIE・TIE・NIF・DNI の違い ／ EX-15 フォーム ／ 在日スペイン大使館での手続き
+  </p>
+</div>
+
+<!-- 今日の数字 -->
+<div class="card">
+  <h2>&#x1F4CC; 今日の数字で見るポイント</h2>
+  <div class="number-row">
+    <div class="number-card">
+      <div class="num">9桁</div>
+      <div class="desc">NIE番号のケタ数<br>（1字＋7数字＋1字）<br>この番号は一生変わらない</div>
+    </div>
+    <div class="number-card amber">
+      <div class="num">約€12</div>
+      <div class="desc">NIE単独申請の<br>手数料目安<br>（Modelo 790<br>Código 012）<br>2026年時点</div>
+    </div>
+    <div class="number-card blue">
+      <div class="num">2〜8週</div>
+      <div class="desc">在外スペイン領事館で<br>NIEを申請した場合の<br>処理時間の目安<br>（領事館により異なる）</div>
+    </div>
+    <div class="number-card red">
+      <div class="num">&#x221E;</div>
+      <div class="desc">NIE番号自体の<br>有効期限<br>（証明書の有効期限は<br>別途あり）</div>
+    </div>
+  </div>
+  <p style="font-size:0.82rem;color:#777;margin-top:8px;">
+    ※ 手数料・処理時間は2026年時点の目安です。在日スペイン大使館の最新情報は公式サイト（exteriores.gob.es/Embajadas/tokio）でご確認ください。
+  </p>
+</div>
+
+<!-- NIEとは -->
+<div class="card">
+  <h2>&#x1F9FE; NIEとは何か？ ── 「スペインでの自分の番号」</h2>
+  <p>
+    <strong>NIE（Número de Identidad de Extranjero＝外国人識別番号）</strong>は、スペインで何か重要な手続きをするときに必ず必要になる、<strong>外国人専用の識別番号</strong>です。
+  </p>
+  <p>
+    日本の「マイナンバー」に近いイメージですが、大きな違いがあります。<strong>NIEは居住者・非居住者を問わず、スペインで経済的・法的な活動をするすべての外国人に必要</strong>です。
+    たとえばスペインに住まなくても、不動産を購入するだけで NIE が必要になります。
+  </p>
+
+  <!-- NIE番号の形式を視覚化 -->
+  <div class="nie-display">
+    <span class="nie-num">X &#x00B7; 1234567 &#x00B7; B</span>
+    <div class="nie-parts">
+      <div class="nie-part">
+        <span>X</span>
+        先頭の1文字<br>（X / Y / Z）
+      </div>
+      <div class="nie-part">
+        <span>1234567</span>
+        7桁の数字
+      </div>
+      <div class="nie-part">
+        <span>B</span>
+        末尾の1文字<br>（検証用）
+      </div>
+    </div>
+  </div>
+
+  <p>
+    &#x2022; <strong>「X」から始まる NIE</strong>：もっとも一般的。スペインに最初に来た外国人に割り当てられる<br>
+    &#x2022; <strong>「Y」から始まる NIE</strong>：X番台が枯渇したために導入された番号<br>
+    &#x2022; <strong>「Z」から始まる NIE</strong>：Y番台が枯渇した場合に使われる（まだレア）
+  </p>
+
+  <div class="highlight-box">
+    <span class="hlabel">&#x1F4A1; NIEは「番号」であって「カード」ではない</span>
+    <p>
+      よく混乱されますが、<strong>NIEとは9桁の番号（コード）のことであり、物理的なカードではありません</strong>。
+      NIEが発行されると「Certificado de NIE（NIE証明書）」という紙（A4・白い紙）をもらいますが、これはNIEの番号を記載した証明書に過ぎません。
+      この証明書には有効期限（通常3か月程度）がありますが、<strong>NIE番号自体は一生変わらない永久番号</strong>です。
+      証明書が切れたあとでも、番号はずっと使えます。
+    </p>
+  </div>
+
+  <div class="highlight-box">
+    <span class="hlabel">&#x1F1EF;&#x1F1F5; 日本のマイナンバーとの対比</span>
+    <p>
+      日本のマイナンバーは「日本に住民票がある人」だけに付番されますが、NIEはスペインに住んでいない人でも、<strong>スペインで何か「経済的な理由」がある外国人すべてに付番されます</strong>。
+      DNV（国際遠隔就労ビザ）の申請・審査中に自動的に付与されるケースが多いです。
+    </p>
+  </div>
+</div>
+
+<!-- NIE・TIE・NIF・DNIの違い -->
+<div class="card">
+  <h2>&#x1F4CA; NIE・TIE・NIF・DNI の違い ── 全部まとめて整理する</h2>
+  <p>スペインの書類には似たような略語が並んでいて混乱しがちです。日本人DNVホルダーに関係するものを一表で整理します。</p>
+
+  <table class="matrix-table">
+    <thead>
+      <tr>
+        <th>略称</th>
+        <th>正式名称</th>
+        <th>日本語イメージ</th>
+        <th>形式</th>
+        <th>日本人DNVホルダーとの関係</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="row-green">
+        <td><strong>NIE</strong></td>
+        <td>Número de<br>Identidad de<br>Extranjero</td>
+        <td>外国人識別<br>番号</td>
+        <td>番号のみ<br>（X0000000X）<br>証明書は紙</td>
+        <td class="ok">&#x2B50; 最重要。DNV申請と同時に付与されることが多い。銀行・賃貸・税務・社会保険すべてに必要</td>
+      </tr>
+      <tr class="row-blue">
+        <td><strong>TIE</strong></td>
+        <td>Tarjeta de<br>Identidad de<br>Extranjero</td>
+        <td>外国人在留<br>カード</td>
+        <td>物理カード<br>（写真・指紋付き）</td>
+        <td class="ok">NIE番号がカードに印刷されている。スペイン到着後に取得（06-09参照）。日本人DNV保持者は必須</td>
+      </tr>
+      <tr class="row-warn">
+        <td><strong>NIF</strong></td>
+        <td>Número de<br>Identificación<br>Fiscal</td>
+        <td>税務識別番号</td>
+        <td>番号のみ</td>
+        <td class="warn">外国人の場合、NIEと同じ番号を使う。Gestorや確定申告書にNIEを書く欄が「NIF」と表記されていても、NIEを書けばOK</td>
+      </tr>
+      <tr>
+        <td><strong>DNI</strong></td>
+        <td>Documento<br>Nacional de<br>Identidad</td>
+        <td>スペイン国民<br>ID（身分証）</td>
+        <td>物理カード</td>
+        <td class="ng">スペイン国籍者専用。日本人には関係なし</td>
+      </tr>
+      <tr class="row-blue">
+        <td><strong>Padrón /<br>Empadronamiento</strong></td>
+        <td>住民登録証明</td>
+        <td>住民票・住民<br>登録番号</td>
+        <td>証明書（紙）</td>
+        <td>NIEとは別物。スペインの市役所（Ayuntamiento）に住所登録して取得。NIEより後のステップ（06-12参照）</td>
+      </tr>
+      <tr class="row-warn">
+        <td><strong>Certificado<br>Digital</strong></td>
+        <td>電子証明書</td>
+        <td>スペインの<br>マイナカード的<br>電子証明</td>
+        <td>PCにインストール<br>するソフト証明書</td>
+        <td class="warn">取得にNIEが必要。オンライン行政手続き（税務申告・社会保険）に必要。NIE取得後に別途申請</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="news-box">
+    <span class="nlabel">&#x1F4A1; 「NIEカード」という言葉に注意</span>
+    <p>
+      ネット検索すると「NIEカード」という表現が出てきますが、厳密には存在しません。
+      &#x2022; <strong>「白いNIE（Certificado de NIE）」</strong>＝ NIEが記載された紙の証明書（非居住者向け・有効期限あり）<br>
+      &#x2022; <strong>「緑のNIE（Certificado de Registro de Ciudadano de la UE）」</strong>＝ EU市民が居住者登録したときの緑色の紙（日本人には関係なし）<br>
+      &#x2022; <strong>TIEカード</strong>＝ 物理カード（写真・指紋付き）。非EU居住者（日本人DNV保持者）が持つ。NIE番号が記載されている<br>
+      日本人DNVホルダーが最終的に持つのは<strong>TIEカード</strong>です。
+    </p>
+  </div>
+</div>
+
+<!-- DNV申請者がNIEを取得する2ルート -->
+<div class="card">
+  <h2>&#x1F6E3;&#xFE0F; DNV申請者がNIEを取得する「2つのルート」</h2>
+  <p>
+    日本からスペインの国際遠隔就労ビザを申請する場合、NIEの取得方法は大きく2ルートに分かれます。
+    どちらのルートが適用されるかは、申請のタイミングと「NIEが必要な理由」で決まります。
+  </p>
+
+  <div class="compare-row">
+    <div class="compare-card green">
+      <h3>&#x1F7E2; ルートA ── DNVビザと同時に取得（自動）</h3>
+      <strong>多くの日本人DNV申請者はこのルート</strong><br><br>
+      在日スペイン大使館でDNVの審査が承認されると、<strong>NIE番号はビザの承認手続きの中で自動的に付与</strong>されます。<br><br>
+      &#x2022; NIE番号がビザ関連書類（UGEの承認通知やビザステッカー）に記載される<br>
+      &#x2022; 別途 EX-15 申請は不要<br>
+      &#x2022; スペイン到着後 → TIEカード取得 → TIEにNIEが印字<br><br>
+      <span style="color:#1a6e49; font-weight:700">→ 「まず DNV を申請 → 承認後にスペインへ渡航 → TIE取得」の順番で進む人に適用</span>
+    </div>
+    <div class="compare-card amber">
+      <h3>&#x1F7E1; ルートB ── EX-15フォームで先行取得</h3>
+      <strong>特定の理由がある場合に選ぶルート</strong><br><br>
+      DNVを申請する前に、または DNV審査と並行して、<strong>EX-15フォームを使って NIE を単独申請</strong>します。<br><br>
+      &#x2022; スペインの銀行口座をリモート開設したい（NIEが必要）<br>
+      &#x2022; スペインの不動産を購入したい（NIEが必要）<br>
+      &#x2022; DNV審査中から NIE が必要な手続きを先行させたい<br><br>
+      <span style="color:#a07800; font-weight:700">→ 「DNV取得前にスペインで準備を進めたい」人に有効</span>
+    </div>
+  </div>
+
+  <div class="alert-box">
+    <span class="alabel">&#x26A0;&#xFE0F; 「NIEを先に取らないとDNVが申請できない」は誤解</span>
+    <p>
+      一部の情報源では「DNVの前にNIEが必要」とあります。在日スペイン大使館でのDNV申請では、NIEの先行取得は<strong>通常は不要</strong>です。ただし大使館・領事館によって手続きが異なるため、<strong>申請前に必ず在日スペイン大使館（exteriores.gob.es/Embajadas/tokio）で最新の要件を確認</strong>してください。
+    </p>
+  </div>
+
+  <!-- ルートAのフロー -->
+  <p style="font-weight:600; font-size:0.92rem; margin:16px 0 8px 0;">&#x1F7E2; ルートA（多数派）のフロー</p>
+  <div class="flow-h-row">
+    <div class="flow-h-box">
+      <span class="fh-label">STEP 1</span>
+      <strong>在日スペイン<br>大使館で<br>DNV申請</strong>
+    </div>
+    <div class="arrow-right">&#x27A1;</div>
+    <div class="flow-h-box fh-amber">
+      <span class="fh-label">STEP 2（自動）</span>
+      <strong>UGE承認と<br>同時にNIE番号<br>が付与される</strong>
+    </div>
+    <div class="arrow-right">&#x27A1;</div>
+    <div class="flow-h-box fh-sub">
+      <span class="fh-label">STEP 3</span>
+      <strong>ビザを受け取り<br>スペインへ<br>渡航</strong>
+    </div>
+    <div class="arrow-right">&#x27A1;</div>
+    <div class="flow-h-box fh-blue">
+      <span class="fh-label">STEP 4</span>
+      <strong>TIEカード<br>取得<br>（NIEが印字）</strong>
+    </div>
+  </div>
+
+  <!-- ルートBのフロー -->
+  <p style="font-weight:600; font-size:0.92rem; margin:16px 0 8px 0;">&#x1F7E1; ルートB（先行取得）のフロー</p>
+  <div class="flow-h-row">
+    <div class="flow-h-box fh-amber">
+      <span class="fh-label">STEP 1</span>
+      <strong>在日スペイン<br>大使館で<br>EX-15申請</strong>
+    </div>
+    <div class="arrow-right">&#x27A1;</div>
+    <div class="flow-h-box">
+      <span class="fh-label">STEP 2（2〜8週）</span>
+      <strong>NIE証明書<br>（白い紙）を<br>受け取る</strong>
+    </div>
+    <div class="arrow-right">&#x27A1;</div>
+    <div class="flow-h-box fh-sub">
+      <span class="fh-label">STEP 3</span>
+      <strong>NIEを使って<br>銀行口座等の<br>準備を進める</strong>
+    </div>
+    <div class="arrow-right">&#x27A1;</div>
+    <div class="flow-h-box fh-blue">
+      <span class="fh-label">STEP 4</span>
+      <strong>DNV申請<br>→ 渡航<br>→ TIE取得</strong>
+    </div>
+  </div>
+</div>
+
+<!-- EX-15申請手順 -->
+<div class="card">
+  <h2>&#x1F4CB; EX-15 フォームで NIE を先行取得する ── 在日スペイン大使館での手順</h2>
+  <p>
+    NIEを単独申請する場合は <strong>EX-15 フォーム（正式名称：Solicitud de Número de Identidad de Extranjero/NIE）</strong>を使います。
+    在日スペイン大使館（東京・六本木）の領事部に予約を取って申請します。
+  </p>
+
+  <ul class="step-list">
+    <li>
+      <div class="step-num">①</div>
+      <div>
+        <strong>申請理由（Causa Justificada）を決める</strong><br>
+        NIEの単独申請には「なぜNIEが必要か」という理由を記載する必要があります。認められる理由の例：<br>
+        &#x2022; スペインの不動産取引（購入・売却）<br>
+        &#x2022; 相続手続き<br>
+        &#x2022; 銀行口座開設（スペインでの経済活動）<br>
+        &#x2022; 就労ビザ申請の前準備（経済的・職業的活動）<br>
+        理由が弱いと却下されることがあるため、具体的に記載します。
+      </div>
+    </li>
+    <li>
+      <div class="step-num">②</div>
+      <div>
+        <strong>必要書類を用意する</strong><br>
+        &#x2022; <strong>EX-15 フォーム</strong>：スペイン語大文字で記入。外務省（exteriores.gob.es）のウェブサイトからダウンロード・印刷<br>
+        &#x2022; <strong>パスポート原本＋コピー</strong>（全見開き）<br>
+        &#x2022; <strong>Modelo 790 Código 012（手数料支払いフォーム）</strong>：領事館か公式サイトから入手し、スペインの協力銀行または オンラインで支払い（約€12）<br>
+        &#x2022; <strong>申請理由を裏付ける書類</strong>（例：不動産の売買予約契約書、銀行口座開設の申請確認書など）
+      </div>
+    </li>
+    <li>
+      <div class="step-num blue">③</div>
+      <div>
+        <strong>在日スペイン大使館領事部に予約（Cita Previa）を取る</strong><br>
+        在日スペイン大使館（Tokyo: 六本木）の領事サービス窓口は原則<strong>予約制</strong>です。
+        大使館の公式サイト（exteriores.gob.es/Embajadas/tokio）から予約方法を確認してください。
+        窓口受付時間は平日午前9時〜午後1時が目安です（変更の可能性あり、要確認）。
+      </div>
+    </li>
+    <li>
+      <div class="step-num blue">④</div>
+      <div>
+        <strong>本人または公証済み委任状を持つ代理人が窓口に行く</strong><br>
+        原則として<strong>本人申請</strong>ですが、公証された委任状（Power of Attorney）があれば代理申請も可能です。
+        必要書類一式を持参し、窓口で提出します。
+      </div>
+    </li>
+    <li>
+      <div class="step-num amber">⑤</div>
+      <div>
+        <strong>処理を待つ（2週間〜2か月）</strong><br>
+        申請書類はスペイン本国のシステムに登録されます。処理が完了すると、NIE証明書（Certificado de NIE）が交付されます。
+        受け取り方法（窓口受取 or メール通知後に受取）は領事館に確認してください。
+        一部の領事館ではPDFをメールで受け取れる場合もあります。
+      </div>
+    </li>
+    <li>
+      <div class="step-num amber">⑥</div>
+      <div>
+        <strong>NIE証明書を受け取り、有効期限に注意する</strong><br>
+        証明書の有効期限は<strong>通常3か月程度</strong>です。ただし、NIE番号自体は永久有効です。
+        証明書が切れても番号はそのまま使えます。銀行や公証人がどちらを求めるか確認してから手続きを進めましょう。
+      </div>
+    </li>
+  </ul>
+
+  <div class="danger-box">
+    <span class="dlabel">&#x26A0;&#xFE0F; Modelo 790 Código 012 の支払いに注意</span>
+    <p>
+      手数料フォーム（Modelo 790 Código 012）は<strong>スペイン国内の協力銀行での支払い</strong>が本来の方法です。
+      在日大使館での申請の場合は、大使館が指定する方法（銀行振込・窓口払いなど）を事前に確認してください。
+      領事館によって支払い方法が異なります。正確な金額（2026年時点の目安は約€12）も要確認です。
+    </p>
+  </div>
+</div>
+
+<!-- NIEが必要なシーン -->
+<div class="card">
+  <h2>&#x1F4C4; NIEが必要な「場面」一覧 ── いつ何に使うか</h2>
+  <p>NIEは、スペインに関係するほぼあらゆる経済活動・法的手続きに必要です。日本の1人法人オーナーが直面しやすい場面を整理します。</p>
+
+  <table class="matrix-table">
+    <thead>
+      <tr>
+        <th>場面</th>
+        <th>NIEが必要か</th>
+        <th>タイミング・メモ</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="row-green">
+        <td><strong>&#x1F3E6; スペイン銀行口座の開設</strong></td>
+        <td class="ok">必須</td>
+        <td>NIEが付与されてから口座開設が可能になる（06-06参照）</td>
+      </tr>
+      <tr class="row-green">
+        <td><strong>&#x1F9FE; 賃貸契約書への記載</strong></td>
+        <td class="ok">必須</td>
+        <td>大家は NIE を契約書に記載する（06-12参照）</td>
+      </tr>
+      <tr class="row-green">
+        <td><strong>&#x1F4B0; autónomo（自営業）登録</strong></td>
+        <td class="ok">必須</td>
+        <td>社会保険庁（TGSS）への登録に NIE が必要</td>
+      </tr>
+      <tr class="row-green">
+        <td><strong>&#x1F4CA; 確定申告（Modelo 100/149/151）</strong></td>
+        <td class="ok">必須</td>
+        <td>申告書の「NIF」欄に NIE を記載（06-05参照）</td>
+      </tr>
+      <tr class="row-green">
+        <td><strong>&#x1F4BB; Certificado Digital の取得</strong></td>
+        <td class="ok">必須</td>
+        <td>FNMT（スペイン国家造幣局）のサイトで NIE を使って電子証明書を発行</td>
+      </tr>
+      <tr class="row-green">
+        <td><strong>&#x1F3E0; 不動産の購入・売却</strong></td>
+        <td class="ok">必須</td>
+        <td>非居住者でも NIE がないと不動産取引不可。ルートBの典型例</td>
+      </tr>
+      <tr class="row-warn">
+        <td><strong>&#x1F697; 車・バイクの購入・登録</strong></td>
+        <td class="warn">必要</td>
+        <td>DGT（交通局）への登録に NIE が必要</td>
+      </tr>
+      <tr class="row-warn">
+        <td><strong>&#x1F4F1; SIM カード購入（身分証登録）</strong></td>
+        <td class="warn">必要なケースあり</td>
+        <td>通常はパスポートでも可だが、契約によっては NIE が求められる</td>
+      </tr>
+      <tr>
+        <td><strong>&#x1F4DE; 公証人（Notario）への訪問</strong></td>
+        <td class="ok">必須（原則）</td>
+        <td>遺言書・委任状・各種公証書類に NIE が必要</td>
+      </tr>
+      <tr>
+        <td><strong>&#x1F9BE; 社会保険（Seguridad Social）の手続き</strong></td>
+        <td class="ok">必須</td>
+        <td>NUSS（社会保障番号）の取得にも NIE が必要</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- NIEとTIEのタイムライン比較 -->
+<div class="card">
+  <h2>&#x23F1;&#xFE0F; NIEとTIEを取得するタイムライン ── スペイン移住準備から安定まで</h2>
+  <p>在日スペイン大使館でDNVを申請する場合の典型的な流れです（ルートA：NIE自動付与のケース）。</p>
+
+  <div class="flow-wrap">
+    <div class="flow-box gray">
+      <span class="fb-label">&#x1F1EF;&#x1F1F5; 日本滞在中（〜スペイン渡航まで）</span>
+      <strong>DNV申請書類の準備・在日大使館で申請 → UGEが審査（数週間〜数か月）</strong><br>
+      NIEは審査承認時に付与される（番号が書類に記載される）
+    </div>
+    <div class="arrow-down">&#x2B07;</div>
+    <div class="flow-box amber">
+      <span class="fb-label">&#x2708;&#xFE0F; スペイン渡航直後（1〜2週間）</span>
+      <strong>中期賃貸（Spotahome等）で住所確保 → Empadronamiento申請（06-12参照）</strong><br>
+      この段階でNIEは既に持っている状態
+    </div>
+    <div class="arrow-down">&#x2B07;</div>
+    <div class="flow-box">
+      <span class="fb-label">&#x1F3E6; 渡航1〜2か月後</span>
+      <strong>スペインの銀行口座を開設（NIEが必要・06-06参照）</strong><br>
+      BBVA / Sabadell / CaixaBank 等。Empadronamiento と NIE の両方が揃うとスムーズ
+    </div>
+    <div class="arrow-down">&#x2B07;</div>
+    <div class="flow-box sub">
+      <span class="fb-label">&#x1F9FE; 渡航1〜3か月後（必須手続き）</span>
+      <strong>TIEカードの Cita Previa 予約 → 申請 → 指紋登録 → TIEカード受け取り（06-09参照）</strong><br>
+      TIEにNIEが印字される。これがスペインでの「IDカード」になる
+    </div>
+    <div class="arrow-down">&#x2B07;</div>
+    <div class="flow-box blue">
+      <span class="fb-label">&#x1F4BB; TIE取得後</span>
+      <strong>Certificado Digital（電子証明書）を取得 → FNMT（スペイン国家造幣局）のウェブサイトで申請</strong><br>
+      TIEカード + NIEがあれば申請できる。オンライン行政手続き（確定申告・社会保険）に必要
+    </div>
+    <div class="arrow-down">&#x2B07;</div>
+    <div class="flow-box">
+      <span class="fb-label">&#x2705; 安定期</span>
+      <strong>autónomo 登録 → ベックハム法申請（Modelo 149・06か月以内） → 毎年の確定申告</strong><br>
+      すべての手続きで同じNIE番号を使い続ける
+    </div>
+  </div>
+</div>
+
+<!-- よくある誤解・注意点 -->
+<div class="card">
+  <h2>&#x26A0;&#xFE0F; よくある誤解・注意点</h2>
+
+  <div class="compare-row">
+    <div class="compare-card red">
+      <h3>&#x274C; よくある誤解</h3>
+      &#x2022; 「NIEは3か月で失効する」<br>
+      &#x2022; 「NIEカードを持ち歩く」<br>
+      &#x2022; 「NIEを取り直すたびに番号が変わる」<br>
+      &#x2022; 「TIEとNIEは別の番号」<br>
+      &#x2022; 「スペインを出国したらNIEが無効になる」<br>
+      &#x2022; 「DNVを更新するとNIEも変わる」
+    </div>
+    <div class="compare-card green">
+      <h3>&#x2705; 正しい理解</h3>
+      &#x2022; NIEの<strong>証明書（白い紙）</strong>に有効期限あり。<strong>番号は永久</strong><br>
+      &#x2022; NIEはカードではなく<strong>番号</strong>。TIEカードにNIEが印字されている<br>
+      &#x2022; NIEは一生変わらない<strong>永久番号</strong><br>
+      &#x2022; TIEカードのIDナンバー ＝ NIE（同一番号）<br>
+      &#x2022; スペインを出国しても、日本↔スペインを往来しても、<strong>NIEは有効</strong><br>
+      &#x2022; DNVを更新・再取得しても<strong>NIEは同一番号</strong>のまま
+    </div>
+  </div>
+
+  <div class="alert-box">
+    <span class="alabel">&#x1F4A1; 「NIE証明書の有効期限切れ」の実務的な影響</span>
+    <p>
+      NIE証明書（白い紙）の有効期限が切れても、実際の業務への影響は限定的です。
+      <strong>銀行や税務申告では NIE 番号そのものを使えば OK</strong> で、証明書の再提出を求められることは通常ありません。
+      ただし、不動産取引や公証人への訪問など「原本証明書の提示が必要なケース」では、最新の証明書が必要なことがあります。
+      その場合は Comisaría de Policía（スペイン警察署）で再発行（更新）できます。再発行しても NIE 番号は同じです。
+    </p>
+  </div>
+
+  <div class="danger-box">
+    <span class="dlabel">&#x1F6A8; 「NIE番号は他人と共有しない」</span>
+    <p>
+      NIEはスペインにおける「あなたの識別番号」であり、<strong>銀行・税務・法的手続きのあらゆる場面で本人確認に使われます</strong>。
+      個人情報として適切に管理し、不審なサービスや代理業者に無闇に共有しないようにしてください。
+      スペインでは NIE を悪用した詐欺・不正登録のトラブルも報告されています。
+    </p>
+  </div>
+</div>
+
+<!-- 日本↔スペイン往来との関係 -->
+<div class="card">
+  <h2>&#x2708;&#xFE0F; 日本↔スペインを往来する生活での NIE の扱い</h2>
+  <p>「日本とスペインを行き来しながら日本法人を維持する」生活パターンにおける NIE の実務的な注意点です。</p>
+
+  <table class="matrix-table">
+    <thead>
+      <tr>
+        <th>シーン</th>
+        <th>NIEへの影響</th>
+        <th>対処法・注意点</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="row-green">
+        <td><strong>スペインを一時出国<br>（日本帰国など）</strong></td>
+        <td class="ok">なし</td>
+        <td>NIE番号は継続有効。出国・入国を繰り返してもNIEは変わらない</td>
+      </tr>
+      <tr class="row-warn">
+        <td><strong>DNVが失効して<br>スペイン居住者でなくなった</strong></td>
+        <td class="warn">NIE番号は残る<br>（TIEは無効）</td>
+        <td>DNV失効後もNIE番号は変わらない。再度DNVを取得した場合、同じNIEが使われる。TIEは更新手続きが必要</td>
+      </tr>
+      <tr class="row-green">
+        <td><strong>DNVを更新した</strong></td>
+        <td class="ok">変わらない</td>
+        <td>更新後も同じNIEが使われる。新しいTIEカードにも同じNIEが印字される</td>
+      </tr>
+      <tr class="row-blue">
+        <td><strong>スペインの税務申告を<br>日本から行う</strong></td>
+        <td>NIEを使用</td>
+        <td>Certificado Digital（電子証明書）があればオンラインで申告可能。日本からでもできる</td>
+      </tr>
+      <tr class="row-warn">
+        <td><strong>日本に1年以上帰国<br>（スペイン非居住者に）</strong></td>
+        <td class="warn">NIE番号は残る<br>居住者ステータスは失効</td>
+        <td>スペインの税務上・社会保険上の居住者ステータスは失効するが、NIE番号は失われない。再移住の際に同じNIEを使える</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- アクションチェックリスト -->
+<div class="card">
+  <h2>&#x2705; NIE に関する アクションチェックリスト</h2>
+  <ul class="check-list">
+    <li>
+      <span class="ico">&#x1F4CB;</span>
+      <div>
+        <strong>【DNV申請準備中】NIEの自動付与を確認する</strong><br>
+        在日スペイン大使館でのDNV申請手順を確認し、「NIEは申請と同時に付与されるか、それとも別途申請が必要か」を大使館の公式情報（exteriores.gob.es/Embajadas/tokio）で確認する。
+      </div>
+    </li>
+    <li>
+      <span class="ico">&#x1F3E6;</span>
+      <div>
+        <strong>【DNV前に銀行口座が必要な場合】EX-15申請を検討する</strong><br>
+        スペインの銀行口座をDNV取得前にリモートで開設したい場合は、EX-15フォームでNIEを先行取得する。在日大使館に予約を取り、必要書類を準備する。
+      </div>
+    </li>
+    <li>
+      <span class="ico">&#x1F4DD;</span>
+      <div>
+        <strong>【スペイン到着後】NIE番号を安全に記録・保管する</strong><br>
+        NIE番号（X0000000X形式）をパスワードマネージャーまたは安全な場所に記録する。スペインでのすべての手続きで使う「一生もの」の番号。
+      </div>
+    </li>
+    <li>
+      <span class="ico">&#x1F9FE;</span>
+      <div>
+        <strong>【スペイン到着後1〜3か月】TIEカードを取得する（06-09参照）</strong><br>
+        TIEカードにNIEが印字され、スペインでの「IDカード」として機能する。Cita Previa（予約）を早めに取ること。
+      </div>
+    </li>
+    <li>
+      <span class="ico">&#x1F4BB;</span>
+      <div>
+        <strong>【TIE取得後】Certificado Digital（電子証明書）を取得する</strong><br>
+        NIEを使ってFNMT（スペイン国家造幣局）のサイトでオンライン申請。これがあると確定申告・社会保険・行政手続きをすべてオンラインで完結できる。
+      </div>
+    </li>
+    <li>
+      <span class="ico">&#x26A0;&#xFE0F;</span>
+      <div>
+        <strong>【NIE証明書の有効期限を把握する】</strong><br>
+        EX-15で取得した場合のNIE証明書の有効期限（通常3か月）を確認。不動産取引など証明書提示が必要な場面が近い場合は更新が必要かどうかを事前確認する。
+      </div>
+    </li>
+  </ul>
+</div>
+
+<!-- まとめ -->
+<div class="card">
+  <h2>&#x1F4A1; まとめ ── NIEは「スペインでの一生の番号」</h2>
+  <div class="flow-wrap">
+    <div class="flow-box">
+      <span class="fb-label">&#x1F535; NIEとは</span>
+      <strong>スペインで経済活動・法的手続きをするすべての外国人に必要な識別番号（X0000000X形式）。番号は永久。証明書は有効期限あり。</strong>
+    </div>
+    <div class="arrow-down">&#x2B07;</div>
+    <div class="flow-box sub">
+      <span class="fb-label">&#x1F7E2; DNV申請者の多数派ルート</span>
+      <strong>在日スペイン大使館でDNV申請 → UGE承認と同時にNIEが自動付与 → スペイン到着後にTIEカード取得（NIEが印字）</strong>
+    </div>
+    <div class="arrow-down">&#x2B07;</div>
+    <div class="flow-box amber">
+      <span class="fb-label">&#x1F7E1; 先行取得ルート（特定ニーズ向け）</span>
+      <strong>DNV前に銀行・不動産が必要 → EX-15フォームで単独申請（在日大使館）→ 約€12・2〜8週間 → NIE証明書受取</strong>
+    </div>
+    <div class="arrow-down">&#x2B07;</div>
+    <div class="flow-box blue">
+      <span class="fb-label">&#x1F535; 往来生活との関係</span>
+      <strong>NIEは日本↔スペインの往来・DNV更新・長期帰国に関わらず「同じ番号」のまま一生使い続ける。スペインでの自分の「識別子」として大切に管理する。</strong>
+    </div>
+  </div>
+
+  <div class="two-col" style="margin-top:16px;">
+    <div class="mini-card">
+      <h4>&#x1F4C5; 次のステップ</h4>
+      &#x2022; DNV申請フロー &#x2192; <a href="2026-06-03.html" style="color:#1a6e49">06-03</a><br>
+      &#x2022; TIEカード取得実務 &#x2192; <a href="2026-06-09.html" style="color:#1a6e49">06-09</a><br>
+      &#x2022; スペイン銀行口座 &#x2192; <a href="2026-06-06.html" style="color:#1a6e49">06-06</a><br>
+      &#x2022; 住居探し（Empadronamiento）&#x2192; <a href="2026-06-12.html" style="color:#1a6e49">06-12</a>
+    </div>
+    <div class="mini-card amber-bg">
+      <h4>&#x26A0;&#xFE0F; 専門家への相談が必要な場面</h4>
+      &#x2022; NIE先行取得の要否（申請理由の判断）<br>
+      &#x2022; 不動産取引・相続でのNIE利用<br>
+      &#x2022; 委任状による代理申請<br>
+      &#x2192; 移民弁護士または Gestor に相談
+    </div>
+  </div>
+
+  <div class="source-list">
+    <strong>情報ソース：</strong><br>
+    &#x2022; スペイン大使館 東京（在日スペイン大使館 NIE 公式ページ）
+    <a href="https://www.exteriores.gob.es/Embajadas/tokio/ja/ServiciosConsulares/Paginas/Consular/NIE.aspx" target="_blank">https://www.exteriores.gob.es/Embajadas/tokio/ja/ServiciosConsulares/Paginas/Consular/NIE.aspx</a>（参照：2026年6月）<br>
+    &#x2022; Ministerio de Asuntos Exteriores「Foreigner Identity Number (NIE)」Consulate of Spain in Edinburgh（英語版の制度説明）
+    <a href="https://www.exteriores.gob.es/Consulados/edimburgo/en/ServiciosConsulares/Paginas/Consular/NIE.aspx" target="_blank">https://www.exteriores.gob.es/Consulados/edimburgo/en/ServiciosConsulares/Paginas/Consular/NIE.aspx</a>（参照：2026年6月）<br>
+    &#x2022; Global Citizen Solutions「NIE Spain: How to Obtain the NIE in Spain in 2026」（2026年）
+    <a href="https://www.globalcitizensolutions.com/nie-spain/" target="_blank">https://www.globalcitizensolutions.com/nie-spain/</a><br>
+    &#x2022; Remote Work Europe「NIE vs TIE vs NIF in Spain: Which ID Do You Need and How to Get It」（2026年）
+    <a href="https://remoteworkeurope.eu/insights/spain-nie-tie-nif/" target="_blank">https://remoteworkeurope.eu/insights/spain-nie-tie-nif/</a><br>
+    &#x2022; Idealista「How to get a NIE number in Spain in 2026」（2026年1月15日）
+    <a href="https://www.idealista.com/en/news/legal-advice-spain/2026/01/15/2578-how-do-i-get-nie-number-spain" target="_blank">https://www.idealista.com/en/news/legal-advice-spain/2026/01/15/2578-how-do-i-get-nie-number-spain</a><br>
+    &#x2022; Klevvera「What is the difference between NIE &amp; TIE in Spain?」（2024年）
+    <a href="https://www.klevvera.com/blog/difference-between-nie-and-tie-in-spain-which-one-do-you-need/" target="_blank">https://www.klevvera.com/blog/difference-between-nie-and-tie-in-spain-which-one-do-you-need/</a><br>
+    &#x2022; JURO Spain「How to Get Your NIE Number in Spain (2026 Guide)」（2026年）
+    <a href="https://jurospain.com/guides/nie-number-spain/" target="_blank">https://jurospain.com/guides/nie-number-spain/</a><br>
+    &#x2022; nienumbers.es「スペインでNIE番号を取得する方法（2025/2026年）」（日本語版ガイド）
+    <a href="https://nienumbers.es/ja/" target="_blank">https://nienumbers.es/ja/</a><br>
+    &#x2022; 各ソースの情報の基準年度：NIEの制度根拠はLey Orgánica 4/2000（外国人法）。EX-15フォーム・手数料（約€12）・処理時間（2〜8週間）は2026年時点の目安であり、変更される可能性あり。
+  </div>
+</div>
+
+<!-- フッター免責 -->
+<div class="footer-note">
+  <strong>&#x26A0;&#xFE0F; 免責事項</strong><br>
+  &#x2022; <strong>ビザ・在留資格（NIE取得・DNVの申請・TIE取得等）に関する正式な判断は、スペイン移民法を専門とする移民弁護士（Abogado de Extranjer&iacute;a）にご相談ください。</strong><br>
+  &#x2022; <strong>税務・社会保険に関する正式な判断は、国際税務に強い税理士（日本）およびスペインの Asesor Fiscal / Gestor にご相談ください。</strong><br>
+  &#x2022; NIE・TIEの取得要件・書類・手数料・処理時間は変更される場合があります。申請前に在日スペイン大使館（exteriores.gob.es/Embajadas/tokio）で最新情報を確認してください。<br>
+  &#x2022; 本記事に記載の手続きは2026年6月時点の情報をもとにした概説です。個別の状況により異なる場合があります。<br>
+  &#x2022; 「必ずNIEが取得できる」「必ずDNVが承認される」などの断定はできません。本記事の情報を利用した結果について、筆者は責任を負いかねます。
+</div>
+
+</body>
+</html>
