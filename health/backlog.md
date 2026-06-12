@@ -46,6 +46,8 @@
 
 ## 使用済みテーマ
 
+- 2026-06-12: 睡眠と腸内細菌の双方向関係 ── 2026年系統的レビュー＆メタ分析（Supasitdikul ら、Journal of Sleep Research, PMID: 40562421、20研究、ヒト4件のみ）が示す多様性低下・F/B比上昇（動物実験中心）、不眠症ケースコントロール研究15件・1,321名（PMC12299568）との比較、腸脳軸メカニズム（セロトニン・酪酸・GABA）
+
 - 2026-06-10: 血糖値とGI・GL指数の基礎 ── Lancet Diabetes Endocrinol 2024年2本（Jenkins et al. 10コホート10万人超メタ分析 DOI: 10.1016/S2213-8587(23)00344-3、PURE 127,594人コホート DOI: 10.1016/S2213-8587(24)00069-X）、高GI食とT2DM相対リスク1.27、個人差・精密栄養学との接続
 
 - 2026-06-09: 食物繊維と腸内細菌多様性 ── n=105 二重盲検RCT（Microorganisms 2025, PMID: 41011400）、Bifidobacterium・Anaerostipes・Fusicatenibacter増加、JPAC-QOL改善
