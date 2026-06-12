@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>デジタルノマド 最新トピック 2026-06-12</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    color: #2a2a2a;
+  }
+  /* ── ヒーロー ── */
+  .hero {
+    background: linear-gradient(135deg, #1a6e49 0%, #0e4530 100%);
+    color: white;
+    border-radius: 10px;
+    padding: 48px 40px;
+    text-align: center;
+    width: 100%;
+    max-width: 760px;
+    margin-bottom: 28px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .hero .label {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 0.8rem;
+    margin-bottom: 14px;
+    letter-spacing: 0.05em;
+  }
+  .hero h1 { font-size: 1.5rem; margin-bottom: 12px; line-height: 1.55; }
+  .hero .meta { opacity: 0.85; font-size: 0.88rem; line-height: 1.75; }
+  /* ── カード共通 ── */
+  .card {
+    background: #fff9f0;
+    border-radius: 8px;
+    padding: 28px 32px;
+    width: 100%;
+    max-width: 760px;
+    margin-bottom: 20px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.08);
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a6e49;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px dashed #90c8a8;
+  }
+  .card p { font-size: 0.93rem; line-height: 1.85; margin-bottom: 10px; }
+  .card p:last-child { margin-bottom: 0; }
+  /* ── カラーボックス ── */
+  .highlight-box {
+    background: #e8f5ef;
+    border-left: 4px solid #1a6e49;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .highlight-box .hlabel { font-size: 0.75rem; color: #1a6e49; font-weight: 600; margin-bottom: 6px; display: block; }
+  .highlight-box p { font-size: 0.9rem; margin: 0; }
+  .alert-box {
+    background: #fff3cd;
+    border-left: 4px solid #e8a000;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .alert-box .alabel { font-size: 0.75rem; color: #b07700; font-weight: 600; margin-bottom: 6px; display: block; }
+  .alert-box p { font-size: 0.9rem; margin: 0; }
+  .danger-box {
+    background: #fde8e8;
+    border-left: 4px solid #c0392b;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .danger-box .dlabel { font-size: 0.75rem; color: #c0392b; font-weight: 600; margin-bottom: 6px; display: block; }
+  .danger-box p { font-size: 0.9rem; margin: 0; }
+  .news-box {
+    background: #e8f0fd;
+    border-left: 4px solid #2a5e8e;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .news-box .nlabel { font-size: 0.75rem; color: #2a5e8e; font-weight: 600; margin-bottom: 6px; display: block; }
+  .news-box p { font-size: 0.9rem; margin: 0; }
+  /* ── 数字カード ── */
+  .number-row { display: flex; gap: 14px; flex-wrap: wrap; margin: 14px 0; }
+  .number-card {
+    flex: 1; min-width: 130px;
+    background: #1a6e49; color: white;
+    border-radius: 8px; padding: 18px 14px; text-align: center;
+  }
+  .number-card .num { font-size: 1.5rem; font-weight: 700; margin-bottom: 6px; line-height: 1.2; letter-spacing: 0.03em; }
+  .number-card .desc { font-size: 0.72rem; opacity: 0.9; line-height: 1.5; }
+  .number-card.amber { background: #b07700; }
+  .number-card.blue  { background: #2a5e8e; }
+  .number-card.red   { background: #922b2b; }
+  .number-card.gray  { background: #555; }
+  /* ── フロー（縦） ── */
+  .flow-wrap { display: flex; flex-direction: column; gap: 4px; margin: 14px 0; }
+  .flow-box {
+    background: #1a6e49; color: white;
+    border-radius: 8px; padding: 14px 16px;
+    font-size: 0.88rem; line-height: 1.6;
+  }
+  .flow-box .fb-label { font-size: 0.7rem; opacity: 0.8; margin-bottom: 4px; display: block; }
+  .flow-box strong { font-size: 0.95rem; }
+  .flow-box.sub   { background: #2a9464; }
+  .flow-box.light { background: #e8f5ef; color: #2a2a2a; border: 1.5px solid #90c8a8; }
+  .flow-box.amber { background: #8a5e00; }
+  .flow-box.blue  { background: #2a5e8e; }
+  .flow-box.red   { background: #922b2b; }
+  .flow-box.gray  { background: #666; }
+  .arrow-down { text-align: center; font-size: 1.5rem; color: #1a6e49; margin: 4px 0; line-height: 1; }
+  /* ── フロー（横） ── */
+  .flow-h-row { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; margin: 14px 0; }
+  .flow-h-box {
+    flex: 1; min-width: 100px;
+    background: #1a6e49; color: white;
+    border-radius: 8px; padding: 14px 12px; text-align: center;
+    font-size: 0.82rem; line-height: 1.55;
+  }
+  .flow-h-box .fh-label { font-size: 0.68rem; opacity: 0.8; display: block; margin-bottom: 4px; }
+  .flow-h-box strong { font-size: 0.9rem; }
+  .flow-h-box.fh-sub   { background: #2a9464; }
+  .flow-h-box.fh-amber { background: #8a5e00; }
+  .flow-h-box.fh-blue  { background: #2a5e8e; }
+  .flow-h-box.fh-red   { background: #922b2b; }
+  .flow-h-box.fh-light { background: #e8f5ef; color: #2a2a2a; border: 1.5px solid #90c8a8; }
+  .flow-h-box.fh-gray  { background: #666; }
+  .arrow-right { font-size: 1.3rem; color: #1a6e49; flex-shrink: 0; }
+  @media (max-width: 520px) { .flow-h-row { flex-direction: column; } .arrow-right { transform: rotate(90deg); } }
+  /* ── ステップリスト ── */
+  .step-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 12px 0; }
+  .step-list li { display: flex; align-items: flex-start; gap: 12px; }
+  .step-num {
+    background: #1a6e49; color: white; border-radius: 50%;
+    min-width: 28px; height: 28px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.78rem; font-weight: 700; flex-shrink: 0; margin-top: 2px;
+  }
+  .step-num.amber { background: #b07700; }
+  .step-num.blue  { background: #2a5e8e; }
+  .step-num.red   { background: #922b2b; }
+  .step-list li div { font-size: 0.9rem; line-height: 1.7; }
+  /* ── テーブル ── */
+  .matrix-table { width: 100%; border-collapse: collapse; font-size: 0.87rem; margin: 14px 0; }
+  .matrix-table th { background: #1a6e49; color: white; padding: 10px 12px; text-align: left; font-weight: 600; font-size: 0.82rem; }
+  .matrix-table th:first-child { border-radius: 6px 0 0 0; }
+  .matrix-table th:last-child  { border-radius: 0 6px 0 0; }
+  .matrix-table td { padding: 10px 12px; border-bottom: 1px solid #c0dcc8; vertical-align: top; line-height: 1.55; }
+  .matrix-table tr:nth-child(even) td { background: #f0faf5; }
+  .matrix-table .ok   { color: #1a6e49; font-weight: 700; }
+  .matrix-table .ng   { color: #c0392b; font-weight: 700; }
+  .matrix-table .warn { color: #b07700; font-weight: 700; }
+  .matrix-table .row-warn td   { background: #fff8e8 !important; }
+  .matrix-table .row-danger td { background: #fdeaea !important; }
+  .matrix-table .row-green td  { background: #e8f5ef !important; }
+  .matrix-table .row-blue td   { background: #e8f0fd !important; }
+  /* ── チェックリスト ── */
+  .check-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 12px 0; }
+  .check-list li {
+    display: flex; align-items: flex-start; gap: 12px;
+    padding: 10px 14px;
+    background: #e8f5ef; border-radius: 6px; border: 1px solid #90c8a8;
+    font-size: 0.9rem; line-height: 1.6;
+  }
+  .check-list .ico { font-size: 1.1rem; flex-shrink: 0; margin-top: 2px; }
+  /* ── 比較カード ── */
+  .compare-row { display: flex; gap: 14px; flex-wrap: wrap; margin: 14px 0; }
+  .compare-card {
+    flex: 1; min-width: 200px; border-radius: 8px;
+    padding: 16px 16px; font-size: 0.88rem; line-height: 1.7;
+  }
+  .compare-card h3 { font-size: 0.85rem; margin-bottom: 8px; padding-bottom: 6px; border-bottom: 1.5px dashed; }
+  .compare-card.green  { background: #e8f5ef; border: 1.5px solid #1a6e49; }
+  .compare-card.green h3  { color: #1a6e49; border-color: #90c8a8; }
+  .compare-card.amber  { background: #fff8e8; border: 1.5px solid #c9920a; }
+  .compare-card.amber h3  { color: #a07800; border-color: #f0d080; }
+  .compare-card.blue   { background: #e8f0fd; border: 1.5px solid #2a5e8e; }
+  .compare-card.blue h3   { color: #2a5e8e; border-color: #a0c0e8; }
+  .compare-card.red    { background: #fdeaea; border: 1.5px solid #c0392b; }
+  .compare-card.red h3    { color: #922b2b; border-color: #e8a0a0; }
+  /* ── ミニカード ── */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 14px 0; }
+  @media (max-width: 500px) { .two-col { grid-template-columns: 1fr; } }
+  .mini-card {
+    background: #e8f5ef; border: 1.5px solid #90c8a8;
+    border-radius: 8px; padding: 14px 16px; font-size: 0.88rem; line-height: 1.65;
+  }
+  .mini-card h4 { color: #1a6e49; font-size: 0.88rem; margin-bottom: 6px; }
+  .mini-card.amber-bg { background: #fff8e8; border-color: #e8c060; }
+  .mini-card.amber-bg h4 { color: #a07800; }
+  .mini-card.red-bg { background: #fdeaea; border-color: #e8a0a0; }
+  .mini-card.red-bg h4 { color: #922b2b; }
+  .mini-card.blue-bg { background: #e8f0fd; border-color: #a0c0e8; }
+  .mini-card.blue-bg h4 { color: #2a5e8e; }
+  /* ── タグ ── */
+  .tag { display: inline-block; background: #1a6e49; color: white; font-size: 0.72rem; padding: 2px 8px; border-radius: 10px; margin-right: 4px; margin-bottom: 6px; vertical-align: middle; }
+  .tag.amber { background: #b07700; }
+  .tag.blue  { background: #2a5e8e; }
+  .tag.red   { background: #922b2b; }
+  /* ── ソース ── */
+  .source-list { font-size: 0.78rem; color: #888; margin-top: 12px; line-height: 1.8; }
+  .source-list a { color: #1a6e49; word-break: break-all; }
+  /* ── フッター ── */
+  .footer-note {
+    width: 100%; max-width: 760px;
+    font-size: 0.78rem; color: #777; line-height: 1.8;
+    margin-top: 8px; padding: 20px 24px;
+    background: #f5f2ec; border-radius: 8px; border: 1px solid #ddd;
+  }
+  .footer-note strong { color: #555; }
+  /* ── ナビ ── */
+  .nav-bar {
+    width: 100%; max-width: 760px;
+    display: flex; justify-content: space-between;
+    margin-bottom: 20px; font-size: 0.82rem;
+  }
+  .nav-bar a { color: #1a6e49; text-decoration: none; padding: 6px 14px; border: 1px solid #90c8a8; border-radius: 20px; background: #fff; }
+  .nav-bar a:hover { background: #e8f5ef; }
+  /* ── 都市価格バー ── */
+  .city-bar-wrap { margin: 14px 0; }
+  .city-bar-item { margin-bottom: 12px; }
+  .city-bar-label { font-size: 0.88rem; display: flex; justify-content: space-between; margin-bottom: 4px; }
+  .city-bar-label span:first-child { color: #1a6e49; font-weight: 600; }
+  .city-bar-label span:last-child  { color: #555; font-size: 0.82rem; }
+  .city-bar-track { background: #ddd; border-radius: 4px; height: 14px; }
+  .city-bar-fill  { background: #1a6e49; border-radius: 4px; height: 14px; }
+  .city-bar-fill.amber { background: #b07700; }
+  .city-bar-fill.blue  { background: #2a5e8e; }
+  .city-bar-fill.gray  { background: #888; }
+</style>
+</head>
+<body>
+
+<!-- ナビゲーション -->
+<div class="nav-bar">
+  <a href="index.html">&larr; アーカイブ一覧</a>
+  <a href="2026-06-11.html">前の日報 &rarr;</a>
+</div>
+
+<!-- ヒーロー -->
+<div class="hero">
+  <div class="label">&#x1F4D3; デジタルノマド日報</div>
+  <h1>&#x1F3E0; スペインで家を借りる<br>外国人・保証人なしでも賃貸できる？<br>住居探し実務ガイド 2026</h1>
+  <p class="meta">
+    2026年6月12日（金）｜バックログ解説：スペイン国内での住居探し（賃貸）<br>
+    Ley 12/2023（住宅法）のポイント・仲介手数料は誰が払う？<br>
+    Aval Bancario / Seguro de Impago / Finaer で保証人問題を解決する
+  </p>
+</div>
+
+<!-- 今日の数字 -->
+<div class="card">
+  <h2>&#x1F4CC; 今日の数字で見るポイント</h2>
+  <div class="number-row">
+    <div class="number-card">
+      <div class="num">€0</div>
+      <div class="desc">住宅法（Ley 12/2023）施行後<br>テナントが払う<br>仲介手数料<br>（長期賃貸・2023年5月26日以降）</div>
+    </div>
+    <div class="number-card amber">
+      <div class="num">2.14%</div>
+      <div class="desc">2026年の家賃<br>年間値上げ上限<br>（IRAV インデックス、<br>INE 発表・2026年1月）</div>
+    </div>
+    <div class="number-card blue">
+      <div class="num">5年</div>
+      <div class="desc">Ley 12/2023 による<br>長期賃貸の最低<br>契約期間（個人大家）<br>法人大家は7年</div>
+    </div>
+    <div class="number-card red">
+      <div class="num">1か月</div>
+      <div class="desc">法定の最低<br>敷金（デポジット）<br>追加保証は別途<br>（法律上の上限あり）</div>
+    </div>
+  </div>
+  <p style="font-size:0.82rem;color:#777;margin-top:8px;">
+    ※ Ley 12/2023（スペイン住宅法）は2023年5月24日成立・2023年5月26日施行（BOE 2023年5月25日掲載）。IRAV（家賃参照インデックス）は国立統計局（INE）が毎月算出。2026年1月時点の値が2.14%。数値・制度は変更される場合があります。2026年6月時点の情報です。
+  </p>
+</div>
+
+<!-- スペインの住宅法とは -->
+<div class="card">
+  <h2>&#x1F4DC; スペインの「住宅法」とは？ ── Ley 12/2023</h2>
+  <p>
+    スペインでは2023年5月26日に<strong>Ley 12/2023, de 24 de mayo, por el derecho a la vivienda</strong>（住宅権に関する2023年5月24日付法律第12号）が施行されました。
+    「居住用の住宅を確保する権利」を保護することを目的とし、テナント（借主）に有利な大幅な制度変更が行われました。
+  </p>
+  <p>
+    デジタルノマドビザ（国際遠隔就労ビザ）でスペインに移住する場合、<strong>この法律を知っているかどうかで、賃貸の交渉・コスト・権利保護が大きく変わります</strong>。
+    特に「仲介手数料は誰が払うか」「家賃はいくらまで上げられるか」「契約期間は何年か」の3点が重要です。
+  </p>
+
+  <table class="matrix-table">
+    <thead>
+      <tr>
+        <th>項目</th>
+        <th>Ley 12/2023 以前</th>
+        <th>2023年5月26日以降</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="row-green">
+        <td><strong>仲介手数料</strong></td>
+        <td>テナント負担が慣行（家賃1か月分前後）</td>
+        <td class="ok">原則オーナー（大家）負担に変更<br>テナントへの請求は違法</td>
+      </tr>
+      <tr>
+        <td><strong>最低契約期間</strong></td>
+        <td>3年（従来の LAU 基準）</td>
+        <td><strong>5年</strong>（個人大家）/<strong>7年</strong>（法人大家）</td>
+      </tr>
+      <tr class="row-warn">
+        <td><strong>家賃値上げ上限</strong></td>
+        <td>CPI（消費者物価指数）連動（制限なし）</td>
+        <td><strong>IRAV（家賃参照インデックス）</strong>に連動<br>2026年：上限 2.14%</td>
+      </tr>
+      <tr>
+        <td><strong>敷金（デポジット）</strong></td>
+        <td>家賃1〜2か月分が慣行</td>
+        <td>法定1か月分＋追加保証（aval）は別途許容</td>
+      </tr>
+      <tr class="row-blue">
+        <td><strong>家賃規制（ストレス地区）</strong></td>
+        <td>なし</td>
+        <td><strong>Zona Tensionada（張り詰めた市場地区）</strong>に<br>指定された地域では追加規制あり</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="highlight-box">
+    <span class="hlabel">&#x1F4A1; 仲介手数料「ゼロ」はいつから有効か</span>
+    <p>
+      Ley 12/2023 は<strong>2023年5月26日以降に新規締結される長期居住用賃貸契約</strong>に適用されます。
+      それ以前に締結された契約の手数料慣行は遡及適用されません。
+      また、<strong>観光用（バカション）・季節限定・学生寮的な短期賃貸契約はこの法律の対象外</strong>のため、仲介手数料請求が続く場合があります。
+    </p>
+  </div>
+
+  <div class="news-box">
+    <span class="nlabel">&#x1F3D9;&#xFE0F; Zona Tensionada（ストレス地区）とは？</span>
+    <p>
+      「住宅費が世帯収入の30%を超える」または「過去5年で家賃・購入価格が地域CPI＋3%以上上昇した」地域を、各自治体が「Zona Tensionada（張り詰めた市場地区）」に指定できます。
+      指定されると<strong>大家は新規テナントへの家賃を直前の契約賃料から上げられない</strong>という追加規制が加わります。
+      2026年時点では<strong>カタルーニャ州（バルセロナ市内全域含む）・バスク州・ナバーラ州などが指定区域を設けています</strong>。
+      マドリード市・バレンシア市は2026年6月時点では未指定（各自治体の判断）。指定状況は随時変わるため、移住先で最新情報を確認してください。
+    </p>
+  </div>
+</div>
+
+<!-- 家賃相場 2026 -->
+<div class="card">
+  <h2>&#x1F4B6; 2026年スペイン主要都市の家賃相場</h2>
+  <p style="margin-bottom:14px;">出典：Idealista・Investropa（2026年初頭データ）。80㎡を1か月借りた場合の目安です。</p>
+
+  <div class="city-bar-wrap">
+    <div class="city-bar-item">
+      <div class="city-bar-label">
+        <span>&#x1F1EA;&#x1F1F8; バルセロナ（Zona Tensionada 適用中）</span>
+        <span>約 €24/㎡ → 80㎡ で 月 約€1,920</span>
+      </div>
+      <div class="city-bar-track"><div class="city-bar-fill amber" style="width:100%"></div></div>
+    </div>
+    <div class="city-bar-item">
+      <div class="city-bar-label">
+        <span>&#x1F9F1; マドリード</span>
+        <span>約 €23/㎡ → 80㎡ で 月 約€1,848</span>
+      </div>
+      <div class="city-bar-track"><div class="city-bar-fill amber" style="width:96%"></div></div>
+    </div>
+    <div class="city-bar-item">
+      <div class="city-bar-label">
+        <span>&#x1F334; マラガ</span>
+        <span>約 €16/㎡ → 80㎡ で 月 約€1,280</span>
+      </div>
+      <div class="city-bar-track"><div class="city-bar-fill" style="width:67%"></div></div>
+    </div>
+    <div class="city-bar-item">
+      <div class="city-bar-label">
+        <span>&#x1F347; バレンシア</span>
+        <span>約 €14/㎡ → 80㎡ で 月 約€1,112</span>
+      </div>
+      <div class="city-bar-track"><div class="city-bar-fill blue" style="width:58%"></div></div>
+    </div>
+    <div class="city-bar-item">
+      <div class="city-bar-label">
+        <span>&#x2600;&#xFE0F; アリカンテ</span>
+        <span>約 €11/㎡ → 80㎡ で 月 約€880</span>
+      </div>
+      <div class="city-bar-track"><div class="city-bar-fill blue" style="width:46%"></div></div>
+    </div>
+    <div class="city-bar-item">
+      <div class="city-bar-label">
+        <span>&#x2693; セビリア</span>
+        <span>約 €12/㎡ → 80㎡ で 月 約€960</span>
+      </div>
+      <div class="city-bar-track"><div class="city-bar-fill gray" style="width:50%"></div></div>
+    </div>
+  </div>
+
+  <div class="two-col" style="margin-top:16px;">
+    <div class="mini-card amber-bg">
+      <h4>&#x1F3E2; バルセロナ ワンルームの目安</h4>
+      &#x2022; スタジオ（単身）：€1,050〜1,450/月<br>
+      &#x2022; 1ベッドルーム：約€1,550/月<br>
+      &#x2022; 2ベッドルーム：約€2,050/月<br>
+      ※ Zona Tensionada のため家賃上昇は規制中
+    </div>
+    <div class="mini-card blue-bg">
+      <h4>&#x1F34A; バレンシア ワンルームの目安</h4>
+      &#x2022; スタジオ（単身）：€700〜950/月<br>
+      &#x2022; 1ベッドルーム：約€900〜1,100/月<br>
+      &#x2022; 2ベッドルーム：約€1,100〜1,400/月<br>
+      ※ DNV 申請者に人気が高まっている都市
+    </div>
+  </div>
+
+  <p style="font-size:0.82rem;color:#777;margin-top:10px;">
+    ※ 家賃相場は2026年初頭のIdealistaおよびInvestropa掲載データをもとにした目安です。地域・築年数・設備によって大きく変動します。最新相場は Idealista（idealista.com）・Fotocasa（fotocasa.es）で確認してください。
+  </p>
+</div>
+
+<!-- 外国人が直面する「保証問題」 -->
+<div class="card">
+  <h2>&#x1F6A7; 外国人が直面する「保証問題」── なぜ難しいか</h2>
+  <p>
+    スペインの大家は賃貸契約を結ぶ前に、テナントの<strong>支払い能力（Solvencia Económica）</strong>を確認します。
+    スペイン国内の会社に勤める人（nomina＝給与明細がある人）は審査がスムーズですが、
+    <strong>日本の1人法人として外国から稼ぐデジタルノマドは「スペインの給与明細がない」ため、大家に不安がられる</strong>ことがあります。
+  </p>
+
+  <div class="compare-row">
+    <div class="compare-card green">
+      <h3>&#x2705; 大家が「安心する」書類</h3>
+      &#x2022; スペイン企業発行の給与明細（nóminas）<br>
+      &#x2022; スペインのロングタームの雇用契約書<br>
+      &#x2022; スペイン国内銀行の十分な残高証明<br>
+      &#x2022; 過去の賃貸履歴（前の大家の推薦状）<br>
+      &#x2022; 保証人（avalista）— スペイン在住の身元引受人
+    </div>
+    <div class="compare-card amber">
+      <h3>&#x26A0;&#xFE0F; 外国人・DNV保持者が用意できるもの</h3>
+      &#x2022; アポスティーユ付きの外国クライアントとの契約書<br>
+      &#x2022; 直近3〜6か月の銀行残高明細（日本 or Wise）<br>
+      &#x2022; TIE カード（在留許可証）<br>
+      &#x2022; NIEナンバー（外国人識別番号）<br>
+      &#x2022; Empadronamiento（住民票）— ただし住所がないと取れない（後述）
+    </div>
+  </div>
+
+  <div class="danger-box">
+    <span class="dlabel">&#x1F621; 「保証人問題」の悪循環</span>
+    <p>
+      スペインに来たばかりの外国人は<strong>「住所がないと Empadronamiento（住民登録）ができない」「Empadronamiento がないと銀行口座が開けない」「銀行口座がないと Aval Bancario（銀行保証）が作れない」</strong>という悪循環に陥りやすいです。
+      この問題を解消するのが、次のセクションで紹介する3つの対策です。
+    </p>
+  </div>
+
+  <div class="alert-box">
+    <span class="alabel">&#x1F4A1; 大家の「直接差別」は違法</span>
+    <p>
+      Ley 12/2023 第6条により、外国人であること・国籍・移民ステータスを理由とした賃貸拒否は<strong>違法な差別行為</strong>として禁止されています。
+      ただし、収入証明の方法が異なることへの「不安」という間接的な問題が残ります。適切な代替書類を揃えることが現実的な対策です。
+    </p>
+  </div>
+</div>
+
+<!-- 保証問題を解決する3つの方法 -->
+<div class="card">
+  <h2>&#x1F511; 保証人問題を解決する3つの方法</h2>
+  <p>スペインの大家に「この人は家賃をちゃんと払う」と納得してもらうための代替手段が3つあります。</p>
+
+  <!-- 方法1: Aval Bancario -->
+  <div class="flow-box" style="margin-bottom:8px;">
+    <span class="fb-label">&#x1F3E6; 方法 ① 　</span>
+    <strong>Aval Bancario（アバル・バンカリオ）＝ 銀行保証</strong>
+  </div>
+  <div class="flow-box light" style="margin-bottom:14px;">
+    銀行が「6〜12か月分の家賃相当額」を口座に凍結し、<strong>テナントが支払えなかった場合に代わりに支払う</strong>ことを保証する仕組みです。<br><br>
+    &#x2022; <strong>メリット</strong>：大家にとって最も安心感がある方法。多くの大家が受け入れる。<br>
+    &#x2022; <strong>デメリット</strong>：スペインの銀行口座が必要。口座開設したばかりの外国人は審査が通らないことも多い（06-06参照）。<br>
+    &#x2022; <strong>金額感</strong>：月€1,200の物件なら€7,200〜14,400（6〜12か月分）を口座に凍結。その分の資金は賃貸期間中は使えない。
+  </div>
+
+  <!-- 方法2: Seguro de Impago -->
+  <div class="flow-box sub" style="margin-bottom:8px;">
+    <span class="fb-label">&#x1F6E1;&#xFE0F; 方法 ②　</span>
+    <strong>Seguro de Impago de Alquiler（セグーロ・デ・インパゴ）＝ 家賃未払い保険</strong>
+  </div>
+  <div class="flow-box light" style="margin-bottom:14px;">
+    大家が加入する保険で、「テナントが家賃を払えなくなった場合に保険会社が家賃を立て替える」仕組みです。加入前に保険会社がテナントの審査を行います。<br><br>
+    &#x2022; <strong>大家のメリット</strong>：万が一の際のリスクがなくなる。保険料は年間家賃の約3〜4%が目安。<br>
+    &#x2022; <strong>テナントのメリット</strong>：この保険に審査通過すると、大家が安心して貸してくれる。<br>
+    &#x2022; <strong>外国人への対応</strong>：保険会社によって審査の厳しさが異なる。スペインの nómina がなくても、外国の契約書・銀行明細で審査してくれる会社もある。
+  </div>
+
+  <!-- 方法3: Finaer -->
+  <div class="flow-box blue" style="margin-bottom:8px;">
+    <span class="fb-label">&#x1F4CB; 方法 ③ 　</span>
+    <strong>Finaer（フィナエル）＝ 外国人向け賃貸保証サービス</strong>
+  </div>
+  <div class="flow-box light" style="margin-bottom:0;">
+    スペイン発の民間賃貸保証会社（Finaer Group Spain SL）で、<strong>外国収入（日本の給与・海外クライアントとの契約書・銀行明細）を証拠として受け付けてくれる</strong>保証書（Certificado de Garantía）を発行します。<br><br>
+    &#x2022; <strong>特徴</strong>：スペインの nómina がなくても申請可能。デジタルノマド・学生・フリーランス向けに設計。<br>
+    &#x2022; <strong>プロセス</strong>：申込 → 書類提出（外国の契約書・銀行明細・NIE）→ 数日以内に事前承認 → 保証書を大家に提示<br>
+    &#x2022; <strong>費用</strong>：月家賃の0.5〜1か月分前後（プランにより異なる）<br>
+    &#x2022; <strong>注意</strong>：全ての大家が Finaer 保証を受け入れるわけではない。事前に大家の意向を確認すること。
+  </div>
+
+  <div class="highlight-box" style="margin-top:14px;">
+    <span class="hlabel">&#x1F4B0; 「強い銀行残高」も有効な手段</span>
+    <p>
+      月家賃の12〜18か月分相当の貯蓄を日本の銀行口座や Wise に保有しており、
+      残高証明書を提出できる場合は、保証サービスを使わなくても審査を通過できることがあります。
+      <strong>「払う能力がある」を数字で証明する</strong>アプローチは外国人に有効です。
+    </p>
+  </div>
+</div>
+
+<!-- 賃貸サイトの比較 -->
+<div class="card">
+  <h2>&#x1F50D; 物件を探すプラットフォーム比較</h2>
+  <p>スペインの賃貸物件検索には目的別に使うべきサービスが異なります。</p>
+
+  <table class="matrix-table">
+    <thead>
+      <tr>
+        <th>サービス名</th>
+        <th>種別</th>
+        <th>向いているシーン</th>
+        <th>特徴</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="row-green">
+        <td><strong>Idealista<br>（idealista.com）</strong></td>
+        <td>スペイン最大の<br>不動産ポータル</td>
+        <td>長期賃貸・購入</td>
+        <td class="ok">掲載数 No.1。英語UI あり。地図検索・条件絞り込みが細かい</td>
+      </tr>
+      <tr>
+        <td><strong>Fotocasa<br>（fotocasa.es）</strong></td>
+        <td>大手不動産<br>ポータル</td>
+        <td>長期賃貸・購入</td>
+        <td>Idealista と並ぶ大手。スペイン語中心。写真が多く物件の詳細がわかりやすい</td>
+      </tr>
+      <tr class="row-blue">
+        <td><strong>Spotahome<br>（spotahome.com）</strong></td>
+        <td>中期・家具付き<br>賃貸特化</td>
+        <td>1〜12か月の<br>中期滞在</td>
+        <td class="ok">英語 OK。内見なしで契約可能（バーチャルツアー）。DNV 初到着時に便利</td>
+      </tr>
+      <tr class="row-blue">
+        <td><strong>Homyspace<br>（homyspace.com）</strong></td>
+        <td>デジタルノマド・<br>プロフェッショナル向け</td>
+        <td>中期〜長期<br>ノマド特化</td>
+        <td>デジタルノマドビザ保持者向けの物件が多い。英語サポートあり</td>
+      </tr>
+      <tr>
+        <td><strong>Uniplaces<br>（uniplaces.com）</strong></td>
+        <td>家具付き中期</td>
+        <td>学生・短期ノマド</td>
+        <td>英語 UI。スタジオ〜シェアハウスが中心</td>
+      </tr>
+      <tr class="row-warn">
+        <td><strong>Airbnb<br>（airbnb.com）</strong></td>
+        <td>短期（観光型）</td>
+        <td>最初の1〜4週間<br>住所確保の繋ぎ</td>
+        <td class="warn">VUT 規制強化中（後述）。料金高め。Empadronamiento の住所には使えない場合あり</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="alert-box">
+    <span class="alabel">&#x26A0;&#xFE0F; 短期賃貸（Airbnb 等）への規制強化（2025年12月〜）</span>
+    <p>
+      スペイン政府は2025年12月に<strong>観光用短期賃貸（VUT: Viviendas de Uso Turístico）の管理強化</strong>に関する措置を発表しました。
+      Airbnb・Booking 等のプラットフォームは当局にデータを提供する義務が強まり、無許可の VUT 物件への規制が厳しくなっています。
+      ノマドの「最初の1か月の住まい」として Airbnb を利用する際は、<strong>VUT ライセンスが表示されている物件を選ぶ</strong>ことを推奨します。
+      ※ この規制強化の発表日・詳細は一次ソースで確認することを推奨します。
+    </p>
+  </div>
+</div>
+
+<!-- DNV保持者向け「住所問題」チキンアンドエッグ -->
+<div class="card">
+  <h2>&#x1F423; DNV保持者の「住所の卵と鶏問題」を解決する</h2>
+  <p>
+    スペインに到着したばかりの DNV 保持者が最初に直面するのが<strong>「住所がないと Empadronamiento（住民登録）できない」「でも Empadronamiento がないと各種手続きが進まない」</strong>という循環です。
+  </p>
+
+  <div class="flow-wrap">
+    <div class="flow-box red">
+      <span class="fb-label">&#x274C; よくある詰まりポイント</span>
+      <strong>スペインに到着 → 住所がない → Empadronamiento できない → 銀行口座が作りにくい → 賃貸契約を結べない → 住所が決まらない…</strong>
+    </div>
+    <div class="arrow-down">&#x2B07;</div>
+    <div class="flow-box amber">
+      <span class="fb-label">&#x1F4A1; 解決策 A：まず中期賃貸（Spotahome 等）で住所を確保</span>
+      <strong>到着後1〜3か月は家具付き中期賃貸（月€1,200〜1,800）でスタート。</strong>
+      署名済みの賃貸契約書または大家の許可書（Autorización del Arrendador）が Empadronamiento に必要。
+      Spotahome 等の中期契約なら Empadronamiento に使える住所として認められる場合が多い。
+    </div>
+    <div class="arrow-down">&#x2B07;</div>
+    <div class="flow-box sub">
+      <span class="fb-label">&#x1F3E0; 解決策 B：大家の「Declaración de Acogida」を使う</span>
+      <strong>知人・友人宅に短期滞在できる場合、その家の持ち主または大家が「この人は私の住所に住んでいる」という宣言書（Declaración de Acogida）を書いてくれれば Empadronamiento が可能。</strong>
+      Airbnb のホストには通常これを依頼しにくい。
+    </div>
+    <div class="arrow-down">&#x2B07;</div>
+    <div class="flow-box">
+      <span class="fb-label">&#x2705; 最終的な理想の流れ</span>
+      <strong>中期賃貸で住所確保 → Empadronamiento 取得 → 銀行口座開設 → 長期賃貸の審査を受ける → Finaer 等で保証を確保 → 長期賃貸契約</strong>
+    </div>
+  </div>
+
+  <div class="highlight-box" style="margin-top:14px;">
+    <span class="hlabel">&#x23F1;&#xFE0F; 現実的なタイムライン</span>
+    <p>
+      スペイン到着後、本格的な長期賃貸の契約締結まで<strong>最低2〜3か月の準備期間を見込む</strong>のが現実的です。
+      &#x2022; 到着1〜2か月：Spotahome 等で中期滞在 → Empadronamiento 取得<br>
+      &#x2022; 1〜2か月後：銀行口座開設 → 長期賃貸の内見・交渉開始<br>
+      &#x2022; 3か月後〜：Finaer または Aval Bancario で保証 → 長期賃貸契約締結
+    </p>
+  </div>
+</div>
+
+<!-- 長期 vs 短期の比較 -->
+<div class="card">
+  <h2>&#x2696;&#xFE0F; 長期賃貸 vs 中期賃貸 vs 短期 ── DNVホルダーの選択肢</h2>
+
+  <div class="compare-row">
+    <div class="compare-card green">
+      <h3>&#x1F3E0; 長期賃貸（Alquiler de Larga Duración）</h3>
+      <strong>契約期間：5年以上（Ley 12/2023）</strong><br><br>
+      &#x2022; 家賃値上げが IRAV で抑えられる<br>
+      &#x2022; 仲介手数料は大家負担<br>
+      &#x2022; 敷金1か月分（法定）<br>
+      &#x2022; Empadronamiento・TIE更新・税務申告の住所として最も有利<br>
+      &#x2022; <span style="color:#922b2b">▲ 途中解約は原則6か月前予告が必要</span><br>
+      &#x2022; <span style="color:#922b2b">▲ 外国人の審査がハードル高め</span>
+    </div>
+    <div class="compare-card amber">
+      <h3>&#x1F6CF;&#xFE0F; 中期賃貸（Alquiler Temporal / de Temporada）</h3>
+      <strong>契約期間：1〜11か月（短期 seasonal 扱い）</strong><br><br>
+      &#x2022; Ley 12/2023 の最低期間ルール対象外<br>
+      &#x2022; 家具付きが多く手軽に入居できる<br>
+      &#x2022; Empadronamiento の住所として使える<br>
+      &#x2022; <span style="color:#922b2b">▲ 家賃が長期より割高（月+20〜50%程度）</span><br>
+      &#x2022; <span style="color:#922b2b">▲ VUT 規制強化の影響で供給が減少傾向</span>
+    </div>
+    <div class="compare-card blue">
+      <h3>&#x1F6C4; 短期（Airbnb / VUT）</h3>
+      <strong>数日〜1か月：観光用・繋ぎ用</strong><br><br>
+      &#x2022; 到着直後の住まいとして最も手配しやすい<br>
+      &#x2022; 審査なし・即入居可能<br>
+      &#x2022; <span style="color:#922b2b">▲ 最も高コスト（月€2,000〜3,000以上も）</span><br>
+      &#x2022; <span style="color:#922b2b">▲ Empadronamiento の住所に使えない場合あり</span><br>
+      &#x2022; <span style="color:#922b2b">▲ VUT ライセンス必須（規制強化中）</span>
+    </div>
+  </div>
+</div>
+
+<!-- 賃貸契約の必要書類 -->
+<div class="card">
+  <h2>&#x1F4CB; 長期賃貸契約に必要な書類チェックリスト（外国人・DNV保持者向け）</h2>
+
+  <ul class="check-list">
+    <li>
+      <span class="ico">&#x1F4C4;</span>
+      <div>
+        <strong>パスポート（原本 + コピー）</strong><br>
+        身分証明書として必須。有効期限が十分に残っているか確認。
+      </div>
+    </li>
+    <li>
+      <span class="ico">&#x1F9FE;</span>
+      <div>
+        <strong>NIE 番号（Número de Identidad de Extranjero）</strong><br>
+        外国人識別番号。賃貸契約の記載に必要。DNV 申請時に付与されるか、スペイン警察で取得（06-03 参照）。
+      </div>
+    </li>
+    <li>
+      <span class="ico">&#x1F4B3;</span>
+      <div>
+        <strong>TIE カード（在留許可証）またはビザステッカー</strong><br>
+        スペインで合法的に滞在・居住する権利の証明。TIE 取得前はビザステッカー（旅券記載）を提示。
+      </div>
+    </li>
+    <li>
+      <span class="ico">&#x1F4B0;</span>
+      <div>
+        <strong>収入証明（外国語の場合はスペイン語翻訳 + アポスティーユが望ましい）</strong><br>
+        日本の1人法人の場合：登記事項証明書・直近3〜6か月の銀行残高明細（日本法人口座 + 個人口座）・外国クライアントとの契約書。
+        翻訳は宣誓翻訳士（Traductor Jurado）による翻訳を要求される場合あり。
+      </div>
+    </li>
+    <li>
+      <span class="ico">&#x1F6E1;&#xFE0F;</span>
+      <div>
+        <strong>保証書類（Aval Bancario / Finaer 保証書 / Seguro de Impago の事前承認書）</strong><br>
+        いずれか1つを用意。大家と事前に「どの形式の保証を受け入れるか」を確認しておく。
+      </div>
+    </li>
+    <li>
+      <span class="ico">&#x1F3E6;</span>
+      <div>
+        <strong>スペインの銀行口座番号（IBAN）</strong><br>
+        家賃の口座引き落とし設定に必要。契約前に開設しておくのが理想（06-06 参照）。
+        開設中の場合は「開設手続き中である証明書（Carta de Apertura）」で代替できる場合もある。
+      </div>
+    </li>
+    <li>
+      <span class="ico">&#x1F4F8;</span>
+      <div>
+        <strong>証明写真 2〜4枚</strong><br>
+        Empadronamiento 申請に必要なほか、TIE 申請でも使用。契約時に準備しておくと便利。
+      </div>
+    </li>
+  </ul>
+
+  <div class="danger-box">
+    <span class="dlabel">&#x1F6A8; 「契約書の内容を確認せずにサインしない」</span>
+    <p>
+      スペインのAIU（Autorización de Inspección de Urbanismo）違反物件・VUT ライセンスのない物件・無許可の旅館的物件などで契約トラブルが増えています。
+      <strong>長期賃貸契約は必ず Gestor（行政代理人）または弁護士（Abogado）にレビューしてもらうことを強く推奨します</strong>。
+      特に「Depósito（保証金）の返還条件」「途中解約の違約金」「原状回復費用」の条項を必ず確認してください。
+    </p>
+  </div>
+</div>
+
+<!-- 日本↔スペイン往来との関係 -->
+<div class="card">
+  <h2>&#x2708;&#xFE0F; 日本↔スペインを行き来する生活での住居管理</h2>
+  <p>
+    「日本とスペインを行き来しながら日本法人を維持する」という生活パターンでは、
+    スペインの賃貸をどう管理するかが実務上の重要テーマになります。
+  </p>
+
+  <table class="matrix-table">
+    <thead>
+      <tr>
+        <th>シナリオ</th>
+        <th>住居の扱い</th>
+        <th>実務上の注意</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="row-green">
+        <td><strong>&#x1F1EA;&#x1F1F8; スペイン長期滞在中心<br>（年 180日以上）</strong></td>
+        <td>長期賃貸を継続維持</td>
+        <td class="ok">DNV 更新の Padrón 証明に有利（06-10 参照）。光熱費・銀行引き落とし明細が居住証明になる</td>
+      </tr>
+      <tr class="row-warn">
+        <td><strong>&#x2708;&#xFE0F; 日本帰国が多め<br>（年 100〜150日日本）</strong></td>
+        <td>長期賃貸を維持しつつ帰国中は空室</td>
+        <td class="warn">不在中の転貸（Subarrendamiento）は原則大家の書面同意が必要。Airbnb での貸出は VUT ライセンスが別途必要で、DNV の収入20%上限への影響を確認すること</td>
+      </tr>
+      <tr class="row-danger">
+        <td><strong>&#x1F6AB; 帰国中に賃貸解約<br>→ 戻ってから再契約</strong></td>
+        <td>毎回新規契約</td>
+        <td class="ng">Padrón の継続性が途切れる。TIE 更新時の「継続居住証明」が不十分になるリスクあり（06-10 参照）。審査のやり直しで時間・コストがかかる</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="highlight-box">
+    <span class="hlabel">&#x1F4A1; 帰国中の家賃をコストと割り切る視点</span>
+    <p>
+      月€1,000〜1,200の賃貸を維持しながら日本に1〜2か月帰国する場合、<strong>その家賃は「スペイン居住実態の維持費」「Padrón 継続のための費用」「TIE 更新リスクを下げる保険料」</strong>と考えると合理的です。
+      日本のホテル・実家に住める間はスペインの部屋を維持するコストは
+      日西往来ノマドにとって必要な生活コストのひとつです。
+    </p>
+  </div>
+</div>
+
+<!-- アクションチェックリスト -->
+<div class="card">
+  <h2>&#x2705; 住居探しのアクションチェックリスト</h2>
+  <ul class="step-list">
+    <li>
+      <div class="step-num">①</div>
+      <div>
+        <strong>到着1週間前：Spotahome または Homyspace で中期賃貸を予約する</strong><br>
+        最初の2〜3か月分の中期住まいを日本から予約。到着後すぐに住所が確保できる。予算はバルセロナ・マドリードで€1,400〜1,800/月、バレンシア・マラガで€900〜1,300/月を想定。
+      </div>
+    </li>
+    <li>
+      <div class="step-num">②</div>
+      <div>
+        <strong>到着2〜3週間以内：Empadronamiento を申請する</strong><br>
+        中期賃貸の契約書を持って市役所（Ayuntamiento）の Empadronamiento 窓口へ。TIE 申請・銀行口座開設・各種行政手続きの基盤になる（06-09 参照）。
+      </div>
+    </li>
+    <li>
+      <div class="step-num blue">③</div>
+      <div>
+        <strong>1〜2か月以内：銀行口座を開設する</strong><br>
+        Empadronamiento 取得後、BBVA・Sabadell・CaixaBank 等でスペイン口座（ES IBAN）を開設（06-06 参照）。社会保険料の引き落とし・長期賃貸の家賃支払い・Aval Bancario 取得に必要。
+      </div>
+    </li>
+    <li>
+      <div class="step-num blue">④</div>
+      <div>
+        <strong>1〜3か月後：Idealista・Fotocasa で長期賃貸を探し始める</strong><br>
+        希望条件（都市・家賃上限・間取り・ペット可否）を絞り、複数物件を内見。この段階で Finaer の事前審査（Pre-aprobación）も並行して申請しておくとスムーズ。
+      </div>
+    </li>
+    <li>
+      <div class="step-num amber">⑤</div>
+      <div>
+        <strong>保証方法を決めて大家に提案する</strong><br>
+        Finaer 保証書・Aval Bancario・強い残高証明のうちどれが現実的かを事前に準備。内見時に「私はこの方法で保証できる」と提示できると交渉がスムーズになる。
+      </div>
+    </li>
+    <li>
+      <div class="step-num amber">⑥</div>
+      <div>
+        <strong>契約書は Gestor または弁護士にレビューしてもらう</strong><br>
+        途中解約条項・保証金返還条件・原状回復費用の条項を確認。特に Zona Tensionada 指定地域では家賃の上限規定が適用されているか確認する。
+      </div>
+    </li>
+    <li>
+      <div class="step-num">&#x1F4D6;</div>
+      <div>
+        <strong>入居後：電気・ガス・インターネットの名義を自分で変更する</strong><br>
+        光熱費の名義・引き落とし明細が「スペインで生活している証拠」になる。帰国中も解約せずに維持することで Padrón 継続性が保たれる。
+      </div>
+    </li>
+  </ul>
+</div>
+
+<!-- まとめ -->
+<div class="card">
+  <h2>&#x1F4A1; まとめ ── スペイン住居探しの全体像</h2>
+  <div class="flow-wrap">
+    <div class="flow-box">
+      <span class="fb-label">&#x1F535; 法律の基本（Ley 12/2023）</span>
+      <strong>仲介手数料は大家負担・最低5年契約・家賃値上げは IRAV 2.14%上限（2026年）</strong>
+    </div>
+    <div class="arrow-down">&#x2B07;</div>
+    <div class="flow-box sub">
+      <span class="fb-label">&#x1F7E2; 外国人・DNV保持者の現実</span>
+      <strong>スペインの nómina がないため保証が必要 → Finaer・Aval Bancario・Seguro de Impago の3択</strong>
+    </div>
+    <div class="arrow-down">&#x2B07;</div>
+    <div class="flow-box amber">
+      <span class="fb-label">&#x1F7E1; 住所の卵と鶏問題の解決</span>
+      <strong>まず中期賃貸（Spotahome 等）で住所確保 → Empadronamiento → 銀行口座 → 長期賃貸へ移行</strong>
+    </div>
+    <div class="arrow-down">&#x2B07;</div>
+    <div class="flow-box blue">
+      <span class="fb-label">&#x1F535; 日本↔スペイン往来との関係</span>
+      <strong>DNV 更新のために長期賃貸を維持継続 → 帰国中も解約しない。Padrón 継続性が UGE 更新審査の重要書類（06-10 参照）</strong>
+    </div>
+  </div>
+
+  <div class="source-list">
+    <strong>情報ソース：</strong><br>
+    &#x2022; BOE-A-2023-12203「Ley 12/2023, de 24 de mayo, por el derecho a la vivienda」（2023年5月25日掲載・5月26日施行）
+    <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2023-12203" target="_blank">https://www.boe.es/buscar/act.php?id=BOE-A-2023-12203</a>（参照：2026年6月）<br>
+    &#x2022; INE「Índice de Referencia de Arrendamientos de Vivienda (IRAV)」2026年1月：2.14%
+    <a href="https://www.ine.es/jaxiT3/Tabla.htm?t=59530" target="_blank">https://www.ine.es/jaxiT3/Tabla.htm?t=59530</a>（参照：2026年6月）<br>
+    &#x2022; Investropa「Exact Rents in Spain (2026)」（2026年）
+    <a href="https://investropa.com/blogs/news/spain-rents" target="_blank">https://investropa.com/blogs/news/spain-rents</a><br>
+    &#x2022; Idealista「10 cheapest cities to rent in Spain 2026」（2026年3月2日）
+    <a href="https://www.idealista.com/en/news/lifestyle-in-spain/2026/03/02/886154-10-cheapest-cities-to-rent-in-spain-in-2026" target="_blank">https://www.idealista.com/en/news/lifestyle-in-spain/2026/03/02/886154-10-cheapest-cities-to-rent-in-spain-in-2026</a><br>
+    &#x2022; Consult Immigration「How do I rent an apartment in Spain without a Spanish credit history?」（2026年）
+    <a href="https://consult-immigration.com/how-do-i-rent-an-apartment-in-spain-without-a-spanish-credit-history/" target="_blank">https://consult-immigration.com/how-do-i-rent-an-apartment-in-spain-without-a-spanish-credit-history/</a><br>
+    &#x2022; JURO Spain「Renting in Spain 2026: A Guide to the New Housing Law」（2026年）
+    <a href="https://jurospain.com/guides/renting-in-spain-2026-housing-law/" target="_blank">https://jurospain.com/guides/renting-in-spain-2026-housing-law/</a><br>
+    &#x2022; Vissumlex「Rent Cap in Spain 2026: IRAV Index 2.14% &amp; Limits」（2026年）
+    <a href="https://www.vissumlex.com/en/post/rent-cap-in-spain-2026" target="_blank">https://www.vissumlex.com/en/post/rent-cap-in-spain-2026</a><br>
+    &#x2022; La Vida Lencia「What Is Renter's Non-Payment Insurance in Spain (Seguro de Impago de Alquiler)?」（2026年）
+    <a href="https://www.lavidalencia.com/blog/what-is-renters-non-payment-insurance-in-spain-seguro-de-impago-de-alquiler" target="_blank">https://www.lavidalencia.com/blog/what-is-renters-non-payment-insurance-in-spain-seguro-de-impago-de-alquiler</a><br>
+    &#x2022; Costa Luz Lawyers「Spain: What the December 2025 Ministerial Order Really Adds to Short-Term Rental Law」（2026年）
+    <a href="https://www.costaluzlawyers.com/spain-what-the-december-2025-ministerial-order-really-adds-to-short-term-rental-law-and-why-it-matters-in-2026/" target="_blank">https://www.costaluzlawyers.com/spain-what-the-december-2025-ministerial-order-really-adds-to-short-term-rental-law-and-why-it-matters-in-2026/</a><br>
+    &#x2022; 各ソースの情報の基準年度：Ley 12/2023（2023年5月施行）、IRAV 2.14%（2026年1月INE発表）、家賃相場（2026年初頭）<br>
+    &#x2022; Zona Tensionada の指定状況・VUT 規制の詳細は2026年6月時点の複数ソースを参照。指定エリアは自治体の判断により変更される場合があります。
+  </div>
+</div>
+
+<!-- フッター免責 -->
+<div class="footer-note">
+  <strong>&#x26A0;&#xFE0F; 免責事項</strong><br>
+  &#x2022; <strong>ビザ・在留資格（DNVの申請・更新・住居要件等）に関する正式な判断は、スペイン移民法を専門とする移民弁護士（Abogado de Extrajer&iacute;a）にご相談ください。</strong><br>
+  &#x2022; <strong>税務・社会保険に関する正式な判断は、国際税務に強い税理士（日本）およびスペインの Asesor Fiscal / Gestor にご相談ください。</strong><br>
+  &#x2022; 賃貸契約は個別の条件・物件・大家によって内容が異なります。本記事の情報は概説であり、実際の契約締結前には必ず専門家（Abogado または Gestor）による契約書レビューを受けてください。<br>
+  &#x2022; Zona Tensionada の指定状況・IRAV の数値は更新される場合があります。申請・契約前に最新情報をご確認ください。<br>
+  &#x2022; 本記事に記載の家賃相場は2026年初頭時点の目安です。為替については円換算の参考値（€1＝¥165 前後、2026年6月参考水準）で必要に応じてご確認ください。<br>
+  &#x2022; 「必ず賃貸契約が結べる」「必ず審査が通る」などの断定はできません。本記事の情報を利用した結果について、筆者は責任を負いかねます。
+</div>
+
+</body>
+</html>
