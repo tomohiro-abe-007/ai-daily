@@ -17,12 +17,15 @@
 - 2026-06-11: Robin（FutureHouse）マルチエージェントAIシステム・科学的発見の全工程を自律化・Nature誌掲載（2026年）・乾燥型加齢黄斑変性（dAMD）でABCA1を新規治療標的候補として発見
 - 2026-06-12: Claude Fable 5（2026年6月9日一般公開）・Mythosクラスの一般向けバージョン・SWE-Bench Pro 80.3%（当時2位に11pt差）・高リスク領域は自動ブロック+Opus 4.8へフォールバック・API料金は公式要確認
 - 2026-06-13: OpenAI × Oracle Cloud 連携（2026年6月10日発表）・Enterprise向けにOracle Universal CreditsでOpenAIモデル＆Codexを利用可能に・独占契約終了（2026年4月27日）後のマルチクラウド展開・提供開始時期・料金は公式要確認
+- 2026-06-14: OpenAI IPO（株式公開）申請・2026年5月下旬に機密S-1をSECへ提出・2026年6月8日に公式確認・直近評価額約8,520億ドル・上場目標早ければ2026年9月・主幹事はゴールドマン・サックス/モルガン・スタンレー/JPモルガン
 
 ## 未解説の候補トピック（今後の参考）
 
 - xAI Grok 4.3 Beta（2026年4月）：動画・スライド・音声API対応のマルチモーダル推論
+- Gemini 3.5 Pro（Google I/O 2026で予告・2026年6月GA予定）：2Mトークンコンテキスト・Deep Think推論・詳細は公式で要確認
+- Google Gemini 3.5 Flash詳報：市場シェア・Intelligence Index・284トークン/秒の生成速度
+- Anthropic Project Glasswing拡大（2026年6月2日）：Claude Mythos Preview・150組織以上・15ヵ国以上・10,000件超の脆弱性発見
+- AI×医療（創薬・診断）最新動向：製薬大手とAI企業の提携が相次ぐ
 - AI半導体競争：AMD・Intelの対抗策と次世代GPU市場
 - 日本のAI活用事例：製造業・金融・官公庁での実装事例
 - AI音声・TTS最新事情：各社音声モデルの比較と活用例
-- Gemini 3.5 Pro（Google I/O 2026で予告・2026年6月GA予定）：2Mトークンコンテキスト・Deep Think推論・詳細は公式で要確認
-- Google Gemini 3.5 Flash詳報：市場シェア・Intelligence Index・284トークン/秒の生成速度
