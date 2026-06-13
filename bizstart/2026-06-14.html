@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-06-14</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: #f5f0e8;
+  font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+  color: #2d1f0e;
+  line-height: 1.75;
+  padding: 32px 16px 60px;
+}
+.page { max-width: 760px; margin: 0 auto; }
+
+/* ─── HEADER ─── */
+.header {
+  background: linear-gradient(135deg, #1a5c30 0%, #0d3a1a 100%);
+  color: #fff;
+  border-radius: 12px;
+  padding: 40px 36px 32px;
+  margin-bottom: 28px;
+  box-shadow: 4px 6px 22px rgba(0,0,0,0.28);
+}
+.header .date-tag {
+  display: inline-block;
+  background: rgba(255,255,255,0.18);
+  border-radius: 20px;
+  font-size: 0.8rem;
+  padding: 3px 14px;
+  margin-bottom: 14px;
+  letter-spacing: 0.05em;
+}
+.header h1 { font-size: 1.65rem; line-height: 1.4; margin-bottom: 10px; }
+.header .subtitle { font-size: 0.95rem; opacity: 0.85; line-height: 1.65; }
+
+/* ─── SECTION CARD ─── */
+.card {
+  background: #fffdf8;
+  border-radius: 10px;
+  padding: 28px 28px 24px;
+  margin-bottom: 20px;
+  box-shadow: 3px 4px 14px rgba(0,0,0,0.09);
+  border-left: 5px solid #c8924a;
+}
+.card.blue   { border-left-color: #4a7fc8; }
+.card.green  { border-left-color: #2e7d32; }
+.card.red    { border-left-color: #c84a4a; }
+.card.purple { border-left-color: #7a4ac8; }
+.card.teal   { border-left-color: #4a9aaa; }
+.card.navy   { border-left-color: #1a4a6e; }
+.card h2 {
+  font-size: 1.15rem;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #3a2510;
+}
+.card h3 { font-size: 0.98rem; font-weight: 600; margin: 14px 0 6px; color: #1a3a5c; }
+.card p, .card li { font-size: 0.93rem; margin-bottom: 6px; }
+.card ul { padding-left: 1.4em; }
+.card li { list-style: disc; }
+
+/* ─── 3-COL COMPARE ─── */
+.tri-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 18px 0;
+}
+@media (max-width: 520px) { .tri-grid { grid-template-columns: 1fr; } }
+.tri-card {
+  border-radius: 9px;
+  padding: 16px 12px;
+  text-align: center;
+  font-size: 0.82rem;
+  line-height: 1.55;
+}
+.tri-card .tri-icon { font-size: 1.7rem; margin-bottom: 8px; display: block; }
+.tri-card .tri-name { font-weight: 700; font-size: 0.9rem; margin-bottom: 6px; }
+.tri-card.c1 { background: #e8f5e9; border: 2px solid #2e7d32; }
+.tri-card.c2 { background: #e3f2fd; border: 2px solid #1565c0; }
+.tri-card.c3 { background: #fff8e1; border: 2px solid #f57c00; }
+
+/* ─── BIG NUMBER ─── */
+.big-num-row {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin: 16px 0;
+}
+.big-num {
+  flex: 1;
+  min-width: 130px;
+  background: #fff7ed;
+  border: 2px solid #e0b87a;
+  border-radius: 10px;
+  text-align: center;
+  padding: 16px 10px 12px;
+}
+.big-num .num {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1a4a6e;
+  line-height: 1.1;
+}
+.big-num .unit { font-size: 0.78rem; color: #888; margin-top: 4px; }
+.big-num .label { font-size: 0.8rem; color: #2d1f0e; margin-top: 6px; font-weight: 600; }
+
+/* ─── FLOW ─── */
+.flow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 16px 0 10px;
+}
+.flow-box {
+  background: #fff3e0;
+  border: 2px solid #d4944a;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 0.85rem;
+  text-align: center;
+  flex: 1;
+  min-width: 100px;
+  line-height: 1.4;
+}
+.flow-box.ok  { background: #e8f5e9; border-color: #2e7d32; }
+.flow-box.ng  { background: #fde8e8; border-color: #c84a4a; }
+.flow-box.key { background: #e3f2fd; border-color: #1565c0; }
+.flow-box.gov { background: #e8f5e9; border-color: #1a5c30; }
+.arrow { font-size: 1.2rem; color: #c8924a; flex-shrink: 0; }
+
+/* ─── STEP LIST ─── */
+.steps { list-style: none; padding: 0; margin: 12px 0; }
+.steps li {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin-bottom: 12px;
+  font-size: 0.92rem;
+}
+.step-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  background: #1a5c30;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+.step-body { padding-top: 3px; }
+.step-body strong { color: #1a3a5c; }
+
+/* ─── COMPARE TABLE ─── */
+.cmp-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  margin: 14px 0;
+}
+.cmp-table th {
+  background: #1a5c30;
+  color: #fff;
+  padding: 8px 10px;
+  text-align: center;
+  font-weight: 600;
+}
+.cmp-table td {
+  padding: 8px 10px;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+  vertical-align: middle;
+}
+.cmp-table tr:nth-child(even) td { background: #f0f7f1; }
+.cmp-table .good { color: #2e7d32; font-weight: 700; }
+.cmp-table .mid  { color: #e65100; }
+.cmp-table .bad  { color: #c62828; }
+.cmp-table td:first-child { text-align: left; }
+
+/* ─── CAUTION / INFO ─── */
+.caution-box {
+  background: #fff8e1;
+  border: 2px dashed #f0c060;
+  border-radius: 8px;
+  padding: 16px 18px;
+  font-size: 0.88rem;
+  margin: 12px 0;
+}
+.caution-box .caution-title { font-weight: 700; color: #8a4a00; margin-bottom: 8px; }
+.info-box {
+  background: #e8f5e9;
+  border: 2px solid #81c784;
+  border-radius: 8px;
+  padding: 14px 16px;
+  font-size: 0.88rem;
+  margin: 12px 0;
+}
+.info-box .info-title { font-weight: 700; color: #1b5e20; margin-bottom: 6px; }
+
+/* ─── REQ GRID ─── */
+.req-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+  margin: 14px 0;
+}
+.req-card {
+  border-radius: 8px;
+  padding: 14px 14px 12px;
+  font-size: 0.85rem;
+}
+.req-card .req-title {
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+}
+.req-card.r1 { background: #e8f5e9; border: 1.5px solid #66bb6a; }
+.req-card.r1 .req-title { color: #1b5e20; }
+.req-card.r2 { background: #e3f2fd; border: 1.5px solid #64b5f6; }
+.req-card.r2 .req-title { color: #0d47a1; }
+.req-card.r3 { background: #fff8e1; border: 1.5px solid #ffcc02; }
+.req-card.r3 .req-title { color: #7a4a00; }
+
+/* ─── HIGHLIGHTS ─── */
+.hl  { background: #fff3cd; border-radius: 3px; padding: 0 3px; }
+.red { color: #c84a4a; font-weight: 700; }
+.bl  { color: #1565c0; font-weight: 700; }
+.gr  { color: #2e7d32; font-weight: 700; }
+
+/* ─── DISCLAIMER ─── */
+.disclaimer {
+  background: #f0ebe0;
+  border-radius: 8px;
+  padding: 16px 20px;
+  font-size: 0.8rem;
+  color: #666;
+  margin-top: 8px;
+  line-height: 1.65;
+}
+.disclaimer strong { color: #444; }
+
+/* ─── SOURCE ─── */
+.source {
+  font-size: 0.73rem;
+  color: #999;
+  margin-top: 10px;
+  line-height: 1.6;
+}
+.source a { color: #1a5c30; }
+
+/* ─── BACK LINK ─── */
+.back-link { text-align: center; margin-top: 36px; }
+.back-link a {
+  color: #1a5c30;
+  font-size: 0.9rem;
+  text-decoration: none;
+  border-bottom: 1px solid #1a5c30;
+}
+
+/* ─── TWO-COL ─── */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin: 14px 0;
+}
+@media (max-width: 500px) { .two-col { grid-template-columns: 1fr; } }
+.col-card {
+  border-radius: 9px;
+  padding: 16px 14px;
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+.col-card .col-title { font-weight: 700; margin-bottom: 8px; font-size: 0.92rem; }
+.col-card.gov { background: #e8f5e9; border: 2px solid #2e7d32; }
+.col-card.gov .col-title { color: #1b5e20; }
+.col-card.priv { background: #fff8e1; border: 2px solid #f9a825; }
+.col-card.priv .col-title { color: #7a4a00; }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ══════ HEADER ══════ -->
+<div class="header">
+  <div class="date-tag">2026-06-14 ・ 1人法人スタート 最新トピック</div>
+  <h1>🏦 1人社長の銀行・融資活用術<br><span style="font-size:1.05rem;opacity:0.9">── 日本政策金融公庫・信用保証協会の基礎と創業融資の手順を図解</span></h1>
+  <div class="subtitle">「会社を作ったけど、どこからお金を借りればいいの？」1人法人にとって最初の壁が「創業融資」。政府系金融機関と信用保証協会のしくみを理解すれば、銀行の扉が開きます。今日でスッキリ整理しましょう。</div>
+</div>
+
+<!-- ══════ 1. 資金調達3つの道 ══════ -->
+<div class="card green">
+  <h2>💰 1. 1人法人が使える「資金調達」の3ルート</h2>
+  <p>会社を始めるとき・運営中にお金が必要になったとき、使えるルートは大きく3つです。</p>
+
+  <div class="tri-grid">
+    <div class="tri-card c1">
+      <span class="tri-icon">🏛️</span>
+      <div class="tri-name">① 政府系金融機関</div>
+      日本政策金融公庫<br>など<br><br>
+      国が後ろ盾。<br>創業直後でも借りやすい。<br>担保なしも可。
+    </div>
+    <div class="tri-card c2">
+      <span class="tri-icon">🏦</span>
+      <div class="tri-name">② 信用保証協会付き<br>銀行融資</div>
+      信用保証協会が<br>保証人になる<br><br>
+      銀行融資だが<br>公的保証で通りやすくなる。
+    </div>
+    <div class="tri-card c3">
+      <span class="tri-icon">🏢</span>
+      <div class="tri-name">③ 民間銀行・<br>信用金庫</div>
+      プロパー融資<br>（保証なし）<br><br>
+      実績・担保が必要。<br>創業直後は難しい。
+    </div>
+  </div>
+
+  <div class="caution-box">
+    <div class="caution-title">💡 創業直後に使える順番</div>
+    創業1〜2年以内の1人法人には、<strong>まず①日本政策金融公庫</strong>、次に<strong>②信用保証協会付き銀行融資</strong>を検討するのが王道です。実績のない段階で③民間銀行のプロパー融資は、ほぼ通りません。
+  </div>
+</div>
+
+<!-- ══════ 2. 日本政策金融公庫 ══════ -->
+<div class="card navy">
+  <h2>🏛️ 2. 日本政策金融公庫（JFC）とは？</h2>
+  <p><span class="hl">日本政策金融公庫（にほんせいさくきんゆうこうこ）</span>は、国が100%出資する政府系金融機関です。「民間金融機関の補完」が目的であるため、銀行が貸しにくい<span class="gr">「創業直後・無担保・実績なし」</span>でも融資が受けやすいのが特徴です。</p>
+
+  <div class="two-col" style="margin:16px 0">
+    <div class="col-card gov">
+      <div class="col-title">🟢 日本政策金融公庫の特徴</div>
+      ・国が100%出資（政府系）<br>
+      ・担保・保証人なしで借りられる商品あり<br>
+      ・金利は市場水準（民間と同等〜やや優遇）<br>
+      ・創業前〜創業直後でも申込可能<br>
+      ・全国152支店（2026年時点）<br>
+      ・中小企業〜個人事業主が対象
+    </div>
+    <div class="col-card priv">
+      <div class="col-title">🟡 民間銀行との違い</div>
+      ・利益を最優先しない（公益目的）<br>
+      ・信用力・担保より「事業計画」を重視<br>
+      ・創業計画書の審査が中心<br>
+      ・「倒産しても取り立て」は来ない訳ではない！<br>　（返済義務は同じ）<br>
+      ・預金・振込などの銀行業務はない
+    </div>
+  </div>
+
+  <div class="info-box">
+    <div class="info-title">📌 主な事業区分（1人法人が使うのは国民生活事業）</div>
+    日本政策金融公庫には3つの事業区分があります。個人・小規模法人が使うのは<strong>「国民生活事業」</strong>。融資上限が比較的小さい分、手続きがシンプルで創業融資向きです。<br>
+    <span style="font-size:0.82rem;color:#1b5e20">出典：日本政策金融公庫「ご融資のご案内」
+    <a href="https://www.jfc.go.jp/n/finance/index.html" target="_blank" style="color:#1b5e20">https://www.jfc.go.jp/n/finance/index.html</a>（2026年6月確認）</span>
+  </div>
+</div>
+
+<!-- ══════ 3. 新規開業資金 ══════ -->
+<div class="card">
+  <h2>📋 3. 創業融資「新規開業資金」の基本（★最重要）</h2>
+  <p>創業期の1人法人が最初に検討すべき商品が<span class="hl">「新規開業資金」</span>（しんきかいぎょうしきん）です。</p>
+  <p style="font-size:0.85rem;color:#666;margin-bottom:12px">※2024年3月に廃止された「新創業融資制度」は「新規開業資金」等の既存商品に統合されました。</p>
+
+  <div class="big-num-row">
+    <div class="big-num">
+      <div class="num">7,200<span style="font-size:1rem">万円</span></div>
+      <div class="unit">融資限度額</div>
+      <div class="label">うち運転資金 4,800万円</div>
+    </div>
+    <div class="big-num">
+      <div class="num">7<span style="font-size:1rem">年</span></div>
+      <div class="unit">設備資金 返済期間</div>
+      <div class="label">運転資金は最長7年（設備は20年まで）</div>
+    </div>
+    <div class="big-num">
+      <div class="num" style="font-size:1.4rem">2年</div>
+      <div class="unit">据置期間（最大）</div>
+      <div class="label">最初の期間は元本返済なしにできる</div>
+    </div>
+  </div>
+
+  <div class="req-grid">
+    <div class="req-card r1">
+      <div class="req-title">✅ 対象となる方</div>
+      ・新たに事業を始める方<br>
+      ・事業を始めてから<br>　おおむね7年以内の方<br>
+      （要件は商品・枠により異なる）
+    </div>
+    <div class="req-card r2">
+      <div class="req-title">🔑 審査で重視されること</div>
+      ・創業計画書の内容<br>
+      ・自己資金の額（目安：<br>　創業資金の1/3以上が望ましいとされる）<br>
+      ・事業経験・スキル
+    </div>
+    <div class="req-card r3">
+      <div class="req-title">📝 必要な書類</div>
+      ・創業計画書（JFC書式あり）<br>
+      ・通帳コピー（自己資金確認）<br>
+      ・登記事項証明書<br>
+      ・その他（事業により追加）
+    </div>
+  </div>
+
+  <div class="caution-box" style="margin-top:8px">
+    <div class="caution-title">⚠️ 「自己資金ゼロ」では厳しい理由</div>
+    自己資金は「本気度と計画性の証拠」としてJFCが重視します。一般に、<span class="red">創業総資金の1/3以上の自己資金</span>があると審査が通りやすいと言われています。「親からの贈与」「退職金」なども自己資金に含められますが、<strong>「入金してすぐ申し込む」のは通帳履歴で確認されるため要注意</strong>です。
+  </div>
+
+  <div class="source">
+    出典：日本政策金融公庫「新規開業資金」<br>
+    <a href="https://www.jfc.go.jp/n/finance/search/01_sinkikaigyou_m.html" target="_blank">https://www.jfc.go.jp/n/finance/search/01_sinkikaigyou_m.html</a>（2026年6月確認）<br>
+    基準年度：2024年3月（旧・新創業融資制度廃止後）以降の商品内容
+  </div>
+</div>
+
+<!-- ══════ 4. 申込みフロー ══════ -->
+<div class="card blue">
+  <h2>🚀 4. 日本政策金融公庫への申込みフロー（5ステップ）</h2>
+
+  <ul class="steps">
+    <li>
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <strong>JFCの公式サイトで「融資の商品」を確認・選ぶ</strong><br>
+        「新規開業資金」のほか、女性・若者向け・IT事業者向けなど優遇金利の商品もあります。<br>
+        <span style="font-size:0.82rem;color:#555">
+          <a href="https://www.jfc.go.jp/n/finance/index.html" target="_blank" style="color:#1565c0">JFC公式サイト</a>で条件を確認してから申込みへ。
+        </span>
+      </div>
+    </li>
+    <li>
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <strong>「創業計画書」を作成する</strong>（最重要）<br>
+        JFCが書式を無料公開。事業内容・市場分析・収支計画・自己資金を記載。<br>
+        <span style="font-size:0.82rem;color:#555">精度の高い収支計画（現実的な根拠）が審査のカギ。AIを使って下書きしてから数字を詰めると効率的。</span>
+      </div>
+    </li>
+    <li>
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <strong>必要書類を揃えてWebまたは窓口で申し込む</strong><br>
+        インターネット申込みが可能（郵送も可）。登記事項証明書・通帳コピー・確定申告書（既に営業中の場合）等を準備。
+      </div>
+    </li>
+    <li>
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <strong>担当者との面談（ヒアリング）</strong><br>
+        申込書類の内容をもとに、担当者が電話または対面でヒアリング。<span class="hl">「なぜこの事業か」「なぜその数字か」を自分の言葉で説明できるよう準備</span>を。
+      </div>
+    </li>
+    <li>
+      <div class="step-num">5</div>
+      <div class="step-body">
+        <strong>審査結果の通知 → 契約・融資実行</strong><br>
+        審査期間はおよそ2〜4週間が目安。承認後に契約手続きを経て、指定口座に振り込まれます。<br>
+        <span style="font-size:0.82rem;color:#c84a4a">余裕を持って申し込むことが大切。「今すぐ資金が必要」では間に合わないことも。</span>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<!-- ══════ 5. 信用保証協会 ══════ -->
+<div class="card teal">
+  <h2>🤝 5. 信用保証協会とは？── 銀行融資の「保証人」になってくれる公的機関</h2>
+
+  <p><span class="hl">信用保証協会（しんようほしょうきょうかい）</span>は、<span class="bl">「中小企業が銀行から融資を受けるときに保証人（＝連帯保証人）になってくれる公的機関」</span>です。</p>
+
+  <div class="flow" style="margin:16px 0;align-items:stretch">
+    <div class="flow-box key" style="flex:2;min-width:120px">
+      🏢 中小企業・1人法人<br>
+      <span style="font-size:0.8rem">「銀行から借りたい<br>でも実績がない…」</span>
+    </div>
+    <div class="arrow">→</div>
+    <div class="flow-box gov" style="flex:2;min-width:120px">
+      🤝 信用保証協会<br>
+      <span style="font-size:0.8rem">「私が保証人に<br>なります」</span>
+    </div>
+    <div class="arrow">→</div>
+    <div class="flow-box ok" style="flex:2;min-width:120px">
+      🏦 銀行・信用金庫<br>
+      <span style="font-size:0.8rem">「保証があれば<br>貸しましょう」</span>
+    </div>
+  </div>
+
+  <p>万一、会社が返済できなくなった場合は、信用保証協会が銀行に代わりに返済します（代位弁済）。その後、協会が会社に返済を求めます（求償権の行使）。</p>
+
+  <div class="req-grid" style="margin-top:14px">
+    <div class="req-card r1">
+      <div class="req-title">📍 設置場所</div>
+      全国の都道府県や主要都市に設置（中小企業信用保険法に基づく公的機関）。<br>管轄は主に会社の所在地の都道府県の信用保証協会。
+    </div>
+    <div class="req-card r2">
+      <div class="req-title">💴 保証料の目安</div>
+      年 <strong>0.45〜1.90%</strong> 程度（保証協会・保証内容・会社の状況により異なる）。<br>借入額に対して毎年かかるコスト。
+    </div>
+    <div class="req-card r3">
+      <div class="req-title">🆕 創業関連保証</div>
+      創業前〜創業後おおむね5年以内の方を対象にした保証制度あり。<br>最大2,000万円程度（要件は各協会で確認）。
+    </div>
+  </div>
+
+  <div class="source">
+    出典：中小企業庁「信用補完制度」<br>
+    <a href="https://www.chusho.meti.go.jp/kinyu/hosho.htm" target="_blank">https://www.chusho.meti.go.jp/kinyu/hosho.htm</a>（2026年6月確認）<br>
+    全国信用保証協会連合会 <a href="https://www.zenshinhoren.or.jp/" target="_blank">https://www.zenshinhoren.or.jp/</a>
+  </div>
+</div>
+
+<!-- ══════ 6. JFC vs 信用保証協会比較 ══════ -->
+<div class="card">
+  <h2>📊 6. 日本政策金融公庫 vs 信用保証協会付き融資 ── 比較一覧</h2>
+  <table class="cmp-table">
+    <tr>
+      <th>比較項目</th>
+      <th>🏛️ 日本政策金融公庫<br>（国民生活事業）</th>
+      <th>🤝 信用保証協会付き<br>銀行融資</th>
+    </tr>
+    <tr>
+      <td><strong>お金の出し手</strong></td>
+      <td class="good">国（JFC）が直接貸す</td>
+      <td>民間銀行・信用金庫が貸す</td>
+    </tr>
+    <tr>
+      <td><strong>保証料</strong></td>
+      <td class="good">不要</td>
+      <td class="mid">年0.45〜1.90%程度かかる</td>
+    </tr>
+    <tr>
+      <td><strong>融資限度額</strong></td>
+      <td>最大7,200万円（新規開業資金）</td>
+      <td>保証協会の上限・商品による</td>
+    </tr>
+    <tr>
+      <td><strong>窓口</strong></td>
+      <td>JFCの支店に直接申込み</td>
+      <td>メインバンク（地銀・信金等）に申込み</td>
+    </tr>
+    <tr>
+      <td><strong>創業直後の通りやすさ</strong></td>
+      <td class="good">◎（専用商品あり）</td>
+      <td class="good">○（創業関連保証あり）</td>
+    </tr>
+    <tr>
+      <td><strong>担保</strong></td>
+      <td class="good">原則不要の商品あり</td>
+      <td>保証により異なる</td>
+    </tr>
+    <tr>
+      <td><strong>おすすめ順序</strong></td>
+      <td class="good"><strong>① まずここから</strong></td>
+      <td><strong>② 次の選択肢</strong></td>
+    </tr>
+  </table>
+
+  <div class="info-box" style="margin-top:6px">
+    <div class="info-title">💡 両方を組み合わせることもできる</div>
+    JFCから借りた後に、信用保証協会付きの銀行融資も活用することで、資金調達の幅を広げることができます。どちらか一方に縛られる必要はありません。
+  </div>
+</div>
+
+<!-- ══════ 7. よくある失敗 ══════ -->
+<div class="card red">
+  <h2>❌ 7. 融資でやりがちな失敗 ── 審査落ちパターン</h2>
+
+  <ul class="steps">
+    <li>
+      <div class="step-num" style="background:#c84a4a">!</div>
+      <div class="step-body">
+        <strong>NG：自己資金ゼロ（または突然入金した）で申し込む</strong><br>
+        → 「本気度がない」「計画性がない」と見なされやすい。事業資金の1/3以上は事前に積み立てておく。入金したばかりのお金は通帳で「出所が不明」と判断されることも。
+      </div>
+    </li>
+    <li>
+      <div class="step-num" style="background:#c84a4a">!</div>
+      <div class="step-body">
+        <strong>NG：創業計画書の数字が根拠不明・楽観的すぎる</strong><br>
+        → 「月100万円売れる」と書いても、なぜその数字になるかの根拠（市場規模・類似事例・受注見込み）がないと担当者に質問されたとき答えられない。
+      </div>
+    </li>
+    <li>
+      <div class="step-num" style="background:#c84a4a">!</div>
+      <div class="step-body">
+        <strong>NG：信用情報（CIC）に傷がある状態で申し込む</strong><br>
+        → 個人の借入延滞・クレジットカードの滞納は融資審査に影響します。事前に信用情報機関（CIC・JICC）で自分の情報を確認しておく。
+      </div>
+    </li>
+    <li>
+      <div class="step-num" style="background:#c84a4a">!</div>
+      <div class="step-body">
+        <strong>NG：「資金ショートしてから」申し込む</strong><br>
+        → 審査に2〜4週間かかる。「来月末に資金が尽きる」状況で申し込んでも、間に合わないことがある。<span class="red">余裕のある段階で早めに動く</span>のが鉄則。
+      </div>
+    </li>
+    <li>
+      <div class="step-num" style="background:#2e7d32">✓</div>
+      <div class="step-body">
+        <strong>成功パターン：事業経験を生かして現実的な計画を丁寧に作る</strong><br>
+        「この分野に○年関わってきた」「すでに仮受注がある」「初月から○件の成約を見込む根拠は…」と語れると、審査担当者の印象が大きく変わります。
+      </div>
+    </li>
+  </ul>
+</div>
+
+<!-- ══════ 8. 今日のアクション ══════ -->
+<div class="card green">
+  <h2>🚀 8. 今日できる3つのアクション</h2>
+
+  <div class="flow" style="flex-direction:column;align-items:stretch;gap:10px">
+    <div class="flow-box ok" style="flex:none;text-align:left;padding:12px 16px">
+      <strong>① JFCのWebサイトで「新規開業資金」の最新条件を確認する</strong>（5分）<br>
+      <span style="font-size:0.82rem">
+        <a href="https://www.jfc.go.jp/n/finance/search/01_sinkikaigyou_m.html" target="_blank" style="color:#1b5e20">https://www.jfc.go.jp/n/finance/search/01_sinkikaigyou_m.html</a><br>
+        金利・限度額・対象要件を最新のページで確認。書式（創業計画書）もここからダウンロードできます。
+      </span>
+    </div>
+    <div class="arrow" style="transform:rotate(90deg);text-align:center">→</div>
+    <div class="flow-box ok" style="flex:none;text-align:left;padding:12px 16px">
+      <strong>② 自己資金を「通帳で証明できるか」確認する</strong>（10分）<br>
+      <span style="font-size:0.82rem">過去6〜12か月分の通帳履歴（入出金の流れ）を確認。創業資金の1/3以上が貯まっているか、出所が説明できるか確認する。</span>
+    </div>
+    <div class="arrow" style="transform:rotate(90deg);text-align:center">→</div>
+    <div class="flow-box ok" style="flex:none;text-align:left;padding:12px 16px">
+      <strong>③ 創業計画書の「事業の見通し」欄のドラフトをAIに書かせて、数字を自分で詰める</strong>（30分〜）<br>
+      <span style="font-size:0.82rem">Claude等のAIに「私はXXの事業をする。創業計画書の収支見通しのドラフトを作って」と頼むと骨格ができます。数字の根拠は自分で確認・修正が必須。</span>
+    </div>
+  </div>
+
+  <div class="big-num-row" style="margin-top:20px">
+    <div class="big-num" style="border-color:#2e7d32;background:#f1f8f1">
+      <div class="num" style="color:#1b5e20;font-size:1.5rem">1/3</div>
+      <div class="unit">自己資金の目安</div>
+      <div class="label">創業資金総額の1/3以上を準備</div>
+    </div>
+    <div class="big-num" style="border-color:#2e7d32;background:#f1f8f1">
+      <div class="num" style="color:#1b5e20;font-size:1.5rem">2〜4</div>
+      <div class="unit">週間（審査期間目安）</div>
+      <div class="label">資金が必要な時期より余裕を持って申込む</div>
+    </div>
+    <div class="big-num" style="border-color:#2e7d32;background:#f1f8f1">
+      <div class="num" style="color:#1b5e20;font-size:1.3rem">0円</div>
+      <div class="unit">相談は無料</div>
+      <div class="label">JFCへの相談・窓口訪問は無料</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════ DISCLAIMER ══════ -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報提供を目的としており、特定の融資・税務・法務に関する個別アドバイスではありません。融資の可否・条件は申込時点の制度内容・会社の状況・金融機関の審査方針により異なります。具体的な融資計画・保証内容については、日本政策金融公庫の担当窓口、信用保証協会、税理士、中小企業診断士、商工会議所の専門家にご相談ください。<br>
+  本記事に記載の融資限度額・保証料率・制度名は、公開情報をもとに記載していますが、変更される場合があります。必ず各機関の公式サイトで最新情報をご確認ください。（参照時点：2026年6月）
+</div>
+
+<div class="source">
+  【主な参考・出典】<br>
+  ・日本政策金融公庫「新規開業資金」
+  <a href="https://www.jfc.go.jp/n/finance/search/01_sinkikaigyou_m.html" target="_blank">https://www.jfc.go.jp/n/finance/search/01_sinkikaigyou_m.html</a>（2026年6月確認）<br>
+  ・日本政策金融公庫「ご融資のご案内」
+  <a href="https://www.jfc.go.jp/n/finance/index.html" target="_blank">https://www.jfc.go.jp/n/finance/index.html</a><br>
+  ・中小企業庁「信用補完制度（信用保証協会）」
+  <a href="https://www.chusho.meti.go.jp/kinyu/hosho.htm" target="_blank">https://www.chusho.meti.go.jp/kinyu/hosho.htm</a>（2026年6月確認）<br>
+  ・全国信用保証協会連合会
+  <a href="https://www.zenshinhoren.or.jp/" target="_blank">https://www.zenshinhoren.or.jp/</a><br>
+  ・基準年度：2024年3月（新創業融資制度廃止・新規開業資金への統合後）以降の制度
+</div>
+
+<div class="back-link">
+  <a href="index.html">← バックナンバー一覧に戻る</a>
+</div>
+
+</div>
+</body>
+</html>
