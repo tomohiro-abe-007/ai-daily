@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>デジタルノマド 最新トピック 2026-06-15</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    color: #2a2a2a;
+  }
+  .hero {
+    background: linear-gradient(135deg, #1a6e49 0%, #0e4530 100%);
+    color: white;
+    border-radius: 10px;
+    padding: 48px 40px;
+    text-align: center;
+    width: 100%;
+    max-width: 760px;
+    margin-bottom: 28px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .hero .label {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 0.8rem;
+    margin-bottom: 14px;
+    letter-spacing: 0.05em;
+  }
+  .hero h1 { font-size: 1.5rem; margin-bottom: 12px; line-height: 1.55; }
+  .hero .meta { opacity: 0.85; font-size: 0.88rem; line-height: 1.75; }
+  .card {
+    background: #fff9f0;
+    border-radius: 8px;
+    padding: 28px 32px;
+    width: 100%;
+    max-width: 760px;
+    margin-bottom: 20px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.08);
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a6e49;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px dashed #90c8a8;
+  }
+  .card p { font-size: 0.93rem; line-height: 1.85; margin-bottom: 10px; }
+  .card p:last-child { margin-bottom: 0; }
+  .highlight-box {
+    background: #e8f5ef;
+    border-left: 4px solid #1a6e49;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .highlight-box .hlabel { font-size: 0.75rem; color: #1a6e49; font-weight: 600; margin-bottom: 6px; display: block; }
+  .highlight-box p { font-size: 0.9rem; margin: 0; }
+  .alert-box {
+    background: #fff3cd;
+    border-left: 4px solid #e8a000;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .alert-box .alabel { font-size: 0.75rem; color: #b07700; font-weight: 600; margin-bottom: 6px; display: block; }
+  .alert-box p { font-size: 0.9rem; margin: 0; }
+  .danger-box {
+    background: #fde8e8;
+    border-left: 4px solid #c0392b;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .danger-box .dlabel { font-size: 0.75rem; color: #c0392b; font-weight: 600; margin-bottom: 6px; display: block; }
+  .danger-box p { font-size: 0.9rem; margin: 0; }
+  .news-box {
+    background: #e8f0fd;
+    border-left: 4px solid #2a5e8e;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .news-box .nlabel { font-size: 0.75rem; color: #2a5e8e; font-weight: 600; margin-bottom: 6px; display: block; }
+  .news-box p { font-size: 0.9rem; margin: 0; }
+  .number-row { display: flex; gap: 14px; flex-wrap: wrap; margin: 14px 0; }
+  .number-card {
+    flex: 1; min-width: 130px;
+    background: #1a6e49; color: white;
+    border-radius: 8px; padding: 18px 14px; text-align: center;
+  }
+  .number-card .num { font-size: 1.5rem; font-weight: 700; margin-bottom: 6px; line-height: 1.2; letter-spacing: 0.03em; }
+  .number-card .desc { font-size: 0.72rem; opacity: 0.9; line-height: 1.5; }
+  .number-card.amber { background: #b07700; }
+  .number-card.blue  { background: #2a5e8e; }
+  .number-card.red   { background: #922b2b; }
+  .number-card.gray  { background: #555; }
+  .flow-wrap { display: flex; flex-direction: column; gap: 4px; margin: 14px 0; }
+  .flow-box {
+    background: #1a6e49; color: white;
+    border-radius: 8px; padding: 14px 16px;
+    font-size: 0.88rem; line-height: 1.6;
+  }
+  .flow-box .fb-label { font-size: 0.7rem; opacity: 0.8; margin-bottom: 4px; display: block; }
+  .flow-box strong { font-size: 0.95rem; }
+  .flow-box.sub   { background: #2a9464; }
+  .flow-box.light { background: #e8f5ef; color: #2a2a2a; border: 1.5px solid #90c8a8; }
+  .flow-box.amber { background: #8a5e00; }
+  .flow-box.blue  { background: #2a5e8e; }
+  .flow-box.red   { background: #922b2b; }
+  .flow-box.gray  { background: #666; }
+  .arrow-down { text-align: center; font-size: 1.5rem; color: #1a6e49; margin: 4px 0; line-height: 1; }
+  .flow-h-row { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; margin: 14px 0; }
+  .flow-h-box {
+    flex: 1; min-width: 100px;
+    background: #1a6e49; color: white;
+    border-radius: 8px; padding: 14px 12px; text-align: center;
+    font-size: 0.82rem; line-height: 1.55;
+  }
+  .flow-h-box .fh-label { font-size: 0.68rem; opacity: 0.8; display: block; margin-bottom: 4px; }
+  .flow-h-box strong { font-size: 0.9rem; }
+  .flow-h-box.fh-sub   { background: #2a9464; }
+  .flow-h-box.fh-amber { background: #8a5e00; }
+  .flow-h-box.fh-blue  { background: #2a5e8e; }
+  .flow-h-box.fh-red   { background: #922b2b; }
+  .flow-h-box.fh-light { background: #e8f5ef; color: #2a2a2a; border: 1.5px solid #90c8a8; }
+  .flow-h-box.fh-gray  { background: #666; }
+  .arrow-right { font-size: 1.3rem; color: #1a6e49; flex-shrink: 0; }
+  @media (max-width: 520px) { .flow-h-row { flex-direction: column; } .arrow-right { transform: rotate(90deg); } }
+  .step-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 12px 0; }
+  .step-list li { display: flex; align-items: flex-start; gap: 12px; }
+  .step-num {
+    background: #1a6e49; color: white; border-radius: 50%;
+    min-width: 28px; height: 28px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.78rem; font-weight: 700; flex-shrink: 0; margin-top: 2px;
+  }
+  .step-num.amber { background: #b07700; }
+  .step-num.blue  { background: #2a5e8e; }
+  .step-num.red   { background: #922b2b; }
+  .step-list li div { font-size: 0.9rem; line-height: 1.7; }
+  .matrix-table { width: 100%; border-collapse: collapse; font-size: 0.87rem; margin: 14px 0; }
+  .matrix-table th { background: #1a6e49; color: white; padding: 10px 12px; text-align: left; font-weight: 600; font-size: 0.82rem; }
+  .matrix-table th:first-child { border-radius: 6px 0 0 0; }
+  .matrix-table th:last-child  { border-radius: 0 6px 0 0; }
+  .matrix-table td { padding: 10px 12px; border-bottom: 1px solid #c0dcc8; vertical-align: top; line-height: 1.55; }
+  .matrix-table tr:nth-child(even) td { background: #f0faf5; }
+  .matrix-table .ok   { color: #1a6e49; font-weight: 700; }
+  .matrix-table .ng   { color: #c0392b; font-weight: 700; }
+  .matrix-table .warn { color: #b07700; font-weight: 700; }
+  .matrix-table .row-warn td   { background: #fff8e8 !important; }
+  .matrix-table .row-danger td { background: #fdeaea !important; }
+  .matrix-table .row-green td  { background: #e8f5ef !important; }
+  .matrix-table .row-blue td   { background: #e8f0fd !important; }
+  .check-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 12px 0; }
+  .check-list li {
+    display: flex; align-items: flex-start; gap: 12px;
+    padding: 10px 14px;
+    background: #e8f5ef; border-radius: 6px; border: 1px solid #90c8a8;
+    font-size: 0.9rem; line-height: 1.6;
+  }
+  .check-list li.amber { background: #fff8e8; border-color: #e8c060; }
+  .check-list li.blue  { background: #e8f0fd; border-color: #a0c0e8; }
+  .check-list li.red   { background: #fdeaea; border-color: #e8a0a0; }
+  .check-list .ico { font-size: 1.1rem; flex-shrink: 0; margin-top: 2px; }
+  .compare-row { display: flex; gap: 14px; flex-wrap: wrap; margin: 14px 0; }
+  .compare-card {
+    flex: 1; min-width: 200px; border-radius: 8px;
+    padding: 16px 16px; font-size: 0.88rem; line-height: 1.7;
+  }
+  .compare-card h3 { font-size: 0.85rem; margin-bottom: 8px; padding-bottom: 6px; border-bottom: 1.5px dashed; }
+  .compare-card.green  { background: #e8f5ef; border: 1.5px solid #1a6e49; }
+  .compare-card.green h3  { color: #1a6e49; border-color: #90c8a8; }
+  .compare-card.amber  { background: #fff8e8; border: 1.5px solid #c9920a; }
+  .compare-card.amber h3  { color: #a07800; border-color: #f0d080; }
+  .compare-card.blue   { background: #e8f0fd; border: 1.5px solid #2a5e8e; }
+  .compare-card.blue h3   { color: #2a5e8e; border-color: #a0c0e8; }
+  .compare-card.red    { background: #fdeaea; border: 1.5px solid #c0392b; }
+  .compare-card.red h3    { color: #922b2b; border-color: #e8a0a0; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 14px 0; }
+  @media (max-width: 500px) { .two-col { grid-template-columns: 1fr; } }
+  .mini-card {
+    background: #e8f5ef; border: 1.5px solid #90c8a8;
+    border-radius: 8px; padding: 14px 16px; font-size: 0.88rem; line-height: 1.65;
+  }
+  .mini-card h4 { color: #1a6e49; font-size: 0.88rem; margin-bottom: 6px; }
+  .mini-card.amber-bg { background: #fff8e8; border-color: #e8c060; }
+  .mini-card.amber-bg h4 { color: #a07800; }
+  .mini-card.red-bg { background: #fdeaea; border-color: #e8a0a0; }
+  .mini-card.red-bg h4 { color: #922b2b; }
+  .mini-card.blue-bg { background: #e8f0fd; border-color: #a0c0e8; }
+  .mini-card.blue-bg h4 { color: #2a5e8e; }
+  .tag { display: inline-block; background: #1a6e49; color: white; font-size: 0.72rem; padding: 2px 8px; border-radius: 10px; margin-right: 4px; margin-bottom: 6px; vertical-align: middle; }
+  .tag.amber { background: #b07700; }
+  .tag.blue  { background: #2a5e8e; }
+  .tag.red   { background: #922b2b; }
+  .source-list { font-size: 0.78rem; color: #888; margin-top: 12px; line-height: 1.8; }
+  .source-list a { color: #1a6e49; word-break: break-all; }
+  .footer-note {
+    width: 100%; max-width: 760px;
+    font-size: 0.78rem; color: #777; line-height: 1.8;
+    margin-top: 8px; padding: 20px 24px;
+    background: #f5f2ec; border-radius: 8px; border: 1px solid #ddd;
+  }
+  .footer-note strong { color: #555; }
+  .nav-bar {
+    width: 100%; max-width: 760px;
+    display: flex; justify-content: space-between;
+    margin-bottom: 20px; font-size: 0.82rem;
+  }
+  .nav-bar a { color: #1a6e49; text-decoration: none; padding: 6px 14px; border: 1px solid #90c8a8; border-radius: 20px; background: #fff; }
+  .nav-bar a:hover { background: #e8f5ef; }
+
+  /* 証明書表示専用 */
+  .cert-display {
+    background: linear-gradient(135deg, #1a4d35 0%, #0e3020 100%);
+    color: white;
+    border-radius: 10px;
+    padding: 22px 28px;
+    margin: 14px 0;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .cert-icon {
+    font-size: 3rem;
+    flex-shrink: 0;
+  }
+  .cert-text .cert-title { font-size: 1.15rem; font-weight: 700; margin-bottom: 4px; }
+  .cert-text .cert-sub { font-size: 0.8rem; opacity: 0.85; line-height: 1.6; }
+
+  /* 使える行政サービス グリッド */
+  .service-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 14px 0;
+  }
+  @media (max-width: 520px) { .service-grid { grid-template-columns: 1fr; } }
+  .service-item {
+    background: #e8f5ef;
+    border: 1.5px solid #90c8a8;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.88rem;
+    line-height: 1.6;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .service-item .s-ico { font-size: 1.2rem; flex-shrink: 0; }
+  .service-item.blue { background: #e8f0fd; border-color: #a0c0e8; }
+  .service-item.amber { background: #fff8e8; border-color: #e8c060; }
+  .service-item strong { display: block; font-size: 0.9rem; color: #1a4d35; }
+  .service-item.blue strong { color: #2a5e8e; }
+  .service-item.amber strong { color: #a07800; }
+</style>
+</head>
+<body>
+
+<div class="nav-bar">
+  <a href="index.html">← バックナンバー一覧</a>
+  <a href="2026-06-14.html">前回：家族帯同ガイド</a>
+</div>
+
+<div class="hero">
+  <div class="label">デジタルノマド 最新トピック 2026-06-15</div>
+  <h1>🔐 Certificado Digital<br>スペイン電子証明書 取得ガイド 2026<br>DNV取得後に絶対必要！行政のほぼ全手続きが<br>日本からでもオンラインで完結する</h1>
+  <div class="meta">
+    スペインのデジタルノマドビザ準備中 ／ 日本の1人法人 ／ 日西往来生活<br>
+    情報基準：2026年6月（Certificado Digital の手続きは2025〜2026年時点）
+  </div>
+</div>
+
+<!-- 今日の数字 -->
+<div class="card">
+  <h2>📌 今日の数字で見るポイント</h2>
+  <div class="number-row">
+    <div class="number-card">
+      <div class="num">4年</div>
+      <div class="desc">証明書の有効期間<br>（更新すれば継続）</div>
+    </div>
+    <div class="number-card amber">
+      <div class="num">€0</div>
+      <div class="desc">対面確認で取得した場合<br>の発行手数料（無料）</div>
+    </div>
+    <div class="number-card blue">
+      <div class="num">€2.99</div>
+      <div class="desc">ビデオ通話で取得する場合<br>の認証サービス料（+税）</div>
+    </div>
+    <div class="number-card gray">
+      <div class="num">10+</div>
+      <div class="desc">この証明書1つで使える<br>スペイン行政サービス数</div>
+    </div>
+  </div>
+  <div class="alert-box">
+    <span class="alabel">⚠️ 大前提：NIEが必要</span>
+    <p>Certificado Digital を取得するには<strong>NIE（外国人識別番号）</strong>が先に必要です。NIEはスペイン入国後にTIEに自動付与されるか、在日スペイン大使館での事前申請で取得できます。つまり「最初の1回は必ずスペインか日本の大使館で手続きをする必要がある」ということです。</p>
+  </div>
+</div>
+
+<!-- 何者？ -->
+<div class="card">
+  <h2>🔐 Certificado Digital（電子証明書）とは何か</h2>
+
+  <div class="cert-display">
+    <div class="cert-icon">🏛️</div>
+    <div class="cert-text">
+      <div class="cert-title">Certificado Electrónico de Ciudadano</div>
+      <div class="cert-sub">
+        発行機関：FNMT-RCM（Fábrica Nacional de Moneda y Timbre＝スペイン国立造幣局）<br>
+        形式：ブラウザにインストールするデジタルファイル（.p12/.pfx 形式）
+      </div>
+    </div>
+  </div>
+
+  <p>ひとことで言うと、<strong>「スペイン版のマイナンバーカード機能を、パソコンのブラウザに入れたもの」</strong>です。</p>
+  <p>インターネット上でスペイン政府・自治体の行政サービスにアクセスするとき、「あなたが本人かどうか」を証明する電子的な身分証として使います。この証明書を使えば、税務申告・社会保険・在留カード更新など、スペインの重要な行政手続きを<strong>窓口に行かずにオンラインで</strong>完結できます。</p>
+  <p>日本でいうと、マイナンバーカードのICチップを使ったオンライン申請と同じイメージです。スペインではこれが<strong>Certificado Digital</strong>という証明書ファイルの形で配布されています。</p>
+
+  <div class="highlight-box">
+    <span class="hlabel">🏛️ 発行機関について確認済み</span>
+    <p>FNMT-RCM（Fábrica Nacional de Moneda y Timbre – Real Casa de la Moneda）がスペイン政府の公的機関として発行する証明書です。申請は <strong>sede.fnmt.gob.es</strong>（FNMTの公式サイト）から行います。</p>
+  </div>
+</div>
+
+<!-- 前提条件 -->
+<div class="card">
+  <h2>🗺️ DNV取得者がCertificado Digitalを手に入れるまでの流れ</h2>
+
+  <p>DNV（国際遠隔就労ビザ）取得者がCertificado Digitalを取得するには、まず以下の手順を踏む必要があります。</p>
+
+  <div class="flow-wrap">
+    <div class="flow-box">
+      <span class="fb-label">STEP A ── 日本・スペイン大使館で</span>
+      <strong>🇯🇵 DNV申請 → 在日スペイン大使館でビザ発給（ビザシール）</strong>
+    </div>
+    <div class="arrow-down">↓</div>
+    <div class="flow-box sub">
+      <span class="fb-label">STEP B ── スペイン入国後 1か月以内</span>
+      <strong>🏡 Empadronamiento（住民登録）→ NIEが付与される / 事前申請済みならそのままTIE申請へ</strong>
+    </div>
+    <div class="arrow-down">↓</div>
+    <div class="flow-box amber">
+      <span class="fb-label">STEP C ── 指紋登録・TIE受取</span>
+      <strong>🪪 TIE（外国人在留カード）取得 → NIE番号が手元に確定</strong>
+    </div>
+    <div class="arrow-down">↓</div>
+    <div class="flow-box blue">
+      <span class="fb-label">STEP D ── ここから！NIEさえあれば</span>
+      <strong>🔐 Certificado Digital 取得 ── オンライン申請 → 認証 → ダウンロード・インストール</strong>
+    </div>
+    <div class="arrow-down">↓</div>
+    <div class="flow-box">
+      <span class="fb-label">STEP E ── 以降は日本からでも</span>
+      <strong>🌐 税務申告・社会保険・DNV更新など、スペイン行政手続きを遠隔で完結</strong>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <span class="hlabel">💡 ポイント</span>
+    <p>Certificado Digital を手に入れさえすれば、その後は<strong>スペインにいる・いないに関わらず</strong>日本にいながらスペインの行政手続きができるようになります。日本↔スペインを行き来する生活において、これは非常に大きな武器です。</p>
+  </div>
+</div>
+
+<!-- 取得方法の比較 -->
+<div class="card">
+  <h2>📊 認証方法の比較 ── 4つの選択肢</h2>
+
+  <p>Certificado Digital を取得するには、「本人確認（認証）」の方法を選ぶ必要があります。日本人・DNV取得者が実際に使える選択肢は主に2つです。</p>
+
+  <table class="matrix-table">
+    <thead>
+      <tr>
+        <th>認証方法</th>
+        <th>費用</th>
+        <th>場所</th>
+        <th>DNV取得者向け？</th>
+        <th>備考</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="row-green">
+        <td>🎥 <strong>ビデオ通話認証</strong><br>（Video Identificación）</td>
+        <td class="warn">€2.99<br>+税</td>
+        <td class="ok">どこからでも</td>
+        <td class="ok">◎ おすすめ</td>
+        <td>オペレーターとビデオ通話で本人確認。パスポート＋NIE提示。当日または翌日に完了。2025年から正式提供。</td>
+      </tr>
+      <tr>
+        <td>🏢 <strong>対面認証</strong><br>（Agencia Tributaria・<br>Seguridad Social・Correos）</td>
+        <td class="ok">無料</td>
+        <td class="warn">スペイン国内のみ</td>
+        <td class="warn">○ スペイン在住中</td>
+        <td>スペイン国税庁（AEAT）・社会保険庁・Correos（郵便局）窓口で本人確認。スペイン滞在中に行う。</td>
+      </tr>
+      <tr class="row-blue">
+        <td>📱 <strong>Cl@ve（クラベ）経由</strong></td>
+        <td class="ok">無料</td>
+        <td class="ok">オンライン</td>
+        <td class="warn">△ 事前登録が必要</td>
+        <td>スペインの統合デジタルIDシステム。Cl@veアカウントを先に作る必要があり、そのためにも対面または郵便での手続きが必要。</td>
+      </tr>
+      <tr>
+        <td>🪪 <strong>DNI electrónico経由</strong></td>
+        <td class="ok">無料</td>
+        <td class="ok">オンライン</td>
+        <td class="ng">✕ 対象外</td>
+        <td>スペイン市民のDNI（国民ID）カードが必要。外国人には使えない。</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="news-box">
+    <span class="nlabel">🆕 2025年から：ビデオ通話認証が正式スタート</span>
+    <p>それまでは「スペインの窓口に直接行かないと認証できなかった」ため、日本から遠隔で取得するのは困難でした。2025年以降はビデオ通話認証（€2.99+税）が正式に提供されたことで、<strong>日本にいても、NIEさえあれば Certificado Digital を取得できる</strong>ようになりました。ただしビデオ通話はスペイン語または英語対応が基本です。</p>
+  </div>
+</div>
+
+<!-- 取得の3ステップ -->
+<div class="card">
+  <h2>📋 取得の3ステップ（ビデオ通話認証の場合）</h2>
+
+  <ul class="step-list">
+    <li>
+      <span class="step-num">1</span>
+      <div>
+        <strong>オンラインで申請する</strong><br>
+        <span class="tag">sede.fnmt.gob.es</span> にアクセス → 「Certificados」→「Persona Física（個人）」→「Obtener Certificado Software（証明書の取得）」→「Solicitar Certificado（証明書の申請）」<br>
+        NIE番号（X1234567A のような形式）と<strong>スペイン語の姓の頭文字（First Surname）</strong>を入力。完了すると「申請コード（Código de Solicitud）」がメールで届く。
+      </div>
+    </li>
+    <li>
+      <span class="step-num blue">2</span>
+      <div>
+        <strong>本人確認（ビデオ通話）を行う</strong><br>
+        FNMTサイト上でビデオ認証オプションを選択 → <strong>€2.99+税</strong>をカード決済 → オペレーターとビデオ通話（スペイン語または英語） → パスポートとNIE（またはTIE）をカメラに提示して本人確認完了。<br>
+        通常は当日中または翌営業日中に「ダウンロード可能」の通知が届く。
+      </div>
+    </li>
+    <li>
+      <span class="step-num amber">3</span>
+      <div>
+        <strong>証明書をダウンロード・インストールする</strong><br>
+        FNMTサイトに戻り「Descargar Certificado（証明書のダウンロード）」→ 申請コードとNIEを入力 → .p12ファイルをダウンロード → ブラウザ（Chrome・Firefox・Edge）の設定から証明書をインポート。<br>
+        <span class="tag amber">推奨</span> バックアップコピーを作成して別のパソコンやブラウザにも入れておくと安心。
+      </div>
+    </li>
+  </ul>
+
+  <div class="highlight-box">
+    <span class="hlabel">🔧 補足：AutoFirma も一緒にインストールしよう</span>
+    <p><strong>AutoFirma</strong>はスペイン政府が提供する電子署名ソフトです（無料）。Certificado Digital とセットで使うことで、オンライン申告書・申請書に電子署名を押すことができます。スペイン国税庁（AEAT）のサイトからダウンロードできます。</p>
+  </div>
+</div>
+
+<!-- これがあると何ができるか -->
+<div class="card">
+  <h2>✅ Certificado Digital があると何ができるか</h2>
+
+  <p>この電子証明書1枚で、以下のスペイン行政手続きがすべて<strong>オンラインで完結</strong>します。</p>
+
+  <div class="service-grid">
+    <div class="service-item">
+      <span class="s-ico">📊</span>
+      <div>
+        <strong>確定申告の提出（税務）</strong>
+        Modelo 100（通常年次申告）・Modelo 149（ベックハム法申請）・Modelo 151（ベックハム法年次申告）・Modelo 036/037（事業者登録）などをオンラインで提出できる
+      </div>
+    </div>
+    <div class="service-item blue">
+      <span class="s-ico">🏥</span>
+      <div>
+        <strong>Seguridad Social（社会保険）</strong>
+        autónomo（個人事業主）としての登録・廃業・保険料納付・各種届出がオンラインで可能
+      </div>
+    </div>
+    <div class="service-item">
+      <span class="s-ico">🪪</span>
+      <div>
+        <strong>TIE更新のCita Previa予約</strong>
+        在留カード（TIE）の更新予約・申請書類の電子提出が可能
+      </div>
+    </div>
+    <div class="service-item blue">
+      <span class="s-ico">🏛️</span>
+      <div>
+        <strong>DNV更新申請（UGEオンライン）</strong>
+        UGE（Unidad de Grandes Empresas）への更新申請書・添付書類をオンラインで提出できる。日本にいながら更新手続きが進められる
+      </div>
+    </div>
+    <div class="service-item amber">
+      <span class="s-ico">🏘️</span>
+      <div>
+        <strong>Empadronamiento（住民登録）</strong>
+        バルセロナ・マドリードなど一部の自治体ではオンライン申請に対応。引越し時の住所変更も遠隔でできる場合がある
+      </div>
+    </div>
+    <div class="service-item">
+      <span class="s-ico">📬</span>
+      <div>
+        <strong>行政からの電子通知受取</strong>
+        DEHú（Dirección Electrónica Habilitada Única）というスペイン政府の統合通知システムに登録でき、UGEからの審査結果・各種通知を電子メールで受け取れる
+      </div>
+    </div>
+    <div class="service-item blue">
+      <span class="s-ico">🚗</span>
+      <div>
+        <strong>DGT（交通・運転免許）手続き</strong>
+        スペインの運転免許関連手続きがオンライン化。日本の免許からスペイン免許への切り替え（将来的な手続き）にも関係する
+      </div>
+    </div>
+    <div class="service-item amber">
+      <span class="s-ico">✍️</span>
+      <div>
+        <strong>電子署名（AutoFirma経由）</strong>
+        PDF契約書・公文書への電子署名。取引先との契約書類をオンラインで完結できる
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 日本↔スペイン往来での活用 -->
+<div class="card">
+  <h2>✈️ 日本↔スペイン往来生活での活用シナリオ</h2>
+
+  <p>Certificado Digital の最大の価値は、<strong>「スペイン行政の手続きを日本にいるときでも完結できる」</strong>点にあります。</p>
+
+  <div class="compare-row">
+    <div class="compare-card green">
+      <h3>✅ 日本からできること</h3>
+      <ul style="font-size:0.88rem; line-height:1.75; list-style:none; padding:0;">
+        <li>📊 Modelo 149（ベックハム法申請）をオンライン提出<br><span style="font-size:0.8rem;color:#555;">→ 6か月の期限内に日本から申請できる</span></li>
+        <li>🏛️ DNV更新申請をUGEにオンライン提出<br><span style="font-size:0.8rem;color:#555;">→ 期限60日前〜スペイン国外から申請可能</span></li>
+        <li>📬 UGEからの審査通知・書類不備の連絡を受取</li>
+        <li>🏥 社会保険（autónomo）の保険料支払い確認</li>
+        <li>📋 税務申告（Modelo 151）の提出</li>
+      </ul>
+    </div>
+    <div class="compare-card red">
+      <h3>⚠️ スペインにいるときに済ませるべきこと</h3>
+      <ul style="font-size:0.88rem; line-height:1.75; list-style:none; padding:0;">
+        <li>🪪 TIE（在留カード）の初回取得・指紋登録<br><span style="font-size:0.8rem;color:#555;">→ Cita Previaに行く必要がある</span></li>
+        <li>🏘️ Empadronamiento（住民登録）の初回登録<br><span style="font-size:0.8rem;color:#555;">→ 市役所（Ayuntamiento）窓口が必要な場合も</span></li>
+        <li>🏦 スペイン銀行口座の開設<br><span style="font-size:0.8rem;color:#555;">→ 非居住者→居住者口座の切替も含む</span></li>
+        <li>🔐 Certificado Digital の初回認証（対面の場合）<br><span style="font-size:0.8rem;color:#555;">→ ビデオ通話なら日本からも可</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <span class="hlabel">📆 重要：Modelo 149の6か月ルールとCertificado Digitalの関係</span>
+    <p>ベックハム法（24%一律税率の特例）を適用するには、スペインのautónomo登録または就労開始から<strong>6か月以内</strong>にModelo 149を提出しなければなりません。スペインに入国してすぐ日本に戻ったとしても、<strong>Certificado Digital があれば日本からModelo 149をオンライン提出できる</strong>ため、この期限を守りやすくなります。</p>
+  </div>
+</div>
+
+<!-- よくある間違い -->
+<div class="card">
+  <h2>⚠️ よくある間違いと注意点</h2>
+
+  <ul class="check-list">
+    <li class="red">
+      <span class="ico">❌</span>
+      <div>
+        <strong>「NIEなしでCertificado Digitalを申請しようとする」</strong><br>
+        NIEは必須です。DNVビザが発給された段階では通常まだNIEは確定していません。スペイン入国後にTIEを取得して初めてNIEが確定します。この順番を守りましょう（6/13付の日報「NIE番号完全ガイド」参照）。
+      </div>
+    </li>
+    <li class="amber">
+      <span class="ico">⚠️</span>
+      <div>
+        <strong>「ブラウザを変えたら証明書が消えた」</strong><br>
+        Certificado Digital はブラウザにインストールするファイルです。ブラウザを変えたり、パソコンを買い替えたりすると証明書が引き継がれません。<strong>バックアップ（.p12ファイル）</strong>を必ず別の安全な場所に保存しておきましょう。
+      </div>
+    </li>
+    <li class="amber">
+      <span class="ico">⚠️</span>
+      <div>
+        <strong>「有効期限が切れていて申告できない」</strong><br>
+        有効期間は4年です。期限が切れると再取得の手続きが必要になります。税務申告の期限（例：2026年6月30日が2025年分の申告期限）の直前に期限切れになっていると大変です。有効期限はFNMTのサイトで確認できます。
+      </div>
+    </li>
+    <li>
+      <span class="ico">ℹ️</span>
+      <div>
+        <strong>「日本の公的機関がスペインの電子証明書を認識しない」</strong><br>
+        Certificado Digital はあくまでスペインの行政システム向けです。日本の行政手続き（e-Tax・マイナポータル等）には使えません。日本側の手続きは引き続き日本のマイナンバーカードを使いましょう。
+      </div>
+    </li>
+    <li class="blue">
+      <span class="ico">💡</span>
+      <div>
+        <strong>「Cl@veとCertificado Digitalの違いがわからない」</strong><br>
+        Cl@veはスペインの統合ログインシステム（日本のGビズIDのようなもの）で、SMS認証や電子証明書など複数の認証方式を束ねます。Certificado Digitalは認証方法の一つです。どちらも使えるようにしておくと、使えないシステムが減ります。
+      </div>
+    </li>
+  </ul>
+</div>
+
+<!-- まとめ -->
+<div class="card">
+  <h2>📝 まとめ：DNV取得後にやること リスト（優先順）</h2>
+
+  <p>DNV（国際遠隔就労ビザ）でスペインに入国したあと、<strong>最初の1〜3か月</strong>で以下の順に手続きを進めましょう。</p>
+
+  <div class="flow-wrap">
+    <div class="flow-box">
+      <span class="fb-label">① 到着直後 ── 1か月以内</span>
+      <strong>🏘️ Empadronamiento（住民登録）→ 🪪 TIE取得（NIE確定）</strong>
+    </div>
+    <div class="arrow-down">↓</div>
+    <div class="flow-box sub">
+      <span class="fb-label">② NIE確定後 ── できるだけ早く</span>
+      <strong>🔐 Certificado Digital 取得 → 🔧 AutoFirma インストール</strong>
+    </div>
+    <div class="arrow-down">↓</div>
+    <div class="flow-box amber">
+      <span class="fb-label">③ 就労開始から6か月以内が絶対期限！</span>
+      <strong>📊 Modelo 149 提出（ベックハム法申請） ← Certificado Digital で日本からも可</strong>
+    </div>
+    <div class="arrow-down">↓</div>
+    <div class="flow-box blue">
+      <span class="fb-label">④ Certificado Digital 取得後</span>
+      <strong>🌐 スペインの行政手続きを日本からオンラインで管理できる体制が完成</strong>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <span class="hlabel">🔑 今日の結論</span>
+    <p>Certificado Digital はDNV取得者にとって<strong>「スペイン行政のデジタルマスターキー」</strong>です。これがあれば日本にいながらスペインの税務・社会保険・ビザ更新を管理できます。ビデオ通話認証（€2.99）により、NIEさえあれば日本からでも取得可能です。NIE取得後は最優先で申請しましょう。</p>
+  </div>
+
+  <div class="source-list">
+    <strong>出典・参照先：</strong><br>
+    ・FNMT-RCM 公式サイト：<a href="https://www.sede.fnmt.gob.es/certificados/persona-fisica" target="_blank">sede.fnmt.gob.es/certificados/persona-fisica</a>（情報基準：2026年6月閲覧）<br>
+    ・スペイン政府 手続きポータル：<a href="https://one.gob.es/en/procedures/procedure-fnmt-electronic-digital-certificate" target="_blank">one.gob.es（FNMT Digital Certificate）</a><br>
+    ・Barcelona International Welcome（FNMT証明書ガイド）：<a href="https://www.barcelona.cat/internationalwelcome/en/digital-certificate-fnmt-rcm" target="_blank">barcelona.cat</a><br>
+    ・スペイン政府 行政電子化ポータル：<a href="https://administracion.gob.es/pag_Home/Tramites/ServiciosElectronicosFrecuentes/Obtencion-Certificado-Electronico-FNMT.html" target="_blank">administracion.gob.es</a>（情報基準：2026年6月閲覧）<br>
+    ・Video Identificación 手続き：<a href="https://www.xataka.com/basics/como-solicitar-certificado-digital-fnmt-identificandote-video-identificacion" target="_blank">Xataka（スペイン語記事）</a><br>
+    ・Digital Nomad Visa Renewal 2026（BMC Consulting）：<a href="https://bm.consulting/en/insights/digital-nomad-visa-renewal-deadlines-requirements-2026/" target="_blank">bm.consulting</a>
+  </div>
+</div>
+
+<!-- 免責フッター -->
+<div class="footer-note">
+  <strong>【免責事項】</strong><br>
+  本記事はデジタルノマドビザ・スペイン在住・日本法人運営に関する情報を学習目的でまとめたものです。<br><br>
+  <strong>ビザ・在留・行政手続きに関する正式な判断は、行政書士・移民弁護士（Abogado de Extranjería）または在スペイン日本大使館・総領事館にご相談ください。</strong><br>
+  <strong>税務・社会保険に関する正式な判断は、国際税務に精通した税理士（Asesor Fiscal）にご相談ください。</strong><br><br>
+  制度・手数料・手続きは予告なく変更される場合があります。本記事の情報は2026年6月時点のものです。為替レートへの言及はありません。
+  「必ず取得できる」「課税されない」などの断定はしていません。個別の事情によって適用が異なる場合があります。
+</div>
+
+</body>
+</html>
