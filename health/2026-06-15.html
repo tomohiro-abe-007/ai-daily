@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-06-15</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #f0ece3; font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif; min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 20px; }
+
+  /* COVER */
+  .cover { background: linear-gradient(135deg, #1a3a6a 0%, #2966cc 55%, #1a8aaa 100%); color: white; border-radius: 8px; padding: 60px 40px; text-align: center; width: 100%; max-width: 820px; margin-bottom: 24px; box-shadow: 4px 6px 20px rgba(0,0,0,0.3); position: relative; overflow: hidden; }
+  .cover::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: repeating-linear-gradient(0deg, transparent, transparent 28px, rgba(255,255,255,0.05) 28px, rgba(255,255,255,0.05) 29px); }
+  .cover-emoji { font-size: 64px; display: block; margin-bottom: 16px; }
+  .cover h1 { font-family: 'Klee One', sans-serif; font-size: 1.85rem; font-weight: 600; line-height: 1.35; margin-bottom: 12px; position: relative; }
+  .cover .subtitle { font-size: 1.0rem; opacity: 0.88; margin-bottom: 8px; position: relative; }
+  .cover .tagline { font-size: 0.88rem; opacity: 0.7; position: relative; margin-bottom: 4px; }
+  .cover .date-badge { display: inline-block; background: rgba(255,255,255,0.2); border: 2px solid rgba(255,255,255,0.5); border-radius: 20px; padding: 6px 20px; font-size: 1rem; margin-top: 16px; position: relative; }
+
+  /* CARDS */
+  .card { background: #fff9f0; border-radius: 6px; width: 100%; max-width: 820px; margin-bottom: 24px; box-shadow: 3px 4px 12px rgba(0,0,0,0.12); position: relative; overflow: hidden; }
+  .card-body { padding: 28px 36px 28px 64px; background: repeating-linear-gradient(0deg, transparent, transparent 31px, #e0d8c8 31px, #e0d8c8 32px); background-color: #fff9f0; min-height: 200px; }
+  .card-body::before { content: ''; position: absolute; left: 52px; top: 0; bottom: 0; width: 2px; background: #2966cc; opacity: 0.6; }
+  .card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; padding-bottom: 8px; border-bottom: 2px dashed #c8b89a; }
+  .card-emoji { font-size: 2rem; }
+  .card-title { font-family: 'Klee One', sans-serif; font-size: 1.4rem; font-weight: 600; color: #2c3e50; line-height: 1.3; }
+  .topic-badge { display: inline-block; padding: 3px 12px; border-radius: 12px; font-size: 0.75rem; font-weight: 600; margin-left: auto; white-space: nowrap; }
+  .badge-blue   { background: #e0eeff; color: #2255aa; border: 1px solid #a0c0f5; }
+  .badge-green  { background: #e0f5e8; color: #1a6640; border: 1px solid #90d4aa; }
+  .badge-red    { background: #ffe0e0; color: #aa2222; border: 1px solid #f0a0a0; }
+  .badge-orange { background: #fff0d0; color: #cc6600; border: 1px solid #f0c070; }
+  .badge-teal   { background: #d0f0f0; color: #006060; border: 1px solid #80d0d0; }
+  .badge-gray   { background: #f0f0f0; color: #555555; border: 1px solid #cccccc; }
+  .badge-navy   { background: #e0e8ff; color: #1a3a6a; border: 1px solid #8090d0; }
+  .badge-indigo { background: #e8e0ff; color: #3a1a8a; border: 1px solid #9080d0; }
+
+  /* TEXT */
+  .body-text { font-size: 0.97rem; line-height: 1.85; color: #333; margin: 8px 0; }
+
+  /* BOXES */
+  .simple-box { background: #fff7e0; border-left: 4px solid #f5c842; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 16px 0; font-size: 0.95rem; line-height: 1.8; }
+  .simple-box .label { display: inline-block; background: #f5c842; color: #5a4000; font-size: 0.72rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-bottom: 6px; letter-spacing: 0.5px; }
+  .info-box { background: #eef4ff; border-left: 4px solid #2966cc; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 16px 0; font-size: 0.95rem; line-height: 1.8; }
+  .info-box .label { display: inline-block; background: #2966cc; color: white; font-size: 0.72rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-bottom: 6px; letter-spacing: 0.5px; }
+  .alert-box { background: #fff0f0; border-left: 4px solid #e05050; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 16px 0; font-size: 0.95rem; line-height: 1.8; }
+  .alert-box .label { display: inline-block; background: #e05050; color: white; font-size: 0.72rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-bottom: 6px; letter-spacing: 0.5px; }
+  .green-box { background: #eafaf0; border-left: 4px solid #27ae60; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 16px 0; font-size: 0.95rem; line-height: 1.8; }
+  .green-box .label { display: inline-block; background: #27ae60; color: white; font-size: 0.72rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-bottom: 6px; letter-spacing: 0.5px; }
+  .navy-box { background: #e8eeff; border-left: 4px solid #1a3a6a; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 16px 0; font-size: 0.95rem; line-height: 1.8; }
+  .navy-box .label { display: inline-block; background: #1a3a6a; color: white; font-size: 0.72rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-bottom: 6px; letter-spacing: 0.5px; }
+  .teal-box { background: #e0f8f5; border-left: 4px solid #1abc9c; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 16px 0; font-size: 0.95rem; line-height: 1.8; }
+  .teal-box .label { display: inline-block; background: #1abc9c; color: white; font-size: 0.72rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-bottom: 6px; letter-spacing: 0.5px; }
+  .orange-box { background: #fff4e0; border-left: 4px solid #e67e22; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 16px 0; font-size: 0.95rem; line-height: 1.8; }
+  .orange-box .label { display: inline-block; background: #e67e22; color: white; font-size: 0.72rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-bottom: 6px; letter-spacing: 0.5px; }
+
+  /* PYRAMID */
+  .pyramid { display: flex; flex-direction: column; align-items: center; gap: 5px; margin: 24px auto; width: 100%; }
+  .pyr-level { color: white; padding: 11px 16px; border-radius: 6px; text-align: center; font-size: 0.87rem; font-weight: 600; }
+  .pyr-level small { font-weight: 400; font-size: 0.76rem; opacity: 0.9; display: block; margin-top: 2px; }
+  .pyr-tag { display: inline-block; font-size: 0.72rem; background: rgba(255,255,255,0.25); border-radius: 10px; padding: 1px 8px; margin-left: 8px; vertical-align: middle; }
+
+  /* NUM CARDS */
+  .num-cards { display: flex; gap: 16px; flex-wrap: wrap; margin: 20px 0; justify-content: center; }
+  .num-card { background: white; border-radius: 10px; padding: 18px 20px; text-align: center; flex: 1; min-width: 130px; max-width: 200px; box-shadow: 2px 3px 10px rgba(0,0,0,0.1); border-top: 5px solid #2966cc; }
+  .num-card .big-num { font-size: 2.0rem; font-weight: 700; font-family: 'Caveat', cursive; color: #2966cc; line-height: 1.1; }
+  .num-card .num-unit { font-size: 0.88rem; color: #2966cc; font-weight: 600; margin-bottom: 4px; }
+  .num-card .num-label { font-size: 0.77rem; color: #555; line-height: 1.5; margin-top: 4px; }
+  .num-card.green { border-top-color: #27ae60; } .num-card.green .big-num, .num-card.green .num-unit { color: #27ae60; }
+  .num-card.orange{ border-top-color: #e67e22; } .num-card.orange .big-num, .num-card.orange .num-unit { color: #e67e22; }
+  .num-card.navy  { border-top-color: #1a3a6a; } .num-card.navy  .big-num, .num-card.navy  .num-unit { color: #1a3a6a; }
+  .num-card.teal  { border-top-color: #1abc9c; } .num-card.teal  .big-num, .num-card.teal  .num-unit { color: #1abc9c; }
+
+  /* RCT FLOW */
+  .rct-flow { display: flex; flex-direction: column; align-items: center; gap: 0; margin: 20px 0; }
+  .rct-box { background: white; border: 2px solid #2966cc; border-radius: 8px; padding: 12px 20px; text-align: center; width: 100%; max-width: 360px; font-size: 0.9rem; line-height: 1.6; color: #333; }
+  .rct-box strong { color: #1a3a6a; }
+  .rct-arrow { font-size: 1.6rem; color: #2966cc; line-height: 1; margin: 6px 0; text-align: center; }
+  .rct-split { display: flex; gap: 16px; justify-content: center; width: 100%; max-width: 420px; margin: 0; }
+  .rct-split-box { background: white; border-radius: 8px; padding: 12px 14px; text-align: center; flex: 1; font-size: 0.88rem; line-height: 1.6; color: #333; }
+  .rct-split-box.intervention { border: 2px solid #27ae60; }
+  .rct-split-box.control { border: 2px solid #e05050; }
+  .box-title { font-weight: 700; margin-bottom: 6px; }
+  .rct-split-box.intervention .box-title { color: #1a6640; }
+  .rct-split-box.control .box-title { color: #aa2222; }
+
+  /* GRADE GRID */
+  .grade-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 20px 0; }
+  .grade-card { border-radius: 10px; padding: 16px; border: 2px solid; }
+  .grade-card.high     { background: #eafaf0; border-color: #27ae60; }
+  .grade-card.moderate { background: #eef4ff; border-color: #2966cc; }
+  .grade-card.low      { background: #fff4e0; border-color: #e67e22; }
+  .grade-card.verylow  { background: #fff0f0; border-color: #c0392b; }
+  .grade-dots { font-size: 1.2rem; margin-bottom: 6px; }
+  .grade-title { font-weight: 700; font-size: 1rem; margin-bottom: 6px; }
+  .grade-card.high     .grade-title { color: #1a6640; }
+  .grade-card.moderate .grade-title { color: #1a3a6a; }
+  .grade-card.low      .grade-title { color: #8a5000; }
+  .grade-card.verylow  .grade-title { color: #aa2222; }
+  .grade-desc { font-size: 0.85rem; color: #555; line-height: 1.7; }
+  .grade-ex   { font-size: 0.78rem; color: #888; margin-top: 6px; font-style: italic; }
+
+  /* COMPARE TABLE */
+  .compare-table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 0.88rem; margin: 20px 0; }
+  .compare-table th { padding: 10px 12px; font-weight: 700; font-size: 0.82rem; text-align: center; }
+  .compare-table th.col-label { text-align: left; }
+  .compare-table td { padding: 10px 12px; text-align: center; border-bottom: 1px dashed #ddd; vertical-align: top; }
+  .compare-table td.col-label { text-align: left; font-weight: 600; color: #444; }
+  .compare-table tr:last-child td { border-bottom: none; }
+  .th-obs  { background: #fff7d0; color: #7a5000; }
+  .th-rct  { background: #e0ffe8; color: #1a6640; }
+  .th-meta { background: #dde8ff; color: #1a3a6a; }
+  .th-lbl  { background: #f0ece3; color: #555; }
+  .tag-good { display: inline-block; background: #e0f5e8; color: #1a6640; border-radius: 4px; padding: 1px 7px; font-size: 0.77rem; font-weight: 600; }
+  .tag-mid  { display: inline-block; background: #fff7d0; color: #7a5000; border-radius: 4px; padding: 1px 7px; font-size: 0.77rem; font-weight: 600; }
+  .tag-weak { display: inline-block; background: #ffe0e0; color: #8b1a1a; border-radius: 4px; padding: 1px 7px; font-size: 0.77rem; font-weight: 600; }
+
+  /* FOREST PLOT */
+  .forest-plot { background: white; border: 1px solid #ccc; border-radius: 8px; padding: 16px 20px; margin: 16px 0; }
+  .fp-note { font-size: 0.78rem; color: #999; margin-bottom: 8px; }
+  .fp-row { display: flex; align-items: center; gap: 10px; margin: 6px 0; }
+  .fp-label { min-width: 150px; font-size: 0.83rem; color: #333; }
+  .fp-bar-area { flex: 1; position: relative; height: 18px; border-left: 2px solid #aaa; }
+  .fp-center { position: absolute; left: 50%; top: 0; bottom: 0; width: 1px; border-left: 1px dashed #ccc; }
+  .fp-ci { position: absolute; height: 3px; background: #2966cc; top: 7.5px; border-radius: 2px; }
+  .fp-point { position: absolute; width: 11px; height: 11px; background: #2966cc; border-radius: 50%; top: 3.5px; transform: translateX(-50%); }
+  .fp-diamond { position: absolute; width: 14px; height: 14px; background: #1a3a6a; transform: translateX(-50%) rotate(45deg); top: 2px; }
+  .fp-value { min-width: 120px; text-align: right; font-size: 0.82rem; color: #555; }
+  .fp-divider { border: none; border-top: 1px solid #ddd; margin: 6px 0; }
+
+  /* CHECKLIST */
+  .checklist { list-style: none; margin: 16px 0; }
+  .checklist li { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 18px; }
+  .check-icon { font-size: 1.5rem; flex-shrink: 0; width: 32px; text-align: center; margin-top: 2px; }
+  .check-text { font-size: 0.95rem; line-height: 1.75; color: #333; }
+  .check-text strong { color: #1a3a6a; }
+  .check-sub { font-size: 0.83rem; color: #666; margin-top: 5px; line-height: 1.7; }
+
+  /* STEP LIST */
+  .step-list { list-style: none; margin: 16px 0; }
+  .step-list li { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 14px; }
+  .step-num { background: #2966cc; color: white; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+  .step-text { font-size: 0.95rem; line-height: 1.75; color: #333; }
+
+  /* SOURCE */
+  .source-text { font-size: 0.78rem; color: #888; margin-top: 14px; line-height: 1.6; }
+  .source-text a { color: #2966cc; }
+
+  /* DISCLAIMER */
+  .disclaimer { background: #f8f8f8; border: 2px solid #ddd; border-radius: 6px; padding: 20px 24px; font-size: 0.83rem; line-height: 1.8; color: #555; width: 100%; max-width: 820px; margin-bottom: 24px; }
+  .disclaimer .dis-title { font-size: 0.9rem; font-weight: 700; color: #444; margin-bottom: 8px; }
+
+  @media (max-width: 560px) {
+    .grade-grid { grid-template-columns: 1fr; }
+    .rct-split { flex-direction: column; align-items: center; }
+    .card-body { padding: 20px 20px 20px 42px; }
+    .card-body::before { left: 30px; }
+    .fp-label { min-width: 100px; font-size: 0.78rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== COVER ===== -->
+<div class="cover">
+  <span class="cover-emoji">🔬</span>
+  <h1>「エビデンスの強さ」の見分け方<br>── RCT・メタ分析・観察研究を読み解く</h1>
+  <p class="subtitle">健康ニュースを正しく読むために知っておきたい「科学のものさし」</p>
+  <p class="tagline">EBM（根拠に基づく医療）・GRADEシステム・Bradford Hill基準・p値の正しい読み方</p>
+  <span class="date-badge">健康・栄養 最新トピック 2026-06-15</span>
+</div>
+
+<!-- ===== CARD 1: なぜ健康ニュースは変わりやすいか ===== -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">📰</span>
+      <h2 class="card-title">「先週と逆のことを言っている！」── 健康ニュースが変わる理由</h2>
+      <span class="topic-badge badge-navy">科学リテラシー入門</span>
+    </div>
+
+    <p class="body-text">
+      「コーヒーは体に良い」「コーヒーは危険」──同じ食品でも真逆の見出しが出ることがある。
+      これは科学が嘘をついているのではなく、<strong>研究の種類・規模・質によってエビデンスの強さが大きく違う</strong>からだ。
+    </p>
+
+    <div class="simple-box">
+      <span class="label">📌 EBM（根拠に基づく医療）とは</span><br>
+      Evidence-Based Medicine（EBM）は1990年代にカナダ・マクマスター大学のゴードン・ガイアット（Gordon Guyatt）らが提唱した考え方で、<strong>「個々の医師の経験や権威者の意見だけでなく、研究の最良のエビデンスを臨床判断に統合する」</strong>アプローチを指す。現在、医学・栄養学・公衆衛生学の標準的な考え方になっている。
+    </div>
+
+    <div class="num-cards">
+      <div class="num-card navy">
+        <div class="big-num">1990</div>
+        <div class="num-unit">年代</div>
+        <div class="num-label">EBMが医学の<br>主流になった時期</div>
+      </div>
+      <div class="num-card">
+        <div class="big-num">7</div>
+        <div class="num-unit">段階</div>
+        <div class="num-label">Oxford CEBMが定めた<br>エビデンスのレベル数</div>
+      </div>
+      <div class="num-card green">
+        <div class="big-num">4</div>
+        <div class="num-unit">段階</div>
+        <div class="num-label">GRADEが定めた<br>確実性レベル数</div>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <span class="label">💡 今日の記事の目的</span><br>
+      この連載で毎日扱ってきた「RCT・コホート研究・メタ分析」を<strong>どうやって読み解くか</strong>──
+      その「ものさし」を一度まとめて整理する。「この研究はどこまで信頼できるのか？」を自分で判断する力が身につく。
+    </div>
+
+    <p class="source-text">
+      参考：Sackett DL et al. "Evidence based medicine: what it is and what it isn't." <em>BMJ</em> 1996;312:71. DOI: <a href="https://doi.org/10.1136/bmj.312.7023.71" target="_blank">10.1136/bmj.312.7023.71</a>. PMID: 8555924（1996年1月）
+    </p>
+  </div>
+</div>
+
+<!-- ===== CARD 2: ピラミッド ===== -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">🔺</span>
+      <h2 class="card-title">エビデンスのピラミッド ── 研究には「強さの序列」がある</h2>
+      <span class="topic-badge badge-blue">エビデンス階層</span>
+    </div>
+
+    <p class="body-text">
+      すべての研究が同じ信頼性を持つわけではない。
+      「エビデンスのピラミッド」は、研究デザインによって<strong>因果関係の証明力がどう違うか</strong>を示したもの。
+      上に行くほど信頼性が高く、下に行くほど「参考情報」にとどまる。
+    </p>
+
+    <!-- PYRAMID（上が狭く＝強い、下が広く＝弱い） -->
+    <div class="pyramid">
+      <div class="pyr-level" style="width:40%; background:#1a6640;">
+        メタ分析・系統的レビュー<span class="pyr-tag">最強</span>
+        <small>複数のRCTを統合・分析</small>
+      </div>
+      <div class="pyr-level" style="width:53%; background:#27ae60;">
+        RCT（無作為化比較試験）<span class="pyr-tag">強い</span>
+        <small>ランダム割り付け・対照群あり</small>
+      </div>
+      <div class="pyr-level" style="width:65%; background:#2980b9;">
+        コホート研究（前向き観察研究）<span class="pyr-tag">中程度</span>
+        <small>曝露の前から集団を長期追跡</small>
+      </div>
+      <div class="pyr-level" style="width:76%; background:#7d5a14;">
+        症例対照研究・横断研究<span class="pyr-tag">やや弱い</span>
+        <small>既存データを遡って比較</small>
+      </div>
+      <div class="pyr-level" style="width:87%; background:#e67e22;">
+        動物実験・試験管（in vitro）研究<span class="pyr-tag">弱い</span>
+        <small>「人での効果」の直接の証明にはならない</small>
+      </div>
+      <div class="pyr-level" style="width:98%; background:#c0392b;">
+        専門家の意見・症例報告<span class="pyr-tag">最弱</span>
+        <small>個人の経験・権威者の見解</small>
+      </div>
+    </div>
+
+    <div class="alert-box">
+      <span class="label">⚠️ よくある誤解</span><br>
+      「動物実験で効果があった → 人間にも効く」は<strong>証明にならない</strong>。
+      「有望な動物実験結果」が人での試験で再現されなかった例は歴史上多数ある。
+      またメタ分析も「含まれる研究の質が低ければ結論も信頼できない」──
+      "Garbage in, garbage out"（ゴミを入れればゴミが出る）の法則が当てはまる。
+    </div>
+
+    <p class="source-text">
+      参考：OCEBM Levels of Evidence Working Group. "The Oxford 2011 Levels of Evidence." Oxford Centre for Evidence-Based Medicine, 2011. 
+      <a href="https://www.cebm.ox.ac.uk/resources/levels-of-evidence" target="_blank">cebm.ox.ac.uk</a>
+    </p>
+  </div>
+</div>
+
+<!-- ===== CARD 3: RCT ===== -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">🎲</span>
+      <h2 class="card-title">RCT（無作為化比較試験）── なぜ「金の標準」と呼ばれるか</h2>
+      <span class="topic-badge badge-green">RCTの仕組み</span>
+    </div>
+
+    <p class="body-text">
+      RCT（Randomized Controlled Trial）は、ピラミッドの「介入研究」の頂点に立つ研究デザイン。
+      <strong>なぜこれだけが「因果関係の証明に近い」と言われるのか？</strong>その仕組みを図解する。
+    </p>
+
+    <!-- RCT Flow -->
+    <div class="rct-flow">
+      <div class="rct-box">
+        <strong>参加者を集める</strong><br>
+        対象基準を満たした人を集め、研究への同意を得る
+      </div>
+      <div class="rct-arrow">↓</div>
+      <div class="rct-box" style="background:#f0e8ff; border-color:#8b44cc;">
+        <strong>🎲 ランダム割り付け（無作為化）</strong><br>
+        コンピューターの乱数などで「偶然に」2グループへ分ける<br>
+        <small style="color:#555;">→ 年齢・体重・生活習慣などがグループ間で均等になる</small>
+      </div>
+      <div class="rct-arrow">↙ ↘</div>
+      <div class="rct-split">
+        <div class="rct-split-box intervention">
+          <div class="box-title">✅ 介入群（実験群）</div>
+          検証したい薬・食事・<br>サプリ・運動などを受ける
+        </div>
+        <div class="rct-split-box control">
+          <div class="box-title">🚫 対照群（コントロール）</div>
+          プラセボ（偽薬）または<br>通常の食事・治療を受ける
+        </div>
+      </div>
+      <div class="rct-arrow">↓ 数週間〜数年間の追跡</div>
+      <div class="rct-box" style="background:#e0ffe8; border-color:#27ae60;">
+        <strong>📊 2グループを比較→差があれば「介入に効果あり」と判定</strong>
+      </div>
+    </div>
+
+    <div class="green-box">
+      <span class="label">🎲 「無作為化」がなぜ重要か</span><br>
+      ランダム割り付けにより、<strong>既知・未知の両方の「交絡因子」（=他の影響要因）が2グループ間で均等になる</strong>。
+      「薬を飲んだ人は元々健康意識が高かった」という偏り（選択バイアス）が生じない。これが観察研究では達成できない、RCTの最大の強みだ。
+    </div>
+
+    <div class="navy-box">
+      <span class="label">🔍 盲検化（ブラインディング）とは</span><br>
+      <strong>単盲検</strong>：参加者だけが介入の内容を知らない<br>
+      <strong>二重盲検</strong>：参加者も研究者も知らない（最も偏りが少ない）<br>
+      <strong>なぜ必要か？</strong> プラセボ効果（偽薬でも「効いた気がする」現象）や、研究者の期待が結果を左右する「観察者バイアス」を排除するため。食事・運動の研究では完全な盲検化が難しく、これがRCTの限界のひとつ。
+    </div>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th class="th-lbl col-label">比較項目</th>
+          <th class="th-obs">観察研究（コホート等）</th>
+          <th class="th-rct">RCT</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="col-label">交絡因子の排除</td>
+          <td><span class="tag-weak">統計調整が限界</span></td>
+          <td><span class="tag-good">無作為化で原理的に解決</span></td>
+        </tr>
+        <tr>
+          <td class="col-label">証明できること</td>
+          <td><span class="tag-mid">相関・関連</span></td>
+          <td><span class="tag-good">因果関係に近い証拠</span></td>
+        </tr>
+        <tr>
+          <td class="col-label">実施コスト・難易度</td>
+          <td><span class="tag-good">比較的安価・容易</span></td>
+          <td><span class="tag-weak">高コスト・倫理審査が必要</span></td>
+        </tr>
+        <tr>
+          <td class="col-label">規模の確保</td>
+          <td><span class="tag-good">数万〜数十万人も可能</span></td>
+          <td><span class="tag-weak">数百〜数千人が多い</span></td>
+        </tr>
+        <tr>
+          <td class="col-label">追跡期間</td>
+          <td><span class="tag-good">数十年も可能</span></td>
+          <td><span class="tag-weak">数週間〜数年が多い</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ===== CARD 4: メタ分析 ===== -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">📊</span>
+      <h2 class="card-title">メタ分析・系統的レビュー ── 研究を「統合」する技術</h2>
+      <span class="topic-badge badge-navy">ピラミッドの頂点</span>
+    </div>
+
+    <p class="body-text">
+      ピラミッドの最上位にある<strong>系統的レビュー（Systematic Review）</strong>と<strong>メタ分析（Meta-analysis）</strong>は、
+      過去に行われた複数の研究を網羅的に集め、統合して分析する手法だ。
+    </p>
+
+    <div class="simple-box">
+      <span class="label">📋 2つの違い</span><br>
+      <strong>系統的レビュー</strong>：あらかじめ決めた基準で研究を網羅的に集め、体系的に整理・批判的評価をする。数値の統合を行わないこともある。<br><br>
+      <strong>メタ分析</strong>：系統的レビューに加えて、複数の研究結果を<strong>統計的に統合</strong>し、「全体としての効果量」を数値で推定する。<strong>フォレストプロット</strong>（下図）で可視化されることが多い。
+    </div>
+
+    <!-- Forest Plot Mockup -->
+    <div class="forest-plot">
+      <p class="fp-note">▼ フォレストプロットのイメージ（模式図・数値は架空）</p>
+      <div class="fp-row">
+        <div class="fp-label" style="font-size:0.76rem; color:#999;">研究名</div>
+        <div style="flex:1; text-align:center; font-size:0.72rem; color:#999; position:relative;">←介入群が良い ｜ 対照群が良い→</div>
+        <div class="fp-value" style="font-size:0.75rem; color:#999;">HR [95% CI]</div>
+      </div>
+      <div class="fp-row">
+        <div class="fp-label">研究 A（n=120）</div>
+        <div class="fp-bar-area">
+          <div class="fp-center"></div>
+          <div class="fp-ci" style="left:30%; width:22%;"></div>
+          <div class="fp-point" style="left:41%;"></div>
+        </div>
+        <div class="fp-value">0.85 [0.71–1.02]</div>
+      </div>
+      <div class="fp-row">
+        <div class="fp-label">研究 B（n=340）</div>
+        <div class="fp-bar-area">
+          <div class="fp-center"></div>
+          <div class="fp-ci" style="left:24%; width:20%;"></div>
+          <div class="fp-point" style="left:34%;"></div>
+        </div>
+        <div class="fp-value">0.78 [0.64–0.94]</div>
+      </div>
+      <div class="fp-row">
+        <div class="fp-label">研究 C（n=85）</div>
+        <div class="fp-bar-area">
+          <div class="fp-center"></div>
+          <div class="fp-ci" style="left:20%; width:38%;"></div>
+          <div class="fp-point" style="left:37%;"></div>
+        </div>
+        <div class="fp-value">0.80 [0.58–1.10]</div>
+      </div>
+      <hr class="fp-divider">
+      <div class="fp-row">
+        <div class="fp-label" style="font-weight:700; color:#1a3a6a;">◆ 統合推定値</div>
+        <div class="fp-bar-area">
+          <div class="fp-center"></div>
+          <div class="fp-ci" style="left:28%; width:12%; background:#1a3a6a;"></div>
+          <div class="fp-diamond" style="left:34%;"></div>
+        </div>
+        <div class="fp-value" style="font-weight:700; color:#1a3a6a;">0.81 [0.73–0.90]</div>
+      </div>
+      <p class="fp-note" style="margin-top:8px;">菱形が1.0より左 → 介入群で有意にリスク低下（HR=0.81＝約19%リスク低下）。信頼区間が1.0をまたいでいる研究Cは「有意ではない」。</p>
+    </div>
+
+    <div class="orange-box">
+      <span class="label">⚠️ メタ分析の落とし穴</span><br>
+      <strong>① 異質性（Heterogeneity）</strong>：研究の対象・方法・用量がバラバラだと統合に意味がない場合がある（I²統計量で評価）<br>
+      <strong>② 出版バイアス</strong>：「効果なし」の研究は発表されにくく、全体的に効果が過大評価される傾向がある<br>
+      <strong>③ Garbage in, garbage out</strong>：個々の研究の質が低ければ統合結果も信頼できない<br>
+      <strong>④ 傘型レビュー（Umbrella review）</strong>：複数のメタ分析を統合したもの。さらに大きな視野だが、限界も積み重なる
+    </div>
+
+    <p class="source-text">
+      参考：Higgins JPT, Thomas J, et al. (eds.). <em>Cochrane Handbook for Systematic Reviews of Interventions</em>, version 6.4. The Cochrane Collaboration, 2023. <a href="https://training.cochrane.org/handbook" target="_blank">training.cochrane.org/handbook</a>
+    </p>
+  </div>
+</div>
+
+<!-- ===== CARD 5: 観察研究・因果 ===== -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">👁️</span>
+      <h2 class="card-title">観察研究 ── 「相関」と「因果」は違う</h2>
+      <span class="topic-badge badge-orange">観察研究の読み方</span>
+    </div>
+
+    <p class="body-text">
+      この連載でよく登場する「コホート研究」「横断研究」はすべて<strong>観察研究（Observational Study）</strong>だ。
+      倫理的・現実的にRCTが難しいとき（数十年の追跡・大規模な食生活変化など）に重要な情報を提供してくれる。
+      ただし<strong>「相関」を示すことはできても、「因果」の証明には限界がある</strong>。
+    </p>
+
+    <div class="simple-box">
+      <span class="label">📋 主な観察研究の種類</span><br>
+      <strong>コホート研究（Cohort Study）</strong>：病気のない人を集め、食事・生活習慣などを記録してから長期追跡。誰がどの病気になったか調べる「前向き研究」。例：6/13号のデンマーク54,804人・27年追跡。<br><br>
+      <strong>症例対照研究（Case-Control Study）</strong>：病気になった人（症例）と、なっていない人（対照）を比べ、過去の曝露の違いを調べる「後ろ向き研究」。<br><br>
+      <strong>横断研究（Cross-sectional Study）</strong>：ある一時点での食事・健康状態の「写真」を撮るような研究。時間軸がないため因果の方向がわからない。
+    </div>
+
+    <div class="alert-box">
+      <span class="label">⚠️ 最重要：「相関」と「因果」の違い</span><br>
+      <strong>相関（Correlation）</strong>：AとBが同時に起こりやすいという統計的な関係<br>
+      <strong>因果（Causation）</strong>：Aが原因でBが起きるという方向性のある関係<br><br>
+      <u>よく使われる例</u>：アイスクリームの売上と水難事故件数は「正の相関」がある。しかし「アイスクリームが水難事故を引き起こす」のではなく、どちらも「夏の暑さ（交絡因子）」で増えるだけだ。<br><br>
+      健康研究でも同様：「野菜をよく食べる人は病気になりにくい」→ 野菜以外にも健康的な習慣全般を持っている可能性（<strong>健康的ユーザーバイアス</strong>）が排除しきれない。
+    </div>
+
+    <div class="navy-box">
+      <span class="label">🔬 因果関係を判断するヒント：Bradford Hill基準（1965年）</span><br>
+      疫学者オースティン・ブラッドフォード・ヒルが提唱した、観察研究から因果関係の可能性を評価する9つの基準。<br><br>
+      ① <strong>関連の強さ</strong>（効果量が大きいほど）　② <strong>一貫性</strong>（異なる集団・研究で同じ結果が出るか）<br>
+      ③ <strong>特異性</strong>（その病気だけに関連するか）　④ <strong>時間的先行性</strong>（曝露が病気の前に起きているか）<br>
+      ⑤ <strong>生物学的勾配</strong>（量が増えるほど効果も強まるか）　⑥ <strong>生物学的妥当性</strong>（メカニズムが説明できるか）<br>
+      ⑦ <strong>コヒーレンス</strong>（他の知見と矛盾しないか）　⑧ <strong>実験的証拠</strong>（介入で再現できるか）<br>
+      ⑨ <strong>類似性</strong>（似た曝露で似た結果が出るか）<br><br>
+      これらが多く満たされるほど「因果関係の可能性が高い」と判断できる。ただし必要十分条件ではない。
+    </div>
+
+    <p class="source-text">
+      参考：Hill AB. "The Environment and Disease: Association or Causation?" <em>Proceedings of the Royal Society of Medicine</em> 1965;58(5):295-300. PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/14283879/" target="_blank">14283879</a>（1965年5月）
+    </p>
+  </div>
+</div>
+
+<!-- ===== CARD 6: GRADEシステム ===== -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">⭐</span>
+      <h2 class="card-title">GRADEシステム ── 研究の質を4段階で評価する世界標準</h2>
+      <span class="topic-badge badge-blue">GRADE 2004〜現在</span>
+    </div>
+
+    <p class="body-text">
+      GRADE（Grading of Recommendations, Assessment, Development and Evaluations）は、
+      2004年にGuyatt GHらを中心とした国際研究者グループが開発した、
+      エビデンスの確実性と推奨の強さを評価する統一基準だ。
+      現在、WHO・コクラン共同計画・各国の臨床ガイドラインで広く採用されている。
+    </p>
+
+    <div class="grade-grid">
+      <div class="grade-card high">
+        <div class="grade-dots">⊕⊕⊕⊕</div>
+        <div class="grade-title">High（高い）</div>
+        <div class="grade-desc">真の効果量が推定値に非常に近いと確信できる。さらなる研究がほぼ結論を変えない。</div>
+        <div class="grade-ex">例：複数の大規模RCTで一貫した結果。WHO・各国ガイドラインが「確立した証拠」とする内容。</div>
+      </div>
+      <div class="grade-card moderate">
+        <div class="grade-dots">⊕⊕⊕◯</div>
+        <div class="grade-title">Moderate（中程度）</div>
+        <div class="grade-desc">真の効果量は推定値に近いと中程度の確信。さらなる研究で結論が変わる可能性がある。</div>
+        <div class="grade-ex">例：RCTがあるが一貫性や質に課題あり。大規模コホート研究で一貫した結果。</div>
+      </div>
+      <div class="grade-card low">
+        <div class="grade-dots">⊕⊕◯◯</div>
+        <div class="grade-title">Low（低い）</div>
+        <div class="grade-desc">真の効果量への確信が限られている。さらなる研究で結論が大きく変わる可能性が高い。</div>
+        <div class="grade-ex">例：少規模RCT・質の低い観察研究のみ。動物実験＋小規模パイロット試験。</div>
+      </div>
+      <div class="grade-card verylow">
+        <div class="grade-dots">⊕◯◯◯</div>
+        <div class="grade-title">Very Low（非常に低い）</div>
+        <div class="grade-desc">真の効果量への確信がほとんどない。推定値は真の効果と大きく異なる可能性がある。</div>
+        <div class="grade-ex">例：症例報告・専門家意見のみ。動物実験・in vitro研究だけが根拠。</div>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <span class="label">📌 GRADEでランクが下がる要因（−）</span><br>
+      ① 研究デザインの限界（バイアスリスクが高い）<br>
+      ② 結果の不一致（研究によって結果がバラバラ）<br>
+      ③ 間接性（研究対象が「自分に当てはまるか」が疑わしい）<br>
+      ④ 不精確性（サンプルが小さく信頼区間が広い）<br>
+      ⑤ 出版バイアスの疑い<br><br>
+      <strong>逆にランクが上がる要因（+）</strong>：効果量が非常に大きい・量反応関係が明確・交絡因子を考慮してもなお効果が残る
+    </div>
+
+    <p class="source-text">
+      参考：Guyatt GH et al. "GRADE: an emerging consensus on rating quality of evidence and strength of recommendations." <em>BMJ</em> 2008;336:924-926. DOI: <a href="https://doi.org/10.1136/bmj.39489.470347.AD" target="_blank">10.1136/bmj.39489.470347.AD</a>. PMID: 18436948（2008年4月）
+    </p>
+  </div>
+</div>
+
+<!-- ===== CARD 7: p値・統計リテラシー ===== -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">📉</span>
+      <h2 class="card-title">p値・信頼区間・効果量 ── 数字の正しい読み方</h2>
+      <span class="topic-badge badge-indigo">統計リテラシー</span>
+    </div>
+
+    <p class="body-text">
+      健康研究でよく出てくる「p &lt; 0.05」「95%信頼区間」「HR（ハザード比）」──
+      これらの意味を正確に理解するだけで、研究の解釈が大きく変わる。
+    </p>
+
+    <div class="simple-box">
+      <span class="label">📌 p値（p-value）とは</span><br>
+      「もし本当に効果がない（帰無仮説が正しい）としたら、今回の結果またはもっと極端な結果が<strong>偶然得られる確率</strong>」。<br>
+      <strong>p &lt; 0.05</strong>（5%未満）を「統計的に有意」とすることが慣例になっているが、これは恣意的な閾値だ。<br><br>
+      <u>よくある誤解</u>：「p=0.04 ≒ 効果がある確率96%」ではない。「偶然この結果が出る確率が4%だった」という意味だけだ。効果の大きさ（効果量）とは別の話。
+    </div>
+
+    <div class="num-cards">
+      <div class="num-card navy">
+        <div class="big-num">p&lt;0.05</div>
+        <div class="num-unit">≠「必ず正しい」</div>
+        <div class="num-label">「統計的に有意」だが<br>臨床的に意味があるか<br>は別問題</div>
+      </div>
+      <div class="num-card">
+        <div class="big-num">95%</div>
+        <div class="num-unit">信頼区間（CI）</div>
+        <div class="num-label">100回繰り返したら<br>95回はこの範囲に<br>真の値が入る</div>
+      </div>
+      <div class="num-card orange">
+        <div class="big-num">HR</div>
+        <div class="num-unit">ハザード比</div>
+        <div class="num-label">1.0より大→リスク上昇<br>1.0より小→リスク低下<br>1.0=差なし</div>
+      </div>
+    </div>
+
+    <div class="alert-box">
+      <span class="label">⚠️ 「統計的有意」≠「臨床的に意味がある」</span><br>
+      n（サンプル数）が大きければ、ほんの小さな差でも「有意」になる。
+      たとえば「介入群の血圧が0.1mmHg低下（p=0.001）」は統計的には有意だが、
+      臨床的には意味のない差かもしれない。
+      <strong>効果量（Effect Size）</strong>──つまり「どのくらい変化したか」の大きさを必ず確認することが大切だ。
+    </div>
+
+    <div class="navy-box">
+      <span class="label">📋 米国統計学会（ASA）の声明（2016年）</span><br>
+      統計的有意性の誤用が科学的誤解を生んでいることを受け、ASAは2016年に「p値についての声明」を発表。
+      主なポイント：<br>
+      ① p値は「帰無仮説が正しい場合のデータの信頼性の指標」にすぎない<br>
+      ② p&lt;0.05という閾値は科学的な証明ではない<br>
+      ③ 効果量・信頼区間・研究デザインを必ず合わせて判断すること<br>
+      ④ p値だけで意思決定をしてはいけない
+    </div>
+
+    <p class="source-text">
+      参考：Wasserstein RL &amp; Lazar NA. "The ASA's Statement on p-Values: Context, Process, and Purpose." <em>The American Statistician</em> 2016;70:129-133. DOI: <a href="https://doi.org/10.1080/00031305.2016.1154108" target="_blank">10.1080/00031305.2016.1154108</a>（2016年3月）
+    </p>
+  </div>
+</div>
+
+<!-- ===== CARD 8: 5つの質問チェックリスト ===== -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">🧭</span>
+      <h2 class="card-title">健康ニュースを読むときの「5つの質問」チェックリスト</h2>
+      <span class="topic-badge badge-teal">実践チェックリスト</span>
+    </div>
+
+    <p class="body-text">
+      今日学んだことをまとめて、<strong>健康ニュースや論文を読むときに使える5つの質問</strong>を紹介する。
+      この「ものさし」があれば、誇大な見出しや不正確な解説に惑わされにくくなる。
+    </p>
+
+    <ul class="checklist">
+      <li>
+        <div class="check-icon">1️⃣</div>
+        <div class="check-text">
+          <strong>研究デザインは何か？</strong>
+          <p class="check-sub">動物実験？観察研究？RCT？メタ分析？ → ピラミッドのどこに位置するかを確認する。「動物実験で効果があった」は人間で効くとは言えない。観察研究は「相関」の示唆であり「因果」の証明ではない。</p>
+        </div>
+      </li>
+      <li>
+        <div class="check-icon">2️⃣</div>
+        <div class="check-text">
+          <strong>対象者は誰で、何人いるか？（n=？）</strong>
+          <p class="check-sub">n=20の小規模試験とn=100,000の大規模コホートは信頼性が全く違う。また「60代の2型糖尿病患者」の研究結果が「健康な30代」に当てはまるとは限らない（外的妥当性の問題）。</p>
+        </div>
+      </li>
+      <li>
+        <div class="check-icon">3️⃣</div>
+        <div class="check-text">
+          <strong>「相関」と「因果」を区別しているか？</strong>
+          <p class="check-sub">「○○が△△を下げる」という見出しは因果を示唆するが、観察研究では「○○と△△が関連する」が正確な表現。RCTなのか観察研究なのかを確認する。</p>
+        </div>
+      </li>
+      <li>
+        <div class="check-icon">4️⃣</div>
+        <div class="check-text">
+          <strong>効果の大きさはどのくらいか？</strong>
+          <p class="check-sub">「リスクが30%低下」（相対リスク低下）と「0.1%→0.07%（絶対差0.03%）」は全く印象が違う。HR・OR・絶対リスク差・NNT（何人治療すれば1人助かるか）の値を確認する。</p>
+        </div>
+      </li>
+      <li>
+        <div class="check-icon">5️⃣</div>
+        <div class="check-text">
+          <strong>複数の独立した研究で再現されているか？</strong>
+          <p class="check-sub">1つの研究で出た結果は偶然かもしれない。異なる研究グループ・国・集団で同じ結果が繰り返されているか、コクランレビューなどのメタ分析で統合されているかを確認する。「1研究だけの新しい発見」は保留にするのが賢明。</p>
+        </div>
+      </li>
+    </ul>
+
+    <div class="green-box">
+      <span class="label">💡 この連載でも同じ目で</span><br>
+      この健康日報でも毎回「研究の種類（RCT・コホート・メタ分析）」「参加者数（n=）」「相関と因果の区別」を明示している。5つの質問を使いながら、ぜひ能動的に読んでほしい。完璧なエビデンスは存在しないが、「今ある最良の証拠を正直に読む」ことが科学リテラシーの核心だ。
+    </div>
+
+    <div class="teal-box">
+      <span class="label">🔬 さらに深く知りたい方へ（無料一次資料）</span><br>
+      ・<strong>PubMed</strong>：<a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank">pubmed.ncbi.nlm.nih.gov</a> ── 医学・栄養学論文の世界最大データベース（無料検索）<br>
+      ・<strong>Cochrane Library</strong>：<a href="https://www.cochranelibrary.com/" target="_blank">cochranelibrary.com</a> ── 厳格な方法論による系統的レビュー（要旨は無料）<br>
+      ・<strong>Oxford CEBM</strong>：<a href="https://www.cebm.ox.ac.uk/" target="_blank">cebm.ox.ac.uk</a> ── EBMの基礎教材・エビデンスレベル表<br>
+      ・<strong>GRADE Working Group</strong>：<a href="https://www.gradeworkinggroup.org/" target="_blank">gradeworkinggroup.org</a> ── GRADEシステムの公式解説
+    </div>
+  </div>
+</div>
+
+<!-- ===== DISCLAIMER ===== -->
+<div class="disclaimer">
+  <p class="dis-title">⚠️ 免責事項</p>
+  <p>
+    本記事は一般的な科学リテラシー・研究手法に関する情報提供を目的としており、医療アドバイスではありません。
+    記載した内容は現時点で広く認められた方法論的知見に基づいていますが、科学は常に更新されるものです。
+    個別の健康上の判断（食事・サプリメント・運動・薬など）については、必ず<strong>かかりつけ医・管理栄養士・薬剤師など専門家</strong>にご相談ください。
+  </p>
+  <br>
+  <p>
+    <strong>主な参照文献：</strong><br>
+    ① Sackett DL et al. "Evidence based medicine." <em>BMJ</em> 1996;312:71. PMID: 8555924. DOI: 10.1136/bmj.312.7023.71<br>
+    ② Guyatt GH et al. "GRADE: an emerging consensus." <em>BMJ</em> 2008;336:924. PMID: 18436948. DOI: 10.1136/bmj.39489.470347.AD<br>
+    ③ OCEBM Levels of Evidence Working Group. Oxford CEBM, 2011. cebm.ox.ac.uk<br>
+    ④ Hill AB. "The Environment and Disease: Association or Causation?" <em>Proc R Soc Med</em> 1965;58:295. PMID: 14283879<br>
+    ⑤ Wasserstein RL &amp; Lazar NA. "The ASA's Statement on p-Values." <em>The American Statistician</em> 2016;70:129. DOI: 10.1080/00031305.2016.1154108<br>
+    ⑥ Higgins JPT et al. (eds.). <em>Cochrane Handbook for Systematic Reviews of Interventions</em>, v6.4. Cochrane Collaboration, 2023.
+  </p>
+</div>
+
+</body>
+</html>
