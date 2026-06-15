@@ -19,14 +19,16 @@
 - 2026-06-13: OpenAI × Oracle Cloud 連携（2026年6月10日発表）・Enterprise向けにOracle Universal CreditsでOpenAIモデル＆Codexを利用可能に・独占契約終了（2026年4月27日）後のマルチクラウド展開・提供開始時期・料金は公式要確認
 - 2026-06-14: OpenAI IPO（株式公開）申請・2026年5月下旬に機密S-1をSECへ提出・2026年6月8日に公式確認・直近評価額約8,520億ドル・上場目標早ければ2026年9月・主幹事はゴールドマン・サックス/モルガン・スタンレー/JPモルガン
 - 2026-06-15: ChatGPT月間10億MAU突破（2026年5月達成・Sensor Tower推計・2026年6月12日CNBC報道）・史上最速アプリ記録・約3年半で達成・前記録はGoogleマップ（約5年）・TikTok/Instagram/YouTube各5〜8年
+- 2026-06-16: Anthropic Project Glasswing拡大（2026年6月2日発表）・Claude Mythos Preview（非公開）・150組織以上・15ヵ国以上に拡大・主要OSやブラウザで数千件の深刻な脆弱性を発見・安全上の理由から一般公開なし
 
 ## 未解説の候補トピック（今後の参考）
 
 - xAI Grok 4.3 Beta（2026年4月）：動画・スライド・音声API対応のマルチモーダル推論
 - Gemini 3.5 Pro（Google I/O 2026で予告・2026年6月GA予定）：2Mトークンコンテキスト・Deep Think推論・詳細は公式で要確認
 - Google Gemini 3.5 Flash詳報：市場シェア・Intelligence Index・284トークン/秒の生成速度
-- Anthropic Project Glasswing拡大（2026年6月2日）：Claude Mythos Preview・150組織以上・15ヵ国以上・10,000件超の脆弱性発見
+- NAVER×NVIDIA AI工場計画（2026年6月7日）：GAK世宗データセンター55MWから開始・ギガワット規模へ拡大・HyperCLOVA X次世代モデル強化・NVIDIA DSXプラットフォーム活用
 - AI×医療（創薬・診断）最新動向：製薬大手とAI企業の提携が相次ぐ
 - AI半導体競争：AMD・Intelの対抗策と次世代GPU市場
 - 日本のAI活用事例：製造業・金融・官公庁での実装事例
+- マルチエージェント（複数AIの協調）：2026年のエージェントフレームワーク比較
 - AI音声・TTS最新事情：各社音声モデルの比較と活用例
