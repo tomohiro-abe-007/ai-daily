@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>デジタルノマド 最新トピック 2026-06-17</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    color: #2a2a2a;
+  }
+  .hero {
+    background: linear-gradient(135deg, #1a6e49 0%, #0e4530 100%);
+    color: white;
+    border-radius: 10px;
+    padding: 48px 40px;
+    text-align: center;
+    width: 100%;
+    max-width: 760px;
+    margin-bottom: 28px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .hero .label {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 0.8rem;
+    margin-bottom: 14px;
+    letter-spacing: 0.05em;
+  }
+  .hero h1 { font-size: 1.5rem; margin-bottom: 12px; line-height: 1.55; }
+  .hero .meta { opacity: 0.85; font-size: 0.88rem; line-height: 1.75; }
+  .card {
+    background: #fff9f0;
+    border-radius: 8px;
+    padding: 28px 32px;
+    width: 100%;
+    max-width: 760px;
+    margin-bottom: 20px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.08);
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a6e49;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px dashed #90c8a8;
+  }
+  .card p { font-size: 0.93rem; line-height: 1.85; margin-bottom: 10px; }
+  .card p:last-child { margin-bottom: 0; }
+  .highlight-box {
+    background: #e8f5ef;
+    border-left: 4px solid #1a6e49;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .highlight-box .hlabel { font-size: 0.75rem; color: #1a6e49; font-weight: 600; margin-bottom: 6px; display: block; }
+  .highlight-box p { font-size: 0.9rem; margin: 0; }
+  .alert-box {
+    background: #fff3cd;
+    border-left: 4px solid #e8a000;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .alert-box .alabel { font-size: 0.75rem; color: #b07700; font-weight: 600; margin-bottom: 6px; display: block; }
+  .alert-box p { font-size: 0.9rem; margin: 0; }
+  .danger-box {
+    background: #fde8e8;
+    border-left: 4px solid #c0392b;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .danger-box .dlabel { font-size: 0.75rem; color: #c0392b; font-weight: 600; margin-bottom: 6px; display: block; }
+  .danger-box p { font-size: 0.9rem; margin: 0; }
+  .news-box {
+    background: #e8f0fd;
+    border-left: 4px solid #2a5e8e;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .news-box .nlabel { font-size: 0.75rem; color: #2a5e8e; font-weight: 600; margin-bottom: 6px; display: block; }
+  .news-box p { font-size: 0.9rem; margin: 0; }
+  .number-row { display: flex; gap: 14px; flex-wrap: wrap; margin: 14px 0; }
+  .number-card {
+    flex: 1; min-width: 130px;
+    background: #1a6e49; color: white;
+    border-radius: 8px; padding: 18px 14px; text-align: center;
+  }
+  .number-card .num { font-size: 1.5rem; font-weight: 700; margin-bottom: 6px; line-height: 1.2; letter-spacing: 0.03em; }
+  .number-card .desc { font-size: 0.72rem; opacity: 0.9; line-height: 1.5; }
+  .number-card.amber { background: #b07700; }
+  .number-card.blue  { background: #2a5e8e; }
+  .number-card.red   { background: #922b2b; }
+  .number-card.gray  { background: #555; }
+  .flow-wrap { display: flex; flex-direction: column; gap: 4px; margin: 14px 0; }
+  .flow-box {
+    background: #1a6e49; color: white;
+    border-radius: 8px; padding: 14px 16px;
+    font-size: 0.88rem; line-height: 1.6;
+  }
+  .flow-box .fb-label { font-size: 0.7rem; opacity: 0.8; margin-bottom: 4px; display: block; }
+  .flow-box strong { font-size: 0.95rem; }
+  .flow-box.sub   { background: #2a9464; }
+  .flow-box.light { background: #e8f5ef; color: #2a2a2a; border: 1.5px solid #90c8a8; }
+  .flow-box.amber { background: #8a5e00; }
+  .flow-box.blue  { background: #2a5e8e; }
+  .flow-box.red   { background: #922b2b; }
+  .flow-box.gray  { background: #666; }
+  .arrow-down { text-align: center; font-size: 1.5rem; color: #1a6e49; margin: 4px 0; line-height: 1; }
+  .flow-h-row { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; margin: 14px 0; }
+  .flow-h-box {
+    flex: 1; min-width: 100px;
+    background: #1a6e49; color: white;
+    border-radius: 8px; padding: 14px 12px; text-align: center;
+    font-size: 0.82rem; line-height: 1.55;
+  }
+  .flow-h-box .fh-label { font-size: 0.68rem; opacity: 0.8; display: block; margin-bottom: 4px; }
+  .flow-h-box strong { font-size: 0.9rem; }
+  .flow-h-box.fh-sub   { background: #2a9464; }
+  .flow-h-box.fh-amber { background: #8a5e00; }
+  .flow-h-box.fh-blue  { background: #2a5e8e; }
+  .flow-h-box.fh-red   { background: #922b2b; }
+  .flow-h-box.fh-light { background: #e8f5ef; color: #2a2a2a; border: 1.5px solid #90c8a8; }
+  .flow-h-box.fh-gray  { background: #666; }
+  .arrow-right { font-size: 1.3rem; color: #1a6e49; flex-shrink: 0; }
+  @media (max-width: 520px) { .flow-h-row { flex-direction: column; } .arrow-right { transform: rotate(90deg); } }
+  .step-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 12px 0; }
+  .step-list li { display: flex; align-items: flex-start; gap: 12px; }
+  .step-num {
+    background: #1a6e49; color: white; border-radius: 50%;
+    min-width: 28px; height: 28px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.78rem; font-weight: 700; flex-shrink: 0; margin-top: 2px;
+  }
+  .step-num.amber { background: #b07700; }
+  .step-num.blue  { background: #2a5e8e; }
+  .step-num.red   { background: #922b2b; }
+  .step-list li div { font-size: 0.9rem; line-height: 1.7; }
+  .matrix-table { width: 100%; border-collapse: collapse; font-size: 0.87rem; margin: 14px 0; }
+  .matrix-table th { background: #1a6e49; color: white; padding: 10px 12px; text-align: left; font-weight: 600; font-size: 0.82rem; }
+  .matrix-table th:first-child { border-radius: 6px 0 0 0; }
+  .matrix-table th:last-child  { border-radius: 0 6px 0 0; }
+  .matrix-table td { padding: 10px 12px; border-bottom: 1px solid #c0dcc8; vertical-align: top; line-height: 1.55; }
+  .matrix-table tr:nth-child(even) td { background: #f0faf5; }
+  .matrix-table .ok   { color: #1a6e49; font-weight: 700; }
+  .matrix-table .ng   { color: #c0392b; font-weight: 700; }
+  .matrix-table .warn { color: #b07700; font-weight: 700; }
+  .matrix-table .row-warn td   { background: #fff8e8 !important; }
+  .matrix-table .row-danger td { background: #fdeaea !important; }
+  .matrix-table .row-green td  { background: #e8f5ef !important; }
+  .matrix-table .row-blue td   { background: #e8f0fd !important; }
+  .check-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 12px 0; }
+  .check-list li {
+    display: flex; align-items: flex-start; gap: 12px;
+    padding: 10px 14px;
+    background: #e8f5ef; border-radius: 6px; border: 1px solid #90c8a8;
+    font-size: 0.9rem; line-height: 1.6;
+  }
+  .check-list li.amber { background: #fff8e8; border-color: #e8c060; }
+  .check-list li.blue  { background: #e8f0fd; border-color: #a0c0e8; }
+  .check-list li.red   { background: #fdeaea; border-color: #e8a0a0; }
+  .check-list .ico { font-size: 1.1rem; flex-shrink: 0; margin-top: 2px; }
+  .compare-row { display: flex; gap: 14px; flex-wrap: wrap; margin: 14px 0; }
+  .compare-card {
+    flex: 1; min-width: 200px; border-radius: 8px;
+    padding: 16px 16px; font-size: 0.88rem; line-height: 1.7;
+  }
+  .compare-card h3 { font-size: 0.85rem; margin-bottom: 8px; padding-bottom: 6px; border-bottom: 1.5px dashed; }
+  .compare-card.green  { background: #e8f5ef; border: 1.5px solid #1a6e49; }
+  .compare-card.green h3  { color: #1a6e49; border-color: #90c8a8; }
+  .compare-card.amber  { background: #fff8e8; border: 1.5px solid #c9920a; }
+  .compare-card.amber h3  { color: #a07800; border-color: #f0d080; }
+  .compare-card.blue   { background: #e8f0fd; border: 1.5px solid #2a5e8e; }
+  .compare-card.blue h3   { color: #2a5e8e; border-color: #a0c0e8; }
+  .compare-card.red    { background: #fdeaea; border: 1.5px solid #c0392b; }
+  .compare-card.red h3    { color: #922b2b; border-color: #e8a0a0; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 14px 0; }
+  @media (max-width: 500px) { .two-col { grid-template-columns: 1fr; } }
+  .mini-card {
+    background: #e8f5ef; border: 1.5px solid #90c8a8;
+    border-radius: 8px; padding: 14px 16px; font-size: 0.88rem; line-height: 1.65;
+  }
+  .mini-card h4 { color: #1a6e49; font-size: 0.88rem; margin-bottom: 6px; }
+  .mini-card.amber-bg { background: #fff8e8; border-color: #e8c060; }
+  .mini-card.amber-bg h4 { color: #a07800; }
+  .mini-card.red-bg { background: #fdeaea; border-color: #e8a0a0; }
+  .mini-card.red-bg h4 { color: #922b2b; }
+  .mini-card.blue-bg { background: #e8f0fd; border-color: #a0c0e8; }
+  .mini-card.blue-bg h4 { color: #2a5e8e; }
+  .tag { display: inline-block; background: #1a6e49; color: white; font-size: 0.72rem; padding: 2px 8px; border-radius: 10px; margin-right: 4px; margin-bottom: 6px; vertical-align: middle; }
+  .tag.amber { background: #b07700; }
+  .tag.blue  { background: #2a5e8e; }
+  .tag.red   { background: #922b2b; }
+  .source-list { font-size: 0.78rem; color: #888; margin-top: 12px; line-height: 1.8; }
+  .source-list a { color: #1a6e49; word-break: break-all; }
+  .footer-note {
+    width: 100%; max-width: 760px;
+    font-size: 0.78rem; color: #777; line-height: 1.8;
+    margin-top: 8px; padding: 20px 24px;
+    background: #f5f2ec; border-radius: 8px; border: 1px solid #ddd;
+  }
+  .footer-note strong { color: #555; }
+  .nav-bar {
+    width: 100%; max-width: 760px;
+    display: flex; justify-content: space-between;
+    margin-bottom: 20px; font-size: 0.82rem;
+  }
+  .nav-bar a { color: #1a6e49; text-decoration: none; padding: 6px 14px; border: 1px solid #90c8a8; border-radius: 20px; background: #fff; }
+  .nav-bar a:hover { background: #e8f5ef; }
+  /* RETA bracket bar chart */
+  .bracket-bar-wrap { margin: 14px 0; }
+  .bracket-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; font-size: 0.83rem; }
+  .bracket-label { min-width: 140px; color: #555; line-height: 1.4; flex-shrink: 0; }
+  .bracket-bar-bg { flex: 1; background: #e0ece6; border-radius: 4px; height: 28px; position: relative; overflow: hidden; }
+  .bracket-bar-fill { background: #1a6e49; height: 100%; border-radius: 4px; display: flex; align-items: center; padding-left: 8px; }
+  .bracket-bar-fill.amber { background: #b07700; }
+  .bracket-bar-fill.red   { background: #922b2b; }
+  .bracket-val { font-size: 0.82rem; font-weight: 700; color: white; white-space: nowrap; }
+  /* scenario table */
+  .scenario-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 14px 0; }
+  @media (max-width: 560px) { .scenario-grid { grid-template-columns: 1fr; } }
+  .scenario-card { border-radius: 8px; padding: 16px 14px; font-size: 0.86rem; line-height: 1.65; }
+  .scenario-card h4 { font-size: 0.88rem; margin-bottom: 8px; }
+  .scenario-card.green { background: #e8f5ef; border: 1.5px solid #1a6e49; }
+  .scenario-card.green h4 { color: #1a6e49; }
+  .scenario-card.amber { background: #fff8e8; border: 1.5px solid #c9920a; }
+  .scenario-card.amber h4 { color: #a07800; }
+  .scenario-card.red { background: #fdeaea; border: 1.5px solid #c0392b; }
+  .scenario-card.red h4 { color: #922b2b; }
+  /* treaty badge */
+  .treaty-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: linear-gradient(135deg, #2a5e8e 0%, #1a3d5e 100%);
+    color: white; border-radius: 8px; padding: 12px 18px;
+    font-size: 0.88rem; margin: 10px 0;
+  }
+  .treaty-badge .t-ico { font-size: 1.4rem; flex-shrink: 0; }
+  .treaty-badge strong { display: block; font-size: 0.95rem; }
+</style>
+</head>
+<body>
+
+<div class="nav-bar">
+  <a href="index.html">&larr; バックナンバー一覧</a>
+  <a href="2026-06-15.html">前回：電子証明書ガイド</a>
+</div>
+
+<div class="hero">
+  <div class="label">デジタルノマド 最新トピック 2026-06-17</div>
+  <h1>&#x1F6E1;&#xFE0F; RETA（autónomo保険料）と日西社会保障協定<br>日本の社保を維持してスペインの二重負担を回避する方法<br>2026年版：凍結された料率・適用証明書の手順・3つの実践シナリオ</h1>
+  <div class="meta">
+    スペインのデジタルノマドビザ準備中 ／ 日本の1人法人 ／ 日西往来生活<br>
+    情報基準：2026年6月（RETA料率はReal Decreto-ley 16/2025に基づく2026年凍結値）
+  </div>
+</div>
+
+<!-- 今日の数字 -->
+<div class="card">
+  <h2>&#x1F4CC; 今日の数字で見るポイント</h2>
+  <div class="number-row">
+    <div class="number-card">
+      <div class="num">&#x226B;€206</div>
+      <div class="desc">RETA月額の最低ライン<br>（収入 €670/月以下の場合）<br>2026年・MEI込み</div>
+    </div>
+    <div class="number-card amber">
+      <div class="num">&#x226B;€623</div>
+      <div class="desc">RETA月額の最高ライン<br>（収入 €6,000/月超の場合）<br>2026年・MEI込み</div>
+    </div>
+    <div class="number-card blue">
+      <div class="num">2010年<br>12月1日</div>
+      <div class="desc">日西社会保障協定の発効日<br>年金＋医療保険の<br>二重払いを防ぐ仕組み</div>
+    </div>
+    <div class="number-card gray">
+      <div class="num">5年</div>
+      <div class="desc">協定で日本社保を維持<br>できる最長期間<br>（DNV3年更新と相性◎）</div>
+    </div>
+  </div>
+  <div class="news-box">
+    <span class="nlabel">&#x1F4F0; 2026年の変更点：RETA料率は「凍結」 ── ただし MEI のみ 0.8%→0.9% に上昇</span>
+    <p>スペイン政府は2025年12月24日にReal Decreto-ley 16/2025を発令し、2026年のautónomo（個人事業主）の社会保険料（RETA）を2025年と同水準で凍結しました。その後、2026年2月26日にReal Decreto-ley 3/2026として国会で承認されました（<strong>新ルールか既存ルールの再確認かは一次ソースで確認済み：Real Decreto-ley 16/2025が凍結の根拠法令</strong>）。凍結は維持されていますが、高齢化対策積立金のMEI（Mecanismo de Equidad Intergeneracional＝世代間公平メカニズム）のみ0.8%→<strong>0.9%に引き上げ</strong>。月額換算で約€1〜5の増加です。</p>
+  </div>
+</div>
+
+<!-- RETAとは -->
+<div class="card">
+  <h2>&#x1F4CB; RETAとは何か ── スペインの「個人事業主社会保険」の全体像</h2>
+  <p>
+    RETA（Régimen Especial de Trabajadores Autónomos＝<strong>自営業者特別社会保険制度</strong>）は、
+    スペインで個人事業主（autónomo）として活動する場合に加入が義務付けられる社会保険制度です。
+    日本でいうと「国民年金＋国民健康保険」に相当しますが、給付内容・料率・仕組みはかなり異なります。
+  </p>
+
+  <div class="compare-row">
+    <div class="compare-card blue">
+      <h3>&#x1F1EF;&#x1F1F5; 日本の自営業者が加入するもの</h3>
+      <strong>国民年金（Kokumin Nenkin）</strong><br>
+      2026年度：月額 <strong>約€137相当（¥16,980）</strong><br><br>
+      <strong>国民健康保険（Kokumin Kenpo）</strong><br>
+      年収や世帯によって異なる<br>
+      目安：自営業者は月額 <strong>¥20,000〜50,000</strong>程度<br><br>
+      <strong>合計の目安：月 ¥40,000〜70,000</strong><br>
+      <span style="font-size:0.8rem;color:#555;">※2024〜2026年度基準。為替は参考値</span>
+    </div>
+    <div class="compare-card amber">
+      <h3>&#x1F1EA;&#x1F1F8; スペインの自営業者が加入するもの</h3>
+      <strong>RETA（Régimen Especial de Trabajadores Autónomos）</strong><br>
+      2026年：月額 <strong>約€206〜€623</strong>（所得連動）<br><br>
+      <strong>給付の内容：</strong><br>
+      &#x2022; 老齢年金（jubilación）<br>
+      &#x2022; 一時的労働不能給付（baja por enfermedad）<br>
+      &#x2022; Seguridad Social経由の医療（公的医療）<br>
+      &#x2022; 出産・育児・死亡給付 等<br><br>
+      <span style="font-size:0.8rem;color:#555;">※RETAに加入すると公立病院も利用可能になる（Tarjeta SIP申請が必要）</span>
+    </div>
+  </div>
+
+  <div class="alert-box">
+    <span class="alabel">&#x26A0;&#xFE0F; 両方払うと「二重負担」が発生する</span>
+    <p>
+      日本の1人法人代表者がスペインでRETAにも加入すると、
+      <strong>日本の国民年金・国保またはサラリーマン社保（厚生年金・健保）</strong>と
+      <strong>スペインのRETAの両方</strong>に同時に払うことになります。
+      月額にすると<strong>数万円〜数十万円の追加コスト</strong>です。
+      この二重負担を防ぐのが「日西社会保障協定」です。
+    </p>
+  </div>
+</div>
+
+<!-- 2026年のRETAの料率 -->
+<div class="card">
+  <h2>&#x1F4B0; 2026年のRETAはいくら？ ── 所得連動15ブラケット方式</h2>
+
+  <p>
+    2023年以降のスペインのRETAは、純利益（net income）に応じた<strong>15段階の所得連動ブラケット方式</strong>に切り替わっています。
+    月収が高いほど保険料も高くなります。2026年は2025年水準で凍結（MEI 0.9%のみ増加）。
+  </p>
+
+  <div class="highlight-box">
+    <span class="hlabel">&#x1F4CA; ブラケットの仕組み</span>
+    <p>「純利益（tax income after deductions）」を基準に15段階に分類。各ブラケット内で<strong>拠出基礎額（base de cotización）</strong>を選び、それに約31.5%＋MEI0.9%を掛けた金額が月額保険料になります。以下は代表的なブラケットの目安です（2026年・2025年凍結値＋MEI調整）。</p>
+  </div>
+
+  <div class="bracket-bar-wrap">
+    <div class="bracket-row">
+      <span class="bracket-label">収入 ≤ €670/月<br><small>（最低ブラケット）</small></span>
+      <div class="bracket-bar-bg">
+        <div class="bracket-bar-fill" style="width:33%">
+          <span class="bracket-val">約 €206/月</span>
+        </div>
+      </div>
+    </div>
+    <div class="bracket-row">
+      <span class="bracket-label">€900〜€1,125/月</span>
+      <div class="bracket-bar-bg">
+        <div class="bracket-bar-fill" style="width:42%">
+          <span class="bracket-val">約 €275/月</span>
+        </div>
+      </div>
+    </div>
+    <div class="bracket-row">
+      <span class="bracket-label">€1,300〜€1,500/月<br><small>（中間ブラケット）</small></span>
+      <div class="bracket-bar-bg">
+        <div class="bracket-bar-fill" style="width:48%">
+          <span class="bracket-val">約 €300/月</span>
+        </div>
+      </div>
+    </div>
+    <div class="bracket-row">
+      <span class="bracket-label">€2,030〜€2,330/月</span>
+      <div class="bracket-bar-bg">
+        <div class="bracket-bar-fill" style="width:62%">
+          <span class="bracket-val">約 €400/月</span>
+        </div>
+      </div>
+    </div>
+    <div class="bracket-row">
+      <span class="bracket-label">€2,760〜€3,190/月</span>
+      <div class="bracket-bar-bg">
+        <div class="bracket-bar-fill amber" style="width:80%">
+          <span class="bracket-val">約 €513/月</span>
+        </div>
+      </div>
+    </div>
+    <div class="bracket-row">
+      <span class="bracket-label">収入 ＞ €6,000/月<br><small>（最高ブラケット）</small></span>
+      <div class="bracket-bar-bg">
+        <div class="bracket-bar-fill red" style="width:100%">
+          <span class="bracket-val">約 €623/月</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p style="font-size:0.8rem;color:#888;margin-top:4px;">※上記は代表的なブラケットの目安額です。正確な全15段階の一覧と月次計算は、スペイン社会保険庁（seg-social.es）またはGestor（税務社会保険代理人）にご確認ください。</p>
+
+  <div class="number-row" style="margin-top:14px;">
+    <div class="number-card">
+      <div class="num">€80<br><small style="font-size:0.8rem;">/月</small></div>
+      <div class="desc">Tarifa Plana（初年度割引）<br>新規登録から12か月<br>（+MEI 0.9%で実質 ≒€89）</div>
+    </div>
+    <div class="number-card amber">
+      <div class="num">0.9%</div>
+      <div class="desc">MEI（世代間公平積立）<br>2025年の0.8%から引き上げ<br>RETA保険料に上乗せ</div>
+    </div>
+    <div class="number-card blue">
+      <div class="num">31.5%</div>
+      <div class="desc">拠出基礎額にかかる<br>保険料率（目安）<br>MEI含まず</div>
+    </div>
+    <div class="number-card gray">
+      <div class="num">12か月</div>
+      <div class="desc">Tarifa Plana適用期間<br>その後は通常ブラケットに<br>戻る（注意！）</div>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <span class="hlabel">&#x1F4A1; Tarifa Plana（タリファ・プラナ）って何？</span>
+    <p>
+      autónomoとして初めてRETAに登録する人は、<strong>最初の12か月間は月額€80の固定料金（通称タリファ・プラナ）</strong>が適用されます。
+      これに MEI 0.9% を加えた実質支払額は<strong>月約€89</strong>です。
+      収入が多くても少なくても同じ金額で始められる「スタートアップ割引」のような制度です。
+      一部の自治体（マドリード州・カナリア諸島・ムルシア州等）では「Cuota Cero（クオタ・セロ）」という完全無料制度もあります（条件あり）。
+    </p>
+  </div>
+
+  <div class="alert-box">
+    <span class="alabel">&#x26A0;&#xFE0F; 注意：DNV収入の80%ルールとRETAの両立</span>
+    <p>
+      DNV（国際遠隔就労ビザ）は「収入の80%以上が外国由来」という条件が必要です（06-10参照）。
+      autónomoとして登録してスペイン国内の顧客からも収入を得ると、この80%ルールを超えてしまうリスクがあります。
+      RETAへの登録・スペイン国内収入の受け取りはDNV要件との整合性を必ず確認してください。
+    </p>
+  </div>
+</div>
+
+<!-- DNV保持者はRETAが必要か -->
+<div class="card">
+  <h2>&#x2753; DNV保持者はそもそもRETAに登録する必要がある？</h2>
+
+  <p>これはよく混乱するポイントです。シンプルに整理します。</p>
+
+  <div class="flow-wrap">
+    <div class="flow-box">
+      <span class="fb-label">&#x1F4BC; あなたの収入の受け取り方は？</span>
+      <strong>日本の1人法人から「役員報酬」を受け取っている</strong>
+    </div>
+    <div class="arrow-down">&#x2198;</div>
+    <div class="flow-h-row">
+      <div class="flow-h-box fh-light" style="flex:2;text-align:left;padding:14px 18px;">
+        <span class="fh-label">スペインで autónomo として直接サービスを提供していない</span>
+        <strong>&#x2192; DNVの場合、基本的にRETAは不要</strong><br>
+        <span style="font-size:0.8rem;opacity:0.85;">日本法人からの給与受取者 ＝ スペインでの就労活動なし ＝ autónomo 登録不要</span>
+      </div>
+      <div class="arrow-right">vs</div>
+      <div class="flow-h-box fh-amber" style="flex:2;text-align:left;padding:14px 18px;">
+        <span class="fh-label">スペインでも直接フリーランス収入を受け取っている</span>
+        <strong>&#x2192; autónomo登録＋RETA 必要になる可能性</strong><br>
+        <span style="font-size:0.8rem;opacity:0.85;">外国顧客への請求でも、個人名義で直接受け取るなら autónomo 登録が必要な場合がある</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="news-box">
+    <span class="nlabel">&#x1F4D6; 「DNV保持者はRETAを払う必要があるか」── 2026年の実態</span>
+    <p>
+      2026年現在、UGE（スペイン入管大企業部門）の審査強化に伴い、<strong>社会保険未登録はDNVの更新拒否・取消リスクを高める</strong>とされています（06-10参照）。
+      実務上、多くのDNV保持者はGestor（税務・社会保険代理人）のアドバイスにより autónomo 登録＋RETA加入を選択しています。
+      一方、「外国法人からの役員報酬のみ」を受け取る日本の1人法人代表者は、理論上はautónomo登録が不要なケースもありますが、
+      <strong>日西社会保障協定を活用して日本の社保を継続しつつ、スペイン側への適用証明書提出で対応する</strong>という方法もあります。
+      どちらのアプローチが適切かは、Gestorや移民弁護士への個別相談が必要です。
+    </p>
+  </div>
+</div>
+
+<!-- 日西社会保障協定 -->
+<div class="card">
+  <h2>&#x1F91D; 日西社会保障協定とは ── 二重払い防止の国際ルール</h2>
+
+  <div class="treaty-badge">
+    <span class="t-ico">&#x1F4DC;</span>
+    <div>
+      <strong>社会保障に関する日本国とスペインとの間の協定</strong>
+      Acuerdo entre Japón y España sobre Seguridad Social<br>
+      <span style="font-size:0.8rem;opacity:0.85;">署名：2008年11月11日（東京）／ 発効：<strong>2010年12月1日</strong>（確認済み出典：外務省）</span>
+    </div>
+  </div>
+
+  <p>
+    「日西社会保障協定」は、日本とスペインの両方で働く人が<strong>年金と医療保険を二重に払わないようにする</strong>ための国際条約です。
+    日本の外務省が締結し、2010年12月1日に発効しました。
+  </p>
+
+  <div class="compare-row">
+    <div class="compare-card green">
+      <h3>&#x2705; 協定でカバーされるもの</h3>
+      <strong>年金（Pension）</strong><br>
+      &#x2022; 日本：厚生年金 / 国民年金<br>
+      &#x2022; スペイン：RETA経由の老齢年金<br><br>
+      <strong>医療保険（Health Insurance）</strong><br>
+      &#x2022; 日本：健康保険 / 国民健康保険<br>
+      &#x2022; スペイン：RETA経由の医療給付<br><br>
+      <span style="color:#1a6e49;font-weight:700;">→ この2つについて「どちらか一方のみ払えばOK」</span>
+    </div>
+    <div class="compare-card red">
+      <h3>&#x274C; 協定で注意が必要なもの</h3>
+      <strong>協定の「原則」：就労地法優先</strong><br>
+      原則はスペインで働く人はスペインの法令に従う（＝RETA加入）。<br>
+      ただし「5年以内の派遣・就労」という条件を満たせば<strong>例外として日本の法令を継続適用</strong>できる。<br><br>
+      <strong>注意：協定外の給付もある</strong><br>
+      失業給付・労災保険は協定の範囲外の場合がある。詳細は専門家へ。
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <span class="hlabel">&#x1F4A1; 5年ルールの実務的な意味</span>
+    <p>
+      DNV（国際遠隔就労ビザ）は最初に1年、その後最長3年更新が可能です。
+      つまりDNVで滞在できる期間の上限は実質的に<strong>最長4〜5年</strong>程度。
+      協定の「5年以内なら日本の法令を継続適用できる」という期間と、ほぼぴったり合致します。
+      DNVで滞在している間は、日西社会保障協定を活用して日本の社保のみ払い続けられる可能性があります。
+    </p>
+  </div>
+
+  <div class="alert-box">
+    <span class="alabel">&#x26A0;&#xFE0F; 「年金加算（通算）」という別のメリット</span>
+    <p>
+      日本とスペインにそれぞれ年金加入期間がある場合、<strong>両国の加入期間を合算して年金受給資格の最低期間を満たすことができます</strong>。
+      例えば「日本で5年・スペインで3年」の場合でも、合算すると受給要件を満たせるケースがあります。
+      これは「通算措置」と呼ばれ、長期的なキャリアを国際的に築く上で重要な仕組みです。
+    </p>
+  </div>
+</div>
+
+<!-- 適用証明書の手続き -->
+<div class="card">
+  <h2>&#x1F4CB; 適用証明書の手続き ── 日本社保を維持してスペインRETAを免除するステップ</h2>
+
+  <p>
+    日西社会保障協定を使ってスペインのRETAを免除するには、<strong>「日本社会保障制度の適用を受けていること」を証明する書類</strong>をスペイン当局に提出する必要があります。
+    これが「<strong>適用証明書（社会保障協定に基づく適用証明書）</strong>」です。
+  </p>
+
+  <ul class="step-list">
+    <li>
+      <span class="step-num">1</span>
+      <div>
+        <strong>まず日本の社会保険に加入していることを確認する</strong><br>
+        &#x2022; 1人法人（株式会社等）の代表取締役は、法人設立時から<strong>厚生年金保険＋健康保険（協会けんぽ等）</strong>への加入が原則義務です<br>
+        &#x2022; 保険証と年金手帳（またはマイナンバーで確認）で加入状況を確認する<br>
+        &#x2022; 未加入の場合は、日本年金機構または社労士に相談して加入手続きをする（国民年金・国保の場合は別ルート）
+      </div>
+    </li>
+    <li>
+      <span class="step-num blue">2</span>
+      <div>
+        <strong>日本年金機構に「適用証明書交付申請書」を提出する</strong><br>
+        &#x2022; 申請書：「日・スペイン社会保障協定 適用証明書交付申請書」（日本年金機構HPからダウンロード可）<br>
+        &#x2022; 提出先：<strong>日本年金機構（本部・国際事業部）</strong> 〒168-8505 東京都杉並区高井戸西3-5-24<br>
+        &#x2022; 記入内容：氏名・生年月日・スペインでの就労期間（見込み）・雇用主（日本法人）の情報 等<br>
+        &#x2022; 処理期間：数週間〜1か月程度（余裕を持って申請する）<br>
+        &#x2022; 私学共済加入者は私学共済に別途申請（申請書あり）
+      </div>
+    </li>
+    <li>
+      <span class="step-num amber">3</span>
+      <div>
+        <strong>発行された「適用証明書」をスペイン当局に提出する</strong><br>
+        &#x2022; 提出先：スペインの<strong>Tesorería General de la Seguridad Social（TGSS＝社会保険庁）</strong>の最寄りの事務所またはオンライン（Certificado Digital使用）<br>
+        &#x2022; 証明書の翻訳：スペイン語への公認翻訳が必要になる場合あり（MAEC認定翻訳士に依頼）<br>
+        &#x2022; 在スペイン日本大使館のサポート窓口も活用可能（申請のアドバイス）
+      </div>
+    </li>
+    <li>
+      <span class="step-num">4</span>
+      <div>
+        <strong>RETA加入が免除されたことを確認する</strong><br>
+        &#x2022; TGSSから免除を認めた旨の書類が交付される（または登録不要と通知）<br>
+        &#x2022; 日本の社保は引き続き支払いを継続する（日本の会社経由で毎月天引き等）<br>
+        &#x2022; 期間が5年を超える場合は協定の継続適用について再確認が必要
+      </div>
+    </li>
+  </ul>
+
+  <div class="danger-box">
+    <span class="dlabel">&#x1F6A8; 手続きは「スペインに来る前」または「来た直後」に始める</span>
+    <p>
+      適用証明書の申請は、スペインへの渡航前または渡航直後に着手することが重要です。
+      スペインで autónomo 登録をしてから「やっぱり協定を使いたい」と後追い申請した場合、
+      RETA加入期間の保険料の扱いが複雑になることがあります。
+      Gestorや社労士と連携して、タイミングを逃さないようにしましょう。
+    </p>
+  </div>
+</div>
+
+<!-- 実践シナリオ比較 -->
+<div class="card">
+  <h2>&#x1F9EA; 実践シナリオ比較 ── 日本の1人法人オーナーが選べる3つのパターン</h2>
+
+  <p>状況によって最適な選択肢が違います。あなたはどのパターンに近いですか？</p>
+
+  <div class="scenario-grid">
+    <div class="scenario-card green">
+      <h4>&#x1F7E2; パターンA<br>協定で日本社保を維持</h4>
+      <strong>対象：日本法人役員報酬のみ受取</strong><br><br>
+      &#x2022; 日本法人で厚生年金＋健保に加入済み<br>
+      &#x2022; スペインでは autónomo として直接収入を得ない<br>
+      &#x2022; 適用証明書をTGSSに提出<br><br>
+      <strong>メリット</strong><br>
+      &#x2022; スペインのRETAを支払わなくてよい<br>
+      &#x2022; 日本の保険給付（医療・年金）をそのまま継続<br>
+      &#x2022; 月数万円の追加コストを節約<br><br>
+      <span style="color:#1a6e49;font-weight:700;">→ DNV＋日本1人法人オーナーに最も多いケース</span>
+    </div>
+    <div class="scenario-card amber">
+      <h4>&#x1F7E1; パターンB<br>autónomo登録＋RETA加入</h4>
+      <strong>対象：スペインでも直接収入を受取</strong><br><br>
+      &#x2022; 個人として外国顧客に直接請求・受取<br>
+      &#x2022; または日本法人以外の収入がある<br>
+      &#x2022; RETAに加入して毎月保険料を支払う<br><br>
+      <strong>メリット</strong><br>
+      &#x2022; スペインの公的医療（Seguridad Social）が使える<br>
+      &#x2022; 合法的に自営業として活動できる<br>
+      &#x2022; Tarifa Plana（初年12か月 €80）の恩恵あり<br><br>
+      <span style="color:#a07800;font-weight:700;">→ 協定申請と組み合わせれば部分的に調整も可能</span>
+    </div>
+    <div class="scenario-card red">
+      <h4>&#x1F534; パターンC<br>日本社保を脱退してRETAのみ</h4>
+      <strong>対象：スペイン居住者となる場合</strong><br><br>
+      &#x2022; 日本を離れて183日以上スペインに居住<br>
+      &#x2022; 日本の社保（健保・年金）を脱退<br>
+      &#x2022; スペインのRETAのみに加入<br><br>
+      <strong>注意点</strong><br>
+      &#x2022; 日本の年金受給に必要な加入期間に影響<br>
+      &#x2022; 帰国時に日本の保険に再加入する手続きが必要<br>
+      &#x2022; スペイン税務居住者になるため税務面も変わる<br><br>
+      <span style="color:#922b2b;font-weight:700;">→ スペインへの「完全移住」を決めた場合向け</span>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <span class="hlabel">&#x1F4A1; 「日本とスペインを行き来する」場合のベストプラクティス</span>
+    <p>
+      日西往来生活（183日ルールの範囲内でスペイン在住）を維持する場合は、<strong>パターンAを軸に考える</strong>のが実務上シンプルです。
+      日本法人からの役員報酬を継続し、日本の社保（厚生年金＋健保）も継続。
+      適用証明書を取得してTGSSに提出することでRETAを免除。
+      スペインの公的医療は民間保険でカバーする（DNVの要件でもある）。
+      ただし、このアプローチが有効かどうかは個別状況によるため、社労士＋スペインのGestorへの確認が必須です。
+    </p>
+  </div>
+</div>
+
+<!-- 日本の法人代表者への特記事項 -->
+<div class="card">
+  <h2>&#x1F1EF;&#x1F1F5; 日本の1人法人代表者への特記事項</h2>
+
+  <p>
+    「1人法人」の場合、代表取締役自身が唯一の「従業員」として扱われます。
+    日本の法律では、<strong>法人（株式会社・合同会社等）は規模に関わらず、代表者を社会保険（厚生年金＋健康保険）に強制加入させる義務があります</strong>。
+    これは個人事業主（フリーランス）とは異なる重要な点です。
+  </p>
+
+  <table class="matrix-table">
+    <thead>
+      <tr>
+        <th>形態</th>
+        <th>日本の社会保険</th>
+        <th>協定利用可否</th>
+        <th>スペインでの扱い（目安）</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="row-green">
+        <td><strong>&#x1F1EF;&#x1F1F5; 1人法人（株式会社等）代表</strong><br>役員報酬あり・社保加入</td>
+        <td class="ok">厚生年金＋健康保険（協会けんぽ等）<br>法人として強制加入</td>
+        <td class="ok">◎ 利用しやすい</td>
+        <td>適用証明書をTGSSに提出 → RETA免除を申請できる可能性大</td>
+      </tr>
+      <tr class="row-warn">
+        <td><strong>&#x1F1EF;&#x1F1F5; 1人法人（株式会社等）代表</strong><br>役員報酬 ¥0 or 超低額</td>
+        <td class="warn">社保加入義務の有無に注意<br>報酬ゼロの場合は要確認</td>
+        <td class="warn">△ 要確認</td>
+        <td>社労士に加入状況を確認してから協定申請の可否を判断する</td>
+      </tr>
+      <tr>
+        <td><strong>&#x1F1EF;&#x1F1F5; 個人事業主（フリーランス）</strong><br>国民年金＋国民健康保険</td>
+        <td>国民年金＋国民健康保険<br>（任意継続の場合もある）</td>
+        <td class="warn">△ 協定対象だが手続きが異なる</td>
+        <td>協定の対象ではあるが、証明書取得ルートが異なる。日本年金機構または社労士に確認を</td>
+      </tr>
+      <tr class="row-danger">
+        <td><strong>&#x1F1EF;&#x1F1F5; 社保未加入（法人で未加入）</strong></td>
+        <td class="ng">社保未加入（違法状態の可能性）</td>
+        <td class="ng">✕ 利用困難</td>
+        <td>スペインでRETAへの加入が必要になる可能性が高い。まず日本側の社保加入を整備することが先決</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="danger-box">
+    <span class="dlabel">&#x1F6A8; 「法人なのに社保未加入」は日本でも問題</span>
+    <p>
+      日本では1人でも法人（株式会社・合同会社等）を設立していれば、代表取締役への社会保険適用は原則義務です。
+      未加入のままスペインに移住すると、日西社会保障協定が使えないだけでなく、
+      日本側でも年金機構から加入勧奨・追徴を受けるリスクがあります。
+      DNV準備と並行して、日本の社保加入状況を社会保険労務士（社労士）に確認することをお勧めします。
+    </p>
+  </div>
+</div>
+
+<!-- アクションチェックリスト -->
+<div class="card">
+  <h2>&#x2705; DNV申請前にやっておくべき チェックリスト（社保編）</h2>
+
+  <ul class="check-list">
+    <li>
+      <span class="ico">&#x1F9FE;</span>
+      <div>
+        <strong>【まず確認】日本法人の社会保険加入状況を確認する</strong><br>
+        法人なら代表者の厚生年金＋健康保険加入が原則義務。年金手帳・保険証で確認し、未加入なら社労士に相談して加入手続きをする。
+      </div>
+    </li>
+    <li>
+      <span class="ico">&#x1F4DC;</span>
+      <div>
+        <strong>【協定利用を検討】Gestorや社労士に「日西社会保障協定の利用が自分に適用できるか」を確認する</strong><br>
+        雇用形態・収入構造・スペインでの活動内容によって利用可否が変わる。日本の社労士＋スペインのGestorの両方に聞くのがベスト。
+      </div>
+    </li>
+    <li>
+      <span class="ico">&#x1F4DD;</span>
+      <div>
+        <strong>【証明書申請】日本年金機構に「日・スペイン社会保障協定 適用証明書交付申請書」を提出する</strong><br>
+        申請書は日本年金機構のサイトからダウンロード可（URL：nenkin.go.jp）。スペイン渡航の1〜2か月前に申請を開始して、証明書が間に合うようにする。
+      </div>
+    </li>
+    <li>
+      <span class="ico">&#x1F4C4;</span>
+      <div>
+        <strong>【書類準備】証明書のスペイン語翻訳を準備する</strong><br>
+        TGSSへの提出にはスペイン語訳が必要になる場合がある。MAEC認定の宣誓翻訳士（Jurado）に依頼する（06-14参照）。
+      </div>
+    </li>
+    <li>
+      <span class="ico">&#x1F3DB;&#xFE0F;</span>
+      <div>
+        <strong>【スペイン到着後】TGSSに適用証明書を提出してRETAの免除（加入免除）を申請する</strong><br>
+        Certificado Digital（06-15参照）があればオンラインでも手続き可能。Gestorに代行してもらうのが実務上スムーズ。
+      </div>
+    </li>
+    <li class="amber">
+      <span class="ico">&#x26A0;&#xFE0F;</span>
+      <div>
+        <strong>【定期確認】在スペイン期間が5年に近づいたら再検討する</strong><br>
+        協定の「5年ルール」を超える場合は継続適用が終わり、スペインのRETAへの加入が必要になる。長期滞在を計画する場合は早めにGestorに相談。
+      </div>
+    </li>
+    <li class="blue">
+      <span class="ico">&#x1F4CA;</span>
+      <div>
+        <strong>【年金通算を視野に】将来の年金受給計画を立てる</strong><br>
+        日本とスペインの加入期間を通算できる。日本で25〜10年以上加入 or スペインと合算して要件を満たせば、両国から年金受給の可能性がある。長期的なキャリア設計の一部として社労士に相談。
+      </div>
+    </li>
+  </ul>
+</div>
+
+<!-- まとめ -->
+<div class="card">
+  <h2>&#x1F4A1; まとめ ── RETAと協定のポイントを整理</h2>
+
+  <div class="flow-wrap">
+    <div class="flow-box">
+      <span class="fb-label">&#x1F6E1;&#xFE0F; RETA（2026年）</span>
+      <strong>料率は2025年水準で凍結（Real Decreto-ley 16/2025）。月額€206〜€623（所得連動15段階）。新規登録は初12か月 Tarifa Plana €80/月。MEIのみ0.9%に引き上げ。</strong>
+    </div>
+    <div class="arrow-down">&#x2B07;</div>
+    <div class="flow-box sub">
+      <span class="fb-label">&#x1F91D; 日西社会保障協定（発効2010年12月1日）</span>
+      <strong>年金＋医療保険の二重払いを防ぐ条約。5年以内の就労なら「日本の社保を維持＋スペインのRETAを免除」できる可能性あり。</strong>
+    </div>
+    <div class="arrow-down">&#x2B07;</div>
+    <div class="flow-box amber">
+      <span class="fb-label">&#x1F4DC; 手続き</span>
+      <strong>日本年金機構に「適用証明書」を申請 → スペインのTGSSに提出 → RETA免除を認定してもらう。渡航前または渡航直後に着手すること。</strong>
+    </div>
+    <div class="arrow-down">&#x2B07;</div>
+    <div class="flow-box blue">
+      <span class="fb-label">&#x1F1EF;&#x1F1F5; 1人法人オーナーへの実務アドバイス</span>
+      <strong>法人代表として社保加入（厚生年金＋健保）を維持し、協定で日本社保を継続。RETA免除を活用して月€200〜600のコストを節約。DNVの80%外国収入ルールとの整合性も確認。</strong>
+    </div>
+  </div>
+
+  <div class="two-col" style="margin-top:16px;">
+    <div class="mini-card">
+      <h4>&#x1F4C5; 関連する日報</h4>
+      &#x2022; 日西租税条約・183日ルール → <a href="2026-06-02.html" style="color:#1a6e49;">06-02</a><br>
+      &#x2022; 住民票・マイナンバー・国民年金3択 → <a href="2026-06-04.html" style="color:#1a6e49;">06-04</a><br>
+      &#x2022; UGE審査強化・社会保険未登録リスク → <a href="2026-06-10.html" style="color:#1a6e49;">06-10</a><br>
+      &#x2022; Gestor（税務社会保険代理人） → <a href="2026-06-07.html" style="color:#1a6e49;">06-07</a><br>
+      &#x2022; Certificado Digital（TGSS手続きに使用） → <a href="2026-06-15.html" style="color:#1a6e49;">06-15</a>
+    </div>
+    <div class="mini-card amber-bg">
+      <h4>&#x26A0;&#xFE0F; 専門家への相談が必要な場面</h4>
+      &#x2022; 自分が協定の対象かどうかの判断<br>
+      &#x2022; 役員報酬の水準と社保加入要件<br>
+      &#x2022; autónomo登録の要否の判断<br>
+      &#x2022; 5年を超えた場合の対応策<br>
+      &#x2192; 日本：社会保険労務士（社労士）<br>
+      &#x2192; スペイン：Gestor / Asesor Fiscal<br>
+      &#x2192; スペイン：移民弁護士（在留面）
+    </div>
+  </div>
+
+  <div class="source-list">
+    <strong>出典・参照先：</strong><br>
+    &#x2022; 外務省「社会保障に関する日本国とスペインとの間の協定」（署名2008年11月11日・発効2010年12月1日）：
+    <a href="https://www.mofa.go.jp/mofaj/gaiko/treaty/pdfs/A-H22-111.pdf" target="_blank">mofa.go.jp/mofaj/gaiko/treaty/pdfs/A-H22-111.pdf</a><br>
+    &#x2022; 日本年金機構「日・スペイン社会保障協定 申請書一覧（加入免除手続き）」：
+    <a href="https://www.nenkin.go.jp/shinsei/kyotei/spain/spain-kanyu.html" target="_blank">nenkin.go.jp/shinsei/kyotei/spain/spain-kanyu.html</a><br>
+    &#x2022; 厚生労働省「社会保障協定」ページ：
+    <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/nenkin/nenkin/shakaihoshou.html" target="_blank">mhlw.go.jp</a><br>
+    &#x2022; VisaHQ News「Government Freezes 2026 Social-Security Contributions for Spain's Self-Employed」（2025年12月24日）：
+    <a href="https://www.visahq.com/news/2025-12-24/es/government-freezes-2026-social-security-contributions-for-spains-self-employed/" target="_blank">visahq.com</a><br>
+    &#x2022; SpainGuru「Autonomos in Spain: Social Security Contributions 2026」（2025年10月）：
+    <a href="https://spainguru.es/2025/10/16/autonomos-in-spain-social-security-contributions-2026/" target="_blank">spainguru.es</a><br>
+    &#x2022; Spanish Settler「Changes for autónomos in Spain 2026: frozen quotas」（2025年12月）：
+    <a href="https://spanishsettler.com/2025/12/29/changes-autonomos-spain-2026-01/" target="_blank">spanishsettler.com</a><br>
+    &#x2022; JURO Spain「The 2026 Digital Nomad Visa Tax Paradox: Beckham Law vs. RETA」（2026年）：
+    <a href="https://jurospain.com/guides/digital-nomad-visa-tax-social-security-2026/" target="_blank">jurospain.com</a><br>
+    &#x2022; 在スペイン日本大使館「日本・スペイン社会保障協定について」：
+    <a href="https://www.es.emb-japan.go.jp/itpr_ja/00_000092.html" target="_blank">es.emb-japan.go.jp</a><br>
+    &#x2022; RETA料率の確認：<a href="https://www.seg-social.es/" target="_blank">seg-social.es</a>（スペイン社会保険庁公式サイト）で最新ブラケット表を確認してください。<br>
+    &#x2022; 情報基準：2026年6月。協定・料率は変更される可能性があります。
+  </div>
+</div>
+
+<!-- 免責フッター -->
+<div class="footer-note">
+  <strong>【免責事項】</strong><br>
+  本記事はデジタルノマドビザ・スペイン社会保険・日西社会保障協定に関する情報を学習目的でまとめたものです。<br><br>
+  <strong>ビザ・在留資格（DNV申請・更新・社会保険未登録リスク等）に関する正式な判断は、スペイン移民法を専門とする移民弁護士（Abogado de Extranjería）にご相談ください。</strong><br>
+  <strong>税務・社会保険（日本の社保加入義務・協定の適用可否・RETA等）に関する正式な判断は、社会保険労務士（日本）およびスペインのGestor / Asesor Fiscalにご相談ください。</strong><br><br>
+  &#x2022; RETA料率（保険料額）は2026年時点のReal Decreto-ley 16/2025に基づく凍結値です。今後のスペイン政府の決定により変更される可能性があります。<br>
+  &#x2022; 日西社会保障協定の発効日（2010年12月1日）は外務省の公開情報に基づきます（一次ソース確認済み）。協定の適用範囲・条件は個別状況によります。<br>
+  &#x2022; RETA料率の目安値（€206〜€623/月）はウェブ上の複数の情報源から収集した概算です。正確な金額はスペイン社会保険庁（seg-social.es）の公式情報またはGestorにご確認ください。<br>
+  &#x2022; 「必ずRETAが免除される」「必ず年金が受給できる」などの断定はしていません。本記事の情報を利用した結果について、筆者は責任を負いかねます。
+</div>
+
+</body>
+</html>
