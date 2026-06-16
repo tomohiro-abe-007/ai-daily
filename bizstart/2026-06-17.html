@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-06-17</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: #f0ece3;
+  font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  color: #333;
+}
+.slide {
+  background: #fff9f0;
+  border-radius: 10px;
+  padding: 40px 44px;
+  max-width: 780px;
+  width: 100%;
+  margin-bottom: 28px;
+  box-shadow: 4px 6px 20px rgba(0,0,0,0.12);
+  border-left: 6px solid #7a4f1e;
+  position: relative;
+}
+.slide-hero {
+  background: linear-gradient(135deg, #7a4f1e 0%, #4a2e08 100%);
+  color: white;
+  border-radius: 10px;
+  padding: 48px 44px;
+  max-width: 780px;
+  width: 100%;
+  margin-bottom: 28px;
+  box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  text-align: center;
+}
+.slide-hero .date-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.25);
+  border-radius: 20px;
+  padding: 4px 16px;
+  font-size: 0.85rem;
+  margin-bottom: 16px;
+  letter-spacing: 0.05em;
+}
+.slide-hero h1 {
+  font-size: 1.75rem;
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+.slide-hero .subtitle {
+  opacity: 0.85;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+.section-title {
+  font-size: 1.15rem;
+  color: #7a4f1e;
+  font-weight: 700;
+  margin-bottom: 18px;
+  padding-bottom: 8px;
+  border-bottom: 2px dashed #d4b898;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.lead {
+  font-size: 1rem;
+  line-height: 1.9;
+  color: #444;
+  margin-bottom: 20px;
+}
+/* --- 印鑑3種カード --- */
+.stamp-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.stamp-card {
+  border-radius: 10px;
+  padding: 20px 14px;
+  text-align: center;
+  border: 2px solid;
+}
+.stamp-card.red {
+  background: #fff5f5;
+  border-color: #e74c3c;
+}
+.stamp-card.blue {
+  background: #f0f6ff;
+  border-color: #3498db;
+}
+.stamp-card.green {
+  background: #f0fff4;
+  border-color: #27ae60;
+}
+.stamp-icon {
+  font-size: 2.4rem;
+  margin-bottom: 8px;
+}
+.stamp-name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: #333;
+}
+.stamp-sub {
+  font-size: 0.75rem;
+  color: #666;
+  line-height: 1.5;
+}
+.stamp-tag {
+  display: inline-block;
+  border-radius: 12px;
+  padding: 2px 10px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  margin-top: 8px;
+  color: white;
+}
+.stamp-card.red .stamp-tag { background: #e74c3c; }
+.stamp-card.blue .stamp-tag { background: #3498db; }
+.stamp-card.green .stamp-tag { background: #27ae60; }
+/* --- 使い分けフロー --- */
+.flow-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+}
+.flow-table th {
+  background: #7a4f1e;
+  color: white;
+  padding: 10px 14px;
+  text-align: left;
+  font-weight: 600;
+}
+.flow-table td {
+  padding: 10px 14px;
+  border-bottom: 1px dotted #d4b898;
+  vertical-align: top;
+  line-height: 1.6;
+}
+.flow-table tr:last-child td { border-bottom: none; }
+.flow-table tr:nth-child(even) td { background: #fdf6ee; }
+.badge {
+  display: inline-block;
+  border-radius: 10px;
+  padding: 2px 10px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: white;
+  margin-right: 4px;
+}
+.badge-red { background: #e74c3c; }
+.badge-blue { background: #3498db; }
+.badge-green { background: #27ae60; }
+.badge-gray { background: #7f8c8d; }
+/* --- 電子署名比較 --- */
+.compare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.compare-card {
+  border-radius: 10px;
+  padding: 18px 16px;
+  border: 2px solid;
+}
+.compare-card.paper {
+  background: #fff8f0;
+  border-color: #e67e22;
+}
+.compare-card.digital {
+  background: #f0f8ff;
+  border-color: #2980b9;
+}
+.compare-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.compare-list {
+  list-style: none;
+  font-size: 0.85rem;
+  line-height: 1.8;
+  color: #444;
+}
+.compare-list li::before { content: "・"; color: #999; }
+/* --- 大数字カード --- */
+.big-number-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.big-number-card {
+  background: linear-gradient(135deg, #4a2e08, #7a4f1e);
+  color: white;
+  border-radius: 12px;
+  padding: 22px 18px;
+  text-align: center;
+}
+.big-num {
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.big-num-label {
+  font-size: 0.78rem;
+  opacity: 0.85;
+  line-height: 1.5;
+}
+/* --- ステップフロー --- */
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 18px;
+}
+.step {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px dotted #d4b898;
+}
+.step:last-child { border-bottom: none; }
+.step-num {
+  background: #7a4f1e;
+  color: white;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.step-content {
+  flex: 1;
+}
+.step-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #5a2e00;
+  margin-bottom: 4px;
+}
+.step-desc {
+  font-size: 0.85rem;
+  color: #555;
+  line-height: 1.7;
+}
+/* --- 注意BOX --- */
+.alert-box {
+  background: #fff8e1;
+  border-left: 4px solid #f39c12;
+  border-radius: 6px;
+  padding: 14px 18px;
+  margin-bottom: 16px;
+  font-size: 0.88rem;
+  line-height: 1.8;
+  color: #5a4000;
+}
+.alert-box strong { color: #e67e22; }
+/* --- 実践チェックリスト --- */
+.checklist {
+  list-style: none;
+  margin-bottom: 14px;
+}
+.checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px dotted #ddd;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #444;
+}
+.checklist li:last-child { border-bottom: none; }
+.check-box {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #7a4f1e;
+  border-radius: 4px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  color: #7a4f1e;
+}
+/* --- 出典 --- */
+.source {
+  font-size: 0.73rem;
+  color: #999;
+  margin-top: 8px;
+  line-height: 1.6;
+}
+.source a { color: #7a4f1e; }
+/* --- 免責 --- */
+.disclaimer {
+  background: #f7f7f7;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 18px 22px;
+  font-size: 0.78rem;
+  color: #666;
+  line-height: 1.8;
+  max-width: 780px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+.footer-note {
+  text-align: center;
+  color: #aaa;
+  font-size: 0.78rem;
+  margin-bottom: 30px;
+}
+@media (max-width: 600px) {
+  .stamp-cards { grid-template-columns: 1fr; }
+  .compare-grid { grid-template-columns: 1fr; }
+  .big-number-row { grid-template-columns: 1fr; }
+  .slide { padding: 28px 20px; }
+  .slide-hero { padding: 36px 20px; }
+  .slide-hero h1 { font-size: 1.35rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ヒーロー -->
+<div class="slide-hero">
+  <div class="date-badge">1人法人スタート 最新トピック 2026-06-17</div>
+  <h1>📜 法人の契約書・印鑑・電子署名の基礎<br>── 設立したらまず「ハンコ」を理解しよう</h1>
+  <p class="subtitle">
+    法人設立直後に必ず直面する「ハンコ問題」と「契約書問題」。<br>
+    何種類いる？電子署名って何？印紙代は？を今日スッキリ整理します。
+  </p>
+</div>
+
+<!-- セクション1: 法人の印鑑3種類 -->
+<div class="slide">
+  <div class="section-title">🔴 01 ｜ 法人の印鑑は基本「3種類」</div>
+  <p class="lead">
+    個人と同じように、法人にも「ハンコ」が必要です。<br>
+    法務局（登記）で正式に登録するのは<strong>1本だけ</strong>ですが、<br>
+    実務では用途別に3種類を使い分けるのが一般的です。
+  </p>
+
+  <div class="stamp-cards">
+    <div class="stamp-card red">
+      <div class="stamp-icon">🔴</div>
+      <div class="stamp-name">代表者印<br>（会社実印）</div>
+      <div class="stamp-sub">
+        法務局に届け出る<br>「会社の正式なハンコ」。<br>重要契約・公的手続きに使う
+      </div>
+      <span class="stamp-tag">登記必須 1本</span>
+    </div>
+    <div class="stamp-card blue">
+      <div class="stamp-icon">🔵</div>
+      <div class="stamp-name">銀行印</div>
+      <div class="stamp-sub">
+        法人口座を開設するときに<br>金融機関へ届け出るハンコ。<br>代表者印とは分けるのが安全
+      </div>
+      <span class="stamp-tag">口座開設に必要</span>
+    </div>
+    <div class="stamp-card green">
+      <div class="stamp-icon">🟢</div>
+      <div class="stamp-name">角印<br>（社印・認印）</div>
+      <div class="stamp-sub">
+        見積書・請求書・領収書に<br>押す日常業務用のハンコ。<br>法的な効力は弱め
+      </div>
+      <span class="stamp-tag">日常業務用</span>
+    </div>
+  </div>
+
+  <div class="alert-box">
+    <strong>ポイント：代表者印 ≠ 個人の実印</strong><br>
+    代表者印は「法人」のハンコとして法務局に登録します。個人の実印とは別物。<br>
+    設立登記の際、法務局に「印鑑届書」を提出します（電子申請でも印鑑登録可能）。
+  </div>
+
+  <p class="source">
+    出典：法務局「会社・法人に関する手続き」印鑑届書について<br>
+    <a href="https://houmukyoku.moj.go.jp/homu/static/goannai_kaisha.html" target="_blank">https://houmukyoku.moj.go.jp/homu/</a>（2025年度基準）
+  </p>
+</div>
+
+<!-- セクション2: 使い分け表 -->
+<div class="slide">
+  <div class="section-title">📋 02 ｜ 印鑑の「使い分け」早見表</div>
+  <p class="lead">
+    どの場面でどのハンコを押すか、迷ったらこの表を確認！
+  </p>
+
+  <table class="flow-table">
+    <thead>
+      <tr>
+        <th>場面・書類</th>
+        <th>使う印鑑</th>
+        <th>ひとこと</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>法人設立登記・登記事項証明</td>
+        <td><span class="badge badge-red">代表者印</span></td>
+        <td>法務局に届け出た印のみ有効</td>
+      </tr>
+      <tr>
+        <td>重要な取引契約書（不動産・融資等）</td>
+        <td><span class="badge badge-red">代表者印</span></td>
+        <td>印鑑証明書とセットで提出が多い</td>
+      </tr>
+      <tr>
+        <td>銀行口座開設・振込依頼書</td>
+        <td><span class="badge badge-blue">銀行印</span></td>
+        <td>代表者印と兼用も可だが分離推奨</td>
+      </tr>
+      <tr>
+        <td>見積書・請求書・領収書</td>
+        <td><span class="badge badge-green">角印</span></td>
+        <td>日常業務用。押さなくても法的には有効なことも多い</td>
+      </tr>
+      <tr>
+        <td>社会保険や税務申告の届出書類</td>
+        <td><span class="badge badge-red">代表者印</span> または <span class="badge badge-gray">電子署名</span></td>
+        <td>e-Tax・e-Gov では電子署名で代替可能</td>
+      </tr>
+      <tr>
+        <td>一般的な業務委託・売買契約（電子契約）</td>
+        <td><span class="badge badge-gray">電子署名</span></td>
+        <td>印鑑不要。印紙税もかからない</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="alert-box">
+    <strong>紛失・盗難対策：</strong>代表者印は金庫保管が基本。
+    代表者印の印鑑証明書は重要書類と同様に扱い、発行は必要なタイミングだけにしましょう。
+  </div>
+</div>
+
+<!-- セクション3: 契約書の基本 -->
+<div class="slide">
+  <div class="section-title">📝 03 ｜ 契約書の基本構成</div>
+  <p class="lead">
+    「口約束でも契約は成立する」のが日本の法律（民法522条）です。<br>
+    でも証拠がないとトラブルのとき困るため、<strong>書面化</strong>が大切です。
+  </p>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <div class="step-title">タイトル・前文（誰が何を約束するか）</div>
+        <div class="step-desc">「業務委託契約書」「売買契約書」など。当事者（甲乙）を明記する</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <div class="step-title">契約の目的・対象業務・成果物</div>
+        <div class="step-desc">何をするか、何を納品するか、品質基準は何かを具体的に書く</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <div class="step-title">金額・支払条件・支払期日</div>
+        <div class="step-desc">消費税込みか別かを明記。「月末締め翌月末払い」など条件も書く</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <div class="step-title">期間・終了条件・自動更新</div>
+        <div class="step-desc">いつからいつまでか。解約の申し出は何日前にするかも記載する</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">5</div>
+      <div class="step-content">
+        <div class="step-title">秘密保持・知的財産権の帰属</div>
+        <div class="step-desc">成果物の著作権は誰に帰属するか。NDA（秘密保持）条項もここに</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">6</div>
+      <div class="step-content">
+        <div class="step-title">署名・捺印欄（または電子署名）</div>
+        <div class="step-desc">締結日・当事者の住所・氏名（法人名・代表者名）・印鑑（または電子署名）</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alert-box">
+    <strong>1人法人の落とし穴：</strong>自分が「発注者」と「受注者」を兼ねるような取引はできません（自己契約の禁止）。
+    また、契約書は<strong>2通作成し双方が保管</strong>するか、電子契約の場合は原本1通をクラウド保存します。
+  </div>
+</div>
+
+<!-- セクション4: 電子署名と電子契約 -->
+<div class="slide">
+  <div class="section-title">💻 04 ｜ 電子署名・電子契約とは？</div>
+  <p class="lead">
+    電子署名（でんししょめい）= デジタルのハンコ・サイン。
+    法律（電子署名法）で認められており、紙の署名・押印と<strong>同じ法的効力</strong>があります。
+  </p>
+
+  <div class="compare-grid">
+    <div class="compare-card paper">
+      <div class="compare-title">📄 従来の紙契約</div>
+      <ul class="compare-list">
+        <li>印刷・押印・郵送が必要</li>
+        <li>印紙税がかかる場合あり</li>
+        <li>紙で保管（スペース・管理コスト）</li>
+        <li>相手と会う or 郵送往復2〜3週間</li>
+        <li>捺印漏れ・記入ミスのリスク</li>
+      </ul>
+    </div>
+    <div class="compare-card digital">
+      <div class="compare-title">🖥️ 電子契約</div>
+      <ul class="compare-list">
+        <li>オンラインで完結・当日締結も可</li>
+        <li><strong>印紙税がかからない</strong>（国税庁見解）</li>
+        <li>クラウドで安全保管・検索しやすい</li>
+        <li>相手との往復ゼロ・スピードUP</li>
+        <li>入力チェックで記入ミス防止</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="big-number-row">
+    <div class="big-number-card">
+      <div class="big-num">2001</div>
+      <div class="big-num-label">年 電子署名法施行<br>（電子署名及び認証業務に関する法律）<br>紙と同等の効力が法律で保証された</div>
+    </div>
+    <div class="big-number-card">
+      <div class="big-num">0円</div>
+      <div class="big-num-label">電子契約の印紙税<br>国税庁の見解では電子文書は課税文書に非該当<br>→ 紙1通なら数百〜数万円の節約になる</div>
+    </div>
+  </div>
+
+  <p class="source">
+    出典：総務省「電子署名及び認証業務に関する法律」<br>
+    <a href="https://elaws.e-gov.go.jp/document?lawid=412AC0000000102" target="_blank">https://elaws.e-gov.go.jp/document?lawid=412AC0000000102</a>（2001年施行・最終改正2024年）<br>
+    国税庁「印紙税の課税文書」（電子文書の取り扱い）<br>
+    <a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/inshi/7100.htm" target="_blank">https://www.nta.go.jp/taxes/shiraberu/taxanswer/inshi/7100.htm</a>（2025年度基準）
+  </p>
+</div>
+
+<!-- セクション5: 電子契約サービスの選び方 -->
+<div class="slide">
+  <div class="section-title">🛠️ 05 ｜ 電子契約サービスの選び方（1人法人向け）</div>
+  <p class="lead">
+    電子署名サービスは大きく「当事者型」と「立会人型（クリック署名）」の2種類があります。
+  </p>
+
+  <table class="flow-table">
+    <thead>
+      <tr>
+        <th>種類</th>
+        <th>特徴</th>
+        <th>1人法人での向き・不向き</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>当事者型</strong><br>（マイナンバーカードなど認定認証）</td>
+        <td>
+          本人確認が厳格。裁判所でも証拠力が高い。<br>
+          マイナンバーカードの電子証明書などを使用
+        </td>
+        <td>重要契約・融資関係に向く。初期設定が少し手間</td>
+      </tr>
+      <tr>
+        <td><strong>立会人型</strong><br>（クリック署名・メール認証）</td>
+        <td>
+          メールリンクをクリックするだけで署名。<br>手軽で相手へも使いやすい
+        </td>
+        <td>業務委託・NDA・日常契約に最適。1人法人の大半はこれでOK</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="alert-box">
+    <strong>主な電子契約サービス（参考）：</strong>
+    クラウドサイン（弁護士ドットコム）・DocuSign・GMOサイン・Adobe Acrobat Sign など。
+    1人法人なら月間送信件数が少ないプランから始めると費用を抑えられます（無料プランがあるサービスもあり）。<br>
+    ※各サービスの料金・機能は変更されるため、必ず公式サイトで最新情報を確認してください。
+  </div>
+
+  <p class="source">
+    参考：総務省「電子契約の普及促進」<br>
+    <a href="https://www.soumu.go.jp/" target="_blank">https://www.soumu.go.jp/</a>（2025年度情報）
+  </p>
+</div>
+
+<!-- セクション6: 印紙税の基本 -->
+<div class="slide">
+  <div class="section-title">💴 06 ｜ 紙契約と印紙税：知っておくべき基本</div>
+  <p class="lead">
+    紙で契約書を作るとき、一定金額以上では<strong>印紙税（いんしぜい）</strong>がかかります。
+    印紙を買って貼り、消印（消す処理）をするものです。
+  </p>
+
+  <table class="flow-table">
+    <thead>
+      <tr>
+        <th>契約書の種類・記載金額</th>
+        <th>印紙税額の目安</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>売買・業務委託契約書（1万円未満）</td>
+        <td>非課税</td>
+      </tr>
+      <tr>
+        <td>1万円以上〜100万円以下</td>
+        <td>200円</td>
+      </tr>
+      <tr>
+        <td>100万円超〜500万円以下</td>
+        <td>2,000円</td>
+      </tr>
+      <tr>
+        <td>500万円超〜1,000万円以下</td>
+        <td>10,000円</td>
+      </tr>
+      <tr>
+        <td>不動産売買・請負契約（1,000万円超）</td>
+        <td>20,000円〜（金額による）</td>
+      </tr>
+      <tr>
+        <td>電子契約（種類問わず）</td>
+        <td><strong>0円（非課税）</strong></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="alert-box">
+    <strong>注意：</strong>印紙税は文書の種類によって変わります。上記は第2号文書（売買・請負等）の例です（2025年度基準）。
+    紙契約が多い業種では、電子契約への切り替えだけで年間の印紙代をゼロにできる場合があります。
+  </div>
+
+  <p class="source">
+    出典：国税庁「印紙税額の一覧表（その1）」<br>
+    <a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/inshi/7140.htm" target="_blank">https://www.nta.go.jp/taxes/shiraberu/taxanswer/inshi/7140.htm</a>（2025年度基準）
+  </p>
+</div>
+
+<!-- セクション7: 1人法人の実践チェックリスト -->
+<div class="slide">
+  <div class="section-title">✅ 07 ｜ 設立直後にやること チェックリスト</div>
+  <p class="lead">
+    印鑑と契約書まわりで、設立後に確認しておくべき項目です。
+  </p>
+
+  <ul class="checklist">
+    <li>
+      <div class="check-box"></div>
+      <span><strong>代表者印（会社実印）を法務局に登録した</strong><br>
+      設立登記と同時に「印鑑届書」を提出。後から変更も可能（改印届）</span>
+    </li>
+    <li>
+      <div class="check-box"></div>
+      <span><strong>印鑑証明書を取得できる状態にある</strong><br>
+      法務局の「かんたん証明書請求」オンラインで取得可能。銀行・契約で必要になる</span>
+    </li>
+    <li>
+      <div class="check-box"></div>
+      <span><strong>銀行印を別途用意した（または用途を決めた）</strong><br>
+      代表者印と銀行印を分けると紛失・悪用のリスクを低減できる</span>
+    </li>
+    <li>
+      <div class="check-box"></div>
+      <span><strong>電子契約サービスの利用を検討した</strong><br>
+      印紙税ゼロ・スピードUP。立会人型サービスから試すのがおすすめ</span>
+    </li>
+    <li>
+      <div class="check-box"></div>
+      <span><strong>業務委託契約書のひな形を1本用意した</strong><br>
+      J-Net21・経済産業省のひな形を参考に、弁護士レビューを経て使うと安心</span>
+    </li>
+    <li>
+      <div class="check-box"></div>
+      <span><strong>秘密保持契約（NDA）のひな形を用意した</strong><br>
+      商談・見積提示の前に締結する習慣をつけると情報漏洩リスクを下げられる</span>
+    </li>
+    <li>
+      <div class="check-box"></div>
+      <span><strong>重要な紙契約書・印鑑証明書の保管場所を決めた</strong><br>
+      鍵付き引き出し or 金庫。デジタルコピーも電帳法に従い保存</span>
+    </li>
+  </ul>
+
+  <p class="source">
+    参考：中小企業庁「中小企業向け業務委託契約書ひな形」J-Net21<br>
+    <a href="https://j-net21.smrj.go.jp/" target="_blank">https://j-net21.smrj.go.jp/</a>（2025年度情報）
+  </p>
+</div>
+
+<!-- セクション8: まとめ -->
+<div class="slide">
+  <div class="section-title">🎓 08 ｜ 今日のまとめ</div>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">📌</div>
+      <div class="step-content">
+        <div class="step-title">印鑑は3種類（代表者印・銀行印・角印）を使い分ける</div>
+        <div class="step-desc">代表者印だけが法務局への登録義務あり。銀行印との分離でリスク低減。</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">📌</div>
+      <div class="step-content">
+        <div class="step-title">電子契約は法的に有効で、印紙税もゼロ</div>
+        <div class="step-desc">電子署名法（2001年施行）で認められた手法。1人法人ほど電子契約への移行でコスト・手間を削減できる。</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">📌</div>
+      <div class="step-content">
+        <div class="step-title">契約書には「金額・期間・成果物・知財帰属」を明記する</div>
+        <div class="step-desc">口約束でも契約は成立するが、後でトラブルになりやすい。特に業務委託・NDAは書面化が必須。</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">📌</div>
+      <div class="step-content">
+        <div class="step-title">印紙税は電子化でゼロにできる可能性がある</div>
+        <div class="step-desc">紙の第2号文書（売買・請負等）には印紙税がかかるが、電子契約なら非課税。年間契約数が多いほど節約効果が大きい。</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 免責 -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報提供を目的としており、税務・法務の個別アドバイスではありません。
+  会社の状況や契約内容によって判断は変わります。
+  印鑑・契約・電子署名の具体的な運用については、弁護士・税理士・司法書士など専門家にご相談ください。
+  制度・税率・金額は2025〜2026年度の情報を基準としていますが、変更される場合があります。
+  必ず最新の公的機関情報（国税庁・法務局・e-Gov等）でご確認ください。
+</div>
+
+<div class="footer-note">
+  毎朝更新 ・ 次回もお楽しみに｜過去のバックナンバーは <a href="index.html" style="color:#7a4f1e;">index.html</a> から
+</div>
+
+</body>
+</html>
