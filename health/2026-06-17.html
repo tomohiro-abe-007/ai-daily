@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-06-17</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #f0ece3; font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif; min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 20px; }
+
+  /* COVER */
+  .cover { background: linear-gradient(135deg, #2a1a6a 0%, #5533cc 55%, #7755ee 100%); color: white; border-radius: 8px; padding: 60px 40px; text-align: center; width: 100%; max-width: 820px; margin-bottom: 24px; box-shadow: 4px 6px 20px rgba(0,0,0,0.3); position: relative; overflow: hidden; }
+  .cover::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: repeating-linear-gradient(0deg, transparent, transparent 28px, rgba(255,255,255,0.05) 28px, rgba(255,255,255,0.05) 29px); }
+  .cover-emoji { font-size: 64px; display: block; margin-bottom: 16px; }
+  .cover h1 { font-family: 'Klee One', sans-serif; font-size: 1.85rem; font-weight: 600; line-height: 1.35; margin-bottom: 12px; position: relative; }
+  .cover .subtitle { font-size: 1.0rem; opacity: 0.88; margin-bottom: 8px; position: relative; }
+  .cover .tagline { font-size: 0.88rem; opacity: 0.7; position: relative; margin-bottom: 4px; }
+  .cover .date-badge { display: inline-block; background: rgba(255,255,255,0.2); border: 2px solid rgba(255,255,255,0.5); border-radius: 20px; padding: 6px 20px; font-size: 1rem; margin-top: 16px; position: relative; }
+
+  /* CARDS */
+  .card { background: #fff9f0; border-radius: 6px; width: 100%; max-width: 820px; margin-bottom: 24px; box-shadow: 3px 4px 12px rgba(0,0,0,0.12); position: relative; overflow: hidden; }
+  .card-body { padding: 28px 36px 28px 64px; background: repeating-linear-gradient(0deg, transparent, transparent 31px, #e0d8c8 31px, #e0d8c8 32px); background-color: #fff9f0; min-height: 200px; }
+  .card-body::before { content: ''; position: absolute; left: 52px; top: 0; bottom: 0; width: 2px; background: #5533cc; opacity: 0.6; }
+  .card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; padding-bottom: 8px; border-bottom: 2px dashed #c8b89a; }
+  .card-emoji { font-size: 2rem; }
+  .card-title { font-family: 'Klee One', sans-serif; font-size: 1.4rem; font-weight: 600; color: #2c3e50; line-height: 1.3; }
+  .topic-badge { display: inline-block; padding: 3px 12px; border-radius: 12px; font-size: 0.75rem; font-weight: 600; margin-left: auto; white-space: nowrap; }
+  .badge-green  { background: #e0f5e8; color: #1a6640; border: 1px solid #90d4aa; }
+  .badge-olive  { background: #e8f0d8; color: #3a5a10; border: 1px solid #a0c060; }
+  .badge-red    { background: #ffe0e0; color: #aa2222; border: 1px solid #f0a0a0; }
+  .badge-blue   { background: #e0eeff; color: #2255aa; border: 1px solid #a0c0f5; }
+  .badge-orange { background: #fff0d0; color: #cc6600; border: 1px solid #f0c070; }
+  .badge-teal   { background: #d0f0f0; color: #006060; border: 1px solid #80d0d0; }
+  .badge-gray   { background: #f0f0f0; color: #555; border: 1px solid #ccc; }
+  .badge-purple { background: #ede0ff; color: #5533cc; border: 1px solid #b89aee; }
+
+  /* TEXT ELEMENTS */
+  .body-text { font-size: 0.97rem; line-height: 1.85; color: #333; margin: 8px 0; }
+  .simple-box { background: #fff7e0; border-left: 4px solid #f5c842; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 16px 0; font-size: 0.95rem; line-height: 1.8; }
+  .simple-box .label { display: inline-block; background: #f5c842; color: #5a4000; font-size: 0.72rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-bottom: 6px; letter-spacing: 0.5px; }
+  .info-box { background: #eef4ff; border-left: 4px solid #3366cc; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 16px 0; font-size: 0.95rem; line-height: 1.8; }
+  .info-box .label { display: inline-block; background: #3366cc; color: white; font-size: 0.72rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-bottom: 6px; letter-spacing: 0.5px; }
+  .alert-box { background: #fff0f0; border-left: 4px solid #e05050; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 16px 0; font-size: 0.95rem; line-height: 1.8; }
+  .alert-box .label { display: inline-block; background: #e05050; color: white; font-size: 0.72rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-bottom: 6px; letter-spacing: 0.5px; }
+  .green-box { background: #eafaf0; border-left: 4px solid #27ae60; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 16px 0; font-size: 0.95rem; line-height: 1.8; }
+  .green-box .label { display: inline-block; background: #27ae60; color: white; font-size: 0.72rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-bottom: 6px; letter-spacing: 0.5px; }
+  .purple-box { background: #f2eeff; border-left: 4px solid #5533cc; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 16px 0; font-size: 0.95rem; line-height: 1.8; }
+  .purple-box .label { display: inline-block; background: #5533cc; color: white; font-size: 0.72rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-bottom: 6px; letter-spacing: 0.5px; }
+  .olive-box { background: #f2f8e8; border-left: 4px solid #5a8a20; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 16px 0; font-size: 0.95rem; line-height: 1.8; }
+  .olive-box .label { display: inline-block; background: #5a8a20; color: white; font-size: 0.72rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-bottom: 6px; letter-spacing: 0.5px; }
+  .orange-box { background: #fff4e0; border-left: 4px solid #e67e22; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 16px 0; font-size: 0.95rem; line-height: 1.8; }
+  .orange-box .label { display: inline-block; background: #e67e22; color: white; font-size: 0.72rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-bottom: 6px; letter-spacing: 0.5px; }
+
+  /* NUMBER CARDS */
+  .num-cards { display: flex; gap: 16px; flex-wrap: wrap; margin: 20px 0; justify-content: center; }
+  .num-card { background: white; border-radius: 10px; padding: 18px 20px; text-align: center; flex: 1; min-width: 130px; max-width: 200px; box-shadow: 2px 3px 10px rgba(0,0,0,0.1); border-top: 5px solid #5533cc; }
+  .num-card .big-num { font-size: 2.2rem; font-weight: 700; font-family: 'Caveat', cursive; color: #5533cc; line-height: 1.1; }
+  .num-card .num-unit { font-size: 0.9rem; color: #5533cc; font-weight: 600; margin-bottom: 4px; }
+  .num-card .num-label { font-size: 0.77rem; color: #555; line-height: 1.5; margin-top: 4px; }
+  .num-card.green   { border-top-color: #27ae60; } .num-card.green   .big-num, .num-card.green   .num-unit { color: #27ae60; }
+  .num-card.orange  { border-top-color: #e67e22; } .num-card.orange  .big-num, .num-card.orange  .num-unit { color: #e67e22; }
+  .num-card.blue    { border-top-color: #2980b9; } .num-card.blue    .big-num, .num-card.blue    .num-unit { color: #2980b9; }
+  .num-card.red     { border-top-color: #c0392b; } .num-card.red     .big-num, .num-card.red     .num-unit { color: #c0392b; }
+  .num-card.teal    { border-top-color: #1abc9c; } .num-card.teal    .big-num, .num-card.teal    .num-unit { color: #1abc9c; }
+  .num-card.olive   { border-top-color: #5a8a20; } .num-card.olive   .big-num, .num-card.olive   .num-unit { color: #5a8a20; }
+  .num-card.purple  { border-top-color: #7755ee; } .num-card.purple  .big-num, .num-card.purple  .num-unit { color: #7755ee; }
+
+  /* COMPARISON TABLE */
+  .compare-table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 0.88rem; margin: 20px 0; }
+  .compare-table th { padding: 10px 12px; font-weight: 700; font-size: 0.82rem; text-align: center; }
+  .compare-table th.col-label { text-align: left; }
+  .compare-table td { padding: 10px 12px; text-align: center; border-bottom: 1px dashed #ddd; vertical-align: top; }
+  .compare-table td.col-label { text-align: left; font-weight: 600; color: #444; }
+  .compare-table tr:last-child td { border-bottom: none; }
+  .th-f  { background: #ede0ff; color: #5533cc; border-radius: 4px 4px 0 0; }
+  .th-r  { background: #d8eaf8; color: #1a5ca0; border-radius: 4px 4px 0 0; }
+  .th-lbl { background: #f0ece3; color: #555; }
+  .th-g  { background: #dff0d8; color: #2e8b3e; border-radius: 4px 4px 0 0; }
+  .tag-good { display: inline-block; background: #e0f5e8; color: #1a6640; border-radius: 4px; padding: 1px 7px; font-size: 0.77rem; font-weight: 600; }
+  .tag-mid  { display: inline-block; background: #fff7d0; color: #7a5000; border-radius: 4px; padding: 1px 7px; font-size: 0.77rem; font-weight: 600; }
+  .tag-weak { display: inline-block; background: #ffe0e0; color: #8b1a1a; border-radius: 4px; padding: 1px 7px; font-size: 0.77rem; font-weight: 600; }
+
+  /* FLOW CHART */
+  .flow-row { display: flex; align-items: center; gap: 8px; margin: 10px 0; flex-wrap: wrap; }
+  .flow-box { background: white; border: 2px solid #5533cc; border-radius: 8px; padding: 10px 16px; font-size: 0.88rem; font-weight: 600; color: #2a1a6a; text-align: center; min-width: 120px; }
+  .flow-arrow { font-size: 1.4rem; color: #7755ee; font-weight: 700; }
+  .flow-result { background: #ede0ff; border: 2px solid #5533cc; border-radius: 8px; padding: 10px 16px; font-size: 0.88rem; font-weight: 700; color: #2a1a6a; text-align: center; min-width: 140px; }
+
+  /* MECHANISM BOXES */
+  .mech-list { display: flex; gap: 14px; flex-wrap: wrap; margin: 16px 0; }
+  .mech-item { flex: 1; min-width: 200px; background: white; border-radius: 8px; padding: 14px 14px; border-left: 4px solid #5533cc; box-shadow: 1px 2px 6px rgba(0,0,0,0.08); }
+  .mech-item .mech-icon { font-size: 1.5rem; display: block; margin-bottom: 6px; }
+  .mech-item .mech-title { font-size: 0.9rem; font-weight: 700; color: #2a1a6a; margin-bottom: 4px; }
+  .mech-item .mech-text { font-size: 0.82rem; color: #555; line-height: 1.7; }
+
+  /* STEP FLOW */
+  .step-flow { display: flex; flex-direction: column; gap: 0; margin: 16px 0; }
+  .step-item { display: flex; align-items: flex-start; gap: 14px; }
+  .step-connector { display: flex; flex-direction: column; align-items: center; }
+  .step-circle { width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1rem; flex-shrink: 0; color: white; background: #5533cc; }
+  .step-line { width: 2px; height: 24px; background: #b89aee; flex-shrink: 0; }
+  .step-text { font-size: 0.93rem; line-height: 1.75; color: #333; padding-top: 5px; }
+
+  /* SJL EXAMPLE BOX */
+  .sjl-example { background: #faf5ff; border: 2px solid #b89aee; border-radius: 10px; padding: 16px 20px; margin: 16px 0; }
+  .sjl-example .sjl-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin: 6px 0; }
+  .sjl-day { background: #ede0ff; border-radius: 6px; padding: 6px 14px; font-size: 0.85rem; font-weight: 700; color: #2a1a6a; white-space: nowrap; }
+  .sjl-time { background: white; border: 1px solid #b89aee; border-radius: 6px; padding: 4px 12px; font-size: 0.85rem; color: #444; white-space: nowrap; }
+  .sjl-arrow { color: #7755ee; font-size: 1.1rem; font-weight: 700; }
+  .sjl-mid { background: #7755ee; color: white; border-radius: 6px; padding: 4px 12px; font-size: 0.85rem; font-weight: 700; white-space: nowrap; }
+  .sjl-result { background: #2a1a6a; color: white; border-radius: 8px; padding: 8px 18px; font-size: 0.95rem; font-weight: 700; text-align: center; margin-top: 10px; }
+
+  /* SOURCE */
+  .source-text { font-size: 0.78rem; color: #888; margin-top: 12px; line-height: 1.6; }
+  .source-text a { color: #5533cc; }
+
+  /* DISCLAIMER */
+  .disclaimer { background: #f8f8f8; border: 2px solid #ddd; border-radius: 6px; padding: 20px 24px; font-size: 0.83rem; line-height: 1.8; color: #555; width: 100%; max-width: 820px; margin-bottom: 24px; }
+  .disclaimer .dis-title { font-size: 0.9rem; font-weight: 700; color: #444; margin-bottom: 8px; }
+
+  hr.section-divider { border: none; border-top: 2px dashed #c8b89a; margin: 16px 0; }
+</style>
+</head>
+<body>
+
+<!-- ===== COVER ===== -->
+<div class="cover">
+  <span class="cover-emoji">🌙</span>
+  <h1>「週末の夜更かし」が代謝を乱す<br>── ソーシャルジェットラグの科学</h1>
+  <p class="subtitle">平日と休日の睡眠ずれが血糖・血圧・腹囲に与える影響を観察研究から読む</p>
+  <p class="tagline">体内時計科学（時間生物学）× 代謝疾患リスク × 精密栄養学</p>
+  <span class="date-badge">2026-06-17</span>
+</div>
+
+<!-- ===== 1. 今日のポイント ===== -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">📌</span>
+      <span class="card-title">今日のポイント</span>
+      <span class="topic-badge badge-purple">観察研究</span>
+    </div>
+    <p class="body-text">
+      「週末は夜更かしして寝坊」——現代社会を生きる多くの人に心当たりがあるでしょう。
+      この「平日と休日で睡眠リズムがずれる現象」を<strong>ソーシャルジェットラグ（Social Jet Lag / SJL）</strong>と呼びます。
+      2006年にドイツのTill Roennebergらが命名した概念で、近年の観察研究・メタ分析がその代謝疾患との関連を示しています。
+    </p>
+    <div class="green-box">
+      <div class="label">3つの要点</div>
+      <p>① ソーシャルジェットラグ（SJL）は「平日と休日で生物時計がずれる現象」。慢性的な体内時計のゆらぎが問題とされる</p>
+      <p>② 2024〜2025年の観察研究・メタ分析で、SJLとメタボリックシンドロームの関連（OR 1.52〜1.70）が報告されている</p>
+      <p>③ <strong>すべて観察研究（横断研究・コホート）であり、因果関係の証明ではない</strong>。「SJLがメタボを引き起こす」ではなく「共存しやすい」という相関の話</p>
+    </div>
+    <p class="body-text" style="font-size:0.88rem; color:#666;">
+      ※ OR（オッズ比）= Odds Ratio。1より大きいほど「ある要因がある群でその結果が起きやすい」ことを示す統計指標。
+      観察研究のORは交絡因子の影響を受けやすく、RCTのリスク比とは異なる性質を持ちます。
+    </p>
+  </div>
+</div>
+
+<!-- ===== 2. ソーシャルジェットラグとは ===== -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">😴</span>
+      <span class="card-title">ソーシャルジェットラグとは？</span>
+      <span class="topic-badge badge-blue">基礎知識</span>
+    </div>
+    <p class="body-text">
+      ソーシャルジェットラグ（SJL）の定義は「<strong>平日の睡眠中点（midpoint of sleep）と休日の睡眠中点の差</strong>」。
+      一般的に1時間以上の差があるとSJL「あり」と判定されます。
+      これは<strong>MCTQ（Munich Chronotype Questionnaire / ミュンヘン時型質問票）</strong>によって測定されます（Roenneberg & Merrow, 2002年開発）。
+    </p>
+
+    <div class="sjl-example">
+      <p style="font-size:0.85rem; font-weight:700; color:#2a1a6a; margin-bottom:10px;">典型例：SJL = 2.5時間のケース</p>
+      <div class="sjl-row">
+        <div class="sjl-day">平日</div>
+        <div class="sjl-time">就寝 23:00</div>
+        <div class="sjl-arrow">→</div>
+        <div class="sjl-time">起床 6:00</div>
+        <div class="sjl-arrow">→</div>
+        <div class="sjl-mid">睡眠中点 2:30</div>
+      </div>
+      <div class="sjl-row">
+        <div class="sjl-day">休日</div>
+        <div class="sjl-time">就寝 1:00</div>
+        <div class="sjl-arrow">→</div>
+        <div class="sjl-time">起床 9:00</div>
+        <div class="sjl-arrow">→</div>
+        <div class="sjl-mid">睡眠中点 5:00</div>
+      </div>
+      <div class="sjl-result">ソーシャルジェットラグ = 5:00 − 2:30 = <strong>2.5時間</strong></div>
+    </div>
+
+    <div class="flow-row" style="margin-top:16px;">
+      <div class="flow-box">平日の<br>睡眠中点</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box">休日の<br>睡眠中点</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-result">差 = ソーシャル<br>ジェットラグ（SJL）</div>
+    </div>
+
+    <div class="purple-box" style="margin-top:16px;">
+      <div class="label">専門用語</div>
+      <strong>クロノタイプ（chronotype）</strong>= 朝型か夜型かの個人的な傾向。遺伝（特にCLOCK遺伝子群）と環境（光・社会的スケジュール）の両方で決まります。
+      夜型クロノタイプの人は早起きを強いられやすく、SJLが生じやすいと考えられています。
+    </div>
+  </div>
+</div>
+
+<!-- ===== 3. どれくらいの人が当てはまるか ===== -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">📊</span>
+      <span class="card-title">どれくらいの人が当てはまるか？</span>
+      <span class="topic-badge badge-blue">実態データ</span>
+    </div>
+    <p class="body-text">
+      米国の代表的な横断研究であるNHANES（全国健康栄養調査）2017〜2020年データを用いた研究では、
+      成人4,438人を分析した結果、以下のことがわかりました。
+      （出典：Sleep Science and Practice 2025, DOI: 10.1186/s41606-025-00158-3）
+    </p>
+
+    <div class="num-cards">
+      <div class="num-card">
+        <div class="big-num">4,438</div>
+        <div class="num-unit">人</div>
+        <div class="num-label">NHANES 2017-2020<br>分析対象成人数</div>
+      </div>
+      <div class="num-card orange">
+        <div class="big-num">49.2%</div>
+        <div class="num-unit">有症率</div>
+        <div class="num-label">メタボリック<br>シンドローム</div>
+      </div>
+      <div class="num-card purple">
+        <div class="big-num">14.2%</div>
+        <div class="num-unit">の割合</div>
+        <div class="num-label">SJL 1時間超<br>（同研究）</div>
+      </div>
+    </div>
+
+    <div class="simple-box">
+      <div class="label">日本のデータについて</div>
+      日本の成人では約50〜60%が1時間以上のSJLを持つとする報告もありますが、
+      代表性の高い大規模コホートデータは限られており、数値の扱いには慎重さが必要です。
+      また、NHANESのSJL 14.2%という数値は、同研究の定義（自己申告の睡眠時刻に基づく推定）によるものです。
+    </div>
+  </div>
+</div>
+
+<!-- ===== 4. 代謝指標との関連データ ===== -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">🔬</span>
+      <span class="card-title">代謝指標との関連データ</span>
+      <span class="topic-badge badge-purple">メタ分析結果</span>
+    </div>
+    <p class="body-text">
+      2022〜2025年にかけて発表された複数のメタ分析・大規模横断研究が、SJLと代謝指標の関連を報告しています。
+      ただし、いずれも観察研究であり因果関係の証明ではありません。
+    </p>
+
+    <div class="num-cards">
+      <div class="num-card red">
+        <div class="big-num">1.52</div>
+        <div class="num-unit">OR</div>
+        <div class="num-label">メタボリックシンドロームリスク<br>（2024メタ分析・統合）</div>
+      </div>
+      <div class="num-card orange">
+        <div class="big-num">1.70</div>
+        <div class="num-unit">OR</div>
+        <div class="num-label">NHANES 2025<br>通常睡眠時間サブグループ</div>
+      </div>
+      <div class="num-card purple">
+        <div class="big-num">+2.17</div>
+        <div class="num-unit">cm</div>
+        <div class="num-label">腹囲の増加<br>（2024メタ分析）</div>
+      </div>
+      <div class="num-card blue">
+        <div class="big-num">+0.42</div>
+        <div class="num-unit">%</div>
+        <div class="num-label">HbA1c増加<br>（2022メタ分析）</div>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <p class="body-text" style="font-weight:600; margin-bottom:8px;">主要3研究の比較</p>
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th class="th-lbl col-label">項目</th>
+          <th class="th-f">2024年メタ分析<br><small>Journal of Nursing Research</small></th>
+          <th class="th-r">2025年横断研究<br><small>Sleep Science and Practice</small></th>
+          <th class="th-g">2022年メタ分析<br><small>（PMID: 36351658）</small></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="col-label">研究デザイン</td>
+          <td>系統的レビュー＆メタ分析</td>
+          <td>横断研究（NHANES）</td>
+          <td>系統的レビュー＆メタ分析</td>
+        </tr>
+        <tr>
+          <td class="col-label">対象</td>
+          <td>複数研究の統合</td>
+          <td>n=4,438（米国代表的サンプル）</td>
+          <td>複数研究の統合</td>
+        </tr>
+        <tr>
+          <td class="col-label">主な結果</td>
+          <td><span class="tag-weak">OR 1.52</span><br>メタボ全体<br>腹囲 +2.17cm</td>
+          <td><span class="tag-mid">OR 1.09（全体・非有意）</span><br><span class="tag-weak">OR 1.70（通常睡眠サブグループ・有意）</span><br>95%CI: 1.14-2.54</td>
+          <td>BMI +0.49 kg/m²<br>腹囲 +1.11cm<br>HbA1c +0.42%</td>
+        </tr>
+        <tr>
+          <td class="col-label">注意点</td>
+          <td>出版バイアスの可能性<br>定義の研究間差</td>
+          <td>全体では有意差なし<br>サブグループ解析は解釈注意</td>
+          <td>横断研究中心<br>交絡調整に限界</td>
+        </tr>
+        <tr>
+          <td class="col-label">出典</td>
+          <td>PMID: 39158856<br>DOI: 10.1097/JNR.0000000000000628</td>
+          <td>DOI: 10.1186/s41606-025-00158-3</td>
+          <td>PMID: 36351658</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="alert-box">
+      <div class="label">見落とせない事実</div>
+      2025年NHANES研究では、<strong>全体のORは1.09で統計的に有意差なし</strong>という結果が出ています。
+      「通常睡眠時間」のサブグループのみOR=1.70が見られましたが、これはサブグループ解析であり、
+      解釈には慎重さが必要です。
+    </div>
+  </div>
+</div>
+
+<!-- ===== 5. なぜ体内時計のずれが代謝を乱すのか ===== -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">⚙️</span>
+      <span class="card-title">なぜ体内時計のずれが代謝を乱すのか？</span>
+      <span class="topic-badge badge-orange">メカニズム仮説</span>
+    </div>
+    <p class="body-text">
+      SJLが代謝に影響すると考えられる仕組みについて、現在いくつかの仮説が提唱されています。
+      ただし、これらはおもに観察研究・動物実験から推測されたものであり、
+      <strong>人での介入試験（RCT）でのメカニズム確認は限られます</strong>。
+    </p>
+
+    <div class="mech-list">
+      <div class="mech-item">
+        <span class="mech-icon">🧪</span>
+        <div class="mech-title">コルチゾール分泌リズムの乱れ</div>
+        <div class="mech-text">体内時計がずれると副腎皮質からのコルチゾール分泌パターンが変化し、インスリン感受性が低下するとされる（仮説・動物実験・観察研究に基づく）</div>
+      </div>
+      <div class="mech-item">
+        <span class="mech-icon">🍽️</span>
+        <div class="mech-title">食事タイミングのずれ</div>
+        <div class="mech-text">休日の夜型シフトにより夜遅い食事が増える。夜間の摂食は脂質・血糖代謝への負荷が高まるとする観察研究が複数あるが、因果関係は未確定</div>
+      </div>
+      <div class="mech-item">
+        <span class="mech-icon">😪</span>
+        <div class="mech-title">睡眠の量・質の低下</div>
+        <div class="mech-text">SJLを持つ人は実質的な睡眠時間が短くなりやすい。睡眠不足はグレリン（食欲促進）上昇・レプチン（満腹ホルモン）低下を引き起こし、過食につながる（複数の介入研究あり）</div>
+      </div>
+      <div class="mech-item">
+        <span class="mech-icon">🔥</span>
+        <div class="mech-title">炎症マーカーの上昇</div>
+        <div class="mech-text">IL-6・CRPなどの炎症マーカーとSJLの関連を示す小規模観察研究がある。ただし研究数が少なく、一貫した知見はまだ確立されていない</div>
+      </div>
+    </div>
+
+    <div class="orange-box">
+      <div class="label">重要な注記</div>
+      上記のメカニズムはおもに観察研究・動物実験から推測されています。
+      「SJLを減らすことで代謝が改善する」かどうかを直接検証したRCT（介入研究）は現時点でほぼ存在せず、
+      「体内時計のずれが代謝を乱す」という因果の方向性は確認されていません。
+    </div>
+  </div>
+</div>
+
+<!-- ===== 6. エビデンスの限界と反論 ===== -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">⚠️</span>
+      <span class="card-title">エビデンスの限界と批判的読解</span>
+      <span class="topic-badge badge-orange">批判的読解</span>
+    </div>
+    <p class="body-text">
+      現在のSJL研究は興味深い関連を示す一方で、重要な限界があります。
+      研究を正確に読むには強い点・限界の両方を理解することが必要です。
+    </p>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th class="th-lbl col-label">評価軸</th>
+          <th class="th-g">強い点 ✅</th>
+          <th class="th-r">限界・注意点 ⚠️</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="col-label">研究規模</td>
+          <td><span class="tag-good">大規模</span><br>NHANESは米国代表的サンプル（n=4,438）。メタ分析は複数研究を統合</td>
+          <td>日本人・アジア人を対象とした代表的コホートデータは少ない</td>
+        </tr>
+        <tr>
+          <td class="col-label">研究デザイン</td>
+          <td>メタ分析・横断研究として一定の質を確保</td>
+          <td><span class="tag-weak">すべて観察研究</span><br>因果関係は証明できない。横断研究は特に「鶏か卵か」問題が残る</td>
+        </tr>
+        <tr>
+          <td class="col-label">交絡因子</td>
+          <td>統計的調整を実施している研究が多い</td>
+          <td>シフトワーク・ストレス・食習慣・運動習慣・社会経済状況などの交絡因子を完全には除去できない</td>
+        </tr>
+        <tr>
+          <td class="col-label">SJLの測定</td>
+          <td>MCTQは標準化された質問票として広く使用</td>
+          <td>SJLの定義・カットオフ値が研究間で異なる（1時間・1.5時間など）。主観的睡眠報告は不正確な場合がある</td>
+        </tr>
+        <tr>
+          <td class="col-label">一貫性</td>
+          <td>複数の研究でメタボとの正の関連が報告</td>
+          <td>2025年NHANES研究では全体のOR=1.09で有意差なし。知見は一貫していない部分も</td>
+        </tr>
+        <tr>
+          <td class="col-label">介入研究</td>
+          <td>仮説として介入の余地がある</td>
+          <td>SJL低減のRCTは現時点でほぼ存在しない。「SJLを減らせば代謝が改善する」は未検証</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="alert-box">
+      <div class="label">正確な解釈のために</div>
+      「SJLがメタボリックシンドロームを引き起こす」のではなく、「SJLとメタボリックシンドロームが共存しやすい」という<strong>相関・関連の話</strong>です。
+      両方に共通する第3の要因（夜型生活スタイル・睡眠不足・不規則な食事など）が本当の原因である可能性も十分あります。
+    </div>
+  </div>
+</div>
+
+<!-- ===== 7. 日常生活への応用 ===== -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">🌅</span>
+      <span class="card-title">日常生活への応用</span>
+      <span class="topic-badge badge-green">実践ヒント</span>
+    </div>
+    <p class="body-text">
+      エビデンスの限界を踏まえつつ、体内時計を整える生活習慣は「リスクが低く・実践しやすい」という点で試す価値があります。
+      因果関係が未証明であっても、睡眠の質・規則性は全般的な健康と関連することが多くの研究で示されています。
+    </p>
+
+    <div class="step-flow">
+      <div class="step-item">
+        <div class="step-connector">
+          <div class="step-circle">1</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-text">
+          <strong>平日と休日の起床時間の差を1時間以内に抑える</strong>：最も直接的なSJL低減策。寝る時間よりも「起きる時間の固定」が体内時計には効果的
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-connector">
+          <div class="step-circle">2</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-text">
+          <strong>朝に自然光を浴びる</strong>：起床後30分以内に窓越しでも日光を浴びることで、SCN（視交叉上核）の体内時計がリセットされやすくなる
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-connector">
+          <div class="step-circle">3</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-text">
+          <strong>就寝2時間前の食事・スマートフォンを避ける</strong>：夜遅い食事と青色光（ブルーライト）はメラトニン分泌を抑制し、体内時計を遅らせる可能性がある
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-connector">
+          <div class="step-circle">4</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-text">
+          <strong>休日の「ちょっと遅起き（1時間以内）」は許容範囲</strong>：完全に同一にする必要はない。1時間程度のずれなら体内時計への影響は比較的小さいとされる
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-connector">
+          <div class="step-circle">5</div>
+        </div>
+        <div class="step-text">
+          <strong>クロノタイプに合った生活スケジュールの調整</strong>：夜型の人に朝型を強要するのは難しく、ストレスを生む。「夜型なら朝の強要を減らす」視点も重要
+        </div>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <div class="label">精密栄養学・時間生物学の視点</div>
+      クロノタイプは遺伝的要因（CLOCK遺伝子群など）と環境要因の組み合わせで決まります。
+      「夜更かしは意志が弱い」ではなく、<strong>生物学的・社会的背景がある</strong>のです。
+      SJLを減らすためには個人の努力だけでなく、フレックスタイム・在宅勤務・学校の始業時間の遅延など、
+      社会的スケジュールの柔軟化も重要な要素です（時間生物学の政策的応用として研究が進んでいます）。
+    </div>
+  </div>
+</div>
+
+<!-- ===== 8. まとめ ===== -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">📝</span>
+      <span class="card-title">まとめ</span>
+      <span class="topic-badge badge-gray">要点整理</span>
+    </div>
+
+    <div class="flow-row">
+      <div class="flow-box">平日・休日の<br>睡眠ずれ<br>（SJL）</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box">体内時計の<br>乱れ<br>（仮説）</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-result">代謝異常リスク<br>（観察研究で関連）<br><small>OR 1.52〜1.70</small></div>
+    </div>
+
+    <div class="green-box" style="margin-top:16px;">
+      <div class="label">3行でまとめると</div>
+      <p>① SJLは「週末に夜更かし・寝坊」する現代人に広く見られる体内時計のずれ。2006年にRoennebergらが定義・命名した</p>
+      <p>② 複数の観察研究・メタ分析でメタボリックシンドローム・腹囲増加との関連が示されている（統合OR 1.52〜1.70）。ただし2025年NHANES研究の全体ではOR=1.09で有意差なしという結果もある</p>
+      <p>③ 因果関係は未証明。RCT介入研究がほぼ存在せず、現時点では「SJLを減らせば代謝が改善する」とは言えない。観察研究の限界を理解した上で読むことが重要</p>
+    </div>
+
+    <div class="source-text">
+      <strong>主な参照文献・出典：</strong><br>
+      1. Vgontzas AN et al. "Social Jetlag and the Risk of Metabolic Syndrome in US Adults: An Analysis of NHANES 2017-2020."
+      <em>Sleep Science and Practice</em> 2025; DOI: <a href="https://doi.org/10.1186/s41606-025-00158-3" target="_blank">10.1186/s41606-025-00158-3</a><br>
+      2. "Association Between Social Jetlag and Components of Metabolic Syndrome: A Systematic Review and Meta-Analysis."
+      <em>Journal of Nursing Research</em> 2024; PMID: 39158856; DOI: <a href="https://doi.org/10.1097/JNR.0000000000000628" target="_blank">10.1097/JNR.0000000000000628</a><br>
+      3. Mota MC et al. Systematic review and meta-analysis on social jetlag and cardiometabolic risk. 2022; PMID: 36351658<br>
+      4. Wittmann M, Dinich J, Merrow M, Roenneberg T. "Social jetlag: misalignment of biological and social time."
+      <em>Chronobiology International</em> 2006; 23(1-2):497-509. （"Social jetlag"の命名論文）<br>
+      5. Roenneberg T, Merrow M. "Life before the clock: modeling circadian clocks with a random walk."
+      <em>Journal of Biological Rhythms</em> 2002（MCTQの基礎）
+    </div>
+  </div>
+</div>
+
+<!-- ===== DISCLAIMER ===== -->
+<div class="disclaimer">
+  <div class="dis-title">⚠️ 免責事項・ご注意</div>
+  <p>本記事は一般的な情報提供を目的としており、医療上のアドバイスではありません。
+  紹介した研究の結果・関連性は、個人の体質・年齢・持病・服薬状況・生活習慣によって大きく異なります。
+  また本記事で紹介したデータはすべて観察研究に基づくものであり、因果関係の証明ではありません。</p>
+  <p style="margin-top:8px;">睡眠障害・代謝疾患・体重管理などに関わる具体的な対策を検討される場合は、
+  必ずかかりつけ医・睡眠専門医・管理栄養士などの専門家にご相談ください。
+  特に糖尿病・心疾患・肥満などの既往がある方は自己判断での生活習慣変更は避け、専門家と相談の上で行ってください。</p>
+</div>
+
+</body>
+</html>
