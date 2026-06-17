@@ -2,7 +2,7 @@
 
 ## エバーグリーン（技法・知識）
 
-- 動画コンテスト・公募情報の探し方
+- BGM・SE選びと音楽生成AI（Suno / Udio / Lyria 3の使い分けと著作権）
 
 ## ツール・新機能（要WebSearch更新）
 
@@ -16,6 +16,7 @@
 
 ## 済み（扱ったテーマ）
 
+- 2026-06-18（エバーグリーン）：動画コンテスト・公募情報の探し方（Runway AIF/WAIFF/Reply/Austin比較・curiousrefuge/FilmFreeway/Melies/Koubo 5サイト・応募4ステップ・規約3点チェック）
 - 2026-06-15（ツール）：C2PA 透かし・AI映像識別技術（EU AI Act Article 50・8月2日施行・SNSでのC2PA消失問題・Adobe Firefly/Runway/Kling対応状況比較・クリエイター4アクション）
 - 2026-06-14（エバーグリーン）：実写×AI合成ワークフロー（背景差し替え・オブジェクト挿入・スタイル変換3アプローチ・5ステップ・CapCut/Runway/Firefly/DaVinci比較・馴染む合成4コツ）
 - 2026-06-13（ツール）：Google Vids 無料枠（月10本）× Veo 3.1 + Lyria 3 の使い方（プラン比較・5ステップ・Lyria 3音楽・AIアバター・Screen Recorder）
