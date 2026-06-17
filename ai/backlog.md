@@ -21,6 +21,7 @@
 - 2026-06-15: ChatGPT月間10億MAU突破（2026年5月達成・Sensor Tower推計・2026年6月12日CNBC報道）・史上最速アプリ記録・約3年半で達成・前記録はGoogleマップ（約5年）・TikTok/Instagram/YouTube各5〜8年
 - 2026-06-16: Anthropic Project Glasswing拡大（2026年6月2日発表）・Claude Mythos Preview（非公開）・150組織以上・15ヵ国以上に拡大・主要OSやブラウザで数千件の深刻な脆弱性を発見・安全上の理由から一般公開なし
 - 2026-06-17: NAVER×NVIDIA AI工場計画（2026年6月7日発表）・GAK世宗データセンター55MWから開始・ギガワット規模へ拡大・HyperCLOVA X強化（Nemotron 3 Ultra採用・Nemotron Coalition初の韓国企業）・Seoul World Model（都市空間AI）・AIエージェントプラットフォーム2026年下半期予定・NVIDIA DSXプラットフォーム活用・ソブリンAI戦略
+- 2026-06-18: Deployment Simulation（2026年6月16日発表）・本物のユーザー会話（約130万件・匿名化）を使ってリリース前モデルを評価・AIが"テストと気づきにくい"状況を再現・Behavioral Drift・Reward Hacking・エージェントAIのツール呼び出しにも対応・推定誤差中央値1.5倍
 
 ## 未解説の候補トピック（今後の参考）
 
