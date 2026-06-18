@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-06-18</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: #f0ece3;
+  font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  color: #333;
+}
+.slide {
+  background: #fff9f0;
+  border-radius: 10px;
+  padding: 40px 44px;
+  max-width: 780px;
+  width: 100%;
+  margin-bottom: 28px;
+  box-shadow: 4px 6px 20px rgba(0,0,0,0.12);
+  border-left: 6px solid #7a4f1e;
+}
+.slide-hero {
+  background: linear-gradient(135deg, #7a4f1e 0%, #4a2e08 100%);
+  color: white;
+  border-radius: 10px;
+  padding: 48px 44px;
+  max-width: 780px;
+  width: 100%;
+  margin-bottom: 28px;
+  box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  text-align: center;
+}
+.slide-hero .date-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.25);
+  border-radius: 20px;
+  padding: 4px 16px;
+  font-size: 0.85rem;
+  margin-bottom: 16px;
+  letter-spacing: 0.05em;
+}
+.slide-hero h1 { font-size: 1.75rem; line-height: 1.5; margin-bottom: 12px; }
+.slide-hero .subtitle { opacity: 0.85; font-size: 1rem; line-height: 1.7; }
+.section-title {
+  font-size: 1.15rem;
+  color: #7a4f1e;
+  font-weight: 700;
+  margin-bottom: 18px;
+  padding-bottom: 8px;
+  border-bottom: 2px dashed #d4b898;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.lead {
+  font-size: 1rem;
+  line-height: 1.9;
+  color: #444;
+  margin-bottom: 20px;
+}
+/* --- 2段階プロセス大図 --- */
+.two-phase {
+  display: grid;
+  grid-template-columns: 1fr 60px 1fr;
+  gap: 0;
+  align-items: center;
+  margin-bottom: 24px;
+}
+.phase-box {
+  border-radius: 12px;
+  padding: 24px 20px;
+  text-align: center;
+  border: 2px solid;
+}
+.phase-box.phase1 {
+  background: #fff5e6;
+  border-color: #e67e22;
+}
+.phase-box.phase2 {
+  background: #f0f6ff;
+  border-color: #3498db;
+}
+.phase-icon { font-size: 2.2rem; margin-bottom: 8px; }
+.phase-name { font-size: 1.05rem; font-weight: 700; margin-bottom: 6px; color: #333; }
+.phase-def { font-size: 0.8rem; color: #666; line-height: 1.6; }
+.phase-arrow {
+  text-align: center;
+  font-size: 2rem;
+  color: #7a4f1e;
+}
+/* --- ステップフロー --- */
+.steps { display: flex; flex-direction: column; gap: 0; margin-bottom: 18px; }
+.step {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px dotted #d4b898;
+}
+.step:last-child { border-bottom: none; }
+.step-num {
+  background: #7a4f1e;
+  color: white;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.step-num.orange { background: #e67e22; }
+.step-num.blue { background: #2980b9; }
+.step-content { flex: 1; }
+.step-title { font-size: 0.95rem; font-weight: 700; color: #5a2e00; margin-bottom: 4px; }
+.step-desc { font-size: 0.85rem; color: #555; line-height: 1.7; }
+/* --- 期間・費用カード --- */
+.cost-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 20px;
+}
+.cost-card {
+  background: linear-gradient(135deg, #4a2e08, #7a4f1e);
+  color: white;
+  border-radius: 12px;
+  padding: 20px 16px;
+  text-align: center;
+}
+.cost-num { font-size: 1.8rem; font-weight: 700; line-height: 1.1; margin-bottom: 4px; }
+.cost-label { font-size: 0.76rem; opacity: 0.85; line-height: 1.5; }
+/* --- 3択カード --- */
+.option-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 20px;
+}
+.option-card {
+  border-radius: 10px;
+  padding: 18px 14px;
+  text-align: center;
+  border: 2px solid;
+}
+.option-card.green  { background: #f0fff4; border-color: #27ae60; }
+.option-card.blue   { background: #f0f6ff; border-color: #3498db; }
+.option-card.purple { background: #f8f0ff; border-color: #8e44ad; }
+.option-icon { font-size: 2rem; margin-bottom: 8px; }
+.option-name { font-size: 0.9rem; font-weight: 700; margin-bottom: 6px; color: #333; }
+.option-sub  { font-size: 0.75rem; color: #666; line-height: 1.5; }
+.option-tag {
+  display: inline-block;
+  border-radius: 12px;
+  padding: 2px 10px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  margin-top: 8px;
+  color: white;
+}
+.option-card.green  .option-tag { background: #27ae60; }
+.option-card.blue   .option-tag { background: #3498db; }
+.option-card.purple .option-tag { background: #8e44ad; }
+/* --- 一般テーブル --- */
+.flow-table { width: 100%; border-collapse: collapse; margin-bottom: 10px; font-size: 0.9rem; }
+.flow-table th {
+  background: #7a4f1e;
+  color: white;
+  padding: 10px 14px;
+  text-align: left;
+  font-weight: 600;
+}
+.flow-table td {
+  padding: 10px 14px;
+  border-bottom: 1px dotted #d4b898;
+  vertical-align: top;
+  line-height: 1.6;
+}
+.flow-table tr:last-child td { border-bottom: none; }
+.flow-table tr:nth-child(even) td { background: #fdf6ee; }
+/* --- 注意BOX --- */
+.alert-box {
+  background: #fff8e1;
+  border-left: 4px solid #f39c12;
+  border-radius: 6px;
+  padding: 14px 18px;
+  margin-bottom: 16px;
+  font-size: 0.88rem;
+  line-height: 1.8;
+  color: #5a4000;
+}
+.alert-box strong { color: #e67e22; }
+.info-box {
+  background: #e8f4fd;
+  border-left: 4px solid #3498db;
+  border-radius: 6px;
+  padding: 14px 18px;
+  margin-bottom: 16px;
+  font-size: 0.88rem;
+  line-height: 1.8;
+  color: #1a4a6e;
+}
+.info-box strong { color: #2980b9; }
+/* --- チェックリスト --- */
+.checklist { list-style: none; margin-bottom: 14px; }
+.checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px dotted #ddd;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #444;
+}
+.checklist li:last-child { border-bottom: none; }
+.check-box {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #7a4f1e;
+  border-radius: 4px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+/* --- バッジ --- */
+.badge {
+  display: inline-block;
+  border-radius: 10px;
+  padding: 2px 10px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: white;
+  margin-right: 4px;
+}
+.badge-red    { background: #e74c3c; }
+.badge-blue   { background: #3498db; }
+.badge-green  { background: #27ae60; }
+.badge-orange { background: #e67e22; }
+.badge-gray   { background: #7f8c8d; }
+/* --- みなし配当フロー --- */
+.tax-flow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+.tax-box {
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 0.85rem;
+  text-align: center;
+  flex: 1;
+  min-width: 110px;
+  line-height: 1.5;
+}
+.tax-box.gray  { background: #ecf0f1; border: 2px solid #bdc3c7; color: #555; }
+.tax-box.red   { background: #fdedec; border: 2px solid #e74c3c; color: #7b241c; font-weight: 700; }
+.tax-box.blue  { background: #eaf4fb; border: 2px solid #3498db; color: #1a4a6e; font-weight: 700; }
+.tax-arrow     { font-size: 1.4rem; color: #7a4f1e; }
+/* --- 出典 --- */
+.source { font-size: 0.73rem; color: #999; margin-top: 8px; line-height: 1.6; }
+.source a { color: #7a4f1e; }
+/* --- 免責 --- */
+.disclaimer {
+  background: #f7f7f7;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 18px 22px;
+  font-size: 0.78rem;
+  color: #666;
+  line-height: 1.8;
+  max-width: 780px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+.footer-note { text-align: center; color: #aaa; font-size: 0.78rem; margin-bottom: 30px; }
+@media (max-width: 600px) {
+  .two-phase   { grid-template-columns: 1fr; }
+  .phase-arrow { transform: rotate(90deg); }
+  .cost-row    { grid-template-columns: 1fr; }
+  .option-cards{ grid-template-columns: 1fr; }
+  .slide { padding: 28px 20px; }
+  .slide-hero  { padding: 36px 20px; }
+  .slide-hero h1 { font-size: 1.35rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ヒーロー -->
+<div class="slide-hero">
+  <div class="date-badge">1人法人スタート 最新トピック 2026-06-18</div>
+  <h1>🚪 1人法人の解散・清算・事業承継<br>── 「出口」を知ると、設立がもっと怖くなくなる</h1>
+  <p class="subtitle">
+    会社は「作ること」より「たたみ方」を知らない人が多い。<br>
+    解散・清算の手順と費用、事業を引き継ぐ選択肢を今日整理します。
+  </p>
+</div>
+
+<!-- セクション1: 解散と清算の違い -->
+<div class="slide">
+  <div class="section-title">📖 01 ｜ まず「解散」と「清算」の違いを理解しよう</div>
+  <p class="lead">
+    「会社を閉める」には大きく<strong>2つのステップ</strong>があります。<br>
+    よく混同されますが、解散と清算は別々の手続きです。
+  </p>
+
+  <div class="two-phase">
+    <div class="phase-box phase1">
+      <div class="phase-icon">🔴</div>
+      <div class="phase-name">STEP 1：解散（かいさん）</div>
+      <div class="phase-def">
+        「会社をやめます」と<br>法律的に宣言すること。<br><br>
+        株主総会で決議し、<br>法務局に登記する。<br><br>
+        この時点でまだ<br>「清算中の会社」として存続
+      </div>
+    </div>
+    <div class="phase-arrow">→</div>
+    <div class="phase-box phase2">
+      <div class="phase-icon">🔵</div>
+      <div class="phase-name">STEP 2：清算（せいさん）</div>
+      <div class="phase-def">
+        会社の財産・借金を整理して<br>きれいに終わらせること。<br><br>
+        債権者への通知、資産売却、<br>残った財産の株主への分配<br>
+        ＝「残余財産の分配」を行う。<br><br>
+        清算完了で会社が消滅
+      </div>
+    </div>
+  </div>
+
+  <div class="alert-box">
+    <strong>イメージ：</strong>解散＝「閉店セール開始」の宣言、清算＝「在庫・借金を全部片付けてシャッターを下ろす」作業です。<br>
+    1人法人でも、法律上この2段階を踏む必要があります。勝手に放置すると「休眠会社」扱いになり、法務局から職権で解散登記される場合があります（12年登記がない会社）。
+  </div>
+
+  <p class="source">
+    出典：法務局「会社の解散について」<br>
+    <a href="https://houmukyoku.moj.go.jp/homu/static/goannai_kaisha.html" target="_blank">https://houmukyoku.moj.go.jp/</a>（2025年度基準）
+  </p>
+</div>
+
+<!-- セクション2: 解散の手順 -->
+<div class="slide">
+  <div class="section-title">📋 02 ｜ 解散の手順フロー（株主総会決議から登記まで）</div>
+  <p class="lead">
+    1人株主・1人取締役の法人でも、法律で定められた手順を踏む必要があります。<br>
+    全部で6〜8ステップ、最短でも2〜3か月かかります。
+  </p>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num orange">1</div>
+      <div class="step-content">
+        <div class="step-title">株主総会で解散を決議する</div>
+        <div class="step-desc">特別決議（議決権の2/3以上）が必要。1人会社なら自分1人で決議できる。議事録を必ず作成・保管。</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num orange">2</div>
+      <div class="step-content">
+        <div class="step-title">清算人を選任する</div>
+        <div class="step-desc">解散と同時に取締役は退任し、「清算人」が会社を代表する。特に決めなければ元取締役が清算人になる（会社法483条）。</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num orange">3</div>
+      <div class="step-content">
+        <div class="step-title">解散・清算人選任を法務局に登記する</div>
+        <div class="step-desc">決議から2週間以内に登記申請。登録免許税は3万9,000円（解散登記2万円＋清算人登記1万9,000円）。</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num orange">4</div>
+      <div class="step-content">
+        <div class="step-title">税務署・都道府県・市区町村に異動届出書を提出</div>
+        <div class="step-desc">解散の事実を各行政機関に届け出る。e-Tax でも可。法人番号サイトに解散が公表される。</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num orange">5</div>
+      <div class="step-content">
+        <div class="step-title">官報に公告を掲載する（2か月以上）</div>
+        <div class="step-desc">債権者（お金を貸している人）に対して「会社をたたみます、請求があれば申し出てください」と告知する法定手続き。官報掲載費は約3〜4万円。この期間（最低2か月）は清算完了できない。</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num orange">6</div>
+      <div class="step-content">
+        <div class="step-title">解散事業年度の確定申告をする</div>
+        <div class="step-desc">解散の日から2か月以内に法人税・消費税の申告が必要。通常の決算と同じ手続きだが、解散時の特別ルールがある（後述）。</div>
+      </div>
+    </div>
+  </div>
+
+  <p class="source">
+    出典：国税庁「法人税（解散・清算）」<br>
+    <a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/hojin/5401.htm" target="_blank">https://www.nta.go.jp/taxes/shiraberu/taxanswer/hojin/5401.htm</a>（2025年度基準）<br>
+    会社法第471条（解散事由）・第483条（清算人）
+  </p>
+</div>
+
+<!-- セクション3: 清算の流れ -->
+<div class="slide">
+  <div class="section-title">🧹 03 ｜ 清算の流れ（財産整理〜会社消滅まで）</div>
+  <p class="lead">
+    官報公告の2か月が過ぎたら、いよいよ財産を整理して会社を消滅させます。
+  </p>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num blue">1</div>
+      <div class="step-content">
+        <div class="step-title">財産目録・貸借対照表を作成する</div>
+        <div class="step-desc">会社にある資産（現金・預金・備品など）と負債（未払い債務・借入）を全部洗い出す。株主総会で承認が必要。</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num blue">2</div>
+      <div class="step-content">
+        <div class="step-title">債務（借金・未払い）を全額返済する</div>
+        <div class="step-desc">取引先への未払い・借入金・役員貸付金の精算など。債務が資産を上回る場合は「特別清算」や「破産」手続きが必要になる。</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num blue">3</div>
+      <div class="step-content">
+        <div class="step-title">残余財産を株主（自分）に分配する</div>
+        <div class="step-desc">借金を返した後に残った財産を株主に分配する（「残余財産の分配」）。この金額が出資額を超える部分は税務上「みなし配当」として課税される（後述）。</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num blue">4</div>
+      <div class="step-content">
+        <div class="step-title">清算確定申告をする</div>
+        <div class="step-desc">残余財産が確定した日から1か月以内に法人税の申告が必要（残余財産確定事業年度の申告）。消費税も同様に申告する。</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num blue">5</div>
+      <div class="step-content">
+        <div class="step-title">清算結了を法務局に登記する</div>
+        <div class="step-desc">株主総会で決算報告を承認してから2週間以内に「清算結了登記」を申請。登録免許税2,000円。これで会社が法律上消滅する。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cost-row">
+    <div class="cost-card">
+      <div class="cost-num">2〜3か月</div>
+      <div class="cost-label">最低限かかる期間<br>（官報公告期間含む）<br>複雑な財産整理があれば<br>さらに長くなる</div>
+    </div>
+    <div class="cost-card">
+      <div class="cost-num">6〜7万円</div>
+      <div class="cost-label">登録免許税＋官報掲載<br>の実費目安<br>（司法書士報酬は別途）<br>（2025年度基準）</div>
+    </div>
+    <div class="cost-card">
+      <div class="cost-num">2回</div>
+      <div class="cost-label">申告義務の回数<br>①解散事業年度<br>②残余財産確定事業年度<br>（2回に分かれる）</div>
+    </div>
+  </div>
+
+  <p class="source">
+    出典：国税庁「解散・清算に係る法人税の申告期限」<br>
+    <a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/hojin/5401.htm" target="_blank">https://www.nta.go.jp/taxes/shiraberu/taxanswer/hojin/5401.htm</a>（2025年度基準）
+  </p>
+</div>
+
+<!-- セクション4: みなし配当の税務 -->
+<div class="slide">
+  <div class="section-title">💴 04 ｜ 清算時の「みなし配当」に注意</div>
+  <p class="lead">
+    残余財産を受け取るとき、1人社長は<strong>個人としての税金</strong>が発生する場合があります。
+    これを「みなし配当（みなしはいとう）」といいます。
+  </p>
+
+  <div class="tax-flow">
+    <div class="tax-box gray">残余財産の分配額<br>例：200万円</div>
+    <div class="tax-arrow">−</div>
+    <div class="tax-box gray">出資額（資本金）<br>例：100万円</div>
+    <div class="tax-arrow">=</div>
+    <div class="tax-box red">みなし配当<br>100万円<br>（課税対象）</div>
+  </div>
+
+  <table class="flow-table">
+    <thead>
+      <tr>
+        <th>種類</th>
+        <th>税率の目安</th>
+        <th>申告方法</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>みなし配当部分</td>
+        <td>総合課税：累進税率（最大55%）<br>または申告分離課税（20.315%）</td>
+        <td>個人の確定申告で申告（翌年3月15日まで）</td>
+      </tr>
+      <tr>
+        <td>出資額相当部分（資本金）</td>
+        <td>株式の譲渡所得として扱われる<br>20.315%（所得税15.315%＋住民税5%）</td>
+        <td>申告分離課税で確定申告</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="info-box">
+    <strong>ポイント：</strong>みなし配当は法人が清算時に源泉徴収（20.42%）する義務があります。<br>
+    株主本人でも源泉徴収が必要な点を忘れずに。確定申告で最終的な税額を精算します。<br>
+    金額が大きい場合は、税理士に事前相談して最適な清算タイミングを検討することをおすすめします。
+  </div>
+
+  <p class="source">
+    出典：国税庁「みなし配当」（清算時）<br>
+    <a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1476.htm" target="_blank">https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1476.htm</a>（2025年度基準）<br>
+    国税庁「清算所得に対する課税の廃止後の取扱い」
+    <a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/hojin/5401.htm" target="_blank">https://www.nta.go.jp/taxes/shiraberu/taxanswer/hojin/5401.htm</a>
+  </p>
+</div>
+
+<!-- セクション5: 事業承継の3択 -->
+<div class="slide">
+  <div class="section-title">🔀 05 ｜ 解散だけじゃない！事業を続けるための「3つの選択肢」</div>
+  <p class="lead">
+    会社をたたむ前に、事業そのものを誰かに引き継ぐという選択肢もあります。<br>
+    「1人法人だからM&Aは関係ない」は誤解です。規模が小さくても有効な手段があります。
+  </p>
+
+  <div class="option-cards">
+    <div class="option-card green">
+      <div class="option-icon">📤</div>
+      <div class="option-name">株式譲渡<br>（かぶしきじょうと）</div>
+      <div class="option-sub">
+        会社の株式を他の人に<br>売ること。会社は消えず<br>オーナーが変わる。<br>「会社ごと売る」イメージ
+      </div>
+      <span class="option-tag">会社そのものを売る</span>
+    </div>
+    <div class="option-card blue">
+      <div class="option-icon">🏪</div>
+      <div class="option-name">事業譲渡<br>（じぎょうじょうと）</div>
+      <div class="option-sub">
+        特定の事業・顧客・契約だけ<br>を売ること。会社自体は残る。<br>「一部の看板だけ売る」<br>イメージ
+      </div>
+      <span class="option-tag">事業・資産を選んで売る</span>
+    </div>
+    <div class="option-card purple">
+      <div class="option-icon">🤝</div>
+      <div class="option-name">合併・吸収<br>（がっぺい）</div>
+      <div class="option-sub">
+        他の法人と合体して<br>1つの会社になること。<br>小規模法人同士でも<br>可能。手続きは複雑
+      </div>
+      <span class="option-tag">別会社と統合する</span>
+    </div>
+  </div>
+
+  <table class="flow-table">
+    <thead>
+      <tr>
+        <th>方法</th>
+        <th>向いているケース</th>
+        <th>税務上の注意</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="badge badge-green">株式譲渡</span></td>
+        <td>取引先・顧客・ブランドごと引き継いでほしい場合。許認可の再取得が不要な場合が多い</td>
+        <td>売却益は「株式の譲渡所得」として申告分離課税20.315%（2025年度基準）</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-blue">事業譲渡</span></td>
+        <td>一部の事業だけを売りたい、残りは別用途に使いたい場合</td>
+        <td>法人段階で課税（法人税・消費税）＋代金受取後に配当・清算で個人課税も</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-gray">廃業</span></td>
+        <td>引き継ぎ手がおらず事業継続が困難な場合。最もシンプルな出口</td>
+        <td>解散・清算のみなし配当課税に注意（セクション4参照）</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="info-box">
+    <strong>小規模M&Aのプラットフォーム：</strong>TRANBI・M&Aサクシード・バトンズなど、小規模事業者向けのマッチングサービスが普及しています。1人法人・フリーランス案件の売買も増えています。<br>
+    ※各サービスの成功報酬・手数料は変更される場合があります。必ず公式サイトで確認してください。
+  </div>
+
+  <p class="source">
+    参考：中小企業庁「事業承継・引継ぎ支援センター」<br>
+    <a href="https://jigyo-shokei.go.jp/" target="_blank">https://jigyo-shokei.go.jp/</a>（2025年度情報）
+  </p>
+</div>
+
+<!-- セクション6: 休眠会社という選択肢 -->
+<div class="slide">
+  <div class="section-title">💤 06 ｜ すぐに閉めなくていい？「休眠会社」という選択肢</div>
+  <p class="lead">
+    「しばらく活動しないけど、いつか再開するかも」というときは、<br>
+    <strong>休眠届（みなし解散対策）</strong>を出して法人を維持する方法もあります。
+  </p>
+
+  <table class="flow-table">
+    <thead>
+      <tr>
+        <th>比較</th>
+        <th>休眠（活動停止）</th>
+        <th>解散・清算（廃業）</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>法人の存続</td>
+        <td>✅ 存続する</td>
+        <td>❌ 消滅する</td>
+      </tr>
+      <tr>
+        <td>事業再開</td>
+        <td>✅ いつでも再開できる</td>
+        <td>❌ 再開する場合は新設立が必要</td>
+      </tr>
+      <tr>
+        <td>法人住民税（均等割）</td>
+        <td>⚠️ 最低年7万円程度かかる<br>（自治体により減免制度あり）</td>
+        <td>❌ 清算後は不要</td>
+      </tr>
+      <tr>
+        <td>申告義務</td>
+        <td>⚠️ 収益ゼロでも申告は必要<br>（法人税・消費税）</td>
+        <td>❌ 清算後は不要</td>
+      </tr>
+      <tr>
+        <td>法務局の職権解散リスク</td>
+        <td>⚠️ 12年間登記変更がなければ<br>職権で解散登記される</td>
+        <td>（該当なし）</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="alert-box">
+    <strong>職権解散に注意：</strong>法務局は、株式会社で12年・合名・合資・合同会社で5年間、登記の変更（役員改選など）がない会社を「休眠会社」として整理しています。<br>
+    毎年10月頃に官報で公告が出て、2か月以内に届出をしないと解散登記されます。<br>
+    休眠させるなら、役員任期切れに合わせて定期的に役員変更登記を行いましょう。
+  </div>
+
+  <p class="source">
+    出典：法務局「休眠会社等の整理作業（みなし解散）について」<br>
+    <a href="https://houmukyoku.moj.go.jp/homu/static/kyumin_annai.html" target="_blank">https://houmukyoku.moj.go.jp/</a>（2025年度基準）
+  </p>
+</div>
+
+<!-- セクション7: 解散前に確認すべきこと -->
+<div class="slide">
+  <div class="section-title">✅ 07 ｜ 解散・清算を決める前に確認すること</div>
+  <p class="lead">
+    廃業は不可逆な決断です。後悔しないために、以下の項目を事前に確認しましょう。
+  </p>
+
+  <ul class="checklist">
+    <li>
+      <div class="check-box"></div>
+      <span><strong>未払いの税金・社会保険料はないか</strong><br>
+      法人税・消費税・法人住民税・厚生年金保険料などを全額納付してから解散を進める。滞納があると清算が完了しない。</span>
+    </li>
+    <li>
+      <div class="check-box"></div>
+      <span><strong>役員借入金（社長が会社にお金を貸している分）の整理</strong><br>
+      役員借入金は清算時に「債権」として返済を受ける。出資額との関係で「みなし配当」の計算に影響することがある。</span>
+    </li>
+    <li>
+      <div class="check-box"></div>
+      <span><strong>許認可・ライセンスの返納・通知が必要か確認</strong><br>
+      宅建業免許・古物商許可・建設業許可など、解散を届け出る義務がある許認可がある場合は忘れずに手続きする。</span>
+    </li>
+    <li>
+      <div class="check-box"></div>
+      <span><strong>顧客・取引先への事前通知</strong><br>
+      突然の廃業は信用問題になる。引き継ぎ先の案内、進行中の契約の処理を誠実に行う。</span>
+    </li>
+    <li>
+      <div class="check-box"></div>
+      <span><strong>社会保険の脱退手続き（日本年金機構・健保組合）</strong><br>
+      社会保険の被保険者資格の喪失届出を解散日翌日から5日以内に年金事務所に提出。</span>
+    </li>
+    <li>
+      <div class="check-box"></div>
+      <span><strong>法人口座の解約・法人クレジットカードの解約</strong><br>
+      清算完了後に口座を残しておくと管理が煩雑になる。残高ゼロ確認後に解約する。</span>
+    </li>
+    <li>
+      <div class="check-box"></div>
+      <span><strong>帳簿・書類の保存期間を確認する</strong><br>
+      法人税法上、帳簿書類は清算後も<strong>10年間</strong>保存義務がある（個人として保管）。デジタルバックアップを作っておくと安心。</span>
+    </li>
+  </ul>
+
+  <p class="source">
+    出典：国税庁「帳簿書類の保存期間」<br>
+    <a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/hojin/5930.htm" target="_blank">https://www.nta.go.jp/taxes/shiraberu/taxanswer/hojin/5930.htm</a>（2025年度基準）<br>
+    日本年金機構「健康保険・厚生年金保険の被保険者の資格を喪失するとき」<br>
+    <a href="https://www.nenkin.go.jp/service/kounen/tekiyo/jigyo/20150518.html" target="_blank">https://www.nenkin.go.jp/</a>（2025年度基準）
+  </p>
+</div>
+
+<!-- セクション8: まとめ -->
+<div class="slide">
+  <div class="section-title">🎓 08 ｜ 今日のまとめ</div>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">📌</div>
+      <div class="step-content">
+        <div class="step-title">「解散」→「清算」の2段階プロセスで会社は消滅する</div>
+        <div class="step-desc">解散で法人は存続し続け、清算が完了して初めて法律上消滅する。最短2〜3か月、費用は実費6〜7万円程度。</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">📌</div>
+      <div class="step-content">
+        <div class="step-title">残余財産の受け取りには「みなし配当課税」がかかる</div>
+        <div class="step-desc">出資額（資本金）を超える残余財産は配当課税の対象。清算前に税理士と試算してタイミングを検討する価値がある。</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">📌</div>
+      <div class="step-content">
+        <div class="step-title">廃業より事業を売る選択肢も増えている</div>
+        <div class="step-desc">1人法人でもM&Aマッチングサービスを使った株式譲渡・事業譲渡が可能。価値があるうちに動く方が選択肢が広い。</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">📌</div>
+      <div class="step-content">
+        <div class="step-title">休眠には維持コストがある。放置するとみなし解散のリスクも</div>
+        <div class="step-desc">均等割（年7万円程度）と申告義務は継続。12年間登記変更がない会社は職権で解散登記される場合がある。</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">📌</div>
+      <div class="step-content">
+        <div class="step-title">出口を知ることで、会社設立の覚悟が固まる</div>
+        <div class="step-desc">「どうやって終わらせるか」を知っておくと、逆説的に会社を育てる判断が明確になる。廃業は失敗ではなく、経営判断の1つ。</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 免責 -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報提供を目的としており、税務・法務の個別アドバイスではありません。
+  会社の状況（資産・負債の構成、許認可、株主構成など）によって手続きや税務上の判断は大きく変わります。
+  解散・清算・事業承継の具体的な進め方については、税理士・司法書士・弁護士など専門家にご相談ください。
+  税率・制度・手続きは2025〜2026年度の情報を基準としていますが、変更される場合があります。
+  必ず最新の公的機関情報（国税庁・法務局・日本年金機構等）でご確認ください。
+</div>
+
+<div class="footer-note">
+  毎朝更新 ・ 次回もお楽しみに｜過去のバックナンバーは <a href="index.html" style="color:#7a4f1e;">index.html</a> から
+</div>
+
+</body>
+</html>
