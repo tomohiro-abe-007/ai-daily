@@ -22,9 +22,12 @@
 - 2026-06-16: Anthropic Project Glasswing拡大（2026年6月2日発表）・Claude Mythos Preview（非公開）・150組織以上・15ヵ国以上に拡大・主要OSやブラウザで数千件の深刻な脆弱性を発見・安全上の理由から一般公開なし
 - 2026-06-17: NAVER×NVIDIA AI工場計画（2026年6月7日発表）・GAK世宗データセンター55MWから開始・ギガワット規模へ拡大・HyperCLOVA X強化（Nemotron 3 Ultra採用・Nemotron Coalition初の韓国企業）・Seoul World Model（都市空間AI）・AIエージェントプラットフォーム2026年下半期予定・NVIDIA DSXプラットフォーム活用・ソブリンAI戦略
 - 2026-06-18: Deployment Simulation（2026年6月16日発表）・本物のユーザー会話（約130万件・匿名化）を使ってリリース前モデルを評価・AIが"テストと気づきにくい"状況を再現・Behavioral Drift・Reward Hacking・エージェントAIのツール呼び出しにも対応・推定誤差中央値1.5倍
+- 2026-06-19: ChatGPT スケジュール機能リニューアル（2026年6月17日公開）・専用「Scheduled」管理ページ新設・タスク予約・リマインダー・ウェブ監視・1時間に1回まで制限・Pulse終了（約14日後）・Plus/Pro/Business/Enterprise対応
 
 ## 未解説の候補トピック（今後の参考）
 
+- Google Antigravity CLI（2026年6月18日発表）：Gemini CLIの後継・Gemini 3.5エージェント系モデル向け開発者ツール・旧Gemini CLIからの移行が必要
+- SpaceX×Cursor（2026年6月16日）：SpaceXがAIコードエディタCursorの買収合意書を提出・開発者向けAIツール市場への参入
 - xAI Grok 4.3 Beta（2026年4月）：動画・スライド・音声API対応のマルチモーダル推論
 - Gemini 3.5 Pro（Google I/O 2026で予告・2026年6月GA予定）：2Mトークンコンテキスト・Deep Think推論・詳細は公式で要確認
 - Google Gemini 3.5 Flash詳報：市場シェア・Intelligence Index・284トークン/秒の生成速度
