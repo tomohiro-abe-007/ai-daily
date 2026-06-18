@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>デジタルノマド 最新トピック 2026-06-19</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    color: #2a2a2a;
+  }
+  .hero {
+    background: linear-gradient(135deg, #2a5e8e 0%, #1a3a5c 100%);
+    color: white;
+    border-radius: 10px;
+    padding: 48px 40px;
+    text-align: center;
+    width: 100%;
+    max-width: 760px;
+    margin-bottom: 28px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .hero .label {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 0.8rem;
+    margin-bottom: 14px;
+    letter-spacing: 0.05em;
+  }
+  .hero .update-badge {
+    display: inline-block;
+    background: #e8a000;
+    color: #fff;
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+  .hero h1 { font-size: 1.45rem; margin-bottom: 12px; line-height: 1.5; }
+  .hero .meta { opacity: 0.8; font-size: 0.88rem; line-height: 1.7; }
+  .card {
+    background: #fff9f0;
+    border-radius: 8px;
+    padding: 28px 32px;
+    width: 100%;
+    max-width: 760px;
+    margin-bottom: 20px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.08);
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #2a5e8e;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px dashed #a0c0e8;
+  }
+  .card p { font-size: 0.93rem; line-height: 1.85; margin-bottom: 10px; }
+  .card p:last-child { margin-bottom: 0; }
+  .highlight-box {
+    background: #e8f0fd;
+    border-left: 4px solid #2a5e8e;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .highlight-box .hlabel {
+    font-size: 0.75rem;
+    color: #2a5e8e;
+    font-weight: 600;
+    margin-bottom: 6px;
+    display: block;
+  }
+  .highlight-box p { font-size: 0.9rem; margin: 0; }
+  .alert-box {
+    background: #fff3cd;
+    border-left: 4px solid #e8a000;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .alert-box .alabel {
+    font-size: 0.75rem;
+    color: #b07700;
+    font-weight: 600;
+    margin-bottom: 6px;
+    display: block;
+  }
+  .alert-box p { font-size: 0.9rem; margin: 0; }
+  .danger-box {
+    background: #fde8e8;
+    border-left: 4px solid #c0392b;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .danger-box .dlabel {
+    font-size: 0.75rem;
+    color: #c0392b;
+    font-weight: 600;
+    margin-bottom: 6px;
+    display: block;
+  }
+  .danger-box p { font-size: 0.9rem; margin: 0; }
+  .green-box {
+    background: #e8f5ef;
+    border-left: 4px solid #2c6e4e;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .green-box .glabel {
+    font-size: 0.75rem;
+    color: #2c6e4e;
+    font-weight: 600;
+    margin-bottom: 6px;
+    display: block;
+  }
+  .green-box p { font-size: 0.9rem; margin: 0; }
+  .number-row {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin: 14px 0;
+  }
+  .number-card {
+    flex: 1;
+    min-width: 130px;
+    background: #2a5e8e;
+    color: white;
+    border-radius: 8px;
+    padding: 18px 14px;
+    text-align: center;
+  }
+  .number-card .num {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    line-height: 1.2;
+    letter-spacing: 0.03em;
+  }
+  .number-card .desc {
+    font-size: 0.72rem;
+    opacity: 0.9;
+    line-height: 1.5;
+  }
+  .number-card.amber { background: #b07700; }
+  .number-card.red   { background: #922b2b; }
+  .number-card.green { background: #2c6e4e; }
+  .number-card.gray  { background: #555; }
+  .flow-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin: 14px 0;
+  }
+  .flow-box {
+    background: #2a5e8e;
+    color: white;
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 0.88rem;
+    line-height: 1.6;
+  }
+  .flow-box .fb-label {
+    font-size: 0.7rem;
+    opacity: 0.8;
+    margin-bottom: 4px;
+    display: block;
+  }
+  .flow-box strong { font-size: 0.95rem; }
+  .flow-box.sub   { background: #3a7ab8; }
+  .flow-box.light { background: #e8f0fd; color: #2a2a2a; border: 1.5px solid #a0c0e8; }
+  .flow-box.amber { background: #8a5e00; }
+  .flow-box.red   { background: #922b2b; }
+  .flow-box.green { background: #2c6e4e; }
+  .flow-box.gray  { background: #666; }
+  .arrow-down {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #2a5e8e;
+    margin: 4px 0;
+    line-height: 1;
+  }
+  .step-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 12px 0;
+  }
+  .step-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .step-num {
+    background: #2a5e8e;
+    color: white;
+    border-radius: 50%;
+    min-width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.78rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .step-num.amber { background: #b07700; }
+  .step-num.red   { background: #922b2b; }
+  .step-num.green { background: #2c6e4e; }
+  .step-num.gray  { background: #555; }
+  .step-list li div { font-size: 0.9rem; line-height: 1.7; }
+  .compare-row {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin: 14px 0;
+  }
+  .compare-card {
+    flex: 1;
+    min-width: 200px;
+    border-radius: 8px;
+    padding: 16px 16px;
+    font-size: 0.88rem;
+    line-height: 1.7;
+  }
+  .compare-card h3 {
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+    padding-bottom: 6px;
+    border-bottom: 1.5px dashed;
+  }
+  .compare-card.red   { background: #fdeaea; border: 1.5px solid #c0392b; }
+  .compare-card.red h3 { color: #922b2b; border-color: #e8a0a0; }
+  .compare-card.green { background: #e8f5ef; border: 1.5px solid #2c6e4e; }
+  .compare-card.green h3 { color: #2c6e4e; border-color: #b2d4c4; }
+  .compare-card.amber { background: #fff8e8; border: 1.5px solid #c9920a; }
+  .compare-card.amber h3 { color: #a07800; border-color: #f0d080; }
+  .compare-card.blue  { background: #e8f0fd; border: 1.5px solid #2a5e8e; }
+  .compare-card.blue h3 { color: #2a5e8e; border-color: #a0c0e8; }
+  .matrix-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.87rem;
+    margin: 14px 0;
+  }
+  .matrix-table th {
+    background: #2a5e8e;
+    color: white;
+    padding: 10px 12px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.82rem;
+  }
+  .matrix-table th:first-child { border-radius: 6px 0 0 0; }
+  .matrix-table th:last-child  { border-radius: 0 6px 0 0; }
+  .matrix-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #c8d8e8;
+    vertical-align: top;
+    line-height: 1.55;
+  }
+  .matrix-table tr:nth-child(even) td { background: #f0f5fc; }
+  .matrix-table .ok   { color: #2c6e4e; font-weight: 700; }
+  .matrix-table .ng   { color: #c0392b; font-weight: 700; }
+  .matrix-table .warn { color: #b07700; font-weight: 700; }
+  .matrix-table .row-warn td { background: #fff8e8 !important; }
+  .matrix-table .row-danger td { background: #fdeaea !important; }
+  .matrix-table .row-green td { background: #e8f5ef !important; }
+  .check-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 12px 0;
+  }
+  .check-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.9rem;
+    line-height: 1.65;
+  }
+  .check-list li::before {
+    content: '✓';
+    color: #2c6e4e;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .check-list li.ng::before {
+    content: '✗';
+    color: #c0392b;
+  }
+  .check-list li.warn::before {
+    content: '△';
+    color: #b07700;
+  }
+  .section-icon {
+    font-size: 1.5rem;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+  .tag {
+    display: inline-block;
+    background: #2a5e8e;
+    color: white;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    vertical-align: middle;
+  }
+  .tag.amber { background: #b07700; }
+  .tag.red   { background: #922b2b; }
+  .tag.green { background: #2c6e4e; }
+  .footnote {
+    font-size: 0.8rem;
+    color: #666;
+    line-height: 1.7;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+  }
+  .footer-card {
+    background: #f0ece3;
+    border: 1.5px solid #bbb;
+    border-radius: 8px;
+    padding: 20px 24px;
+    width: 100%;
+    max-width: 760px;
+    margin-bottom: 20px;
+    font-size: 0.82rem;
+    color: #555;
+    line-height: 1.8;
+  }
+  .footer-card h3 {
+    font-size: 0.88rem;
+    color: #444;
+    margin-bottom: 10px;
+  }
+  .cascade-diagram {
+    border: 2px solid #c0392b;
+    border-radius: 8px;
+    padding: 18px;
+    margin: 14px 0;
+    background: #fde8e8;
+  }
+  .cascade-diagram .cd-title {
+    font-size: 0.78rem;
+    color: #c0392b;
+    font-weight: 600;
+    margin-bottom: 12px;
+    display: block;
+  }
+  .cascade-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+  }
+  .cascade-node {
+    background: #c0392b;
+    color: white;
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 0.82rem;
+    text-align: center;
+    min-width: 100px;
+    line-height: 1.4;
+  }
+  .cascade-node.gray {
+    background: #888;
+  }
+  .cascade-arrow {
+    font-size: 1.2rem;
+    color: #c0392b;
+    font-weight: 700;
+  }
+  .income-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    margin: 14px 0;
+  }
+  .income-table th {
+    background: #2a5e8e;
+    color: white;
+    padding: 10px 14px;
+    text-align: center;
+    font-size: 0.82rem;
+  }
+  .income-table th:first-child { border-radius: 6px 0 0 0; text-align: left; }
+  .income-table th:last-child  { border-radius: 0 6px 0 0; }
+  .income-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid #c8d8e8;
+    text-align: center;
+  }
+  .income-table td:first-child { text-align: left; }
+  .income-table tr:nth-child(even) td { background: #f0f5fc; }
+  .income-table .row-main td { background: #dbeeff !important; font-weight: 700; }
+  .big-num {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #2a5e8e;
+    line-height: 1.1;
+  }
+  .big-num-unit {
+    font-size: 0.95rem;
+    color: #2a5e8e;
+    margin-top: 4px;
+  }
+  .big-num-wrap {
+    text-align: center;
+    padding: 14px 8px;
+  }
+</style>
+</head>
+<body>
+
+<!-- ヒーロー -->
+<div class="hero">
+  <div>
+    <span class="label">🛂 スペイン国際遠隔就労ビザ（DNV）</span>
+    <span class="update-badge">6/10の続報</span>
+  </div>
+  <h1>UGE 審査強化 詳細版<br>「100%リモート確認」「代理人連鎖審査」<br>2026年6月の新実務ポイント</h1>
+  <div class="meta">
+    デジタルノマド 最新トピック 2026-06-19<br>
+    情報収集日：2026年6月19日 ／ 制度基準年度：2026年<br>
+    出典：The Local ES（2026年6月17日）・Remote Work Europe（2026年）・Jobbatical（2026年）・startupvisa.barcelona（2026年）
+  </div>
+</div>
+
+<!-- 今日の要点 -->
+<div class="card">
+  <h2><span class="section-icon">📌</span>今日のポイント（30秒まとめ）</h2>
+  <p>2026年6月17日、The Local ES が「スペインのデジタルノマドビザ（国際遠隔就労ビザ）の審査が厳しくなっている」と報じました。<strong>担当機関 UGE（Unidad de Grandes Empresas：大企業・戦略産業ユニット）</strong>が新しいルールを次々と導入しています。</p>
+  <p>6月10日の日報では「NLVから切り替え不可」「社会保険未登録でビザ取消」「更新時のPadrón 6か月ルール」を解説しました。今日はさらに具体的な新ポイントを3つ掘り下げます。</p>
+  <div class="compare-row">
+    <div class="compare-card blue">
+      <h3>① 100%リモート確認の厳格化</h3>
+      書類上で「完全リモート」が明記されていないと審査通過が難しくなった
+    </div>
+    <div class="compare-card red">
+      <h3>② 代理人連鎖審査ポリシー</h3>
+      1件の不正が発覚→同じ代理人の全申請を再審査する新ルール
+    </div>
+    <div class="compare-card amber">
+      <h3>③ 収入基準が€2,849/月に更新</h3>
+      Royal Decree 126/2026（BOE公示）でSMIが3.1%引き上げ
+    </div>
+  </div>
+</div>
+
+<!-- UGEとは -->
+<div class="card">
+  <h2><span class="section-icon">🏛️</span>UGEってなに？（基本のおさらい）</h2>
+  <p><strong>UGE（Unidad de Grandes Empresas y Colectivos Estratégicos）</strong>は、スペイン移民局の中で「高度人材・デジタルノマドビザ」を専門に扱う部署です。2023年にデジタルノマドビザ（国際遠隔就労ビザ）の審査窓口になって以来、処理スピードと品質管理を強化してきました。</p>
+  <div class="highlight-box">
+    <span class="hlabel">🔑 UGEを理解するキーワード</span>
+    <p><strong>大きな企業や戦略的な人たちのユニット</strong>という意味の部署名です。要するに「普通の移民とは別の窓口」で、高度人材のビザを専門に審査するチームです。2026年に入って体制を大幅に見直し、より経験豊富な審査官が担当するようになりました。</p>
+  </div>
+  <p>2026年初頭、UGE会長の Luis Esteban 氏がウェビナーで新方針を発表。「処理を速くしつつ、要件は厳しく確認する」という両立を目標にしています。</p>
+</div>
+
+<!-- 新ポイント① 100%リモート -->
+<div class="card">
+  <h2><span class="section-icon">💻</span>新ポイント① ── 「100%リモート」の証明が必須に</h2>
+  <p>もともとデジタルノマドビザは「リモートワーカー専用」のビザですが、2026年からUGEが<strong>「本当に100%オンラインで完結する仕事か」</strong>を書類で厳しくチェックするようになりました。</p>
+  <div class="danger-box">
+    <span class="dlabel">⚠️ 厳格化の内容（Luis Esteban 発言より）</span>
+    <p>「申請者の業務がコンピューター・通信システムのみで完結しない場合（＝何らかの物理的な場所への出勤が必要な場合）は、このビザには該当しません」</p>
+  </div>
+
+  <p style="margin-top:12px;"><strong>書類への影響：</strong></p>
+  <div class="compare-row" style="margin-top:8px;">
+    <div class="compare-card green">
+      <h3>✅ OK の例</h3>
+      <ul style="list-style:none;font-size:0.85rem;line-height:1.8;">
+        <li>• Software Engineer（フルリモート）</li>
+        <li>• Graphic Designer（クライアントはオンライン）</li>
+        <li>• Web Consultant（顧客はZoomでのみ対応）</li>
+        <li>• 日本の1人法人代表（役員として経営管理をオンラインで実施）</li>
+      </ul>
+    </div>
+    <div class="compare-card red">
+      <h3>❌ NG になりうる例</h3>
+      <ul style="list-style:none;font-size:0.85rem;line-height:1.8;">
+        <li>• 倉庫や工場の現場管理が必要な業務</li>
+        <li>• 対面が必須の施術・整体・理美容</li>
+        <li>• 店舗運営（レジ打ち・接客が伴う）</li>
+        <li>• 日本の法人の業務が「現地での作業」を含む</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="alert-box" style="margin-top:14px;">
+    <span class="alabel">📝 申請書類でチェックされるポイント</span>
+    <p>雇用契約書・業務委託契約書・会社の定款などに<strong>「100%リモート（trabajo a distancia）」「テレマティクス・通信システムを通じた業務」</strong>と明記されているかが確認されます。職種名（Job Title）だけでなく、職務内容（Job Description）も重要です。</p>
+  </div>
+
+  <div class="green-box">
+    <span class="glabel">🇯🇵 日本の1人法人オーナーへの影響</span>
+    <p>自分の法人の代表者として申請する場合、「会社の業務がすべてオンラインで完結するか」が問われます。IT・コンサル・クリエイター系は問題なし。一方、物理的な商品を扱うEC（倉庫が必要）や製造業は説明が必要になる可能性があります。</p>
+  </div>
+</div>
+
+<!-- 新ポイント② 代理人連鎖審査 -->
+<div class="card">
+  <h2><span class="section-icon">⛓️</span>新ポイント② ── 代理人の不正が連鎖的な取消を引き起こす</h2>
+  <p>2026年から導入された<strong>「エージェント不正ポリシー（Agent Misconduct Policy）」</strong>は、特に申請代理人（移民弁護士・行政書士・エージェント）の選定がいかに重要かを示しています。</p>
+
+  <div class="cascade-diagram">
+    <span class="cd-title">🔗 連鎖審査のしくみ（概念図）</span>
+    <div class="cascade-row">
+      <div class="cascade-node" style="background:#888;">代理人Aが<br>申請した案件①</div>
+      <div class="cascade-arrow">→</div>
+      <div class="cascade-node">不正が<br>発覚</div>
+      <div class="cascade-arrow">→</div>
+      <div class="cascade-node" style="background:#2a5e8e;">代理人Aが<br>申請した<br><strong>全案件</strong>を<br>再審査</div>
+      <div class="cascade-arrow">→</div>
+      <div class="cascade-node" style="background:#8a5e00;">あなたの<br>申請も<br>取消リスク</div>
+    </div>
+  </div>
+
+  <p><strong>主な不正の実例（UGEが確認）：</strong></p>
+  <ul class="step-list" style="margin-top:8px;">
+    <li>
+      <div class="step-num red">1</div>
+      <div><strong>偽造雇用契約書</strong> ── 存在しない雇用関係を偽装した書類の提出</div>
+    </li>
+    <li>
+      <div class="step-num red">2</div>
+      <div><strong>幽霊会社の登録</strong> ── 実際には存在しない、または活動していない法人を雇用元として申請</div>
+    </li>
+    <li>
+      <div class="step-num red">3</div>
+      <div><strong>社会保険未登録</strong> ── ビザ取得後、Seguridad Social（スペイン社会保険）に登録しないまま放置（6月10日の日報でも解説済み）</div>
+    </li>
+  </ul>
+
+  <div class="danger-box" style="margin-top:14px;">
+    <span class="dlabel">🚨 あなたが被害を受けるケース</span>
+    <p>あなた自身は正直に申請していても、<strong>同じ代理人を使った別の申請者が不正をしていた場合</strong>、あなたの申請まで再審査・取消になる可能性があります。代理人選びはビザの成否を左右します。</p>
+  </div>
+
+  <div class="green-box">
+    <span class="glabel">✅ 代理人を選ぶときのチェックポイント</span>
+    <p>①スペイン弁護士会（Colegio de Abogados）の正式会員か確認 ／ ②日本人・日本企業の申請実績があるか ／ ③費用・進捗報告の透明性 ／ ④SNS・口コミでの評判確認 ／ ⑤契約前に必要書類リストを提示してもらえるか</p>
+  </div>
+</div>
+
+<!-- 新ポイント③ 収入基準更新 -->
+<div class="card">
+  <h2><span class="section-icon">💶</span>新ポイント③ ── 収入基準が€2,849/月に（Royal Decree 126/2026）</h2>
+  <p>スペイン政府は2026年2月19日にBOE（スペイン官報）で<strong>Royal Decree 126/2026</strong>を公示し、SMI（最低賃金）を3.1%引き上げました。デジタルノマドビザの収入要件はSMIに連動するため、自動的に上がっています。</p>
+
+  <div class="number-row">
+    <div class="number-card">
+      <div class="num">€1,221</div>
+      <div class="desc">SMI（2026年最低賃金）<br>/月<br>（Royal Decree 126/2026）</div>
+    </div>
+    <div class="number-card amber">
+      <div class="num">×200%</div>
+      <div class="desc">DNVの収入要件<br>＝SMIの200%</div>
+    </div>
+    <div class="number-card green">
+      <div class="num">€2,849</div>
+      <div class="desc">申請者本人の<br>最低必要収入/月<br>（≒約45万円）</div>
+    </div>
+  </div>
+
+  <p><strong>扶養家族を含む場合の収入基準（2026年）：</strong></p>
+  <table class="income-table">
+    <thead>
+      <tr>
+        <th>家族構成</th>
+        <th>必要収入/月</th>
+        <th>追加額</th>
+        <th>計算の根拠</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="row-main">
+        <td>申請者本人のみ</td>
+        <td><strong>€2,849</strong></td>
+        <td>—</td>
+        <td>SMI €1,221 × 200%</td>
+      </tr>
+      <tr>
+        <td>本人＋配偶者1人</td>
+        <td>€3,765〜€3,917</td>
+        <td>+€916〜+€1,068</td>
+        <td>SMIの75%（計算方式により差異あり※）</td>
+      </tr>
+      <tr>
+        <td>本人＋配偶者＋子1人</td>
+        <td>€4,070〜€4,273</td>
+        <td>+€305〜+€356</td>
+        <td>SMIの25%（計算方式により差異あり※）</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="footnote">※ 扶養家族の追加額は「月額SMI×比率」か「年額SMI（14払い）×比率÷12」かで計算が異なります。最終額は移民弁護士・行政書士に確認してください。</p>
+
+  <div class="highlight-box" style="margin-top:14px;">
+    <span class="hlabel">📋 Royal Decree 126/2026 の基本情報</span>
+    <p><strong>BOE公示日：</strong>2026年2月19日 ／ <strong>効力発生：</strong>2026年1月1日（遡及） ／ <strong>SMI引き上げ幅：</strong>3.1%（旸2025年月額€1,184→2026年月額€1,221） ／ <strong>一次ソース：</strong>スペイン官報（Boletín Oficial del Estado）</p>
+  </div>
+
+  <div class="alert-box">
+    <span class="alabel">📌 毎年自動で変わる点に注意</span>
+    <p>収入要件はSMIに自動連動するため、<strong>更新時には必ずその年のSMIに基づいた金額を確認する</strong>必要があります。更新申請時に当年基準を下回っていると認定されると、更新が認められない可能性があります。</p>
+  </div>
+</div>
+
+<!-- Unidad de Control -->
+<div class="card">
+  <h2><span class="section-icon">🔍</span>新設された「Unidad de Control」とは？</h2>
+  <p>UGEは2026年に<strong>Unidad de Control（品質管理部門）</strong>と呼ばれる内部チームを設置しました。承認後もビザホルダーの状況を継続的にモニタリングする機能を持ちます。</p>
+  <div class="flow-wrap">
+    <div class="flow-box">
+      <span class="fb-label">STEP 1 ── 申請・審査フェーズ</span>
+      <strong>書類審査（より厳格化）</strong>：雇用契約・収入証明・100%リモート要件の確認
+    </div>
+    <div class="arrow-down">↓</div>
+    <div class="flow-box sub">
+      <span class="fb-label">STEP 2 ── 承認後フェーズ（新設 Unidad de Control）</span>
+      <strong>事後確認</strong>：社会保険（Seguridad Social）登録・住民登録（Padrón）・書類整合性を審査
+    </div>
+    <div class="arrow-down">↓</div>
+    <div class="flow-box amber">
+      <span class="fb-label">STEP 3 ── 問題発見時</span>
+      <strong>再審査・取消の可能性</strong>：「肯定的行政的沈黙（Silencio Administrativo Positivo）※」で通った案件も遡及確認あり
+    </div>
+  </div>
+  <p class="footnote" style="margin-top:10px;">※ 肯定的行政的沈黙（Silencio Administrativo Positivo）：行政が期限内に返答しない場合、申請が「認めた」とみなされる制度。2026年以前に活用されたケースが遡及審査の対象になっています。</p>
+</div>
+
+<!-- 日本人1人法人オーナーの実務チェックリスト -->
+<div class="card">
+  <h2><span class="section-icon">🇯🇵</span>日本の1人法人オーナーへの実務チェックリスト</h2>
+  <p>スペインDNVを準備している日本人の1人法人代表者として、今日の内容を踏まえた実務ポイントです。</p>
+
+  <table class="matrix-table">
+    <thead>
+      <tr>
+        <th>確認ポイント</th>
+        <th>OK / NG</th>
+        <th>対策・メモ</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="row-green">
+        <td>法人の事業がすべてオンラインで完結するか</td>
+        <td class="ok">確認必須</td>
+        <td>IT・コンサル・デザイン・翻訳など「場所を選ばない業務」なら問題なし</td>
+      </tr>
+      <tr>
+        <td>「100%リモート」と明記した業務記述書の作成</td>
+        <td class="warn">準備推奨</td>
+        <td>日本語の業務委託契約＋スペイン語・英語翻訳版（MAEC認定翻訳）を用意</td>
+      </tr>
+      <tr class="row-warn">
+        <td>申請代理人（移民弁護士）の信頼性確認</td>
+        <td class="warn">要注意</td>
+        <td>弁護士会登録・日本人実績・複数ソースでの評判確認。信頼できない業者は利用しない</td>
+      </tr>
+      <tr>
+        <td>月収€2,849以上の証明書類（2026年基準）</td>
+        <td class="ok">確認必須</td>
+        <td>日本法人からの役員報酬 or クライアントからの報酬をWise等で受け取り、銀行明細で証明</td>
+      </tr>
+      <tr class="row-green">
+        <td>承認後の社会保険（Seguridad Social）登録</td>
+        <td class="ok">必須</td>
+        <td>DNV取得後30日以内に登録。日西社会保障協定（適用証明書）で二重負担を回避（6月17日の日報参照）</td>
+      </tr>
+      <tr>
+        <td>住民登録（Empadronamiento）を維持するか</td>
+        <td class="warn">重要</td>
+        <td>日本↔スペイン往来中も登録住所を維持。更新時にPadrón証明（6か月ルール）が必要</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- まとめ -->
+<div class="card">
+  <h2><span class="section-icon">📝</span>まとめ ── 今日おぼえること3つ</h2>
+  <ul class="step-list">
+    <li>
+      <div class="step-num">1</div>
+      <div><strong>「100%リモート」は書類でも証明が必要。</strong>口頭や慣習では不十分。雇用契約や業務委託契約に「完全在宅・テレマティクス業務」と明記されていることがUGEの確認ポイントです。</div>
+    </li>
+    <li>
+      <div class="step-num amber">2</div>
+      <div><strong>代理人（弁護士・行政書士）は慎重に選ぶ。</strong>1件の不正が同一代理人の全申請を巻き込む可能性があります。スペイン弁護士会登録・日本人実績・透明な費用提示を確認しましょう。</div>
+    </li>
+    <li>
+      <div class="step-num green">3</div>
+      <div><strong>収入基準は毎年自動で変わる。</strong>2026年は€2,849/月（Royal Decree 126/2026、SMI月額€1,221の200%）。更新時も当年SMIに基づいた基準を満たす必要があります。</div>
+    </li>
+  </ul>
+</div>
+
+<!-- 出典 -->
+<div class="card">
+  <h2><span class="section-icon">📚</span>出典・参考リンク</h2>
+  <ul style="list-style:none;font-size:0.85rem;line-height:2.1;">
+    <li>🔗 <a href="https://www.thelocal.es/20260617/how-the-requirements-for-spains-digital-nomad-visa-are-getting-stricter" target="_blank" style="color:#2a5e8e;">The Local ES「How the requirements for Spain's Digital Nomad Visa are getting stricter」（2026年6月17日）</a></li>
+    <li>🔗 <a href="https://remoteworkeurope.eu/insights/spain-digital-nomad-visa/" target="_blank" style="color:#2a5e8e;">Remote Work Europe「Spain digital nomad visa 2026: what's changed and what you need to know」（2026年）</a></li>
+    <li>🔗 <a href="https://www.jobbatical.com/blog/spain-digital-nomad-visa-income-smi-increase" target="_blank" style="color:#2a5e8e;">Jobbatical「Spain Digital Nomad Visa 2026: €2,849 Income Guide」（2026年）</a></li>
+    <li>🔗 <a href="https://startupvisa.barcelona/blog/digital-nomad-family-income-2026" target="_blank" style="color:#2a5e8e;">startupvisa.barcelona「Spain Digital Nomad Visa Family Income 2026: SMI Formula and Examples」（2026年）</a></li>
+    <li>🔗 <a href="https://www.innolegals.com/front_old/en/blog/article/spain-digital-nomad-visa-income-requirements-2026-smi-increase-explained" target="_blank" style="color:#2a5e8e;">InnoLegals「Spain Digital Nomad Visa Income Requirements 2026」（2026年）</a></li>
+    <li>🔗 <a href="https://remotefromspain.com/spains-digital-nomad-permit-2026-update/" target="_blank" style="color:#2a5e8e;">Remote from Spain「Spain Digital Nomad Visa 2026: New UGE Rules & Renewals」（2026年）</a></li>
+    <li>🔗 <a href="https://www.boe.es/" target="_blank" style="color:#2a5e8e;">スペイン官報（BOE）── Royal Decree 126/2026（SMI）の一次ソース（BOE公示日：2026年2月19日）</a></li>
+  </ul>
+  <p class="footnote">※ 情報の正確性の注意：出典元の民間サイトは一次情報（BOE・政府発表）をもとにした解説記事です。制度の変更日付の最終確認はBOEの原文をご覧ください。</p>
+</div>
+
+<!-- フッター免責 -->
+<div class="footer-card">
+  <h3>⚠️ 免責事項</h3>
+  <p>
+    <strong>ビザ・在留について：</strong>本資料は情報提供を目的としており、正式な法的判断ではありません。ビザ申請・在留資格の判断は、<strong>行政書士または移民専門弁護士</strong>にご相談ください。<br><br>
+    <strong>税務・社会保険について：</strong>税務上の居住地判定・二重課税・社会保険の取り扱いは、<strong>国際税務に強い税理士</strong>にご確認ください。<br><br>
+    <strong>制度・金額の基準：</strong>収入要件はRoyal Decree 126/2026（2026年基準）、為替は参考のみ（2026年6月時点の概算）。制度は予告なく変更されることがあります。<br><br>
+    <strong>断定表現の禁止：</strong>本資料に「必ず取得できる」「課税されない」等の断定は含まれません。
+  </p>
+</div>
+
+</body>
+</html>

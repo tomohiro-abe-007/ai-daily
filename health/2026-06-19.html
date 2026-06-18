@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-06-19</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #f0ece3; font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif; min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 20px; }
+
+  /* COVER */
+  .cover { background: linear-gradient(135deg, #0d3a5c 0%, #1a6a8a 55%, #2aa0c0 100%); color: white; border-radius: 8px; padding: 60px 40px; text-align: center; width: 100%; max-width: 820px; margin-bottom: 24px; box-shadow: 4px 6px 20px rgba(0,0,0,0.3); position: relative; overflow: hidden; }
+  .cover::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: repeating-linear-gradient(0deg, transparent, transparent 28px, rgba(255,255,255,0.05) 28px, rgba(255,255,255,0.05) 29px); }
+  .cover-emoji { font-size: 64px; display: block; margin-bottom: 16px; }
+  .cover h1 { font-family: 'Klee One', sans-serif; font-size: 1.85rem; font-weight: 600; line-height: 1.35; margin-bottom: 12px; position: relative; }
+  .cover .subtitle { font-size: 1.0rem; opacity: 0.88; margin-bottom: 8px; position: relative; }
+  .cover .tagline { font-size: 0.88rem; opacity: 0.7; position: relative; margin-bottom: 4px; }
+  .cover .date-badge { display: inline-block; background: rgba(255,255,255,0.2); border: 2px solid rgba(255,255,255,0.5); border-radius: 20px; padding: 6px 20px; font-size: 1rem; margin-top: 16px; position: relative; }
+
+  /* CARDS */
+  .card { background: #fff9f0; border-radius: 6px; width: 100%; max-width: 820px; margin-bottom: 24px; box-shadow: 3px 4px 12px rgba(0,0,0,0.12); position: relative; overflow: hidden; }
+  .card-body { padding: 28px 36px 28px 64px; background: repeating-linear-gradient(0deg, transparent, transparent 31px, #e0d8c8 31px, #e0d8c8 32px); background-color: #fff9f0; min-height: 200px; }
+  .card-body::before { content: ''; position: absolute; left: 52px; top: 0; bottom: 0; width: 2px; background: #1a6a8a; opacity: 0.6; }
+  .card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; padding-bottom: 8px; border-bottom: 2px dashed #c8b89a; }
+  .card-emoji { font-size: 2rem; }
+  .card-title { font-family: 'Klee One', sans-serif; font-size: 1.4rem; font-weight: 600; color: #2c3e50; line-height: 1.3; }
+  .topic-badge { display: inline-block; padding: 3px 12px; border-radius: 12px; font-size: 0.75rem; font-weight: 600; margin-left: auto; white-space: nowrap; }
+  .badge-green  { background: #e0f5e8; color: #1a6640; border: 1px solid #90d4aa; }
+  .badge-red    { background: #ffe0e0; color: #aa2222; border: 1px solid #f0a0a0; }
+  .badge-blue   { background: #e0eeff; color: #2255aa; border: 1px solid #a0c0f5; }
+  .badge-orange { background: #fff0d0; color: #cc6600; border: 1px solid #f0c070; }
+  .badge-teal   { background: #d0f0f0; color: #006060; border: 1px solid #80d0d0; }
+  .badge-gray   { background: #f0f0f0; color: #555; border: 1px solid #ccc; }
+  .badge-cyan   { background: #d0f0ff; color: #006688; border: 1px solid #60c0e0; }
+
+  /* TEXT ELEMENTS */
+  .body-text { font-size: 0.97rem; line-height: 1.85; color: #333; margin: 8px 0; }
+  .simple-box { background: #fff7e0; border-left: 4px solid #f5c842; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 16px 0; font-size: 0.95rem; line-height: 1.8; }
+  .simple-box .label { display: inline-block; background: #f5c842; color: #5a4000; font-size: 0.72rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-bottom: 6px; letter-spacing: 0.5px; }
+  .info-box { background: #eef4ff; border-left: 4px solid #3366cc; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 16px 0; font-size: 0.95rem; line-height: 1.8; }
+  .info-box .label { display: inline-block; background: #3366cc; color: white; font-size: 0.72rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-bottom: 6px; letter-spacing: 0.5px; }
+  .alert-box { background: #fff0f0; border-left: 4px solid #e05050; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 16px 0; font-size: 0.95rem; line-height: 1.8; }
+  .alert-box .label { display: inline-block; background: #e05050; color: white; font-size: 0.72rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-bottom: 6px; letter-spacing: 0.5px; }
+  .green-box { background: #eafaf0; border-left: 4px solid #27ae60; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 16px 0; font-size: 0.95rem; line-height: 1.8; }
+  .green-box .label { display: inline-block; background: #27ae60; color: white; font-size: 0.72rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-bottom: 6px; letter-spacing: 0.5px; }
+  .cyan-box { background: #e0f6ff; border-left: 4px solid #1a9abc; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 16px 0; font-size: 0.95rem; line-height: 1.8; }
+  .cyan-box .label { display: inline-block; background: #1a9abc; color: white; font-size: 0.72rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-bottom: 6px; letter-spacing: 0.5px; }
+  .orange-box { background: #fff4e0; border-left: 4px solid #e67e22; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 16px 0; font-size: 0.95rem; line-height: 1.8; }
+  .orange-box .label { display: inline-block; background: #e67e22; color: white; font-size: 0.72rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-bottom: 6px; letter-spacing: 0.5px; }
+
+  /* NUMBER CARDS */
+  .num-cards { display: flex; gap: 16px; flex-wrap: wrap; margin: 20px 0; justify-content: center; }
+  .num-card { background: white; border-radius: 10px; padding: 18px 20px; text-align: center; flex: 1; min-width: 130px; max-width: 200px; box-shadow: 2px 3px 10px rgba(0,0,0,0.1); border-top: 5px solid #1a6a8a; }
+  .num-card .big-num { font-size: 2.2rem; font-weight: 700; font-family: 'Caveat', cursive; color: #1a6a8a; line-height: 1.1; }
+  .num-card .num-unit { font-size: 0.9rem; color: #1a6a8a; font-weight: 600; margin-bottom: 4px; }
+  .num-card .num-label { font-size: 0.77rem; color: #555; line-height: 1.5; margin-top: 4px; }
+  .num-card.green  { border-top-color: #27ae60; } .num-card.green  .big-num, .num-card.green  .num-unit { color: #27ae60; }
+  .num-card.orange { border-top-color: #e67e22; } .num-card.orange .big-num, .num-card.orange .num-unit { color: #e67e22; }
+  .num-card.blue   { border-top-color: #2980b9; } .num-card.blue   .big-num, .num-card.blue   .num-unit { color: #2980b9; }
+  .num-card.teal   { border-top-color: #1abc9c; } .num-card.teal   .big-num, .num-card.teal   .num-unit { color: #1abc9c; }
+  .num-card.cyan   { border-top-color: #1a9abc; } .num-card.cyan   .big-num, .num-card.cyan   .num-unit { color: #1a9abc; }
+
+  /* COMPARISON TABLE */
+  .compare-table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 0.88rem; margin: 20px 0; }
+  .compare-table th { padding: 10px 12px; font-weight: 700; font-size: 0.82rem; text-align: center; }
+  .compare-table th.col-label { text-align: left; }
+  .compare-table td { padding: 10px 12px; text-align: center; border-bottom: 1px dashed #ddd; vertical-align: top; }
+  .compare-table td.col-label { text-align: left; font-weight: 600; color: #444; }
+  .compare-table tr:last-child td { border-bottom: none; }
+  .th-lbl { background: #f0ece3; color: #555; }
+  .th-c   { background: #d0f0ff; color: #006688; border-radius: 4px 4px 0 0; }
+  .th-g   { background: #dff0d8; color: #2e8b3e; border-radius: 4px 4px 0 0; }
+  .th-o   { background: #fff4e0; color: #cc6600; border-radius: 4px 4px 0 0; }
+  .tag-good { display: inline-block; background: #e0f5e8; color: #1a6640; border-radius: 4px; padding: 1px 7px; font-size: 0.77rem; font-weight: 600; }
+  .tag-mid  { display: inline-block; background: #fff7d0; color: #7a5000; border-radius: 4px; padding: 1px 7px; font-size: 0.77rem; font-weight: 600; }
+  .tag-weak { display: inline-block; background: #ffe0e0; color: #8b1a1a; border-radius: 4px; padding: 1px 7px; font-size: 0.77rem; font-weight: 600; }
+
+  /* STEP FLOW */
+  .step-flow { display: flex; flex-direction: column; gap: 0; margin: 16px 0; }
+  .step-item { display: flex; align-items: flex-start; gap: 14px; }
+  .step-connector { display: flex; flex-direction: column; align-items: center; }
+  .step-circle { width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1rem; flex-shrink: 0; color: white; background: #1a6a8a; }
+  .step-line { width: 2px; height: 24px; background: #80c0d8; flex-shrink: 0; }
+  .step-text { font-size: 0.93rem; line-height: 1.75; color: #333; padding-top: 5px; padding-bottom: 16px; }
+
+  /* MECH LIST */
+  .mech-list { display: flex; gap: 14px; flex-wrap: wrap; margin: 16px 0; }
+  .mech-item { flex: 1; min-width: 180px; background: white; border-radius: 8px; padding: 14px 14px; border-left: 4px solid #1a6a8a; box-shadow: 1px 2px 6px rgba(0,0,0,0.08); }
+  .mech-item .mech-icon { font-size: 1.5rem; display: block; margin-bottom: 6px; }
+  .mech-item .mech-title { font-size: 0.9rem; font-weight: 700; color: #0d3a5c; margin-bottom: 4px; }
+  .mech-item .mech-text { font-size: 0.82rem; color: #555; line-height: 1.7; }
+
+  /* DEHYDRATION SCALE */
+  .dehyd-scale { display: flex; gap: 0; margin: 16px 0; border-radius: 8px; overflow: hidden; box-shadow: 2px 3px 8px rgba(0,0,0,0.1); }
+  .dehyd-level { flex: 1; padding: 12px 6px; text-align: center; font-size: 0.78rem; font-weight: 600; line-height: 1.5; }
+  .dehyd-level .dl-pct { font-size: 1.1rem; font-weight: 700; display: block; margin-bottom: 4px; }
+  .dl-1 { background: #e0f5e8; color: #1a6640; }
+  .dl-2 { background: #fff7d0; color: #7a5000; }
+  .dl-3 { background: #ffe8c0; color: #a05000; }
+  .dl-4 { background: #ffd0c0; color: #8b2000; }
+  .dl-5 { background: #ffc0c0; color: #8b0000; }
+
+  /* URINE COLOR CHART */
+  .urine-chart { display: flex; gap: 4px; margin: 16px 0; }
+  .urine-item { flex: 1; border-radius: 6px; padding: 10px 4px; text-align: center; font-size: 0.75rem; font-weight: 600; }
+  .u1 { background: #fffde0; color: #6a6000; border: 1px solid #e0d870; }
+  .u2 { background: #ffe880; color: #5a4800; border: 1px solid #c8b820; }
+  .u3 { background: #ffc820; color: #4a3000; border: 1px solid #a88800; }
+  .u4 { background: #e88000; color: white; border: 1px solid #a06000; }
+  .u5 { background: #c05800; color: white; border: 1px solid #804000; }
+  .u6 { background: #802800; color: white; border: 1px solid #601800; }
+  .urine-label { font-size: 0.65rem; line-height: 1.4; margin-top: 4px; display: block; }
+
+  /* SOURCE / DISCLAIMER */
+  .source-text { font-size: 0.78rem; color: #888; margin-top: 12px; line-height: 1.6; }
+  .source-text a { color: #1a6a8a; }
+  .disclaimer { background: #f8f8f8; border: 2px solid #ddd; border-radius: 6px; padding: 20px 24px; font-size: 0.83rem; line-height: 1.8; color: #555; width: 100%; max-width: 820px; margin-bottom: 24px; }
+  .disclaimer .dis-title { font-size: 0.9rem; font-weight: 700; color: #444; margin-bottom: 8px; }
+  hr.section-divider { border: none; border-top: 2px dashed #c8b89a; margin: 16px 0; }
+</style>
+</head>
+<body>
+
+<!-- ===== COVER ===== -->
+<div class="cover">
+  <span class="cover-emoji">💧</span>
+  <h1>水分・電解質の基本<br>─ 夏こそ知りたい「飲む量」の科学 ─</h1>
+  <div class="subtitle">「喉が渇いてから飲む」は本当に正解？<br>最新のエビデンスで読み解く水分補給のしくみ</div>
+  <div class="tagline">健康・栄養 最新トピック</div>
+  <div class="date-badge">2026-06-19</div>
+</div>
+
+<!-- ===== CARD 1: 体の60%は水 ===== -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">🧬</span>
+      <span class="card-title">体の「60%」は水でできている</span>
+      <span class="topic-badge badge-cyan">基礎知識</span>
+    </div>
+    <p class="body-text">私たちの体重のおよそ <strong>60%（成人男性）〜55%（成人女性）</strong> は水分です。筋肉は約75%が水、骨でさえ約22%が水でできています。なぜそんなに水が重要なのでしょうか？</p>
+
+    <div class="mech-list">
+      <div class="mech-item">
+        <span class="mech-icon">🚛</span>
+        <div class="mech-title">栄養・酸素の運搬</div>
+        <div class="mech-text">血液（約90%が水）を通じて、酸素・栄養素・ホルモンを全身に届ける</div>
+      </div>
+      <div class="mech-item">
+        <span class="mech-icon">🌡️</span>
+        <div class="mech-title">体温調節</div>
+        <div class="mech-text">汗として蒸発することで体温を下げる。夏の熱中症予防に直結する機能</div>
+      </div>
+      <div class="mech-item">
+        <span class="mech-icon">🗑️</span>
+        <div class="mech-title">老廃物の排出</div>
+        <div class="mech-text">腎臓が老廃物を尿として溶かして体外へ。水が足りないと尿が濃くなり腎臓に負担</div>
+      </div>
+      <div class="mech-item">
+        <span class="mech-icon">⚡</span>
+        <div class="mech-title">神経・筋肉の働き</div>
+        <div class="mech-text">電解質（イオン）が水に溶けることで神経信号の伝達・筋収縮が可能になる</div>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <div class="label">重要ポイント</div>
+      体の水分が<strong>わずか2%</strong>失われるだけで、集中力・判断力・運動パフォーマンスへの悪影響が観察研究・実験で報告されています。夏は汗で失いやすいため、意識的な補給が特に重要です。
+    </div>
+  </div>
+</div>
+
+<!-- ===== CARD 2: 推奨量 ===== -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">📏</span>
+      <span class="card-title">1日どれくらい飲む？ ── 推奨量の科学</span>
+      <span class="topic-badge badge-blue">公的基準</span>
+    </div>
+    <p class="body-text">「1日8杯（約2L）飲もう」という言い回しをよく聞きますが、これは科学的根拠のはっきりしない俗説です。実際の公的ガイドラインを確認しましょう。</p>
+
+    <div class="num-cards">
+      <div class="num-card blue">
+        <div class="big-num">3.7</div>
+        <div class="num-unit">L／日</div>
+        <div class="num-label">成人男性の<br>目安摂取量(AI)※<br>飲料＋食事の水分込み</div>
+      </div>
+      <div class="num-card cyan">
+        <div class="big-num">2.7</div>
+        <div class="num-unit">L／日</div>
+        <div class="num-label">成人女性の<br>目安摂取量(AI)※<br>飲料＋食事の水分込み</div>
+      </div>
+      <div class="num-card teal">
+        <div class="big-num">約20</div>
+        <div class="num-unit">%</div>
+        <div class="num-label">食事（野菜・果物・<br>スープなど）から<br>摂れる水分の割合</div>
+      </div>
+    </div>
+
+    <div class="simple-box">
+      <div class="label">AI（目安量）とは？</div>
+      「十分だと考えられる摂取量の目安」。RDA（推奨量）とは異なり、用量反応のデータが不足しているため、健康な人の平均摂取量をもとに設定されています。「これだけ飲めば完璧」という確定値ではなく、個人差があることを前提にしています。
+    </div>
+
+    <p class="body-text">飲み物だけで換算すると、男性で約<strong>3.0L</strong>、女性で約<strong>2.2L</strong>が目安。ただし、気温・運動量・体格・食事内容で必要量は大きく変わります。</p>
+
+    <div class="cyan-box">
+      <div class="label">2024年ナラティブレビュー（Armstrong ら）の提案</div>
+      96件の研究を分析した結果、「1日2〜3Lの薄い尿（淡黄色）」を排出できるくらいの水分量（総量2.5〜3.5L/日）が長期的な健康に有利という仮説が提唱されました。ただし、観察研究が中心であり、因果関係の確立にはさらなる介入試験（RCT）が必要です。
+    </div>
+
+    <div class="source-text">
+      出典: ①米国科学・工学・医学アカデミー(NASEM) "Dietary Reference Intakes for Water, Potassium, Sodium, Chloride, and Sulfate" 2005年
+      <a href="https://www.nationalacademies.org/our-work/dietary-reference-intakes-for-electrolytes-and-water" target="_blank">nationalacademies.org</a>
+      ②Armstrong LE et al., <em>Nutrition Reviews</em> 2024 DOI:
+      <a href="https://doi.org/10.1177/02601060241238826" target="_blank">10.1177/02601060241238826</a>（ナラティブレビュー、96研究分析、2024年）
+    </div>
+  </div>
+</div>
+
+<!-- ===== CARD 3: 脱水のサイン ===== -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">🌡️</span>
+      <span class="card-title">脱水のサイン ── 「かくれ脱水」に気をつけよう</span>
+      <span class="topic-badge badge-orange">注意サイン</span>
+    </div>
+    <p class="body-text">脱水（体重に対する水分損失の割合）が進むにつれて、症状が段階的に現れます。夏は知らないうちに水分が失われる「かくれ脱水」が起きやすい季節です。</p>
+
+    <div class="dehyd-scale">
+      <div class="dehyd-level dl-1">
+        <span class="dl-pct">〜1%</span>
+        軽い喉の渇き・集中力やや低下
+      </div>
+      <div class="dehyd-level dl-2">
+        <span class="dl-pct">2%</span>
+        運動能力・判断力への影響が出始める
+      </div>
+      <div class="dehyd-level dl-3">
+        <span class="dl-pct">4%</span>
+        強い頭痛・疲労感・尿量減少・口の乾き
+      </div>
+      <div class="dehyd-level dl-4">
+        <span class="dl-pct">6%</span>
+        皮膚弾力低下・立ちくらみ・心拍増加
+      </div>
+      <div class="dehyd-level dl-5">
+        <span class="dl-pct">8%+</span>
+        意識障害・熱中症の危険ゾーン
+      </div>
+    </div>
+
+    <p class="body-text" style="margin-top:16px;">最も手軽で実用的なチェック法は<strong>尿の色</strong>です。</p>
+
+    <div class="urine-chart">
+      <div class="urine-item u1"><span class="urine-label">ほぼ<br>透明</span>飲みすぎ注意</div>
+      <div class="urine-item u2"><span class="urine-label">薄い<br>黄色</span>✅ 良好</div>
+      <div class="urine-item u3"><span class="urine-label">麦茶<br>程度</span>⚠️ やや不足</div>
+      <div class="urine-item u4"><span class="urine-label">濃い<br>オレンジ</span>❗ 不足</div>
+      <div class="urine-item u5"><span class="urine-label">茶色<br>みがかる</span>❗❗ 要補給</div>
+      <div class="urine-item u6"><span class="urine-label">茶・<br>赤みがかる</span>🚨 受診検討</div>
+    </div>
+
+    <div class="alert-box">
+      <div class="label">「喉が渇いてから飲む」の落とし穴</div>
+      健康な若い成人では、喉の渇きは比較的正確なサインです。しかし <strong>高齢者は加齢とともに渇き感が鈍くなる</strong>ため、水分が不足していても気づきにくくなります。子供も自覚が薄い場合があります。これらの方は時間を決めて飲む習慣が特に大切です。
+    </div>
+
+    <div class="source-text">
+      出典: StatPearls / NCBI Bookshelf "Adult Dehydration" <a href="https://www.ncbi.nlm.nih.gov/books/NBK555956/" target="_blank">NBK555956</a>（NIH、継続更新）
+    </div>
+  </div>
+</div>
+
+<!-- ===== CARD 4: 電解質 ===== -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">⚡</span>
+      <span class="card-title">電解質とは？ ── 水だけでは補えない「溶けたミネラル」</span>
+      <span class="topic-badge badge-teal">しくみ</span>
+    </div>
+    <p class="body-text"><strong>電解質</strong>（でんかいしつ）とは、水に溶けてイオン（電気を帯びた粒子）になるミネラルのことです。神経の信号伝達・筋肉の収縮・体液のバランス維持に欠かせません。汗には水だけでなく電解質も含まれています。</p>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th class="col-label th-lbl">電解質</th>
+          <th class="th-c">主な働き</th>
+          <th class="th-g">主な食事源</th>
+          <th class="th-o">不足すると</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="col-label">🧂 ナトリウム（Na）</td>
+          <td>体液量の維持・神経信号・筋収縮</td>
+          <td>食塩・みそ・醤油・梅干し</td>
+          <td>頭痛・吐き気・けいれん（低Na血症）</td>
+        </tr>
+        <tr>
+          <td class="col-label">🍌 カリウム（K）</td>
+          <td>Naとのバランス・心臓機能・血圧調節</td>
+          <td>バナナ・いも・野菜・豆類</td>
+          <td>筋力低下・不整脈・だるさ（低K血症）</td>
+        </tr>
+        <tr>
+          <td class="col-label">🦴 マグネシウム（Mg）</td>
+          <td>300以上の酵素反応・骨・神経・血糖</td>
+          <td>ナッツ・豆・玄米・葉野菜</td>
+          <td>筋肉のけいれん・疲労感・不安</td>
+        </tr>
+        <tr>
+          <td class="col-label">🥛 カルシウム（Ca）</td>
+          <td>骨・歯・筋収縮・神経伝達</td>
+          <td>乳製品・小魚・豆腐・小松菜</td>
+          <td>筋肉のしびれ・骨密度低下</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="info-box">
+      <div class="label">スポーツドリンクが必要なのはいつ？</div>
+      ・<strong>通常の生活・軽い運動（〜1時間）</strong>：水だけで十分なことが多い<br>
+      ・<strong>激しい運動が1時間以上、または暑い環境での作業</strong>：ナトリウムを含む飲料（スポーツドリンク・経口補水液）が有効<br>
+      ・スポーツドリンクには糖分も多いため、日常の水代わりに大量に飲むのは推奨されない
+    </div>
+  </div>
+</div>
+
+<!-- ===== CARD 5: RCT証拠 ===== -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">🔬</span>
+      <span class="card-title">「水を多く飲む」効果 ── RCT（介入試験）の証拠</span>
+      <span class="topic-badge badge-blue">研究エビデンス</span>
+    </div>
+    <p class="body-text">2024年に発表された系統的レビュー（Campbell ら、PMID: 39585691）は、水分摂取量を増やした介入試験（RCT）を集めて分析しました。</p>
+
+    <div class="mech-list">
+      <div class="mech-item">
+        <span class="mech-icon">⚖️</span>
+        <div class="mech-title">体重減少（肥満・過体重を対象）</div>
+        <div class="mech-text">複数のRCTで、水を多く飲んだグループは対照群より<strong>44〜100%多く体重が減少</strong>。ただし研究数が少なく規模も小さい。</div>
+      </div>
+      <div class="mech-item">
+        <span class="mech-icon">🪨</span>
+        <div class="mech-title">腎臓結石（尿路結石）の予防</div>
+        <div class="mech-text">最も証拠が強い分野。5年間で<strong>100人あたり15件</strong>の結石イベントを減らす効果（水分増量群 vs. 対照群）が確認された。</div>
+      </div>
+      <div class="mech-item">
+        <span class="mech-icon">❓</span>
+        <div class="mech-title">血糖・血圧・認知機能ほか</div>
+        <div class="mech-text">RCTの数が少なく、結果もまちまち。「水を増やせば改善する」と断言できる十分なエビデンスはまだない。</div>
+      </div>
+    </div>
+
+    <div class="orange-box">
+      <div class="label">エビデンスの限界（重要）</div>
+      水分摂取と慢性疾患（心臓病・がん・認知症など）の関係を調べた研究の多くは<strong>観察研究</strong>（コホート研究など）です。観察研究は「相関」は示せますが、「水を飲んだから病気が減った」という<strong>因果関係</strong>を証明するものではありません。この分野は大規模なRCTが少なく、エビデンスの質はまだ限られています。
+    </div>
+
+    <div class="source-text">
+      出典: Campbell K et al., "Outcomes in Randomized Clinical Trials Testing Changes in Daily Water Intake: A Systematic Review"
+      PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/39585691/" target="_blank">39585691</a>（系統的レビュー、2024年）
+    </div>
+  </div>
+</div>
+
+<!-- ===== CARD 6: 夏の補給ガイド ===== -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">☀️</span>
+      <span class="card-title">夏の水分補給 ── 熱中症を防ぐ実践ステップ</span>
+      <span class="topic-badge badge-green">実践</span>
+    </div>
+    <p class="body-text">気温と湿度が高くなると汗からの水分・塩分（ナトリウム）の損失が急増します。日本の梅雨明け〜夏は特に注意が必要な季節です。</p>
+
+    <div class="step-flow">
+      <div class="step-item">
+        <div class="step-connector">
+          <div class="step-circle">1</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-text"><strong>こまめに飲む</strong> ── 20〜30分おきにコップ半杯〜1杯が基本。一気飲みより分散補給が効果的。のどが渇く前に飲む習慣を。</div>
+      </div>
+      <div class="step-item">
+        <div class="step-connector">
+          <div class="step-circle">2</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-text"><strong>起きたらまず一杯</strong> ── 就寝中の不感蒸泄（皮膚・呼気から気づかず失われる水分）で200〜400mL失われるため、朝一番の補給が大切。</div>
+      </div>
+      <div class="step-item">
+        <div class="step-connector">
+          <div class="step-circle">3</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-text"><strong>運動・屋外作業では塩分も補給</strong> ── 1時間以上の発汗が続く場合は水だけでなくナトリウムも補給する。スポーツドリンクか、水に少量の食塩（0.1〜0.2%程度）が目安。</div>
+      </div>
+      <div class="step-item">
+        <div class="step-connector">
+          <div class="step-circle">4</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-text"><strong>アルコール・カフェインに注意</strong> ── アルコールには利尿作用があり、脱水を促進する。お酒を飲む場合は水も一緒に飲む習慣を。カフェインは中程度なら問題ないことが多いが大量摂取は注意。</div>
+      </div>
+      <div class="step-item">
+        <div class="step-connector">
+          <div class="step-circle">5</div>
+        </div>
+        <div class="step-text"><strong>尿の色で状態確認</strong> ── 薄い黄色が「適切」のめやす。濃い黄色・茶色に近い場合は積極的に水分補給を。</div>
+      </div>
+    </div>
+
+    <div class="simple-box">
+      <div class="label">不感蒸泄（ふかんじょうせつ）とは</div>
+      皮膚や呼気から、自覚なしに失われる水分のこと。汗とは異なり「蒸発している感覚がない」のに失われ続けます。成人で1日約700〜900mLにのぼるため、何も飲まなければ朝は必ず水分不足になります。
+    </div>
+  </div>
+</div>
+
+<!-- ===== CARD 7: 個人差・精密栄養 ===== -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">👤</span>
+      <span class="card-title">個人差と「飲みすぎ」にも注意 ── 精密栄養学の視点</span>
+      <span class="topic-badge badge-gray">個人差・注意点</span>
+    </div>
+    <p class="body-text">水分の必要量は、体重・活動量・気温・食事内容・持病によって大きく変わります。「みんなに同じ量」という画一的な推奨は精密栄養学の観点からは適切ではありません。</p>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th class="col-label th-lbl">条件・対象</th>
+          <th class="th-c">必要量への影響</th>
+          <th class="th-o">注意点</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="col-label">👴 高齢者</td>
+          <td>渇き感が低下→不足しやすい</td>
+          <td>時間を決めた定期補給が特に重要</td>
+        </tr>
+        <tr>
+          <td class="col-label">🫀 腎臓病・心不全</td>
+          <td>水分制限が必要なことも</td>
+          <td>必ず主治医の指示に従う</td>
+        </tr>
+        <tr>
+          <td class="col-label">🤰 妊娠・授乳中</td>
+          <td>需要が増加（+約300〜700mL/日）</td>
+          <td>産科医・助産師に相談</td>
+        </tr>
+        <tr>
+          <td class="col-label">🏃 激しい運動</td>
+          <td>1時間で1L以上失うことも</td>
+          <td>塩分・電解質の補給も合わせて</td>
+        </tr>
+        <tr>
+          <td class="col-label">🌏 高温・多湿環境</td>
+          <td>発汗量が数倍に増える</td>
+          <td>こまめな補給と体調モニタリング</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="alert-box">
+      <div class="label">水の飲みすぎ（水中毒）にも注意</div>
+      非常に短時間に大量の水（数L以上）を飲むと、血液中のナトリウムが薄まり<strong>低ナトリウム血症</strong>を起こすことがあります。激しい運動中に水だけを大量補給するマラソンランナーに見られることがあります。健康な成人の日常生活では心配不要ですが、「水をたくさん飲めば飲むほどよい」というわけではありません。
+    </div>
+
+    <div class="green-box">
+      <div class="label">精密栄養学の視点から</div>
+      腸内細菌・遺伝子・代謝の個人差と同様に、水分の吸収・排泄速度にも個人差があります。「1日◯Lという数字」より、<strong>尿の色・喉の渇き感・体調の変化</strong>をモニタリングする「自分の体の声を聞く」アプローチが長期的には合理的です。
+    </div>
+  </div>
+</div>
+
+<!-- ===== DISCLAIMER ===== -->
+<div class="disclaimer">
+  <div class="dis-title">⚠️ 免責・注意事項</div>
+  本記事は一般的な健康情報の提供を目的としており、医療アドバイスではありません。水分・電解質の必要量は年齢・体格・持病・運動量・環境温度などにより個人差が大きく、一般的な推奨がそのまま当てはまらない場合があります。特に腎臓病・心疾患・肝臓病をお持ちの方、利尿剤などを服用中の方は、水分・電解質の摂取量について必ずかかりつけ医・管理栄養士にご相談ください。熱中症が疑われる症状（高体温・意識障害・嘔吐など）が見られた場合は、ただちに医療機関を受診してください。
+</div>
+
+<!-- ===== SOURCES ===== -->
+<div class="disclaimer" style="border-color: #aac8d8;">
+  <div class="dis-title">📚 主な参考文献・出典</div>
+  ① National Academies of Sciences, Engineering, and Medicine（旧IOM）"Dietary Reference Intakes for Water, Potassium, Sodium, Chloride, and Sulfate" 2005年
+  <a href="https://www.nationalacademies.org/our-work/dietary-reference-intakes-for-electrolytes-and-water" target="_blank">nationalacademies.org</a><br>
+  ② Armstrong LE, Bergeron MF, Muñoz CX, Kavouras SA. "Low daily water intake profile—is it a contributor to disease?" <em>Nutrition Reviews</em> 2024. DOI:
+  <a href="https://doi.org/10.1177/02601060241238826" target="_blank">10.1177/02601060241238826</a>（ナラティブレビュー、96研究を分析、2024年）<br>
+  ③ Campbell K et al. "Outcomes in Randomized Clinical Trials Testing Changes in Daily Water Intake: A Systematic Review" PMID:
+  <a href="https://pubmed.ncbi.nlm.nih.gov/39585691/" target="_blank">39585691</a>（系統的レビュー、2024年）<br>
+  ④ StatPearls "Adult Dehydration" NCBI Bookshelf
+  <a href="https://www.ncbi.nlm.nih.gov/books/NBK555956/" target="_blank">NBK555956</a>（NIH、継続更新）
+</div>
+
+</body>
+</html>
