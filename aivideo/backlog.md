@@ -2,7 +2,7 @@
 
 ## エバーグリーン（技法・知識）
 
-- BGM・SE選びと音楽生成AI（Suno / Udio / Lyria 3の使い分けと著作権）
+- BGM・SE選びと音楽生成AI（Suno v5.5 / Udio / Lyria 3 Proの使い分けと著作権）
 
 ## ツール・新機能（要WebSearch更新）
 
@@ -12,10 +12,11 @@
 ## 新テーマ候補（追加）
 
 - AI動画の著作権と商用利用ガイド（各ツールの規約比較）
-- Pika 2.2 スタイル変換・カスタムアスペクト比・Pikaformances 完全ガイド（2026年6月更新）
+- Suno v5.5 Voices（音声クローン）・Custom Models・My Taste 完全ガイド（2026年3月リリース）
 
 ## 済み（扱ったテーマ）
 
+- 2026-06-19（ツール）：Pika 2.5 完全ガイド（Pikaframes 5キーフレーム×25秒・Pikaformance・Pikatwists・Pikaswaps・Pikadditions・Pikaffects・プラン比較・Runway/Kling比較表・桜タイムラプス実践例）
 - 2026-06-18（エバーグリーン）：動画コンテスト・公募情報の探し方（Runway AIF/WAIFF/Reply/Austin比較・curiousrefuge/FilmFreeway/Melies/Koubo 5サイト・応募4ステップ・規約3点チェック）
 - 2026-06-15（ツール）：C2PA 透かし・AI映像識別技術（EU AI Act Article 50・8月2日施行・SNSでのC2PA消失問題・Adobe Firefly/Runway/Kling対応状況比較・クリエイター4アクション）
 - 2026-06-14（エバーグリーン）：実写×AI合成ワークフロー（背景差し替え・オブジェクト挿入・スタイル変換3アプローチ・5ステップ・CapCut/Runway/Firefly/DaVinci比較・馴染む合成4コツ）
