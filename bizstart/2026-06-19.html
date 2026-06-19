@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-06-19</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    line-height: 1.7;
+  }
+  .page {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+
+  /* Header */
+  .header {
+    background: linear-gradient(135deg, #7a4f1e 0%, #4a2e08 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 40px 36px;
+    margin-bottom: 32px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+  }
+  .header .label {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    opacity: 0.8;
+    margin-bottom: 10px;
+  }
+  .header h1 {
+    font-size: 1.7rem;
+    line-height: 1.4;
+    margin-bottom: 12px;
+  }
+  .header .sub {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .header .date-badge {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    background: rgba(255,255,255,0.15);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+  }
+
+  /* Section */
+  .section {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 28px 32px;
+    margin-bottom: 24px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.08);
+  }
+  .section-title {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #7a4f1e;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px dashed #d4b898;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  /* Big number cards */
+  .num-cards {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+  }
+  .num-card {
+    flex: 1;
+    min-width: 160px;
+    background: #fff;
+    border: 2px solid #d4b898;
+    border-radius: 10px;
+    padding: 18px 16px;
+    text-align: center;
+  }
+  .num-card .big {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #7a4f1e;
+    line-height: 1;
+    margin: 6px 0;
+  }
+  .num-card .label {
+    font-size: 0.78rem;
+    color: #888;
+  }
+  .num-card .desc {
+    font-size: 0.82rem;
+    color: #555;
+    margin-top: 6px;
+  }
+  .num-card.highlight {
+    background: #7a4f1e;
+    border-color: #7a4f1e;
+    color: white;
+  }
+  .num-card.highlight .big { color: #fde68a; }
+  .num-card.highlight .label { color: rgba(255,255,255,0.75); }
+  .num-card.highlight .desc { color: rgba(255,255,255,0.9); }
+
+  /* Flow */
+  .flow {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    flex-wrap: wrap;
+    margin: 20px 0;
+  }
+  .flow-box {
+    background: #fff;
+    border: 2px solid #d4b898;
+    border-radius: 8px;
+    padding: 14px 16px;
+    text-align: center;
+    font-size: 0.88rem;
+    min-width: 110px;
+    flex: 1;
+  }
+  .flow-box .icon { font-size: 1.4rem; margin-bottom: 4px; }
+  .flow-arrow {
+    font-size: 1.5rem;
+    color: #b89060;
+    padding: 0 6px;
+    flex-shrink: 0;
+  }
+
+  /* Table */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+    margin: 16px 0;
+  }
+  th {
+    background: #7a4f1e;
+    color: white;
+    padding: 10px 14px;
+    text-align: left;
+  }
+  td {
+    padding: 10px 14px;
+    border-bottom: 1px solid #e8d8c0;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: #fdf5e8; }
+  .mark-yes { color: #2ecc71; font-weight: 700; }
+  .mark-no  { color: #e74c3c; font-weight: 700; }
+
+  /* Steps */
+  .steps { margin: 16px 0; }
+  .step {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    margin-bottom: 14px;
+  }
+  .step-num {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    background: #7a4f1e;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+  .step-body { flex: 1; }
+  .step-body strong { color: #7a4f1e; }
+
+  /* Alert */
+  .alert {
+    background: #fff3cd;
+    border-left: 4px solid #f39c12;
+    border-radius: 6px;
+    padding: 14px 18px;
+    margin: 16px 0;
+    font-size: 0.88rem;
+  }
+  .alert.info {
+    background: #e8f4fd;
+    border-left-color: #3498db;
+  }
+  .alert.success {
+    background: #eafaf1;
+    border-left-color: #2ecc71;
+  }
+
+  /* Checklist */
+  .checklist { list-style: none; margin: 16px 0; }
+  .checklist li {
+    padding: 8px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .checklist li:last-child { border-bottom: none; }
+  .checklist .chk {
+    width: 22px;
+    height: 22px;
+    min-width: 22px;
+    border: 2px solid #d4b898;
+    border-radius: 4px;
+    background: white;
+    flex-shrink: 0;
+  }
+
+  /* Tag */
+  .tag {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 10px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+  .tag.note { background: #f39c12; color: white; }
+
+  /* Two column */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 16px 0;
+  }
+  @media (max-width: 620px) {
+    .two-col { grid-template-columns: 1fr; }
+    .flow { flex-direction: column; align-items: stretch; }
+    .flow-arrow { transform: rotate(90deg); text-align: center; }
+    .num-cards { flex-direction: column; }
+    .header .date-badge { position: static; display: inline-block; margin-bottom: 10px; }
+    .header h1 { font-size: 1.35rem; }
+  }
+
+  .col-box {
+    background: #fff;
+    border: 2px solid #d4b898;
+    border-radius: 8px;
+    padding: 16px;
+  }
+  .col-box h4 {
+    color: #7a4f1e;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+  }
+  .col-box ul {
+    font-size: 0.86rem;
+    padding-left: 16px;
+    color: #555;
+  }
+  .col-box ul li { margin-bottom: 6px; line-height: 1.5; }
+
+  /* Source */
+  .sources {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    color: #888;
+    line-height: 1.6;
+  }
+  .sources a { color: #7a4f1e; word-break: break-all; }
+
+  /* Disclaimer */
+  .disclaimer {
+    background: #f5f0e8;
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-top: 32px;
+    font-size: 0.82rem;
+    color: #666;
+    border: 1px solid #e0d0b8;
+    line-height: 1.7;
+  }
+  .disclaimer h3 { color: #888; margin-bottom: 8px; font-size: 0.85rem; }
+  .disclaimer a { color: #7a4f1e; }
+
+  p.body { font-size: 0.92rem; color: #444; margin-bottom: 10px; line-height: 1.7; }
+  .hint { font-size: 0.82rem; color: #666; font-style: italic; margin-top: 4px; line-height: 1.6; }
+  strong { font-weight: 600; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="date-badge">2026-06-19</div>
+    <div class="label">1人法人スタート 最新トピック</div>
+    <h1>&#x1F4B8; 源泉徴収の基礎<br>役員報酬・外注費から引く所得税と翌月10日ルール</h1>
+    <div class="sub">毎月やらないといけないのに意外と知られていない「税金の天引き」の仕組みを図解で解説します</div>
+  </div>
+
+  <!-- Section 1: そもそも源泉徴収って何？ -->
+  <div class="section">
+    <div class="section-title">&#x1F4CC; そもそも源泉徴収って何？</div>
+    <p class="body">
+      源泉徴収（げんせんちょうしゅう）とは、<strong>お金を支払う側（会社）があらかじめ所得税を差し引いて、受取人の代わりに国に納める仕組み</strong>です。<br>
+      「源泉」＝お金の出どころ（支払い元）で税金を天引きする、というイメージです。
+    </p>
+    <p class="body">
+      会社が「税金の集金係」になっているわけです。サラリーマン時代に給与明細を見て「なぜ少ない？」と思ったあれです。
+    </p>
+
+    <div class="flow">
+      <div class="flow-box">
+        <div class="icon">&#x1F3E2;</div>
+        <div><strong>会社（あなた）</strong><br><small>お金を支払う側</small></div>
+      </div>
+      <div class="flow-arrow">&#x2192;</div>
+      <div class="flow-box" style="background:#fff3cd; border-color:#f39c12;">
+        <div class="icon">&#x2702;&#xFE0F;</div>
+        <div><strong>所得税を天引き</strong><br><small>計算して差し引く</small></div>
+      </div>
+      <div class="flow-arrow">&#x2192;</div>
+      <div class="flow-box">
+        <div class="icon">&#x1F464;</div>
+        <div><strong>受取人</strong><br><small>差引後の金額を受け取る</small></div>
+      </div>
+      <div class="flow-arrow">&#x2192;</div>
+      <div class="flow-box" style="background:#e8f4fd; border-color:#3498db;">
+        <div class="icon">&#x1F3DB;&#xFE0F;</div>
+        <div><strong>国（税務署）</strong><br><small>翌月10日までに納付</small></div>
+      </div>
+    </div>
+
+    <div class="alert info">
+      &#x1F4A1; <strong>1人社長の特殊性：</strong>自分の役員報酬から「自分で天引き」して「自分で税務署に納める」のが1人法人の現実です。やらないと<strong>不納付加算税（10%）＋延滞税</strong>が発生します。
+    </div>
+  </div>
+
+  <!-- Section 2: 役員報酬からの源泉徴収 -->
+  <div class="section">
+    <div class="section-title">&#x1F454; 役員報酬からの源泉徴収（給与所得）</div>
+    <p class="body">
+      役員報酬は「給与所得」として扱われます。毎月の支給額から <strong>「給与所得の源泉徴収税額表（月額表）」</strong> を使って所得税を計算します。
+    </p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <strong>「扶養控除等申告書」を会社に提出する（自分で自分に）</strong><br>
+          これを提出すると「甲欄（こうらん）」が使え、税額が低くなります。提出しない場合は「乙欄」で高め税率になります。
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <strong>月額報酬 × 税額表 ＝ 源泉所得税額</strong><br>
+          例：月30万円・扶養0人・甲欄 → 約8,420円（令和6年分の一例。正確な額は国税庁の税額表で要確認）
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <strong>差引後の金額を自分の口座に振込</strong><br>
+          300,000円 ー 8,420円 ＝ <strong>291,580円</strong> を受け取る
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <strong>天引きした8,420円を翌月10日までに税務署へ納付</strong><br>
+          e-Taxまたは金融機関窓口で「所得税徴収高計算書」とともに納付します
+        </div>
+      </div>
+    </div>
+
+    <div class="alert">
+      &#x26A0;&#xFE0F; 上の金額はあくまで例です。正確な税額は国税庁の「給与所得の源泉徴収税額表」を参照してください。会計ソフト（freeeなど）が自動計算する機能もあります。
+    </div>
+
+    <div class="sources">
+      出典：国税庁「給与から差し引かれる税金」（基準年度：令和6年）<br>
+      <a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/gensen/gensen35.htm" target="_blank">https://www.nta.go.jp/taxes/shiraberu/taxanswer/gensen/gensen35.htm</a>
+    </div>
+  </div>
+
+  <!-- Section 3: 外注費の源泉徴収 -->
+  <div class="section">
+    <div class="section-title">&#x1F9FE; 外注費の源泉徴収（フリーランスへの支払い）</div>
+    <p class="body">
+      個人のフリーランスや士業（弁護士・税理士など）に特定の仕事を依頼したとき、支払い側の会社が源泉徴収する義務があります。
+    </p>
+    <p class="body"><strong>判断のカギは「個人 or 法人」と「業種・報酬の種類」の2つです。</strong></p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>支払い先</th>
+          <th>業種・報酬の種類の例</th>
+          <th>源泉徴収</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>個人（フリーランス）</td>
+          <td>原稿料・イラスト料・デザイン料・翻訳料・講演料</td>
+          <td><span class="mark-yes">必要</span></td>
+        </tr>
+        <tr>
+          <td>個人（士業）</td>
+          <td>弁護士・税理士・公認会計士・社会保険労務士・司法書士への報酬</td>
+          <td><span class="mark-yes">必要</span></td>
+        </tr>
+        <tr>
+          <td>個人（フリーランス）</td>
+          <td>システム開発・プログラミング・コンサルティング等</td>
+          <td><span class="mark-no">原則不要</span> <span class="tag note">注</span></td>
+        </tr>
+        <tr>
+          <td>法人（株式会社など）</td>
+          <td>すべての業種・報酬</td>
+          <td><span class="mark-no">不要</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="hint">注：プログラミングは著作権が伴う創作物かどうかで判断が分かれることがあります。不明な場合は税理士にご確認ください。</p>
+
+    <div class="num-cards">
+      <div class="num-card highlight">
+        <div class="label">同月同一人への支払い　100万円以下の部分</div>
+        <div class="big">10.21%</div>
+        <div class="desc">所得税10% ＋ 復興特別所得税0.21%</div>
+      </div>
+      <div class="num-card highlight">
+        <div class="label">同月同一人への支払い　100万円超の部分</div>
+        <div class="big">20.42%</div>
+        <div class="desc">超えた金額だけ高くなる（累進的な仕組み）</div>
+      </div>
+    </div>
+
+    <div class="alert success">
+      &#x2705; <strong>計算例：</strong>個人デザイナーに110,000円（税抜）支払う場合<br>
+      天引き税額 ＝ 110,000円 &times; 10.21% ≒ <strong>11,231円</strong>（1円未満切捨て）<br>
+      実際に振り込む金額 ＝ 110,000 ー 11,231 ＝ <strong>98,769円</strong>
+    </div>
+
+    <div class="sources">
+      出典：国税庁「報酬・料金等の源泉徴収」（基準年度：令和6年）<br>
+      <a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/gensen/gensen20.htm" target="_blank">https://www.nta.go.jp/taxes/shiraberu/taxanswer/gensen/gensen20.htm</a>
+    </div>
+  </div>
+
+  <!-- Section 4: 納付ルール -->
+  <div class="section">
+    <div class="section-title">&#x1F4C5; 納付ルール：翌月10日が基本！</div>
+    <p class="body">
+      天引きした源泉所得税は、<strong>支払いを行った月の翌月10日まで</strong>に税務署に納めます。
+    </p>
+
+    <div class="two-col">
+      <div class="col-box">
+        <h4>&#x1F5D3; 通常ルール（毎月払い）</h4>
+        <ul>
+          <li>毎月10日が期限</li>
+          <li>例：6月に役員報酬支払 → <strong>7月10日</strong>まで</li>
+          <li>e-Tax または金融機関窓口で納付</li>
+          <li>「所得税徴収高計算書」を使用</li>
+          <li>支払い額がゼロの月でも書類提出が必要</li>
+        </ul>
+      </div>
+      <div class="col-box">
+        <h4>&#x1F31F; 特例ルール（年2回払い）</h4>
+        <ul>
+          <li><strong>常時雇用者が10人未満</strong>の会社のみ対象</li>
+          <li>税務署に申請書を提出するだけでOK</li>
+          <li>1〜6月分 → <strong>7月10日</strong>まで</li>
+          <li>7〜12月分 → <strong>翌年1月20日</strong>まで</li>
+          <li>1人会社にはとても便利！</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="alert">
+      &#x26A0;&#xFE0F; <strong>「納期の特例」は申請が必要です！</strong><br>
+      設立時に申請しないと毎月払いが続きます。所轄の税務署に「<strong>源泉所得税の納期の特例の承認に関する申請書</strong>」を提出してください。申請書を提出した月の翌月末日までに承認とみなされます。
+    </div>
+
+    <div class="sources">
+      出典：国税庁「源泉所得税及び復興特別所得税の納付期限と納期の特例」（基準年度：令和6年）<br>
+      <a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/gensen/gensen17.htm" target="_blank">https://www.nta.go.jp/taxes/shiraberu/taxanswer/gensen/gensen17.htm</a>
+    </div>
+  </div>
+
+  <!-- Section 5: 年末調整との関係 -->
+  <div class="section">
+    <div class="section-title">&#x1F384; 毎月の源泉徴収 → 12月の年末調整で精算</div>
+    <p class="body">
+      毎月の源泉徴収はあくまで<strong>1年間の税額の概算</strong>です。12月に「年末調整」を行い、正確な税額と比べて過不足を精算します。
+    </p>
+
+    <div class="flow">
+      <div class="flow-box">
+        <div class="icon">&#x1F4C6;</div>
+        <div><strong>毎月</strong><br><small>概算で天引き・納付</small></div>
+      </div>
+      <div class="flow-arrow">&#x2192;</div>
+      <div class="flow-box" style="background:#eafaf1; border-color:#2ecc71;">
+        <div class="icon">&#x1F384;</div>
+        <div><strong>12月</strong><br><small>年末調整で1年分を精算</small></div>
+      </div>
+      <div class="flow-arrow">&#x2192;</div>
+      <div class="flow-box">
+        <div class="icon">&#x1F4C4;</div>
+        <div><strong>翌年1月</strong><br><small>源泉徴収票を発行</small></div>
+      </div>
+      <div class="flow-arrow">&#x2192;</div>
+      <div class="flow-box" style="background:#fff3cd; border-color:#f39c12;">
+        <div class="icon">&#x1F4EC;</div>
+        <div><strong>翌年1月末</strong><br><small>法定調書を税務署へ</small></div>
+      </div>
+    </div>
+
+    <div class="alert info">
+      &#x1F4A1; <strong>外注費（フリーランスへの支払い）の場合：</strong>源泉徴収票の発行は不要ですが、年間支払額が5万円を超える場合は「<strong>支払調書</strong>」を翌年1月末までに税務署に提出する必要があります。
+    </div>
+  </div>
+
+  <!-- Section 6: チェックリスト -->
+  <div class="section">
+    <div class="section-title">&#x2705; 今日から使える！1人社長の源泉徴収チェックリスト</div>
+    <ul class="checklist">
+      <li><span class="chk"></span>役員報酬を決めた際、「給与所得の源泉徴収税額表（月額表）」で所得税額を確認した</li>
+      <li><span class="chk"></span>「扶養控除等申告書」を会社（自分）に提出し、甲欄で計算している</li>
+      <li><span class="chk"></span>「納期の特例の承認に関する申請書」を所轄税務署に提出した（常時雇用者10人未満）</li>
+      <li><span class="chk"></span>個人フリーランスへの支払い時、源泉徴収が必要な業種・報酬かどうか確認している</li>
+      <li><span class="chk"></span>翌月10日（または年2回）の納付期限をカレンダーに登録した</li>
+      <li><span class="chk"></span>e-Taxで納付できるよう設定が済んでいる（またはダイレクト納付）</li>
+      <li><span class="chk"></span>年間5万円超の個人フリーランス外注先リストを管理し、翌年1月末の支払調書提出に備えている</li>
+    </ul>
+  </div>
+
+  <!-- Disclaimer -->
+  <div class="disclaimer">
+    <h3>免責事項</h3>
+    本記事は一般的な情報提供を目的としており、特定の税務・法務アドバイスではありません。税率・控除・制度・手続きは年度・会社の状況によって異なります。本記事の基準年度は<strong>令和6年（2024年）</strong>です。実際の申告・納付・外注費の源泉徴収該当判断については、<strong>税理士・社会保険労務士などの専門家</strong>にご相談ください。制度は随時改正されますので、国税庁の公式情報（<a href="https://www.nta.go.jp/" target="_blank">https://www.nta.go.jp/</a>）を必ずご確認ください。
+  </div>
+
+</div>
+</body>
+</html>
