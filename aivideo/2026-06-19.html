@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI動画制作 最新トピック 2026-06-19</title>
+<style>
+:root{
+  --bg:#f0edf6;--card:#faf8fd;--text:#1e1230;--muted:#6a5a80;--border:#dcd0f0;
+  --vi:#3a0a6a;--vil:#f0e8fc;--vim:#6020b0;--via:#4a10a0;
+  --in:#0a3a7a;--inl:#e0ecfc;--inm:#1a60c8;
+  --gr:#0a4a2a;--grl:#e0f5ea;--grm:#1a8048;
+  --am:#7a4000;--aml:#fff5e0;--amm:#c06010;
+  --re:#7a0a2a;--rel:#fde8ee;--rem:#c01040;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,"Hiragino Sans","Yu Gothic",sans-serif;line-height:1.7;padding:24px 16px;}
+.wrap{max-width:860px;margin:0 auto;}
+
+/* Header */
+.header{background:linear-gradient(135deg,#1a0440,#3a0a6a,#0a2060);color:#fff;border-radius:20px;padding:40px 32px;text-align:center;box-shadow:0 8px 24px rgba(26,4,64,.45);margin-bottom:24px;}
+.date-badge{background:rgba(255,255,255,.16);color:#c8a8ff;border-radius:20px;padding:4px 16px;font-size:.85rem;display:inline-block;margin-bottom:16px;letter-spacing:.08em;}
+.header h1{font-size:1.9rem;margin-bottom:8px;letter-spacing:.04em;}
+.header .subtitle{color:#c8a8ff;font-size:1rem;}
+.tag-row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:14px;}
+.header .tag{background:rgba(255,255,255,.14);border-radius:12px;padding:3px 12px;font-size:.78rem;color:#ffe4a8;}
+
+/* Section */
+.section{background:var(--card);border-radius:16px;padding:28px 24px;margin-bottom:20px;box-shadow:0 3px 12px rgba(0,0,0,.06);border:1px solid var(--border);}
+.section-title{font-size:1.1rem;font-weight:700;color:var(--vi);border-bottom:2px solid var(--border);padding-bottom:10px;margin-bottom:18px;display:flex;align-items:center;gap:8px;}
+
+/* Big number cards */
+.num-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px;}
+.num-card{border-radius:14px;padding:18px 12px;text-align:center;}
+.num-card .n-val{font-size:2rem;font-weight:900;line-height:1;margin-bottom:4px;}
+.num-card .n-unit{font-size:.73rem;font-weight:700;margin-bottom:4px;}
+.num-card .n-label{font-size:.73rem;line-height:1.4;}
+.nc-gr{background:var(--grl);border:2px solid var(--grm);}
+.nc-gr .n-val,.nc-gr .n-unit{color:var(--grm);}
+.nc-gr .n-label{color:var(--gr);}
+.nc-bl{background:var(--inl);border:2px solid var(--inm);}
+.nc-bl .n-val,.nc-bl .n-unit{color:var(--inm);}
+.nc-bl .n-label{color:var(--in);}
+.nc-pu{background:var(--vil);border:2px solid var(--vim);}
+.nc-pu .n-val,.nc-pu .n-unit{color:var(--vim);}
+.nc-pu .n-label{color:var(--via);}
+.nc-am{background:var(--aml);border:2px solid var(--amm);}
+.nc-am .n-val,.nc-am .n-unit{color:var(--amm);}
+.nc-am .n-label{color:var(--am);}
+.nc-red{background:var(--rel);border:2px solid var(--rem);}
+.nc-red .n-val,.nc-red .n-unit{color:var(--rem);}
+.nc-red .n-label{color:var(--re);}
+
+/* 3-num grid for Pikaframes specs */
+.spec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:18px;}
+.spec-card{border-radius:14px;padding:20px 14px;text-align:center;}
+.sc-pu{background:var(--vil);border:2px solid var(--vim);}
+.sc-bl{background:var(--inl);border:2px solid var(--inm);}
+.sc-gr{background:var(--grl);border:2px solid var(--grm);}
+.spec-card .sp-val{font-size:2.4rem;font-weight:900;line-height:1;margin-bottom:4px;}
+.spec-card .sp-unit{font-size:.78rem;font-weight:700;margin-bottom:6px;}
+.spec-card .sp-label{font-size:.8rem;line-height:1.5;}
+.sc-pu .sp-val,.sc-pu .sp-unit{color:var(--vim);}
+.sc-pu .sp-label{color:var(--via);}
+.sc-bl .sp-val,.sc-bl .sp-unit{color:var(--inm);}
+.sc-bl .sp-label{color:var(--in);}
+.sc-gr .sp-val,.sc-gr .sp-unit{color:var(--grm);}
+.sc-gr .sp-label{color:var(--gr);}
+
+/* Pika feature cards (3-col) */
+.pika-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:14px;}
+.pika-card{border-radius:12px;padding:18px 14px;text-align:center;}
+.pk-a{background:var(--vil);border:1.5px solid #b080e8;}
+.pk-b{background:var(--rel);border:1.5px solid #e08090;}
+.pk-c{background:var(--aml);border:1.5px solid #d09050;}
+.pk-d{background:var(--inl);border:1.5px solid #80a8e8;}
+.pk-e{background:var(--grl);border:1.5px solid #70c090;}
+.pk-f{background:#f0f8e8;border:1.5px solid #90c040;}
+.pika-card .pk-icon{font-size:2rem;margin-bottom:8px;}
+.pika-card .pk-name{font-size:.95rem;font-weight:700;margin-bottom:4px;}
+.pika-card .pk-kana{font-size:.78rem;color:var(--muted);margin-bottom:6px;}
+.pika-card .pk-desc{font-size:.8rem;line-height:1.5;color:var(--muted);}
+.pk-a .pk-name{color:var(--via);}
+.pk-b .pk-name{color:var(--rem);}
+.pk-c .pk-name{color:var(--amm);}
+.pk-d .pk-name{color:var(--inm);}
+.pk-e .pk-name{color:var(--grm);}
+.pk-f .pk-name{color:#4a8010;}
+
+/* Flow / Steps */
+.flow{display:flex;flex-direction:column;gap:0;}
+.flow-item{display:flex;align-items:flex-start;gap:16px;padding:16px 0;border-bottom:1px dashed var(--border);}
+.flow-item:last-child{border-bottom:none;}
+.step-num{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:900;color:#fff;flex-shrink:0;margin-top:2px;}
+.s1{background:var(--inm);}
+.s2{background:var(--vim);}
+.s3{background:var(--grm);}
+.s4{background:var(--amm);}
+.s5{background:var(--rem);}
+.flow-body{flex:1;}
+.flow-title{font-size:1rem;font-weight:700;margin-bottom:4px;}
+.flow-desc{font-size:.88rem;color:var(--muted);line-height:1.6;}
+.flow-tip{display:inline-block;font-size:.78rem;padding:3px 10px;border-radius:8px;margin-top:6px;font-weight:600;}
+.t1{background:var(--inl);color:var(--in);}
+.t2{background:var(--vil);color:var(--via);}
+.t3{background:var(--grl);color:var(--gr);}
+.t4{background:var(--aml);color:var(--am);}
+.t5{background:var(--rel);color:var(--re);}
+
+/* Comparison table */
+.comp-table{width:100%;border-collapse:collapse;font-size:.84rem;}
+.comp-table th{background:var(--vi);color:#fff;padding:10px 12px;text-align:center;font-weight:700;}
+.comp-table th:first-child{border-radius:8px 0 0 0;text-align:left;}
+.comp-table th:last-child{border-radius:0 8px 0 0;}
+.comp-table td{padding:10px 12px;border-bottom:1px solid var(--border);text-align:center;vertical-align:middle;}
+.comp-table td:first-child{text-align:left;font-weight:600;}
+.comp-table tr:last-child td{border-bottom:none;}
+.comp-table tr:nth-child(even) td{background:#f8f5ff;}
+.badge-ok{display:inline-block;background:var(--grl);color:var(--grm);border-radius:6px;padding:1px 8px;font-size:.76rem;font-weight:700;}
+.badge-ng{display:inline-block;background:#eee;color:#999;border-radius:6px;padding:1px 8px;font-size:.76rem;}
+.badge-part{display:inline-block;background:var(--aml);color:var(--amm);border-radius:6px;padding:1px 8px;font-size:.76rem;font-weight:700;}
+.comp-table .col-pika{background:#f0e8fc;}
+.comp-table .col-run{background:#e0ecfc;}
+.comp-table .col-kl{background:#e0f5ea;}
+
+/* Alert box */
+.alert-box{border-radius:14px;padding:18px 20px;margin-bottom:18px;}
+.alert-warn{background:linear-gradient(135deg,#fff5e0,#ffe8cc);border:2px solid var(--amm);}
+.alert-info{background:linear-gradient(135deg,#e8f0ff,#f0e8ff);border:2px solid #7030d0;}
+
+/* Keyframe visualizer */
+.kf-vis{display:flex;align-items:center;gap:8px;margin:18px 0;overflow-x:auto;padding-bottom:4px;}
+.kf-box{border-radius:10px;padding:14px 10px;text-align:center;min-width:90px;flex-shrink:0;}
+.kf-1{background:var(--inl);border:2px solid var(--inm);}
+.kf-2{background:var(--vil);border:2px solid var(--vim);}
+.kf-3{background:var(--grl);border:2px solid var(--grm);}
+.kf-4{background:var(--aml);border:2px solid var(--amm);}
+.kf-5{background:var(--rel);border:2px solid var(--rem);}
+.kf-box .kf-num{font-size:.72rem;font-weight:700;margin-bottom:4px;}
+.kf-box .kf-icon{font-size:1.6rem;margin-bottom:4px;}
+.kf-box .kf-label{font-size:.73rem;line-height:1.3;}
+.kf-1 .kf-num{color:var(--inm);}
+.kf-2 .kf-num{color:var(--vim);}
+.kf-3 .kf-num{color:var(--grm);}
+.kf-4 .kf-num{color:var(--amm);}
+.kf-5 .kf-num{color:var(--rem);}
+.kf-arrow{font-size:1.4rem;color:var(--muted);flex-shrink:0;}
+.kf-result{background:linear-gradient(135deg,var(--inl),var(--vil));border:2px dashed var(--vim);border-radius:10px;padding:14px 14px;text-align:center;min-width:100px;flex-shrink:0;}
+.kf-result .kf-r-label{font-size:.82rem;font-weight:700;color:var(--via);}
+.kf-result .kf-r-sub{font-size:.73rem;color:var(--muted);}
+
+/* Disclaimer */
+.disclaimer{background:#f8f6fc;border:1.5px solid var(--border);border-radius:12px;padding:16px 18px;font-size:.8rem;color:var(--muted);line-height:1.7;}
+.disclaimer strong{color:var(--vim);}
+.disclaimer a{color:var(--vim);text-decoration:none;}
+.disclaimer a:hover{text-decoration:underline;}
+
+@media(max-width:600px){
+  .num-grid{grid-template-columns:repeat(2,1fr);}
+  .pika-grid{grid-template-columns:repeat(2,1fr);}
+  .spec-grid{grid-template-columns:1fr;}
+  .header h1{font-size:1.4rem;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ヘッダー -->
+  <div class="header">
+    <div class="date-badge">📅 2026-06-19 ／ ツール情報回</div>
+    <h1>🎬 Pika 2.5 完全ガイド</h1>
+    <p class="subtitle">Pikaframes・Pikaformance・Pikatwists ── 6つの「Pika-」機能で映像表現が広がる</p>
+    <div class="tag-row">
+      <span class="tag">Pika Labs</span>
+      <span class="tag">Pikaframes</span>
+      <span class="tag">キーフレーム補間</span>
+      <span class="tag">スタイル変換</span>
+      <span class="tag">リップシンク</span>
+    </div>
+  </div>
+
+  <!-- 3行まとめ -->
+  <div class="section">
+    <div class="section-title">🌟 今日の3行まとめ</div>
+    <div class="alert-box alert-info">
+      <div style="font-size:.95rem;line-height:1.9;">
+        ① 「<strong style="color:#6020b0;">Pikaframes</strong>」機能で最大 <strong style="color:#c01040;">5枚の画像</strong> を自動でつなぎ、最長 <strong style="color:#c01040;">25秒</strong> のスムーズなAI動画が作れる。<br>
+        ② <strong style="color:#1a60c8;">Pikaformance（リップシンク）・Pikatwists（スタイル変換）・Pikaffects（物理エフェクト）</strong> など6種の「Pika-」機能で表現の幅が大きく広がった。<br>
+        ③ <strong style="color:#0a4a2a;">無料プランで月80クレジット</strong> 試せる。有料はStandard月$8〜（年払い）。料金・機能は公式で要確認。
+      </div>
+    </div>
+  </div>
+
+  <!-- 6大 Pika- 機能 -->
+  <div class="section">
+    <div class="section-title">⚡ Pika 2.5 の「Pika-」機能ファミリー 6選</div>
+    <p style="font-size:.88rem;color:var(--muted);margin-bottom:14px;">すべて同じ画面（pika.art）からアクセスできる。用途に合わせて選ぼう。</p>
+    <div class="pika-grid">
+      <div class="pika-card pk-a">
+        <div class="pk-icon">🎞️</div>
+        <div class="pk-name">Pikaframes</div>
+        <div class="pk-kana">キーフレーム補間</div>
+        <div class="pk-desc">最大5枚の画像を順番に並べると、その間を自動で埋めてくれる。「始まり→変化→終わり」を自然な動きで表現。</div>
+      </div>
+      <div class="pika-card pk-b">
+        <div class="pk-icon">🎤</div>
+        <div class="pk-name">Pikaformance</div>
+        <div class="pk-kana">音声リップシンク</div>
+        <div class="pk-desc">音声ファイルを読み込むと、キャラクターの口の動きを自動で合わせてくれる。ナレーション動画やキャラPRに便利。</div>
+      </div>
+      <div class="pika-card pk-c">
+        <div class="pk-icon">🎨</div>
+        <div class="pk-name">Pikatwists</div>
+        <div class="pk-kana">スタイル変換</div>
+        <div class="pk-desc">動画全体のタッチを変える。実写映像をアニメ調・水彩画調・油絵風に変換できる。素材を作り直さずにガラッと雰囲気を変えられる。</div>
+      </div>
+      <div class="pika-card pk-d">
+        <div class="pk-icon">🔄</div>
+        <div class="pk-name">Pikaswaps</div>
+        <div class="pk-kana">オブジェクト置換</div>
+        <div class="pk-desc">動画の中にある「特定のもの」を別のものに入れ替える。例：犬→猫、コーヒーカップ→お茶。背景や構図はそのまま。</div>
+      </div>
+      <div class="pika-card pk-e">
+        <div class="pk-icon">➕</div>
+        <div class="pk-name">Pikadditions</div>
+        <div class="pk-kana">オブジェクト追加</div>
+        <div class="pk-desc">動画にキャラクターや小道具を後から追加する。「この映像に虹を足して」「ここに猫を登場させて」といった指示ができる。</div>
+      </div>
+      <div class="pika-card pk-f">
+        <div class="pk-icon">✨</div>
+        <div class="pk-name">Pikaffects</div>
+        <div class="pk-kana">物理エフェクト</div>
+        <div class="pk-desc">「金色に変わる」「爆発する」「溶ける」「空中に浮く」など物理法則を超えた演出ができる。SNSでバズるエフェクト動画に。</div>
+      </div>
+    </div>
+    <p style="font-size:.78rem;color:var(--muted);">※ 各機能の利用にはクレジットが必要。消費量は生成する動画の長さや解像度によって異なる（公式で要確認）。</p>
+  </div>
+
+  <!-- 料金 -->
+  <div class="section">
+    <div class="section-title">💰 プランと料金（2026年6月時点・公式で要確認）</div>
+    <div class="num-grid">
+      <div class="num-card nc-gr">
+        <div class="n-val">80</div>
+        <div class="n-unit">cr / 月</div>
+        <div class="n-label"><strong>Free</strong><br>$0<br>透かしあり</div>
+      </div>
+      <div class="num-card nc-bl">
+        <div class="n-val">700</div>
+        <div class="n-unit">cr / 月</div>
+        <div class="n-label"><strong>Standard</strong><br>$8/月（年払）<br>透かしなし・商用OK</div>
+      </div>
+      <div class="num-card nc-pu">
+        <div class="n-val">2,300</div>
+        <div class="n-unit">cr / 月</div>
+        <div class="n-label"><strong>Pro</strong><br>$28/月<br>高速生成・優先</div>
+      </div>
+      <div class="num-card nc-am">
+        <div class="n-val">6,000</div>
+        <div class="n-unit">cr / 月</div>
+        <div class="n-label"><strong>Fancy</strong><br>$76/月<br>大量生成・スタジオ向け</div>
+      </div>
+    </div>
+    <div style="background:#f8f5ff;border-radius:10px;padding:14px 16px;font-size:.84rem;color:var(--muted);">
+      💡 <strong style="color:var(--via);">1クレジットの目安：</strong>5秒・720p動画が約1〜2クレジット消費。解像度や機能によって増減する。まずは無料の80クレジットでPikaframesを試してみよう。
+    </div>
+  </div>
+
+  <!-- Pikaframes 詳細 -->
+  <div class="section">
+    <div class="section-title">🎞️ 今日の主役「Pikaframes」── キーフレーム補間とは？</div>
+
+    <p style="font-size:.9rem;margin-bottom:16px;line-height:1.8;">
+      <strong>キーフレーム補間（きーふれーむほかん）</strong> とは、「出発点の絵」と「終着点の絵」を用意すると、AIがその間の動きを自動で埋めてくれる技術のこと。
+      アニメーション制作でいう「中割り（なかわり）」を全自動でやってくれるイメージ。
+    </p>
+
+    <!-- スペック数値 -->
+    <div class="spec-grid">
+      <div class="spec-card sc-pu">
+        <div class="sp-val">5</div>
+        <div class="sp-unit">枚まで</div>
+        <div class="sp-label">設定できるキーフレーム（場面）の最大数</div>
+      </div>
+      <div class="spec-card sc-bl">
+        <div class="sp-val">25</div>
+        <div class="sp-unit">秒まで</div>
+        <div class="sp-label">生成できる動画の最大尺（長さ）</div>
+      </div>
+      <div class="spec-card sc-gr">
+        <div class="sp-val">3</div>
+        <div class="sp-unit">比率</div>
+        <div class="sp-label">16:9・9:16・1:1のアスペクト比に対応</div>
+      </div>
+    </div>
+
+    <!-- キーフレーム図解 -->
+    <div style="margin-bottom:12px;">
+      <div style="font-size:.88rem;font-weight:700;color:var(--via);margin-bottom:8px;">📐 キーフレームの流れ（例：3枚で料理動画）</div>
+      <div class="kf-vis">
+        <div class="kf-box kf-1">
+          <div class="kf-num">フレーム1</div>
+          <div class="kf-icon">🥚</div>
+          <div class="kf-label">材料を<br>用意する</div>
+        </div>
+        <div class="kf-arrow">→</div>
+        <div class="kf-box kf-2">
+          <div class="kf-num">フレーム2</div>
+          <div class="kf-icon">🍳</div>
+          <div class="kf-label">フライパンで<br>焼く</div>
+        </div>
+        <div class="kf-arrow">→</div>
+        <div class="kf-box kf-3">
+          <div class="kf-num">フレーム3</div>
+          <div class="kf-icon">🍽️</div>
+          <div class="kf-label">お皿に<br>盛り付け</div>
+        </div>
+        <div class="kf-arrow">→</div>
+        <div class="kf-result">
+          <div class="kf-r-label">🎬 完成動画</div>
+          <div class="kf-r-sub">Pikaframesが<br>間を自動で補間<br>約15秒</div>
+        </div>
+      </div>
+      <p style="font-size:.8rem;color:var(--muted);">↑ 3枚の画像を入れるだけで、AIが滑らかな動きをつけた約15秒の動画を生成してくれる。</p>
+    </div>
+  </div>
+
+  <!-- 5ステップ実践フロー -->
+  <div class="section">
+    <div class="section-title">📋 Pikaframes 5ステップ実践フロー</div>
+    <div class="flow">
+      <div class="flow-item">
+        <div class="step-num s1">1</div>
+        <div class="flow-body">
+          <div class="flow-title">素材画像を用意する（1〜5枚）</div>
+          <div class="flow-desc">
+            「場面の始まり・中間・終わり」の画像を用意する。スマホで撮った写真でもOK。
+            フレーム間のギャップが大きすぎると動きが不自然になるので、少しずつ変化させるのがコツ。
+          </div>
+          <span class="flow-tip t1">💡 Midjourneyや写真AI（Midjourney・DALL-E 3）でシーンを統一感のある絵で揃えると完成度UP</span>
+        </div>
+      </div>
+      <div class="flow-item">
+        <div class="step-num s2">2</div>
+        <div class="flow-body">
+          <div class="flow-title">pika.art にアクセス → 「Pikaframes」を選択</div>
+          <div class="flow-desc">
+            アカウント登録（Googleアカウントで可）後、ホーム画面から「Pikaframes」をクリック。
+            無料プランなら月80クレジットまで無料で試せる。
+          </div>
+          <span class="flow-tip t2">🆓 無料プランは透かしが入るが、仕上がりを確認するだけなら十分</span>
+        </div>
+      </div>
+      <div class="flow-item">
+        <div class="step-num s3">3</div>
+        <div class="flow-body">
+          <div class="flow-title">画像を順番にアップロード、フレーム間の秒数を設定</div>
+          <div class="flow-desc">
+            画像を①②③…の順にドラッグ＆ドロップ。各フレーム間が「何秒の動き」になるかを設定する（1〜10秒の範囲で指定）。
+            プロンプトで追加の動き指示も入れられる（例：「カメラがゆっくり右に動く」）。
+          </div>
+          <span class="flow-tip t3">📝 各フレーム間は5秒前後が自然に仕上がりやすい目安</span>
+        </div>
+      </div>
+      <div class="flow-item">
+        <div class="step-num s4">4</div>
+        <div class="flow-body">
+          <div class="flow-title">アスペクト比・解像度を選択して「Generate（生成）」</div>
+          <div class="flow-desc">
+            横長（16:9、YouTube向け）・縦長（9:16、TikTok・リール向け）・正方形（1:1、Instagram向け）から選ぶ。
+            解像度は720p〜1080p（プランにより異なる）。Generateボタンを押して待つ（30秒〜2分程度）。
+          </div>
+          <span class="flow-tip t4">📱 投稿先のSNSに合わせてアスペクト比を選ぼう</span>
+        </div>
+      </div>
+      <div class="flow-item">
+        <div class="step-num s5">5</div>
+        <div class="flow-body">
+          <div class="flow-title">プレビューで確認 → ダウンロード（またはやり直し）</div>
+          <div class="flow-desc">
+            生成された動画をプレビュー。気に入らない部分があれば、フレームの差し替えや秒数調整でやり直し。
+            Standard以上のプランではダウンロード時に透かしが付かず、<strong>商用利用もOK</strong>（詳しくは利用規約を確認）。
+          </div>
+          <span class="flow-tip t5">✅ Standard（$8/月）以上で透かしなし・商用利用可（公式規約で要確認）</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 比較表 -->
+  <div class="section">
+    <div class="section-title">📊 Pika 2.5 vs Runway Gen-4.5 vs Kling 3.0 ── 機能比較</div>
+    <div style="overflow-x:auto;">
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th>機能・スペック</th>
+            <th class="col-pika">🎬 Pika 2.5</th>
+            <th class="col-run">✈️ Runway Gen-4.5</th>
+            <th class="col-kl">🐦 Kling 3.0</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>テキスト→動画</td>
+            <td><span class="badge-ok">✓ 対応</span></td>
+            <td><span class="badge-ok">✓ 対応</span></td>
+            <td><span class="badge-ok">✓ 対応</span></td>
+          </tr>
+          <tr>
+            <td>画像→動画</td>
+            <td><span class="badge-ok">✓ 対応</span></td>
+            <td><span class="badge-ok">✓ 対応</span></td>
+            <td><span class="badge-ok">✓ 対応</span></td>
+          </tr>
+          <tr>
+            <td>キーフレーム補間<br><span style="font-size:.76rem;color:var(--muted);">（複数画像の中割り）</span></td>
+            <td><span class="badge-ok">✓ 最大5枚</span></td>
+            <td><span class="badge-part">△ 始点・終点のみ</span></td>
+            <td><span class="badge-part">△ 始点・終点のみ</span></td>
+          </tr>
+          <tr>
+            <td>スタイル変換</td>
+            <td><span class="badge-ok">✓ Pikatwists</span></td>
+            <td><span class="badge-part">△ 限定的</span></td>
+            <td><span class="badge-ok">✓ 対応</span></td>
+          </tr>
+          <tr>
+            <td>リップシンク<br><span style="font-size:.76rem;color:var(--muted);">（音声に口を合わせる）</span></td>
+            <td><span class="badge-ok">✓ Pikaformance</span></td>
+            <td><span class="badge-ok">✓ 対応</span></td>
+            <td><span class="badge-ok">✓ 対応</span></td>
+          </tr>
+          <tr>
+            <td>マルチショット生成<br><span style="font-size:.76rem;color:var(--muted);">（1つで複数カット）</span></td>
+            <td><span class="badge-ng">✕ 非対応</span></td>
+            <td><span class="badge-ng">✕ 非対応</span></td>
+            <td><span class="badge-ok">✓ 最大6カット</span></td>
+          </tr>
+          <tr>
+            <td>カメラコントロール</td>
+            <td><span class="badge-ok">✓ プロンプト指定</span></td>
+            <td><span class="badge-ok">✓ Multi-Motion Brush</span></td>
+            <td><span class="badge-ok">✓ 対応</span></td>
+          </tr>
+          <tr>
+            <td>最大尺（長さ）</td>
+            <td><strong>25秒</strong>（Pikaframes時）</td>
+            <td>60秒（Proプラン）</td>
+            <td>5分（長尺対応）</td>
+          </tr>
+          <tr>
+            <td>最大解像度</td>
+            <td>1080p</td>
+            <td>1080p</td>
+            <td>4K</td>
+          </tr>
+          <tr>
+            <td>無料枠</td>
+            <td>月80クレジット</td>
+            <td>一部無料あり</td>
+            <td>一部無料あり</td>
+          </tr>
+          <tr>
+            <td>有料プラン最安値</td>
+            <td>$8/月（年払）</td>
+            <td>公式で要確認</td>
+            <td>公式で要確認</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="margin-top:12px;background:#f8f5ff;border-radius:10px;padding:12px 14px;font-size:.82rem;color:var(--muted);">
+      📌 比較情報は調査時点（2026年6月）のもの。各ツールの機能・料金は頻繁に変わるため、必ず公式サイトで確認を。<br>
+      <strong style="color:var(--via);">選び方の目安：</strong>「複数の画像をつなぎたい」→ Pika 2.5 (Pikaframes)　「長尺・マルチショット」→ Kling 3.0　「プロ品質・編集機能」→ Runway Gen-4.5
+    </div>
+  </div>
+
+  <!-- 真似できる具体例 -->
+  <div class="section">
+    <div class="section-title">💡 真似できる具体例：Pikaframesで「30秒タイムラプス風動画」を作る</div>
+    <div class="alert-box alert-warn">
+      <div style="font-size:1rem;font-weight:700;margin-bottom:10px;color:#7a4000;">🎓 テーマ例：「桜が散る庭の一日」── 5フレームで作る季節の物語</div>
+
+      <div style="font-size:.9rem;line-height:2;color:var(--text);">
+        <strong>用意する5枚の画像（AIで生成 or スマホ撮影）：</strong><br>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:12px 0;">
+        <div style="background:var(--inl);border-radius:8px;padding:10px 6px;text-align:center;border:1.5px solid var(--inm);">
+          <div style="font-size:1.4rem;">🌅</div>
+          <div style="font-size:.72rem;color:var(--in);font-weight:700;">①朝日</div>
+          <div style="font-size:.7rem;color:var(--muted);">桜のつぼみ</div>
+        </div>
+        <div style="background:var(--vil);border-radius:8px;padding:10px 6px;text-align:center;border:1.5px solid var(--vim);">
+          <div style="font-size:1.4rem;">🌸</div>
+          <div style="font-size:.72rem;color:var(--via);font-weight:700;">②午前</div>
+          <div style="font-size:.7rem;color:var(--muted);">満開の桜</div>
+        </div>
+        <div style="background:var(--grl);border-radius:8px;padding:10px 6px;text-align:center;border:1.5px solid var(--grm);">
+          <div style="font-size:1.4rem;">🌿</div>
+          <div style="font-size:.72rem;color:var(--grm);font-weight:700;">③昼</div>
+          <div style="font-size:.7rem;color:var(--muted);">花びら舞う</div>
+        </div>
+        <div style="background:var(--aml);border-radius:8px;padding:10px 6px;text-align:center;border:1.5px solid var(--amm);">
+          <div style="font-size:1.4rem;">🌇</div>
+          <div style="font-size:.72rem;color:var(--amm);font-weight:700;">④夕方</div>
+          <div style="font-size:.7rem;color:var(--muted);">散り始め</div>
+        </div>
+        <div style="background:var(--rel);border-radius:8px;padding:10px 6px;text-align:center;border:1.5px solid var(--rem);">
+          <div style="font-size:1.4rem;">🌙</div>
+          <div style="font-size:.72rem;color:var(--rem);font-weight:700;">⑤夜</div>
+          <div style="font-size:.7rem;color:var(--muted);">花びら散った庭</div>
+        </div>
+      </div>
+
+      <ol style="font-size:.88rem;color:var(--text);line-height:2.1;padding-left:20px;">
+        <li>Midjourney や ChatGPT 画像生成で「Japanese garden, cherry blossoms, 同一構図」の5シーンを生成</li>
+        <li>pika.art にアクセス → Pikaframes を選択 → 画像を①〜⑤の順にアップロード</li>
+        <li>各フレーム間を「5秒」に設定（合計20秒の動画になる）</li>
+        <li>アスペクト比「16:9」を選択 → Generate ボタンを押す</li>
+        <li>生成完了（1〜2分）後プレビューし、気に入ればダウンロード</li>
+      </ol>
+      <div style="margin-top:12px;background:rgba(255,255,255,.6);border-radius:8px;padding:10px 12px;font-size:.83rem;color:var(--am);">
+        🌸 追加アレンジ：Pikatwistsで「水彩画タッチ」に変換 → Pikaformanceで詩の朗読を口パクさせる → SNSショート動画の完成！
+      </div>
+    </div>
+    <p style="font-size:.85rem;color:var(--muted);">
+      ⭐ 画像の構図を統一するのがきれいに仕上げるコツ。プロンプトに「<code style="background:#f0e8fc;padding:2px 6px;border-radius:4px;">same angle, same composition, Japanese garden</code>」と入れると5枚を揃えやすい。
+    </p>
+  </div>
+
+  <!-- 免責・出典 -->
+  <div class="section">
+    <div class="section-title">📌 免責事項・出典</div>
+    <div class="disclaimer">
+      <strong>免責：</strong>紹介したAIツール（Pika 2.5・Pikaframes・Pikaformance・Pikatwists 他）の機能名・料金・商用利用の可否・クレジット消費量は頻繁に変わります。本記事の情報はあくまで参考としてご使用いただき、最新の機能・料金・利用規約は必ず <strong>公式サイト（pika.art）</strong> でご確認ください（公式で要確認）。<br><br>
+      <strong>出典（調査日：2026-06-19）：</strong><br>
+      • <a href="https://pika.art/pricing">Pika Labs 公式 Pricing ページ（pika.art/pricing）</a><br>
+      • <a href="https://pikaslabs.com/pika-2-5/">Pika Labs 2.5 Complete Guide (2026) — pikaslabs.com</a><br>
+      • <a href="https://genra.ai/blog/pika-2-5-complete-guide-review">Pika 2.5 Complete Guide: Features, Pricing &amp; Honest Review — Genra.ai</a><br>
+      • <a href="https://curiousrefuge.com/blog/pika-22-ai-video-generator-review">Pika AI Video Generator Review — Curious Refuge</a><br>
+      • <a href="https://www.eesel.ai/blog/pika-ai-pricing">Pika AI pricing (2026): Plans, credits — eesel AI</a><br>
+      • <a href="https://fluxnote.io/blog/pika-labs-review-ai-video-generation-quality-test-2026">Pika Labs Review 2026: 60 Generations Tested — FluxNote</a>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
