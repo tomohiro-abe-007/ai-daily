@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-06-20</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #f0ece3; font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif; min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 20px; }
+
+  /* COVER */
+  .cover { background: linear-gradient(135deg, #2d5a27 0%, #3d8b37 55%, #6db55f 100%); color: white; border-radius: 8px; padding: 60px 40px; text-align: center; width: 100%; max-width: 820px; margin-bottom: 24px; box-shadow: 4px 6px 20px rgba(0,0,0,0.3); position: relative; overflow: hidden; }
+  .cover::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: repeating-linear-gradient(0deg, transparent, transparent 28px, rgba(255,255,255,0.05) 28px, rgba(255,255,255,0.05) 29px); }
+  .cover-emoji { font-size: 64px; display: block; margin-bottom: 16px; }
+  .cover h1 { font-family: 'Klee One', sans-serif; font-size: 1.85rem; font-weight: 600; line-height: 1.35; margin-bottom: 12px; position: relative; }
+  .cover .subtitle { font-size: 1.0rem; opacity: 0.88; margin-bottom: 8px; position: relative; }
+  .cover .tagline { font-size: 0.88rem; opacity: 0.7; position: relative; margin-bottom: 4px; }
+  .cover .date-badge { display: inline-block; background: rgba(255,255,255,0.2); border: 2px solid rgba(255,255,255,0.5); border-radius: 20px; padding: 6px 20px; font-size: 1rem; margin-top: 16px; position: relative; }
+
+  /* CARDS */
+  .card { background: #fff9f0; border-radius: 6px; width: 100%; max-width: 820px; margin-bottom: 24px; box-shadow: 3px 4px 12px rgba(0,0,0,0.12); position: relative; overflow: hidden; }
+  .card-body { padding: 28px 36px 28px 64px; background: repeating-linear-gradient(0deg, transparent, transparent 31px, #e0d8c8 31px, #e0d8c8 32px); background-color: #fff9f0; min-height: 200px; }
+  .card-body::before { content: ''; position: absolute; left: 52px; top: 0; bottom: 0; width: 2px; background: #3d8b37; opacity: 0.6; }
+  .card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; padding-bottom: 8px; border-bottom: 2px dashed #c8b89a; }
+  .card-emoji { font-size: 2rem; }
+  .card-title { font-family: 'Klee One', sans-serif; font-size: 1.4rem; font-weight: 600; color: #2c3e50; line-height: 1.3; }
+  .topic-badge { display: inline-block; padding: 3px 12px; border-radius: 12px; font-size: 0.75rem; font-weight: 600; margin-left: auto; white-space: nowrap; }
+  .badge-green  { background: #e0f5e8; color: #1a6640; border: 1px solid #90d4aa; }
+  .badge-red    { background: #ffe0e0; color: #aa2222; border: 1px solid #f0a0a0; }
+  .badge-blue   { background: #e0eeff; color: #2255aa; border: 1px solid #a0c0f5; }
+  .badge-orange { background: #fff0d0; color: #cc6600; border: 1px solid #f0c070; }
+  .badge-teal   { background: #d0f0f0; color: #006060; border: 1px solid #80d0d0; }
+  .badge-gray   { background: #f0f0f0; color: #555; border: 1px solid #ccc; }
+  .badge-purple { background: #f0e0ff; color: #660088; border: 1px solid #c080e0; }
+
+  /* TEXT ELEMENTS */
+  .body-text { font-size: 0.97rem; line-height: 1.85; color: #333; margin: 8px 0; }
+  .simple-box { background: #fff7e0; border-left: 4px solid #f5c842; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 16px 0; font-size: 0.95rem; line-height: 1.8; }
+  .simple-box .label { display: inline-block; background: #f5c842; color: #5a4000; font-size: 0.72rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-bottom: 6px; letter-spacing: 0.5px; }
+  .info-box { background: #eef4ff; border-left: 4px solid #3366cc; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 16px 0; font-size: 0.95rem; line-height: 1.8; }
+  .info-box .label { display: inline-block; background: #3366cc; color: white; font-size: 0.72rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-bottom: 6px; letter-spacing: 0.5px; }
+  .alert-box { background: #fff0f0; border-left: 4px solid #e05050; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 16px 0; font-size: 0.95rem; line-height: 1.8; }
+  .alert-box .label { display: inline-block; background: #e05050; color: white; font-size: 0.72rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-bottom: 6px; letter-spacing: 0.5px; }
+  .green-box { background: #eafaf0; border-left: 4px solid #27ae60; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 16px 0; font-size: 0.95rem; line-height: 1.8; }
+  .green-box .label { display: inline-block; background: #27ae60; color: white; font-size: 0.72rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-bottom: 6px; letter-spacing: 0.5px; }
+  .cyan-box { background: #e0f6ff; border-left: 4px solid #1a9abc; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 16px 0; font-size: 0.95rem; line-height: 1.8; }
+  .cyan-box .label { display: inline-block; background: #1a9abc; color: white; font-size: 0.72rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-bottom: 6px; letter-spacing: 0.5px; }
+  .orange-box { background: #fff4e0; border-left: 4px solid #e67e22; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 16px 0; font-size: 0.95rem; line-height: 1.8; }
+  .orange-box .label { display: inline-block; background: #e67e22; color: white; font-size: 0.72rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-bottom: 6px; letter-spacing: 0.5px; }
+  .purple-box { background: #f5eeff; border-left: 4px solid #8040c0; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 16px 0; font-size: 0.95rem; line-height: 1.8; }
+  .purple-box .label { display: inline-block; background: #8040c0; color: white; font-size: 0.72rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-bottom: 6px; letter-spacing: 0.5px; }
+
+  /* NUMBER CARDS */
+  .num-cards { display: flex; gap: 16px; flex-wrap: wrap; margin: 20px 0; justify-content: center; }
+  .num-card { background: white; border-radius: 10px; padding: 18px 20px; text-align: center; flex: 1; min-width: 130px; max-width: 200px; box-shadow: 2px 3px 10px rgba(0,0,0,0.1); border-top: 5px solid #3d8b37; }
+  .num-card .big-num { font-size: 2.2rem; font-weight: 700; font-family: 'Caveat', cursive; color: #3d8b37; line-height: 1.1; }
+  .num-card .num-unit { font-size: 0.9rem; color: #3d8b37; font-weight: 600; margin-bottom: 4px; }
+  .num-card .num-label { font-size: 0.77rem; color: #555; line-height: 1.5; margin-top: 4px; }
+  .num-card.green  { border-top-color: #27ae60; } .num-card.green  .big-num, .num-card.green  .num-unit { color: #27ae60; }
+  .num-card.orange { border-top-color: #e67e22; } .num-card.orange .big-num, .num-card.orange .num-unit { color: #e67e22; }
+  .num-card.blue   { border-top-color: #2980b9; } .num-card.blue   .big-num, .num-card.blue   .num-unit { color: #2980b9; }
+  .num-card.teal   { border-top-color: #1abc9c; } .num-card.teal   .big-num, .num-card.teal   .num-unit { color: #1abc9c; }
+  .num-card.purple { border-top-color: #8040c0; } .num-card.purple .big-num, .num-card.purple .num-unit { color: #8040c0; }
+  .num-card.red    { border-top-color: #e74c3c; } .num-card.red    .big-num, .num-card.red    .num-unit { color: #e74c3c; }
+
+  /* THREE-WAY COMPARISON CARDS */
+  .trio-compare { display: flex; gap: 16px; flex-wrap: wrap; margin: 20px 0; }
+  .trio-card { flex: 1; min-width: 220px; border-radius: 10px; padding: 20px 18px; box-shadow: 2px 3px 10px rgba(0,0,0,0.1); }
+  .trio-card.tc-pro { background: #eafaf0; border-top: 5px solid #27ae60; }
+  .trio-card.tc-pre { background: #e0f0ff; border-top: 5px solid #2980b9; }
+  .trio-card.tc-syn { background: #f5eeff; border-top: 5px solid #8040c0; }
+  .trio-card .tc-icon { font-size: 2rem; display: block; margin-bottom: 8px; }
+  .trio-card .tc-name { font-size: 1.05rem; font-weight: 700; margin-bottom: 4px; }
+  .tc-pro .tc-name { color: #1a6640; }
+  .tc-pre .tc-name { color: #1a4a8a; }
+  .tc-syn .tc-name { color: #660088; }
+  .trio-card .tc-en { font-size: 0.75rem; color: #777; margin-bottom: 10px; font-style: italic; }
+  .trio-card .tc-desc { font-size: 0.88rem; line-height: 1.75; color: #333; }
+  .trio-card .tc-example { font-size: 0.82rem; margin-top: 10px; padding-top: 10px; border-top: 1px dashed #ccc; color: #555; }
+  .trio-card .tc-ex-label { font-size: 0.72rem; font-weight: 700; margin-bottom: 4px; display: block; }
+  .tc-pro .tc-ex-label { color: #27ae60; }
+  .tc-pre .tc-ex-label { color: #2980b9; }
+  .tc-syn .tc-ex-label { color: #8040c0; }
+
+  /* BAR CHART */
+  .bar-chart { margin: 20px 0; }
+  .bar-row { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+  .bar-label { font-size: 0.88rem; font-weight: 600; min-width: 148px; color: #333; flex-shrink: 0; }
+  .bar-track { flex: 1; background: #e8e0d4; border-radius: 4px; height: 28px; position: relative; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 4px; display: flex; align-items: center; justify-content: flex-end; padding-right: 8px; font-size: 0.8rem; font-weight: 700; color: white; white-space: nowrap; min-width: 40px; }
+  .bf-pre  { background: #2980b9; }
+  .bf-pro  { background: #27ae60; }
+  .bf-syn  { background: #8040c0; }
+  .bf-gray { background: #aaa; }
+  .bar-note { font-size: 0.8rem; color: #666; min-width: 120px; flex-shrink: 0; }
+
+  /* COMPARISON TABLE */
+  .compare-table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 0.88rem; margin: 20px 0; }
+  .compare-table th { padding: 10px 12px; font-weight: 700; font-size: 0.82rem; text-align: center; }
+  .compare-table th.col-label { text-align: left; }
+  .compare-table td { padding: 10px 12px; text-align: center; border-bottom: 1px dashed #ddd; vertical-align: top; }
+  .compare-table td.col-label { text-align: left; font-weight: 600; color: #444; }
+  .compare-table tr:last-child td { border-bottom: none; }
+  .th-lbl { background: #f0ece3; color: #555; }
+  .th-pro { background: #dff0d8; color: #2e8b3e; border-radius: 4px 4px 0 0; }
+  .th-pre { background: #d0e8ff; color: #1a4a8a; border-radius: 4px 4px 0 0; }
+  .th-syn { background: #eedcff; color: #660088; border-radius: 4px 4px 0 0; }
+  .tag-strong { display: inline-block; background: #e0f5e8; color: #1a6640; border-radius: 4px; padding: 1px 7px; font-size: 0.77rem; font-weight: 600; }
+  .tag-mid    { display: inline-block; background: #fff7d0; color: #7a5000; border-radius: 4px; padding: 1px 7px; font-size: 0.77rem; font-weight: 600; }
+  .tag-weak   { display: inline-block; background: #ffe0e0; color: #8b1a1a; border-radius: 4px; padding: 1px 7px; font-size: 0.77rem; font-weight: 600; }
+  .tag-mixed  { display: inline-block; background: #e0eeff; color: #2255aa; border-radius: 4px; padding: 1px 7px; font-size: 0.77rem; font-weight: 600; }
+
+  /* FOOD GRID */
+  .food-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0; }
+  @media (max-width: 560px) { .food-grid { grid-template-columns: 1fr; } }
+  .food-box { background: white; border-radius: 8px; padding: 16px; box-shadow: 1px 2px 6px rgba(0,0,0,0.08); }
+  .food-box .fb-title { font-size: 0.92rem; font-weight: 700; margin-bottom: 10px; padding-bottom: 6px; border-bottom: 2px dashed #ddd; }
+  .food-box.fb-pro .fb-title { color: #27ae60; border-bottom-color: #90d4aa; }
+  .food-box.fb-pre .fb-title { color: #2980b9; border-bottom-color: #90b8e0; }
+  .food-box .food-item { font-size: 0.85rem; line-height: 1.95; color: #333; }
+
+  /* SOURCE / DISCLAIMER */
+  .source-text { font-size: 0.78rem; color: #888; margin-top: 12px; line-height: 1.6; }
+  .source-text a { color: #3d8b37; }
+  .disclaimer { background: #f8f8f8; border: 2px solid #ddd; border-radius: 6px; padding: 20px 24px; font-size: 0.83rem; line-height: 1.8; color: #555; width: 100%; max-width: 820px; margin-bottom: 24px; }
+  .disclaimer .dis-title { font-size: 0.9rem; font-weight: 700; color: #444; margin-bottom: 8px; }
+  hr.section-divider { border: none; border-top: 2px dashed #c8b89a; margin: 16px 0; }
+</style>
+</head>
+<body>
+
+<!-- ===== COVER ===== -->
+<div class="cover">
+  <span class="cover-emoji">🦠</span>
+  <h1>腸活3大戦略の科学<br>── プロバイオティクス・プレバイオティクス・シンバイオティクス ──</h1>
+  <div class="subtitle">「善玉菌を飲む・育てる・組み合わせる」どれが本当に効くのか？<br>大規模 RCT メタ分析（90試験・n=5,207）で読み解く</div>
+  <div class="tagline">健康・栄養 最新トピック</div>
+  <div class="date-badge">2026-06-20</div>
+</div>
+
+<!-- ===== CARD 1: 3つの定義 ===== -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">📖</span>
+      <span class="card-title">まず整理：3つの「腸活成分」の違い</span>
+      <span class="topic-badge badge-gray">基礎知識</span>
+    </div>
+    <p class="body-text">「プロバイオティクス」「プレバイオティクス」「シンバイオティクス」── よく見かける言葉ですが、意味は全く異なります。ごっちゃになりがちな3つを整理しましょう。</p>
+
+    <div class="trio-compare">
+      <div class="trio-card tc-pro">
+        <span class="tc-icon">🧫</span>
+        <div class="tc-name">プロバイオティクス</div>
+        <div class="tc-en">Probiotics</div>
+        <div class="tc-desc"><strong>生きた菌を直接摂って</strong>腸内環境を整えようとするアプローチ。WHO/FAO の定義では「適切な量を摂取した場合に宿主に健康上の利益をもたらす生きた微生物」</div>
+        <div class="tc-example">
+          <span class="tc-ex-label">💡 代表的な食品・成分</span>
+          ヨーグルト・キムチ・納豆・ケフィア・乳酸菌サプリ<br>
+          菌の種類例：Lactobacillus 属、Bifidobacterium 属
+        </div>
+      </div>
+      <div class="trio-card tc-pre">
+        <span class="tc-icon">🌾</span>
+        <div class="tc-name">プレバイオティクス</div>
+        <div class="tc-en">Prebiotics</div>
+        <div class="tc-desc"><strong>腸内の善玉菌のエサになる成分を摂って</strong>、すでにいる菌を育てるアプローチ。「消化管で分解・吸収されず、特定の微生物の成長・活動を選択的に促進する基質」</div>
+        <div class="tc-example">
+          <span class="tc-ex-label">💡 代表的な食品・成分</span>
+          ゴボウ・玉ねぎ・にんにく・バナナ（未熟）・大麦<br>
+          成分例：フラクトオリゴ糖（FOS）・イヌリン・ガラクトオリゴ糖（GOS）
+        </div>
+      </div>
+      <div class="trio-card tc-syn">
+        <span class="tc-icon">🔗</span>
+        <div class="tc-name">シンバイオティクス</div>
+        <div class="tc-en">Synbiotics</div>
+        <div class="tc-desc"><strong>プロバイオティクス＋プレバイオティクスを同時に摂る</strong>ハイブリッドアプローチ。生きた菌を届けながら、そのエサも補給して定着・増殖を助ける</div>
+        <div class="tc-example">
+          <span class="tc-ex-label">💡 例</span>
+          乳酸菌サプリ＋食物繊維サプリの組み合わせ、ヨーグルト＋バナナ（食事レベル）
+        </div>
+      </div>
+    </div>
+
+    <div class="simple-box">
+      <div class="label">ポストバイオティクス（第4のカテゴリ）</div>
+      近年注目の新カテゴリが「ポストバイオティクス（Postbiotics）」。生きた菌ではなく、菌が産生した<strong>代謝産物（短鎖脂肪酸・ペプチド・細胞壁成分など）や死菌・不活化菌</strong>を直接摂取するアプローチ。胃酸に強く保存性が高い利点がありますが、臨床応用の研究はまだ初期段階です。
+    </div>
+  </div>
+</div>
+
+<!-- ===== CARD 2: 腸内細菌への効果 ===== -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">🔬</span>
+      <span class="card-title">腸内細菌叢への効果 ── 「ビフィズス菌を増やす」のはどれ？</span>
+      <span class="topic-badge badge-blue">研究エビデンス</span>
+    </div>
+    <p class="body-text">2025年に <em>Nutrition Journal</em> に掲載されたメタ分析（DOI: 10.1186/s12937-025-01218-1）は、3種類を比較した <strong>RCT 29件・計1,633人の高齢者</strong>を対象に、腸内細菌叢（腸に住む細菌のまとまり）の変化を分析しました。</p>
+
+    <div class="num-cards">
+      <div class="num-card blue">
+        <div class="big-num">29</div>
+        <div class="num-unit">RCT</div>
+        <div class="num-label">統合されたランダム化<br>対照試験の数</div>
+      </div>
+      <div class="num-card teal">
+        <div class="big-num">1,633</div>
+        <div class="num-unit">名</div>
+        <div class="num-label">参加者数<br>（高齢者対象）</div>
+      </div>
+    </div>
+
+    <p class="body-text" style="margin-top: 4px;">注目されたのは<strong>ビフィズス菌（Bifidobacterium）の増加量</strong>。SMD（標準化平均差）という指標で効果の大きさを比べました。</p>
+
+    <div class="simple-box">
+      <div class="label">SMD（標準化平均差）とは？</div>
+      複数の研究を統合して「効果の大きさ」を共通の尺度で示す数値。一般に <strong>0.2 = 小さい効果、0.5 = 中程度、0.8 以上 = 大きい効果</strong>とされます。
+    </div>
+
+    <div class="bar-chart">
+      <div class="bar-row">
+        <div class="bar-label">🌾 プレバイオティクス</div>
+        <div class="bar-track"><div class="bar-fill bf-pre" style="width: 86%;">SMD = 1.09</div></div>
+        <div class="bar-note">★ 大きい効果</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">🧫 プロバイオティクス</div>
+        <div class="bar-track"><div class="bar-fill bf-pro" style="width: 32%;">SMD = 0.40</div></div>
+        <div class="bar-note">小〜中程度</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">🔗 シンバイオティクス</div>
+        <div class="bar-track"><div class="bar-fill bf-gray" style="width: 8%;"></div></div>
+        <div class="bar-note">全体として有意差なし<br>（特定菌株で効果あり）</div>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <div class="label">解説：なぜプレバイオティクスのほうが効くのか</div>
+      プレバイオティクスは、腸にもともと住んでいるビフィズス菌に<strong>「エサ」を与えて増殖させる</strong>戦略です。これに対してプロバイオティクスは外から菌を送り込みますが、<strong>胃酸・消化酵素による死滅・定着の難しさ</strong>という壁があります。「すでにいる菌を育てる」のは「新しく入植させる」より安定した戦略である可能性が示されています。ただしこの研究は高齢者のみが対象であり、若い世代への一般化には注意が必要です。
+    </div>
+
+    <div class="orange-box">
+      <div class="label">シンバイオティクスの「特定菌株効果」</div>
+      シンバイオティクス全体としては統計的に有意な増加は見られませんでしたが、特定の菌株（B. angulatum・B. longum・B. breve）の増加は確認されました。組み合わせの種類・量・対象によって効果が大きくばらつくため、一括りに評価することが難しい介入です。
+    </div>
+
+    <div class="source-text">
+      出典: Nutrition Journal 2025 「Effects of probiotics, prebiotics, and synbiotics on gut microbiota in older adults: a systematic review and meta-analysis of randomized controlled trials」
+      DOI: <a href="https://doi.org/10.1186/s12937-025-01218-1" target="_blank">10.1186/s12937-025-01218-1</a>（系統的レビュー＋メタ分析、29 RCT、n=1,633、2025年）
+    </div>
+  </div>
+</div>
+
+<!-- ===== CARD 3: 炎症マーカーへの効果 ===== -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">🔥</span>
+      <span class="card-title">炎症マーカーへの効果 ── シンバイオティクスの逆転</span>
+      <span class="topic-badge badge-red">炎症・免疫</span>
+    </div>
+    <p class="body-text">2025年に <em>Pharmacological Research</em> 誌に掲載された大規模メタ分析（PMID: 40581234）は、CRP・TNF-α・IL-6 などの<strong>炎症マーカー</strong>（炎症の程度を示す体内の物質）への効果を、<strong>RCT 90件・計5,207人</strong>のデータで比較しました。</p>
+
+    <div class="num-cards">
+      <div class="num-card red">
+        <div class="big-num">90</div>
+        <div class="num-unit">RCT</div>
+        <div class="num-label">統合されたランダム化<br>対照試験の数</div>
+      </div>
+      <div class="num-card orange">
+        <div class="big-num">5,207</div>
+        <div class="num-unit">名</div>
+        <div class="num-label">参加者数<br>（成人・小児）</div>
+      </div>
+    </div>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th class="col-label th-lbl">炎症マーカー</th>
+          <th class="th-pro">🧫 プロバイオ</th>
+          <th class="th-pre">🌾 プレバイオ</th>
+          <th class="th-syn">🔗 シンバイオ</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="col-label">CRP<br>（全身炎症の代表指標）</td>
+          <td><span class="tag-mid">一部で低下</span></td>
+          <td><span class="tag-weak">データ限定</span></td>
+          <td><span class="tag-strong">最も強く低下</span></td>
+        </tr>
+        <tr>
+          <td class="col-label">TNF-α<br>（炎症性サイトカイン）</td>
+          <td><span class="tag-mid">一部で低下</span></td>
+          <td><span class="tag-weak">データ限定</span></td>
+          <td><span class="tag-strong">有意に低下</span></td>
+        </tr>
+        <tr>
+          <td class="col-label">IL-1β・IL-6<br>（炎症誘導物質）</td>
+          <td><span class="tag-mixed">結果混在</span></td>
+          <td><span class="tag-weak">データ限定</span></td>
+          <td><span class="tag-strong">有意に低下</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="green-box">
+      <div class="label">炎症への効果では「シンバイオティクス」が最も強い</div>
+      腸内細菌叢の変化（ビフィズス菌の増加）ではプレバイオティクスが優れていましたが、全身性の炎症マーカー低下という観点では<strong>シンバイオティクスが最も強い効果</strong>を示しました。生きた菌の投与とそのエサの補給を組み合わせることで、単独介入より強い抗炎症効果が生まれる可能性があります。ただし、エビデンスの質（GRADE 評価）にはばらつきがあります。
+    </div>
+
+    <div class="alert-box">
+      <div class="label">「炎症マーカーが下がる」≠「病気が治る・予防できる」</div>
+      CRP や TNF-α などは「中間的な代理指標」です。これらの数値が改善しても、心臓病・がん・自己免疫疾患などの実際の発症・死亡リスクが同じ程度減るとは言えません。「炎症の状態が改善する傾向がある」というエビデンスの段階です。
+    </div>
+
+    <div class="source-text">
+      出典: Pharmacological Research 2025 「The effects of synbiotics surpass prebiotics in improving inflammatory biomarkers in children and adults: A systematic review, meta-analysis, and meta-evidence of data from 5207 participants in 90 randomized controlled trials」
+      PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/40581234/" target="_blank">40581234</a>（系統的レビュー＋メタ分析、90 RCT、n=5,207、2025年）
+    </div>
+  </div>
+</div>
+
+<!-- ===== CARD 4: 精神健康・睡眠 ===== -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">🧠</span>
+      <span class="card-title">精神健康・睡眠への効果 ── 「腸脳軸」の研究は今どこまで？</span>
+      <span class="topic-badge badge-purple">腸脳軸</span>
+    </div>
+    <p class="body-text">腸と脳はお互いに信号をやりとりしています（<strong>腸脳軸・gut-brain axis</strong>）。腸内細菌が産生するセロトニン・GABA・短鎖脂肪酸などが脳の働きに影響する可能性があることから、精神健康や睡眠への効果も研究されています。</p>
+
+    <p class="body-text">2025年に <em>BMC Psychiatry</em> に掲載されたメタ分析（DOI: 10.1186/s12888-025-07644-z）は、プロバイオティクス・プレバイオティクス・シンバイオティクスの不安・うつ・睡眠への効果を RCT を統合して検証しました。</p>
+
+    <div class="purple-box">
+      <div class="label">うつ症状への効果（プロバイオティクス）</div>
+      複数の研究を統合したメタ分析では、プロバイオティクスがうつ症状のスコアをわずかに改善する傾向が示されています（SMD = −0.34、95%CI: −0.45〜−0.22）。これは<strong>統計的には有意だが、臨床的な意味は小さい</strong>とされる効果量です。また、結果は研究ごとにばらつきが大きく、対象集団・菌株・摂取期間が異なるため、現時点では一般的な推奨とは言えません。
+    </div>
+
+    <div class="orange-box">
+      <div class="label">不安・睡眠への効果</div>
+      不安への効果は研究間で結果が一致せず「効果あり」と「有意差なし」が混在しています。睡眠に関してはRCT数が少なく、現時点では「効果がある可能性はあるが、証明するには証拠が不十分」という段階です。
+    </div>
+
+    <div class="simple-box">
+      <div class="label">なぜ結果がばらつくのか</div>
+      ① 菌株の種類が違いすぎる（Lactobacillus 属だけでも100種以上）<br>
+      ② 対象集団の違い（健康な人 vs. うつ病の患者 では効果が異なりやすい）<br>
+      ③ 介入期間が研究によって4〜24週と大きく異なる<br>
+      ④ 盲検化（参加者も研究者もどちらを飲んでいるか知らない状態）が不十分な研究も混在
+    </div>
+
+    <div class="source-text">
+      出典: BMC Psychiatry 2025 「The efficacy of probiotics, prebiotics, and synbiotics on anxiety, depression, and sleep: a systematic review and meta-analysis of randomized controlled trials」
+      DOI: <a href="https://doi.org/10.1186/s12888-025-07644-z" target="_blank">10.1186/s12888-025-07644-z</a>（系統的レビュー＋メタ分析、2025年）
+    </div>
+  </div>
+</div>
+
+<!-- ===== CARD 5: 食事から摂る ===== -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">🍽️</span>
+      <span class="card-title">食事から摂るプロ・プレバイオティクス</span>
+      <span class="topic-badge badge-green">実践</span>
+    </div>
+    <p class="body-text">サプリに頼らなくても、日常の食事でプロバイオティクス・プレバイオティクスを摂ることができます。食品から摂る場合は菌や繊維の種類が多様で、過剰摂取のリスクが低いという利点があります。</p>
+
+    <div class="food-grid">
+      <div class="food-box fb-pro">
+        <div class="fb-title">🧫 プロバイオティクス食品（発酵食品）</div>
+        <div class="food-item">
+          🥛 ヨーグルト（Lactobacillus 含有）<br>
+          🫙 キムチ・ぬか漬け・浅漬け<br>
+          🍶 みそ・醤油・甘酒<br>
+          🌱 納豆（Bacillus subtilis natto）<br>
+          🥛 ケフィア・チーズ（熟成型）<br>
+          🥬 ザワークラウト（発酵キャベツ）
+        </div>
+      </div>
+      <div class="food-box fb-pre">
+        <div class="fb-title">🌾 プレバイオティクス食品（食物繊維・オリゴ糖）</div>
+        <div class="food-item">
+          🧅 玉ねぎ・長ねぎ・にんにく（FOS・イヌリン）<br>
+          🥕 ゴボウ・キクイモ（イヌリン豊富）<br>
+          🍌 バナナ（未熟）・アスパラガス<br>
+          🌾 大麦・オーツ麦（β-グルカン）<br>
+          🫘 大豆・ひよこ豆（GOS・難消化性デンプン）<br>
+          🍠 冷ましたじゃがいも（難消化性デンプン↑）
+        </div>
+      </div>
+    </div>
+
+    <div class="cyan-box">
+      <div class="label">食事で「シンバイオティクス」的な効果を狙う組み合わせ例</div>
+      🍌 バナナ ＋ ヨーグルト → プレバイオ（FOS）＋ プロバイオ（乳酸菌）<br>
+      🍲 ゴボウのみそ汁 → プレバイオ（イヌリン）＋ プロバイオ（みそ）<br>
+      🌾 大麦ご飯 ＋ 納豆 ＋ 漬物 → 食物繊維 ＋ 複数の発酵食品<br>
+      <br>
+      食品レベルでの組み合わせは過剰摂取のリスクが低く、日本の伝統的な和食に自然に組み込まれている戦略です。
+    </div>
+  </div>
+</div>
+
+<!-- ===== CARD 6: まとめ・注意点 ===== -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">⚖️</span>
+      <span class="card-title">3論文で見えた全体像と注意点</span>
+      <span class="topic-badge badge-gray">まとめ</span>
+    </div>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th class="col-label th-lbl">目的・アウトカム</th>
+          <th class="th-pro">🧫 プロバイオ</th>
+          <th class="th-pre">🌾 プレバイオ</th>
+          <th class="th-syn">🔗 シンバイオ</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="col-label">ビフィズス菌を増やす<br>（腸内細菌叢の変化）</td>
+          <td><span class="tag-mid">中程度<br>SMD=0.40</span></td>
+          <td><span class="tag-strong">最も強い<br>SMD=1.09</span></td>
+          <td><span class="tag-mixed">特定菌株で効果</span></td>
+        </tr>
+        <tr>
+          <td class="col-label">炎症マーカーを下げる<br>（CRP・TNF-α 等）</td>
+          <td><span class="tag-mid">一部で効果</span></td>
+          <td><span class="tag-weak">データ限定</span></td>
+          <td><span class="tag-strong">最も強い効果</span></td>
+        </tr>
+        <tr>
+          <td class="col-label">うつ・不安を和らげる</td>
+          <td><span class="tag-mid">小さい効果<br>SMD=−0.34</span></td>
+          <td><span class="tag-weak">証拠不十分</span></td>
+          <td><span class="tag-weak">証拠不十分</span></td>
+        </tr>
+        <tr>
+          <td class="col-label">睡眠の質を改善する</td>
+          <td><span class="tag-weak">証拠少ない</span></td>
+          <td><span class="tag-weak">証拠少ない</span></td>
+          <td><span class="tag-weak">証拠少ない</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="alert-box">
+      <div class="label">サプリのプロバイオティクスを使う際の注意点</div>
+      ① 胃酸で多くの菌が死滅し、腸まで届く量は製品・菌株によって大きく異なる<br>
+      ② 定着は通常一時的。補給をやめると腸内細菌叢は元の状態に戻りやすい<br>
+      ③ <strong>免疫が低下している方（抗がん剤治療中・臓器移植後・重篤な持病のある方）は必ず医師に相談</strong>。まれに感染症を引き起こすリスクが報告されている<br>
+      ④ 製品ラベルに記載された菌数（CFU）は製造時の値で、消費時には大幅に減っていることもある
+    </div>
+
+    <div class="green-box">
+      <div class="label">精密栄養学の視点：「腸内細菌の個人差」が使い分けの鍵</div>
+      同じプロバイオティクス・プレバイオティクスを摂っても、効果の出る人・出ない人がいます。これは元々の腸内細菌叢の多様性・食事パターン・遺伝的背景の違いによります。現在、腸内細菌叢の検査（メタゲノム解析）をもとに個人に合ったプレバイオティクスを選ぶ「精密腸活」の研究が進んでいます。まだ臨床応用は限られますが、「あなたの腸に合った食物繊維の種類」を個別に選べる将来が見えてきています。
+    </div>
+  </div>
+</div>
+
+<!-- ===== DISCLAIMER ===== -->
+<div class="disclaimer">
+  <div class="dis-title">⚠️ 免責・注意事項</div>
+  本記事は一般的な健康情報の提供を目的としており、医療アドバイスではありません。プロバイオティクス・プレバイオティクス・シンバイオティクスの効果・必要量・適切な菌株・リスクは、個人の体質・年齢・持病・服薬によって大きく異なります。特に免疫抑制剤を使用中の方・炎症性腸疾患（IBD）の方・抗がん剤治療中の方は、サプリ類の摂取前に必ずかかりつけ医・消化器科専門医にご相談ください。本記事の情報をもとに自己判断で特定のサプリを大量摂取したり、治療を変更したりしないでください。実践の前に管理栄養士や医師などの専門家に相談することを強くお勧めします。
+</div>
+
+<!-- ===== SOURCES ===== -->
+<div class="disclaimer" style="border-color: #aac8d8;">
+  <div class="dis-title">📚 主な参考文献・出典</div>
+  ① Nutrition Journal 2025 「Effects of probiotics, prebiotics, and synbiotics on gut microbiota in older adults: a systematic review and meta-analysis of randomized controlled trials」
+  DOI: <a href="https://doi.org/10.1186/s12937-025-01218-1" target="_blank">10.1186/s12937-025-01218-1</a>（系統的レビュー＋メタ分析、29 RCT、n=1,633、2025年）<br><br>
+  ② Pharmacological Research 2025 「The effects of synbiotics surpass prebiotics in improving inflammatory biomarkers in children and adults: A systematic review, meta-analysis, and meta-evidence of data from 5207 participants in 90 randomized controlled trials」
+  PMID: <a href="https://pubmed.ncbi.nlm.nih.gov/40581234/" target="_blank">40581234</a>（系統的レビュー＋メタ分析、90 RCT、n=5,207、2025年）<br><br>
+  ③ BMC Psychiatry 2025 「The efficacy of probiotics, prebiotics, and synbiotics on anxiety, depression, and sleep: a systematic review and meta-analysis of randomized controlled trials」
+  DOI: <a href="https://doi.org/10.1186/s12888-025-07644-z" target="_blank">10.1186/s12888-025-07644-z</a>（系統的レビュー＋メタ分析、2025年）<br><br>
+  ④ WHO/FAO 「Health and Nutritional Properties of Probiotics in Food including Powder Milk with Live Lactic Acid Bacteria」2001年（プロバイオティクス・プレバイオティクスの国際定義の基礎文書）
+</div>
+
+</body>
+</html>
