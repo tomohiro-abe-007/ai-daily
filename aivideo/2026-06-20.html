@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI動画制作 最新トピック 2026-06-20</title>
+<style>
+:root{
+  --bg:#f0edf6;--card:#faf8fd;--text:#1e1230;--muted:#6a5a80;--border:#dcd0f0;
+  --vi:#3a0a6a;--vil:#f0e8fc;--vim:#6020b0;--via:#4a10a0;
+  --in:#0a3a7a;--inl:#e0ecfc;--inm:#1a60c8;
+  --gr:#0a4a2a;--grl:#e0f5ea;--grm:#1a8048;
+  --am:#7a4000;--aml:#fff5e0;--amm:#c06010;
+  --re:#7a0a2a;--rel:#fde8ee;--rem:#c01040;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,"Hiragino Sans","Yu Gothic",sans-serif;line-height:1.7;padding:24px 16px;}
+.wrap{max-width:860px;margin:0 auto;}
+
+.header{background:linear-gradient(135deg,#1a0440,#3a0a6a,#0a2060);color:#fff;border-radius:20px;padding:40px 32px;text-align:center;box-shadow:0 8px 24px rgba(26,4,64,.45);margin-bottom:24px;}
+.date-badge{background:rgba(255,255,255,.16);color:#c8a8ff;border-radius:20px;padding:4px 16px;font-size:.85rem;display:inline-block;margin-bottom:16px;letter-spacing:.08em;}
+.header h1{font-size:1.9rem;margin-bottom:8px;letter-spacing:.04em;}
+.header .subtitle{color:#c8a8ff;font-size:1rem;}
+.tag-row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:14px;}
+.header .tag{background:rgba(255,255,255,.14);border-radius:12px;padding:3px 12px;font-size:.78rem;color:#ffe4a8;}
+
+.section{background:var(--card);border-radius:16px;padding:28px 24px;margin-bottom:20px;box-shadow:0 3px 12px rgba(0,0,0,.06);border:1px solid var(--border);}
+.section-title{font-size:1.1rem;font-weight:700;color:var(--vi);border-bottom:2px solid var(--border);padding-bottom:10px;margin-bottom:18px;display:flex;align-items:center;gap:8px;}
+
+/* Big number cards */
+.num-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px;}
+.num-card{border-radius:14px;padding:18px 12px;text-align:center;}
+.num-card .n-val{font-size:2rem;font-weight:900;line-height:1;margin-bottom:4px;}
+.num-card .n-unit{font-size:.73rem;font-weight:700;margin-bottom:4px;}
+.num-card .n-label{font-size:.73rem;line-height:1.4;}
+.nc-gr{background:var(--grl);border:2px solid var(--grm);}
+.nc-gr .n-val,.nc-gr .n-unit{color:var(--grm);}
+.nc-gr .n-label{color:var(--gr);}
+.nc-bl{background:var(--inl);border:2px solid var(--inm);}
+.nc-bl .n-val,.nc-bl .n-unit{color:var(--inm);}
+.nc-bl .n-label{color:var(--in);}
+.nc-pu{background:var(--vil);border:2px solid var(--vim);}
+.nc-pu .n-val,.nc-pu .n-unit{color:var(--vim);}
+.nc-pu .n-label{color:var(--via);}
+.nc-am{background:var(--aml);border:2px solid var(--amm);}
+.nc-am .n-val,.nc-am .n-unit{color:var(--amm);}
+.nc-am .n-label{color:var(--am);}
+.nc-red{background:var(--rel);border:2px solid var(--rem);}
+.nc-red .n-val,.nc-red .n-unit{color:var(--rem);}
+.nc-red .n-label{color:var(--re);}
+
+/* Mood matrix */
+.mood-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:16px;}
+.mood-card{border-radius:12px;padding:16px 12px;text-align:center;}
+.m-a{background:var(--inl);border:1.5px solid #80a8e8;}
+.m-b{background:var(--vil);border:1.5px solid #b080e8;}
+.m-c{background:var(--grl);border:1.5px solid #70c090;}
+.m-d{background:var(--aml);border:1.5px solid #d09050;}
+.m-e{background:var(--rel);border:1.5px solid #e08090;}
+.m-f{background:#f0f8e8;border:1.5px solid #90c040;}
+.mood-card .m-icon{font-size:2rem;margin-bottom:6px;}
+.mood-card .m-mood{font-size:.9rem;font-weight:700;margin-bottom:3px;}
+.mood-card .m-genre{font-size:.8rem;font-weight:600;margin-bottom:4px;}
+.mood-card .m-prompt{font-size:.73rem;line-height:1.4;color:var(--muted);font-family:monospace;background:rgba(255,255,255,.6);border-radius:6px;padding:4px 6px;margin-top:4px;}
+.m-a .m-mood{color:var(--in);}
+.m-b .m-mood{color:var(--via);}
+.m-c .m-mood{color:var(--gr);}
+.m-d .m-mood{color:var(--am);}
+.m-e .m-mood{color:var(--re);}
+.m-f .m-mood{color:#4a8010;}
+.m-a .m-genre{color:#1a60c8;}
+.m-b .m-genre{color:#6020b0;}
+.m-c .m-genre{color:#1a8048;}
+.m-d .m-genre{color:#c06010;}
+.m-e .m-genre{color:#c01040;}
+.m-f .m-genre{color:#4a8010;}
+
+/* Tool compare cards */
+.tool-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:14px;}
+.tool-card{border-radius:12px;padding:18px 14px;}
+.tc-a{background:var(--vil);border:2px solid #b080e8;}
+.tc-b{background:var(--inl);border:2px solid #80a8e8;}
+.tc-c{background:var(--grl);border:2px solid #70c090;}
+.tc-d{background:var(--aml);border:2px solid #d09050;}
+.tool-card .t-icon{font-size:1.8rem;margin-bottom:6px;}
+.tool-card .t-name{font-size:1rem;font-weight:700;margin-bottom:3px;}
+.tool-card .t-tag{font-size:.72rem;border-radius:8px;padding:2px 8px;display:inline-block;margin-bottom:8px;}
+.tool-card .t-desc{font-size:.82rem;line-height:1.6;color:var(--muted);}
+.tool-card .t-spec{font-size:.78rem;margin-top:8px;padding-top:8px;border-top:1px dashed rgba(0,0,0,.12);}
+.tc-a .t-name{color:var(--via);}
+.tc-b .t-name{color:var(--in);}
+.tc-c .t-name{color:var(--gr);}
+.tc-d .t-name{color:var(--am);}
+.tc-a .t-tag{background:var(--vim);color:#fff;}
+.tc-b .t-tag{background:var(--inm);color:#fff;}
+.tc-c .t-tag{background:var(--grm);color:#fff;}
+.tc-d .t-tag{background:var(--amm);color:#fff;}
+
+/* Comparison table */
+.comp-table{width:100%;border-collapse:collapse;font-size:.84rem;}
+.comp-table th{background:var(--vi);color:#fff;padding:10px 12px;text-align:center;font-weight:700;}
+.comp-table th:first-child{border-radius:8px 0 0 0;text-align:left;}
+.comp-table th:last-child{border-radius:0 8px 0 0;}
+.comp-table td{padding:10px 12px;border-bottom:1px solid var(--border);text-align:center;vertical-align:middle;}
+.comp-table td:first-child{text-align:left;font-weight:600;}
+.comp-table tr:last-child td{border-bottom:none;}
+.comp-table tr:nth-child(even) td{background:#f8f5ff;}
+.badge-ok{display:inline-block;background:var(--grl);color:var(--grm);border-radius:6px;padding:1px 8px;font-size:.76rem;font-weight:700;}
+.badge-ng{display:inline-block;background:#eee;color:#888;border-radius:6px;padding:1px 8px;font-size:.76rem;}
+.badge-part{display:inline-block;background:var(--aml);color:var(--amm);border-radius:6px;padding:1px 8px;font-size:.76rem;font-weight:700;}
+
+/* Copyright card */
+.copy-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:14px;}
+.copy-card{border-radius:14px;padding:20px 18px;}
+.cc-free{background:var(--rel);border:2px solid var(--rem);}
+.cc-paid{background:var(--grl);border:2px solid var(--grm);}
+.copy-card .cc-label{font-size:1rem;font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+.cc-free .cc-label{color:var(--rem);}
+.cc-paid .cc-label{color:var(--grm);}
+.copy-card ul{font-size:.85rem;line-height:2;padding-left:18px;color:var(--text);}
+
+/* Flow / Steps */
+.flow{display:flex;flex-direction:column;gap:0;}
+.flow-item{display:flex;align-items:flex-start;gap:16px;padding:16px 0;border-bottom:1px dashed var(--border);}
+.flow-item:last-child{border-bottom:none;}
+.step-num{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:900;color:#fff;flex-shrink:0;margin-top:2px;}
+.s1{background:var(--inm);}
+.s2{background:var(--vim);}
+.s3{background:var(--grm);}
+.s4{background:var(--amm);}
+.s5{background:var(--rem);}
+.flow-body{flex:1;}
+.flow-title{font-size:1rem;font-weight:700;margin-bottom:4px;}
+.flow-desc{font-size:.88rem;color:var(--muted);line-height:1.6;}
+.flow-tip{display:inline-block;font-size:.78rem;padding:3px 10px;border-radius:8px;margin-top:6px;font-weight:600;}
+.t1{background:var(--inl);color:var(--in);}
+.t2{background:var(--vil);color:var(--via);}
+.t3{background:var(--grl);color:var(--gr);}
+.t4{background:var(--aml);color:var(--am);}
+.t5{background:var(--rel);color:var(--re);}
+
+/* SE tips */
+.se-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:14px;}
+.se-card{border-radius:12px;padding:16px 12px;text-align:center;}
+.se-a{background:var(--inl);border:1.5px solid #80a8e8;}
+.se-b{background:var(--vil);border:1.5px solid #b080e8;}
+.se-c{background:var(--grl);border:1.5px solid #70c090;}
+.se-card .se-icon{font-size:1.8rem;margin-bottom:8px;}
+.se-card .se-title{font-size:.9rem;font-weight:700;margin-bottom:4px;}
+.se-card .se-desc{font-size:.79rem;line-height:1.5;color:var(--muted);}
+.se-a .se-title{color:var(--in);}
+.se-b .se-title{color:var(--via);}
+.se-c .se-title{color:var(--gr);}
+
+/* Alert box */
+.alert-box{border-radius:14px;padding:18px 20px;margin-bottom:18px;}
+.alert-warn{background:linear-gradient(135deg,#fff5e0,#ffe8cc);border:2px solid var(--amm);}
+.alert-info{background:linear-gradient(135deg,#e8f0ff,#f0e8ff);border:2px solid #7030d0;}
+
+/* Volume bar */
+.vol-bar{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;margin-bottom:8px;}
+.vol-track{flex:1;height:12px;border-radius:6px;background:#e0e0e0;position:relative;overflow:hidden;}
+.vol-fill{height:100%;border-radius:6px;}
+.vol-label{font-size:.82rem;font-weight:600;min-width:100px;}
+.vol-db{font-size:.78rem;color:var(--muted);min-width:60px;text-align:right;}
+.vb-di{background:var(--rel);}
+.vf-di{background:var(--rem);width:100%;}
+.vb-bgm{background:var(--inl);}
+.vf-bgm{background:var(--inm);width:35%;}
+.vb-se{background:var(--grl);}
+.vf-se{background:var(--grm);width:55%;}
+
+/* Disclaimer */
+.disclaimer{background:#f8f6fc;border:1.5px solid var(--border);border-radius:12px;padding:16px 18px;font-size:.8rem;color:var(--muted);line-height:1.7;}
+.disclaimer strong{color:var(--vim);}
+.disclaimer a{color:var(--vim);text-decoration:none;}
+.disclaimer a:hover{text-decoration:underline;}
+
+@media(max-width:600px){
+  .num-grid{grid-template-columns:repeat(2,1fr);}
+  .mood-grid{grid-template-columns:repeat(2,1fr);}
+  .tool-grid{grid-template-columns:1fr;}
+  .copy-grid{grid-template-columns:1fr;}
+  .se-grid{grid-template-columns:1fr;}
+  .header h1{font-size:1.4rem;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ヘッダー -->
+  <div class="header">
+    <div class="date-badge">📅 2026-06-20 ／ エバーグリーン回</div>
+    <h1>🎵 BGM・SE選びと音楽生成AI</h1>
+    <p class="subtitle">ムード×ジャンルの法則 ＋ Suno / Udio / Lyria 3 Pro で著作権フリーBGMを作る</p>
+    <div class="tag-row">
+      <span class="tag">BGM選び</span>
+      <span class="tag">SE（効果音）</span>
+      <span class="tag">Suno</span>
+      <span class="tag">Udio</span>
+      <span class="tag">Lyria 3 Pro</span>
+      <span class="tag">著作権</span>
+    </div>
+  </div>
+
+  <!-- 3行まとめ -->
+  <div class="section">
+    <div class="section-title">🌟 今日の3行まとめ</div>
+    <div class="alert-box alert-info">
+      <div style="font-size:.95rem;line-height:1.9;">
+        ① BGM・SEは「見えない演出」── 映像の<strong style="color:#6020b0;">感情・テンポ・ブランド</strong>をすべて左右する最重要素材。<br>
+        ② <strong style="color:#1a60c8;">ムード → ジャンル → テンポ</strong> の順で選ぶとズレがなくなる。<br>
+        ③ <strong style="color:#0a4a2a;">Suno / Udio / Lyria 3 Pro</strong> で完全オリジナルBGMが作れる時代。ただし<strong style="color:#c01040;">商用利用は有料プランが必須</strong>（公式で要確認）。
+      </div>
+    </div>
+  </div>
+
+  <!-- BGM が動画に与える効果 -->
+  <div class="section">
+    <div class="section-title">🧠 BGMが動画に与える効果 ── なぜ「音」がこんなに大切か</div>
+    <div class="num-grid">
+      <div class="num-card nc-red">
+        <div class="n-val">65</div>
+        <div class="n-unit">%</div>
+        <div class="n-label">視聴者が音なしで<br>動画を離脱する割合<br><span style="font-size:.68rem;">(SNS縦動画・諸説あり)</span></div>
+      </div>
+      <div class="num-card nc-bl">
+        <div class="n-val">3</div>
+        <div class="n-unit">秒</div>
+        <div class="n-label">BGMが「合ってない」と<br>感じるまでの時間<br><span style="font-size:.68rem;">(体感平均)</span></div>
+      </div>
+      <div class="num-card nc-pu">
+        <div class="n-val">8</div>
+        <div class="n-unit">倍</div>
+        <div class="n-label">BGM有 vs 無で<br>感情共鳴が強まる<br><span style="font-size:.68rem;">(感覚的な倍率)</span></div>
+      </div>
+      <div class="num-card nc-gr">
+        <div class="n-val">0円</div>
+        <div class="n-unit">〜</div>
+        <div class="n-label">AI音楽生成で<br>オリジナルBGM<br><span style="font-size:.68rem;">(無料〜月数百円〜)</span></div>
+      </div>
+    </div>
+    <div style="background:#f8f5ff;border-radius:10px;padding:14px 16px;font-size:.85rem;color:var(--muted);">
+      🎬 <strong style="color:var(--via);">音楽の役割は3つ：</strong>
+      <span style="color:var(--in);">①感情を増幅する</span>（悲しいシーンはスローストリングスで2倍泣ける）・
+      <span style="color:var(--via);">②テンポを作る</span>（BPM120のビートに合わせてカット割りをするとリズム感が生まれる）・
+      <span style="color:var(--gr);">③ブランドを定義する</span>（毎回同じBGMを使うと視聴者に覚えてもらえる）
+    </div>
+  </div>
+
+  <!-- ムード×ジャンル マトリクス -->
+  <div class="section">
+    <div class="section-title">🎨 ムード × ジャンル マトリクス ── シーン別の選び方</div>
+    <p style="font-size:.88rem;color:var(--muted);margin-bottom:16px;">「このシーンにどんな音楽を合わせればいいか？」── まず「伝えたい感情」を決めて、ジャンルを選ぼう。</p>
+
+    <div class="mood-grid">
+      <div class="mood-card m-a">
+        <div class="m-icon">🚀</div>
+        <div class="m-mood">ワクワク・興奮</div>
+        <div class="m-genre">アップビート / EDM / ロック</div>
+        <div class="m-prompt">BPM: 120〜140<br>「energetic upbeat electronic」</div>
+      </div>
+      <div class="mood-card m-b">
+        <div class="m-icon">🌙</div>
+        <div class="m-mood">切なさ・感動</div>
+        <div class="m-genre">ピアノ / アコースティック / シネマティック</div>
+        <div class="m-prompt">BPM: 60〜80<br>「emotional cinematic piano strings」</div>
+      </div>
+      <div class="mood-card m-c">
+        <div class="m-icon">☀️</div>
+        <div class="m-mood">明るさ・日常</div>
+        <div class="m-genre">ポップ / アコギ / Lo-Fi</div>
+        <div class="m-prompt">BPM: 90〜110<br>「cheerful acoustic folk pop」</div>
+      </div>
+      <div class="mood-card m-d">
+        <div class="m-icon">🌿</div>
+        <div class="m-mood">落ち着き・自然</div>
+        <div class="m-genre">アンビエント / 自然音 / チルアウト</div>
+        <div class="m-prompt">BPM: 50〜70<br>「ambient relaxing nature minimal」</div>
+      </div>
+      <div class="mood-card m-e">
+        <div class="m-icon">⚡</div>
+        <div class="m-mood">緊張・サスペンス</div>
+        <div class="m-genre">ダークシネマティック / オーケストラ</div>
+        <div class="m-prompt">BPM: 100〜130<br>「dark cinematic suspense orchestra」</div>
+      </div>
+      <div class="mood-card m-f">
+        <div class="m-icon">😄</div>
+        <div class="m-mood">ユーモア・コメディ</div>
+        <div class="m-genre">ジャズ / カートゥーン / コミカル</div>
+        <div class="m-prompt">BPM: 100〜120<br>「playful quirky jazz cartoon」</div>
+      </div>
+    </div>
+
+    <div style="background:#f8f5ff;border-radius:10px;padding:14px 16px;font-size:.85rem;color:var(--muted);">
+      💡 <strong style="color:var(--via);">BPM（ビーツ・パー・ミニット）</strong>とは、1分間のリズムの数。数字が大きいほど速くなる。AI音楽生成ツールのプロンプトに入れると曲のテンポが指定できる。
+    </div>
+  </div>
+
+  <!-- AI音楽生成ツール4選 -->
+  <div class="section">
+    <div class="section-title">🤖 AI音楽生成ツール 4選（2026年6月時点）</div>
+    <div class="tool-grid">
+      <div class="tool-card tc-a">
+        <div class="t-icon">🎤</div>
+        <div class="t-name">Suno</div>
+        <div class="t-tag">テキスト→楽曲（ボーカル付き）</div>
+        <div class="t-desc">
+          「夏の海辺で聴くポップ、明るくて前向き、日本語歌詞」のように<strong>自然な文章</strong>でプロンプトを入れるだけで、歌詞・メロディー・ボーカル入りの楽曲を生成できる。
+          動画のBGMだけでなく、テーマ曲やオープニング曲も作れる。
+        </div>
+        <div class="t-spec">
+          📌 <strong>最大8分</strong>まで生成可（2026年版）<br>
+          🤝 ワーナー・ミュージック・グループ（WMG）と提携<br>
+          💰 無料プランあり（商用NGが多い）→ Pro/Premierプランで商用OK（公式で要確認）
+        </div>
+      </div>
+      <div class="tool-card tc-b">
+        <div class="t-icon">🎸</div>
+        <div class="t-name">Udio</div>
+        <div class="t-tag">高音質・楽器分離・リアル感</div>
+        <div class="t-desc">
+          ロック・ジャズ・アコースティックなど<strong>生楽器の再現度が高い</strong>ツール。「Inpainting（インペインティング）」機能で、楽曲の特定の部分だけを修正できる。
+          スタジオ品質に近い仕上がりで、映像のBGMや演奏シーンに最適。
+        </div>
+        <div class="t-spec">
+          📌 <strong>Inpainting</strong>（一部だけ再生成）・ステム分離に対応<br>
+          🤝 ユニバーサル ミュージック（UMG）と和解・提携（2025年10月）<br>
+          💰 Standard $10/月→商用OK、Pro $30/月（公式で要確認）
+        </div>
+      </div>
+      <div class="tool-card tc-c">
+        <div class="t-icon">🎹</div>
+        <div class="t-name">Lyria 3 Pro（Google）</div>
+        <div class="t-tag">ライセンス済みデータ・Gemini連携</div>
+        <div class="t-desc">
+          Google DeepMindが開発。<strong>ライセンスを取得した学習データ</strong>のみで学習しているため、著作権リスクが低いとされる。生成した音楽には<strong>SynthID</strong>（AI透かし）が自動で埋め込まれる。
+          Geminiアプリ・Google Vids・Vertex AIから利用可能。
+        </div>
+        <div class="t-spec">
+          📌 <strong>最大3分</strong>まで生成可（Lyria 3 Pro、2026年3月リリース）<br>
+          🔒 SynthID透かし付き（AI生成識別が可能）<br>
+          💰 Gemini Pro/Ultraプランで利用可（Google Workspace連携）（公式で要確認）
+        </div>
+      </div>
+      <div class="tool-card tc-d">
+        <div class="t-icon">🎚️</div>
+        <div class="t-name">SOUNDRAW</div>
+        <div class="t-tag">BGM専用・ジャンル×ムード選択型</div>
+        <div class="t-desc">
+          「テキストでプロンプト」ではなく、<strong>ジャンル・ムード・長さ・テンポ</strong>をプルダウンで選ぶだけでBGMを生成する。直感的でプロンプト不要。
+          動画専用BGMに特化していて、サビの位置や楽器構成の後調整もできる。
+        </div>
+        <div class="t-spec">
+          📌 ジャンル・ムード・テンポを選択して生成（プロンプト不要）<br>
+          🌐 soundraw.io から利用可<br>
+          💰 生成は無料、ダウンロード・商用利用は有料プランのみ（公式で要確認）
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 比較表 -->
+  <div class="section">
+    <div class="section-title">📊 4ツール 機能比較表（2026年6月時点・公式で要確認）</div>
+    <div style="overflow-x:auto;">
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th>機能・ポイント</th>
+            <th>🎤 Suno</th>
+            <th>🎸 Udio</th>
+            <th>🎹 Lyria 3 Pro</th>
+            <th>🎚️ SOUNDRAW</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>入力方式</td>
+            <td>テキストプロンプト</td>
+            <td>テキストプロンプト</td>
+            <td>テキスト＋スタイル選択</td>
+            <td>プルダウン選択</td>
+          </tr>
+          <tr>
+            <td>ボーカル（歌声）</td>
+            <td><span class="badge-ok">✓ 対応</span></td>
+            <td><span class="badge-ok">✓ 対応</span></td>
+            <td><span class="badge-ok">✓ 対応</span></td>
+            <td><span class="badge-ng">✕ BGMのみ</span></td>
+          </tr>
+          <tr>
+            <td>最大生成時間</td>
+            <td>最大8分（目安）</td>
+            <td>公式で要確認</td>
+            <td>最大3分</td>
+            <td>公式で要確認</td>
+          </tr>
+          <tr>
+            <td>学習データの透明性</td>
+            <td><span class="badge-part">△ WMG提携中</span></td>
+            <td><span class="badge-part">△ UMG和解済み</span></td>
+            <td><span class="badge-ok">✓ ライセンス済みデータ</span></td>
+            <td><span class="badge-ok">✓ 独自データセット</span></td>
+          </tr>
+          <tr>
+            <td>AI透かし</td>
+            <td><span class="badge-ng">✕ なし</span></td>
+            <td><span class="badge-ng">✕ なし</span></td>
+            <td><span class="badge-ok">✓ SynthID</span></td>
+            <td><span class="badge-ng">✕ なし</span></td>
+          </tr>
+          <tr>
+            <td>楽器別ステム分離</td>
+            <td><span class="badge-ng">✕ 非対応</span></td>
+            <td><span class="badge-ok">✓ 対応</span></td>
+            <td><span class="badge-ng">✕ 非対応</span></td>
+            <td><span class="badge-part">△ 構成調整可</span></td>
+          </tr>
+          <tr>
+            <td>Google Vids 連携</td>
+            <td><span class="badge-ng">✕</span></td>
+            <td><span class="badge-ng">✕</span></td>
+            <td><span class="badge-ok">✓ ネイティブ連携</span></td>
+            <td><span class="badge-ng">✕</span></td>
+          </tr>
+          <tr>
+            <td>無料での商用利用</td>
+            <td><span class="badge-ng">✕ 多くの場合NG</span></td>
+            <td><span class="badge-ng">✕ 多くの場合NG</span></td>
+            <td><span class="badge-part">△ プランによる</span></td>
+            <td><span class="badge-ng">✕ 有料プランのみ</span></td>
+          </tr>
+          <tr>
+            <td>有料プラン最安値</td>
+            <td>公式で要確認</td>
+            <td>Standard $10/月〜</td>
+            <td>Gemini Pro（公式で要確認）</td>
+            <td>公式で要確認</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="margin-top:12px;background:#f8f5ff;border-radius:10px;padding:12px 14px;font-size:.82rem;color:var(--muted);">
+      📌 情報は調査時点（2026年6月）のもの。機能・料金は変わります。必ず公式サイトで最新情報を確認してください。
+    </div>
+  </div>
+
+  <!-- 著作権整理 -->
+  <div class="section">
+    <div class="section-title">⚖️ 著作権と商用利用 ── 無料プランと有料プランの違い</div>
+
+    <div class="copy-grid">
+      <div class="copy-card cc-free">
+        <div class="cc-label">🚫 無料プランのケースが多い</div>
+        <ul>
+          <li>商用利用NG（多くのツールで）</li>
+          <li>生成した音楽の著作権はツール会社に帰属</li>
+          <li>YouTube等での収益化NG</li>
+          <li>透かしや利用制限がつく場合も</li>
+        </ul>
+        <div style="font-size:.78rem;margin-top:10px;color:var(--rem);">⚠️ 個人の非商用・試作目的のみ使用可が一般的</div>
+      </div>
+      <div class="copy-card cc-paid">
+        <div class="cc-label">✅ 有料プランのケースが多い</div>
+        <ul>
+          <li>商用利用OK（クライアント案件・SNS運用）</li>
+          <li>生成した音楽の著作権がユーザーに帰属</li>
+          <li>YouTube収益化・配信OK</li>
+          <li>コンテスト応募にも使用可（規約確認）</li>
+        </ul>
+        <div style="font-size:.78rem;margin-top:10px;color:var(--grm);">✓ ただし「公式規約で要確認」は必須</div>
+      </div>
+    </div>
+
+    <div class="alert-box alert-warn">
+      <div style="font-size:.92rem;line-height:1.9;">
+        <strong style="color:#7a4000;">⚠️ 注意点：</strong><br>
+        ① <strong>Sunoの無料プランは「Creative Commons Noncommercial」</strong>ライセンスが適用され、商用利用は禁止（公式で要確認）。<br>
+        ② YouTubeの収益化やクライアントの案件動画に使う場合は必ず<strong>有料プランを使い、規約を確認</strong>する。<br>
+        ③ Lyria 3 ProはSynthID（AI透かし）が入るため、コンテストでは「AI生成音楽の開示」を忘れずに。<br>
+        ④ Suno・Udioはレコード会社との訴訟・和解があったが、<strong>完全に解決しているかは継続確認が必要</strong>。
+      </div>
+    </div>
+  </div>
+
+  <!-- 5ステップ実践フロー -->
+  <div class="section">
+    <div class="section-title">📋 BGM制作 5ステップ実践フロー</div>
+    <div class="flow">
+      <div class="flow-item">
+        <div class="step-num s1">1</div>
+        <div class="flow-body">
+          <div class="flow-title">「映像の感情ゴール」を言語化する</div>
+          <div class="flow-desc">
+            「この映像を見た人にどんな気持ちになってほしいか？」を1文で書く。<br>
+            例：「見た人が元気になって行動したくなる」→ ワクワク・興奮系 → BPM120〜140のアップビート<br>
+            例：「旅行先の美しい自然を伝えたい」→ 落ち着き・感動系 → アンビエント＋シネマティック
+          </div>
+          <span class="flow-tip t1">💡 感情ゴールが決まると、ジャンル・BPMが自動的に絞られる</span>
+        </div>
+      </div>
+      <div class="flow-item">
+        <div class="step-num s2">2</div>
+        <div class="flow-body">
+          <div class="flow-title">ツールを選んでプロンプトを入力（or ムードを選択）</div>
+          <div class="flow-desc">
+            <strong>テキストでOKな人 → Suno / Udio：</strong> 「穏やかな春の朝のイメージ、アコースティックギター、BPM70、インストゥルメンタル」のように自然な日本語で入力<br>
+            <strong>プロンプトが苦手な人 → SOUNDRAW：</strong> ムード・ジャンル・テンポをプルダウンで選ぶだけ<br>
+            <strong>Google Vidsユーザー → Lyria 3 Pro：</strong> Google Vidsのタイムライン上で直接BGMを生成できる
+          </div>
+          <span class="flow-tip t2">🌐 プロンプトは英語で入れるほうが精度が高いことが多い</span>
+        </div>
+      </div>
+      <div class="flow-item">
+        <div class="step-num s3">3</div>
+        <div class="flow-body">
+          <div class="flow-title">3〜5パターン生成して「最も映像に合う1曲」を選ぶ</div>
+          <div class="flow-desc">
+            1回で完璧な曲ができることは少ない。必ず複数生成して、実際に映像に当ててみて耳で判断する。
+            判断基準：① 映像のリズムと曲のビートが一致するか ② 感情の強さが映像の強さと合っているか ③ 「気になる音」がないか（歌詞が主張しすぎないかなど）
+          </div>
+          <span class="flow-tip t3">🎧 ヘッドホンで聴くと「映像と合っているか」が分かりやすい</span>
+        </div>
+      </div>
+      <div class="flow-item">
+        <div class="step-num s4">4</div>
+        <div class="flow-body">
+          <div class="flow-title">音量バランスを整える（対話・BGM・SEの三層構造）</div>
+          <div class="flow-desc">
+            動画の音はざっくり3層で構成される。それぞれの音量（dB）の目安：
+          </div>
+          <div style="margin:12px 0;">
+            <div class="vol-bar">
+              <div class="vol-label">🗣️ 対話・ナレーション</div>
+              <div class="vol-track vb-di"><div class="vol-fill vf-di"></div></div>
+              <div class="vol-db">0dB（基準）</div>
+            </div>
+            <div class="vol-bar">
+              <div class="vol-label">🎵 BGM</div>
+              <div class="vol-track vb-bgm"><div class="vol-fill vf-bgm"></div></div>
+              <div class="vol-db">-20〜-30dB</div>
+            </div>
+            <div class="vol-bar">
+              <div class="vol-label">💥 SE（効果音）</div>
+              <div class="vol-track vb-se"><div class="vol-fill vf-se"></div></div>
+              <div class="vol-db">-10〜-18dB</div>
+            </div>
+          </div>
+          <div style="font-size:.82rem;color:var(--muted);">↑ BGMが大きすぎると「言葉」が聞こえなくなる。BGMは主役ではなく「舞台の背景」。</div>
+          <span class="flow-tip t4">🎚️ 編集ソフトのキーフレームで、トーキングシーンだけBGMを自動的に下げる（ダッキング）と便利</span>
+        </div>
+      </div>
+      <div class="flow-item">
+        <div class="step-num s5">5</div>
+        <div class="flow-body">
+          <div class="flow-title">曲の長さを動画に合わせる（フェードイン・フェードアウト）</div>
+          <div class="flow-desc">
+            生成した曲が動画より長い場合はカット、短い場合はループさせる。開始部分は0.5〜1秒のフェードイン、終了部分は1〜2秒のフェードアウトをかけると自然な仕上がりになる。
+            編集ソフト（DaVinci Resolve・CapCut・Premireなど）の「オーディオトランジション」機能で1クリックで設定できる。
+          </div>
+          <span class="flow-tip t5">✂️ BGMのループ点は「サビ前の無音っぽい瞬間」を探すとつなぎ目が目立たない</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SE（効果音）選びの3コツ -->
+  <div class="section">
+    <div class="section-title">💥 SE（効果音）選びの3コツ</div>
+    <p style="font-size:.88rem;color:var(--muted);margin-bottom:16px;">SE（Sound Effect）とは、映像に合わせて追加する「効果音」のこと。ドアが開く音・足音・クリック音・環境音など。</p>
+
+    <div class="se-grid">
+      <div class="se-card se-a">
+        <div class="se-icon">🎯</div>
+        <div class="se-title">動きに「ピタッ」と合わせる</div>
+        <div class="se-desc">物が動くフレームに合わせてSEを配置する。ズレると「チープ感」が出る。映像のカットが変わるタイミングに「シュッ」「パン！」を合わせるのも効果的。</div>
+      </div>
+      <div class="se-card se-b">
+        <div class="se-icon">🔊</div>
+        <div class="se-title">音の「重さ」を映像に合わせる</div>
+        <div class="se-desc">大きなオブジェクト＝重い低音SE。小さなオブジェクト＝軽い高音SE。例：テキストが出るとき「ポン」（高音）、ビルが崩れるとき「ドーン」（低音）。</div>
+      </div>
+      <div class="se-card se-c">
+        <div class="se-icon">🌊</div>
+        <div class="se-title">環境音で「没入感」を出す</div>
+        <div class="se-desc">カフェシーン→コーヒーが注がれる音・BGMのざわめき。自然シーン→鳥の声・川のせせらぎ。小さな音量（-25dB程度）で流すだけで「そこにいる感」が格段に増す。</div>
+      </div>
+    </div>
+
+    <div style="background:#f0f5ff;border-radius:10px;padding:14px 16px;font-size:.85rem;">
+      <strong style="color:var(--in);">🔍 おすすめ無料SEサイト：</strong><br>
+      • <strong>Freesound.org</strong>：世界最大のCC（クリエイティブ・コモンズ）ライセンスSFXライブラリ。用途に応じたライセンスを確認して使う。<br>
+      • <strong>Pixabay（音効果音カテゴリ）</strong>：商用利用OKのSEが多数。日本語UIで探しやすい。<br>
+      • <strong>ElevenLabs Sound Effects</strong>：テキストから効果音をAI生成できる（無料枠あり・公式で要確認）。
+    </div>
+  </div>
+
+  <!-- 真似できる具体例 -->
+  <div class="section">
+    <div class="section-title">💡 真似できる具体例：旅Vlog用BGMをSunoで30分で作る</div>
+    <div class="alert-box alert-warn">
+      <div style="font-size:1rem;font-weight:700;margin-bottom:10px;color:#7a4000;">🎓 テーマ例：「京都の朝 散歩Vlog（1〜2分の縦動画）」のBGMを作る</div>
+
+      <div style="font-size:.9rem;margin-bottom:12px;color:var(--text);">
+        <strong>手順1：感情ゴールを決める</strong><br>
+        「視聴者に日本の美しい朝の静けさと、旅の期待感を感じてほしい」<br>
+        → <em>落ち着き + ほんのりワクワク感</em> → アコースティックギター＋軽いパーカッション
+      </div>
+
+      <div style="font-size:.9rem;margin-bottom:12px;color:var(--text);">
+        <strong>手順2：Sunoにこのプロンプトを入力</strong><br>
+        <code style="display:block;background:rgba(255,255,255,.7);border-radius:8px;padding:10px 12px;font-size:.83rem;line-height:1.7;margin-top:6px;">
+          [morning walk in Kyoto, Japan]<br>
+          acoustic guitar, light percussion, peaceful, gentle melody,<br>
+          BPM 85, no vocals, warm and serene atmosphere,<br>
+          cinematic travel vlog BGM, 2 minutes
+        </code>
+      </div>
+
+      <div style="font-size:.9rem;margin-bottom:12px;color:var(--text);">
+        <strong>手順3：3パターン生成して最も合うものを選ぶ</strong><br>
+        実際に映像を流しながら「どれが映像の雰囲気に一番近いか」で耳判断。
+      </div>
+
+      <div style="font-size:.9rem;margin-bottom:12px;color:var(--text);">
+        <strong>手順4：音量バランスを調整</strong><br>
+        映像の環境音（お寺の鐘・鳥の声）→ -15dB　BGM → -25dB　ナレーション → 0dB（もしあれば）
+      </div>
+
+      <div style="font-size:.9rem;color:var(--text);">
+        <strong>手順5：フェードイン0.5秒・フェードアウト2秒をかけて書き出し</strong><br>
+        CapCutやDaVinci Resolveで編集、MP4で書き出し→SNS投稿
+      </div>
+
+      <div style="margin-top:12px;background:rgba(255,255,255,.6);border-radius:8px;padding:10px 12px;font-size:.83rem;color:var(--am);">
+        ⭐ 「Vlog系BGM」は歌詞なし（instrumental / no vocals）が視聴者の集中力を妨げないので鉄板。Sunoのプロンプトに必ず「no vocals」を入れよう。
+      </div>
+    </div>
+    <p style="font-size:.85rem;color:var(--muted);">
+      商用利用・収益化の予定がある場合は、必ずSunoの有料プランを使い、規約で商用利用OKを確認してから使おう（公式で要確認）。
+    </p>
+  </div>
+
+  <!-- 免責・出典 -->
+  <div class="section">
+    <div class="section-title">📌 免責事項・出典</div>
+    <div class="disclaimer">
+      <strong>免責：</strong>紹介したAI音楽生成ツール（Suno・Udio・Lyria 3 Pro・SOUNDRAW）の機能名・料金・商用利用の可否・プランの内容は頻繁に変わります。本記事の情報はあくまで参考としてご使用いただき、最新の機能・料金・利用規約は必ず各ツールの<strong>公式サイト</strong>でご確認ください。特に著作権・商用利用については公式規約が唯一の正確な情報源です（公式で要確認）。<br><br>
+      <strong>出典（調査日：2026-06-20）：</strong><br>
+      • <a href="https://winbuzzer.com/2026/03/25/google-launches-lyria-3-pro-ai-music-generation-model-xcxwbn/">Google Lyria 3 Pro 発表記事 — WinBuzzer（2026年3月）</a><br>
+      • <a href="https://blog.google/innovation-and-ai/technology/ai/lyria-3-pro/">Lyria 3 Pro 公式ブログ — Google（2026年）</a><br>
+      • <a href="https://blackplayermusic.com/udio-ai-music-generator-review/">Udio AI Music Generator Review 2026 — BlackPlayerMusic</a><br>
+      • <a href="https://renue.co.jp/posts/ai-music-generation-suno-udio-copyright-guide-2026">AI音楽・音楽生成AIとは？Suno・Udioの仕組み・著作権問題・企業活用を解説【2026年版】 — renue.co.jp</a><br>
+      • <a href="https://bloomeria.jp/blog/suno-ai-complete-guide">【2026年最新】Suno AI とは？使い方・料金・商用利用を徹底解説 — We Streamer</a><br>
+      • <a href="https://fast.io/resources/best-ai-music-generators-2026/">10 Best AI Music Generators in 2026 — fast.io</a><br>
+      • <a href="https://genai-ai.co.jp/ai-kanri/blog/cc-ai-music-copyright/">【2026年6月最新】AI生成音楽の著作権はどうなる？商用利用の注意点 — genai-ai.co.jp</a>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
