@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-06-20</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    line-height: 1.7;
+  }
+  .page {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+
+  /* Header */
+  .header {
+    background: linear-gradient(135deg, #7a4f1e 0%, #4a2e08 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 40px 36px;
+    margin-bottom: 32px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+  }
+  .header .label {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    opacity: 0.8;
+    margin-bottom: 10px;
+  }
+  .header h1 {
+    font-size: 1.7rem;
+    line-height: 1.4;
+    margin-bottom: 12px;
+  }
+  .header .sub {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .header .date-badge {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    background: rgba(255,255,255,0.15);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+  }
+
+  /* Section */
+  .section {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 28px 32px;
+    margin-bottom: 24px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.08);
+  }
+  .section-title {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #7a4f1e;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px dashed #d4b898;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  /* Big number cards */
+  .num-cards {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+  }
+  .num-card {
+    flex: 1;
+    min-width: 160px;
+    background: #fff;
+    border: 2px solid #d4b898;
+    border-radius: 10px;
+    padding: 18px 16px;
+    text-align: center;
+  }
+  .num-card .big {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #7a4f1e;
+    line-height: 1;
+    margin: 6px 0;
+  }
+  .num-card .label {
+    font-size: 0.78rem;
+    color: #888;
+  }
+  .num-card .desc {
+    font-size: 0.82rem;
+    color: #555;
+    margin-top: 6px;
+  }
+  .num-card.highlight {
+    background: #7a4f1e;
+    border-color: #7a4f1e;
+    color: white;
+  }
+  .num-card.highlight .big { color: #fde68a; }
+  .num-card.highlight .label { color: rgba(255,255,255,0.75); }
+  .num-card.highlight .desc { color: rgba(255,255,255,0.9); }
+  .num-card.green-card {
+    background: #1a5c3a;
+    border-color: #1a5c3a;
+    color: white;
+  }
+  .num-card.green-card .big { color: #a8f0c6; }
+  .num-card.green-card .label { color: rgba(255,255,255,0.75); }
+  .num-card.green-card .desc { color: rgba(255,255,255,0.9); }
+
+  /* Flow */
+  .flow {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    flex-wrap: wrap;
+    margin: 20px 0;
+  }
+  .flow-box {
+    background: #fff;
+    border: 2px solid #d4b898;
+    border-radius: 8px;
+    padding: 14px 10px;
+    text-align: center;
+    font-size: 0.85rem;
+    min-width: 100px;
+    flex: 1;
+  }
+  .flow-box .icon { font-size: 1.4rem; margin-bottom: 4px; }
+  .flow-arrow {
+    font-size: 1.5rem;
+    color: #b89060;
+    padding: 0 4px;
+    flex-shrink: 0;
+  }
+
+  /* Table */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+    margin: 16px 0;
+  }
+  th {
+    background: #7a4f1e;
+    color: white;
+    padding: 10px 14px;
+    text-align: left;
+  }
+  td {
+    padding: 10px 14px;
+    border-bottom: 1px solid #e8d8c0;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: #fdf5e8; }
+  .mark-yes { color: #2ecc71; font-weight: 700; }
+  .mark-no  { color: #e74c3c; font-weight: 700; }
+  .mark-warn { color: #f39c12; font-weight: 700; }
+  .hl-cell { background: #fde68a !important; font-weight: 700; color: #7a4f1e; }
+
+  /* Steps */
+  .steps { margin: 16px 0; }
+  .step {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    margin-bottom: 14px;
+  }
+  .step-num {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    background: #7a4f1e;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+  .step-body { flex: 1; }
+  .step-body strong { color: #7a4f1e; }
+
+  /* Alert */
+  .alert {
+    background: #fff3cd;
+    border-left: 4px solid #f39c12;
+    border-radius: 6px;
+    padding: 14px 18px;
+    margin: 16px 0;
+    font-size: 0.88rem;
+  }
+  .alert.info {
+    background: #e8f4fd;
+    border-left-color: #3498db;
+  }
+  .alert.success {
+    background: #eafaf1;
+    border-left-color: #2ecc71;
+  }
+  .alert.danger {
+    background: #fdecea;
+    border-left-color: #e74c3c;
+  }
+
+  /* Checklist */
+  .checklist { list-style: none; margin: 16px 0; }
+  .checklist li {
+    padding: 8px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .checklist li:last-child { border-bottom: none; }
+  .checklist .chk {
+    width: 22px;
+    height: 22px;
+    min-width: 22px;
+    border: 2px solid #d4b898;
+    border-radius: 4px;
+    background: white;
+    flex-shrink: 0;
+  }
+
+  /* Two / Three column */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 16px 0;
+  }
+  .three-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 14px;
+    margin: 16px 0;
+  }
+  @media (max-width: 640px) {
+    .two-col  { grid-template-columns: 1fr; }
+    .three-col { grid-template-columns: 1fr; }
+    .flow { flex-direction: column; align-items: stretch; }
+    .flow-arrow { transform: rotate(90deg); text-align: center; }
+    .num-cards { flex-direction: column; }
+    .header .date-badge { position: static; display: inline-block; margin-bottom: 10px; }
+    .header h1 { font-size: 1.35rem; }
+  }
+
+  .col-box {
+    background: #fff;
+    border: 2px solid #d4b898;
+    border-radius: 8px;
+    padding: 16px;
+  }
+  .col-box h4 {
+    color: #7a4f1e;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+  }
+  .col-box ul {
+    font-size: 0.86rem;
+    padding-left: 16px;
+    color: #555;
+  }
+  .col-box ul li { margin-bottom: 6px; line-height: 1.5; }
+  .col-box.bad  { border-color: #e74c3c; }
+  .col-box.bad h4 { color: #c0392b; }
+  .col-box.good { border-color: #2ecc71; }
+  .col-box.good h4 { color: #1a5c3a; }
+
+  /* Sources */
+  .sources {
+    margin-top: 12px;
+    font-size: 0.78rem;
+    color: #888;
+    line-height: 1.7;
+  }
+  .sources a { color: #7a4f1e; word-break: break-all; }
+
+  /* Disclaimer */
+  .disclaimer {
+    background: #f5f0e8;
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-top: 32px;
+    font-size: 0.82rem;
+    color: #666;
+    border: 1px solid #e0d0b8;
+    line-height: 1.7;
+  }
+  .disclaimer h3 { color: #888; margin-bottom: 8px; font-size: 0.85rem; }
+  .disclaimer a { color: #7a4f1e; }
+
+  p.body { font-size: 0.92rem; color: #444; margin-bottom: 10px; line-height: 1.7; }
+  .hint  { font-size: 0.82rem; color: #666; font-style: italic; margin-top: 4px; line-height: 1.6; }
+  strong { font-weight: 600; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="date-badge">2026-06-20</div>
+    <div class="label">1人法人スタート 最新トピック</div>
+    <h1>&#x1F3DB;&#xFE0F; 小規模企業共済の基礎<br>1人社長が自分で作る「退職金」と節税術</h1>
+    <div class="sub">サラリーマンは会社が退職金を準備してくれるが、1人社長は自分で作るしかない。掛金が「全額所得控除」になる小規模企業共済を図解で解説します</div>
+  </div>
+
+  <!-- Section 1: そもそも何？ -->
+  <div class="section">
+    <div class="section-title">&#x1F914; そもそも小規模企業共済って何？</div>
+    <p class="body">
+      <strong>小規模企業共済（しょうきぼきぎょうきょうさい）</strong>とは、中小企業や個人事業主・法人役員のための「退職金積み立て制度」です。<br>
+      国の政策機関である<strong>独立行政法人 中小企業基盤整備機構（中小機構）</strong>が運営しています。
+    </p>
+    <p class="body">
+      1人社長がサラリーマンと大きく違う点は「<strong>会社が退職金を用意してくれない</strong>」こと。この制度は、そんな1人社長のために「自分で積み立て・税制優遇たっぷり」という仕組みを用意しています。
+    </p>
+
+    <div class="flow">
+      <div class="flow-box">
+        <div class="icon">&#x1F4B0;</div>
+        <div><strong>毎月積み立て</strong><br><small>1,000〜70,000円</small></div>
+      </div>
+      <div class="flow-arrow">&#x2192;</div>
+      <div class="flow-box" style="background:#eafaf1; border-color:#2ecc71;">
+        <div class="icon">&#x1F9FE;</div>
+        <div><strong>全額所得控除</strong><br><small>その年の税金が減る</small></div>
+      </div>
+      <div class="flow-arrow">&#x2192;</div>
+      <div class="flow-box">
+        <div class="icon">&#x1F4C8;</div>
+        <div><strong>中小機構が管理</strong><br><small>運用・積み立て</small></div>
+      </div>
+      <div class="flow-arrow">&#x2192;</div>
+      <div class="flow-box" style="background:#fff3cd; border-color:#f39c12;">
+        <div class="icon">&#x1F3E2;</div>
+        <div><strong>廃業・解散時</strong><br><small>まとめて受け取り</small></div>
+      </div>
+      <div class="flow-arrow">&#x2192;</div>
+      <div class="flow-box" style="background:#e8f4fd; border-color:#3498db;">
+        <div class="icon">&#x1F3D6;&#xFE0F;</div>
+        <div><strong>退職所得で受取</strong><br><small>さらに税優遇あり</small></div>
+      </div>
+    </div>
+
+    <div class="alert info">
+      &#x1F4A1; <strong>3段階の税制優遇がポイント：</strong><br>
+      &#x2460; 積み立てるとき &#x2192; <strong>掛金が全額「所得控除」になり、今年の税金が減る</strong><br>
+      &#x2461; 受け取るとき &#x2192; <strong>「退職所得」として扱われ、退職所得控除＋1/2課税の恩恵あり</strong><br>
+      &#x2462; 運用中 &#x2192; 運用益への課税なし（ただし利回りは市場運用型ではなく低め）
+    </div>
+
+    <div class="sources">
+      出典：独立行政法人 中小企業基盤整備機構「小規模企業共済」（基準年度：令和6年）<br>
+      <a href="https://www.smrj.go.jp/kyosai/skyosai/" target="_blank">https://www.smrj.go.jp/kyosai/skyosai/</a>
+    </div>
+  </div>
+
+  <!-- Section 2: 加入資格 -->
+  <div class="section">
+    <div class="section-title">&#x2705; 1人社長は加入できる？（加入資格）</div>
+    <p class="body">
+      法人の役員が加入するには、<strong>「常時使用する従業員が20人以下」の法人の役員</strong>であることが条件です（宿泊・娯楽業を除くサービス業・小売業は5人以下）。
+    </p>
+    <p class="body">
+      従業員ゼロの1人社長は、どの業種でも問題なく加入できます。
+    </p>
+
+    <table>
+      <thead>
+        <tr><th>事業の種類</th><th>従業員数の上限（常時使用）</th><th>加入の可否</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>製造業・建設業・運輸業など</td>
+          <td>20人以下</td>
+          <td><span class="mark-yes">加入可</span></td>
+        </tr>
+        <tr>
+          <td>小売業・飲食業</td>
+          <td>5人以下</td>
+          <td><span class="mark-warn">5人以下なら可</span></td>
+        </tr>
+        <tr>
+          <td>サービス業（宿泊・娯楽業を除く）</td>
+          <td>5人以下</td>
+          <td><span class="mark-warn">5人以下なら可</span></td>
+        </tr>
+        <tr>
+          <td>1人社長（従業員なし）</td>
+          <td>0人 &#x2192; どの業種でもOK</td>
+          <td><span class="mark-yes">&#x2B55; 必ず加入可</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="alert">
+      &#x26A0;&#xFE0F; <strong>重要：掛金は「個人（役員本人）」が払うもの！</strong><br>
+      法人（会社）が掛金を払っても、会社の経費（損金）にはなりません。個人の所得控除として申告するものなので、<strong>役員報酬を受け取った後、個人の口座から引き落とす</strong>のが基本です。
+    </div>
+
+    <div class="sources">
+      出典：中小機構「小規模企業共済 加入資格」（基準年度：令和6年）<br>
+      <a href="https://www.smrj.go.jp/kyosai/skyosai/entry/qualification/index.html" target="_blank">https://www.smrj.go.jp/kyosai/skyosai/entry/qualification/index.html</a>
+    </div>
+  </div>
+
+  <!-- Section 3: 掛金と節税 -->
+  <div class="section">
+    <div class="section-title">&#x1F4B4; 掛金の範囲と節税シミュレーション</div>
+    <p class="body">掛金は月額 <strong>1,000円〜70,000円（500円単位）</strong>で自由に設定できます。払った掛金は<strong>全額「小規模企業共済等掛金控除」</strong>として、その年の所得（＝課税ベース）から引き算できます。</p>
+
+    <div class="num-cards">
+      <div class="num-card">
+        <div class="label">掛金（月額）最小</div>
+        <div class="big">1,000<span style="font-size:1rem">円</span></div>
+        <div class="desc">500円単位で変更可<br>少額からスタートOK</div>
+      </div>
+      <div class="num-card highlight">
+        <div class="label">掛金（月額）最大</div>
+        <div class="big">7<span style="font-size:1.2rem">万円</span></div>
+        <div class="desc">年間最大84万円<br>全額が所得控除！</div>
+      </div>
+      <div class="num-card green-card">
+        <div class="label">年間最大の所得控除額</div>
+        <div class="big">84<span style="font-size:1.2rem">万円</span></div>
+        <div class="desc">月7万円 × 12ヶ月<br>課税所得からまるごと引く</div>
+      </div>
+    </div>
+
+    <p class="body"><strong>課税所得別の節税シミュレーション（月7万円・年84万円積み立ての場合）</strong></p>
+    <p class="hint">※ 所得税率は令和6年分。住民税は一律10%として試算（復興特別所得税・各種控除は除く）。あくまで概算です。</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>課税所得（目安）</th>
+          <th>所得税率</th>
+          <th>税率合計<br>（＋住民税10%）</th>
+          <th>年84万円積立時の<br>概算節税額</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>195万円以下</td>
+          <td>5%</td>
+          <td>15%</td>
+          <td>約 12.6万円</td>
+        </tr>
+        <tr>
+          <td>195万円超〜330万円以下</td>
+          <td>10%</td>
+          <td>20%</td>
+          <td>約 16.8万円</td>
+        </tr>
+        <tr>
+          <td>330万円超〜695万円以下</td>
+          <td>20%</td>
+          <td>30%</td>
+          <td class="hl-cell">約 25.2万円</td>
+        </tr>
+        <tr>
+          <td>695万円超〜900万円以下</td>
+          <td>23%</td>
+          <td>33%</td>
+          <td class="hl-cell">約 27.7万円</td>
+        </tr>
+        <tr>
+          <td>900万円超〜1,800万円以下</td>
+          <td>33%</td>
+          <td>43%</td>
+          <td>約 36.1万円</td>
+        </tr>
+        <tr>
+          <td>1,800万円超〜4,000万円以下</td>
+          <td>40%</td>
+          <td>50%</td>
+          <td>約 42.0万円</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="alert success">
+      &#x2705; <strong>具体例：課税所得400万円の1人社長が月7万円積み立てると——</strong><br>
+      年間84万円の所得控除 &#x2192; 所得税＋住民税が合計<strong>約25万円減る</strong><br>
+      月7万円払うが、節税効果で実質的なコストは <strong>約5万円</strong> のイメージ（25万÷12ヶ月 ≒ 2万円/月の節税）
+    </div>
+
+    <div class="sources">
+      出典：国税庁「小規模企業共済等掛金控除」（基準年度：令和6年）<br>
+      <a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1135.htm" target="_blank">https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1135.htm</a>
+    </div>
+  </div>
+
+  <!-- Section 4: 受取方法 -->
+  <div class="section">
+    <div class="section-title">&#x1F3AF; 受取方法：「いつ」「どう」もらうかで税が変わる</div>
+    <p class="body">積み立てたお金は、下記3パターンで受け取ります。受け取り方によって税の扱いが大きく異なります。</p>
+
+    <div class="three-col">
+      <div class="col-box good">
+        <h4>&#x1F3C6; 共済金A（最もお得）</h4>
+        <ul>
+          <li><strong>法人の解散・廃業</strong>のとき</li>
+          <li>受取：<strong>退職所得</strong>として扱い</li>
+          <li>退職所得控除が使える</li>
+          <li>さらに課税は 1/2</li>
+          <li>加入月数に関係なく受取可</li>
+        </ul>
+      </div>
+      <div class="col-box">
+        <h4>&#x1F4C5; 共済金B（老齢給付）</h4>
+        <ul>
+          <li><strong>65歳以上かつ180ヶ月（15年）以上</strong>加入</li>
+          <li>一括受取：退職所得扱い</li>
+          <li>分割受取：公的年金等扱い</li>
+          <li>廃業しなくても受取可能</li>
+        </ul>
+      </div>
+      <div class="col-box bad">
+        <h4>&#x26A0;&#xFE0F; 解約手当金（不利）</h4>
+        <ul>
+          <li><strong>自分の都合での任意解約</strong></li>
+          <li>受取：一時所得として扱い</li>
+          <li>20年未満は<strong>元本割れリスク</strong></li>
+          <li>12ヶ月未満は<strong>全額掛け捨て！</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="body" style="margin-top:18px;"><strong>退職所得受取が有利な理由：退職所得控除の計算例</strong></p>
+    <p class="hint">退職所得控除：勤続年数20年以下は1年あたり40万円、20年超は1年あたり70万円（最低80万円）。課税対象 ＝（受取額 ー 退職所得控除）÷ 2</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>加入年数</th>
+          <th>退職所得控除額</th>
+          <th>積立総額（月7万円）の目安</th>
+          <th>課税対象となる所得（概算）</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>10年</td>
+          <td>400万円（40万 × 10年）</td>
+          <td>840万円</td>
+          <td>（840万 ー 400万）÷ 2 ＝ <strong>220万円</strong></td>
+        </tr>
+        <tr>
+          <td>20年</td>
+          <td>800万円（40万 × 20年）</td>
+          <td>1,680万円</td>
+          <td>（1,680万 ー 800万）÷ 2 ＝ <strong>440万円</strong></td>
+        </tr>
+        <tr>
+          <td>30年</td>
+          <td>1,500万円（800万 ＋ 70万 × 10年）</td>
+          <td>2,520万円</td>
+          <td>（2,520万 ー 1,500万）÷ 2 ＝ <strong>510万円</strong></td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="hint">※ 実際の受取額は掛金の利率・加入月数等によって異なります。上記の「積立総額」は掛金の累計額であり、共済金の受取額とは異なる場合があります。</p>
+
+    <div class="sources">
+      出典：国税庁「退職所得の計算方法」（基準年度：令和6年）<br>
+      <a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1420.htm" target="_blank">https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1420.htm</a><br>
+      出典：中小機構「共済金・解約手当金の受取り」（基準年度：令和6年）<br>
+      <a href="https://www.smrj.go.jp/kyosai/skyosai/receipt/index.html" target="_blank">https://www.smrj.go.jp/kyosai/skyosai/receipt/index.html</a>
+    </div>
+  </div>
+
+  <!-- Section 5: 注意点 -->
+  <div class="section">
+    <div class="section-title">&#x26A0;&#xFE0F; 注意点：知らないと損する3つのポイント</div>
+
+    <div class="two-col">
+      <div class="col-box bad">
+        <h4>&#x274C; 短期解約は大損！</h4>
+        <ul>
+          <li><strong>12ヶ月未満</strong>：掛金が全額掛け捨て</li>
+          <li><strong>20年未満の任意解約</strong>：元本割れの可能性あり</li>
+          <li>「すぐやめるかも」なら慎重に</li>
+          <li>まずは少額（月1万円）から始めるのがおすすめ</li>
+        </ul>
+      </div>
+      <div class="col-box bad">
+        <h4>&#x274C; 法人の経費にはならない！</h4>
+        <ul>
+          <li>法人が払っても会社の<strong>経費（損金）にはできない</strong></li>
+          <li>個人（役員）が払い、個人の所得控除として申告</li>
+          <li>役員報酬を受け取った後、個人口座から引き落とす</li>
+          <li>会計処理は「会社の費用」にしないよう注意</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="alert danger">
+      &#x1F6AB; <strong>「法人契約で会社の経費にできる」は誤りです！</strong><br>
+      小規模企業共済の契約者はあくまで<strong>個人（役員）</strong>です。掛金控除は個人の確定申告または年末調整で行います。法人の損金にはなりません。誤って会計ソフトに「経費」で入力しないよう注意してください。
+    </div>
+
+    <div class="alert info">
+      &#x1F4A1; <strong>掛金は途中で自由に変更できる！</strong><br>
+      翌月から増額・減額が可能（月単位・500円単位）。事業の収入が減ったときは月1,000円まで下げることもできます。ただし掛金を12ヶ月以上滞納すると強制解約になる場合があるので注意。
+    </div>
+  </div>
+
+  <!-- Section 6: 加入手順 -->
+  <div class="section">
+    <div class="section-title">&#x1F4CB; 加入手順：4ステップでできる</div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <strong>書類を用意する</strong><br>
+          法人役員の場合：<strong>登記事項証明書（履歴事項全部証明書）</strong>と、役員であることを確認できる書類（定款など）が必要です。窓口によって追加書類を求められることがあります。
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <strong>取扱窓口で申込書を記入・提出</strong><br>
+          中小機構が委託している窓口（<strong>商工会議所・商工会・信用金庫・一部の銀行・証券会社</strong>など）で申込用紙を記入して提出します。一部の金融機関ではオンライン申込みにも対応しています。
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <strong>口座振替の設定</strong><br>
+          個人名義の銀行口座から毎月自動引き落としになります。クレジットカード払いは利用できません。
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <strong>年末調整 or 確定申告で控除申請</strong><br>
+          中小機構から毎年10〜11月ごろ「<strong>払込証明書</strong>」が届きます。年末調整の控除申告書または確定申告書に記載して控除を受けます。証明書を紛失しないよう保管してください。
+        </div>
+      </div>
+    </div>
+
+    <div class="alert success">
+      &#x2705; <strong>取扱窓口を探すには：</strong><br>
+      中小機構のウェブサイトから最寄りの窓口を検索できます。<br>
+      <a href="https://www.smrj.go.jp/kyosai/skyosai/entry/window/index.html" target="_blank" style="color:#1a5c3a;">https://www.smrj.go.jp/kyosai/skyosai/entry/window/index.html</a>
+    </div>
+
+    <div class="sources">
+      出典：中小機構「小規模企業共済 加入方法」（基準年度：令和6年）<br>
+      <a href="https://www.smrj.go.jp/kyosai/skyosai/entry/how/index.html" target="_blank">https://www.smrj.go.jp/kyosai/skyosai/entry/how/index.html</a>
+    </div>
+  </div>
+
+  <!-- Section 7: チェックリスト -->
+  <div class="section">
+    <div class="section-title">&#x2705; 今日から使える！小規模企業共済チェックリスト</div>
+    <ul class="checklist">
+      <li><span class="chk"></span>自分の会社の従業員数が20人以下（サービス業・小売業は5人以下）であることを確認した</li>
+      <li><span class="chk"></span>毎月いくら積み立てるか決めた（少額の1,000円スタートもOK）</li>
+      <li><span class="chk"></span>商工会議所・信用金庫など近くの取扱窓口を調べた</li>
+      <li><span class="chk"></span>申込に必要な書類（登記事項証明書等）を準備した</li>
+      <li><span class="chk"></span>口座振替に使う個人名義の銀行口座を決めた</li>
+      <li><span class="chk"></span>掛金は会社の経費にせず、個人の所得控除として申告することを理解した</li>
+      <li><span class="chk"></span>年末に届く「払込証明書」で年末調整 or 確定申告にて控除申請することをカレンダーに登録した</li>
+    </ul>
+
+    <div class="alert info">
+      &#x1F4A1; <strong>iDeCo（個人型確定拠出年金）との併用も検討を：</strong><br>
+      1人社長はiDeCo（月2.3万円まで。法人役員として厚生年金加入の場合）と小規模企業共済の<strong>両方に加入できます</strong>。iDeCoも全額所得控除です。合計で月9万円超の節税積み立てが可能ですが、iDeCoは原則60歳まで引き出せない等の違いがあります。両者の特徴を比較した上で、税理士・ファイナンシャルプランナーにご相談ください。
+    </div>
+  </div>
+
+  <!-- Disclaimer -->
+  <div class="disclaimer">
+    <h3>免責事項</h3>
+    本記事は一般的な情報提供を目的としており、特定の税務・法務・金融アドバイスではありません。掛金の金額・控除制度・受取方法・税率・加入資格は年度・会社の状況・個人の事情によって異なります。本記事の基準年度は<strong>令和6年（2024年）</strong>です。実際の加入判断・節税試算・申告方法については、<strong>税理士・社会保険労務士・ファイナンシャルプランナーなどの専門家</strong>にご相談ください。制度は随時改正されますので、中小機構の公式情報（<a href="https://www.smrj.go.jp/kyosai/skyosai/" target="_blank">https://www.smrj.go.jp/kyosai/skyosai/</a>）および国税庁の公式情報（<a href="https://www.nta.go.jp/" target="_blank">https://www.nta.go.jp/</a>）を必ずご確認ください。
+  </div>
+
+</div>
+</body>
+</html>
