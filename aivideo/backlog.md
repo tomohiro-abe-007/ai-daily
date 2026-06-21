@@ -16,6 +16,7 @@
 
 ## 済み（扱ったテーマ）
 
+- 2026-06-22（ツール）：Kling 3.0 Turbo × Grok Imagine Video 1.5 比較（6ショット連続・ネイティブ音声・Director Mode・25秒生成・2モデル比較表・リール動画5ステップ）
 - 2026-06-20（エバーグリーン）：BGM・SE選びと音楽生成AI（ムード×ジャンルマトリクス6種・Suno/Udio/Lyria 3 Pro/SOUNDRAW 4ツール比較・著作権整理・BGM制作5ステップ・SE3コツ・旅Vlog実践例）
 - 2026-06-19（ツール）：Pika 2.5 完全ガイド（Pikaframes 5キーフレーム×25秒・Pikaformance・Pikatwists・Pikaswaps・Pikadditions・Pikaffects・プラン比較・Runway/Kling比較表・桜タイムラプス実践例）
 - 2026-06-18（エバーグリーン）：動画コンテスト・公募情報の探し方（Runway AIF/WAIFF/Reply/Austin比較・curiousrefuge/FilmFreeway/Melies/Koubo 5サイト・応募4ステップ・規約3点チェック）
