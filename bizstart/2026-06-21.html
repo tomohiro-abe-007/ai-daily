@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-06-21</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 60px;
+    max-width: 760px;
+    margin: 0 auto;
+    color: #2c1a0e;
+  }
+  .header {
+    background: linear-gradient(135deg, #7a4f1e 0%, #4a2e08 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    text-align: center;
+    margin-bottom: 28px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.8;
+    margin-bottom: 10px;
+  }
+  .header h1 {
+    font-size: 1.55rem;
+    line-height: 1.45;
+    margin-bottom: 10px;
+  }
+  .header .sub {
+    font-size: 0.88rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf8;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 4px solid #7a4f1e;
+  }
+  .card h2 {
+    font-size: 1.1rem;
+    color: #7a4f1e;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    line-height: 1.75;
+    color: #3a2210;
+  }
+  .card ul { padding-left: 18px; margin-top: 8px; }
+  .num-row {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin: 16px 0;
+  }
+  .num-box {
+    flex: 1;
+    min-width: 140px;
+    background: #fff3e0;
+    border-radius: 10px;
+    padding: 16px 12px;
+    text-align: center;
+    border: 2px solid #f0a040;
+  }
+  .num-box .big {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #b05000;
+    display: block;
+    line-height: 1.2;
+  }
+  .num-box .lbl {
+    font-size: 0.78rem;
+    color: #7a4f1e;
+    margin-top: 6px;
+    display: block;
+    line-height: 1.5;
+  }
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 12px;
+    font-size: 0.87rem;
+  }
+  .compare-table th {
+    background: #7a4f1e;
+    color: white;
+    padding: 10px 12px;
+    text-align: center;
+    font-size: 0.84rem;
+  }
+  .compare-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #e8ddd0;
+    vertical-align: top;
+    line-height: 1.55;
+  }
+  .compare-table tr:nth-child(even) td { background: #fff8f0; }
+  .compare-table tr:nth-child(odd) td { background: #fffdf8; }
+  .compare-table td:first-child {
+    font-weight: 600;
+    color: #7a4f1e;
+  }
+  .step-flow {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin: 16px 0;
+  }
+  .step-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .step-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    width: 36px;
+  }
+  .step-circle {
+    width: 36px;
+    height: 36px;
+    background: #7a4f1e;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.95rem;
+    flex-shrink: 0;
+  }
+  .step-line {
+    width: 2px;
+    flex: 1;
+    background: #d4b898;
+    min-height: 24px;
+    margin: 2px 0;
+  }
+  .step-content {
+    flex: 1;
+    padding: 4px 0 20px;
+  }
+  .step-content .step-title {
+    font-size: 0.93rem;
+    font-weight: 600;
+    color: #4a2e08;
+  }
+  .step-content .step-desc {
+    font-size: 0.85rem;
+    color: #6a4020;
+    line-height: 1.6;
+    margin-top: 4px;
+  }
+  .highlight {
+    background: #fff3cd;
+    border: 2px solid #f0a040;
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin: 14px 0;
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+  .highlight .hl-title {
+    font-weight: 700;
+    color: #b05000;
+    margin-bottom: 6px;
+  }
+  .warn {
+    background: #fef0f0;
+    border: 2px solid #e07060;
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin: 14px 0;
+    font-size: 0.87rem;
+    line-height: 1.7;
+    color: #7a2020;
+  }
+  .formula {
+    background: #f0f4ff;
+    border: 2px solid #7090d0;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 14px 0;
+    font-size: 1.05rem;
+    text-align: center;
+    color: #2040a0;
+    font-weight: 600;
+    line-height: 1.6;
+  }
+  .action-list {
+    list-style: none;
+    margin-top: 10px;
+  }
+  .action-list li {
+    padding: 10px 0;
+    border-bottom: 1px dashed #ddd;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.9rem;
+    line-height: 1.65;
+  }
+  .action-list li:last-child { border-bottom: none; }
+  .action-list li .icon { flex-shrink: 0; }
+  .source-box {
+    background: #f5f0eb;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-top: 14px;
+    font-size: 0.78rem;
+    color: #6a5040;
+    line-height: 1.8;
+  }
+  .source-box a { color: #7a4f1e; word-break: break-all; }
+  .disclaimer {
+    background: #fdf5f0;
+    border: 1px solid #e0c8b0;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-top: 16px;
+    font-size: 0.78rem;
+    color: #7a5030;
+    line-height: 1.8;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 32px;
+    line-height: 1.7;
+  }
+  .green { color: #1a7a3a; font-weight: 600; }
+  .red { color: #c0302a; font-weight: 600; }
+  .blue-box {
+    background: #e8f0ff;
+    border: 2px solid #7090d0;
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin: 12px 0;
+    font-size: 0.88rem;
+    line-height: 1.7;
+    color: #1a3060;
+  }
+  .matrix {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .matrix-box {
+    border-radius: 8px;
+    padding: 14px;
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+  .matrix-box.good {
+    background: #e8f5e9;
+    border: 2px solid #4caf50;
+  }
+  .matrix-box.bad {
+    background: #fff3e0;
+    border: 2px solid #ff9800;
+  }
+  .matrix-box .mtitle {
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 6px;
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="label">1人法人スタート 最新トピック｜2026-06-21</div>
+  <h1>&#x1F5D2;&#xFE0F; 法人税の中間申告・予定納税<br>前期実績基準 vs 仮決算方式</h1>
+  <div class="sub">知らないと突然「追加請求」が来る！<br>中間申告の仕組みと2つの方法を図解</div>
+</div>
+
+<!-- SECTION 1: そもそも中間申告とは -->
+<div class="card">
+  <h2>&#x1F4DA; 中間申告とは？</h2>
+  <p>法人税は「1年が終わった後にまとめて払う」のが原則。でも国はそれだと1年間税収がゼロになってしまいます。</p>
+  <p style="margin-top:10px;">そこで、<strong>事業年度の折り返し地点（6ヶ月後）</strong>に税金を前払いさせる仕組みが「中間申告（中間納付）」です。確定申告の際に、中間に払った分は差し引きます。</p>
+
+  <div class="highlight" style="margin-top:14px;">
+    <div class="hl-title">&#x1F4CC; ポイント</div>
+    中間申告は<strong>「税の前払い」</strong>。確定申告の時に精算されるので、最終的な負担が増えるわけではありません。<br>
+    ただし、<strong>納付期限を守らないと延滞税が発生</strong>するので要注意。
+  </div>
+</div>
+
+<!-- SECTION 2: 発生条件 -->
+<div class="card">
+  <h2>&#x26A0;&#xFE0F; 中間申告が必要な会社・不要な会社</h2>
+  <p>前事業年度の<strong>確定法人税額</strong>が次の金額を超えるかどうかで判定します（法人税法第71条第1項）。</p>
+
+  <div class="num-row" style="margin-top:16px;">
+    <div class="num-box">
+      <span class="big">20万円</span>
+      <span class="lbl">前期の確定法人税額が<br>これを超えたら中間申告が必要</span>
+    </div>
+  </div>
+
+  <table class="compare-table" style="margin-top:8px;">
+    <tr>
+      <th>前期の確定法人税額</th>
+      <th>中間申告の要否</th>
+    </tr>
+    <tr>
+      <td>20万円以下</td>
+      <td class="green">&#x2705; 不要（しなくてよい）</td>
+    </tr>
+    <tr>
+      <td>20万円超</td>
+      <td class="red">&#x26A0;&#xFE0F; 必要（義務あり）</td>
+    </tr>
+  </table>
+
+  <div class="warn" style="margin-top:14px;">
+    &#x1F195; <strong>設立1期目の会社は？</strong><br>
+    前事業年度がないため、中間申告の<strong>義務はありません</strong>。2期目から前期実績で判定します。
+  </div>
+</div>
+
+<!-- SECTION 3: 2つの方法 -->
+<div class="card">
+  <h2>&#x1F500; 2つの方法を比較する</h2>
+  <p>中間申告には次の2つの方法があります。どちらが有利かは会社の業績次第です。</p>
+
+  <table class="compare-table" style="margin-top:16px;">
+    <tr>
+      <th>比較項目</th>
+      <th>&#x2460; 前期実績基準<br>（予定申告）</th>
+      <th>&#x2461; 仮決算方式</th>
+    </tr>
+    <tr>
+      <td>内容</td>
+      <td>前期の確定税額の1/2 を納付</td>
+      <td>上半期だけの決算書を作って計算</td>
+    </tr>
+    <tr>
+      <td>手続きの手間</td>
+      <td class="green">少ない（計算が簡単）</td>
+      <td class="red">多い（帳簿整理が必要）</td>
+    </tr>
+    <tr>
+      <td>有利な場面</td>
+      <td>業績が前年より横ばい・好調</td>
+      <td>業績が前年より大きく落ちている</td>
+    </tr>
+    <tr>
+      <td>申告書の種類</td>
+      <td>「予定申告書」<br>（税務署から通知が来ることも）</td>
+      <td>「中間申告書」<br>（自分で計算して申告）</td>
+    </tr>
+  </table>
+
+  <div class="matrix" style="margin-top:16px;">
+    <div class="matrix-box good">
+      <div class="mtitle">&#x1F4C8; 前期実績基準が有利</div>
+      今期が前年より好調 or 横ばい。手間をかけずにさっと納付したい。
+    </div>
+    <div class="matrix-box bad">
+      <div class="mtitle">&#x1F4C9; 仮決算が有利</div>
+      今期が前年より大幅減収。前年の半額を払うと資金繰りが苦しい。
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 4: 前期実績基準の計算 -->
+<div class="card">
+  <h2>&#x1F9EE; &#x2460; 前期実績基準の計算方法</h2>
+
+  <div class="formula">
+    前期の確定法人税額 ÷ 2 ＝ 中間納付額
+  </div>
+
+  <div style="margin-top:16px;">
+    <p style="font-size:0.9rem; font-weight:600; margin-bottom:10px;">&#x1F4D6; 計算例（前期の法人税が60万円の会社）</p>
+    <table class="compare-table">
+      <tr>
+        <td>前期の確定法人税額</td>
+        <td style="font-weight:700;">600,000円</td>
+      </tr>
+      <tr>
+        <td>中間納付額（÷2）</td>
+        <td style="font-weight:700; color:#b05000;">▶ 300,000円 を前払い</td>
+      </tr>
+      <tr>
+        <td>【ケースA】今期の実際の税額が70万円</td>
+        <td>確定申告で <strong style="color:#c03030;">400,000円を追加納付</strong></td>
+      </tr>
+      <tr>
+        <td>【ケースB】今期の実際の税額が45万円</td>
+        <td>確定申告で <strong class="green">50,000円が還付</strong></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="highlight" style="margin-top:14px;">
+    <div class="hl-title">&#x1F4A1; 税務署から通知が来ることがある</div>
+    前期実績基準の場合、税務署が税額を計算した「予定申告書（通知）」を送ってくることがあります。届いたら金額を確認して、期限内に納付するだけでOKです。
+  </div>
+</div>
+
+<!-- SECTION 5: 仮決算方式のフロー -->
+<div class="card">
+  <h2>&#x1F4CA; &#x2461; 仮決算方式のフロー</h2>
+  <p style="font-size:0.88rem; margin-bottom:16px;">業績が前年より大きく落ちた場合に有効。手間はかかりますが、実態に合わせた納税額にできます。</p>
+
+  <div class="step-flow">
+    <div class="step-item">
+      <div class="step-left">
+        <div class="step-circle">1</div>
+        <div class="step-line"></div>
+      </div>
+      <div class="step-content">
+        <div class="step-title">上半期（6ヶ月分）の帳簿を締める</div>
+        <div class="step-desc">事業年度開始日から6ヶ月分の売上・経費を確認。試算表・月次P/Lを使う。</div>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-left">
+        <div class="step-circle">2</div>
+        <div class="step-line"></div>
+      </div>
+      <div class="step-content">
+        <div class="step-title">上半期の法人税額を計算する</div>
+        <div class="step-desc">確定申告と同じ要領で6ヶ月分の課税所得を計算。所得がゼロ以下なら納税不要になることも。</div>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-left">
+        <div class="step-circle">3</div>
+        <div class="step-line"></div>
+      </div>
+      <div class="step-content">
+        <div class="step-title">中間申告書を作成・提出する</div>
+        <div class="step-desc">「法人税及び地方法人税の中間申告書」を税務署に提出（e-Tax推奨）。</div>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-left">
+        <div class="step-circle">4</div>
+      </div>
+      <div class="step-content">
+        <div class="step-title">計算した税額を期限内に納付する</div>
+        <div class="step-desc">前期実績より少ない額で済む場合、資金繰りの改善につながる。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="warn">
+    &#x26A0;&#xFE0F; <strong>仮決算の税額が「前期実績 ÷ 2」より多くなる場合、仮決算を使う必要はありません。</strong><br>
+    少なくなる場合だけ仮決算を選ぶのが合理的です。
+  </div>
+</div>
+
+<!-- SECTION 6: 申告・納付期限 -->
+<div class="card">
+  <h2>&#x1F4C5; 申告・納付の期限</h2>
+  <p style="font-size:0.88rem; margin-bottom:14px;">期限は<strong>「事業年度開始の日から6ヶ月を経過した日の翌日から2ヶ月以内」</strong>です（法人税法第71条）。</p>
+
+  <table class="compare-table">
+    <tr>
+      <th>決算期</th>
+      <th>中間申告の対象期間</th>
+      <th>申告・納付期限</th>
+    </tr>
+    <tr>
+      <td>3月決算（4/1〜3/31）</td>
+      <td>4/1 〜 9/30</td>
+      <td><strong>11月30日</strong></td>
+    </tr>
+    <tr>
+      <td>6月決算（7/1〜6/30）</td>
+      <td>7/1 〜 12/31</td>
+      <td><strong>2月28日</strong></td>
+    </tr>
+    <tr>
+      <td>9月決算（10/1〜9/30）</td>
+      <td>10/1 〜 3/31</td>
+      <td><strong>5月31日</strong></td>
+    </tr>
+    <tr>
+      <td>12月決算（1/1〜12/31）</td>
+      <td>1/1 〜 6/30</td>
+      <td><strong>8月31日</strong></td>
+    </tr>
+  </table>
+
+  <p style="font-size:0.82rem; color:#888; margin-top:10px;">※ 期限が土日・祝日の場合は翌営業日が期限。延納制度はなし（国税庁 No.5210）。</p>
+
+  <div class="warn" style="margin-top:12px;">
+    &#x1F6A8; <strong>延滞税に注意！</strong><br>
+    納付期限を1日でも過ぎると延滞税（特例基準割合に基づく。2025年分は年2.4〜8.7%水準）が発生します。<br>
+    資金が厳しい場合も、<strong>申告だけは期限内に提出</strong>しておきましょう。
+  </div>
+</div>
+
+<!-- SECTION 7: 地方税 -->
+<div class="card">
+  <h2>&#x1F3D9;&#xFE0F; 地方税（住民税・事業税）も中間申告がある</h2>
+  <p style="font-size:0.9rem; margin-bottom:12px;">法人税だけでなく、地方税も中間申告があります。同じタイミングで忘れずに。</p>
+
+  <table class="compare-table">
+    <tr>
+      <th>税の種類</th>
+      <th>発生条件</th>
+      <th>計算のもと</th>
+    </tr>
+    <tr>
+      <td>法人住民税<br>（都道府県・市区町村）</td>
+      <td>法人税の中間申告が必要な場合<br>（前期法人税 20万円超）</td>
+      <td>中間法人税額 × 税率<br>（法人税割）＋ 均等割の按分</td>
+    </tr>
+    <tr>
+      <td>法人事業税<br>（都道府県税）</td>
+      <td>前期の法人事業税額が<br>一定額を超える場合</td>
+      <td>前期確定額 × 1/2<br>または仮決算で計算</td>
+    </tr>
+  </table>
+
+  <div class="blue-box" style="margin-top:12px;">
+    &#x1F4A1; 実務のコツ：法人税・住民税・事業税の中間申告は同じタイミング・同じ e-Tax で一括送信できます。顧問税理士がいれば、まとめて依頼しましょう。
+  </div>
+</div>
+
+<!-- SECTION 8: 今日のアクション -->
+<div class="card">
+  <h2>&#x2705; 今日のアクション</h2>
+  <ul class="action-list">
+    <li>
+      <span class="icon">1&#xFE0F;&#x20E3;</span>
+      <span><strong>前期の確定申告書を確認する</strong> ── 法人税の確定税額が20万円超かどうかチェック。超えていれば今期の中間申告が必要。</span>
+    </li>
+    <li>
+      <span class="icon">2&#xFE0F;&#x20E3;</span>
+      <span><strong>中間申告の期限を手帳に入れる</strong> ── 決算期から逆算して「6ヶ月後＋2ヶ月」の日付を確認・カレンダー登録。</span>
+    </li>
+    <li>
+      <span class="icon">3&#xFE0F;&#x20E3;</span>
+      <span><strong>業績を前年と比較する</strong> ── 上半期の売上が前年を大幅に下回るなら「仮決算方式」が有利かどうか税理士に相談。</span>
+    </li>
+    <li>
+      <span class="icon">4&#xFE0F;&#x20E3;</span>
+      <span><strong>e-Tax・ダイレクト納付の設定を確認</strong> ── ダイレクト納付（口座引落し）を使うと期限管理が楽になります。</span>
+    </li>
+  </ul>
+</div>
+
+<!-- SOURCES -->
+<div class="source-box">
+  <strong>&#x1F4CE; 出典・参照（基準年度：2025〜2026年現在）</strong><br>
+  ・国税庁「法人税の中間申告（予定申告）と中間納付」（タックスアンサー No.5210）<br>
+  　<a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/hojin/5210.htm" target="_blank">https://www.nta.go.jp/taxes/shiraberu/taxanswer/hojin/5210.htm</a><br>
+  ・国税庁「延滞税の計算方法」<br>
+  　<a href="https://www.nta.go.jp/taxes/nozei/entaizei/index.htm" target="_blank">https://www.nta.go.jp/taxes/nozei/entaizei/index.htm</a><br>
+  ・法人税法 第71条（中間申告）・第72条（仮決算に基づく中間申告）<br>
+  ・J-Net21 中小企業支援情報<br>
+  　<a href="https://j-net21.smrj.go.jp/" target="_blank">https://j-net21.smrj.go.jp/</a><br>
+  <br>
+  <strong>基準年度：</strong>法人税法（令和6年改正後）。税率・要件・延滞税率は年度により変わる場合があります。
+</div>
+
+<!-- DISCLAIMER -->
+<div class="disclaimer">
+  &#x26A0;&#xFE0F; <strong>免責事項</strong><br>
+  本記事は一般的な情報提供を目的としており、税務・法務の個別アドバイスではありません。掲載した税率・金額・期限・制度名は公的機関の情報をもとにしていますが、会社の状況・決算期・業種によって結論は異なります。<br>
+  具体的な中間申告の計算・方式の選択・納付については、<strong>税理士にご相談ください</strong>。制度・税率は基準年度以降に変更される場合があります。
+</div>
+
+<div class="footer">
+  1人法人スタート日報 &#x30FB; 2026-06-21<br>
+  <a href="index.html" style="color:#b08060;">&#x2190; バックナンバー一覧</a>
+</div>
+
+</body>
+</html>
