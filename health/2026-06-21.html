@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-06-21</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #f0ece3; font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif; min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 20px; }
+
+  /* COVER */
+  .cover { background: linear-gradient(135deg, #7a2d00 0%, #c04a10 55%, #e07040 100%); color: white; border-radius: 8px; padding: 60px 40px; text-align: center; width: 100%; max-width: 820px; margin-bottom: 24px; box-shadow: 4px 6px 20px rgba(0,0,0,0.3); position: relative; overflow: hidden; }
+  .cover::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: repeating-linear-gradient(0deg, transparent, transparent 28px, rgba(255,255,255,0.05) 28px, rgba(255,255,255,0.05) 29px); }
+  .cover-emoji { font-size: 64px; display: block; margin-bottom: 16px; }
+  .cover h1 { font-family: 'Klee One', sans-serif; font-size: 1.85rem; font-weight: 600; line-height: 1.35; margin-bottom: 12px; position: relative; }
+  .cover .subtitle { font-size: 1.0rem; opacity: 0.88; margin-bottom: 8px; position: relative; }
+  .cover .tagline { font-size: 0.88rem; opacity: 0.7; position: relative; margin-bottom: 4px; }
+  .cover .date-badge { display: inline-block; background: rgba(255,255,255,0.2); border: 2px solid rgba(255,255,255,0.5); border-radius: 20px; padding: 6px 20px; font-size: 1rem; margin-top: 16px; position: relative; }
+
+  /* CARDS */
+  .card { background: #fff9f0; border-radius: 6px; width: 100%; max-width: 820px; margin-bottom: 24px; box-shadow: 3px 4px 12px rgba(0,0,0,0.12); position: relative; overflow: hidden; }
+  .card-body { padding: 28px 36px 28px 64px; background: repeating-linear-gradient(0deg, transparent, transparent 31px, #e0d8c8 31px, #e0d8c8 32px); background-color: #fff9f0; min-height: 200px; }
+  .card-body::before { content: ''; position: absolute; left: 52px; top: 0; bottom: 0; width: 2px; background: #c04a10; opacity: 0.6; }
+  .card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; padding-bottom: 8px; border-bottom: 2px dashed #c8b89a; }
+  .card-emoji { font-size: 2rem; }
+  .card-title { font-family: 'Klee One', sans-serif; font-size: 1.4rem; font-weight: 600; color: #2c3e50; line-height: 1.3; }
+  .topic-badge { display: inline-block; padding: 3px 12px; border-radius: 12px; font-size: 0.75rem; font-weight: 600; margin-left: auto; white-space: nowrap; }
+  .badge-green  { background: #e0f5e8; color: #1a6640; border: 1px solid #90d4aa; }
+  .badge-red    { background: #ffe0e0; color: #aa2222; border: 1px solid #f0a0a0; }
+  .badge-blue   { background: #e0eeff; color: #2255aa; border: 1px solid #a0c0f5; }
+  .badge-orange { background: #fff0d0; color: #cc6600; border: 1px solid #f0c070; }
+  .badge-teal   { background: #d0f0f0; color: #006060; border: 1px solid #80d0d0; }
+  .badge-gray   { background: #f0f0f0; color: #555; border: 1px solid #ccc; }
+  .badge-purple { background: #f0e0ff; color: #660088; border: 1px solid #c080e0; }
+
+  /* TEXT ELEMENTS */
+  .body-text { font-size: 0.97rem; line-height: 1.85; color: #333; margin: 8px 0; }
+  .simple-box { background: #fff7e0; border-left: 4px solid #f5c842; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 16px 0; font-size: 0.95rem; line-height: 1.8; }
+  .simple-box .label { display: inline-block; background: #f5c842; color: #5a4000; font-size: 0.72rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-bottom: 6px; letter-spacing: 0.5px; }
+  .info-box { background: #eef4ff; border-left: 4px solid #3366cc; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 16px 0; font-size: 0.95rem; line-height: 1.8; }
+  .info-box .label { display: inline-block; background: #3366cc; color: white; font-size: 0.72rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-bottom: 6px; letter-spacing: 0.5px; }
+  .alert-box { background: #fff0f0; border-left: 4px solid #e05050; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 16px 0; font-size: 0.95rem; line-height: 1.8; }
+  .alert-box .label { display: inline-block; background: #e05050; color: white; font-size: 0.72rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-bottom: 6px; letter-spacing: 0.5px; }
+  .green-box { background: #eafaf0; border-left: 4px solid #27ae60; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 16px 0; font-size: 0.95rem; line-height: 1.8; }
+  .green-box .label { display: inline-block; background: #27ae60; color: white; font-size: 0.72rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-bottom: 6px; letter-spacing: 0.5px; }
+  .cyan-box { background: #e0f6ff; border-left: 4px solid #1a9abc; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 16px 0; font-size: 0.95rem; line-height: 1.8; }
+  .cyan-box .label { display: inline-block; background: #1a9abc; color: white; font-size: 0.72rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-bottom: 6px; letter-spacing: 0.5px; }
+  .orange-box { background: #fff4e0; border-left: 4px solid #e67e22; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 16px 0; font-size: 0.95rem; line-height: 1.8; }
+  .orange-box .label { display: inline-block; background: #e67e22; color: white; font-size: 0.72rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-bottom: 6px; letter-spacing: 0.5px; }
+  .purple-box { background: #f5eeff; border-left: 4px solid #8040c0; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 16px 0; font-size: 0.95rem; line-height: 1.8; }
+  .purple-box .label { display: inline-block; background: #8040c0; color: white; font-size: 0.72rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-bottom: 6px; letter-spacing: 0.5px; }
+
+  /* NUMBER CARDS */
+  .num-cards { display: flex; gap: 16px; flex-wrap: wrap; margin: 20px 0; justify-content: center; }
+  .num-card { background: white; border-radius: 10px; padding: 18px 20px; text-align: center; flex: 1; min-width: 130px; max-width: 200px; box-shadow: 2px 3px 10px rgba(0,0,0,0.1); border-top: 5px solid #c04a10; }
+  .num-card .big-num { font-size: 2.2rem; font-weight: 700; font-family: 'Caveat', cursive; color: #c04a10; line-height: 1.1; }
+  .num-card .num-unit { font-size: 0.9rem; color: #c04a10; font-weight: 600; margin-bottom: 4px; }
+  .num-card .num-label { font-size: 0.77rem; color: #555; line-height: 1.5; margin-top: 4px; }
+  .num-card.green  { border-top-color: #27ae60; } .num-card.green  .big-num, .num-card.green  .num-unit { color: #27ae60; }
+  .num-card.orange { border-top-color: #e67e22; } .num-card.orange .big-num, .num-card.orange .num-unit { color: #e67e22; }
+  .num-card.blue   { border-top-color: #2980b9; } .num-card.blue   .big-num, .num-card.blue   .num-unit { color: #2980b9; }
+  .num-card.teal   { border-top-color: #1abc9c; } .num-card.teal   .big-num, .num-card.teal   .num-unit { color: #1abc9c; }
+  .num-card.purple { border-top-color: #8040c0; } .num-card.purple .big-num, .num-card.purple .num-unit { color: #8040c0; }
+  .num-card.red    { border-top-color: #e74c3c; } .num-card.red    .big-num, .num-card.red    .num-unit { color: #e74c3c; }
+  .num-card.amber  { border-top-color: #c04a10; } .num-card.amber  .big-num, .num-card.amber  .num-unit { color: #c04a10; }
+
+  /* BAR CHART */
+  .bar-chart { margin: 20px 0; }
+  .bar-row { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+  .bar-label { font-size: 0.88rem; font-weight: 600; min-width: 148px; color: #333; flex-shrink: 0; }
+  .bar-track { flex: 1; background: #e8e0d4; border-radius: 4px; height: 28px; position: relative; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 4px; display: flex; align-items: center; justify-content: flex-end; padding-right: 8px; font-size: 0.8rem; font-weight: 700; color: white; white-space: nowrap; min-width: 40px; }
+  .bf-red    { background: #e05050; }
+  .bf-orange { background: #e67e22; }
+  .bf-amber  { background: #c04a10; }
+  .bf-gray   { background: #aaa; }
+  .bar-note { font-size: 0.8rem; color: #666; min-width: 130px; flex-shrink: 0; }
+
+  /* COMPARISON TABLE */
+  .compare-table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 0.88rem; margin: 20px 0; }
+  .compare-table th { padding: 10px 12px; font-weight: 700; font-size: 0.82rem; text-align: center; }
+  .compare-table th.col-label { text-align: left; }
+  .compare-table td { padding: 10px 12px; text-align: center; border-bottom: 1px dashed #ddd; vertical-align: top; }
+  .compare-table td.col-label { text-align: left; font-weight: 600; color: #444; }
+  .compare-table tr:last-child td { border-bottom: none; }
+  .th-lbl { background: #f0ece3; color: #555; }
+  .th-name { background: #fff0e0; color: #7a3000; }
+  .th-food { background: #fff7e0; color: #5a4000; }
+  .th-risk { background: #ffe8e8; color: #8b0000; }
+  .tag-high   { display: inline-block; background: #ffe0e0; color: #8b1a1a; border-radius: 4px; padding: 1px 7px; font-size: 0.77rem; font-weight: 600; }
+  .tag-mid    { display: inline-block; background: #fff7d0; color: #7a5000; border-radius: 4px; padding: 1px 7px; font-size: 0.77rem; font-weight: 600; }
+  .tag-note   { display: inline-block; background: #e0eeff; color: #2255aa; border-radius: 4px; padding: 1px 7px; font-size: 0.77rem; font-weight: 600; }
+  .tag-natural{ display: inline-block; background: #e8f5e0; color: #3a6020; border-radius: 4px; padding: 1px 7px; font-size: 0.77rem; font-weight: 600; }
+
+  /* STEP LIST */
+  .step-list { list-style: none; margin: 16px 0; }
+  .step-list li { display: flex; align-items: flex-start; gap: 14px; padding: 10px 0; border-bottom: 1px dotted #ddd; }
+  .step-list li:last-child { border-bottom: none; }
+  .step-num { background: #c04a10; color: white; font-weight: 700; font-size: 0.9rem; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+  .step-text { font-size: 0.93rem; line-height: 1.8; color: #333; }
+
+  /* FLOW DIAGRAM */
+  .flow-diagram { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin: 16px 0; justify-content: center; }
+  .flow-box { background: white; border: 2px solid #c04a10; border-radius: 8px; padding: 10px 16px; text-align: center; font-size: 0.85rem; font-weight: 600; color: #7a2d00; min-width: 100px; }
+  .flow-arrow { font-size: 1.4rem; color: #c04a10; font-weight: 700; }
+  .flow-box.maybe { border-color: #aaa; color: #666; border-style: dashed; }
+  .flow-box.question { background: #fff7e0; border-color: #e67e22; color: #8a4000; }
+
+  /* GRID */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0; }
+  @media (max-width: 560px) { .grid-2 { grid-template-columns: 1fr; } }
+  .grid-box { background: white; border-radius: 8px; padding: 16px; box-shadow: 1px 2px 6px rgba(0,0,0,0.08); }
+  .grid-box .gb-title { font-size: 0.92rem; font-weight: 700; margin-bottom: 10px; padding-bottom: 6px; border-bottom: 2px dashed #ddd; }
+  .gb-red .gb-title { color: #c04a10; border-bottom-color: #f0b090; }
+  .gb-green .gb-title { color: #27ae60; border-bottom-color: #90d4aa; }
+  .grid-box .gb-text { font-size: 0.85rem; line-height: 1.95; color: #333; }
+
+  /* SOURCE / DISCLAIMER */
+  .source-text { font-size: 0.78rem; color: #888; margin-top: 12px; line-height: 1.6; }
+  .source-text a { color: #c04a10; }
+  .disclaimer { background: #f8f8f8; border: 2px solid #ddd; border-radius: 6px; padding: 20px 24px; font-size: 0.83rem; line-height: 1.8; color: #555; width: 100%; max-width: 820px; margin-bottom: 24px; }
+  .disclaimer .dis-title { font-size: 0.9rem; font-weight: 700; color: #444; margin-bottom: 8px; }
+  hr.section-divider { border: none; border-top: 2px dashed #c8b89a; margin: 16px 0; }
+</style>
+</head>
+<body>
+
+<!-- ===== COVER ===== -->
+<div class="cover">
+  <span class="cover-emoji">🧂</span>
+  <h1>食品の「保存料」と高血圧・心血管リスク<br>── 11.2万人・7〜8年追跡の観察研究が示すもの ──</h1>
+  <div class="subtitle">ビタミンCやクエン酸も？8種の添加物と心臓病リスクの関連<br>観察研究の限界も一緒に正しく読み解く</div>
+  <div class="tagline">健康・栄養 最新トピック</div>
+  <div class="date-badge">2026-06-21</div>
+</div>
+
+<!-- ===== CARD 1: 研究の概要 ===== -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">📋</span>
+      <span class="card-title">今日の研究：NutriNet-Santé 研究</span>
+      <span class="topic-badge badge-orange">コホート研究（観察）</span>
+    </div>
+    <p class="body-text">2026年5月、ヨーロッパを代表する心臓病専門誌 <em>European Heart Journal</em> に、食品の保存料と高血圧・心血管疾患の関連を調べた大規模研究が発表されました。</p>
+    <p class="body-text">研究名は <strong>NutriNet-Santé（ニュトリネット・サンテ）研究</strong>。フランスで2009年から続く大規模食事調査コホートで、参加者が6か月ごとに3日間の詳細な食事記録をつけ、その後の健康状態を追跡しています。</p>
+
+    <div class="num-cards">
+      <div class="num-card red">
+        <div class="big-num">11.2万</div>
+        <div class="num-unit">人</div>
+        <div class="num-label">参加者数<br>（15歳以上・フランス）</div>
+      </div>
+      <div class="num-card orange">
+        <div class="big-num">7〜8</div>
+        <div class="num-unit">年間</div>
+        <div class="num-label">平均追跡期間<br>（2009〜2024年）</div>
+      </div>
+      <div class="num-card amber">
+        <div class="big-num">58</div>
+        <div class="num-unit">種類</div>
+        <div class="num-label">調べた保存料の数<br>→ 8種がリスクに関連</div>
+      </div>
+      <div class="num-card blue">
+        <div class="big-num">42</div>
+        <div class="num-unit">歳</div>
+        <div class="num-label">参加者の平均年齢<br>（女性が79%）</div>
+      </div>
+    </div>
+
+    <div class="simple-box">
+      <div class="label">この研究の設計タイプ</div>
+      <strong>コホート研究（観察研究）</strong>──「何かをしてもらう」ではなく、「普段の生活を記録してその後の健康を見る」タイプの研究です。大勢のデータを長期間追えることが強みですが、「○○が原因で✕✕になった」とは証明できません（後ほど詳しく解説）。
+    </div>
+
+    <div class="source-text">
+      出典: Hasenböhler A et al. 「Preservative food additives, hypertension, and cardiovascular diseases: the NutriNet-Santé study」
+      <em>European Heart Journal</em>, 2026年5月
+      DOI: <a href="https://doi.org/10.1093/eurheartj/ehag308" target="_blank">10.1093/eurheartj/ehag308</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== CARD 2: 8つの保存料 ===== -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">⚠️</span>
+      <span class="card-title">関連が見つかった8種の保存料</span>
+      <span class="topic-badge badge-red">研究結果</span>
+    </div>
+    <p class="body-text">58種の保存料を統計的に分析した結果、<strong>8種が高血圧または心血管疾患リスクの上昇と統計的に関連していた</strong>と報告されました。</p>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th class="col-label th-lbl">添加物コード</th>
+          <th class="th-name">成分名（日本語）</th>
+          <th class="th-food">よく使われる食品例</th>
+          <th class="th-risk">指摘されたリスク</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="col-label">E202</td>
+          <td>ソルビン酸カリウム<br><small>（Potassium sorbate）</small></td>
+          <td>清涼飲料水・チーズ・ヨーグルト・マーガリン</td>
+          <td><span class="tag-high">高血圧リスク<br>最大 +39%※</span></td>
+        </tr>
+        <tr>
+          <td class="col-label">E224</td>
+          <td>メタ重亜硫酸カリウム<br><small>（Potassium metabisulphite）</small></td>
+          <td>ワイン・ビール・ドライフルーツ・ジュース</td>
+          <td><span class="tag-high">高血圧リスク上昇</span></td>
+        </tr>
+        <tr>
+          <td class="col-label">E250</td>
+          <td>亜硝酸ナトリウム<br><small>（Sodium nitrite）</small></td>
+          <td>ハム・ソーセージ・ベーコン・サラミ</td>
+          <td><span class="tag-high">高血圧リスク<br>最大 +16%※</span></td>
+        </tr>
+        <tr>
+          <td class="col-label">E300</td>
+          <td>アスコルビン酸<br><small>（Ascorbic acid / ビタミンC）</small></td>
+          <td>ジュース・缶詰・ドレッシング・清涼飲料水</td>
+          <td><span class="tag-note">心血管疾患リスク<br>（HTN も一部で関連）</span></td>
+        </tr>
+        <tr>
+          <td class="col-label">E301</td>
+          <td>アスコルビン酸ナトリウム<br><small>（Sodium ascorbate）</small></td>
+          <td>加工肉・乳製品・缶詰</td>
+          <td><span class="tag-high">高血圧リスク上昇</span></td>
+        </tr>
+        <tr>
+          <td class="col-label">E316</td>
+          <td>エリソルビン酸ナトリウム<br><small>（Sodium erythorbate）</small></td>
+          <td>ハム・ソーセージ・魚介缶詰</td>
+          <td><span class="tag-high">高血圧・CVD リスク上昇</span></td>
+        </tr>
+        <tr>
+          <td class="col-label">E330</td>
+          <td>クエン酸<br><small>（Citric acid）</small></td>
+          <td>清涼飲料水・キャンディ・ジャム・スポーツドリンク</td>
+          <td><span class="tag-note">高血圧リスクとの関連</span></td>
+        </tr>
+        <tr>
+          <td class="col-label">E392</td>
+          <td>ローズマリー抽出物<br><small>（Rosemary extracts）</small></td>
+          <td>食用油・スナック菓子・乳製品</td>
+          <td><span class="tag-mid">高血圧リスクとの関連</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="body-text" style="font-size:0.82rem; color:#666; margin-top: -8px;">※ 「最大 +39%」などの数値は、摂取量が最も多いグループと最も少ないグループを比較したもの。<br>「Eコード」はEUの食品添加物番号。日本では物質名・用途名表示が一般的で同じ番号は使用しない。</p>
+
+    <div class="orange-box">
+      <div class="label">どれくらいの人が摂っているか（研究参加者の場合）</div>
+      クエン酸（E330）：参加者の <strong>91.3%</strong> が摂取<br>
+      アスコルビン酸（E300）：<strong>83.0%</strong><br>
+      亜硝酸ナトリウム（E250）：<strong>73.3%</strong><br>
+      ソルビン酸カリウム（E202）：<strong>65.3%</strong><br>
+      全体として、参加者の <strong>99.5%</strong> が何らかの保存料を定期的に摂取していた<br><br>
+      <small>→ これほど普及している添加物なので「摂る vs 摂らない」という比較ではなく、「多く摂るグループ vs 少なく摂るグループ」で分析されています。</small>
+    </div>
+  </div>
+</div>
+
+<!-- ===== CARD 3: ビタミンCの驚き ===== -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">🍊</span>
+      <span class="card-title">「ビタミンC」が心血管リスクに？── 「添加物としての」が鍵</span>
+      <span class="topic-badge badge-orange">重要な注意点</span>
+    </div>
+    <p class="body-text">今回の研究で最も驚かれたのが、<strong>アスコルビン酸（E300）= 保存料として添加されたビタミンC</strong>が心血管疾患リスクと関連していたという結果です。「ビタミンCが体に悪い？」と思った方も多いかもしれません。でも状況はもっと複雑です。</p>
+
+    <div class="grid-2">
+      <div class="grid-box gb-green">
+        <div class="gb-title">🍊 食品本来のビタミンC（果物・野菜）</div>
+        <div class="gb-text">
+          みかん・ブロッコリー・パプリカなどに含まれる自然のビタミンC。多くの疫学研究で<strong>心血管疾患・がんリスクの低下</strong>と関連してきた。食物繊維・ポリフェノールなどと一緒に摂取される。
+        </div>
+      </div>
+      <div class="grid-box gb-red">
+        <div class="gb-title">🏭 添加物としてのビタミンC（E300）</div>
+        <div class="gb-text">
+          食品の酸化防止・変色防止のために人工的に添加されるアスコルビン酸。<strong>超加工食品に多い</strong>。亜硝酸塩など他の添加物と一緒に使われることが多く、食品マトリクス全体の影響が複雑になる。
+        </div>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <div class="label">研究者たちの解釈（仮説）</div>
+      アスコルビン酸（E300）が心血管リスクと関連していた理由として、研究者は直接的な毒性よりも、<strong>「超加工食品を多く食べているというサインとして」E300を大量摂取している可能性</strong>を指摘しています。E300はソフトドリンク・加工食品に広く使われており、「E300が多い食事 = 加工食品が多い食事」である可能性があります。<br><br>
+      また、亜硝酸塩（E250）と一緒に添加されることが多く、<strong>他の保存料との相互作用</strong>も考えられています。現時点ではメカニズムは不明確であり、今後の研究が必要とされています。
+    </div>
+
+    <div class="simple-box">
+      <div class="label">結論：みかんを食べるのをやめる必要はない</div>
+      この研究が示唆するリスクは「保存料として添加された E300 の多い食品を多量に食べること」です。<strong>果物・野菜からビタミンCを摂ることとは全く別の話</strong>です。果物・野菜に含まれるビタミンCは、多くのエビデンスで引き続き健康的と評価されています。
+    </div>
+  </div>
+</div>
+
+<!-- ===== CARD 4: 観察研究の限界 ===== -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">🔬</span>
+      <span class="card-title">「保存料が原因」とは言えない理由 ── 観察研究を正しく読む</span>
+      <span class="topic-badge badge-blue">科学リテラシー</span>
+    </div>
+    <p class="body-text">今回の研究は非常に大規模で丁寧に設計されていますが、<strong>コホート研究（観察研究）</strong>という設計には避けられない限界があります。科学記事を読むうえで重要な「観察研究の読み方」を整理しましょう。</p>
+
+    <div class="flow-diagram">
+      <div class="flow-box">保存料を<br>多く摂取</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box question">数年後に<br>高血圧が多い</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box maybe">原因？<br>別の要因？</div>
+    </div>
+
+    <div class="alert-box">
+      <div class="label">「関連がある」≠「原因である」── 交絡の問題</div>
+      観察研究で最も注意すべきは <strong>「交絡（こうらく）」</strong>。例えば「保存料を多く摂る人は、同時に：加工食品を多く食べ・野菜が少なく・塩分が多く・運動量が少なく・喫煙率が高い…」可能性があります。この場合、<strong>「保存料そのものが」血圧を上げたのか、「食事パターン全体が」上げたのかを分けることは非常に困難</strong>です。研究者たちもこの限界を論文の中で明記しています。
+    </div>
+
+    <div class="bar-chart">
+      <p class="body-text" style="margin-bottom: 12px; font-weight: 600; font-size: 0.9rem;">▶ 研究デザインの「証拠の強さ」</p>
+      <div class="bar-row">
+        <div class="bar-label">メタ分析・系統的レビュー</div>
+        <div class="bar-track"><div class="bar-fill bf-red" style="width: 100%;">最も強い（証拠を統合）</div></div>
+        <div class="bar-note">RCT 複数を統合</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">ランダム化比較試験（RCT）</div>
+        <div class="bar-track"><div class="bar-fill bf-orange" style="width: 78%;">強い（因果関係を確認）</div></div>
+        <div class="bar-note">原因を証明できる</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">コホート研究（今回）</div>
+        <div class="bar-track"><div class="bar-fill bf-amber" style="width: 52%;">中程度（関連を示す）</div></div>
+        <div class="bar-note">原因は証明できない</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">横断研究・症例対照研究</div>
+        <div class="bar-track"><div class="bar-fill bf-gray" style="width: 30%;">弱め（仮説生成）</div></div>
+        <div class="bar-note">参考程度</div>
+      </div>
+    </div>
+
+    <div class="purple-box">
+      <div class="label">専門家の慎重な評価（Science Media Centre より）</div>
+      イギリスの Science Media Centre（科学メディアセンター）に寄せられた専門家コメント（2026年5月）では、次のような慎重な評価がなされています：<br><br>
+      ・「対象者の79%が女性であり、フランス人成人であるため、他の集団への一般化には注意が必要」<br>
+      ・「超加工食品の摂取量が多い人が保存料の摂取量も多くなるのは当然であり、本当にリスク因子はどちらなのかをこのデザインでは分離できない」<br>
+      ・「自己申告の食事記録には誤差がある」<br>
+      ・「著者自身が限界を誠実に述べており、今後の研究が必要」
+    </div>
+
+    <div class="green-box">
+      <div class="label">それでも、この研究の価値は何か</div>
+      批判的に評価しつつも、この研究には重要な意義があります：<br>
+      ① <strong>11.2万人・7〜8年という規模と期間</strong>で系統的に保存料を分析した最大級の研究の一つ<br>
+      ② 「何となく問題かも」と言われていた保存料を統計的に可視化した<br>
+      ③ 「自然由来の保存料（ローズマリー抽出物 E392 など）も無条件に安全ではないかもしれない」という問題提起<br>
+      ④ 次のステップ（機構解明・介入研究）への出発点として価値がある<br><br>
+      「この研究だけで結論を出す」のは早計ですが、「無視してよい」というわけでもありません。
+    </div>
+  </div>
+</div>
+
+<!-- ===== CARD 5: 日本での状況と実践 ===== -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">🇯🇵</span>
+      <span class="card-title">日本の食品ラベルで保存料を確認する方法</span>
+      <span class="topic-badge badge-teal">実践</span>
+    </div>
+    <p class="body-text">この研究はフランスの食品環境を前提としており、日本の添加物規制・使用量・食文化とは異なります。ただ、同じ保存料の多くは日本でも使用されています。</p>
+
+    <div class="simple-box">
+      <div class="label">日本の食品ラベルの読み方（保存料）</div>
+      日本では EU の「Eコード」は使わず、<strong>物質名と用途名</strong>で表示します：<br><br>
+      📌 <strong>用途名＋物質名</strong>の形式：例）「<strong>保存料（ソルビン酸K）</strong>」「<strong>発色剤（亜硝酸Na）</strong>」<br>
+      📌 ソルビン酸K = ソルビン酸カリウム（E202）<br>
+      📌 亜硝酸Na = 亜硝酸ナトリウム（E250）※「発色剤」として表示されることも<br>
+      📌 V.C・ビタミンC・アスコルビン酸 = E300<br>
+      📌 クエン酸 = E330（酸味料として表示されることも多い）<br><br>
+      ※ 日本では「一括名」で表示が許されるケースもあり（酸化防止剤・酸味料など）、個別の物質名が見えないこともあります。
+    </div>
+
+    <hr class="section-divider">
+
+    <p class="body-text"><strong>実際にどんな食品に入っているか（日本の一般的な例）</strong></p>
+
+    <div class="grid-2">
+      <div class="grid-box gb-red">
+        <div class="gb-title">⚠️ 保存料が多く使われやすい食品</div>
+        <div class="gb-text">
+          🥓 ハム・ソーセージ・ベーコン（亜硝酸Na）<br>
+          🧀 プロセスチーズ・ナチュラルチーズ（ソルビン酸K）<br>
+          🥤 清涼飲料水・スポーツドリンク（クエン酸・ビタミンC）<br>
+          🍜 カップ麺・レトルト食品（酸化防止剤）<br>
+          🍬 キャンディ・ジャム（ソルビン酸K・クエン酸）<br>
+          🍷 ワイン・醸造酒（亜硫酸塩系）
+        </div>
+      </div>
+      <div class="grid-box gb-green">
+        <div class="gb-title">✅ 保存料が少ない食品（選択肢の参考）</div>
+        <div class="gb-text">
+          🥬 新鮮な野菜・果物<br>
+          🐟 鮮魚・鮮肉（加工前）<br>
+          🍚 ごはん・ゆで麺（単純な主食）<br>
+          🥚 卵・豆腐（無添加のもの）<br>
+          🌾 味噌・納豆（伝統的発酵食品）<br>
+          🥜 ナッツ・豆類（無添加）
+        </div>
+      </div>
+    </div>
+
+    <div class="cyan-box">
+      <div class="label">「全部排除」より「全体のバランス」を</div>
+      研究結果は「保存料を一切食べてはいけない」と言っているわけではありません。今回の研究はあくまでも<strong>「最も多く摂取するグループ」</strong>でのリスク上昇を示したものです。<br><br>
+      現実的なアプローチとして研究者・専門家が一般的に勧めるのは：<br>
+      ① <strong>超加工食品の頻度を減らし、新鮮食品・手作りの比率を上げる</strong><br>
+      ② <strong>加工肉（ハム・ソーセージ等）を毎日食べる習慣は見直す</strong><br>
+      ③ <strong>食品ラベルを習慣的に確認し、添加物の多い食品を"特別な機会"として扱う</strong><br>
+      ④ <strong>野菜・果物・全粒穀物・豆類を食事の中心に据える</strong>（地中海食・和食の原則）
+    </div>
+  </div>
+</div>
+
+<!-- ===== CARD 6: まとめ ===== -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">📝</span>
+      <span class="card-title">今日のまとめ</span>
+      <span class="topic-badge badge-gray">整理</span>
+    </div>
+
+    <ul class="step-list">
+      <li>
+        <span class="step-num">1</span>
+        <span class="step-text"><strong>NutriNet-Santé 研究（EHJ 2026年5月）</strong>は、11.2万人・7〜8年の追跡で<strong>8種の保存料と高血圧・心血管疾患リスクの統計的関連</strong>を報告した大規模コホート研究。</span>
+      </li>
+      <li>
+        <span class="step-num">2</span>
+        <span class="step-text">8種には「自然素材」由来のローズマリー抽出物（E392）や、食品の「ビタミンC表示」でよく知られるアスコルビン酸（E300）も含まれる。<strong>添加物として使われる場合と食品本来のビタミンCは別の話</strong>。</span>
+      </li>
+      <li>
+        <span class="step-num">3</span>
+        <span class="step-text">これは<strong>観察研究</strong>であり、「保存料が血圧を上げた」と証明したわけではない。交絡因子（超加工食品の全体的な摂取パターン）を切り離すことが難しいため、専門家も慎重な評価をしている。</span>
+      </li>
+      <li>
+        <span class="step-num">4</span>
+        <span class="step-text">日本の食品ラベルでは「保存料（ソルビン酸K）」「発色剤（亜硝酸Na）」「V.C」などで対応する添加物を確認できる。ラベルを読む習慣は超加工食品を意識するうえで役立つ。</span>
+      </li>
+      <li>
+        <span class="step-num">5</span>
+        <span class="step-text">「全部避ける」は現実的でも必要でもない。<strong>新鮮食品・未加工食品の比率を上げること</strong>が最もシンプルで証拠に基づくアプローチ。この研究は一つの大切な警告サインとして受け止め、過度な恐怖にならない判断が重要。</span>
+      </li>
+    </ul>
+
+    <div class="simple-box">
+      <div class="label">精密栄養学の視点から</div>
+      同じ保存料でも、その人の腸内細菌の種類・代謝能力・遺伝的背景・全体的な食事の質によって体内での影響は異なる可能性があります。「一律にリスクあり」ではなく、<strong>個人の食事パターン全体を見て最適化する精密栄養学</strong>のアプローチが今後重要になってきます。保存料に限らず、「何を」「どれだけ」「どんな組み合わせで」食べているかの全体像を把握することが鍵です。
+    </div>
+  </div>
+</div>
+
+<!-- ===== DISCLAIMER ===== -->
+<div class="disclaimer">
+  <div class="dis-title">⚠️ 免責・注意事項</div>
+  本記事は一般的な健康情報の提供を目的としており、医療アドバイスではありません。食品添加物の健康への影響・リスクは、個人の体質・年齢・基礎疾患・服薬・食事全体のパターンによって大きく異なります。本記事で紹介した研究はコホート研究（観察研究）であり、因果関係を証明するものではありません。特定の食品を排除したり、食事制限を行う前に、かかりつけ医・管理栄養士・薬剤師など専門家に相談することを強くお勧めします。本記事の情報のみをもとに自己判断で極端な食事変更をしないでください。
+</div>
+
+<!-- ===== SOURCES ===== -->
+<div class="disclaimer" style="border-color: #c8a898;">
+  <div class="dis-title">📚 主な参考文献・出典</div>
+  ① Hasenböhler A et al. 「Preservative food additives, hypertension, and cardiovascular diseases: the NutriNet-Santé study」
+  <em>European Heart Journal</em>, 2026年5月. DOI: <a href="https://doi.org/10.1093/eurheartj/ehag308" target="_blank">10.1093/eurheartj/ehag308</a>（コホート研究、n=112,395、フランス、7〜8年追跡、2026年）<br><br>
+  ② American College of Cardiology, Journal Scans 「NutriNet-Santé: Preservative Food Additives Associated With Increased HTN, CVD Incidence」（2026年5月）
+  <a href="https://www.acc.org/Latest-in-Cardiology/Journal-Scans/2026/05/26/10/02/NutriNet-Sante" target="_blank">ACC.org</a><br><br>
+  ③ Science Media Centre 「expert reaction to study looking at food preservatives, blood pressure and heart disease」（2026年）
+  <a href="https://www.sciencemediacentre.org/expert-reaction-to-study-looking-at-food-preservatives-blood-pressure-and-heart-disease/" target="_blank">sciencemediacentre.org</a><br><br>
+  ④ Medical News Today 「Hypertension: 8 common food additives linked to higher risk」（2026年）
+  <a href="https://www.medicalnewstoday.com/articles/8-common-food-additives-linked-high-blood-pressure-heart-health-study" target="_blank">medicalnewstoday.com</a><br><br>
+  ⑤ European Society of Cardiology 「Common food preservatives linked to high blood pressure and heart disease」（2026年）
+  <a href="https://www.escardio.org/news/press/press-releases/common-food-preservatives-linked-to-high-blood-pressure-and-heart-disease/" target="_blank">escardio.org</a>
+</div>
+
+</body>
+</html>
