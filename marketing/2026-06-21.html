@@ -313,7 +313,8 @@
   .matrix-table td { padding: 10px 12px; border-bottom: 1px solid #ddd; line-height: 1.6; vertical-align: top; }
   .matrix-table tr:nth-child(even) td { background: #f5f0ff; }
   .matrix-table tr:last-child td { border-bottom: none; }
-  .matrix-table .label-col { font-weight: 600; color: #4c1d95; width: 15%; }
+  .matrix-table .label-col { font-weight: 600; color: #4c1d95; width: 18%; }
+  .matrix-table .limit-col { width: 14%; color: #d97706; font-weight: 700; text-align: center; }
 
   .flow-row { display: flex; align-items: center; gap: 8px; margin: 16px 0; flex-wrap: wrap; }
   .flow-box {
@@ -335,6 +336,7 @@
   }
   .highlight-box .hb-title { font-weight: 700; color: #2d1b69; margin-bottom: 8px; font-size: 1rem; }
 
+  /* 4要素カード */
   .element-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -389,6 +391,76 @@
     text-transform: uppercase; letter-spacing: 0.5px;
   }
 
+  /* Before/After */
+  .ba-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 14px 0;
+  }
+  .ba-card {
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+  .ba-bad {
+    background: #fff5f5;
+    border: 2px solid #fca5a5;
+  }
+  .ba-good {
+    background: #f0fdf4;
+    border: 2px solid #86efac;
+  }
+  .ba-header {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 0.85rem; font-weight: 700;
+    margin-bottom: 10px; padding-bottom: 6px;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+  }
+  .ba-bad  .ba-header { color: #c0392b; }
+  .ba-good .ba-header { color: #2e9c5e; }
+  .ba-text {
+    font-size: 0.88rem; line-height: 1.7; color: #333;
+    background: white; border-radius: 6px;
+    padding: 10px 12px;
+    border: 1px solid rgba(0,0,0,0.08);
+  }
+  .ba-note {
+    font-size: 0.78rem; color: #666;
+    margin-top: 8px; line-height: 1.6;
+  }
+  .ba-note .bad-point  { color: #c0392b; font-weight: 600; }
+  .ba-note .good-point { color: #2e9c5e; font-weight: 600; }
+
+  /* プロフィール動線図 */
+  .funnel {
+    display: flex; flex-direction: column;
+    align-items: center; gap: 0; margin: 16px auto;
+    max-width: 480px;
+  }
+  .funnel-step {
+    width: 100%; text-align: center;
+    padding: 10px 16px;
+    font-size: 0.88rem; font-weight: 600;
+    color: white;
+    position: relative;
+  }
+  .funnel-step::after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: -14px; left: 10%; right: 10%;
+    border-left: 0 solid transparent;
+    border-right: 0 solid transparent;
+    z-index: 2;
+  }
+  .fs1 { background: #7c3aed; border-radius: 8px 8px 0 0; }
+  .fs2 { background: #6d28d9; }
+  .fs3 { background: #5b21b6; }
+  .fs4 { background: #4c1d95; }
+  .fs5 { background: #2d1b69; border-radius: 0 0 8px 8px; }
+  .funnel-arrow { font-size: 1.2rem; color: #7c3aed; margin: 2px 0; }
+  .funnel-label { font-size: 0.78rem; color: #666; margin-top: 2px; }
+
   .footer {
     text-align: center; color: #888;
     font-size: 0.8rem; padding: 20px;
@@ -398,6 +470,7 @@
 
   @media (max-width: 600px) {
     .element-grid { grid-template-columns: 1fr; }
+    .ba-grid { grid-template-columns: 1fr; }
     .cover h1 { font-size: 1.5rem; }
     .card-body { padding: 20px 16px 20px 44px; }
     .flow-row { flex-direction: column; }
@@ -436,7 +509,7 @@
         <div class="fb-label" style="color:#c0392b;">SNSフォロワー</div>
         <div class="fb-sub">アルゴリズム依存<br>リーチが不安定<br>プラットフォームに<br>所有される</div>
       </div>
-      <div class="flow-arrow" style="font-size:1.8rem;">vs</div>
+      <div class="flow-arrow">vs</div>
       <div class="flow-box" style="border-color:#2e9c5e;">
         <span class="fb-emoji">📧</span>
         <div class="fb-label" style="color:#2e9c5e;">メールリスト</div>
@@ -445,7 +518,7 @@
     </div>
 
     <div class="highlight-box">
-      <div class="hb-title">📊 メールは多くのマーケターが最もROIが高いと評価するチャネル</div>
+      <div class="hb-title">📊 メールは今でも最もROIが高いチャネルと評価される</div>
       <p style="font-size:0.92rem; line-height:1.8;">
         多くのマーケターが「メールマーケティングは最もROI（投資対効果）が高いチャネルの一つ」と評価しています。
         SNSのアルゴリズム変更に翻弄されることなく、<span class="hl-yellow">購読者に直接メッセージを届けられる</span>ことが最大の強みです。
@@ -454,7 +527,7 @@
     </div>
 
     <div class="sticky">
-      📝 SNSのフォロワーは借り物。メールリストは自分の資産。プラットフォームが消えても、リストさえあれば読者と繋がり続けられます。
+      📝 SNSのフォロワーは借り物。メールリストは自分の資産。プラットフォームが消えてもリストさえあれば読者と繋がり続けられます。
     </div>
   </div>
 </div>
@@ -486,29 +559,29 @@
       <tbody>
         <tr>
           <td class="label-col">🐝 Beehiiv</td>
-          <td>無料プランあり<br><span style="font-size:0.78rem;color:#888;">成長機能はScaleプラン<br>$49/月〜（公式で要確認）</span></td>
-          <td>0%プラットフォーム手数料<br><span style="font-size:0.78rem;color:#888;">+ Stripe 2.9%+$0.30<br>（公式で要確認）</span></td>
-          <td>成長に積極的に投資したい人。数字を重視する人</td>
+          <td>無料プランあり<br><span style="font-size:0.8rem;color:#888;">有料機能はScaleプラン<br>$49/月〜（公式で要確認）</span></td>
+          <td>0%プラットフォーム手数料<br><span style="font-size:0.8rem;color:#888;">+ Stripe 2.9%+$0.30<br>（公式で要確認）</span></td>
+          <td>成長に積極的に投資したい人。数字を重視したい人</td>
           <td>Recommendations・Boosts・ポッドキャストホスティング（2026年4月追加）・AIウェブサイトビルダー・3Dアナリティクス</td>
         </tr>
         <tr>
           <td class="label-col">📰 Substack</td>
           <td>完全無料で開始可能</td>
-          <td>有料購読収益の10%<br><span style="font-size:0.78rem;color:#888;">（公式で要確認）</span></td>
+          <td>有料購読収益の10%<br><span style="font-size:0.8rem;color:#888;">（公式で要確認）</span></td>
           <td>今すぐ始めたい人。Substack内の発見機能を活かしたい人</td>
           <td>コミュニティ機能・Substack内検索（発見性が強み）・シンプルな操作性</td>
         </tr>
         <tr>
           <td class="label-col">👻 Ghost</td>
-          <td>Publisherプラン<br>$29/月〜<br><span style="font-size:0.78rem;color:#888;">（公式で要確認）</span></td>
-          <td>0%プラットフォーム手数料<br><span style="font-size:0.78rem;color:#888;">+ Stripe 2.9%+$0.30<br>（公式で要確認）</span></td>
+          <td>Publisherプラン<br>$29/月〜<br><span style="font-size:0.8rem;color:#888;">（公式で要確認）</span></td>
+          <td>0%プラットフォーム手数料<br><span style="font-size:0.8rem;color:#888;">+ Stripe 2.9%+$0.30<br>（公式で要確認）</span></td>
           <td>完全なウェブサイトも欲しい人。長期的な自前メディアを構築したい人</td>
           <td>完全なウェブサイト+ニュースレター機能。自前でのオーディエンス開発が必要</td>
         </tr>
         <tr>
-          <td class="label-col">⚡ Kit<br><span style="font-size:0.78rem;font-weight:400;">（旧ConvertKit）</span></td>
-          <td>無料プランあり<br><span style="font-size:0.78rem;color:#888;">（読者数上限あり。公式で要確認）</span></td>
-          <td>3.5%+$0.30/取引<br><span style="font-size:0.78rem;color:#888;">（Kitの取り分は約0.6%。公式で要確認）</span></td>
+          <td class="label-col">⚡ Kit<br><span style="font-size:0.8rem;font-weight:400;">（旧ConvertKit）</span></td>
+          <td>無料プランあり<br><span style="font-size:0.8rem;color:#888;">（読者数上限あり。公式で要確認）</span></td>
+          <td>3.5%+$0.30/取引<br><span style="font-size:0.8rem;color:#888;">（Kitの取り分は約0.6%。公式で要確認）</span></td>
           <td>自動化・セグメンテーションを使いこなしたい人。既存ビジネスとの連携が必要な人</td>
           <td>自動化・セグメンテーション機能が充実。マーケティングツールとしての完成度が高い</td>
         </tr>
@@ -516,7 +589,7 @@
     </table>
 
     <div class="sticky">
-      📝 まず始めるならSubstack（発見機能が強い）かBeehiiv（成長ツールが豊富）がおすすめです。どちらも無料で試せます。自分のペースで比較してみてください。
+      📝 まず始めるならSubstack（発見機能が強い）かBeehiiv（成長機能が豊富）がおすすめ。どちらも無料で試せます。自分のペースで比較してみてください。
     </div>
   </div>
 </div>
@@ -569,7 +642,7 @@
           ・読者からの口コミ・紹介
         </div>
         <p style="font-size:0.82rem; color:#555; margin-top:8px; line-height:1.6;">
-          読者が100人を超えたあたりから取り組みやすくなる。
+          100人の読者ができた後に取り組みやすくなる。
         </p>
       </div>
 
@@ -653,7 +726,7 @@
         <div class="step-content">
           <div class="step-title">PDFガイド・チェックリスト</div>
           <div class="step-desc">
-            印刷して使えるものや、すぐに行動できるリスト形式のコンテンツ。<br>
+            印刷して使えるものや、すぐに行動できるリスト形式のコンテンツ。
             例：「〇〇を始める前に確認すべき10のチェックリスト」「〇〇完全ガイド（PDF）」。
             制作コストが低く、認知されやすい。
           </div>
@@ -664,7 +737,7 @@
         <div class="step-content">
           <div class="step-title">テンプレートパック</div>
           <div class="step-desc">
-            すぐにコピペして使える素材集。<br>
+            すぐにコピペして使える素材集。
             例：「SNS投稿テンプレート30種」「営業メールの文章テンプレート」。
             「すぐ使える」という即時性が登録動機になる。
           </div>
@@ -675,7 +748,7 @@
         <div class="step-content">
           <div class="step-title">ミニメールコース（5日間など）</div>
           <div class="step-desc">
-            登録後に毎日・毎週など順番に届くメールコンテンツ。<br>
+            登録後に毎日・毎週など順番に届くメールコンテンツ。
             例：「5日間で学ぶ○○入門コース」。
             継続的にメールを読む習慣がつくため、ニュースレターとの相性が特に良い。
           </div>
@@ -686,7 +759,7 @@
         <div class="step-content">
           <div class="step-title">ツール・リソースリスト</div>
           <div class="step-desc">
-            自分が実際に使っているツールや厳選したリソースのまとめ。<br>
+            自分が実際に使っているツールや厳選したリソースのまとめ。
             例：「フリーランスが使っている○○ツール全リスト」「おすすめ本・サービス20選」。
             「あなたが選んだ」という信頼性が価値になる。
           </div>
@@ -697,8 +770,8 @@
         <div class="step-content">
           <div class="step-title">限定データ・事例集</div>
           <div class="step-desc">
-            他では読めない独自の調査データや実際の事例まとめ。<br>
-            例：「〇〇業界の収益事例10選」「実際の数字を公開した成長レポート」。
+            他では読めない独自の調査データや実際の事例まとめ。
+            例：「〇〇業界の収益事例10選」「実際の売上数字を公開した成長レポート」。
             希少性と具体性が最大の武器になる。
           </div>
         </div>
@@ -710,8 +783,8 @@
     </div>
 
     <div class="source">
-      出典：<a href="https://inboxcollective.com/" target="_blank">Inbox Collective（inboxcollective.com）</a> ／
-      <a href="https://www.inboxbanner.com/blog/10-proven-newsletter-growth-tactics-that-work-in-2026-with-examples" target="_blank">inboxbanner.com「10 Proven Newsletter Growth Tactics 2026」</a>
+      出典：
+      <a href="https://inboxcollective.com/" target="_blank">Inbox Collective</a>
     </div>
   </div>
 </div>
@@ -763,7 +836,7 @@
     </div>
 
     <div class="sticky" style="background:#fff3cd; color:#78350f;">
-      ⚠️ 注意：これらの数値はBeehiivの自社プラットフォームのデータです。個々の結果はジャンル・コンテンツ品質・市場・発信ペースによって大きく異なります。参考値としてご活用ください。
+      ⚠️ 注意：これらの数値はBeehiiv自社プラットフォームのデータです。個々の結果はジャンル・コンテンツ品質・市場・発信ペースによって大きく異なります。参考値としてご活用ください。
     </div>
 
     <div class="source">
@@ -794,7 +867,7 @@
           <div class="step-content">
             <div class="step-title">テーマと対象読者を1文で決める</div>
             <div class="step-desc">
-              「<span class="hl-purple">○○な人に○○を届けるニュースレター</span>」という形式で1文を書いてみましょう。<br>
+              「<span class="hl-purple">○○な人に○○を届けるニュースレター</span>」という形式で1文を書いてみましょう。
               例：「副業を始めたい会社員にWebデザインの仕事の作り方を届けるニュースレター」。
               完璧でなくてOK。まず一文を書くことが全ての出発点です。
             </div>
@@ -805,9 +878,10 @@
           <div class="step-content">
             <div class="step-title">BeehiivかSubstackに無料アカウントを作る</div>
             <div class="step-desc">
-              BeehiivまたはSubstackの公式サイトにアクセスして無料アカウントを登録し、ニュースレター名を入力してください。
-              どちらにするか迷ったら、Substackはシンプルで発見されやすく、
-              Beehiivは成長ツールが豊富という違いを参考にしてください。後で移行はできます。
+              BeehiivまたはSubstackにアクセスして無料アカウントを登録し、ニュースレター名を入力してください。
+              どちらにするか迷ったら、Substackはシンプルで今すぐ発見される可能性があり、
+              Beehiivは成長ツールが豊富という違いを参考にしてください。
+              どちらも後で移行はできます。
             </div>
           </div>
         </div>
@@ -826,7 +900,7 @@
     </div>
 
     <div style="background:white; border-radius:8px; padding:16px 18px; border:1px solid #ddd; margin-top:8px;">
-      <p style="font-weight:700; color:#2c3e50; margin-bottom:10px; font-size:0.97rem;">📋 今後のアクション候補</p>
+      <p style="font-weight:700; color:#2c3e50; margin-bottom:10px; font-size:0.97rem;">📋 今後の次のアクション候補</p>
       <ul class="point-list">
         <li>
           <div class="marker marker-purple">✓</div>
@@ -878,9 +952,9 @@
       <strong>主な参考出典：</strong><br>
       ・<a href="https://www.beehiiv.com/blog/beehiiv-the-state-of-newsletters-2026" target="_blank">beehiiv「The State of Newsletters 2026」</a><br>
       ・<a href="https://inboxcollective.com/the-four-newsletter-growth-quadrants/" target="_blank">Inbox Collective「The Four Newsletter Growth Quadrants」</a><br>
-      ・<a href="https://www.inboxbanner.com/blog/10-proven-newsletter-growth-tactics-that-work-in-2026-with-examples" target="_blank">inboxbanner.com「10 Proven Newsletter Growth Tactics 2026」</a><br>
-      ・<a href="https://thatmarketingbuddy.com/blog/newsletter-platform-fees-compared" target="_blank">thatmarketingbuddy.com「Newsletter Platform Fees Compared (2026)」</a><br>
-      ・<a href="https://publishinghouse.org/newsletter-platforms-compared-beehiiv-substack-ghost-and-convertkit/" target="_blank">publishinghouse.org「Newsletter Platforms Compared: Beehiiv, Substack, Ghost, and ConvertKit」</a>
+      ・<a href="https://inboxcollective.com/" target="_blank">Inbox Collective（inboxcollective.com）</a><br>
+      ・thatmarketingbuddy.com<br>
+      ・publishinghouse.org
     </div>
   </div>
 </div>
