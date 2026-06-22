@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI動画制作 日報 2026-06-23</title>
+<style>
+  :root {
+    --bg: #ece8e1;
+    --card: #faf6ec;
+    --dark: #1a3a5c;
+    --dark2: #1a5c3a;
+    --accent: #2a5c8a;
+    --accent2: #c85a00;
+    --text: #2a3540;
+    --muted: #7c8a82;
+    --border: #e0d8c8;
+    --highlight: #fff3cd;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, "Hiragino Sans", "Yu Gothic", sans-serif;
+    line-height: 1.75;
+    padding: 20px;
+  }
+  .wrap { max-width: 900px; margin: 0 auto; }
+
+  /* Header */
+  .header {
+    background: linear-gradient(135deg, #1a3a5c 0%, #1a5c3a 100%);
+    color: #fff;
+    border-radius: 20px;
+    padding: 44px 32px 36px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(26,58,92,.22);
+    margin-bottom: 24px;
+  }
+  .header-tag {
+    display: inline-block;
+    background: rgba(255,255,255,.18);
+    color: #c8f0d8;
+    border-radius: 20px;
+    padding: 4px 16px;
+    font-size: .82rem;
+    margin-bottom: 14px;
+    letter-spacing: .06em;
+  }
+  .header h1 { font-size: 1.75rem; letter-spacing: .04em; line-height: 1.4; margin-bottom: 10px; }
+  .header .sub { color: #b8d8e8; font-size: .95rem; }
+  .header .date { color: #7ec8a0; font-size: .85rem; margin-top: 8px; }
+
+  /* Card */
+  .card {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 12px rgba(0,0,0,.07);
+    border: 1px solid var(--border);
+  }
+  .card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* Point cards */
+  .point-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+  .point-card {
+    background: #f0f6fc;
+    border-radius: 14px;
+    padding: 20px 16px;
+    text-align: center;
+    border: 1px solid #d0e0ee;
+  }
+  .point-icon { font-size: 2rem; margin-bottom: 8px; }
+  .point-title { font-size: .95rem; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
+  .point-desc { font-size: .83rem; color: var(--muted); line-height: 1.6; }
+
+  /* Big number cards */
+  .bignum-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-top: 20px;
+  }
+  .bignum-card {
+    background: linear-gradient(135deg, #1a3a5c, #2a5c8a);
+    border-radius: 14px;
+    padding: 18px 12px;
+    text-align: center;
+    color: #fff;
+  }
+  .bignum { font-size: 1.6rem; font-weight: 800; color: #7ed8f0; line-height: 1.2; }
+  .bignum-label { font-size: .72rem; color: #b8d8ee; margin-top: 4px; line-height: 1.5; }
+
+  /* Ratio compare */
+  .ratio-compare {
+    display: flex;
+    gap: 32px;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 24px 0 16px;
+  }
+  .ratio-item { text-align: center; }
+  .ratio-box-h {
+    width: 200px;
+    height: 113px;
+    background: linear-gradient(135deg, #b8cde0, #d0e8f8);
+    border: 3px solid #1a3a5c;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #1a3a5c;
+    margin: 0 auto 10px;
+  }
+  .ratio-box-v {
+    width: 90px;
+    height: 160px;
+    background: linear-gradient(135deg, #b8e0c8, #d0f0e0);
+    border: 3px solid #1a5c3a;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #1a5c3a;
+    margin: 0 auto 10px;
+  }
+  .ratio-name { font-size: 1rem; font-weight: 700; color: var(--text); }
+  .ratio-sub { font-size: .82rem; color: var(--muted); margin-top: 2px; }
+
+  /* Phone safe zone */
+  .safe-zone-wrap {
+    display: flex;
+    gap: 28px;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 8px 0;
+  }
+  .phone-frame {
+    width: 130px;
+    height: 231px;
+    border: 5px solid #1a3a5c;
+    border-radius: 22px;
+    position: relative;
+    overflow: hidden;
+    background: #f0f8ff;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .zone-ui-top {
+    height: 34px;
+    background: rgba(200, 60, 60, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: .6rem;
+    font-weight: 700;
+    color: #8b1a1a;
+    text-align: center;
+    line-height: 1.3;
+  }
+  .zone-safe {
+    flex: 1;
+    background: rgba(60, 160, 100, 0.15);
+    border-top: 2px dashed #2a8c5a;
+    border-bottom: 2px dashed #2a8c5a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 4px;
+    font-size: .62rem;
+    font-weight: 700;
+    color: #1a5c3a;
+    text-align: center;
+    line-height: 1.4;
+  }
+  .zone-ui-bottom {
+    height: 34px;
+    background: rgba(200, 60, 60, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: .6rem;
+    font-weight: 700;
+    color: #8b1a1a;
+    text-align: center;
+    line-height: 1.3;
+  }
+
+  /* Composition grid */
+  .comp-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .comp-card {
+    background: #f4f8fc;
+    border-radius: 14px;
+    padding: 16px;
+    border: 1px solid #d0dce8;
+    text-align: center;
+  }
+  .comp-frame {
+    width: 72px;
+    height: 128px;
+    border: 3px solid #1a3a5c;
+    border-radius: 8px;
+    margin: 0 auto 12px;
+    position: relative;
+    background: #e8f4f8;
+    overflow: hidden;
+  }
+  .comp-title { font-size: .92rem; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
+  .comp-desc { font-size: .8rem; color: var(--muted); line-height: 1.55; }
+
+  /* Step list */
+  .step-list { list-style: none; }
+  .step-item {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 16px;
+    align-items: flex-start;
+  }
+  .step-num {
+    width: 34px;
+    height: 34px;
+    background: linear-gradient(135deg, var(--dark), var(--dark2));
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: .95rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .step-body { flex: 1; }
+  .step-title { font-weight: 700; color: var(--dark); font-size: .95rem; }
+  .step-desc { font-size: .86rem; color: var(--muted); margin-top: 3px; line-height: 1.65; }
+
+  /* Prompt box */
+  .prompt-box {
+    background: #1a2a3a;
+    color: #7ed8b0;
+    border-radius: 12px;
+    padding: 16px 20px;
+    font-family: "Courier New", monospace;
+    font-size: .86rem;
+    line-height: 1.9;
+    margin-top: 12px;
+  }
+  .prompt-box .key { color: #f0c040; }
+  .prompt-box .val { color: #7ed8f0; }
+
+  /* Chips */
+  .chip-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .chip {
+    background: #e8f0f8;
+    color: var(--accent);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: .82rem;
+    font-weight: 600;
+    border: 1px solid #c8d8e8;
+  }
+
+  /* Platform tags */
+  .platform-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+  .platform-tag {
+    background: #1a3a5c;
+    color: #fff;
+    border-radius: 8px;
+    padding: 4px 14px;
+    font-size: .82rem;
+    font-weight: 600;
+  }
+
+  /* Table */
+  .tbl { width: 100%; border-collapse: collapse; font-size: .88rem; }
+  .tbl th {
+    background: #e8f0f8;
+    padding: 10px 12px;
+    text-align: left;
+    border-bottom: 2px solid #c8d8e8;
+    color: var(--dark);
+    font-weight: 700;
+  }
+  .tbl td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    color: var(--text);
+  }
+  .tbl tr:last-child td { border-bottom: none; }
+  .tbl tr.safe-row td { background: #f0fff4; }
+
+  /* Note / highlight box */
+  .note-box {
+    background: var(--highlight);
+    border-left: 4px solid #e8a000;
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: .88rem;
+    color: #5a4000;
+    margin-top: 14px;
+    line-height: 1.7;
+  }
+
+  /* Technique chips in table */
+  .tech-chip {
+    display: inline-block;
+    background: #1a5c3a;
+    color: #c8f0d8;
+    border-radius: 6px;
+    padding: 2px 8px;
+    font-size: .78rem;
+    font-weight: 700;
+    margin-right: 4px;
+  }
+
+  /* Summary list */
+  .summary-list {
+    font-size: .95rem;
+    line-height: 2.2;
+  }
+  .summary-list li {
+    list-style: none;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .summary-list li::before {
+    content: "✅";
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* Disclaimer */
+  .disclaimer {
+    background: #f0ede8;
+    border-radius: 12px;
+    padding: 16px 20px;
+    font-size: .82rem;
+    color: var(--muted);
+    margin-top: 24px;
+    line-height: 1.7;
+    border: 1px solid #ddd8d0;
+  }
+
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: .82rem;
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    line-height: 1.9;
+  }
+
+  @media (max-width: 640px) {
+    .point-grid { grid-template-columns: 1fr; }
+    .bignum-grid { grid-template-columns: repeat(2, 1fr); }
+    .comp-grid { grid-template-columns: 1fr; }
+    .ratio-compare { flex-direction: column; align-items: center; }
+    .header h1 { font-size: 1.35rem; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- Header -->
+<div class="header">
+  <div class="header-tag">📐 エバーグリーン技法回 ── 構図・演出</div>
+  <h1>縦型動画（9:16）の構図と演出<br>── TikTok・Reels・Shortsで映える撮り方</h1>
+  <div class="sub">スマホ画面をフルに活かす縦型フレームの法則を、図解でやさしく解説</div>
+  <div class="date">2026-06-23 ｜ AI動画制作 日報</div>
+</div>
+
+<!-- 今日の3ポイント -->
+<div class="card">
+  <div class="card-title">🎯 今日の3ポイント</div>
+  <div class="point-grid">
+    <div class="point-card">
+      <div class="point-icon">📏</div>
+      <div class="point-title">セーフゾーンを守る</div>
+      <div class="point-desc">上下15%はUIに隠れる！主役は中央70%（セーフゾーン）に収めるのが鉄則</div>
+    </div>
+    <div class="point-card">
+      <div class="point-icon">📸</div>
+      <div class="point-title">縦の空間を「積み上げる」</div>
+      <div class="point-desc">横型と視線の流れが逆。上→下の動線・縦のリーディングラインを意識する</div>
+    </div>
+    <div class="point-card">
+      <div class="point-icon">🤖</div>
+      <div class="point-title">AIで縦型をプロンプト指定</div>
+      <div class="point-desc">ツールのUI設定＋プロンプトに「9:16」「portrait」を書くと縦型で生成できる</div>
+    </div>
+  </div>
+</div>
+
+<!-- 縦型 vs 横型 -->
+<div class="card">
+  <div class="card-title">📺 縦型 vs 横型 ── アスペクト比（横:縦の比率）の違いを見てみよう</div>
+  <p style="font-size:.88rem;color:var(--muted);margin-bottom:4px;">「アスペクト比」とは横幅と縦幅の比率のこと。横型映画は16:9、縦型スマホ動画は9:16です。</p>
+  <div class="ratio-compare">
+    <div class="ratio-item">
+      <div class="ratio-box-h">16 : 9</div>
+      <div class="ratio-name">横型（ランドスケープ）</div>
+      <div class="ratio-sub">YouTube・映画・TV・PCモニター</div>
+    </div>
+    <div style="font-size:2.5rem;color:#bbb;align-self:center;">⇄</div>
+    <div class="ratio-item">
+      <div class="ratio-box-v">9 : 16</div>
+      <div class="ratio-name">縦型（ポートレート）</div>
+      <div class="ratio-sub">TikTok・Reels・Shorts・スマホ</div>
+    </div>
+  </div>
+
+  <div class="bignum-grid">
+    <div class="bignum-card">
+      <div class="bignum">9:16</div>
+      <div class="bignum-label">縦型の比率<br>（幅 : 高さ）</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">1080<br><span style="font-size:.9rem;">×</span><br>1920</div>
+      <div class="bignum-label">縦型の解像度<br>（px）</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">70%</div>
+      <div class="bignum-label">安全に使える<br>セーフゾーン</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">15%</div>
+      <div class="bignum-label">上下それぞれ<br>UIが被る領域</div>
+    </div>
+  </div>
+
+  <div class="platform-row">
+    <div class="platform-tag">📱 TikTok</div>
+    <div class="platform-tag">📸 Instagram Reels</div>
+    <div class="platform-tag">▶️ YouTube Shorts</div>
+    <div class="platform-tag">🎬 CapCut</div>
+    <div class="platform-tag">👻 Snapchat</div>
+  </div>
+</div>
+
+<!-- セーフゾーン図解 -->
+<div class="card">
+  <div class="card-title">🔲 縦型の「セーフゾーン」── UIに隠れる部分を図で確認しよう</div>
+  <p style="font-size:.9rem;color:var(--muted);margin-bottom:20px;">
+    TikTokやReelsでは、上部にアカウント名・音楽名、下部にいいね・コメントボタンが画面に重なります。<br>
+    大事な情報をそこに置くと隠れてしまうので、<strong>「セーフゾーン（中央70%）」</strong>を守りましょう。
+  </p>
+  <div class="safe-zone-wrap">
+    <div style="flex-shrink:0;text-align:center;">
+      <div class="phone-frame">
+        <div class="zone-ui-top">⚠️ UIゾーン<br>（上15%）</div>
+        <div class="zone-safe">
+          <div>✅ セーフゾーン</div>
+          <div style="font-size:.58rem;color:#2a6c4a;">(中央70% ─ ここに主役を)</div>
+        </div>
+        <div class="zone-ui-bottom">⚠️ UIゾーン<br>（下15%）</div>
+      </div>
+      <div style="font-size:.78rem;color:var(--muted);margin-top:8px;">スマホ画面イメージ</div>
+    </div>
+    <div style="flex:1;min-width:220px;">
+      <table class="tbl">
+        <thead>
+          <tr>
+            <th>ゾーン</th>
+            <th>場所</th>
+            <th>何が重なる？</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="color:#b00000;">⚠️ 上部UIゾーン</td>
+            <td>上から<strong>15%</strong></td>
+            <td>アカウント名・フォローボタン・音楽情報</td>
+          </tr>
+          <tr class="safe-row">
+            <td style="color:#1a5c3a;font-weight:700;">✅ セーフゾーン</td>
+            <td>中央<strong>70%</strong></td>
+            <td>何も重ならない！主役・テロップ・重要情報はここへ</td>
+          </tr>
+          <tr>
+            <td style="color:#b00000;">⚠️ 下部UIゾーン</td>
+            <td>下から<strong>15%</strong></td>
+            <td>いいね・コメント・シェア・保存ボタン</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="note-box">
+        💡 <strong>テロップ（字幕）を追加するとき</strong>は画面下から <strong>25〜30%</strong> 以上の位置に置くのが安全。プラットフォームによって多少違うので、最初は余裕を持たせて配置しましょう。
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 縦型構図3パターン -->
+<div class="card">
+  <div class="card-title">📐 縦型構図の3パターン ── 場面に合わせて使い分けよう</div>
+  <div class="comp-grid">
+
+    <!-- パターン1: センター -->
+    <div class="comp-card">
+      <div class="comp-frame">
+        <!-- thirds lines -->
+        <div style="position:absolute;top:33%;width:100%;border-top:1px dashed rgba(26,58,92,.25);"></div>
+        <div style="position:absolute;top:66%;width:100%;border-top:1px dashed rgba(26,58,92,.25);"></div>
+        <!-- subject centered -->
+        <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:28px;height:44px;background:linear-gradient(180deg,#5a8ac8,#2a4a8a);border-radius:4px;"></div>
+        <!-- ground plane -->
+        <div style="position:absolute;bottom:0;width:100%;height:20px;background:rgba(180,200,220,.4);"></div>
+      </div>
+      <div class="comp-title">① センター配置</div>
+      <div class="comp-desc">被写体を画面中央に置く、最も安定した構図。人物・商品紹介・ダンス動画に最適。視線がすぐ被写体へ向く。</div>
+    </div>
+
+    <!-- パターン2: 縦の三分割 -->
+    <div class="comp-card">
+      <div class="comp-frame">
+        <!-- thirds lines -->
+        <div style="position:absolute;top:33%;width:100%;border-top:1px dashed rgba(26,92,58,.35);"></div>
+        <div style="position:absolute;top:66%;width:100%;border-top:1px dashed rgba(26,92,58,.35);"></div>
+        <!-- subject at upper third -->
+        <div style="position:absolute;top:20%;left:50%;transform:translate(-50%,-50%);width:26px;height:38px;background:linear-gradient(180deg,#5a9a65,#1a6a3a);border-radius:4px;"></div>
+        <!-- sky/background top -->
+        <div style="position:absolute;top:0;width:100%;height:33%;background:rgba(180,220,255,.35);"></div>
+        <!-- ground bottom 2/3 -->
+        <div style="position:absolute;bottom:0;width:100%;height:66%;background:rgba(160,210,180,.25);"></div>
+      </div>
+      <div class="comp-title">② 縦の三分割</div>
+      <div class="comp-desc">被写体を上1/3に置き、下2/3に背景（空・道・風景）を広げる。奥行き・ドラマチックな演出に。旅・風景動画向き。</div>
+    </div>
+
+    <!-- パターン3: 上下2分割 -->
+    <div class="comp-card">
+      <div class="comp-frame">
+        <!-- top half: subject -->
+        <div style="position:absolute;top:0;width:100%;height:50%;background:linear-gradient(135deg,#d0e8f8,#e8f4ff);display:flex;align-items:center;justify-content:center;">
+          <div style="width:28px;height:28px;background:#4a7ab5;border-radius:50%;"></div>
+        </div>
+        <!-- divider -->
+        <div style="position:absolute;top:50%;width:100%;height:2px;background:#1a3a5c;"></div>
+        <!-- bottom half: info panel -->
+        <div style="position:absolute;bottom:0;width:100%;height:48%;background:linear-gradient(135deg,#1a3a5c,#2a5c8a);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;">
+          <div style="width:42px;height:6px;background:rgba(255,255,255,.55);border-radius:3px;"></div>
+          <div style="width:30px;height:5px;background:rgba(255,255,255,.3);border-radius:3px;"></div>
+        </div>
+      </div>
+      <div class="comp-title">③ 上下2分割</div>
+      <div class="comp-desc">上半分に映像、下半分にテロップ・商品情報を配置。情報量が多い解説・レシピ・教育系コンテンツに最適。</div>
+    </div>
+  </div>
+  <div class="note-box" style="margin-top:16px;">
+    💡 <strong>横型との大きな違い：</strong>縦型は「下から上への動き（チルトアップ・ドリーアップ）」が映えます。
+    人物が立ち上がる・建物を見上げる・コーヒーが注がれる ── こうした縦の動きは、縦型フレームならではの強みです。
+  </div>
+</div>
+
+<!-- 演出テクニック -->
+<div class="card">
+  <div class="card-title">✨ 縦型ならではの演出テクニック ── 3つのコツ</div>
+  <div class="point-grid">
+    <div class="point-card">
+      <div class="point-icon">⬆️</div>
+      <div class="point-title">縦の動線を使う</div>
+      <div class="point-desc">滝・階段・煙・人が歩く様子を上下方向に配置。縦長フレームの「縦の旅」を演出。チルトアップ・ドリーアップが特に映える。</div>
+    </div>
+    <div class="point-card">
+      <div class="point-icon">🔍</div>
+      <div class="point-title">クローズアップで感情を伝える</div>
+      <div class="point-desc">縦型は縦に長いぶん顔のアップが映えます。目・口元・手元のクローズアップで、横型より大きく感情を伝えられる。</div>
+    </div>
+    <div class="point-card">
+      <div class="point-icon">⚡</div>
+      <div class="point-title">速いカット割りで視線をキープ</div>
+      <div class="point-desc">縦型視聴者はスクロール中です。1カット2〜4秒・全体15〜60秒が目安。冒頭1秒に「フック（引き）」を必ず入れる。</div>
+    </div>
+  </div>
+
+  <!-- カット時間目安テーブル -->
+  <table class="tbl" style="margin-top:18px;">
+    <thead>
+      <tr>
+        <th>動画の長さ</th>
+        <th>目安カット数</th>
+        <th>1カットの長さ</th>
+        <th>向いているプラットフォーム</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>15秒</strong></td>
+        <td>4〜6カット</td>
+        <td>2〜3秒</td>
+        <td>TikTok・Reels（テンポ重視）</td>
+      </tr>
+      <tr>
+        <td><strong>30秒</strong></td>
+        <td>8〜12カット</td>
+        <td>2〜4秒</td>
+        <td>Reels・Shorts（バランス型）</td>
+      </tr>
+      <tr>
+        <td><strong>60秒</strong></td>
+        <td>15〜20カット</td>
+        <td>3〜5秒</td>
+        <td>YouTube Shorts（情報量多め）</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- AIプロンプト指定 -->
+<div class="card">
+  <div class="card-title">🤖 AIプロンプトで縦型（9:16）を指定するコツ</div>
+  <p style="font-size:.9rem;color:var(--muted);margin-bottom:4px;">
+    ポイントは <strong>「ツールのUI設定で9:16を選ぶ」→「プロンプトで構図を補強」</strong> の2段構えです。
+    プロンプトだけでは縦型にならないツールが多いので、まずUI設定を確認しましょう。
+  </p>
+  <div class="prompt-box">
+<span class="key"># アスペクト比（UI設定後、プロンプトでも書いて補強）</span><br>
+<span class="val">9:16, portrait orientation, vertical format</span><br><br>
+<span class="key"># カメラワーク（縦型に合う動き）</span><br>
+<span class="val">tilt up shot, vertical dolly, rising camera, slow upward pan</span><br><br>
+<span class="key"># 構図（被写体配置）</span><br>
+<span class="val">centered subject, close-up face, full body portrait, extreme close-up hands</span><br><br>
+<span class="key"># ライティング（照明）</span><br>
+<span class="val">soft side light, golden hour, portrait studio lighting, rim light</span>
+  </div>
+  <div class="chip-row">
+    <div class="chip">9:16</div>
+    <div class="chip">portrait orientation</div>
+    <div class="chip">vertical framing</div>
+    <div class="chip">tilt up</div>
+    <div class="chip">rising camera</div>
+    <div class="chip">centered subject</div>
+    <div class="chip">close-up face</div>
+    <div class="chip">full body portrait</div>
+    <div class="chip">extreme close-up</div>
+  </div>
+  <div class="note-box" style="margin-top:14px;">
+    ⚠️ Kling・Pika・Runwayなどは <strong>生成前のUI上でアスペクト比「9:16」を設定することが最優先</strong>です。
+    プロンプトに書くだけでは反映されない場合があります。公式ページで最新の操作方法を確認してください。
+  </div>
+</div>
+
+<!-- 実践例 -->
+<div class="card">
+  <div class="card-title">🎬 実践例：15秒のカフェ紹介 Reels を AI で作る 5ステップ</div>
+  <p style="font-size:.88rem;color:var(--muted);margin-bottom:18px;">「カフェの雰囲気を伝える15秒リール」を例に、縦型動画の作り方を体験してみましょう。</p>
+  <ul class="step-list">
+    <li class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-title">使うツールのUI設定で「9:16」を選ぶ</div>
+        <div class="step-desc">Kling / Runway / Pika 等の設定でアスペクト比を縦型に変更。CapCutなら最初から「Shorts・Reels」テンプレートを選ぶだけでOK。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-title">3カット構成を設計する（セーフゾーンを意識）</div>
+        <div class="step-desc">
+          カット① 0〜4秒：コーヒーカップのクローズアップ ─ センター配置・チルトアップ<br>
+          カット② 4〜10秒：バリスタがラテアートを注ぐシーン ─ 縦の三分割・スローモーション<br>
+          カット③ 10〜15秒：店内の雰囲気カット ─ 上下2分割・下部に店名テロップを配置
+        </div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-title">AIにプロンプトを入力して各カットを生成</div>
+        <div class="step-desc">
+          例：「<code style="background:#eee;padding:1px 5px;border-radius:3px;font-size:.85rem;">A barista pouring latte art, 9:16 portrait, centered, slow tilt up, golden hour lighting, cinematic, shallow depth of field</code>」
+        </div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <div class="step-title">セーフゾーンを確認してテロップ・BGMを追加</div>
+        <div class="step-desc">CapCut や DaVinci Resolve で編集。テロップは画面下から25〜30%以上の位置に配置し、UIで隠れないか縦型プレビューで必ず確認する。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">5</div>
+      <div class="step-body">
+        <div class="step-title">冒頭1秒に「フック」を入れてエクスポート</div>
+        <div class="step-desc">「見た人が思わず手を止める」一コマを先頭に配置（例：熱々のコーヒーが注がれる瞬間）。エクスポートは <strong>1080×1920px・60fps</strong> が推奨。</div>
+      </div>
+    </li>
+  </ul>
+
+  <!-- 矢印フロー -->
+  <div style="display:flex;gap:0;align-items:center;flex-wrap:wrap;margin-top:16px;">
+    <div style="background:#1a3a5c;color:#fff;border-radius:10px;padding:8px 14px;font-size:.8rem;font-weight:700;">① UI設定</div>
+    <div style="font-size:1.3rem;color:#aaa;margin:0 6px;">→</div>
+    <div style="background:#1a5c3a;color:#fff;border-radius:10px;padding:8px 14px;font-size:.8rem;font-weight:700;">② カット設計</div>
+    <div style="font-size:1.3rem;color:#aaa;margin:0 6px;">→</div>
+    <div style="background:#2a5c8a;color:#fff;border-radius:10px;padding:8px 14px;font-size:.8rem;font-weight:700;">③ AI生成</div>
+    <div style="font-size:1.3rem;color:#aaa;margin:0 6px;">→</div>
+    <div style="background:#4a7a3a;color:#fff;border-radius:10px;padding:8px 14px;font-size:.8rem;font-weight:700;">④ 編集</div>
+    <div style="font-size:1.3rem;color:#aaa;margin:0 6px;">→</div>
+    <div style="background:#8a4a00;color:#fff;border-radius:10px;padding:8px 14px;font-size:.8rem;font-weight:700;">⑤ エクスポート</div>
+  </div>
+</div>
+
+<!-- まとめ -->
+<div class="card">
+  <div class="card-title">📝 今日のまとめ</div>
+  <ul class="summary-list">
+    <li>縦型（9:16）は TikTok・Reels・Shorts の標準。スマホ画面をフルに使うのが重要</li>
+    <li><strong>上下各15%はUIゾーン</strong> ── 大事な情報はセーフゾーン（中央70%）に収める</li>
+    <li>構図は「センター」「縦の三分割」「上下2分割」の3パターンを場面で使い分ける</li>
+    <li>縦型らしい演出は「チルトアップ」「クローズアップ」「速いカット割り（2〜4秒/カット）」</li>
+    <li>AIプロンプトでは <code style="background:#eee;padding:2px 6px;border-radius:4px;font-size:.85rem;">9:16</code> <code style="background:#eee;padding:2px 6px;border-radius:4px;font-size:.85rem;">portrait orientation</code> <code style="background:#eee;padding:2px 6px;border-radius:4px;font-size:.85rem;">tilt up</code> などを指定する</li>
+    <li>まず<strong>UIでアスペクト比を設定</strong>してからプロンプトを入力するのが正しい順番</li>
+  </ul>
+</div>
+
+<!-- 免責事項 -->
+<div class="disclaimer">
+  ⚠️ <strong>免責事項</strong><br>
+  本記事で紹介したAIツール（Kling、Runway、Pika、CapCutなど）の名称・機能・料金・商用利用の可否は頻繁に変更されます。
+  最新情報と利用規約は各ツールの公式ページで必ずご確認ください。
+  本記事の情報は 2026年6月時点のものです。
+</div>
+
+<footer>
+  AI動画制作 日報 ─ 2026-06-23 ｜ エバーグリーン技法回<br>
+  毎朝更新・各記事には出典URLを掲載 ｜ <a href="index.html" style="color:var(--accent);">← 一覧に戻る</a>
+</footer>
+
+</div>
+</body>
+</html>
