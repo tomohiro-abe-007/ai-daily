@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>デジタルノマド 最新トピック 2026-06-23</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    color: #2a2a2a;
+  }
+  .hero {
+    background: linear-gradient(135deg, #7a4010 0%, #4a2208 100%);
+    color: white;
+    border-radius: 10px;
+    padding: 48px 40px;
+    text-align: center;
+    width: 100%;
+    max-width: 760px;
+    margin-bottom: 28px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .hero .label {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 0.8rem;
+    margin-bottom: 14px;
+    letter-spacing: 0.05em;
+  }
+  .hero .backlog-badge {
+    display: inline-block;
+    background: #2c6e4e;
+    color: #fff;
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+  .hero .deadline-badge {
+    display: inline-block;
+    background: #c0392b;
+    color: #fff;
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+  .hero h1 { font-size: 1.4rem; margin-bottom: 12px; line-height: 1.55; }
+  .hero .meta { opacity: 0.8; font-size: 0.88rem; line-height: 1.7; }
+  .card {
+    background: #fff9f0;
+    border-radius: 8px;
+    padding: 28px 32px;
+    width: 100%;
+    max-width: 760px;
+    margin-bottom: 20px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.08);
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #7a4010;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px dashed #d4a070;
+  }
+  .card p { font-size: 0.93rem; line-height: 1.85; margin-bottom: 10px; }
+  .card p:last-child { margin-bottom: 0; }
+  .highlight-box {
+    background: #fef3e8;
+    border-left: 4px solid #c87020;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .highlight-box .hlabel { font-size: 0.75rem; color: #7a4010; font-weight: 600; margin-bottom: 6px; display: block; }
+  .highlight-box p { font-size: 0.9rem; margin: 0; }
+  .alert-box {
+    background: #fff3cd;
+    border-left: 4px solid #e8a000;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .alert-box .alabel { font-size: 0.75rem; color: #b07700; font-weight: 600; margin-bottom: 6px; display: block; }
+  .alert-box p { font-size: 0.9rem; margin: 0; }
+  .danger-box {
+    background: #fde8e8;
+    border-left: 4px solid #c0392b;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .danger-box .dlabel { font-size: 0.75rem; color: #c0392b; font-weight: 600; margin-bottom: 6px; display: block; }
+  .danger-box p { font-size: 0.9rem; margin: 0; }
+  .green-box {
+    background: #e8f5ef;
+    border-left: 4px solid #2c6e4e;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .green-box .glabel { font-size: 0.75rem; color: #2c6e4e; font-weight: 600; margin-bottom: 6px; display: block; }
+  .green-box p { font-size: 0.9rem; margin: 0; }
+  .blue-box {
+    background: #e8f0fd;
+    border-left: 4px solid #2a5e8e;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .blue-box .blabel { font-size: 0.75rem; color: #2a5e8e; font-weight: 600; margin-bottom: 6px; display: block; }
+  .blue-box p { font-size: 0.9rem; margin: 0; }
+  .number-row { display: flex; gap: 14px; flex-wrap: wrap; margin: 14px 0; }
+  .number-card {
+    flex: 1; min-width: 130px;
+    background: #7a4010; color: white;
+    border-radius: 8px; padding: 18px 14px; text-align: center;
+  }
+  .number-card .num { font-size: 1.5rem; font-weight: 700; margin-bottom: 6px; line-height: 1.2; letter-spacing: 0.03em; }
+  .number-card .desc { font-size: 0.72rem; opacity: 0.9; line-height: 1.5; }
+  .number-card.amber { background: #b07700; }
+  .number-card.red   { background: #c0392b; }
+  .number-card.green { background: #2c6e4e; }
+  .number-card.blue  { background: #2a5e8e; }
+  .number-card.gray  { background: #555; }
+  .compare-row { display: flex; gap: 14px; flex-wrap: wrap; margin: 14px 0; }
+  .compare-card {
+    flex: 1; min-width: 200px; border-radius: 8px;
+    padding: 16px 16px; font-size: 0.88rem; line-height: 1.7;
+  }
+  .compare-card h3 { font-size: 0.88rem; margin-bottom: 8px; padding-bottom: 6px; border-bottom: 1.5px dashed; }
+  .compare-card.red   { background: #fdeaea; border: 1.5px solid #c0392b; }
+  .compare-card.red h3 { color: #922b2b; border-color: #e8a0a0; }
+  .compare-card.green { background: #e8f5ef; border: 1.5px solid #2c6e4e; }
+  .compare-card.green h3 { color: #2c6e4e; border-color: #b2d4c4; }
+  .compare-card.amber { background: #fff8e8; border: 1.5px solid #c9920a; }
+  .compare-card.amber h3 { color: #a07800; border-color: #f0d080; }
+  .compare-card.blue  { background: #e8f0fd; border: 1.5px solid #2a5e8e; }
+  .compare-card.blue h3 { color: #2a5e8e; border-color: #a0c0e8; }
+  .compare-card.orange { background: #fef3e8; border: 1.5px solid #c87020; }
+  .compare-card.orange h3 { color: #7a4010; border-color: #d4a070; }
+  .flow-wrap { display: flex; flex-direction: column; gap: 4px; margin: 14px 0; }
+  .flow-box {
+    background: #7a4010; color: white;
+    border-radius: 8px; padding: 14px 16px;
+    font-size: 0.88rem; line-height: 1.6;
+  }
+  .flow-box .fb-label { font-size: 0.7rem; opacity: 0.8; margin-bottom: 4px; display: block; }
+  .flow-box strong { font-size: 0.95rem; }
+  .flow-box.sub   { background: #a06020; }
+  .flow-box.light { background: #fef3e8; color: #2a2a2a; border: 1.5px solid #d4a070; }
+  .flow-box.amber { background: #b07700; }
+  .flow-box.green { background: #2c6e4e; }
+  .flow-box.blue  { background: #2a5e8e; }
+  .flow-box.red   { background: #c0392b; }
+  .flow-box.gray  { background: #666; }
+  .arrow-down { text-align: center; font-size: 1.5rem; color: #c87020; margin: 4px 0; line-height: 1; }
+  .step-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 12px 0; }
+  .step-list li { display: flex; align-items: flex-start; gap: 12px; }
+  .step-num {
+    background: #7a4010; color: white; border-radius: 50%;
+    min-width: 28px; height: 28px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.78rem; font-weight: 700; flex-shrink: 0; margin-top: 2px;
+  }
+  .step-num.amber { background: #b07700; }
+  .step-num.red   { background: #c0392b; }
+  .step-num.green { background: #2c6e4e; }
+  .step-num.blue  { background: #2a5e8e; }
+  .step-num.gray  { background: #555; }
+  .step-list li div { font-size: 0.9rem; line-height: 1.7; }
+  .matrix-table { width: 100%; border-collapse: collapse; font-size: 0.87rem; margin: 14px 0; }
+  .matrix-table th {
+    background: #7a4010; color: white; padding: 10px 12px;
+    text-align: left; font-weight: 600; font-size: 0.82rem;
+  }
+  .matrix-table th:first-child { border-radius: 6px 0 0 0; }
+  .matrix-table th:last-child  { border-radius: 0 6px 0 0; }
+  .matrix-table td { padding: 10px 12px; border-bottom: 1px solid #e0c8b0; vertical-align: top; line-height: 1.55; }
+  .matrix-table tr:nth-child(even) td { background: #fef8f2; }
+  .matrix-table .ok   { color: #2c6e4e; font-weight: 700; }
+  .matrix-table .ng   { color: #c0392b; font-weight: 700; }
+  .matrix-table .warn { color: #b07700; font-weight: 700; }
+  .matrix-table .row-warn td   { background: #fff8e8 !important; }
+  .matrix-table .row-danger td { background: #fdeaea !important; }
+  .matrix-table .row-green td  { background: #e8f5ef !important; }
+  .check-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 12px 0; }
+  .check-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.9rem; line-height: 1.65; }
+  .check-icon {
+    min-width: 22px; height: 22px; border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.78rem; font-weight: 700; flex-shrink: 0; margin-top: 1px;
+  }
+  .check-icon.orange { background: #7a4010; color: white; }
+  .check-icon.green  { background: #2c6e4e; color: white; }
+  .check-icon.amber  { background: #b07700; color: white; }
+  .check-icon.red    { background: #c0392b; color: white; }
+  .check-icon.blue   { background: #2a5e8e; color: white; }
+  .section-icon { font-size: 1.5rem; margin-right: 8px; vertical-align: middle; }
+  .tag {
+    display: inline-block; background: #7a4010; color: white;
+    font-size: 0.72rem; padding: 2px 8px; border-radius: 10px;
+    margin-right: 4px; vertical-align: middle;
+  }
+  .tag.amber { background: #b07700; }
+  .tag.red   { background: #c0392b; }
+  .tag.green { background: #2c6e4e; }
+  .tag.blue  { background: #2a5e8e; }
+  .tag.gray  { background: #888; }
+  .calc-box {
+    background: #fef3e8;
+    border: 2px solid #d4a070;
+    border-radius: 8px;
+    padding: 20px 22px;
+    margin: 14px 0;
+  }
+  .calc-box .calc-title {
+    font-size: 0.8rem; color: #7a4010; font-weight: 700;
+    margin-bottom: 14px; display: block;
+  }
+  .calc-formula {
+    background: #7a4010; color: white;
+    border-radius: 6px; padding: 12px 16px;
+    font-size: 0.92rem; line-height: 1.7;
+    margin-bottom: 12px;
+    font-family: monospace;
+    letter-spacing: 0.02em;
+  }
+  .calc-example {
+    background: white;
+    border-radius: 6px; padding: 12px 16px;
+    font-size: 0.88rem; line-height: 1.8;
+    border: 1px solid #e0c8b0;
+  }
+  .calc-example .label {
+    font-size: 0.74rem; color: #888; display: block; margin-bottom: 4px;
+  }
+  .calc-result {
+    display: inline-block;
+    background: #2c6e4e; color: white;
+    border-radius: 4px; padding: 2px 10px;
+    font-size: 0.88rem; font-weight: 700;
+    margin-top: 6px;
+  }
+  .travel-row {
+    display: flex; gap: 14px; flex-wrap: wrap; margin: 14px 0;
+  }
+  .travel-card {
+    flex: 1; min-width: 180px;
+    border-radius: 8px; padding: 16px 16px; text-align: center;
+  }
+  .travel-card .tamt {
+    font-size: 1.8rem; font-weight: 700; line-height: 1.1; margin-bottom: 6px;
+  }
+  .travel-card .tunit { font-size: 0.78rem; margin-bottom: 10px; opacity: 0.85; }
+  .travel-card .tdesc { font-size: 0.8rem; line-height: 1.6; }
+  .travel-card.blue  { background: #2a5e8e; color: white; }
+  .travel-card.green { background: #2c6e4e; color: white; }
+  .travel-card.amber { background: #b07700; color: white; }
+  .travel-card.orange { background: #7a4010; color: white; }
+  .footer-card {
+    background: #f0ece3;
+    border: 1.5px solid #bbb;
+    border-radius: 8px;
+    padding: 20px 24px;
+    width: 100%;
+    max-width: 760px;
+    margin-bottom: 20px;
+    font-size: 0.82rem;
+    color: #555;
+    line-height: 1.8;
+  }
+  .footer-card .footer-title {
+    font-size: 0.78rem; color: #888; font-weight: 600;
+    margin-bottom: 10px; display: block;
+    text-transform: uppercase; letter-spacing: 0.08em;
+  }
+  .big-count {
+    background: #c0392b; color: white;
+    border-radius: 10px; padding: 20px 24px;
+    text-align: center; margin: 14px 0;
+  }
+  .big-count .days { font-size: 4rem; font-weight: 700; line-height: 1; }
+  .big-count .days-unit { font-size: 1.1rem; margin-top: 4px; }
+  .big-count .days-desc { font-size: 0.85rem; margin-top: 8px; opacity: 0.9; }
+  .footnote { font-size: 0.78rem; color: #777; line-height: 1.7; margin-top: 12px; }
+</style>
+</head>
+<body>
+
+<!-- ヒーロー -->
+<div class="hero">
+  <div style="margin-bottom:14px;">
+    <span class="label">📋 スペイン確定申告・経費ガイド</span>
+    <span class="backlog-badge">実務ガイド</span>
+    <span class="deadline-badge">⏰ 申告期限まで残り7日</span>
+  </div>
+  <h1>2025年分スペイン確定申告の「経費」完全ガイド<br>ベックハム法には経費ゼロ・autónomoはこれだけ使える<br>ホームオフィス・通信費・日本帰国出張の計算ルール</h1>
+  <div class="meta">
+    デジタルノマド 最新トピック 2026-06-23<br>
+    情報収集日：2026年6月23日 ／ 制度基準年度：2025〜2026年<br>
+    出典：スペイン税務庁（AEAT）規則・iseasesores.com（2025年）・zarcoasesoria.com（2025年）・autonomosyemprendedor.es（2026年6月10日）・immigrantinvest.com（2026年）・taxdown.es（2026年）・centregestor.es（2026年）
+  </div>
+</div>
+
+<!-- 今日のポイント -->
+<div class="card">
+  <h2><span class="section-icon">📌</span>今日のポイント（30秒まとめ）</h2>
+
+  <div class="big-count">
+    <div class="days">7</div>
+    <div class="days-unit">日後が申告期限（6月30日）</div>
+    <div class="days-desc">Modelo 100（標準IRPF）・Modelo 151（ベックハム法）ともに2025年分の申告期限は6月30日です</div>
+  </div>
+
+  <p>スペインの確定申告で「経費を使って税金を減らせるか？」は、<strong>「ベックハム法を使っているか、autónomoとして申告しているか」</strong>によって、まったく答えが変わります。</p>
+  <p>今日は実務で最もよく聞かれる3つの経費——<strong>①ホームオフィス（在宅勤務スペース）②通信費（電話・インターネット）③日本への出張</strong>——の計算ルールを、具体的な数字と計算式で整理します。</p>
+
+  <div class="number-row">
+    <div class="number-card red">
+      <div class="num">¥0<br><small style="font-size:0.9rem;">経費控除</small></div>
+      <div class="desc">ベックハム法（Modelo 151）<br>では経費を引けない<br>（外国所得は非課税の代わり）</div>
+    </div>
+    <div class="number-card green">
+      <div class="num">30%</div>
+      <div class="desc">ホームオフィス経費の<br>計算に使う係数<br>（autónomoのみ適用）</div>
+    </div>
+    <div class="number-card amber">
+      <div class="num">€91.35</div>
+      <div class="desc">海外出張・宿泊あり<br>1日の食事代の上限<br>（autónomo日当）</div>
+    </div>
+    <div class="number-card blue">
+      <div class="num">100%</div>
+      <div class="desc">RETA（社会保険料）は<br>全額が経費控除の対象<br>（autónomoのみ）</div>
+    </div>
+  </div>
+</div>
+
+<!-- 大前提 -->
+<div class="card">
+  <h2><span class="section-icon">⚖️</span>大前提 ── 経費を使えるかどうかは「どの制度で申告するか」で決まる</h2>
+  <p>同じ「スペインに住んでリモートワークをしている人」でも、どちらの申告方法を選んだかによって、経費の扱いが180度違います。</p>
+
+  <div class="compare-row">
+    <div class="compare-card red">
+      <h3>❌ ベックハム法（Modelo 151）<br>経費控除：使えない</h3>
+      <p style="font-size:0.85rem;line-height:1.8;">
+        <strong>メリット：</strong><br>
+        ・外国所得（日本法人からの役員報酬など）はスペインで非課税<br>
+        ・スペイン源泉の所得は24%の一律課税（累進なし）<br><br>
+        <strong>デメリット：</strong><br>
+        ・個人の経費控除・所得控除がほぼ使えない<br>
+        ・ホームオフィス・通信費・出張費を引けない<br><br>
+        <strong>対象：</strong>DNVでスペインに来て6か月以内に申請・承認された人
+      </p>
+    </div>
+    <div class="compare-card green">
+      <h3>✅ 標準IRPF（Modelo 100）<br>経費控除：使える</h3>
+      <p style="font-size:0.85rem;line-height:1.8;">
+        <strong>メリット：</strong><br>
+        ・業務にかかった経費を所得から差し引ける<br>
+        ・RETA・ホームオフィス・出張費・Gestor費用など対象<br><br>
+        <strong>デメリット：</strong><br>
+        ・世界全体の所得が課税対象（外国所得も申告要）<br>
+        ・税率が累進課税（最高47%）<br><br>
+        <strong>対象：</strong>autónomoとして登録・スペインで税務居住者の人
+      </p>
+    </div>
+  </div>
+
+  <div class="alert-box">
+    <span class="alabel">⚠️ 日本の1人法人オーナーへの実務影響</span>
+    <p>日本の法人から役員報酬を受け取りながらスペインに住んでいる場合、ベックハム法を選ぶと<strong>その役員報酬はスペインでは非課税</strong>です（日本で源泉徴収されます）。そのためスペインの経費控除の恩恵を受ける場面が少なく、Modelo 151では「申告義務はあるが経費は使えない」という割り切った制度になっています。autónomoとして直接クライアントから報酬を得ている場合は、Modelo 100で経費を活用できます。どちらが有利かは収入構造や金額によるため、Gestorへの相談が必要です。</p>
+  </div>
+</div>
+
+<!-- ベックハム法の落とし穴 -->
+<div class="card">
+  <h2><span class="section-icon">🎭</span>ベックハム法の落とし穴 ── なぜ経費が使えないのか</h2>
+  <p>ベックハム法（スペイン語：Régimen Especial de Trabajadores Desplazados）は、外国から来た働き手に<strong>「シンプルな固定税率24%」</strong>を提供する代わりに、個人の経費控除を排除した制度です。</p>
+
+  <div class="flow-wrap">
+    <div class="flow-box">
+      <span class="fb-label">💰 収入源①：スペイン国内の顧客からの収入（スペイン源泉所得）</span>
+      <strong>→ 24%の一律税率で課税。経費控除なし。</strong>
+    </div>
+    <div class="flow-box sub">
+      <span class="fb-label">💴 収入源②：日本法人からの役員報酬・配当（外国源泉所得）</span>
+      <strong>→ スペインでは非課税（日本で源泉徴収される）。申告義務はあるが税額ゼロ。</strong>
+    </div>
+    <div class="flow-box light">
+      <span class="fb-label">🏠 唯一の追加課税：不動産帰属収益（imputación de rentas inmobiliarias）</span>
+      <strong>スペインで物件を所有している場合のみ。</strong><br>
+      スペイン中央行政経済裁判所（TEAC）が2025年7月に確認した見解によれば、ベックハム法の利用者がスペイン国内に不動産を所有している場合、その固定資産税評価額（valor catastral）の<strong>2%</strong>（評価額が1994年以降に改定されていれば1.1%）を「仮想家賃」として申告する必要があります。税率は24%が適用されます。<br><br>
+      例：評価額€100,000の物件 → €2,000（仮想家賃）× 24% = <strong>€480/年の追加税額</strong>
+    </div>
+  </div>
+
+  <div class="green-box">
+    <span class="glabel">✅ ベックハム法ユーザーへのアドバイス</span>
+    <p>日本法人からの役員報酬が主な収入で、スペインでは物件を買わず賃貸している場合は「不動産帰属収益」も発生しません。Modelo 151の申告はシンプルで、スペイン源泉所得がほぼゼロなら申告書の大半はゼロになります。ただし申告そのものは義務なので、Gestorを通じて期限内（6月30日）に提出することが重要です。</p>
+  </div>
+</div>
+
+<!-- 経費①ホームオフィス -->
+<div class="card">
+  <h2><span class="section-icon">🏠</span>autónomo経費①：ホームオフィス（在宅勤務スペース）</h2>
+  <p>autónomoとして自宅で仕事をしている場合、光熱費（電気・水道・ガス）の一部を経費として申告できます。「一部」を計算するのに使うのが<strong>「30%ルール」</strong>です。</p>
+
+  <div class="calc-box">
+    <span class="calc-title">📐 ホームオフィス光熱費の控除額計算式</span>
+    <div class="calc-formula">
+      控除額 ＝ 年間光熱費 × （仕事部屋㎡ ÷ 住宅全体㎡）× 30%
+    </div>
+    <div class="calc-example">
+      <span class="label">【計算例】90㎡のアパートで12㎡の仕事部屋を使っている場合</span>
+      <ul style="list-style:none;line-height:2.1;">
+        <li>① 仕事部屋の割合：12 ÷ 90 ＝ <strong>13.3%</strong></li>
+        <li>② 係数を掛ける：13.3% × 30% ＝ <strong>約4%</strong></li>
+        <li>③ 電気代が年間€1,200なら：€1,200 × 4% ＝</li>
+      </ul>
+      <div class="calc-result">年間€48 が経費控除対象</div>
+      <p style="font-size:0.78rem;color:#888;margin-top:8px;">インターネット回線・電話（固定）も同様に計算できます。</p>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <span class="hlabel">🔑 重要な前提条件</span>
+    <p>ホームオフィス経費を控除するには、autónomo登録時（Modelo 036または037）に<strong>「業務の実施場所（domicilio fiscal）」として自宅住所を申告していること</strong>が必要です。後から追加する場合は変更届を提出します。申告していない場所でかかった光熱費は原則控除できません。</p>
+  </div>
+
+  <div class="alert-box">
+    <span class="alabel">⚠️ IVA（消費税）の控除はさらに有利</span>
+    <p>所得税（IRPF）での控除は「30%ルール」ですが、IVA（スペインの消費税、日本の消費税相当）の申告では、<strong>仕事部屋の割合（面積比率のみ）</strong>をそのまま適用できます。つまり上の例なら13.3%分のIVAを仕入れ控除として申告できます。IRPFとIVAで計算方法が異なる点に注意が必要です。</p>
+  </div>
+</div>
+
+<!-- 経費②通信費 -->
+<div class="card">
+  <h2><span class="section-icon">📱</span>autónomo経費②：通信費（スマートフォン・インターネット）</h2>
+  <p>仕事でスマートフォンやインターネット回線を使っている場合も、一定割合を経費にできます。ただし「私用と兼用」が前提で、<strong>100%の控除は認められない</strong>のが一般的です。</p>
+
+  <table class="matrix-table">
+    <thead>
+      <tr>
+        <th>費用の種類</th>
+        <th>控除目安</th>
+        <th>条件・注意点</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="row-green">
+        <td><strong>スマートフォン（仕事専用）</strong></td>
+        <td class="ok">最大100%</td>
+        <td>仕事専用の番号・端末と証明できる場合。実務上は50%前後が審査で認められやすい</td>
+      </tr>
+      <tr>
+        <td><strong>スマートフォン（私用兼用）</strong></td>
+        <td class="warn">約50%</td>
+        <td>Hacienda（スペイン税務庁）は私用兼用の場合50%を目安にしていることが多い。ただし確定的な割合はなく、業種・使い方で変わる</td>
+      </tr>
+      <tr class="row-warn">
+        <td><strong>インターネット回線（光等）</strong></td>
+        <td class="warn">ホームオフィス比率分</td>
+        <td>ホームオフィスの面積比率×30%の計算を適用。インターネット単体では最大100%を主張するケースもあるが、審査で否認されるリスクあり</td>
+      </tr>
+      <tr>
+        <td><strong>業務用タブレット・PCの通信費</strong></td>
+        <td class="ok">業務使用割合分</td>
+        <td>業務専用の端末であれば高い割合で控除可能。購入時の本体費用も減価償却として処理できる</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="highlight-box">
+    <span class="hlabel">💡 通信費控除の必須条件3点</span>
+    <p>①<strong>本人（autónomo）名義</strong>で契約・支払いしていること ／ ②<strong>銀行振替または電子決済</strong>（現金払いは不可） ／ ③<strong>業務目的</strong>であることをGestorと一緒に記録に残しておく。この3点を満たさない場合、審査（inspección）で否認される可能性があります。</p>
+  </div>
+</div>
+
+<!-- 経費③日本帰国出張 -->
+<div class="card">
+  <h2><span class="section-icon">✈️</span>autónomo経費③：日本への出張（帰国時の経費処理）</h2>
+  <p>スペインに住みながら、日本のクライアントとのミーティング・契約更新・法人手続きなどで日本に帰国する場合、その出張費を経費として申告できます。ただし、<strong>業務目的であることの証明</strong>が必須です。</p>
+
+  <div class="travel-row">
+    <div class="travel-card orange">
+      <div class="tamt">€48</div>
+      <div class="tunit">/日（宿泊なし）</div>
+      <div class="tdesc">海外出張の食事代日当<br>スペイン以外の国への出張で<br>その日のうちに帰ってくる場合<br>（日帰り出張）</div>
+    </div>
+    <div class="travel-card amber">
+      <div class="tamt">€91.35</div>
+      <div class="tunit">/日（宿泊あり）</div>
+      <div class="tdesc">海外出張の食事代日当<br>スペイン以外の国で1泊以上する場合<br>（日本帰国など）<br>ホテル代は別途実費で控除可</div>
+    </div>
+    <div class="travel-card green">
+      <div class="tamt">全額</div>
+      <div class="tunit">控除（交通費）</div>
+      <div class="tdesc">航空券・空港バス・電車等<br>業務目的と証明できれば<br>全額控除可能<br>（往復とも対象）</div>
+    </div>
+    <div class="travel-card blue">
+      <div class="tamt">全額</div>
+      <div class="tunit">控除（宿泊費）</div>
+      <div class="tdesc">業務目的の出張の宿泊費<br>実費・領収書ベース<br>日当と別に控除できる<br>（上限なし）</div>
+    </div>
+  </div>
+
+  <div class="danger-box">
+    <span class="dlabel">🚨 日本帰国を「出張」として控除するための3条件</span>
+    <p>①<strong>業務目的</strong>が明確であること（クライアントとのミーティング記録・契約書・メールなど） ／ ②<strong>電子決済</strong>で支払い（航空券はクレカ等、現金払い分は控除不可） ／ ③<strong>本人名義の領収書</strong>があること（日本のクライアントとの請求書・領収書も保管）。「日本に帰省した時に少し仕事もした」では認められず、業務目的が主目的であることを書面で示せる必要があります。</p>
+  </div>
+
+  <div class="calc-box">
+    <span class="calc-title">📐 日本出張（5泊6日）の経費計算例</span>
+    <div class="calc-formula">
+      食事代日当：€91.35 × 6日 ＝ €548
+      + 往復航空券（例）：€900
+      + 宿泊費（例）：€150 × 5泊 ＝ €750
+      ─────────────────────
+      出張経費合計：€2,198（すべて業務目的かつ電子決済・領収書あり）
+    </div>
+    <div class="calc-example">
+      <span class="label">上記の場合、IRPFの課税対象所得が€2,198 減少します</span>
+      税率を24%と仮定すると → <span style="font-weight:700;">節税額は約€527</span><br>
+      年に2回日本出張があれば → <div class="calc-result">年間約€1,054の節税効果（概算）</div>
+      <p style="font-size:0.78rem;color:#888;margin-top:8px;">※上記はIRPF（autónomo申告）の場合。税率・控除額は個別の所得状況により変わります。</p>
+    </div>
+  </div>
+
+  <div class="blue-box">
+    <span class="blabel">📁 保管すべき書類リスト（日本出張の場合）</span>
+    <p>・航空券の予約確認メール（本人名・出発日・金額） ／ ・搭乗証明（boarding pass または eチケット） ／ ・クライアントとのミーティングアジェンダ・議事録（メールでも可） ／ ・宿泊施設の領収書（本人名） ／ ・日本での交通費明細（ICカード利用明細・タクシー領収書等） ／ ・訪問先が分かる資料（名刺・議事録・契約書等）</p>
+  </div>
+</div>
+
+<!-- 経費④ RETA・Gestor -->
+<div class="card">
+  <h2><span class="section-icon">💶</span>autónomo経費④：RETA・Gestor費用・業務ツール</h2>
+  <p>あまり知られていませんが、RETA（スペインの自営業社会保険）は<strong>100%そのまま経費控除</strong>できます。しかも領収書は不要で、銀行明細の引き落とし記録だけで証明できます。</p>
+
+  <table class="matrix-table">
+    <thead>
+      <tr>
+        <th>費用の種類</th>
+        <th>控除割合</th>
+        <th>必要書類</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="row-green">
+        <td><strong>RETA（月次社会保険料）</strong></td>
+        <td class="ok">100%</td>
+        <td>銀行明細（口座からの引き落とし記録）のみでOK。領収書不要。</td>
+      </tr>
+      <tr class="row-green">
+        <td><strong>Gestor・税理士の報酬</strong></td>
+        <td class="ok">100%</td>
+        <td>Gestorから発行される請求書（factura）。本人名義・業務に関連するものであること。</td>
+      </tr>
+      <tr>
+        <td><strong>業務用ソフトウェア・SaaS</strong></td>
+        <td class="ok">100%</td>
+        <td>請求書（本人名義）。Slack・Notion・Adobe等、仕事で使うツールはすべて対象。</td>
+      </tr>
+      <tr>
+        <td><strong>業務用PC・タブレット</strong></td>
+        <td class="warn">減価償却</td>
+        <td>一括控除ではなく耐用年数にわたって分割で控除（減価償却）。Gestorと相談。</td>
+      </tr>
+      <tr class="row-warn">
+        <td><strong>日本の税理士・社労士費用</strong></td>
+        <td class="warn">要確認</td>
+        <td>日本法人の管理に関連する費用。スペインの確定申告での控除可否は、業務との関連性の説明が必要。Gestorに相談。</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="green-box">
+    <span class="glabel">🎯 RETAの控除額インパクトを確認しよう</span>
+    <p>2026年のRETAは月額€206〜€623（所得連動。詳細は2026-06-17参照）。月€300払っている場合、年間€3,600がそのまま所得から引けます。税率20%なら<strong>年間約€720の節税</strong>になります。これは最も確実でシンプルな控除なので、必ず申告に反映させましょう。</p>
+  </div>
+</div>
+
+<!-- 全体比較表 -->
+<div class="card">
+  <h2><span class="section-icon">📊</span>まとめ比較表 ── ベックハム法 vs autónomo、経費はどれが使える？</h2>
+  <p>同じ費用でも、申告方式によって控除できるかどうかが変わります。</p>
+
+  <table class="matrix-table">
+    <thead>
+      <tr>
+        <th>経費の種類</th>
+        <th style="text-align:center;">ベックハム法<br>（Modelo 151）</th>
+        <th style="text-align:center;">標準IRPF<br>（Modelo 100・autónomo）</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>ホームオフィス光熱費</td>
+        <td class="ng" style="text-align:center;">✗ 不可</td>
+        <td class="ok" style="text-align:center;">✓ 面積比率×30%</td>
+      </tr>
+      <tr>
+        <td>スマートフォン・インターネット</td>
+        <td class="ng" style="text-align:center;">✗ 不可</td>
+        <td class="ok" style="text-align:center;">✓ 業務使用割合分</td>
+      </tr>
+      <tr>
+        <td>日本帰国出張（飛行機・宿泊）</td>
+        <td class="ng" style="text-align:center;">✗ 不可</td>
+        <td class="ok" style="text-align:center;">✓ 全額（業務目的証明要）</td>
+      </tr>
+      <tr>
+        <td>日本出張の食事代日当（海外）</td>
+        <td class="ng" style="text-align:center;">✗ 不可</td>
+        <td class="ok" style="text-align:center;">✓ 最大€91.35/日</td>
+      </tr>
+      <tr>
+        <td>RETA（社会保険料）</td>
+        <td class="ng" style="text-align:center;">✗ 不可</td>
+        <td class="ok" style="text-align:center;">✓ 100%全額</td>
+      </tr>
+      <tr>
+        <td>Gestor・税理士費用</td>
+        <td class="ng" style="text-align:center;">✗ 不可</td>
+        <td class="ok" style="text-align:center;">✓ 全額</td>
+      </tr>
+      <tr>
+        <td>業務ツール・SaaS</td>
+        <td class="ng" style="text-align:center;">✗ 不可</td>
+        <td class="ok" style="text-align:center;">✓ 全額（本人名義）</td>
+      </tr>
+      <tr class="row-green">
+        <td>外国所得（日本法人からの役員報酬等）</td>
+        <td class="ok" style="text-align:center;">✓ <strong>スペインで非課税</strong></td>
+        <td class="warn" style="text-align:center;">△ スペインでも申告・課税対象</td>
+      </tr>
+      <tr class="row-warn">
+        <td>スペイン源泉所得への税率</td>
+        <td class="warn" style="text-align:center;">24%（一律）</td>
+        <td class="warn" style="text-align:center;">19〜47%（累進）</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="highlight-box">
+    <span class="hlabel">💡 どちらが有利かは「収入構造」で決まる</span>
+    <p>日本法人からの役員報酬が主な収入で、スペインから稼ぐ収入が少ない場合は<strong>ベックハム法が有利</strong>なケースが多いです（外国収入が非課税＋スペイン源泉が少なければ実質ほぼ無税）。一方、スペインでも積極的に仕事を受けて経費も多い場合は<strong>autónomo申告が有利</strong>になるケースもあります。正確な比較はGestorに試算してもらうことを強くお勧めします。</p>
+  </div>
+</div>
+
+<!-- 残り7日チェックリスト -->
+<div class="card">
+  <h2><span class="section-icon">📅</span>残り7日でやること ── 申告期限6月30日に向けたチェックリスト</h2>
+
+  <ul class="check-list">
+    <li>
+      <span class="check-icon red">1</span>
+      <div><strong>Gestorへの連絡：今日すぐ</strong><br>Modelo 100・151を申告するGestorに「まだ作業中か？」確認。申告期限1週間前はGestorが最も忙しい時期です。後回しにせず、今日中にメッセージを送りましょう。</div>
+    </li>
+    <li>
+      <span class="check-icon red">2</span>
+      <div><strong>2025年の書類を今すぐ収集</strong><br>Gestorが必要とする書類：①RETA引き落とし月次明細（12か月分）②Wise・銀行の入出金明細 ③日本法人からの役員報酬明細 ④出張の領収書・航空券 ⑤光熱費・通信費の明細（本人名義）。PDF化してGestorに送る。</div>
+    </li>
+    <li>
+      <span class="check-icon orange">3</span>
+      <div><strong>autónomoの場合：経費書類の確認</strong><br>ホームオフィスの面積を測定し、住宅全体の面積との比率を計算しておく。通信費・光熱費の年間合計を計算。日本出張があった場合は旅程・領収書を整理。業務目的を示す記録（メール・会議録）も用意。</div>
+    </li>
+    <li>
+      <span class="check-icon amber">4</span>
+      <div><strong>ベックハム法の場合：Modelo 151の確認</strong><br>スペイン源泉所得の合計額・外国源泉所得の合計額をGestorに伝える。スペインで不動産を所有している場合は固定資産税評価額（valor catastral）の書類も用意。申告額が正しいかGestorと確認。</div>
+    </li>
+    <li>
+      <span class="check-icon blue">5</span>
+      <div><strong>Certificado Digital の有効期限確認</strong><br>Modelo 151/100の申告はCertificado Digitalを使ってオンライン提出します（2026-06-15参照）。有効期限が切れていないか確認。切れていた場合は今週中に更新手続きを（ビデオ通話認証€2.99で日本からも更新可能）。</div>
+    </li>
+    <li>
+      <span class="check-icon green">6</span>
+      <div><strong>納付額の確認と口座残高の準備</strong><br>申告の結果、追加納税がある場合はAEAT（スペイン税務庁）への振込が必要です。Gestorから事前に概算を聞いておき、スペインの銀行口座に必要額を準備しましょう。Wiseだけでは直接振替できない場合があります（2026-06-06参照）。</div>
+    </li>
+  </ul>
+
+  <div class="danger-box">
+    <span class="dlabel">⏰ 6月30日を1日でも過ぎると…</span>
+    <p>Haciendaは期限後申告に対して<strong>延滞加算金（recargo）</strong>を課します。1か月以内の遅延は5%〜15%、1年超の遅延は最大20%のペナルティ＋日割り利息が発生します。「申告内容に迷っている」間に期限を過ぎてしまうケースが多いです。内容が確定していなくても、まずGestorに相談して動き始めることが最優先です。</p>
+  </div>
+</div>
+
+<!-- 前回との繋がり -->
+<div class="card">
+  <h2><span class="section-icon">🔗</span>これまでの日報との繋がり</h2>
+  <table class="matrix-table">
+    <thead>
+      <tr>
+        <th>今日の内容</th>
+        <th>関連する過去の日報</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>ベックハム法とModelo 151の概要</td>
+        <td>2026-06-01「ベックハム法入門」・2026-06-05「確定申告タイムライン」</td>
+      </tr>
+      <tr>
+        <td>Certificado Digitalを使ったオンライン申告</td>
+        <td>2026-06-15「Certificado Digital取得ガイド」</td>
+      </tr>
+      <tr>
+        <td>RETA（社会保険料）の金額と仕組み</td>
+        <td>2026-06-17「RETAと日西社会保障協定」</td>
+      </tr>
+      <tr>
+        <td>Gestorの選び方と費用感</td>
+        <td>2026-06-07「Gestor入門」</td>
+      </tr>
+      <tr>
+        <td>スペインの銀行口座と税金の支払い</td>
+        <td>2026-06-06「スペイン銀行口座開設実務」</td>
+      </tr>
+      <tr>
+        <td>日西租税条約と二重課税の仕組み</td>
+        <td>2026-06-02「日西租税条約と非居住者判定」</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 免責フッター -->
+<div class="footer-card">
+  <span class="footer-title">⚠️ 免責事項 / Disclaimer</span>
+  <p><strong>税務に関する内容：</strong>本記事は一般的な情報提供を目的としており、個別の申告状況に対する税務アドバイスではありません。スペインの確定申告（Modelo 100・151）・控除の適用可否・ベックハム法の適用条件に関する正式な判断は、<strong>国際税務に強い税理士またはスペインのGestor / Asesor Fiscal</strong>にご相談ください。</p>
+  <p style="margin-top:8px;"><strong>ビザ・在留に関する内容：</strong>ビザ・在留資格の判断は、<strong>行政書士または移民専門弁護士（Abogado de Extranjería）</strong>にご相談ください。</p>
+  <p style="margin-top:8px;"><strong>制度・金額の基準：</strong>本記事の経費上限額（€91.35/日・€48/日等）はIRPF規則（Reglamento del IRPF）に基づく2025年度の上限額です。基準年度：2025〜2026年。控除額・条件は毎年変わる場合があります。「必ず控除できる」「必ず節税になる」などの断定はできません。</p>
+  <p style="margin-top:8px;"><strong>TEAC判決について：</strong>不動産帰属収益（imputación de rentas inmobiliarias）のベックハム法適用に関するTEAC（スペイン中央行政経済裁判所）の見解（2025年7月）は、民間各社の解説記事をもとにした情報です。一次ソース（TEAC公式決議）での個別確認を推奨します。</p>
+
+  <div style="margin-top:14px;padding-top:10px;border-top:1px dotted #bbb;font-size:0.8rem;color:#777;">
+    <strong>出典一覧：</strong><br>
+    ・iseasesores.com「Gastos Deducibles para Autónomos 2025」（2025年）<br>
+    ・zarcoasesoria.com「Gastos deducibles cuando el autónomo viaja」（2025年）<br>
+    ・autonomosyemprendedor.es「Gastos que se pueden deducir los autónomos que trabajan desde casa」（2026年6月10日）<br>
+    ・infoautonomos.com「Deducciones teletrabajo renta」（2025年）<br>
+    ・taxdown.es「Deducciones Fiscales para Autónomos en 2026」（2026年）<br>
+    ・centregestor.es「Gastos deducibles autónomo declaración renta 2025-2026」（2026年）<br>
+    ・immigrantinvest.com「Spain Digital Nomad Visa Taxes 2026 Guide」（2026年）<br>
+    ・declarando.es「Gastos deducibles autónomos que trabajan en casa」（2025年）<br>
+    ※ 経費上限額（€91.35・€48）はスペインIRPF規則 Artículo 9に基づく2025年度の公定上限です。
+  </div>
+</div>
+
+</body>
+</html>
