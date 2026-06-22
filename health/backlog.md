@@ -38,8 +38,7 @@
 
 ## 未使用テーマ（追記：2026-06-20 検索で見つけた有望テーマ）
 
-- 睡眠不足と腸内細菌叢の変化 ── 系統的レビュー＋メタ分析（Supasitdikul ら Journal of Sleep Research 2026 PMID: 40562421、20研究、Shannon多様性指数の低下・Firmicutes/Bacteroidetes比の上昇）
-- ポストバイオティクスの最新エビデンス ── 死菌・代謝産物の腸管バリアへの効果（2025〜2026年RCT）
+- ポストバイオティクスの最新エビデンス ── 死菌・代謝産物の腸管バリアへの効果（2025〜2026年RCT、Sagepub 2026 DOI:10.1177/27683192261456175 / Mafe 2026 Food Frontiers DOI:10.1002/fft2.70205）
 
 ## 未使用テーマ（追記：2026-06-21 検索で見つけた有望テーマ）
 
@@ -47,6 +46,8 @@
 - 食品添加物のリスク評価の仕組み ── ADI（一日摂取許容量）・NOAEL の決め方と規制の科学（FAO/WHO JECFA の評価プロセス）
 
 ## 使用済みテーマ
+
+- 2026-06-23: 睡眠不足と腸内細菌叢の変化 ── Supasitdikul ら Journal of Sleep Research 2026（PMID: 40562421, DOI: 10.1111/jsr.70125、20研究、ヒト4本・齧歯類16本、Shannon SMD=−1.27齧歯類有意・ヒト非有意） ／ Sleep Medicine Reviews 2026（PMID: 42030610、53研究、ヒト、Shannon SMD=−0.24有意、↓Faecalibacterium↓Lachnospira↑Collinsella）
 
 - 2026-06-21: 食品の「保存料」と高血圧・心血管リスク ── NutriNet-Santé 研究（European Heart Journal 2026年5月 DOI: 10.1093/eurheartj/ehag308、n=112,395、7〜8年追跡コホート）8種の保存料（E202ソルビン酸K・E250亜硝酸Na・E300アスコルビン酸・E330クエン酸 など）との関連、最大+39%高血圧リスク上昇（最高摂取群）、観察研究の限界と交絡の問題
 
