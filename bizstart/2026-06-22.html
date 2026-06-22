@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-06-22</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 60px;
+    max-width: 760px;
+    margin: 0 auto;
+    color: #2c1a0e;
+  }
+  .header {
+    background: linear-gradient(135deg, #7a4f1e 0%, #4a2e08 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    text-align: center;
+    margin-bottom: 28px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .label { font-size: 0.78rem; letter-spacing: 0.12em; opacity: 0.8; margin-bottom: 10px; }
+  .header h1 { font-size: 1.55rem; line-height: 1.45; margin-bottom: 10px; }
+  .header .sub { font-size: 0.88rem; opacity: 0.85; line-height: 1.6; }
+  .card {
+    background: #fffdf8;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 4px solid #7a4f1e;
+  }
+  .card h2 {
+    font-size: 1.1rem;
+    color: #7a4f1e;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .card p, .card li { font-size: 0.93rem; line-height: 1.75; color: #3a2210; }
+  .card ul { padding-left: 18px; margin-top: 8px; }
+  .num-row { display: flex; gap: 16px; flex-wrap: wrap; margin: 16px 0; }
+  .num-box {
+    flex: 1;
+    min-width: 140px;
+    background: #fff3e0;
+    border-radius: 10px;
+    padding: 16px 12px;
+    text-align: center;
+    border: 2px solid #f0a040;
+  }
+  .num-box .big { font-size: 2.4rem; font-weight: 700; color: #b05000; display: block; line-height: 1.2; }
+  .num-box .lbl { font-size: 0.78rem; color: #7a4f1e; margin-top: 6px; display: block; line-height: 1.5; }
+  .compare-table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 0.87rem; }
+  .compare-table th { background: #7a4f1e; color: white; padding: 10px 12px; text-align: center; font-size: 0.84rem; }
+  .compare-table td { padding: 10px 12px; border-bottom: 1px solid #e8ddd0; vertical-align: top; line-height: 1.55; }
+  .compare-table tr:nth-child(even) td { background: #fff8f0; }
+  .compare-table tr:nth-child(odd) td { background: #fffdf8; }
+  .compare-table td:first-child { font-weight: 600; color: #7a4f1e; }
+  .step-flow { display: flex; flex-direction: column; gap: 0; margin: 16px 0; }
+  .step-item { display: flex; align-items: flex-start; gap: 14px; }
+  .step-left { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; width: 36px; }
+  .step-circle {
+    width: 36px; height: 36px;
+    background: #7a4f1e; color: white;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 0.95rem; flex-shrink: 0;
+  }
+  .step-line { width: 2px; flex: 1; background: #d4b898; min-height: 24px; margin: 2px 0; }
+  .step-content { flex: 1; padding: 4px 0 20px; }
+  .step-content .step-title { font-size: 0.93rem; font-weight: 600; color: #4a2e08; }
+  .step-content .step-desc { font-size: 0.85rem; color: #6a4020; line-height: 1.6; margin-top: 4px; }
+  .highlight { background: #fff3cd; border: 2px solid #f0a040; border-radius: 8px; padding: 14px 18px; margin: 14px 0; font-size: 0.9rem; line-height: 1.7; }
+  .highlight .hl-title { font-weight: 700; color: #b05000; margin-bottom: 6px; }
+  .warn { background: #fef0f0; border: 2px solid #e07060; border-radius: 8px; padding: 14px 18px; margin: 14px 0; font-size: 0.87rem; line-height: 1.7; color: #7a2020; }
+  .formula { background: #f0f4ff; border: 2px solid #7090d0; border-radius: 8px; padding: 16px 20px; margin: 14px 0; font-size: 1.05rem; text-align: center; color: #2040a0; font-weight: 600; line-height: 1.6; }
+  .action-list { list-style: none; margin-top: 10px; }
+  .action-list li { padding: 10px 0; border-bottom: 1px dashed #ddd; display: flex; align-items: flex-start; gap: 10px; font-size: 0.9rem; line-height: 1.65; }
+  .action-list li:last-child { border-bottom: none; }
+  .action-list li .icon { flex-shrink: 0; }
+  .source-box { background: #f5f0eb; border-radius: 8px; padding: 16px 20px; margin-top: 14px; font-size: 0.78rem; color: #6a5040; line-height: 1.8; }
+  .source-box a { color: #7a4f1e; word-break: break-all; }
+  .disclaimer { background: #fdf5f0; border: 1px solid #e0c8b0; border-radius: 8px; padding: 16px 20px; margin-top: 16px; font-size: 0.78rem; color: #7a5030; line-height: 1.8; }
+  .footer { text-align: center; color: #aaa; font-size: 0.78rem; margin-top: 32px; line-height: 1.7; }
+  .green { color: #1a7a3a; font-weight: 600; }
+  .red { color: #c0302a; font-weight: 600; }
+  .blue-box { background: #e8f0ff; border: 2px solid #7090d0; border-radius: 8px; padding: 14px 18px; margin: 12px 0; font-size: 0.88rem; line-height: 1.7; color: #1a3060; }
+  .matrix { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 14px 0; }
+  .matrix-box { border-radius: 8px; padding: 14px; font-size: 0.85rem; line-height: 1.6; }
+  .matrix-box.good { background: #e8f5e9; border: 2px solid #4caf50; }
+  .matrix-box.bad { background: #fef0f0; border: 2px solid #e07060; }
+  .matrix-box .mtitle { font-weight: 700; font-size: 0.9rem; margin-bottom: 6px; }
+  .choice-row { display: flex; gap: 14px; flex-wrap: wrap; margin: 16px 0; align-items: center; }
+  .choice-box { flex: 1; min-width: 180px; border-radius: 10px; padding: 18px 16px; text-align: center; }
+  .choice-box.a { background: #e8f5e9; border: 2px solid #4caf50; }
+  .choice-box.b { background: #e3f2fd; border: 2px solid #2196f3; }
+  .choice-box .choice-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; margin-bottom: 8px; }
+  .choice-box.a .choice-label { color: #2e7d32; }
+  .choice-box.b .choice-label { color: #1565c0; }
+  .choice-box .choice-big { font-size: 2rem; font-weight: 700; line-height: 1.2; margin-bottom: 6px; }
+  .choice-box.a .choice-big { color: #2e7d32; }
+  .choice-box.b .choice-big { color: #1565c0; }
+  .choice-box .choice-desc { font-size: 0.8rem; line-height: 1.55; color: #444; }
+  .vs-badge { font-size: 1.2rem; font-weight: 700; color: #7a4f1e; padding: 0 4px; }
+  .new-badge { display: inline-block; background: #e74c3c; color: white; font-size: 0.68rem; font-weight: 700; padding: 2px 7px; border-radius: 10px; margin-left: 8px; vertical-align: middle; }
+  .gray-box { background: #f5f5f5; border: 2px solid #bbb; }
+  .gray-box .big { color: #888; }
+  .gray-box .lbl { color: #888; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="label">1人法人スタート 最新トピック&#xFF5C;2026-06-22</div>
+  <h1>&#x1F37D;&#xFE0F; 交際費・福利厚生費の活用法<br>800万円特例・1万円ルール・食事7,500円改正を図解</h1>
+  <div class="sub">合法的に「経費にできる枠」を最大活用！<br>1人社長が押さえるべき分類ルールをまるごと解説</div>
+</div>
+
+<!-- SECTION 1: 交際費とは -->
+<div class="card">
+  <h2>&#x1F4DA; 交際費とは？ &#x2015;&#x2015; 原則アウト、でも中小法人には特例がある</h2>
+  <p>「交際費等」とは、取引先・仕入先・得意先などの<strong>事業に関係する人への接待・供応・慰安・贈答</strong>などの費用をいいます（租税特別措置法第61条の4）。</p>
+
+  <div class="warn" style="margin-top:14px;">
+    &#x26A0;&#xFE0F; <strong>法人税法上、交際費等は原則として全額「経費にならない（損金不算入）」</strong><br>
+    無制限に接待費を計上して節税されるのを防ぐための制度です。<br>
+    ただし<strong>資本金1億円以下の中小法人には使いやすい特例</strong>が設けられています。
+  </div>
+
+  <p style="margin-top:12px;">交際費等に含まれる主な費用：</p>
+  <ul>
+    <li>取引先・顧客との食事・飲み会（接待飲食費）</li>
+    <li>贈答品・お中元・お歳暮</li>
+    <li>取引先をゴルフ・観戦などに招待する費用</li>
+    <li>社内規程の範囲を超えた取引先への見舞金・祝い金</li>
+  </ul>
+</div>
+
+<!-- SECTION 2: 中小法人の2択 -->
+<div class="card">
+  <h2>&#x1F3AF; 中小法人の特例 &#x2015;&#x2015; 有利な方を2択から選べる</h2>
+  <p>資本金1億円以下の中小法人（※）は、次の2つのうち<strong>有利な方を選んで適用</strong>できます。</p>
+
+  <div class="choice-row">
+    <div class="choice-box a">
+      <div class="choice-label">&#x2460; 800万円特例</div>
+      <div class="choice-big">800万円</div>
+      <div class="choice-desc">交際費のうち年間<strong>800万円まで</strong>全額を損金算入</div>
+    </div>
+    <div class="vs-badge">OR</div>
+    <div class="choice-box b">
+      <div class="choice-label">&#x2461; 飲食費50%</div>
+      <div class="choice-big">50%</div>
+      <div class="choice-desc">接待飲食費の<strong>50%</strong>を損金算入（金額の上限なし）</div>
+    </div>
+  </div>
+
+  <table class="compare-table">
+    <tr>
+      <th>比較項目</th>
+      <th>&#x2460; 800万円特例</th>
+      <th>&#x2461; 飲食費50%</th>
+    </tr>
+    <tr>
+      <td>損金にできる額</td>
+      <td>交際費等のうち年800万円まで全額</td>
+      <td>接待飲食費 &#xD7; 50%（上限なし）</td>
+    </tr>
+    <tr>
+      <td>有利になる場面</td>
+      <td>飲食費が年1,600万円以下の場合</td>
+      <td>飲食費が年1,600万円超の場合</td>
+    </tr>
+    <tr>
+      <td>対象の費用</td>
+      <td>交際費等すべて（飲食費＋贈答品等）</td>
+      <td>接待飲食費のみ（贈答品等は対象外）</td>
+    </tr>
+    <tr>
+      <td>適用期限</td>
+      <td colspan="2" style="text-align:center;">令和10年3月31日まで（令和8年度改正で延長済み）</td>
+    </tr>
+  </table>
+
+  <div class="highlight" style="margin-top:14px;">
+    <div class="hl-title">&#x1F4A1; 1人社長の目安</div>
+    年間の交際費が800万円以下（ほとんどの1人法人が該当）なら<strong>&#x2460; 800万円特例</strong>を選ぶのが一般的に有利。贈答品なども含めて800万円まで全額経費にできます。
+  </div>
+
+  <p style="font-size:0.8rem; color:#888; margin-top:8px;">&#xFF0A; 資本金1億円以下でも資本金5億円以上の法人の完全子会社等は除く（詳細は税理士に確認）。</p>
+</div>
+
+<!-- SECTION 3: 10,000円ルール -->
+<div class="card">
+  <h2>&#x1F374; 社外飲食費「1人あたり10,000円以下」ルール <span class="new-badge">令和6年&#xFF5E;</span></h2>
+  <p>令和6年（2024年）4月1日以後の支出から、<strong>社外の人（取引先等）が同席した飲食費</strong>で参加者1人あたりが<strong>10,000円以下</strong>なら、「交際費等」に含めず処理できます。</p>
+
+  <div class="num-row">
+    <div class="num-box">
+      <span class="big">10,000<span style="font-size:1.1rem;">円</span></span>
+      <span class="lbl">1人あたり（税込）がこれ以下なら<br>交際費枠に関係なく全額損金算入OK</span>
+    </div>
+  </div>
+
+  <p style="font-size:0.9rem; font-weight:600; margin-bottom:10px;">適用するための3つの条件</p>
+  <div class="step-flow">
+    <div class="step-item">
+      <div class="step-left">
+        <div class="step-circle">1</div>
+        <div class="step-line"></div>
+      </div>
+      <div class="step-content">
+        <div class="step-title">社外の人が同席している</div>
+        <div class="step-desc">取引先・仕入先・得意先など事業に関係する社外の人が1人以上いること。自分1人だけ・社内のみの食事は対象外。</div>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-left">
+        <div class="step-circle">2</div>
+        <div class="step-line"></div>
+      </div>
+      <div class="step-content">
+        <div class="step-title">1人あたり10,000円以下（税込）</div>
+        <div class="step-desc">飲食代の合計 &#xF7; 参加人数が10,000円以下。10,001円以上は交際費等として扱う。</div>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-left">
+        <div class="step-circle">3</div>
+      </div>
+      <div class="step-content">
+        <div class="step-title">5項目を記録した書類を保存する</div>
+        <div class="step-desc">&#x2460;飲食の年月日、&#x2461;参加者の氏名・会社名・関係、&#x2462;参加人数、&#x2463;金額、&#x2464;飲食店の名称・所在地　の5点を記録・保存する。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="formula">
+    飲食代の合計 &#xF7; 参加人数 &#x2266; 10,000円 → 交際費の枠外で全額損金OK！
+  </div>
+
+  <div class="highlight">
+    <div class="hl-title">&#x1F4CC; なぜ重要？</div>
+    800万円特例の枠を使わずに経費にできるため、<strong>枠を贈答品など「飲食費以外の交際費」に温存</strong>できます。1回の飲食を1人あたり10,000円以下に抑える意識だけで節税効果が上がります。
+  </div>
+
+  <p style="font-size:0.8rem; color:#888; margin-top:8px;">根拠：租税特別措置法第61条の4第2項第5号（令和6年4月1日施行）</p>
+</div>
+
+<!-- SECTION 4: 1人社長の注意点 -->
+<div class="card">
+  <h2>&#x26A0;&#xFE0F; 1人社長が交際費を使うときの注意点</h2>
+
+  <div class="matrix">
+    <div class="matrix-box bad">
+      <div class="mtitle">&#x274C; これは交際費にできない</div>
+      <ul style="padding-left:14px; margin-top:6px; font-size:0.82rem; line-height:1.75;">
+        <li>自分1人での食事・飲み代</li>
+        <li>家族との食事（業務関連が認められない場合）</li>
+        <li>相手不明・記録のない飲食</li>
+        <li>社内（自分だけ）でのランチ代</li>
+      </ul>
+    </div>
+    <div class="matrix-box good">
+      <div class="mtitle">&#x2705; 正しく記録すれば経費</div>
+      <ul style="padding-left:14px; margin-top:6px; font-size:0.82rem; line-height:1.75;">
+        <li>取引先・顧客との打ち合わせ食事</li>
+        <li>見込み客への接待飲食</li>
+        <li>仕入先担当者へのお中元・お歳暮</li>
+        <li>取引先への手土産・贈答品</li>
+      </ul>
+    </div>
+  </div>
+
+  <p style="font-size:0.9rem; font-weight:600; margin-top:14px; margin-bottom:8px;">&#x1F4DD; 領収書の裏に必ず書く5項目</p>
+  <table class="compare-table">
+    <tr>
+      <th>No.</th>
+      <th>記録内容</th>
+      <th>書き方の例</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>飲食の年月日</td>
+      <td>2026年6月22日</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>参加者の氏名・会社名・関係性</td>
+      <td>&#x25CB;&#x25CB;株式会社 田中様（仕入先）</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>参加人数</td>
+      <td>2名</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>飲食代の金額</td>
+      <td>12,000円（領収書参照）</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>飲食店の名称・所在地</td>
+      <td>&#x25CB;&#x25CB;料理店（東京都港区&#x25CB;&#x25CB;）</td>
+    </tr>
+  </table>
+
+  <div class="blue-box" style="margin-top:12px;">
+    &#x1F4A1; 実務のコツ：会計ソフト（freee・マネーフォワード等）のメモ欄に「誰と・何の目的で」を入力する習慣をつけておくと、税務調査の際にも根拠を示しやすくなります。
+  </div>
+</div>
+
+<!-- SECTION 5: 福利厚生費 -->
+<div class="card">
+  <h2>&#x1F3E5; 1人社長が使える主な福利厚生費</h2>
+  <p>「福利厚生費」とは、役員・従業員の生活を豊かにするための費用で、<strong>全員に平等に適用されれば法人の経費</strong>にできます。1人社長の場合、自分自身（役員）の分も対象になります。</p>
+
+  <table class="compare-table" style="margin-top:16px;">
+    <tr>
+      <th>費用の種類</th>
+      <th>経費にできる範囲</th>
+      <th>注意点</th>
+    </tr>
+    <tr>
+      <td>健康診断・人間ドック</td>
+      <td class="green">&#x2705; 年1回程度・合理的な額は全額OK</td>
+      <td>会社が直接支払う形が望ましい。役員だけ特別に高額なコースは給与課税の可能性あり。</td>
+    </tr>
+    <tr>
+      <td>食事支給・食事代補助</td>
+      <td class="green">&#x2705; 月3,500円以下（税抜）の会社負担分<br>→ 令和8年4月から月7,500円に拡大</td>
+      <td>従業員が食費の1/2以上を自己負担することが条件。会社負担が上限超えは給与として課税。</td>
+    </tr>
+    <tr>
+      <td>慶弔費（祝い金・見舞金）</td>
+      <td class="green">&#x2705; 社会通念上の範囲内</td>
+      <td>慶弔規程（社内規程）を作ると根拠が明確になる。過大な金額は役員給与扱いになることも。</td>
+    </tr>
+    <tr>
+      <td>レクリエーション・社員旅行</td>
+      <td style="color:#b05000;">&#x26A0;&#xFE0F; 全員参加など条件あり</td>
+      <td>1人社長のみの旅行は「業務外」とみなされやすい。取引先訪問・研修を兼ねる場合は旅費として処理。</td>
+    </tr>
+    <tr>
+      <td>業務関連の研修・セミナー</td>
+      <td class="green">&#x2705; 業務に直結するものは全額OK</td>
+      <td>業務と関係のない趣味・一般教養のセミナーは経費にできない場合がある。</td>
+    </tr>
+    <tr>
+      <td>役員社宅（借上げ社宅）</td>
+      <td style="color:#b05000;">&#x26A0;&#xFE0F; 賃貸料相当額を超える家賃分が法人の経費に</td>
+      <td>会社が物件を借り上げ、役員から「賃貸料相当額」を徴収する形にすることで、超過する家賃分が経費になる（国税庁 No.2600）。</td>
+    </tr>
+  </table>
+</div>
+
+<!-- SECTION 6: 令和8年度改正 食事支給 -->
+<div class="card">
+  <h2>&#x1F371; 令和8年度改正：食事支給の非課税枠が月7,500円に拡大！ <span class="new-badge">2026年4月&#xFF5E;</span></h2>
+  <p>令和8年（2026年）4月1日以後の支出から、会社が食事を支給する際の<strong>非課税となる上限額</strong>が引き上げられました。</p>
+
+  <div class="num-row">
+    <div class="num-box gray-box" style="background:#f5f5f5; border-color:#bbb;">
+      <span class="big" style="color:#888; font-size:1.8rem;">3,500<span style="font-size:1rem;">円</span></span>
+      <span class="lbl" style="color:#888;">改正前（&#x301C;令和8年3月31日）</span>
+    </div>
+    <div class="num-box">
+      <span class="big">7,500<span style="font-size:1.2rem;">円</span></span>
+      <span class="lbl">改正後（令和8年4月1日&#x301C;）<br>（いずれも税抜・月額）</span>
+    </div>
+  </div>
+
+  <p style="font-size:0.9rem; font-weight:600; margin-bottom:8px;">非課税になる2つの条件（両方を満たすこと）</p>
+  <table class="compare-table">
+    <tr>
+      <th>条件</th>
+      <th>内容</th>
+    </tr>
+    <tr>
+      <td>&#x2460; 従業員が半額以上を負担</td>
+      <td>食事代の1/2以上を役員・従業員本人が自己負担すること</td>
+    </tr>
+    <tr>
+      <td>&#x2461; 会社負担が月7,500円（税抜）以下</td>
+      <td>会社が負担する額が1ヶ月あたり7,500円（税抜）以下</td>
+    </tr>
+  </table>
+
+  <div class="highlight" style="margin-top:14px;">
+    <div class="hl-title">&#x1F4D6; 具体例：昼食補助の設計</div>
+    1食あたり1,000円（税抜）のランチを補助する場合：<br><br>
+    役員が600円を自己負担 → 会社負担400円 &#xD7; 20日 &#xFF1D; 8,000円/月 → <span class="red">上限超え・課税</span><br>
+    役員が625円を自己負担 → 会社負担375円 &#xD7; 20日 &#xFF1D; 7,500円/月 → <span class="green">非課税ぴったり！</span><br><br>
+    設定の際は「1/2以上の自己負担」と「月7,500円以下」の両方を同時に満たすよう計算しましょう。
+  </div>
+
+  <p style="font-size:0.8rem; color:#888; margin-top:8px;">根拠：所得税法施行令第36条・国税庁タックスアンサー No.2594（令和8年度改正後）</p>
+</div>
+
+<!-- SECTION 7: 費用の分類比較 -->
+<div class="card">
+  <h2>&#x1F5FA;&#xFE0F; 交際費 vs 会議費 vs 福利厚生費 &#x2015;&#x2015; 見分け方の早見表</h2>
+  <p style="margin-bottom:14px;">似た費用でも分類が違うと税務上の扱いが変わります。</p>
+
+  <table class="compare-table">
+    <tr>
+      <th>種類</th>
+      <th>相手は誰か</th>
+      <th>金額目安</th>
+      <th>損金の扱い</th>
+    </tr>
+    <tr>
+      <td>交際費</td>
+      <td>取引先・顧客・仕入先</td>
+      <td>1人あたり10,001円以上<br>または贈答品・慶弔費</td>
+      <td style="color:#b05000;">800万円特例 or 50%損金（制限あり）</td>
+    </tr>
+    <tr>
+      <td>会議費<br>（飲食費特例）</td>
+      <td>社外の人を含む<br>（取引先・外部関係者）</td>
+      <td>1人あたり10,000円以下<br>（令和6年4月&#x301C;）</td>
+      <td class="green">全額損金OK<br>（交際費枠の外）</td>
+    </tr>
+    <tr>
+      <td>福利厚生費</td>
+      <td>役員・従業員<br>（会社内部の人）</td>
+      <td>社会通念の範囲内<br>食事は月7,500円以下（令和8年&#x301C;）</td>
+      <td class="green">要件を満たせば全額損金</td>
+    </tr>
+    <tr>
+      <td>給与（課税）</td>
+      <td>役員・従業員</td>
+      <td>上記条件を超える部分</td>
+      <td class="red">給与として所得税課税される</td>
+    </tr>
+  </table>
+
+  <div class="warn" style="margin-top:14px;">
+    &#x26A0;&#xFE0F; <strong>「会議費」と書けば何でも経費になるわけではありません。</strong><br>
+    実態が接待飲食なのに1人あたり10,000円以下と偽って「会議費」計上するのはNG。税務調査では実態で判断されます。名目と実態を一致させることが最重要です。
+  </div>
+</div>
+
+<!-- SECTION 8: 今日のアクション -->
+<div class="card">
+  <h2>&#x2705; 今日のアクション</h2>
+  <ul class="action-list">
+    <li>
+      <span class="icon">1&#xFE0F;&#x20E3;</span>
+      <span><strong>前期の交際費を集計する</strong> &#x2015;&#x2015; 年800万円以下なら&#x2460;800万円特例が有利。会計ソフトで「交際費」勘定の残高を確認しよう。</span>
+    </li>
+    <li>
+      <span class="icon">2&#xFE0F;&#x20E3;</span>
+      <span><strong>領収書の記録ルールを今日から始める</strong> &#x2015;&#x2015; 「誰と・何名・どの目的で」を会計ソフトのメモ欄に入力する習慣をつける。</span>
+    </li>
+    <li>
+      <span class="icon">3&#xFE0F;&#x20E3;</span>
+      <span><strong>食事補助の設計を見直す</strong> &#x2015;&#x2015; 令和8年4月から月7,500円（税抜）まで非課税。本人1/2以上負担の条件も確認して設計する。</span>
+    </li>
+    <li>
+      <span class="icon">4&#xFE0F;&#x20E3;</span>
+      <span><strong>慶弔規程のひな形を用意する</strong> &#x2015;&#x2015; 取引先への贈答・見舞金を規程で定めておくと、交際費計上の根拠が明確になる。税理士に相談してみよう。</span>
+    </li>
+    <li>
+      <span class="icon">5&#xFE0F;&#x20E3;</span>
+      <span><strong>役員社宅の試算を依頼する</strong> &#x2015;&#x2015; 賃貸住宅に住んでいる場合、借上げ社宅にすると家賃の一部が法人経費になる可能性あり。税理士に具体的な金額を試算してもらおう。</span>
+    </li>
+  </ul>
+</div>
+
+<!-- SOURCES -->
+<div class="source-box">
+  <strong>&#x1F4CE; 出典・参照（基準年度：2024&#x301C;2026年現在）</strong><br>
+  ・租税特別措置法第61条の4（交際費等の損金不算入・中小法人特例）<br>
+  ・国税庁「交際費等（飲食費）の損金不算入」タックスアンサー No.5265<br>
+  &#x3000;<a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/hojin/5265.htm" target="_blank">https://www.nta.go.jp/taxes/shiraberu/taxanswer/hojin/5265.htm</a><br>
+  ・国税庁「飲食費と交際費の関係」タックスアンサー No.5267<br>
+  &#x3000;<a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/hojin/5267.htm" target="_blank">https://www.nta.go.jp/taxes/shiraberu/taxanswer/hojin/5267.htm</a><br>
+  ・国税庁「食事の支給」タックスアンサー No.2594<br>
+  &#x3000;<a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/2594.htm" target="_blank">https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/2594.htm</a><br>
+  ・国税庁「役員に社宅などを貸したとき」タックスアンサー No.2600<br>
+  &#x3000;<a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/2600.htm" target="_blank">https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/2600.htm</a><br>
+  ・令和6年度税制改正：社外飲食費1人あたり5,000円→10,000円（令和6年4月1日施行）<br>
+  ・令和8年度税制改正：食事支給非課税枠3,500円→7,500円（令和8年4月1日施行）・800万円特例を令和10年3月31日まで延長<br>
+  <br>
+  <strong>基準年度：</strong>租税特別措置法（令和8年度改正後）。金額・要件は年度により変わる場合があります。
+</div>
+
+<!-- DISCLAIMER -->
+<div class="disclaimer">
+  &#x26A0;&#xFE0F; <strong>免責事項</strong><br>
+  本記事は一般的な情報提供を目的としており、税務・法務の個別アドバイスではありません。掲載した税率・金額・期限・制度名は公的機関の情報をもとにしていますが、会社の状況・決算期・業種によって結論は異なります。<br>
+  交際費の処理方法・福利厚生費の設定・役員社宅の活用については、<strong>必ず税理士にご相談ください</strong>。制度・金額は基準年度以降に変更される場合があります。
+</div>
+
+<div class="footer">
+  1人法人スタート日報 &#x30FB; 2026-06-22<br>
+  <a href="index.html" style="color:#b08060;">&#x2190; バックナンバー一覧</a>
+</div>
+
+</body>
+</html>
