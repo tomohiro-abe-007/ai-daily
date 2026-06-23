@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>デジタルノマド 最新トピック 2026-06-24</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    color: #2a2a2a;
+  }
+  /* ────── Hero ────── */
+  .hero {
+    background: linear-gradient(135deg, #1e3a6e 0%, #0d2144 100%);
+    color: white;
+    border-radius: 10px;
+    padding: 48px 40px;
+    text-align: center;
+    width: 100%;
+    max-width: 760px;
+    margin-bottom: 28px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .hero .label {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 0.8rem;
+    margin-bottom: 14px;
+    letter-spacing: 0.05em;
+  }
+  .hero .backlog-badge {
+    display: inline-block;
+    background: #c9920a;
+    color: #fff;
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+  .hero .alert-badge {
+    display: inline-block;
+    background: #c0392b;
+    color: #fff;
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+  .hero h1 { font-size: 1.4rem; margin-bottom: 12px; line-height: 1.55; }
+  .hero .meta { opacity: 0.8; font-size: 0.88rem; line-height: 1.7; }
+  /* ────── Card ────── */
+  .card {
+    background: #fff9f0;
+    border-radius: 8px;
+    padding: 28px 32px;
+    width: 100%;
+    max-width: 760px;
+    margin-bottom: 20px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.08);
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1e3a6e;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px dashed #8aaad4;
+  }
+  .card p { font-size: 0.93rem; line-height: 1.85; margin-bottom: 10px; }
+  .card p:last-child { margin-bottom: 0; }
+  /* ────── Boxes ────── */
+  .highlight-box {
+    background: #e8f0fd;
+    border-left: 4px solid #1e3a6e;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .highlight-box .hlabel { font-size: 0.75rem; color: #1e3a6e; font-weight: 600; margin-bottom: 6px; display: block; }
+  .highlight-box p { font-size: 0.9rem; margin: 0; }
+  .alert-box {
+    background: #fff3cd;
+    border-left: 4px solid #c9920a;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .alert-box .alabel { font-size: 0.75rem; color: #8a6000; font-weight: 600; margin-bottom: 6px; display: block; }
+  .alert-box p { font-size: 0.9rem; margin: 0; }
+  .danger-box {
+    background: #fde8e8;
+    border-left: 4px solid #c0392b;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .danger-box .dlabel { font-size: 0.75rem; color: #c0392b; font-weight: 600; margin-bottom: 6px; display: block; }
+  .danger-box p { font-size: 0.9rem; margin: 0; }
+  .green-box {
+    background: #e8f5ef;
+    border-left: 4px solid #2c6e4e;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .green-box .glabel { font-size: 0.75rem; color: #2c6e4e; font-weight: 600; margin-bottom: 6px; display: block; }
+  .green-box p { font-size: 0.9rem; margin: 0; }
+  .purple-box {
+    background: #f0eafd;
+    border-left: 4px solid #6a3ea0;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .purple-box .plabel { font-size: 0.75rem; color: #6a3ea0; font-weight: 600; margin-bottom: 6px; display: block; }
+  .purple-box p { font-size: 0.9rem; margin: 0; }
+  /* ────── Number cards ────── */
+  .number-row { display: flex; gap: 14px; flex-wrap: wrap; margin: 14px 0; }
+  .number-card {
+    flex: 1; min-width: 130px;
+    background: #1e3a6e; color: white;
+    border-radius: 8px; padding: 18px 14px; text-align: center;
+  }
+  .number-card .num { font-size: 1.4rem; font-weight: 700; margin-bottom: 6px; line-height: 1.2; letter-spacing: 0.02em; }
+  .number-card .desc { font-size: 0.72rem; opacity: 0.9; line-height: 1.5; }
+  .number-card.amber  { background: #c9920a; }
+  .number-card.red    { background: #c0392b; }
+  .number-card.green  { background: #2c6e4e; }
+  .number-card.purple { background: #6a3ea0; }
+  .number-card.gray   { background: #666; }
+  /* ────── Compare cards ────── */
+  .compare-row { display: flex; gap: 14px; flex-wrap: wrap; margin: 14px 0; }
+  .compare-card {
+    flex: 1; min-width: 200px; border-radius: 8px;
+    padding: 16px 16px; font-size: 0.88rem; line-height: 1.7;
+  }
+  .compare-card h3 { font-size: 0.88rem; margin-bottom: 8px; padding-bottom: 6px; border-bottom: 1.5px dashed; }
+  .compare-card.red    { background: #fdeaea; border: 1.5px solid #c0392b; }
+  .compare-card.red h3 { color: #922b2b; border-color: #e8a0a0; }
+  .compare-card.green  { background: #e8f5ef; border: 1.5px solid #2c6e4e; }
+  .compare-card.green h3 { color: #2c6e4e; border-color: #b2d4c4; }
+  .compare-card.amber  { background: #fff8e8; border: 1.5px solid #c9920a; }
+  .compare-card.amber h3 { color: #7a5800; border-color: #f0d080; }
+  .compare-card.navy   { background: #eaf0fb; border: 1.5px solid #1e3a6e; }
+  .compare-card.navy h3 { color: #1e3a6e; border-color: #8aaad4; }
+  .compare-card.purple { background: #f0eafd; border: 1.5px solid #6a3ea0; }
+  .compare-card.purple h3 { color: #6a3ea0; border-color: #c0a0e8; }
+  /* ────── Flow boxes ────── */
+  .flow-wrap { display: flex; flex-direction: column; gap: 4px; margin: 14px 0; }
+  .flow-box {
+    background: #1e3a6e; color: white;
+    border-radius: 8px; padding: 14px 16px;
+    font-size: 0.88rem; line-height: 1.6;
+  }
+  .flow-box .fb-label { font-size: 0.7rem; opacity: 0.8; margin-bottom: 4px; display: block; }
+  .flow-box strong { font-size: 0.95rem; }
+  .flow-box.sub    { background: #2a5090; }
+  .flow-box.light  { background: #eaf0fb; color: #2a2a2a; border: 1.5px solid #8aaad4; }
+  .flow-box.amber  { background: #c9920a; }
+  .flow-box.green  { background: #2c6e4e; }
+  .flow-box.red    { background: #c0392b; }
+  .flow-box.purple { background: #6a3ea0; }
+  .flow-box.gray   { background: #666; }
+  .arrow-down { text-align: center; font-size: 1.5rem; color: #1e3a6e; margin: 4px 0; line-height: 1; }
+  /* ────── Step list ────── */
+  .step-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 12px 0; }
+  .step-list li { display: flex; align-items: flex-start; gap: 12px; }
+  .step-num {
+    background: #1e3a6e; color: white; border-radius: 50%;
+    min-width: 28px; height: 28px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.78rem; font-weight: 700; flex-shrink: 0; margin-top: 2px;
+  }
+  .step-num.amber  { background: #c9920a; }
+  .step-num.red    { background: #c0392b; }
+  .step-num.green  { background: #2c6e4e; }
+  .step-num.purple { background: #6a3ea0; }
+  .step-num.gray   { background: #666; }
+  .step-list li div { font-size: 0.9rem; line-height: 1.7; }
+  /* ────── Table ────── */
+  .matrix-table { width: 100%; border-collapse: collapse; font-size: 0.87rem; margin: 14px 0; }
+  .matrix-table th {
+    background: #1e3a6e; color: white; padding: 10px 12px;
+    text-align: left; font-weight: 600; font-size: 0.82rem;
+  }
+  .matrix-table th:first-child { border-radius: 6px 0 0 0; }
+  .matrix-table th:last-child  { border-radius: 0 6px 0 0; }
+  .matrix-table td { padding: 10px 12px; border-bottom: 1px solid #d0d8e8; vertical-align: top; line-height: 1.55; }
+  .matrix-table tr:nth-child(even) td { background: #f2f5fc; }
+  .matrix-table .ok   { color: #2c6e4e; font-weight: 700; }
+  .matrix-table .ng   { color: #c0392b; font-weight: 700; }
+  .matrix-table .warn { color: #8a6000; font-weight: 700; }
+  .matrix-table .row-warn   td { background: #fff8e8 !important; }
+  .matrix-table .row-danger td { background: #fdeaea !important; }
+  .matrix-table .row-green  td { background: #e8f5ef !important; }
+  .matrix-table .row-navy   td { background: #eaf0fb !important; }
+  /* ────── Check list ────── */
+  .check-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 12px 0; }
+  .check-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.9rem; line-height: 1.65; }
+  .check-icon {
+    min-width: 22px; height: 22px; border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.78rem; font-weight: 700; flex-shrink: 0; margin-top: 1px;
+  }
+  .check-icon.navy   { background: #1e3a6e; color: white; }
+  .check-icon.green  { background: #2c6e4e; color: white; }
+  .check-icon.amber  { background: #c9920a; color: white; }
+  .check-icon.red    { background: #c0392b; color: white; }
+  .check-icon.purple { background: #6a3ea0; color: white; }
+  /* ────── Calc box ────── */
+  .calc-box {
+    background: #eaf0fb;
+    border: 2px solid #8aaad4;
+    border-radius: 8px;
+    padding: 20px 22px;
+    margin: 14px 0;
+  }
+  .calc-box .calc-title {
+    font-size: 0.8rem; color: #1e3a6e; font-weight: 700;
+    margin-bottom: 14px; display: block;
+  }
+  .calc-formula {
+    background: #1e3a6e; color: white;
+    border-radius: 6px; padding: 12px 16px;
+    font-size: 0.9rem; line-height: 1.8;
+    margin-bottom: 12px;
+    font-family: monospace;
+    letter-spacing: 0.02em;
+    white-space: pre-wrap;
+  }
+  .calc-example {
+    background: white;
+    border-radius: 6px; padding: 12px 16px;
+    font-size: 0.88rem; line-height: 1.8;
+    border: 1px solid #c0d0ea;
+  }
+  .calc-example .label {
+    font-size: 0.74rem; color: #888; display: block; margin-bottom: 4px;
+  }
+  .calc-result {
+    display: inline-block;
+    background: #1e3a6e; color: white;
+    border-radius: 4px; padding: 2px 10px;
+    font-size: 0.88rem; font-weight: 700;
+    margin-top: 6px;
+  }
+  /* ────── Misc ────── */
+  .section-icon { font-size: 1.5rem; margin-right: 8px; vertical-align: middle; }
+  .tag {
+    display: inline-block; background: #1e3a6e; color: white;
+    font-size: 0.72rem; padding: 2px 8px; border-radius: 10px;
+    margin-right: 4px; vertical-align: middle;
+  }
+  .tag.amber  { background: #c9920a; }
+  .tag.red    { background: #c0392b; }
+  .tag.green  { background: #2c6e4e; }
+  .tag.purple { background: #6a3ea0; }
+  .tag.gray   { background: #888; }
+  /* ────── Timeline ────── */
+  .timeline { display: flex; flex-direction: column; gap: 0; margin: 14px 0; }
+  .tl-item { display: flex; gap: 14px; align-items: flex-start; }
+  .tl-line-wrap { display: flex; flex-direction: column; align-items: center; min-width: 48px; }
+  .tl-dot {
+    width: 14px; height: 14px; border-radius: 50%;
+    background: #1e3a6e; flex-shrink: 0; margin-top: 4px;
+  }
+  .tl-dot.amber  { background: #c9920a; }
+  .tl-dot.red    { background: #c0392b; }
+  .tl-dot.green  { background: #2c6e4e; }
+  .tl-dot.purple { background: #6a3ea0; }
+  .tl-dot.gray   { background: #aaa; }
+  .tl-vert { width: 2px; background: #c0d0ea; flex: 1; min-height: 20px; }
+  .tl-date { font-size: 0.72rem; color: #888; white-space: nowrap; margin-top: 4px; min-width: 70px; }
+  .tl-body { font-size: 0.88rem; line-height: 1.65; padding-bottom: 18px; }
+  /* ────── Stance cards ────── */
+  .stance-row { display: flex; gap: 12px; flex-wrap: wrap; margin: 14px 0; }
+  .stance-card {
+    flex: 1; min-width: 185px; border-radius: 8px;
+    padding: 16px 16px; font-size: 0.86rem; line-height: 1.7;
+  }
+  .stance-card .sc-head {
+    font-size: 0.78rem; font-weight: 700; margin-bottom: 6px; padding-bottom: 6px;
+    border-bottom: 1.5px dashed;
+  }
+  .stance-card .sc-verdict {
+    font-size: 1.15rem; font-weight: 700; margin-bottom: 8px;
+  }
+  .stance-card.red    { background: #fdeaea; border: 2px solid #c0392b; }
+  .stance-card.red .sc-head { color: #c0392b; border-color: #e8a0a0; }
+  .stance-card.red .sc-verdict { color: #c0392b; }
+  .stance-card.green  { background: #e8f5ef; border: 2px solid #2c6e4e; }
+  .stance-card.green .sc-head { color: #2c6e4e; border-color: #a0d0b8; }
+  .stance-card.green .sc-verdict { color: #2c6e4e; }
+  .stance-card.purple { background: #f0eafd; border: 2px solid #6a3ea0; }
+  .stance-card.purple .sc-head { color: #6a3ea0; border-color: #c0a0e8; }
+  .stance-card.purple .sc-verdict { color: #6a3ea0; }
+  /* ────── Footer ────── */
+  .footer-card {
+    background: #f0ece3;
+    border: 1.5px solid #bbb;
+    border-radius: 8px;
+    padding: 20px 24px;
+    width: 100%;
+    max-width: 760px;
+    margin-bottom: 20px;
+    font-size: 0.82rem;
+    color: #555;
+    line-height: 1.8;
+  }
+  .footer-card .footer-title {
+    font-size: 0.78rem; color: #888; font-weight: 600;
+    margin-bottom: 10px; display: block;
+    text-transform: uppercase; letter-spacing: 0.08em;
+  }
+  .footnote { font-size: 0.78rem; color: #777; line-height: 1.7; margin-top: 12px; }
+</style>
+</head>
+<body>
+
+<!-- ヒーロー -->
+<div class="hero">
+  <div style="margin-bottom:14px;">
+    <span class="label">🏠 ベックハム法 × 不動産税務</span>
+    <span class="backlog-badge">バックログ解説</span>
+    <span class="alert-badge">⚖️ 係争中</span>
+  </div>
+  <h1>スペインで物件を買うと「見えない税」がかかる？<br>ベックハム法×不動産帰属収益をめぐる<br>TEAC・裁判所・EUの3つ巴の争い</h1>
+  <div class="meta">
+    デジタルノマド 最新トピック 2026-06-24<br>
+    情報収集日：2026年6月24日 ／ 制度基準年度：2025〜2026年<br>
+    出典：TEAC公式決議データベース（2025年7月）・TSJマドリード判決665/2025（2025年9月）・eleconomista.es（2026年4月）・seegman.com・benavidesasociados.com・fiscal-impuestos.com
+  </div>
+</div>
+
+<!-- 30秒まとめ -->
+<div class="card">
+  <h2><span class="section-icon">📌</span>今日のポイント（30秒まとめ）</h2>
+  <p>ベックハム法を使ってスペインに住み、<strong>スペイン国内で不動産（マンション・家）を購入した場合</strong>に発生する可能性がある「不動産帰属収益（imputación de rentas inmobiliarias）」。日本語にすると「<strong>住んでいる自宅に、仮想の家賃として課税する</strong>」という、スペイン独特の制度です。</p>
+  <p>ベックハム法利用者がこの課税の対象になるかについて、スペイン国内の行政裁判所・司法裁判所・そしてEUの3者が<strong>まったく逆の立場</strong>をとっており、2026年6月現在も決着がついていません。</p>
+
+  <div class="stance-row">
+    <div class="stance-card red">
+      <div class="sc-head">🏛️ TEAC（行政経済裁判所）<br>決議 00/03697/2025（2025年7月17日）</div>
+      <div class="sc-verdict">❌ 課税すべき</div>
+      <p style="font-size:0.83rem;">「ベックハム法の条文には自宅免除の規定がない」として、主たる住居（vivienda habitual）であっても固定資産税評価額の1.1〜2%を申告すべきという拘束力のある行政見解を示した。</p>
+    </div>
+    <div class="stance-card green">
+      <div class="sc-head">⚖️ TSJマドリード（高等裁判所）<br>判決 665/2025（2025年9月17日）</div>
+      <div class="sc-verdict">✅ 課税不要</div>
+      <p style="font-size:0.83rem;">「ベックハム法はIRPFの特例制度であり、一般居住者と同様に自宅免除が適用されるべき」として、主たる住居には不動産帰属収益を申告しなくてよいと判示。</p>
+    </div>
+    <div class="stance-card purple">
+      <div class="sc-head">🇪🇺 EU委員会<br>侵害手続（2025年6月18日開始）→ 2026年4月警告</div>
+      <div class="sc-verdict">🚨 スペインはEU法違反</div>
+      <p style="font-size:0.83rem;">「一般スペイン居住者は自宅を免除されるのに、ベックハム法利用者だけ課税するのは欧州連合機能条約（TFEU）が定める労働者・資本の移動の自由に違反する」として、欧州司法裁判所（CJEU）への提訴を警告。</p>
+    </div>
+  </div>
+
+  <div class="alert-box">
+    <span class="alabel">⚠️ 今現在どうなっているか</span>
+    <p>2026年6月時点で、スペイン最高裁（Tribunal Supremo）はまだ最終判断を示していません。行政（TEAC・AEAT＝税務庁）は「課税する」立場を維持しており、保守的に申告する人・しない人の両方が存在する「グレーゾーン」が続いています。</p>
+  </div>
+</div>
+
+<!-- 中学生向け解説 -->
+<div class="card">
+  <h2><span class="section-icon">📖</span>「不動産帰属収益」って何？（中学生でもわかる解説）</h2>
+  <p>「帰属収益（きぞくしゅうえき）」とは「実際にはお金をもらっていないのに、もらったことにして税金をかけるしくみ」のことです。</p>
+
+  <div class="flow-wrap">
+    <div class="flow-box">
+      <span class="fb-label">📌 スペインの不動産税のルール</span>
+      <strong>スペインに空き家や別荘を持っていると、実際に家賃をもらっていなくても「家賃をもらったと仮定」して所得税を払う義務がある</strong>
+    </div>
+    <div class="arrow-down">↓</div>
+    <div class="flow-box sub">
+      <span class="fb-label">📐 計算式（一般ルール）</span>
+      <strong>固定資産税評価額（valor catastral）× 2%（または1.1%）＝ 「仮想の家賃所得」として申告</strong><br>
+      ・評価額が2012年以降に改定された物件：<strong>1.1%</strong><br>
+      ・評価額が古いまま（改定なし）の物件：<strong>2%</strong>
+    </div>
+    <div class="arrow-down">↓</div>
+    <div class="flow-box light">
+      <span class="fb-label">🏠 ただし、普通のスペイン居住者には「自宅免除」がある</span>
+      <strong>自分が住んでいる「主たる住居（vivienda habitual）」には、この帰属収益課税は適用されない。</strong><br>
+      空き家・別荘・投資用物件のみが課税対象。<br><br>
+      ところがベックハム法利用者については、この「自宅免除」が適用されるかどうかで争いになっている。
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <span class="hlabel">🔑 ポイントをひと言で言うと</span>
+    <p>「自分が住んでいる家なのに、住んでいない家と同じ扱いをされて、架空の家賃に24%の税金をかけられるかもしれない」というのが問題の本質です。</p>
+  </div>
+</div>
+
+<!-- なぜ争いになったか -->
+<div class="card">
+  <h2><span class="section-icon">🤔</span>なぜ「ベックハム法利用者」だけ問題になるの？</h2>
+  <p>スペインの所得税法（IRPF）では、普通の居住者は「<strong>主たる住居＝自宅免除</strong>」が明文化されています。一方、ベックハム法（所得税法第93条に基づく特例）はこの条文をそのまま参照するのではなく、<strong>非居住者所得税法（IRNR）の計算ルール</strong>を一部使用する特殊な仕組みになっています。</p>
+
+  <div class="compare-row">
+    <div class="compare-card navy">
+      <h3>📋 普通のスペイン居住者の場合</h3>
+      <p style="font-size:0.84rem;line-height:1.8;">
+        ・IRPF（所得税法）が全面適用<br>
+        ・主たる住居（自宅）は帰属収益<strong>課税免除</strong><br>
+        ・別荘・空き家・投資物件のみ課税対象<br>
+        ・法律第85条で免除が明記されている
+      </p>
+    </div>
+    <div class="compare-card amber">
+      <h3>🎭 ベックハム法利用者の場合</h3>
+      <p style="font-size:0.84rem;line-height:1.8;">
+        ・IRPFの特例制度（第93条）が適用<br>
+        ・「スペイン源泉所得」についてはIRPFの規定を適用する<br>
+        ・ところが自宅免除の規定（第85条）が<br>　ベックハム法利用者にも適用されるか<br>　については<strong>明文の規定がない</strong><br>
+        ・この「抜け」が争いの原因
+      </p>
+    </div>
+  </div>
+
+  <div class="danger-box">
+    <span class="dlabel">🚨 TEACの解釈（2025年7月17日・決議00/03697/2025）</span>
+    <p>「ベックハム法の条文（第93条）は第85条（自宅免除）を明示的に参照していない。非居住者所得税法（IRNR）は自宅免除を認めていない。したがって、ベックハム法利用者の主たる住居にも帰属収益課税が適用される」<br><br>
+    ※この決議は「基準統一決議（criterio de unificación）」であり、税務庁（AEAT）が拘束される行政ドクトリン（=公式見解）として機能します。</p>
+  </div>
+
+  <div class="green-box">
+    <span class="glabel">✅ TSJマドリードの解釈（2025年9月17日・判決665/2025）</span>
+    <p>「ベックハム法はIRPFの特別制度であり、居住者としての権利（自宅免除を含む）を剥奪するものではない。制度の趣旨（外国人高度人材の誘致・シンプルな課税）に照らしても、自宅に対して追加の課税義務を課すのは不合理である」<br><br>
+    ※裁判所判決は行政を直接拘束しませんが、スペイン最高裁が同様の判断をすれば行政も従わなければなりません。</p>
+  </div>
+</div>
+
+<!-- タイムライン -->
+<div class="card">
+  <h2><span class="section-icon">📅</span>事態の経緯：タイムライン</h2>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-line-wrap">
+        <div class="tl-dot gray"></div>
+        <div class="tl-vert"></div>
+      </div>
+      <div>
+        <div class="tl-date">2023〜2024年</div>
+        <div class="tl-body">ベックハム法改正（2023年）によりデジタルノマドビザ保持者も対象に。不動産帰属収益の扱いは不明確なままスペインで物件購入するベックハム法利用者が増加。</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-line-wrap">
+        <div class="tl-dot purple"></div>
+        <div class="tl-vert"></div>
+      </div>
+      <div>
+        <div class="tl-date">2025年6月18日</div>
+        <div class="tl-body"><strong>EU委員会、スペインに対して侵害手続きを開始。</strong>「一般居住者は自宅が免除されるのに、ベックハム法利用者は免除されないのはTFEU（欧州連合機能条約）の労働者・資本の移動の自由に反する」として、スペインへ「理由書付き意見」を送達。スペインの回答期限：2025年8月（2か月以内）。</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-line-wrap">
+        <div class="tl-dot red"></div>
+        <div class="tl-vert"></div>
+      </div>
+      <div>
+        <div class="tl-date">2025年7月17日</div>
+        <div class="tl-body"><strong>TEAC（スペイン中央行政経済裁判所）が基準統一決議 00/03697/2025 を発出。</strong>ベックハム法利用者の自宅にも帰属収益課税が適用されるという行政ドクトリンを確立。税務庁（AEAT）はこの見解に基づいて審査・課税する立場をとる。<br><span style="font-size:0.78rem;color:#888;">一次ソース：TEAC公式DBのURL確認済み（id=00/03697/2025）</span></div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-line-wrap">
+        <div class="tl-dot green"></div>
+        <div class="tl-vert"></div>
+      </div>
+      <div>
+        <div class="tl-date">2025年9月17日</div>
+        <div class="tl-body"><strong>TSJマドリード（マドリード州高等裁判所）が判決665/2025を下す。</strong>TEACと正反対の結論：ベックハム法利用者の主たる住居には帰属収益課税を適用すべきでないと判示。EU委員会とも方向性が一致する判断。財務省（Hacienda）はこの判決を無視する姿勢を継続。</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-line-wrap">
+        <div class="tl-dot purple"></div>
+        <div class="tl-vert"></div>
+      </div>
+      <div>
+        <div class="tl-date">2026年4月</div>
+        <div class="tl-body"><strong>EU委員会、スペインを欧州司法裁判所（CJEU）に提訴すると改めて警告。</strong>スペインが2025年8月の回答期限に対して満足のいく対応をしなかったとして、次のステップ（CJEU提訴）の準備を進めていると報道。（出典：eleconomista.es 2026年4月）</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-line-wrap">
+        <div class="tl-dot gray"></div>
+        <div class="tl-vert"></div>
+      </div>
+      <div>
+        <div class="tl-date">2026年6月（現在）</div>
+        <div class="tl-body"><strong>最高裁（Tribunal Supremo）の判断はまだ出ていない。</strong>保守的申告（TEACに従う）と積極的申告（TSJマドリードに従う）の両方の納税者が共存する「グレーゾーン」状態が続いている。</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 数字で見る -->
+<div class="card">
+  <h2><span class="section-icon">🔢</span>数字で見る：具体的にいくら課税される？</h2>
+  <p>TEACの見解に従って申告する場合（保守的アプローチ）の税額を試算します。</p>
+
+  <div class="calc-box">
+    <span class="calc-title">📐 不動産帰属収益の計算式（ベックハム法24%適用）</span>
+    <div class="calc-formula">仮想家賃所得 ＝ 固定資産税評価額 × 1.1%（または2%）
+税額 ＝ 仮想家賃所得 × 24%（ベックハム法税率）</div>
+    <div class="calc-example">
+      <span class="label">【ケース①】評価額が2012年以降に改定された物件（1.1%適用）</span>
+      <ul style="list-style:none;line-height:2.2;">
+        <li>固定資産税評価額（valor catastral）：<strong>€150,000</strong></li>
+        <li>仮想家賃所得：€150,000 × 1.1% ＝ <strong>€1,650</strong></li>
+        <li>ベックハム法の税率：24%</li>
+        <li>追加税額：€1,650 × 24% ＝ <div class="calc-result">年間 €396</div></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="calc-box">
+    <span class="calc-title">📐 評価額が古い物件（2%適用）の場合</span>
+    <div class="calc-formula">仮想家賃所得 ＝ 固定資産税評価額 × 2%
+税額 ＝ 仮想家賃所得 × 24%</div>
+    <div class="calc-example">
+      <span class="label">【ケース②】評価額が古い物件（2%適用）</span>
+      <ul style="list-style:none;line-height:2.2;">
+        <li>固定資産税評価額（valor catastral）：<strong>€120,000</strong></li>
+        <li>仮想家賃所得：€120,000 × 2% ＝ <strong>€2,400</strong></li>
+        <li>ベックハム法の税率：24%</li>
+        <li>追加税額：€2,400 × 24% ＝ <div class="calc-result">年間 €576</div></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="number-row">
+    <div class="number-card">
+      <div class="num">1.1%</div>
+      <div class="desc">課税基準①<br>評価額が2012年以降<br>に改定された物件<br>（多くの都市部物件）</div>
+    </div>
+    <div class="number-card amber">
+      <div class="num">2%</div>
+      <div class="desc">課税基準②<br>評価額が古いまま<br>の物件<br>（郊外・古い物件等）</div>
+    </div>
+    <div class="number-card red">
+      <div class="num">24%</div>
+      <div class="desc">ベックハム法の<br>適用税率<br>（仮想家賃所得に<br>かかる税率）</div>
+    </div>
+    <div class="number-card gray">
+      <div class="num">未定</div>
+      <div class="desc">最高裁の判断<br>（2026年6月現在<br>まだ出ていない）</div>
+    </div>
+  </div>
+
+  <div class="alert-box">
+    <span class="alabel">💡 固定資産税評価額（valor catastral）とは？</span>
+    <p>スペインの市区町村が定める物件の「行政上の評価額」で、市場価格（実際の売値）とは異なります。一般的に<strong>市場価格の30〜60%程度</strong>であることが多く、同じ物件でもカタストロ（不動産登録庁）の評価によって変わります。物件購入時の「IBI（固定資産税）の通知書」に記載されています。</p>
+  </div>
+</div>
+
+<!-- 実務アドバイス -->
+<div class="card">
+  <h2><span class="section-icon">🧭</span>あなたはどうすべきか？（実務アドバイス）</h2>
+  <p>2026年6月現在、法的な決着はついていません。以下は一般的な情報として整理したものです（個別の判断は必ず専門家へ）。</p>
+
+  <div class="compare-row">
+    <div class="compare-card red">
+      <h3>🛡️ 保守的アプローチ（TEAC準拠）</h3>
+      <p style="font-size:0.84rem;line-height:1.8;">
+        ・帰属収益を申告し、24%の税金を納める<br>
+        ・TEACドクトリンに従うため<strong>追加課税リスクはゼロ</strong><br>
+        ・審査（inspección）にも強い<br><br>
+        <strong>デメリット：</strong>本来不要かもしれない税金を払うことになる可能性
+      </p>
+    </div>
+    <div class="compare-card green">
+      <h3>🎯 積極的アプローチ（TSJマドリード準拠）</h3>
+      <p style="font-size:0.84rem;line-height:1.8;">
+        ・帰属収益を申告しない（自宅免除を主張）<br>
+        ・TSJ判決665/2025の論理・EU委員会の立場と整合<br><br>
+        <strong>デメリット：</strong>審査で否認された場合、延滞税・加算金が発生する可能性あり（ただし判例の法的論拠はある）<br><br>
+        ＊採用する場合はGestorに<strong>記録・論拠を文書化</strong>してもらうこと
+      </p>
+    </div>
+  </div>
+
+  <ul class="step-list">
+    <li>
+      <span class="step-num">1</span>
+      <div><strong>「賃貸」ならそもそも問題なし</strong><br>不動産帰属収益は「物件を所有している人」に課されます。スペインで賃貸して住んでいるだけなら、このリスクはありません。DNV申請段階でスペインで物件を買うかどうかをまだ決めていない場合は、まず賃貸からスタートして、最高裁や立法の動向を見てから判断するのが無難です。</div>
+    </li>
+    <li>
+      <span class="step-num amber">2</span>
+      <div><strong>物件購入を検討中なら「今は待つ」という選択肢もある</strong><br>EU委員会がCJEUに提訴し、スペインがEU法違反と認定された場合、法改正や税金の還付（さかのぼり）が発生する可能性もあります。最高裁の判断が出るまでの間、大きな決断を急がないことも一つの戦略です。</div>
+    </li>
+    <li>
+      <span class="step-num amber">3</span>
+      <div><strong>もし購入するなら：Gestorに必ず相談してから</strong><br>物件の固定資産税評価額・評価改定年・現在の申告方針・リスク許容度をGestorと共有し、どちらのアプローチをとるかを文書で決めておく。後から方針変更すると税務処理が複雑になります。</div>
+    </li>
+    <li>
+      <span class="step-num purple">4</span>
+      <div><strong>別荘・セカンドホーム・投資用物件には「争いなし」で課税</strong><br>この争いは「自宅として住んでいる主たる住居」に限った話です。別荘・空き家・賃貸に出している物件の帰属収益課税についてはTEAC・TSJ両者とも「課税対象」で一致しており、こちらは申告が必要です。</div>
+    </li>
+  </ul>
+
+  <div class="purple-box">
+    <span class="plabel">🇪🇺 EU圧力が最終的には利用者に有利に働く可能性</span>
+    <p>EU委員会は「ベックハム法利用者（＝EU域内から来た労働者）を差別的に扱うのはEU基本条約に反する」という立場です。CJEUが提訴を受理してスペイン不利の判決を出せば、スペインは法改正を余儀なくされ、過去の課税分の還付が発生する可能性もあります。長期的には利用者にとって有利な方向に動く可能性が高いですが、解決までに数年かかる見通しです。</p>
+  </div>
+</div>
+
+<!-- 日本の1人法人オーナーへの具体的なインパクト -->
+<div class="card">
+  <h2><span class="section-icon">🇯🇵</span>日本の1人法人代表としての実務インパクト整理</h2>
+  <p>スペインのデジタルノマドビザ取得を準備中で、日本の1人法人を維持しながらスペインに居住する場合、以下のように整理できます。</p>
+
+  <table class="matrix-table">
+    <thead>
+      <tr>
+        <th>シナリオ</th>
+        <th>帰属収益課税</th>
+        <th>推奨アクション</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="row-green">
+        <td>🏠 スペインで<strong>賃貸</strong>して住む（物件を所有しない）</td>
+        <td class="ok">問題なし</td>
+        <td>何もしなくてよい。物件を借りているだけなら帰属収益は発生しない。</td>
+      </tr>
+      <tr class="row-warn">
+        <td>🏡 ベックハム法を使って<strong>自宅用物件を購入</strong></td>
+        <td class="warn">係争中</td>
+        <td>Gestorと相談の上、保守的 or 積極的アプローチを選択・文書化。購入前に税務見通しを確認。</td>
+      </tr>
+      <tr class="row-danger">
+        <td>🏖️ <strong>別荘・セカンドホームを購入</strong>（自宅以外）</td>
+        <td class="ng">課税確定</td>
+        <td>TEACもTSJも「自宅以外への帰属収益課税」は認める。Modelo 151で申告必要。評価額の1.1〜2%を申告。</td>
+      </tr>
+      <tr class="row-navy">
+        <td>🔄 日本↔スペイン往来中（居住が183日未満）</td>
+        <td class="ok">そもそも対象外の可能性</td>
+        <td>スペインの税務居住者でない年はベックハム法の申告義務自体が変わる。183日ルールとの関係をGestorに確認。</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="highlight-box">
+    <span class="hlabel">💡 昨日（6/23）の経費ガイドとの関係</span>
+    <p>昨日解説した「経費ガイド（2026-06-23）」でベックハム法のModelo 151の欄に「不動産帰属収益：スペインで物件を所有している場合のみ。評価額の1.1〜2%を申告」と記載していましたが、今日の内容はその詳細解説に当たります。争いの全体像・タイムライン・計算方法・実務判断フローを今日で補完できます。</p>
+  </div>
+</div>
+
+<!-- 過去日報との繋がり -->
+<div class="card">
+  <h2><span class="section-icon">🔗</span>これまでの日報との繋がり</h2>
+  <table class="matrix-table">
+    <thead>
+      <tr>
+        <th>今日の内容</th>
+        <th>関連する過去の日報</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>ベックハム法の基本（24%・Modelo 151・申請期限）</td>
+        <td>2026-06-01「ベックハム法入門」・2026-06-05「確定申告タイムライン」</td>
+      </tr>
+      <tr>
+        <td>Modelo 151の経費ゼロと帰属収益の言及</td>
+        <td>2026-06-23「2025年分確定申告の経費ガイド」</td>
+      </tr>
+      <tr>
+        <td>スペインの税務居住者判定（183日ルール）</td>
+        <td>2026-06-02「日西租税条約と非居住者判定」</td>
+      </tr>
+      <tr>
+        <td>日西租税条約での二重課税解消</td>
+        <td>2026-06-11「役員報酬の源泉徴収と日西租税条約」</td>
+      </tr>
+      <tr>
+        <td>DNV保持者の居住管理・往来ルール</td>
+        <td>2026-06-10「UGE審査強化」・2026-06-21「DNV更新ガイド」</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 免責フッター -->
+<div class="footer-card">
+  <span class="footer-title">⚠️ 免責事項 / Disclaimer</span>
+  <p><strong>税務に関する内容：</strong>本記事は一般的な情報提供を目的としており、個別の税務アドバイスではありません。不動産帰属収益の申告可否・ベックハム法の適用条件・具体的な税額計算に関する正式な判断は、<strong>国際税務に強い税理士またはスペインのGestor / Asesor Fiscal</strong>にご相談ください。特に係争中の論点については、専門家と最新の判例を確認した上で判断してください。</p>
+  <p style="margin-top:8px;"><strong>ビザ・在留に関する内容：</strong>ビザ・在留資格の判断は、<strong>行政書士または移民専門弁護士（Abogado de Extranjería）</strong>にご相談ください。</p>
+  <p style="margin-top:8px;"><strong>制度・税率の基準：</strong>本記事の内容は2025〜2026年時点の情報に基づきます。TEACの決議・裁判所の判決・EU委員会の立場はその後変更されている可能性があります。「必ず課税される」「必ず課税されない」などの断定はできません。</p>
+  <p style="margin-top:8px;"><strong>係争中の事案について：</strong>TEAC決議 00/03697/2025（2025年7月17日）・TSJマドリード判決665/2025（2025年9月17日）・EU委員会侵害手続（2025年6月18日開始）は、いずれも民間各社の解説記事および公開情報をもとに記載しています。TEAC決議についてはスペイン財務省公式DBのURLで番号を確認しています。最高裁の最終判断はまだ出ておらず、状況は変化します。</p>
+
+  <div style="margin-top:14px;padding-top:10px;border-top:1px dotted #bbb;font-size:0.8rem;color:#777;">
+    <strong>出典一覧：</strong><br>
+    ・TEAC公式DB「Criterio 00/03697/2025」（serviciostelematicosext.hacienda.gob.es・2025年7月17日）<br>
+    ・TSJマドリード「Sentencia 665/2025」（2025年9月17日）複数の解説記事で確認<br>
+    ・eleconomista.es「La UE amenaza con denunciar a España por hacer tributar la vivienda a los acogidos a la 'Ley Beckham'」（2026年4月）<br>
+    ・elindependiente.com「Hacienda ignora a los tribunales y expone a España a sanciones de la Comisión Europea por la Ley Beckham」（2025年9月26日）<br>
+    ・seegman.com「Imputación de rentas inmobiliarias bajo el régimen de impatriados」（参照日：2026年6月24日）<br>
+    ・benavidesasociados.com「Beckham Law Spain 2026: TEAC Ruling on Main Residence Tax」（参照日：2026年6月24日）<br>
+    ・fiscal-impuestos.com「IRPF: Imputación de rentas inmobiliarias por la vivienda habitual en España de los contribuyentes acogidos al régimen de impatriados del IRPF」（参照日：2026年6月24日）
+  </div>
+</div>
+
+</body>
+</html>
