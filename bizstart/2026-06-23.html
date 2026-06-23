@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-06-23</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 60px;
+    max-width: 760px;
+    margin: 0 auto;
+    color: #2c1a0e;
+  }
+  .header {
+    background: linear-gradient(135deg, #7a4f1e 0%, #4a2e08 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    text-align: center;
+    margin-bottom: 28px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .label { font-size: 0.78rem; letter-spacing: 0.12em; opacity: 0.8; margin-bottom: 10px; }
+  .header h1 { font-size: 1.55rem; line-height: 1.45; margin-bottom: 10px; }
+  .header .sub { font-size: 0.88rem; opacity: 0.85; line-height: 1.6; }
+  .card {
+    background: #fffdf8;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 4px solid #7a4f1e;
+  }
+  .card h2 {
+    font-size: 1.1rem;
+    color: #7a4f1e;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .card p, .card li { font-size: 0.93rem; line-height: 1.75; color: #3a2210; }
+  .card ul { padding-left: 18px; margin-top: 8px; }
+  .num-row { display: flex; gap: 16px; flex-wrap: wrap; margin: 16px 0; }
+  .num-box {
+    flex: 1;
+    min-width: 130px;
+    background: #fff3e0;
+    border-radius: 10px;
+    padding: 16px 12px;
+    text-align: center;
+    border: 2px solid #f0a040;
+  }
+  .num-box .big { font-size: 2.2rem; font-weight: 700; color: #b05000; display: block; line-height: 1.2; }
+  .num-box .lbl { font-size: 0.75rem; color: #7a4f1e; margin-top: 6px; display: block; line-height: 1.5; }
+  .compare-table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 0.87rem; }
+  .compare-table th { background: #7a4f1e; color: white; padding: 10px 12px; text-align: center; font-size: 0.84rem; }
+  .compare-table td { padding: 10px 12px; border-bottom: 1px solid #e8ddd0; vertical-align: top; line-height: 1.55; }
+  .compare-table tr:nth-child(even) td { background: #fff8f0; }
+  .compare-table tr:nth-child(odd) td { background: #fffdf8; }
+  .compare-table td:first-child { font-weight: 600; color: #7a4f1e; }
+  .step-flow { display: flex; flex-direction: column; gap: 0; margin: 16px 0; }
+  .step-item { display: flex; align-items: flex-start; gap: 14px; }
+  .step-left { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; width: 36px; }
+  .step-circle {
+    width: 36px; height: 36px;
+    background: #7a4f1e; color: white;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 0.95rem; flex-shrink: 0;
+  }
+  .step-line { width: 2px; flex: 1; background: #d4b898; min-height: 24px; margin: 2px 0; }
+  .step-content { flex: 1; padding: 4px 0 20px; }
+  .step-content .step-title { font-size: 0.93rem; font-weight: 600; color: #4a2e08; }
+  .step-content .step-desc { font-size: 0.85rem; color: #6a4020; line-height: 1.6; margin-top: 4px; }
+  .highlight { background: #fff3cd; border: 2px solid #f0a040; border-radius: 8px; padding: 14px 18px; margin: 14px 0; font-size: 0.9rem; line-height: 1.7; }
+  .highlight .hl-title { font-weight: 700; color: #b05000; margin-bottom: 6px; }
+  .warn { background: #fef0f0; border: 2px solid #e07060; border-radius: 8px; padding: 14px 18px; margin: 14px 0; font-size: 0.87rem; line-height: 1.7; color: #7a2020; }
+  .formula { background: #f0f4ff; border: 2px solid #7090d0; border-radius: 8px; padding: 16px 20px; margin: 14px 0; font-size: 1.0rem; text-align: center; color: #2040a0; font-weight: 600; line-height: 1.6; }
+  .action-list { list-style: none; margin-top: 10px; }
+  .action-list li { padding: 10px 0; border-bottom: 1px dashed #ddd; display: flex; align-items: flex-start; gap: 10px; font-size: 0.9rem; line-height: 1.65; }
+  .action-list li:last-child { border-bottom: none; }
+  .action-list li .icon { flex-shrink: 0; }
+  .source-box { background: #f5f0eb; border-radius: 8px; padding: 16px 20px; margin-top: 14px; font-size: 0.78rem; color: #6a5040; line-height: 1.8; }
+  .source-box a { color: #7a4f1e; word-break: break-all; }
+  .disclaimer { background: #fdf5f0; border: 1px solid #e0c8b0; border-radius: 8px; padding: 16px 20px; margin-top: 16px; font-size: 0.78rem; color: #7a5030; line-height: 1.8; }
+  .footer { text-align: center; color: #aaa; font-size: 0.78rem; margin-top: 32px; line-height: 1.7; }
+  .green { color: #1a7a3a; font-weight: 600; }
+  .red { color: #c0302a; font-weight: 600; }
+  .blue-box { background: #e8f0ff; border: 2px solid #7090d0; border-radius: 8px; padding: 14px 18px; margin: 12px 0; font-size: 0.88rem; line-height: 1.7; color: #1a3060; }
+  .matrix { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 14px 0; }
+  .matrix-box { border-radius: 8px; padding: 14px; font-size: 0.85rem; line-height: 1.6; }
+  .matrix-box.good { background: #e8f5e9; border: 2px solid #4caf50; }
+  .matrix-box.neutral { background: #fff8e1; border: 2px solid #ffc107; }
+  .matrix-box .mtitle { font-weight: 700; font-size: 0.9rem; margin-bottom: 6px; }
+  .vs-row { display: flex; gap: 12px; align-items: stretch; flex-wrap: wrap; margin: 16px 0; }
+  .vs-box { flex: 1; min-width: 160px; border-radius: 10px; padding: 18px 16px; }
+  .vs-box.kojin { background: #e8f5e9; border: 2px solid #4caf50; }
+  .vs-box.hojin { background: #e3f2fd; border: 2px solid #2196f3; }
+  .vs-box .vs-label { font-size: 0.73rem; font-weight: 700; letter-spacing: 0.08em; margin-bottom: 10px; }
+  .vs-box.kojin .vs-label { color: #2e7d32; }
+  .vs-box.hojin .vs-label { color: #1565c0; }
+  .vs-box ul { padding-left: 14px; font-size: 0.83rem; line-height: 1.7; }
+  .vs-box.kojin ul { color: #2e7d32; }
+  .vs-box.hojin ul { color: #1565c0; }
+  .vs-sep { font-size: 1.3rem; font-weight: 700; color: #7a4f1e; display: flex; align-items: center; padding: 0 4px; }
+  .checklist { list-style: none; margin-top: 10px; }
+  .checklist li { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-bottom: 1px dashed #e0d0c0; font-size: 0.9rem; line-height: 1.65; }
+  .checklist li:last-child { border-bottom: none; }
+  .check-box { width: 22px; height: 22px; border: 2px solid #7a4f1e; border-radius: 4px; flex-shrink: 0; margin-top: 2px; }
+  .merit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 14px 0; }
+  .merit-item { background: #f0f8ff; border: 2px solid #90c8f0; border-radius: 8px; padding: 12px 14px; }
+  .merit-item .merit-icon { font-size: 1.4rem; margin-bottom: 4px; }
+  .merit-item .merit-title { font-size: 0.88rem; font-weight: 700; color: #1a4a7a; margin-bottom: 4px; }
+  .merit-item .merit-desc { font-size: 0.8rem; color: #2a4a6a; line-height: 1.55; }
+  .cost-row { display: flex; gap: 14px; flex-wrap: wrap; margin: 14px 0; }
+  .cost-box { flex: 1; min-width: 160px; background: #fff0f0; border: 2px solid #e07060; border-radius: 10px; padding: 14px 14px; text-align: center; }
+  .cost-box .cost-big { font-size: 1.7rem; font-weight: 700; color: #b03020; display: block; line-height: 1.3; }
+  .cost-box .cost-lbl { font-size: 0.75rem; color: #7a2020; margin-top: 6px; display: block; line-height: 1.5; }
+  .tax-rate-table th { background: #4a2e08; }
+  .tax-rate-table .rate-high { background: #fef0f0; color: #c03020; font-weight: 700; }
+  .tax-rate-table .rate-mid { background: #fff8e0; color: #8a5000; font-weight: 700; }
+  .tax-rate-table .rate-low { background: #e8f5e9; color: #1a7a3a; font-weight: 700; }
+  .new-badge { display: inline-block; background: #e74c3c; color: white; font-size: 0.68rem; font-weight: 700; padding: 2px 7px; border-radius: 10px; margin-left: 8px; vertical-align: middle; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="label">1人法人スタート 最新トピック&#xFF5C;2026-06-23</div>
+  <h1>&#x1F331; 副業・フリーランスが法人化を<br>検討するタイミング<br><span style="font-size:1.2rem;">損益分岐点・年収の目安・チェックリストを図解</span></h1>
+  <div class="sub">「いつ法人にすればいい？」の疑問に、数字と手順でズバリ答えます</div>
+</div>
+
+<!-- SECTION 1: 個人 vs 法人 3つの違い -->
+<div class="card">
+  <h2>&#x1F4D0; まず整理：個人事業主と法人の3つの違い</h2>
+  <p>「法人化（法人成り）」とは、個人でやってきた事業を<strong>株式会社や合同会社として新たに立ち上げ直す</strong>ことです。同じビジネスでも、器（入れ物）が変わると税金・社会保険・信用度が変わります。</p>
+
+  <div class="vs-row" style="margin-top:16px;">
+    <div class="vs-box kojin">
+      <div class="vs-label">&#x1F468;&#x200D;&#x1F4BC; 個人事業主・フリーランス</div>
+      <ul>
+        <li>確定申告（青色）で所得税を納める</li>
+        <li>国民健康保険＋国民年金に加入</li>
+        <li>利益は全部「自分のお金」</li>
+        <li>帳簿・申告が比較的シンプル</li>
+        <li>設立費用ゼロ・廃業も簡単</li>
+      </ul>
+    </div>
+    <div class="vs-sep">&#x21E8;</div>
+    <div class="vs-box hojin">
+      <div class="vs-label">&#x1F3E2; 法人（株式会社・合同会社）</div>
+      <ul>
+        <li>法人税で申告。役員報酬を自分に払う</li>
+        <li>社会保険（健康保険＋厚生年金）強制加入</li>
+        <li>会社と自分のお金は明確に分離</li>
+        <li>決算書・法人税申告など手間増加</li>
+        <li>設立費用6〜25万円・毎年の維持コストあり</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="highlight">
+    <div class="hl-title">&#x1F4A1; 法人化は「節税の道具」だけではない</div>
+    対外的な信用力アップ・取引先からの発注条件クリア・退職金制度の活用・事業の継続性確保など、税以外のメリットも大きい。「いくら稼いだら得か」だけで判断せず、事業の目的と照らし合わせて検討しましょう。
+  </div>
+</div>
+
+<!-- SECTION 2: 法人化の5つのメリット -->
+<div class="card">
+  <h2>&#x1F31F; 法人化の5つのメリット</h2>
+
+  <div class="merit-grid">
+    <div class="merit-item">
+      <div class="merit-icon">&#x1F4B0;</div>
+      <div class="merit-title">&#x2460; 給与所得控除が使える</div>
+      <div class="merit-desc">自分への役員報酬（給料）に「給与所得控除」が適用される。最低55万円〜最高195万円を課税前に差し引けるため、個人の税負担が軽くなる。</div>
+    </div>
+    <div class="merit-item">
+      <div class="merit-icon">&#x2696;&#xFE0F;</div>
+      <div class="merit-title">&#x2461; 税率の「選択」ができる</div>
+      <div class="merit-desc">法人に利益を残すか、役員報酬として個人に出すかを選べる。法人税率（中小は最低15%）と個人の所得税率を比べて有利な配分を選択できる。</div>
+    </div>
+    <div class="merit-item">
+      <div class="merit-icon">&#x1F4B4;</div>
+      <div class="merit-title">&#x2462; 退職金を積み立てられる</div>
+      <div class="merit-desc">適正な役員退職金は法人の損金（経費）になり、受け取る個人も退職所得控除・分離課税で税が大幅に軽くなる。長期的な節税効果が大きい。</div>
+    </div>
+    <div class="merit-item">
+      <div class="merit-icon">&#x1F4C2;</div>
+      <div class="merit-title">&#x2463; 経費の幅が広がる</div>
+      <div class="merit-desc">役員社宅・出張日当・生命保険料（法人契約）など、個人では使えない経費計上の選択肢が増える。</div>
+    </div>
+    <div class="merit-item" style="grid-column: 1 / -1; display: flex; gap: 10px; align-items: flex-start; background: #e8f0ff; border-color: #7090d0;">
+      <div>
+        <div class="merit-icon">&#x1F91D;</div>
+      </div>
+      <div>
+        <div class="merit-title" style="color:#1a3a6a;">&#x2464; 信用力・取引の幅が広がる</div>
+        <div class="merit-desc" style="color:#2a4060;">「法人じゃないと取引できない」という大企業・官公庁との取引が可能になる。名刺・請求書・契約書の印象も変わり、受注単価アップにつながることもある。</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 3: コスト・デメリット -->
+<div class="card">
+  <h2>&#x26A0;&#xFE0F; 法人化のコスト・デメリット ── 3つの「増える出費」</h2>
+
+  <div class="cost-row">
+    <div class="cost-box">
+      <span class="cost-big">6〜25万<span style="font-size:1rem;">円</span></span>
+      <span class="cost-lbl">&#x1F3E2; 設立時の登記費用<br>合同会社：約6万円<br>株式会社：約20〜25万円<br>（登録免許税・定款費用等）</span>
+    </div>
+    <div class="cost-box">
+      <span class="cost-big">約7万<span style="font-size:1rem;">円</span></span>
+      <span class="cost-lbl">&#x1F4CB; 法人住民税（均等割）<br>事業をしていなくても<br>毎年かかる固定費<br>（自治体により異なる）</span>
+    </div>
+    <div class="cost-box">
+      <span class="cost-big">30〜50万<span style="font-size:1rem;">円</span></span>
+      <span class="cost-lbl">&#x1F4BC; 税理士への顧問料<br>法人申告は個人より複雑。<br>年間顧問料の目安。<br>（規模・契約内容により大幅に変わる）</span>
+    </div>
+  </div>
+
+  <div class="warn">
+    &#x26A0;&#xFE0F; <strong>社会保険料の増加に注意！</strong><br>
+    法人化すると社会保険（健康保険＋厚生年金）への強制加入になります。保険料は役員報酬の約30%（会社＋本人の合計）。国民健康保険・国民年金より負担が増える場合があります。ただし、高所得者ほど国民健康保険料が高いため、逆に安くなるケースも。必ず事前に試算しましょう。
+  </div>
+
+  <table class="compare-table" style="margin-top:14px;">
+    <tr>
+      <th>項目</th>
+      <th>個人事業主</th>
+      <th>法人（1人社長）</th>
+    </tr>
+    <tr>
+      <td>健康保険</td>
+      <td>国民健康保険（所得連動・上限あり）</td>
+      <td>協会けんぽ（役員報酬ベース・折半）</td>
+    </tr>
+    <tr>
+      <td>年金</td>
+      <td>国民年金（定額・月約1.7万円・2026年度）</td>
+      <td>厚生年金（役員報酬ベース・折半・給付も増える）</td>
+    </tr>
+    <tr>
+      <td>法人住民税均等割</td>
+      <td class="green">なし</td>
+      <td class="red">毎年約7万円〜（赤字でも課税）</td>
+    </tr>
+    <tr>
+      <td>決算申告コスト</td>
+      <td>青色申告（比較的シンプル）</td>
+      <td>法人税申告（複雑・税理士依頼が一般的）</td>
+    </tr>
+  </table>
+</div>
+
+<!-- SECTION 4: 所得税率 vs 法人税率 -->
+<div class="card">
+  <h2>&#x1F4CA; 税率の比較 ── 個人の所得税率 vs 法人税率</h2>
+  <p>日本の所得税は<strong>累進課税（稼ぐほど税率が上がる）</strong>です。一方、法人税（中小法人）は比較的フラットな構造です。</p>
+
+  <p style="font-size:0.88rem; font-weight:600; margin-top:14px; margin-bottom:8px;">&#x1F4D6; 所得税の税率（課税される所得金額に応じて）</p>
+  <table class="compare-table tax-rate-table">
+    <tr>
+      <th>課税所得の金額</th>
+      <th>所得税率</th>
+      <th>住民税（一律）</th>
+      <th>合計（目安）</th>
+    </tr>
+    <tr>
+      <td>195万円以下</td>
+      <td class="rate-low">5%</td>
+      <td>10%</td>
+      <td class="rate-low">約15%</td>
+    </tr>
+    <tr>
+      <td>195万〜330万円</td>
+      <td class="rate-low">10%</td>
+      <td>10%</td>
+      <td class="rate-low">約20%</td>
+    </tr>
+    <tr>
+      <td>330万〜695万円</td>
+      <td class="rate-mid">20%</td>
+      <td>10%</td>
+      <td class="rate-mid">約30%＋事業税</td>
+    </tr>
+    <tr>
+      <td>695万〜900万円</td>
+      <td class="rate-mid">23%</td>
+      <td>10%</td>
+      <td class="rate-mid">約33%＋事業税</td>
+    </tr>
+    <tr>
+      <td>900万〜1,800万円</td>
+      <td class="rate-high">33%</td>
+      <td>10%</td>
+      <td class="rate-high">約43%＋事業税</td>
+    </tr>
+    <tr>
+      <td>1,800万〜4,000万円</td>
+      <td class="rate-high">40%</td>
+      <td>10%</td>
+      <td class="rate-high">約50%＋事業税</td>
+    </tr>
+    <tr>
+      <td>4,000万円超</td>
+      <td class="rate-high">45%</td>
+      <td>10%</td>
+      <td class="rate-high">約55%＋事業税</td>
+    </tr>
+  </table>
+  <p style="font-size:0.78rem; color:#888; margin-top:6px;">出典：国税庁 タックスアンサー No.2260「所得税の税率」（2026年現在）。上記の「合計」は所得税＋住民税の概算。所得控除や事業税・国民健康保険料は含まない。</p>
+
+  <p style="font-size:0.88rem; font-weight:600; margin-top:18px; margin-bottom:8px;">&#x1F3E2; 法人税の税率（中小法人・資本金1億円以下の場合）</p>
+  <table class="compare-table tax-rate-table">
+    <tr>
+      <th>課税所得の金額</th>
+      <th>法人税率</th>
+      <th>地方税（目安）</th>
+      <th>実効税率の目安</th>
+    </tr>
+    <tr>
+      <td>年800万円以下の部分</td>
+      <td class="rate-low">15%</td>
+      <td>法人住民税・事業税が別途</td>
+      <td class="rate-low">約21〜23%程度</td>
+    </tr>
+    <tr>
+      <td>年800万円超の部分</td>
+      <td class="rate-mid">23.2%</td>
+      <td>法人住民税・事業税が別途</td>
+      <td class="rate-mid">約30〜33%程度</td>
+    </tr>
+  </table>
+  <p style="font-size:0.78rem; color:#888; margin-top:6px;">出典：国税庁 タックスアンサー No.5759「法人税の税率」（2026年現在）。実効税率は東京都・一般的な中小法人の概算。地方税は都道府県・市区町村によって異なる。</p>
+
+  <div class="highlight" style="margin-top:14px;">
+    <div class="hl-title">&#x1F4A1; 重要ポイント：比較は「同じ土台」で</div>
+    個人の「課税所得」は売上から必要経費・青色申告特別控除・基礎控除などを引いた後の数字です。法人化すると、その利益から「役員報酬」を自分に出して、法人の課税所得を下げることができます。そのため、単純に「個人の税率 vs 法人税率」だけで比べることはできません。専門家に<strong>自分の数字を当てはめて試算</strong>してもらうことが重要です。
+  </div>
+</div>
+
+<!-- SECTION 5: 損益分岐点の考え方 -->
+<div class="card">
+  <h2>&#x1F9EE; 「いくらから法人化が有利？」 ── 損益分岐点の考え方</h2>
+
+  <p>「法人化が有利になる年収・所得の目安」はよく話題になりますが、<strong>答えは一人ひとり異なります</strong>。ただし、税理士の実務でよく使われる「目安の考え方」を紹介します。</p>
+
+  <div class="step-flow" style="margin-top:18px;">
+    <div class="step-item">
+      <div class="step-left">
+        <div class="step-circle">A</div>
+        <div class="step-line"></div>
+      </div>
+      <div class="step-content">
+        <div class="step-title">売上（年間）の規模感を確認する</div>
+        <div class="step-desc">売上 &#x2212; 経費 = 事業所得（個人）や法人の利益。この「手残り」がどれくらいか把握する。副業・フリーランスなら源泉徴収票や確定申告書の「所得金額」を確認。</div>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-left">
+        <div class="step-circle">B</div>
+        <div class="step-line"></div>
+      </div>
+      <div class="step-content">
+        <div class="step-title">現在の「税＋社会保険」の合計額を計算する</div>
+        <div class="step-desc">所得税＋住民税＋事業税（個人）＋国民健康保険料＋国民年金保険料 の合計。確定申告書や納付書から把握できる。</div>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-left">
+        <div class="step-circle">C</div>
+        <div class="step-line"></div>
+      </div>
+      <div class="step-content">
+        <div class="step-title">法人化した場合の「税＋社会保険＋維持費」を試算する</div>
+        <div class="step-desc">役員報酬の最適額 × 法人税＋個人所得税 ＋ 社会保険料（厚生年金＋健康保険）＋ 税理士顧問料＋法人住民税均等割 を合算。税理士に試算を依頼するのが最も確実。</div>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-left">
+        <div class="step-circle">D</div>
+      </div>
+      <div class="step-content">
+        <div class="step-title">B と C を比較する</div>
+        <div class="step-desc">C &#xFF1C; B なら法人化の税・社保メリットがある。差額が税理士報酬や法人維持コストを上回れば、経済的に有利と判断できる。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="formula">
+    法人化のメリット ＝ 個人の税負担合計 &#x2212; （法人税＋役員報酬の所得税＋社会保険料＋維持コスト）
+  </div>
+
+  <div class="blue-box">
+    &#x1F4CC; <strong>一般的に言われる「目安」</strong>（あくまでも参考値。必ず専門家に試算を依頼すること）<br><br>
+    &#x25CF; 事業所得（課税前の利益）が<strong>年600万〜800万円を超えるあたり</strong>から、法人化のメリットを検討するケースが多い。<br>
+    &#x25CF; ただし社会保険料の増加・税理士費用・法人維持費を引いた「純粋な節税額」がプラスになるかどうかは個人差が大きい。<br>
+    &#x25CF; 年所得が1,000万円を超えると、法人化のメリットがより明確になることが多い。<br><br>
+    ※ 上記は一般的な目安であり、家族への役員報酬・所得の種類・地域によって大きく変わります。
+  </div>
+
+  <div class="warn">
+    &#x26A0;&#xFE0F; <strong>消費税の免税期間にも注意</strong><br>
+    個人事業主として免税事業者だった場合、法人化すると<strong>新しい法人として免税期間（原則2年）がリセット</strong>される場合があります。ただし資本金1,000万円以上や特定期間の要件に注意。消費税の課税・免税の判定は設立前に必ず確認しましょう。
+  </div>
+</div>
+
+<!-- SECTION 6: チェックリスト -->
+<div class="card">
+  <h2>&#x2714;&#xFE0F; 法人化を検討する「5つのタイミングサイン」</h2>
+  <p>以下の項目に複数当てはまったら、税理士に相談して試算してもらうタイミングです。</p>
+
+  <ul class="checklist">
+    <li>
+      <div class="check-box"></div>
+      <span><strong>事業所得が年間500万円を超えてきた</strong><br>所得税の税率が20%（課税所得330万円超）に達し始め、法人化のメリットが生まれやすくなる。</span>
+    </li>
+    <li>
+      <div class="check-box"></div>
+      <span><strong>法人でないと取引できない先が出てきた</strong><br>大手企業・官公庁・上場企業グループとの取引で「法人のみ」の条件がついた場合。信用力の問題で機会損失が生じているなら即検討。</span>
+    </li>
+    <li>
+      <div class="check-box"></div>
+      <span><strong>家族（配偶者・子など）に給与を払いたい</strong><br>家族を役員や従業員にして給与を支払うことで「所得分散」ができ、世帯全体の税負担を下げられる可能性がある。</span>
+    </li>
+    <li>
+      <div class="check-box"></div>
+      <span><strong>退職後の生活資金を真剣に考え始めた</strong><br>役員退職金は法人の損金になり、個人は退職所得控除で大きく課税が軽くなる。長く法人を続けるほど大きな効果が出る。</span>
+    </li>
+    <li>
+      <div class="check-box"></div>
+      <span><strong>事業拡大・借入・外部投資家を検討している</strong><br>法人の方が銀行融資や外部資本の受け入れがしやすい。社会的信用・事業の継続性の観点でも法人が有利な場面が多い。</span>
+    </li>
+  </ul>
+</div>
+
+<!-- SECTION 7: 法人化の手順 -->
+<div class="card">
+  <h2>&#x1F6E0;&#xFE0F; 法人化の大まかな手順 ── 設立から事業スタートまで</h2>
+
+  <div class="matrix">
+    <div class="matrix-box good">
+      <div class="mtitle">&#x1F3E2; 株式会社 vs 合同会社</div>
+      <ul style="padding-left:14px; font-size:0.82rem; line-height:1.75; color:#333;">
+        <li>株式会社：設立費用約20〜25万円。対外信用◎。株主総会・取締役会など機関が複雑。</li>
+        <li>合同会社（LLC）：設立費用約6万円。小規模・1人運営なら手続きがシンプル。</li>
+        <li>1人法人なら合同会社も選択肢のひとつ。業種・目的で選ぶ。</li>
+      </ul>
+    </div>
+    <div class="matrix-box neutral">
+      <div class="mtitle">&#x23F1;&#xFE0F; 設立にかかる期間の目安</div>
+      <ul style="padding-left:14px; font-size:0.82rem; line-height:1.75; color:#333;">
+        <li>定款作成・認証：1〜2週間</li>
+        <li>登記申請〜登記完了：1〜2週間</li>
+        <li>各種届出（税務署・年金事務所等）：登記後速やかに</li>
+        <li>合計：最短1か月前後が目安</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step-flow" style="margin-top:10px;">
+    <div class="step-item">
+      <div class="step-left">
+        <div class="step-circle">1</div>
+        <div class="step-line"></div>
+      </div>
+      <div class="step-content">
+        <div class="step-title">税理士・司法書士に相談して試算・設計</div>
+        <div class="step-desc">役員報酬の最適額・会社の形態（株式会社 or 合同会社）・決算月を決める。法人化した場合の節税額と維持コストの試算を依頼。</div>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-left">
+        <div class="step-circle">2</div>
+        <div class="step-line"></div>
+      </div>
+      <div class="step-content">
+        <div class="step-title">定款を作成・認証（株式会社のみ公証人認証が必要）</div>
+        <div class="step-desc">会社の目的・本店所在地・役員などを記載。電子定款なら4万円の印紙代が不要（合同会社は認証不要）。</div>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-left">
+        <div class="step-circle">3</div>
+        <div class="step-line"></div>
+      </div>
+      <div class="step-content">
+        <div class="step-title">法務局に登記申請</div>
+        <div class="step-desc">登録免許税の納付（株式会社15万円・合同会社6万円が最低額）。登記完了まで1〜2週間。登記後に「登記事項証明書」を取得。</div>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-left">
+        <div class="step-circle">4</div>
+        <div class="step-line"></div>
+      </div>
+      <div class="step-content">
+        <div class="step-title">各種届出（設立後速やかに）</div>
+        <div class="step-desc">税務署（法人設立届出・青色申告承認申請・源泉所得税関連）・都道府県・市区町村・年金事務所（社会保険）への届出。期限があるため要注意（社会保険は設立から5日以内）。</div>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-left">
+        <div class="step-circle">5</div>
+      </div>
+      <div class="step-content">
+        <div class="step-title">法人口座開設・役員報酬決定・記帳開始</div>
+        <div class="step-desc">法人口座を開設し、第1期の役員報酬（定期同額給与）を株主総会（1人でもOK）で決定。会計ソフトで記帳スタート。個人事業は廃業届を税務署に提出。</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 8: 今日のアクション -->
+<div class="card">
+  <h2>&#x2705; 今日のアクション</h2>
+  <ul class="action-list">
+    <li>
+      <span class="icon">1&#xFE0F;&#x20E3;</span>
+      <span><strong>直近の確定申告書を引っ張り出す</strong> &#x2015;&#x2015; 「事業所得（収入金額・所得金額）」と「納付した税額合計＋社会保険料」の数字を確認する。これが現状のベースラインになる。</span>
+    </li>
+    <li>
+      <span class="icon">2&#xFE0F;&#x20E3;</span>
+      <span><strong>5つのタイミングサインをチェックする</strong> &#x2015;&#x2015; 上記のチェックリストで2〜3項目に当てはまったら、税理士への相談を具体的に検討するタイミング。</span>
+    </li>
+    <li>
+      <span class="icon">3&#xFE0F;&#x20E3;</span>
+      <span><strong>税理士に「法人化シミュレーション」を依頼する</strong> &#x2015;&#x2015; 「法人化した場合の手取り額の比較」を試算してもらう。初回相談は無料の事務所も多い。日本税理士会のウェブサイトから近くの税理士を探せる。</span>
+    </li>
+    <li>
+      <span class="icon">4&#xFE0F;&#x20E3;</span>
+      <span><strong>J-Net21「会社設立ガイド」を読む</strong> &#x2015;&#x2015; 中小企業庁所管のJ-Net21（https://j-net21.smrj.go.jp/）に法人設立の手順が無料で公開されている。公的な情報で全体像を把握しよう。</span>
+    </li>
+    <li>
+      <span class="icon">5&#xFE0F;&#x20E3;</span>
+      <span><strong>「法人化しない」という選択肢も比較する</strong> &#x2015;&#x2015; 個人事業主のまま青色申告・小規模企業共済・iDeCoを最大活用する方が手残りが多いケースもある。焦らず比較してから決める。</span>
+    </li>
+  </ul>
+</div>
+
+<!-- SOURCES -->
+<div class="source-box">
+  <strong>&#x1F4CE; 出典・参照（基準年度：2026年現在）</strong><br>
+  &#x30FB; 国税庁「所得税の税率」タックスアンサー No.2260<br>
+  &#x3000;<a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/2260.htm" target="_blank">https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/2260.htm</a><br>
+  &#x30FB; 国税庁「法人税の税率」タックスアンサー No.5759<br>
+  &#x3000;<a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/hojin/5759.htm" target="_blank">https://www.nta.go.jp/taxes/shiraberu/taxanswer/hojin/5759.htm</a><br>
+  &#x30FB; 国税庁「給与所得控除」タックスアンサー No.1410<br>
+  &#x3000;<a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1410.htm" target="_blank">https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1410.htm</a><br>
+  &#x30FB; 中小企業庁・J-Net21「法人設立ガイド」<br>
+  &#x3000;<a href="https://j-net21.smrj.go.jp/" target="_blank">https://j-net21.smrj.go.jp/</a><br>
+  &#x30FB; 日本年金機構「健康保険・厚生年金保険の適用」<br>
+  &#x3000;<a href="https://www.nenkin.go.jp/service/kounen/tekiyo/jigyosho/20150518.html" target="_blank">https://www.nenkin.go.jp/service/kounen/tekiyo/jigyosho/20150518.html</a><br>
+  &#x30FB; 日本司法書士会連合会（設立登記費用の参考）<br>
+  &#x3000;<a href="https://www.shiho-shoshi.or.jp/" target="_blank">https://www.shiho-shoshi.or.jp/</a><br>
+  <br>
+  <strong>基準年度：</strong>2026年（令和8年）現在の制度に基づく。税率・社会保険料率・設立費用は変更される場合があります。
+</div>
+
+<!-- DISCLAIMER -->
+<div class="disclaimer">
+  &#x26A0;&#xFE0F; <strong>免責事項</strong><br>
+  本記事は一般的な情報提供を目的としており、税務・法務・社会保険の個別アドバイスではありません。法人化の判断は、会社の業種・家族構成・将来計画・地域の税率などによって大きく異なります。<br>
+  <strong>具体的な法人化の判断・試算・手続きは、必ず税理士・司法書士・社会保険労務士など専門家にご相談ください。</strong>掲載した税率・金額・制度内容は基準年度以降に変更される場合があります。
+</div>
+
+<div class="footer">
+  1人法人スタート日報 &#x30FB; 2026-06-23<br>
+  <a href="index.html" style="color:#b08060;">&#x2190; バックナンバー一覧</a>
+</div>
+
+</body>
+</html>
