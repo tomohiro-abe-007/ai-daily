@@ -28,6 +28,7 @@
 - 2026-06-20：プロフィール最適化 ── 5秒で「自分に関係ある」と思ってもらう書き方
 - 2026-06-21：ニュースレター集客入門 ── 「自分のリスト」を育てる仕組みとツール選び（2026年版）
 - 2026-06-23：Google Search Profiles ── 検索・Discoverで「作者として発見される」新機能（2026年6月4日ローンチ）
+- 2026-06-24：動画集客入門 ── ショート動画（YouTube Shorts・Reels・TikTok）で見込み客を引き寄せる
 
 ## 今後追加したい有望テーマ
 
@@ -41,7 +42,8 @@
 - 海外フリーランス向けグローバル集客：Fiverr/Upwork以外のチャネル戦略
 - GEO（Generative Engine Optimization）── AI生成コンテンツ時代の検索可視化戦略
 - ピラーコンテンツ戦略 ── 1本の大作が集客の軸になる仕組み
-- Meta Creator Assistant活用法 ── AIでコンテンツパフォーマンスを分析する（2026年6月登場）
+- Meta Creator Assistant活用法 ── AIでコンテンツパフォーマンスを分析する（2026年6月ローンチ）
 - E-E-A-T深掘り ── Google品質評価の4要素を集客に活かす具体的な方法
 - コミュニティ集客 ── FacebookグループやDiscordで濃いファンを育てる
-- 動画集客入門 ── ショート動画（YouTube Shorts・Reels・TikTok）で見込み客を引き寄せる
+- Mailchimp Analytics AI活用法 ── 会話型AIでメール集客の成果を分析する（2026年5月ローンチ）
+- LinkedIn新KPI「Saves・Sends」活用法 ── 2026年追加指標でコンテンツを改善する
