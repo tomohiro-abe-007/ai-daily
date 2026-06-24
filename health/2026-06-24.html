@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-06-24</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #f0ece3; font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif; min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 20px; }
+
+  .cover { background: linear-gradient(135deg, #0d3050 0%, #1a5878 55%, #2e88aa 100%); color: white; border-radius: 8px; padding: 60px 40px; text-align: center; width: 100%; max-width: 820px; margin-bottom: 24px; box-shadow: 4px 6px 20px rgba(0,0,0,0.3); position: relative; overflow: hidden; }
+  .cover::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: repeating-linear-gradient(0deg, transparent, transparent 28px, rgba(255,255,255,0.04) 28px, rgba(255,255,255,0.04) 29px); }
+  .cover-emoji { font-size: 64px; display: block; margin-bottom: 16px; }
+  .cover h1 { font-family: 'Klee One', sans-serif; font-size: 1.85rem; font-weight: 600; line-height: 1.35; margin-bottom: 12px; position: relative; }
+  .cover .subtitle { font-size: 1.0rem; opacity: 0.88; margin-bottom: 8px; position: relative; }
+  .cover .tagline { font-size: 0.88rem; opacity: 0.7; position: relative; margin-bottom: 4px; }
+  .cover .date-badge { display: inline-block; background: rgba(255,255,255,0.2); border: 2px solid rgba(255,255,255,0.5); border-radius: 20px; padding: 6px 20px; font-size: 1rem; margin-top: 16px; position: relative; }
+
+  .card { background: #fff9f0; border-radius: 6px; width: 100%; max-width: 820px; margin-bottom: 24px; box-shadow: 3px 4px 12px rgba(0,0,0,0.12); position: relative; overflow: hidden; }
+  .card-body { padding: 28px 36px 28px 64px; background: repeating-linear-gradient(0deg, transparent, transparent 31px, #e0d8c8 31px, #e0d8c8 32px); background-color: #fff9f0; min-height: 200px; }
+  .card-body::before { content: ''; position: absolute; left: 52px; top: 0; bottom: 0; width: 2px; background: #1d4080; opacity: 0.5; }
+  .card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; padding-bottom: 8px; border-bottom: 2px dashed #c8b89a; }
+  .card-emoji { font-size: 2rem; }
+  .card-title { font-family: 'Klee One', sans-serif; font-size: 1.4rem; font-weight: 600; color: #2c3e50; line-height: 1.3; }
+  .topic-badge { display: inline-block; padding: 3px 12px; border-radius: 12px; font-size: 0.75rem; font-weight: 600; margin-left: auto; white-space: nowrap; }
+  .badge-green  { background: #e0f5e8; color: #1a6640; border: 1px solid #90d4aa; }
+  .badge-red    { background: #ffe0e0; color: #aa2222; border: 1px solid #f0a0a0; }
+  .badge-blue   { background: #e0eeff; color: #2255aa; border: 1px solid #a0c0f5; }
+  .badge-orange { background: #fff0d0; color: #cc6600; border: 1px solid #f0c070; }
+  .badge-teal   { background: #d0f0f0; color: #006060; border: 1px solid #80d0d0; }
+  .badge-gray   { background: #f0f0f0; color: #555; border: 1px solid #ccc; }
+  .badge-purple { background: #f0e0ff; color: #660088; border: 1px solid #c080e0; }
+  .badge-navy   { background: #e0e8ff; color: #1a2a6a; border: 1px solid #8090d0; }
+
+  .body-text { font-size: 0.97rem; line-height: 1.85; color: #333; margin: 8px 0; }
+  .simple-box { background: #fff7e0; border-left: 4px solid #f5c842; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 16px 0; font-size: 0.95rem; line-height: 1.8; }
+  .simple-box .label { display: inline-block; background: #f5c842; color: #5a4000; font-size: 0.72rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-bottom: 6px; letter-spacing: 0.5px; }
+  .info-box { background: #eef4ff; border-left: 4px solid #3366cc; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 16px 0; font-size: 0.95rem; line-height: 1.8; }
+  .info-box .label { display: inline-block; background: #3366cc; color: white; font-size: 0.72rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-bottom: 6px; letter-spacing: 0.5px; }
+  .alert-box { background: #fff0f0; border-left: 4px solid #e05050; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 16px 0; font-size: 0.95rem; line-height: 1.8; }
+  .alert-box .label { display: inline-block; background: #e05050; color: white; font-size: 0.72rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-bottom: 6px; letter-spacing: 0.5px; }
+  .green-box { background: #eafaf0; border-left: 4px solid #27ae60; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 16px 0; font-size: 0.95rem; line-height: 1.8; }
+  .green-box .label { display: inline-block; background: #27ae60; color: white; font-size: 0.72rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-bottom: 6px; letter-spacing: 0.5px; }
+  .cyan-box { background: #e0f6ff; border-left: 4px solid #1a9abc; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 16px 0; font-size: 0.95rem; line-height: 1.8; }
+  .cyan-box .label { display: inline-block; background: #1a9abc; color: white; font-size: 0.72rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-bottom: 6px; letter-spacing: 0.5px; }
+  .orange-box { background: #fff4e0; border-left: 4px solid #e67e22; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 16px 0; font-size: 0.95rem; line-height: 1.8; }
+  .orange-box .label { display: inline-block; background: #e67e22; color: white; font-size: 0.72rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-bottom: 6px; letter-spacing: 0.5px; }
+  .purple-box { background: #f5eeff; border-left: 4px solid #8040c0; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 16px 0; font-size: 0.95rem; line-height: 1.8; }
+  .purple-box .label { display: inline-block; background: #8040c0; color: white; font-size: 0.72rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-bottom: 6px; letter-spacing: 0.5px; }
+  .navy-box { background: #eaeefc; border-left: 4px solid #1d4080; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 16px 0; font-size: 0.95rem; line-height: 1.8; }
+  .navy-box .label { display: inline-block; background: #1d4080; color: white; font-size: 0.72rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-bottom: 6px; letter-spacing: 0.5px; }
+
+  .num-cards { display: flex; gap: 16px; flex-wrap: wrap; margin: 20px 0; justify-content: center; }
+  .num-card { background: white; border-radius: 10px; padding: 18px 20px; text-align: center; flex: 1; min-width: 130px; max-width: 200px; box-shadow: 2px 3px 10px rgba(0,0,0,0.1); border-top: 5px solid #1d4080; }
+  .num-card .big-num { font-size: 2.2rem; font-weight: 700; font-family: 'Caveat', cursive; color: #1d4080; line-height: 1.1; }
+  .num-card .num-unit { font-size: 0.9rem; color: #1d4080; font-weight: 600; margin-bottom: 4px; }
+  .num-card .num-label { font-size: 0.77rem; color: #555; line-height: 1.5; margin-top: 4px; }
+  .num-card.green  { border-top-color: #27ae60; } .num-card.green  .big-num, .num-card.green  .num-unit { color: #27ae60; }
+  .num-card.orange { border-top-color: #e67e22; } .num-card.orange .big-num, .num-card.orange .num-unit { color: #e67e22; }
+  .num-card.blue   { border-top-color: #2980b9; } .num-card.blue   .big-num, .num-card.blue   .num-unit { color: #2980b9; }
+  .num-card.teal   { border-top-color: #1abc9c; } .num-card.teal   .big-num, .num-card.teal   .num-unit { color: #1abc9c; }
+  .num-card.purple { border-top-color: #8040c0; } .num-card.purple .big-num, .num-card.purple .num-unit { color: #8040c0; }
+  .num-card.red    { border-top-color: #e74c3c; } .num-card.red    .big-num, .num-card.red    .num-unit { color: #e74c3c; }
+  .num-card.amber  { border-top-color: #c04a10; } .num-card.amber  .big-num, .num-card.amber  .num-unit { color: #c04a10; }
+  .num-card.cyan   { border-top-color: #1a9abc; } .num-card.cyan   .big-num, .num-card.cyan   .num-unit { color: #1a9abc; }
+
+  .bar-chart { margin: 20px 0; }
+  .bar-row { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+  .bar-label { font-size: 0.88rem; font-weight: 600; min-width: 148px; color: #333; flex-shrink: 0; }
+  .bar-track { flex: 1; background: #e8e0d4; border-radius: 4px; height: 28px; position: relative; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 4px; display: flex; align-items: center; justify-content: flex-end; padding-right: 8px; font-size: 0.8rem; font-weight: 700; color: white; white-space: nowrap; min-width: 40px; }
+  .bf-navy   { background: #1d4080; }
+  .bf-blue   { background: #2980b9; }
+  .bf-red    { background: #e05050; }
+  .bf-orange { background: #e67e22; }
+  .bf-green  { background: #27ae60; }
+  .bf-teal   { background: #1abc9c; }
+  .bf-gray   { background: #aaa; }
+  .bar-note { font-size: 0.8rem; color: #666; min-width: 110px; flex-shrink: 0; }
+
+  .compare-table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 0.88rem; margin: 20px 0; }
+  .compare-table th { padding: 10px 12px; font-weight: 700; font-size: 0.82rem; text-align: center; }
+  .compare-table th.col-label { text-align: left; }
+  .compare-table td { padding: 10px 12px; text-align: center; border-bottom: 1px dashed #ddd; vertical-align: middle; }
+  .compare-table td.col-label { text-align: left; font-weight: 600; color: #444; }
+  .compare-table tr:last-child td { border-bottom: none; }
+  .th-lbl  { background: #f0ece3; color: #555; }
+  .th-epa  { background: #e0eeff; color: #1a3a80; }
+  .th-dha  { background: #e0f6ff; color: #006080; }
+  .th-both { background: #e8f5e8; color: #1a4020; }
+  .tag-strong { display: inline-block; background: #e0eeff; color: #1a2a6a; border-radius: 4px; padding: 2px 8px; font-size: 0.78rem; font-weight: 700; }
+  .tag-moderate { display: inline-block; background: #e8f5e0; color: #1a4020; border-radius: 4px; padding: 2px 8px; font-size: 0.78rem; font-weight: 600; }
+  .tag-limited { display: inline-block; background: #fff7d0; color: #7a5000; border-radius: 4px; padding: 2px 8px; font-size: 0.78rem; font-weight: 600; }
+  .tag-no     { display: inline-block; background: #f0f0f0; color: #777; border-radius: 4px; padding: 2px 8px; font-size: 0.78rem; font-weight: 700; }
+  .tag-yes    { display: inline-block; background: #e0f5e8; color: #1a5030; border-radius: 4px; padding: 2px 8px; font-size: 0.78rem; font-weight: 700; }
+
+  .step-list { list-style: none; margin: 16px 0; }
+  .step-list li { display: flex; align-items: flex-start; gap: 14px; padding: 10px 0; border-bottom: 1px dotted #ddd; }
+  .step-list li:last-child { border-bottom: none; }
+  .step-num { background: #1d4080; color: white; font-weight: 700; font-size: 0.9rem; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+  .step-text { font-size: 0.93rem; line-height: 1.8; color: #333; }
+
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0; }
+  @media (max-width: 560px) { .grid-2 { grid-template-columns: 1fr; } }
+  .grid-box { background: white; border-radius: 8px; padding: 16px; box-shadow: 1px 2px 6px rgba(0,0,0,0.08); }
+  .grid-box .gb-title { font-size: 0.92rem; font-weight: 700; margin-bottom: 10px; padding-bottom: 6px; border-bottom: 2px dashed #ddd; }
+  .gb-blue .gb-title  { color: #1d4080; border-bottom-color: #a0b8e0; }
+  .gb-teal .gb-title  { color: #006080; border-bottom-color: #80c8d8; }
+  .gb-green .gb-title { color: #27ae60; border-bottom-color: #90d4aa; }
+  .gb-orange .gb-title{ color: #c06020; border-bottom-color: #f0c088; }
+  .gb-red .gb-title   { color: #c04040; border-bottom-color: #f0a0a0; }
+  .gb-purple .gb-title{ color: #6030a0; border-bottom-color: #c090e0; }
+  .grid-box .gb-text { font-size: 0.85rem; line-height: 1.95; color: #333; }
+
+  .mol-display { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin: 20px 0; }
+  .mol-card { background: white; border-radius: 12px; padding: 20px; text-align: center; flex: 1; min-width: 240px; max-width: 340px; box-shadow: 2px 3px 10px rgba(0,0,0,0.1); }
+  .mol-card.epa { border: 3px solid #2980b9; }
+  .mol-card.dha { border: 3px solid #1a9abc; }
+  .mol-name { font-size: 1.2rem; font-weight: 700; margin-bottom: 4px; }
+  .mol-card.epa .mol-name { color: #1a3a80; }
+  .mol-card.dha .mol-name { color: #006080; }
+  .mol-kana { font-size: 0.8rem; color: #888; margin-bottom: 6px; }
+  .mol-formula { font-size: 0.92rem; font-weight: 700; background: #f5f5f5; padding: 4px 12px; border-radius: 6px; display: inline-block; margin-bottom: 10px; }
+  .mol-chain-vis { display: flex; justify-content: center; align-items: center; gap: 2px; flex-wrap: wrap; margin: 10px 0; }
+  .c-block { width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; font-size: 0.65rem; font-weight: 700; border-radius: 3px; }
+  .c-normal { background: #dde4f0; color: #444; }
+  .c-double-epa { background: #2980b9; color: white; }
+  .c-double-dha { background: #1a9abc; color: white; }
+  .mol-stat { font-size: 0.82rem; line-height: 1.75; color: #444; margin-top: 10px; text-align: left; }
+
+  .rct-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 14px; margin: 20px 0; }
+  .rct-card { background: white; border-radius: 8px; padding: 14px 16px; box-shadow: 1px 2px 8px rgba(0,0,0,0.1); }
+  .rct-name { font-size: 0.95rem; font-weight: 700; margin-bottom: 6px; padding-bottom: 6px; border-bottom: 3px solid; }
+  .rct-card.rc-epa  .rct-name { color: #1a3a80; border-color: #2980b9; }
+  .rct-card.rc-both .rct-name { color: #006060; border-color: #1abc9c; }
+  .rct-card.rc-null .rct-name { color: #888;    border-color: #ccc; }
+  .rct-card.rc-jp   .rct-name { color: #7a1a00; border-color: #e05030; }
+  .rct-detail { font-size: 0.78rem; line-height: 1.8; color: #555; }
+  .rct-result { font-size: 0.85rem; font-weight: 700; margin-top: 10px; padding: 6px 10px; border-radius: 6px; line-height: 1.5; }
+  .rct-card.rc-epa  .rct-result { background: #e0eeff; color: #1a2a6a; }
+  .rct-card.rc-jp   .rct-result { background: #fff0e0; color: #7a2000; }
+  .rct-card.rc-both .rct-result { background: #e0f5f0; color: #1a4030; }
+  .rct-card.rc-null .rct-result { background: #f5f5f5; color: #666; }
+
+  .persona-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(175px, 1fr)); gap: 14px; margin: 20px 0; }
+  .persona-card { background: white; border-radius: 10px; padding: 16px 14px; box-shadow: 1px 2px 8px rgba(0,0,0,0.08); }
+  .persona-icon { font-size: 2rem; text-align: center; margin-bottom: 8px; }
+  .persona-who { font-size: 0.88rem; font-weight: 700; color: #333; margin-bottom: 8px; text-align: center; }
+  .persona-tag { display: inline-block; padding: 2px 8px; border-radius: 8px; font-size: 0.72rem; font-weight: 700; margin-bottom: 6px; }
+  .tag-epa  { background: #e0eeff; color: #1a3a80; }
+  .tag-dha  { background: #e0f6ff; color: #004060; }
+  .tag-both { background: #e8f5e0; color: #1a4020; }
+  .persona-rec { font-size: 0.8rem; line-height: 1.65; color: #555; }
+
+  .source-text { font-size: 0.78rem; color: #888; margin-top: 12px; line-height: 1.6; }
+  .source-text a { color: #1d4080; }
+  .disclaimer { background: #f8f8f8; border: 2px solid #ddd; border-radius: 6px; padding: 20px 24px; font-size: 0.83rem; line-height: 1.8; color: #555; width: 100%; max-width: 820px; margin-bottom: 24px; }
+  .disclaimer .dis-title { font-size: 0.9rem; font-weight: 700; color: #444; margin-bottom: 8px; }
+  hr.section-divider { border: none; border-top: 2px dashed #c8b89a; margin: 16px 0; }
+</style>
+</head>
+<body>
+
+<!-- ===== COVER ===== -->
+<div class="cover">
+  <span class="cover-emoji">🐟🧠</span>
+  <h1>EPA と DHA ── 「同じオメガ3」でも<br>得意分野がまったく違う<br>── 5大RCTと脳・血管への個別科学 ──</h1>
+  <div class="subtitle">精密栄養学から考える「誰に・何のために・どちらを選ぶか」</div>
+  <div class="tagline">健康・栄養 最新トピック</div>
+  <div class="date-badge">2026-06-24</div>
+</div>
+
+<!-- ===== CARD 1: 基礎 ===== -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">🔬</span>
+      <span class="card-title">EPA と DHA ── 分子のかたちが違うから、体での働きも違う</span>
+      <span class="topic-badge badge-blue">基礎知識</span>
+    </div>
+    <p class="body-text">「魚の油（フィッシュオイル）には EPA と DHA が含まれる」とはよく聞きます。でも「同じオメガ3脂肪酸なのに何が違うの？」と思ったことはありませんか？ 答えは<strong>分子の長さと二重結合の数が違う</strong>ことにあります。このわずかな差が、体内での役割をまったく変えてしまいます。</p>
+
+    <div class="mol-display">
+      <div class="mol-card epa">
+        <div class="mol-name">EPA</div>
+        <div class="mol-kana">エイコサペンタエン酸</div>
+        <div class="mol-formula">C20:5 (n-3)</div>
+        <div class="mol-chain-vis">
+          <!-- 20炭素鎖、二重結合5個を視覚化 -->
+          <div class="c-block c-normal">C</div>
+          <div class="c-block c-normal">C</div>
+          <div class="c-block c-normal">C</div>
+          <div class="c-block c-normal">C</div>
+          <div class="c-block c-double-epa">=</div>
+          <div class="c-block c-normal">C</div>
+          <div class="c-block c-double-epa">=</div>
+          <div class="c-block c-normal">C</div>
+          <div class="c-block c-double-epa">=</div>
+          <div class="c-block c-normal">C</div>
+          <div class="c-block c-double-epa">=</div>
+          <div class="c-block c-normal">C</div>
+          <div class="c-block c-double-epa">=</div>
+          <div class="c-block c-normal">C</div>
+          <div class="c-block c-normal">C</div>
+          <div class="c-block c-normal">C</div>
+          <div class="c-block c-normal">C</div>
+          <div class="c-block c-normal">C</div>
+          <div class="c-block c-normal">C</div>
+          <div class="c-block c-normal">COOH</div>
+        </div>
+        <div class="mol-stat">
+          <strong>炭素数：20個</strong>（エイコサ＝20の意）<br>
+          <strong>二重結合：5個</strong>（ペンタ＝5の意）<br>
+          <strong>主な体内変換産物：</strong>プロスタグランジン E3・ロイコトリエン B5（抗炎症系の化合物）<br>
+          <strong>主な食事源：</strong>青魚（サバ・イワシ・サンマなど）
+        </div>
+      </div>
+      <div class="mol-card dha">
+        <div class="mol-name">DHA</div>
+        <div class="mol-kana">ドコサヘキサエン酸</div>
+        <div class="mol-formula">C22:6 (n-3)</div>
+        <div class="mol-chain-vis">
+          <!-- 22炭素鎖、二重結合6個を視覚化 -->
+          <div class="c-block c-normal">C</div>
+          <div class="c-block c-normal">C</div>
+          <div class="c-block c-normal">C</div>
+          <div class="c-block c-normal">C</div>
+          <div class="c-block c-double-dha">=</div>
+          <div class="c-block c-normal">C</div>
+          <div class="c-block c-double-dha">=</div>
+          <div class="c-block c-normal">C</div>
+          <div class="c-block c-double-dha">=</div>
+          <div class="c-block c-normal">C</div>
+          <div class="c-block c-double-dha">=</div>
+          <div class="c-block c-normal">C</div>
+          <div class="c-block c-double-dha">=</div>
+          <div class="c-block c-normal">C</div>
+          <div class="c-block c-double-dha">=</div>
+          <div class="c-block c-normal">C</div>
+          <div class="c-block c-normal">C</div>
+          <div class="c-block c-normal">C</div>
+          <div class="c-block c-normal">C</div>
+          <div class="c-block c-normal">C</div>
+          <div class="c-block c-normal">C</div>
+          <div class="c-block c-normal">COOH</div>
+        </div>
+        <div class="mol-stat">
+          <strong>炭素数：22個</strong>（ドコサ＝22の意）<br>
+          <strong>二重結合：6個</strong>（ヘキサ＝6の意）<br>
+          <strong>主な体内変換産物：</strong>プロテクチン・レゾルビン（炎症の「終息」を促す化合物）<br>
+          <strong>主な食事源：</strong>青魚・マグロの脂身・卵（DHA強化）
+        </div>
+      </div>
+    </div>
+
+    <div class="simple-box">
+      <div class="label">「オメガ3」の意味</div>
+      「オメガ3（n-3）」とは、炭素鎖の端（オメガ端＝メチル末端）から数えて3番目の炭素に最初の二重結合がある脂肪酸のこと。EPA も DHA も同じ「n-3位」から二重結合が始まる仲間ですが、炭素の数と二重結合の数が異なるため、体内での役割や入り込む組織・細胞膜が異なります。<br><br>
+      ちなみに体は EPA を（効率は低いですが）DHA に変換できます（デルタ-6不飽和化酵素・伸長酵素）。逆（DHA → EPA）の変換は非常に限定的です。
+    </div>
+  </div>
+</div>
+
+<!-- ===== CARD 2: EPAの効果 ===== -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">❤️</span>
+      <span class="card-title">EPA の得意分野 ── 心臓・血管・中性脂肪・炎症</span>
+      <span class="topic-badge badge-blue">EPAエビデンス</span>
+    </div>
+    <p class="body-text">EPA は特に<strong>心血管保護・中性脂肪（トリグリセリド）低下・抗炎症</strong>の分野で多くの臨床試験データが蓄積されています。日本ではさらに「日本初の大規模 EPA 試験」として JELIS 試験（2007年）が国際的な注目を集めました。</p>
+
+    <p class="body-text" style="font-weight:600; margin-top:16px;">▶ REDUCE-IT 試験（米国、2019年）── EPA 単独 4g/日の心血管アウトカム</p>
+    <div class="num-cards">
+      <div class="num-card">
+        <div class="big-num">8,179</div>
+        <div class="num-unit">名</div>
+        <div class="num-label">スタチン服用中・高中性脂肪の心血管高リスク患者</div>
+      </div>
+      <div class="num-card blue">
+        <div class="big-num">−25%</div>
+        <div class="num-unit">相対リスク減少</div>
+        <div class="num-label">主要心血管イベント（5点複合）<br>HR=0.75（95%CI: 0.68–0.83）</div>
+      </div>
+      <div class="num-card teal">
+        <div class="big-num">4g</div>
+        <div class="num-unit">/日</div>
+        <div class="num-label">イコサペント酸エチル（EPA純粋製剤）の投与量</div>
+      </div>
+      <div class="num-card orange">
+        <div class="big-num">4.9</div>
+        <div class="num-unit">年</div>
+        <div class="num-label">追跡期間中央値<br>プラセボ：ミネラルオイル</div>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+    <p class="body-text" style="font-weight:600;">▶ JELIS 試験（日本、2007年）── 日本人1.8万人の EPA 試験</p>
+    <div class="num-cards">
+      <div class="num-card">
+        <div class="big-num">18,645</div>
+        <div class="num-unit">名</div>
+        <div class="num-label">日本人高コレステロール血症患者（スタチン併用）</div>
+      </div>
+      <div class="num-card green">
+        <div class="big-num">−19%</div>
+        <div class="num-unit">相対リスク減少</div>
+        <div class="num-label">主要冠動脈イベント<br>HR=0.81（95%CI: 0.69–0.95）</div>
+      </div>
+      <div class="num-card cyan">
+        <div class="big-num">1.8g</div>
+        <div class="num-unit">/日</div>
+        <div class="num-label">イコサペント酸エチル（Epadel）の投与量<br>追跡約4.6年</div>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <div class="label">JELIS の重要な意義</div>
+      JELIS は 2007年に <em>Lancet</em> に掲載された世界最大規模の EPA 単独試験です（Yokoyama M et al., Lancet 2007;369:1090-1098. DOI: 10.1016/S0140-6736(06)68777-9）。日本人を対象にスタチン（コレステロール薬）に EPA を上乗せしたところ、主要冠動脈イベントが 19% 有意に減少しました。<br><br>
+      REDUCE-IT と異なりプラセボを使わず「対照群」（EPA なしスタチン継続）との比較なので、ミネラルオイル問題の影響を受けない設計です。ただしオープンラベル（被験者・医師が割り当てを知っている）という限界もあります。
+    </div>
+
+    <p class="body-text" style="font-weight:600; margin-top:16px;">▶ EPAの主な作用メカニズム（現在のエビデンスまとめ）</p>
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th class="col-label th-lbl">作用</th>
+          <th class="th-epa">エビデンスの強さ</th>
+          <th class="th-lbl">主な根拠</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="col-label">中性脂肪（TG）の低下</td>
+          <td><span class="tag-strong">強・確立</span></td>
+          <td>複数のメタ分析、AHA 2019科学勧告</td>
+        </tr>
+        <tr>
+          <td class="col-label">抗炎症（プロスタグランジンE3産生）</td>
+          <td><span class="tag-moderate">中（機序は確立）</span></td>
+          <td>細胞・動物実験・ヒト生化学研究</td>
+        </tr>
+        <tr>
+          <td class="col-label">抗血小板凝集</td>
+          <td><span class="tag-moderate">中</span></td>
+          <td>ヒト短期試験・メカニズム研究</td>
+        </tr>
+        <tr>
+          <td class="col-label">LDL-C 低下</td>
+          <td><span class="tag-no">弱〜なし</span></td>
+          <td>EPA は LDL-C を有意に下げない（DHA の方が上昇させる報告もあり）</td>
+        </tr>
+        <tr>
+          <td class="col-label">心血管イベント減少（高リスク患者）</td>
+          <td><span class="tag-strong">強（高リスク限定）</span></td>
+          <td>REDUCE-IT・JELIS（ただし議論あり→Card 5参照）</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="green-box">
+      <div class="label">中性脂肪への効果について</div>
+      AHA の 2019年科学勧告（Skulas-Ray AC et al., Circulation 2019;140:e673-e691. DOI: 10.1161/CIR.0000000000000709）では、<strong>高中性脂肪血症（TG ≥ 500 mg/dL）に対して EPA および/または DHA 4g/日が中性脂肪を 20〜30% 低下させる</strong>と示されています。中性脂肪低下については EPA・DHA ともに効果が認められており、EPA だけの特権ではありません。ただし EPA 単独でも DHA 単独でも同程度の TG 低下効果があり、製剤の選択は用途と個人のリスクプロファイルによります。
+    </div>
+
+    <div class="source-text">
+      参考：Bhatt DL et al., NEJM 2019;380:11-22. DOI: <a href="https://doi.org/10.1056/NEJMoa1812792" target="_blank">10.1056/NEJMoa1812792</a>（REDUCE-IT）<br>
+      Yokoyama M et al., Lancet 2007;369:1090-1098. DOI: <a href="https://doi.org/10.1016/S0140-6736(06)68777-9" target="_blank">10.1016/S0140-6736(06)68777-9</a>（JELIS）
+    </div>
+  </div>
+</div>
+
+<!-- ===== CARD 3: DHAの効果 ===== -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">🧠</span>
+      <span class="card-title">DHA の得意分野 ── 脳・目・赤ちゃんの発達</span>
+      <span class="topic-badge badge-teal">DHAエビデンス</span>
+    </div>
+    <p class="body-text">DHA の最も重要な役割は<strong>脳や網膜（もうまく）の構造成分</strong>であることです。体内で合成できる量はほんのわずかで、食事から継続して補給することが重要とされています。</p>
+
+    <div class="grid-2">
+      <div class="grid-box gb-teal">
+        <div class="gb-title">🧠 脳の主要な構成脂肪酸</div>
+        <div class="gb-text">
+          脳は乾燥重量の約<strong>60%が脂質</strong>で構成されています。そのうち DHA は脳全体の脂肪酸の約<strong>10〜15%</strong>を占め、大脳皮質の灰白質（グレーマター）では<strong>25〜35%</strong>にも達します。<br><br>
+          シナプス膜（神経細胞が信号を受け渡す場所）に特に豊富で、神経伝達の速度・柔軟性に関係すると考えられています。<br><br>
+          <small>Svennerholm L. J Lipid Res 1968;9(5):570-579（脳脂質の古典的参照文献）</small>
+        </div>
+      </div>
+      <div class="grid-box gb-blue">
+        <div class="gb-title">👁️ 網膜（目）の必須成分</div>
+        <div class="gb-text">
+          目の奥にある<strong>視細胞（杆体細胞）の外節膜</strong>では、全脂肪酸の約<strong>50〜70%</strong>が DHA です。これほど高濃度に特定の脂肪酸が集積している組織は他にほとんどありません。<br><br>
+          光に反応するロドプシンが効率よく機能するために、DHA による膜の「流動性」が不可欠とされています。<br><br>
+          <small>Anderson RE. Exp Eye Res 1970;10(3):339-344（網膜脂質の古典的参照文献）</small>
+        </div>
+      </div>
+    </div>
+
+    <p class="body-text" style="font-weight:600; margin-top:16px;">▶ DHA と認知機能 ── MIDAS 試験（2010年）</p>
+    <div class="num-cards">
+      <div class="num-card">
+        <div class="big-num">485</div>
+        <div class="num-unit">名</div>
+        <div class="num-label">加齢に伴う記憶力低下（AAMI）を持つ健康な高齢者</div>
+      </div>
+      <div class="num-card cyan">
+        <div class="big-num">900mg</div>
+        <div class="num-unit">/日</div>
+        <div class="num-label">藻類由来 DHA（algal DHA）24週間投与（RCT）</div>
+      </div>
+      <div class="num-card green">
+        <div class="big-num">有意</div>
+        <div class="num-unit">改善</div>
+        <div class="num-label">連想記憶学習タスク（PAL）のエラー数がプラセボ群より有意に少なかった</div>
+      </div>
+    </div>
+    <div class="info-box">
+      <div class="label">MIDAS 試験の限界</div>
+      MIDAS 試験（Yurko-Mauro K et al., Alzheimer's Dementia 2010;6:456-464. DOI: 10.1016/j.jalz.2010.01.013）は 485名の比較的小規模な試験であり、すでに記憶力低下を持つ高齢者が対象です。「健康な成人に DHA を飲めば頭が良くなる」とは解釈できません。また DHA と認知機能に関する大規模 RCT（VITAL-Cog など）では明確な認知機能改善が示されなかったケースもあります。「DHA は脳の重要な成分」という事実と、「DHA サプリで認知機能が改善する」という主張は別物です。
+    </div>
+
+    <p class="body-text" style="font-weight:600; margin-top:16px;">▶ 妊娠・授乳期と赤ちゃんの脳発達</p>
+    <div class="navy-box">
+      <div class="label">コクランレビュー 2018（70試験・19,927名）</div>
+      Middleton P et al.（Cochrane Database Syst Rev 2018;(11):CD003402. DOI: 10.1002/14651858.CD003402.pub3）：<br><br>
+      妊娠中のオメガ3補給（主に DHA）に関する 70 試験・19,927 名のメタ分析では：<br>
+      ・早産（37 週未満）リスク：<strong>RR=0.84（95%CI: 0.78–0.91）有意に低下</strong><br>
+      ・超早産（34 週未満）リスク：<strong>RR=0.69（95%CI: 0.55–0.86）有意に低下</strong><br>
+      ・過期産（42 週超過）リスク：<strong>RR=1.61（95%CI: 1.11–2.33）有意に増加</strong>（副作用注意）<br>
+      ・児の神経発達（IQ・言語・行動）：<strong>統計的に有意な差なし</strong>（多くの試験で）<br><br>
+      WHO・ISSFAL・EFSA は妊娠・授乳期の最低 DHA 摂取量として <strong>200mg/日</strong> を推奨しています。<br>
+      <small>（WHO 2008・ISSFAL 2004・EFSA 2010 各推奨に基づく）</small>
+    </div>
+
+    <div class="alert-box">
+      <div class="label">重要な注意</div>
+      DHA は脳の発達に欠かせない成分ですが、<strong>「DHA を飲むほど賢くなる」という主張は現時点のエビデンスでは支持されていません</strong>。妊娠中・乳幼児期の DHA 欠乏を防ぐことの重要性は確認されていますが、過剰摂取の効果は証明されていません。特に妊娠中の補給については「過期産リスクの増加」という反対側のリスクがあるため、実践前に産科医・管理栄養士に相談することが重要です。
+    </div>
+  </div>
+</div>
+
+<!-- ===== CARD 4: 5大RCT比較 ===== -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">📊</span>
+      <span class="card-title">5つの大規模RCT比較 ── なぜ結果がこんなに違うのか？</span>
+      <span class="topic-badge badge-purple">RCT比較</span>
+    </div>
+    <p class="body-text">オメガ3を使った大規模臨床試験の中で、「EPA 単独」と「EPA+DHA 混合」で結果が大きく分かれています。<strong>どの試験が信頼できるか</strong>ではなく、<strong>どの条件・対象者に・何をどれだけ投与したか</strong>で結果が変わることを理解することが重要です。</p>
+
+    <div class="rct-grid">
+      <div class="rct-card rc-epa">
+        <div class="rct-name">REDUCE-IT (2019)</div>
+        <div class="rct-detail">
+          📍 米国、多国籍<br>
+          💊 EPA 純粋製剤 <strong>4g/日</strong><br>
+          👥 n=8,179（高中性脂肪・高リスク）<br>
+          💉 プラセボ：<strong>ミネラルオイル</strong><br>
+          📅 追跡 4.9年<br>
+          📄 NEJM 2019, DOI: 10.1056/NEJMoa1812792
+        </div>
+        <div class="rct-result">主要MACE：<br>HR=0.75（−25%）✅ 有意</div>
+      </div>
+      <div class="rct-card rc-jp">
+        <div class="rct-name">JELIS (2007)</div>
+        <div class="rct-detail">
+          📍 日本<br>
+          💊 EPA 製剤 <strong>1.8g/日</strong>＋スタチン<br>
+          👥 n=18,645（高コレステロール）<br>
+          💉 対照：スタチン単独（オープンラベル）<br>
+          📅 追跡 約4.6年<br>
+          📄 Lancet 2007, DOI: 10.1016/S0140-6736(06)68777-9
+        </div>
+        <div class="rct-result">主要冠動脈イベント：<br>HR=0.81（−19%）✅ 有意</div>
+      </div>
+      <div class="rct-card rc-jp">
+        <div class="rct-name">RESPECT-EPA (2024)</div>
+        <div class="rct-detail">
+          📍 日本（95施設）<br>
+          💊 EPA 製剤 <strong>1.8g/日</strong>＋スタチン<br>
+          👥 n=3,884（安定冠動脈疾患・低EPA/AA比）<br>
+          💉 対照：スタチン単独（オープンラベル）<br>
+          📅 追跡 中央値 3.9年<br>
+          📄 Circulation 2024, DOI: 10.1161/CIRCULATIONAHA.123.065520
+        </div>
+        <div class="rct-result">主要エンドポイント：<br>HR=0.785（p=0.051）❌ 有意差なし<br>（統計的にはギリギリ非有意）</div>
+      </div>
+      <div class="rct-card rc-both">
+        <div class="rct-name">VITAL (2019)</div>
+        <div class="rct-detail">
+          📍 米国<br>
+          💊 EPA+DHA <strong>1g/日</strong>（460mg+380mg）<br>
+          👥 n=25,871（一般健康成人・一次予防）<br>
+          💉 プラセボ：オリーブオイル<br>
+          📅 追跡 5.3年<br>
+          📄 NEJM 2019, DOI: 10.1056/NEJMoa1811403
+        </div>
+        <div class="rct-result">主要CV複合：HR=0.92（p=0.24）❌ 非有意<br>MI単独：HR=0.72 ✅ 有意</div>
+      </div>
+      <div class="rct-card rc-null">
+        <div class="rct-name">STRENGTH (2020)</div>
+        <div class="rct-detail">
+          📍 米国・多国籍<br>
+          💊 EPA+DHA 遊離酸型 <strong>4g/日</strong><br>
+          👥 n=13,078（高中性脂肪・低HDL・高リスク）<br>
+          💉 プラセボ：トウモロコシ油<br>
+          📅 途中中止（無益性）<br>
+          📄 JAMA 2020, DOI: 10.1001/jama.2020.22258
+        </div>
+        <div class="rct-result">主要MACE：HR=0.99 ❌ 無効<br>早期中止</div>
+      </div>
+    </div>
+
+    <div class="bar-chart">
+      <p class="body-text" style="font-weight:600; margin-bottom: 12px;">▶ 各試験の主要エンドポイント イベント率（概略比較）</p>
+      <div class="bar-row">
+        <div class="bar-label">REDUCE-IT（EPA群）</div>
+        <div class="bar-track"><div class="bar-fill bf-navy" style="width:55%;">17.2%</div></div>
+        <div class="bar-note">vs 対照22.0%</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">REDUCE-IT（プラセボ）</div>
+        <div class="bar-track"><div class="bar-fill bf-red" style="width:70%;">22.0%</div></div>
+        <div class="bar-note">ミネラルオイル</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">VITAL（EPA+DHA）</div>
+        <div class="bar-track"><div class="bar-fill bf-teal" style="width:19%;">3.9%</div></div>
+        <div class="bar-note">vs 対照4.3%</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">STRENGTH（EPA+DHA）</div>
+        <div class="bar-track"><div class="bar-fill bf-gray" style="width:45%;">12.0%</div></div>
+        <div class="bar-note">vs 対照12.2%（差なし）</div>
+      </div>
+    </div>
+
+    <div class="simple-box">
+      <div class="label">「EPA単独 vs EPA+DHA」以外の違いも大きい</div>
+      試験の結果の違いは「EPA か DHA+EPA か」だけでなく、<strong>①対象患者のリスク（一次予防 vs 二次予防）、②用量（1g vs 4g）、③プラセボの種類（ミネラルオイル・オリーブ油・トウモロコシ油）、④製剤形態（エチルエステル・遊離脂肪酸・カルボン酸型）</strong>の違いが複合的に影響します。1つの試験だけで「オメガ3は効く/効かない」と結論づけるのは早計です。
+    </div>
+  </div>
+</div>
+
+<!-- ===== CARD 5: ミネラルオイル論争と心房細動 ===== -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">⚠️</span>
+      <span class="card-title">REDUCE-IT の「ミネラルオイル論争」と心房細動リスク</span>
+      <span class="topic-badge badge-red">科学的議論</span>
+    </div>
+    <p class="body-text">REDUCE-IT の結果は非常に印象的ですが、<strong>科学者の間でいまも活発に議論されています</strong>。特に2つの点が焦点になっています。</p>
+
+    <div class="grid-2">
+      <div class="grid-box gb-orange">
+        <div class="gb-title">⚗️ 論点①：ミネラルオイルプラセボ問題</div>
+        <div class="gb-text">
+          REDUCE-IT のプラセボは「ミネラルオイル（鉱物油）」でした。これがなぜ問題になるかというと、ミネラルオイルは「完全に不活性」ではなく、<strong>LDL-コレステロール・CRP（炎症マーカー）・hsCRP を上昇させる可能性</strong>があるという報告があります。<br><br>
+          つまり「EPA が良かったのか」ではなく「プラセボ群に有害な副作用があって見かけ上 EPA が有利に見えた」のではないか、という批判があります。<br><br>
+          REDUCE-IT の研究者たちはこの批判に反論していますが、完全な決着はついていません。
+        </div>
+      </div>
+      <div class="grid-box gb-red">
+        <div class="gb-title">💓 論点②：心房細動リスクの増加</div>
+        <div class="gb-text">
+          REDUCE-IT 試験で EPA 群は<strong>心房細動（AF）の発生が対照群より多く</strong>報告されました（EPA群 5.3% vs プラセボ群 3.9%、HR=1.31、95%CI: 1.04–1.63、p=0.02）。<br><br>
+          高用量オメガ3（特に ≥1g/日）と AF リスクの関係は複数の試験で確認されており、高用量を長期使用する場合には<strong>AF リスクを医師と相談して評価する</strong>ことが重要です。<br><br>
+          VITAL 試験（1g/日）では AF の有意な増加は観察されませんでした。
+        </div>
+      </div>
+    </div>
+
+    <div class="navy-box">
+      <div class="label">RESPECT-EPA（日本、2024年）が示したこと</div>
+      ミネラルオイル論争を避けるため、日本では RESPECT-EPA 試験（Circulation 2024, DOI: 10.1161/CIRCULATIONAHA.123.065520）が実施されました。安定冠動脈疾患を持ち EPA/AA 比が低い（&lt;0.4）日本人 3,884 名を対象に EPA 1.8g/日を投与しましたが、<strong>主要エンドポイントは統計的有意差に達しませんでした（HR=0.785、95%CI: 0.616–1.001、p=0.051）</strong>。数値上は改善傾向（EPA群10.9% vs 対照群14.9%）がありましたが、検出力不足（サンプルサイズが小さかった）という限界もあります。また EPA 群でも消化器症状と AF が対照群より多く観察されました。<br><br>
+      この結果は REDUCE-IT の効果を否定するものではありませんが、「EPA で確実に心血管イベントが減る」という確証をさらに複雑にしています。現時点では専門家の間で評価が分かれた状態です。
+    </div>
+
+    <div class="simple-box">
+      <div class="label">現時点での整理（2026年時点）</div>
+      <strong>高リスク患者（高中性脂肪 + 心血管疾患/糖尿病既往）：</strong> EPA 製剤（処方薬）の使用を循環器内科・かかりつけ医と相談する価値がある。<br>
+      <strong>一次予防（健康な一般成人）：</strong> 高用量サプリで心血管イベントが大幅に減るという確実な証拠はない（VITAL の 1g/日でも MI のみ有意）。<br>
+      <strong>いずれの場合も：</strong> 高用量（4g/日）の長期使用は AF リスクを念頭に、必ず医師と相談して行うべき。
+    </div>
+  </div>
+</div>
+
+<!-- ===== CARD 6: 食事からの摂取 ===== -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">🐟</span>
+      <span class="card-title">食事から取るには ── 魚の種類別 EPA・DHA 含有量</span>
+      <span class="topic-badge badge-green">食事・実践</span>
+    </div>
+    <p class="body-text">EPA・DHA を最も効率よく摂れるのは<strong>青魚（脂の乗った魚）</strong>です。日本食品標準成分表 2020 年版（文部科学省）の値を参考に、代表的な魚の含有量をまとめました。値は生の可食部 100g あたりの概算です。</p>
+
+    <div class="bar-chart">
+      <p class="body-text" style="font-weight:600; margin-bottom:12px;">▶ 生の可食部 100g あたり EPA + DHA 合計量（概算）</p>
+      <div class="bar-row">
+        <div class="bar-label">クロマグロ 脂身（トロ）</div>
+        <div class="bar-track"><div class="bar-fill bf-navy" style="width:100%;">EPA 1,400 + DHA 3,200 mg ≒ 4,600 mg</div></div>
+        <div class="bar-note">突出して高い</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">マイワシ（生）</div>
+        <div class="bar-track"><div class="bar-fill bf-blue" style="width:55%;">EPA 780 + DHA 1,280 mg ≒ 2,060 mg</div></div>
+        <div class="bar-note">コスパ◎</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">マサバ（生）</div>
+        <div class="bar-track"><div class="bar-fill bf-blue" style="width:52%;">EPA 690 + DHA 1,780 mg ≒ 2,470 mg</div></div>
+        <div class="bar-note">DHA 多め</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">サンマ（生）</div>
+        <div class="bar-track"><div class="bar-fill bf-teal" style="width:48%;">EPA 890 + DHA 1,700 mg ≒ 2,590 mg</div></div>
+        <div class="bar-note">秋が旬・最高峰</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">白鮭（シロサケ・生）</div>
+        <div class="bar-track"><div class="bar-fill bf-teal" style="width:36%;">EPA 492 + DHA 820 mg ≒ 1,312 mg</div></div>
+        <div class="bar-note">EPA もそこそこ</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">マアジ（生）</div>
+        <div class="bar-track"><div class="bar-fill bf-green" style="width:24%;">EPA 300 + DHA 570 mg ≒ 870 mg</div></div>
+        <div class="bar-note">手軽に食べやすい</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">ツナ缶（油漬け・ライト）</div>
+        <div class="bar-track"><div class="bar-fill bf-gray" style="width:14%;">EPA 75 + DHA 200 mg ≒ 275 mg</div></div>
+        <div class="bar-note">加工で減少</div>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <div class="label">推奨量の目安（AHA・WHO より）</div>
+      <strong>一般的な健康維持：</strong> EPA+DHA 合計 500mg/日（週 2 回の魚料理に相当）─ AHA「週 2 回の油脂の多い魚」推奨<br>
+      <strong>心疾患のある方：</strong> EPA+DHA 1g/日 ─ AHA 推奨<br>
+      <strong>高中性脂肪血症（TG ≥ 500 mg/dL）：</strong> EPA および/または DHA 2〜4g/日（処方薬・サプリ）─ AHA 2019年科学勧告<br>
+      <strong>妊娠・授乳中：</strong> DHA 200mg/日以上 ─ WHO/ISSFAL/EFSA 推奨<br><br>
+      ※いずれも「食事から取ることを優先し、不足する場合にサプリで補う」のが一般的なアドバイスです。
+    </div>
+
+    <div class="orange-box">
+      <div class="label">調理方法で EPA・DHA の量は変わる</div>
+      EPA・DHA は酸化されやすい（不安定な）脂肪酸です。<strong>焼く・揚げる・長時間の加熱</strong>で酸化・分解が進みます。一方、<strong>刺身・〆める（酢締め）・汁ごと食べる（味噌汁・鍋）・缶詰</strong>は比較的損失が少ないとされています（加工・加熱の方法によっては缶詰でも相当量保持されます）。ただし精密な数値は調理条件によって大きく異なります。
+    </div>
+
+    <div class="simple-box">
+      <div class="label">植物性オメガ3（ALA）との違い</div>
+      えごま油・亜麻仁油に含まれる<strong>α-リノレン酸（ALA）</strong>もオメガ3脂肪酸ですが、体内で EPA・DHA に変換される率は非常に低く（EPA への変換 ≦ 10%、DHA への変換 ≦ 0.5%）、魚油の代替にはなりません（Plourde M, Cunnane SC. Appl Physiol Nutr Metab 2007;32(4):619-634）。魚が食べられない場合は、藻類由来の EPA・DHA サプリが選択肢になります（DHA を作るのは本来「藻類」で、魚は藻類を食べることで EPA・DHA を蓄積しています）。
+    </div>
+  </div>
+</div>
+
+<!-- ===== CARD 7: 精密栄養学の視点 ===== -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">🎯</span>
+      <span class="card-title">精密栄養学の視点 ── 「誰に・何のために」で変わる選択</span>
+      <span class="topic-badge badge-purple">精密栄養学</span>
+    </div>
+    <p class="body-text">「EPA と DHA はどちらが良いですか？」という問いには「目的と状況による」としか答えられません。精密栄養学（個人差に合わせた栄養）の観点から、代表的な状況別に考え方を整理します。</p>
+
+    <div class="persona-grid">
+      <div class="persona-card">
+        <div class="persona-icon">🏃</div>
+        <div class="persona-who">健康な成人（一般）</div>
+        <div class="persona-tag tag-both">EPA+DHA 両方</div>
+        <div class="persona-rec">週2回以上の青魚摂取を心がける。サプリより食事優先。EPA:DHA の比率より<strong>総量の確保</strong>を重視。</div>
+      </div>
+      <div class="persona-card">
+        <div class="persona-icon">❤️‍🩹</div>
+        <div class="persona-who">心血管疾患あり・高中性脂肪</div>
+        <div class="persona-tag tag-epa">EPA 重視の可能性</div>
+        <div class="persona-rec">REDUCE-IT・JELIS のデータから EPA 製剤（処方薬）が選択肢。ただし AF リスクと医師との相談必須。</div>
+      </div>
+      <div class="persona-card">
+        <div class="persona-icon">🤰</div>
+        <div class="persona-who">妊娠中・授乳中</div>
+        <div class="persona-tag tag-dha">DHA 重視</div>
+        <div class="persona-rec">DHA 200mg/日以上が WHO 推奨。魚摂取が難しい場合は藻類由来 DHA サプリを検討。過剰摂取は避ける。産科医・管理栄養士と相談を。</div>
+      </div>
+      <div class="persona-card">
+        <div class="persona-icon">👴</div>
+        <div class="persona-who">高齢者・認知機能が気になる</div>
+        <div class="persona-tag tag-dha">DHA 重視（限定的根拠）</div>
+        <div class="persona-rec">DHA は脳組織の重要成分だが、サプリで「認知症を予防する」という強い根拠は現時点では不十分。食事中心のアプローチが現実的。</div>
+      </div>
+      <div class="persona-card">
+        <div class="persona-icon">🌿</div>
+        <div class="persona-who">植物性食事中心の方</div>
+        <div class="persona-tag tag-both">藻類由来 EPA+DHA</div>
+        <div class="persona-rec">魚が食べられない場合、えごま油・亜麻仁油の ALA だけでは EPA・DHA の補完は困難。藻類由来 DHA（・EPA）サプリが代替選択肢。</div>
+      </div>
+      <div class="persona-card">
+        <div class="persona-icon">🔬</div>
+        <div class="persona-who">血液中 EPA/AA 比が低い方</div>
+        <div class="persona-tag tag-epa">EPA 優先の可能性</div>
+        <div class="persona-rec">RESPECT-EPA は EPA/AA 比（血液検査で測定可）が低い患者を対象。この指標が精密栄養学的な EPA 補充のバイオマーカーとして研究されています。</div>
+      </div>
+    </div>
+
+    <div class="purple-box">
+      <div class="label">EPA/AA 比（アラキドン酸比）とは？</div>
+      EPA（抗炎症系）とアラキドン酸（AA＝炎症促進系のオメガ6脂肪酸）の血液中の比率（EPA/AA 比）は、炎症の「バランス」を示す指標として日本でも研究されています。JELIS・RESPECT-EPA ではこの比率が低い人ほど EPA 介入の効果が大きい可能性が示唆されています。食の欧米化で魚の摂取が減ると EPA/AA 比が下がる傾向があります。ただし EPA/AA 比の測定はまだ「精密栄養学的なスクリーニング指標」として確立した臨床ツールではなく、研究段階です。
+    </div>
+  </div>
+</div>
+
+<!-- ===== CARD 8: まとめ ===== -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">📝</span>
+      <span class="card-title">今日のまとめ</span>
+      <span class="topic-badge badge-gray">整理</span>
+    </div>
+
+    <ul class="step-list">
+      <li>
+        <span class="step-num">1</span>
+        <span class="step-text"><strong>EPA（C20:5）と DHA（C22:6）は同じオメガ3でも分子の長さと二重結合数が違う</strong>ため、体内での役割が異なる。EPA は体内で DHA に変換できるが、逆変換はほとんどできない。</span>
+      </li>
+      <li>
+        <span class="step-num">2</span>
+        <span class="step-text"><strong>EPA の最も強いエビデンス</strong>は心血管イベント減少（REDUCE-IT: HR=0.75、JELIS: HR=0.81）と中性脂肪低下（AHA 2019）。ただし REDUCE-IT はミネラルオイルプラセボ問題・AF リスク増加という批判があり、日本の RESPECT-EPA（2024年）も統計的有意差に届かなかった（HR=0.785, p=0.051）。</span>
+      </li>
+      <li>
+        <span class="step-num">3</span>
+        <span class="step-text"><strong>DHA の最も強い役割</strong>は脳・網膜の構造成分であること（脳灰白質の脂肪酸の 25〜35%、網膜視細胞外節の 50〜70%）。妊娠中の DHA 補給は早産リスク低下と関連（Cochrane 2018, n=19,927, RR=0.84）するが、DHA サプリで認知機能が向上するという強い証拠は一般成人ではまだ不十分。</span>
+      </li>
+      <li>
+        <span class="step-num">4</span>
+        <span class="step-text"><strong>EPA+DHA 混合の高用量（4g/日）試験</strong>では STRENGTH（2020, n=13,078）が無効で早期中止。一般成人への一次予防目的での高用量補給を支持する証拠は現時点で弱い。</span>
+      </li>
+      <li>
+        <span class="step-num">5</span>
+        <span class="step-text"><strong>食事から摂ることが基本</strong>。青魚（サンマ・サバ・イワシ・サーモン）を週 2 回以上食べることで 500mg/日以上の EPA+DHA が摂取でき、これが一般的な健康維持の目標水準。植物性オメガ3（えごま油の ALA）は EPA・DHA の代替にならない。</span>
+      </li>
+      <li>
+        <span class="step-num">6</span>
+        <span class="step-text"><strong>精密栄養学の観点では</strong>、高用量 EPA 製剤（処方薬）は心血管高リスク患者（高中性脂肪・低 EPA/AA 比）に対して専門医と相談した上で検討する価値がある。妊娠中は DHA 優先、認知機能維持は食事中心で。</span>
+      </li>
+    </ul>
+
+    <div class="simple-box">
+      <div class="label">今後の研究で明らかになること</div>
+      ① EPA 単独高用量が心血管リスクを本当に下げるかを確認するための、ミネラルオイルを使わないプラセボ対照 RCT（より大規模）<br>
+      ② DHA 補給と認知症予防の長期的 RCT（高リスク集団での試験）<br>
+      ③ EPA/AA 比などのバイオマーカーを使った「どの人に EPA が最も効くか」の精密栄養学的研究<br>
+      ④ EPA・DHA の腸内細菌叢への影響（SPM：専門的プロレゾルビングメディエーター）と炎症解消のメカニズム研究
+    </div>
+
+    <div class="source-text">
+      <strong>主な参照文献（略）:</strong><br>
+      1. Bhatt DL et al. REDUCE-IT. <em>NEJM</em> 2019;380:11-22. PMID: 30415628. DOI: <a href="https://doi.org/10.1056/NEJMoa1812792" target="_blank">10.1056/NEJMoa1812792</a><br>
+      2. Yokoyama M et al. JELIS. <em>Lancet</em> 2007;369:1090-1098. PMID: 17398308. DOI: <a href="https://doi.org/10.1016/S0140-6736(06)68777-9" target="_blank">10.1016/S0140-6736(06)68777-9</a><br>
+      3. Ogawa M et al. RESPECT-EPA. <em>Circulation</em> 2024. DOI: <a href="https://doi.org/10.1161/CIRCULATIONAHA.123.065520" target="_blank">10.1161/CIRCULATIONAHA.123.065520</a><br>
+      4. Manson JE et al. VITAL. <em>NEJM</em> 2019;380:23-32. PMID: 30415629. DOI: <a href="https://doi.org/10.1056/NEJMoa1811403" target="_blank">10.1056/NEJMoa1811403</a><br>
+      5. Nicholls SJ et al. STRENGTH. <em>JAMA</em> 2020;324:2268-2280. PMID: 33190147. DOI: <a href="https://doi.org/10.1001/jama.2020.22258" target="_blank">10.1001/jama.2020.22258</a><br>
+      6. Middleton P et al. Omega-3 in pregnancy. <em>Cochrane Database Syst Rev</em> 2018;(11):CD003402. DOI: <a href="https://doi.org/10.1002/14651858.CD003402.pub3" target="_blank">10.1002/14651858.CD003402.pub3</a><br>
+      7. Yurko-Mauro K et al. MIDAS. <em>Alzheimer's Dementia</em> 2010;6:456-464. PMID: 20434951. DOI: <a href="https://doi.org/10.1016/j.jalz.2010.01.013" target="_blank">10.1016/j.jalz.2010.01.013</a><br>
+      8. Skulas-Ray AC et al. AHA Science Advisory on omega-3. <em>Circulation</em> 2019;140:e673-e691. DOI: <a href="https://doi.org/10.1161/CIR.0000000000000709" target="_blank">10.1161/CIR.0000000000000709</a><br>
+      9. 文部科学省 日本食品標準成分表 2020年版（魚介類 EPA・DHA 含有量）
+    </div>
+  </div>
+</div>
+
+<!-- ===== DISCLAIMER ===== -->
+<div class="disclaimer">
+  <div class="dis-title">⚠️ 免責・注意事項</div>
+  本記事は一般的な健康情報の提供を目的としており、医療アドバイスではありません。EPA・DHA の効果・必要量・リスクは、個人の体質・年齢・基礎疾患（特に心臓病・不整脈）・服薬（抗凝固薬など）・食生活によって大きく異なります。本記事で紹介した臨床試験は主に高リスクの患者集団を対象としており、健康な一般成人への適用には注意が必要です。EPA 製剤（処方薬）の使用・高用量サプリの長期服用を検討する場合は、必ずかかりつけ医・循環器内科医・管理栄養士・薬剤師に相談してください。特に抗凝固薬（ワルファリン・DOACなど）を服用中の方は出血リスクが変わる可能性があります。
+</div>
+
+<!-- ===== SOURCES ===== -->
+<div class="disclaimer" style="border-color: #a0b8d8;">
+  <div class="dis-title">📚 主な参考文献・出典</div>
+  ① Bhatt DL et al. 「Cardiovascular Risk Reduction with Icosapentaenoic Acid for Hypertriglyceridemia (REDUCE-IT)」 <em>N Engl J Med</em> 2019;380:11-22. PMID: 30415628. <a href="https://doi.org/10.1056/NEJMoa1812792" target="_blank">DOI: 10.1056/NEJMoa1812792</a>（RCT・n=8,179・2019年）<br><br>
+  ② Yokoyama M et al. 「Effects of eicosapentaenoic acid on major coronary events in hypercholesterolaemic patients (JELIS)」 <em>Lancet</em> 2007;369:1090-1098. PMID: 17398308. <a href="https://doi.org/10.1016/S0140-6736(06)68777-9" target="_blank">DOI: 10.1016/S0140-6736(06)68777-9</a>（オープンラベルRCT・n=18,645・日本・2007年）<br><br>
+  ③ RESPECT-EPA Investigators. 「Randomized Trial for Evaluation in Secondary Prevention Efficacy of Combination Therapy-Statin and EPA (RESPECT-EPA)」 <em>Circulation</em> 2024. <a href="https://doi.org/10.1161/CIRCULATIONAHA.123.065520" target="_blank">DOI: 10.1161/CIRCULATIONAHA.123.065520</a>（RCT・n=3,884・日本・2024年）<br><br>
+  ④ Manson JE et al. 「Marine n-3 Fatty Acids and Prevention of CVD and Cancer (VITAL)」 <em>N Engl J Med</em> 2019;380:23-32. PMID: 30415629. <a href="https://doi.org/10.1056/NEJMoa1811403" target="_blank">DOI: 10.1056/NEJMoa1811403</a>（RCT・n=25,871・2019年）<br><br>
+  ⑤ Nicholls SJ et al. 「Effect of High-Dose Omega-3 Fatty Acids vs Corn Oil on MACE (STRENGTH)」 <em>JAMA</em> 2020;324:2268-2280. PMID: 33190147. <a href="https://doi.org/10.1001/jama.2020.22258" target="_blank">DOI: 10.1001/jama.2020.22258</a>（RCT・n=13,078・2020年・早期中止）<br><br>
+  ⑥ Middleton P et al. 「Omega-3 fatty acid addition during pregnancy」 <em>Cochrane Database Syst Rev</em> 2018;(11):CD003402. <a href="https://doi.org/10.1002/14651858.CD003402.pub3" target="_blank">DOI: 10.1002/14651858.CD003402.pub3</a>（コクランレビュー・70試験・n=19,927・2018年）<br><br>
+  ⑦ Yurko-Mauro K et al. 「Beneficial effects of DHA on cognition in age-related cognitive decline (MIDAS)」 <em>Alzheimers Dement</em> 2010;6:456-464. PMID: 20434951. <a href="https://doi.org/10.1016/j.jalz.2010.01.013" target="_blank">DOI: 10.1016/j.jalz.2010.01.013</a>（RCT・n=485・2010年）<br><br>
+  ⑧ Skulas-Ray AC et al. 「Omega-3 Fatty Acids for the Management of Hypertriglyceridemia: AHA Science Advisory」 <em>Circulation</em> 2019;140:e673-e691. <a href="https://doi.org/10.1161/CIR.0000000000000709" target="_blank">DOI: 10.1161/CIR.0000000000000709</a>（AHA科学勧告・2019年）<br><br>
+  ⑨ 文部科学省「日本食品標準成分表 2020 年版」魚介類 ─ EPA・DHA 含有量データ。<a href="https://www.mext.go.jp/a_menu/syokuhinseibun/mext_01110.html" target="_blank">文部科学省ウェブサイト</a>
+</div>
+
+</body>
+</html>
