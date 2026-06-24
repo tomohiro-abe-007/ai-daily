@@ -28,12 +28,12 @@
 - 2026-06-22: Pew Research AI世論調査（2026年6月17日公開）・米国成人の49%がAIチャットボット利用（2年前は約33%）・4人に1人が毎日使用・71%が「個人情報が危なくなる」・約67%が「AIは速すぎる」・約67%が「政府を信頼できない」・ChatGPT利用率42%・Gemini 24%・Copilot 17%・Meta AI 14%
 - 2026-06-23: Noam Shazeer（ノーム・シャジーア）移籍（2026年6月17〜18日報道・CNBC/9to5Google）・「Attention Is All You Need」論文（2017年）共著者・GoogleのGemini VP of Engineering→OpenAIへ・AI業界で最大規模の人材移動のひとつ・Transformer構造を生み出した研究者
 - 2026-06-24: EU Frontier AI Grand Challenge優勝チーム決定（2026年6月発表・欧州委員会）・EUROPA Consortium（Domyn社主導）が受賞・EU公用語24言語対応オープンソース大型AI（400億パラメータ以上）を開発・EuroHPCスーパーコンピュータ最大2.5%を1年間提供・ソブリンAIの動き
+- 2026-06-25: OpenAI GPT-5.5-Cyber と Patch the Planet（2026年6月22日発表）・オープンソースの脆弱性を自動発見・修正・Trail of Bits/HackerOne提携・CyberGymスコア85.6%・cURL/Python/Goなど30以上のプロジェクトが参加・AIと人間の協働レビュー体制
 
 ## 未解説の候補トピック（今後の参考）
 
 - xAI Grok 4.3 Beta（2026年4月）：動画・スライド・音声API対応のマルチモーダル推論
 - Microsoft Copilot Enterpriseセキュリティ脆弱性（CVE-2026-42824）：悪意あるリンク1クリックでデータ流出・2FAコード・メール・会議情報が窃取可能
-- OpenAI GPT-5.5-Cyber と Patch the Planet（2026年6月22日発表）：オープンソースの脆弱性を自動的に発見・修正するAI・Trail of Bits/HackerOne提携・CyberGymスコア85.6%・cURL/Python/Goなど30以上のプロジェクトが参加
 - Gemini 3.5 Pro（Google I/O 2026で予告・2026年6月GA予定）：2Mトークンコンテキスト・Deep Think推論・詳細は公式で要確認
 - Google Gemini 3.5 Flash詳報：市場シェア・Intelligence Index・284トークン/秒の生成速度
 - AI×医療（創薬・診断）最新動向：製薬大手とAI企業の提携が相次ぐ
