@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-06-25</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 30px 20px 60px;
+    max-width: 800px;
+    margin: 0 auto;
+    color: #2d1f0e;
+    line-height: 1.75;
+  }
+
+  /* --- Header --- */
+  .header {
+    background: linear-gradient(135deg, #7a4f1e 0%, #4a2e08 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 28px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .date { font-size: 0.82rem; opacity: 0.7; margin-bottom: 8px; letter-spacing: 0.05em; }
+  .header h1 { font-size: 1.65rem; line-height: 1.45; margin-bottom: 12px; }
+  .header .subtitle { font-size: 0.93rem; opacity: 0.85; line-height: 1.7; }
+
+  /* --- Card --- */
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 26px 28px;
+    margin-bottom: 22px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.08);
+    border-left: 5px solid #7a4f1e;
+  }
+  .card.red-border { border-left-color: #c0392b; }
+  .card h2 {
+    font-size: 1.18rem;
+    color: #7a4f1e;
+    margin-bottom: 18px;
+    padding-bottom: 10px;
+    border-bottom: 2px dashed #d4b898;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card.red-border h2 { color: #c0392b; }
+
+  /* --- Intro Box --- */
+  .intro-box {
+    background: #fef9f0;
+    border: 2px dashed #c49a6c;
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-bottom: 22px;
+    font-size: 0.97rem;
+    line-height: 1.85;
+  }
+
+  /* --- Compare Grid --- */
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 14px 0;
+  }
+  .cmp-card {
+    border-radius: 10px;
+    padding: 18px 16px;
+    text-align: center;
+  }
+  .cmp-card.blue {
+    background: linear-gradient(135deg, #e8f4fd 0%, #c5dff5 100%);
+    border: 2px solid #4a90d9;
+  }
+  .cmp-card.orange {
+    background: linear-gradient(135deg, #fdf3e8 0%, #f5dfc5 100%);
+    border: 2px solid #d9944a;
+  }
+  .cmp-card .cname {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .cmp-card.blue .cname { color: #2a5fa6; }
+  .cmp-card.orange .cname { color: #9b5c14; }
+  .cmp-card .csub { font-size: 0.78rem; opacity: 0.8; margin-bottom: 12px; }
+  .cmp-card .ccalc { font-size: 0.88rem; line-height: 1.75; }
+
+  /* --- Big Number --- */
+  .big-num {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #7a4f1e;
+    text-align: center;
+    margin: 6px 0;
+  }
+  .big-num.blue { color: #2a5fa6; }
+  .big-num.red { color: #c0392b; }
+  .big-num-label {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #888;
+    margin-bottom: 12px;
+  }
+
+  /* --- Table --- */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.88rem;
+  }
+  th {
+    background: #7a4f1e;
+    color: white;
+    padding: 9px 12px;
+    text-align: left;
+  }
+  td {
+    padding: 9px 12px;
+    border-bottom: 1px solid #e0d5c8;
+    vertical-align: middle;
+  }
+  tr:nth-child(even) td { background: #fdf5ec; }
+  .rate {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #7a4f1e;
+  }
+  .rate.low { color: #c0392b; }
+
+  /* --- Alert / Warn / Info --- */
+  .alert {
+    background: #fff8e1;
+    border: 2px solid #f0a500;
+    border-radius: 8px;
+    padding: 13px 17px;
+    margin: 14px 0;
+    font-size: 0.88rem;
+    line-height: 1.7;
+  }
+  .alert-title { font-weight: 700; color: #8a6200; margin-bottom: 6px; }
+  .warn {
+    background: #fde8e8;
+    border: 2px solid #c0392b;
+    border-radius: 8px;
+    padding: 13px 17px;
+    margin: 14px 0;
+    font-size: 0.88rem;
+    line-height: 1.7;
+  }
+  .warn-title { font-weight: 700; color: #9b1111; margin-bottom: 6px; }
+  .info {
+    background: #e8f4fd;
+    border: 2px solid #4a90d9;
+    border-radius: 8px;
+    padding: 13px 17px;
+    margin: 14px 0;
+    font-size: 0.88rem;
+    line-height: 1.7;
+  }
+  .info-title { font-weight: 700; color: #1a4f82; margin-bottom: 6px; }
+
+  /* --- Decision boxes --- */
+  .decision {
+    border: 2px solid #7a4f1e;
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin: 8px 0;
+  }
+  .decision .q {
+    font-weight: 700;
+    color: #7a4f1e;
+    margin-bottom: 10px;
+  }
+  .ans-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .ans {
+    flex: 1;
+    min-width: 130px;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 0.86rem;
+    text-align: center;
+    line-height: 1.5;
+  }
+  .ans.yes { background: #fdf3e8; border: 1.5px solid #d9944a; }
+  .ans.no { background: #e8f4fd; border: 1.5px solid #4a90d9; }
+  .arrow {
+    text-align: center;
+    font-size: 1.4rem;
+    color: #7a4f1e;
+    margin: 2px 0;
+    line-height: 1;
+  }
+
+  /* --- Flow Steps --- */
+  .flow-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 12px 14px;
+    background: #fff;
+    border-radius: 8px;
+    border: 1.5px solid #d4b898;
+    margin-bottom: 6px;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  .flow-num {
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
+    background: #7a4f1e;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.88rem;
+    font-weight: 700;
+    margin-top: 1px;
+  }
+
+  /* --- Summary Schedule Table --- */
+  .schedule {
+    margin: 14px 0;
+  }
+  .sch-row {
+    display: flex;
+    align-items: stretch;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1.5px solid #d4b898;
+    font-size: 0.88rem;
+  }
+  .sch-label {
+    background: #7a4f1e;
+    color: white;
+    padding: 10px 14px;
+    min-width: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.4;
+  }
+  .sch-content {
+    padding: 10px 14px;
+    background: #fff;
+    flex: 1;
+    line-height: 1.6;
+  }
+  .sch-row.warn-row .sch-label { background: #c0392b; }
+  .sch-row.warn-row .sch-content { background: #fff5f5; }
+
+  /* --- Footer --- */
+  .footer {
+    background: #e8dfd0;
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-top: 22px;
+    font-size: 0.8rem;
+    color: #666;
+    line-height: 1.8;
+  }
+  .footer a { color: #7a4f1e; word-break: break-all; }
+  .sep { border: none; border-top: 2px dashed #d4b898; margin: 16px 0; }
+
+  /* --- Utils --- */
+  p { margin-bottom: 10px; }
+  ul, ol { padding-left: 22px; margin: 10px 0; }
+  li { margin-bottom: 6px; }
+  .hl { background: linear-gradient(transparent 58%, #ffe082 58%); font-weight: 600; }
+  .src { font-size: 0.78rem; color: #888; margin-top: 10px; }
+  .src a { color: #7a4f1e; word-break: break-all; }
+  .tag {
+    display: inline-block;
+    padding: 1px 8px;
+    border-radius: 10px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    vertical-align: middle;
+    margin: 1px;
+  }
+  .tag.brown { background: #7a4f1e; color: white; }
+  .tag.blue  { background: #2a5fa6; color: white; }
+  .tag.red   { background: #c0392b; color: white; }
+  .tag.green { background: #27ae60; color: white; }
+
+  @media (max-width: 480px) {
+    .compare-grid { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.35rem; }
+    .big-num { font-size: 1.9rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<div class="header">
+  <div class="date">1人法人スタート 最新トピック &nbsp;/&nbsp; 2026-06-25</div>
+  <h1>🧾 消費税の申告実務<br>簡易課税 vs 本則課税の選択・みなし仕入率・納付スケジュール</h1>
+  <div class="subtitle">
+    免税期間が終わったら最初に決める「申告方式」。選び方・届出期限・2割特例終了との関係まで一気に図解！
+  </div>
+</div>
+
+<!-- ===== INTRO ===== -->
+<div class="intro-box">
+  <strong>📌 今日のポイント</strong><br>
+  法人設立後の最初の2年は消費税が免除されることが多いですが（<a href="2026-06-03.html" style="color:#7a4f1e">6/3号参照</a>）、
+  <span class="hl">免税が終わったら「本則課税」か「簡易課税」かを選ばなければなりません。</span>
+  方式の選択や届出書の提出を誤ると、余分に税金を払ったり・後から変更できなくなったりします。<br>
+  また、インボイス制度の「<strong>2割特例</strong>（経過措置）」は <strong>2026年9月30日を含む課税期間</strong> で終了。
+  次の方式を今から検討しておきましょう。
+</div>
+
+<!-- ===== SECTION 1: 2つの方式 ===== -->
+<div class="card">
+  <h2>📊 消費税の2大申告方式</h2>
+
+  <div class="compare-grid">
+    <div class="cmp-card blue">
+      <div class="cname">🔵 本則課税<br><small style="font-weight:400">（一般課税）</small></div>
+      <div class="csub">実際の仕入消費税で計算</div>
+      <div class="ccalc">
+        売上消費税<br>
+        <span style="font-size:1.4rem">−</span><br>
+        <strong>実際の仕入消費税</strong><br>
+        ＝ <strong>納付額</strong>
+      </div>
+    </div>
+    <div class="cmp-card orange">
+      <div class="cname">🟠 簡易課税</div>
+      <div class="csub">みなし仕入率で概算計算</div>
+      <div class="ccalc">
+        売上消費税<br>
+        <span style="font-size:1.4rem">×</span><br>
+        <strong>（1 − みなし仕入率）</strong><br>
+        ＝ <strong>納付額</strong>
+      </div>
+    </div>
+  </div>
+
+  <table>
+    <tr>
+      <th>比較項目</th>
+      <th>🔵 本則課税</th>
+      <th>🟠 簡易課税</th>
+    </tr>
+    <tr>
+      <td>計算のもと</td>
+      <td>実際の仕入・経費の消費税</td>
+      <td>業種別「みなし仕入率」</td>
+    </tr>
+    <tr>
+      <td>有利な場面</td>
+      <td>仕入・設備投資が多い</td>
+      <td>粗利率が高く仕入が少ない</td>
+    </tr>
+    <tr>
+      <td>適用条件</td>
+      <td>全事業者（制限なし）</td>
+      <td>基準期間の課税売上高<br><strong>5,000万円以下</strong></td>
+    </tr>
+    <tr>
+      <td>インボイス保存</td>
+      <td>✅ 必要（控除のため）</td>
+      <td>売上管理だけでOK</td>
+    </tr>
+    <tr>
+      <td>消費税の還付</td>
+      <td>✅ あり（大型設備投資時など）</td>
+      <td>❌ 原則なし</td>
+    </tr>
+    <tr>
+      <td>一度選んだら</td>
+      <td>翌期から変更可</td>
+      <td><strong>2年間は変更できない</strong></td>
+    </tr>
+  </table>
+
+  <div class="alert">
+    <div class="alert-title">📘 「基準期間の課税売上高」とは？</div>
+    法人の場合、<strong>前々事業年度（2年前の決算）</strong> の課税売上高のことです。<br>
+    設立1・2期目は基準期間がないため、課税売上高に関係なく簡易課税を選べます。
+    （売上要件の判定は実質3期目以降から。）
+  </div>
+
+  <div class="src">出典：国税庁「No.6501 納税義務の免除」「No.6505 簡易課税制度」
+  <a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shohi/6505.htm">https://www.nta.go.jp/taxes/shiraberu/taxanswer/shohi/6505.htm</a>（2026年6月現在）</div>
+</div>
+
+<!-- ===== SECTION 2: みなし仕入率 ===== -->
+<div class="card">
+  <h2>🏭 簡易課税 ── 6業種のみなし仕入率（2026年6月現在）</h2>
+
+  <p>「みなし仕入率」が高いほど、引ける消費税が多くなり、<strong>納税額が少なく</strong>なります。</p>
+
+  <table>
+    <tr>
+      <th>事業区分</th>
+      <th>主な業種</th>
+      <th>みなし仕入率</th>
+    </tr>
+    <tr>
+      <td>第1種</td>
+      <td>卸売業</td>
+      <td><span class="rate">90%</span></td>
+    </tr>
+    <tr>
+      <td>第2種</td>
+      <td>小売業、農業・林業・漁業（消費者直販）</td>
+      <td><span class="rate">80%</span></td>
+    </tr>
+    <tr>
+      <td>第3種</td>
+      <td>製造業、建設業、電気・ガス・水道業</td>
+      <td><span class="rate">70%</span></td>
+    </tr>
+    <tr>
+      <td>第4種</td>
+      <td>飲食店業（第1〜3・5・6種以外）</td>
+      <td><span class="rate">60%</span></td>
+    </tr>
+    <tr>
+      <td>第5種</td>
+      <td>サービス業、運輸通信業、金融・保険業</td>
+      <td><span class="rate low">50%</span></td>
+    </tr>
+    <tr>
+      <td>第6種</td>
+      <td>不動産業</td>
+      <td><span class="rate low">40%</span></td>
+    </tr>
+  </table>
+
+  <div class="alert">
+    <div class="alert-title">💡 計算例：サービス業（第5種）・課税売上高1,000万円の場合</div>
+    <p>
+      売上消費税：1,000万円 × 10% ＝ <strong>100万円</strong><br>
+      みなし仕入税額：100万円 × 50%（みなし仕入率） ＝ <strong>50万円</strong><br>
+      ➡ 納付消費税：100万円 − 50万円 ＝ <strong style="color:#c0392b">50万円</strong>
+    </p>
+    <p>もし<strong>実際の仕入消費税が30万円</strong>しかないなら → 簡易課税の方が<strong>20万円おトク</strong><br>
+    もし<strong>実際の仕入消費税が60万円</strong>あるなら → 本則課税の方が<strong>10万円おトク</strong></p>
+  </div>
+
+  <div class="src">出典：国税庁「No.6505 簡易課税制度」消費税法第37条・消費税法施行令第57条
+  <a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shohi/6505.htm">https://www.nta.go.jp/taxes/shiraberu/taxanswer/shohi/6505.htm</a>（2026年6月現在）</div>
+</div>
+
+<!-- ===== SECTION 3: 判断フロー ===== -->
+<div class="card">
+  <h2>🤔 どちらが有利？ 3ステップ判断フロー</h2>
+
+  <div class="decision">
+    <div class="q">Q1. 課税売上高（2年前の決算）は 5,000万円を超えていますか？</div>
+    <div class="ans-row">
+      <div class="ans yes">YES<br>→ 選択肢なし<br><strong>🔵 本則課税</strong> のみ</div>
+      <div class="ans no">NO → 次へ ↓</div>
+    </div>
+  </div>
+  <div class="arrow">↓</div>
+  <div class="decision">
+    <div class="q">Q2. 今期・来期に大型の設備投資（PC・車・機械・内装など）を予定していますか？</div>
+    <div class="ans-row">
+      <div class="ans yes">YES<br>→ 消費税が還付される可能性<br><strong>🔵 本則課税</strong> が有利</div>
+      <div class="ans no">NO → 次へ ↓</div>
+    </div>
+  </div>
+  <div class="arrow">↓</div>
+  <div class="decision">
+    <div class="q">Q3. 「実際の仕入消費税 ÷ 売上消費税」 と 「みなし仕入率」を比べると？</div>
+    <div class="ans-row">
+      <div class="ans yes">実際の仕入率 ＞ みなし仕入率<br>（材料費・外注費が多い）<br><strong>🔵 本則課税</strong> が有利</div>
+      <div class="ans no">みなし仕入率 ＞ 実際の仕入率<br>（コンサル・IT・デザインなど）<br><strong>🟠 簡易課税</strong> が有利</div>
+    </div>
+  </div>
+
+  <div class="info" style="margin-top:14px">
+    <div class="info-title">📐 損益分岐点の目安式</div>
+    <strong>実際の仕入消費税 ÷ 売上消費税 ＞ みなし仕入率</strong> → 本則課税が有利<br>
+    <strong>実際の仕入消費税 ÷ 売上消費税 ＜ みなし仕入率</strong> → 簡易課税が有利<br>
+    <span style="font-size:0.82rem">例：サービス業（第5種・みなし50%）で実際の仕入率が30%しかない → 簡易課税が有利。70%もある → 本則課税の方が得。</span>
+  </div>
+</div>
+
+<!-- ===== SECTION 4: 届出書の期限 ===== -->
+<div class="card">
+  <h2>📅 届出書の提出期限（期限厳守！）</h2>
+
+  <div class="flow-item">
+    <div class="flow-num">1</div>
+    <div>
+      <strong>原則：課税期間開始日の前日まで</strong>に提出<br>
+      <small style="color:#666">例：3月決算の会社が翌4月〜の事業年度から簡易課税にしたい
+      → 3月31日（開始前日）までに「消費税簡易課税制度選択届出書」を税務署へ提出</small>
+    </div>
+  </div>
+  <div style="text-align:center;color:#7a4f1e;font-size:1.3rem;margin:3px 0">↓</div>
+  <div class="flow-item">
+    <div class="flow-num">2</div>
+    <div>
+      <strong>2年継続適用のルール</strong>あり<br>
+      <small style="color:#666">一度簡易課税を選んだら、最低2年間は本則課税に戻せない。大型投資の予定がある年は慎重に。</small>
+    </div>
+  </div>
+  <div style="text-align:center;color:#7a4f1e;font-size:1.3rem;margin:3px 0">↓</div>
+  <div class="flow-item">
+    <div class="flow-num">3</div>
+    <div>
+      <strong>提出先：本社所在地の所轄税務署</strong>（e-Tax でも可）<br>
+      <small style="color:#666">書式：国税庁ホームページからPDF無料ダウンロード可能</small>
+    </div>
+  </div>
+
+  <div class="warn">
+    <div class="warn-title">❗ 期限を1日でも過ぎると、その課税期間は使えない！</div>
+    届出書の提出忘れはよくある失敗です。<strong>決算2〜3ヶ月前</strong>にチェックリストで確認しましょう。
+    また、簡易課税をやめて本則課税に戻す場合も「不適用届出書」を同様のタイミングで提出する必要があります。
+  </div>
+
+  <div class="alert">
+    <div class="alert-title">⚡ 新設法人の特例</div>
+    設立1・2期目の法人は、<strong>その課税期間（事業年度）中に届出書を提出</strong>すれば、
+    その期から簡易課税を適用できます（通常の「開始前日まで」要件が緩和）。
+    <br><small>※設立と同時にインボイス登録する場合は登録申請と合わせて検討を。詳細は税理士に確認。</small>
+  </div>
+
+  <div class="src">出典：国税庁「No.6505 簡易課税制度」消費税法第37条（2026年6月現在）</div>
+</div>
+
+<!-- ===== SECTION 5: 納付スケジュール ===== -->
+<div class="card">
+  <h2>🗓️ 消費税の年間納付スケジュール</h2>
+
+  <p>消費税は「確定申告（年1回）」＋ 「中間申告（年0〜11回）」のセットです。</p>
+
+  <table>
+    <tr>
+      <th>前期の確定消費税額</th>
+      <th>中間申告の回数</th>
+      <th>中間申告のタイミング</th>
+    </tr>
+    <tr>
+      <td>48万円以下</td>
+      <td><strong>不要</strong></td>
+      <td>確定申告のみ（年1回）</td>
+    </tr>
+    <tr>
+      <td>48万円超〜400万円以下</td>
+      <td>年 <strong>1</strong> 回</td>
+      <td>課税期間開始から6ヶ月経過後</td>
+    </tr>
+    <tr>
+      <td>400万円超〜4,800万円以下</td>
+      <td>年 <strong>3</strong> 回</td>
+      <td>3ヶ月ごと（四半期）</td>
+    </tr>
+    <tr>
+      <td>4,800万円超</td>
+      <td>年 <strong>11</strong> 回</td>
+      <td>毎月</td>
+    </tr>
+  </table>
+
+  <div class="alert">
+    <div class="alert-title">📌 確定申告の期限</div>
+    法人は <strong>課税期間終了日の翌日から2ヶ月以内</strong>。（法人税と同じ。）<br>
+    例：3月決算 → 5月31日まで&nbsp;&nbsp;｜&nbsp;&nbsp;12月決算 → 2月28日まで<br>
+    ※申告期限の延長申請（法人税と同様に消費税も最大1ヶ月延長可能）
+  </div>
+
+  <div class="info">
+    <div class="info-title">💡 設立1〜2期目は中間申告が不要</div>
+    前期の消費税実績がないため、設立1期目・2期目は中間申告の必要がありません。
+    3期目以降から前期実績に応じた中間申告が始まります。
+  </div>
+
+  <div class="src">出典：国税庁「No.6609 中間申告の方法」
+  <a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shohi/6609.htm">https://www.nta.go.jp/taxes/shiraberu/taxanswer/shohi/6609.htm</a>（2026年6月現在）</div>
+</div>
+
+<!-- ===== SECTION 6: 2割特例終了 ===== -->
+<div class="card red-border">
+  <h2>🚨 2割特例の終了（2026年9月30日）と次の選択</h2>
+
+  <p>インボイス制度（2023年10月開始）で免税事業者から課税事業者に転換した事業者向けの経過措置
+  「<strong>2割特例</strong>」が終了します。</p>
+
+  <div class="compare-grid" style="margin-bottom:16px">
+    <div style="background:#fde8e8;border:2px solid #c0392b;border-radius:10px;padding:16px;text-align:center">
+      <div style="font-size:0.82rem;color:#c0392b;font-weight:700;margin-bottom:4px">2割特例（経過措置）</div>
+      <div class="big-num red" style="font-size:2rem">売上消費税の<br>2割だけ納付</div>
+      <div style="font-size:0.78rem;margin-top:6px">（みなし仕入率80%相当）<br>2023年10月〜2026年9月の課税期間</div>
+    </div>
+    <div style="background:#f0f7ff;border:2px solid #4a90d9;border-radius:10px;padding:16px;text-align:center">
+      <div style="font-size:0.82rem;color:#2a5fa6;font-weight:700;margin-bottom:4px">2割特例終了後</div>
+      <div style="font-size:1.05rem;margin:8px 0;line-height:1.7">本則課税<br>または 簡易課税<br>を選択</div>
+      <div style="font-size:0.78rem">届出書が必要になる</div>
+    </div>
+  </div>
+
+  <div class="alert">
+    <div class="alert-title">📌 2割特例が終わる課税期間（法人の例）</div>
+    「令和8年（2026年）9月30日を含む課税期間」が最後の2割特例適用課税期間です。
+    <table style="margin-top:10px">
+      <tr>
+        <th>決算月</th>
+        <th>最後の2割特例対象課税期間</th>
+      </tr>
+      <tr>
+        <td>3月決算</td>
+        <td>令和8年4月〜令和9年3月期</td>
+      </tr>
+      <tr>
+        <td>6月決算</td>
+        <td>令和8年7月〜令和9年6月期</td>
+      </tr>
+      <tr>
+        <td>9月決算</td>
+        <td>令和7年10月〜令和8年9月期</td>
+      </tr>
+      <tr>
+        <td>12月決算</td>
+        <td>令和8年1月〜12月期</td>
+      </tr>
+    </table>
+  </div>
+
+  <p><strong>2割特例 → 簡易課税へ移行したい場合の特例（重要！）</strong></p>
+  <p>通常、簡易課税の届出書は「課税期間開始前日まで」が期限ですが、
+  2割特例を使っていた事業者は
+  <span class="hl">「2割特例を使った課税期間の確定申告期限まで」</span>に届出書を提出すれば、
+  翌課税期間から簡易課税が使えます（令和5年度改正附則 特例措置）。</p>
+
+  <div class="warn">
+    <div class="warn-title">⚠️ 何もしないと本則課税が適用される</div>
+    2割特例が終了した後、届出書を出さなければ自動的に<strong>本則課税</strong>になります。
+    仕入・経費が少ないサービス業・コンサル業などは、簡易課税の方が有利なケースが多いです。
+    「気づいたら本則課税だった」という事態を防ぐため、早めに検討しましょう。
+  </div>
+
+  <div class="src">出典：国税庁「インボイス発行事業者となる小規模事業者に係る税負担の軽減措置（2割特例）」<br>
+  令和5年度改正附則第51条の2（2026年6月現在）<br>
+  <a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shohi/6505.htm">https://www.nta.go.jp/taxes/shiraberu/taxanswer/shohi/6505.htm</a></div>
+</div>
+
+<!-- ===== SUMMARY ===== -->
+<div class="card">
+  <h2>✅ 今日のまとめ</h2>
+  <ol>
+    <li>消費税の申告方式は <strong>本則課税</strong>（実際の仕入で計算）と <strong>簡易課税</strong>（みなし仕入率で計算）の2つ</li>
+    <li>簡易課税は <strong>基準期間の課税売上高5,000万円以下</strong> の事業者のみ選択可能</li>
+    <li>業種によってみなし仕入率は <strong>40〜90%</strong>（卸売90%・サービス50%・不動産40%など）</li>
+    <li>「実際の仕入率 vs みなし仕入率」を比べて有利な方を選ぶ</li>
+    <li>簡易課税の届出書は <span class="hl">課税期間開始前日まで</span>。1日でも遅れると使えない！</li>
+    <li>2割特例は <strong>2026年9月30日を含む課税期間まで</strong> で終了。次の方式を今すぐ検討！</li>
+  </ol>
+
+  <div style="background:#e8f4f8;border-radius:8px;padding:14px 18px;margin-top:14px;font-size:0.9rem;line-height:1.8">
+    <strong>🎯 設立初期にやること</strong><br>
+    ① 消費税の免税期間・免税終了タイミングを確認<br>
+    ② 免税終了が近づいたら「本則課税 vs 簡易課税」を比較計算<br>
+    ③ 決算の2〜3ヶ月前に税理士と相談し、方式を決定<br>
+    ④ 簡易課税を選ぶ場合は <strong>課税期間開始前日までに届出書を提出</strong>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<div class="footer">
+  <strong>📚 主な参考・出典（2026年6月現在）</strong><br>
+  ・国税庁「No.6505 簡易課税制度」：<a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shohi/6505.htm">https://www.nta.go.jp/taxes/shiraberu/taxanswer/shohi/6505.htm</a><br>
+  ・国税庁「No.6609 中間申告の方法」：<a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shohi/6609.htm">https://www.nta.go.jp/taxes/shiraberu/taxanswer/shohi/6609.htm</a><br>
+  ・国税庁「消費税の申告等」：<a href="https://www.nta.go.jp/taxes/shiraberu/shinkoku/qa/08.htm">https://www.nta.go.jp/taxes/shiraberu/shinkoku/qa/08.htm</a><br>
+  ・令和5年度改正附則第51条の2（2割特例・インボイス経過措置）
+  <hr class="sep">
+  <strong>⚠️ 免責事項</strong><br>
+  本記事は一般的な情報提供を目的としており、個別の税務・法務アドバイスではありません。
+  消費税の申告方式の選択・届出書の提出は会社の決算期・業種・事業計画によって最適解が異なります。
+  具体的な判断は <strong>税理士</strong> にご相談ください。
+  税率・制度・金額等は <strong>2026年6月現在</strong> の情報をもとにしており、今後の制度改正により変わる場合があります。
+</div>
+
+</body>
+</html>
