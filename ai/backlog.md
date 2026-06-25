@@ -29,6 +29,7 @@
 - 2026-06-23: Noam Shazeer（ノーム・シャジーア）移籍（2026年6月17〜18日報道・CNBC/9to5Google）・「Attention Is All You Need」論文（2017年）共著者・GoogleのGemini VP of Engineering→OpenAIへ・AI業界で最大規模の人材移動のひとつ・Transformer構造を生み出した研究者
 - 2026-06-24: EU Frontier AI Grand Challenge優勝チーム決定（2026年6月発表・欧州委員会）・EUROPA Consortium（Domyn社主導）が受賞・EU公用語24言語対応オープンソース大型AI（400億パラメータ以上）を開発・EuroHPCスーパーコンピュータ最大2.5%を1年間提供・ソブリンAIの動き
 - 2026-06-25: OpenAI GPT-5.5-Cyber と Patch the Planet（2026年6月22日発表）・オープンソースの脆弱性を自動発見・修正・Trail of Bits/HackerOne提携・CyberGymスコア85.6%・cURL/Python/Goなど30以上のプロジェクトが参加・AIと人間の協働レビュー体制
+- 2026-06-26: モデル蒸留攻撃（adversarial distillation attack）・偽アカウント約25,000件・やり取り約2,880万回・2026年4月22日〜6月5日・アリババQwen AIラボ関連組織への告発・米上院議員・ホワイトハウスへの手紙（2026年6月24日報道）・「これまでで最大規模の蒸留攻撃」・ソフトウェアエンジニアリング・エージェント推論能力が標的・DeepSeek/Moonshot/MiniMax（2026年2月告発）に続く事例
 
 ## 未解説の候補トピック（今後の参考）
 
@@ -41,3 +42,5 @@
 - 日本のAI活用事例：製造業・金融・官公庁での実装事例
 - マルチエージェント（複数AIの協調）：2026年のエージェントフレームワーク比較
 - AI音声・TTS最新事情：各社音声モデルの比較と活用例
+- Getty Images×OpenAI提携（2026年6月24日報道）：ChatGPT検索結果に4億枚以上のライセンス写真を表示
+- John Jumper（AlphaFold 2・2024年ノーベル化学賞共同受賞者）がGoogle DeepMind→Anthropicへ移籍（2026年6月24日報道）
