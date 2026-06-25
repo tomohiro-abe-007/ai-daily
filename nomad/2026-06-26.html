@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>デジタルノマド 最新トピック 2026-06-26</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    color: #2a2a2a;
+  }
+  /* ────── Hero ────── */
+  .hero {
+    background: linear-gradient(135deg, #1e3a6e 0%, #0d2144 100%);
+    color: white;
+    border-radius: 10px;
+    padding: 48px 40px;
+    text-align: center;
+    width: 100%;
+    max-width: 760px;
+    margin-bottom: 28px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .hero .label {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 0.8rem;
+    margin-bottom: 14px;
+    letter-spacing: 0.05em;
+  }
+  .hero .backlog-badge {
+    display: inline-block;
+    background: #c9920a;
+    color: #fff;
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+  .hero h1 { font-size: 1.4rem; margin-bottom: 12px; line-height: 1.55; }
+  .hero .meta { opacity: 0.8; font-size: 0.88rem; line-height: 1.7; }
+  /* ────── Card ────── */
+  .card {
+    background: #fff9f0;
+    border-radius: 8px;
+    padding: 28px 32px;
+    width: 100%;
+    max-width: 760px;
+    margin-bottom: 20px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.08);
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1e3a6e;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px dashed #8aaad4;
+  }
+  .card p { font-size: 0.93rem; line-height: 1.85; margin-bottom: 10px; }
+  .card p:last-child { margin-bottom: 0; }
+  /* ────── Boxes ────── */
+  .highlight-box {
+    background: #e8f0fd;
+    border-left: 4px solid #1e3a6e;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .highlight-box .hlabel { font-size: 0.75rem; color: #1e3a6e; font-weight: 600; margin-bottom: 6px; display: block; }
+  .highlight-box p { font-size: 0.9rem; margin: 0; }
+  .alert-box {
+    background: #fff3cd;
+    border-left: 4px solid #c9920a;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .alert-box .alabel { font-size: 0.75rem; color: #8a6000; font-weight: 600; margin-bottom: 6px; display: block; }
+  .alert-box p { font-size: 0.9rem; margin: 0; }
+  .danger-box {
+    background: #fde8e8;
+    border-left: 4px solid #c0392b;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .danger-box .dlabel { font-size: 0.75rem; color: #c0392b; font-weight: 600; margin-bottom: 6px; display: block; }
+  .danger-box p { font-size: 0.9rem; margin: 0; }
+  .green-box {
+    background: #e8f5ef;
+    border-left: 4px solid #2c6e4e;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .green-box .glabel { font-size: 0.75rem; color: #2c6e4e; font-weight: 600; margin-bottom: 6px; display: block; }
+  .green-box p { font-size: 0.9rem; margin: 0; }
+  .purple-box {
+    background: #f0eafd;
+    border-left: 4px solid #6a3ea0;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .purple-box .plabel { font-size: 0.75rem; color: #6a3ea0; font-weight: 600; margin-bottom: 6px; display: block; }
+  .purple-box p { font-size: 0.9rem; margin: 0; }
+  /* ────── Number cards ────── */
+  .number-row { display: flex; gap: 14px; flex-wrap: wrap; margin: 14px 0; }
+  .number-card {
+    flex: 1; min-width: 130px;
+    background: #1e3a6e; color: white;
+    border-radius: 8px; padding: 18px 14px; text-align: center;
+  }
+  .number-card .num { font-size: 1.4rem; font-weight: 700; margin-bottom: 6px; line-height: 1.2; letter-spacing: 0.02em; }
+  .number-card .desc { font-size: 0.72rem; opacity: 0.9; line-height: 1.5; }
+  .number-card.amber  { background: #c9920a; }
+  .number-card.red    { background: #c0392b; }
+  .number-card.green  { background: #2c6e4e; }
+  .number-card.purple { background: #6a3ea0; }
+  .number-card.gray   { background: #666; }
+  /* ────── Compare cards ────── */
+  .compare-row { display: flex; gap: 14px; flex-wrap: wrap; margin: 14px 0; }
+  .compare-card {
+    flex: 1; min-width: 200px; border-radius: 8px;
+    padding: 16px 16px; font-size: 0.88rem; line-height: 1.7;
+  }
+  .compare-card h3 { font-size: 0.88rem; margin-bottom: 8px; padding-bottom: 6px; border-bottom: 1.5px dashed; }
+  .compare-card.red    { background: #fdeaea; border: 1.5px solid #c0392b; }
+  .compare-card.red h3 { color: #922b2b; border-color: #e8a0a0; }
+  .compare-card.green  { background: #e8f5ef; border: 1.5px solid #2c6e4e; }
+  .compare-card.green h3 { color: #2c6e4e; border-color: #b2d4c4; }
+  .compare-card.amber  { background: #fff8e8; border: 1.5px solid #c9920a; }
+  .compare-card.amber h3 { color: #7a5800; border-color: #f0d080; }
+  .compare-card.navy   { background: #eaf0fb; border: 1.5px solid #1e3a6e; }
+  .compare-card.navy h3 { color: #1e3a6e; border-color: #8aaad4; }
+  .compare-card.purple { background: #f0eafd; border: 1.5px solid #6a3ea0; }
+  .compare-card.purple h3 { color: #6a3ea0; border-color: #c0a0e8; }
+  /* ────── Flow boxes ────── */
+  .flow-wrap { display: flex; flex-direction: column; gap: 4px; margin: 14px 0; }
+  .flow-box {
+    background: #1e3a6e; color: white;
+    border-radius: 8px; padding: 14px 16px;
+    font-size: 0.88rem; line-height: 1.6;
+  }
+  .flow-box .fb-label { font-size: 0.7rem; opacity: 0.8; margin-bottom: 4px; display: block; }
+  .flow-box strong { font-size: 0.95rem; }
+  .flow-box.sub    { background: #2a5090; }
+  .flow-box.light  { background: #eaf0fb; color: #2a2a2a; border: 1.5px solid #8aaad4; }
+  .flow-box.amber  { background: #c9920a; }
+  .flow-box.green  { background: #2c6e4e; }
+  .flow-box.red    { background: #c0392b; }
+  .flow-box.purple { background: #6a3ea0; }
+  .flow-box.gray   { background: #666; }
+  .arrow-down { text-align: center; font-size: 1.5rem; color: #1e3a6e; margin: 4px 0; line-height: 1; }
+  /* ────── Step list ────── */
+  .step-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 12px 0; }
+  .step-list li { display: flex; align-items: flex-start; gap: 12px; }
+  .step-num {
+    background: #1e3a6e; color: white; border-radius: 50%;
+    min-width: 28px; height: 28px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.78rem; font-weight: 700; flex-shrink: 0; margin-top: 2px;
+  }
+  .step-num.amber  { background: #c9920a; }
+  .step-num.red    { background: #c0392b; }
+  .step-num.green  { background: #2c6e4e; }
+  .step-num.purple { background: #6a3ea0; }
+  .step-num.gray   { background: #666; }
+  .step-list li div { font-size: 0.9rem; line-height: 1.7; }
+  /* ────── Table ────── */
+  .matrix-table { width: 100%; border-collapse: collapse; font-size: 0.87rem; margin: 14px 0; }
+  .matrix-table th {
+    background: #1e3a6e; color: white; padding: 10px 12px;
+    text-align: left; font-weight: 600; font-size: 0.82rem;
+  }
+  .matrix-table th:first-child { border-radius: 6px 0 0 0; }
+  .matrix-table th:last-child  { border-radius: 0 6px 0 0; }
+  .matrix-table td { padding: 10px 12px; border-bottom: 1px solid #d0d8e8; vertical-align: top; line-height: 1.55; }
+  .matrix-table tr:nth-child(even) td { background: #f2f5fc; }
+  .matrix-table .ok   { color: #2c6e4e; font-weight: 700; }
+  .matrix-table .ng   { color: #c0392b; font-weight: 700; }
+  .matrix-table .warn { color: #8a6000; font-weight: 700; }
+  .matrix-table .row-warn   td { background: #fff8e8 !important; }
+  .matrix-table .row-danger td { background: #fdeaea !important; }
+  .matrix-table .row-green  td { background: #e8f5ef !important; }
+  .matrix-table .row-navy   td { background: #eaf0fb !important; }
+  .matrix-table .row-purple td { background: #f0eafd !important; }
+  /* ────── Check list ────── */
+  .check-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 12px 0; }
+  .check-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.9rem; line-height: 1.65; }
+  .check-icon {
+    min-width: 22px; height: 22px; border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.78rem; font-weight: 700; flex-shrink: 0; margin-top: 1px;
+  }
+  .check-icon.navy   { background: #1e3a6e; color: white; }
+  .check-icon.green  { background: #2c6e4e; color: white; }
+  .check-icon.amber  { background: #c9920a; color: white; }
+  .check-icon.red    { background: #c0392b; color: white; }
+  .check-icon.purple { background: #6a3ea0; color: white; }
+  /* ────── Misc ────── */
+  .section-icon { font-size: 1.5rem; margin-right: 8px; vertical-align: middle; }
+  .tag {
+    display: inline-block; background: #1e3a6e; color: white;
+    font-size: 0.72rem; padding: 2px 8px; border-radius: 10px;
+    margin-right: 4px; vertical-align: middle;
+  }
+  .tag.amber  { background: #c9920a; }
+  .tag.red    { background: #c0392b; }
+  .tag.green  { background: #2c6e4e; }
+  .tag.purple { background: #6a3ea0; }
+  .tag.gray   { background: #888; }
+  /* ────── Footer ────── */
+  .footer-card {
+    background: #f0ece3;
+    border: 1.5px solid #bbb;
+    border-radius: 8px;
+    padding: 20px 24px;
+    width: 100%;
+    max-width: 760px;
+    margin-bottom: 20px;
+    font-size: 0.82rem;
+    color: #555;
+    line-height: 1.8;
+  }
+  .footer-card .footer-title {
+    font-size: 0.78rem; color: #888; font-weight: 600;
+    margin-bottom: 10px; display: block;
+    text-transform: uppercase; letter-spacing: 0.08em;
+  }
+  .footnote { font-size: 0.78rem; color: #777; line-height: 1.7; margin-top: 12px; }
+  /* ────── Region grid ────── */
+  .region-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 10px;
+    margin: 14px 0;
+  }
+  .region-pill {
+    background: #eaf0fb;
+    border: 1.5px solid #8aaad4;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 0.83rem;
+    line-height: 1.5;
+  }
+  .region-pill .rp-name { font-weight: 700; color: #1e3a6e; font-size: 0.85rem; }
+  .region-pill .rp-detail { font-size: 0.78rem; color: #555; margin-top: 3px; }
+  .region-pill.green-r { background: #e8f5ef; border-color: #2c6e4e; }
+  .region-pill.green-r .rp-name { color: #2c6e4e; }
+  .region-pill.amber-r { background: #fff8e8; border-color: #c9920a; }
+  .region-pill.amber-r .rp-name { color: #7a5800; }
+</style>
+</head>
+<body>
+
+<!-- ヒーロー -->
+<div class="hero">
+  <div style="margin-bottom:14px;">
+    <span class="label">💰 autónomo 保険料補助</span>
+    <span class="backlog-badge">バックログ解説</span>
+  </div>
+  <h1>新規 autónomo なら保険料がゼロになる！<br>スペイン12自治州「Cuota Cero」2026年版</h1>
+  <div class="meta">
+    デジタルノマド 最新トピック 2026-06-26<br>
+    情報収集日：2026年6月26日 ／ 主要参照記事：autonomosyemprendedor.es（2026年6月19日公開）<br>
+    制度基準年度：2026年 ／ 金額は参考値・条件は自治州・申請時期により変動あり
+  </div>
+</div>
+
+<!-- 30秒まとめ -->
+<div class="card">
+  <h2><span class="section-icon">📌</span>今日のポイント（30秒まとめ）</h2>
+  <p>スペインで自営業者（<strong>autónomo＝アウトノモ</strong>）として登録すると、社会保険（RETA）に毎月お金を払わなければなりません。でも、居住している自治州（都道府県のようなもの）によっては、<strong>その保険料を「全額返金」してくれる制度</strong>があります。これが「<strong>Cuota Cero（クオータ・セロ）</strong>」です。</p>
+  <p>2026年6月19日付けの速報によると、スペイン全国で<strong>12の自治州</strong>がこの制度を提供中。居住地選びの段階からこの補助を意識することで、autónomo 登録初年度の社会保険コストを大幅に節約できます。</p>
+
+  <div class="number-row">
+    <div class="number-card green">
+      <div class="num">12</div>
+      <div class="desc">自治州が<br>Cuota Ceroを<br>提供中<br>（2026年6月時点）</div>
+    </div>
+    <div class="number-card">
+      <div class="num">最大<br>24ヶ月</div>
+      <div class="desc">保険料ゼロが<br>続く期間<br>（自治州によっては<br>36ヶ月も）</div>
+    </div>
+    <div class="number-card amber">
+      <div class="num">€0</div>
+      <div class="desc">Cuota Cero適用後の<br>実質月額負担<br>（Tarifa Plana分を<br>全額還付）</div>
+    </div>
+    <div class="number-card purple">
+      <div class="num">+€3,000</div>
+      <div class="desc">最も手厚い<br>自治州の<br>スタートアップ<br>一時金（上限）</div>
+    </div>
+  </div>
+</div>
+
+<!-- 基礎解説 -->
+<div class="card">
+  <h2><span class="section-icon">📖</span>「Cuota Cero」って何？（中学生でもわかる解説）</h2>
+  <p>まず、スペインで自営業を始める仕組みを整理しましょう。</p>
+
+  <div class="highlight-box">
+    <span class="hlabel">📌 前提知識：autónomoとRETA</span>
+    <p>スペインで個人として仕事をすると「<strong>autónomo（自営業者）</strong>」として登録が必要です。登録すると、スペインの社会保険「<strong>RETA（Régimen Especial de Trabajadores Autónomos＝自営業者向け社会保険）</strong>」に毎月保険料を支払います。2026年の保険料は収入によって変わり、最低でも月額200〜230ユーロ程度になります（詳細は6月17日号参照）。</p>
+  </div>
+
+  <div class="highlight-box">
+    <span class="hlabel">💡 Tarifa Plana（タリファ・プラナ）＝最初だけ割引の「定額制」</span>
+    <p>新規登録者には「<strong>Tarifa Plana（定額制）</strong>」という割引制度があり、最初の12ヶ月間は月額<strong>約€80</strong>の定額で社会保険に加入できます（通常200〜400ユーロのところを80ユーロに割引）。</p>
+  </div>
+
+  <div class="green-box">
+    <span class="glabel">✅ Cuota Cero（クオータ・セロ）＝「ゼロ負担」に</span>
+    <p>Cuota Cero とは、<strong>自治州（都道府県相当）が Tarifa Plana の支払額を全額返金</strong>してくれる補助制度です。「cero（セロ）」はスペイン語でゼロの意味。毎月 TGSS（スペイン社会保障庁）へ Tarifa Plana を支払うのですが、自治州が後からその分を還付してくれるので、<strong>実質の手出しがゼロ</strong>になります。</p>
+  </div>
+</div>
+
+<!-- 仕組みフロー図 -->
+<div class="card">
+  <h2><span class="section-icon">🔄</span>Cuota Ceroの仕組み（お金の流れ）</h2>
+  <p>毎月の資金の動きをフローで確認しましょう。</p>
+
+  <div class="flow-wrap">
+    <div class="flow-box green">
+      <span class="fb-label">STEP 1：autónomo 新規登録</span>
+      <strong>スペインのハローワーク（SEPE）と社会保障庁（TGSS）に autónomo として登録</strong><br>
+      → 自動的に RETA（社会保険）加入・Tarifa Plana（月額約€80）が適用される
+    </div>
+    <div class="arrow-down">↓</div>
+    <div class="flow-box">
+      <span class="fb-label">STEP 2：毎月の支払い</span>
+      <strong>月末：TGSS へ Tarifa Plana 分（約€80）を口座引落しで支払い</strong><br>
+      → この時点では通常通りの支払いが発生する
+    </div>
+    <div class="arrow-down">↓</div>
+    <div class="flow-box amber">
+      <span class="fb-label">STEP 3：自治州に Cuota Cero を申請</span>
+      <strong>居住している自治州の窓口（または Gestor 経由）で補助を申請</strong><br>
+      → 自治州ごとに申請タイミング・書類が異なる（登録直後 ／ 12ヶ月経過後に遡及など）
+    </div>
+    <div class="arrow-down">↓</div>
+    <div class="flow-box sub">
+      <span class="fb-label">STEP 4：自治州から還付</span>
+      <strong>承認後、自治州が月額分を銀行口座へ振り込んでくれる</strong><br>
+      → 還付のタイミング・周期は自治州によって異なる（月次 ／ 四半期 ／ 年一括など）
+    </div>
+    <div class="arrow-down">↓</div>
+    <div class="flow-box light">
+      <span class="fb-label">結果</span>
+      <strong>支払い（約€80）－ 還付（約€80）＝ 実質 €0 ／ 月</strong><br>
+      これが最大24〜36ヶ月続く。ただし Tarifa Plana の期間（通常12ヶ月）が前提条件。
+    </div>
+  </div>
+
+  <div class="alert-box" style="margin-top:16px;">
+    <span class="alabel">⚠️ 重要：Cuota Cero は「Tarifa Plana（割引期間）」があってこそ</span>
+    <p>Cuota Cero は Tarifa Plana の支払額を還付する仕組みです。過去2〜3年以内に RETA 加入歴がある場合、Tarifa Plana 自体が使えない可能性があります。新規登録者かどうかの確認が先決です。条件は Gestor に相談してください。</p>
+  </div>
+</div>
+
+<!-- 自治州比較 -->
+<div class="card">
+  <h2><span class="section-icon">🗺️</span>主な自治州のCuota Cero 比較（2026年6月時点）</h2>
+  <p>以下は2026年6月19日付け報道をもとに整理したものです。各自治州の詳細は変更される可能性があります。正式情報は居住予定自治州の公式サイトまたは Gestor で確認してください。</p>
+
+  <table class="matrix-table">
+    <thead>
+      <tr>
+        <th style="width:18%">自治州</th>
+        <th style="width:20%">最大期間</th>
+        <th style="width:25%">追加補助・特典</th>
+        <th style="width:20%">申請期限（2026年）</th>
+        <th style="width:17%">ポイント</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="row-green">
+        <td>🏙️ <strong>マドリード</strong></td>
+        <td class="ok">12→24→36ヶ月</td>
+        <td>なし<br>（期間延長要件あり）</td>
+        <td class="ok">常時受付<br>（期限なし）</td>
+        <td>2026年新設：52歳以上の失業給付終了者も対象</td>
+      </tr>
+      <tr class="row-green">
+        <td>🌞 <strong>アンダルシア</strong></td>
+        <td class="ok">最大24ヶ月</td>
+        <td>MEI積立分も補助<br>（スペイン唯一）</td>
+        <td class="ok">2026年9月30日</td>
+        <td>MEI（年金積立附加分）まで還付する唯一の自治州</td>
+      </tr>
+      <tr class="row-green">
+        <td>🌊 <strong>ムルシア</strong><br>（Cuota Cero Ampliada）</td>
+        <td class="ok">24ヶ月</td>
+        <td>＋€1,000<br>スタート補助</td>
+        <td class="ok">2026年10月15日</td>
+        <td>2025年11月1日以降の登録に遡及適用。予算€590万</td>
+      </tr>
+      <tr class="row-green">
+        <td>🌴 <strong>カナリア諸島</strong></td>
+        <td>12ヶ月</td>
+        <td>なし</td>
+        <td>2026年10月頃</td>
+        <td>予算を€250→€330万に増額。申請は12ヶ月後に遡及</td>
+      </tr>
+      <tr class="row-green">
+        <td>🏞️ <strong>カスティーリャ＝ラ・マンチャ</strong></td>
+        <td class="ok">24ヶ月</td>
+        <td>＋€3,000<br>スタート補助</td>
+        <td>2026年内（再開）</td>
+        <td>€2,200万の予算で再開。最も手厚い補助水準</td>
+      </tr>
+      <tr>
+        <td>🌊 <strong>カンタブリア</strong></td>
+        <td>「トリプル<br>Cuota Cero」</td>
+        <td>独自の3段階制度</td>
+        <td class="ok">期間無制限</td>
+        <td>独自の3段階プログラムを期間無制限で提供</td>
+      </tr>
+      <tr>
+        <td>🌿 <strong>アラゴン</strong></td>
+        <td>12ヶ月</td>
+        <td>なし</td>
+        <td class="ok">2025年1月〜継続中</td>
+        <td>長期継続中の安定した制度</td>
+      </tr>
+      <tr>
+        <td>🌁 <strong>アストゥリアス</strong></td>
+        <td>12ヶ月（雇用支援）</td>
+        <td>なし</td>
+        <td>2026年10月30日</td>
+        <td>autónomo雇用支援の一環として提供</td>
+      </tr>
+      <tr class="row-navy">
+        <td colspan="5" style="font-size:0.82rem;color:#555;">その他：<strong>ガリシア・エストレマドゥーラ・バレアレス・カスティーリャ・イ・レオン・ラ・リオハ</strong>でも提供中（計12自治州）。詳細は各自治州公式サイトで確認。</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="alert-box">
+    <span class="alabel">📢 MEI（メカニスモ・デ・エキダー・インテルヘネラシオナル）とは？</span>
+    <p>MEI は「世代間公平メカニズム」の略で、年金財政を補うための附加保険料です。2026年の料率は基準報酬月額の0.70%。アンダルシアはこの MEI 分まで補助してくれる唯一の自治州です。スペインでは毎年0.10%ずつ引き上げられ、2032年に最終値になる予定です（2026年6月時点。一次ソース未確認のため基準年度のみ記載）。</p>
+  </div>
+</div>
+
+<!-- 日本1人法人オーナーへの実務ポイント -->
+<div class="card">
+  <h2><span class="section-icon">🇯🇵</span>日本の1人法人オーナーへの実務ポイント</h2>
+  <p>スペインのデジタルノマドビザ（International Telework Visa）を準備中で、日本の1人法人を維持しながらスペインに居住する場合、Cuota Ceroとの関係を2パターンで整理します。</p>
+
+  <div class="compare-row">
+    <div class="compare-card green">
+      <h3>✅ パターンA：日西社会保障協定を活用する場合（6月17日号で解説済み）</h3>
+      <p style="font-size:0.84rem;line-height:1.8;">
+        <strong>→ RETA自体が免除</strong>のため Cuota Cero の出番はない<br><br>
+        日本の年金機構が発行する「<strong>適用証明書</strong>」を取得し、TGSS に提出することで RETA への加入義務が免除されます。この場合、保険料を払わないので還付制度も使えません。<br><br>
+        <strong>注意点：</strong>適用証明書の有効期間（最長5年）終了後に autónomo 登録が必要になった場合は、そのタイミングで Cuota Cero を検討できます。
+      </p>
+    </div>
+    <div class="compare-card amber">
+      <h3>⚠️ パターンB：日西協定を使わず autónomo として登録する場合</h3>
+      <p style="font-size:0.84rem;line-height:1.8;">
+        <strong>→ Cuota Cero が使える可能性あり</strong><br><br>
+        スペイン国内にも顧客がいる・スペインの法人に請求する・個人で直接受注する等の理由で autónomo 登録を選ぶ場合があります。この場合、<strong>居住自治州が Cuota Cero を提供していれば最大24ヶ月間 RETA が実質無料</strong>になります。<br><br>
+        <strong>例：</strong>マドリード（スペイン最大の就労・ビジネス拠点）は常時受付で最大36ヶ月の支援があり、日本人 DNV 保持者にも選ばれる選択肢のひとつです。
+      </p>
+    </div>
+  </div>
+
+  <ul class="step-list" style="margin-top:16px;">
+    <li>
+      <span class="step-num">1</span>
+      <div><strong>居住地選びの段階から「Cuota Cero の有無」を考慮する</strong><br>DNV 申請前にどの都市・自治州に住むかを決める際、社会保険補助の手厚さ（マドリード・アンダルシア・ムルシア等）も判断材料に加えると、初年度のコストが大きく変わります。</div>
+    </li>
+    <li>
+      <span class="step-num amber">2</span>
+      <div><strong>Tarifa Plana 適用の「2年縛り」に注意</strong><br>過去2〜3年以内に RETA に加入したことがある場合、Tarifa Plana 自体が使えず Cuota Cero も使えない自治州があります。はじめてスペインで autónomo 登録する場合はこの条件を満たしやすいですが、念のため Gestor に確認しましょう。</div>
+    </li>
+    <li>
+      <span class="step-num amber">3</span>
+      <div><strong>empadronamiento（住民登録）が大前提</strong><br>Cuota Cero の申請には、対象自治州に住民登録（empadronamiento）していることが必要です。「住所の卵と鶏問題」（6月12日号参照）を先に解決してから autónomo 登録と Cuota Cero 申請に進みましょう。</div>
+    </li>
+    <li>
+      <span class="step-num green">4</span>
+      <div><strong>autónomo と日本法人は並存できる</strong><br>スペインで autónomo 登録しても、日本の1人法人（代表取締役）の地位を維持することは可能です。ただし、日本法人からの役員報酬と autónomo としての報酬の二重計上・二重申告が生じるため、日西租税条約の適用関係（6月2日号・6月11日号参照）を Gestor・税理士と整理してください。</div>
+    </li>
+  </ul>
+</div>
+
+<!-- 申請チェックリスト -->
+<div class="card">
+  <h2><span class="section-icon">✅</span>申請前の確認チェックリスト</h2>
+  <p>Cuota Cero を申請する前に、以下を順番に確認してください。</p>
+
+  <ul class="check-list">
+    <li>
+      <span class="check-icon navy">1</span>
+      <div><strong>自分は「新規」autónomo か？</strong><br>RETA への登録が初めて、または直近2〜3年間の加入歴がないことを確認する（Tarifa Plana 適用要件）</div>
+    </li>
+    <li>
+      <span class="check-icon navy">2</span>
+      <div><strong>居住している自治州は Cuota Cero を提供しているか？</strong><br>上表の12自治州に含まれているか確認。さらに現在の申請受付期間内かも確認する</div>
+    </li>
+    <li>
+      <span class="check-icon navy">3</span>
+      <div><strong>empadronamiento（住民登録）は済んでいるか？</strong><br>対象自治州での住民登録が申請条件になっていることが多い</div>
+    </li>
+    <li>
+      <span class="check-icon navy">4</span>
+      <div><strong>AEAT（スペイン税務庁）・TGSS（社会保障庁）への滞納はないか？</strong><br>税金・社会保険料の未払いがあると申請できないケースが多い</div>
+    </li>
+    <li>
+      <span class="check-icon amber">5</span>
+      <div><strong>申請タイミングと方法を Gestor（税務・社会保険代理人）に確認</strong><br>自治州によって「登録直後に申請」するところと「12ヶ月後に遡及申請」するところがある。手続きの漏れを防ぐために Gestor に代行してもらうのが確実</div>
+    </li>
+    <li>
+      <span class="check-icon amber">6</span>
+      <div><strong>日西社会保障協定の適用証明書を取得済みの場合は申請不要</strong><br>協定でRETA免除されている間は Cuota Cero を使う必要がない。免除期間終了時に改めて検討する</div>
+    </li>
+    <li>
+      <span class="check-icon green">7</span>
+      <div><strong>Murcia・Castilla-La Mancha はスタートアップ補助（€1,000〜€3,000）も忘れずに</strong><br>Cuota Cero とは別枠で「活動開始補助金」が支給される。同時申請または後から申請できる場合があるので自治州の公式ページを確認する</div>
+    </li>
+  </ul>
+</div>
+
+<!-- 過去の日報との関連 -->
+<div class="card">
+  <h2><span class="section-icon">🔗</span>過去の日報との関連</h2>
+
+  <table class="matrix-table">
+    <thead>
+      <tr>
+        <th>今日の内容</th>
+        <th>関連する過去の日報</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>RETA（autónomo社会保険）の仕組みと Tarifa Plana</td>
+        <td>2026-06-17「autónomoのRETAと日西社会保障協定」</td>
+      </tr>
+      <tr>
+        <td>日西社会保障協定・適用証明書でRETA免除</td>
+        <td>2026-06-17「autónomoのRETAと日西社会保障協定」</td>
+      </tr>
+      <tr>
+        <td>empadronamiento（住民登録）の前提条件</td>
+        <td>2026-06-12「スペイン国内での住居探し（賃貸）」</td>
+      </tr>
+      <tr>
+        <td>autónomo登録・Gestor（税務代理人）の活用</td>
+        <td>2026-06-07「Gestorの役割と活用法」</td>
+      </tr>
+      <tr>
+        <td>日本法人との並存・役員報酬と日西租税条約</td>
+        <td>2026-06-02「日西租税条約と非居住者判定」・2026-06-11「役員報酬の源泉徴収」</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 免責フッター -->
+<div class="footer-card">
+  <span class="footer-title">⚠️ 免責事項 / Disclaimer</span>
+  <p><strong>社会保険・補助制度に関する内容：</strong>本記事は一般的な情報提供を目的としており、個別のアドバイスではありません。Cuota Cero の申請条件・期間・還付額は自治州ごとに異なり、随時変更されます。正式な判断および申請手続きは、<strong>国際税務に強い税理士またはスペインの Gestor / Asesor Laboral</strong>にご相談ください。</p>
+  <p style="margin-top:8px;"><strong>ビザ・在留に関する内容：</strong>ビザ・在留資格の判断は、<strong>行政書士または移民専門弁護士（Abogado de Extranjería）</strong>にご相談ください。</p>
+  <p style="margin-top:8px;"><strong>制度・金額の基準：</strong>本記事の金額（€80・€88.72・€1,000 等）は2026年時点の参考値です。Tarifa Plana の金額は SMI（最低賃金）改定に伴い変動する可能性があります。「必ず使える」「必ず還付される」などの断定はできません。</p>
+  <p style="margin-top:8px;"><strong>制度変更日の扱い：</strong>各自治州の Cuota Cero の開始・終了日は、自治州公式発表（BOE や自治州公報）をもとに一次確認できていないものは「参照記事の公開日」に基づく情報として記載しています。申請前に必ず各自治州の公式ページで最新の凸版をご確認ください。</p>
+
+  <div style="margin-top:14px;padding-top:10px;border-top:1px dotted #bbb;font-size:0.8rem;color:#777;">
+    <strong>出典一覧：</strong><br>
+    ・autonomosyemprendedor.es「Los nuevos autónomos podrán pagar cero euros de cuota durante uno o dos años en estas comunidades」（2026年6月19日公開）<br>
+    ・autonomosyemprendedor.es「Estas son las comunidades autónomas que ofrecerán cuota cero a los autónomos en 2026」（2026年2月16日公開）<br>
+    ・autonomosyemprendedor.es「Murcia abre una convocatoria para los autónomos de la región de la 'Cuota Cero Ampliada'」（2026年2月26日公開）<br>
+    ・holded.com「Qué comunidades anuncian cuota cero para autónomos en 2026」（参照日：2026年6月26日）<br>
+    ・invoo.es「Cuota Cero Autónomos 2026: Comunidades y Requisitos」（参照日：2026年6月26日）<br>
+    ・declarando.es「Cuota cero para autónomos: guía para solicitarla [2026]」（参照日：2026年6月26日）
+  </div>
+</div>
+
+</body>
+</html>
