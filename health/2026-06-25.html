@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-06-25</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #f0ece3; font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif; min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 20px; }
+
+  .cover { background: linear-gradient(135deg, #7a1a00 0%, #b03010 55%, #d45030 100%); color: white; border-radius: 8px; padding: 60px 40px; text-align: center; width: 100%; max-width: 820px; margin-bottom: 24px; box-shadow: 4px 6px 20px rgba(0,0,0,0.3); position: relative; overflow: hidden; }
+  .cover::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: repeating-linear-gradient(0deg, transparent, transparent 28px, rgba(255,255,255,0.04) 28px, rgba(255,255,255,0.04) 29px); }
+  .cover-emoji { font-size: 64px; display: block; margin-bottom: 16px; }
+  .cover h1 { font-family: 'Klee One', sans-serif; font-size: 1.85rem; font-weight: 600; line-height: 1.35; margin-bottom: 12px; position: relative; }
+  .cover .subtitle { font-size: 1.0rem; opacity: 0.88; margin-bottom: 8px; position: relative; }
+  .cover .tagline { font-size: 0.88rem; opacity: 0.7; position: relative; margin-bottom: 4px; }
+  .cover .date-badge { display: inline-block; background: rgba(255,255,255,0.2); border: 2px solid rgba(255,255,255,0.5); border-radius: 20px; padding: 6px 20px; font-size: 1rem; margin-top: 16px; position: relative; }
+
+  .card { background: #fff9f0; border-radius: 6px; width: 100%; max-width: 820px; margin-bottom: 24px; box-shadow: 3px 4px 12px rgba(0,0,0,0.12); position: relative; overflow: hidden; }
+  .card-body { padding: 28px 36px 28px 64px; background: repeating-linear-gradient(0deg, transparent, transparent 31px, #e0d8c8 31px, #e0d8c8 32px); background-color: #fff9f0; min-height: 200px; }
+  .card-body::before { content: ''; position: absolute; left: 52px; top: 0; bottom: 0; width: 2px; background: #7a1a00; opacity: 0.5; }
+  .card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; padding-bottom: 8px; border-bottom: 2px dashed #c8b89a; }
+  .card-emoji { font-size: 2rem; }
+  .card-title { font-family: 'Klee One', sans-serif; font-size: 1.4rem; font-weight: 600; color: #2c3e50; line-height: 1.3; }
+  .topic-badge { display: inline-block; padding: 3px 12px; border-radius: 12px; font-size: 0.75rem; font-weight: 600; margin-left: auto; white-space: nowrap; }
+  .badge-green  { background: #e0f5e8; color: #1a6640; border: 1px solid #90d4aa; }
+  .badge-red    { background: #ffe0e0; color: #aa2222; border: 1px solid #f0a0a0; }
+  .badge-blue   { background: #e0eeff; color: #2255aa; border: 1px solid #a0c0f5; }
+  .badge-orange { background: #fff0d0; color: #cc6600; border: 1px solid #f0c070; }
+  .badge-teal   { background: #d0f0f0; color: #006060; border: 1px solid #80d0d0; }
+  .badge-gray   { background: #f0f0f0; color: #555; border: 1px solid #ccc; }
+  .badge-purple { background: #f0e0ff; color: #660088; border: 1px solid #c080e0; }
+  .badge-amber  { background: #fff3e0; color: #8a4000; border: 1px solid #f0c090; }
+
+  .body-text { font-size: 0.97rem; line-height: 1.85; color: #333; margin: 8px 0; }
+  .simple-box { background: #fff7e0; border-left: 4px solid #f5c842; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 16px 0; font-size: 0.95rem; line-height: 1.8; }
+  .simple-box .label { display: inline-block; background: #f5c842; color: #5a4000; font-size: 0.72rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-bottom: 6px; letter-spacing: 0.5px; }
+  .info-box { background: #eef4ff; border-left: 4px solid #3366cc; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 16px 0; font-size: 0.95rem; line-height: 1.8; }
+  .info-box .label { display: inline-block; background: #3366cc; color: white; font-size: 0.72rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-bottom: 6px; letter-spacing: 0.5px; }
+  .alert-box { background: #fff0f0; border-left: 4px solid #e05050; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 16px 0; font-size: 0.95rem; line-height: 1.8; }
+  .alert-box .label { display: inline-block; background: #e05050; color: white; font-size: 0.72rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-bottom: 6px; letter-spacing: 0.5px; }
+  .green-box { background: #eafaf0; border-left: 4px solid #27ae60; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 16px 0; font-size: 0.95rem; line-height: 1.8; }
+  .green-box .label { display: inline-block; background: #27ae60; color: white; font-size: 0.72rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-bottom: 6px; letter-spacing: 0.5px; }
+  .cyan-box { background: #e0f6ff; border-left: 4px solid #1a9abc; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 16px 0; font-size: 0.95rem; line-height: 1.8; }
+  .cyan-box .label { display: inline-block; background: #1a9abc; color: white; font-size: 0.72rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-bottom: 6px; letter-spacing: 0.5px; }
+  .orange-box { background: #fff4e0; border-left: 4px solid #e67e22; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 16px 0; font-size: 0.95rem; line-height: 1.8; }
+  .orange-box .label { display: inline-block; background: #e67e22; color: white; font-size: 0.72rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-bottom: 6px; letter-spacing: 0.5px; }
+  .purple-box { background: #f5eeff; border-left: 4px solid #8040c0; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 16px 0; font-size: 0.95rem; line-height: 1.8; }
+  .purple-box .label { display: inline-block; background: #8040c0; color: white; font-size: 0.72rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-bottom: 6px; letter-spacing: 0.5px; }
+  .navy-box { background: #eaeefc; border-left: 4px solid #1d4080; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 16px 0; font-size: 0.95rem; line-height: 1.8; }
+  .navy-box .label { display: inline-block; background: #1d4080; color: white; font-size: 0.72rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-bottom: 6px; letter-spacing: 0.5px; }
+  .amber-box { background: #fff8ec; border-left: 4px solid #d47820; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 16px 0; font-size: 0.95rem; line-height: 1.8; }
+  .amber-box .label { display: inline-block; background: #d47820; color: white; font-size: 0.72rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-bottom: 6px; letter-spacing: 0.5px; }
+
+  .num-cards { display: flex; gap: 16px; flex-wrap: wrap; margin: 20px 0; justify-content: center; }
+  .num-card { background: white; border-radius: 10px; padding: 18px 20px; text-align: center; flex: 1; min-width: 130px; max-width: 200px; box-shadow: 2px 3px 10px rgba(0,0,0,0.1); border-top: 5px solid #c03030; }
+  .num-card .big-num { font-size: 2.2rem; font-weight: 700; font-family: 'Caveat', cursive; color: #c03030; line-height: 1.1; }
+  .num-card .num-unit { font-size: 0.9rem; color: #c03030; font-weight: 600; margin-bottom: 4px; }
+  .num-card .num-label { font-size: 0.77rem; color: #555; line-height: 1.5; margin-top: 4px; }
+  .num-card.green  { border-top-color: #27ae60; } .num-card.green  .big-num, .num-card.green  .num-unit { color: #27ae60; }
+  .num-card.orange { border-top-color: #e67e22; } .num-card.orange .big-num, .num-card.orange .num-unit { color: #e67e22; }
+  .num-card.blue   { border-top-color: #2980b9; } .num-card.blue   .big-num, .num-card.blue   .num-unit { color: #2980b9; }
+  .num-card.teal   { border-top-color: #1abc9c; } .num-card.teal   .big-num, .num-card.teal   .num-unit { color: #1abc9c; }
+  .num-card.amber  { border-top-color: #c04a10; } .num-card.amber  .big-num, .num-card.amber  .num-unit { color: #c04a10; }
+
+  .bar-chart { margin: 20px 0; }
+  .bar-row { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+  .bar-label { font-size: 0.88rem; font-weight: 600; min-width: 180px; color: #333; flex-shrink: 0; }
+  .bar-track { flex: 1; background: #e8e0d4; border-radius: 4px; height: 28px; position: relative; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 4px; display: flex; align-items: center; justify-content: flex-end; padding-right: 8px; font-size: 0.8rem; font-weight: 700; color: white; white-space: nowrap; min-width: 40px; }
+  .bf-red    { background: #c03030; }
+  .bf-orange { background: #e67e22; }
+  .bf-amber  { background: #d47820; }
+  .bf-green  { background: #27ae60; }
+  .bf-teal   { background: #1abc9c; }
+  .bf-blue   { background: #2980b9; }
+  .bf-gray   { background: #aaa; }
+  .bar-note { font-size: 0.8rem; color: #666; min-width: 80px; flex-shrink: 0; }
+
+  .compare-table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 0.88rem; margin: 20px 0; }
+  .compare-table th { padding: 10px 12px; font-weight: 700; font-size: 0.82rem; text-align: center; }
+  .compare-table th.col-label { text-align: left; }
+  .compare-table td { padding: 10px 12px; text-align: center; border-bottom: 1px dashed #ddd; vertical-align: middle; }
+  .compare-table td.col-label { text-align: left; font-weight: 600; color: #444; }
+  .compare-table tr:last-child td { border-bottom: none; }
+  .th-lbl   { background: #f0ece3; color: #555; }
+  .th-red   { background: #fff0f0; color: #8a1a1a; }
+  .th-green { background: #e8f5e0; color: #1a4020; }
+  .tag-yes  { display: inline-block; background: #e0f5e8; color: #1a5030; border-radius: 4px; padding: 2px 8px; font-size: 0.78rem; font-weight: 700; }
+  .tag-mod  { display: inline-block; background: #fff5d0; color: #7a4a00; border-radius: 4px; padding: 2px 8px; font-size: 0.78rem; font-weight: 600; }
+  .tag-low  { display: inline-block; background: #f0f0f0; color: #666; border-radius: 4px; padding: 2px 8px; font-size: 0.78rem; font-weight: 600; }
+  .tag-asian{ display: inline-block; background: #e0eeff; color: #1a2a6a; border-radius: 4px; padding: 2px 8px; font-size: 0.78rem; font-weight: 700; }
+
+  .step-list { list-style: none; margin: 16px 0; }
+  .step-list li { display: flex; align-items: flex-start; gap: 14px; padding: 10px 0; border-bottom: 1px dotted #ddd; }
+  .step-list li:last-child { border-bottom: none; }
+  .step-num { background: #c03030; color: white; font-weight: 700; font-size: 0.9rem; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+  .step-text { font-size: 0.93rem; line-height: 1.8; color: #333; }
+
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0; }
+  @media (max-width: 560px) { .grid-2 { grid-template-columns: 1fr; } }
+  .grid-box { background: white; border-radius: 8px; padding: 16px; box-shadow: 1px 2px 6px rgba(0,0,0,0.08); }
+  .grid-box .gb-title { font-size: 0.92rem; font-weight: 700; margin-bottom: 10px; padding-bottom: 6px; border-bottom: 2px dashed #ddd; }
+  .gb-red .gb-title    { color: #c03030; border-bottom-color: #f0a0a0; }
+  .gb-orange .gb-title { color: #c06020; border-bottom-color: #f0c088; }
+  .gb-blue .gb-title   { color: #1d4080; border-bottom-color: #a0b8e0; }
+  .gb-green .gb-title  { color: #27ae60; border-bottom-color: #90d4aa; }
+  .gb-teal .gb-title   { color: #006080; border-bottom-color: #80c8d8; }
+  .gb-purple .gb-title { color: #6030a0; border-bottom-color: #c090e0; }
+  .grid-box .gb-text { font-size: 0.85rem; line-height: 1.95; color: #333; }
+
+  .gene-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; margin: 20px 0; }
+  .gene-card { background: white; border-radius: 10px; padding: 16px; box-shadow: 1px 2px 8px rgba(0,0,0,0.1); border-left: 5px solid #c03030; }
+  .gene-card.gc-ace  { border-left-color: #c03030; }
+  .gene-card.gc-agt  { border-left-color: #e67e22; }
+  .gene-card.gc-add1 { border-left-color: #2980b9; }
+  .gene-card.gc-cyp  { border-left-color: #8040c0; }
+  .gene-name  { font-size: 1.1rem; font-weight: 700; margin-bottom: 4px; }
+  .gc-ace  .gene-name { color: #c03030; }
+  .gc-agt  .gene-name { color: #c06020; }
+  .gc-add1 .gene-name { color: #1a3a80; }
+  .gc-cyp  .gene-name { color: #6030a0; }
+  .gene-alias   { font-size: 0.78rem; color: #888; margin-bottom: 8px; }
+  .gene-variant { font-size: 0.82rem; font-weight: 700; background: #f5f5f5; padding: 3px 10px; border-radius: 4px; display: inline-block; margin-bottom: 8px; }
+  .gene-detail  { font-size: 0.82rem; line-height: 1.75; color: #555; }
+  .gene-evidence{ font-size: 0.78rem; margin-top: 8px; padding-top: 8px; border-top: 1px dashed #ddd; }
+
+  .flow-diagram { margin: 20px 0; display: flex; flex-direction: column; gap: 10px; align-items: center; }
+  .flow-row { display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap; width: 100%; }
+  .flow-box { background: white; border-radius: 8px; padding: 10px 14px; font-size: 0.83rem; font-weight: 600; box-shadow: 1px 2px 6px rgba(0,0,0,0.1); text-align: center; min-width: 110px; }
+  .fb-red    { border: 2px solid #c03030; color: #7a1010; }
+  .fb-orange { border: 2px solid #e67e22; color: #8a3a00; }
+  .fb-amber  { border: 2px solid #d47820; color: #7a4800; }
+  .fb-blue   { border: 2px solid #2980b9; color: #1a3a80; }
+  .fb-purple { border: 2px solid #8040c0; color: #5a1a8a; }
+  .flow-arrow { font-size: 1.4rem; color: #999; }
+
+  .source-text { font-size: 0.78rem; color: #888; margin-top: 12px; line-height: 1.6; }
+  .source-text a { color: #7a1a00; }
+  .disclaimer { background: #f8f8f8; border: 2px solid #ddd; border-radius: 6px; padding: 20px 24px; font-size: 0.83rem; line-height: 1.8; color: #555; width: 100%; max-width: 820px; margin-bottom: 24px; }
+  .disclaimer .dis-title { font-size: 0.9rem; font-weight: 700; color: #444; margin-bottom: 8px; }
+  hr.section-divider { border: none; border-top: 2px dashed #c8b89a; margin: 16px 0; }
+</style>
+</head>
+<body>
+
+<!-- ===== COVER ===== -->
+<div class="cover">
+  <span class="cover-emoji">🧂❤️</span>
+  <h1>「同じ食塩量」でも<br>血圧が上がる人・上がらない人がいるのはなぜか<br>── 食塩感受性と遺伝子多型 ──</h1>
+  <div class="subtitle">ACE・AGT・ADD1遺伝子と精密栄養学の最前線</div>
+  <div class="tagline">健康・栄養 最新トピック</div>
+  <div class="date-badge">2026-06-25</div>
+</div>
+
+<!-- ===== CARD 1: 基礎 ===== -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">🔬</span>
+      <span class="card-title">「食塩感受性」とは何か ── 塩に敏感な血圧のしくみ</span>
+      <span class="topic-badge badge-amber">基礎知識</span>
+    </div>
+    <p class="body-text">「塩分を控えましょう」は高血圧の定番アドバイスです。でも、<strong>しっかり塩を控えても血圧が下がらない人</strong>がいる一方、<strong>少し減らすだけでぐっと下がる人</strong>もいます。この違いの大きな原因のひとつが<strong>「食塩感受性（Salt Sensitivity of Blood Pressure；SSBP）」</strong>という体質です。</p>
+
+    <div class="simple-box">
+      <div class="label">食塩感受性の研究上の定義（やさしく解説）</div>
+      食塩感受性とは、食塩の摂取量が変わったとき、血圧が大きく変化しやすい体質のことです。研究では「塩分をたくさん摂らせる（負荷）→ 制限する（除去）という実験をしたときに、<strong>平均血圧が 10 mmHg 以上変動する人</strong>を食塩感受性ありと定義するのが一般的です」（Weinberger MH et al., Am J Hypertens 2001）。ただし、この測定は入院設備を要する研究用プロトコルのため、一般の外来では現在のところ簡単には測れません。
+    </div>
+
+    <p class="body-text">重要なポイントは、食塩感受性は「高血圧の人だけの問題」ではないということです。<strong>血圧が正常な人にも食塩感受性を持つ人がいて、そういう人は将来の高血圧リスクや心血管疾患リスクが高い</strong>ことが複数の研究で示されています（Elijovich F et al., Hypertension 2016）。</p>
+
+    <div class="grid-2">
+      <div class="grid-box gb-red">
+        <div class="gb-title">🩸 食塩感受性「あり」の人の特徴</div>
+        <div class="gb-text">
+          ・塩分が増えると血圧が上がりやすい<br>
+          ・塩分を減らすと血圧が下がりやすい<br>
+          ・腎臓がナトリウムを過剰に保持しやすい<br>
+          ・RAAS（血圧調節ホルモン系）が過活性な傾向<br>
+          ・血管内皮（血管の内壁）の機能が低下しやすい<br>
+          ・心血管リスクが食塩非感受性の人より高い傾向
+        </div>
+      </div>
+      <div class="grid-box gb-green">
+        <div class="gb-title">💚 食塩感受性「なし」の人の特徴</div>
+        <div class="gb-text">
+          ・塩分が多少増えても血圧が変わりにくい<br>
+          ・腎臓が余分なナトリウムをうまく尿へ排泄できる<br>
+          ・血管が塩分負荷に対して柔軟に対応できる<br>
+          ・塩分制限の効果が出にくいことがある<br>
+          ただし ──「血圧が上がりにくい」は「塩に強い」ではなく「血圧シグナルが出にくいだけ」。腎臓・骨・胃への影響は別問題です
+        </div>
+      </div>
+    </div>
+
+    <div class="source-text">
+      参考：Elijovich F et al. 「Salt Sensitivity of Blood Pressure: A Scientific Statement from the American Heart Association」 <em>Hypertension</em> 2016;68:e7-e46. PMID: 27324672. <a href="https://doi.org/10.1161/HYP.0000000000000047" target="_blank">DOI: 10.1161/HYP.0000000000000047</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== CARD 2: 有病率 ===== -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">📊</span>
+      <span class="card-title">どれくらいの人が食塩感受性を持つのか</span>
+      <span class="topic-badge badge-red">有病率</span>
+    </div>
+    <p class="body-text">食塩感受性の割合は、対象集団（血圧の有無・年齢・民族）によって大きく異なります。</p>
+
+    <div class="num-cards">
+      <div class="num-card">
+        <div class="big-num">〜50%</div>
+        <div class="num-unit">高血圧患者</div>
+        <div class="num-label">高血圧の人のうち約半数が食塩感受性を持つと推定される</div>
+      </div>
+      <div class="num-card orange">
+        <div class="big-num">〜25%</div>
+        <div class="num-unit">正常血圧者</div>
+        <div class="num-label">血圧正常でも約4人に1人は食塩感受性あり（将来の高血圧リスク因子）</div>
+      </div>
+      <div class="num-card amber">
+        <div class="big-num">〜30%</div>
+        <div class="num-unit">一般成人全体</div>
+        <div class="num-label">全体では約3人に1人。加齢とともに割合が増加する傾向</div>
+      </div>
+      <div class="num-card blue">
+        <div class="big-num">より高い</div>
+        <div class="num-unit">高リスク群</div>
+        <div class="num-label">アフリカ系・高齢者・2型糖尿病・慢性腎臓病の人では特に高い割合</div>
+      </div>
+    </div>
+
+    <div class="bar-chart">
+      <p class="body-text" style="font-weight:600; margin-bottom:12px;">▶ 集団別の食塩感受性の目安（複数研究からの概算）</p>
+      <div class="bar-row">
+        <div class="bar-label">高血圧患者</div>
+        <div class="bar-track"><div class="bar-fill bf-red" style="width:50%;">約50%</div></div>
+        <div class="bar-note">半数が該当</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">60歳以上の高齢者</div>
+        <div class="bar-track"><div class="bar-fill bf-red" style="width:55%;">約50〜60%</div></div>
+        <div class="bar-note">加齢で増加</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">一般成人（平均）</div>
+        <div class="bar-track"><div class="bar-fill bf-orange" style="width:30%;">約30%</div></div>
+        <div class="bar-note">3人に1人</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">血圧正常の成人</div>
+        <div class="bar-track"><div class="bar-fill bf-amber" style="width:25%;">約25%</div></div>
+        <div class="bar-note">4人に1人</div>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <div class="label">データの読み方に注意（研究の限界）</div>
+      これらの数値は複数の研究を統合した推定値であり、研究によって「食塩感受性」の定義（血圧変化の閾値・測定プロトコル）が異なります。「30%」「50%」という数字は方向性を示す目安として捉えてください。また研究設定（実験室 vs 日常生活）によっても値が変わります。<br><br>
+      <small>参考：Elijovich F et al. Hypertension 2016（AHA声明）；Weinberger MH, Hypertension 1996;27:481-490；Frontiers in Pharmacology 2025（PMC11936959, DOI: 10.3389/fphar.2025.1565962）</small>
+    </div>
+  </div>
+</div>
+
+<!-- ===== CARD 3: メカニズム ===== -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">⚙️</span>
+      <span class="card-title">なぜ「塩で血圧が上がりやすい人」がいるのか ── 4つの経路</span>
+      <span class="topic-badge badge-orange">メカニズム</span>
+    </div>
+    <p class="body-text">塩（ナトリウム）が血圧に影響するメカニズムは一つではありません。食塩感受性の高い人では、以下の4つの経路がうまくコントロールできず、ナトリウムが体に溜まりやすくなっています。2024〜2026年の総説では「腎臓だけでなく、血管・脳（自律神経）・免疫系も関与する」ことが強調されています。</p>
+
+    <div class="flow-diagram">
+      <div class="flow-row">
+        <div class="flow-box fb-red" style="font-size:0.95rem;">🧂 塩分（NaCl）過剰摂取</div>
+      </div>
+      <div class="flow-row"><span class="flow-arrow">▼</span></div>
+      <div class="flow-row">
+        <div class="flow-box fb-orange">① 腎臓：<br>Na 過剰保持</div>
+        <div class="flow-box fb-amber">② 血管内皮：<br>NO 産生低下</div>
+        <div class="flow-box fb-blue">③ 脳・神経：<br>交感神経活性化</div>
+        <div class="flow-box fb-purple">④ 免疫・炎症：<br>血管壁への攻撃</div>
+      </div>
+      <div class="flow-row"><span class="flow-arrow">▼</span></div>
+      <div class="flow-row">
+        <div class="flow-box fb-red" style="font-size:0.95rem;">血液量↑ ＋ 血管収縮 → 血圧上昇</div>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="grid-box gb-orange">
+        <div class="gb-title">① 腎臓の経路（最も古くから知られる）</div>
+        <div class="gb-text">
+          正常な腎臓は余分なナトリウムを尿に排泄して血圧を一定に保ちます（「圧-利尿曲線」）。食塩感受性のある人では<strong>この「圧-利尿」反応がにぶく</strong>、少し血圧が上がっても充分にナトリウムを排泄できません。<br><br>
+          RAAS（レニン-アンジオテンシン-アルドステロン系）の過活性によりナトリウムの再吸収が増えることが、腎性の食塩感受性の主要メカニズムです。後述の遺伝子多型はこのRAASの活性に影響します。
+        </div>
+      </div>
+      <div class="grid-box gb-teal">
+        <div class="gb-title">② 血管内皮の経路（2025年総説の焦点）</div>
+        <div class="gb-text">
+          <em>Frontiers in Pharmacology</em> 2025（PMC11936959）では、<strong>血管内皮（血管の内壁の細胞層）の機能不全</strong>が食塩感受性の中心的メカニズムとして強調されています。<br><br>
+          健康な血管は高塩分時に一酸化窒素（NO）を増やして血管を広げますが、食塩感受性の人ではNO産生が低下してこの代償機能が働きにくい。<strong>特に閉経後の女性はエストロゲン低下で保護機能が失われ、食塩感受性が急増する</strong>ことが同論文で示されています。
+        </div>
+      </div>
+      <div class="grid-box gb-blue">
+        <div class="gb-title">③ 脳・自律神経の経路（2024年新知見）</div>
+        <div class="gb-text">
+          <em>Physiological Reviews</em> 2024（DOI: 10.1152/physrev.00035.2024）は、<strong>脳がナトリウム濃度の変化を検知し、交感神経系を通じて血圧を上げる</strong>という経路を詳しくまとめました。<br><br>
+          脳の間脳・延髄のニューロンがNa⁺センサーとして機能し、脳脊髄液のNa⁺濃度上昇 → 交感神経活性化 → 末梢血管抵抗の増加という経路が、食塩感受性の重要な要因となります。
+        </div>
+      </div>
+      <div class="grid-box gb-purple">
+        <div class="gb-title">④ 免疫・炎症の経路（新しい視点）</div>
+        <div class="gb-text">
+          最新の研究では<strong>T細胞・マクロファージなどの免疫細胞の活性化</strong>と腸内細菌叢の変化（特にLactobacillus 属の減少）が食塩感受性に関与することが示されています。<br><br>
+          ただしヒトでの因果関係はまだ確立されておらず、現状は動物実験と小規模ヒト研究が中心の研究段階のデータです。<br><br>
+          <small>参考：Salt sensitivity of blood pressure: From renal mechanisms to immune and inflammatory pathways. ScienceDirect 2025</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="amber-box">
+      <div class="label">「性差」も重要（2025年研究の注目点）</div>
+      Frontiers in Pharmacology 2025（PMC11936959）が特に強調したのが「<strong>閉経前後で女性の食塩感受性が大きく変わる</strong>」という点です。閉経前は女性ホルモン（エストロゲン）が血管内皮を保護しRAASを抑制するため、食塩感受性が比較的低く保たれます。閉経後はその保護効果が失われ、食塩感受性が高くなり高血圧リスクが増加します。これが「閉経後女性の高血圧」の一因です。
+    </div>
+  </div>
+</div>
+
+<!-- ===== CARD 4: 遺伝子多型 ===== -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">🧬</span>
+      <span class="card-title">「塩に敏感な人」を生む遺伝子 ── ACE・AGT・ADD1・CYP11B2</span>
+      <span class="topic-badge badge-purple">遺伝子多型</span>
+    </div>
+    <p class="body-text">食塩感受性は単一の遺伝子で決まるものではなく、<strong>複数の遺伝子変異（多型・SNP=一塩基多型）と環境・生活習慣が複雑に組み合わさった多遺伝子性の形質</strong>です。血圧調節の主要なシステム（RAAS・ナトリウムトランスポーター・NO産生・ミネラルコルチコイド系）に関わる遺伝子の多型が特に研究されています。</p>
+
+    <div class="gene-grid">
+      <div class="gene-card gc-ace">
+        <div class="gene-name">ACE 遺伝子</div>
+        <div class="gene-alias">アンジオテンシン変換酵素</div>
+        <div class="gene-variant">I/D 多型（挿入/欠失）</div>
+        <div class="gene-detail">
+          ACEはRAASの中心的な酵素。<strong>D（欠失型）アレルは酵素活性が高く</strong>、アンジオテンシンⅡが多く産生される → 血管収縮・ナトリウム保持 → 食塩感受性上昇と関連。<br><br>
+          ・I/I型：酵素活性低 → Na感受性比較的低い<br>
+          ・D/D型：酵素活性高 → Na感受性高い傾向<br>
+          ・I/D型：中間<br><br>
+          D型アレルは人口の約40〜50%が保有（民族差あり）。
+        </div>
+        <div class="gene-evidence">
+          📎 PMC4144382；Frontiers in Nutrition 2023（DOI: 10.3389/fnut.2023.1241017）<br>
+          <span class="tag-mod">エビデンス：中程度（関連研究多数・人種差大）</span>
+        </div>
+      </div>
+      <div class="gene-card gc-agt">
+        <div class="gene-name">AGT 遺伝子</div>
+        <div class="gene-alias">アンジオテンシノーゲン</div>
+        <div class="gene-variant">M235T・rs699</div>
+        <div class="gene-detail">
+          AGTはRAASの源となるタンパク質の遺伝子。<strong>M235T変異（235番目のアミノ酸 Met→Thr）</strong>はAGT産生量の増加と関連し、食塩感受性高血圧のリスクを上げると考えられている。<br><br>
+          rs699（M235Tに相当）は、北インド集団での高血圧リスクとの有意な関連が 2024年研究（Sharma ら）で確認されています。
+        </div>
+        <div class="gene-evidence">
+          📎 PMC4144382；J Health Popul Nutr 2025（DOI: 10.1186/s41043-025-01058-z）<br>
+          <span class="tag-mod">エビデンス：中程度（人種・地域差が大きい）</span>
+        </div>
+      </div>
+      <div class="gene-card gc-add1">
+        <div class="gene-name">ADD1 遺伝子</div>
+        <div class="gene-alias">α-アドゥシン（膜骨格タンパク）</div>
+        <div class="gene-variant">Gly460Trp（G460W）</div>
+        <div class="gene-detail">
+          アドゥシンは腎尿細管の細胞骨格に関わるタンパク質で、Na⁺-K⁺-ATPase（ナトリウム・カリウムポンプ）の活性を調節する。<strong>Trp460 型はこのポンプの活性が上がり → 腎臓でNa再吸収増加 → 血圧上昇しやすい</strong>。<br><br>
+          メタ分析（454名の塩感受性 vs 366名の非感受性）では<strong>アジア人集団で有意・白人集団では有意差なし</strong>という結果が示されています。
+        </div>
+        <div class="gene-evidence">
+          📎 PMC4144382；Hypertension Research 2010 (Nature Publishing)；ResearchGate（Gly460Trp メタ分析）<br>
+          <span class="tag-asian">アジア人で有意（白人では不明確）</span>
+        </div>
+      </div>
+      <div class="gene-card gc-cyp">
+        <div class="gene-name">CYP11B2 遺伝子</div>
+        <div class="gene-alias">アルドステロン合成酵素</div>
+        <div class="gene-variant">−344T/C（プロモーター多型）</div>
+        <div class="gene-detail">
+          CYP11B2はアルドステロン（腎臓でのNa保持を促すホルモン）を合成する酵素の遺伝子。<strong>−344C型はアルドステロン産生が増えやすく</strong>、食塩感受性と関連。<br><br>
+          特に重要なのは<strong>遺伝子間の相互作用</strong>：ADD1 Gly460Trp + ACE DD + CYP11B2 −344CC の3遺伝子を組み合わせると食塩感受性リスクがさらに高まることが報告されています（PMC4144382）。
+        </div>
+        <div class="gene-evidence">
+          📎 PMC4144382（遺伝子相互作用の報告あり）<br>
+          <span class="tag-mod">エビデンス：中程度（相互作用効果は再現性に課題）</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="navy-box">
+      <div class="label">「遺伝子 × 環境」の相互作用 ── 単純ではない</div>
+      Journal of Health, Population and Nutrition 2025（DOI: 10.1186/s41043-025-01058-z）は以下の重要な点を指摘しています：<br><br>
+      ① 食塩感受性の遺伝子的基盤は<strong>複数の遺伝子が関与（多遺伝子性）＋ 環境の修飾を受ける</strong>ため、「この遺伝子があれば絶対に食塩感受性」という単純な話ではない。<br>
+      ② 同じ ACE D/D 型でも、<strong>カリウム摂取量が充分な人では</strong>食塩感受性が軽減される可能性がある。<br>
+      ③ エピジェネティクス（遺伝子発現のオン・オフ）も食塩感受性に影響し、食事・ストレス・腸内細菌叢によって変化しうる。
+    </div>
+
+    <div class="alert-box">
+      <div class="label">⚠️ 現時点での重要な限界</div>
+      現在市販されている「遺伝子検査（DTC：直接消費者向け）」で「食塩感受性がわかる」と主張するサービスがありますが、<strong>現時点では個人の食塩感受性を遺伝子1〜2本で正確に予測することは困難</strong>です。上記の遺伝子多型はあくまで「統計的なリスク因子」であり、個人の食塩感受性の「診断」ツールとしては確立されていません。日本人への適用可能性については特に注意が必要です（多くの研究は欧米・南アジア集団を対象）。
+    </div>
+  </div>
+</div>
+
+<!-- ===== CARD 5: 塩分制限エビデンス ===== -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">📉</span>
+      <span class="card-title">「塩を減らせば全員血圧が下がる」は正しいか ── 個人差のエビデンス</span>
+      <span class="topic-badge badge-blue">エビデンス整理</span>
+    </div>
+    <p class="body-text">「減塩 → 血圧低下」は正しいのですが、その効果の大きさは人によってかなり違います。食塩感受性の有無が、「減塩の効果が出るかどうか」を大きく左右します。</p>
+
+    <div class="bar-chart">
+      <p class="body-text" style="font-weight:600; margin-bottom:12px;">▶ 食塩感受性の有無による「減塩の血圧低下効果」の違い（概略）</p>
+      <div class="bar-row">
+        <div class="bar-label">食塩感受性あり＋高血圧</div>
+        <div class="bar-track"><div class="bar-fill bf-red" style="width:90%;">収縮期血圧 −10〜20 mmHg（大きな効果）</div></div>
+        <div class="bar-note">最も効果大</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">食塩感受性あり＋正常血圧</div>
+        <div class="bar-track"><div class="bar-fill bf-orange" style="width:55%;">収縮期血圧 −5〜10 mmHg</div></div>
+        <div class="bar-note">中程度の効果</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">食塩感受性なし＋高血圧</div>
+        <div class="bar-track"><div class="bar-fill bf-amber" style="width:35%;">収縮期血圧 −2〜5 mmHg</div></div>
+        <div class="bar-note">限定的</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">食塩感受性なし＋正常血圧</div>
+        <div class="bar-track"><div class="bar-fill bf-gray" style="width:18%;">収縮期血圧 −1〜2 mmHg 程度</div></div>
+        <div class="bar-note">ごく小さい</div>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <div class="label">WHO 推奨量と日本人の現状</div>
+      <strong>WHO 推奨</strong>：食塩 1日 5g 未満（= ナトリウム 2g 未満）（WHO 2012年ガイドライン）<br>
+      <strong>日本人の平均摂取量</strong>：約 10g/日（成人、厚生労働省 国民健康・栄養調査 2019年）── WHO 推奨の約2倍<br>
+      <strong>Nordic Nutrition Recommendations 2023</strong>（PMC10845896）も同様に 1日 5g 以下を推奨。<br><br>
+      塩分を 1日 5g 未満にした場合の収縮期血圧の低下：観察研究を統合すると平均 約 2〜7 mmHg の範囲（個人差大）。食塩感受性が高い人ではさらに大きな低下が見込まれます。
+    </div>
+
+    <p class="body-text" style="font-weight:600; margin-top:16px;">▶ DASH（ダッシュ）食 ── 食塩感受性の人に特に有効な食事パターン</p>
+    <div class="green-box">
+      <div class="label">DASH-Sodium 試験（NEJM 2001、n=412、Sacks FM et al.）</div>
+      DASH 食（野菜・果物・低脂肪乳製品を豊富に摂り、ナトリウムを制限する食事パターン）は、<strong>低ナトリウム（Na 1.5g/日）設定で最大の血圧低下効果</strong>を示しました。<br><br>
+      ・DASH 食＋低塩分（Na 1.5g/日）→ 高血圧者で収縮期血圧が最大 <strong>−11.5 mmHg</strong><br>（通常食・通常塩分との比較）<br><br>
+      DASH 食はカリウム・カルシウム・マグネシウムが豊富で、これらのミネラルが<strong>腎臓のナトリウム排泄を助け、血管内皮を保護する</strong>ことで食塩感受性を「緩和」する効果があると考えられています。<br><br>
+      <small>Sacks FM et al. <em>NEJM</em> 2001;344:3-10. PMID: 11136953. DOI: <a href="https://doi.org/10.1056/NEJM200101043440101" target="_blank">10.1056/NEJM200101043440101</a>（RCT・n=412）</small>
+    </div>
+
+    <div class="simple-box">
+      <div class="label">「減塩しすぎ」のリスクも把握する</div>
+      塩分を極端に減らしすぎる（Na 1.5g/日未満）と、一部の観察研究では心血管リスクが逆に上がる可能性を示す報告もあります（O'Donnell MJ et al., NEJM 2014）。ただしこれらの研究には方法論的な批判があり、現在のコンセンサスは「一般成人は WHO 推奨（食塩 5g/日未満）を目標にする」です。超低塩食は自己判断で実践せず、持病のある方は必ず医師に相談してください。
+    </div>
+  </div>
+</div>
+
+<!-- ===== CARD 6: 精密栄養学 ===== -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">🎯</span>
+      <span class="card-title">精密栄養学の視点 ── カリウムとのバランス・個人に合わせた塩分管理</span>
+      <span class="topic-badge badge-teal">精密栄養学</span>
+    </div>
+    <p class="body-text">精密栄養学（個人差に合わせた栄養アドバイス）の観点では、<strong>塩の量だけでなく、カリウムとのバランス・遺伝的背景・年齢・性別・腎機能・腸内環境</strong>を複合的に考える必要があります。</p>
+
+    <div class="grid-2">
+      <div class="grid-box gb-green">
+        <div class="gb-title">🥬 カリウム：ナトリウムの「天然の拮抗剤」</div>
+        <div class="gb-text">
+          カリウム（K）はナトリウムと拮抗して腎臓でのナトリウム排泄を促し、血管を広げ、血圧を下げる作用があります。<br><br>
+          <strong>Na/K 比（ナトリウム・カリウム比）</strong>：塩分の絶対量より「Naとのバランス」が血圧に重要という研究が増えています（PMC12741333）。<br><br>
+          WHO 推奨カリウム摂取量：<strong>3.5g/日以上</strong>（WHO 2012年）<br>
+          日本人の平均摂取量：約 2.3g/日 ── 推奨を大きく下回る<br><br>
+          カリウムが豊富な食品：ほうれん草・さつまいも・アボカド・豆類・バナナ・低脂肪乳製品
+        </div>
+      </div>
+      <div class="grid-box gb-red">
+        <div class="gb-title">⚠️ 「食塩感受性かどうか」を調べる臨床ツールがない</div>
+        <div class="gb-text">
+          Frontiers in Pharmacology 2026（DOI: 10.3389/fphar.2026.1790409）は現在の課題として：<br><br>
+          ・食塩感受性の測定は現状「急性食塩負荷/除去プロトコル（入院設備が必要）」<br>
+          ・<strong>一般外来で使えるバイオマーカーはまだ確立されていない</strong><br>
+          ・遺伝子検査では個人の食塩感受性を精密に予測するには不十分<br>
+          ・将来は「尿中 Na/K 比」「微量アルブミン尿」の組み合わせが有望と議論されているが、研究段階
+        </div>
+      </div>
+    </div>
+
+    <p class="body-text" style="font-weight:600; margin-top:16px;">▶ 精密栄養学的アプローチのロードマップ（現状と将来）</p>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th class="col-label th-lbl">アプローチ</th>
+          <th class="th-red">現状（2026年）</th>
+          <th class="th-green">将来の可能性</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="col-label">遺伝子検査による食塩感受性特定</td>
+          <td><span class="tag-low">研究段階・臨床応用未確立</span></td>
+          <td>多遺伝子スコア（PRS）の精度向上に期待</td>
+        </tr>
+        <tr>
+          <td class="col-label">尿中 Na/K 比モニタリング</td>
+          <td><span class="tag-mod">一部医療機関で計算可能</span></td>
+          <td>ウェアラブルセンサーで日常モニタリング</td>
+        </tr>
+        <tr>
+          <td class="col-label">腸内細菌叢プロファイリング</td>
+          <td><span class="tag-low">研究段階（動物実験多い）</span></td>
+          <td>Lactobacillus 系と塩感受性の関係解明</td>
+        </tr>
+        <tr>
+          <td class="col-label">ホーム血圧計で自己観察</td>
+          <td><span class="tag-yes">今すぐ可能・最もエビデンスあり</span></td>
+          <td>「塩分多め／少なめの日」の BP 変化を記録</td>
+        </tr>
+        <tr>
+          <td class="col-label">DASH 食＋カリウム強化</td>
+          <td><span class="tag-yes">今すぐ可能・強いエビデンスあり</span></td>
+          <td>遺伝子型別の効果予測モデルの構築</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="cyan-box">
+      <div class="label">今日からできること（実践ヒント）</div>
+      <strong>①ホーム血圧計で「塩と血圧の関係」を自己観察する</strong><br>
+      外食が多かった日（塩分多め）と自炊・減塩した日で、翌朝の血圧を比較してみましょう。10 mmHg 以上の変動が継続的にみられる場合は食塩感受性がある可能性があり、かかりつけ医に相談する価値があります。<br><br>
+      <strong>②カリウムを意識して増やす</strong><br>
+      ほうれん草・小松菜・さつまいも・アボカド・豆類を毎日の食事に取り入れ、Na/K 比を改善する。塩の絶対量を減らすのと組み合わせると効果的です。<br><br>
+      <strong>③加工食品の「食塩相当量」を確認するクセをつける</strong><br>
+      日本人の食塩の約70〜80%は加工食品（調味料・漬物・練り物・インスタント食品）から摂取されています（厚生労働省）。「塩を振る量」を減らすより「選ぶ食品」を変えるほうが効果的なケースが多いです。
+    </div>
+  </div>
+</div>
+
+<!-- ===== CARD 7: まとめ ===== -->
+<div class="card">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">📝</span>
+      <span class="card-title">今日のまとめ</span>
+      <span class="topic-badge badge-gray">整理</span>
+    </div>
+
+    <ul class="step-list">
+      <li>
+        <span class="step-num">1</span>
+        <span class="step-text"><strong>食塩感受性（SSBP）</strong>とは、塩分摂取量の変化に対して血圧が大きく変動しやすい体質。一般成人の約30%、高血圧患者の約50%が該当すると推定される。血圧が正常でも食塩感受性を持つ人は将来の心血管リスクが高い（観察研究・AHA 2016声明）。</span>
+      </li>
+      <li>
+        <span class="step-num">2</span>
+        <span class="step-text"><strong>メカニズムは4つの経路</strong>：①腎臓でのナトリウム保持（RAAS過活性）、②血管内皮の機能低下（NO産生低下）、③中枢神経系・交感神経の活性化（Physiological Reviews 2024）、④免疫・炎症系の関与。特に2025年の総説（Frontiers in Pharmacology）では「閉経後女性の食塩感受性急増」が注目されている。</span>
+      </li>
+      <li>
+        <span class="step-num">3</span>
+        <span class="step-text"><strong>遺伝子多型が関与</strong>：ACE（I/D多型）・AGT（M235T）・ADD1（Gly460Trp）・CYP11B2（−344T/C）などの遺伝子が食塩感受性に関連。ADD1 Gly460Trp はアジア人集団で特に有意（メタ分析）。ただし食塩感受性は多遺伝子性で環境・年齢・性別との相互作用が大きく、遺伝子1〜2個で個人の感受性を正確に予測することは現時点では不可能。</span>
+      </li>
+      <li>
+        <span class="step-num">4</span>
+        <span class="step-text"><strong>減塩の効果は食塩感受性によって大きく違う</strong>。感受性の高い高血圧患者では収縮期血圧 −10〜20 mmHg の効果が期待できるが、感受性のない人では効果が限定的。DASH 食（カリウム・カルシウム・マグネシウム豊富）との組み合わせが強いエビデンスを持つ（DASH-Sodium試験、NEJM 2001, n=412）。</span>
+      </li>
+      <li>
+        <span class="step-num">5</span>
+        <span class="step-text"><strong>ナトリウムだけでなくカリウムとのバランスが重要</strong>。WHO 推奨は Na 2g/日（塩5g）・K 3.5g/日以上。日本人は塩分過多かつカリウム不足の傾向。野菜・豆類・果物でカリウムを積極的に補うことが、食塩感受性の有無にかかわらず有益（PMC12741333）。</span>
+      </li>
+      <li>
+        <span class="step-num">6</span>
+        <span class="step-text"><strong>「自分が食塩感受性かどうか」を調べる簡単な臨床ツールは現時点では確立されていない</strong>（Frontiers in Pharmacology 2026）。現状で最も実践的なのはホーム血圧計を使って「塩分の多い日と少ない日」の血圧変化を自己観察し、大きな変動があれば医師に相談すること。</span>
+      </li>
+    </ul>
+
+    <div class="source-text">
+      <strong>主な参照文献（略）:</strong><br>
+      1. Elijovich F et al. <em>Hypertension</em> 2016;68:e7-e46. DOI: <a href="https://doi.org/10.1161/HYP.0000000000000047" target="_blank">10.1161/HYP.0000000000000047</a>（AHA科学声明）<br>
+      2. Hamrahian SM et al. <em>Front Pharmacol</em> 2025. PMC11936959. DOI: <a href="https://doi.org/10.3389/fphar.2025.1565962" target="_blank">10.3389/fphar.2025.1565962</a><br>
+      3. Editorial. <em>Front Pharmacol</em> 2026. DOI: <a href="https://doi.org/10.3389/fphar.2026.1790409" target="_blank">10.3389/fphar.2026.1790409</a><br>
+      4. Osborn JW, Hendel MD. <em>Physiol Rev</em> 2024. DOI: <a href="https://doi.org/10.1152/physrev.00035.2024" target="_blank">10.1152/physrev.00035.2024</a><br>
+      5. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4144382/" target="_blank">PMC4144382</a>（遺伝子多型ナラティブレビュー）；<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4019234/" target="_blank">PMC4019234</a>（食塩感受性遺伝学）<br>
+      6. Bhat N et al. <em>J Health Popul Nutr</em> 2025. DOI: <a href="https://doi.org/10.1186/s41043-025-01058-z" target="_blank">10.1186/s41043-025-01058-z</a><br>
+      7. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12741333/" target="_blank">PMC12741333</a>（Na-Kバランスと食塩感受性メカニズム）<br>
+      8. Sacks FM et al. <em>NEJM</em> 2001;344:3-10. DOI: <a href="https://doi.org/10.1056/NEJM200101043440101" target="_blank">10.1056/NEJM200101043440101</a>（DASH-Sodium試験, n=412）<br>
+      9. WHO. 「Guideline: Sodium intake for adults and children」 2012. <a href="https://www.who.int/publications/i/item/9789241504836" target="_blank">WHO出版物</a><br>
+      10. Nordic Nutrition Recommendations 2023（Sodium review） <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10845896/" target="_blank">PMC10845896</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== DISCLAIMER ===== -->
+<div class="disclaimer">
+  <div class="dis-title">⚠️ 免責・注意事項</div>
+  本記事は一般的な健康情報の提供を目的としており、医療アドバイスではありません。食塩感受性の有無・適切な塩分摂取量・高血圧の管理は、個人の体質・年齢・腎機能・基礎疾患（特に慢性腎臓病・心臓病・糖尿病）・服薬（利尿薬・ACE阻害薬・ARB・カリウム製剤など）によって大きく異なります。本記事で紹介した遺伝子情報は統計的なリスク指標であり、個人の診断には使用できません。高血圧の診断・治療・生活指導については必ずかかりつけ医・循環器内科医・管理栄養士に相談してください。特に慢性腎臓病のある方はカリウム摂取量の増加が有害になる場合があるため、食事変更前に必ず専門家に確認してください。
+</div>
+
+<!-- ===== SOURCES ===== -->
+<div class="disclaimer" style="border-color: #e0b0a0;">
+  <div class="dis-title">📚 主な参考文献・出典</div>
+  ① Elijovich F et al. 「Salt Sensitivity of Blood Pressure: A Scientific Statement from the American Heart Association」 <em>Hypertension</em> 2016;68:e7-e46. PMID: 27324672. <a href="https://doi.org/10.1161/HYP.0000000000000047" target="_blank">DOI: 10.1161/HYP.0000000000000047</a>（AHA科学声明・2016年）<br><br>
+  ② Hamrahian SM, Maarouf OH. 「Salt-sensitive hypertension: role of endothelial and vascular dysfunction and sex」 <em>Frontiers in Pharmacology</em> 2025. PMC11936959. <a href="https://doi.org/10.3389/fphar.2025.1565962" target="_blank">DOI: 10.3389/fphar.2025.1565962</a>（総説・2025年）<br><br>
+  ③ Editorial: 「Salt-sensitive hypertension: mechanisms, therapeutics, and beyond」 <em>Frontiers in Pharmacology</em> 2026. <a href="https://doi.org/10.3389/fphar.2026.1790409" target="_blank">DOI: 10.3389/fphar.2026.1790409</a>（編集論説・2026年）<br><br>
+  ④ Osborn JW, Hendel MD. 「Central nervous system mechanisms of salt-sensitive hypertension」 <em>Physiological Reviews</em> 2024. <a href="https://doi.org/10.1152/physrev.00035.2024" target="_blank">DOI: 10.1152/physrev.00035.2024</a>（総説・2024年）<br><br>
+  ⑤ 「The association of genetic variations with sensitivity of blood pressure to dietary salt: A narrative literature review」 <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4144382/" target="_blank">PMC4144382</a>；「Genetics of Salt-Sensitive Hypertension」 <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4019234/" target="_blank">PMC4019234</a><br><br>
+  ⑥ Bhat N et al. 「A comprehensive narrative review on precision medicine approach to hypertension」 <em>Journal of Health, Population and Nutrition</em> 2025. <a href="https://doi.org/10.1186/s41043-025-01058-z" target="_blank">DOI: 10.1186/s41043-025-01058-z</a>（2025年）<br><br>
+  ⑦ 「Integrated mechanisms linking sodium–potassium imbalance to salt-sensitive hypertension」 <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12741333/" target="_blank">PMC12741333</a><br><br>
+  ⑧ Sacks FM et al. 「Effects on Blood Pressure of Reduced Dietary Sodium and the DASH Diet (DASH-Sodium Trial)」 <em>N Engl J Med</em> 2001;344:3-10. PMID: 11136953. <a href="https://doi.org/10.1056/NEJM200101043440101" target="_blank">DOI: 10.1056/NEJM200101043440101</a>（RCT・n=412）<br><br>
+  ⑨ WHO. 「Guideline: Sodium intake for adults and children」 Geneva: WHO, 2012. <a href="https://www.who.int/publications/i/item/9789241504836" target="_blank">WHO出版物</a><br><br>
+  ⑩ Sodium – a systematic review for Nordic Nutrition Recommendations 2023. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10845896/" target="_blank">PMC10845896</a>（2023年）
+</div>
+
+</body>
+</html>
