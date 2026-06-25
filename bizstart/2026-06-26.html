@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-06-26</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #7a4f1e 0%, #4a2e08 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #c8884a;
+  }
+  .card.blue   { border-left-color: #4a7c9e; }
+  .card.green  { border-left-color: #4a9e6a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.purple { border-left-color: #7a4a9e; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #7a4f1e;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  /* Amount band visual */
+  .amount-band {
+    margin: 16px 0;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #ddd;
+    font-size: 0.86rem;
+  }
+  .band-row {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    border-bottom: 1px solid #ddd;
+  }
+  .band-row:last-child { border-bottom: none; }
+  .band-amount {
+    background: #f5f0e8;
+    padding: 12px 8px;
+    font-weight: 700;
+    color: #7a4f1e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 0.92rem;
+    line-height: 1.3;
+  }
+  .band-content { padding: 12px 14px; line-height: 1.6; }
+  .band-row.b1 .band-content { background: #eaf6ee; }
+  .band-row.b2 .band-content { background: #fdf6e4; }
+  .band-row.b3 .band-content { background: #fff0e4; }
+  .band-row.b4 .band-content { background: #f0f0f8; }
+  .btag {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    padding: 1px 7px;
+    border-radius: 6px;
+    margin-right: 4px;
+    vertical-align: middle;
+  }
+  .btag.all { background: #4a9e6a; color: white; }
+  .btag.sme { background: #c8884a; color: white; }
+  .btag.std { background: #4a4a6a; color: white; }
+
+  /* Flow */
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #7a4f1e;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+  .f-arrow { color: #c8884a; font-size: 1.1rem; margin-left: 14px; margin-bottom: 4px; }
+
+  /* Table */
+  table { width: 100%; border-collapse: collapse; font-size: 0.87rem; margin: 12px 0; }
+  th { background: #7a4f1e; color: white; padding: 9px 10px; text-align: left; }
+  td { padding: 9px 10px; border-bottom: 1px solid #e0d8cc; vertical-align: top; }
+  tr:nth-child(even) td { background: #f8f4ec; }
+  tr:last-child td { border-bottom: none; }
+  .yr { font-weight: 700; color: #7a4f1e; }
+
+  /* Calc box */
+  .calc {
+    background: #f5f0e8;
+    border: 2px dashed #c8884a;
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin: 12px 0;
+  }
+  .calc-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    font-size: 0.87rem;
+    border-bottom: 1px dotted #d0c8b8;
+    gap: 8px;
+  }
+  .calc-row:last-child { border-bottom: none; font-weight: 700; color: #7a4f1e; font-size: 0.93rem; }
+  .calc-label { color: #555; }
+
+  /* Stats row */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 12px 8px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat .sl { font-size: 0.67rem; color: #888; margin-bottom: 3px; }
+  .stat .sv { font-size: 1.5rem; font-weight: 700; color: #7a4f1e; line-height: 1.1; }
+  .stat .su { font-size: 0.7rem; color: #666; margin-top: 2px; }
+
+  /* Info / Warn boxes */
+  .info {
+    background: #e8f0f8;
+    border-left: 4px solid #4a7c9e;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #2a4a6e;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #7a4010;
+  }
+
+  /* Summary list */
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #c8884a; font-weight: 700; flex-shrink: 0; }
+
+  .hl { background: linear-gradient(transparent 55%, #ffe066 55%); font-weight: 600; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.65; }
+  .source a { color: #7a4f1e; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #7a4f1e; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Header -->
+<div class="header">
+  <div class="meta">&#x1F4C5; 1人法人スタート 最新トピック &nbsp;2026-06-26</div>
+  <h1>&#x1F4BB; 減価償却の基礎<br>10万・20万・40万円の3つの境界線と耐用年数を図解</h1>
+  <div class="desc">
+    <span class="htag">経理・記帳</span>
+    <span class="htag">節税</span>
+    <span class="htag">固定資産</span>
+    <br>
+    PCや机を買ったとき、その年に全額経費にできる？ それとも何年かに分ける？<br>
+    ルールを知れば節税チャンスが見えてくる！
+  </div>
+</div>
+
+<!-- Section 1: What is depreciation -->
+<div class="card">
+  <div class="sec-title">&#x2753; 減価償却（げんかしょうきゃく）って何？</div>
+  <p>
+    <span class="hl">「高いものを買ったら、その費用を何年かに分けて経費にするルール」</span>です。
+  </p>
+  <br>
+  <p>
+    たとえば60万円のパソコンを買っても、翌年も翌々年も使い続けますよね。<br>
+    税務署の考え方は「何年も使い続けるものを1年分の費用にするのはおかしい、使う年数に合わせて少しずつ経費にしなさい」というもの。これが<strong>減価償却</strong>です。
+  </p>
+  <div class="info" style="margin-top:12px;">
+    &#x1F4A1; ただし金額が少ない場合は「全額その年に経費でOK」という特例があります。<br>
+    1人法人（中小企業）にはとくに有利な特例があり、ここが重要ポイントです！
+  </div>
+</div>
+
+<!-- Section 2: Three thresholds -->
+<div class="card blue">
+  <div class="sec-title">&#x2696;&#xFE0F; 購入金額で変わるルール ── 3つの境界線</div>
+  <p>購入価額（税抜き）によって、経費化のルールが変わります。</p>
+
+  <div class="amount-band">
+    <div class="band-row b1">
+      <div class="band-amount">10万円<br>未満</div>
+      <div class="band-content">
+        <span class="btag all">全社共通</span>
+        <strong>全額その年に費用計上 OK（少額資産）</strong><br>
+        固定資産扱いにせず、消耗品費などで即時処理できます。<br>
+        <span style="font-size:0.8rem;color:#666;">根拠：法人税法施行令第133条</span>
+      </div>
+    </div>
+    <div class="band-row b2">
+      <div class="band-amount">20万円<br>未満</div>
+      <div class="band-content">
+        <span class="btag all">全社共通</span>
+        <strong>一括償却資産</strong>：3年間で均等に経費化できる特例あり。<br>
+        通常の減価償却と選択制。事務が簡単なのがメリット。<br>
+        <span style="font-size:0.8rem;color:#666;">根拠：法人税法施行令第133条の2</span>
+      </div>
+    </div>
+    <div class="band-row b3">
+      <div class="band-amount">40万円<br>未満</div>
+      <div class="band-content">
+        <span class="btag sme">中小企業等</span>
+        <strong>少額減価償却の特例</strong>：全額その年に費用計上 OK！<br>
+        青色申告法人が対象。年間合計300万円まで適用可。<br>
+        <span style="font-size:0.8rem;color:#c04040;">&#x2605; 令和8年度税制改正で30万円→40万円に引上げ（2026年4月1日以後取得分から）</span>
+      </div>
+    </div>
+    <div class="band-row b4">
+      <div class="band-amount">40万円<br>以上</div>
+      <div class="band-content">
+        <span class="btag std">全社共通</span>
+        <strong>通常の減価償却</strong>：耐用年数に従って毎年少しずつ経費化。<br>
+        後述の耐用年数表・計算例を参照してください。
+      </div>
+    </div>
+  </div>
+
+  <div class="warn">
+    &#x26A0;&#xFE0F; 金額の判定は<strong>税抜き価格</strong>が原則（消費税免税事業者は状況による）。<br>
+    また1台（1個）単位で判断します。セットで機能上一体のものは合算して判定。<br>
+    2026年3月31日以前に取得した資産は旧30万円ルールが適用されます。
+  </div>
+
+  <div class="source">
+    出典：国税庁「少額の減価償却資産の取得価額の損金算入」
+    <a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/hojin/5403.htm" target="_blank">https://www.nta.go.jp/taxes/shiraberu/taxanswer/hojin/5403.htm</a><br>
+    国税庁「一括償却資産の損金算入」
+    <a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/hojin/5404.htm" target="_blank">https://www.nta.go.jp/taxes/shiraberu/taxanswer/hojin/5404.htm</a><br>
+    国税庁「中小企業者等の少額減価償却の特例」
+    <a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/hojin/5408.htm" target="_blank">https://www.nta.go.jp/taxes/shiraberu/taxanswer/hojin/5408.htm</a>（基準年度：令和6年度）
+  </div>
+</div>
+
+<!-- Section 3: Decision flow -->
+<div class="card green">
+  <div class="sec-title">&#x1F500; どのルールを使う？ ── 判断フロー（中小企業・青色申告法人の場合）</div>
+
+  <div class="f-step">
+    <div class="f-num">1</div>
+    <div class="f-text"><strong>購入価額（税抜き）を確認する</strong><br>例：外付けSSD 48,000円、PC 198,000円、業務用カメラ 350,000円</div>
+  </div>
+  <div class="f-arrow">&#x25BC;</div>
+  <div class="f-step">
+    <div class="f-num">2</div>
+    <div class="f-text"><strong>10万円未満？</strong> → YES &#x2192; <span style="color:#2a6e48;font-weight:600;">消耗品費で即時全額費用化</span>。終わり。<br>NO &#x2192; 次へ</div>
+  </div>
+  <div class="f-arrow">&#x25BC;</div>
+  <div class="f-step">
+    <div class="f-num">3</div>
+    <div class="f-text"><strong>40万円未満？</strong> → YES &#x2192; <span style="color:#8a4a10;font-weight:600;">少額減価償却の特例</span>で即時全額費用化（年300万円まで）。<br>NO &#x2192; 次へ</div>
+  </div>
+  <div class="f-arrow">&#x25BC;</div>
+  <div class="f-step">
+    <div class="f-num">4</div>
+    <div class="f-text"><strong>40万円以上</strong> &#x2192; <span style="color:#4a4a6a;font-weight:600;">通常の減価償却</span>：耐用年数に従い毎年少しずつ経費化。</div>
+  </div>
+
+  <div class="info" style="margin-top:14px;">
+    &#x1F4CC; 中小企業等でない場合（例：資本金1億円超）は少額減価償却の特例が使えないため、
+    Step 3 で「20万円未満なら一括償却（3年均等）、以上なら通常減価償却」に分岐します。
+  </div>
+</div>
+
+<!-- Section 4: Useful life table -->
+<div class="card">
+  <div class="sec-title">&#x1F4C5; 主な固定資産の耐用年数（国が定める「何年で経費化するか」の年数）</div>
+  <p>耐用年数とは、国が定めた「この資産は○年使えるもの」という年数。この年数をもとに毎年の減価償却費を計算します。</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>資産の種類</th>
+        <th>耐用年数</th>
+        <th>1人法人での主な用途</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>パソコン・タブレット</td>
+        <td class="yr">4年</td>
+        <td>最もよく購入する固定資産</td>
+      </tr>
+      <tr>
+        <td>ソフトウェア（購入）</td>
+        <td class="yr">5年</td>
+        <td>Adobe等永年版・会計ソフト購入版など</td>
+      </tr>
+      <tr>
+        <td>カメラ・映像機材</td>
+        <td class="yr">5年</td>
+        <td>写真・動画制作業など</td>
+      </tr>
+      <tr>
+        <td>乗用車（新車）</td>
+        <td class="yr">6年</td>
+        <td>中古は計算式で短縮される場合あり</td>
+      </tr>
+      <tr>
+        <td>机・椅子（木製）</td>
+        <td class="yr">8年</td>
+        <td>金属製は15年。ホームオフィス家具など</td>
+      </tr>
+      <tr>
+        <td>建物（木造・事務所用）</td>
+        <td class="yr">24年</td>
+        <td>自己所有の場合。住宅用は22年</td>
+      </tr>
+      <tr>
+        <td>建物（RC造・事務所用）</td>
+        <td class="yr">50年</td>
+        <td>鉄筋コンクリート造</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="source">
+    出典：国税庁「耐用年数（器具・備品など有形固定資産）」
+    <a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/2100.htm" target="_blank">https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/2100.htm</a>（基準年度：令和6年度）
+  </div>
+</div>
+
+<!-- Section 5: Calculation example -->
+<div class="card purple">
+  <div class="sec-title">&#x1F9EE; 計算例 ── 60万円のパソコンを「定額法」で償却すると？</div>
+
+  <div class="info">
+    &#x1F4CC; 法人は原則「<strong>定率法</strong>（最初の年に多く経費化する方法）」が適用されます。<br>
+    ここでは分かりやすい「<strong>定額法</strong>（毎年同額を経費化）」で解説します。
+  </div>
+
+  <div class="calc" style="margin-top:12px;">
+    <div class="calc-row">
+      <span class="calc-label">取得価額</span>
+      <span>600,000円（税抜き）</span>
+    </div>
+    <div class="calc-row">
+      <span class="calc-label">資産の種類</span>
+      <span>パソコン（耐用年数 4年）</span>
+    </div>
+    <div class="calc-row">
+      <span class="calc-label">定額法の償却率</span>
+      <span>0.250（= 1 &divide; 4年）</span>
+    </div>
+    <div class="calc-row">
+      <span class="calc-label">毎年の減価償却費</span>
+      <span>600,000 &times; 0.250 = <strong>150,000円</strong></span>
+    </div>
+    <div class="calc-row">
+      <span class="calc-label">&#x2192; 4年後に全額経費化完了</span>
+      <span>150,000 &times; 4年 = 600,000円 &#x2705;</span>
+    </div>
+  </div>
+
+  <div class="warn">
+    &#x26A1; 比較：もし<strong>38万円のパソコン（少額減価償却の特例 対象）</strong>なら、<br>
+    1年目に<strong>全額380,000円を一括で経費化</strong>できます！<br>
+    節税の観点では、40万円を少し下回る設備を意識して選ぶことも検討できます。<br>
+    <span style="font-size:0.82rem;">（ただし「節税のために不要なものを買う」のは本末転倒。必要なものをタイミングよく購入することが大前提）</span>
+  </div>
+</div>
+
+<!-- Section 6: SME special rule -->
+<div class="card red">
+  <div class="sec-title">&#x1F31F; 「少額減価償却の特例」まとめ ── 1人法人の強力な節税ツール</div>
+
+  <div class="stats-row">
+    <div class="stat">
+      <div class="sl">対象金額（税抜き）</div>
+      <div class="sv">40万</div>
+      <div class="su">円未満</div>
+    </div>
+    <div class="stat">
+      <div class="sl">年間上限</div>
+      <div class="sv">300万</div>
+      <div class="su">円まで</div>
+    </div>
+    <div class="stat">
+      <div class="sl">申告要件</div>
+      <div class="sv">青色</div>
+      <div class="su">申告法人</div>
+    </div>
+    <div class="stat">
+      <div class="sl">対象法人</div>
+      <div class="sv">中小</div>
+      <div class="su">企業者等</div>
+    </div>
+  </div>
+
+  <p>この特例を使うと、40万円未満の資産を取得した年に<strong>全額を経費（損金）にできます</strong>。通常の減価償却より大幅に早く費用化できるため、その年の法人税・住民税・事業税を減らす効果があります。</p>
+
+  <div class="info" style="margin-top:12px;">
+    &#x2705; <strong>対象となる中小企業者等</strong>：資本金1億円以下の法人（ただし大法人の完全子会社等は除く）<br>
+    &#x2705; <strong>青色申告が必要</strong>：設立時に「青色申告の承認申請書」を提出していること<br>
+    &#x2705; <strong>申告書への添付が必要</strong>：法人税申告書 別表16(7)「少額減価償却資産の取得価額の損金算入の特例に関する明細書」<br>
+    &#x2705; <strong>根拠法令</strong>：租税特別措置法第67条の5<br>
+    &#x2705; <strong>特例の適用期限</strong>：令和9年3月31日まで（令和8年度税制改正で延長）
+  </div>
+
+  <div class="source">
+    出典：国税庁「中小企業者等の少額減価償却資産の取得価額の損金算入の特例」<br>
+    <a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/hojin/5408.htm" target="_blank">https://www.nta.go.jp/taxes/shiraberu/taxanswer/hojin/5408.htm</a>（基準年度：令和6年度）<br>
+    令和8年度税制改正大綱（財務省 2025年12月公表）
+  </div>
+</div>
+
+<!-- Summary -->
+<div class="card">
+  <div class="sec-title">&#x1F4DD; 今日のまとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">①</span>減価償却とは「高額な資産を何年かに分けて経費にするルール」。使用年数の長いものは一度に費用化できない。</li>
+    <li><span class="n">②</span>10万円未満は全社で即時費用化OK（消耗品費）。</li>
+    <li><span class="n">③</span>中小企業・青色申告法人なら<strong>40万円未満</strong>まで即時費用化できる特例あり（年間300万円上限）。2026年4月1日以後取得分から適用。</li>
+    <li><span class="n">④</span>40万円以上は耐用年数で毎年少しずつ経費化。PC=4年、ソフトウェア=5年、乗用車=6年など。</li>
+    <li><span class="n">⑤</span>設備投資は決算期末前に集中させると節税効果が高い。ただし「必要なもの」に限る。</li>
+  </ul>
+</div>
+
+<!-- Disclaimer -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報提供を目的としており、個別の税務・法務アドバイスではありません。
+  会社の状況・業種・規模・取得時期・申告状況などにより判断が異なる場合があります。
+  具体的な判断・申告については、税理士・公認会計士などの専門家にご相談ください。<br>
+  掲載している税率・制度・金額は基準年度（令和6〜8年度）のものです。
+  税制は毎年改正されます。申告時は必ず国税庁の最新情報をご確認ください。
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>&#x1F4DA; <a href="index.html">バックナンバー一覧へ</a> &nbsp;&middot;&nbsp; 毎朝更新</p>
+</div>
+
+</div>
+</body>
+</html>
