@@ -30,6 +30,7 @@
 - 2026-06-23：Google Search Profiles ── 検索・Discoverで「作者として発見される」新機能（2026年6月4日ローンチ）
 - 2026-06-24：動画集客入門 ── ショート動画（YouTube Shorts・Reels・TikTok）で見込み客を引き寄せる
 - 2026-06-25：Meta Creator Assistant活用法 ── AIでコンテンツ成果を分析し「次の一手」を決める（2026年6月4日ローンチ）
+- 2026-06-26：LinkedIn Creator Marketplace入門 ── ブランドとクリエイターをつなぐB2B集客の新プラットフォーム（2026年6月10日ローンチ）
 
 ## 今後追加したい有望テーマ
 
@@ -46,5 +47,4 @@
 - E-E-A-T深掘り ── Google品質評価の4要素を集客に活かす具体的な方法
 - コミュニティ集客 ── FacebookグループやDiscordで濃いファンを育てる
 - Mailchimp Analytics AI活用法 ── 会話型AIでメール集客の成果を分析する（2026年5月ローンチ）
-- LinkedIn新KPI「Saves・Sends」活用法 ── 2026年追加指標でコンテンツを改善する
-- LinkedIn Creator Marketplace入門 ── ブランドとクリエイターをつなぐB2B集客の新プラットフォーム（2026年6月10日ローンチ）
+- LinkedIn新KPI「Saves・Sends」活用法（詳細深掘り編）── 指標別コンテンツ改善の実践ガイド
