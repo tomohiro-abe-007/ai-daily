@@ -32,6 +32,7 @@
 - 2026-06-25：Meta Creator Assistant活用法 ── AIでコンテンツ成果を分析し「次の一手」を決める（2026年6月4日ローンチ）
 - 2026-06-26：LinkedIn Creator Marketplace入門 ── ブランドとクリエイターをつなぐB2B集客の新プラットフォーム（2026年6月10日ローンチ）
 - 2026-06-27：GEO（Generative Engine Optimization）── AIに「引用元」として選ばれる集客戦略の新常識
+- 2026-06-28：Mailchimp Analytics AI活用法 ── 会話型AIでメール集客の成果を分析する（2026年5月28日ローンチ）
 
 ## 今後追加したい有望テーマ
 
@@ -46,5 +47,7 @@
 - ピラーコンテンツ戦略 ── 1本の大作が集客の軸になる仕組み
 - E-E-A-T深掘り ── Google品質評価の4要素を集客に活かす具体的な方法
 - コミュニティ集客 ── FacebookグループやDiscordで濃いファンを育てる
-- Mailchimp Analytics AI活用法 ── 会話型AIでメール集客の成果を分析する（2026年5月ローンチ）
 - LinkedIn新KPI「Saves・Sends」活用法（詳細深掘り編）── 指標別コンテンツ改善の実践ガイド
+- Snapchat Smart Assistant活用法 ── AIが広告設定を自動最適化（2026年6月ローンチ）
+- Pinterest AI Business Assistant ── Ads Manager内の新AIコラボレーター活用法
+- Adobe Brand Visibility ── GEO対応の可視化ツールでAI検索に映る自社ブランドを管理する
