@@ -2,7 +2,6 @@
 
 ## 未解説テーマ（エバーグリーン）
 
-- 英語とスペイン語で「好き・嫌い」を表す（like vs. gustar）
 - スペイン語の接続詞と複文の作り方（y, pero, porque, que）
 - スペイン語の比較表現（más...que / menos...que / tan...como）
 - スペイン語の再帰動詞（levantarse, llamarseなど）
@@ -38,3 +37,4 @@
 - 2026-06-24: スペイン語の過去形の入り口（pretérito indefinido / pretérito perfecto）
 - 2026-06-25: スペイン語の指示詞（este / ese / aquel）── 「この・その・あの」3段階の距離感
 - 2026-06-26: スペイン語の所有格（mi / tu / su と mío / tuyo / suyo）── 前置型と後置型の使い分け
+- 2026-06-29: 英語とスペイン語で「好き・嫌い」を表す（like vs. gustar）
