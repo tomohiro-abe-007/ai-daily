@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI動画制作 日報 2026-06-28</title>
+<style>
+  :root {
+    --bg: #ece8e1;
+    --card: #faf6ec;
+    --dark: #1a3a5c;
+    --dark2: #1a5c3a;
+    --accent: #2a5c8a;
+    --accent2: #c85a00;
+    --text: #2a3540;
+    --muted: #7c8a82;
+    --border: #e0d8c8;
+    --highlight: #fff3cd;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, "Hiragino Sans", "Yu Gothic", sans-serif;
+    line-height: 1.75;
+    padding: 20px;
+  }
+  .wrap { max-width: 900px; margin: 0 auto; }
+
+  /* Header */
+  .header {
+    background: linear-gradient(135deg, #3a1a5c 0%, #1a3a5c 60%, #1a5c3a 100%);
+    color: #fff;
+    border-radius: 20px;
+    padding: 44px 32px 36px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(58,26,92,.22);
+    margin-bottom: 24px;
+  }
+  .header-tag {
+    display: inline-block;
+    background: rgba(255,255,255,.18);
+    color: #e0d0f8;
+    border-radius: 20px;
+    padding: 4px 16px;
+    font-size: .82rem;
+    margin-bottom: 14px;
+    letter-spacing: .06em;
+  }
+  .header h1 { font-size: 1.75rem; letter-spacing: .04em; line-height: 1.4; margin-bottom: 10px; }
+  .header .sub { color: #c8d8f0; font-size: .95rem; }
+  .header .date { color: #b0e0c0; font-size: .85rem; margin-top: 8px; }
+
+  /* Card */
+  .card {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 12px rgba(0,0,0,.07);
+    border: 1px solid var(--border);
+  }
+  .card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* Point cards */
+  .point-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+  .point-card {
+    background: #f0f0fc;
+    border-radius: 14px;
+    padding: 20px 16px;
+    text-align: center;
+    border: 1px solid #d0d0ee;
+  }
+  .point-icon { font-size: 2rem; margin-bottom: 8px; }
+  .point-title { font-size: .95rem; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
+  .point-desc { font-size: .83rem; color: var(--muted); line-height: 1.6; }
+
+  /* Big number cards */
+  .bignum-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-top: 20px;
+  }
+  .bignum-card {
+    background: linear-gradient(135deg, #3a1a5c, #1a3a5c);
+    border-radius: 14px;
+    padding: 18px 12px;
+    text-align: center;
+    color: #fff;
+  }
+  .bignum { font-size: 1.6rem; font-weight: 800; color: #d0b0f8; line-height: 1.2; }
+  .bignum-label { font-size: .72rem; color: #c8d0f0; margin-top: 4px; line-height: 1.5; }
+
+  /* Step list */
+  .step-list { list-style: none; }
+  .step-item {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 16px;
+    align-items: flex-start;
+  }
+  .step-num {
+    width: 34px;
+    height: 34px;
+    background: linear-gradient(135deg, #3a1a5c, #1a3a5c);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: .95rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .step-body { flex: 1; }
+  .step-title { font-weight: 700; color: var(--dark); font-size: .95rem; }
+  .step-desc { font-size: .86rem; color: var(--muted); margin-top: 3px; line-height: 1.65; }
+
+  /* Prompt box */
+  .prompt-box {
+    background: #1a1a2e;
+    color: #b0d0f8;
+    border-radius: 12px;
+    padding: 16px 20px;
+    font-family: "Courier New", monospace;
+    font-size: .86rem;
+    line-height: 1.9;
+    margin-top: 12px;
+  }
+  .prompt-box .key { color: #f0c040; }
+  .prompt-box .val { color: #80e0c0; }
+
+  /* Chips */
+  .chip-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .chip {
+    background: #ece8f8;
+    color: #3a1a5c;
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: .82rem;
+    font-weight: 600;
+    border: 1px solid #c8c0e8;
+  }
+
+  /* Table */
+  .tbl { width: 100%; border-collapse: collapse; font-size: .88rem; }
+  .tbl th {
+    background: #ebe8f8;
+    padding: 10px 12px;
+    text-align: left;
+    border-bottom: 2px solid #c8c0e8;
+    color: var(--dark);
+    font-weight: 700;
+  }
+  .tbl td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    color: var(--text);
+  }
+  .tbl tr:last-child td { border-bottom: none; }
+  .tbl tr.good-row td { background: #f0fff4; }
+
+  /* Note / highlight box */
+  .note-box {
+    background: var(--highlight);
+    border-left: 4px solid #e8a000;
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: .88rem;
+    color: #5a4000;
+    margin-top: 14px;
+    line-height: 1.7;
+  }
+
+  /* Summary list */
+  .summary-list {
+    font-size: .95rem;
+    line-height: 2.2;
+  }
+  .summary-list li {
+    list-style: none;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .summary-list li::before {
+    content: "✅";
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* Disclaimer */
+  .disclaimer {
+    background: #f0ede8;
+    border-radius: 12px;
+    padding: 16px 20px;
+    font-size: .82rem;
+    color: var(--muted);
+    margin-top: 24px;
+    line-height: 1.7;
+    border: 1px solid #ddd8d0;
+  }
+
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: .82rem;
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    line-height: 1.9;
+  }
+
+  /* Color temperature bar */
+  .temp-bar-wrap { margin: 20px 0; }
+  .temp-bar {
+    height: 36px;
+    border-radius: 18px;
+    background: linear-gradient(to right, #1a6ac8, #5aa0e0, #e0e0e0, #f8c060, #e06020, #c83010);
+    position: relative;
+    margin-bottom: 10px;
+  }
+  .temp-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: .78rem;
+    color: var(--muted);
+    padding: 0 4px;
+  }
+  .temp-markers {
+    display: flex;
+    justify-content: space-between;
+    font-size: .72rem;
+    color: var(--text);
+    font-weight: 600;
+    padding: 0 4px;
+    margin-top: 6px;
+  }
+  .temp-marker-item { text-align: center; }
+
+  /* Before/After */
+  .ba-wrap {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 16px 0;
+  }
+  .ba-box {
+    flex: 1;
+    min-width: 200px;
+    max-width: 320px;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgba(0,0,0,.12);
+    border: 2px solid var(--border);
+  }
+  .ba-top {
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .ba-before-top {
+    background: linear-gradient(135deg, #b0b8c0, #c8d0d8);
+  }
+  .ba-after-top {
+    background: linear-gradient(135deg, #2a4a7a, #5a3a7a 40%, #7a4a20 80%, #c87040);
+  }
+  .ba-label {
+    background: rgba(0,0,0,.45);
+    color: #fff;
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: .8rem;
+    font-weight: 700;
+  }
+  .ba-bottom {
+    padding: 12px 16px;
+    background: #fff;
+    font-size: .82rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+  .ba-arrow {
+    font-size: 2.5rem;
+    color: #bbb;
+    flex-shrink: 0;
+  }
+
+  /* LUT flow */
+  .lut-flow {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    flex-wrap: wrap;
+    margin: 16px 0;
+    justify-content: center;
+  }
+  .lut-box {
+    border-radius: 12px;
+    padding: 14px 20px;
+    text-align: center;
+    min-width: 130px;
+    font-size: .85rem;
+    font-weight: 700;
+  }
+  .lut-raw { background: linear-gradient(135deg, #b0b8c0, #c8d0d8); color: #2a3540; border: 2px solid #a0a8b0; }
+  .lut-lut { background: linear-gradient(135deg, #1a3a5c, #3a1a5c); color: #e0d0ff; }
+  .lut-result { background: linear-gradient(135deg, #2a4a7a, #c87040); color: #fff; }
+  .lut-arrow { font-size: 1.5rem; color: #aaa; margin: 0 10px; }
+  .lut-sub { font-size: .72rem; font-weight: 400; margin-top: 4px; line-height: 1.4; }
+
+  /* Three-way color grade diagram */
+  .three-way {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-top: 16px;
+  }
+  .tw-card {
+    border-radius: 14px;
+    padding: 18px 14px;
+    text-align: center;
+    border: 1px solid var(--border);
+  }
+  .tw-shadow { background: linear-gradient(135deg, #1a1a2a, #2a2a3a); color: #a0c0e0; }
+  .tw-mid { background: linear-gradient(135deg, #3a4a5a, #5a6a7a); color: #e0eff8; }
+  .tw-highlight { background: linear-gradient(135deg, #f8e8c0, #fff5e0); color: #5a3a10; }
+  .tw-icon { font-size: 1.8rem; margin-bottom: 8px; }
+  .tw-name { font-size: .95rem; font-weight: 700; margin-bottom: 6px; }
+  .tw-desc { font-size: .78rem; line-height: 1.6; opacity: .85; }
+
+  /* Contrast visual */
+  .contrast-row {
+    display: flex;
+    gap: 16px;
+    margin: 16px 0;
+    flex-wrap: wrap;
+  }
+  .contrast-item {
+    flex: 1;
+    min-width: 180px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 2px solid var(--border);
+    text-align: center;
+  }
+  .contrast-img {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: .75rem;
+    color: rgba(255,255,255,.7);
+    font-weight: 700;
+  }
+  .contrast-flat { background: linear-gradient(to bottom right, #888, #aaa); }
+  .contrast-high { background: linear-gradient(to bottom right, #111, #fff); }
+  .contrast-cinema { background: linear-gradient(to bottom right, #1a1a2a, #d0c0a0 70%, #f0e8c8); }
+  .contrast-caption { padding: 8px; font-size: .8rem; color: var(--text); font-weight: 600; }
+  .contrast-sub { padding: 0 8px 8px; font-size: .74rem; color: var(--muted); }
+
+  @media (max-width: 640px) {
+    .point-grid { grid-template-columns: 1fr; }
+    .bignum-grid { grid-template-columns: repeat(2, 1fr); }
+    .three-way { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.35rem; }
+    .ba-wrap { flex-direction: column; align-items: stretch; }
+    .ba-arrow { text-align: center; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- Header -->
+<div class="header">
+  <div class="header-tag">🎨 エバーグリーン技法回 ── 色彩・編集</div>
+  <h1>カラーグレーディングの基本<br>── 色温度・コントラスト・LUT活用</h1>
+  <div class="sub">「なんか映画っぽい」を作る色調整の仕組みをやさしく図解</div>
+  <div class="date">2026-06-28 ｜ AI動画制作 日報</div>
+</div>
+
+<!-- 今日の3ポイント -->
+<div class="card">
+  <div class="card-title">🎯 今日の3ポイント</div>
+  <div class="point-grid">
+    <div class="point-card">
+      <div class="point-icon">🌡️</div>
+      <div class="point-title">色温度で「感情」を作る</div>
+      <div class="point-desc">暖色（オレンジ系）＝温かさ・活力。寒色（青系）＝クールさ・孤独。シーンの気分を色で操れる</div>
+    </div>
+    <div class="point-card">
+      <div class="point-icon">🎭</div>
+      <div class="point-title">コントラストで「深み」を出す</div>
+      <div class="point-desc">明暗差（コントラスト）を調整すると映像に立体感が生まれる。フラットな映像が「映画のような深み」に変わる</div>
+    </div>
+    <div class="point-card">
+      <div class="point-icon">📦</div>
+      <div class="point-title">LUTで一発変換</div>
+      <div class="point-desc">LUT（色変換テーブル）はいわば「色のフィルター」。プロが作った色設定を読み込むだけで、映画風・ヴィンテージ風に即変換</div>
+    </div>
+  </div>
+</div>
+
+<!-- カラーグレーディングとは -->
+<div class="card">
+  <div class="card-title">🎬 カラーグレーディングとは？ ── Before / After で確認</div>
+  <p style="font-size:.9rem;color:var(--muted);margin-bottom:16px;">
+    「カラーグレーディング」とは、撮影後の映像の色・明るさ・コントラストを整えて、
+    意図した雰囲気や感情を表現する作業のことです。料理に「仕上げの調味料」を加えるようなイメージです。
+  </p>
+
+  <div class="ba-wrap">
+    <div class="ba-box">
+      <div class="ba-top ba-before-top">
+        <div class="ba-label">Before（撮影そのまま）</div>
+      </div>
+      <div class="ba-bottom">
+        ✖ 色がくすんで眠たい印象<br>
+        ✖ 全体的にグレーっぽくフラット<br>
+        ✖ 「素材」の状態
+      </div>
+    </div>
+    <div class="ba-arrow">→</div>
+    <div class="ba-box">
+      <div class="ba-top ba-after-top">
+        <div class="ba-label">After（グレーディング後）</div>
+      </div>
+      <div class="ba-bottom">
+        ✅ 暗部が引き締まり立体感UP<br>
+        ✅ オレンジ×ティールの映画色<br>
+        ✅ 見た人が「映画っぽい！」と感じる
+      </div>
+    </div>
+  </div>
+
+  <div class="bignum-grid">
+    <div class="bignum-card">
+      <div class="bignum">3</div>
+      <div class="bignum-label">主な調整項目<br>（色温度・コントラスト・LUT）</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">100K</div>
+      <div class="bignum-label">無料LUTの<br>配布数（参考）</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">.cube</div>
+      <div class="bignum-label">LUTの<br>標準ファイル形式</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">33³</div>
+      <div class="bignum-label">3D LUTの<br>格子点数（33×33×33）</div>
+    </div>
+  </div>
+</div>
+
+<!-- 色温度 -->
+<div class="card">
+  <div class="card-title">🌡️ 色温度（カラーテンポ） ── 感情を「暖かさ」と「冷たさ」で操る</div>
+  <p style="font-size:.9rem;color:var(--muted);margin-bottom:8px;">
+    「色温度」とは光の色の度合いを数値（ケルビン：K）で表したものです。
+    数値が<strong>低いほどオレンジ〜赤（暖色）</strong>、<strong>高いほど青（寒色）</strong>になります。
+  </p>
+
+  <div class="temp-bar-wrap">
+    <div class="temp-bar"></div>
+    <div class="temp-labels">
+      <span>← 寒色（クール・孤独感）</span>
+      <span>中性（自然な白）</span>
+      <span>暖色（温かさ・活力）→</span>
+    </div>
+    <div class="temp-markers">
+      <div class="temp-marker-item">
+        <div>2000K</div>
+        <div style="font-size:.65rem;color:#5a8ac8;">蝋燭・炎</div>
+      </div>
+      <div class="temp-marker-item">
+        <div>3200K</div>
+        <div style="font-size:.65rem;color:#8a7a5a;">電球・夕日</div>
+      </div>
+      <div class="temp-marker-item">
+        <div>5500K</div>
+        <div style="font-size:.65rem;color:#6a6a6a;">太陽光（正午）</div>
+      </div>
+      <div class="temp-marker-item">
+        <div>6500K</div>
+        <div style="font-size:.65rem;color:#5a6a8a;">曇天・デイライト</div>
+      </div>
+      <div class="temp-marker-item">
+        <div>9000K+</div>
+        <div style="font-size:.65rem;color:#3a5a9a;">青空・日陰</div>
+      </div>
+    </div>
+  </div>
+
+  <table class="tbl" style="margin-top:16px;">
+    <thead>
+      <tr>
+        <th>色の方向</th>
+        <th>色温度のイメージ</th>
+        <th>感情・雰囲気</th>
+        <th>向いているシーン</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong style="color:#e06020;">🟠 暖色（低K）</strong></td>
+        <td>オレンジ・アンバー・イエロー</td>
+        <td>温かさ・幸せ・懐かしさ・活力</td>
+        <td>家族・ロマンス・夕日・料理・旅</td>
+      </tr>
+      <tr>
+        <td><strong style="color:#888;">⚪ 中性</strong></td>
+        <td>白（グレーに近い）</td>
+        <td>自然・清潔・ニュートラル</td>
+        <td>ドキュメンタリー・ニュース・商品説明</td>
+      </tr>
+      <tr class="good-row">
+        <td><strong style="color:#1a6ac8;">🔵 寒色（高K）</strong></td>
+        <td>ブルー・シアン・グレーブルー</td>
+        <td>クールさ・孤独・緊張・SF感</td>
+        <td>SF・サスペンス・アクション・テクノロジー</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="note-box">
+    💡 <strong>有名な映画の色戦略：</strong>暗部（影）を「ティール（青緑）」、明部（ハイライト）を「オレンジ」にする
+    <strong>「オレンジ＆ティール」</strong>は、人肌（オレンジ）を引き立てながら背景を引き締める定番の映画グレード。
+    多くのハリウッド映画で使われています。
+  </div>
+</div>
+
+<!-- コントラスト -->
+<div class="card">
+  <div class="card-title">🎭 コントラスト ── 明暗差が映像の「深み」を決める</div>
+  <p style="font-size:.9rem;color:var(--muted);margin-bottom:16px;">
+    「コントラスト」は映像の<strong>一番暗い部分（シャドウ）と一番明るい部分（ハイライト）の差</strong>のことです。
+    差が小さい＝フラット（眠たい印象）、差が大きい＝メリハリがある映像になります。
+  </p>
+
+  <div class="contrast-row">
+    <div class="contrast-item">
+      <div class="contrast-img contrast-flat">フラット（差が小さい）</div>
+      <div class="contrast-caption">低コントラスト</div>
+      <div class="contrast-sub">全体的にグレーっぽく眠たい。RAW撮影・Log撮影の素材はこの状態</div>
+    </div>
+    <div class="contrast-item">
+      <div class="contrast-img contrast-high">高コントラスト（差が大きい）</div>
+      <div class="contrast-caption">高コントラスト</div>
+      <div class="contrast-sub">メリハリは出るが、やりすぎると黒つぶれ・白飛びが起きる</div>
+    </div>
+    <div class="contrast-item">
+      <div class="contrast-img contrast-cinema">シネマ風（S字カーブ）</div>
+      <div class="contrast-caption">✅ シネマコントラスト</div>
+      <div class="contrast-sub">シャドウを少し持ち上げ、ハイライトを穏やかに抑える「S字カーブ」が映画らしさの秘訣</div>
+    </div>
+  </div>
+
+  <div class="three-way">
+    <div class="tw-card tw-shadow">
+      <div class="tw-icon">🌑</div>
+      <div class="tw-name">シャドウ（影）</div>
+      <div class="tw-desc">映像の暗い部分。「持ち上げる（リフト）」とシネマ風の浮いた黒が作れる。下げすぎると黒つぶれ</div>
+    </div>
+    <div class="tw-card tw-mid">
+      <div class="tw-icon">🌗</div>
+      <div class="tw-name">ミッドトーン（中間）</div>
+      <div class="tw-desc">全体的な明るさに最も影響する。人肌の色はここで調整。ガンマ・ガンマリフトとも呼ばれる</div>
+    </div>
+    <div class="tw-card tw-highlight">
+      <div class="tw-icon">☀️</div>
+      <div class="tw-name">ハイライト（明部）</div>
+      <div class="tw-desc">映像の明るい部分。「抑える（ロール）」と白飛びを防ぎ、肌や空の質感を残せる</div>
+    </div>
+  </div>
+</div>
+
+<!-- LUT -->
+<div class="card">
+  <div class="card-title">📦 LUT（ルット）── 「色のレシピ」を読み込むだけで映画風に変わる魔法</div>
+  <p style="font-size:.9rem;color:var(--muted);margin-bottom:8px;">
+    「LUT（Look-Up Table）」は<strong>「入力した色→この色に変換する」という変換表</strong>のことです。
+    料理で言えば「調味料の配合レシピ」。読み込むだけでプロが作った色に一発変換できます。
+  </p>
+
+  <div class="lut-flow">
+    <div class="lut-box lut-raw">
+      <div>📷 RAW映像</div>
+      <div class="lut-sub">撮影したままの<br>フラットな素材</div>
+    </div>
+    <div class="lut-arrow">＋</div>
+    <div class="lut-box lut-lut">
+      <div>📦 LUTファイル<br>（.cube）</div>
+      <div class="lut-sub">色変換の「レシピ」<br>を読み込む</div>
+    </div>
+    <div class="lut-arrow">→</div>
+    <div class="lut-box lut-result">
+      <div>🎬 映画風映像</div>
+      <div class="lut-sub">シネマ風・ヴィンテージ風<br>に即変換！</div>
+    </div>
+  </div>
+
+  <table class="tbl" style="margin-top:8px;">
+    <thead>
+      <tr>
+        <th>LUTの種類</th>
+        <th>役割</th>
+        <th>具体例</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>テクニカルLUT</strong></td>
+        <td>Log素材を標準映像に変換（補正用）</td>
+        <td>SLog3→Rec.709（ソニー標準変換）</td>
+      </tr>
+      <tr class="good-row">
+        <td><strong>クリエイティブLUT</strong></td>
+        <td>映像に「雰囲気・スタイル」を追加（表現用）</td>
+        <td>シネマ風・ヴィンテージ・オレンジ＆ティール</td>
+      </tr>
+      <tr>
+        <td><strong>プレビューLUT</strong></td>
+        <td>モニターの色合わせ・現場確認用</td>
+        <td>スタジオモニター用LUT</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="note-box" style="margin-top:14px;">
+    💡 <strong>無料LUTの入手先：</strong>検索エンジンで「Free LUT pack .cube」と検索すると無料のLUTファイルが多数見つかります。
+    DaVinci Resolve・CapCut・Premiere Pro・Final Cut Proなどの主要編集ソフトはLUTの読み込みに対応しています。
+    <strong>「強度（Intensity）スライダーを50〜70%に下げる」</strong>と自然に馴染みやすいです。
+  </div>
+</div>
+
+<!-- AIツールでのカラーグレーディング -->
+<div class="card">
+  <div class="card-title">🤖 AIツールでカラーグレーディング ── プロンプトと自動補正の活用</div>
+  <p style="font-size:.9rem;color:var(--muted);margin-bottom:14px;">
+    AI動画生成ツールでは、プロンプトに色調指定を入れることで、生成段階から映画風の色調を作れます。
+    また、編集ソフトのAI自動カラー補正機能も活用できます。
+  </p>
+
+  <table class="tbl">
+    <thead>
+      <tr>
+        <th>活用方法</th>
+        <th>ツール例</th>
+        <th>コツ・注意点</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>プロンプトで色調指定</strong><br><span style="font-size:.78rem;color:var(--muted);">生成AI動画ツール</span></td>
+        <td>Kling / Runway / Pika</td>
+        <td>生成前にプロンプトで色調を指定。下のプロンプト例を参考に</td>
+      </tr>
+      <tr class="good-row">
+        <td><strong>AI自動カラー補正</strong><br><span style="font-size:.78rem;color:var(--muted);">編集ソフト</span></td>
+        <td>DaVinci Resolve（Color Magic）／CapCut AI調整</td>
+        <td>ワンクリックで自動補正。その後手動で微調整するのがおすすめ</td>
+      </tr>
+      <tr>
+        <td><strong>LUT適用</strong><br><span style="font-size:.78rem;color:var(--muted);">編集ソフト全般</span></td>
+        <td>DaVinci Resolve／Premiere Pro／Final Cut Pro／CapCut</td>
+        <td>強度は50〜70%が馴染みやすい。テクニカルLUT→クリエイティブLUTの順に適用</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="prompt-box">
+<span class="key"># シネマ風（映画らしい色調）</span><br>
+<span class="val">cinematic color grading, orange and teal palette, deep shadows, lifted blacks</span><br><br>
+<span class="key"># ヴィンテージ風</span><br>
+<span class="val">vintage film look, faded colors, warm highlights, film grain, retro aesthetic</span><br><br>
+<span class="key"># 暖色・ゴールデンアワー風</span><br>
+<span class="val">golden hour lighting, warm amber tones, soft glow, sun-drenched, cozy atmosphere</span><br><br>
+<span class="key"># 寒色・クール・SF風</span><br>
+<span class="val">cold blue tones, desaturated, cool color palette, futuristic, steely atmosphere</span>
+  </div>
+  <div class="chip-row">
+    <div class="chip">cinematic color grading</div>
+    <div class="chip">orange and teal</div>
+    <div class="chip">deep shadows</div>
+    <div class="chip">lifted blacks</div>
+    <div class="chip">warm amber tones</div>
+    <div class="chip">vintage film look</div>
+    <div class="chip">film grain</div>
+    <div class="chip">desaturated</div>
+    <div class="chip">golden hour</div>
+  </div>
+</div>
+
+<!-- 実践例 -->
+<div class="card">
+  <div class="card-title">🎬 実践例：短い旅動画をシネマ風にグレーディングする 5ステップ</div>
+  <p style="font-size:.88rem;color:var(--muted);margin-bottom:18px;">
+    「スマホで撮った旅動画をシネマ風に仕上げる」を例に、カラーグレーディングを体験してみましょう。
+    無料のDaVinci Resolveを使えばすぐ試せます。
+  </p>
+  <ul class="step-list">
+    <li class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-title">素材をDaVinci Resolveに読み込む</div>
+        <div class="step-desc">
+          無料版DaVinci Resolveをインストールして動画を読み込む。「カラー」タブをクリックするとカラーグレーディング画面になる。
+          （CapCutの場合は「調整」→「フィルター」で同様の操作ができる）
+        </div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-title">色温度をオレンジ寄りに少しシフト（+300〜500K）</div>
+        <div class="step-desc">
+          「カラーホイール」または「色温度スライダー」を右（暖かい方向）へ少し動かす。
+          旅や風景動画は「暖かい記憶」として見せると視聴者の感情に響きやすい。
+        </div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-title">シャドウを持ち上げてシネマ風の「浮いた黒」を作る</div>
+        <div class="step-desc">
+          カラーホイールの「リフト（Lift）」を少し上に動かす。完全な黒より少し明るいグレー寄りにすることで
+          「映画っぽい浮いた黒（ミルキーブラック）」が作れる。やりすぎ注意（全体がくすむ）。
+        </div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <div class="step-title">LUTを読み込んで強度を60%程度に設定</div>
+        <div class="step-desc">
+          DaVinci Resolveの「カラー」→「LUT」から .cubeファイルを読み込む。
+          Intensity（強度）スライダーを50〜70%に抑えると素材の質感を残しつつ映画風の色が乗る。
+          100%では色が強すぎることが多い。
+        </div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">5</div>
+      <div class="step-body">
+        <div class="step-title">書き出して実際のディスプレイ・スマホで確認</div>
+        <div class="step-desc">
+          編集モニターと実機（スマホ・TV）では色の見え方が異なる場合がある。
+          必ず実際の視聴デバイスで確認し、明るすぎ・暗すぎがあれば戻って微調整する。
+          書き出し設定は用途に合わせてMP4 / H.264 / H.265 を選ぶ。
+        </div>
+      </div>
+    </li>
+  </ul>
+
+  <!-- 矢印フロー -->
+  <div style="display:flex;gap:0;align-items:center;flex-wrap:wrap;margin-top:16px;">
+    <div style="background:#3a1a5c;color:#fff;border-radius:10px;padding:8px 14px;font-size:.8rem;font-weight:700;">① 素材読込</div>
+    <div style="font-size:1.3rem;color:#aaa;margin:0 6px;">→</div>
+    <div style="background:#1a3a5c;color:#fff;border-radius:10px;padding:8px 14px;font-size:.8rem;font-weight:700;">② 色温度</div>
+    <div style="font-size:1.3rem;color:#aaa;margin:0 6px;">→</div>
+    <div style="background:#1a5c3a;color:#fff;border-radius:10px;padding:8px 14px;font-size:.8rem;font-weight:700;">③ コントラスト</div>
+    <div style="font-size:1.3rem;color:#aaa;margin:0 6px;">→</div>
+    <div style="background:#5c3a1a;color:#fff;border-radius:10px;padding:8px 14px;font-size:.8rem;font-weight:700;">④ LUT適用</div>
+    <div style="font-size:1.3rem;color:#aaa;margin:0 6px;">→</div>
+    <div style="background:#3a3a1a;color:#fff;border-radius:10px;padding:8px 14px;font-size:.8rem;font-weight:700;">⑤ 実機確認</div>
+  </div>
+</div>
+
+<!-- まとめ -->
+<div class="card">
+  <div class="card-title">📝 今日のまとめ</div>
+  <ul class="summary-list">
+    <li>カラーグレーディングは映像に「感情・雰囲気」を加える仕上げ作業。撮影後に行う</li>
+    <li><strong>色温度</strong>：低い（暖色・オレンジ）＝温かさ、高い（寒色・青）＝クール・SF感</li>
+    <li><strong>コントラスト</strong>：シャドウを少し持ち上げ、ハイライトを抑える「S字カーブ」が映画らしい深みを生む</li>
+    <li><strong>LUT（.cubeファイル）</strong>は「色のレシピ」── 読み込むだけで映画風・ヴィンテージ風に一発変換</li>
+    <li>強度（Intensity）は<strong>50〜70%</strong>程度に抑えると自然に馴染む</li>
+    <li>AI動画プロンプトに <code style="background:#eee;padding:2px 6px;border-radius:4px;font-size:.85rem;">cinematic color grading</code> <code style="background:#eee;padding:2px 6px;border-radius:4px;font-size:.85rem;">orange and teal</code> を入れると生成段階から映画風になる</li>
+    <li>無料の<strong>DaVinci Resolve</strong>と無料LUTパックで今日すぐ試せる</li>
+  </ul>
+</div>
+
+<!-- 免責事項 -->
+<div class="disclaimer">
+  ⚠️ <strong>免責事項</strong><br>
+  本記事で紹介したAIツール・編集ソフト（DaVinci Resolve、CapCut、Kling、Runwayなど）の名称・機能・料金・商用利用の可否は頻繁に変更されます。
+  最新情報と利用規約は各ツールの公式ページで必ずご確認ください。
+  本記事の情報は 2026年6月時点のものです。
+</div>
+
+<footer>
+  AI動画制作 日報 ─ 2026-06-28 ｜ エバーグリーン技法回<br>
+  毎朝更新 ｜ <a href="index.html" style="color:var(--accent);">← 一覧に戻る</a>
+</footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>デジタルノマド 最新トピック 2026-06-28</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    color: #2a2a2a;
+  }
+  /* ────── Hero ────── */
+  .hero {
+    background: linear-gradient(135deg, #1e3a6e 0%, #0d2144 100%);
+    color: white;
+    border-radius: 10px;
+    padding: 48px 40px;
+    text-align: center;
+    width: 100%;
+    max-width: 760px;
+    margin-bottom: 28px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .hero .label {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 0.8rem;
+    margin-bottom: 14px;
+    letter-spacing: 0.05em;
+  }
+  .hero .backlog-badge {
+    display: inline-block;
+    background: #c9920a;
+    color: #fff;
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+  .hero h1 { font-size: 1.4rem; margin-bottom: 12px; line-height: 1.55; }
+  .hero .meta { opacity: 0.8; font-size: 0.88rem; line-height: 1.7; }
+  /* ────── Card ────── */
+  .card {
+    background: #fff9f0;
+    border-radius: 8px;
+    padding: 28px 32px;
+    width: 100%;
+    max-width: 760px;
+    margin-bottom: 20px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.08);
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1e3a6e;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px dashed #8aaad4;
+  }
+  .card p { font-size: 0.93rem; line-height: 1.85; margin-bottom: 10px; }
+  .card p:last-child { margin-bottom: 0; }
+  /* ────── Boxes ────── */
+  .highlight-box {
+    background: #e8f0fd;
+    border-left: 4px solid #1e3a6e;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .highlight-box .hlabel { font-size: 0.75rem; color: #1e3a6e; font-weight: 600; margin-bottom: 6px; display: block; }
+  .highlight-box p { font-size: 0.9rem; margin: 0; }
+  .alert-box {
+    background: #fff3cd;
+    border-left: 4px solid #c9920a;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .alert-box .alabel { font-size: 0.75rem; color: #8a6000; font-weight: 600; margin-bottom: 6px; display: block; }
+  .alert-box p { font-size: 0.9rem; margin: 0; }
+  .danger-box {
+    background: #fde8e8;
+    border-left: 4px solid #c0392b;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .danger-box .dlabel { font-size: 0.75rem; color: #c0392b; font-weight: 600; margin-bottom: 6px; display: block; }
+  .danger-box p { font-size: 0.9rem; margin: 0; }
+  .green-box {
+    background: #e8f5ef;
+    border-left: 4px solid #2c6e4e;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .green-box .glabel { font-size: 0.75rem; color: #2c6e4e; font-weight: 600; margin-bottom: 6px; display: block; }
+  .green-box p { font-size: 0.9rem; margin: 0; }
+  .purple-box {
+    background: #f0eafd;
+    border-left: 4px solid #6a3ea0;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .purple-box .plabel { font-size: 0.75rem; color: #6a3ea0; font-weight: 600; margin-bottom: 6px; display: block; }
+  .purple-box p { font-size: 0.9rem; margin: 0; }
+  /* ────── Number cards ────── */
+  .number-row { display: flex; gap: 14px; flex-wrap: wrap; margin: 14px 0; }
+  .number-card {
+    flex: 1; min-width: 130px;
+    background: #1e3a6e; color: white;
+    border-radius: 8px; padding: 18px 14px; text-align: center;
+  }
+  .number-card .num { font-size: 1.4rem; font-weight: 700; margin-bottom: 6px; line-height: 1.2; letter-spacing: 0.02em; }
+  .number-card .desc { font-size: 0.72rem; opacity: 0.9; line-height: 1.5; }
+  .number-card.amber  { background: #c9920a; }
+  .number-card.red    { background: #c0392b; }
+  .number-card.green  { background: #2c6e4e; }
+  .number-card.purple { background: #6a3ea0; }
+  .number-card.gray   { background: #666; }
+  /* ────── Compare cards ────── */
+  .compare-row { display: flex; gap: 14px; flex-wrap: wrap; margin: 14px 0; }
+  .compare-card {
+    flex: 1; min-width: 200px; border-radius: 8px;
+    padding: 16px 16px; font-size: 0.88rem; line-height: 1.7;
+  }
+  .compare-card h3 { font-size: 0.88rem; margin-bottom: 8px; padding-bottom: 6px; border-bottom: 1.5px dashed; }
+  .compare-card.red    { background: #fdeaea; border: 1.5px solid #c0392b; }
+  .compare-card.red h3 { color: #922b2b; border-color: #e8a0a0; }
+  .compare-card.green  { background: #e8f5ef; border: 1.5px solid #2c6e4e; }
+  .compare-card.green h3 { color: #2c6e4e; border-color: #b2d4c4; }
+  .compare-card.amber  { background: #fff8e8; border: 1.5px solid #c9920a; }
+  .compare-card.amber h3 { color: #7a5800; border-color: #f0d080; }
+  .compare-card.navy   { background: #eaf0fb; border: 1.5px solid #1e3a6e; }
+  .compare-card.navy h3 { color: #1e3a6e; border-color: #8aaad4; }
+  .compare-card.purple { background: #f0eafd; border: 1.5px solid #6a3ea0; }
+  .compare-card.purple h3 { color: #6a3ea0; border-color: #c0a0e8; }
+  /* ────── Flow boxes ────── */
+  .flow-wrap { display: flex; flex-direction: column; gap: 4px; margin: 14px 0; }
+  .flow-box {
+    background: #1e3a6e; color: white;
+    border-radius: 8px; padding: 14px 16px;
+    font-size: 0.88rem; line-height: 1.6;
+  }
+  .flow-box .fb-label { font-size: 0.7rem; opacity: 0.8; margin-bottom: 4px; display: block; }
+  .flow-box strong { font-size: 0.95rem; }
+  .flow-box.sub    { background: #2a5090; }
+  .flow-box.light  { background: #eaf0fb; color: #2a2a2a; border: 1.5px solid #8aaad4; }
+  .flow-box.amber  { background: #c9920a; }
+  .flow-box.green  { background: #2c6e4e; }
+  .flow-box.red    { background: #c0392b; }
+  .flow-box.purple { background: #6a3ea0; }
+  .flow-box.gray   { background: #666; }
+  .arrow-down { text-align: center; font-size: 1.5rem; color: #1e3a6e; margin: 4px 0; line-height: 1; }
+  /* ────── Step list ────── */
+  .step-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 12px 0; }
+  .step-list li { display: flex; align-items: flex-start; gap: 12px; }
+  .step-num {
+    background: #1e3a6e; color: white; border-radius: 50%;
+    min-width: 28px; height: 28px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.78rem; font-weight: 700; flex-shrink: 0; margin-top: 2px;
+  }
+  .step-num.amber  { background: #c9920a; }
+  .step-num.red    { background: #c0392b; }
+  .step-num.green  { background: #2c6e4e; }
+  .step-num.purple { background: #6a3ea0; }
+  .step-num.gray   { background: #666; }
+  .step-list li div { font-size: 0.9rem; line-height: 1.7; }
+  /* ────── Table ────── */
+  .matrix-table { width: 100%; border-collapse: collapse; font-size: 0.87rem; margin: 14px 0; }
+  .matrix-table th {
+    background: #1e3a6e; color: white; padding: 10px 12px;
+    text-align: left; font-weight: 600; font-size: 0.82rem;
+  }
+  .matrix-table th:first-child { border-radius: 6px 0 0 0; }
+  .matrix-table th:last-child  { border-radius: 0 6px 0 0; }
+  .matrix-table td { padding: 10px 12px; border-bottom: 1px solid #d0d8e8; vertical-align: top; line-height: 1.55; }
+  .matrix-table tr:nth-child(even) td { background: #f2f5fc; }
+  .matrix-table .ok   { color: #2c6e4e; font-weight: 700; }
+  .matrix-table .ng   { color: #c0392b; font-weight: 700; }
+  .matrix-table .warn { color: #8a6000; font-weight: 700; }
+  .matrix-table .row-warn   td { background: #fff8e8 !important; }
+  .matrix-table .row-danger td { background: #fdeaea !important; }
+  .matrix-table .row-green  td { background: #e8f5ef !important; }
+  .matrix-table .row-navy   td { background: #eaf0fb !important; }
+  .matrix-table .row-purple td { background: #f0eafd !important; }
+  /* ────── Check list ────── */
+  .check-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 12px 0; }
+  .check-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.9rem; line-height: 1.65; }
+  .check-icon {
+    min-width: 22px; height: 22px; border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.78rem; font-weight: 700; flex-shrink: 0; margin-top: 1px;
+  }
+  .check-icon.navy   { background: #1e3a6e; color: white; }
+  .check-icon.green  { background: #2c6e4e; color: white; }
+  .check-icon.amber  { background: #c9920a; color: white; }
+  .check-icon.red    { background: #c0392b; color: white; }
+  .check-icon.purple { background: #6a3ea0; color: white; }
+  /* ────── Timeline ────── */
+  .timeline { display: flex; flex-direction: column; gap: 0; margin: 14px 0; }
+  .tl-row { display: flex; align-items: stretch; gap: 0; }
+  .tl-year {
+    min-width: 80px; text-align: right; padding: 12px 14px 12px 0;
+    font-size: 0.85rem; font-weight: 700; color: #1e3a6e;
+    border-right: 3px solid #8aaad4; flex-shrink: 0;
+  }
+  .tl-year.amber { color: #c9920a; border-color: #c9920a; }
+  .tl-year.green { color: #2c6e4e; border-color: #2c6e4e; }
+  .tl-year.red   { color: #c0392b; border-color: #c0392b; }
+  .tl-dot {
+    width: 14px; height: 14px; border-radius: 50%; background: #1e3a6e;
+    flex-shrink: 0; margin: 14px -8px 0 0; position: relative; z-index: 1;
+  }
+  .tl-dot.amber  { background: #c9920a; }
+  .tl-dot.green  { background: #2c6e4e; }
+  .tl-dot.red    { background: #c0392b; }
+  .tl-content { padding: 8px 0 8px 20px; font-size: 0.88rem; line-height: 1.65; }
+  /* ────── Misc ────── */
+  .section-icon { font-size: 1.5rem; margin-right: 8px; vertical-align: middle; }
+  .tag {
+    display: inline-block; background: #1e3a6e; color: white;
+    font-size: 0.72rem; padding: 2px 8px; border-radius: 10px;
+    margin-right: 4px; vertical-align: middle;
+  }
+  .tag.amber  { background: #c9920a; }
+  .tag.red    { background: #c0392b; }
+  .tag.green  { background: #2c6e4e; }
+  .tag.purple { background: #6a3ea0; }
+  .tag.gray   { background: #888; }
+  /* ────── Footer ────── */
+  .footer-card {
+    background: #f0ece3;
+    border: 1.5px solid #bbb;
+    border-radius: 8px;
+    padding: 20px 24px;
+    width: 100%;
+    max-width: 760px;
+    margin-bottom: 20px;
+    font-size: 0.82rem;
+    color: #555;
+    line-height: 1.8;
+  }
+  .footer-card .footer-title {
+    font-size: 0.78rem; color: #888; font-weight: 600;
+    margin-bottom: 10px; display: block;
+    text-transform: uppercase; letter-spacing: 0.08em;
+  }
+  .footnote { font-size: 0.78rem; color: #777; line-height: 1.7; margin-top: 12px; }
+  /* ────── 2-col grid ────── */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 14px 0; }
+  @media (max-width: 560px) { .two-col { grid-template-columns: 1fr; } }
+  .mini-card {
+    border-radius: 8px; padding: 14px 16px;
+    font-size: 0.85rem; line-height: 1.65;
+  }
+  .mini-card h4 { font-size: 0.87rem; margin-bottom: 8px; }
+  .mini-card.navy   { background: #eaf0fb; border: 1.5px solid #8aaad4; }
+  .mini-card.navy h4 { color: #1e3a6e; }
+  .mini-card.amber  { background: #fff8e8; border: 1.5px solid #c9920a; }
+  .mini-card.amber h4 { color: #7a5800; }
+  .mini-card.green  { background: #e8f5ef; border: 1.5px solid #2c6e4e; }
+  .mini-card.green h4 { color: #2c6e4e; }
+  .mini-card.red    { background: #fdeaea; border: 1.5px solid #c0392b; }
+  .mini-card.red h4 { color: #922b2b; }
+  .mini-card.purple { background: #f0eafd; border: 1.5px solid #6a3ea0; }
+  .mini-card.purple h4 { color: #6a3ea0; }
+  .mini-card.gray   { background: #f4f4f4; border: 1.5px solid #aaa; }
+  .mini-card.gray h4 { color: #555; }
+</style>
+</head>
+<body>
+
+<!-- ヒーロー -->
+<div class="hero">
+  <div style="margin-bottom:14px;">
+    <span class="label">🧾 請求書デジタル化</span>
+    <span class="backlog-badge">バックログ解説</span>
+  </div>
+  <h1>「今週で旧期限が終わる」スペインの請求書2大改革<br>VeriFactu と B2B電子請求書 ── 違いと日本1人法人への影響</h1>
+  <div class="meta">
+    デジタルノマド 最新トピック 2026-06-28<br>
+    情報収集日：2026年6月28日 ／ 制度基準年度：2026年<br>
+    VeriFactu根拠法：Real Decreto 1007/2023 ＋ Real Decreto-ley 15/2025（BOE 2025年12月3日）<br>
+    B2B電子請求書根拠法：Real Decreto 238/2026（BOE-A-2026-7295、BOE 2026年3月31日）
+  </div>
+</div>
+
+<!-- 30秒まとめ -->
+<div class="card">
+  <h2><span class="section-icon">📌</span>今日のポイント（30秒まとめ）</h2>
+  <p>今日（2026年6月28日）は、スペインの <strong>autónomo（自営業者）</strong> に対する <strong>VeriFactu（ベリファクトゥ）</strong> 義務化の「<strong>旧・元々の期限（2026年7月1日）の3日前</strong>」にあたります。でも心配はいりません。2025年12月3日に法律が改正され、autónomo 向けの施行は <strong>2027年7月1日</strong> に1年延期されました。</p>
+  <p>さらに、2026年3月31日に公布されたまったく別の <strong>B2B電子請求書（Factura Electrónica Obligatoria）</strong> の規則（Real Decreto 238/2026）も注目です。こちらは autónomo 向けが <strong>2028年10月1日</strong> と、さらに先の話。この2つの制度は混同されがちなので、今日まとめて整理します。</p>
+
+  <div class="number-row">
+    <div class="number-card red">
+      <div class="num">2026/7/1</div>
+      <div class="desc">VeriFactu<br>旧・autónomo向け期限<br>（3日後に通過）<br>→ 実は延期済み</div>
+    </div>
+    <div class="number-card amber">
+      <div class="num">2027/7/1</div>
+      <div class="desc">VeriFactu<br>新・autónomo向け<br>施行日<br>（1年延期後）</div>
+    </div>
+    <div class="number-card purple">
+      <div class="num">2028/10/1</div>
+      <div class="desc">B2B電子請求書<br>autónomo向け<br>施行日<br>（RD 238/2026）</div>
+    </div>
+    <div class="number-card green">
+      <div class="num">対象外</div>
+      <div class="desc">日本法人のみ運営<br>（スペイン設立なし）<br>→ VeriFactuは<br>現時点で対象外</div>
+    </div>
+  </div>
+</div>
+
+<!-- 2制度の違い基礎解説 -->
+<div class="card">
+  <h2><span class="section-icon">📖</span>そもそも2つの制度は何が違う？（中学生向け解説）</h2>
+  <p>スペインで「請求書のデジタル化」が義務になると言われていますが、実は <strong>2つの全く異なる制度</strong> があります。</p>
+
+  <div class="compare-row">
+    <div class="compare-card navy">
+      <h3>🔐 制度①：VeriFactu（ベリファクトゥ）</h3>
+      <p><strong>目的：</strong>「請求書の改ざん防止」。脱税を防ぐために、請求書ソフトウェアが記録を改変できないようにする仕組み。</p>
+      <p style="margin-top:8px;"><strong>ざっくり言うと：</strong>「請求書を出したら絶対に消したり書き換えたりできない日記帳」を作ることが義務になる。</p>
+      <p style="margin-top:8px;"><strong>根拠法：</strong>Real Decreto 1007/2023（反詐欺法の一部）</p>
+      <p style="margin-top:8px;"><strong>延期：</strong>Real Decreto-ley 15/2025（BOE 2025年12月3日）で1年先送り</p>
+    </div>
+    <div class="compare-card purple">
+      <h3>📤 制度②：B2B電子請求書（Factura Electrónica）</h3>
+      <p><strong>目的：</strong>「企業間取引の電子化」。会社どうしのやり取りを、PDFではなく機械が読める構造化データで交換する。</p>
+      <p style="margin-top:8px;"><strong>ざっくり言うと：</strong>「取引先と請求書をメールで送るのではなく、専用システムで自動的にやり取りする」仕組みを義務化。</p>
+      <p style="margin-top:8px;"><strong>根拠法：</strong>Real Decreto 238/2026（BOE 2026年3月31日公布）</p>
+      <p style="margin-top:8px;"><strong>ベース法：</strong>Ley 18/2022（Ley Crea y Crece＝「創業と成長法」）</p>
+    </div>
+  </div>
+
+  <div class="alert-box" style="margin-top:8px;">
+    <span class="alabel">⚠️ よくある混同</span>
+    <p>「VeriFactuが義務化されたら、取引先に電子請求書を送らないといけないの？」→ <strong>NO</strong>。VeriFactuは<strong>自社のソフト内部の改ざん防止</strong>です。取引先への送付形式を電子化するのはB2B電子請求書（別制度）です。両方が別の時期に別のシステムで義務化されます。</p>
+  </div>
+</div>
+
+<!-- VeriFactu詳細 -->
+<div class="card">
+  <h2><span class="section-icon">🔐</span>VeriFactu（制度①）の詳細</h2>
+  <p>VeriFactuとは、スペインの国税庁（<strong>Agencia Tributaria＝AEAT</strong>）が導入する「改ざん防止の請求書記録システム」です。</p>
+
+  <div class="highlight-box">
+    <span class="hlabel">📌 技術的な要件（ざっくり）</span>
+    <p>対象者が使う請求書ソフトは次の機能を持たなければなりません：<br>
+    ① 請求書を発行するたびに <strong>QRコード</strong> を自動生成する<br>
+    ② 発行済み請求書の記録を「<strong>ハッシュチェーン</strong>（hash chain）」でつなぐ（1件でも削除・改ざんすると全記録が崩れる）<br>
+    ③ <strong>電子署名</strong> と <strong>タイムスタンプ</strong>（発行日時の証明）を付ける<br>
+    ④ 記録をAEATへ<strong>リアルタイム送信</strong>するか、手元に改ざん防止で保存するかを選ぶ</p>
+  </div>
+
+  <p>つまり、Wordで作ったPDFや、手書き風の請求書テンプレートを使い続けることはできなくなります（VeriFactu対応のソフトを使うか、紙のみの手作業で完全に行う場合を除く）。</p>
+
+  <div class="two-col">
+    <div class="mini-card red">
+      <h4>❌ 対象になるケース</h4>
+      <ul style="padding-left:16px;font-size:0.84rem;line-height:1.8;">
+        <li>スペイン共通税域（バスク州・ナバラ州<strong>以外</strong>）に設立された企業・事業者</li>
+        <li>スペインに<strong>恒久的施設（PE）</strong>を持つ非居住者</li>
+        <li>autónomo登録した人（IRPF・非居住者税の義務者）</li>
+        <li><strong>外国クライアントへの請求書も含む</strong>（義務は発行者側に課される）</li>
+      </ul>
+    </div>
+    <div class="mini-card green">
+      <h4>✅ 対象外のケース</h4>
+      <ul style="padding-left:16px;font-size:0.84rem;line-height:1.8;">
+        <li><strong>スペイン外から請求書を発行する外国企業</strong>（スペインに設立なし）</li>
+        <li>SII（付加価値税リアルタイム報告システム）に登録済みの大企業</li>
+        <li>バスク州・ナバラ州に設立された企業（独自制度あり）</li>
+        <li>コンピューターを一切使わず完全に手書き・紙だけで請求する事業者</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="green-box">
+    <span class="glabel">🇯🇵 日本1人法人のみ（スペイン設立なし）の場合</span>
+    <p>日本に本社・登記があり、スペインに支店・事務所・恒久的施設（PE）を持たない場合、VeriFactuの対象には<strong>なりません</strong>。日本の請求書システムのままで問題ありません。ただし、<strong>autónomoとして登録したとたんに対象になります</strong>（スペインのIRPF義務者になるため）。</p>
+  </div>
+
+  <div class="alert-box">
+    <span class="alabel">⚠️ 外国クライアントへの請求書にもVeriFactuが適用される</span>
+    <p>autónomo登録後、EU域内や日本など海外の顧客に請求書を出す場合も、VeriFactuの要件（QRコード・ハッシュチェーン等）を満たしたソフトで発行しなければなりません。「相手が外国だから関係ない」は誤りです。義務は<strong>請求書を発行する側（スペインのautónomo）</strong>に課されます。</p>
+  </div>
+</div>
+
+<!-- B2B電子請求書詳細 -->
+<div class="card">
+  <h2><span class="section-icon">📤</span>B2B電子請求書・Real Decreto 238/2026（制度②）の詳細</h2>
+  <p>Real Decreto 238/2026（2026年3月25日閣議決定・3月31日BOE公布）は、企業間取引での電子請求書交換を義務化するものです。</p>
+
+  <div class="highlight-box">
+    <span class="hlabel">📌 何が変わるの？</span>
+    <p>現在は、請求書をPDFや紙で送っても法律上は問題ありません。RD 238/2026が施行されると、<strong>スペインの企業・autónomo どうしの取引（B2B）</strong>では、PDFや紙ではなく「<strong>機械が自動で読み取れる構造化フォーマット</strong>（XMLなど）」で請求書をやり取りしなければならなくなります。</p>
+  </div>
+
+  <div class="two-col">
+    <div class="mini-card amber">
+      <h4>📅 大企業向け（売上€800万超）</h4>
+      <p><strong>2027年10月1日</strong>から義務化</p>
+      <p style="margin-top:6px;font-size:0.82rem;color:#555;">Haciendaが定める基準を超える売上規模の企業</p>
+    </div>
+    <div class="mini-card purple">
+      <h4>📅 中小企業・autónomo向け</h4>
+      <p><strong>2028年10月1日</strong>から義務化</p>
+      <p style="margin-top:6px;font-size:0.82rem;color:#555;">売上€800万以下の企業、個人事業主（autónomo）など</p>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div class="mini-card red">
+      <h4>❌ B2B電子請求書が必要な取引</h4>
+      <ul style="padding-left:16px;font-size:0.84rem;line-height:1.8;">
+        <li><strong>スペイン企業 → スペイン企業</strong></li>
+        <li><strong>スペイン autónomo → スペイン企業</strong></li>
+        <li><strong>スペイン企業 → スペイン autónomo</strong></li>
+      </ul>
+    </div>
+    <div class="mini-card green">
+      <h4>✅ B2B電子請求書が不要な取引</h4>
+      <ul style="padding-left:16px;font-size:0.84rem;line-height:1.8;">
+        <li><strong>B2C（個人・消費者向け）</strong>の請求書</li>
+        <li><strong>日本法人 → スペイン企業</strong>（スペイン外から発行）</li>
+        <li>スペイン企業 → <strong>日本法人</strong>（日本法人は国内B2B義務なし）</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="green-box">
+    <span class="glabel">🇯🇵 日本1人法人がスペインの顧客に請求する場合は？</span>
+    <p>日本の法人（スペイン設立なし）がスペイン企業に請求書を送る場合は、スペインのB2B電子請求書義務の対象外です。ただし、<strong>autónomo として登録してスペインのクライアントに請求する場合は 2028年10月1日から対象</strong>になります。その際は対応したソフトウェアへの切り替えが必要です。</p>
+  </div>
+</div>
+
+<!-- タイムライン全体図 -->
+<div class="card">
+  <h2><span class="section-icon">📅</span>スペイン請求書デジタル化 全タイムライン</h2>
+
+  <div class="flow-wrap">
+    <div class="flow-box red">
+      <span class="fb-label">🕐 2026年7月1日（今週）── 旧期限・延期済み</span>
+      <strong>【VeriFactu】autónomo向けの旧・施行日 → 実際には1年延期</strong><br>
+      Real Decreto-ley 15/2025（BOE 2025年12月3日）により2027年7月1日に先送り済み。今週この日が来ても何も義務は発生しない。
+    </div>
+    <div class="arrow-down">↓</div>
+    <div class="flow-box">
+      <span class="fb-label">📅 2027年1月1日</span>
+      <strong>【VeriFactu】法人税（IS）申告企業に施行</strong><br>
+      スペイン法人はこの日までにVeriFactu対応の請求書ソフトに切り替える必要あり。
+    </div>
+    <div class="arrow-down">↓</div>
+    <div class="flow-box amber">
+      <span class="fb-label">📅 2027年7月1日</span>
+      <strong>【VeriFactu】autónomo・非居住者PE向けに施行</strong><br>
+      DNVを取得してautónomo登録した場合、この日からQRコード・ハッシュチェーン対応ソフトが必須。外国クライアントへの請求も含む。
+    </div>
+    <div class="arrow-down">↓</div>
+    <div class="flow-box sub">
+      <span class="fb-label">📅 2027年10月1日</span>
+      <strong>【B2B電子請求書】大企業（売上€800万超）に施行</strong><br>
+      スペイン大企業はこの日からB2Bで構造化フォーマットによる電子請求書交換が義務化。
+    </div>
+    <div class="arrow-down">↓</div>
+    <div class="flow-box purple">
+      <span class="fb-label">📅 2028年10月1日</span>
+      <strong>【B2B電子請求書】中小企業・autónomoに施行</strong><br>
+      autónomoとしてスペイン企業に請求する場合、構造化電子請求書形式が必要になる。
+    </div>
+  </div>
+</div>
+
+<!-- 状況別マトリクス -->
+<div class="card">
+  <h2><span class="section-icon">🗺️</span>状況別「いつ・何が必要？」マトリクス</h2>
+  <p>日本の1人法人オーナーの状況ごとに整理しました。</p>
+
+  <table class="matrix-table">
+    <thead>
+      <tr>
+        <th style="width:30%">あなたの状況</th>
+        <th style="width:22%">VeriFactu</th>
+        <th style="width:25%">B2B電子請求書</th>
+        <th style="width:23%">今やること</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="row-green">
+        <td>🇯🇵 <strong>日本法人のみ</strong><br>（スペイン設立なし）</td>
+        <td class="ok">対象外<br>（スペイン未設立）</td>
+        <td class="ok">対象外<br>（スペイン外から請求）</td>
+        <td>日本の請求書システムのまま。変更不要。</td>
+      </tr>
+      <tr class="row-warn">
+        <td>🇪🇸 <strong>DNV取得後<br>autónomo登録済み</strong><br>（世界中の顧客に請求）</td>
+        <td class="warn">⚠️ 2027年7月1日<br>から対象</td>
+        <td class="warn">⚠️ 2028年10月1日<br>から対象（対スペイン法人のみ）</td>
+        <td>今は不要。2026年末ごろに対応ソフトを確認・選定する。</td>
+      </tr>
+      <tr class="row-navy">
+        <td>🇪🇸 <strong>autónomo登録済み</strong><br>（日本・世界の個人向け<br>B2Cのみに請求）</td>
+        <td class="warn">⚠️ 2027年7月1日<br>から対象</td>
+        <td class="ok">対象外<br>（B2Cなので）</td>
+        <td>VeriFactu対応ソフトへの切り替えのみ準備。B2B電子請求書は不要。</td>
+      </tr>
+      <tr class="row-green">
+        <td>🇪🇸 <strong>DNV申請準備中</strong><br>（まだスペイン未登録）</td>
+        <td class="ok">現時点は対象外</td>
+        <td class="ok">現時点は対象外</td>
+        <td>autónomo登録のタイミングをGestorと相談。どちらの制度も時間的余裕あり。</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 対応ソフト選び -->
+<div class="card">
+  <h2><span class="section-icon">💻</span>VeriFactu対応ソフトの選び方（2027年7月に向けて）</h2>
+  <p>autónomo登録後、2027年7月1日のVeriFactu施行に備えて請求書ソフトを選ぶ際のポイントです。</p>
+
+  <ul class="step-list">
+    <li>
+      <span class="step-num">1</span>
+      <div><strong>「VeriFactu対応済み」を明記しているソフトを選ぶ</strong><br>
+      スペインの主要な請求書・会計ソフト（Holded、Quipu、Contasimple、Billin、FacturaDirectaなど）は2026〜2027年にかけてVeriFactu対応版をリリース予定。「Certificado VeriFactu」の表示があるかを確認する。</div>
+    </li>
+    <li>
+      <span class="step-num">2</span>
+      <div><strong>多言語・日本円対応かチェック</strong><br>
+      日本の顧客にも請求する場合、日本円や英語・日本語での請求書作成ができるか確認する。スペイン語専用ソフトだと不便なことがある。</div>
+    </li>
+    <li>
+      <span class="step-num amber">3</span>
+      <div><strong>2027年7月より前（2026年末〜2027年初）に切り替える</strong><br>
+      施行直前は問い合わせが集中してサポートが遅れる可能性がある。余裕を持って2026年末ごろに移行準備を始めるのがベスト。</div>
+    </li>
+    <li>
+      <span class="step-num amber">4</span>
+      <div><strong>GestorとのデータシェアができるかAPI連携を確認</strong><br>
+      Gestorが使っているソフトと連携できると、四半期申告（Modelo 130・303等）の作業がスムーズになる。Gestorと同じソフトを使うか、CSV・APIでデータ共有できるかを確認する。</div>
+    </li>
+    <li>
+      <span class="step-num green">5</span>
+      <div><strong>B2B電子請求書（2028年）への対応も視野に入れる</strong><br>
+      2028年10月からはB2B電子請求書も必要になる。今から選ぶソフトが「FacturaE（スペインの電子請求書標準フォーマット）」や「Peppol（欧州共通電子請求書ネットワーク）」にも対応予定かどうかを確認しておく。</div>
+    </li>
+  </ul>
+
+  <div class="alert-box">
+    <span class="alabel">💡 今すぐ必要なアクション（2026年6月時点）</span>
+    <p>VeriFactuの施行は2027年7月1日、B2B電子請求書は2028年10月1日です。現在は<strong>どちらも義務なし</strong>。ただし、2026年末〜2027年初に向けて「Gestorに対応ソフトを相談する」というアクションをカレンダーに入れておきましょう。</p>
+  </div>
+</div>
+
+<!-- 過去の日報との関連 -->
+<div class="card">
+  <h2><span class="section-icon">🔗</span>過去の日報との関連</h2>
+
+  <table class="matrix-table">
+    <thead>
+      <tr>
+        <th>今日の内容</th>
+        <th>関連する過去の日報</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>autónomoの社会保険（RETA）・Gestor・税務申告の基礎</td>
+        <td>2026-06-07「Gestorの役割と活用法」、2026-06-17「RETA・日西社会保障協定」</td>
+      </tr>
+      <tr>
+        <td>Modelo 130（四半期IRPF）・303（VAT申告）</td>
+        <td>2026-06-05「スペイン確定申告入門」</td>
+      </tr>
+      <tr>
+        <td>Stripe・Wise・PayPalとの請求フロー</td>
+        <td>2026-06-08「Stripe・PayPal・Wise 日本1人法人の決済スタック実務」</td>
+      </tr>
+      <tr>
+        <td>スペイン居住者として日本法人を運営する場合の税務</td>
+        <td>2026-06-02「日西租税条約と非居住者判定」、2026-06-11「役員報酬と源泉徴収」</td>
+      </tr>
+      <tr>
+        <td>Cuota Ceroや社会保険コスト（autónomo登録後の話）</td>
+        <td>2026-06-26「Cuota Cero 12自治州 2026年版」</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- バックログ更新メモ（見えないが作業記録として） -->
+<!-- VeriFactuをbacklogから削除予定 -->
+
+<!-- 免責フッター -->
+<div class="footer-card">
+  <span class="footer-title">⚠️ 免責事項 / Disclaimer</span>
+  <p><strong>税務・請求書制度に関する内容：</strong>本記事は一般的な情報提供を目的としており、個別のアドバイスではありません。VeriFactu・B2B電子請求書の義務の有無・範囲・タイムラインは、今後の法改正や省令によって変更される可能性があります。正式な判断は<strong>国際税務に強い税理士またはスペインのGestor / Asesor Fiscal</strong>にご相談ください。</p>
+  <p style="margin-top:8px;"><strong>ビザ・在留に関する内容：</strong>ビザ・在留資格の判断は、<strong>行政書士または移民専門弁護士（Abogado de Extranjería）</strong>にご相談ください。</p>
+  <p style="margin-top:8px;"><strong>制度・金額の基準：</strong>本記事の施行日は2026年6月28日時点の情報です。新たな延期・変更の可能性を否定しません。「必ず義務になる」「必ず対象外」などの断定はできません。</p>
+  <p style="margin-top:8px;"><strong>制度変更日の扱い：</strong>VeriFactuの延期（2026年7月1日 → 2027年7月1日）はReal Decreto-ley 15/2025（BOE 2025年12月3日公布）が一次ソースです。B2B電子請求書のタイムラインはReal Decreto 238/2026（BOE-A-2026-7295、BOE 2026年3月31日公布）が一次ソースです。民間解説サイトの情報は参照元として使用しており、制度変更の発生日として扱っていません。</p>
+
+  <div style="margin-top:14px;padding-top:10px;border-top:1px dotted #bbb;font-size:0.8rem;color:#777;">
+    <strong>出典一覧：</strong><br>
+    ・BOE Real Decreto-ley 15/2025 de 2 de diciembre（BOE 2025年12月3日）── VeriFactu 施行延期<br>
+    ・BOE Real Decreto 238/2026, de 25 de marzo（BOE-A-2026-7295, BOE 2026年3月31日）── B2B電子請求書<br>
+    ・AEAT（スペイン国税庁）「NOTA INFORMATIVA: Ampliación del plazo de adaptación de los sistemas informáticos de facturación」（sede.agenciatributaria.gob.es）<br>
+    ・AEAT FAQ「Cuestiones generales: ámbitos de aplicación」（sede.agenciatributaria.gob.es）<br>
+    ・civio.es「El Gobierno retrasa un año la obligación de usar Verifactu」（2025年12月3日）<br>
+    ・assessoria-teixidor.com「El Sistema VeriFactu también alcanza a las facturas emitidas a clientes extranjeros」（参照日：2026年6月28日）<br>
+    ・fiscal-impuestos.com「Aplicación del Reglamento VeriFactu a facturas emitidas a clientes extranjeros」（参照日：2026年6月28日）<br>
+    ・fiskaly.com「Fiscal compliance in Spain 2026: Verifactu, NaTicket &amp; B2B eInvoicing」（参照日：2026年6月28日）<br>
+    ・igarle.com「El mapa completo de la facturación electrónica en España: Verifactu, factura electrónica B2B y TicketBAI en 2026 y 2027」（参照日：2026年6月28日）<br>
+    ・getrenn.com「Mandatory Electronic Invoice for Self-Employed in Spain」（参照日：2026年6月28日）
+  </div>
+</div>
+
+</body>
+</html>

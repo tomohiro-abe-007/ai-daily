@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-06-28</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  /* ヘッダー */
+  .header {
+    background: linear-gradient(135deg, #1a5e8a 0%, #0d3660 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '💪';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.45rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  /* カード共通 */
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a5e8a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a5e8a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  /* アクセントカラー変種 */
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.green  { border-left-color: #2d7a5a; }
+  .card.green  h2 { color: #1a6e4a; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  /* キーポイント3列 */
+  .points {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+  .point-item {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 18px 20px;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.08);
+    border-top: 4px solid #1a5e8a;
+    font-size: 0.88rem;
+  }
+  .point-item .icon { font-size: 1.5rem; margin-bottom: 8px; }
+  .point-item strong { display: block; font-size: 0.95rem; margin-bottom: 4px; color: #0d3660; }
+  /* 数字カード */
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a5e8a, #2a80bf);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.4rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.77rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.green-bg  { background: linear-gradient(135deg, #1a6e4a, #2d9e6f); }
+  .num-card.gray-bg   { background: linear-gradient(135deg, #555, #888); }
+  /* 比較表 */
+  .compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .compare-col {
+    border-radius: 10px;
+    padding: 18px 20px;
+    font-size: 0.88rem;
+  }
+  .compare-col.left  { background: #e8f0fa; border: 2px solid #1a5e8a; }
+  .compare-col.right { background: #e8f5ee; border: 2px solid #2d7a5a; }
+  .compare-col h3 { font-size: 0.95rem; margin-bottom: 10px; }
+  .compare-col.left  h3 { color: #1a5e8a; }
+  .compare-col.right h3 { color: #1a6e4a; }
+  .compare-col ul { padding-left: 1.2em; }
+  .compare-col li { margin-bottom: 5px; }
+  /* フロー図 */
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e8f0fa;
+    border: 2px solid #1a5e8a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt {
+    background: #fef3e8;
+    border-color: #e07b2a;
+  }
+  .flow-arrow { font-size: 1.4rem; color: #1a5e8a; }
+  /* メカニズムグリッド */
+  .mech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .mech-item {
+    background: #f0f5fc;
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 0.85rem;
+    border-top: 3px solid #1a5e8a;
+  }
+  .mech-item .micon { font-size: 1.3rem; margin-bottom: 6px; }
+  .mech-item strong { display: block; color: #0d3660; margin-bottom: 4px; font-size: 0.88rem; }
+  /* 警告ボックス */
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  /* 出典 */
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a5e8a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a5e8a; }
+  /* 免責 */
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #d4e4f5;
+    color: #1a5e8a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .highlight { background: #d4e4f5; padding: 1px 5px; border-radius: 4px; }
+  .good { color: #1a6e4a; font-weight: 600; }
+  .bad  { color: #c0392b; font-weight: 600; }
+  /* 実践ステップ */
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a5e8a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  @media (max-width: 540px) {
+    .compare { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.2rem; }
+    .num-card .big { font-size: 1.9rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ヘッダー -->
+<div class="header">
+  <div class="label">健康・栄養 最新トピック ・ 2026-06-28</div>
+  <h1>年を取ると筋肉が「たんぱく質を無視」するようになる<br>
+  ── 加齢性アナボリック抵抗性と、それを覆す2つの最新研究</h1>
+  <div class="subtitle">「ちゃんとたんぱく質を食べているのに筋肉が減る」──その理由は吸収量ではなく、<br>筋肉の"反応力"が落ちていることにあります。2025〜2026年の系統的レビューとRCTから読み解きます。</div>
+</div>
+
+<!-- タグ -->
+<div style="margin-bottom:18px;">
+  <span class="tag">アナボリック抵抗性</span>
+  <span class="tag">筋肉・サルコペニア</span>
+  <span class="tag">たんぱく質</span>
+  <span class="tag">レジスタンストレーニング</span>
+  <span class="tag">ロイシン</span>
+  <span class="tag">系統的レビュー＋メタ分析 2026</span>
+  <span class="tag">RCT 2025</span>
+  <span class="tag">精密栄養学</span>
+</div>
+
+<!-- 今日の3大ポイント -->
+<div class="points">
+  <div class="point-item">
+    <div class="icon">📉</div>
+    <strong>60歳超えると筋合成の「感度」が下がる</strong>
+    同じたんぱく質を食べても、高齢者は若者より筋肉タンパク合成（MPS）の反応が小さい。これが「アナボリック抵抗性」。
+  </div>
+  <div class="point-item">
+    <div class="icon">🏋️</div>
+    <strong>筋トレが唯一の「逆転スイッチ」</strong>
+    GeroScience 2025年RCTでは、ロイシン補充は追加効果ゼロ。レジスタンストレーニング（筋トレ）のみが虚弱（フレイル）を改善した。
+  </div>
+  <div class="point-item">
+    <div class="icon">🥩</div>
+    <strong>1食20〜30gの高品質たんぱく質が目安</strong>
+    Frontiers 2026 系統的レビューが示す、アナボリック抵抗性を「量」で補うための目安量。「分散して摂る」戦略も重要。
+  </div>
+</div>
+
+<!-- 基礎解説 -->
+<div class="card">
+  <h2>🤔 「アナボリック抵抗性」って何？</h2>
+  <p>
+    筋肉は常に分解と合成を繰り返しています。食事（たんぱく質）や運動の刺激を受けると、筋肉タンパクの合成（MPS＝Muscle Protein Synthesis）が高まり、筋肉が維持・増強されます。
+  </p>
+  <p>
+    ところが加齢（おおよそ60歳以降）になると、筋肉がこの「合成スイッチ」を入れにくくなります。これを <strong class="highlight">アナボリック抵抗性（Anabolic Resistance）</strong> と呼びます。「アナボリック」はギリシャ語由来で「組み立て・合成」を意味します。
+  </p>
+
+  <!-- フロー：若者と高齢者の違い -->
+  <div style="margin-top:16px;">
+    <div style="font-size:0.85rem;color:#555;margin-bottom:6px;text-align:center;">同じ食事をしたときの反応の違い</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:4px;">
+      <div style="text-align:center;">
+        <div style="font-size:0.83rem;font-weight:600;color:#1a5e8a;margin-bottom:8px;">若者（18〜35歳）</div>
+        <div class="flow-step">たんぱく質摂取</div>
+        <div style="font-size:1.4rem;color:#1a5e8a;text-align:center;margin:4px 0;">↓</div>
+        <div class="flow-step" style="background:#e8f5ee;border-color:#2d7a5a;">筋合成スイッチ<br><span style="font-size:1.1rem;font-weight:700;">強くON</span> ✅</div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-size:0.83rem;font-weight:600;color:#a0291e;margin-bottom:8px;">高齢者（60歳以上）</div>
+        <div class="flow-step">たんぱく質摂取</div>
+        <div style="font-size:1.4rem;color:#a0291e;text-align:center;margin:4px 0;">↓</div>
+        <div class="flow-step" style="background:#fdecea;border-color:#c0392b;">筋合成スイッチ<br><span style="font-size:1.1rem;font-weight:700;">反応が弱い</span> ⚠️</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- メカニズム -->
+<div class="card orange">
+  <h2>🔬 なぜ起こるのか？ 4つのメカニズム</h2>
+  <div class="mech-grid">
+    <div class="mech-item">
+      <div class="micon">🧬</div>
+      <strong>mTOR シグナルの鈍化</strong>
+      筋合成を促す細胞内の「指令塔」mTOR（エムトール）が加齢で活性化しにくくなる。
+    </div>
+    <div class="mech-item">
+      <div class="micon">🫀</div>
+      <strong>アミノ酸の「内臓取り込み」増加</strong>
+      食後、アミノ酸が筋肉へ到達する前に肝臓・内臓に多く使われてしまう（スプランクニック捕捉の増大）。
+    </div>
+    <div class="mech-item">
+      <div class="micon">🔥</div>
+      <strong>慢性的な微弱炎症</strong>
+      加齢で増える「インフラマエイジング（炎症性老化）」が筋合成シグナルを妨害する。
+    </div>
+    <div class="mech-item">
+      <div class="micon">🚶</div>
+      <strong>身体不活動の悪循環</strong>
+      活動量が減ると筋肉の「感度」がさらに落ちる。アナボリック抵抗性と身体不活動は互いを悪化させる。
+    </div>
+  </div>
+</div>
+
+<!-- 2つの新研究 -->
+<div class="card">
+  <h2>📄 新しい研究 ① ── 系統的レビュー＋メタ分析（Frontiers in Physiology, 2026）</h2>
+  <div class="warn">
+    <strong>論文データ：</strong> Frontiers in Physiology (2026), DOI: 10.3389/fphys.2026.1740284。<br>
+    2025年11月に文献検索を実施。若者（18〜35歳）と高齢者（60歳以上）の筋タンパク合成（MPS）を「安定同位体トレーサー法」で測定した試験を統合解析。<br>
+    分析対象の状態：①空腹時、②食後、③運動後、④食後＋運動後の4条件。
+  </div>
+
+  <p><strong>主な知見：</strong></p>
+  <ul>
+    <li>加齢性のアナボリック抵抗性は、特に <strong>空腹時（食事なし）の状態</strong> で顕著に観察された。</li>
+    <li>食後では個人差・測定条件の差が大きく、一概に「高齢者のMPSは常に低い」とは言えない。</li>
+    <li><span class="good">高品質たんぱく質を1食あたり20〜30g以上、かつロイシンが豊富な形で摂取</span>すると、高齢者のMPSが若者に近いレベルまで回復する可能性がある。</li>
+    <li>ただし研究ごとに対象者・食品・測定部位が異なるため、効果量の定量化には注意が必要（エビデンス強度：高）。</li>
+  </ul>
+
+  <div class="warn" style="margin-top:12px;">
+    <strong>⚠️ 研究の限界：</strong>安定同位体法は専門設備が必要な研究技術で、実臨床でそのまま測定できるものではありません。また研究ごとの対象者特性（性別・疾患・身体活動量）の差が大きく、一般化には慎重さが必要です。
+  </div>
+</div>
+
+<div class="card green">
+  <h2>📄 新しい研究 ② ── ランダム化比較試験 RCT（GeroScience, 2025）</h2>
+  <div class="warn" style="background:#e8f5ee;border-left-color:#2d7a5a;">
+    <strong>論文データ：</strong> GeroScience (2025), DOI: 10.1007/s11357-025-01877-2。<br>
+    対象：虚弱（プレ/フレイル）高齢女性 <strong>19名</strong>（平均年齢 77.5歳、BMI 25.1 kg/m²）。<br>
+    介入：12週間のレジスタンストレーニング（筋トレ）＋最適化たんぱく質食（1.2 g/kg体重/日）。<br>
+    ランダム化：ロイシン群（7.5 g/日）vs プラセボ群（アラニン 5.1 g/日）、二重盲検。
+  </div>
+
+  <!-- 数値カード -->
+  <div class="num-row" style="margin-top:16px;">
+    <div class="num-card">
+      <div class="big">19<span class="unit">名</span></div>
+      <div class="desc">対象：プレ/フレイル高齢女性<br>平均77.5歳</div>
+    </div>
+    <div class="num-card orange-bg">
+      <div class="big">12<span class="unit">週</span></div>
+      <div class="desc">レジスタンストレーニング<br>＋最適化たんぱく質食</div>
+    </div>
+    <div class="num-card green-bg">
+      <div class="big">1.2<span class="unit">g</span></div>
+      <div class="desc">1日あたりのたんぱく質<br>（体重1kgあたり）</div>
+    </div>
+    <div class="num-card gray-bg">
+      <div class="big">7.5<span class="unit">g</span></div>
+      <div class="desc">ロイシン補充量/日<br>（追加効果はなし）</div>
+    </div>
+  </div>
+
+  <p><strong>結果のまとめ：</strong></p>
+
+  <!-- 比較表 -->
+  <div class="compare">
+    <div class="compare-col right">
+      <h3>🏋️ レジスタンストレーニング</h3>
+      <ul>
+        <li>筋タンパク合成が<span class="good">有意に増加</span></li>
+        <li>フレイルスコアが<span class="good">改善</span>（虚弱が「逆転」）</li>
+        <li>最適化たんぱく質食との組み合わせが重要</li>
+      </ul>
+    </div>
+    <div class="compare-col left">
+      <h3>💊 ロイシン補充（7.5 g/日）</h3>
+      <ul>
+        <li>筋タンパク合成への<span class="bad">追加効果なし</span></li>
+        <li>フレイル改善への<span class="bad">追加効果なし</span></li>
+        <li>たんぱく質食が「最適化」されていれば<br>ロイシン単独上乗せは不要の可能性</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="warn" style="margin-top:4px;">
+    <strong>⚠️ 研究の限界：</strong>対象者が <strong>n=19（女性のみ）</strong> と非常に小規模で、結果の一般化は慎重に。男性・若い高齢者・重症サルコペニアへの適用は未検証。「追加効果なし」は「ロイシンが無意味」ではなく、「最適化たんぱく質食がすでに十分量のロイシンを含んでいた可能性」も考えられます。
+  </div>
+</div>
+
+<!-- 2論文を統合した「覚えてほしいこと」 -->
+<div class="card purple">
+  <h2>🎯 2つの研究から見えてくること</h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:4px;">
+    <div style="background:#f0ecfa;border-radius:8px;padding:14px 16px;border:2px solid #7a5abf;">
+      <div style="font-size:1.1rem;font-weight:700;color:#5a3a9a;margin-bottom:8px;">量だけでは解決しない</div>
+      <div style="font-size:0.87rem;">たんぱく質を「とにかく多く」食べても、筋肉の感度が低いままでは効率が悪い。<strong>運動（特に筋トレ）で感度を高める</strong>ことが前提。</div>
+    </div>
+    <div style="background:#e8f5ee;border-radius:8px;padding:14px 16px;border:2px solid #2d7a5a;">
+      <div style="font-size:1.1rem;font-weight:700;color:#1a6e4a;margin-bottom:8px;">サプリより食事＋運動</div>
+      <div style="font-size:0.87rem;">ロイシン単体の上乗せより、<strong>食事全体のたんぱく質の質と量を整え、筋トレを継続する</strong>ほうが現段階では根拠が強い。</div>
+    </div>
+  </div>
+</div>
+
+<!-- 実践ポイント -->
+<div class="card">
+  <h2>🛠️ 今日から意識できる4つの実践ポイント</h2>
+  <p style="font-size:0.82rem;color:#888;margin-bottom:14px;">※ 以下は一般的な情報です。個人の状況により適切な内容は異なります。</p>
+  <ol class="step-list">
+    <li>
+      <div>
+        <strong>1食あたり20〜30gの高品質たんぱく質を意識する</strong><br>
+        <span style="font-size:0.85rem;">若者なら15〜20gで十分な場合でも、高齢者は「量で補う」ことでアナボリック抵抗性を一部カバーできる。卵2個（12g）だけでは足りないことが多い。目安：鶏むね肉100g（約23g）＋豆腐半丁（約8g）でおよそ1食分。</span>
+      </div>
+    </li>
+    <li>
+      <div>
+        <strong>たんぱく質を1日3食に分散させる</strong><br>
+        <span style="font-size:0.85rem;">朝0g・夜60gのように偏ると筋合成効率が落ちる。1日を通して均等に分散させる「たんぱく質の分散摂取」が推奨されている。</span>
+      </div>
+    </li>
+    <li>
+      <div>
+        <strong>週2〜3回の筋トレ（レジスタンストレーニング）を習慣にする</strong><br>
+        <span style="font-size:0.85rem;">これが最も強いエビデンスを持つ介入。GeroScience 2025でもロイシンサプリより筋トレのほうが効果的。スクワット・椅子からの立ち上がり・壁押しプッシュアップなど自体重でも可。</span>
+      </div>
+    </li>
+    <li>
+      <div>
+        <strong>ロイシンリッチな食品を食事から摂る</strong><br>
+        <span style="font-size:0.85rem;">サプリより先に、ロイシンが豊富な食品（乳製品・肉・魚・卵）を食事全体で摂ることを優先。たんぱく質の総量が最適化されていれば、ロイシンサプリの追加は効果が出にくい可能性がある（GeroScience 2025）。</span>
+      </div>
+    </li>
+  </ol>
+
+  <!-- ロイシン豊富食品フロー -->
+  <div style="margin-top:18px;border-top:1px dashed #ccc;padding-top:14px;">
+    <div style="font-size:0.83rem;color:#666;margin-bottom:10px;text-align:center;">🥛 ロイシンを多く含む食品（例）</div>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;">
+      <div style="background:#e8f5ee;border:1px solid #2d7a5a;border-radius:6px;padding:6px 12px;font-size:0.83rem;">🐔 鶏むね肉<br><span style="font-size:0.75rem;color:#555;">約1.9g/100g</span></div>
+      <div style="background:#e8f5ee;border:1px solid #2d7a5a;border-radius:6px;padding:6px 12px;font-size:0.83rem;">🐟 まぐろ<br><span style="font-size:0.75rem;color:#555;">約1.8g/100g</span></div>
+      <div style="background:#e8f5ee;border:1px solid #2d7a5a;border-radius:6px;padding:6px 12px;font-size:0.83rem;">🧀 カッテージチーズ<br><span style="font-size:0.75rem;color:#555;">乳清に豊富</span></div>
+      <div style="background:#e8f5ee;border:1px solid #2d7a5a;border-radius:6px;padding:6px 12px;font-size:0.83rem;">🥚 卵<br><span style="font-size:0.75rem;color:#555;">約1.1g/個</span></div>
+      <div style="background:#e8f5ee;border:1px solid #2d7a5a;border-radius:6px;padding:6px 12px;font-size:0.83rem;">🫘 大豆製品<br><span style="font-size:0.75rem;color:#555;">植物性ではトップクラス</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- 賛否・研究の今後 -->
+<div class="card red">
+  <h2>⚖️ まだ分かっていないこと・議論が続いていること</h2>
+  <ul>
+    <li><strong>ロイシンの効果に関する議論：</strong>GeroScience 2025では「最適たんぱく質食 + 筋トレ」環境でロイシン単独の上乗せ効果がなかったが、たんぱく質が不足気味の環境では効果が出るとする研究も存在する。一概に「ロイシン不要」とは言えない。</li>
+    <li><strong>男性・男女混合データが少ない：</strong>GeroScience 2025は女性のみ（n=19）。男性や混合コホートでの結果は現段階で不明。</li>
+    <li><strong>最適なたんぱく質量には個人差：</strong>1.2 g/kg/日はあくまでこの研究の設定値。腎機能障害がある場合はたんぱく質過多のリスクがあり、医師との相談が必須。</li>
+    <li><strong>長期データの不足：</strong>12週間RCTで「フレイル逆転」を確認したが、2年・5年以上の効果維持は未検証。</li>
+  </ul>
+</div>
+
+<!-- 出典 -->
+<div class="sources">
+  <h3>📚 主な出典</h3>
+  <ol>
+    <li>
+      <strong>系統的レビュー＋メタ分析：</strong>「Age-related anabolic resistance and post-absorptive muscle protein synthesis: integrative evidence from a systematic review and meta-analysis」<br>
+      <em>Frontiers in Physiology</em>, 2026. DOI: 10.3389/fphys.2026.1740284<br>
+      <a href="https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2026.1740284/full" target="_blank">frontiersin.org（英語）</a>
+      <br>【研究の種類】系統的レビュー＋メタ分析（最高水準のエビデンス区分）、2025年11月検索、安定同位体トレーサー法試験を統合、若者（18〜35歳）vs 高齢者（60歳以上）
+    </li>
+    <li>
+      <strong>ランダム化比較試験（RCT）：</strong>「Resistance training, but not leucine, increased basal muscle protein synthesis and reversed frailty in older women consuming optimized protein intake」<br>
+      <em>GeroScience</em>, 2025. DOI: 10.1007/s11357-025-01877-2<br>
+      <a href="https://link.springer.com/article/10.1007/s11357-025-01877-2" target="_blank">link.springer.com（英語）</a>
+      <br>【研究の種類】ランダム化比較試験（RCT）、二重盲検・プラセボ対照、n=19（プレ/フレイル高齢女性）、12週間介入
+    </li>
+    <li>
+      <strong>背景・メカニズム参考：</strong>「Critical variables regulating age-related anabolic responses to protein nutrition in skeletal muscle」<br>
+      <em>Frontiers in Nutrition</em>, 2024. DOI: 10.3389/fnut.2024.1419229<br>
+      <a href="https://www.frontiersin.org/journals/nutrition/articles/10.3389/fnut.2024.1419229/full" target="_blank">frontiersin.org（英語）</a>
+    </li>
+  </ol>
+</div>
+
+<!-- 免責 -->
+<div class="disclaimer">
+  ⚠️ <strong>免責事項：</strong>本記事は一般的な情報提供を目的としており、医療上のアドバイスではありません。栄養摂取量・運動強度・サプリメントの使用は、個人の年齢・体質・持病・服薬状況によって最適解が大きく異なります。特に腎臓病・骨粗しょう症・心疾患などの持病がある方、または高強度の運動を新たに始める場合は、必ずかかりつけ医・管理栄養士・理学療法士などの専門家にご相談ください。本記事内のたんぱく質量・補充量はあくまで研究内の設定値であり、万人に推奨するものではありません。
+</div>
+
+<div style="text-align:center;font-size:0.75rem;color:#aaa;padding:8px 0 4px;">
+  健康・栄養 最新トピック ／ 2026-06-28
+</div>
+
+</div><!-- /page -->
+</body>
+</html>

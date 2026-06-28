@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-06-28</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #1e5a7a 0%, #0d3352 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #1e5a7a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.green  { border-left-color: #4a9e6a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.purple { border-left-color: #7a4a9e; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #1e5a7a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  /* Type comparison grid */
+  .type-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .type-grid { grid-template-columns: 1fr; } }
+  .type-card {
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-size: 0.86rem;
+    line-height: 1.65;
+  }
+  .type-card.main {
+    background: #e8f0f8;
+    border: 2px solid #1e5a7a;
+  }
+  .type-card.sub {
+    background: #f5f0fa;
+    border: 2px solid #7a4a9e;
+  }
+  .type-card .tl {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+  }
+  .type-card.main .tl { color: #0d3352; }
+  .type-card.sub .tl  { color: #4a1a7a; }
+  .type-card .tv { font-size: 1.0rem; font-weight: 700; margin-bottom: 6px; }
+  .type-card.main .tv { color: #1e5a7a; }
+  .type-card.sub .tv  { color: #7a4a9e; }
+
+  /* Big number stats */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 14px 10px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat .sl { font-size: 0.67rem; color: #888; margin-bottom: 3px; }
+  .stat .sv { font-size: 1.6rem; font-weight: 700; color: #1e5a7a; line-height: 1.1; }
+  .stat .su { font-size: 0.7rem; color: #666; margin-top: 2px; }
+
+  /* Flow steps */
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #1e5a7a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+  .f-arrow { color: #1e5a7a; font-size: 1.1rem; margin-left: 14px; margin-bottom: 4px; }
+
+  /* Calendar row */
+  .cal-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.84rem;
+  }
+  .cal-table th {
+    background: #1e5a7a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .cal-table td {
+    padding: 8px 12px;
+    border-bottom: 1px dotted #ddd;
+    line-height: 1.55;
+    vertical-align: top;
+  }
+  .cal-table tr:nth-child(even) td { background: #f5f8fc; }
+  .cal-table .timing {
+    font-weight: 700;
+    color: #1e5a7a;
+    white-space: nowrap;
+  }
+
+  /* Check list */
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  /* Template box */
+  .template-box {
+    background: #f5f8fc;
+    border: 2px dashed #1e5a7a;
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin: 14px 0;
+    font-size: 0.85rem;
+    line-height: 1.9;
+    color: #333;
+  }
+  .template-box .th {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #1e5a7a;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .template-box .fill {
+    background: #ddeeff;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-weight: 700;
+    color: #0a3f6e;
+  }
+  .template-box .note {
+    font-size: 0.75rem;
+    color: #888;
+    margin-top: 8px;
+    line-height: 1.65;
+  }
+
+  /* AI prompt box */
+  .prompt-box {
+    background: #f0f5ff;
+    border: 2px solid #4a6aae;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 12px 0;
+    font-size: 0.84rem;
+    line-height: 1.85;
+    color: #1a2a4a;
+  }
+  .prompt-box .ph {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #4a6aae;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+  .prompt-box .fill {
+    background: #d0e0ff;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-weight: 700;
+    color: #0a2a6e;
+  }
+
+  /* Info / Warn */
+  .info {
+    background: #e8f0f8;
+    border-left: 4px solid #1e5a7a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #0d3352;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #7a4010;
+  }
+
+  /* Summary list */
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #1e5a7a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+
+  .badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 8px;
+    margin-right: 4px;
+    vertical-align: middle;
+  }
+  .badge.law   { background: #1e5a7a; color: white; }
+  .badge.ai    { background: #4a6aae; color: white; }
+  .badge.tip   { background: #4a9e6a; color: white; }
+  .badge.warn  { background: #c8884a; color: white; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #1e5a7a; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #1e5a7a; }
+
+  /* Flow horizontal */
+  .flow-h {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 14px 0;
+  }
+  .flow-box {
+    background: white;
+    border: 2px solid #1e5a7a;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 0.81rem;
+    text-align: center;
+    line-height: 1.45;
+    color: #0d3352;
+    font-weight: 600;
+  }
+  .flow-arrow {
+    color: #1e5a7a;
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+  @media (max-width: 540px) {
+    .flow-h { flex-direction: column; align-items: flex-start; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+
+  /* Matrix */
+  .matrix {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.83rem;
+  }
+  .matrix th {
+    background: #0d3352;
+    color: white;
+    padding: 8px 12px;
+    text-align: center;
+    font-weight: 600;
+  }
+  .matrix td {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    vertical-align: top;
+    line-height: 1.55;
+  }
+  .matrix .row-head {
+    background: #e8f0f8;
+    font-weight: 700;
+    color: #0d3352;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .matrix .ok  { color: #4a9e6a; font-weight: 700; }
+  .matrix .ng  { color: #b54040; font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Header -->
+<div class="header">
+  <div class="meta">&#x1F4C5; 1人法人スタート 最新トピック &nbsp;2026-06-28</div>
+  <h1>&#x1F4DD; 生成AIで議事録を自動化する<br>株主総会・取締役決定書を10分で作る方法</h1>
+  <div class="desc">
+    <span class="htag">AI活用</span>
+    <span class="htag">議事録</span>
+    <span class="htag">株主総会</span>
+    <span class="htag">法務効率化</span>
+    <span class="htag">会社法</span>
+    <br>
+    「議事録って、1人会社でも必要なの？」── 答えはYES。会社法で義務付けられた書類です。<br>
+    でも今は生成AIを使えば、テンプレートへの入力から下書きまで10分以内で終わります。
+  </div>
+</div>
+
+<!-- Section 1: Why minutes are required -->
+<div class="card">
+  <div class="sec-title">&#x2696;&#xFE0F; 1人でも「議事録」は必須 ── 会社法の義務とペナルティ</div>
+  <p>株主が自分1人でも、取締役が自分だけでも、<span class="hl">会社法は議事録の作成・保存を義務付けています</span>。</p>
+
+  <div class="stats-row" style="margin-top:16px;">
+    <div class="stat">
+      <div class="sl">保存義務期間</div>
+      <div class="sv">10年</div>
+      <div class="su">本店に備え置き</div>
+    </div>
+    <div class="stat">
+      <div class="sl">未作成の場合</div>
+      <div class="sv">100万</div>
+      <div class="su">円以下の過料（会社法976条）</div>
+    </div>
+    <div class="stat">
+      <div class="sl">法的根拠</div>
+      <div class="sv">会社法</div>
+      <div class="su">318条・371条</div>
+    </div>
+  </div>
+
+  <p style="margin-top:10px;">「1人会社だから議事録なんてやっていない」という代表者は少なくありませんが、<strong>税務調査・融資審査・M&A</strong>などで過去の議事録の提出を求められた際に困ります。今日から整備しましょう。</p>
+
+  <div class="source">
+    出典：会社法第318条（株主総会議事録）、第371条（取締役会議事録）、第976条（過料）<br>
+    e-Gov 法令検索 <a href="https://laws.e-gov.go.jp/law/417AC0000000086" target="_blank">https://laws.e-gov.go.jp/law/417AC0000000086</a>（2006年施行・随時改正）
+  </div>
+</div>
+
+<!-- Section 2: Types of minutes -->
+<div class="card orange">
+  <div class="sec-title">&#x1F4CB; 1人法人が作るべき議事録の種類</div>
+  <p>「取締役会議事録」は<span class="hl">取締役会を設置した会社だけに必要</span>です。取締役会を設置するには取締役3人以上（＋監査役）が必要なため、<strong>1人社長の会社はほぼ対象外</strong>です。</p>
+
+  <div class="type-grid" style="margin-top:14px;">
+    <div class="type-card main">
+      <div class="tl">&#x2705; 1人法人に必要（主役）</div>
+      <div class="tv">株主総会議事録</div>
+      会社法318条<br>
+      <br>
+      ・毎年1回以上（定時）<br>
+      ・随時（臨時）<br>
+      ・役員報酬の決定<br>
+      ・決算の承認<br>
+      ・役員の選任・再任<br>
+      ・定款変更など
+    </div>
+    <div class="type-card sub">
+      <div class="tl">&#x2139;&#xFE0F; 取締役会設置会社のみ</div>
+      <div class="tv">取締役会議事録</div>
+      会社法371条<br>
+      <br>
+      ・取締役3人以上の会社<br>
+      ・大型投資の承認<br>
+      ・代表権の委任など<br>
+      <br>
+      <span style="font-size:0.8rem;color:#888;">→ 1人社長会社はほぼ不要<br>（取締役会非設置会社）</span>
+    </div>
+  </div>
+
+  <div class="info">
+    &#x1F4A1; <strong>1人法人でも追加で作ると良い書類：</strong><br>
+    「<strong>取締役の業務執行に関する決定書</strong>（取締役決定書）」── 法律上の義務ではないが、<br>
+    大きな支出・契約・方針変更を記録しておくと、税務調査での証明力が高まります。
+  </div>
+</div>
+
+<!-- Section 3: Calendar of when needed -->
+<div class="card green">
+  <div class="sec-title">&#x1F5D3;&#xFE0F; 年間スケジュール ── 議事録が必要なタイミング</div>
+  <p>1人社長が毎年必ず作成すべき議事録のタイミングを表にまとめました。</p>
+
+  <table class="cal-table" style="margin-top:14px;">
+    <tr>
+      <th>タイミング</th>
+      <th>種類</th>
+      <th>主な決議内容</th>
+    </tr>
+    <tr>
+      <td class="timing">決算後2〜3か月以内</td>
+      <td><span class="badge law">必須</span>定時株主総会</td>
+      <td>計算書類（決算書）の承認、役員報酬の決定・改定、役員の選任（任期到来時）</td>
+    </tr>
+    <tr>
+      <td class="timing">役員報酬を変えるとき</td>
+      <td><span class="badge law">必須</span>臨時株主総会</td>
+      <td>役員報酬の改定（定期同額給与の変更は事業年度開始後3か月以内に決議）</td>
+    </tr>
+    <tr>
+      <td class="timing">定款を変えるとき</td>
+      <td><span class="badge law">必須</span>臨時株主総会</td>
+      <td>目的の追加、商号変更、本店移転（定款記載事項の場合）など</td>
+    </tr>
+    <tr>
+      <td class="timing">役員任期2年ごと</td>
+      <td><span class="badge law">必須</span>定時株主総会</td>
+      <td>取締役の再選・選任（任期は最長10年まで延長可能、定款変更で）</td>
+    </tr>
+    <tr>
+      <td class="timing">随時（任意）</td>
+      <td><span class="badge tip">任意</span>取締役決定書</td>
+      <td>大型設備投資、新規事業開始、外注契約の締結など重要な業務執行の記録</td>
+    </tr>
+  </table>
+
+  <div class="warn">
+    &#x26A0;&#xFE0F; <strong>役員報酬の改定は議事録なしで変えると「定期同額給与」に該当しなくなる</strong>おそれがあります。<br>
+    不当に高い役員報酬が損金（経費）として認められなくなる可能性があります。<br>
+    必ず<strong>事業年度開始から3か月以内に株主総会決議</strong>→議事録作成のセットで。
+  </div>
+</div>
+
+<!-- Section 4: Required items -->
+<div class="card">
+  <div class="sec-title">&#x1F4C4; 株主総会議事録の必須記載事項（チェックリスト）</div>
+  <p>会社法施行規則72条が定める必須記載事項は次のとおりです。これを満たさないと議事録として無効になるおそれがあります。</p>
+
+  <ul class="check-list" style="margin-top:12px;">
+    <li><span class="ck">&#x2611;</span> 株主総会の日時（年月日・開始時刻）</li>
+    <li><span class="ck">&#x2611;</span> 開催場所（住所、またはオンライン開催の場合はその旨）</li>
+    <li><span class="ck">&#x2611;</span> 議事の経過の要領およびその結果（何を決議したか・結果）</li>
+    <li><span class="ck">&#x2611;</span> 株主総会に出席した取締役・監査役の氏名（1人法人なら自分の名前）</li>
+    <li><span class="ck">&#x2611;</span> 議長の氏名（代表取締役が務めることが多い）</li>
+    <li><span class="ck">&#x2611;</span> 議事録作成者の氏名（代表取締役）</li>
+    <li><span class="ck">&#x2611;</span> 議事録の作成日</li>
+    <li><span class="ck-bad">&#x26A0;</span> <span style="color:#888;">法務局提出時など必要に応じて：代表取締役の記名・押印（または電子署名）</span></li>
+  </ul>
+
+  <div class="info">
+    &#x1F4CC; 1人株主総会（株主＝代表取締役の場合）は実際に「集まる」必要はありませんが、<br>
+    <strong>書面決議（会社法319条）</strong>として書類を整えることができます。<br>
+    株主が提案に同意する書面＋議事録で有効な決議として取り扱えます。
+  </div>
+
+  <div class="source">
+    出典：会社法施行規則第72条（株主総会議事録の記載事項）、会社法第319条（書面決議）<br>
+    e-Gov 法令検索 <a href="https://laws.e-gov.go.jp/law/418CO0000000048" target="_blank">https://laws.e-gov.go.jp/law/418CO0000000048</a>（2006年施行・随時改正）
+  </div>
+</div>
+
+<!-- Section 5: AI Workflow -->
+<div class="card orange">
+  <div class="sec-title">&#x1F916; 生成AIで議事録を作る ── 具体的な4ステップ</div>
+  <p>人間がやるべき判断は最小限に、AIが下書きを作ってくれます。</p>
+
+  <div class="flow-h" style="margin-top:16px;">
+    <div class="flow-box">&#x1F4CB; ①<br>情報を<br>メモ書き</div>
+    <div class="flow-arrow">&#x27A1;</div>
+    <div class="flow-box">&#x1F916; ②<br>AIに<br>プロンプト投入</div>
+    <div class="flow-arrow">&#x27A1;</div>
+    <div class="flow-box">&#x270F;&#xFE0F; ③<br>下書きを<br>確認・修正</div>
+    <div class="flow-arrow">&#x27A1;</div>
+    <div class="flow-box">&#x1F4BE; ④<br>保存・<br>押印・保管</div>
+  </div>
+
+  <div style="margin-top:16px;">
+    <div class="f-step">
+      <div class="f-num">1</div>
+      <div class="f-text">
+        <strong>開催情報をメモ書きしておく</strong><br>
+        日時・場所・出席者（自分1人）・議題・決議内容を箇条書きで書き留める。<br>
+        <span style="font-size:0.82rem;color:#666;">→ 例：「6/28 10:00 本社会議室 / 役員報酬を月40万→45万に改定 / 賛成1票で可決」</span>
+      </div>
+    </div>
+    <div class="f-arrow">&#x25BC;</div>
+    <div class="f-step">
+      <div class="f-num">2</div>
+      <div class="f-text">
+        <strong>AIにプロンプトを投入して下書き生成</strong><br>
+        Claude / ChatGPT / Gemini などに「議事録テンプレートを埋めてほしい」とメモを渡す。<br>
+        <span style="font-size:0.82rem;color:#666;">→ 下のプロンプト例をコピーして使えます</span>
+      </div>
+    </div>
+    <div class="f-arrow">&#x25BC;</div>
+    <div class="f-step">
+      <div class="f-num">3</div>
+      <div class="f-text">
+        <strong>必須記載事項の漏れがないか確認し、修正する</strong><br>
+        ・日時・場所・議長・出席者・決議内容・作成日 がすべて入っているか確認<br>
+        ・金額・日付・会社名などの固有情報は必ず人間が目視確認する（AIは間違えることがある）
+      </div>
+    </div>
+    <div class="f-arrow">&#x25BC;</div>
+    <div class="f-step">
+      <div class="f-num">4</div>
+      <div class="f-text">
+        <strong>印刷・押印または電子署名して保管</strong><br>
+        ・紙なら代表取締役が署名・押印して会社に保管<br>
+        ・クラウド（Googleドライブ・OneDriveなど）で電子保管も可<br>
+        <span style="font-size:0.82rem;color:#666;">→ 電子保管は「電磁的記録」として会社法上も認められています（会社法318条2項）</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 6: AI Prompt Template -->
+<div class="card green">
+  <div class="sec-title">&#x1F4AC; コピペで使える AIプロンプト例</div>
+  <p>以下のプロンプトをそのままコピーして、<span class="fill" style="background:#b3f5cc;">【　】の部分</span>を自社の情報に書き換えてAIに渡します。</p>
+
+  <div class="prompt-box" style="margin-top:14px;">
+    <div class="ph">&#x1F916; プロンプト例①：定時株主総会議事録（役員報酬決定・決算承認）</div>
+    以下の情報をもとに、会社法の要件を満たす日本語の株主総会議事録の下書きを作成してください。<br>
+    <br>
+    ・会社名：<span class="fill">【株式会社〇〇】</span><br>
+    ・開催日時：<span class="fill">【2026年6月28日 午前10時00分】</span><br>
+    ・開催場所：<span class="fill">【東京都〇〇区〇〇 本店】</span><br>
+    ・株主数：<span class="fill">【1名（代表取締役〇〇 〇〇 自身）】</span><br>
+    ・出席役員：<span class="fill">【取締役（代表取締役） 〇〇 〇〇】</span><br>
+    ・議長：<span class="fill">【代表取締役 〇〇 〇〇】</span><br>
+    ・議題1：第〇期計算書類（貸借対照表・損益計算書）の承認 → 全員賛成で承認<br>
+    ・議題2：役員報酬を月額<span class="fill">【40万円】</span>から<span class="fill">【45万円】</span>に改定（2026年7月支給分から） → 全員賛成で承認<br>
+    ・議事録作成日：<span class="fill">【2026年6月28日】</span><br>
+    <br>
+    会社法施行規則第72条の記載事項を満たす形式でお願いします。
+  </div>
+
+  <div class="prompt-box">
+    <div class="ph">&#x1F916; プロンプト例②：臨時株主総会議事録（役員報酬改定のみ）</div>
+    以下の情報をもとに、会社法要件を満たす臨時株主総会議事録の下書きを作成してください。<br>
+    <br>
+    ・会社名：<span class="fill">【株式会社〇〇】</span><br>
+    ・開催日時：<span class="fill">【2026年7月1日 午前9時00分】</span><br>
+    ・開催場所：<span class="fill">【東京都〇〇区〇〇 本店】</span><br>
+    ・株主（自己1名）および出席役員（自己1名）：<span class="fill">【代表取締役 〇〇 〇〇】</span><br>
+    ・議題：取締役（代表取締役）の報酬額の決定<br>
+    　月額<span class="fill">【50万円】</span>を支給することとする（2026年7月分から、定期同額給与として）<br>
+    　→ 出席者全員（1名）の賛成により承認可決<br>
+    ・議事録作成日：<span class="fill">【2026年7月1日】</span>
+  </div>
+
+  <div class="warn">
+    &#x26A0;&#xFE0F; <strong>AIが生成した内容は必ず人間が確認してください。</strong><br>
+    特に日付・金額・会社名などの固有情報は誤りが混入することがあります。<br>
+    また、会社の状況（定款の内容・株主構成など）により適切な文言が変わる場合があります。<br>
+    法的に重要な局面では司法書士・弁護士へのご相談をお勧めします。
+  </div>
+</div>
+
+<!-- Section 7: AI-assisted check matrix -->
+<div class="card">
+  <div class="sec-title">&#x1F9E9; AIで何ができる？できない？ 整理マトリクス</div>
+  <p>議事録作成の各工程ごとに、AI活用の効果と注意点を整理します。</p>
+
+  <table class="matrix" style="margin-top:14px;">
+    <tr>
+      <th style="width:28%;">工程</th>
+      <th style="width:15%;">AIの対応</th>
+      <th>補足・注意点</th>
+    </tr>
+    <tr>
+      <td class="row-head">テンプレート生成</td>
+      <td><span class="ok">◎ 得意</span></td>
+      <td>会社法の記載要件を踏まえた形式を一発生成。過去の議事録を参照させると精度が上がる。</td>
+    </tr>
+    <tr>
+      <td class="row-head">記載事項の<br>チェック</td>
+      <td><span class="ok">○ 有効</span></td>
+      <td>「必須記載事項が揃っているか確認して」と依頼すると漏れを指摘してくれる。最終確認は人間が行う。</td>
+    </tr>
+    <tr>
+      <td class="row-head">音声→文字起こし</td>
+      <td><span class="ok">◎ 得意</span></td>
+      <td>OpenAI Whisper・Google Speechなどで音声メモを文字に。議題の記録に活用できる。</td>
+    </tr>
+    <tr>
+      <td class="row-head">日付・金額の<br>確認</td>
+      <td><span class="ng">△ 注意</span></td>
+      <td>AIは事実確認ができない。日付・金額・固有名詞は必ず人間が原本と照合する。</td>
+    </tr>
+    <tr>
+      <td class="row-head">法的判断<br>（定款適合性など）</td>
+      <td><span class="ng">✕ 不適</span></td>
+      <td>「この決議は自社の定款上有効か」という判断はAI単独では不可。専門家に確認を。</td>
+    </tr>
+    <tr>
+      <td class="row-head">電子保管・<br>ファイリング支援</td>
+      <td><span class="ok">○ 有効</span></td>
+      <td>「ファイル名の命名規則を提案して」「フォルダ構成を教えて」などで整理の効率化が可能。</td>
+    </tr>
+  </table>
+</div>
+
+<!-- Section 8: Storage & Electronic records -->
+<div class="card purple">
+  <div class="sec-title">&#x1F4BE; 保管のルール ── 電子化してクラウド保存でOK</div>
+  <p>「紙でしか保存できない」は誤解です。会社法は<span class="hl">電磁的記録による保存を認めています</span>。</p>
+
+  <div style="margin-top:14px;">
+    <div class="f-step">
+      <div class="f-num" style="background:#7a4a9e;">&#x1F4F1;</div>
+      <div class="f-text">
+        <strong>保存形式：PDF推奨</strong><br>
+        Word・Googleドキュメントで作成後、PDFで書き出して保存。改ざんされにくく、閲覧環境を選びません。
+      </div>
+    </div>
+    <div class="f-step" style="margin-top:10px;">
+      <div class="f-num" style="background:#7a4a9e;">&#x2601;&#xFE0F;</div>
+      <div class="f-text">
+        <strong>保存場所：クラウドストレージ</strong><br>
+        Googleドライブ・OneDrive・Dropboxなどで「議事録」フォルダを作成。年度・日付で整理すると後で探しやすい。<br>
+        <span style="font-size:0.82rem;color:#666;">例：「議事録 ＞ 2026年度 ＞ 2026-06-28_定時株主総会.pdf」</span>
+      </div>
+    </div>
+    <div class="f-step" style="margin-top:10px;">
+      <div class="f-num" style="background:#7a4a9e;">&#x270F;&#xFE0F;</div>
+      <div class="f-text">
+        <strong>電子署名・印鑑について</strong><br>
+        通常の社内保管なら代表取締役の電子署名または印鑑（スタンプ画像も可）で足ります。<br>
+        法務局への提出が必要な場合（登記申請など）は、<strong>電子証明書付きの電子署名</strong>や紙への実印押印が求められることがあります。
+      </div>
+    </div>
+    <div class="f-step" style="margin-top:10px;">
+      <div class="f-num" style="background:#7a4a9e;">&#x1F4C5;</div>
+      <div class="f-text">
+        <strong>保存期間：10年間</strong><br>
+        会社法318条2項・371条により、本店に10年間備え置く義務があります。<br>
+        廃業・解散後も一定期間保存が必要です（会社の権利義務の明確化のため）。
+      </div>
+    </div>
+  </div>
+
+  <div class="info">
+    &#x1F4A1; <strong>実務的なファイリング例</strong><br>
+    Googleドライブに「会社管理」フォルダを作り、「議事録」サブフォルダを置く。<br>
+    毎年の定時株主総会後（決算承認後）に1ファイル追加するだけで完了。<br>
+    Claudeなどに「去年の議事録と同じ形式で今年分を作って」と頼めば10分で完成します。
+  </div>
+
+  <div class="source">
+    出典：会社法第318条2項（議事録の電磁的記録保存）<br>
+    e-Gov 法令検索 <a href="https://laws.e-gov.go.jp/law/417AC0000000086" target="_blank">https://laws.e-gov.go.jp/law/417AC0000000086</a>
+  </div>
+</div>
+
+<!-- Section 9: Quick template -->
+<div class="card orange">
+  <div class="sec-title">&#x1F4DD; すぐ使える 株主総会議事録 ミニテンプレート</div>
+  <p>AIに渡す前の「骨格」として、そのままコピーして使えます。<span class="fill" style="background:#ffd9a0; color:#7a3a00;">【　】</span>を書き換えてください。</p>
+
+  <div class="template-box" style="margin-top:14px;">
+    <div class="th">&#x1F4C4; 株主総会議事録 テンプレート（最小版）</div>
+    <strong>株主総会議事録</strong><br>
+    <br>
+    開催日時：<span class="fill">【令和〇年〇月〇日 午前〇時〇〇分】</span><br>
+    開催場所：<span class="fill">【本店所在地（〇〇都〇〇区〇〇〇）】</span><br>
+    出席株主数：<span class="fill">【1名 議決権〇〇個（議決権総数〇〇個 出席率100%）】</span><br>
+    出席役員：取締役（代表取締役）<span class="fill">【〇〇 〇〇】</span><br>
+    議長：<span class="fill">【〇〇 〇〇】</span>（上記代表取締役が議長席に就く）<br>
+    <br>
+    ───────────────<br>
+    <strong>議案 第1号：<span class="fill">【議題を記載（例：第〇期計算書類承認の件）】</span></strong><br>
+    議長より説明の後、採決の結果、出席議決権の全員一致をもって承認可決した。<br>
+    <br>
+    <strong>議案 第2号：<span class="fill">【議題を記載（例：取締役報酬額改定の件）】</span></strong><br>
+    議長より、取締役報酬を月額<span class="fill">【〇〇円】</span>とする旨の提案があり、<br>
+    採決の結果、出席議決権の全員一致をもって承認可決した。<br>
+    ───────────────<br>
+    <br>
+    以上をもって本総会の議事を終了したので、議長は閉会を宣言した。<br>
+    <br>
+    上記議事の経過の要領及びその結果を正確に記録するため、この議事録を作成する。<br>
+    <br>
+    <span class="fill">【令和〇年〇月〇日】</span><br>
+    <span class="fill">【株式会社〇〇】</span><br>
+    取締役（代表取締役）　<span class="fill">【〇〇 〇〇】</span> ㊞<br>
+    <div class="note">※ 法務局への登記申請等で添付する場合は、実印の押印や電子証明書が必要なケースがあります。</div>
+  </div>
+</div>
+
+<!-- Section 10: Summary -->
+<div class="card">
+  <div class="sec-title">&#x1F4DD; 今日のまとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">①</span>株主が自分1人でも、<span class="hlg">会社法で議事録の作成・10年保管は義務</span>。未作成は100万円以下の過料の対象。</li>
+    <li><span class="n">②</span>1人法人（取締役会非設置会社）が主に必要なのは「<strong>株主総会議事録</strong>」。取締役会議事録は通常不要。</li>
+    <li><span class="n">③</span>役員報酬の改定には<span class="hl">株主総会決議＋議事録</span>がセット。ないと損金（経費）算入が否認されるリスク。</li>
+    <li><span class="n">④</span>AIを使えばメモ書き→プロンプト投入→下書き確認の3ステップで10分以内に完成。</li>
+    <li><span class="n">⑤</span>AIが得意なのはテンプレート生成・記載チェック・文字起こし。日付・金額は人間が必ず確認する。</li>
+    <li><span class="n">⑥</span>保管はPDFでクラウド（Googleドライブ等）でOK。「会社管理 ＞ 議事録 ＞ 年度別」で整理すると楽。</li>
+  </ul>
+</div>
+
+<!-- Disclaimer -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報提供を目的としており、個別の法務・税務・登記アドバイスではありません。
+  会社法の規定は条件・定款の内容により適用が異なる場合があります。
+  本記事で紹介したプロンプト・テンプレートはあくまで参考例であり、AIの生成内容は必ず人間が内容を確認・修正してください。
+  具体的な議事録の作成・法的有効性については、司法書士・弁護士などの専門家にご相談ください。<br>
+  会社法の条文・施行規則は改正されることがあります。最新の情報はe-Gov法令検索（<a href="https://laws.e-gov.go.jp/" target="_blank">https://laws.e-gov.go.jp/</a>）でご確認ください。<br>
+  本記事の内容の基準年度：2025年度（2025年時点の法令に基づく）。
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>&#x1F4DA; <a href="index.html">バックナンバー一覧へ</a> &nbsp;&middot;&nbsp; 毎朝更新</p>
+</div>
+
+</div>
+</body>
+</html>
