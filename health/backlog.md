@@ -55,11 +55,12 @@
 
 ## 未使用テーマ（追記：2026-06-26 検索で見つけた有望テーマ）
 
-- アナボリック抵抗性の克服戦略（詳細版）── Frontiers in Physiology 2026 系統的レビュー＋メタ分析（加齢性アナボリック抵抗性と空腹時筋タンパク合成）・GeroScience 2025 RCT（レジスタンストレーニングのみがフレイルを逆転、ロイシン単独は追加効果なし）
 - たんぱく質の質（PDCAAS・DIAASスコア）── 植物性と動物性の実際の差：British Journal of Nutrition ロイシンメタ分析（Cambridge Core）
 - ポストバイオティクスと IBS ── Journal of Gastroenterology and Hepatology 2025 系統的レビュー＋メタ分析（Ayad ら、2025年8月まで検索）
 
 ## 使用済みテーマ
+
+- 2026-06-28: アナボリック抵抗性の克服戦略（詳細版）── Frontiers in Physiology 2026 系統的レビュー＋メタ分析（DOI: 10.3389/fphys.2026.1740284、加齢性アナボリック抵抗性と絶食後 MPS 低下）・GeroScience 2025 RCT（n=19, 12週, 前期フレイル高齢女性, ロイシン7.5g/日 vs プラセボ, 筋トレがフレイルを逆転・ロイシン単独は追加効果なし）・Nutrients 2025 総説（PMC12655298 / DOI: 10.3390/nu17223503）
 
 - 2026-06-26: 食事誘発性熱産生（DIT）と体内時計 ── Vujović・Koh・Scheer ら Metabolism 2026（DOI: 10.1016/j.metabol.2026.156655、n=16、コンスタントルーティンプロトコル、朝夕 DIT 差 44%、内因性サーカディアンリズムの証明）・JCEM 2022 DOI: 10.1210/clinem/dgab654（先行研究との論争）
 
