@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-06-30</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #2a4a7a 0%, #0d2a52 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #2a4a7a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.green  { border-left-color: #4a9e6a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.purple { border-left-color: #7a4a9e; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #2a4a7a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card.orange .sec-title { color: #9a5a10; }
+  .card.green  .sec-title { color: #2a7a4a; }
+  .card.red    .sec-title { color: #8a2020; }
+  .card.purple .sec-title { color: #5a2a8a; }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  /* Stats row */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 14px 10px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat .sl { font-size: 0.67rem; color: #888; margin-bottom: 3px; }
+  .stat .sv { font-size: 1.45rem; font-weight: 700; color: #2a4a7a; line-height: 1.15; }
+  .stat .su { font-size: 0.68rem; color: #666; margin-top: 3px; line-height: 1.4; }
+
+  /* Flow steps */
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #2a4a7a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+
+  /* Risk grid */
+  .risk-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .risk-grid { grid-template-columns: 1fr; } }
+  .risk-card {
+    border-radius: 10px;
+    padding: 14px;
+    font-size: 0.83rem;
+    line-height: 1.6;
+  }
+  .risk-card.r1 { background: #fde8e8; border: 2px solid #b54040; }
+  .risk-card.r2 { background: #fff3e0; border: 2px solid #c8884a; }
+  .risk-card.r3 { background: #f5e8fd; border: 2px solid #7a4a9e; }
+  .risk-card .r-title {
+    font-weight: 700;
+    font-size: 0.84rem;
+    margin-bottom: 6px;
+  }
+  .risk-card.r1 .r-title { color: #8a1a1a; }
+  .risk-card.r2 .r-title { color: #7a4010; }
+  .risk-card.r3 .r-title { color: #4a1a7a; }
+
+  /* Law box */
+  .law-box {
+    background: #e8f0f8;
+    border: 2px solid #2a4a7a;
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin: 12px 0;
+    font-size: 0.87rem;
+    line-height: 1.8;
+    color: #0d2a52;
+  }
+  .law-box .lh {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #2a4a7a;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+
+  /* Check list */
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.87rem;
+    line-height: 1.6;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; font-size: 1rem; }
+  .check-list .ck-warn { color: #c8884a; font-weight: 700; flex-shrink: 0; margin-top: 1px; font-size: 1rem; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; font-size: 1rem; }
+
+  /* Info / Warn / Danger */
+  .info {
+    background: #e8f0f8;
+    border-left: 4px solid #2a4a7a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.7;
+    color: #0d2a52;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.7;
+    color: #7a4010;
+  }
+  .danger {
+    background: #fde8e8;
+    border-left: 4px solid #b54040;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.7;
+    color: #5a1010;
+  }
+
+  /* Matrix table */
+  .matrix {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.83rem;
+  }
+  .matrix th {
+    background: #0d2a52;
+    color: white;
+    padding: 8px 12px;
+    text-align: center;
+    font-weight: 600;
+  }
+  .matrix td {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    vertical-align: top;
+    line-height: 1.55;
+  }
+  .matrix .row-head {
+    background: #e8f0f8;
+    font-weight: 700;
+    color: #0d2a52;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .matrix .ok  { color: #4a9e6a; font-weight: 700; }
+  .matrix .ng  { color: #b54040; font-weight: 700; }
+  .matrix .tri { color: #c8884a; font-weight: 700; }
+
+  /* Flow horizontal */
+  .flow-h {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 10px 0;
+  }
+  .flow-box {
+    background: white;
+    border: 2px solid #2a4a7a;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 0.8rem;
+    text-align: center;
+    line-height: 1.45;
+    color: #0d2a52;
+    font-weight: 600;
+  }
+  .flow-arrow {
+    color: #2a4a7a;
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+  @media (max-width: 540px) {
+    .flow-h { flex-direction: column; align-items: flex-start; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+
+  /* Summary list */
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #2a4a7a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+  .hlr { background: linear-gradient(transparent 55%, #ffb3b3 55%); font-weight: 600; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #2a4a7a; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #2a4a7a; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Header -->
+<div class="header">
+  <div class="meta">&#x1F4C5; 1人法人スタート 最新トピック &nbsp;2026-06-30</div>
+  <h1>&#x2696;&#xFE0F; 生成AIの著作権リスク入門<br>学習・生成・納品 ── 3つのワナと実践5ルール</h1>
+  <div class="desc">
+    <span class="htag">著作権</span>
+    <span class="htag">AI活用</span>
+    <span class="htag">契約リスク</span>
+    <span class="htag">利用規約</span>
+    <span class="htag">1人法人</span>
+    <br>
+    2025年末から国内でも大手メディアによるAI著作権訴訟が現実化。「議論の時代」から「訴訟・対策の時代」へ。<br>
+    毎日AIを仕事に使う1人社長こそ、今すぐ最低限のルールを知っておきましょう。
+  </div>
+</div>
+
+<!-- Section 1: Why now -->
+<div class="card">
+  <div class="sec-title">&#x1F6A8; なぜ今2026年に知るべきか</div>
+  <p>生成AIの著作権問題はつい最近まで「将来の課題」でした。ところが2025年後半から状況が大きく変わっています。</p>
+
+  <div class="stats-row" style="margin-top:14px;">
+    <div class="stat">
+      <div class="sl">国内AI著作権訴訟</div>
+      <div class="sv">始動</div>
+      <div class="su">2025年8月〜 大手メディアが<br>AI検索サービスを東京地裁に提訴</div>
+    </div>
+    <div class="stat">
+      <div class="sl">文化庁の公式見解</div>
+      <div class="sv">2024年</div>
+      <div class="su">3月 「AIと著作権に関する考え方」を公表。学習・生成物それぞれの扱いを明示</div>
+    </div>
+    <div class="stat">
+      <div class="sl">法整備フェーズ</div>
+      <div class="sv">進行中</div>
+      <div class="su">内閣府・文化庁・AI事業者ガイドラインが整備中。日本独自の著作権ルールも注目</div>
+    </div>
+  </div>
+
+  <p style="margin-top:10px;">1人法人でAIを使っているなら、「知らなかった」では済まないリスクが出てきました。<span class="hl">特に、AIで作ったものをクライアントに納品している場合は今すぐ確認が必要</span>です。</p>
+
+  <div class="warn">
+    &#x26A0;&#xFE0F; <strong>1人法人に特有の弱点：</strong>大企業のように専任の法務部・知財担当がいません。「自分がルール係」だからこそ、最低限の知識を身につける必要があります。<br>
+    また、クライアントから「あなたの成果物がうちの著作権を侵害している」と言われたとき、1人では対処しきれません。予防が最善策です。
+  </div>
+</div>
+
+<!-- Section 2: Copyright basics -->
+<div class="card orange">
+  <div class="sec-title">&#x1F4DA; そもそも著作権とは（中学生向け復習）</div>
+  <p>著作権（ちょさくけん）とは、<span class="hlg">人間が作った「オリジナルな表現」を保護する権利</span>です。登録手続きは不要で、作った瞬間に自動発生します。</p>
+
+  <div class="law-box" style="border-color: #c8884a; background: #fff8e8; color: #5a2e00;">
+    <div class="lh" style="color: #7a4010;">&#x1F4DC; 著作権法 第2条第1項第1号（著作物の定義）</div>
+    「著作物」とは、<strong>思想又は感情を創作的に表現したもの</strong>であって、<br>
+    文芸、学術、美術又は音楽の範囲に属するものをいう。<br>
+    <div class="source" style="color: #7a5030; margin-top:6px;">
+      出典：著作権法（昭和45年法律第48号）e-Gov法令検索
+      <a href="https://laws.e-gov.go.jp/law/345AC0000000048" target="_blank" style="color:#8a5010;">https://laws.e-gov.go.jp/law/345AC0000000048</a>
+    </div>
+  </div>
+
+  <p style="margin-top:10px;">著作物として保護されるには3つの要素が必要です：</p>
+
+  <div class="f-step" style="margin-top:12px;">
+    <div class="f-num" style="background:#c8884a;">1</div>
+    <div class="f-text"><strong>「思想または感情」がある</strong>── 事実・データ・アイデア自体は著作権の対象外です。「2＋2＝4」に著作権はなく、それを創意工夫して書いた文章に著作権があります。</div>
+  </div>
+  <div class="f-step">
+    <div class="f-num" style="background:#c8884a;">2</div>
+    <div class="f-text"><strong>「創作的」である</strong>── 高度な芸術性は不要。少しでも個性・オリジナリティがあれば足ります。</div>
+  </div>
+  <div class="f-step">
+    <div class="f-num" style="background:#c8884a;">3</div>
+    <div class="f-text"><strong>「表現」されている</strong>── 頭の中のアイデアは保護されません。文章・絵・音楽・写真など何らかの形で表現されて初めて著作権が生まれます。</div>
+  </div>
+
+  <div class="info" style="border-left-color: #c8884a; background: #fff3e0; color: #7a4010;">
+    &#x1F4A1; <strong>著作権侵害が成立するには2つが必要：</strong><br>
+    ① <strong>類似性（るいじせい）</strong>── 相手の著作物と「似ている」こと<br>
+    ② <strong>依拠性（いきょせい）</strong>── 相手の著作物に「基づいている・参考にしている」こと<br>
+    両方そろって初めて侵害になります。全く独立して偶然似た場合は侵害にならないのが原則です。
+  </div>
+</div>
+
+<!-- Section 3: AI learning data -->
+<div class="card green">
+  <div class="sec-title">&#x1F916; &#x2460; AI学習データの著作権（著作権法30条の4）</div>
+  <p>「AIに絵や文章を学習させることは著作権侵害？」── 日本では原則として<span class="hlg">合法</span>です。これは世界でも珍しいルールです。</p>
+
+  <div class="law-box" style="border-color: #4a9e6a; background: #e8f8ee; color: #1a3a1a;">
+    <div class="lh" style="color: #2a7a4a;">&#x1F4DC; 著作権法 第30条の4（情報解析のための著作物利用）2018年改正</div>
+    著作物は、<strong>著作物に表現された思想又は感情の享受を目的としない場合</strong>には、<br>
+    情報解析（大量の情報を電磁的方法により解析することをいう）その他の当該著作物に<br>
+    表現された思想又は感情を自ら享受し又は他人に享受させることを目的としない利用に<br>
+    供することができる。<br>
+    ただし、<strong>著作権者の利益を不当に害することとなる場合</strong>は、この限りでない。
+    <div class="source" style="color: #2a6a3a; margin-top:6px;">
+      出典：著作権法第30条の4（2018年（平成30年）著作権法改正により追加）<br>
+      e-Gov法令検索 <a href="https://laws.e-gov.go.jp/law/345AC0000000048" target="_blank" style="color:#2a7a4a;">https://laws.e-gov.go.jp/law/345AC0000000048</a>
+    </div>
+  </div>
+
+  <p style="margin-top:12px;">つまり AI学習についてはこうなります：</p>
+
+  <table class="matrix" style="margin-top:10px;">
+    <tr>
+      <th style="width:38%;">行為の例</th>
+      <th style="width:18%;">侵害？</th>
+      <th>理由・注意点</th>
+    </tr>
+    <tr>
+      <td>ウェブ上の文章・画像をAI学習に使う</td>
+      <td><span class="ok">原則 OK</span></td>
+      <td>30条の4が適用。営利・非営利問わず</td>
+    </tr>
+    <tr>
+      <td>著作物を学習データとしてコピー・保存する</td>
+      <td><span class="ok">原則 OK</span></td>
+      <td>同上。学習目的での複製は許容</td>
+    </tr>
+    <tr>
+      <td>著作物を「そのまま出力する」目的で学習させる</td>
+      <td><span class="ng">グレー〜NG</span></td>
+      <td>「著作権者の利益を不当に害する」おそれがある</td>
+    </tr>
+    <tr>
+      <td>学習データを商品として販売する（学習済みモデルのDB化等）</td>
+      <td><span class="tri">要注意</span></td>
+      <td>本来の学習目的を超えた利用は別途検討が必要</td>
+    </tr>
+  </table>
+
+  <div class="info">
+    &#x1F4A1; <strong>この30条の4は日本独自の特例です。</strong><br>
+    米国の「フェアユース」とも欧州のルールとも異なります。「日本のAI企業・AI利用者が守られている」理由の1つです。<br>
+    ただし、<strong>外国のAIサービスを使う場合でも、あなたが日本で行為をする限り日本の著作権法が適用されることが多いため、このルールを知ることに意味があります。</strong>
+  </div>
+
+  <div class="source">
+    参考：文化庁「AIと著作権に関する考え方について」令和6年（2024年）3月<br>
+    <a href="https://www.bunka.go.jp/seisaku/chosakuken/aiandcopyright.html" target="_blank">https://www.bunka.go.jp/seisaku/chosakuken/aiandcopyright.html</a>（文化庁）
+  </div>
+</div>
+
+<!-- Section 4: AI generated content -->
+<div class="card">
+  <div class="sec-title">&#x270D;&#xFE0F; &#x2461; AI生成物の著作権（文化庁の公式見解）</div>
+  <p>「AIが書いた文章・描いた絵に著作権はある？」── 文化庁は2024年3月に公式見解を発表しました。</p>
+
+  <div class="law-box">
+    <div class="lh">&#x1F4CB; 文化庁「AIと著作権に関する考え方について」（令和6年3月）のポイント</div>
+    &#x2460; AIが<strong>自律的に生成した場合：著作権は生じない</strong><br>
+    　→ 人間の思想・感情が「創作的に表現された」ものでないため<br><br>
+    &#x2461; 人間が<strong>創作的に関与・寄与した場合：著作権が生じる可能性がある</strong><br>
+    　→ 「創作的寄与」の例：詳細なプロンプト設計・複数試行して選択・生成後に加工・修正<br><br>
+    &#x2462; 判断は<strong>個々の状況によって異なる</strong>（一律の基準はまだ確立されていない）
+    <div class="source" style="margin-top:6px;">
+      出典：文化庁「AIと著作権に関する考え方について」令和6年3月<br>
+      <a href="https://www.bunka.go.jp/seisaku/chosakuken/aiandcopyright.html" target="_blank">https://www.bunka.go.jp/seisaku/chosakuken/aiandcopyright.html</a>（文化庁・基準年度：2024年）
+    </div>
+  </div>
+
+  <p style="margin-top:14px;">1人法人への影響を場面別に整理します：</p>
+
+  <table class="matrix" style="margin-top:10px;">
+    <tr>
+      <th style="width:35%;">場面</th>
+      <th style="width:20%;">著作権の有無</th>
+      <th>ポイント</th>
+    </tr>
+    <tr>
+      <td>「ブログ記事を書いて」と一言プロンプトを入れてAIに書かせた</td>
+      <td><span class="ng">発生しにくい</span></td>
+      <td>人間の創作的寄与が薄い。著作権なし or グレーゾーンの可能性が高い</td>
+    </tr>
+    <tr>
+      <td>詳細な指示・複数回の修正・自分で加筆してできた文章</td>
+      <td><span class="tri">発生する可能性</span></td>
+      <td>人間の創作的寄与があるとして著作権が生じる可能性。ただし個別判断</td>
+    </tr>
+    <tr>
+      <td>AIが生成した画像を自分で大幅に加工・編集した作品</td>
+      <td><span class="tri">発生する可能性</span></td>
+      <td>加工部分に独自の創作があれば著作権が生じる可能性</td>
+    </tr>
+    <tr>
+      <td>AIが生成したコードをほぼそのままサービスに使った</td>
+      <td><span class="ng">発生しにくい</span></td>
+      <td>コードの場合は表現よりロジック面での判断が複雑。個別ケースによる</td>
+    </tr>
+  </table>
+
+  <div class="warn">
+    &#x26A0;&#xFE0F; <strong>クライアントへの納品で特に注意：</strong><br>
+    「このロゴ・記事はAIが生成した、著作権は自分にある」と思っていても、実際はグレーゾーンです。<br>
+    著作権の帰属が曖昧なまま納品すると後でトラブルになるケースがあります。<br>
+    <strong>AIを使った成果物については、契約書に「著作権の帰属・AI利用の取り扱い」を明記しましょう。</strong>
+  </div>
+</div>
+
+<!-- Section 5: 3 risk zones -->
+<div class="card red">
+  <div class="sec-title">&#x1F3AF; &#x2462; 既存著作物への類似リスク ── 「似ている」が一番怖い</div>
+  <p>AIが生成した内容が<span class="hlr">既存の著作物と「似ている」場合、著作権侵害になる可能性</span>があります。これが実務上、1人法人にとって最も大きなリスクです。</p>
+
+  <p style="margin-top:12px;">リスクが高い3つのシーン：</p>
+
+  <div class="risk-grid" style="margin-top:12px;">
+    <div class="risk-card r1">
+      <div class="r-title">&#x1F5BC;&#xFE0F; リスク①<br>AI画像の商業利用</div>
+      イラスト・ロゴ・デザインをAIで生成してクライアントに納品。学習データに含まれる人気作家の絵柄に類似した出力が出た場合に侵害リスクが高まる。
+    </div>
+    <div class="risk-card r2">
+      <div class="r-title">&#x1F4DD; リスク②<br>AI文章の類似問題</div>
+      ブログ記事・広告文をAIで生成する場合。既存の書籍・記事と類似したテキストが出力されることがある。専門的な内容ほど注意が必要。
+    </div>
+    <div class="risk-card r3">
+      <div class="r-title">&#x1F3B5; リスク③<br>AI音楽・映像</div>
+      AI生成のBGM・映像を商業コンテンツに利用。特定アーティストのスタイルを指定して生成したものは依拠性の問題が生じやすい。
+    </div>
+  </div>
+
+  <div class="danger" style="margin-top:10px;">
+    &#x1F534; <strong>特に危険なプロンプトの例（商業利用は避ける）：</strong><br>
+    「&#x25CF;&#x25CF;（有名イラストレーター名）の画風で描いて」<br>
+    「&#x25CF;&#x25CF;（著名作家名）の文体で書いて」<br>
+    「&#x25CF;&#x25CF;（有名曲のタイトル）のような雰囲気の音楽を作って」<br>
+    → これらは<strong>依拠性の証拠</strong>になり得ます。商業利用の際は特定の著作権者を指定するプロンプトを避けましょう。
+  </div>
+
+  <div class="info" style="margin-top:10px;">
+    &#x1F4A1; <strong>独立創作（偶然の一致）について：</strong><br>
+    AIが学習データとは独立して生成した場合で、たまたま似ていたというケースでは「依拠性」がないため著作権侵害にならない可能性があります。ただしこの「独立性」の証明は困難で、裁判になれば大きな負担です。予防が最善です。
+  </div>
+
+  <div class="source">
+    参考：文化庁「AIと著作権に関する考え方について」令和6年3月（基準年度：2024年）<br>
+    <a href="https://www.bunka.go.jp/seisaku/chosakuken/aiandcopyright.html" target="_blank">https://www.bunka.go.jp/seisaku/chosakuken/aiandcopyright.html</a>
+  </div>
+</div>
+
+<!-- Section 6: Service terms -->
+<div class="card purple">
+  <div class="sec-title">&#x1F4CB; 利用規約の読み方 ── 主要AIサービスで確認すべき5項目</div>
+  <p>「AIサービスで生成したコンテンツの著作権は誰のもの？」── サービスの規約によって異なります。また、<span class="hlr">規約は頻繁に更新されます</span>。公式サイトで必ず最新情報を確認してください。</p>
+
+  <div class="warn" style="border-left-color: #7a4a9e; background: #f5e8fd; color: #4a1a7a;">
+    &#x26A0;&#xFE0F; 以下の表は「確認すべき観点」の整理です。各サービスの具体的な内容は<strong>公式サイトの最新の利用規約・プライバシーポリシー</strong>を必ずご確認ください。規約は予告なく変更されることがあります。
+  </div>
+
+  <table class="matrix" style="margin-top:14px;">
+    <tr>
+      <th style="width:28%;">確認すべき項目</th>
+      <th>何を確認するか</th>
+      <th style="width:24%;">確認場所</th>
+    </tr>
+    <tr>
+      <td class="row-head">&#x1F511; 生成コンテンツ<br>の権利帰属</td>
+      <td>生成物の著作権がユーザーに帰属するか。商用利用はOKか。無料プランと有料プランで差があるか</td>
+      <td>各サービスの「利用規約」「Terms of Use」</td>
+    </tr>
+    <tr>
+      <td class="row-head">&#x1F4E5; 入力データの<br>取り扱い</td>
+      <td>入力したテキスト・画像がAIの学習に使われるか。オプトアウト（学習無効化）ができるか</td>
+      <td>「プライバシーポリシー」「Data Policy」</td>
+    </tr>
+    <tr>
+      <td class="row-head">&#x1F4B0; 商用利用の<br>制限</td>
+      <td>無料プランで作った成果物をビジネスで使えるか。有料プランが必要な場合はどのプランか</td>
+      <td>「利用規約」の商用利用・Commercial Use条項</td>
+    </tr>
+    <tr>
+      <td class="row-head">&#x1F6AB; 禁止事項</td>
+      <td>生成・利用が禁止されるコンテンツの種類。業種・用途の制限があるか</td>
+      <td>「使用ポリシー」「Usage Policy」</td>
+    </tr>
+    <tr>
+      <td class="row-head">&#x1F6E1;&#xFE0F; 著作権侵害時<br>の補償</td>
+      <td>AIが生成したコンテンツで第三者から著作権侵害を指摘された場合、サービス会社が補償してくれるか</td>
+      <td>「利用規約」の免責・補償条項</td>
+    </tr>
+  </table>
+
+  <div class="info" style="margin-top:12px; border-left-color: #7a4a9e; background: #f5e8fd; color: #3a1a5e;">
+    &#x26A0;&#xFE0F; <strong>「入力データが学習に使われる」問題 ── 特に重要：</strong><br>
+    多くの個人向け無料プランでは、入力したデータがAIの改善・学習に使われることがあります。<br>
+    <strong>クライアントの秘密情報・個人情報・未公開の企画資料などを無断でAIに入力することは、守秘義務違反・個人情報保護法違反（個人情報の第三者提供等）になるリスクがあります。</strong><br>
+    企業向けAPIやビジネスプランでは学習への利用を制限できるものがあります。事業利用の場合は有料プランへの移行を検討してください。
+  </div>
+
+  <div class="source">
+    参考：個人情報の保護に関する法律（個人情報保護法）<br>
+    <a href="https://www.ppc.go.jp/personalinfo/legal/kaiseihogoho/" target="_blank">https://www.ppc.go.jp/personalinfo/legal/kaiseihogoho/</a>（個人情報保護委員会）（基準年度：2024年）
+  </div>
+</div>
+
+<!-- Section 7: Practical rules -->
+<div class="card green">
+  <div class="sec-title">&#x2705; 1人法人が今日から使える 実践5ルール</div>
+  <p>難しい法律の話より、「今日から何をすべきか」に絞ります。</p>
+
+  <ul class="check-list" style="margin-top:14px;">
+    <li>
+      <span class="ck">&#x2460;</span>
+      <span>
+        <strong>商業利用前に「類似チェック」をする習慣をつける</strong><br>
+        AI生成画像は Google の逆画像検索や TinEye 等で類似作品を確認。文章は検索エンジンで一部を検索してみる。「これ、どこかで見たことある」と感じたら要注意。
+      </span>
+    </li>
+    <li>
+      <span class="ck-bad">&#x2461;</span>
+      <span>
+        <strong>クライアントの秘密情報・個人情報をAIに入力しない</strong><br>
+        顧客リスト・未発表の企画・個人情報を無料プランのAIに入力しない。どうしても入力が必要な場合は、①クライアントの同意を得る、②学習無効化が保証された有料API・ビジネスプランを使う、の両方を満たすこと。
+      </span>
+    </li>
+    <li>
+      <span class="ck">&#x2462;</span>
+      <span>
+        <strong>AI生成物をクライアントに納品するときは契約書に明記する</strong><br>
+        「成果物の著作権帰属」「AI使用の有無・開示方針」「第三者の著作権侵害が判明した場合の責任分担」を契約書に書いておく。口頭の合意だけではトラブルの元。
+      </span>
+    </li>
+    <li>
+      <span class="ck-warn">&#x2463;</span>
+      <span>
+        <strong>特定の著作権者・作家を指定するプロンプトは商業利用を避ける</strong><br>
+        「&#x25CF;&#x25CF;（有名イラストレーター）風で」「&#x25CF;&#x25CF;（著名作家）の文体で」などのプロンプトで生成したコンテンツを商業利用しない。著作権侵害の「依拠性」の証拠になり得る。
+      </span>
+    </li>
+    <li>
+      <span class="ck">&#x2464;</span>
+      <span>
+        <strong>使用するAIサービスの利用規約を年1回確認する（カレンダーに入れる）</strong><br>
+        AI各社は利用規約を頻繁に更新します。毎年、決算期や契約更新のタイミングに「商用利用OK？学習無効化の設定は？」を確認する習慣をカレンダーに入れましょう。
+      </span>
+    </li>
+  </ul>
+</div>
+
+<!-- Section 8: Safety flow -->
+<div class="card orange">
+  <div class="sec-title">&#x1F504; AI活用「安全確認フロー」を図解</div>
+  <p>毎日のAI活用の前に、この2つのフローを習慣化しましょう。</p>
+
+  <p style="font-size:0.85rem; font-weight:600; color:#9a5a10; margin-top:14px;">&#x1F4E5; 入力する前のチェック</p>
+  <div class="flow-h" style="border-left: 3px solid #c8884a; padding-left: 10px; border-radius:0;">
+    <div class="flow-box" style="border-color: #c8884a; color: #7a3010;">&#x1F914; 入力しようと<br>している情報は？</div>
+    <div class="flow-arrow" style="color:#c8884a;">&#x27A1;</div>
+    <div class="flow-box" style="border-color: #b54040; color: #6a1010;">&#x1F6AB; 秘密情報・<br>個人情報含む？<br><small>→ 入力しない</small></div>
+    <div class="flow-arrow" style="color:#c8884a;">&#x27A1;</div>
+    <div class="flow-box" style="border-color: #c8884a; color: #7a3010;">&#x26A0; 特定著作権者<br>指定してない？<br><small>→ しないように</small></div>
+    <div class="flow-arrow" style="color:#4a9e6a;">&#x27A1;</div>
+    <div class="flow-box" style="border-color: #4a9e6a; color: #1a6a3a;">&#x2705; 入力OK</div>
+  </div>
+
+  <p style="font-size:0.85rem; font-weight:600; color:#9a5a10; margin-top:16px;">&#x1F4E4; 商業利用（納品）する前のチェック</p>
+  <div class="flow-h" style="border-left: 3px solid #2a4a7a; padding-left: 10px; border-radius:0;">
+    <div class="flow-box" style="border-color: #2a4a7a; color: #0d2a52;">&#x1F5BC; AI生成の<br>成果物</div>
+    <div class="flow-arrow">&#x27A1;</div>
+    <div class="flow-box" style="border-color: #2a4a7a; color: #0d2a52;">&#x1F50D; 類似チェック<br>（画像・文章）</div>
+    <div class="flow-arrow">&#x27A1;</div>
+    <div class="flow-box" style="border-color: #2a4a7a; color: #0d2a52;">&#x1F4DD; 契約書に<br>AI利用・権利<br>帰属を明記</div>
+    <div class="flow-arrow">&#x27A1;</div>
+    <div class="flow-box" style="border-color: #4a9e6a; color: #1a6a3a;">&#x2705; 納品OK</div>
+  </div>
+
+  <div class="warn" style="margin-top:12px;">
+    &#x26A1; <strong>グレーゾーンで迷ったら：</strong>「自分が著作権者だったら嫌だろうか？」と考えてみましょう。法律は整備中なので、判断に迷う案件は<strong>著作権専門の弁護士・弁理士</strong>に相談するのが最も安全です。
+  </div>
+</div>
+
+<!-- Summary -->
+<div class="card">
+  <div class="sec-title">&#x1F4DD; 今日のまとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">&#x2460;</span>2025年後半から日本でもAI著作権訴訟が現実に。1人法人でも「知らなかった」では済まないリスクがある時代になった。</li>
+    <li><span class="n">&#x2461;</span>日本では著作権法30条の4により、<span class="hlg">AI学習目的の著作物利用は原則合法</span>（2018年改正）。ただし「著作権者の利益を不当に害する」場合は例外。</li>
+    <li><span class="n">&#x2462;</span>文化庁（2024年3月）によると、<span class="hl">AI生成物の著作権は「人間の創作的寄与の度合い」次第</span>。単純プロンプト1行では著作権が生じにくい。</li>
+    <li><span class="n">&#x2463;</span>著作権侵害は「類似性＋依拠性」の両方が必要。<span class="hlr">特定著作権者を指定するプロンプトで生成したものの商業利用は避ける。</span></li>
+    <li><span class="n">&#x2464;</span>クライアントの秘密情報・個人情報を無断でAIに入力しない。守秘義務違反・個人情報保護法違反になるリスクがある。</li>
+    <li><span class="n">&#x2465;</span>AI生成物を納品するときは契約書に「AI利用・著作権帰属・責任分担」を明記する。サービスの利用規約は年1回確認する。</li>
+  </ul>
+</div>
+
+<!-- Disclaimer -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報提供を目的としており、著作権法の個別解釈・法務アドバイスではありません。
+  AIと著作権に関する法律・判例・ガイドラインは急速に変化しており、本記事の内容が最新の状況と異なる場合があります。
+  具体的な著作権問題の判断・対応については、著作権・知的財産に詳しい弁護士・弁理士などの専門家にご相談ください。<br>
+  記載している法令：著作権法（昭和45年法律第48号）第30条の4（2018年改正）、第2条第1項第1号。
+  文化庁「AIと著作権に関する考え方について」（令和6年3月）。個人情報の保護に関する法律（個人情報保護法）。<br>
+  基準年度：2024〜2026年現在の法令・ガイドラインに基づく。税率・制度は今後変更される場合があります。
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>&#x1F4DA; <a href="index.html">バックナンバー一覧へ</a> &nbsp;&middot;&nbsp; 毎朝更新</p>
+</div>
+
+</div>
+</body>
+</html>
