@@ -14,10 +14,13 @@
 
 ## 新テーマ候補（追加）
 
-（随時追記）
+- FLUX.2 Pro 完全ガイド（Black Forest Labs・multi-reference制御・最大4MP・商用APIの使い方・Wan比較）
+- LumeFlow AI × Seedance 2.0 Mini（2026年6月27日プラットフォーム更新・4K生成・Marketing Studio）
+- PAI 2.0（Utopai Studios・感情対応キャラアニメ・AI生成楽曲同期・シネマティックストーリーテリング）
 
 ## 済み（扱ったテーマ）
 
+- 2026-06-30（ツール）：Wan 2.7 完全ガイド（Thinking Mode・First/Last Frame Control・9-Grid・Subject+Voice Consistency・Instruction-Based Editing・5プラットフォーム・旅行ショート動画5ステップ）
 - 2026-06-29（エバーグリーン）：モンタージュとシーン転換7テクニック（ハードカット・ディゾルブ・フェード・Jカット・Lカット・マッチカット・ワイプ・タイムライン図解・使い分けチートシート・カフェ30秒実践例）
 - 2026-06-24（ツール）：MiniMax Hub × Hailuo 2.3 完全ガイド（456B MoE・1080p・30〜90秒生成・Media Agent・チーム協調編集・2.3 vs 2.3 Fast比較・料金プラン・5ステップ実践例）
 - 2026-06-23（エバーグリーン）：縦型動画（9:16）の構図と演出（セーフゾーン・3構図パターン・チルトアップ・AIプロンプト指定・15秒カフェReels実践5ステップ）
