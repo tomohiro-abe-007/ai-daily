@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>デジタルノマド 最新トピック 2026-07-01</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    color: #2a2a2a;
+  }
+  /* ────── Hero ────── */
+  .hero {
+    background: linear-gradient(135deg, #1e3a6e 0%, #0d2144 100%);
+    color: white;
+    border-radius: 10px;
+    padding: 48px 40px;
+    text-align: center;
+    width: 100%;
+    max-width: 760px;
+    margin-bottom: 28px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .hero .label {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 0.8rem;
+    margin-bottom: 14px;
+    letter-spacing: 0.05em;
+  }
+  .hero h1 { font-size: 1.4rem; margin-bottom: 12px; line-height: 1.55; }
+  .hero .meta { opacity: 0.8; font-size: 0.88rem; line-height: 1.7; }
+  /* ────── Card ────── */
+  .card {
+    background: #fff9f0;
+    border-radius: 8px;
+    padding: 28px 32px;
+    width: 100%;
+    max-width: 760px;
+    margin-bottom: 20px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.08);
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1e3a6e;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px dashed #8aaad4;
+  }
+  .card p { font-size: 0.93rem; line-height: 1.85; margin-bottom: 10px; }
+  .card p:last-child { margin-bottom: 0; }
+  /* ────── Boxes ────── */
+  .highlight-box {
+    background: #e8f0fd;
+    border-left: 4px solid #1e3a6e;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .highlight-box .hlabel { font-size: 0.75rem; color: #1e3a6e; font-weight: 600; margin-bottom: 6px; display: block; }
+  .highlight-box p { font-size: 0.9rem; margin: 0; }
+  .alert-box {
+    background: #fff3cd;
+    border-left: 4px solid #c9920a;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .alert-box .alabel { font-size: 0.75rem; color: #8a6000; font-weight: 600; margin-bottom: 6px; display: block; }
+  .alert-box p { font-size: 0.9rem; margin: 0; }
+  .danger-box {
+    background: #fde8e8;
+    border-left: 4px solid #c0392b;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .danger-box .dlabel { font-size: 0.75rem; color: #c0392b; font-weight: 600; margin-bottom: 6px; display: block; }
+  .danger-box p { font-size: 0.9rem; margin: 0; }
+  .green-box {
+    background: #e8f5ef;
+    border-left: 4px solid #2c6e4e;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .green-box .glabel { font-size: 0.75rem; color: #2c6e4e; font-weight: 600; margin-bottom: 6px; display: block; }
+  .green-box p { font-size: 0.9rem; margin: 0; }
+  .purple-box {
+    background: #f0eafd;
+    border-left: 4px solid #6a3ea0;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .purple-box .plabel { font-size: 0.75rem; color: #6a3ea0; font-weight: 600; margin-bottom: 6px; display: block; }
+  .purple-box p { font-size: 0.9rem; margin: 0; }
+  /* ────── Number cards ────── */
+  .number-row { display: flex; gap: 14px; flex-wrap: wrap; margin: 14px 0; }
+  .number-card {
+    flex: 1; min-width: 130px;
+    background: #1e3a6e; color: white;
+    border-radius: 8px; padding: 18px 14px; text-align: center;
+  }
+  .number-card .num { font-size: 1.4rem; font-weight: 700; margin-bottom: 6px; line-height: 1.2; letter-spacing: 0.02em; }
+  .number-card .desc { font-size: 0.72rem; opacity: 0.9; line-height: 1.5; }
+  .number-card.amber  { background: #c9920a; }
+  .number-card.red    { background: #c0392b; }
+  .number-card.green  { background: #2c6e4e; }
+  .number-card.purple { background: #6a3ea0; }
+  .number-card.gray   { background: #666; }
+  /* ────── Compare cards ────── */
+  .compare-row { display: flex; gap: 14px; flex-wrap: wrap; margin: 14px 0; }
+  .compare-card {
+    flex: 1; min-width: 200px; border-radius: 8px;
+    padding: 16px 16px; font-size: 0.88rem; line-height: 1.7;
+  }
+  .compare-card h3 { font-size: 0.88rem; margin-bottom: 8px; padding-bottom: 6px; border-bottom: 1.5px dashed; }
+  .compare-card.red    { background: #fdeaea; border: 1.5px solid #c0392b; }
+  .compare-card.red h3 { color: #922b2b; border-color: #e8a0a0; }
+  .compare-card.green  { background: #e8f5ef; border: 1.5px solid #2c6e4e; }
+  .compare-card.green h3 { color: #2c6e4e; border-color: #b2d4c4; }
+  .compare-card.amber  { background: #fff8e8; border: 1.5px solid #c9920a; }
+  .compare-card.amber h3 { color: #7a5800; border-color: #f0d080; }
+  .compare-card.navy   { background: #eaf0fb; border: 1.5px solid #1e3a6e; }
+  .compare-card.navy h3 { color: #1e3a6e; border-color: #8aaad4; }
+  .compare-card.purple { background: #f0eafd; border: 1.5px solid #6a3ea0; }
+  .compare-card.purple h3 { color: #6a3ea0; border-color: #c0a0e8; }
+  /* ────── Flow boxes ────── */
+  .flow-wrap { display: flex; flex-direction: column; gap: 4px; margin: 14px 0; }
+  .flow-box {
+    background: #1e3a6e; color: white;
+    border-radius: 8px; padding: 14px 16px;
+    font-size: 0.88rem; line-height: 1.6;
+  }
+  .flow-box .fb-label { font-size: 0.7rem; opacity: 0.8; margin-bottom: 4px; display: block; }
+  .flow-box strong { font-size: 0.95rem; }
+  .flow-box.sub    { background: #2a5090; }
+  .flow-box.light  { background: #eaf0fb; color: #2a2a2a; border: 1.5px solid #8aaad4; }
+  .flow-box.amber  { background: #c9920a; }
+  .flow-box.green  { background: #2c6e4e; }
+  .flow-box.red    { background: #c0392b; }
+  .flow-box.purple { background: #6a3ea0; }
+  .flow-box.gray   { background: #666; }
+  .arrow-down { text-align: center; font-size: 1.5rem; color: #1e3a6e; margin: 4px 0; line-height: 1; }
+  /* ────── Step list ────── */
+  .step-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 12px 0; }
+  .step-list li { display: flex; align-items: flex-start; gap: 12px; }
+  .step-num {
+    background: #1e3a6e; color: white; border-radius: 50%;
+    min-width: 28px; height: 28px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.78rem; font-weight: 700; flex-shrink: 0; margin-top: 2px;
+  }
+  .step-num.amber  { background: #c9920a; }
+  .step-num.red    { background: #c0392b; }
+  .step-num.green  { background: #2c6e4e; }
+  .step-num.purple { background: #6a3ea0; }
+  .step-num.gray   { background: #666; }
+  .step-list li div { font-size: 0.9rem; line-height: 1.7; }
+  /* ────── Table ────── */
+  .matrix-table { width: 100%; border-collapse: collapse; font-size: 0.87rem; margin: 14px 0; }
+  .matrix-table th {
+    background: #1e3a6e; color: white; padding: 10px 12px;
+    text-align: left; font-weight: 600; font-size: 0.82rem;
+  }
+  .matrix-table th:first-child { border-radius: 6px 0 0 0; }
+  .matrix-table th:last-child  { border-radius: 0 6px 0 0; }
+  .matrix-table td { padding: 10px 12px; border-bottom: 1px solid #d0d8e8; vertical-align: top; line-height: 1.55; }
+  .matrix-table tr:nth-child(even) td { background: #f2f5fc; }
+  .matrix-table .ok   { color: #2c6e4e; font-weight: 700; }
+  .matrix-table .ng   { color: #c0392b; font-weight: 700; }
+  .matrix-table .warn { color: #8a6000; font-weight: 700; }
+  .matrix-table .row-warn   td { background: #fff8e8 !important; }
+  .matrix-table .row-danger td { background: #fdeaea !important; }
+  .matrix-table .row-green  td { background: #e8f5ef !important; }
+  .matrix-table .row-navy   td { background: #eaf0fb !important; }
+  .matrix-table .row-purple td { background: #f0eafd !important; }
+  /* ────── Check list ────── */
+  .check-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 12px 0; }
+  .check-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.9rem; line-height: 1.65; }
+  .check-icon {
+    min-width: 22px; height: 22px; border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.78rem; font-weight: 700; flex-shrink: 0; margin-top: 1px;
+  }
+  .check-icon.navy   { background: #1e3a6e; color: white; }
+  .check-icon.green  { background: #2c6e4e; color: white; }
+  .check-icon.amber  { background: #c9920a; color: white; }
+  .check-icon.red    { background: #c0392b; color: white; }
+  .check-icon.purple { background: #6a3ea0; color: white; }
+  /* ────── Timeline ────── */
+  .timeline { display: flex; flex-direction: column; gap: 0; margin: 14px 0; }
+  .tl-row { display: flex; align-items: stretch; gap: 0; }
+  .tl-year {
+    min-width: 80px; text-align: right; padding: 12px 14px 12px 0;
+    font-size: 0.85rem; font-weight: 700; color: #1e3a6e;
+    border-right: 3px solid #8aaad4; flex-shrink: 0;
+  }
+  .tl-year.amber { color: #c9920a; border-color: #c9920a; }
+  .tl-year.green { color: #2c6e4e; border-color: #2c6e4e; }
+  .tl-year.red   { color: #c0392b; border-color: #c0392b; }
+  .tl-dot {
+    width: 14px; height: 14px; border-radius: 50%; background: #1e3a6e;
+    flex-shrink: 0; margin: 14px -8px 0 0; position: relative; z-index: 1;
+  }
+  .tl-dot.amber  { background: #c9920a; }
+  .tl-dot.green  { background: #2c6e4e; }
+  .tl-dot.red    { background: #c0392b; }
+  .tl-content { padding: 8px 0 8px 20px; font-size: 0.88rem; line-height: 1.65; }
+  /* ────── Misc ────── */
+  .section-icon { font-size: 1.5rem; margin-right: 8px; vertical-align: middle; }
+  .tag {
+    display: inline-block; background: #1e3a6e; color: white;
+    font-size: 0.72rem; padding: 2px 8px; border-radius: 10px;
+    margin-right: 4px; vertical-align: middle;
+  }
+  .tag.amber  { background: #c9920a; }
+  .tag.red    { background: #c0392b; }
+  .tag.green  { background: #2c6e4e; }
+  .tag.purple { background: #6a3ea0; }
+  .tag.gray   { background: #888; }
+  /* ────── Footer ────── */
+  .footer-card {
+    background: #f0ece3;
+    border: 1.5px solid #bbb;
+    border-radius: 8px;
+    padding: 20px 24px;
+    width: 100%;
+    max-width: 760px;
+    margin-bottom: 20px;
+    font-size: 0.82rem;
+    color: #555;
+    line-height: 1.8;
+  }
+  .footer-card .footer-title {
+    font-size: 0.78rem; color: #888; font-weight: 600;
+    margin-bottom: 10px; display: block;
+    text-transform: uppercase; letter-spacing: 0.08em;
+  }
+  .footnote { font-size: 0.78rem; color: #777; line-height: 1.7; margin-top: 12px; }
+  /* ────── 2-col grid ────── */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 14px 0; }
+  @media (max-width: 560px) { .two-col { grid-template-columns: 1fr; } }
+  .mini-card {
+    border-radius: 8px; padding: 14px 16px;
+    font-size: 0.85rem; line-height: 1.65;
+  }
+  .mini-card h4 { font-size: 0.87rem; margin-bottom: 8px; }
+  .mini-card.navy   { background: #eaf0fb; border: 1.5px solid #8aaad4; }
+  .mini-card.navy h4 { color: #1e3a6e; }
+  .mini-card.amber  { background: #fff8e8; border: 1.5px solid #c9920a; }
+  .mini-card.amber h4 { color: #7a5800; }
+  .mini-card.green  { background: #e8f5ef; border: 1.5px solid #2c6e4e; }
+  .mini-card.green h4 { color: #2c6e4e; }
+  .mini-card.red    { background: #fdeaea; border: 1.5px solid #c0392b; }
+  .mini-card.red h4 { color: #922b2b; }
+  /* ────── VS divider ────── */
+  .vs-divider {
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem; font-weight: 700; color: #888;
+    flex-shrink: 0; padding: 0 4px;
+    min-width: 36px;
+  }
+  .compare-wrap { display: flex; gap: 0; align-items: stretch; margin: 14px 0; }
+  .compare-wrap .compare-card { flex: 1; }
+</style>
+</head>
+<body>
+
+<!-- ━━━━ HERO ━━━━ -->
+<div class="hero">
+  <div class="label">🗓 2026-07-01（木）デジタルノマド日報</div>
+  <h1>スペイン最高裁が「6か月不在ルール」を無効に<br>── DNVなら日本に長く滞在しても更新できる</h1>
+  <p class="meta">
+    出典①：<em>Spain clarifies 183-day rule for Digital Nomad Visa renewals</em>（The Local Spain, 2026-06-29）<br>
+    出典②：<em>Supreme Court kills Spain's 'six-month rule'</em>（Visahq.com, 2026-02-25）<br>
+    出典③：スペイン司法評議会（CGPJ）公式ニュース<br>
+    制度基準年度：2025〜2026年／為替基準日の記載なし
+  </p>
+</div>
+
+<!-- ━━━━ SECTION 0: 3行まとめ ━━━━ -->
+<div class="card">
+  <h2><span class="section-icon">⚡</span>3行まとめ</h2>
+  <div class="number-row">
+    <div class="number-card green">
+      <div class="num">✅ OK</div>
+      <div class="desc">DNV保持者は年間183日超スペインを離れても在留許可を更新できる（2026年6月29日 明確化）</div>
+    </div>
+    <div class="number-card amber">
+      <div class="num">⚠️ 別物</div>
+      <div class="desc">「ビザ更新の183日ルール」と「税務上の居住者判定の183日ルール」は全く別の話</div>
+    </div>
+    <div class="number-card red">
+      <div class="num">❌ NLV</div>
+      <div class="desc">非営利居住ビザ（NLV）は逆に183日以上スペイン滞在が必須（RD1155/2024 第64条）</div>
+    </div>
+  </div>
+  <p>スペイン最高裁（Tribunal Supremo）が「6か月以上スペインを離れると在留許可が失効する」というルール（外国人在留規則 RD 557/2011 第162条2項(e)号）を違憲・無効と判断しました。この流れを受け、2026年6月29日に英語メディアがデジタルノマドビザ（国際遠隔就労のための在留許可）への具体的な影響を解説しました。日本↔スペインを行き来する生活では、ぜひ押さえておきたいニュースです。</p>
+</div>
+
+<!-- ━━━━ SECTION 1: 経緯タイムライン ━━━━ -->
+<div class="card">
+  <h2><span class="section-icon">📅</span>事件の経緯：何がいつ起きたのか</h2>
+
+  <div class="timeline">
+    <div class="tl-row">
+      <div class="tl-year">2023年頃</div>
+      <div class="tl-dot"></div>
+      <div class="tl-content">
+        <strong>スペイン最高裁：第162条2項(e)号を無効と判断（初回）</strong><br>
+        外国人在留規則（Real Decreto 557/2011）第162条2項(e)号の「6か月超のスペイン国外滞在で一時的在留許可が失効する」という条文を、<em>憲法上の移動の自由を二次立法（政令）で制限することはできない</em>として無効と判断。
+        <br><small style="color:#777">※判決日は民間メディア情報のため発効日は未確認。CGPJ公式発表あり。</small>
+      </div>
+    </div>
+    <div class="tl-row">
+      <div class="tl-year amber">2026年<br>2月25日</div>
+      <div class="tl-dot amber"></div>
+      <div class="tl-content">
+        <strong>官報（BOE）に掲載：EU家族在留カードへの適用を確認</strong><br>
+        Royal Decree 240/2007 第14条3項（EU市民の家族向け在留カード）についても同様に無効と判断した判決がBOEに掲載され、「6か月不在ルール」廃止がすべての一時的在留許可に及ぶことがさらに明確化。
+      </div>
+    </div>
+    <div class="tl-row">
+      <div class="tl-year green">2026年<br>6月29日</div>
+      <div class="tl-dot green"></div>
+      <div class="tl-content">
+        <strong>デジタルノマドビザへの影響を英語メディアが明確化</strong><br>
+        The Local Spain が「DNV（国際遠隔就労のための在留許可）保持者は年183日超スペイン国外にいても更新を拒否されない」と整理。税務居住者かどうかの判定は別問題であることも同時に解説。
+      </div>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <span class="hlabel">🔑 核心</span>
+    <p>「在留許可の更新に必要な滞在日数」という概念そのものが、最高裁によって否定されました。移民局はもはや「スペインを6か月以上離れていたから」を更新拒否の理由にできません。代わりに審査するのは、<strong>収入・健康保険・犯罪歴</strong>などの実質的な要件のみです。</p>
+  </div>
+</div>
+
+<!-- ━━━━ SECTION 2: Before / After ━━━━ -->
+<div class="card">
+  <h2><span class="section-icon">🔄</span>何が変わったか？ Before / After</h2>
+
+  <div class="compare-row">
+    <div class="compare-card red">
+      <h3>❌ 判決前（旧ルール）</h3>
+      スペインを<strong>6か月（≒183日）超</strong>連続で離れると、一時的な在留許可が<strong>自動失効</strong>する可能性があった。<br><br>
+      更新の際に「スペインに十分滞在していた証明」を求められるケースもあり、日本に長く帰国するたびにビザを失うリスクがあった。
+    </div>
+    <div class="compare-card green">
+      <h3>✅ 判決後（現在のルール）</h3>
+      スペインを<strong>何日離れていても</strong>、それだけを理由に在留許可を取り消したり更新拒否したりすることは<strong>違法</strong>。<br><br>
+      移民局は「収入・保険・犯罪歴」など実質要件で審査する。日本に長期帰国しながらDNVを維持できる可能性が高まった。
+    </div>
+  </div>
+
+  <div class="alert-box">
+    <span class="alabel">⚠️ ただし実務の注意点</span>
+    <p>判決はあっても、更新申請の際は<strong>スペインとの実質的なつながりの証拠</strong>（賃貸契約書・公共料金の請求書・社会保険への登録証明・住民登録パドロンの履歴など）を準備しておくことが弁護士・行政書士から推奨されています。「滞在日数は審査できないが、スペインを拠点にしているか」は確認される余地があります。</p>
+  </div>
+</div>
+
+<!-- ━━━━ SECTION 3: 超重要区別 ━━━━ -->
+<div class="card">
+  <h2><span class="section-icon">⚠️</span>超重要！「ビザ更新の183日」と「税金の183日」は全く別物</h2>
+
+  <p>今回の最高裁判決はあくまで<strong>在留許可（ビザ）の更新</strong>に関する話です。税金の話は一切変わっていません。混同が一番危険です。</p>
+
+  <table class="matrix-table">
+    <thead>
+      <tr>
+        <th>項目</th>
+        <th>在留許可の更新</th>
+        <th>税務上の居住者判定</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="row-green">
+        <td><strong>管轄</strong></td>
+        <td>入国管理局（UGE）</td>
+        <td>税務署（AEAT）/ 日西租税条約</td>
+      </tr>
+      <tr>
+        <td><strong>183日ルールの<br>現在の扱い</strong></td>
+        <td class="ok">✅ 廃止（最高裁が無効に）</td>
+        <td class="ng">❌ 今も有効（スペイン所得税法 第9条）</td>
+      </tr>
+      <tr class="row-warn">
+        <td><strong>日本で過ごした<br>日数が多い場合</strong></td>
+        <td class="ok">✅ ビザ更新に影響なし</td>
+        <td class="warn">⚠️ スペイン税務上の非居住者になる可能性あり</td>
+      </tr>
+      <tr>
+        <td><strong>判定基準</strong></td>
+        <td>収入・保険・犯罪歴など</td>
+        <td>①183日超スペイン滞在 ②経済活動の中心地（経済的利益の中心）③家族が住む場所</td>
+      </tr>
+      <tr class="row-navy">
+        <td><strong>日西租税条約の<br>タイブレーカー</strong></td>
+        <td>関係なし</td>
+        <td>①恒久的住所 → ②生活の本拠（center of vital interests）→ ③常用の住所 → ④国籍で判定</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="danger-box">
+    <span class="dlabel">🚨 注意：税務上の非居住者になっても油断禁物</span>
+    <p>スペインの税務上の「非居住者」になった場合でも、スペイン源泉の所得には<strong>非居住者所得税（IRNR）</strong>がかかります（税率24%）。また、日本での課税も別途発生します。「ビザがある＝税金がかからない」は誤解です。</p>
+  </div>
+
+  <div class="purple-box">
+    <span class="plabel">💡 日本1人法人オーナーのケース例</span>
+    <p>日本の1人法人から役員報酬を受け取り、年間スペイン滞在が120日・日本滞在が245日のケース。ビザ更新はOKでも、税務上は「日本居住者（日本で全世界所得課税）＋スペイン非居住者（スペイン源泉所得にIRNR）」という扱いになる可能性があります。個別状況によって異なるため、国際税務に詳しい税理士への相談が必須です。</p>
+  </div>
+</div>
+
+<!-- ━━━━ SECTION 4: DNV vs NLV ━━━━ -->
+<div class="card">
+  <h2><span class="section-icon">⚖️</span>DNV vs 非営利居住ビザ（NLV）：逆方向のルール</h2>
+
+  <p>今回の最高裁判決は「DNVには183日の<strong>最短滞在義務がない</strong>」という点でDNVの優位性をさらに際立たせました。一方、NLVは逆に「スペインに183日以上いることが更新の条件」です。</p>
+
+  <div class="compare-row">
+    <div class="compare-card navy">
+      <h3>🌐 DNV（国際遠隔就労のための在留許可）</h3>
+      ・最高裁判決により、スペイン最低滞在日数の要件なし<br>
+      ・収入源は80%以上が外国（非スペイン）のクライアント<br>
+      ・ベックハム法（RETD）の適用申請が可能<br>
+      ・日本↔スペインを行き来する生活に有利<br>
+      ・月収基準：€2,849以上（2026年SMI連動）
+    </div>
+    <div class="compare-card red">
+      <h3>🏠 NLV（非営利居住ビザ）</h3>
+      ・<strong>RD 1155/2024 第64条(f)号</strong>により更新に年183日超スペイン滞在が必須<br>
+      ・就労不可（投資・年金・貯蓄生活者向け）<br>
+      ・1人法人代表者としての業務は「就労」に該当し違反リスクあり<br>
+      ・最高裁の183日廃止判決は<strong>NLVには適用されない</strong>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <span class="hlabel">🎯 日本↔スペイン往来生活者の選択</span>
+    <p>日本に長期帰国しながらスペインを拠点にしたいなら、<strong>DNV一択</strong>です。NLVでは年間183日以上スペインに滞在しないと更新できず、日本に長く滞在するたびにビザを失うリスクがあります。</p>
+  </div>
+</div>
+
+<!-- ━━━━ SECTION 5: 実務チェックリスト ━━━━ -->
+<div class="card">
+  <h2><span class="section-icon">✅</span>日本↔スペイン往来生活者の実務チェックリスト</h2>
+
+  <p>最高裁判決でビザ更新の心配は減りましたが、実務の準備は変わらず必要です。</p>
+
+  <ul class="check-list">
+    <li>
+      <div class="check-icon green">✓</div>
+      <div><strong>スペインとのつながりの証拠を常に収集する</strong><br>
+      賃貸契約書・公共料金の請求書・RETA（autónomo社会保険料）の支払い証明・パドロン（住民登録）の継続履歴を残しておく。移民局から求められた際に提出できるよう準備。</div>
+    </li>
+    <li>
+      <div class="check-icon green">✓</div>
+      <div><strong>収入の80%ルールを守り続ける</strong><br>
+      DNVの要件「スペイン国外のクライアントからの収入が全体の80%以上」は更新時も確認される。日本の1人法人が外国クライアントから稼ぐ構造はこの要件に適合しやすい。</div>
+    </li>
+    <li>
+      <div class="check-icon amber">!</div>
+      <div><strong>税務上の居住地を毎年確認する</strong><br>
+      年間のスペイン滞在日数・日本滞在日数・顧客や収入の所在地をもとに、国際税務の専門家と毎年居住地の判定を確認する。判定によって申告義務・税率・二重課税の処理方法が変わる。</div>
+    </li>
+    <li>
+      <div class="check-icon amber">!</div>
+      <div><strong>日西租税条約のタイブレーカーを理解しておく</strong><br>
+      両国で居住者と判定される（二重居住）場合は、①恒久的住所 → ②生活の本拠 → ③常用の住所 → ④国籍の順に判定。「日本に自宅がある＋日本の法人経営」は日本居住者に引き寄せやすい。</div>
+    </li>
+    <li>
+      <div class="check-icon navy">📋</div>
+      <div><strong>ベックハム法の申請期限を忘れずに（DNV保持者のみ）</strong><br>
+      autónomo（自営業者）として社会保険に登録してから6か月以内にModeloモデロ149を提出しないと、ベックハム法（外国収入のスペイン税免除・24%優遇）が失効する。これは最高裁判決とは無関係に厳格に適用される。</div>
+    </li>
+    <li>
+      <div class="check-icon navy">📋</div>
+      <div><strong>更新時の書類は6−21号（06-21）ガイドを参照</strong><br>
+      DNV更新に必要な書類9点（パスポート・TIE・パドロン歴史証明書・銀行明細・収入証明など）は従来通り必要。最高裁判決は「滞在日数審査の廃止」のみであり、その他の書類要件は変わらない。</div>
+    </li>
+  </ul>
+</div>
+
+<!-- ━━━━ SECTION 6: フロー図 ━━━━ -->
+<div class="card">
+  <h2><span class="section-icon">🔀</span>日本↔スペイン往来の183日パターン別まとめ</h2>
+
+  <p>1年（365日）をどう使うかによって、ビザと税務がどうなるかを整理しました。</p>
+
+  <table class="matrix-table">
+    <thead>
+      <tr>
+        <th>スペイン滞在日数</th>
+        <th>DNV更新</th>
+        <th>スペイン税務<br>居住者の可能性</th>
+        <th>日本税務<br>居住者の可能性</th>
+        <th>備考</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="row-green">
+        <td><strong>183日超</strong><br>（日本180日以下）</td>
+        <td class="ok">✅ 更新可</td>
+        <td class="ng">高い</td>
+        <td class="warn">低め</td>
+        <td>スペイン税務居住者→ベックハム法または一般申告</td>
+      </tr>
+      <tr class="row-warn">
+        <td><strong>91〜183日</strong><br>（日本182〜274日）</td>
+        <td class="ok">✅ 更新可<br>（最高裁判決後）</td>
+        <td class="warn">グレーゾーン<br>（経済的利益の中心次第）</td>
+        <td class="warn">グレーゾーン<br>（日本での活動次第）</td>
+        <td>租税条約タイブレーカーで判定。両国の専門家へ相談必須</td>
+      </tr>
+      <tr class="row-navy">
+        <td><strong>90日以下</strong><br>（日本275日以上）</td>
+        <td class="ok">✅ 更新可<br>（最高裁判決後）</td>
+        <td class="ok">低い</td>
+        <td class="ng">高い</td>
+        <td>日本居住者として日本で全世界所得を申告。スペイン源泉所得はIRNRの対象</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="footnote">※ 上記は一般的な傾向であり、個別の状況（家族の居住地・収入の所在・資産の場所など）によって判定は変わります。必ず専門家に確認してください。</div>
+</div>
+
+<!-- ━━━━ SECTION 7: 今後の展望 ━━━━ -->
+<div class="card">
+  <h2><span class="section-icon">🔭</span>今後の動きと注意点</h2>
+
+  <div class="flow-wrap">
+    <div class="flow-box light">
+      <div class="fb-label">現状（2026年7月）</div>
+      <strong>移民局は判決を尊重しているが、実務レベルでは個別窓口の判断にばらつきあり</strong>
+    </div>
+    <div class="arrow-down">▼</div>
+    <div class="flow-box amber">
+      <div class="fb-label">近い将来（2026年後半〜2027年）</div>
+      <strong>外国人在留規則（RD 557/2011）の条文を最高裁判決に合わせて改正する政令改定が予定</strong><br>
+      <small>改定前でも判決は有効。ただし条文と判決が乖離している期間は実務的なリスクが残る。</small>
+    </div>
+    <div class="arrow-down">▼</div>
+    <div class="flow-box green">
+      <div class="fb-label">判決確定後（正式改定後）</div>
+      <strong>法令上も滞在日数による失効が明確に撤廃。DNV保持者の往来生活がさらに安定する見通し</strong>
+    </div>
+  </div>
+
+  <div class="alert-box" style="margin-top:16px;">
+    <span class="alabel">📌 更新申請前の実務アドバイス</span>
+    <p>判決があっても「窓口で問題なく更新できるか」は弁護士・行政書士（Abogado de extranjería）の確認が必要です。万一、不当な更新拒否を受けた場合は判決を根拠に異議申し立て（recurso de alzada）が可能です。</p>
+  </div>
+</div>
+
+<!-- ━━━━ FOOTER ━━━━ -->
+<div class="footer-card">
+  <span class="footer-title">⚠️ 免責事項・出典</span>
+  <strong>出典（公開日順）</strong><br>
+  ① CGPJ（スペイン司法評議会）公式ニュース：El Tribunal Supremo declara nulo el artículo del Reglamento de Extranjería que extingue el permiso de residencia temporal en España por ausencia de seis meses<br>
+  ② Visahq.com, 2026-02-25：Supreme Court kills Spain's 'six-month rule', giving temporary residents freedom to travel<br>
+  ③ The Local Spain, 2026-06-29：Spain clarifies 183-day rule for Digital Nomad Visa renewals<br>
+  ④ RemoteWorkEurope / Relocate Handbook ほか（2026年6月時点）<br><br>
+  <strong>制度・法令の注意</strong><br>
+  ・スペイン外国人在留規則（Real Decreto 557/2011）・Royal Decree 240/2007・RD 1155/2024 の情報は2026年6月時点。今後の政令改定により変更あり。<br>
+  ・税率・料率は2026年基準。為替には言及していません。<br>
+  ・「必ず更新できる」「課税されない」等の断定はできません。<br><br>
+  <strong>専門家への相談を強くお勧めします</strong><br>
+  ・在留許可・ビザに関する正式な判断は、スペイン在留資格に詳しい <strong>弁護士（Abogado）または行政書士</strong> へ。<br>
+  ・税務・社会保険に関する正式な判断は、<strong>国際税務に強い税理士</strong> へ。<br>
+  ・本日報は情報提供を目的としており、法的アドバイスではありません。
+</div>
+
+</body>
+</html>
