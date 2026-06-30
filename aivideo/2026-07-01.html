@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI動画制作 最新トピック 2026-07-01</title>
+<style>
+:root{
+  --bg:#edf2f7;--card:#f8faff;--text:#1a2740;--muted:#6a7a90;--border:#d4dce8;
+  --mm:#0a2d6a;--mml:#e0ecff;--mmm:#1a50c0;--mma:#0a3a90;
+  --hl:#0a5a4a;--hll:#e0f5f0;--hlm:#1a8068;--hla:#0a4a3a;
+  --am:#7a4a00;--aml:#fff8e0;--amm:#c07010;
+  --gr:#1a5a1a;--grl:#e8f8e0;--grm:#2a8030;
+  --re:#6a0a2a;--rel:#fde8ee;--rem:#b01040;
+  --pu:#3a0a6a;--pul:#f0e8ff;--pum:#7a30c0;--pua:#5a10a0;
+  --warm:#b04000;--warml:#fff3e0;--warmm:#e06010;
+  --cool:#0a4060;--cooll:#e0f4ff;--coolm:#1a70a0;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,"Hiragino Sans","Yu Gothic",sans-serif;line-height:1.75;padding:24px 16px;}
+.wrap{max-width:880px;margin:0 auto;}
+
+/* Header */
+.header{background:linear-gradient(135deg,#1a0a40,#3a1a70,#0a4060);color:#fff;border-radius:20px;padding:40px 32px;text-align:center;box-shadow:0 8px 24px rgba(26,10,64,.45);margin-bottom:24px;}
+.date-badge{background:rgba(255,255,255,.16);color:#c8d8ff;border-radius:20px;padding:4px 16px;font-size:.84rem;display:inline-block;margin-bottom:14px;letter-spacing:.08em;}
+.header h1{font-size:1.9rem;margin-bottom:8px;letter-spacing:.03em;line-height:1.3;}
+.header .subtitle{color:#c0d8f0;font-size:.95rem;margin-bottom:14px;}
+.tag-row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;}
+.tag{background:rgba(255,255,255,.14);border-radius:12px;padding:3px 12px;font-size:.77rem;color:#ffe8a0;}
+
+/* Section */
+.section{background:var(--card);border-radius:16px;padding:28px 24px;margin-bottom:20px;box-shadow:0 3px 12px rgba(0,0,0,.06);border:1px solid var(--border);}
+.section-title{font-size:1.1rem;font-weight:700;color:var(--mm);border-bottom:2px solid var(--border);padding-bottom:10px;margin-bottom:18px;display:flex;align-items:center;gap:8px;}
+
+/* Concept banner */
+.concept-banner{background:linear-gradient(135deg,#f0e8ff,#e0ecff,#e0f4ff);border:2px solid var(--mmm);border-radius:16px;padding:24px 20px;text-align:center;margin-bottom:18px;}
+.cb-icon{font-size:3rem;margin-bottom:8px;}
+.cb-title{font-size:1.5rem;font-weight:900;color:var(--mm);margin-bottom:6px;}
+.cb-sub{font-size:.9rem;color:var(--muted);line-height:1.6;}
+.cb-tags{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:12px;}
+.cb-tag{background:rgba(26,80,192,.12);color:var(--mma);border-radius:10px;padding:3px 12px;font-size:.78rem;font-weight:600;}
+
+/* Big number cards */
+.num-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px;}
+@media(max-width:600px){.num-grid{grid-template-columns:repeat(2,1fr);}}
+.num-card{border-radius:14px;padding:18px 10px;text-align:center;}
+.n-val{font-size:2rem;font-weight:900;line-height:1;margin-bottom:4px;}
+.n-unit{font-size:.72rem;font-weight:700;margin-bottom:4px;}
+.n-label{font-size:.73rem;line-height:1.4;}
+.nc-bl{background:var(--mml);border:2px solid var(--mmm);}
+.nc-bl .n-val,.nc-bl .n-unit{color:var(--mmm);}
+.nc-bl .n-label{color:var(--mma);}
+.nc-gr{background:var(--hll);border:2px solid var(--hlm);}
+.nc-gr .n-val,.nc-gr .n-unit{color:var(--hlm);}
+.nc-gr .n-label{color:var(--hla);}
+.nc-am{background:var(--aml);border:2px solid var(--amm);}
+.nc-am .n-val,.nc-am .n-unit{color:var(--amm);}
+.nc-am .n-label{color:var(--am);}
+.nc-pu{background:var(--pul);border:2px solid var(--pum);}
+.nc-pu .n-val,.nc-pu .n-unit{color:var(--pum);}
+.nc-pu .n-label{color:var(--pua);}
+
+/* Kelvin bar */
+.kelvin-bar-wrap{margin-bottom:18px;}
+.kelvin-label{font-size:.8rem;color:var(--muted);margin-bottom:6px;}
+.kelvin-bar{height:36px;border-radius:10px;background:linear-gradient(to right,#ff6a00,#ffb347,#fff5e0,#e0f0ff,#a0c8ff,#5090e0);border:1.5px solid var(--border);position:relative;}
+.k-marks{display:flex;justify-content:space-between;margin-top:4px;padding:0 2px;}
+.k-mark{font-size:.7rem;color:var(--muted);text-align:center;}
+.k-icons{display:flex;justify-content:space-between;padding:0 4px;margin-bottom:4px;}
+.k-icon-item{font-size:.75rem;color:var(--muted);text-align:center;}
+
+/* Warm/Cool split */
+.temp-split{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px;}
+@media(max-width:540px){.temp-split{grid-template-columns:1fr;}}
+.temp-card{border-radius:14px;padding:20px 16px;}
+.tc-warm{background:var(--warml);border:2px solid var(--warmm);}
+.tc-cool{background:var(--cooll);border:2px solid var(--coolm);}
+.tc-head{font-size:1rem;font-weight:800;margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+.tc-warm .tc-head{color:var(--warmm);}
+.tc-cool .tc-head{color:var(--coolm);}
+.tc-k{display:inline-block;border-radius:8px;padding:2px 10px;font-size:.75rem;font-weight:700;margin-bottom:8px;}
+.tc-warm .tc-k{background:var(--warmm);color:#fff;}
+.tc-cool .tc-k{background:var(--coolm);color:#fff;}
+.tc-desc{font-size:.83rem;line-height:1.55;color:var(--text);margin-bottom:8px;}
+.tc-use{font-size:.78rem;color:var(--muted);line-height:1.5;border-top:1px dashed rgba(0,0,0,.1);padding-top:8px;}
+.tc-icon-big{font-size:2rem;margin-bottom:6px;}
+
+/* Contrast visual */
+.contrast-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px;}
+@media(max-width:540px){.contrast-row{grid-template-columns:1fr;}}
+.ctr-card{border-radius:14px;padding:18px 14px;text-align:center;}
+.ctr-high{background:linear-gradient(135deg,#1a1a2a 40%,#fff8f0 60%);border:2px solid #444;}
+.ctr-low{background:linear-gradient(135deg,#5a6070 40%,#d0c8c0 60%);border:2px solid #8a9aaa;}
+.ctr-label{font-size:.9rem;font-weight:800;margin-bottom:6px;}
+.ctr-high .ctr-label{color:#fff;}
+.ctr-low .ctr-label{color:#e8f0ff;}
+.ctr-desc{font-size:.78rem;line-height:1.5;margin-top:6px;}
+.ctr-high .ctr-desc{color:#e0d8d0;}
+.ctr-low .ctr-desc{color:#d0e0f0;}
+.ctr-bars{display:flex;flex-direction:column;gap:4px;margin:10px 0;}
+.ctr-bar-row{display:flex;align-items:center;gap:8px;}
+.ctr-bar-label{font-size:.68rem;width:28px;text-align:right;flex-shrink:0;}
+.ctr-high .ctr-bar-label{color:#aaa;}
+.ctr-low .ctr-bar-label{color:#c0c8d8;}
+.ctr-bar-fill{height:14px;border-radius:4px;}
+.ch-shadow{background:#0a0a1a;width:10%;}
+.ch-mid{background:#888;width:30%;}
+.ch-high{background:#fff;width:80%;}
+.cl-shadow{background:#405060;width:30%;}
+.cl-mid{background:#909898;width:50%;}
+.cl-high{background:#d8d0c8;width:70%;}
+.ctr-feel{font-size:.75rem;font-weight:700;border-radius:8px;padding:3px 10px;display:inline-block;margin-top:6px;}
+.ctr-high .ctr-feel{background:rgba(255,255,255,.15);color:#ffe8c0;}
+.ctr-low .ctr-feel{background:rgba(255,255,255,.15);color:#d0f0ff;}
+
+/* LUT flow */
+.lut-flow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:16px;}
+.lf-box{border-radius:12px;padding:14px 12px;text-align:center;flex:1;min-width:80px;}
+.lf-raw{background:#e0e8e0;border:2px solid #8a9a8a;}
+.lf-raw .lf-top{color:#4a5a4a;}
+.lf-lut{background:var(--pul);border:2px solid var(--pum);}
+.lf-lut .lf-top{color:var(--pum);}
+.lf-out{background:linear-gradient(135deg,#fff3e0,#e0f0ff);border:2px solid var(--mmm);}
+.lf-out .lf-top{color:var(--mmm);}
+.lf-top{font-size:.75rem;font-weight:700;margin-bottom:4px;}
+.lf-icon{font-size:1.8rem;margin-bottom:4px;}
+.lf-name{font-size:.72rem;line-height:1.4;}
+.lf-raw .lf-name{color:#6a7a6a;}
+.lf-lut .lf-name{color:var(--pua);}
+.lf-out .lf-name{color:var(--mma);}
+.lf-arrow{font-size:1.6rem;color:var(--mmm);flex-shrink:0;}
+
+/* LUT type grid */
+.lut-type-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px;}
+@media(max-width:540px){.lut-type-grid{grid-template-columns:1fr;}}
+.lut-type-card{border-radius:12px;padding:16px 14px;}
+.lt-tech{background:var(--mml);border:2px solid var(--mmm);}
+.lt-create{background:var(--pul);border:2px solid var(--pum);}
+.lt-head{font-size:.9rem;font-weight:800;margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.lt-tech .lt-head{color:var(--mmm);}
+.lt-create .lt-head{color:var(--pum);}
+.lt-desc{font-size:.81rem;line-height:1.55;color:var(--text);}
+.lt-ex{font-size:.75rem;color:var(--muted);margin-top:6px;border-top:1px dashed rgba(0,0,0,.1);padding-top:6px;}
+
+/* Comparison table */
+.comp-table{width:100%;border-collapse:collapse;font-size:.83rem;margin-bottom:6px;}
+.comp-table th{background:var(--mm);color:#fff;padding:10px 12px;text-align:center;font-weight:700;}
+.comp-table th:first-child{text-align:left;border-radius:8px 0 0 0;}
+.comp-table th:last-child{border-radius:0 8px 0 0;}
+.comp-table td{padding:9px 12px;border-bottom:1px solid var(--border);text-align:center;vertical-align:middle;}
+.comp-table td:first-child{text-align:left;font-weight:600;color:var(--mm);}
+.comp-table tr:nth-child(even){background:rgba(26,80,192,.04);}
+.comp-table tr:last-child td{border-bottom:none;}
+.badge-free{background:#d0f0d0;color:#1a6a1a;border-radius:6px;padding:2px 8px;font-size:.72rem;font-weight:700;}
+.badge-pay{background:#fff0c8;color:#806010;border-radius:6px;padding:2px 8px;font-size:.72rem;font-weight:700;}
+.badge-both{background:#e0e8ff;color:#1a3a90;border-radius:6px;padding:2px 8px;font-size:.72rem;font-weight:700;}
+.badge-pro{background:#ffd0e8;color:#8a1050;border-radius:6px;padding:2px 8px;font-size:.72rem;font-weight:700;}
+
+/* 3-col category cards */
+.cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:18px;}
+@media(max-width:600px){.cat-grid{grid-template-columns:1fr;}}
+.cat-card{border-radius:12px;padding:18px 14px;}
+.cc-a{background:var(--mml);border:2px solid var(--mmm);}
+.cc-b{background:var(--aml);border:2px solid var(--amm);}
+.cc-c{background:var(--pul);border:2px solid var(--pum);}
+.cat-card .cc-head{font-size:.9rem;font-weight:800;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+.cc-a .cc-head{color:var(--mmm);}
+.cc-b .cc-head{color:var(--amm);}
+.cc-c .cc-head{color:var(--pum);}
+.cat-card ul{list-style:none;padding:0;}
+.cat-card li{font-size:.82rem;padding:4px 0;border-bottom:1px dashed rgba(0,0,0,.08);color:var(--text);}
+.cat-card li:last-child{border-bottom:none;}
+
+/* Step flow */
+.step-flow{display:flex;flex-direction:column;gap:0;}
+.step-row{display:flex;align-items:flex-start;gap:14px;padding:12px 0;}
+.step-row:not(:last-child){border-bottom:1px dashed var(--border);}
+.step-num{background:var(--mm);color:#fff;border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;font-size:.9rem;font-weight:800;flex-shrink:0;margin-top:2px;}
+.step-body{flex:1;}
+.step-title{font-size:.95rem;font-weight:700;color:var(--mm);margin-bottom:3px;}
+.step-desc{font-size:.83rem;color:var(--muted);line-height:1.55;}
+.step-hint{display:inline-block;background:var(--mml);color:var(--mma);border-radius:6px;padding:2px 8px;font-size:.73rem;font-weight:600;margin-top:4px;}
+
+/* Cheat sheet grid */
+.cheat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px;}
+@media(max-width:600px){.cheat-grid{grid-template-columns:1fr 1fr;}}
+.cheat-card{border-radius:10px;padding:12px 10px;text-align:center;border:2px solid;}
+.cheat-card .ch-icon{font-size:1.6rem;margin-bottom:4px;}
+.cheat-card .ch-name{font-size:.75rem;font-weight:700;margin-bottom:4px;}
+.cheat-card .ch-when{font-size:.7rem;line-height:1.4;}
+.cch-1{background:#fff3e0;border-color:#e06010;} .cch-1 .ch-name{color:#b04000;} .cch-1 .ch-when{color:#7a4000;}
+.cch-2{background:#e8f0ff;border-color:#3060c0;} .cch-2 .ch-name{color:#1a40a0;} .cch-2 .ch-when{color:#0a2a70;}
+.cch-3{background:#f0e8ff;border-color:#7030c0;} .cch-3 .ch-name{color:#5010a0;} .cch-3 .ch-when{color:#3a0080;}
+.cch-4{background:#e0f5f0;border-color:#1a8068;} .cch-4 .ch-name{color:#0a5040;} .cch-4 .ch-when{color:#084030;}
+.cch-5{background:#fff8e0;border-color:#c07010;} .cch-5 .ch-name{color:#8a5000;} .cch-5 .ch-when{color:#6a3800;}
+.cch-6{background:#ffe0e0;border-color:#c02040;} .cch-6 .ch-name{color:#8a0020;} .cch-6 .ch-when{color:#6a0010;}
+
+/* Arrow flow (horizontal) */
+.hflow{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:14px;}
+.hf-box{background:var(--mml);border:1.5px solid var(--mmm);border-radius:10px;padding:8px 14px;font-size:.82rem;font-weight:600;color:var(--mma);text-align:center;flex:1;min-width:90px;}
+.hf-arrow{color:var(--mmm);font-size:1.4rem;flex-shrink:0;}
+
+/* Alert / tip boxes */
+.tip-box{background:var(--aml);border-left:4px solid var(--amm);border-radius:8px;padding:14px 16px;margin-bottom:14px;font-size:.85rem;line-height:1.6;}
+.tip-box .tip-head{font-weight:700;color:var(--amm);margin-bottom:4px;}
+.info-box{background:var(--mml);border-left:4px solid var(--mmm);border-radius:8px;padding:14px 16px;margin-bottom:14px;font-size:.85rem;line-height:1.6;color:var(--mma);}
+.info-box .info-head{font-weight:700;margin-bottom:4px;}
+.green-box{background:var(--hll);border-left:4px solid var(--hlm);border-radius:8px;padding:14px 16px;margin-bottom:14px;font-size:.85rem;line-height:1.6;color:var(--hla);}
+.green-box .g-head{font-weight:700;margin-bottom:4px;}
+.warn-box{background:var(--rel);border-left:4px solid var(--rem);border-radius:8px;padding:14px 16px;margin-bottom:14px;font-size:.85rem;line-height:1.6;color:var(--re);}
+.warn-box .warn-head{font-weight:700;margin-bottom:4px;}
+
+/* Example box */
+.example-box{background:linear-gradient(135deg,#f0f8ff,#fff8f0);border:2px dashed var(--mmm);border-radius:14px;padding:20px 18px;margin-top:8px;}
+.ex-head{font-size:1rem;font-weight:700;color:var(--mmm);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+
+/* Footer */
+footer{text-align:center;color:var(--muted);font-size:.8rem;margin-top:30px;line-height:2;padding:20px;}
+footer a{color:var(--mmm);}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- ===== HEADER ===== -->
+<header class="header">
+  <div class="date-badge">📅 2026-07-01 ｜ エバーグリーン回</div>
+  <h1>🎨 カラーグレーディング入門<br>色温度・コントラスト・LUT活用</h1>
+  <p class="subtitle">「映像の色」を操るだけでプロっぽさが激変する ── 中学生でもわかる基礎から実践まで</p>
+  <div class="tag-row">
+    <span class="tag">カラーグレーディング</span>
+    <span class="tag">色温度</span>
+    <span class="tag">コントラスト</span>
+    <span class="tag">LUT</span>
+    <span class="tag">DaVinci Resolve</span>
+    <span class="tag">CapCut</span>
+  </div>
+</header>
+
+<!-- ===== 今日のポイント ===== -->
+<section class="section">
+  <div class="section-title">🎯 今日のポイント</div>
+
+  <div class="concept-banner">
+    <div class="cb-icon">🎨</div>
+    <div class="cb-title">色を「調整」するだけで映像が変わる</div>
+    <div class="cb-sub">
+      撮影後の映像に<strong>色補正（カラーコレクション）</strong>と<strong>色演出（カラーグレーディング）</strong>を加えると、<br>
+      同じ素材でも「映画っぽい」「温かい」「クールでおしゃれ」な印象に変えられる。<br>
+      AIツールで生成した動画にも、後から色を乗せるだけで<strong>クオリティがぐっと上がる</strong>。
+    </div>
+    <div class="cb-tags">
+      <span class="cb-tag">🌡️ 色温度（ウォーム/クール）</span>
+      <span class="cb-tag">⬛ コントラスト（明暗差）</span>
+      <span class="cb-tag">🗂️ LUT（色のレシピ）</span>
+    </div>
+  </div>
+
+  <div class="num-grid">
+    <div class="num-card nc-am">
+      <div class="n-val">3200</div>
+      <div class="n-unit">K（ケルビン）</div>
+      <div class="n-label">暖色系の光<br>ろうそく・夕陽</div>
+    </div>
+    <div class="num-card nc-bl">
+      <div class="n-val">8000</div>
+      <div class="n-unit">K（ケルビン）</div>
+      <div class="n-label">寒色系の光<br>曇り空・蛍光灯</div>
+    </div>
+    <div class="num-card nc-pu">
+      <div class="n-val">3</div>
+      <div class="n-unit">ステップ</div>
+      <div class="n-label">基本の調整順<br>露出→色→仕上げ</div>
+    </div>
+    <div class="num-card nc-gr">
+      <div class="n-val">∞</div>
+      <div class="n-unit">種類</div>
+      <div class="n-label">無料LUTも多数<br>ムードを一発変換</div>
+    </div>
+  </div>
+
+  <div class="tip-box">
+    <div class="tip-head">💡 カラーグレーディングとカラーコレクションの違いは？</div>
+    <strong>カラーコレクション（色補正）</strong>＝ 撮影の失敗（色かぶり・露出ミス）を「正しい状態」に直す作業。<br>
+    <strong>カラーグレーディング（色演出）</strong>＝ 正しい色をベースに、映画っぽい・夢っぽい・レトロなど<strong>「雰囲気」を意図的に作る</strong>作業。<br>
+    プロは必ず「補正→演出」の順番で進める。
+  </div>
+</section>
+
+<!-- ===== 色温度 ===== -->
+<section class="section">
+  <div class="section-title">🌡️ 色温度（カラーテンポラリー）── ウォーム vs クール</div>
+
+  <p style="font-size:.88rem;color:var(--muted);margin-bottom:14px;">
+    <strong>色温度（K＝ケルビン）</strong>とは、光の「温かさ・冷たさ」を数字で表したもの。<br>
+    数値が<strong>低い</strong>ほど赤・オレンジの<strong>暖かい色</strong>、<strong>高い</strong>ほど青の<strong>冷たい色</strong>になる（直感と逆なので注意！）。
+  </p>
+
+  <div class="kelvin-bar-wrap">
+    <div class="kelvin-label">▼ 色温度の目安（ケルビンスケール）</div>
+    <div class="k-icons">
+      <span class="k-icon-item">🕯️<br>ろうそく</span>
+      <span class="k-icon-item">💡<br>電球</span>
+      <span class="k-icon-item">🌅<br>夕陽</span>
+      <span class="k-icon-item">☀️<br>昼光</span>
+      <span class="k-icon-item">🌥️<br>曇り空</span>
+      <span class="k-icon-item">🌑<br>日陰</span>
+    </div>
+    <div class="kelvin-bar"></div>
+    <div class="k-marks">
+      <span class="k-mark">1800K<br>🔴暖</span>
+      <span class="k-mark">2700K</span>
+      <span class="k-mark">3500K</span>
+      <span class="k-mark">5500K<br>⚪標準</span>
+      <span class="k-mark">7000K</span>
+      <span class="k-mark">9000K<br>🔵冷</span>
+    </div>
+  </div>
+
+  <div class="temp-split">
+    <div class="temp-card tc-warm">
+      <div class="tc-icon-big">🌅</div>
+      <div class="tc-head">🔥 ウォームトーン（暖色系）</div>
+      <div class="tc-k">2000K〜4000K 付近</div>
+      <div class="tc-desc">
+        赤・オレンジ・黄色みが増す。<br>
+        <strong>温かみ・懐かしさ・親密感</strong>が出る。<br>
+        食べ物や家族、旅行動画で使われることが多い。
+      </div>
+      <div class="tc-use">
+        使う場面 ▶ カフェVlog・グルメ動画・<br>
+        ロマンティックな演出・夜のシーン
+      </div>
+    </div>
+    <div class="temp-card tc-cool">
+      <div class="tc-icon-big">🌊</div>
+      <div class="tc-head">❄️ クールトーン（寒色系）</div>
+      <div class="tc-k">6500K〜9000K 付近</div>
+      <div class="tc-desc">
+        青・シアンみが増す。<br>
+        <strong>クール・洗練・緊張感・都会的</strong>な印象になる。<br>
+        ビジネス動画やSF・アクション系と相性がいい。
+      </div>
+      <div class="tc-use">
+        使う場面 ▶ テクノロジー紹介・ファッション・<br>
+        スポーツ・シリアスなシーン
+      </div>
+    </div>
+  </div>
+
+  <div class="green-box">
+    <div class="g-head">🎯 AI動画プロンプトへの応用</div>
+    Kling・Runway・Wan などで動画を生成するとき、プロンプトに
+    <strong>「warm lighting, golden hour tone」</strong>や
+    <strong>「cool blue tint, overcast lighting」</strong>を入れるだけで、生成時から色のムードを指定できる。
+    後から編集ソフトで色温度スライダーを動かすのと同じ効果が最初から出る。
+  </div>
+</section>
+
+<!-- ===== コントラスト ===== -->
+<section class="section">
+  <div class="section-title">⬛ コントラスト（明暗差）── 映像の「メリハリ」を決める</div>
+
+  <p style="font-size:.88rem;color:var(--muted);margin-bottom:14px;">
+    <strong>コントラスト</strong>とは、映像の中で一番<strong>暗い部分（シャドウ）</strong>と一番<strong>明るい部分（ハイライト）</strong>の差のこと。<br>
+    この差が大きいほど「力強い・劇的」、小さいほど「ソフト・落ち着いた」印象になる。
+  </p>
+
+  <div class="contrast-row">
+    <div class="ctr-card ctr-high">
+      <div class="ctr-label">⚡ ハイコントラスト</div>
+      <div class="ctr-bars">
+        <div class="ctr-bar-row">
+          <span class="ctr-bar-label">暗部</span>
+          <div class="ctr-bar-fill ch-shadow" style="width:10%;"></div>
+        </div>
+        <div class="ctr-bar-row">
+          <span class="ctr-bar-label">中間</span>
+          <div class="ctr-bar-fill ch-mid" style="width:30%;"></div>
+        </div>
+        <div class="ctr-bar-row">
+          <span class="ctr-bar-label">明部</span>
+          <div class="ctr-bar-fill ch-high" style="width:82%;"></div>
+        </div>
+      </div>
+      <div class="ctr-feel">⚡ 力強い・ドラマチック・緊張感</div>
+      <div class="ctr-desc">黒はより黒く、白はより白く。<br>影が深く、立体感が増す。<br>アクション・ホラー・映画的な演出に向く。</div>
+    </div>
+    <div class="ctr-card ctr-low">
+      <div class="ctr-label">🌫️ ローコントラスト（フラット）</div>
+      <div class="ctr-bars">
+        <div class="ctr-bar-row">
+          <span class="ctr-bar-label">暗部</span>
+          <div class="ctr-bar-fill cl-shadow" style="width:40%;"></div>
+        </div>
+        <div class="ctr-bar-row">
+          <span class="ctr-bar-label">中間</span>
+          <div class="ctr-bar-fill cl-mid" style="width:55%;"></div>
+        </div>
+        <div class="ctr-bar-row">
+          <span class="ctr-bar-label">明部</span>
+          <div class="ctr-bar-fill cl-high" style="width:68%;"></div>
+        </div>
+      </div>
+      <div class="ctr-feel">🌸 柔らか・穏やか・ナチュラル</div>
+      <div class="ctr-desc">明暗の差がなだらか。<br>全体がグレーよりの落ち着いた印象。<br>Vlog・インタビュー・ライフスタイル動画に向く。</div>
+    </div>
+  </div>
+
+  <div class="tip-box">
+    <div class="tip-head">💡 「シネマティック」に見える定番の組み合わせ</div>
+    映画風にするなら「<strong>ハイコントラスト ＋ ウォームシャドウ（暗部をやや緑〜シアン）</strong>」が鉄板。<br>
+    具体的には：① 明るさを少し下げる → ② コントラストを上げる → ③ 暗い部分に少しグリーンかティール（青緑）を足す。<br>
+    これだけで「Netflixドラマっぽい」色になる。
+  </div>
+</section>
+
+<!-- ===== LUT ===== -->
+<section class="section">
+  <div class="section-title">🗂️ LUT（ルック・アップ・テーブル）── 色のレシピを一発で適用</div>
+
+  <p style="font-size:.88rem;color:var(--muted);margin-bottom:14px;">
+    <strong>LUT（Look-Up Table）</strong>とは「色のレシピファイル」のこと。
+    元の色データを目的の色に変換する対応表で、読み込むだけで映画やドラマ風の色調が一発で適用できる。
+  </p>
+
+  <div class="lut-flow">
+    <div class="lf-box lf-raw">
+      <div class="lf-top">素材（RAW/Log）</div>
+      <div class="lf-icon">🎞️</div>
+      <div class="lf-name">撮ったままの<br>フラットな映像</div>
+    </div>
+    <div class="lf-arrow">＋</div>
+    <div class="lf-box lf-lut">
+      <div class="lf-top">LUTファイル(.cube)</div>
+      <div class="lf-icon">🗂️</div>
+      <div class="lf-name">色のレシピ<br>（変換テーブル）</div>
+    </div>
+    <div class="lf-arrow">→</div>
+    <div class="lf-box lf-out">
+      <div class="lf-top">完成映像</div>
+      <div class="lf-icon">✨</div>
+      <div class="lf-name">映画風・レトロ・<br>シネマティック etc.</div>
+    </div>
+  </div>
+
+  <div class="lut-type-grid">
+    <div class="lut-type-card lt-tech">
+      <div class="lt-head">🔧 テクニカルLUT</div>
+      <div class="lt-desc">
+        カメラのLog映像を「正確な色」に変換するためのLUT。<br>
+        まず映像を「ノーマルな状態」に戻す作業。<br>
+        創作的な演出より<strong>正確性が目的</strong>。
+      </div>
+      <div class="lt-ex">例：Sony S-Log3 → Rec.709変換など</div>
+    </div>
+    <div class="lut-type-card lt-create">
+      <div class="lt-head">🎨 クリエイティブLUT</div>
+      <div class="lt-desc">
+        好みの雰囲気（映画風・フィルム風・夏っぽいなど）に<br>
+        色を変えるためのLUT。無料配布も多い。<br>
+        <strong>読み込むだけで雰囲気が変わる</strong>お手軽ツール。
+      </div>
+      <div class="lt-ex">例：Teal & Orange（映画風）・Matte（マット加工）など</div>
+    </div>
+  </div>
+
+  <div class="cheat-grid">
+    <div class="cheat-card cch-1">
+      <div class="ch-icon">🌅</div>
+      <div class="ch-name">Teal & Orange</div>
+      <div class="ch-when">影を青緑、ハイライトを橙に。映画・広告でよく見る定番</div>
+    </div>
+    <div class="cheat-card cch-2">
+      <div class="ch-icon">🎬</div>
+      <div class="ch-name">Cinematic Blue</div>
+      <div class="ch-when">全体を青みがかりに。SF・都市・夜景動画向き</div>
+    </div>
+    <div class="cheat-card cch-3">
+      <div class="ch-icon">📷</div>
+      <div class="ch-name">Film Emulation</div>
+      <div class="ch-when">フィルムカメラっぽい粒子感と退色感。レトロVlog向き</div>
+    </div>
+    <div class="cheat-card cch-4">
+      <div class="ch-icon">🌿</div>
+      <div class="ch-name">Nature Green</div>
+      <div class="ch-when">緑を鮮やかに強調。自然・旅・登山動画向き</div>
+    </div>
+    <div class="cheat-card cch-5">
+      <div class="ch-icon">☀️</div>
+      <div class="ch-name">Golden Hour</div>
+      <div class="ch-when">常に夕陽の色に。人物・カフェ・ウェディング向き</div>
+    </div>
+    <div class="cheat-card cch-6">
+      <div class="ch-icon">⚫</div>
+      <div class="ch-name">High Contrast BW</div>
+      <div class="ch-when">ドラマチックな白黒に変換。ポートレート・アート動画向き</div>
+    </div>
+  </div>
+
+  <div class="info-box">
+    <div class="info-head">📦 無料LUTの入手先（公式・定評あり）</div>
+    <strong>Ground Control（groundcontrol.film）</strong>・<strong>RocketStock（motion.io）</strong>・<strong>Fixel（fixelcc.com）</strong>など、英語サイトで "Free LUT Pack" を検索すると数百種類のLUTが無料入手できる。ファイル形式は .cube または .3dl が多い。各サービスの利用規約を必ず確認の上で使用すること。
+  </div>
+</section>
+
+<!-- ===== ツール比較 ===== -->
+<section class="section">
+  <div class="section-title">🛠️ カラーグレーディング対応ツール比較</div>
+
+  <table class="comp-table">
+    <thead>
+      <tr>
+        <th>ツール</th>
+        <th>価格</th>
+        <th>LUT読み込み</th>
+        <th>カラーホイール</th>
+        <th>難易度</th>
+        <th>おすすめ対象</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>DaVinci Resolve（無料版）</td>
+        <td><span class="badge-free">無料</span></td>
+        <td>✅ .cube対応</td>
+        <td>✅ フル機能</td>
+        <td>★★★☆☆</td>
+        <td>本格派・映像編集者</td>
+      </tr>
+      <tr>
+        <td>CapCut（スマホ/PC）</td>
+        <td><span class="badge-both">無料/有料</span></td>
+        <td>✅ プリセット多数</td>
+        <td>△ 簡易版</td>
+        <td>★☆☆☆☆</td>
+        <td>初心者・SNSショート動画</td>
+      </tr>
+      <tr>
+        <td>Adobe Premiere Pro</td>
+        <td><span class="badge-pay">月額制</span></td>
+        <td>✅ .cube/.3dl対応</td>
+        <td>✅ フル機能</td>
+        <td>★★★☆☆</td>
+        <td>プロ・Adobe連携ユーザー</td>
+      </tr>
+      <tr>
+        <td>Final Cut Pro</td>
+        <td><span class="badge-pay">買い切り（Mac限定）</span></td>
+        <td>✅ 対応</td>
+        <td>✅ フル機能</td>
+        <td>★★☆☆☆</td>
+        <td>Mac所有者・直感派</td>
+      </tr>
+      <tr>
+        <td>Runway（AIツール）</td>
+        <td><span class="badge-both">無料/有料</span></td>
+        <td>△ 限定的</td>
+        <td>✅ Color Grade機能</td>
+        <td>★★☆☆☆</td>
+        <td>AI動画生成＋軽い色調整</td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="font-size:.75rem;color:var(--muted);margin-top:8px;">※ 価格・機能は変更される可能性があります。最新情報は各公式サイトでご確認ください。</p>
+</section>
+
+<!-- ===== 実践5ステップ ===== -->
+<section class="section">
+  <div class="section-title">📋 実践5ステップ ── はじめてのカラーグレーディング</div>
+
+  <div class="tip-box">
+    <div class="tip-head">🎯 使うツール：DaVinci Resolve（無料）または CapCut</div>
+    どちらも無料で使えるので、まずはどちらかを開いて一緒にやってみよう。
+  </div>
+
+  <div class="step-flow">
+    <div class="step-row">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-title">露出（明るさ）を整える</div>
+        <div class="step-desc">
+          明るすぎず暗すぎない「ちょうどいい明るさ」に調整。<br>
+          スライダーを動かして「空の白とびがなく、影の細部が見える」状態を目指す。
+        </div>
+        <span class="step-hint">DaVinci: Color → Primaries → Lift/Gamma/Gain</span>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-title">ホワイトバランスを補正する</div>
+        <div class="step-desc">
+          色温度スライダーを動かして「肌色や白いものが自然に見える」状態に。<br>
+          オレンジっぽすぎる→青に動かす、青っぽすぎる→オレンジに動かす。
+        </div>
+        <span class="step-hint">CapCut: フィルター → 色温度スライダー</span>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-title">コントラストを微調整する</div>
+        <div class="step-desc">
+          ここで「映像の雰囲気」の方向性を決める。<br>
+          ドラマチックにしたい→コントラスト＋10〜20、ナチュラルにしたい→そのままかマイナスに。
+        </div>
+        <span class="step-hint">Contrast/Shadow/Highlight スライダーを使う</span>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <div class="step-title">LUTを読み込んで雰囲気を乗せる</div>
+        <div class="step-desc">
+          好みのLUTファイルを読み込む（不透明度は50〜70%程度が自然）。<br>
+          強すぎると不自然になるので、透明度を下げながら馴染ませる。
+        </div>
+        <span class="step-hint">DaVinci: Color → LUT → ファイルを選択 → 強さをKeyで調節</span>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">5</div>
+      <div class="step-body">
+        <div class="step-title">彩度（色の濃さ）を最終調整して書き出す</div>
+        <div class="step-desc">
+          色が濃すぎると不自然になる。Saturation（彩度）を少し下げて「落ち着いた大人っぽい色」に。<br>
+          完成したら書き出して完了！
+        </div>
+        <span class="step-hint">Saturation −5〜−15 が映画風の定番値</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 実践例 ===== -->
+<section class="section">
+  <div class="section-title">🎬 真似できる実践例 ── カフェVlog 30秒を「映画風」にする</div>
+
+  <div class="example-box">
+    <div class="ex-head">☕ シナリオ：スマホで撮ったカフェ動画を「おしゃれな映像」に変える</div>
+
+    <div class="hflow" style="margin-bottom:16px;">
+      <div class="hf-box">📱 スマホで<br>撮影（普通の映像）</div>
+      <div class="hf-arrow">→</div>
+      <div class="hf-box">DaVinci<br>へ読み込み</div>
+      <div class="hf-arrow">→</div>
+      <div class="hf-box">色補正<br>（5ステップ）</div>
+      <div class="hf-arrow">→</div>
+      <div class="hf-box">✨ 映画風<br>カフェVlog</div>
+    </div>
+
+    <div class="cat-grid">
+      <div class="cat-card cc-a">
+        <div class="cc-head">🌡️ 色温度設定</div>
+        <ul>
+          <li>色温度：少しウォーム側に＋15</li>
+          <li>ティント：わずかにマゼンタ寄り</li>
+          <li>肌色が自然に見えるか確認</li>
+        </ul>
+      </div>
+      <div class="cat-card cc-b">
+        <div class="cc-head">⬛ コントラスト設定</div>
+        <ul>
+          <li>コントラスト：＋12</li>
+          <li>シャドウ：少し持ち上げる（黒浮き）</li>
+          <li>ハイライト：少し抑える</li>
+        </ul>
+      </div>
+      <div class="cat-card cc-c">
+        <div class="cc-head">🗂️ LUT設定</div>
+        <ul>
+          <li>「Golden Hour」系LUTを適用</li>
+          <li>不透明度：60%に下げる</li>
+          <li>彩度：−8（落ち着かせる）</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="green-box" style="margin-bottom:0;">
+      <div class="g-head">✅ 仕上げのポイント</div>
+      最後に全体を見て「人の肌が黄色くなりすぎていないか」「白い壁が青白くなっていないか」を確認。
+      どちらかに偏っていたら色温度スライダーを少し戻せばOK。
+      <strong>完成したら友達に「なんかプロっぽい！」と言わせよう。</strong>
+    </div>
+  </div>
+</section>
+
+<!-- ===== まとめ ===== -->
+<section class="section">
+  <div class="section-title">📌 今日のまとめ</div>
+
+  <div class="cat-grid">
+    <div class="cat-card cc-a">
+      <div class="cc-head">🌡️ 色温度</div>
+      <ul>
+        <li>K値が低い＝暖色（温かい）</li>
+        <li>K値が高い＝寒色（クール）</li>
+        <li>ムードで意図的に使い分ける</li>
+        <li>プロンプトでも指定できる</li>
+      </ul>
+    </div>
+    <div class="cat-card cc-b">
+      <div class="cc-head">⬛ コントラスト</div>
+      <ul>
+        <li>高い＝ドラマチック・映画的</li>
+        <li>低い＝ナチュラル・穏やか</li>
+        <li>シネマはシャドウにティール</li>
+        <li>Saturation −5〜−15 が鉄板</li>
+      </ul>
+    </div>
+    <div class="cat-card cc-c">
+      <div class="cc-head">🗂️ LUT</div>
+      <ul>
+        <li>ファイル1つで色が一変する</li>
+        <li>不透明度60%が自然な馴染み</li>
+        <li>Teal & Orangeが最も汎用的</li>
+        <li>無料配布も多く入手しやすい</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="warn-box">
+    <div class="warn-head">⚠️ 免責事項</div>
+    紹介したAIツール・ソフトウェアの名称・機能・料金・商用利用の可否は頻繁に変更されます。
+    最新情報と利用規約は必ず各公式ページでご確認ください。LUTファイルの商用利用可否も配布元の規約で異なります。
+  </div>
+</section>
+
+</div><!-- /wrap -->
+
+<footer>
+  AI動画制作 日報 ｜ 2026-07-01 ｜ エバーグリーン回：カラーグレーディング入門<br>
+  ※ 本記事はAIが生成したものです。ツールの情報は変更される場合があります。最新情報は公式サイトをご確認ください。<br>
+  <a href="index.html">← 一覧に戻る</a>
+</footer>
+</body>
+</html>
