@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-07-01</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  /* ヘッダー */
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '🧬';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.45rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  /* カード共通 */
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  /* アクセントカラー変種 */
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  /* キーポイント3列 */
+  .points {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+  .point-item {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 18px 20px;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.08);
+    border-top: 4px solid #1a7a5a;
+    font-size: 0.88rem;
+  }
+  .point-item.orange-top { border-top-color: #e07b2a; }
+  .point-item.blue-top   { border-top-color: #1a5e8a; }
+  .point-item .icon { font-size: 1.5rem; margin-bottom: 8px; }
+  .point-item strong { display: block; font-size: 0.95rem; margin-bottom: 4px; color: #0d4a35; }
+  /* 数字カード */
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.4rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.77rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  /* 比較表（3列） */
+  .compare3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 18px 16px;
+    font-size: 0.86rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col h3 { font-size: 0.95rem; margin-bottom: 10px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col ul { padding-left: 1.2em; }
+  .c3-col li { margin-bottom: 5px; }
+  /* フロー図 */
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt {
+    background: #fef0e4;
+    border-color: #e07b2a;
+  }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  /* メカニズムグリッド */
+  .mech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .mech-item {
+    background: #f0faf5;
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 0.85rem;
+    border-top: 3px solid #1a7a5a;
+  }
+  .mech-item .micon { font-size: 1.3rem; margin-bottom: 6px; }
+  .mech-item strong { display: block; color: #0d4a35; margin-bottom: 4px; font-size: 0.88rem; }
+  /* 警告ボックス */
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  /* エビデンスランク */
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td {
+    padding: 8px 12px;
+    border-bottom: 1px solid #ddd;
+  }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high   { background: #cff0df; color: #1a6e4a; }
+  .ev-mid    { background: #fff0c8; color: #8a6000; }
+  .ev-low    { background: #fce8e8; color: #a02020; }
+  /* 出典 */
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  /* 免責 */
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .highlight { background: #cff0df; padding: 1px 5px; border-radius: 4px; }
+  .good { color: #1a7a5a; font-weight: 600; }
+  .bad  { color: #c0392b; font-weight: 600; }
+  /* 実践ステップ */
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  /* 定義ボックス */
+  .def-box {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin: 14px 0;
+    font-size: 0.92rem;
+  }
+  .def-box .def-label {
+    font-size: 0.75rem;
+    color: #1a7a5a;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .def-box blockquote {
+    border-left: 3px solid #1a7a5a;
+    padding-left: 14px;
+    color: #0d4a35;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin: 8px 0;
+  }
+  @media (max-width: 540px) {
+    .compare3 { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.2rem; }
+    .num-card .big { font-size: 1.9rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ヘッダー -->
+<div class="header">
+  <div class="label">健康・栄養 最新トピック ・ 2026-07-01</div>
+  <h1>「あなたに合った食事」は本当に効くのか？<br>
+  精密栄養学・24本のRCTレビューが示す現在地</h1>
+  <div class="subtitle">遺伝子や体質に合わせて食事を個別化する「精密栄養学」。2026年に発表された系統的レビュー（24件のランダム化比較試験、2000〜2025年）から、効果が出ている部分と、まだ証明されていない部分を整理します。</div>
+</div>
+
+<!-- タグ -->
+<div style="margin-bottom:18px;">
+  <span class="tag">精密栄養学</span>
+  <span class="tag">パーソナライズド栄養</span>
+  <span class="tag">遺伝子型・表現型</span>
+  <span class="tag">腸内細菌×AI</span>
+  <span class="tag">系統的レビュー（24 RCT）</span>
+  <span class="tag">エビデンスの読み方</span>
+</div>
+
+<!-- 今日の問い -->
+<div class="card">
+  <h2>🤔 今日の疑問：「あなたの遺伝子に合わせた食事プラン」は本当に効くの？</h2>
+  <p>「DNA検査で自分に合う食事がわかる」「腸内細菌を調べて最適な食事を提案」——そんなサービスを見たことがある人も多いはずです。これは<strong>精密栄養学（precision nutrition）</strong>と呼ばれる分野の応用例です。</p>
+  <p>では、こうした「個人に合わせた食事アドバイス」は、みんなに同じアドバイスをする「一般的な健康食指導」より本当に効果があるのでしょうか。2026年1月にオンライン公開された系統的レビューが、過去25年分のランダム化比較試験（RCT＝対象者をくじ引きで2グループ以上に分け、原因と結果の関係＝因果関係を確かめる最も信頼性の高い実験デザインの一つ）を整理し、その答えを探っています。</p>
+</div>
+
+<!-- 精密栄養学の定義 -->
+<div class="card blue">
+  <h2>📖 そもそも「精密栄養学」とは？</h2>
+  <div class="def-box">
+    <div class="def-label">米国国立衛生研究所（NIH）の定義</div>
+    <blockquote>
+      個人の分子プロファイル（代謝物・遺伝子・タンパク質・腸内細菌など）に基づき、健康の最適化・病気の予防・治療効果の向上を目指す栄養指導。「みんなに同じアドバイス」から「一人ひとりに合わせたアドバイス」への転換を目指す。
+    </blockquote>
+  </div>
+  <p>NIHは2020年代に「Nutrition for Precision Health」という大規模研究（10,000人規模）を立ち上げ、食事に対する体の反応を遺伝子・生活習慣・腸内細菌などから予測するアルゴリズム開発を進めています（2023年 AJCN誌のNIHワークショップ報告）。</p>
+</div>
+
+<!-- 数字で見るレビュー概要 -->
+<div class="card orange">
+  <h2>🔢 今回のレビューを数字で見る（Martinsen &amp; Brennan, Food &amp; Function, 2026）</h2>
+  <div class="num-row">
+    <div class="num-card">
+      <div class="big">24</div>
+      <div class="desc">対象となったRCT論文数<br>（2000〜2025年にPubMed掲載）</div>
+    </div>
+    <div class="num-card orange-bg">
+      <div class="big">12</div>
+      <div class="desc">「現在の食事＋表現型・代謝バイオマーカー」による個別化を検証した研究数</div>
+    </div>
+    <div class="num-card blue-bg">
+      <div class="big">5</div>
+      <div class="desc">「遺伝子型」に基づく個別化を検証した研究数</div>
+    </div>
+    <div class="num-card gray-bg">
+      <div class="big">7</div>
+      <div class="desc">「腸内細菌叢＋AIアルゴリズム」による個別化を検証した研究数</div>
+    </div>
+  </div>
+  <p style="font-size:0.85rem; color:#555;">※ アイルランド・ダブリン大学（UCD）の Martinsen と Brennan によるレビュー。Food &amp; Function誌 2026年17巻646-658ページに掲載（オンライン初出：2025年12月22日）。研究デザイン・アウトカム指標がバラバラなため、結果を1つの数値に統合する「メタ分析」ではなく、内容を整理する「系統的レビュー」という手法がとられています。</p>
+</div>
+
+<!-- 3段階の精密栄養学 -->
+<div class="card">
+  <h2>📊 精密栄養学の「個別化レベル」を3段階で見る</h2>
+  <p>このレビューは、個別化の「材料」によって研究を3つのグループに分けています。材料が増えるほど高度に見えますが、それだけ効果が高いとは限らない——というのが今回の重要なポイントです。</p>
+  <div class="compare3">
+    <div class="c3-col green">
+      <h3>① 食事・表現型ベース</h3>
+      <ul>
+        <li><strong>材料：</strong>普段の食事内容＋血糖値・コレステロールなどの代謝バイオマーカー（表現型＝体に現れた性質）</li>
+        <li><strong>例：</strong>今の食事の偏りを分析し、個人の数値に合わせて助言</li>
+        <li><strong>研究数：</strong>12件</li>
+      </ul>
+    </div>
+    <div class="c3-col blue">
+      <h3>② 遺伝子型ベース</h3>
+      <ul>
+        <li><strong>材料：</strong>①に加えて、肥満関連遺伝子（FTO など）の検査結果</li>
+        <li><strong>例：</strong>「あなたはFTO遺伝子のリスク型なので脂質を控えめに」といった助言</li>
+        <li><strong>研究数：</strong>5件</li>
+      </ul>
+    </div>
+    <div class="c3-col orange">
+      <h3>③ 腸内細菌×AIベース</h3>
+      <ul>
+        <li><strong>材料：</strong>腸内細菌叢の構成データ＋AIによる食後血糖反応の予測アルゴリズム</li>
+        <li><strong>例：</strong>「あなたの腸内細菌だとこのパンは血糖が上がりやすい」といった予測</li>
+        <li><strong>研究数：</strong>7件</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Food4Me試験 -->
+<div class="card purple">
+  <h2>🇪🇺 代表例：欧州 Food4Me試験（European RCT）</h2>
+  <p>このレビューで重点的に取り上げられている代表的なRCTが、欧州7か国で実施された<strong>Food4Me試験</strong>です（Celis-Morales ら, International Journal of Epidemiology, 2017, PMID:27524815, ISRCTN24233593）。「個別化の材料を増やすほど効果は上がるのか？」を直接検証した数少ない研究です。</p>
+
+  <div class="num-row">
+    <div class="num-card">
+      <div class="big">1,269</div>
+      <div class="desc">6か月時点での試験完了者数（欧州7か国）</div>
+    </div>
+    <div class="num-card blue-bg">
+      <div class="big">4群</div>
+      <div class="desc">標準アドバイス群 ＋ 個別化3段階群で比較</div>
+    </div>
+    <div class="num-card orange-bg">
+      <div class="big">6<span class="unit">ヶ月</span></div>
+      <div class="desc">介入期間とアウトカム測定時点</div>
+    </div>
+  </div>
+
+  <div class="flow">
+    <div class="flow-step">標準的な<br>健康食アドバイス<br>（対照群）</div>
+    <div class="flow-arrow">vs</div>
+    <div class="flow-step">①食事のみで<br>個別化</div>
+    <div class="flow-arrow">＋</div>
+    <div class="flow-step">②食事＋<br>表現型で個別化</div>
+    <div class="flow-arrow">＋</div>
+    <div class="flow-step alt">③食事＋表現型＋<br>遺伝子型で個別化</div>
+  </div>
+
+  <p style="margin-top:10px;"><strong>主な結果：</strong></p>
+  <ul>
+    <li>①②③のいずれの個別化群も、対照群（標準アドバイス）より<strong>食事の質の改善幅が大きかった</strong>。</li>
+    <li>しかし、②（表現型データ追加）や③（遺伝子型データ追加）が①（食事のみ）より<strong>さらに効果を上乗せしたという証拠は見られなかった</strong>。</li>
+    <li>FTO遺伝子（肥満関連遺伝子）のリスク型を持つ人と持たない人とで、<strong>体重・BMI・ウエスト周囲径の変化に有意差はなかった</strong>。</li>
+  </ul>
+  <div class="warn">
+    <strong>読み解きのポイント：</strong>「個別化の材料を増やすほど良い」というイメージとは裏腹に、Food4Me試験では<span class="bad">遺伝子情報を加えても上乗せ効果は確認されませんでした</span>。これは1試験の結果であり、すべての精密栄養学サービスに当てはまるとは言えませんが、「高度な検査＝効果が高い」という単純な図式には注意が必要というメッセージです。
+  </div>
+</div>
+
+<!-- アウトカム別の結果まとめ -->
+<div class="card">
+  <h2>📋 アウトカム（結果指標）別に見た効果のまとめ</h2>
+  <table class="ev-table">
+    <tr>
+      <th>アウトカム</th>
+      <th>レビュー全体（24研究）での傾向</th>
+      <th>注意点</th>
+    </tr>
+    <tr>
+      <td>食事の質</td>
+      <td><span class="good">多くの研究で一貫して改善</span></td>
+      <td>個別化の方法によらず比較的安定した結果</td>
+    </tr>
+    <tr>
+      <td>HbA1c・中性脂肪・<br>インスリン感受性</td>
+      <td><span class="good">複数の研究で有意な改善</span></td>
+      <td>改善が見られた研究の多くは①②のタイプ</td>
+    </tr>
+    <tr>
+      <td>体重</td>
+      <td>群間で有意差を示した研究は<span class="bad">少数</span></td>
+      <td>Food4Meを含め多くは「有意差なし」</td>
+    </tr>
+    <tr>
+      <td>血圧</td>
+      <td>ほとんどの研究で<span class="bad">有意差なし</span></td>
+      <td>個別化栄養の効果が出にくいアウトカムの一つ</td>
+    </tr>
+  </table>
+</div>
+
+<!-- 研究のギャップ・限界 -->
+<div class="card red">
+  <h2>⚠️ レビューが指摘する「まだわかっていないこと」</h2>
+  <div class="warn">
+    <strong>このレビュー自身が挙げる限界・研究ギャップ：</strong>
+    <ul style="padding-left:1.4em; margin-top:6px;">
+      <li><strong>効果量（どれくらい効くか）の比較が困難：</strong>24研究はアウトカム指標や介入方法がバラバラで、統計的に1つの数値へ統合するメタ分析ができていません。</li>
+      <li><strong>「個別化したから効いた」のか「アドバイス・フィードバックを受けたから効いた」のかが切り分けにくい：</strong>個別化された食事への遵守（アドヒアランス）が、一般的な健康食への遵守と比べて、本当に健康指標の改善につながるかの証拠はまだ明確ではない、とレビュー著者は指摘しています。</li>
+      <li><strong>対象者の偏り：</strong>多くの研究が欧米の成人を対象としており、日本人を含むアジア集団でも同様の結果になるかは別途の検証が必要です。</li>
+      <li><strong>試験規模の幅が大きい：</strong>Food4Me（完了者1,269人）のような大規模試験がある一方、数十人規模の小さな試験も含まれており、研究ごとの信頼性に差があります。</li>
+    </ul>
+  </div>
+  <p>つまり今回のレビューは「精密栄養学はRCTでも効果がまったく無い」と言っているわけではありません。<strong>食事の質や一部の代謝指標では改善の証拠が積み上がってきている一方、「個別化の材料を増やすほど良い」「体重や血圧にも効く」と言い切るにはまだ証拠が足りない</strong>、という慎重な結論です。</p>
+</div>
+
+<!-- エビデンスの強さ早見表 -->
+<div class="card orange">
+  <h2>🧭 エビデンスの強さ早見表</h2>
+  <table class="ev-table">
+    <tr>
+      <th>主張</th>
+      <th>証拠の種類</th>
+      <th>エビデンスの強さ</th>
+    </tr>
+    <tr>
+      <td>個別化栄養は食事の質を改善する</td>
+      <td>24 RCTの系統的レビュー</td>
+      <td><span class="ev-badge ev-high">複数RCTで一貫</span></td>
+    </tr>
+    <tr>
+      <td>個別化栄養は一部の代謝指標（HbA1c等）を改善しうる</td>
+      <td>複数RCT（研究によりばらつき）</td>
+      <td><span class="ev-badge ev-mid">中程度</span></td>
+    </tr>
+    <tr>
+      <td>遺伝子型データの追加が食事のみの個別化より効果が高い</td>
+      <td>Food4Me等の限定的なRCT</td>
+      <td><span class="ev-badge ev-low">支持する証拠は乏しい</span></td>
+    </tr>
+    <tr>
+      <td>個別化栄養は体重・血圧を明確に改善する</td>
+      <td>多くのRCTで有意差なし</td>
+      <td><span class="ev-badge ev-low">証拠不十分</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- 精密栄養学の視点 -->
+<div class="card">
+  <h2>🎯 今後の展望：精密栄養学はどこへ向かうのか</h2>
+  <p>今回のレビューが対象としたのは2025年までのRCTです。一方でNIHの「Nutrition for Precision Health」など、より大規模で長期的な研究が進行中であり、腸内細菌叢×AI予測（③のタイプ）はまだ研究数が少なく将来性が期待される領域です。</p>
+  <ul>
+    <li>「個別化すれば必ず健康になる」という単純な図式ではなく、<strong>どの指標に・どんな個別化が・どの程度効くか</strong>を一つずつ検証していく段階にあります。</li>
+    <li>市販のDNA検査キットや腸内細菌検査サービスを使う場合も、現時点の科学的根拠は発展途上であることを念頭に置くことが大切です。</li>
+  </ul>
+</div>
+
+<!-- まとめ -->
+<div class="card" style="border-left-color:#1a7a5a;">
+  <h2>✅ 今日のまとめ</h2>
+  <ul class="step-list">
+    <li>精密栄養学（精密栄養学・パーソナライズド栄養）とは、遺伝子・体質・腸内細菌などの個人差に基づいて食事指導を最適化しようとする分野（NIH定義）。</li>
+    <li>2026年発表の系統的レビュー（Martinsen &amp; Brennan, Food &amp; Function, DOI:10.1039/D5FO02969D）は、2000〜2025年の24件のRCTを整理し、食事の質と一部の代謝マーカーでの改善は比較的一貫して報告されている一方、体重・血圧への効果ははっきりしないとした。</li>
+    <li>欧州のFood4Me試験（n=1,269）では、遺伝子型データを追加しても食事のみの個別化を上回る効果は確認されず、「材料を増やすほど良い」とは言い切れないことが示された。</li>
+    <li>このレビューはRCTを集めた系統的レビューであり、研究間のばらつきが大きいため統計的なメタ分析（効果量の統合）には至っていない。1つの研究や1つのサービスの宣伝文句を「精密栄養学全体の証拠」と混同しないことが大切。</li>
+    <li>市販の遺伝子検査・腸内細菌検査に基づく食事プランは発展途上の分野であり、過度な期待や高額な投資は禁物。気になる場合はまず管理栄養士などの専門家に相談を。</li>
+  </ul>
+</div>
+
+<!-- 免責 -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報提供を目的としており、医療上のアドバイスではありません。効果・必要量・リスクは個人の体質・年齢・持病・服薬状況によって大きく異なります。特定の食事法・遺伝子検査サービス・サプリメント・断食などを安易に勧めるものではありません。実践の前には、かかりつけ医・管理栄養士・薬剤師など専門家にご相談ください。
+</div>
+
+<!-- 出典 -->
+<div class="sources">
+  <h3>📚 主な出典・参考文献</h3>
+  <ol>
+    <li>Martinsen T, Brennan L. "Key evidence for personalised nutrition: a review of randomised controlled trials." <em>Food &amp; Function</em>, 2026, 17, 646-658. DOI: 10.1039/D5FO02969D（オンライン公開：2025年12月22日）
+      <a href="https://pubs.rsc.org/en/content/articlelanding/2026/fo/d5fo02969d" target="_blank">https://pubs.rsc.org/en/content/articlelanding/2026/fo/d5fo02969d</a>
+      ／ <a href="https://pubmed.ncbi.nlm.nih.gov/41493072/" target="_blank">PubMed: PMID 41493072</a>
+    </li>
+    <li>Celis-Morales C et al. "Effect of personalized nutrition on health-related behaviour change: evidence from the Food4Me European randomized controlled trial." <em>International Journal of Epidemiology</em>, 2017, 46(2):578-588. PMID: 27524815. ISRCTN24233593.
+      <a href="https://academic.oup.com/ije/article/46/2/578/2622850" target="_blank">https://academic.oup.com/ije/article/46/2/578/2622850</a>
+    </li>
+    <li>Research gaps and opportunities in precision nutrition: an NIH workshop report. <em>The American Journal of Clinical Nutrition</em>, 2023.
+      <a href="https://ajcn.nutrition.org/article/S0002-9165(23)03718-8/fulltext" target="_blank">https://ajcn.nutrition.org/article/S0002-9165(23)03718-8/fulltext</a>
+    </li>
+    <li>NIH Common Fund. "Nutrition for Precision Health, powered by the All of Us Research Program."（2026年6月確認）
+      <a href="https://commonfund.nih.gov/nutritionforprecisionhealth" target="_blank">https://commonfund.nih.gov/nutritionforprecisionhealth</a>
+    </li>
+  </ol>
+</div>
+
+</div>
+</body>
+</html>
