@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>生成AI 最新トピック 2026-07-01</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .cover {
+    background: linear-gradient(135deg, #0d1f3c 0%, #1a3a6b 100%);
+    color: white;
+    border-radius: 8px;
+    padding: 60px 40px;
+    text-align: center;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.3);
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 28px,
+      rgba(255,255,255,0.07) 28px,
+      rgba(255,255,255,0.07) 29px
+    );
+  }
+  .cover-emoji { font-size: 64px; display: block; margin-bottom: 16px; }
+  .cover h1 {
+    font-family: 'Klee One', sans-serif;
+    font-size: 2.4rem;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 12px;
+    position: relative;
+  }
+  .cover .subtitle {
+    font-size: 1.05rem;
+    opacity: 0.85;
+    margin-bottom: 8px;
+    position: relative;
+  }
+  .cover .date-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 20px;
+    padding: 6px 20px;
+    font-size: 1rem;
+    margin-top: 16px;
+    position: relative;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 6px;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.12);
+    position: relative;
+    overflow: hidden;
+  }
+  .card-body {
+    padding: 28px 36px 28px 64px;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 31px,
+      #e0d8c8 31px,
+      #e0d8c8 32px
+    );
+    background-color: #fff9f0;
+    min-height: 200px;
+  }
+  .card-body::before {
+    content: '';
+    position: absolute;
+    left: 52px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #a0b8e8;
+    opacity: 0.7;
+  }
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 8px;
+    border-bottom: 2px dashed #c8b89a;
+  }
+  .card-emoji { font-size: 2rem; }
+  .card-title {
+    font-family: 'Klee One', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #2c3e50;
+    line-height: 1.3;
+  }
+  .topic-badge {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-left: auto;
+    white-space: nowrap;
+  }
+  .badge-blue   { background: #e0eeff; color: #2255aa; border: 1px solid #a0c0f5; }
+  .badge-green  { background: #e0f5e0; color: #1e7e34; border: 1px solid #a0d8a0; }
+  .badge-purple { background: #f0e0ff; color: #7b2fbe; border: 1px solid #c8a0f0; }
+  .badge-orange { background: #fff0d0; color: #cc6600; border: 1px solid #f0c070; }
+  .badge-red    { background: #ffe0e0; color: #aa2222; border: 1px solid #f0a0a0; }
+  .badge-teal   { background: #d0f0f0; color: #006060; border: 1px solid #80d0d0; }
+  .badge-steel  { background: #deeaf8; color: #0d5c8a; border: 1px solid #8ab4d8; }
+  .badge-navy   { background: #e0e8f8; color: #0d2255; border: 1px solid #8090c8; }
+
+  .simple-box {
+    background: #fff7e0;
+    border-left: 4px solid #f5c842;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin: 16px 0;
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+  .simple-box .label {
+    display: inline-block;
+    background: #f5c842;
+    color: #5a4000;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+  }
+
+  .point-list {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0;
+  }
+  .point-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 0;
+    font-size: 0.97rem;
+    line-height: 1.7;
+    color: #333;
+    border-bottom: 1px dotted #ddd;
+  }
+  .point-list li:last-child { border-bottom: none; }
+  .point-list .marker {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-top: 2px;
+  }
+  .marker-blue   { background: #2255aa; color: white; }
+  .marker-red    { background: #aa2222; color: white; }
+  .marker-orange { background: #cc6600; color: white; }
+  .marker-green  { background: #1e7e34; color: white; }
+  .marker-steel  { background: #0d5c8a; color: white; }
+  .marker-purple { background: #7b2fbe; color: white; }
+  .marker-navy   { background: #0d2255; color: white; }
+
+  .hl-yellow { background: linear-gradient(transparent 60%, #ffe566 60%); }
+  .hl-pink   { background: linear-gradient(transparent 60%, #ffb3c6 60%); }
+  .hl-blue   { background: linear-gradient(transparent 60%, #b3d4ff 60%); }
+  .hl-green  { background: linear-gradient(transparent 60%, #b3f0b3 60%); }
+  .hl-red    { background: linear-gradient(transparent 60%, #ffb3b3 60%); }
+
+  .sticky {
+    background: #fff9c4;
+    border-radius: 4px;
+    padding: 12px 16px;
+    margin: 14px 0;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.1);
+    transform: rotate(-0.5deg);
+    display: inline-block;
+    width: 100%;
+    color: #4a3800;
+  }
+
+  .source {
+    font-size: 0.78rem;
+    color: #888;
+    margin-top: 14px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+  }
+  .source a { color: #5577aa; text-decoration: none; }
+  .source a:hover { text-decoration: underline; }
+
+  .summary-card {
+    background: linear-gradient(135deg, #0d1f3c 0%, #1a3a6b 100%);
+    color: white;
+    border-radius: 8px;
+    padding: 36px 40px;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.2);
+  }
+  .summary-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px dashed rgba(255,255,255,0.4);
+  }
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+  }
+  .summary-item {
+    background: rgba(255,255,255,0.12);
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  .summary-item .s-emoji { font-size: 1.6rem; display: block; margin-bottom: 6px; }
+  .summary-item .s-title { font-weight: 600; margin-bottom: 4px; font-size: 1rem; }
+
+  .footer {
+    text-align: center;
+    color: #888;
+    font-size: 0.8rem;
+    padding: 20px;
+    max-width: 820px;
+    width: 100%;
+  }
+
+  .toc {
+    background: #f8f4ec;
+    border: 2px solid #c8b89a;
+    border-radius: 8px;
+    padding: 20px 28px;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+  }
+  .toc h2 { font-size: 1.1rem; color: #5a4030; margin-bottom: 12px; }
+  .toc ol { padding-left: 20px; }
+  .toc li { padding: 4px 0; font-size: 0.93rem; }
+  .toc a { color: #2255aa; text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+
+  .two-col {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 16px 0;
+  }
+  .two-col-item {
+    flex: 1;
+    min-width: 200px;
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 0.85rem;
+    line-height: 1.7;
+  }
+
+  @media (max-width: 600px) {
+    .card-body { padding: 20px 20px 20px 44px; }
+    .card-title { font-size: 1.15rem; }
+    .cover h1 { font-size: 1.8rem; }
+    .summary-card { padding: 24px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- 表紙 -->
+<div class="cover">
+  <span class="cover-emoji">📸🤝🤖</span>
+  <h1>生成AI 最新トピック</h1>
+  <div class="subtitle">「写真4億枚がChatGPTに表示される」── 写真ライセンスとAIの新しい関係（2026年6月）</div>
+  <div class="date-badge">📅 2026年7月1日号</div>
+</div>
+
+<!-- 目次 -->
+<div class="toc">
+  <h2>📋 今日の目次</h2>
+  <ol>
+    <li><a href="#topic1">何が発表されたか── ライセンス写真がAIの回答に登場する「表示提携」</a></li>
+    <li><a href="#topic2">大事なポイント── 「表示」と「学習」はまったく別もの</a></li>
+    <li><a href="#topic3">残された問い── クリエイターへの報酬はどうなるのか</a></li>
+    <li><a href="#summary">今日のまとめ</a></li>
+  </ol>
+</div>
+
+<!-- ===== トピック1：何が発表されたか ===== -->
+<div class="card" id="topic1">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">📸</span>
+      <div class="card-title">何が発表されたか<br>── ライセンス写真がAIの回答に登場する「表示提携」</div>
+      <span class="topic-badge badge-blue">提携・サービス</span>
+    </div>
+
+    <div class="simple-box">
+      <span class="label">🌱 やさしく解説</span><br>
+      2026年6月21日、大手写真素材会社と大手AI企業が<span class="hl-yellow">マルチイヤー（複数年）の「表示提携」</span>を発表しました。（出典：Getty Images公式プレスリリース・2026年6月）<br><br>
+      「表示提携（display partnership）」とは、<span class="hl-blue">AIが質問に答えるとき、その回答に一緒にライセンス写真を表示できる</span>という契約です。たとえば「スポーツの試合の写真を見せて」と聞いたとき、正規ルートで許可された本物の報道写真が表示されるイメージです。
+    </div>
+
+    <p style="font-size:0.85rem; font-weight:600; color:#555; margin:20px 0 10px;">📋 発表の概要（2026年6月）</p>
+    <ul class="point-list">
+      <li>
+        <span class="marker marker-blue">①</span>
+        <span><strong>対象の写真・素材：4億枚以上</strong> ── スポーツ・エンタメ・ニュースなどのプレミアム編集コンテンツを含む、4億枚以上の素材が対象。（出典：Getty Images公式プレスリリース・2026年6月）</span>
+      </li>
+      <li>
+        <span class="marker marker-blue">②</span>
+        <span><strong>表示される場所：ChatGPTの検索・発見機能</strong> ── AIが回答を生成する際に、あわせてライセンス写真を表示する形。（出典：Getty Images公式プレスリリース・2026年6月）</span>
+      </li>
+      <li>
+        <span class="marker marker-blue">③</span>
+        <span><strong>複数年にわたる契約</strong> ── 単発ではなく、継続的なパートナーシップとして締結。（出典：Getty Images公式プレスリリース・2026年6月）</span>
+      </li>
+      <li>
+        <span class="marker marker-blue">④</span>
+        <span><strong>株価が急騰</strong> ── 発表翌営業日に写真素材会社の株価が<span class="hl-yellow">145%以上</span>急騰。市場の注目度の高さを示した。（出典：Bloomberg・2026年6月22日報道）</span>
+      </li>
+    </ul>
+
+    <div class="sticky">
+      ✏️ <strong>中学生的に言うと：</strong>「AIに『猫の写真を見せて』と頼んだとき、AIが自分で作った絵ではなく、ちゃんと許可を取った本物の写真家の写真を出してくれるようになる。報道写真なども含まれる。」
+    </div>
+
+    <div class="source">
+      📎 出典：
+      <a href="https://newsroom.gettyimages.com/en/getty-images/getty-images-announces-display-partnership-with-openai" target="_blank">Getty Images Newsroom – "Getty Images Announces Display Partnership with OpenAI"（2026年6月）</a> /
+      <a href="https://www.bloomberg.com/news/articles/2026-06-22/getty-images-soars-200-in-early-trading-after-openai-deal" target="_blank">Bloomberg – "Getty Images Surges 145% After Announcing OpenAI Deal"（2026年6月22日）</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== トピック2：「表示」と「学習」の違い ===== -->
+<div class="card" id="topic2">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">🔍</span>
+      <div class="card-title">大事なポイント<br>── 「表示」と「学習」はまったく別もの</div>
+      <span class="topic-badge badge-orange">著作権・AI倫理</span>
+    </div>
+
+    <div class="simple-box">
+      <span class="label">🌱 やさしく解説</span><br>
+      今回の契約で最も重要なのは、<span class="hl-red">「写真をAIに学習させることは許可していない」</span>という点です。（出典：Getty Images公式プレスリリース・2026年6月）<br><br>
+      「<span class="hl-blue">学習（training）</span>」とは、AIが写真を大量に読み込んで、自分で似たような絵を生成できるようにすること。今回はそれを禁止し、<span class="hl-yellow">あくまで「画面に表示するだけ」</span>という取り決めです。
+    </div>
+
+    <p style="font-size:0.85rem; font-weight:600; color:#555; margin:20px 0 10px;">🆚 「表示」と「学習」の違い</p>
+    <div class="two-col">
+      <div class="two-col-item" style="background:#e8f5e8; border:2px solid #44aa44;">
+        <strong style="color:#1e7e34;">✅ 今回の契約でできること（表示）</strong><br>
+        <span style="font-size:0.82rem; color:#333; line-height:1.8;">
+          AIが回答する際に、許可を取ったライセンス写真を<strong>一緒に画面に出す</strong>こと。写真に帰属表示（クレジット）が付く形。（出典：Getty Images公式プレスリリース・2026年6月）
+        </span>
+      </div>
+      <div class="two-col-item" style="background:#fff0f0; border:2px solid #dd4444;">
+        <strong style="color:#aa2222;">🚫 今回の契約でできないこと（学習）</strong><br>
+        <span style="font-size:0.82rem; color:#333; line-height:1.8;">
+          写真をAIの画像生成モデルに食べさせて、そこから<strong>新しい絵を作る</strong>ために使うこと。画像生成AIへの学習利用は明示的に禁止。（出典：Getty Images公式プレスリリース・2026年6月）
+        </span>
+      </div>
+    </div>
+
+    <div class="simple-box" style="background:#e8eeff; border-left-color:#4466cc;">
+      <span class="label" style="background:#4466cc; color:white;">背景：AIと写真の著作権問題</span><br>
+      写真素材会社は2023年、ある画像生成AIに対して「無断で写真を学習データとして使用した」として訴訟を起こした経緯があります。今回の提携は、法的紛争とは別の文脈で、<span class="hl-blue">正規のライセンス料を払う形でAIとの関係を再構築しようとする動き</span>の一例と言えます。（出典：Forbes・2026年6月24日報道）<br><br>
+      <span style="font-size:0.82rem; color:#666;">※ 訴訟の状況・和解の有無は公式で要確認。</span>
+    </div>
+
+    <div class="sticky">
+      ✏️ <strong>中学生的に言うと：</strong>「図書館で本を『読んで内容を覚える』のはOK。でも本をコピーして自分の作品に使うのはNG。今回は『画面に表示して紹介する』だけで、『コピーして学習に使う』のは禁止された。」
+    </div>
+
+    <div class="source">
+      📎 出典：
+      <a href="https://newsroom.gettyimages.com/en/getty-images/getty-images-announces-display-partnership-with-openai" target="_blank">Getty Images Newsroom – "Getty Images Announces Display Partnership with OpenAI"（2026年6月）</a> /
+      <a href="https://www.forbes.com/sites/legalentertainment/2026/06/24/gettys-deal-with-openai-leaves-ip-issues-open/" target="_blank">Forbes – "Getty's Deal With OpenAI Leaves IP Issues Open"（2026年6月24日）</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== トピック3：残された問い ===== -->
+<div class="card" id="topic3">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">❓</span>
+      <div class="card-title">残された問い<br>── クリエイターへの報酬はどうなるのか</div>
+      <span class="topic-badge badge-purple">著作権・未解決</span>
+    </div>
+
+    <div class="simple-box">
+      <span class="label">🌱 やさしく解説</span><br>
+      今回の発表で最後まで明かされなかったのが、<span class="hl-red">「写真を撮ったカメラマンや映像作家への報酬」</span>です。この会社には約60万人のコントリビューター（素材を提供するクリエイター）がいますが、AI経由の表示でどれほど収益が分配されるかは、発表時点では不明です。（出典：TechTimes・2026年6月24日）
+    </div>
+
+    <p style="font-size:0.85rem; font-weight:600; color:#555; margin:20px 0 10px;">📋 発表で明かされたこと／明かされなかったこと</p>
+    <ul class="point-list">
+      <li>
+        <span class="marker marker-green">✅</span>
+        <span><strong>明かされたこと：契約の存在と規模</strong> ── マルチイヤー契約・4億枚以上の素材・表示のみ（学習は禁止）という骨格。（出典：Getty Images公式プレスリリース・2026年6月）</span>
+      </li>
+      <li>
+        <span class="marker marker-green">✅</span>
+        <span><strong>明かされたこと：学習への利用禁止</strong> ── 画像生成AIの学習データとして写真を使うことは明示的に禁止。（出典：Getty Images公式プレスリリース・2026年6月）</span>
+      </li>
+      <li>
+        <span class="marker marker-red">❓</span>
+        <span><strong>明かされなかったこと：契約金額・収益配分</strong> ── AI企業がいくらを支払うか、クリエイターへの報酬分配のルールは非公表。（出典：TechTimes・2026年6月24日）<span class="hl-red">公式で要確認。</span></span>
+      </li>
+      <li>
+        <span class="marker marker-red">❓</span>
+        <span><strong>明かされなかったこと：知的財産問題の全面解決</strong> ── 過去に提起された著作権をめぐる法的問題が今回の契約でどう処理されるかは、まだ課題として残っている。（出典：Forbes・2026年6月24日）<span class="hl-red">公式で要確認。</span></span>
+      </li>
+    </ul>
+
+    <div class="simple-box" style="background:#f0f0ff; border-left-color:#7b2fbe;">
+      <span class="label" style="background:#7b2fbe; color:white;">なぜこれが重要か</span><br>
+      AIが写真を表示するたびに収益が生まれるとしても、それが最終的に<span class="hl-blue">写真を撮った人に届くかどうか</span>は別問題です。AIと大企業の間の「ビジネス契約」が、個人クリエイターにとって公正なものになっているかは、これからも問われ続ける論点です。（出典：Forbes・2026年6月24日）
+    </div>
+
+    <div class="sticky">
+      ✏️ <strong>中学生的に言うと：</strong>「写真の会社は大きなお金をもらえるかもしれないけど、実際にカメラを持って撮影した人に、ちゃんとお金が回ってくるのかはまだわからない。60万人のカメラマンが気にしていること。」
+    </div>
+
+    <div class="source">
+      📎 出典：
+      <a href="https://www.techtimes.com/articles/319030/20260624/getty-images-openai-deal-puts-licensed-photos-chatgpt-creator-pay-unknown.htm" target="_blank">TechTimes – "Getty Images OpenAI Deal Puts Licensed Photos in ChatGPT, Creator Pay Unknown"（2026年6月24日）</a> /
+      <a href="https://www.forbes.com/sites/legalentertainment/2026/06/24/gettys-deal-with-openai-leaves-ip-issues-open/" target="_blank">Forbes – "Getty's Deal With OpenAI Leaves IP Issues Open"（2026年6月24日）</a>
+    </div>
+  </div>
+</div>
+
+<!-- まとめ -->
+<div class="summary-card" id="summary">
+  <h2>📝 今日の大きな流れ ── 2026年7月1日のキーワード</h2>
+  <div class="summary-grid">
+    <div class="summary-item">
+      <span class="s-emoji">📸✅</span>
+      <div class="s-title">4億枚の写真がChatGPTに登場（6月21日発表）</div>
+      大手写真素材会社と大手AI企業がマルチイヤーの「表示提携」を発表。ライセンス写真がAIの回答と一緒に画面に表示されるようになる。（出典：Getty Images公式プレスリリース・2026年6月）
+    </div>
+    <div class="summary-item">
+      <span class="s-emoji">🚫🎨</span>
+      <div class="s-title">学習利用は明示禁止</div>
+      「画面に出す（表示）」はOKだが、「AI画像生成の学習データとして使う」ことは禁止。表示と学習を切り分けた契約の形が注目を集めた。（出典：Getty Images公式プレスリリース・2026年6月）
+    </div>
+    <div class="summary-item">
+      <span class="s-emoji">❓💰</span>
+      <div class="s-title">クリエイター60万人への報酬は不明</div>
+      契約金額も収益配分ルールも非公表。素材を提供する約60万人のカメラマン・映像作家への報酬がどう決まるかは、今後の課題として残っている。（出典：TechTimes・2026年6月24日）
+    </div>
+  </div>
+</div>
+
+<!-- フッター -->
+<div class="footer">
+  <p><strong>生成AI 最新トピック</strong> ── 2026-07-01号</p>
+  <p style="margin-top:6px;">各記事の出典URLは各トピック下部に記載しています。情報は収集時点のものです。</p>
+  <p style="margin-top:4px;"><a href="index.html" style="color:#aaa;">← バックナンバー一覧へ</a></p>
+</div>
+
+</body>
+</html>
