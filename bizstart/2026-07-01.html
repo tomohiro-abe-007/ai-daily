@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-07-01</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #2a4a7a 0%, #0d2a52 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #2a4a7a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.green  { border-left-color: #4a9e6a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.purple { border-left-color: #7a4a9e; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #2a4a7a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card.orange .sec-title { color: #9a5a10; }
+  .card.green  .sec-title { color: #2a7a4a; }
+  .card.red    .sec-title { color: #8a2020; }
+  .card.purple .sec-title { color: #5a2a8a; }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  /* Stats row */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 14px 10px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat .sl { font-size: 0.67rem; color: #888; margin-bottom: 3px; }
+  .stat .sv { font-size: 1.45rem; font-weight: 700; color: #2a4a7a; line-height: 1.15; }
+  .stat .su { font-size: 0.68rem; color: #666; margin-top: 3px; line-height: 1.4; }
+
+  /* Flow steps */
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #2a4a7a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+
+  /* Risk grid */
+  .risk-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .risk-grid { grid-template-columns: 1fr; } }
+  .risk-card {
+    border-radius: 10px;
+    padding: 14px;
+    font-size: 0.83rem;
+    line-height: 1.6;
+  }
+  .risk-card.r1 { background: #fde8e8; border: 2px solid #b54040; }
+  .risk-card.r2 { background: #fff3e0; border: 2px solid #c8884a; }
+  .risk-card.r3 { background: #f5e8fd; border: 2px solid #7a4a9e; }
+  .risk-card .r-title {
+    font-weight: 700;
+    font-size: 0.84rem;
+    margin-bottom: 6px;
+  }
+  .risk-card.r1 .r-title { color: #8a1a1a; }
+  .risk-card.r2 .r-title { color: #7a4010; }
+  .risk-card.r3 .r-title { color: #4a1a7a; }
+
+  /* Law box */
+  .law-box {
+    background: #e8f0f8;
+    border: 2px solid #2a4a7a;
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin: 12px 0;
+    font-size: 0.87rem;
+    line-height: 1.8;
+    color: #0d2a52;
+  }
+  .law-box .lh {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #2a4a7a;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+
+  /* Check list */
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.87rem;
+    line-height: 1.6;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; font-size: 1rem; }
+  .check-list .ck-warn { color: #c8884a; font-weight: 700; flex-shrink: 0; margin-top: 1px; font-size: 1rem; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; font-size: 1rem; }
+
+  /* Info / Warn / Danger */
+  .info {
+    background: #e8f0f8;
+    border-left: 4px solid #2a4a7a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.7;
+    color: #0d2a52;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.7;
+    color: #7a4010;
+  }
+  .danger {
+    background: #fde8e8;
+    border-left: 4px solid #b54040;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.7;
+    color: #5a1010;
+  }
+
+  /* Matrix table */
+  .matrix {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.83rem;
+  }
+  .matrix th {
+    background: #0d2a52;
+    color: white;
+    padding: 8px 12px;
+    text-align: center;
+    font-weight: 600;
+  }
+  .matrix td {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    vertical-align: top;
+    line-height: 1.55;
+  }
+  .matrix .row-head {
+    background: #e8f0f8;
+    font-weight: 700;
+    color: #0d2a52;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .matrix .ok  { color: #4a9e6a; font-weight: 700; }
+  .matrix .ng  { color: #b54040; font-weight: 700; }
+  .matrix .tri { color: #c8884a; font-weight: 700; }
+
+  /* Flow horizontal */
+  .flow-h {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 10px 0;
+  }
+  .flow-box {
+    background: white;
+    border: 2px solid #2a4a7a;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 0.8rem;
+    text-align: center;
+    line-height: 1.45;
+    color: #0d2a52;
+    font-weight: 600;
+  }
+  .flow-arrow {
+    color: #2a4a7a;
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+  @media (max-width: 540px) {
+    .flow-h { flex-direction: column; align-items: flex-start; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+
+  /* Summary list */
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #2a4a7a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+  .hlr { background: linear-gradient(transparent 55%, #ffb3b3 55%); font-weight: 600; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #2a4a7a; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #2a4a7a; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Header -->
+<div class="header">
+  <div class="meta">&#x1F4C5; 1人法人スタート 最新トピック &nbsp;2026-07-01</div>
+  <h1>&#x1F4EC; 今日から提出開始「算定基礎届」<br>1人社長も対象！社会保険料が年1回変わる仕組み</h1>
+  <div class="desc">
+    <span class="htag">社会保険</span>
+    <span class="htag">算定基礎届</span>
+    <span class="htag">定時決定</span>
+    <span class="htag">1人社長</span>
+    <span class="htag">日本年金機構</span>
+    <br>
+    令和8年度（2026年度）の「算定基礎届」の提出期間は、まさに<span class="hlo" style="background: linear-gradient(transparent 55%, rgba(255,255,255,0.35) 55%); color:#fff;">本日7月1日〜7月10日</span>。<br>
+    役員報酬をもらって社会保険に入っている1人社長も対象です。今日は「何をすればいいか」をやさしく解説します。
+  </div>
+</div>
+
+<!-- Section 1: Why today -->
+<div class="card">
+  <div class="sec-title">&#x1F6A8; なぜ「今日」知るべきか</div>
+  <p>「算定基礎届（さんていきそとどけ）」は、毎年1回、社会保険料のもとになる金額を見直す手続きです。<span class="hl">この提出期間が、今年はちょうど今日から始まります。</span></p>
+
+  <div class="stats-row" style="margin-top:14px;">
+    <div class="stat">
+      <div class="sl">提出期間</div>
+      <div class="sv">7/1〜7/10</div>
+      <div class="su">令和8年度（2026年度）<br>水曜日から金曜日まで10日間</div>
+    </div>
+    <div class="stat">
+      <div class="sl">見る報酬</div>
+      <div class="sv">4・5・6月</div>
+      <div class="su">この3か月の報酬（役員報酬・給与）を平均する</div>
+    </div>
+    <div class="stat">
+      <div class="sl">反映開始</div>
+      <div class="sv">9月分〜</div>
+      <div class="su">新しい保険料は翌年8月分まで1年間適用</div>
+    </div>
+  </div>
+
+  <div class="info">
+    &#x1F4A1; 「算定基礎届」を出す作業自体は<strong>日本年金機構（年金事務所）</strong>のための手続きで、税務署への申告とは別物です。会計ソフトの確定申告とは違うので混同しないようにしましょう。
+  </div>
+
+  <div class="source">
+    出典：日本年金機構「令和8年度の算定基礎届のご提出について」（基準年度：令和8年度／2026年度）<br>
+    <a href="https://www.nenkin.go.jp/tokusetsu/santei.html" target="_blank">https://www.nenkin.go.jp/tokusetsu/santei.html</a>
+  </div>
+</div>
+
+<!-- Section 2: Basics -->
+<div class="card orange">
+  <div class="sec-title">&#x1F4DA; そもそも「算定基礎届」「定時決定」とは（中学生向け）</div>
+  <p>会社員や役員が入る「健康保険」「厚生年金保険」の保険料は、<span class="hlg">給料の金額そのもの</span>ではなく、金額を区切りのよい階級に当てはめた「<strong>標準報酬月額（ひょうじゅんほうしゅうげつがく）</strong>」＝いわば"保険料計算用の目安額"をもとに決まります。</p>
+
+  <p style="margin-top:10px;">この標準報酬月額を、<strong>毎年1回、まとめて見直す</strong>手続きが「定時決定（ていじけってい)」＝"年に1度の定期健診のようなもの"で、そのために提出する書類が「算定基礎届」です。</p>
+
+  <div class="law-box">
+    <div class="lh">&#x1F4CB; 定時決定の基本ルール（日本年金機構）</div>
+    毎年<strong>7月1日現在</strong>に使用されているすべての被保険者について、その日前3か月間（<strong>4月・5月・6月</strong>）に受けた報酬の総額を、その月数（原則3）で割った額を「報酬月額」とし、これをもとに標準報酬月額を決定する。
+    <div class="source" style="margin-top:6px;">
+      出典：日本年金機構「定時決定（算定基礎届）」（基準年度：2026年度）<br>
+      <a href="https://www.nenkin.go.jp/service/kounen/hokenryo/hoshu/20121017.html" target="_blank">https://www.nenkin.go.jp/service/kounen/hokenryo/hoshu/20121017.html</a>
+    </div>
+  </div>
+
+  <p style="margin-top:10px;">つまり「今の給料・役員報酬」を年1回チェックして、社会保険料を<span class="hl">実態に合わせて更新する</span>ための仕組みです。</p>
+</div>
+
+<!-- Section 3: 1-person applicable -->
+<div class="card green">
+  <div class="sec-title">&#x1FA75; 1人社長も対象？── 答えは「はい」</div>
+  <p>「従業員がいない1人社長の会社は関係ないのでは？」と思うかもしれませんが、<span class="hlg">役員報酬を受け取り、社会保険（健康保険・厚生年金）に加入している役員も対象</span>です。</p>
+
+  <div class="f-step" style="margin-top:14px;">
+    <div class="f-num" style="background:#4a9e6a;">1</div>
+    <div class="f-text"><strong>株式会社・合同会社は、代表者1人だけでも社会保険が強制適用</strong>（役員報酬がある場合）。すでに加入している1人社長は、原則すべて算定基礎届の対象になります。</div>
+  </div>
+  <div class="f-step">
+    <div class="f-num" style="background:#4a9e6a;">2</div>
+    <div class="f-text"><strong>対象になるのは「7月1日現在の被保険者」全員</strong>。1人社長の会社なら、届出の対象者は代表者自身（＋いれば従業員）だけというケースがほとんどです。</div>
+  </div>
+  <div class="f-step">
+    <div class="f-num" style="background:#4a9e6a;">3</div>
+    <div class="f-text">6月中旬以降、年金事務所から様式一式が事業所宛に送付されます。<strong>届いていない場合は年金事務所に確認</strong>しましょう（電子申請利用者は送付されない場合があります）。</div>
+  </div>
+
+  <div class="warn" style="margin-top:12px;">
+    &#x26A0;&#xFE0F; <strong>「自分は関係ない」と放置しないこと。</strong>1人法人だからこそ、総務・労務担当が自分しかいません。届出漏れは自分の責任になります。
+  </div>
+</div>
+
+<!-- Section 4: Calculation flow -->
+<div class="card">
+  <div class="sec-title">&#x1F522; 計算の流れを図解</div>
+  <p>実際にどう計算されるのか、ステップで見てみましょう（役員報酬が毎月一定の場合の基本パターン）。</p>
+
+  <div class="flow-h" style="margin-top:14px;">
+    <div class="flow-box">4月の報酬</div>
+    <div class="flow-arrow">&#x2795;</div>
+    <div class="flow-box">5月の報酬</div>
+    <div class="flow-arrow">&#x2795;</div>
+    <div class="flow-box">6月の報酬</div>
+  </div>
+  <div class="flow-h">
+    <div class="flow-box" style="border-color:#c8884a; color:#7a4010;">3か月分の合計</div>
+    <div class="flow-arrow" style="color:#c8884a;">&#x27A1;</div>
+    <div class="flow-box" style="border-color:#c8884a; color:#7a4010;">&#xF7; 3</div>
+    <div class="flow-arrow" style="color:#c8884a;">&#x27A1;</div>
+    <div class="flow-box" style="border-color:#c8884a; color:#7a4010;">報酬月額</div>
+  </div>
+  <div class="flow-h">
+    <div class="flow-box" style="border-color:#2a4a7a;">標準報酬<br>月額表に<br>当てはめ</div>
+    <div class="flow-arrow">&#x27A1;</div>
+    <div class="flow-box" style="border-color:#4a9e6a; color:#1a6a3a;">新・標準<br>報酬月額<br>決定</div>
+    <div class="flow-arrow">&#x27A1;</div>
+    <div class="flow-box" style="border-color:#4a9e6a; color:#1a6a3a;">9月分から<br>翌年8月分<br>まで適用</div>
+  </div>
+
+  <div class="info" style="margin-top:12px;">
+    &#x1F4A1; <strong>「報酬」には通勤手当や残業代なども含みます。</strong>役員報酬のみの1人社長の場合は、定期同額給与（毎月同じ額）ならシンプルに「その金額」を使うのが基本パターンです。
+  </div>
+
+  <div class="warn">
+    &#x26A0;&#xFE0F; 4〜6月の平均で算定すると<strong>著しく不当</strong>になる場合（繁忙期のみ残業代が跳ねた等）は、年間の報酬平均を使う「保険者算定」という例外ルールもあります。判断に迷ったら年金事務所・社労士に相談しましょう。
+  </div>
+
+  <div class="source">
+    出典：日本年金機構「定時決定（算定基礎届）」「4-2：算定基礎届（年間報酬の平均で算定するとき）」（基準年度：2026年度）<br>
+    <a href="https://www.nenkin.go.jp/service/kounen/hokenryo/hoshu/20121017.html" target="_blank">https://www.nenkin.go.jp/service/kounen/hokenryo/hoshu/20121017.html</a>
+  </div>
+</div>
+
+<!-- Section 5: Exclusions matrix -->
+<div class="card purple">
+  <div class="sec-title">&#x1F9EE; 対象外になるケースを整理</div>
+  <p>次のケースに当てはまる人は、今回の算定基礎届の対象から外れます。</p>
+
+  <table class="matrix" style="margin-top:10px;">
+    <tr>
+      <th style="width:42%;">ケース</th>
+      <th style="width:16%;">対象？</th>
+      <th>理由</th>
+    </tr>
+    <tr>
+      <td>6月1日以降に社会保険の資格を取得した人</td>
+      <td><span class="ng">対象外</span></td>
+      <td>資格取得時にすでに標準報酬月額を決定済みのため</td>
+    </tr>
+    <tr>
+      <td>6月30日までに退職した人</td>
+      <td><span class="ng">対象外</span></td>
+      <td>7月1日時点で被保険者でなくなっているため</td>
+    </tr>
+    <tr>
+      <td>7〜9月に月額変更届（随時改定）を提出予定の人</td>
+      <td><span class="ng">対象外</span></td>
+      <td>大幅な報酬変動が別ルートで反映されるため二重処理を回避</td>
+    </tr>
+    <tr>
+      <td>役員報酬を受け取り続けている1人社長（上記に該当しない場合）</td>
+      <td><span class="ok">対象</span></td>
+      <td>原則どおり4〜6月の報酬平均で見直しが行われる</td>
+    </tr>
+  </table>
+
+  <div class="source">
+    出典：日本年金機構「定時決定（算定基礎届）」（基準年度：2026年度）<br>
+    <a href="https://www.nenkin.go.jp/service/kounen/hokenryo/hoshu/20121017.html" target="_blank">https://www.nenkin.go.jp/service/kounen/hokenryo/hoshu/20121017.html</a>
+  </div>
+</div>
+
+<!-- Section 6: How to submit -->
+<div class="card orange">
+  <div class="sec-title">&#x1F4E4; 提出方法と、出さないとどうなるか</div>
+  <p>提出先は、会社の管轄年金事務所（協会けんぽ加入なら健康保険分もまとめて一体で届出）。組合健保に加入している場合は、健保組合にも別途提出が必要な場合があります。</p>
+
+  <ul class="check-list" style="margin-top:12px;">
+    <li>
+      <span class="ck">&#x2460;</span>
+      <span><strong>電子申請</strong> ── e-Gov等を通じたオンライン提出。窓口に行く手間がなく、控えもデータで残るため多くの事業所で推奨されています。</span>
+    </li>
+    <li>
+      <span class="ck">&#x2461;</span>
+      <span><strong>郵送</strong> ── 送付された様式に記入し、管轄の年金事務所へ郵送。</span>
+    </li>
+    <li>
+      <span class="ck">&#x2462;</span>
+      <span><strong>窓口持参</strong> ── 年金事務所の窓口に直接持ち込み。</span>
+    </li>
+  </ul>
+
+  <div class="danger" style="margin-top:12px;">
+    &#x1F6A8; <strong>期限までに提出しないとどうなる？</strong><br>
+    未提出のままだと、年金事務所が実態を確認できる資料をもとに標準報酬月額を職権で決定する「<strong>保険者決定</strong>」という扱いになる場合があります。実態と異なる金額で決定されるリスクや、督促の対象になる可能性もあるため、<span class="hlr">期限（7月10日）までの提出</span>が原則です。
+  </div>
+
+  <div class="source">
+    出典：日本年金機構「保険者決定」「令和8年度の算定基礎届のご提出について」（基準年度：2026年度）<br>
+    <a href="https://www.nenkin.go.jp/service/kounen/hokenryo/hoshu/20120524.html" target="_blank">https://www.nenkin.go.jp/service/kounen/hokenryo/hoshu/20120524.html</a>
+  </div>
+</div>
+
+<!-- Section 7: Checklist -->
+<div class="card green">
+  <div class="sec-title">&#x2705; 1人社長が今日やること チェックリスト</div>
+
+  <ul class="check-list" style="margin-top:6px;">
+    <li>
+      <span class="ck">&#x2460;</span>
+      <span><strong>4〜6月に自分（役員）へ支払った報酬額を確認する</strong><br>役員報酬台帳・給与明細・通帳の記録などで、税引き前の総額（通勤手当含む）を3か月分洗い出す。</span>
+    </li>
+    <li>
+      <span class="ck">&#x2461;</span>
+      <span><strong>年金事務所からの送付物が届いているか確認する</strong><br>6月中旬以降に様式が送られてきているはず。見当たらなければ管轄の年金事務所に問い合わせる。</span>
+    </li>
+    <li>
+      <span class="ck">&#x2462;</span>
+      <span><strong>期限（7月10日・金）をカレンダーに登録する</strong><br>他の締め切りに紛れて忘れやすいので、今日のうちにリマインダーを設定。</span>
+    </li>
+    <li>
+      <span class="ck-warn">&#x2463;</span>
+      <span><strong>顧問社労士・会計事務所がいれば任せる、いなければ自分で電子申請を検討する</strong><br>初めての場合は年金事務所の相談窓口も利用できる。</span>
+    </li>
+    <li>
+      <span class="ck">&#x2464;</span>
+      <span><strong>生成AIに手伝ってもらうなら「計算の下書き」まで</strong><br>4〜6月の報酬額を伝えて平均額を計算させたり、提出書類のチェックリスト作成を手伝わせるのは便利。ただし<strong>最終的な数字と提出は必ず自分で年金事務所の情報と照合</strong>すること。</span>
+    </li>
+  </ul>
+</div>
+
+<!-- Summary -->
+<div class="card">
+  <div class="sec-title">&#x1F4DD; 今日のまとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">&#x2460;</span>令和8年度（2026年度）の算定基礎届は、<span class="hl">まさに今日7月1日から7月10日まで</span>が提出期間。</li>
+    <li><span class="n">&#x2461;</span>役員報酬を受け取り社会保険に加入している1人社長も、原則<span class="hlg">全員が対象</span>。</li>
+    <li><span class="n">&#x2462;</span>4〜6月の報酬平均から「標準報酬月額」を見直す手続きで、決定結果は<span class="hl">その年の9月分から翌年8月分まで</span>1年間適用される。</li>
+    <li><span class="n">&#x2463;</span>6月1日以降の資格取得・6月30日までの退職・7〜9月の随時改定予定者は対象外。</li>
+    <li><span class="n">&#x2464;</span>期限までに提出しないと、年金事務所による「保険者決定」となるリスクがある。まずは4〜6月の報酬額の確認から始めよう。</li>
+  </ul>
+</div>
+
+<!-- Disclaimer -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報提供を目的としており、社会保険・労務に関する個別のアドバイスではありません。
+  算定基礎届の提出方法・対象者の判定・保険者算定の適用などは会社の状況（報酬の変動、加入している健康保険の種類など）によって異なります。
+  具体的な手続き・判断については、日本年金機構（管轄の年金事務所）または社会保険労務士にご相談ください。<br>
+  記載内容の基準年度：令和8年度（2026年度）。制度・提出期限は年度により変更される場合があるため、最新情報は日本年金機構の公式サイトでご確認ください。
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>&#x1F4DA; <a href="index.html">バックナンバー一覧へ</a> &nbsp;&middot;&nbsp; 毎朝更新</p>
+</div>
+
+</div>
+</body>
+</html>
