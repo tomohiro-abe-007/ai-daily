@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-07-02</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  /* ヘッダー */
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '🍬';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  /* カード共通 */
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  /* アクセントカラー変種 */
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  /* 数字カード */
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.2rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.77rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  /* 比較表（2〜3列） */
+  .compare3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 18px 16px;
+    font-size: 0.86rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col h3 { font-size: 0.95rem; margin-bottom: 10px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col ul { padding-left: 1.2em; }
+  .c3-col li { margin-bottom: 5px; }
+  /* フロー図 */
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt {
+    background: #fef0e4;
+    border-color: #e07b2a;
+  }
+  .flow-step.warn2 {
+    background: #fbe8e6;
+    border-color: #c0392b;
+  }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  /* メカニズムグリッド */
+  .mech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .mech-item {
+    background: #f0faf5;
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 0.85rem;
+    border-top: 3px solid #1a7a5a;
+  }
+  .mech-item .micon { font-size: 1.3rem; margin-bottom: 6px; }
+  .mech-item strong { display: block; color: #0d4a35; margin-bottom: 4px; font-size: 0.88rem; }
+  /* 警告ボックス */
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  /* エビデンスランク */
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td {
+    padding: 8px 12px;
+    border-bottom: 1px solid #ddd;
+  }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high   { background: #cff0df; color: #1a6e4a; }
+  .ev-mid    { background: #fff0c8; color: #8a6000; }
+  .ev-low    { background: #fce8e8; color: #a02020; }
+  /* 出典 */
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  /* 免責 */
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .highlight { background: #cff0df; padding: 1px 5px; border-radius: 4px; }
+  .good { color: #1a7a5a; font-weight: 600; }
+  .bad  { color: #c0392b; font-weight: 600; }
+  /* 実践ステップ */
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  /* 定義ボックス */
+  .def-box {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin: 14px 0;
+    font-size: 0.92rem;
+  }
+  .def-box .def-label {
+    font-size: 0.75rem;
+    color: #1a7a5a;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  @media (max-width: 540px) {
+    .compare3 { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.9rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ヘッダー -->
+<div class="header">
+  <div class="label">健康・栄養 最新トピック ・ 2026-07-02</div>
+  <h1>「砂糖ゼロ」の食事が腸内細菌を乱す？<br>
+  マウス実験が示した意外な結果（ENDO 2026・査読前）</h1>
+  <div class="subtitle">「無糖」「シュガーフリー」は体に良いというイメージがありますが、低脂肪食から<strong>ショ糖（スクロース）を完全にゼロ</strong>にしたマウス実験で、血糖コントロール悪化・腸内細菌の乱れが報告されました。ただし人での証明ではありません。今日はこの研究を正しく読み解きます。</div>
+</div>
+
+<!-- タグ -->
+<div style="margin-bottom:18px;">
+  <span class="tag">腸内細菌叢</span>
+  <span class="tag">動物実験（マウス）</span>
+  <span class="tag">査読前・学会発表</span>
+  <span class="tag">血糖・インスリン抵抗性</span>
+  <span class="tag">精密栄養学</span>
+</div>
+
+<!-- 今日の疑問 -->
+<div class="card">
+  <h2>🤔 今日の疑問：「シュガーフリー」は体にいいこと"だけ"？</h2>
+  <p>「無糖」「砂糖不使用」と書かれた食品は健康的なイメージがあります。実際、糖類（特に加糖：食品に後から加えられた砂糖）の摂り過ぎが肥満や2型糖尿病のリスクを高めることは、多くの研究で確立された知見です。</p>
+  <p>では「糖類を摂り過ぎない」ではなく「糖類を完全にゼロにする」としたらどうなるでしょうか？ 2026年6月、米国・内分泌学会の年次学術集会「ENDO 2026」で、これを調べたマウス実験の結果が発表され話題になりました。</p>
+</div>
+
+<!-- 研究デザイン -->
+<div class="card blue">
+  <h2>🐭 どんな実験だったのか</h2>
+  <p>クウェートの Dasman Diabetes Institute（ダスマン糖尿病研究所）の Rasheed Ahmad 博士（免疫学・微生物学部門責任者）らのチームが、マウスを2グループに分けて比較しました。</p>
+  <div class="flow">
+    <div class="flow-step">マウスを<br>2グループに分割</div>
+    <div class="flow-arrow">▶</div>
+    <div class="flow-step">① 対照群：<br>スクロース入り<br>低脂肪食</div>
+    <div class="flow-arrow">▶</div>
+    <div class="flow-step alt">② 実験群：<br>スクロース<span class="bad">完全ゼロ</span>の<br>低脂肪食</div>
+    <div class="flow-arrow">▶</div>
+    <div class="flow-step warn2">16週間後に<br>比較</div>
+  </div>
+  <p style="margin-top:10px;">測定したのは、耐糖能（血糖を処理する力）・インスリン感受性・代謝ホルモン・腸内細菌の構成・大腸と肝臓の炎症などです。</p>
+</div>
+
+<!-- 結果 -->
+<div class="card red">
+  <h2>📊 「ゼロ砂糖」グループで見られた変化</h2>
+  <p>体重は2グループで<strong>有意差なし</strong>でしたが、スクロースを完全に抜いた食事のマウスには、次のような変化が見られました。</p>
+  <div class="num-row">
+    <div class="num-card red-bg">
+      <div class="big">↓</div>
+      <div class="desc">耐糖能（血糖コントロール）が悪化</div>
+    </div>
+    <div class="num-card red-bg">
+      <div class="big">↑</div>
+      <div class="desc">インスリン抵抗性（インスリンが効きにくい状態）</div>
+    </div>
+    <div class="num-card orange-bg">
+      <div class="big">乱</div>
+      <div class="desc">腸内細菌のバランスが変化（dysbiosis）</div>
+    </div>
+    <div class="num-card gray-bg">
+      <div class="big">－</div>
+      <div class="desc">体重は対照群と有意差なし</div>
+    </div>
+  </div>
+  <p>さらに、大腸と肝臓に軽度の炎症、脂肪肝（肝臓に脂肪がたまる状態）を示唆する変化も報告されています。</p>
+</div>
+
+<!-- 腸内細菌の変化 -->
+<div class="card">
+  <h2>🦠 腸内細菌は具体的に何が変わった？</h2>
+  <div class="compare3">
+    <div class="c3-col green">
+      <h3>👍 減った菌（短鎖脂肪酸を作る善玉寄りの菌）</h3>
+      <ul>
+        <li><em>Lactobacillus murinus</em></li>
+        <li><em>Ruminococcus</em> 属</li>
+        <li>Lachnospiraceae（ラクノスピラ科）</li>
+      </ul>
+    </div>
+    <div class="c3-col red">
+      <h3>👎 増えた菌（炎症と関連しやすい菌）</h3>
+      <ul>
+        <li><em>Helicobacter ganmani</em></li>
+        <li><em>Odoribacter splanchnicus</em></li>
+        <li><em>Alistipes</em> 属</li>
+      </ul>
+    </div>
+  </div>
+  <p style="font-size:0.88rem; color:#555; margin-top:8px;">短鎖脂肪酸（たんさくしぼうさん＝腸内細菌が食物繊維や糖質を発酵させて作る、腸の健康を支える物質）を作る菌が減り、炎症に関わりやすい菌が増えた、というのが研究チームの解釈です。</p>
+</div>
+
+<!-- メカニズム仮説 -->
+<div class="card purple">
+  <h2>💡 なぜ「ゼロ」がマイナスに？（あくまで仮説）</h2>
+  <div class="mech-grid">
+    <div class="mech-item">
+      <div class="micon">🍽️</div>
+      <strong>菌の"エサ"不足仮説</strong>
+      腸内の一部の菌は、少量の糖質も発酵のエネルギー源として利用している可能性がある
+    </div>
+    <div class="mech-item">
+      <div class="micon">⚖️</div>
+      <strong>「量」と「ゼロ」は別問題</strong>
+      この研究は「摂り過ぎ」の害ではなく、「完全除去」特有の影響を見ている点に注意
+    </div>
+    <div class="mech-item">
+      <div class="micon">🔄</div>
+      <strong>低脂肪食という文脈</strong>
+      今回はあくまで低脂肪食の中でのスクロース有無の比較。他の食事パターンでも同じ結果になるかは不明
+    </div>
+  </div>
+  <p style="margin-top:10px;">研究者自身も「完全に糖質をなくすことが、意図せず腸の健康や代謝機能を乱す可能性がある」「大切なのは糖質を排除することではなく、バランスの取れた食事」と述べています。</p>
+</div>
+
+<!-- 研究の限界（重要） -->
+<div class="warn">
+  <strong>⚠️ この研究をどう読むべきか（とても重要）：</strong>
+  <ul style="padding-left:1.4em; margin-top:8px;">
+    <li><strong>マウス実験であり、人での結果ではありません。</strong>マウスとヒトでは腸内細菌の構成も代謝も異なり、そのまま人に当てはめることはできません。</li>
+    <li>2026年6月13〜16日開催の学会「ENDO 2026」（内分泌学会年次総会）での<strong>発表段階</strong>で、まだ査読（他の専門家によるチェック）を経た論文にはなっていません。今後、追加の検証や解釈の修正がありうる段階です。</li>
+    <li>1つの研究グループによる結果であり、他の研究チームによる再現はまだありません。</li>
+    <li>「無糖=危険」という意味ではありません。加糖の摂り過ぎが健康リスクを高めるという、これまでの多数の研究（観察研究・メタ分析）による知見は変わりません。今回の話は、あくまで「完全にゼロにする」という極端なパターン特有の影響を示唆しているだけです。</li>
+  </ul>
+</div>
+
+<!-- エビデンスの強さ -->
+<div class="card orange">
+  <h2>📋 エビデンスの強さの整理</h2>
+  <table class="ev-table">
+    <tr>
+      <th>知見</th>
+      <th>研究の種類</th>
+      <th>エビデンスの強さ</th>
+    </tr>
+    <tr>
+      <td>加糖の摂り過ぎと肥満・2型糖尿病リスク</td>
+      <td>多数の観察研究・メタ分析（ヒト、数万人規模）</td>
+      <td><span class="ev-badge ev-high">確立された知見</span></td>
+    </tr>
+    <tr>
+      <td>糖質「完全ゼロ」が腸内細菌・代謝を乱す</td>
+      <td>マウス実験1件・学会発表・査読前</td>
+      <td><span class="ev-badge ev-low">仮説段階（要検証）</span></td>
+    </tr>
+    <tr>
+      <td>上記のヒトへの外挿</td>
+      <td>直接のヒトデータなし</td>
+      <td><span class="ev-badge ev-low">現時点では不明</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- 精密栄養学の視点 -->
+<div class="card">
+  <h2>🎯 精密栄養学の視点：「ゼロか100か」ではなく「個人に合った量」</h2>
+  <p>精密栄養学（個人の体質・生活習慣に合わせて栄養を最適化する考え方）の視点から見ると、この研究は「特定の栄養素を極端にゼロにする食事法」の落とし穴を考えるヒントになります。</p>
+  <ul>
+    <li>糖質・脂質・たんぱく質など、どの栄養素も「完全除去」は腸内細菌など体内の別のシステムに予期しない影響を与えうる。</li>
+    <li>「〇〇を一切摂らない」という極端なルールより、必要量の範囲内でのバランスを重視する考え方が、現時点の栄養科学の主流。</li>
+    <li>個人の腸内環境・代謝状態によって適した糖質量は異なりうるが、それを判定する実用的な個別化ツールはまだ研究段階。</li>
+  </ul>
+</div>
+
+<!-- まとめ -->
+<div class="card" style="border-left-color:#1a7a5a;">
+  <h2>✅ 今日のまとめ</h2>
+  <ul class="step-list">
+    <li>ENDO 2026（内分泌学会年次総会、2026年6月・シカゴ）でマウス実験の結果が発表され、低脂肪食からスクロースを完全に除いた群で耐糖能悪化・インスリン抵抗性・腸内細菌の乱れ・軽度の炎症・脂肪肝変化が見られた（体重差はなし）。</li>
+    <li>この結果は<strong>マウス実験・査読前の学会発表</strong>という段階であり、人での証明ではない。1研究グループの結果で、まだ再現検証もされていない。</li>
+    <li>「加糖の摂り過ぎが健康リスクを高める」という既存の知見が覆ったわけではない。今回の話は「完全ゼロ」という極端なパターン特有の影響の可能性を示しただけ。</li>
+    <li>栄養素を極端に「ゼロ」にする食事法には、意図しない影響が起こりうるという教訓として読むのが妥当。</li>
+  </ul>
+</div>
+
+<!-- 免責 -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報提供を目的としており、医療上のアドバイスではありません。食事の内容や糖質量、特定の食事制限の適否は、年齢・体質・持病（糖尿病など）・服薬状況によって大きく異なります。食事法を変更する前に、かかりつけ医・管理栄養士など専門家にご相談ください。本記事で紹介した研究はマウスを対象としたものであり、人での効果・安全性を保証するものではありません。
+</div>
+
+<!-- 出典 -->
+<div class="sources">
+  <h3>📚 主な出典・参考文献</h3>
+  <ol>
+    <li>Ahmad R et al. "Sugar-free diets may disrupt gut microbiome." Press release, <em>Endocrine Society</em> (ENDO 2026 Annual Meeting, Chicago, 2026年6月13〜16日). 発表日：2026年6月14日ごろ（学会発表・査読前）。
+      <a href="https://www.endocrine.org/news-and-advocacy/news-room/2026/ahmad-press-release-endo-2026" target="_blank">https://www.endocrine.org/news-and-advocacy/news-room/2026/ahmad-press-release-endo-2026</a>
+    </li>
+    <li>"Scientists found a surprising problem with sugar-free diets." <em>ScienceDaily</em>, 2026年6月14日.
+      <a href="https://www.sciencedaily.com/releases/2026/06/260614011843.htm" target="_blank">https://www.sciencedaily.com/releases/2026/06/260614011843.htm</a>
+    </li>
+    <li>"Sugar-free, low-fat diet tied to insulin resistance in mouse study." <em>Medical News Today</em>, 2026年6月.
+      <a href="https://www.medicalnewstoday.com/articles/how-eliminating-sugar-may-alter-the-gut-microbiome-mouse-study" target="_blank">https://www.medicalnewstoday.com/articles/how-eliminating-sugar-may-alter-the-gut-microbiome-mouse-study</a>
+    </li>
+    <li>"Sugar-free diets may disrupt gut microbiome." <em>EurekAlert!</em>（AAAS運営の学術プレスリリース配信サービス）, 2026年6月.
+      <a href="https://www.eurekalert.org/news-releases/1130957" target="_blank">https://www.eurekalert.org/news-releases/1130957</a>
+    </li>
+  </ol>
+  <p style="margin-top:8px; font-size:0.78rem;">※ 本研究はENDO 2026学会発表の段階であり、本稿執筆時点（2026年7月）で査読誌への掲載は確認できていません。学会・査読前研究として扱っています。</p>
+</div>
+
+</div>
+</body>
+</html>
