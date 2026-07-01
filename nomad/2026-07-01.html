@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>デジタルノマド 最新トピック 2026-07-01</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    color: #2a2a2a;
+  }
+  /* ────── Hero ────── */
+  .hero {
+    background: linear-gradient(135deg, #1e3a6e 0%, #0d2144 100%);
+    color: white;
+    border-radius: 10px;
+    padding: 48px 40px;
+    text-align: center;
+    width: 100%;
+    max-width: 760px;
+    margin-bottom: 28px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .hero .label {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 0.8rem;
+    margin-bottom: 14px;
+    letter-spacing: 0.05em;
+  }
+  .hero .backlog-badge {
+    display: inline-block;
+    background: #c9920a;
+    color: #fff;
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+  .hero h1 { font-size: 1.4rem; margin-bottom: 12px; line-height: 1.55; }
+  .hero .meta { opacity: 0.8; font-size: 0.88rem; line-height: 1.7; }
+  /* ────── Card ────── */
+  .card {
+    background: #fff9f0;
+    border-radius: 8px;
+    padding: 28px 32px;
+    width: 100%;
+    max-width: 760px;
+    margin-bottom: 20px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.08);
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1e3a6e;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px dashed #8aaad4;
+  }
+  .card p { font-size: 0.93rem; line-height: 1.85; margin-bottom: 10px; }
+  .card p:last-child { margin-bottom: 0; }
+  /* ────── Boxes ────── */
+  .highlight-box {
+    background: #e8f0fd;
+    border-left: 4px solid #1e3a6e;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .highlight-box .hlabel { font-size: 0.75rem; color: #1e3a6e; font-weight: 600; margin-bottom: 6px; display: block; }
+  .highlight-box p { font-size: 0.9rem; margin: 0; }
+  .alert-box {
+    background: #fff3cd;
+    border-left: 4px solid #c9920a;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .alert-box .alabel { font-size: 0.75rem; color: #8a6000; font-weight: 600; margin-bottom: 6px; display: block; }
+  .alert-box p { font-size: 0.9rem; margin: 0; }
+  .danger-box {
+    background: #fde8e8;
+    border-left: 4px solid #c0392b;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .danger-box .dlabel { font-size: 0.75rem; color: #c0392b; font-weight: 600; margin-bottom: 6px; display: block; }
+  .danger-box p { font-size: 0.9rem; margin: 0; }
+  .green-box {
+    background: #e8f5ef;
+    border-left: 4px solid #2c6e4e;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .green-box .glabel { font-size: 0.75rem; color: #2c6e4e; font-weight: 600; margin-bottom: 6px; display: block; }
+  .green-box p { font-size: 0.9rem; margin: 0; }
+  .purple-box {
+    background: #f0eafd;
+    border-left: 4px solid #6a3ea0;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .purple-box .plabel { font-size: 0.75rem; color: #6a3ea0; font-weight: 600; margin-bottom: 6px; display: block; }
+  .purple-box p { font-size: 0.9rem; margin: 0; }
+  /* ────── Number cards ────── */
+  .number-row { display: flex; gap: 14px; flex-wrap: wrap; margin: 14px 0; }
+  .number-card {
+    flex: 1; min-width: 130px;
+    background: #1e3a6e; color: white;
+    border-radius: 8px; padding: 18px 14px; text-align: center;
+  }
+  .number-card .num { font-size: 1.4rem; font-weight: 700; margin-bottom: 6px; line-height: 1.2; letter-spacing: 0.02em; }
+  .number-card .desc { font-size: 0.72rem; opacity: 0.9; line-height: 1.5; }
+  .number-card.amber  { background: #c9920a; }
+  .number-card.red    { background: #c0392b; }
+  .number-card.green  { background: #2c6e4e; }
+  .number-card.purple { background: #6a3ea0; }
+  .number-card.gray   { background: #666; }
+  /* ────── Compare cards ────── */
+  .compare-row { display: flex; gap: 14px; flex-wrap: wrap; margin: 14px 0; }
+  .compare-card {
+    flex: 1; min-width: 200px; border-radius: 8px;
+    padding: 16px 16px; font-size: 0.88rem; line-height: 1.7;
+  }
+  .compare-card h3 { font-size: 0.88rem; margin-bottom: 8px; padding-bottom: 6px; border-bottom: 1.5px dashed; }
+  .compare-card.red    { background: #fdeaea; border: 1.5px solid #c0392b; }
+  .compare-card.red h3 { color: #922b2b; border-color: #e8a0a0; }
+  .compare-card.green  { background: #e8f5ef; border: 1.5px solid #2c6e4e; }
+  .compare-card.green h3 { color: #2c6e4e; border-color: #b2d4c4; }
+  .compare-card.amber  { background: #fff8e8; border: 1.5px solid #c9920a; }
+  .compare-card.amber h3 { color: #7a5800; border-color: #f0d080; }
+  .compare-card.navy   { background: #eaf0fb; border: 1.5px solid #1e3a6e; }
+  .compare-card.navy h3 { color: #1e3a6e; border-color: #8aaad4; }
+  .compare-card.purple { background: #f0eafd; border: 1.5px solid #6a3ea0; }
+  .compare-card.purple h3 { color: #6a3ea0; border-color: #c0a0e8; }
+  /* ────── Flow boxes ────── */
+  .flow-wrap { display: flex; flex-direction: column; gap: 4px; margin: 14px 0; }
+  .flow-box {
+    background: #1e3a6e; color: white;
+    border-radius: 8px; padding: 14px 16px;
+    font-size: 0.88rem; line-height: 1.6;
+  }
+  .flow-box .fb-label { font-size: 0.7rem; opacity: 0.8; margin-bottom: 4px; display: block; }
+  .flow-box strong { font-size: 0.95rem; }
+  .flow-box.sub    { background: #2a5090; }
+  .flow-box.light  { background: #eaf0fb; color: #2a2a2a; border: 1.5px solid #8aaad4; }
+  .flow-box.amber  { background: #c9920a; }
+  .flow-box.green  { background: #2c6e4e; }
+  .flow-box.red    { background: #c0392b; }
+  .flow-box.purple { background: #6a3ea0; }
+  .flow-box.gray   { background: #666; }
+  .arrow-down { text-align: center; font-size: 1.5rem; color: #1e3a6e; margin: 4px 0; line-height: 1; }
+  /* ────── Step list ────── */
+  .step-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 12px 0; }
+  .step-list li { display: flex; align-items: flex-start; gap: 12px; }
+  .step-num {
+    background: #1e3a6e; color: white; border-radius: 50%;
+    min-width: 28px; height: 28px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.78rem; font-weight: 700; flex-shrink: 0; margin-top: 2px;
+  }
+  .step-num.amber  { background: #c9920a; }
+  .step-num.red    { background: #c0392b; }
+  .step-num.green  { background: #2c6e4e; }
+  .step-num.purple { background: #6a3ea0; }
+  .step-num.gray   { background: #666; }
+  .step-list li div { font-size: 0.9rem; line-height: 1.7; }
+  /* ────── Table ────── */
+  .matrix-table { width: 100%; border-collapse: collapse; font-size: 0.87rem; margin: 14px 0; }
+  .matrix-table th {
+    background: #1e3a6e; color: white; padding: 10px 12px;
+    text-align: left; font-weight: 600; font-size: 0.82rem;
+  }
+  .matrix-table th:first-child { border-radius: 6px 0 0 0; }
+  .matrix-table th:last-child  { border-radius: 0 6px 0 0; }
+  .matrix-table td { padding: 10px 12px; border-bottom: 1px solid #d0d8e8; vertical-align: top; line-height: 1.55; }
+  .matrix-table tr:nth-child(even) td { background: #f2f5fc; }
+  .matrix-table .ok   { color: #2c6e4e; font-weight: 700; }
+  .matrix-table .ng   { color: #c0392b; font-weight: 700; }
+  .matrix-table .warn { color: #8a6000; font-weight: 700; }
+  .matrix-table .row-warn   td { background: #fff8e8 !important; }
+  .matrix-table .row-danger td { background: #fdeaea !important; }
+  .matrix-table .row-green  td { background: #e8f5ef !important; }
+  .matrix-table .row-navy   td { background: #eaf0fb !important; }
+  .matrix-table .row-purple td { background: #f0eafd !important; }
+  /* ────── Check list ────── */
+  .check-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 12px 0; }
+  .check-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.9rem; line-height: 1.65; }
+  .check-icon {
+    min-width: 22px; height: 22px; border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.78rem; font-weight: 700; flex-shrink: 0; margin-top: 1px;
+  }
+  .check-icon.navy   { background: #1e3a6e; color: white; }
+  .check-icon.green  { background: #2c6e4e; color: white; }
+  .check-icon.amber  { background: #c9920a; color: white; }
+  .check-icon.red    { background: #c0392b; color: white; }
+  .check-icon.purple { background: #6a3ea0; color: white; }
+  /* ────── Timeline ────── */
+  .timeline { display: flex; flex-direction: column; gap: 0; margin: 14px 0; }
+  .tl-row { display: flex; align-items: stretch; gap: 0; }
+  .tl-year {
+    min-width: 80px; text-align: right; padding: 12px 14px 12px 0;
+    font-size: 0.85rem; font-weight: 700; color: #1e3a6e;
+    border-right: 3px solid #8aaad4; flex-shrink: 0;
+  }
+  .tl-year.amber { color: #c9920a; border-color: #c9920a; }
+  .tl-year.green { color: #2c6e4e; border-color: #2c6e4e; }
+  .tl-year.red   { color: #c0392b; border-color: #c0392b; }
+  .tl-dot {
+    width: 14px; height: 14px; border-radius: 50%; background: #1e3a6e;
+    flex-shrink: 0; margin: 14px -8px 0 0; position: relative; z-index: 1;
+  }
+  .tl-dot.amber  { background: #c9920a; }
+  .tl-dot.green  { background: #2c6e4e; }
+  .tl-dot.red    { background: #c0392b; }
+  .tl-content { padding: 8px 0 8px 20px; font-size: 0.88rem; line-height: 1.65; }
+  /* ────── Misc ────── */
+  .section-icon { font-size: 1.5rem; margin-right: 8px; vertical-align: middle; }
+  .tag {
+    display: inline-block; background: #1e3a6e; color: white;
+    font-size: 0.72rem; padding: 2px 8px; border-radius: 10px;
+    margin-right: 4px; vertical-align: middle;
+  }
+  .tag.amber  { background: #c9920a; }
+  .tag.red    { background: #c0392b; }
+  .tag.green  { background: #2c6e4e; }
+  .tag.purple { background: #6a3ea0; }
+  .tag.gray   { background: #888; }
+  /* ────── Footer ────── */
+  .footer-card {
+    background: #f0ece3;
+    border: 1.5px solid #bbb;
+    border-radius: 8px;
+    padding: 20px 24px;
+    width: 100%;
+    max-width: 760px;
+    margin-bottom: 20px;
+    font-size: 0.82rem;
+    color: #555;
+    line-height: 1.8;
+  }
+  .footer-card .footer-title {
+    font-size: 0.78rem; color: #888; font-weight: 600;
+    margin-bottom: 10px; display: block;
+    text-transform: uppercase; letter-spacing: 0.08em;
+  }
+  .footnote { font-size: 0.78rem; color: #777; line-height: 1.7; margin-top: 12px; }
+  /* ────── 2-col grid ────── */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 14px 0; }
+  @media (max-width: 560px) { .two-col { grid-template-columns: 1fr; } }
+  .mini-card {
+    border-radius: 8px; padding: 14px 16px;
+    font-size: 0.85rem; line-height: 1.65;
+  }
+  .mini-card h4 { font-size: 0.87rem; margin-bottom: 8px; }
+  .mini-card.navy   { background: #eaf0fb; border: 1.5px solid #8aaad4; }
+  .mini-card.navy h4 { color: #1e3a6e; }
+  .mini-card.amber  { background: #fff8e8; border: 1.5px solid #c9920a; }
+  .mini-card.amber h4 { color: #7a5800; }
+  .mini-card.green  { background: #e8f5ef; border: 1.5px solid #2c6e4e; }
+  .mini-card.green h4 { color: #2c6e4e; }
+  .mini-card.red    { background: #fdeaea; border: 1.5px solid #c0392b; }
+  .mini-card.red h4 { color: #922b2b; }
+  .mini-card.purple { background: #f0eafd; border: 1.5px solid #6a3ea0; }
+  .mini-card.purple h4 { color: #6a3ea0; }
+  .mini-card.gray   { background: #f4f4f4; border: 1.5px solid #aaa; }
+  .mini-card.gray h4 { color: #555; }
+  /* ────── IRPF bracket bar ────── */
+  .bracket-bar { margin: 14px 0; }
+  .bracket-row { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; font-size: 0.85rem; }
+  .bracket-label { min-width: 160px; color: #444; }
+  .bracket-fill { height: 22px; border-radius: 4px; display: flex; align-items: center; padding: 0 8px; color: white; font-size: 0.8rem; font-weight: 700; }
+</style>
+</head>
+<body>
+
+<!-- ヒーロー -->
+<div class="hero">
+  <div style="margin-bottom:14px;">
+    <span class="label">🛂 ビザ選び 基礎知識</span>
+    <span class="backlog-badge">バックログ解説</span>
+  </div>
+  <h1>「高度専門職ビザ」と間違えていませんか？<br>国際遠隔就労ビザ(DNV) vs 高度専門職ビザ(PAC)<br>── 準備段階で最初に迷う分岐点を整理する ──</h1>
+  <div class="meta">
+    デジタルノマド 最新トピック 2026-07-01<br>
+    情報収集日：2026年7月1日<br>
+    根拠法：スペイン起業家法（Ley 14/2013、2013年9月27日）── 国際遠隔就労は第74条の3（Ley 28/2022による追加）／高度専門職は第71条（制定時から存在）<br>
+    高度専門職ビザ・EUブルーカードの給与基準：Orden PJC/44/2026（2026年1月27日付、BOE 2026年1月30日公示）
+  </div>
+</div>
+
+<!-- 今日のポイント -->
+<div class="card">
+  <h2><span class="section-icon">📌</span>今日のポイント（30秒まとめ）</h2>
+  <div class="number-row">
+    <div class="number-card">
+      <div class="num">第74条の3</div>
+      <div class="desc">国際遠隔就労ビザ(DNV)の<br>根拠条文（Ley 14/2013）</div>
+    </div>
+    <div class="number-card amber">
+      <div class="num">第71条</div>
+      <div class="desc">高度専門職ビザ(PAC)の<br>根拠条文（同じ法律）</div>
+    </div>
+    <div class="number-card red">
+      <div class="num">スペイン企業の<br>雇用契約が必須</div>
+      <div class="desc">高度専門職ビザ(PAC)の<br>絶対条件</div>
+    </div>
+    <div class="number-card green">
+      <div class="num">スペイン企業<br>不要</div>
+      <div class="desc">国際遠隔就労ビザ(DNV)は<br>海外の会社・顧客でもOK</div>
+    </div>
+  </div>
+  <div class="highlight-box">
+    <span class="hlabel">💡 核心メッセージ（日本1人法人オーナーへ）</span>
+    <p>スペイン移住を調べ始めると「高度専門職ビザ（Profesional Altamente Cualificado＝業界でよく<strong>PAC</strong>と略される。正式な政府略称ではなく実務上の通称）」という言葉によく出会います。しかし<strong>これはスペイン国内の企業と雇用契約を結ぶ人向けの制度</strong>で、日本の1人法人から報酬を得て海外の顧客に働きかける人には使えません。あなたが目指すべきは<strong>国際遠隔就労ビザ（Autorización de residencia para teletrabajo de carácter internacional＝通称デジタルノマドビザ／DNV）</strong>です。同じ法律（Ley 14/2013）の中に両方の制度があるため混同しやすく、実際に検索エンジンや解説サイトでも両者を取り違えている記事が見られます。</p>
+  </div>
+</div>
+
+<!-- 背景：なぜ今日この話 -->
+<div class="card">
+  <h2><span class="section-icon">🔎</span>なぜ今、この整理が必要か</h2>
+  <p>スペインのビザ制度を調べていると「デジタルノマドビザ」「高度専門職ビザ」「EUブルーカード」など似た名前の在留資格が次々に出てきて、準備段階で混乱しやすいという声が民間の移住サポートサイトでも複数指摘されています。特に「高度専門職ビザ（PAC）」は検索結果の上位に出やすく、フリーランスや1人法人のオーナーが誤ってこの制度の要件（スペイン企業の求人・雇用契約）を満たそうとして時間を無駄にするケースが報告されています。</p>
+  <div class="alert-box">
+    <span class="alabel">⚠ 注意：この記事は「新しい制度変更」の速報ではありません</span>
+    <p>今回取り上げる高度専門職ビザ（Art. 71）自体は2013年制定時からある既存の制度です。新ルールではなく、<strong>制度の基本整理（再解説）</strong>として扱います。唯一の実際の更新情報は、EUブルーカード保持者向けの給与基準を定めた<strong>Orden PJC/44/2026（2026年1月27日付、BOE 2026年1月30日公示）</strong>で、これは一次情報（BOE）で日付を確認済みです。</p>
+  </div>
+</div>
+
+<!-- 2つのビザの基本解説 -->
+<div class="card">
+  <h2><span class="section-icon">📖</span>2つのビザ── 中学生でもわかる解説</h2>
+  <p>スペインの起業家法（Ley 14/2013）という1つの法律の中に、外国人向けの在留資格がいくつも入っています。その中でも間違えやすい2つを比べます。</p>
+
+  <div class="compare-row">
+    <div class="compare-card green">
+      <h3>✅ 国際遠隔就労ビザ（DNV／第74条の3）</h3>
+      <ul style="list-style:none; padding:0; font-size:0.87rem; line-height:1.9;">
+        <li>🏢 <strong>雇用主</strong>：スペイン国外の会社・顧客（日本法人でOK）</li>
+        <li>💼 <strong>働き方</strong>：会社員型・業務委託型（autónomo）どちらも可</li>
+        <li>💰 <strong>収入要件</strong>：月€2,849〜（SMIの200%、単身の場合）</li>
+        <li>🎓 <strong>資格要件</strong>：大学卒 または 実務経験3年以上</li>
+        <li>🇪🇸 <strong>スペイン国内収入</strong>：業務委託型は全体の20%まで</li>
+        <li>⏳ <strong>有効期間</strong>：ビザ1年→居住許可3年（更新+2年）</li>
+        <li>👨‍👩‍👧 <strong>家族帯同</strong>：同時申請 可</li>
+      </ul>
+    </div>
+    <div class="compare-card red">
+      <h3>❌ 高度専門職ビザ（PAC／第71条）</h3>
+      <ul style="list-style:none; padding:0; font-size:0.87rem; line-height:1.9;">
+        <li>🏢 <strong>雇用主</strong>：<span style="color:#c0392b;font-weight:700;">スペイン国内の企業のみ</span>（求人・雇用契約が前提）</li>
+        <li>💼 <strong>働き方</strong>：スペイン企業の正社員（管理職・専門職）</li>
+        <li>💰 <strong>給与要件</strong>：企業側が定める年収基準を満たす求人が必要</li>
+        <li>🏭 <strong>企業要件</strong>：従業員250人超 または 代替要件（下記参照）</li>
+        <li>📅 <strong>審査期間</strong>：20営業日（超過は「みなし承認」）</li>
+        <li>⏳ <strong>有効期間</strong>：3年（更新+2年、5年で永住権対象）</li>
+        <li>👨‍👩‍👧 <strong>家族帯同</strong>：同時申請 可</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <span class="hlabel">🏫 中学生向け一言まとめ</span>
+    <p>「国際遠隔就労ビザ」＝「日本の会社や海外のお客さんから、パソコン1つでお金をもらいながらスペインに住む人向け」の制度。「高度専門職ビザ」＝「スペインの会社に就職して、そこから給料をもらう人向け」の制度。あなたが日本の1人法人からの報酬や海外クライアントの案件で生活するなら、選ぶべきは前者（DNV）です。</p>
+  </div>
+</div>
+
+<!-- フローチャートで自己診断 -->
+<div class="card">
+  <h2><span class="section-icon">🧭</span>図解：あなたはどちらのビザ？</h2>
+  <div class="flow-wrap">
+    <div class="flow-box">
+      <span class="fb-label">STEP 1</span>
+      <strong>収入の出どころは、スペインの会社ですか？それとも海外（日本など）ですか？</strong>
+    </div>
+    <div class="arrow-down">↓</div>
+  </div>
+  <div class="two-col">
+    <div class="mini-card green">
+      <h4>🌍 海外（日本の1人法人・海外クライアント）</h4>
+      <p>→ <strong>国際遠隔就労ビザ（DNV）</strong>の対象。会社員型でも業務委託型でもOK。スペイン国内の顧客は収入全体の20%までなら業務委託型でも申請可能。</p>
+    </div>
+    <div class="mini-card red">
+      <h4>🇪🇸 スペイン国内の企業から内定・求人あり</h4>
+      <p>→ <strong>高度専門職ビザ（PAC）</strong>の対象。ただしスペイン企業側が申請人になり、企業の従業員数・売上高などの要件も満たす必要がある。</p>
+    </div>
+  </div>
+  <div class="alert-box">
+    <span class="alabel">⚠ 実務上のよくある誤解</span>
+    <p>「高度専門職＝スキルが高い人向けのビザ」という名前の印象から、フリーランスや1人法人オーナーが自分にも当てはまると考えて調べ始めてしまうケースが民間の移住サポートサイトで報告されています。しかし高度専門職ビザは<strong>あなたではなくスペインの雇用企業側が申請人</strong>になる制度で、そもそも1人法人オーナーの働き方（海外の自社から報酬を得る）とは前提が異なります。</p>
+  </div>
+</div>
+
+<!-- PAC企業要件の詳細（マトリクス） -->
+<div class="card">
+  <h2><span class="section-icon">🏭</span>参考：高度専門職ビザ（PAC）を雇う企業側の要件</h2>
+  <p>DNVには不要ですが、PACの理解を深めるために企業側の要件を整理します（雇われる側ではなく、<strong>雇う側のスペイン企業</strong>が満たすべき条件です）。</p>
+  <table class="matrix-table">
+    <tr><th>ルート</th><th>企業側の要件</th><th>審査期間の目安</th></tr>
+    <tr class="row-navy"><td>大企業ルート</td><td>申請直前3か月の平均従業員数が250人超（社会保険登録ベース）</td><td>20営業日</td></tr>
+    <tr><td>売上・投資ルート</td><td>年間売上高5,000万ユーロ超、または年間投資額100万ユーロ超</td><td>20営業日</td></tr>
+    <tr class="row-green"><td>戦略分野・R&D+iルート</td><td>国際貿易投資総局の認定を受けた戦略分野の中小企業、研究開発・イノベーション拠点等</td><td>20営業日（要件が緩和される場合あり）</td></tr>
+  </table>
+  <p class="footnote">1人法人オーナーがこの表を満たす必要はありません。「PACはこういう性質の制度」という理解のための参考情報です。</p>
+</div>
+
+<!-- 制度アップデート：ブルーカード給与基準 -->
+<div class="card">
+  <h2><span class="section-icon">📢</span>唯一の実際のアップデート：EUブルーカードの給与基準（2026年）</h2>
+  <div class="green-box">
+    <span class="glabel">✓ 一次情報で確認済み（BOE 2026年1月30日公示）</span>
+    <p><strong>Orden PJC/44/2026</strong>（2026年1月27日付）により、高度専門職ビザの一種である<strong>EUブルーカード（Tarjeta azul-UE）</strong>保持者向けの給与基準が更新されました。一般基準は年収€41,356.36、一定条件（採用が難しい職種・卒業後3年以内の若手専門職など）を満たす場合の軽減基準は€33,085.09です。この基準はスペイン国家統計局（INE）が発表する平均賃金の1.4倍という計算式に基づき、毎年更新されます。</p>
+  </div>
+  <p>この基準は<strong>EUブルーカード</strong>という高度専門職ビザの中でもさらに細かい区分の給与要件です。EUブルーカードもPAC同様「スペイン企業との雇用契約」が前提のため、1人法人オーナーには直接関係しませんが、「スペインの就労系ビザは毎年こうして給与基準が見直されている」という制度の動き方を知る例として押さえておくと、将来的にスタッフを現地雇用する場面などで役立ちます。</p>
+</div>
+
+<!-- 税務居住地との関係 -->
+<div class="card">
+  <h2><span class="section-icon">⚖️</span>どちらのビザでも変わらないこと：税務上の居住地判定</h2>
+  <p>ビザの種類（DNVかPACか）は、あくまで「スペインに住んで働いてよいか」という<strong>出入国管理上の資格</strong>の話です。一方で「スペインで所得税を払う『税務上の居住者』になるかどうか」は<strong>別のルール</strong>で決まります。</p>
+  <div class="highlight-box">
+    <span class="hlabel">📌 183日ルール（スペイン国内法）</span>
+    <p>暦年（1月1日〜12月31日）で<strong>スペイン国内に183日以上</strong>滞在すると、原則としてスペインの税務上の居住者と判定されます。短期の一時的な出国（スポラディック・アブセンス）は、他国での居住を証明できない限りスペイン滞在日数に算入されます。日本とスペインを行き来する生活では、この日数管理がビザの種類に関わらず重要です（詳細は2026-06-02日報「日西租税条約と非居住者判定」を参照）。</p>
+  </div>
+  <p>つまり、DNVで入国してもPACで入国しても、183日ルールや日西租税条約のタイブレーカー規定は同じように適用されます。「ビザ選び」と「税務居住地の判定」は別問題として、それぞれ準備しておく必要があります。</p>
+</div>
+
+<!-- 今すぐ確認・着手できること -->
+<div class="card">
+  <h2><span class="section-icon">✅</span>今すぐ確認・着手できること</h2>
+  <ul class="check-list">
+    <li>
+      <span class="check-icon navy">Q</span>
+      <div><strong>自分の収入源がどこから来ているかを整理する</strong><br>（日本の1人法人からの役員報酬・業務委託料が中心なら、目指すのは国際遠隔就労ビザ（DNV）で間違いない）</div>
+    </li>
+    <li>
+      <span class="check-icon green">✓</span>
+      <div><strong>「高度専門職」「PAC」というキーワードの解説記事を読むときは対象者が違うと意識する</strong><br>（スペイン企業への就職者向けの制度であり、1人法人オーナー向けの情報ではない）</div>
+    </li>
+    <li>
+      <span class="check-icon green">✓</span>
+      <div><strong>DNVの業務委託型（autónomo）を選ぶ場合、スペイン国内クライアントの割合が20%を超えないか確認する</strong><br>（超えると要件から外れる可能性がある。2026-06-08日報の決済スタック実務と合わせて収入内訳を管理）</div>
+    </li>
+    <li>
+      <span class="check-icon amber">!</span>
+      <div><strong>183日ルールと日西租税条約のタイブレーカー規定を並行して理解しておく</strong><br>（ビザが取れることと、税務上どちらの国の居住者になるかは別の話。2026-06-02日報を参照）</div>
+    </li>
+    <li>
+      <span class="check-icon red">×</span>
+      <div><strong>「高度専門職ビザの方が響きが良いから」で申請準備を進めない</strong><br>（スペイン企業側が申請人になる制度のため、1人法人オーナーが単独で申請することはできない）</div>
+    </li>
+  </ul>
+</div>
+
+<!-- 出典 -->
+<div class="card">
+  <h2><span class="section-icon">🔗</span>主な参照元（アクセス確認日：2026年7月1日）</h2>
+  <ul class="check-list">
+    <li>
+      <span class="check-icon navy">S</span>
+      <div>BOE「Ley 14/2013, de 27 de septiembre, de apoyo a los emprendedores y su internacionalización」（起業家法・第71条＝高度専門職／第74条の3＝国際遠隔就労）<br>
+      <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2013-10074" target="_blank" style="color:#1e3a6e;font-size:0.83rem;">boe.es</a>（公式・スペイン官報・法律本文）</div>
+    </li>
+    <li>
+      <span class="check-icon navy">S</span>
+      <div>BOE「Orden PJC/44/2026, de 27 de enero, por la que se establece el umbral salarial de referencia... Tarjeta azul-UE」（2026年1月30日公示）<br>
+      <a href="https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-2142" target="_blank" style="color:#1e3a6e;font-size:0.83rem;">boe.es</a>（公式・EUブルーカード給与基準2026年版）</div>
+    </li>
+    <li>
+      <span class="check-icon navy">S</span>
+      <div>Ministerio de Inclusión, Seguridad Social y Migraciones「Hoja 66 - Autorización... profesionales altamente cualificados」<br>
+      <a href="https://www.inclusion.gob.es/en/web/migraciones/w/66.-autorizacion-inicial-de-residencia-y-trabajo-de-profesionales-altamente-cualificados" target="_blank" style="color:#1e3a6e;font-size:0.83rem;">inclusion.gob.es</a>（公式・高度専門職ビザの手続き案内）</div>
+    </li>
+    <li>
+      <span class="check-icon gray">R</span>
+      <div>Orience「Freelancers en España: visado para profesionales altamente cualificados o nómada digital」（民間解説・両ビザの違い）<br>
+      <a href="https://orience.es/blog/freelancers-en-espana-visado-para-profesionales-altamente-cualificados-o-nomada-digital/" target="_blank" style="color:#1e3a6e;font-size:0.83rem;">orience.es</a></div>
+    </li>
+    <li>
+      <span class="check-icon gray">R</span>
+      <div>Cohen y Aguirre「¿Qué necesito para solicitar la visa de profesional altamente cualificado en España?」（民間解説・企業要件の詳細）<br>
+      <a href="https://cohenyaguirre.es/solicitar-la-visa-de-profesional-altamente-cualificado-en-espana" target="_blank" style="color:#1e3a6e;font-size:0.83rem;">cohenyaguirre.es</a></div>
+    </li>
+    <li>
+      <span class="check-icon gray">R</span>
+      <div>LawAndTrends「La autorización de residencia para profesionales altamente cualificados de la Ley 14/2013」（民間解説・企業側要件の一覧）<br>
+      <a href="https://www.lawandtrends.com/noticias/administrativo/la-autorizacion-de-residencia-para-profesionales-altamente-cualificados-de-la-ley-14-2013-de-27-de-septiembre-1.html" target="_blank" style="color:#1e3a6e;font-size:0.83rem;">lawandtrends.com</a></div>
+    </li>
+  </ul>
+  <p class="footnote">S=一次情報（政府・公式機関）  R=民間解説（参考として使用）<br>
+  高度専門職ビザ（PAC）の一般ルート（ブルーカード以外）の最新給与基準額は、公式一次情報での確認ができなかったため本記事では数値を掲載していません。実際の申請時は必ず最新のBOE公示または専門家にご確認ください。</p>
+</div>
+
+<!-- フッター -->
+<div class="footer-card">
+  <span class="footer-title">⚠ 免責事項 &amp; 専門家への相談推奨</span>
+  <p>
+    <strong>【ビザ・在留】</strong>ビザ要件・審査基準は変更されることがあります。どちらのビザが自分に適しているかの正式な判断は、行政書士・移民弁護士（Abogado de extranjería）にご相談ください。<br>
+    <strong>【税務・社会保険】</strong>税務上の居住地判定・二重課税の扱いは個別の事情により大きく異なります。国際税務に詳しい税理士へ必ずご相談ください。「必ず取得できる」「必ず非課税になる」等の保証はありません。<br>
+    <strong>【基準年度・為替】</strong>制度・金額は2026年時点の情報。為替レートは参考値（€1≒¥160、2026年6月）。将来変更される可能性があります。
+  </p>
+</div>
+
+</body>
+</html>
