@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>インサイドセールス 最新トピック 2026-07-01</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  /* ── カバー ── */
+  .cover {
+    background: linear-gradient(135deg, #6d1b1b 0%, #a13a2c 50%, #d98a2e 100%);
+    color: white;
+    border-radius: 8px;
+    padding: 60px 40px;
+    text-align: center;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.3);
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent, transparent 28px,
+      rgba(255,255,255,0.05) 28px, rgba(255,255,255,0.05) 29px
+    );
+  }
+  .cover-emoji { font-size: 64px; display: block; margin-bottom: 16px; }
+  .cover h1 {
+    font-family: 'Klee One', sans-serif;
+    font-size: 2.0rem;
+    font-weight: 600;
+    line-height: 1.35;
+    margin-bottom: 12px;
+    position: relative;
+  }
+  .cover .subtitle { font-size: 1.05rem; opacity: 0.85; margin-bottom: 8px; position: relative; }
+  .cover .date-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 20px;
+    padding: 6px 20px;
+    font-size: 1rem;
+    margin-top: 16px;
+    position: relative;
+  }
+
+  /* ── カード共通 ── */
+  .card {
+    background: #fff9f0;
+    border-radius: 6px;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.12);
+    position: relative;
+    overflow: hidden;
+  }
+  .card-body {
+    padding: 40px 36px 28px 64px;
+    background: repeating-linear-gradient(0deg, transparent, transparent 31px, #e0d8c8 31px, #e0d8c8 32px);
+    background-color: #fff9f0;
+  }
+  .card-tab {
+    display: inline-block;
+    background: #a13a2c;
+    color: white;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 4px 16px;
+    border-radius: 0 0 6px 6px;
+    position: absolute;
+    top: 0; left: 32px;
+    letter-spacing: 0.05em;
+  }
+  .card h2 {
+    font-size: 1.28rem;
+    color: #6d1b1b;
+    margin-bottom: 16px;
+    margin-top: 4px;
+    line-height: 1.5;
+    border-left: 4px solid #c0532b;
+    padding-left: 12px;
+  }
+  p { line-height: 1.85; color: #333; font-size: 0.97rem; margin-bottom: 12px; }
+
+  /* ── 大きな数字カード ── */
+  .bignum-row {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+  }
+  .bignum-card {
+    flex: 1;
+    min-width: 140px;
+    border-radius: 10px;
+    padding: 20px 14px;
+    text-align: center;
+  }
+  .bignum-card.red   { background: #fdf2f2; border: 2px solid #c0392b; }
+  .bignum-card.blue  { background: #e8f4fd; border: 2px solid #2980b9; }
+  .bignum-card.green { background: #eafaf1; border: 2px solid #27ae60; }
+  .bignum-card.amber { background: #fef6e7; border: 2px solid #d98a2e; }
+  .bignum-card.indigo { background: #f6e9e4; border: 2px solid #a13a2c; }
+  .bignum-card .num {
+    font-size: 2.0rem;
+    font-weight: 700;
+    line-height: 1.15;
+    display: block;
+  }
+  .bignum-card.red    .num { color: #c0392b; }
+  .bignum-card.blue   .num { color: #1a6ba0; }
+  .bignum-card.green  .num { color: #1e8449; }
+  .bignum-card.amber  .num { color: #b06b1a; }
+  .bignum-card.indigo .num { color: #7a2a1e; }
+  .bignum-card .unit  { font-size: 0.75rem; color: #888; }
+  .bignum-card .label { font-size: 0.82rem; font-weight: 700; margin-top: 6px; color: #555; line-height: 1.4; }
+
+  /* ── ツールカード風カード ── */
+  .tool-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin: 18px 0;
+  }
+  .tool-card {
+    flex: 1;
+    min-width: 220px;
+    border-radius: 10px;
+    padding: 16px 18px;
+    border: 2px solid;
+  }
+  .tool-card.c1 { background: #f6e9e4; border-color: #a13a2c; }
+  .tool-card.c2 { background: #fef6e7; border-color: #d98a2e; }
+  .tool-card.c3 { background: #e8f5e9; border-color: #2e7d32; }
+  .tool-card .t-name {
+    font-size: 1.0rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+  .tool-card.c1 .t-name { color: #7a2a1e; }
+  .tool-card.c2 .t-name { color: #b06b1a; }
+  .tool-card.c3 .t-name { color: #2e7d32; }
+  .tool-card .t-desc { font-size: 0.82rem; color: #555; line-height: 1.6; margin: 0; }
+  .tool-card .t-type {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-bottom: 6px;
+    color: white;
+  }
+  .c1 .t-type { background: #a13a2c; }
+  .c2 .t-type { background: #d98a2e; }
+  .c3 .t-type { background: #2e7d32; }
+
+  /* ── ステップフロー ── */
+  .step-flow { display: flex; flex-direction: column; gap: 0; margin: 20px 0; }
+  .step-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px dotted #ddd;
+  }
+  .step-item:last-child { border-bottom: none; }
+  .step-num {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: #a13a2c;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .step-body { flex: 1; }
+  .step-title { font-size: 0.97rem; font-weight: 700; color: #6d1b1b; margin-bottom: 4px; }
+  .step-desc  { font-size: 0.85rem; color: #555; line-height: 1.7; margin: 0; }
+
+  /* ── チェックリスト ── */
+  .checklist { list-style: none; margin: 16px 0; }
+  .checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.92rem;
+    color: #444;
+    line-height: 1.7;
+  }
+  .checklist li:last-child { border-bottom: none; }
+  .checklist .chk {
+    width: 26px; height: 26px;
+    border-radius: 4px;
+    border: 2px solid #a13a2c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 0.85rem;
+    color: #a13a2c;
+    font-weight: 700;
+    margin-top: 2px;
+  }
+
+  /* ── 今日の一歩 ── */
+  .today-box {
+    background: linear-gradient(135deg, #6d1b1b, #c0532b);
+    color: white; border-radius: 8px;
+    padding: 24px 28px; margin: 16px 0; text-align: center;
+  }
+  .today-box .emoji { font-size: 2.2rem; display: block; margin-bottom: 8px; }
+  .today-box .title { font-size: 1.1rem; font-weight: 600; margin-bottom: 10px; }
+  .today-box .desc  { font-size: 0.92rem; opacity: 0.92; line-height: 1.8; text-align: left; }
+
+  /* ── 共通パーツ ── */
+  .highlight { background: #f6e2c8; border-radius: 4px; padding: 1px 6px; color: #6d1b1b; font-weight: 600; }
+  .callout {
+    border-radius: 6px; padding: 14px 16px; margin-top: 14px;
+  }
+  .callout.yellow { background: #fef9e7; border-left: 4px solid #d98a2e; }
+  .callout.green  { background: #eafaf1; border-left: 4px solid #27ae60; }
+  .callout.blue   { background: #e8f4fd; border-left: 4px solid #2980b9; }
+  .callout.wine   { background: #f6e9e4; border-left: 4px solid #a13a2c; }
+  .callout.red    { background: #fdf2f2; border-left: 4px solid #e74c3c; }
+
+  /* ── 免責 ── */
+  .disclaimer {
+    background: #fff; border: 1px solid #ddd; border-radius: 6px;
+    padding: 16px 20px; font-size: 0.8rem; color: #777; line-height: 1.7;
+    width: 100%; max-width: 820px; margin-bottom: 16px;
+  }
+  .disclaimer strong { color: #555; }
+
+  /* ── 出典 ── */
+  .sources {
+    background: #fff9f0; border-radius: 6px; padding: 16px 24px;
+    width: 100%; max-width: 820px; margin-bottom: 24px;
+    font-size: 0.8rem; color: #666; line-height: 1.8;
+  }
+  .sources h3 { font-size: 0.85rem; color: #6d1b1b; margin-bottom: 8px; }
+  .sources a { color: #a13a2c; text-decoration: none; }
+  .sources a:hover { text-decoration: underline; }
+  .sources ul { padding-left: 16px; }
+
+  /* ── バックリンク ── */
+  .back-link { text-align: center; margin-bottom: 20px; font-size: 0.9rem; }
+  .back-link a { color: #a13a2c; text-decoration: none; }
+  .back-link a:hover { text-decoration: underline; }
+
+  /* ── 時差カード ── */
+  .tz-row { display: flex; gap: 14px; flex-wrap: wrap; margin: 20px 0; }
+  .tz-card {
+    flex: 1; min-width: 150px;
+    background: #fdf2f2; border: 2px solid #e74c3c;
+    border-radius: 10px; padding: 16px 14px; text-align: center;
+  }
+  .tz-card .tz-city { font-size: 0.85rem; font-weight: 700; color: #6d1b1b; margin-bottom: 6px; }
+  .tz-card .tz-num { font-size: 1.8rem; font-weight: 700; color: #c0392b; display: block; }
+  .tz-card .tz-note { font-size: 0.72rem; color: #888; margin-top: 4px; line-height: 1.5; }
+
+  @media (max-width: 560px) {
+    .card-body { padding: 40px 18px 24px 24px; }
+    .bignum-row { flex-direction: column; }
+    .tool-grid  { flex-direction: column; }
+    .tz-row { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── カバー ── -->
+<div class="cover">
+  <span class="cover-emoji">🌎</span>
+  <h1>スペイン語を活かした<br>中南米向けアウトバウンド営業の可能性</h1>
+  <div class="subtitle">インサイドセールス 最新トピック 2026-07-01</div>
+  <div class="date-badge">テレアポ・インサイドセールス 毎朝解説</div>
+</div>
+
+<!-- ── Section 01 ── -->
+<div class="card">
+  <span class="card-tab">01 なぜ今「スペイン語×営業」なのか</span>
+  <div class="card-body">
+    <h2>🌎 世界に6億人超えのマーケットがある言語</h2>
+    <p>
+      スペイン語（español／エスパニョール）は、スペイン本国だけでなく、メキシコ・コロンビア・アルゼンチンなど
+      <strong>中南米（ちゅうなんべい＝メキシコより南の中央アメリカ・南アメリカ地域）</strong>の多くの国で公用語として話されています。
+      「英語だけじゃない語学の武器」として、スペイン語は営業職でも注目され始めています。
+    </p>
+
+    <div class="bignum-row">
+      <div class="bignum-card red">
+        <span class="num">6.36億人</span>
+        <div class="unit">世界のスペイン語話者数</div>
+        <div class="label">学習者も含めた総数<br>（2025年版）</div>
+      </div>
+      <div class="bignum-card blue">
+        <span class="num">5.2億人</span>
+        <div class="unit">うち母語話者（ネイティブ）</div>
+        <div class="label">生まれた時から<br>話している人の数</div>
+      </div>
+      <div class="bignum-card amber">
+        <span class="num">$18〜62</span>
+        <div class="unit">/ 時間（USドル）</div>
+        <div class="label">英西バイリンガル<br>リモート営業案件の時給幅</div>
+      </div>
+    </div>
+    <p style="font-size:0.8rem; color:#888;">※ 話者数はセルバンテス文化センター「El español en el mundo 2025」（2025年10月発表）。時給幅はZipRecruiter掲載求人情報（参照日：2026年6月）。案件により大きく異なる目安。</p>
+
+    <div class="callout wine">
+      <strong>🔑 今日のキーワード：</strong><br>
+      <strong>中南米（LatAm／ラタム）</strong>＝ メキシコ・中央アメリカ・南アメリカの、主にスペイン語やポルトガル語（ブラジル）を話す地域の通称。<br>
+      <strong>アウトバウンド営業</strong>＝ 会社側から見込み客に電話・メールなどで先にアプローチする営業スタイル。
+    </div>
+  </div>
+</div>
+
+<!-- ── Section 02 ── -->
+<div class="card">
+  <span class="card-tab">02 最大の壁は「時差」— まず正直に見る</span>
+  <div class="card-body">
+    <h2>🕐 「時差」を知らずに始めると挫折しやすい</h2>
+    <p>
+      フィリピンやベトナムなど、英語圏でも「アジア」の案件は日本と時差が1〜3時間程度で、日中にリアルタイムで電話・商談ができます。
+      しかし中南米は地球のほぼ反対側にあり、<strong>日本が朝〜昼のとき、現地はまだ前日の夕方〜夜</strong>という大きな時差があります。
+    </p>
+
+    <div class="tz-row">
+      <div class="tz-card">
+        <div class="tz-city">🇲🇽 メキシコシティ</div>
+        <span class="tz-num">15時間差</span>
+        <div class="tz-note">日本が朝9時＝現地は<br>前日の夕方18時</div>
+      </div>
+      <div class="tz-card">
+        <div class="tz-city">🇨🇴 ボゴタ（コロンビア）</div>
+        <span class="tz-num">14時間差</span>
+        <div class="tz-note">日本が朝9時＝現地は<br>前日の夜19時</div>
+      </div>
+      <div class="tz-card">
+        <div class="tz-city">🇦🇷 ブエノスアイレス</div>
+        <span class="tz-num">12時間差</span>
+        <div class="tz-note">日本が朝9時＝現地は<br>前日の夜21時</div>
+      </div>
+    </div>
+
+    <div class="callout yellow">
+      <strong>⚠️ 一方で「スペイン本国」は時差7〜8時間。</strong><br>
+      日本の夕方〜夜（17〜22時ごろ）が、スペインの午前〜昼（9〜14時ごろ）にあたるため、
+      中南米よりはリアルタイムでやり取りしやすい時間帯があります。
+      「スペイン語＝すべて時差が絶望的」というわけではありません。
+    </div>
+  </div>
+</div>
+
+<!-- ── Section 03 ── -->
+<div class="card">
+  <span class="card-tab">03 現実的にできる3つの働き方</span>
+  <div class="card-body">
+    <h2>🧭 時差を踏まえた、現実的な3つのルート</h2>
+    <p>この時差を前提に考えると、日本在住のままスペイン語を活かす道は主に3パターンに分かれます。</p>
+
+    <div class="step-flow">
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-title">✉️ 非同期の営業（コールドメール・SNS DM・提案書作成）</div>
+          <div class="step-desc">
+            電話ではなく、メールやLinkedIn・Instagramなどのメッセージで見込み客にアプローチする方法。
+            時差の影響を受けにくく、スペイン語の「書く力」があれば日本の生活時間のまま取り組めます。
+            まずはここから始めやすいルートです。
+          </div>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <div class="step-title">💻 スペイン本国向けのリモートSDR（営業開発職）</div>
+          <div class="step-desc">
+            時差7〜8時間のスペイン企業のリモート求人を狙う方法。ヨーロッパ圏のリモート求人サイトや
+            LinkedInの求人検索で「remote SDR Spain」のようなキーワードで探せます。
+          </div>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <div class="step-title">🌉 「日本語×スペイン語×英語」トライリンガル人材というニッチ</div>
+          <div class="step-desc">
+            メキシコに工場を持つ日本の自動車・製造業や、中南米と取引する商社などでは、
+            「日本本社側の窓口」としてスペイン語ができる人材のニーズがあります。
+            この場合は日本時間で働けるため、時差の壁を回避できます。
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Section 04 ── -->
+<div class="card">
+  <span class="card-tab">04 気になる報酬感覚をチェック</span>
+  <div class="card-body">
+    <h2>💰 スペイン本国と中南米、それぞれの相場感</h2>
+    <p>実際の求人・調査データから、大まかな相場感をまとめました。企業や経験によって幅が大きい点に注意してください。</p>
+
+    <div class="bignum-row">
+      <div class="bignum-card indigo">
+        <span class="num">約€33,000</span>
+        <div class="unit">/年（マドリード）</div>
+        <div class="label">リモートSDRの<br>平均年収の目安</div>
+      </div>
+      <div class="bignum-card green">
+        <span class="num">$1,000〜6,500</span>
+        <div class="unit">/月</div>
+        <div class="label">中南米在住の<br>バイリンガル人材の月給幅</div>
+      </div>
+      <div class="bignum-card amber">
+        <span class="num">50〜70%</span>
+        <div class="unit">人件費の削減率</div>
+        <div class="label">米国企業が中南米在住<br>人材を採用する場合の目安</div>
+      </div>
+    </div>
+    <p style="font-size:0.8rem; color:#888;">
+      ※ マドリードの数値はGlassdoor掲載データ（参照日：2026年6月、レンジは約€24,300〜66,000）。
+      中南米在住者の月給幅はHire With Near社「2026 Salary Guide: US vs. Latin America」（2026年参照）。
+      人件費削減率はwowremoteteams.com／HireLATAM社の解説記事（2026年参照）。
+    </p>
+
+    <div class="callout wine">
+      <strong>⚠️ 注意：ニアショア採用の仕組みを正しく理解しよう</strong><br>
+      Near・Somewhere・HireLATAMなどの「中南米人材紹介プラットフォーム」は、
+      基本的に<strong>「中南米に実際に住んでいる人材」を採用したい米国企業向け</strong>の仕組みです。
+      日本在住のままこれらに応募しても、対象外になるケースが多い点は正直に理解しておきましょう。
+    </div>
+  </div>
+</div>
+
+<!-- ── Section 05 ── -->
+<div class="card">
+  <span class="card-tab">05 語学以外に必要なスキル</span>
+  <div class="card-body">
+    <h2>🎒 スペイン語力を「仕事で使える形」にするには</h2>
+    <p>ただ話せるだけでなく、以下のような準備があると採用担当者に伝わりやすくなります。</p>
+
+    <ul class="checklist">
+      <li>
+        <span class="chk">①</span>
+        <div><strong>📜 DELE／SIELE（スペイン語の公式検定）</strong><br>セルバンテス文化センターなどが実施する公的な語学検定。ビジネスで通用するレベルの目安としてB2以上が一つの基準とされることが多いです。</div>
+      </li>
+      <li>
+        <span class="chk">②</span>
+        <div><strong>🌍 英語との併用力</strong><br>実務では「スペイン語だけ」より「英語＋スペイン語」のバイリンガル人材のほうが求人の選択肢が広がります。</div>
+      </li>
+      <li>
+        <span class="chk">③</span>
+        <div><strong>🤝 国ごとの商談スタイルの違いを知る</strong><br>メキシコは丁寧な雑談から入る傾向、アルゼンチンはややカジュアル、スペイン本国は要点を早めに伝える傾向など、同じスペイン語圏でも文化差があります。</div>
+      </li>
+      <li>
+        <span class="chk">④</span>
+        <div><strong>✍️ スペイン語での「書く力」</strong><br>コールドメールや提案書のライティングは、話す力より先に需要が生まれやすい領域です。DeepLなどの翻訳ツール＋ネイティブチェックで質を上げる工夫も有効です。</div>
+      </li>
+      <li>
+        <span class="chk">⑤</span>
+        <div><strong>💻 基本的なITツール操作</strong><br>Zoom・Slack・CRM（顧客管理ツール）など、リモート営業に共通する基本操作は言語を問わず必須です。</div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- ── Section 06 ── -->
+<div class="card">
+  <span class="card-tab">06 今日からできる一歩</span>
+  <div class="card-body">
+    <h2>👣 LinkedInにスペイン語の自己紹介を1文だけ追加してみる</h2>
+
+    <div class="today-box">
+      <span class="emoji">✍️</span>
+      <div class="title">今日の一歩：スペイン語の自己紹介文を書いてみる</div>
+      <div class="desc">
+        まずは30秒で読める自己紹介文（日本語で3〜4文）を用意し、
+        DeepLなどの無料翻訳ツールでスペイン語に訳してみましょう。<br><br>
+        訳した文章は、そのままでOKなので<strong>LinkedInのプロフィール概要欄に追記</strong>してみてください。
+        完璧である必要はありません。<br><br>
+        「スペイン語ができるかもしれない人」として検索に引っかかるようになることが、
+        中南米・スペイン語圏の案件に出会う最初の一歩です。
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 免責 ── -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事の情報は、複数の公開資料（2025〜2026年参照）をもとにした一般的な解説です。報酬・採用の結果には個人差があり、市場・時期・スキル・企業によって大きく異なります。
+  紹介している求人媒体・企業・プラットフォームの条件やサービス内容は変更されることがありますので、最新情報は各公式サイトでご確認ください。
+  「誰でも稼げる」「必ず採用される」などの保証はできません。
+</div>
+
+<!-- ── 出典 ── -->
+<div class="sources">
+  <h3>📎 参考情報・出典</h3>
+  <ul>
+    <li><a href="https://cervantes.org/es/sobre-nosotros/sala-prensa/notas-prensa/espanol-supera-primera-vez-600-millones-hablantes-consolida" target="_blank">セルバンテス文化センター「El español en el mundo 2025」スペイン語話者数（2025年10月発表）</a></li>
+    <li><a href="https://www.ziprecruiter.com/Jobs/Spanish-Latam-Remote" target="_blank">ZipRecruiter「Spanish Latam Remote Jobs」時給情報（参照日：2026年6月）</a></li>
+    <li><a href="https://www.glassdoor.com/Salaries/madrid-spain-sales-development-representative-salary-SRCH_IL.0,12_IM1030_KO13,45.htm" target="_blank">Glassdoor「Sales Development Representative salary in Madrid, Spain」（参照日：2026年6月）</a></li>
+    <li><a href="https://www.hirewithnear.com/salary-guide-us-vs-latam" target="_blank">Hire With Near「2026 Salary Guide: US vs. Latin America」（2026年参照）</a></li>
+    <li><a href="https://wowremoteteams.com/blog/how-much-us-companies-save-by-hiring-remote-workers-in-latin-america/" target="_blank">wowremoteteams.com「How Much Companies Save By Hiring Remote Workers in LATAM」（2026年参照）</a></li>
+    <li><a href="https://hirelatam.com/how-much-does-it-cost-to-hire-in-latin-america/" target="_blank">HireLATAM「Cost to Hire in Latin America」（2026年参照）</a></li>
+  </ul>
+</div>
+
+<!-- ── バックリンク ── -->
+<div class="back-link">
+  <a href="index.html">&larr; バックナンバー一覧へ</a>
+</div>
+
+</body>
+</html>
