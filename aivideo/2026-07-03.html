@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI動画制作 日報 2026-07-03</title>
+<style>
+  :root {
+    --bg: #ece8e1;
+    --card: #faf6ec;
+    --dark: #1a3a5c;
+    --dark2: #1a5c3a;
+    --accent: #2a5c8a;
+    --accent2: #c85a00;
+    --text: #2a3540;
+    --muted: #7c8a82;
+    --border: #e0d8c8;
+    --highlight: #fff3cd;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, "Hiragino Sans", "Yu Gothic", sans-serif;
+    line-height: 1.75;
+    padding: 20px;
+  }
+  .wrap { max-width: 900px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #1a3a5c 0%, #1a5c3a 100%);
+    color: #fff;
+    border-radius: 20px;
+    padding: 44px 32px 36px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(26,58,92,.22);
+    margin-bottom: 24px;
+  }
+  .header-tag {
+    display: inline-block;
+    background: rgba(255,255,255,.18);
+    color: #e0f0e8;
+    border-radius: 20px;
+    padding: 4px 16px;
+    font-size: .82rem;
+    margin-bottom: 14px;
+    letter-spacing: .06em;
+  }
+  .header h1 { font-size: 1.7rem; letter-spacing: .03em; line-height: 1.4; margin-bottom: 10px; }
+  .header .sub { color: #c8dde8; font-size: .95rem; }
+  .header .date { color: #b0e0c0; font-size: .85rem; margin-top: 8px; }
+
+  .card {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 12px rgba(0,0,0,.07);
+    border: 1px solid var(--border);
+  }
+  .card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .point-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .point-card { background: #eef3f8; border-radius: 14px; padding: 20px 16px; text-align: center; border: 1px solid #d4e0ea; }
+  .point-icon { font-size: 2rem; margin-bottom: 8px; }
+  .point-title { font-size: .95rem; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
+  .point-desc { font-size: .83rem; color: var(--muted); line-height: 1.6; }
+
+  .bignum-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 20px; }
+  .bignum-card { background: linear-gradient(135deg, #1a3a5c, #1a5c3a); border-radius: 14px; padding: 18px 12px; text-align: center; color: #fff; }
+  .bignum { font-size: 1.5rem; font-weight: 800; color: #ffe0a0; line-height: 1.2; }
+  .bignum-label { font-size: .72rem; color: #cfe6d8; margin-top: 4px; line-height: 1.5; }
+
+  .step-list { list-style: none; }
+  .step-item { display: flex; gap: 14px; margin-bottom: 16px; align-items: flex-start; }
+  .step-num {
+    width: 34px; height: 34px;
+    background: linear-gradient(135deg, #1a3a5c, #1a5c3a);
+    color: #fff; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: .95rem; flex-shrink: 0; margin-top: 2px;
+  }
+  .step-body { flex: 1; }
+  .step-title { font-weight: 700; color: var(--dark); font-size: .95rem; }
+  .step-desc { font-size: .86rem; color: var(--muted); margin-top: 3px; line-height: 1.65; }
+
+  .chip-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .chip { background: #e8f0ec; color: #1a5c3a; border-radius: 20px; padding: 4px 14px; font-size: .82rem; font-weight: 600; border: 1px solid #c0dccc; }
+
+  .tbl { width: 100%; border-collapse: collapse; font-size: .88rem; }
+  .tbl th { background: #eaf1ea; padding: 10px 12px; text-align: left; border-bottom: 2px solid #c8ddc8; color: var(--dark); font-weight: 700; }
+  .tbl td { padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: top; color: var(--text); }
+  .tbl tr:last-child td { border-bottom: none; }
+  .tbl tr.good-row td { background: #f0fff4; }
+
+  .note-box { background: var(--highlight); border-left: 4px solid #e8a000; border-radius: 8px; padding: 12px 16px; font-size: .88rem; color: #5a4000; margin-top: 14px; line-height: 1.7; }
+
+  .summary-list { font-size: .95rem; line-height: 2.2; }
+  .summary-list li { list-style: none; display: flex; align-items: flex-start; gap: 8px; }
+  .summary-list li::before { content: "✅"; flex-shrink: 0; margin-top: 2px; }
+
+  .disclaimer { background: #f0ede8; border-radius: 12px; padding: 16px 20px; font-size: .82rem; color: var(--muted); margin-top: 24px; line-height: 1.7; border: 1px solid #ddd8d0; }
+
+  footer { text-align: center; color: var(--muted); font-size: .82rem; margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border); line-height: 1.9; }
+  footer a { color: var(--accent); }
+
+  /* flow diagram */
+  .flow-row { display: flex; gap: 0; align-items: center; flex-wrap: wrap; margin: 16px 0; justify-content: center; }
+  .flow-box { border-radius: 12px; padding: 14px 18px; text-align: center; min-width: 130px; font-size: .85rem; font-weight: 700; color: #fff; }
+  .flow-arrow { font-size: 1.4rem; color: #aaa; margin: 0 8px; }
+  .flow-sub { font-size: .7rem; font-weight: 400; margin-top: 4px; line-height: 1.4; opacity: .9; }
+
+  /* テロップ視認性デモ */
+  .telop-demo-row { display: flex; gap: 16px; margin: 18px 0; flex-wrap: wrap; }
+  .telop-demo { flex: 1; min-width: 240px; border-radius: 14px; overflow: hidden; border: 1px solid var(--border); }
+  .telop-demo-bg {
+    height: 130px;
+    background: linear-gradient(135deg, #7ba3c2 0%, #a8c4a0 40%, #d8b878 100%);
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+  }
+  .telop-demo-label { position: absolute; top: 8px; left: 10px; font-size: .68rem; background: rgba(0,0,0,.35); color: #fff; padding: 2px 8px; border-radius: 10px; }
+  .telop-bad { color: #fdf6e3; font-size: 1.3rem; font-weight: 700; }
+  .telop-good {
+    color: #fff; font-size: 1.3rem; font-weight: 800;
+    -webkit-text-stroke: 3px #1a3a5c; paint-order: stroke fill;
+    text-shadow: 0 3px 6px rgba(0,0,0,.35);
+  }
+  .telop-demo-caption { background: #fff; padding: 8px 12px; font-size: .76rem; color: var(--muted); text-align: center; }
+
+  /* 3層構造 */
+  .layer-wrap { display: flex; flex-direction: column; gap: 8px; margin: 16px 0; align-items: center; }
+  .layer-box { width: 90%; border-radius: 10px; padding: 12px 16px; font-size: .84rem; font-weight: 700; color: #fff; text-align: center; }
+  .layer-1 { background: #b0855a; }
+  .layer-2 { background: #1a5c3a; }
+  .layer-3 { background: #1a3a5c; }
+  .layer-arrow { font-size: 1.1rem; color: #aaa; }
+
+  /* アニメーション比較 */
+  @keyframes demoFade { 0%,100% { opacity: .25; } 50% { opacity: 1; } }
+  @keyframes demoSlide { 0%,100% { transform: translateX(-14px); opacity: .3; } 50% { transform: translateX(0); opacity: 1; } }
+  @keyframes demoPop { 0%,100% { transform: scale(.85); } 50% { transform: scale(1.08); } }
+  .anim-demo { display: inline-block; font-weight: 800; color: var(--dark); font-size: 1.05rem; }
+  .anim-fade { animation: demoFade 2.2s ease-in-out infinite; }
+  .anim-slide { animation: demoSlide 2.2s ease-in-out infinite; }
+  .anim-pop { animation: demoPop 1.4s ease-in-out infinite; }
+
+  @media (max-width: 640px) {
+    .point-grid { grid-template-columns: 1fr; }
+    .bignum-grid { grid-template-columns: repeat(2, 1fr); }
+    .telop-demo-row { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="header">
+  <div class="header-tag">🌱 エバーグリーン技法回 ── テロップ・字幕デザイン</div>
+  <h1>タイトル・テロップデザインのコツ<br>── フォント選び・アニメーション・視認性</h1>
+  <div class="sub">「読めるテロップ」と「読みにくいテロップ」を分けるのは、たった3つのポイント</div>
+  <div class="date">2026-07-03 ｜ AI動画制作 日報</div>
+</div>
+
+<div class="card">
+  <div class="card-title">🎯 今日の3ポイント</div>
+  <div class="point-grid">
+    <div class="point-card">
+      <div class="point-icon">🔤</div>
+      <div class="point-title">フォントは用途で選ぶ</div>
+      <div class="point-desc">SNSのショート動画は読みやすい「ゴシック体」（線の太さが均一な書体）、雰囲気重視の映像は「明朝体」（線に強弱がある書体）が向く</div>
+    </div>
+    <div class="point-card">
+      <div class="point-icon">👁️</div>
+      <div class="point-title">視認性は「3層構造」で作る</div>
+      <div class="point-desc">背景の板・文字のフチ取り・本体の文字色を重ねると、どんな映像の上でも文字が埋もれなくなる</div>
+    </div>
+    <div class="point-card">
+      <div class="point-icon">🎬</div>
+      <div class="point-title">アニメーションは意味で使い分け</div>
+      <div class="point-desc">フェードインは落ち着いた雰囲気、スライドインは勢い、ポップは強調したい一言に使うと効果的</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">📏 まず押さえたい「読みやすさ」の目安数字</div>
+  <p style="font-size:.9rem;color:var(--muted);margin-bottom:16px;">
+    テロップ設計でよく使われる目安（映像・字幕制作の一般的なガイドラインに基づく）を数字で見てみましょう。
+    厳密なルールではなく「迷ったらこの範囲」という基準です。
+  </p>
+  <div class="bignum-grid">
+    <div class="bignum-card">
+      <div class="bignum">1〜2行</div>
+      <div class="bignum-label">1回に表示する<br>テロップの行数の目安</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">13〜16字</div>
+      <div class="bignum-label">1行あたりの<br>文字数の目安（日本語）</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">約4字/秒</div>
+      <div class="bignum-label">人が無理なく読める<br>日本語の速度目安</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">画面高の1/12</div>
+      <div class="bignum-label">スマホ視聴を想定した<br>文字サイズの目安</div>
+    </div>
+  </div>
+  <div class="note-box">
+    💡 「1行1情報」が基本。伝えたいことが2つあるなら、1行に詰め込まず2枚のテロップに分けたほうが結局読んでもらえます。
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🔤 フォント選び ── ゴシック体 と 明朝体、どちらを使う？</div>
+  <p style="font-size:.9rem;color:var(--muted);margin-bottom:14px;">
+    「ゴシック体」は線の太さがほぼ均一で遠目にも読みやすい書体、「明朝体」は縦線が太く横線が細い、筆で書いたような書体です。
+    動画の目的によって、どちらが向いているかが変わります。
+  </p>
+  <table class="tbl">
+    <thead>
+      <tr><th>書体</th><th>特徴</th><th>向いている動画</th></tr>
+    </thead>
+    <tbody>
+      <tr class="good-row">
+        <td><strong>ゴシック体</strong><br><span style="font-size:.78rem;color:var(--muted);">（例：游ゴシック・Noto Sans JP）</span></td>
+        <td>線が均一で太め。小さいサイズ・動きの中でも視認性が高い</td>
+        <td>ショート動画、Vlog、解説・ハウツー系、字幕全般</td>
+      </tr>
+      <tr>
+        <td><strong>明朝体</strong><br><span style="font-size:.78rem;color:var(--muted);">（例：游明朝・Noto Serif JP）</span></td>
+        <td>線に強弱があり上品・エモーショナルな印象。小さいと潰れやすい</td>
+        <td>タイトルカット、ドキュメンタリー、和風・シネマティックな映像</td>
+      </tr>
+      <tr class="good-row">
+        <td><strong>丸ゴシック</strong></td>
+        <td>角が丸く、やわらかくポップな印象</td>
+        <td>子ども向け・料理・カジュアルなVlog</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="note-box">
+    ⚠️ 1本の動画で使うフォントは基本1〜2種類まで。タイトル用と本文テロップ用で使い分けるのはOKですが、増やしすぎると統一感がなくなり読みにくくなります。
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">👁️ 視認性を上げる「3層構造」</div>
+  <p style="font-size:.9rem;color:var(--muted);margin-bottom:14px;">
+    どんな背景でも文字を読みやすくする基本は、下から「背景の板」→「フチ取り」→「文字本体」の3つを重ねること。
+    実際に文字がどう変わるか、下のデモで見比べてみましょう（同じ複雑な背景の上に置いています）。
+  </p>
+  <div class="telop-demo-row">
+    <div class="telop-demo">
+      <div class="telop-demo-bg">
+        <div class="telop-demo-label">❌ 悪い例</div>
+        <div class="telop-bad">今日のポイント</div>
+      </div>
+      <div class="telop-demo-caption">フチ取りなし・背景の板なし → 背景の色によって文字が消えて見える</div>
+    </div>
+    <div class="telop-demo">
+      <div class="telop-demo-bg">
+        <div class="telop-demo-label">✅ 良い例</div>
+        <div class="telop-good">今日のポイント</div>
+      </div>
+      <div class="telop-demo-caption">白フチ＋ドロップシャドウあり → どんな背景色でも文字がくっきり浮かぶ</div>
+    </div>
+  </div>
+
+  <div class="layer-wrap">
+    <div class="layer-box layer-1">③ 文字本体（白 or ブランドカラー）</div>
+    <div class="layer-arrow">↑ 重ねる</div>
+    <div class="layer-box layer-2">② フチ取り／ドロップシャドウ（濃い色で輪郭を作る）</div>
+    <div class="layer-arrow">↑ 重ねる</div>
+    <div class="layer-box layer-3">① 背景の半透明プレート（帯・ボックス）</div>
+  </div>
+  <div class="chip-row">
+    <div class="chip">フチ取り（アウトライン）</div>
+    <div class="chip">ドロップシャドウ</div>
+    <div class="chip">半透明プレート</div>
+    <div class="chip">グラデーション帯</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🎬 アニメーションの使い分け</div>
+  <p style="font-size:.9rem;color:var(--muted);margin-bottom:14px;">
+    テロップの出方（アニメーション）は、動画の雰囲気を左右する重要な要素。下の3つの動くデモで、印象の違いを体感してみましょう。
+  </p>
+  <table class="tbl">
+    <thead>
+      <tr><th>動きの例</th><th>効果</th><th>向いているシーン</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="anim-demo anim-fade">フェードイン</span></td>
+        <td>ふわっと現れる。落ち着いた・上品な印象</td>
+        <td>ドキュメンタリー、旅行Vlog、インタビュー</td>
+      </tr>
+      <tr class="good-row">
+        <td><span class="anim-demo anim-slide">スライドイン</span></td>
+        <td>横や下から滑り込む。テンポの良さ・勢いを演出</td>
+        <td>ショート動画、商品紹介、ニュース風テロップ</td>
+      </tr>
+      <tr>
+        <td><span class="anim-demo anim-pop">ポップ（拡大）</span></td>
+        <td>ポンと弾むように強調される。注目を集めやすい</td>
+        <td>強調したい一言、数字の提示、ツッコミ字幕</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="note-box">
+    💡 アニメーションは「使いすぎない」のがコツ。1本の動画で動きの種類を2〜3個までに絞ると、統一感が出て見やすくなります。
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🛠️ 実践例：ショート動画に読みやすいテロップを入れる 5ステップ</div>
+  <p style="font-size:.88rem;color:var(--muted);margin-bottom:18px;">
+    CapCut・Premiere Pro・DaVinci Resolveなど、一般的な動画編集ソフトを使う場合の基本の流れです。
+  </p>
+  <ul class="step-list">
+    <li class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-title">1カットにつき伝えたいことを1つに絞る</div>
+        <div class="step-desc">「1行13〜16字・1〜2行」を目安に、文章を短く区切る。長い文はテロップを分割する。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-title">ゴシック体をベースフォントに選ぶ</div>
+        <div class="step-desc">タイトルだけ明朝体や装飾フォントにするなど、使うフォントは多くても2種類までにする。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-title">フチ取り＋ドロップシャドウを必ず付ける</div>
+        <div class="step-desc">背景がどんな色でも読めるように、白文字＋濃色フチ、または黒文字＋白フチを基本にする。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <div class="step-title">表示時間は「1文字あたり約0.25秒」を目安に計算</div>
+        <div class="step-desc">例えば12文字のテロップなら約3秒表示。速すぎて読めないテロップにならないよう調整する。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">5</div>
+      <div class="step-body">
+        <div class="step-title">アニメーションは動画全体で2〜3種類に統一する</div>
+        <div class="step-desc">通常のテロップはスライドイン、強調したい一言だけポップにするなど、ルールを決めておくと編集も早くなる。</div>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="card">
+  <div class="card-title">📝 今日のまとめ</div>
+  <ul class="summary-list">
+    <li>テロップは「1行1情報・13〜16字・1〜2行」を目安に短く区切る</li>
+    <li><strong>フォント</strong>：SNS・字幕にはゴシック体、雰囲気重視のタイトルには明朝体が向く</li>
+    <li><strong>視認性</strong>：背景プレート＋フチ取り＋文字本体の「3層構造」でどんな背景でも読める文字になる</li>
+    <li><strong>アニメーション</strong>：フェードイン＝落ち着き、スライドイン＝テンポ、ポップ＝強調と役割を分ける</li>
+    <li>表示時間は「1文字約0.25秒」を目安に、読み切れる速度で出す</li>
+    <li>使うフォント・動きの種類は絞り込むほど、動画全体の統一感と読みやすさが上がる</li>
+  </ul>
+</div>
+
+<div class="disclaimer">
+  ⚠️ <strong>免責事項</strong><br>
+  本記事で紹介した編集ソフト（CapCut、Premiere Pro、DaVinci Resolveなど）の名称・機能・料金・商用利用の可否は頻繁に変更されます。
+  最新情報と利用規約は各ツールの公式ページで必ずご確認ください。
+  本記事の文字数・表示速度などの数値は、字幕・テロップ制作で一般的に使われる目安であり、内容や視聴環境によって最適値は変わります。
+</div>
+
+<footer>
+  AI動画制作 日報 ─ 2026-07-03 ｜ エバーグリーン技法回<br>
+  参考：字幕・テロップの文字数／表示速度の目安は、放送字幕制作および映像編集の一般的なガイドラインに基づく（エバーグリーン技法）<br>
+  <a href="index.html" style="color:var(--accent);">← 一覧に戻る</a>
+</footer>
+
+</div>
+</body>
+</html>
