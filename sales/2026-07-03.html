@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>インサイドセールス 最新トピック 2026-07-03</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  /* ── カバー ── */
+  .cover {
+    background: linear-gradient(135deg, #6d1b1b 0%, #a13a2c 50%, #d98a2e 100%);
+    color: white;
+    border-radius: 8px;
+    padding: 60px 40px;
+    text-align: center;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.3);
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent, transparent 28px,
+      rgba(255,255,255,0.05) 28px, rgba(255,255,255,0.05) 29px
+    );
+  }
+  .cover-emoji { font-size: 64px; display: block; margin-bottom: 16px; }
+  .cover h1 {
+    font-family: 'Klee One', sans-serif;
+    font-size: 2.0rem;
+    font-weight: 600;
+    line-height: 1.35;
+    margin-bottom: 12px;
+    position: relative;
+  }
+  .cover .subtitle { font-size: 1.05rem; opacity: 0.85; margin-bottom: 8px; position: relative; }
+  .cover .date-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 20px;
+    padding: 6px 20px;
+    font-size: 1rem;
+    margin-top: 16px;
+    position: relative;
+  }
+
+  /* ── カード共通 ── */
+  .card {
+    background: #fff9f0;
+    border-radius: 6px;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.12);
+    position: relative;
+    overflow: hidden;
+  }
+  .card-body {
+    padding: 40px 36px 28px 64px;
+    background: repeating-linear-gradient(0deg, transparent, transparent 31px, #e0d8c8 31px, #e0d8c8 32px);
+    background-color: #fff9f0;
+  }
+  .card-tab {
+    display: inline-block;
+    background: #a13a2c;
+    color: white;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 4px 16px;
+    border-radius: 0 0 6px 6px;
+    position: absolute;
+    top: 0; left: 32px;
+    letter-spacing: 0.05em;
+  }
+  .card h2 {
+    font-size: 1.28rem;
+    color: #6d1b1b;
+    margin-bottom: 16px;
+    margin-top: 4px;
+    line-height: 1.5;
+    border-left: 4px solid #c0532b;
+    padding-left: 12px;
+  }
+  p { line-height: 1.85; color: #333; font-size: 0.97rem; margin-bottom: 12px; }
+
+  /* ── 大きな数字カード ── */
+  .bignum-row {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+  }
+  .bignum-card {
+    flex: 1;
+    min-width: 140px;
+    border-radius: 10px;
+    padding: 20px 14px;
+    text-align: center;
+  }
+  .bignum-card.red   { background: #fdf2f2; border: 2px solid #c0392b; }
+  .bignum-card.blue  { background: #e8f4fd; border: 2px solid #2980b9; }
+  .bignum-card.green { background: #eafaf1; border: 2px solid #27ae60; }
+  .bignum-card.amber { background: #fef6e7; border: 2px solid #d98a2e; }
+  .bignum-card.indigo { background: #f6e9e4; border: 2px solid #a13a2c; }
+  .bignum-card .num {
+    font-size: 2.0rem;
+    font-weight: 700;
+    line-height: 1.15;
+    display: block;
+  }
+  .bignum-card.red    .num { color: #c0392b; }
+  .bignum-card.blue   .num { color: #1a6ba0; }
+  .bignum-card.green  .num { color: #1e8449; }
+  .bignum-card.amber  .num { color: #b06b1a; }
+  .bignum-card.indigo .num { color: #7a2a1e; }
+  .bignum-card .unit  { font-size: 0.75rem; color: #888; }
+  .bignum-card .label { font-size: 0.82rem; font-weight: 700; margin-top: 6px; color: #555; line-height: 1.4; }
+
+  /* ── Before/After 対比 ── */
+  .vs-row { display: flex; gap: 14px; flex-wrap: wrap; margin: 20px 0; align-items: stretch; }
+  .vs-card {
+    flex: 1; min-width: 220px;
+    border-radius: 10px; padding: 18px 18px; border: 2px solid;
+  }
+  .vs-card.before { background: #f3f3f3; border-color: #999; }
+  .vs-card.after  { background: #eafaf1; border-color: #27ae60; }
+  .vs-card .vs-tag {
+    display: inline-block; font-size: 0.72rem; font-weight: 700;
+    padding: 2px 10px; border-radius: 10px; margin-bottom: 8px; color: white;
+  }
+  .vs-card.before .vs-tag { background: #888; }
+  .vs-card.after  .vs-tag { background: #27ae60; }
+  .vs-card ul { list-style: none; }
+  .vs-card li { font-size: 0.85rem; color: #444; line-height: 1.8; padding-left: 14px; position: relative; }
+  .vs-card li::before { content: '・'; position: absolute; left: 0; }
+  .vs-arrow {
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.6rem; color: #a13a2c; flex: 0 0 auto; padding: 0 4px;
+  }
+
+  /* ── ステップフロー ── */
+  .step-flow { display: flex; flex-direction: column; gap: 0; margin: 20px 0; }
+  .step-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px dotted #ddd;
+  }
+  .step-item:last-child { border-bottom: none; }
+  .step-num {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: #a13a2c;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .step-body { flex: 1; }
+  .step-title { font-size: 0.97rem; font-weight: 700; color: #6d1b1b; margin-bottom: 4px; }
+  .step-desc  { font-size: 0.85rem; color: #555; line-height: 1.7; margin: 0; }
+
+  /* ── チェックリスト ── */
+  .checklist { list-style: none; margin: 16px 0; }
+  .checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.92rem;
+    color: #444;
+    line-height: 1.7;
+  }
+  .checklist li:last-child { border-bottom: none; }
+  .checklist .chk {
+    width: 26px; height: 26px;
+    border-radius: 4px;
+    border: 2px solid #a13a2c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 0.85rem;
+    color: #a13a2c;
+    font-weight: 700;
+    margin-top: 2px;
+  }
+
+  /* ── 今日の一歩 ── */
+  .today-box {
+    background: linear-gradient(135deg, #6d1b1b, #c0532b);
+    color: white; border-radius: 8px;
+    padding: 24px 28px; margin: 16px 0; text-align: center;
+  }
+  .today-box .emoji { font-size: 2.2rem; display: block; margin-bottom: 8px; }
+  .today-box .title { font-size: 1.1rem; font-weight: 600; margin-bottom: 10px; }
+  .today-box .desc  { font-size: 0.92rem; opacity: 0.92; line-height: 1.8; text-align: left; }
+
+  /* ── 共通パーツ ── */
+  .highlight { background: #f6e2c8; border-radius: 4px; padding: 1px 6px; color: #6d1b1b; font-weight: 600; }
+  .callout {
+    border-radius: 6px; padding: 14px 16px; margin-top: 14px;
+  }
+  .callout.yellow { background: #fef9e7; border-left: 4px solid #d98a2e; }
+  .callout.green  { background: #eafaf1; border-left: 4px solid #27ae60; }
+  .callout.blue   { background: #e8f4fd; border-left: 4px solid #2980b9; }
+  .callout.wine   { background: #f6e9e4; border-left: 4px solid #a13a2c; }
+  .callout.red    { background: #fdf2f2; border-left: 4px solid #e74c3c; }
+
+  /* ── 免責 ── */
+  .disclaimer {
+    background: #fff; border: 1px solid #ddd; border-radius: 6px;
+    padding: 16px 20px; font-size: 0.8rem; color: #777; line-height: 1.7;
+    width: 100%; max-width: 820px; margin-bottom: 16px;
+  }
+  .disclaimer strong { color: #555; }
+
+  /* ── 出典 ── */
+  .sources {
+    background: #fff9f0; border-radius: 6px; padding: 16px 24px;
+    width: 100%; max-width: 820px; margin-bottom: 24px;
+    font-size: 0.8rem; color: #666; line-height: 1.8;
+  }
+  .sources h3 { font-size: 0.85rem; color: #6d1b1b; margin-bottom: 8px; }
+  .sources a { color: #a13a2c; text-decoration: none; }
+  .sources a:hover { text-decoration: underline; }
+  .sources ul { padding-left: 16px; }
+
+  /* ── バックリンク ── */
+  .back-link { text-align: center; margin-bottom: 20px; font-size: 0.9rem; }
+  .back-link a { color: #a13a2c; text-decoration: none; }
+  .back-link a:hover { text-decoration: underline; }
+
+  @media (max-width: 560px) {
+    .card-body { padding: 40px 18px 24px 24px; }
+    .bignum-row { flex-direction: column; }
+    .vs-row { flex-direction: column; }
+    .vs-arrow { transform: rotate(90deg); padding: 8px 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── カバー ── -->
+<div class="cover">
+  <span class="cover-emoji">🤖</span>
+  <h1>AI時代のインサイドセールス<br>求人トレンド 2026</h1>
+  <div class="subtitle">インサイドセールス 最新トピック 2026-07-03</div>
+  <div class="date-badge">テレアポ・インサイドセールス 毎朝解説</div>
+</div>
+
+<!-- ── Section 01 ── -->
+<div class="card">
+  <span class="card-tab">01 いま起きている変化</span>
+  <div class="card-body">
+    <h2>🏆 リモート求人で「営業職」が首位に</h2>
+    <p>
+      2026年2月に米求人サービスFlexJobsが発表したリモート求人ランキングで、
+      <strong>アカウントエグゼクティブ（AE＝契約の最終クロージングまで担当する営業職）</strong>が
+      ソフトウェアエンジニアを抜いて「最も人気・需要のある在宅職種」の1位になったと報じられました。
+      「営業＝出社してナンボ」というイメージが変わりつつあります。
+    </p>
+
+    <div class="bignum-row">
+      <div class="bignum-card red">
+        <span class="num">1位</span>
+        <div class="unit">2026年 在宅職種ランキング</div>
+        <div class="label">アカウントエグゼクティブ<br>（AE／営業職）</div>
+      </div>
+      <div class="bignum-card amber">
+        <span class="num">$88k〜145k</span>
+        <div class="unit">/年（基本給、米国）</div>
+        <div class="label">歩合給は別途上乗せ<br>の求人が中心</div>
+      </div>
+    </div>
+    <p style="font-size:0.8rem; color:#888;">※ CNBC「The top 10 most in-demand work-from-anywhere roles for 2026」（FlexJobs調査、2026年2月5日発表）より。米国基準の数値で、日本の給与水準とは異なります。</p>
+
+    <div class="callout wine">
+      <strong>🔑 今日のキーワード：</strong><br>
+      <strong>AE（アカウントエグゼクティブ）</strong>＝ 商談を進めて契約・受注まで担当する営業職。<br>
+      <strong>SDR（エスディーアール）</strong>＝ 新規の見込み客に最初にアプローチし、商談の入口を作る役割（テレアポ・インサイドセールスの主戦場）。
+    </div>
+  </div>
+</div>
+
+<!-- ── Section 02 ── -->
+<div class="card">
+  <span class="card-tab">02 SDRの仕事はなくなる？</span>
+  <div class="card-body">
+    <h2>🔄 「なくなる」のではなく「中身が変わる」</h2>
+    <p>
+      「AIが電話をかける時代に、人間のテレアポ担当は要らなくなるのでは？」という不安の声もあります。
+      ですが複数の業界解説記事を見る限り、2026年時点での実態は「仕事が消える」より
+      <strong>「定型作業をAIに任せ、人はより難しい部分を担当する」形への移行</strong>が中心です。
+    </p>
+
+    <div class="vs-row">
+      <div class="vs-card before">
+        <span class="vs-tag">AIが引き受ける</span>
+        <ul>
+          <li>架電リストの作成・情報収集</li>
+          <li>最初の一斉メール・DM送信</li>
+          <li>反応の有無によるリードの仕分け</li>
+          <li>フォローアップの日程調整</li>
+        </ul>
+      </div>
+      <div class="vs-arrow">→</div>
+      <div class="vs-card after">
+        <span class="vs-tag">人が伸ばす</span>
+        <ul>
+          <li>信頼関係づくり・雑談力</li>
+          <li>相手の本音を引き出す傾聴</li>
+          <li>複雑な質問への臨機応変な対応</li>
+          <li>AIが作った提案文のチェック・仕上げ</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout blue">
+      <strong>📊 補足データ：</strong> 業界解説記事（monday.com、2026年）によれば、AI導入企業の経営層のうち
+      「人員削減が主目的」と答えた割合はわずか13%。多くはむしろ人員を維持・増員しつつ、AIと組み合わせる方向を見込んでいます。
+    </div>
+  </div>
+</div>
+
+<!-- ── Section 03 ── -->
+<div class="card">
+  <span class="card-tab">03 数字で見るAI活用の効果</span>
+  <div class="card-body">
+    <h2>📈 「AIを使えるかどうか」で差がつき始めている</h2>
+    <p>単に怖がるのではなく、AIツールを実際に使いこなしている人がどうなっているかを見てみましょう。</p>
+
+    <div class="bignum-row">
+      <div class="bignum-card green">
+        <span class="num">30〜40%</span>
+        <div class="unit">アポ獲得数の増加</div>
+        <div class="label">AIスキルを使う担当者は<br>そうでない担当者より多い</div>
+      </div>
+      <div class="bignum-card blue">
+        <span class="num">週11〜12時間</span>
+        <div class="unit">の作業時間を削減</div>
+        <div class="label">定型業務の自動化による<br>時短効果の目安</div>
+      </div>
+      <div class="bignum-card indigo">
+        <span class="num">$55,018</span>
+        <div class="unit">/年（米国リモートSDR平均）</div>
+        <div class="label">未経験〜中堅クラスの<br>平均年収の目安</div>
+      </div>
+    </div>
+    <p style="font-size:0.8rem; color:#888;">
+      ※ アポ獲得増加率はRemote Growth Partners社ブログ「7 AI Skills Every SDR Needs」（2026年、参照日：2026年7月2日）。
+      時短効果はmonday.com「Will AI Replace SDRs?」（2026年、参照日：2026年7月2日）。
+      平均年収はZipRecruiter「Remote SDR Jobs」掲載データ（参照日：2026年6月）。すべて米国基準の目安値です。
+    </p>
+  </div>
+</div>
+
+<!-- ── Section 04 ── -->
+<div class="card">
+  <span class="card-tab">04 日本のフルリモート求人はどうか</span>
+  <div class="card-body">
+    <h2>🇯🇵 日本国内のフルリモート求人の相場感</h2>
+    <p>
+      日本の求人サイト（Indeed・求人ボックスなど）に掲載中のフルリモート・インサイドセールス求人を見ると、
+      2026年7月時点でおおよそ以下のような幅の求人が見られます。
+    </p>
+
+    <div class="bignum-row">
+      <div class="bignum-card amber">
+        <span class="num">月給25〜50万円</span>
+        <div class="unit">正社員・インセンティブ別</div>
+        <div class="label">フルリモート勤務の<br>正社員求人の目安</div>
+      </div>
+      <div class="bignum-card red">
+        <span class="num">時給1,400円〜</span>
+        <div class="unit">パート・時短勤務</div>
+        <div class="label">1日3〜5時間からの<br>時短リモート求人の目安</div>
+      </div>
+    </div>
+    <p style="font-size:0.8rem; color:#888;">※ Indeed・求人ボックス等の掲載求人を横断確認した目安（参照日：2026年7月2日）。職種・企業・経験によって大きく異なり、上記より高い／低い求人も多数あります。</p>
+
+    <div class="callout yellow">
+      <strong>⚠️ 「AI時代だから稼げる」は早合点。</strong><br>
+      米国のAE求人の高年収は、大型商談を任される経験者向けの水準です。未経験からの日本のインサイドセールス求人は、
+      まず月給・時給ベースで経験を積みながら、AIツールを扱えることを実績として積み上げていく現実的なルートが中心になります。
+    </div>
+  </div>
+</div>
+
+<!-- ── Section 05 ── -->
+<div class="card">
+  <span class="card-tab">05 これから求められるスキル</span>
+  <div class="card-body">
+    <h2>🎒 「AIと組んで働く」ために伸ばしたい力</h2>
+
+    <ul class="checklist">
+      <li>
+        <span class="chk">①</span>
+        <div><strong>🧠 AIツールの基本操作</strong><br>ChatGPTなどの生成AIで、メール文面やトークの下書きを作らせ、自分の言葉に仕上げ直す作業に慣れておく。</div>
+      </li>
+      <li>
+        <span class="chk">②</span>
+        <div><strong>👂 傾聴力・信頼構築力</strong><br>AIには真似しにくい「相手の空気を読む」「本音を引き出す」力は、むしろ価値が上がっていく領域です。</div>
+      </li>
+      <li>
+        <span class="chk">③</span>
+        <div><strong>🔍 AIの提案を鵜呑みにしないチェック力</strong><br>AIが作ったリストや文面には誤り・不自然さが混じることがあります。最終判断は人が行う前提で確認する習慣を。</div>
+      </li>
+      <li>
+        <span class="chk">④</span>
+        <div><strong>📊 数字で振り返る習慣</strong><br>アポ獲得率・返信率など、自分の活動を数字で管理できると、AI導入後の「伸びしろ」も見えやすくなります。</div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- ── Section 06 ── -->
+<div class="card">
+  <span class="card-tab">06 今日からできる一歩</span>
+  <div class="card-body">
+    <h2>👣 AIに自分の営業メールを1本添削してもらう</h2>
+
+    <div class="today-box">
+      <span class="emoji">✍️</span>
+      <div class="title">今日の一歩：手持ちのメール文面をAIで見直す</div>
+      <div class="desc">
+        普段使っている（または今後使う予定の）営業メール・アポ打診メッセージを1つ用意し、
+        無料のAIチャットツールに貼り付けて、こう聞いてみましょう。<br><br>
+        「相手の負担にならないよう、もっと簡潔に、もっと相手目線の言葉に書き直して」<br><br>
+        出てきた案をそのまま使うのではなく、<strong>自分の言葉で3割くらい書き直す</strong>のがポイントです。
+        「AIに作らせる」ではなく「AIと一緒に仕上げる」感覚を、今日1本だけ体験してみてください。
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 免責 ── -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事の情報は、複数の公開資料（2026年参照）をもとにした一般的な解説です。報酬・採用の結果には個人差があり、市場・時期・スキル・企業によって大きく異なります。
+  紹介している求人媒体・ツール・調査データの内容や条件は変更されることがありますので、最新情報は各公式サイトでご確認ください。
+  「誰でも稼げる」「必ず採用される」などの保証はできません。
+</div>
+
+<!-- ── 出典 ── -->
+<div class="sources">
+  <h3>📎 参考情報・出典</h3>
+  <ul>
+    <li><a href="https://www.cnbc.com/2026/02/05/the-top-10-most-in-demand-work-from-anywhere-roles-for-2026-says-new-flexjobs-reportsome-pay-six-figures.html" target="_blank">CNBC「The top 10 most in-demand work-from-anywhere roles for 2026, says new FlexJobs report」（2026年2月5日）</a></li>
+    <li><a href="https://monday.com/blog/crm-and-sales/will-ai-replace-sdrs/" target="_blank">monday.com「Will AI Replace SDRs? The data on hybrid sales teams in 2026」（参照日：2026年7月2日）</a></li>
+    <li><a href="https://www.remotegrowthpartners.com/blog/7-ai-skills-every-sdr-needs-to-book-more-meetings-in-2026" target="_blank">Remote Growth Partners「7 AI Skills Every SDR Needs to Book More Meetings in 2026」（参照日：2026年7月2日）</a></li>
+    <li><a href="https://www.ziprecruiter.com/Jobs/Remote-Sdr" target="_blank">ZipRecruiter「Remote SDR Jobs」掲載データ（参照日：2026年6月）</a></li>
+    <li><a href="https://jp.indeed.com/q-%E3%82%A4%E3%83%B3%E3%82%B5%E3%82%A4%E3%83%89%E3%82%BB%E3%83%BC%E3%83%AB%E3%82%B9-%E3%83%AA%E3%83%A2%E3%83%BC%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF-%E6%B1%82%E4%BA%BA.html" target="_blank">Indeed「インサイドセールス リモートワークの求人」（参照日：2026年7月2日）</a></li>
+    <li><a href="https://xn--pckua2a7gp15o89zb.com/%E3%83%95%E3%83%AB%E3%83%AA%E3%83%A2%E3%83%BC%E3%83%88-%E3%82%A4%E3%83%B3%E3%82%B5%E3%82%A4%E3%83%89%E3%82%BB%E3%83%BC%E3%83%AB%E3%82%B9%E3%81%AE%E4%BB%95%E4%BA%8B" target="_blank">求人ボックス「フルリモート インサイドセールスの仕事・求人情報」（参照日：2026年7月2日）</a></li>
+  </ul>
+</div>
+
+<!-- ── バックリンク ── -->
+<div class="back-link">
+  <a href="index.html">&larr; バックナンバー一覧へ</a>
+</div>
+
+</body>
+</html>
