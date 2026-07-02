@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-07-03</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  /* ヘッダー */
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '🧬';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  /* カード共通 */
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  /* アクセントカラー変種 */
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  /* 数字カード */
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.2rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.77rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  /* 比較表（2〜3列） */
+  .compare3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 18px 16px;
+    font-size: 0.86rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.95rem; margin-bottom: 10px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.2em; }
+  .c3-col li { margin-bottom: 5px; }
+  /* フロー図 */
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt {
+    background: #fef0e4;
+    border-color: #e07b2a;
+  }
+  .flow-step.warn2 {
+    background: #fbe8e6;
+    border-color: #c0392b;
+  }
+  .flow-step.purp {
+    background: #efe8fb;
+    border-color: #7a5abf;
+  }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  /* メカニズムグリッド */
+  .mech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .mech-item {
+    background: #f0faf5;
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 0.85rem;
+    border-top: 3px solid #1a7a5a;
+  }
+  .mech-item .micon { font-size: 1.3rem; margin-bottom: 6px; }
+  .mech-item strong { display: block; color: #0d4a35; margin-bottom: 4px; font-size: 0.88rem; }
+  /* 警告ボックス */
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  /* エビデンスランク */
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td {
+    padding: 8px 12px;
+    border-bottom: 1px solid #ddd;
+  }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high   { background: #cff0df; color: #1a6e4a; }
+  .ev-mid    { background: #fff0c8; color: #8a6000; }
+  .ev-low    { background: #fce8e8; color: #a02020; }
+  /* 出典 */
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  /* 免責 */
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .highlight { background: #cff0df; padding: 1px 5px; border-radius: 4px; }
+  .good { color: #1a7a5a; font-weight: 600; }
+  .bad  { color: #c0392b; font-weight: 600; }
+  /* 実践ステップ */
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  /* 定義ボックス */
+  .def-box {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin: 14px 0;
+    font-size: 0.92rem;
+  }
+  .def-box .def-label {
+    font-size: 0.75rem;
+    color: #1a7a5a;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  /* DNAマトリクス風の遺伝子カード */
+  .gene-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .gene-card {
+    border-radius: 10px;
+    padding: 16px 18px;
+    font-size: 0.85rem;
+  }
+  .gene-card.typeA { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .gene-card.typeB { background: #fef0e4; border: 2px solid #e07b2a; }
+  .gene-card h4 { font-size: 0.9rem; margin-bottom: 6px; }
+  .gene-card.typeA h4 { color: #1a7a5a; }
+  .gene-card.typeB h4 { color: #b85e10; }
+  @media (max-width: 540px) {
+    .compare3 { grid-template-columns: 1fr; }
+    .gene-row { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.9rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ヘッダー -->
+<div class="header">
+  <div class="label">健康・栄養 最新トピック ・ 2026-07-03</div>
+  <h1>同じ「地中海食」でも効き方が違う？<br>
+  遺伝子タイプで変わる葉酸の働き（イスラエル・DIRECT PLUS試験の最新分析）</h1>
+  <div class="subtitle">「体にいい食事」の効果には個人差があります。今日は、緑茶とマンカイ（藻の一種）を加えた"グリーン地中海食"が血中の<strong>葉酸（ようさん）</strong>を増やし、その効果が<strong>遺伝子タイプによって違う</strong>可能性を示した最新研究を、精密栄養学の視点でやさしく解説します。</div>
+</div>
+
+<!-- タグ -->
+<div style="margin-bottom:18px;">
+  <span class="tag">精密栄養学</span>
+  <span class="tag">RCT（ランダム化比較試験）</span>
+  <span class="tag">葉酸・エピジェネティクス</span>
+  <span class="tag">遺伝子と食事の相互作用</span>
+  <span class="tag">地中海食</span>
+</div>
+
+<!-- 今日の疑問 -->
+<div class="card">
+  <h2>🤔 今日の疑問：「体にいい食事」の効果はみんな同じ？</h2>
+  <p>地中海食（野菜・魚・オリーブオイル中心の食事）は心血管や代謝の健康に良いという研究が数多くあります。でも「同じ食事をしても、効き方には個人差がある」と感じたことはありませんか。</p>
+  <p>2026年6月に医学誌<em>Clinical Nutrition</em>で発表された最新の分析は、その個人差の一部が「葉酸を扱う遺伝子のタイプ」で説明できるかもしれない、という結果を報告しました。今日はこの研究をもとに、精密栄養学（一人ひとりの体質に合わせて食事を考える学問）の考え方を紹介します。</p>
+</div>
+
+<!-- 研究の土台：DIRECT PLUS試験 -->
+<div class="card blue">
+  <h2>🔬 土台になっている研究：DIRECT PLUS試験</h2>
+  <p>今回の分析のもとになっているのは「DIRECT PLUS」と呼ばれる大規模な18か月間のランダム化比較試験（RCT＝参加者をくじ引きのようにグループ分けして比較する、エビデンスの強い研究デザイン）です。イスラエル・ベングリオン大学のIris Shai教授とHila Zelicha博士のチームが中心となり、ドイツ・ライプツィヒ大学、米国ハーバード大学と共同で実施しました。</p>
+  <div class="flow">
+    <div class="flow-step">参加者<br>294人</div>
+    <div class="flow-arrow">▶</div>
+    <div class="flow-step">3グループに<br>ランダム振り分け</div>
+    <div class="flow-arrow">▶</div>
+    <div class="flow-step purp">① 標準的な<br>健康食ガイド</div>
+    <div class="flow-arrow">▶</div>
+    <div class="flow-step">② 地中海食</div>
+    <div class="flow-arrow">▶</div>
+    <div class="flow-step alt">③ グリーン<br>地中海食</div>
+  </div>
+  <p style="margin-top:10px;">③のグリーン地中海食は、地中海食に緑茶（1日3〜4杯）とマンカイ（Wolffia globosa、水面に浮かぶ小さな藻の一種で、たんぱく質や葉酸を多く含む）のシェイクを加え、赤身肉・加工肉を減らした食事です。3グループとも運動も併用し、18か月間続けました。</p>
+</div>
+
+<!-- 葉酸とは -->
+<div class="def-box">
+  <div class="def-label">用語解説</div>
+  <strong>葉酸（ようさん）</strong>とは、ビタミンB群の一種で、細胞分裂やDNA合成に欠かせない栄養素です。緑黄色野菜・豆類・レバーなどに多く含まれます。体内では「一炭素代謝（メチル基という小さな化学タグを運ぶ仕組み）」という働きの材料になり、これが後述する「エピジェネティクス（遺伝子のスイッチのオン・オフ調整）」に関わります。
+</div>
+
+<!-- 結果：葉酸の変化 -->
+<div class="card">
+  <h2>📊 グリーン地中海食で葉酸が増えた</h2>
+  <p>18か月後、血中の葉酸濃度を3グループで比べたところ、③のグリーン地中海食グループで、①の標準的な健康食ガイド・②の通常の地中海食グループよりも<strong>明確に高い上昇</strong>が確認されました。</p>
+  <div class="compare3">
+    <div class="c3-col purple">
+      <h3>① 標準的な健康食ガイド</h3>
+      <ul><li>葉酸の増加は限定的</li></ul>
+    </div>
+    <div class="c3-col orange">
+      <h3>② 通常の地中海食</h3>
+      <ul><li>ある程度の葉酸増加</li></ul>
+    </div>
+    <div class="c3-col green">
+      <h3>③ グリーン地中海食</h3>
+      <ul><li>緑茶＋マンカイの相乗効果で<br><strong>葉酸が最も大きく上昇</strong></li></ul>
+    </div>
+  </div>
+  <p style="font-size:0.85rem; color:#555;">※論文では上昇の方向性が明確に報告されていますが、正確な上昇率（%やnmol/L単位の数値）は本記事執筆時点で一次資料から確認できなかったため、ここでは掲載していません。</p>
+</div>
+
+<!-- 遺伝子タイプによる違い -->
+<div class="card purple">
+  <h2>🧬 ここがポイント：遺伝子タイプで効き方が変わる</h2>
+  <p>この研究のユニークな点は、参加者の<strong>MTHFR遺伝子（葉酸を活性型に変換する酵素の設計図）</strong>のタイプも調べたことです。MTHFR遺伝子には「rs1801133」と呼ばれるよくある変異（多型）があり、世界的に見て約10〜15%の人がこの変異を2つ（両親から1つずつ）持っています。</p>
+  <div class="gene-row">
+    <div class="gene-card typeA">
+      <h4>🟢 標準タイプの人</h4>
+      葉酸を活性型に変換する酵素がしっかり働く。多くの人がこのタイプ。
+    </div>
+    <div class="gene-card typeB">
+      <h4>🟠 変異を2つ持つ人（全体の約10〜15%）</h4>
+      酵素の働きが弱く、通常は葉酸の代謝効率が落ちやすい体質。
+    </div>
+  </div>
+  <p style="margin-top:10px;">研究チームの分析では、グリーン地中海食がこの「変異を2つ持つ」タイプの人でも、他の遺伝子や代謝経路を活性化することで、葉酸の代謝が弱い体質を補う方向に働く可能性が示唆されました。つまり「同じ食事介入でも、遺伝子タイプによって体の反応の仕方が違いうる」ことを示すデータです。</p>
+</div>
+
+<!-- エピジェネティクスの仕組み -->
+<div class="card blue">
+  <h2>✏️ 葉酸が「遺伝子のスイッチ」に関わる仕組み</h2>
+  <div class="mech-grid">
+    <div class="mech-item">
+      <div class="micon">🥬</div>
+      <strong>①食事から葉酸を摂取</strong>
+      緑黄色野菜・マンカイなどに含まれる葉酸を吸収する
+    </div>
+    <div class="mech-item">
+      <div class="micon">🔄</div>
+      <strong>②一炭素代謝で変換</strong>
+      葉酸がメチル基という小さな化学タグの"材料倉庫"として働く
+    </div>
+    <div class="mech-item">
+      <div class="micon">✏️</div>
+      <strong>③DNAに"印"をつける</strong>
+      メチル化という仕組みで、DNAの配列は変えずに遺伝子のオン・オフを調整する（エピジェネティクス）
+    </div>
+    <div class="mech-item">
+      <div class="micon">⚙️</div>
+      <strong>④代謝・炎症に影響</strong>
+      炎症に関わる遺伝子などの働き方が変わる可能性がある
+    </div>
+  </div>
+  <p style="margin-top:10px;">この「DNAの配列は変えずに、鉛筆で印をつけるように遺伝子のオン・オフを調整する」しくみを、研究チームは分かりやすく「エピジェネティック・ペンシル（後成的な鉛筆）」と表現しています。</p>
+</div>
+
+<!-- エビデンスの強さの整理 -->
+<div class="card orange">
+  <h2>📋 エビデンスの強さの整理</h2>
+  <table class="ev-table">
+    <tr>
+      <th>知見</th>
+      <th>研究の種類</th>
+      <th>エビデンスの強さ</th>
+    </tr>
+    <tr>
+      <td>グリーン地中海食が血中葉酸を増やす</td>
+      <td>18か月RCT（n=294、主要解析）</td>
+      <td><span class="ev-badge ev-high">比較的強い（単独RCT）</span></td>
+    </tr>
+    <tr>
+      <td>MTHFR遺伝子タイプによって効果が異なる</td>
+      <td>同RCT内のサブグループ・遺伝子相互作用解析</td>
+      <td><span class="ev-badge ev-mid">仮説生成段階</span></td>
+    </tr>
+    <tr>
+      <td>この食事がエピジェネティクスを介して疾患予防に役立つ</td>
+      <td>直接の臨床アウトカムデータなし（メカニズム研究）</td>
+      <td><span class="ev-badge ev-low">現時点では推測</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- 研究の限界（重要） -->
+<div class="warn">
+  <strong>⚠️ この研究をどう読むべきか（とても重要）：</strong>
+  <ul style="padding-left:1.4em; margin-top:8px;">
+    <li>主要な「食事で葉酸が増える」という結果はRCTによるもので比較的信頼度が高い一方、<strong>遺伝子タイプ別の効果の違いはサブグループ解析（後から分けて見た分析）</strong>であり、確定的な結論ではなく仮説を生む段階のデータです。</li>
+    <li>参加者はイスラエルの研究施設（職場ベースのコホート）に勤める中高年で、男性の割合が高い集団です。女性・若年層・他の人種・地域での再現性は今後の検証が必要です。</li>
+    <li>マンカイは日本では一般的な食品ではなく、緑茶や野菜など身近な葉酸源で同様の効果が得られるかは、この研究だけでは分かりません。</li>
+    <li>「エピジェネティクスを介して病気を防ぐ」という因果関係は、まだ証明されていません。今回分かったのは「食事介入で葉酸とその代謝経路の指標が変化した」という段階です。</li>
+  </ul>
+</div>
+
+<!-- 精密栄養学の視点 -->
+<div class="card">
+  <h2>🎯 精密栄養学の視点：「万人向けの正解」から「体質に合わせる」へ</h2>
+  <p>この研究が示すのは、「地中海食は体にいい」という大枠の知見に加えて、「その効き方は遺伝子タイプによって違いうる」という、精密栄養学の核心的なテーマです。</p>
+  <ul>
+    <li>将来的には、遺伝子検査などで「葉酸の代謝が弱いタイプ」を把握し、食事内容を個別に調整する、という応用が研究されています。</li>
+    <li>ただし現時点では、一般向けの遺伝子検査結果をもとに食事を大きく変えるほどの実用段階には至っていません。</li>
+    <li>葉酸が豊富な食品（緑黄色野菜・豆類・柑橘類など）をバランスよく摂ることは、遺伝子タイプに関わらず基本的に推奨される習慣です。</li>
+  </ul>
+</div>
+
+<!-- まとめ -->
+<div class="card" style="border-left-color:#1a7a5a;">
+  <h2>✅ 今日のまとめ</h2>
+  <ul class="step-list">
+    <li>18か月間のRCT「DIRECT PLUS試験」（n=294）で、緑茶とマンカイを加えた「グリーン地中海食」が、通常の地中海食や標準的な健康食ガイドより血中葉酸を大きく増やすことが確認された。</li>
+    <li>葉酸は体内の一炭素代謝を通じてDNAのメチル化（エピジェネティクス）に関わり、遺伝子のオン・オフ調整に影響しうる。</li>
+    <li>MTHFR遺伝子の一般的な変異（rs1801133、世界人口の約10〜15%が2コピー保有）を持つ人でも、この食事パターンが代謝を補う方向に働く可能性が示唆された。ただしこれはサブグループ解析であり、確定的な結論ではない。</li>
+    <li>「同じ食事でも効き方には個人差がある」という精密栄養学の考え方を裏づける一例だが、実用的な個別化にはまだ研究が必要な段階。</li>
+  </ul>
+</div>
+
+<!-- 免責 -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報提供を目的としており、医療上のアドバイスではありません。栄養素の必要量・効果・リスクは年齢・体質・持病・服薬状況によって大きく異なります。食事内容を大きく変更する前や、遺伝子検査の結果をもとに食事療法を検討する場合は、かかりつけ医・管理栄養士・薬剤師など専門家にご相談ください。特定の食品やサプリメントを安易に推奨するものではありません。
+</div>
+
+<!-- 出典 -->
+<div class="sources">
+  <h3>📚 主な出典・参考文献</h3>
+  <ol>
+    <li>Zelicha H et al. "Effect of green mediterranean diet on serum folate and its interaction with genetic variation in folate metabolism: The DIRECT PLUS 18-month dietary randomized controlled trial." <em>Clinical Nutrition</em>, 2026. DOI: 10.1016/j.clnu.2026.106701（プレスリリース発表日：2026年6月23日）。
+      <a href="https://doi.org/10.1016/j.clnu.2026.106701" target="_blank">https://doi.org/10.1016/j.clnu.2026.106701</a>
+    </li>
+    <li>"Can food influence gene activity? Scientists discover a biological 'pencil' that improves health through nutrition." <em>EurekAlert!</em>（AAAS運営の学術プレスリリース配信サービス）, 2026年6月23日.
+      <a href="https://www.eurekalert.org/news-releases/1133167" target="_blank">https://www.eurekalert.org/news-releases/1133167</a>
+    </li>
+    <li>"Scientists discover a biological 'pencil' that improves health through nutrition." <em>Medical Xpress</em>, 2026年6月.
+      <a href="https://medicalxpress.com/news/2026-06-scientists-biological-pencil-health-nutrition.html" target="_blank">https://medicalxpress.com/news/2026-06-scientists-biological-pencil-health-nutrition.html</a>
+    </li>
+    <li>Kaplan A et al. "A polyphenol-rich green Mediterranean diet enhances epigenetic regulatory potential: the DIRECT PLUS randomized controlled trial." <em>Metabolism - Clinical and Experimental</em>, 2023.（DIRECT PLUS試験の設計・先行研究として参照）
+      <a href="https://www.sciencedirect.com/science/article/pii/S0026049523001981" target="_blank">https://www.sciencedirect.com/science/article/pii/S0026049523001981</a>
+    </li>
+  </ol>
+  <p style="margin-top:8px; font-size:0.78rem;">※ 本記事は査読誌<em>Clinical Nutrition</em>掲載論文の内容を報じたプレスリリース・報道記事をもとに構成しています。論文の詳細な数値（葉酸の具体的な上昇率など）については、一次資料の全文にアクセスできなかったため、確認できた範囲の記述にとどめています。</p>
+</div>
+
+</div>
+</body>
+</html>
