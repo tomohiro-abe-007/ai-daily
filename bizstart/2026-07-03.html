@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-07-03</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #2a4a7a 0%, #0d2a52 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #2a4a7a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.green  { border-left-color: #4a9e6a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.purple { border-left-color: #7a4a9e; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #2a4a7a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card.orange .sec-title { color: #9a5a10; }
+  .card.green  .sec-title { color: #2a7a4a; }
+  .card.red    .sec-title { color: #8a2020; }
+  .card.purple .sec-title { color: #5a2a8a; }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 14px 10px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat .sl { font-size: 0.67rem; color: #888; margin-bottom: 3px; }
+  .stat .sv { font-size: 1.45rem; font-weight: 700; color: #2a4a7a; line-height: 1.15; }
+  .stat .su { font-size: 0.68rem; color: #666; margin-top: 3px; line-height: 1.4; }
+
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #2a4a7a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+
+  .risk-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .risk-grid { grid-template-columns: 1fr; } }
+  .risk-card {
+    border-radius: 10px;
+    padding: 14px;
+    font-size: 0.83rem;
+    line-height: 1.6;
+  }
+  .risk-card.r1 { background: #fde8e8; border: 2px solid #b54040; }
+  .risk-card.r2 { background: #fff3e0; border: 2px solid #c8884a; }
+  .risk-card.r3 { background: #f5e8fd; border: 2px solid #7a4a9e; }
+  .risk-card .r-title {
+    font-weight: 700;
+    font-size: 0.84rem;
+    margin-bottom: 6px;
+  }
+  .risk-card.r1 .r-title { color: #8a1a1a; }
+  .risk-card.r2 .r-title { color: #7a4010; }
+  .risk-card.r3 .r-title { color: #4a1a7a; }
+
+  .law-box {
+    background: #e8f0f8;
+    border: 2px solid #2a4a7a;
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin: 12px 0;
+    font-size: 0.87rem;
+    line-height: 1.8;
+    color: #0d2a52;
+  }
+  .law-box .lh {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #2a4a7a;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.87rem;
+    line-height: 1.6;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; font-size: 1rem; }
+  .check-list .ck-warn { color: #c8884a; font-weight: 700; flex-shrink: 0; margin-top: 1px; font-size: 1rem; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; font-size: 1rem; }
+
+  .info {
+    background: #e8f0f8;
+    border-left: 4px solid #2a4a7a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.7;
+    color: #0d2a52;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.7;
+    color: #7a4010;
+  }
+  .danger {
+    background: #fde8e8;
+    border-left: 4px solid #b54040;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.7;
+    color: #5a1010;
+  }
+
+  .matrix {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.83rem;
+  }
+  .matrix th {
+    background: #0d2a52;
+    color: white;
+    padding: 8px 12px;
+    text-align: center;
+    font-weight: 600;
+  }
+  .matrix td {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    vertical-align: top;
+    line-height: 1.55;
+  }
+  .matrix .row-head {
+    background: #e8f0f8;
+    font-weight: 700;
+    color: #0d2a52;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .matrix .ok  { color: #4a9e6a; font-weight: 700; }
+  .matrix .ng  { color: #b54040; font-weight: 700; }
+  .matrix .tri { color: #c8884a; font-weight: 700; }
+
+  .flow-h {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 10px 0;
+  }
+  .flow-box {
+    background: white;
+    border: 2px solid #2a4a7a;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 0.8rem;
+    text-align: center;
+    line-height: 1.45;
+    color: #0d2a52;
+    font-weight: 600;
+  }
+  .flow-arrow {
+    color: #2a4a7a;
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+  @media (max-width: 540px) {
+    .flow-h { flex-direction: column; align-items: flex-start; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #2a4a7a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+  .hlr { background: linear-gradient(transparent 55%, #ffb3b3 55%); font-weight: 600; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #2a4a7a; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #2a4a7a; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Header -->
+<div class="header">
+  <div class="meta">&#x1F4C5; 1人法人スタート 最新トピック &nbsp;2026-07-03</div>
+  <h1>&#x1F504; 算定基礎届の次に知るべき「随時改定」<br>役員報酬を大きく変えたら年1回を待たない仕組み</h1>
+  <div class="desc">
+    <span class="htag">社会保険</span>
+    <span class="htag">随時改定</span>
+    <span class="htag">月額変更届</span>
+    <span class="htag">役員報酬</span>
+    <span class="htag">日本年金機構</span>
+    <br>
+    前回（7/1）は、<span class="hlo" style="background: linear-gradient(transparent 55%, rgba(255,255,255,0.35) 55%); color:#fff;">年1回・全員対象の「算定基礎届」</span>を解説しました。<br>
+    今日はその"もう一つの改定ルート"、<strong>報酬が大きく変わったときだけ発動する「随時改定（月額変更届）」</strong>をやさしく解説します。
+  </div>
+</div>
+
+<!-- Section 1: hook -->
+<div class="card">
+  <div class="sec-title">&#x1F6A8; なぜ知っておくべきか</div>
+  <p>社会保険料のもとになる「<strong>標準報酬月額</strong>」（給料を区切りのよい階級に当てはめた"保険料計算用の目安額"）は、<span class="hl">原則は年1回（算定基礎届）でしか見直されません。</span>ですが、<span class="hlg">報酬が期の途中で大きく変わった</span>場合は、年1回を待たずにすぐ見直す別ルートがあります。それが今日のテーマ「随時改定」です。</p>
+
+  <div class="stats-row" style="margin-top:14px;">
+    <div class="stat">
+      <div class="sl">満たす要件</div>
+      <div class="sv">3つ</div>
+      <div class="su">すべて満たしたときだけ発動</div>
+    </div>
+    <div class="stat">
+      <div class="sl">等級の差</div>
+      <div class="sv">2等級以上</div>
+      <div class="su">標準報酬月額の表で2段階以上動くこと</div>
+    </div>
+    <div class="stat">
+      <div class="sl">反映開始</div>
+      <div class="sv">4か月目</div>
+      <div class="su">報酬が変わった月から数えて4か月目分から</div>
+    </div>
+  </div>
+
+  <div class="info">
+    &#x1F4A1; 1人社長で「役員報酬をいつも同じ額で払っている」なら、随時改定が発生する場面は多くありません。ただし<strong>期中に報酬を大きく変えた年は要チェック</strong>です。
+  </div>
+
+  <div class="source">
+    出典：日本年金機構「随時改定（月額変更届）」<br>
+    <a href="https://www.nenkin.go.jp/service/kounen/hokenryo/hoshu/20150515-02.html" target="_blank">https://www.nenkin.go.jp/service/kounen/hokenryo/hoshu/20150515-02.html</a>
+  </div>
+</div>
+
+<!-- Section 2: basics -->
+<div class="card orange">
+  <div class="sec-title">&#x1F4DA; そもそも「随時改定」とは（中学生向け）</div>
+  <p>算定基礎届が「年に1回の定期健診」なら、随時改定は<span class="hlg">「体調が急変したときの臨時受診」</span>のようなものです。給料（役員報酬）が昇給・降給で大きく変わったのに、次の定期健診（翌年の算定基礎届）まで保険料が古いままだと、実態とズレてしまいます。それを防ぐための"途中修正"の仕組みが随時改定です。</p>
+
+  <p style="margin-top:10px;">手続きとして提出する書類の名前が「<strong>月額変更届（げつがくへんこうとどけ）</strong>」で、この届出によって標準報酬月額を変更することを「随時改定」と呼びます。</p>
+
+  <div class="source">
+    出典：日本年金機構「随時改定（月額変更届）」「4-3：月額変更届」<br>
+    <a href="https://www.nenkin.go.jp/service/kounen/hokenryo/hoshu/20150515-02.html" target="_blank">https://www.nenkin.go.jp/service/kounen/hokenryo/hoshu/20150515-02.html</a> ／
+    <a href="https://www.nenkin.go.jp/shinsei/kounen/tekiyo/hoshu/20141224.html" target="_blank">https://www.nenkin.go.jp/shinsei/kounen/tekiyo/hoshu/20141224.html</a>
+  </div>
+</div>
+
+<!-- Section 3: 3 requirements -->
+<div class="card green">
+  <div class="sec-title">&#x2705; 発動する「3つの要件」を図解</div>
+  <p>次の<strong>3つすべて</strong>を満たしたときに、随時改定の届出が必要になります。1つでも欠けたら対象外です。</p>
+
+  <div class="f-step" style="margin-top:14px;">
+    <div class="f-num" style="background:#4a9e6a;">1</div>
+    <div class="f-text"><strong>固定的賃金が変動した</strong>──昇給・降給、役員報酬の改定、給与体系の変更など、毎月決まって支払われる金額が変わったこと。残業代など変動する手当だけの増減は含まれません。</div>
+  </div>
+  <div class="f-step">
+    <div class="f-num" style="background:#4a9e6a;">2</div>
+    <div class="f-text"><strong>変動後3か月間の報酬平均が、従前の標準報酬月額と比べて2等級以上の差</strong>──変わった月を含む3か月分の報酬を平均し、標準報酬月額の表に当てはめたときに、これまでの等級と2段階以上ズレていること。</div>
+  </div>
+  <div class="f-step">
+    <div class="f-num" style="background:#4a9e6a;">3</div>
+    <div class="f-text"><strong>その3か月間、支払基礎日数がすべて17日以上</strong>──月給制の役員報酬であれば通常クリアします（短時間労働者は11日以上）。</div>
+  </div>
+
+  <div class="warn" style="margin-top:12px;">
+    &#x26A0;&#xFE0F; 残業代や通勤手当だけが変動した場合は「固定的賃金の変動」に当たらず、随時改定の対象にはなりません。判断に迷う場合は年金事務所・社会保険労務士に確認しましょう。
+  </div>
+
+  <div class="source">
+    出典：日本年金機構「随時改定（月額変更届）」<br>
+    <a href="https://www.nenkin.go.jp/service/kounen/hokenryo/hoshu/20150515-02.html" target="_blank">https://www.nenkin.go.jp/service/kounen/hokenryo/hoshu/20150515-02.html</a>
+  </div>
+</div>
+
+<!-- Section 4: timeline -->
+<div class="card">
+  <div class="sec-title">&#x1F522; 反映までの流れを図解</div>
+  <p>役員報酬を4月に増額した場合を例に、標準報酬月額が変わるまでの流れを見てみましょう。</p>
+
+  <div class="flow-h" style="margin-top:14px;">
+    <div class="flow-box">4月<br>報酬変動</div>
+    <div class="flow-arrow">&#x27A1;</div>
+    <div class="flow-box">4〜6月<br>3か月分の実績</div>
+    <div class="flow-arrow">&#x27A1;</div>
+    <div class="flow-box" style="border-color:#c8884a; color:#7a4010;">平均額を<br>等級表に当てはめ</div>
+  </div>
+  <div class="flow-h">
+    <div class="flow-box" style="border-color:#c8884a; color:#7a4010;">従前の等級と<br>2等級以上差？</div>
+    <div class="flow-arrow" style="color:#c8884a;">&#x27A1;</div>
+    <div class="flow-box" style="border-color:#4a9e6a; color:#1a6a3a;">月額変更届を<br>提出</div>
+    <div class="flow-arrow" style="color:#4a9e6a;">&#x27A1;</div>
+    <div class="flow-box" style="border-color:#4a9e6a; color:#1a6a3a;">7月分（4か月目）<br>から新等級適用</div>
+  </div>
+
+  <div class="info" style="margin-top:12px;">
+    &#x1F4A1; 「反映は4か月目から」というのがポイントです。報酬を変えてすぐ保険料が変わるわけではなく、<strong>3か月間の実績を確認してから</strong>切り替わります。
+  </div>
+
+  <div class="source">
+    出典：日本年金機構「随時改定（月額変更届）」（提出期限は法令上の特定日ではなく、要件を満たした場合「速やかに」提出）<br>
+    <a href="https://www.nenkin.go.jp/service/kounen/hokenryo/hoshu/20150515-02.html" target="_blank">https://www.nenkin.go.jp/service/kounen/hokenryo/hoshu/20150515-02.html</a>
+  </div>
+</div>
+
+<!-- Section 5: comparison -->
+<div class="card purple">
+  <div class="sec-title">&#x1F9EE; 「算定基礎届」との違いを比較</div>
+  <p>前回解説した算定基礎届（定時決定）と、今日の月額変更届（随時改定）は、どちらも標準報酬月額を決め直す手続きですが、目的とタイミングが違います。</p>
+
+  <table class="matrix" style="margin-top:10px;">
+    <tr>
+      <th style="width:22%;"></th>
+      <th>算定基礎届（定時決定）</th>
+      <th>月額変更届（随時改定）</th>
+    </tr>
+    <tr>
+      <td class="row-head">いつ行う</td>
+      <td>毎年1回・決まった時期（今年は7/1〜7/10）</td>
+      <td>要件を満たした<span class="ok">そのつど</span>・年に何度でも</td>
+    </tr>
+    <tr>
+      <td class="row-head">対象者</td>
+      <td>7月1日時点の被保険者<span class="tri">全員</span></td>
+      <td>報酬が大きく変わった人<span class="tri">のみ</span></td>
+    </tr>
+    <tr>
+      <td class="row-head">見る期間</td>
+      <td>4〜6月の3か月間（固定）</td>
+      <td>報酬が変わった月から3か月間（変動）</td>
+    </tr>
+    <tr>
+      <td class="row-head">発動条件</td>
+      <td>特になし（該当者は自動的に対象）</td>
+      <td><span class="ok">2等級以上</span>の差など3要件</td>
+    </tr>
+    <tr>
+      <td class="row-head">反映時期</td>
+      <td>9月分〜翌年8月分</td>
+      <td>変動月から<span class="ok">4か月目</span>分から</td>
+    </tr>
+    <tr>
+      <td class="row-head">両方該当なら</td>
+      <td colspan="2" style="text-align:center;">随時改定を<span class="ok">優先</span>し、算定基礎届は<span class="ng">対象外</span>（二重処理を回避）</td>
+    </tr>
+  </table>
+
+  <div class="source">
+    出典：日本年金機構「定時決定（算定基礎届）」「随時改定（月額変更届）」<br>
+    <a href="https://www.nenkin.go.jp/service/kounen/hokenryo/hoshu/20121017.html" target="_blank">https://www.nenkin.go.jp/service/kounen/hokenryo/hoshu/20121017.html</a> ／
+    <a href="https://www.nenkin.go.jp/service/kounen/hokenryo/hoshu/20150515-02.html" target="_blank">https://www.nenkin.go.jp/service/kounen/hokenryo/hoshu/20150515-02.html</a>
+  </div>
+</div>
+
+<!-- Section 6: tax law caution for 1-person company -->
+<div class="card red">
+  <div class="sec-title">&#x26A0;&#xFE0F; 1人社長が特に注意したい「税務」との関係</div>
+  <p>随時改定は<strong>社会保険（日本年金機構）</strong>の話ですが、1人社長は「役員報酬をいつ変えられるか」という<strong>法人税の話（定期同額給与）</strong>も同時に意識する必要があります。</p>
+
+  <div class="risk-grid" style="margin-top:14px;">
+    <div class="risk-card r1">
+      <div class="r-title">&#x274C; 原則NG</div>
+      事業年度の途中で自由に役員報酬を増減すると、変更分が「定期同額給与」と認められず、<strong>法人税の計算上、経費（損金）にできない</strong>おそれがあります。
+    </div>
+    <div class="risk-card r2">
+      <div class="r-title">&#x26A0;&#xFE0F; 通常のタイミング</div>
+      多くの会社では<strong>事業年度開始から3か月以内</strong>の株主総会等での改定が基本ルート。この場合に増額すれば、翌月以降の報酬が3か月続いた実績で随時改定の対象になり得ます。
+    </div>
+    <div class="risk-card r3">
+      <div class="r-title">&#x2757; 例外あり</div>
+      経営状況の著しい悪化など「臨時改定事由」に該当する場合は、期中の減額改定が認められることがあります。個別の判断は<strong>税理士に確認</strong>してください。
+    </div>
+  </div>
+
+  <div class="danger" style="margin-top:12px;">
+    &#x1F6A8; <strong>「社会保険の随時改定の要件を満たすから」という理由だけで報酬を動かすと、税務上は損金不算入リスクを負う可能性があります。</strong>役員報酬を変える前に、必ず「税務上いつ変更していいタイミングか」を確認しましょう。
+  </div>
+
+  <div class="source">
+    出典：国税庁「役員の分掌変更に伴う増額改定（定期同額給与）」（法人税の役員給与に関する一般的な取扱いの一例）<br>
+    <a href="https://www.nta.go.jp/law/shitsugi/hojin/11/04.htm" target="_blank">https://www.nta.go.jp/law/shitsugi/hojin/11/04.htm</a>
+  </div>
+</div>
+
+<!-- Section 7: checklist -->
+<div class="card green">
+  <div class="sec-title">&#x2705; 1人社長が今日やること チェックリスト</div>
+
+  <ul class="check-list" style="margin-top:6px;">
+    <li>
+      <span class="ck">&#x2460;</span>
+      <span><strong>今年、役員報酬を期中で変えたか確認する</strong><br>4月（多くの会社は事業年度開始月）以降、役員報酬の金額に変更がなかったか通帳・役員報酬台帳で確認。</span>
+    </li>
+    <li>
+      <span class="ck">&#x2461;</span>
+      <span><strong>変更があれば、変更後3か月の平均額と等級差を計算する</strong><br>変更後3か月分の報酬合計 ÷ 3 で報酬月額を出し、標準報酬月額表と照合。2等級以上ズレていないか確認する。</span>
+    </li>
+    <li>
+      <span class="ck">&#x2462;</span>
+      <span><strong>該当すれば速やかに月額変更届を提出する</strong><br>厳密な期限日はないが、放置すると保険料の実態とのズレが続くため早めに対応。</span>
+    </li>
+    <li>
+      <span class="ck-warn">&#x2463;</span>
+      <span><strong>役員報酬を変えるタイミングは税理士とも相談する</strong><br>社会保険の要件だけでなく、法人税の定期同額給与ルールに沿っているかも必ず確認。</span>
+    </li>
+    <li>
+      <span class="ck">&#x2464;</span>
+      <span><strong>生成AIには「等級差の計算の下書き」を手伝わせる程度に</strong><br>3か月分の報酬額を伝えて平均額や差分を試算させるのは便利。ただし<strong>最終判断と提出は年金事務所の情報と必ず照合</strong>すること。</span>
+    </li>
+  </ul>
+</div>
+
+<!-- Summary -->
+<div class="card">
+  <div class="sec-title">&#x1F4DD; 今日のまとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">&#x2460;</span>随時改定は、<span class="hl">報酬が大きく変わったときだけ</span>年1回の算定基礎届を待たずに標準報酬月額を見直す仕組み。</li>
+    <li><span class="n">&#x2461;</span>発動には<span class="hlg">「固定的賃金の変動」「2等級以上の差」「支払基礎日数17日以上」の3要件すべて</span>が必要。</li>
+    <li><span class="n">&#x2462;</span>新しい標準報酬月額は、報酬が変わった月から<span class="hl">4か月目分</span>から適用される。</li>
+    <li><span class="n">&#x2463;</span>随時改定に該当する人は、同じ年の算定基礎届の対象からは外れる（二重処理を回避）。</li>
+    <li><span class="n">&#x2464;</span>1人社長は、社会保険の要件だけでなく<span class="hlr">法人税の定期同額給与ルール</span>もセットで確認すること。判断に迷ったら社労士・税理士に相談を。</li>
+  </ul>
+</div>
+
+<!-- Disclaimer -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報提供を目的としており、社会保険・税務に関する個別のアドバイスではありません。
+  随時改定の該当判定、月額変更届の提出方法、役員報酬変更のタイミングは会社の状況（事業年度、報酬体系、変更理由など）によって異なります。
+  具体的な手続き・判断については、日本年金機構（管轄の年金事務所）、社会保険労務士、または税理士にご相談ください。<br>
+  記載内容は2026年7月時点で確認できる制度に基づきます。制度・取扱いは改正される場合があるため、最新情報は日本年金機構・国税庁の公式サイトでご確認ください。
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>&#x1F4DA; <a href="index.html">バックナンバー一覧へ</a> &nbsp;&middot;&nbsp; 毎朝更新</p>
+</div>
+
+</div>
+</body>
+</html>
