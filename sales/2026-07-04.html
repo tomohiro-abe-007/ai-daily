@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>インサイドセールス 最新トピック 2026-07-04</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  /* ── カバー ── */
+  .cover {
+    background: linear-gradient(135deg, #6d1b1b 0%, #a13a2c 50%, #d98a2e 100%);
+    color: white;
+    border-radius: 8px;
+    padding: 60px 40px;
+    text-align: center;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.3);
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent, transparent 28px,
+      rgba(255,255,255,0.05) 28px, rgba(255,255,255,0.05) 29px
+    );
+  }
+  .cover-emoji { font-size: 64px; display: block; margin-bottom: 16px; }
+  .cover h1 {
+    font-family: 'Klee One', sans-serif;
+    font-size: 2.0rem;
+    font-weight: 600;
+    line-height: 1.35;
+    margin-bottom: 12px;
+    position: relative;
+  }
+  .cover .subtitle { font-size: 1.05rem; opacity: 0.85; margin-bottom: 8px; position: relative; }
+  .cover .date-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 20px;
+    padding: 6px 20px;
+    font-size: 1rem;
+    margin-top: 16px;
+    position: relative;
+  }
+
+  /* ── カード共通 ── */
+  .card {
+    background: #fff9f0;
+    border-radius: 6px;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.12);
+    position: relative;
+    overflow: hidden;
+  }
+  .card-body {
+    padding: 40px 36px 28px 64px;
+    background: repeating-linear-gradient(0deg, transparent, transparent 31px, #e0d8c8 31px, #e0d8c8 32px);
+    background-color: #fff9f0;
+  }
+  .card-tab {
+    display: inline-block;
+    background: #a13a2c;
+    color: white;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 4px 16px;
+    border-radius: 0 0 6px 6px;
+    position: absolute;
+    top: 0; left: 32px;
+    letter-spacing: 0.05em;
+  }
+  .card h2 {
+    font-size: 1.28rem;
+    color: #6d1b1b;
+    margin-bottom: 16px;
+    margin-top: 4px;
+    line-height: 1.5;
+    border-left: 4px solid #c0532b;
+    padding-left: 12px;
+  }
+  p { line-height: 1.85; color: #333; font-size: 0.97rem; margin-bottom: 12px; }
+
+  /* ── 大きな数字カード ── */
+  .bignum-row {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+  }
+  .bignum-card {
+    flex: 1;
+    min-width: 140px;
+    border-radius: 10px;
+    padding: 20px 14px;
+    text-align: center;
+  }
+  .bignum-card.red   { background: #fdf2f2; border: 2px solid #c0392b; }
+  .bignum-card.blue  { background: #e8f4fd; border: 2px solid #2980b9; }
+  .bignum-card.green { background: #eafaf1; border: 2px solid #27ae60; }
+  .bignum-card.amber { background: #fef6e7; border: 2px solid #d98a2e; }
+  .bignum-card.indigo { background: #f6e9e4; border: 2px solid #a13a2c; }
+  .bignum-card .num {
+    font-size: 2.0rem;
+    font-weight: 700;
+    line-height: 1.15;
+    display: block;
+  }
+  .bignum-card.red    .num { color: #c0392b; }
+  .bignum-card.blue   .num { color: #1a6ba0; }
+  .bignum-card.green  .num { color: #1e8449; }
+  .bignum-card.amber  .num { color: #b06b1a; }
+  .bignum-card.indigo .num { color: #7a2a1e; }
+  .bignum-card .unit  { font-size: 0.75rem; color: #888; }
+  .bignum-card .label { font-size: 0.82rem; font-weight: 700; margin-top: 6px; color: #555; line-height: 1.4; }
+
+  /* ── Before/After 対比 ── */
+  .vs-row { display: flex; gap: 14px; flex-wrap: wrap; margin: 20px 0; align-items: stretch; }
+  .vs-card {
+    flex: 1; min-width: 220px;
+    border-radius: 10px; padding: 18px 18px; border: 2px solid;
+  }
+  .vs-card.before { background: #f3f3f3; border-color: #999; }
+  .vs-card.after  { background: #eafaf1; border-color: #27ae60; }
+  .vs-card .vs-tag {
+    display: inline-block; font-size: 0.72rem; font-weight: 700;
+    padding: 2px 10px; border-radius: 10px; margin-bottom: 8px; color: white;
+  }
+  .vs-card.before .vs-tag { background: #888; }
+  .vs-card.after  .vs-tag { background: #27ae60; }
+  .vs-card ul { list-style: none; }
+  .vs-card li { font-size: 0.85rem; color: #444; line-height: 1.8; padding-left: 14px; position: relative; }
+  .vs-card li::before { content: '・'; position: absolute; left: 0; }
+  .vs-arrow {
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.6rem; color: #a13a2c; flex: 0 0 auto; padding: 0 4px;
+  }
+
+  /* ── ステップフロー ── */
+  .step-flow { display: flex; flex-direction: column; gap: 0; margin: 20px 0; }
+  .step-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px dotted #ddd;
+  }
+  .step-item:last-child { border-bottom: none; }
+  .step-num {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: #a13a2c;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .step-body { flex: 1; }
+  .step-title { font-size: 0.97rem; font-weight: 700; color: #6d1b1b; margin-bottom: 4px; }
+  .step-desc  { font-size: 0.85rem; color: #555; line-height: 1.7; margin: 0; }
+
+  /* ── チェックリスト ── */
+  .checklist { list-style: none; margin: 16px 0; }
+  .checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.92rem;
+    color: #444;
+    line-height: 1.7;
+  }
+  .checklist li:last-child { border-bottom: none; }
+  .checklist .chk {
+    width: 26px; height: 26px;
+    border-radius: 4px;
+    border: 2px solid #a13a2c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 0.85rem;
+    color: #a13a2c;
+    font-weight: 700;
+    margin-top: 2px;
+  }
+
+  /* ── 今日の一歩 ── */
+  .today-box {
+    background: linear-gradient(135deg, #6d1b1b, #c0532b);
+    color: white; border-radius: 8px;
+    padding: 24px 28px; margin: 16px 0; text-align: center;
+  }
+  .today-box .emoji { font-size: 2.2rem; display: block; margin-bottom: 8px; }
+  .today-box .title { font-size: 1.1rem; font-weight: 600; margin-bottom: 10px; }
+  .today-box .desc  { font-size: 0.92rem; opacity: 0.92; line-height: 1.8; text-align: left; }
+
+  /* ── 共通パーツ ── */
+  .highlight { background: #f6e2c8; border-radius: 4px; padding: 1px 6px; color: #6d1b1b; font-weight: 600; }
+  .callout {
+    border-radius: 6px; padding: 14px 16px; margin-top: 14px;
+  }
+  .callout.yellow { background: #fef9e7; border-left: 4px solid #d98a2e; }
+  .callout.green  { background: #eafaf1; border-left: 4px solid #27ae60; }
+  .callout.blue   { background: #e8f4fd; border-left: 4px solid #2980b9; }
+  .callout.wine   { background: #f6e9e4; border-left: 4px solid #a13a2c; }
+  .callout.red    { background: #fdf2f2; border-left: 4px solid #e74c3c; }
+
+  /* ── 免責 ── */
+  .disclaimer {
+    background: #fff; border: 1px solid #ddd; border-radius: 6px;
+    padding: 16px 20px; font-size: 0.8rem; color: #777; line-height: 1.7;
+    width: 100%; max-width: 820px; margin-bottom: 16px;
+  }
+  .disclaimer strong { color: #555; }
+
+  /* ── 出典 ── */
+  .sources {
+    background: #fff9f0; border-radius: 6px; padding: 16px 24px;
+    width: 100%; max-width: 820px; margin-bottom: 24px;
+    font-size: 0.8rem; color: #666; line-height: 1.8;
+  }
+  .sources h3 { font-size: 0.85rem; color: #6d1b1b; margin-bottom: 8px; }
+  .sources a { color: #a13a2c; text-decoration: none; }
+  .sources a:hover { text-decoration: underline; }
+  .sources ul { padding-left: 16px; }
+
+  /* ── バックリンク ── */
+  .back-link { text-align: center; margin-bottom: 20px; font-size: 0.9rem; }
+  .back-link a { color: #a13a2c; text-decoration: none; }
+  .back-link a:hover { text-decoration: underline; }
+
+  @media (max-width: 560px) {
+    .card-body { padding: 40px 18px 24px 24px; }
+    .bignum-row { flex-direction: column; }
+    .vs-row { flex-direction: column; }
+    .vs-arrow { transform: rotate(90deg); padding: 8px 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── カバー ── -->
+<div class="cover">
+  <span class="cover-emoji">📝</span>
+  <h1>契約書・業務委託の基礎知識<br>フリーランス営業が知っておくべきこと</h1>
+  <div class="subtitle">インサイドセールス 最新トピック 2026-07-04</div>
+  <div class="date-badge">テレアポ・インサイドセールス 毎朝解説</div>
+</div>
+
+<!-- ── Section 01 ── -->
+<div class="card">
+  <span class="card-tab">01 なぜ今この話が必要？</span>
+  <div class="card-body">
+    <h2>💡 「案件を取る力」と同じくらい「契約を守ってもらう力」も大事</h2>
+    <p>
+      フルリモートのインサイドセールス・テレアポの案件は、正社員ではなく
+      <strong>業務委託（会社員として雇われるのではなく、個人事業主として仕事を請け負う契約形態）</strong>
+      で始まるケースが多くあります。良い案件を見つけても、契約内容があいまいだと
+      「報酬がいつ振り込まれるか分からない」「急に仕事内容を増やされた」といったトラブルにつながりかねません。
+      今日は、業務委託で働く人を守るために2024年にできた<strong>「フリーランス新法」</strong>を中心に、
+      契約の基礎知識をやさしく解説します。
+    </p>
+    <div class="callout wine">
+      <strong>🔑 今日のキーワード：</strong><br>
+      <strong>業務委託</strong>＝ 会社に雇われる（雇用）のではなく、仕事の成果や作業を「請け負う」形で契約すること。<br>
+      <strong>特定受託事業者</strong>＝ 従業員を使わず一人で働く個人（またはそれに近い一人法人）を指す、フリーランス新法上の呼び方。
+    </div>
+  </div>
+</div>
+
+<!-- ── Section 02 ── -->
+<div class="card">
+  <span class="card-tab">02 フリーランス新法とは</span>
+  <div class="card-body">
+    <h2>⚖️ 2024年11月にできた「フリーランスを守る法律」</h2>
+    <p>
+      正式名称は「フリーランス・事業者間取引適正化等法」。企業がフリーランス（個人事業主）に仕事を発注するときの
+      ルールを定めた法律で、2024年11月1日に施行されました。営業職・インサイドセールス業務を業務委託で受けている人も、
+      企業を相手にBtoBで仕事をしていればこの法律の保護対象になります。
+    </p>
+
+    <div class="bignum-row">
+      <div class="bignum-card red">
+        <span class="num">2024年<br>11月1日</span>
+        <div class="unit">フリーランス新法 施行日</div>
+        <div class="label">正式名称：フリーランス・<br>事業者間取引適正化等法</div>
+      </div>
+      <div class="bignum-card amber">
+        <span class="num">60日<br>以内</span>
+        <div class="unit">報酬の支払期限の上限</div>
+        <div class="label">できるだけ短い期間で<br>支払期日を定める義務</div>
+      </div>
+    </div>
+    <p style="font-size:0.8rem; color:#888;">※ 政府広報オンライン「フリーランスが安心して働ける環境づくりのための法律、2024年11月からスタート！」（2024年8月）、および同「フリーランス・事業者間取引適正化等法」解説記事（2025年11月更新）より。</p>
+  </div>
+</div>
+
+<!-- ── Section 03 ── -->
+<div class="card">
+  <span class="card-tab">03 発注企業に課される義務</span>
+  <div class="card-body">
+    <h2>📋 発注する企業側が必ず守るべき3つのこと</h2>
+
+    <div class="step-flow">
+      <div class="step-item">
+        <div class="step-num">①</div>
+        <div class="step-body">
+          <div class="step-title">🗒️ 取引条件の明示</div>
+          <p class="step-desc">業務を委託したら「業務内容」「報酬の額」「支払期日」などの条件を、書面または電子的な方法（メール・チャット等）で直ちに明示しなければならない。</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">②</div>
+        <div class="step-body">
+          <div class="step-title">💰 報酬の支払期日を60日以内に</div>
+          <p class="step-desc">成果物を受け取った日から数えて60日以内の、できるだけ短い期間内に支払期日を設定し、その期日までに支払う義務がある。企業が別の会社から仕事を再委託されている場合は、元の支払期日から30日以内が目安になる。</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">③</div>
+        <div class="step-body">
+          <div class="step-title">🛡️ ハラスメント対策の体制整備</div>
+          <p class="step-desc">フリーランスに対するハラスメントを防ぐための相談窓口設置など、社内体制を整える義務がある。</p>
+        </div>
+      </div>
+    </div>
+    <p style="font-size:0.8rem; color:#888;">※ 政府広報オンライン、および公正取引委員会「フリーランス法特設サイト」（2025年）の解説内容にもとづく。</p>
+  </div>
+</div>
+
+<!-- ── Section 04 ── -->
+<div class="card">
+  <span class="card-tab">04 契約書チェックリスト</span>
+  <div class="card-body">
+    <h2>✅ サインする前に確認したい5項目</h2>
+    <p>営業の業務委託契約を結ぶ前に、次の項目が契約書にきちんと書かれているか確認しましょう。</p>
+
+    <ul class="checklist">
+      <li>
+        <span class="chk">1</span>
+        <div><strong>発注者・受託者の名称</strong>が正式名称で正確に書かれているか</div>
+      </li>
+      <li>
+        <span class="chk">2</span>
+        <div><strong>業務を開始する日付</strong>が明記されているか</div>
+      </li>
+      <li>
+        <span class="chk">3</span>
+        <div><strong>委託される業務の範囲・内容</strong>が具体的に書かれているか（「営業活動全般」のような曖昧な表現に注意）</div>
+      </li>
+      <li>
+        <span class="chk">4</span>
+        <div><strong>報酬額</strong>が消費税込みで明確に記載されているか</div>
+      </li>
+      <li>
+        <span class="chk">5</span>
+        <div><strong>支払期日</strong>が、納品・成果物受領から60日以内のできるだけ短い期間で設定されているか</div>
+      </li>
+    </ul>
+    <p style="font-size:0.8rem; color:#888;">※ TOKIUM「フリーランス保護新法に対応する契約書の作り方」、マネーフォワード クラウド契約「フリーランス新法で契約書の見直しが必要に！」の解説内容を参考に整理（2026年参照）。</p>
+  </div>
+</div>
+
+<!-- ── Section 05 ── -->
+<div class="card">
+  <span class="card-tab">05 気づいたら要注意なサイン</span>
+  <div class="card-body">
+    <h2>🚩 これをされたら「禁止行為」の可能性あり</h2>
+
+    <div class="vs-row">
+      <div class="vs-card before">
+        <span class="vs-tag">正常な取引</span>
+        <ul>
+          <li>契約時に決めた報酬額どおりに支払われる</li>
+          <li>成果物を正当な理由で受け取ってもらえる</li>
+          <li>作業のやり直しは、契約内容の不備がある場合のみ</li>
+        </ul>
+      </div>
+      <div class="vs-arrow">⇔</div>
+      <div class="vs-card after" style="background:#fdf2f2; border-color:#c0392b;">
+        <span class="vs-tag" style="background:#c0392b;">禁止行為の例</span>
+        <ul>
+          <li>フリーランスに責任がないのに、あとから報酬を減らす</li>
+          <li>正当な理由なく成果物の受け取りを拒む</li>
+          <li>一方的に著しく低い報酬額を決める</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout red">
+      <strong>⚠️ こうした扱いを受けたら：</strong> まずは公正取引委員会「フリーランス法特設サイト」の相談窓口情報を確認しましょう。
+      一人で抱え込まず、記録（メール・チャットのやり取り）を残しておくことも大切です。
+    </div>
+  </div>
+</div>
+
+<!-- ── Section 06 ── -->
+<div class="card">
+  <span class="card-tab">06 今日からできる一歩</span>
+  <div class="card-body">
+    <h2>👣 今持っている契約書を「5項目チェック」してみる</h2>
+
+    <div class="today-box">
+      <span class="emoji">🔍</span>
+      <div class="title">今日の一歩：手元の契約書（案）を5項目で見直す</div>
+      <div class="desc">
+        いま契約中、またはこれから契約しようとしている業務委託契約書があれば、
+        セクション04の5項目（名称・開始日・業務範囲・報酬額・支払期日）に丸をつけながら確認してみましょう。<br><br>
+        まだ契約書がない人は、公正取引委員会「フリーランス法特設サイト」を検索し、
+        自分が今後どんな保護を受けられるのかを5分だけ眺めてみるだけでも一歩前進です。
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 免責 ── -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事の情報は、複数の公開資料（2024〜2026年参照）をもとにした一般的な解説であり、法的助言ではありません。
+  契約・法律に関する個別の判断が必要な場合は、公正取引委員会や弁護士など専門家・公式窓口にご確認ください。
+  報酬・採用の結果には個人差があり、市場・時期・スキル・企業によって大きく異なります。
+  紹介している制度・サービスの内容は変更されることがありますので、最新情報は各公式サイトでご確認ください。
+  「誰でも稼げる」「必ずトラブルを防げる」などの保証はできません。
+</div>
+
+<!-- ── 出典 ── -->
+<div class="sources">
+  <h3>📎 参考情報・出典</h3>
+  <ul>
+    <li><a href="https://www.gov-online.go.jp/article/202408/entry-6301.html" target="_blank">政府広報オンライン「フリーランスが安心して働ける環境づくりのための法律、2024年11月からスタート！」（2024年8月）</a></li>
+    <li><a href="https://www.gov-online.go.jp/article/202511/entry-10040.html" target="_blank">政府広報オンライン「フリーランス・事業者間取引適正化等法　フリーランスとの業務委託取引を適正化」（参照日：2026年7月）</a></li>
+    <li><a href="https://www.jftc.go.jp/freelancelaw_2025/" target="_blank">公正取引委員会「フリーランス法特設サイト」（参照日：2026年7月）</a></li>
+    <li><a href="https://www.yayoi-kk.co.jp/kigyo/oyakudachi/freelance-law01/" target="_blank">弥生株式会社「フリーランス新法とは？制定の背景や実務上の注意点を解説【2026年対応版】」</a></li>
+    <li><a href="https://www.keihi.com/column/57080/" target="_blank">TOKIUM「フリーランス保護新法に対応する契約書の作り方とは？雛形・記載例つき」</a></li>
+    <li><a href="https://biz.moneyforward.com/contract/basic/14227/" target="_blank">マネーフォワード クラウド契約「フリーランス新法で契約書の見直しが必要に！確認事項や対応方法を解説」</a></li>
+  </ul>
+</div>
+
+<!-- ── バックリンク ── -->
+<div class="back-link">
+  <a href="index.html">&larr; バックナンバー一覧へ</a>
+</div>
+
+</body>
+</html>
