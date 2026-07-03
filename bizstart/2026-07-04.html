@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-07-04</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #2a4a7a 0%, #0d2a52 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #2a4a7a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.green  { border-left-color: #4a9e6a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.purple { border-left-color: #7a4a9e; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #2a4a7a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card.orange .sec-title { color: #9a5a10; }
+  .card.green  .sec-title { color: #2a7a4a; }
+  .card.red    .sec-title { color: #8a2020; }
+  .card.purple .sec-title { color: #5a2a8a; }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 14px 10px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat .sl { font-size: 0.67rem; color: #888; margin-bottom: 3px; }
+  .stat .sv { font-size: 1.45rem; font-weight: 700; color: #2a4a7a; line-height: 1.15; }
+  .stat .su { font-size: 0.68rem; color: #666; margin-top: 3px; line-height: 1.4; }
+
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #2a4a7a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+
+  .risk-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .risk-grid { grid-template-columns: 1fr; } }
+  .risk-card {
+    border-radius: 10px;
+    padding: 14px;
+    font-size: 0.83rem;
+    line-height: 1.6;
+  }
+  .risk-card.r1 { background: #fde8e8; border: 2px solid #b54040; }
+  .risk-card.r2 { background: #fff3e0; border: 2px solid #c8884a; }
+  .risk-card.r3 { background: #f5e8fd; border: 2px solid #7a4a9e; }
+  .risk-card .r-title {
+    font-weight: 700;
+    font-size: 0.84rem;
+    margin-bottom: 6px;
+  }
+  .risk-card.r1 .r-title { color: #8a1a1a; }
+  .risk-card.r2 .r-title { color: #7a4010; }
+  .risk-card.r3 .r-title { color: #4a1a7a; }
+
+  .law-box {
+    background: #e8f0f8;
+    border: 2px solid #2a4a7a;
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin: 12px 0;
+    font-size: 0.87rem;
+    line-height: 1.8;
+    color: #0d2a52;
+  }
+  .law-box .lh {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #2a4a7a;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.87rem;
+    line-height: 1.6;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; font-size: 1rem; }
+  .check-list .ck-warn { color: #c8884a; font-weight: 700; flex-shrink: 0; margin-top: 1px; font-size: 1rem; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; font-size: 1rem; }
+
+  .info {
+    background: #e8f0f8;
+    border-left: 4px solid #2a4a7a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.7;
+    color: #0d2a52;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.7;
+    color: #7a4010;
+  }
+  .danger {
+    background: #fde8e8;
+    border-left: 4px solid #b54040;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.7;
+    color: #5a1010;
+  }
+
+  .matrix {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.83rem;
+  }
+  .matrix th {
+    background: #0d2a52;
+    color: white;
+    padding: 8px 12px;
+    text-align: center;
+    font-weight: 600;
+  }
+  .matrix td {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    vertical-align: top;
+    line-height: 1.55;
+  }
+  .matrix .row-head {
+    background: #e8f0f8;
+    font-weight: 700;
+    color: #0d2a52;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .matrix .ok  { color: #4a9e6a; font-weight: 700; }
+  .matrix .ng  { color: #b54040; font-weight: 700; }
+  .matrix .tri { color: #c8884a; font-weight: 700; }
+
+  .flow-h {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 10px 0;
+  }
+  .flow-box {
+    background: white;
+    border: 2px solid #2a4a7a;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 0.8rem;
+    text-align: center;
+    line-height: 1.45;
+    color: #0d2a52;
+    font-weight: 600;
+  }
+  .flow-arrow {
+    color: #2a4a7a;
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+  @media (max-width: 540px) {
+    .flow-h { flex-direction: column; align-items: flex-start; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #2a4a7a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+  .hlr { background: linear-gradient(transparent 55%, #ffb3b3 55%); font-weight: 600; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #2a4a7a; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #2a4a7a; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Header -->
+<div class="header">
+  <div class="meta">&#x1F4C5; 1人法人スタート 最新トピック &nbsp;2026-07-04</div>
+  <h1>&#x1F477; 「初めて人を雇う日」に必要な労働保険<br>1人社長自身とスタッフでルールが違う理由を図解</h1>
+  <div class="desc">
+    <span class="htag">労働保険</span>
+    <span class="htag">労災保険</span>
+    <span class="htag">雇用保険</span>
+    <span class="htag">はじめての雇用</span>
+    <span class="htag">厚生労働省</span>
+    <br>
+    これまでは<span class="hlo" style="background: linear-gradient(transparent 55%, rgba(255,255,255,0.35) 55%); color:#fff;">社長1人の社会保険（健康保険・厚生年金）</span>を中心に解説してきました。<br>
+    今日は、<strong>初めてアルバイト・パートを1人でも雇った日から必要になる「労働保険」</strong>の基礎をやさしく解説します。
+  </div>
+</div>
+
+<!-- Section 1: hook -->
+<div class="card">
+  <div class="sec-title">&#x1F6A8; なぜ知っておくべきか</div>
+  <p><strong>労働保険</strong>（「労災保険」と「雇用保険」の2つをまとめた呼び方）は、<span class="hl">従業員を1人でも雇った瞬間から加入義務が発生</span>する制度です。社長1人だけの会社では基本的に関係ありませんが、事業が軌道に乗って<span class="hlg">初めてスタッフを雇う日</span>に、何も知らないと手続き漏れが起きやすい分野です。</p>
+
+  <div class="stats-row" style="margin-top:14px;">
+    <div class="stat">
+      <div class="sl">保険関係成立届</div>
+      <div class="sv">10日以内</div>
+      <div class="su">雇用の翌日から起算し労働基準監督署へ</div>
+    </div>
+    <div class="stat">
+      <div class="sl">概算保険料申告</div>
+      <div class="sv">50日以内</div>
+      <div class="su">保険関係成立日から起算し保険料を納付</div>
+    </div>
+    <div class="stat">
+      <div class="sl">資格取得届</div>
+      <div class="sv">翌月10日</div>
+      <div class="su">雇用保険はハローワークへ雇用月の翌月10日まで</div>
+    </div>
+  </div>
+
+  <div class="info">
+    &#x1F4A1; 社長1人だけの会社では、労働保険への加入は原則不要です。<strong>「従業員を雇う」という次のステージに進んだときに読み返す回</strong>として、今のうちに全体像だけつかんでおきましょう。
+  </div>
+
+  <div class="source">
+    出典：厚生労働省「労働保険の成立手続」<br>
+    <a href="https://www.mhlw.go.jp/www2/topics/seido/daijin/hoken/980916_2.htm" target="_blank">https://www.mhlw.go.jp/www2/topics/seido/daijin/hoken/980916_2.htm</a>
+  </div>
+</div>
+
+<!-- Section 2: basics -->
+<div class="card orange">
+  <div class="sec-title">&#x1F4DA; そもそも「労働保険」とは（中学生向け）</div>
+  <p>会社の社会保険には大きく2つのグループがあります。<span class="hlg">「健康保険・厚生年金」</span>は社長も従業員も入る"自分のため"の保険。もう一つの<span class="hl">「労災保険・雇用保険」（まとめて労働保険）</span>は、"雇われて働く人（労働者）のため"の保険で、経営者である社長自身は原則対象外です。</p>
+
+  <p style="margin-top:10px;">たとえるなら、健康保険・厚生年金は<strong>「社員も社長も入る学校の保険」</strong>、労働保険は<strong>「先生（雇う側）ではなく生徒（雇われる側）だけが入る保険」</strong>のようなイメージです。だから社長1人の会社では労働保険への加入義務が生まれません。</p>
+
+  <div class="info" style="margin-top:12px;">
+    &#x1F4A1; 労災保険＝仕事中や通勤中のケガ・病気の補償。雇用保険＝失業したときの給付や育児休業給付など。どちらも「労働者」のための制度です。
+  </div>
+
+  <div class="source">
+    出典：厚生労働省「労働保険とはこのような制度です」<br>
+    <a href="https://jsite.mhlw.go.jp/tottori-roudoukyoku/hourei_seido_tetsuzuki/roudou_hoken/hoken.html" target="_blank">https://jsite.mhlw.go.jp/tottori-roudoukyoku/hourei_seido_tetsuzuki/roudou_hoken/hoken.html</a>
+  </div>
+</div>
+
+<!-- Section 3: who's covered matrix -->
+<div class="card purple">
+  <div class="sec-title">&#x1F9EE; 「誰が」「どの保険」に入るのか比較</div>
+  <p>労災保険と雇用保険は、対象になる人の条件が少し違います。表で整理しましょう。</p>
+
+  <table class="matrix" style="margin-top:10px;">
+    <tr>
+      <th style="width:22%;"></th>
+      <th>労災保険</th>
+      <th>雇用保険</th>
+    </tr>
+    <tr>
+      <td class="row-head">対象者</td>
+      <td>雇った労働者<span class="ok">全員</span>（1日だけ・短時間でも）</td>
+      <td>週所定労働時間<span class="ok">20時間以上</span>かつ<span class="ok">31日以上</span>雇用見込みの人</td>
+    </tr>
+    <tr>
+      <td class="row-head">社長自身</td>
+      <td class="ng">原則対象外</td>
+      <td class="ng">原則対象外</td>
+    </tr>
+    <tr>
+      <td class="row-head">保険料負担</td>
+      <td><span class="ok">全額会社負担</span></td>
+      <td>会社と本人で<span class="tri">分担</span>（会社が多め）</td>
+    </tr>
+    <tr>
+      <td class="row-head">主な給付</td>
+      <td>仕事中・通勤中のケガや病気の治療費・休業補償</td>
+      <td>失業給付・育児休業給付・教育訓練給付など</td>
+    </tr>
+  </table>
+
+  <div class="warn" style="margin-top:12px;">
+    &#x26A0;&#xFE0F; 「アルバイトだから」「短時間だから」は労働保険の対象外にならない理由にはなりません。労災保険は雇用形態を問わず全員が対象です。
+  </div>
+
+  <div class="source">
+    出典：厚生労働省「雇用保険制度 Q&amp;A～事業主の皆様へ」<br>
+    <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000140565.html" target="_blank">https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000140565.html</a>
+  </div>
+</div>
+
+<!-- Section 4: procedure flow -->
+<div class="card green">
+  <div class="sec-title">&#x1F522; 初めて雇ったときの手続きの流れ</div>
+  <p>従業員を1人雇ったら、次の順番で手続きを進めます。提出先が「労働基準監督署」と「ハローワーク」の2か所に分かれる点に注意しましょう。</p>
+
+  <div class="f-step" style="margin-top:14px;">
+    <div class="f-num" style="background:#4a9e6a;">1</div>
+    <div class="f-text"><strong>労働者を雇用（雇用契約を結ぶ）</strong>──この日が労働保険の「保険関係が成立した日」になります。</div>
+  </div>
+  <div class="f-step">
+    <div class="f-num" style="background:#4a9e6a;">2</div>
+    <div class="f-text"><strong>「保険関係成立届」を労働基準監督署へ提出</strong>──成立した日の翌日から起算して<strong>10日以内</strong>。労災保険・雇用保険どちらもここが起点になります。</div>
+  </div>
+  <div class="f-step">
+    <div class="f-num" style="background:#4a9e6a;">3</div>
+    <div class="f-text"><strong>「概算保険料申告書」を提出し保険料を納付</strong>──成立した日から<strong>50日以内</strong>。1年分の賃金見込み額から概算の労働保険料を計算して申告・納付します。</div>
+  </div>
+  <div class="f-step">
+    <div class="f-num" style="background:#4a9e6a;">4</div>
+    <div class="f-text"><strong>「雇用保険適用事業所設置届」をハローワークへ提出</strong>──保険関係成立の翌日から起算して<strong>10日以内</strong>。会社（事業所）が雇用保険の対象になったことを届け出ます。</div>
+  </div>
+  <div class="f-step">
+    <div class="f-num" style="background:#4a9e6a;">5</div>
+    <div class="f-text"><strong>「雇用保険被保険者資格取得届」をハローワークへ提出</strong>──雇用した日の属する<strong>月の翌月10日まで</strong>。対象者（週20時間以上・31日以上見込み）ごとに提出します。</div>
+  </div>
+
+  <div class="flow-h" style="margin-top:16px;">
+    <div class="flow-box">雇用開始</div>
+    <div class="flow-arrow">&#x27A1;</div>
+    <div class="flow-box">保険関係<br>成立届(10日内)</div>
+    <div class="flow-arrow">&#x27A1;</div>
+    <div class="flow-box">概算保険料<br>申告(50日内)</div>
+  </div>
+  <div class="flow-h">
+    <div class="flow-box" style="border-color:#7a4a9e; color:#4a1a7a;">適用事業所<br>設置届(10日内)</div>
+    <div class="flow-arrow" style="color:#7a4a9e;">&#x27A1;</div>
+    <div class="flow-box" style="border-color:#7a4a9e; color:#4a1a7a;">被保険者<br>資格取得届(翌月10日)</div>
+  </div>
+
+  <div class="info" style="margin-top:12px;">
+    &#x1F4A1; 労災保険は届出だけで加入完了。雇用保険は「事業所の設置届」と「本人ごとの資格取得届」の<strong>2段階</strong>が必要、と覚えておくとわかりやすいです。
+  </div>
+
+  <div class="source">
+    出典：厚生労働省「労働保険の成立手続」、ハローワーク各局案内<br>
+    <a href="https://www.mhlw.go.jp/www2/topics/seido/daijin/hoken/980916_2.htm" target="_blank">https://www.mhlw.go.jp/www2/topics/seido/daijin/hoken/980916_2.htm</a>
+  </div>
+</div>
+
+<!-- Section 5: cost -->
+<div class="card">
+  <div class="sec-title">&#x1F4B0; 保険料はいくら？（令和8年度）</div>
+  <p>労働保険料は「賃金総額 × 保険料率」で決まります。雇用保険料率は毎年見直され、労災保険料率は業種によって大きく異なります。</p>
+
+  <div class="stats-row" style="margin-top:14px;">
+    <div class="stat">
+      <div class="sl">雇用保険料率（一般の事業）</div>
+      <div class="sv">13.5/1000</div>
+      <div class="su">令和8年4月1日〜令和9年3月31日</div>
+    </div>
+    <div class="stat">
+      <div class="sl">└ 会社負担分</div>
+      <div class="sv">8.5/1000</div>
+      <div class="su">賃金の0.85%</div>
+    </div>
+    <div class="stat">
+      <div class="sl">└ 本人負担分</div>
+      <div class="sv">5/1000</div>
+      <div class="su">賃金の0.5%（給与から天引き）</div>
+    </div>
+  </div>
+
+  <div class="info" style="margin-top:10px;">
+    &#x1F4A1; 労災保険料率は業種ごとに細かく決められており（令和8年度は令和7年度から料率改定なし）、事務・サービス系の「その他の各種事業」はおおむね低め、建設業や林業など危険度が高い業種ほど高めに設定されています。<strong>自社の業種の料率は労働基準監督署・厚生労働省の労災保険率表で必ず確認</strong>してください。
+  </div>
+
+  <div class="source">
+    出典：厚生労働省「令和8年度の雇用保険料率」<br>
+    <a href="https://www.mhlw.go.jp/content/001692566.pdf" target="_blank">https://www.mhlw.go.jp/content/001692566.pdf</a> ／
+    厚生労働省「令和8年度の労災保険率について」<br>
+    <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/rousai/rousaihoken06/rousai_hokenritsu_kaitei.html" target="_blank">https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/rousai/rousaihoken06/rousai_hokenritsu_kaitei.html</a>
+  </div>
+</div>
+
+<!-- Section 6: social president exception -->
+<div class="card red">
+  <div class="sec-title">&#x26A0;&#xFE0F; 社長自身は本当に入れないのか？（例外）</div>
+  <p>労働保険は「労働者のための保険」なので、経営者である社長は原則対象外とお伝えしました。ただし、中小企業の社長には<strong>「特別加入制度」</strong>という任意加入の例外ルートがあります。</p>
+
+  <div class="risk-grid" style="margin-top:14px;">
+    <div class="risk-card r2">
+      <div class="r-title">&#x1F477; 中小事業主等の特別加入</div>
+      常時使用する労働者数が一定規模以下（業種により300人・100人・50人以下など）の事業主が対象。現場作業も行う社長などが、労災保険に任意で加入できる制度です。
+    </div>
+    <div class="risk-card r3">
+      <div class="r-title">&#x1F4CB; 加入の条件</div>
+      「労働保険事務組合」に事務委託していることが加入の前提。単独で直接加入することはできません。
+    </div>
+    <div class="risk-card r1">
+      <div class="r-title">&#x274C; 雇用保険は対象外</div>
+      特別加入制度があるのは労災保険のみ。雇用保険（失業給付など）に社長が任意加入する制度はありません。
+    </div>
+  </div>
+
+  <div class="danger" style="margin-top:12px;">
+    &#x1F6A8; 「従業員と同じように現場で作業しているから大丈夫だろう」は誤解のもとです。特別加入の手続きをしていない社長は、仕事中にケガをしても労災保険からの給付は受けられません。加入を検討する場合は<strong>労働保険事務組合や社会保険労務士に相談</strong>しましょう。
+  </div>
+
+  <div class="source">
+    出典：厚生労働省・都道府県労働局「中小事業主等の特別加入」案内<br>
+    <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000140565.html" target="_blank">https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000140565.html</a>
+  </div>
+</div>
+
+<!-- Section 7: checklist -->
+<div class="card green">
+  <div class="sec-title">&#x2705; 従業員を雇う予定がある社長が今日やること</div>
+
+  <ul class="check-list" style="margin-top:6px;">
+    <li>
+      <span class="ck">&#x2460;</span>
+      <span><strong>雇用契約書を用意する</strong><br>労働条件（時給・週の労働時間・雇用期間の見込みなど）を明記。雇用保険の対象判定（週20時間以上・31日以上見込み）に直結します。</span>
+    </li>
+    <li>
+      <span class="ck">&#x2461;</span>
+      <span><strong>雇用初日から10日以内のスケジュールを逆算する</strong><br>「保険関係成立届」（労働基準監督署）と「雇用保険適用事業所設置届」（ハローワーク）はどちらも10日以内。カレンダーに提出期限をメモしておく。</span>
+    </li>
+    <li>
+      <span class="ck">&#x2462;</span>
+      <span><strong>50日以内の概算保険料の納付資金を確保する</strong><br>賃金総額の見込みから概算保険料を計算し、期限までに納付できるよう資金繰りに組み込む。</span>
+    </li>
+    <li>
+      <span class="ck-warn">&#x2463;</span>
+      <span><strong>社長自身の特別加入が必要かどうか検討する</strong><br>社長も現場作業を行う予定なら、労働保険事務組合を通じた特別加入の要否を社会保険労務士に相談する。</span>
+    </li>
+    <li>
+      <span class="ck">&#x2464;</span>
+      <span><strong>生成AIには「提出書類チェックリストの下書き」を手伝わせる程度に</strong><br>雇用形態や労働時間を伝えて必要書類の一覧を整理させるのは便利。ただし<strong>最終的な要件確認は労働基準監督署・ハローワークの窓口や公式サイトで必ず照合</strong>すること。</span>
+    </li>
+  </ul>
+</div>
+
+<!-- Summary -->
+<div class="card">
+  <div class="sec-title">&#x1F4DD; 今日のまとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">&#x2460;</span>労働保険は<span class="hl">「労災保険」＋「雇用保険」</span>の総称。従業員（労働者）を1人でも雇った日から加入義務が発生する。</li>
+    <li><span class="n">&#x2461;</span>社長1人だけの会社では原則加入不要。<span class="hlg">社長自身は労働保険の対象外</span>（現場作業がある場合は特別加入という例外あり）。</li>
+    <li><span class="n">&#x2462;</span>手続きは<span class="hl">「保険関係成立届（10日以内）」→「概算保険料申告（50日以内）」→「雇用保険の設置届・資格取得届（10日〜翌月10日）」</span>の順で進む。</li>
+    <li><span class="n">&#x2463;</span>令和8年度の雇用保険料率は一般の事業で<span class="hlo">13.5/1000</span>（会社8.5/本人5）。労災保険料率は業種ごとに異なる。</li>
+    <li><span class="n">&#x2464;</span>手続き・料率の最終確認は<span class="hlr">労働基準監督署・ハローワーク・社会保険労務士</span>に相談すること。</li>
+  </ul>
+</div>
+
+<!-- Disclaimer -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報提供を目的としており、労務・社会保険・税務に関する個別のアドバイスではありません。
+  労働保険の加入要件、手続き方法、保険料率は事業の業種・規模・雇用形態によって異なります。
+  具体的な判断・手続きについては、所轄の労働基準監督署・ハローワーク、社会保険労務士、または税理士にご相談ください。<br>
+  記載内容は2026年7月時点（令和8年度）で確認できる制度・料率に基づきます。制度・料率は年度により改定されるため、最新情報は厚生労働省の公式サイトでご確認ください。
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>&#x1F4DA; <a href="index.html">バックナンバー一覧へ</a> &nbsp;&middot;&nbsp; 毎朝更新</p>
+</div>
+
+</div>
+</body>
+</html>
