@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI動画制作 日報 2026-07-05</title>
+<style>
+  :root {
+    --bg: #ece8e1;
+    --card: #faf6ec;
+    --dark: #1a3a5c;
+    --dark2: #1a5c3a;
+    --accent: #2a5c8a;
+    --accent2: #c85a00;
+    --text: #2a3540;
+    --muted: #7c8a82;
+    --border: #e0d8c8;
+    --highlight: #fff3cd;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, "Hiragino Sans", "Yu Gothic", sans-serif;
+    line-height: 1.75;
+    padding: 20px;
+  }
+  .wrap { max-width: 900px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #1a3a5c 0%, #1a5c3a 100%);
+    color: #fff;
+    border-radius: 20px;
+    padding: 44px 32px 36px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(26,58,92,.22);
+    margin-bottom: 24px;
+  }
+  .header-tag {
+    display: inline-block;
+    background: rgba(255,255,255,.18);
+    color: #e0f0e8;
+    border-radius: 20px;
+    padding: 4px 16px;
+    font-size: .82rem;
+    margin-bottom: 14px;
+    letter-spacing: .06em;
+  }
+  .header h1 { font-size: 1.7rem; letter-spacing: .03em; line-height: 1.4; margin-bottom: 10px; }
+  .header .sub { color: #c8dde8; font-size: .95rem; }
+  .header .date { color: #b0e0c0; font-size: .85rem; margin-top: 8px; }
+
+  .card {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 12px rgba(0,0,0,.07);
+    border: 1px solid var(--border);
+  }
+  .card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .point-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .point-card { background: #eef3f8; border-radius: 14px; padding: 20px 16px; text-align: center; border: 1px solid #d4e0ea; }
+  .point-icon { font-size: 2rem; margin-bottom: 8px; }
+  .point-title { font-size: .95rem; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
+  .point-desc { font-size: .83rem; color: var(--muted); line-height: 1.6; }
+
+  .bignum-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 20px; }
+  .bignum-card { background: linear-gradient(135deg, #1a3a5c, #1a5c3a); border-radius: 14px; padding: 18px 12px; text-align: center; color: #fff; }
+  .bignum { font-size: 1.4rem; font-weight: 800; color: #ffe0a0; line-height: 1.2; }
+  .bignum-label { font-size: .72rem; color: #cfe6d8; margin-top: 4px; line-height: 1.5; }
+
+  .step-list { list-style: none; }
+  .step-item { display: flex; gap: 14px; margin-bottom: 16px; align-items: flex-start; }
+  .step-num {
+    width: 34px; height: 34px;
+    background: linear-gradient(135deg, #1a3a5c, #1a5c3a);
+    color: #fff; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: .95rem; flex-shrink: 0; margin-top: 2px;
+  }
+  .step-body { flex: 1; }
+  .step-title { font-weight: 700; color: var(--dark); font-size: .95rem; }
+  .step-desc { font-size: .86rem; color: var(--muted); margin-top: 3px; line-height: 1.65; }
+
+  .chip-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .chip { background: #e8f0ec; color: #1a5c3a; border-radius: 20px; padding: 4px 14px; font-size: .82rem; font-weight: 600; border: 1px solid #c0dccc; }
+
+  .tbl { width: 100%; border-collapse: collapse; font-size: .88rem; }
+  .tbl th { background: #eaf1ea; padding: 10px 12px; text-align: left; border-bottom: 2px solid #c8ddc8; color: var(--dark); font-weight: 700; }
+  .tbl td { padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: top; color: var(--text); }
+  .tbl tr:last-child td { border-bottom: none; }
+  .tbl tr.good-row td { background: #f0fff4; }
+
+  .note-box { background: var(--highlight); border-left: 4px solid #e8a000; border-radius: 8px; padding: 12px 16px; font-size: .88rem; color: #5a4000; margin-top: 14px; line-height: 1.7; }
+
+  .summary-list { font-size: .95rem; line-height: 2.2; }
+  .summary-list li { list-style: none; display: flex; align-items: flex-start; gap: 8px; }
+  .summary-list li::before { content: "✅"; flex-shrink: 0; margin-top: 2px; }
+
+  .disclaimer { background: #f0ede8; border-radius: 12px; padding: 16px 20px; font-size: .82rem; color: var(--muted); margin-top: 24px; line-height: 1.7; border: 1px solid #ddd8d0; }
+
+  footer { text-align: center; color: var(--muted); font-size: .82rem; margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border); line-height: 1.9; }
+  footer a { color: var(--accent); }
+
+  /* flow diagram */
+  .flow-row { display: flex; gap: 0; align-items: center; flex-wrap: wrap; margin: 16px 0; justify-content: center; }
+  .flow-box { border-radius: 12px; padding: 12px 12px; text-align: center; min-width: 108px; font-size: .8rem; font-weight: 700; color: #fff; }
+  .flow-arrow { font-size: 1.2rem; color: #999; margin: 0 4px; flex-shrink: 0; }
+  .flow-sub { font-size: .64rem; font-weight: 400; margin-top: 4px; line-height: 1.35; opacity: .9; }
+
+  /* 3点照明ステージ図（上から見た配置） */
+  .stage-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, auto);
+    gap: 10px;
+    margin: 18px auto;
+    max-width: 480px;
+  }
+  .stage-cell {
+    border-radius: 12px;
+    padding: 14px 8px;
+    text-align: center;
+    font-size: .78rem;
+    font-weight: 700;
+    min-height: 64px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.4;
+  }
+  .stage-empty { background: transparent; }
+  .stage-key { background: #ffdca0; color: #6b4400; border: 1px solid #f0c060; }
+  .stage-fill { background: #cfe3f5; color: #1a4a6b; border: 1px solid #a8c8e0; }
+  .stage-back { background: #d8cdf0; color: #4a2f7a; border: 1px solid #b8a0e0; }
+  .stage-subject { background: linear-gradient(135deg,#1a3a5c,#1a5c3a); color: #fff; border-radius: 50%; aspect-ratio: 1/1; }
+  .stage-camera { background: #e8e0d0; color: #5a4a30; border: 1px solid #d0c0a0; }
+  .stage-icon { font-size: 1.4rem; margin-bottom: 4px; }
+  .stage-caption { text-align: center; font-size: .78rem; color: var(--muted); margin-top: 8px; }
+
+  @media (max-width: 640px) {
+    .point-grid { grid-template-columns: 1fr; }
+    .bignum-grid { grid-template-columns: repeat(2, 1fr); }
+    .stage-grid { max-width: 100%; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="header">
+  <div class="header-tag">🌱 エバーグリーン技法回 ── インタビュー動画</div>
+  <h1>インタビュー動画の撮り方<br>── 3点照明・カメラポジション・質問設計</h1>
+  <div class="sub">「話しやすい空気」と「見やすい画」は、撮り始める前の準備で9割決まる</div>
+  <div class="date">2026-07-05 ｜ AI動画制作 日報</div>
+</div>
+
+<div class="card">
+  <div class="card-title">🎯 今日の3ポイント</div>
+  <div class="point-grid">
+    <div class="point-card">
+      <div class="point-icon">💡</div>
+      <div class="point-title">光は3灯で「顔」を立体的に</div>
+      <div class="point-desc">主役の光「キーライト」・影を和らげる「フィルライト」・背景から浮かせる「バックライト」の3つを組み合わせるのが基本形</div>
+    </div>
+    <div class="point-card">
+      <div class="point-icon">🎥</div>
+      <div class="point-title">カメラは目線からわずかにずらす</div>
+      <div class="point-desc">被写体はカメラのレンズではなく、カメラの横にいる聞き手を見る。カメラは目線から15〜30度ほどずらした位置に置くと自然な表情になる</div>
+    </div>
+    <div class="point-card">
+      <div class="point-icon">❓</div>
+      <div class="point-title">質問は「オープン質問」で深掘り</div>
+      <div class="point-desc">「はい/いいえ」で終わる質問（クローズド質問）ではなく、「どう感じましたか」のように相手が自由に語れる質問（オープン質問）を軸にする</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">📏 覚えておきたい基本の数字</div>
+  <p style="font-size:.9rem;color:var(--muted);margin-bottom:16px;">
+    インタビュー撮影の現場でよく使われる目安の数字です。厳密なルールではなく「迷ったらここから始める」基準値として使いましょう。
+  </p>
+  <div class="bignum-grid">
+    <div class="bignum-card">
+      <div class="bignum">3灯</div>
+      <div class="bignum-label">基本の照明セット数<br>（キー・フィル・バック）</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">約45°</div>
+      <div class="bignum-label">キーライトの基本角度<br>（カメラ軸から見て）</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">2:1</div>
+      <div class="bignum-label">キーライトと<br>フィルライトの明るさ比の目安</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">15〜30°</div>
+      <div class="bignum-label">カメラを目線から<br>ずらす角度の目安</div>
+    </div>
+  </div>
+  <div class="note-box">
+    💡 数字はあくまで出発点。実際の部屋の広さ・光源の数・被写体の顔立ちに合わせて微調整するのが前提です。
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">💡 3点照明の配置図（上から見た図）</div>
+  <p style="font-size:.9rem;color:var(--muted);margin-bottom:14px;">
+    「3点照明」は、被写体を立体的かつ自然に見せるための光の基本セットです。上から見るとこんな配置になります。
+  </p>
+  <div class="stage-grid">
+    <div class="stage-cell stage-empty"></div>
+    <div class="stage-cell stage-back"><div class="stage-icon">🔦</div>バックライト<br>（背景から浮かせる）</div>
+    <div class="stage-cell stage-empty"></div>
+
+    <div class="stage-cell stage-fill"><div class="stage-icon">🪞</div>フィルライト<br>（影をやわらげる・弱め）</div>
+    <div class="stage-cell stage-subject"><div class="stage-icon">🧑</div>被写体</div>
+    <div class="stage-cell stage-key"><div class="stage-icon">💡</div>キーライト<br>（主役の光・強め）</div>
+
+    <div class="stage-cell stage-empty"></div>
+    <div class="stage-cell stage-camera"><div class="stage-icon">📷</div>カメラ<br>（目線から15〜30度ずらす）</div>
+    <div class="stage-cell stage-empty"></div>
+  </div>
+  <div class="stage-caption">被写体からすると、正面よりやや強い光（キー）・反対側から弱い光（フィル）・後ろ上方からの光（バック）が当たっている状態</div>
+
+  <table class="tbl" style="margin-top:16px;">
+    <thead>
+      <tr><th>ライト</th><th>役割</th><th>ないとどうなる？</th></tr>
+    </thead>
+    <tbody>
+      <tr class="good-row">
+        <td><strong>キーライト</strong></td>
+        <td>顔の主な明るさを作るメインの光。45度・やや高い位置から当てると立体感が出る</td>
+        <td>顔全体が暗く沈み、表情が伝わりにくい</td>
+      </tr>
+      <tr>
+        <td><strong>フィルライト</strong></td>
+        <td>キーライトと反対側から弱く当て、影を軽くする補助の光</td>
+        <td>顔の片側にくっきり濃い影ができ、きつい印象になる</td>
+      </tr>
+      <tr class="good-row">
+        <td><strong>バックライト（リムライト）</strong></td>
+        <td>被写体の後方・上から当て、輪郭を光らせて背景から浮き立たせる</td>
+        <td>被写体が背景に埋もれ、平面的でのっぺりした画になる</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="note-box">
+    🔦 照明が1灯しかない場合は、まずキーライトを45度に置くだけでも十分効果的。窓からの自然光をキーライト代わりに使うのも定番の方法です。
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🎥 カメラポジションと画角の基本</div>
+  <p style="font-size:.9rem;color:var(--muted);margin-bottom:14px;">
+    インタビューでは、被写体が「カメラのレンズ」ではなく「カメラのすぐ横にいる聞き手」を見て話すのが基本です。
+    レンズをまっすぐ見ると、視聴者に問い詰められているような緊張感が出てしまうためです。
+  </p>
+  <div class="chip-row">
+    <div class="chip">📐 目線は聞き手へ（レンズは見ない）</div>
+    <div class="chip">📏 レンズは中望遠（50〜85mm相当）</div>
+    <div class="chip">👀 カメラは目の高さかやや上</div>
+    <div class="chip">🖼️ 顔の向いている側に余白（ノーズルーム）</div>
+  </div>
+  <div class="note-box">
+    💡 広角レンズ（画角の広いレンズ）で顔に近づいて撮ると、輪郭が不自然に歪みやすくなります。中望遠レンズで少し離れて撮ると、顔立ちが自然に見える「圧縮効果」が得られます。
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">❓ 質問設計の流れ ── 話しやすさは順番で作る</div>
+  <p style="font-size:.9rem;color:var(--muted);margin-bottom:14px;">
+    良いインタビューは、質問の「内容」だけでなく「順番」で決まります。いきなり本題に入らず、段階を踏むことで自然な言葉が引き出せます。
+  </p>
+  <div class="flow-row">
+    <div class="flow-box" style="background:#7c9cb5;">① アイスブレイク<div class="flow-sub">録画前に雑談で緊張をほぐす</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box" style="background:#5a8ab0;">② オープン質問<div class="flow-sub">「どう感じましたか」で語ってもらう</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box" style="background:#3a6d95;">③ 深掘り質問<div class="flow-sub">「なぜ」「具体的には」で掘り下げる</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box" style="background:#1a5c3a;">④ まとめ質問<div class="flow-sub">「一言でいうと」で締める</div></div>
+  </div>
+
+  <table class="tbl" style="margin-top:16px;">
+    <thead>
+      <tr><th>質問タイプ</th><th>例</th><th>特徴</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>クローズド質問</strong><br><span style="font-size:.78rem;color:var(--muted);">（避けたい）</span></td>
+        <td>「満足しましたか？」</td>
+        <td>「はい」で終わってしまい、編集で使える言葉が少ない</td>
+      </tr>
+      <tr class="good-row">
+        <td><strong>オープン質問</strong><br><span style="font-size:.78rem;color:var(--muted);">（軸にする）</span></td>
+        <td>「使ってみてどう感じましたか？」</td>
+        <td>相手が自分の言葉で語り始め、編集で使えるコメントが増える</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="note-box">
+    🗣️ 編集のコツ：答えの中に質問の内容を繰り返してもらう「オウム返し」を意識してもらうと、後でインタビュアーの声を削っても、答えだけで意味が通る動画になります（例：「一番良かった点は〇〇です」と答えてもらう）。
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🛠️ 実践例：顧客インタビュー動画を1人で撮る5ステップ</div>
+  <p style="font-size:.88rem;color:var(--muted);margin-bottom:18px;">
+    スタッフ1人・照明1〜2灯・スマホ or 一眼カメラでも実践できる、シンプルな流れです。
+  </p>
+  <ul class="step-list">
+    <li class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-title">窓際か照明1灯でキーライトを45度に置く</div>
+        <div class="step-desc">自然光を使う場合は、被写体を窓に対して斜め45度に座らせるだけでキーライトの代わりになる。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-title">カメラを目線から15〜30度ずらして三脚に固定</div>
+        <div class="step-desc">聞き手はカメラのすぐ横に立ち、被写体には聞き手の顔を見て話してもらう。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-title">録画前に2〜3分の雑談でアイスブレイク</div>
+        <div class="step-desc">本番と関係ない話題で表情をほぐしてから、静かに録画を開始する。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <div class="step-title">オープン質問→深掘り質問の順で聞く</div>
+        <div class="step-desc">「使ってみた感想は？」の後に「具体的にどの場面でそう感じましたか？」と一段深く聞く。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">5</div>
+      <div class="step-body">
+        <div class="step-title">「オウム返し」で答えてもらい、最後にまとめ質問</div>
+        <div class="step-desc">質問文を含めて答えてもらう形にし、最後に「一言でいうと？」で使いやすい締めコメントを収録する。</div>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="card">
+  <div class="card-title">📝 今日のまとめ</div>
+  <ul class="summary-list">
+    <li><strong>照明</strong>：キーライト（主役の光・45度）＋フィルライト（影を弱める）＋バックライト（背景から浮かせる）の3灯が基本形</li>
+    <li><strong>カメラ</strong>：被写体はレンズでなく聞き手を見る。カメラは目線から15〜30度ずらし、中望遠レンズで自然な顔立ちに</li>
+    <li><strong>質問</strong>：アイスブレイク→オープン質問→深掘り質問→まとめ質問の順で、話しやすい空気を段階的に作る</li>
+    <li>編集を見据え、答えの中に質問内容を含めて話してもらう「オウム返し」を意識してもらうと後工程が楽になる</li>
+    <li>照明・カメラともに1灯・1台からでも基本の考え方（角度・比率）を応用すれば十分実践できる</li>
+  </ul>
+</div>
+
+<div class="disclaimer">
+  ⚠️ <strong>免責事項</strong><br>
+  本記事で紹介した照明・カメラの角度や比率は、映像制作で一般的に使われる目安であり、機材・部屋の環境・被写体によって最適値は変わります。
+  文中で言及したAIツールの名称・機能・料金・商用利用の可否は頻繁に変更されるため、最新情報と利用規約は各ツールの公式ページで必ずご確認ください。
+</div>
+
+<footer>
+  AI動画制作 日報 ─ 2026-07-05 ｜ エバーグリーン技法回<br>
+  参考：3点照明・インタビュー撮影の基本構成は、映像制作・撮影技法における一般的な手法に基づく（エバーグリーン技法）<br>
+  <a href="index.html" style="color:var(--accent);">← 一覧に戻る</a>
+</footer>
+
+</div>
+</body>
+</html>
