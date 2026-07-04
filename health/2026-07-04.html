@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-07-04</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '🐟';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 18px 16px;
+    font-size: 0.86rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.95rem; margin-bottom: 10px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.2em; }
+  .c3-col li { margin-bottom: 5px; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .mech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .mech-item {
+    background: #f0faf5;
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 0.85rem;
+    border-top: 3px solid #1a7a5a;
+  }
+  .mech-item .micon { font-size: 1.3rem; margin-bottom: 6px; }
+  .mech-item strong { display: block; color: #0d4a35; margin-bottom: 4px; font-size: 0.88rem; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .highlight { background: #cff0df; padding: 1px 5px; border-radius: 4px; }
+  .good { color: #1a7a5a; font-weight: 600; }
+  .bad  { color: #c0392b; font-weight: 600; }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-box {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin: 14px 0;
+    font-size: 0.92rem;
+  }
+  .def-box .def-label {
+    font-size: 0.75rem;
+    color: #1a7a5a;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  @media (max-width: 540px) {
+    .compare3 { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.9rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ヘッダー -->
+<div class="header">
+  <div class="label">健康・栄養 最新トピック ・ 2026-07-04</div>
+  <h1>脳には確かに届いたのに、なぜ効かなかった？<br>
+  高用量DHA・2年間RCTが教える「届く」と「効く」の違い</h1>
+  <div class="subtitle">「魚油(オメガ3)は脳にいい」とよく言われます。でも2026年6月に医学誌<em>eBioMedicine</em>に発表された米国の2年間の臨床試験は、高用量のDHA(魚油の主成分)がしっかり脳まで届いたにもかかわらず、記憶力にも脳の萎縮にも効果が見られなかったという結果を報告しました。今日は「バイオマーカーが動く」ことと「実際に体に効く」ことの違いを、この研究から学びます。</div>
+</div>
+
+<!-- タグ -->
+<div style="margin-bottom:18px;">
+  <span class="tag">精密栄養学</span>
+  <span class="tag">RCT(ランダム化比較試験)</span>
+  <span class="tag">オメガ3・DHA</span>
+  <span class="tag">認知症予防</span>
+  <span class="tag">エビデンスの読み方</span>
+</div>
+
+<!-- 今日の疑問 -->
+<div class="card">
+  <h2>🤔 今日の疑問:「脳に届く」サプリは「脳に効く」サプリなのか?</h2>
+  <p>DHA(ドコサヘキサエン酸)は魚油に多く含まれるオメガ3脂肪酸の一種で、脳の神経細胞の膜をつくる材料になります。「魚をよく食べる人は認知症になりにくい」という観察研究(人々の生活習慣と病気の関連を追跡する研究)は以前から数多くあります。</p>
+  <p>ただし、観察研究でわかるのはあくまで「相関(一緒に起きやすい関係)」であり、「魚を食べたから認知症を防げた」という「因果関係」を証明したわけではありません。そこで、実際にDHAのサプリを与えて経過を比べる、より厳密な研究(RCT)が行われてきました。今日紹介するのは、その中でも大規模で長期間の最新の一本です。</p>
+</div>
+
+<!-- 研究概要 -->
+<div class="card blue">
+  <h2>🔬 研究の土台:南カリフォルニア大学(USC)の2年間RCT</h2>
+  <p>この研究は、米国南カリフォルニア大学(USC)Keck School of MedicineのHussein N. Yassine氏らのチームが、2018年9月〜2024年5月にかけて実施した、フェーズIIaの二重盲検・プラセボ対照ランダム化比較試験です。2026年6月に医学誌<em>eBioMedicine</em>に掲載されました(DOI: 10.1016/j.ebiom.2026.106316)。</p>
+  <div class="flow">
+    <div class="flow-step">参加者365人<br>(55〜80歳)</div>
+    <div class="flow-arrow">▶</div>
+    <div class="flow-step">魚をあまり食べず<br>認知症リスク要因あり</div>
+    <div class="flow-arrow">▶</div>
+    <div class="flow-step purp">ランダムに<br>2グループへ</div>
+    <div class="flow-arrow">▶</div>
+    <div class="flow-step">DHA 2000mg/日<br>vs プラセボ</div>
+    <div class="flow-arrow">▶</div>
+    <div class="flow-step alt">24か月間<br>追跡</div>
+  </div>
+  <p style="margin-top:10px;">プラセボ(偽薬)にはコーン油・大豆油のカプセルが使われ、参加者にも研究者にもどちらを飲んでいるかわからない「二重盲検」というエビデンスの強い設計です。参加者のうち約47%は、アルツハイマー病の最大の遺伝的リスク因子として知られる<strong>APOE4遺伝子</strong>を保有していました。</p>
+</div>
+
+<!-- 数字カード -->
+<div class="num-row">
+  <div class="num-card">
+    <div class="big">365<span class="unit">人</span></div>
+    <div class="desc">参加者数(55〜80歳)</div>
+  </div>
+  <div class="num-card blue-bg">
+    <div class="big">24<span class="unit">か月</span></div>
+    <div class="desc">追跡期間(2年間)</div>
+  </div>
+  <div class="num-card orange-bg">
+    <div class="big">2000<span class="unit">mg/日</span></div>
+    <div class="desc">DHA投与量</div>
+  </div>
+  <div class="num-card purple-bg">
+    <div class="big">+17<span class="unit">%</span></div>
+    <div class="desc">6か月時点の脳脊髄液中DHAの上昇率</div>
+  </div>
+  <div class="num-card gray-bg">
+    <div class="big">47<span class="unit">%</span></div>
+    <div class="desc">APOE4遺伝子保有者の割合</div>
+  </div>
+</div>
+
+<!-- 用語解説 -->
+<div class="def-box">
+  <div class="def-label">用語解説</div>
+  <strong>ターゲットエンゲージメント(target engagement)</strong>とは、飲んだ薬やサプリの成分が、本来効いてほしい場所(この場合は脳)に実際に届いて、狙った変化(DHA濃度の上昇)を起こしたかどうかを確認することです。これは薬の効果を測る最初のステップにすぎず、「届いた」ことと「病気を防げた」ことはイコールではありません。
+</div>
+
+<!-- 結果 -->
+<div class="card">
+  <h2>📊 結果:DHAは脳に届いた。しかし…</h2>
+  <p>研究チームは半年後、脳脊髄液(脳や脊髄を満たす液体)中のDHA濃度を測定しました。その結果、DHAを摂取したグループでは濃度が平均17%上昇し、プラセボ群より明確に高くなりました。つまり「サプリの成分が狙い通り脳まで届いた」ことは確認されました。</p>
+  <p>ところが、2年間の追跡で調べた記憶力・思考力などの認知機能テストの成績、そして記憶に関わる脳の部位である<strong>海馬(かいば)</strong>の萎縮の速さ、大脳皮質の厚さのいずれにおいても、DHA群とプラセボ群のあいだに意味のある差は見られませんでした。両グループとも似たような変化をたどったのです。</p>
+  <div class="compare3">
+    <div class="c3-col green">
+      <h3>🐟 脳への到達</h3>
+      <ul><li>脳脊髄液のDHA濃度<strong>+17%上昇</strong></li><li>赤血球のオメガ3指標も明確に上昇</li><li>→ サプリはきちんと働いた</li></ul>
+    </div>
+    <div class="c3-col orange">
+      <h3>🧠 認知機能テスト</h3>
+      <ul><li>DHA群・プラセボ群とも<br>ほぼ同程度に変化</li><li>→ 統計的な差はなし</li></ul>
+    </div>
+    <div class="c3-col red">
+      <h3>📉 海馬の萎縮</h3>
+      <ul><li>DHA群・プラセボ群とも<br>同程度の速さで萎縮</li><li>→ 萎縮を防ぐ効果は確認されず</li></ul>
+    </div>
+  </div>
+</div>
+
+<!-- なぜこの結果は重要か -->
+<div class="card orange">
+  <h2>📋 この結果は「意外な例外」ではない</h2>
+  <p>実はこの結果は、単発の意外な失敗ではありません。研究チームが引用する過去の系統的レビューでは、認知症になっていない高齢者を対象としたDHA関連の24件のRCTのうち、認知機能に良い効果を示したのはわずか5件(約21%)にとどまっていました。今回の大規模・長期の試験は、その「効果が出にくい」という全体の傾向と一致する結果だったといえます。</p>
+  <p>また、オメガ3の効果は「目的」によって大きく異なる点にも注意が必要です。以前の記事(6月24日)で紹介したとおり、心臓発作や脳卒中などの心血管イベントを減らす効果を示した大規模RCT(REDUCE-ITなど)もありますが、それは今回の「脳の老化・認知症予防」という目的とは別の話です。「オメガ3は体にいい」という一括りの理解ではなく、「どの健康アウトカムに対して、どの用量で、どんな対象者に効くのか」を分けて考える必要があります。</p>
+</div>
+
+<!-- エビデンスの強さ -->
+<div class="card purple">
+  <h2>🧭 エビデンスの強さを整理する</h2>
+  <table class="ev-table">
+    <tr><th>知見</th><th>研究の種類</th><th>エビデンスの強さ</th></tr>
+    <tr>
+      <td>高用量DHAが脳脊髄液のDHA濃度を上げる</td>
+      <td>二重盲検RCT(n=365、主要解析)</td>
+      <td><span class="ev-badge ev-high">強い(単独RCTとしては良質)</span></td>
+    </tr>
+    <tr>
+      <td>高用量DHAが認知機能・海馬萎縮を改善する</td>
+      <td>同RCT(主要アウトカム、24か月)</td>
+      <td><span class="ev-badge ev-low">否定的な結果(効果確認できず)</span></td>
+    </tr>
+    <tr>
+      <td>魚をよく食べる生活習慣と認知症リスク低下の関連</td>
+      <td>複数の観察研究(コホート研究)</td>
+      <td><span class="ev-badge ev-mid">相関は見られるが因果は未確定</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- 賛否両論・限界 -->
+<div class="warn">
+  <strong>⚠️ この研究をどう読むべきか(とても重要):</strong>
+  <ul style="padding-left:1.4em; margin-top:8px;">
+    <li>これは質の高いRCT(二重盲検・プラセボ対照・n=365・24か月)であり、否定的な結果もエビデンスとして重要です。ただし1本の試験であり、「高用量DHAサプリは認知症予防に無効」と断定するのではなく、「今回の対象者・用量・期間では効果を確認できなかった」と理解するのが正確です。</li>
+    <li>対象者は「もともと魚をあまり食べない」55〜80歳の成人に限られます。すでに魚を定期的に食べている人や、もっと若い年代、認知症がすでに進行した人には当てはまりません。</li>
+    <li>観察研究で見られる「魚を食べる人は認知症になりにくい」という関連は、魚食そのものの効果なのか、魚をよく食べる人の生活習慣・食事全体の傾向(社会経済状況や運動習慣など)による交絡(見せかけの関連)なのか、区別が難しいという指摘もあります。</li>
+    <li>一方で「サプリだけを取り出しても効果が出ないのは当然で、食事全体のパターンや、より早い年齢からの介入でなければ意味がない」という反論も研究者の間にあります。この論点は現時点で決着していません。</li>
+  </ul>
+</div>
+
+<!-- 精密栄養学の視点 -->
+<div class="card">
+  <h2>🎯 精密栄養学の視点:「バイオマーカーが動く」だけでは不十分</h2>
+  <ul>
+    <li>精密栄養学は「個人差に合わせて栄養を最適化する」学問ですが、その前提として「その栄養素が本当に望む効果(病気の予防など)をもたらすか」を、質の高い研究で確認する必要があります。</li>
+    <li>今回の研究では、APOE4遺伝子の有無にかかわらずDHAは同じように脳へ届いていました。つまり「遺伝子タイプで届き方が変わるから効果も変わるはず」という単純な予想も、この試験では裏づけられませんでした。</li>
+    <li>「血液検査の数値が改善した」「サプリの成分が体内で検出された」という情報だけで、健康効果があると判断するのは早すぎる、という教訓を示す一例です。</li>
+  </ul>
+</div>
+
+<!-- まとめ -->
+<div class="card" style="border-left-color:#1a7a5a;">
+  <h2>✅ 今日のまとめ</h2>
+  <ul class="step-list">
+    <li>米国USCの2年間・二重盲検RCT(n=365)で、高用量DHA(2000mg/日)は脳脊髄液中のDHA濃度を17%上げ、脳への到達(ターゲットエンゲージメント)は確認された。</li>
+    <li>しかし、認知機能テストの成績にも、海馬の萎縮スピードにも、プラセボ群との差は見られなかった。</li>
+    <li>この結果は例外ではなく、過去のレビューでも非認知症高齢者を対象としたDHA試験の約8割が同様に効果を示せていない。</li>
+    <li>「成分が体に届く」ことと「病気を防ぐ」ことは別の話であり、サプリのニュースを読むときはこの違いを意識することが大切。</li>
+  </ul>
+</div>
+
+<!-- 免責 -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報提供を目的としており、医療上のアドバイスではありません。栄養素の必要量・効果・リスクは年齢・体質・持病・服薬状況によって大きく異なります。サプリメントの開始・中止や食事内容の変更を検討する際は、かかりつけ医・管理栄養士・薬剤師など専門家にご相談ください。本記事は特定のサプリメントの摂取・中止を推奨するものではありません。
+</div>
+
+<!-- 出典 -->
+<div class="sources">
+  <h3>📚 主な出典・参考文献</h3>
+  <ol>
+    <li>Yassine HN et al. "CNS target engagement of high-dose DHA supplementation in older adults at risk for dementia: a randomised, double-blind, placebo-controlled trial." <em>eBioMedicine</em>, 2026;106316. DOI: 10.1016/j.ebiom.2026.106316(オンライン掲載:2026年6月)。
+      <a href="https://doi.org/10.1016/j.ebiom.2026.106316" target="_blank">https://doi.org/10.1016/j.ebiom.2026.106316</a>
+    </li>
+    <li>"Millions take omega-3 fish oil for brain health but a new study found no benefit." <em>ScienceDaily</em>, 2026年6月22日.
+      <a href="https://www.sciencedaily.com/releases/2026/06/260622014300.htm" target="_blank">https://www.sciencedaily.com/releases/2026/06/260622014300.htm</a>
+    </li>
+    <li>"Fish oil supplements may not prevent Alzheimer's-related decline, clinical trial suggests." <em>EurekAlert!</em>(USC Keck School of Medicineプレスリリース配信), 2026年6月.
+      <a href="https://www.eurekalert.org/news-releases/1132231" target="_blank">https://www.eurekalert.org/news-releases/1132231</a>
+    </li>
+    <li>参考(オメガ3の心血管アウトカムに関する既報記事): REDUCE-IT試験(Bhatt DL et al., <em>N Engl J Med</em> 2019, DOI: 10.1056/NEJMoa1812792)ほか、本連載2026年6月24日「EPA vs DHAの個別効果の違いと使い分け」も参照。
+    </li>
+  </ol>
+  <p style="margin-top:8px; font-size:0.78rem;">※ 本記事は査読誌<em>eBioMedicine</em>掲載論文の内容を報じたプレスリリース・報道記事(ScienceDaily、EurekAlert!、Keck School of Medicine等、複数の独立した報道で一致した数値・内容)をもとに構成しています。論文本文への直接アクセスができなかったため、報道で確認できた範囲の記述にとどめています。</p>
+</div>
+
+</div>
+</body>
+</html>
