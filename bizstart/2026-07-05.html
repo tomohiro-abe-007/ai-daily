@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-07-05</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #2a4a7a 0%, #0d2a52 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #2a4a7a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.green  { border-left-color: #4a9e6a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.purple { border-left-color: #7a4a9e; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #2a4a7a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card.orange .sec-title { color: #9a5a10; }
+  .card.green  .sec-title { color: #2a7a4a; }
+  .card.red    .sec-title { color: #8a2020; }
+  .card.purple .sec-title { color: #5a2a8a; }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 14px 10px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat .sl { font-size: 0.67rem; color: #888; margin-bottom: 3px; }
+  .stat .sv { font-size: 1.45rem; font-weight: 700; color: #2a4a7a; line-height: 1.15; }
+  .stat .su { font-size: 0.68rem; color: #666; margin-top: 3px; line-height: 1.4; }
+
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #2a4a7a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+
+  .risk-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .risk-grid { grid-template-columns: 1fr; } }
+  .risk-card {
+    border-radius: 10px;
+    padding: 14px;
+    font-size: 0.83rem;
+    line-height: 1.6;
+  }
+  .risk-card.r1 { background: #fde8e8; border: 2px solid #b54040; }
+  .risk-card.r2 { background: #fff3e0; border: 2px solid #c8884a; }
+  .risk-card.r3 { background: #f5e8fd; border: 2px solid #7a4a9e; }
+  .risk-card.r4 { background: #e8f5ec; border: 2px solid #4a9e6a; }
+  .risk-card .r-title {
+    font-weight: 700;
+    font-size: 0.84rem;
+    margin-bottom: 6px;
+  }
+  .risk-card.r1 .r-title { color: #8a1a1a; }
+  .risk-card.r2 .r-title { color: #7a4010; }
+  .risk-card.r3 .r-title { color: #4a1a7a; }
+  .risk-card.r4 .r-title { color: #2a7a4a; }
+
+  .law-box {
+    background: #e8f0f8;
+    border: 2px solid #2a4a7a;
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin: 12px 0;
+    font-size: 0.87rem;
+    line-height: 1.8;
+    color: #0d2a52;
+  }
+  .law-box .lh {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #2a4a7a;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.87rem;
+    line-height: 1.6;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; font-size: 1rem; }
+  .check-list .ck-warn { color: #c8884a; font-weight: 700; flex-shrink: 0; margin-top: 1px; font-size: 1rem; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; font-size: 1rem; }
+
+  .info {
+    background: #e8f0f8;
+    border-left: 4px solid #2a4a7a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.7;
+    color: #0d2a52;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.7;
+    color: #7a4010;
+  }
+  .danger {
+    background: #fde8e8;
+    border-left: 4px solid #b54040;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.7;
+    color: #5a1010;
+  }
+
+  .matrix {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.83rem;
+  }
+  .matrix th {
+    background: #0d2a52;
+    color: white;
+    padding: 8px 12px;
+    text-align: center;
+    font-weight: 600;
+  }
+  .matrix td {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    vertical-align: top;
+    line-height: 1.55;
+  }
+  .matrix .row-head {
+    background: #e8f0f8;
+    font-weight: 700;
+    color: #0d2a52;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .matrix .ok  { color: #4a9e6a; font-weight: 700; }
+  .matrix .ng  { color: #b54040; font-weight: 700; }
+  .matrix .tri { color: #c8884a; font-weight: 700; }
+
+  .flow-h {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 10px 0;
+  }
+  .flow-box {
+    background: white;
+    border: 2px solid #2a4a7a;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 0.8rem;
+    text-align: center;
+    line-height: 1.45;
+    color: #0d2a52;
+    font-weight: 600;
+  }
+  .flow-arrow {
+    color: #2a4a7a;
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+  @media (max-width: 540px) {
+    .flow-h { flex-direction: column; align-items: flex-start; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #2a4a7a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+  .hlr { background: linear-gradient(transparent 55%, #ffb3b3 55%); font-weight: 600; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #2a4a7a; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #2a4a7a; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Header -->
+<div class="header">
+  <div class="meta">&#x1F4C5; 1人法人スタート 最新トピック &nbsp;2026-07-05</div>
+  <h1>&#x1F6E1;&#xFE0F; 「防衛特別法人税」ってなに？<br>2026年4月に始まった新税、うちは対象?を図解</h1>
+  <div class="desc">
+    <span class="htag">防衛特別法人税</span>
+    <span class="htag">令和8年度税制</span>
+    <span class="htag">法人税</span>
+    <span class="htag">中小法人への配慮</span>
+    <span class="htag">国税庁</span>
+    <br>
+    ここ数回は社会保険・労働保険を解説してきました。今日は視点を変えて、<strong>2026年4月から始まった法人税の新しい制度「防衛特別法人税」</strong>を、1人社長にどこまで関係あるのかという観点でやさしく解説します。
+  </div>
+</div>
+
+<!-- Section 1: hook -->
+<div class="card">
+  <div class="sec-title">&#x1F6A8; なぜ知っておくべきか</div>
+  <p><strong>防衛特別法人税</strong>は、令和7年3月31日に公布された税制改正にもとづき、<span class="hl">令和8年（2026年）4月1日以後に開始する事業年度から</span>新しく課税が始まった法人税の付加税です。名前だけ聞くと大企業向けの話に思えますが、<span class="hlg">1人社長の株式会社であっても制度上は対象法人に含まれる</span>ため、仕組みだけは知っておくと安心です。</p>
+
+  <div class="stats-row" style="margin-top:14px;">
+    <div class="stat">
+      <div class="sl">税率</div>
+      <div class="sv">4%</div>
+      <div class="su">基準法人税額のうち基礎控除を超えた部分に課税</div>
+    </div>
+    <div class="stat">
+      <div class="sl">基礎控除額</div>
+      <div class="sv">年500万円</div>
+      <div class="su">この金額までは課税されない</div>
+    </div>
+    <div class="stat">
+      <div class="sl">適用開始</div>
+      <div class="sv">2026年4月1日〜</div>
+      <div class="su">以後に開始する事業年度から（自社の決算月で開始時期が変わる）</div>
+    </div>
+  </div>
+
+  <div class="info">
+    &#x1F4A1; 結論を先に言うと、<strong>利益がまだ大きくない1人社長の会社の多くは、実際の納税額は0円</strong>になります。ただし「0円でも申告書は必要」という落とし穴があるので、そこだけは要注意です（詳しくは後半で解説）。
+  </div>
+
+  <div class="source">
+    出典：国税庁 e-Tax「防衛特別法人税の創設に関するご案内・留意事項について」<br>
+    <a href="https://www.e-tax.nta.go.jp/topics/2026/topics_20260417.htm" target="_blank">https://www.e-tax.nta.go.jp/topics/2026/topics_20260417.htm</a>
+  </div>
+</div>
+
+<!-- Section 2: basics -->
+<div class="card orange">
+  <div class="sec-title">&#x1F4DA; そもそも「防衛特別法人税」とは（中学生向け）</div>
+  <p>国は今、<strong>防衛力（国を守るための備え）</strong>を強化するための費用を確保する必要があり、その財源の一部を「法人税を納めている会社」にも負担してもらうことになりました。これが防衛特別法人税です。イメージとしては、<span class="hlg">町内会の「特別会費」を、余裕のある家だけに追加でお願いする</span>ような制度です。</p>
+
+  <p style="margin-top:10px;">課税のベースになるのは<strong>「基準法人税額」</strong>（＝法人税額のうち、外国税額控除など一部の控除を差し引く前の、いわば"元になる法人税額"の言い換え）です。この基準法人税額から<span class="hl">基礎控除500万円</span>を差し引いた残りに、<span class="hl">税率4%</span>をかけた金額が納税額になります。</p>
+
+  <div class="flow-h" style="margin-top:14px;">
+    <div class="flow-box">基準法人税額</div>
+    <div class="flow-arrow">&#x27A1;</div>
+    <div class="flow-box">− 基礎控除<br>500万円</div>
+    <div class="flow-arrow">&#x27A1;</div>
+    <div class="flow-box">× 税率4%</div>
+    <div class="flow-arrow">&#x27A1;</div>
+    <div class="flow-box" style="border-color:#4a9e6a; color:#2a7a4a;">防衛特別<br>法人税額</div>
+  </div>
+
+  <div class="info" style="margin-top:12px;">
+    &#x1F4A1; つまり<strong>基準法人税額が500万円以下なら、差し引いた残りがマイナスになるので納税額は0円</strong>です。基礎控除500万円は、特に中小企業への配慮として設けられています。
+  </div>
+
+  <div class="source">
+    出典：国税庁「令和7年度所得税法等の一部改正」パンフレット（令和8年6月改訂）<br>
+    <a href="https://www.nta.go.jp/publication/pamph/pdf/0025004-109_2.pdf" target="_blank">https://www.nta.go.jp/publication/pamph/pdf/0025004-109_2.pdf</a>
+  </div>
+</div>
+
+<!-- Section 3: applicability matrix -->
+<div class="card purple">
+  <div class="sec-title">&#x1F9EE; うちの会社は対象になる？目安で確認</div>
+  <p>基準法人税額は課税所得（利益）から法人税率で計算されるため、<strong>課税所得の大きさ</strong>でおおよその当てはまり方が変わります。中小法人（資本金1億円以下等）を前提にした一般的な試算の目安は次のとおりです。</p>
+
+  <div class="risk-grid" style="margin-top:14px;">
+    <div class="risk-card r4">
+      <div class="r-title">&#x1F7E2; 課税所得が数百万円台</div>
+      基準法人税額が500万円を大きく下回るため、防衛特別法人税は実質<strong>0円</strong>。多くの1人社長の会社はここに該当します。
+    </div>
+    <div class="risk-card r2">
+      <div class="r-title">&#x1F7E1; 課税所得がおおむね2,400万円程度まで</div>
+      軽減税率（年800万円以下15%）を前提にした一般的な試算では、この水準までは基礎控除500万円の範囲内におさまり、納税額が生じにくいとされています（あくまで目安・私的な試算例）。
+    </div>
+    <div class="risk-card r1">
+      <div class="r-title">&#x1F534; それを大きく超える利益が出ている</div>
+      基準法人税額が500万円を超える部分に4%が課税されます。決算前に顧問税理士へ試算を依頼しましょう。
+    </div>
+  </div>
+
+  <div class="warn" style="margin-top:12px;">
+    &#x26A0;&#xFE0F; 「2,400万円程度」は軽減税率や控除の適用状況によって変わる一般的な試算例であり、国税庁が公式に定めた基準ラインではありません。正確な判定は必ず決算数値をもとに顧問税理士に確認してください。
+  </div>
+
+  <div class="source">
+    出典：freee「防衛特別法人税とは？2026年から適用される新税制の概要・目的・企業への影響を解説」（試算例の参考）<br>
+    <a href="https://www.freee.co.jp/kb/kb-healthcare/corporate-tax2026/" target="_blank">https://www.freee.co.jp/kb/kb-healthcare/corporate-tax2026/</a>
+  </div>
+</div>
+
+<!-- Section 4: fiscal year start timing -->
+<div class="card green">
+  <div class="sec-title">&#x1F4C6; 「いつから」対象になるかは決算月で変わる</div>
+  <p>防衛特別法人税は<strong>「2026年4月1日以後に開始する事業年度」</strong>から適用されます。ポイントは「2026年4月1日時点」ではなく「事業年度の開始日」で判定することです。決算月によって、実際に対象になる最初の事業年度がずれます。</p>
+
+  <table class="matrix" style="margin-top:10px;">
+    <tr>
+      <th style="width:32%;">決算月（例）</th>
+      <th>事業年度の開始日</th>
+      <th>最初に対象になる事業年度</th>
+    </tr>
+    <tr>
+      <td class="row-head">3月決算</td>
+      <td>4月1日</td>
+      <td><span class="ok">2026年4月開始分からすぐ対象</span></td>
+    </tr>
+    <tr>
+      <td class="row-head">12月決算</td>
+      <td>1月1日</td>
+      <td><span class="tri">2026年1月開始分はまだ対象外</span>／2027年1月開始分から対象</td>
+    </tr>
+    <tr>
+      <td class="row-head">9月決算</td>
+      <td>10月1日</td>
+      <td><span class="tri">2025年10月開始分はまだ対象外</span>／2026年10月開始分から対象</td>
+    </tr>
+  </table>
+
+  <div class="info" style="margin-top:12px;">
+    &#x1F4A1; 「もう2026年4月を過ぎたから、うちも今年から対象のはず」と思い込まず、<strong>自社の事業年度がいつ開始するか</strong>を必ず確認しましょう。
+  </div>
+
+  <div class="source">
+    出典：国税庁 e-Tax「防衛特別法人税の創設に関するご案内・留意事項について」<br>
+    <a href="https://www.e-tax.nta.go.jp/topics/2026/topics_20260417.htm" target="_blank">https://www.e-tax.nta.go.jp/topics/2026/topics_20260417.htm</a>
+  </div>
+</div>
+
+<!-- Section 5: filing obligation -->
+<div class="card red">
+  <div class="sec-title">&#x26A0;&#xFE0F; 見落としがちな注意点：0円でも申告は必要</div>
+  <p>ここが最も見落とされやすいポイントです。試算の結果、防衛特別法人税額が<strong>0円になる場合でも、申告書の提出義務はなくなりません</strong>。法人税・地方法人税の申告書と合わせて、防衛特別法人税の申告書も提出する必要があります。</p>
+
+  <div class="danger" style="margin-top:12px;">
+    &#x1F6A8; 「うちは0円だから申告しなくていい」と自己判断してしまうと、申告漏れの扱いになりかねません。対象事業年度に入ったら、顧問税理士・会計ソフトで<strong>防衛特別法人税の申告書が申告一式に含まれているか</strong>を必ず確認しましょう。
+  </div>
+
+  <div class="info" style="margin-top:10px;">
+    &#x1F4A1; なお、<strong>中間申告（期の途中での仮申告・納付）は令和9年（2027年）4月1日以後に開始する事業年度から始まる</strong>予定で、最初の対象事業年度では中間申告は不要です。
+  </div>
+
+  <div class="source">
+    出典：国税庁「法人税、地方法人税及び防衛特別法人税の申告（法人税申告書別表等）」<br>
+    <a href="https://www.nta.go.jp/taxes/tetsuzuki/shinsei/annai/hojin/shinkoku/01.htm" target="_blank">https://www.nta.go.jp/taxes/tetsuzuki/shinsei/annai/hojin/shinkoku/01.htm</a>
+  </div>
+</div>
+
+<!-- Section 6: checklist -->
+<div class="card green">
+  <div class="sec-title">&#x2705; 1人社長が今日やること</div>
+
+  <ul class="check-list" style="margin-top:6px;">
+    <li>
+      <span class="ck">&#x2460;</span>
+      <span><strong>自社の事業年度の開始日を確認する</strong><br>「2026年4月1日以後開始」の判定は開始日基準。決算月から自社の初回対象事業年度を逆算しておく。</span>
+    </li>
+    <li>
+      <span class="ck">&#x2461;</span>
+      <span><strong>顧問税理士に「うちは対象になりそうか」を聞いてみる</strong><br>課税所得（利益）の水準次第で、多くの1人社長法人は実質負担0円ですが、判定は必ず専門家に確認する。</span>
+    </li>
+    <li>
+      <span class="ck">&#x2462;</span>
+      <span><strong>会計・申告ソフトが令和8年度改正に対応しているか確認する</strong><br>freee・マネーフォワード・弥生など利用中のソフトで、防衛特別法人税の申告書が作成できるか確認しておく。</span>
+    </li>
+    <li>
+      <span class="ck-warn">&#x2463;</span>
+      <span><strong>「0円だから申告不要」と思い込まない</strong><br>対象事業年度に入ったら、納税額が0円でも申告書提出が必要なことをカレンダーにメモしておく。</span>
+    </li>
+    <li>
+      <span class="ck">&#x2464;</span>
+      <span><strong>生成AIには制度の要点整理までを手伝わせる</strong><br>「防衛特別法人税の概要を箇条書きにして」といった整理は便利ですが、<strong>自社が対象かどうかの最終判断は必ず税理士に確認</strong>すること。</span>
+    </li>
+  </ul>
+</div>
+
+<!-- Summary -->
+<div class="card">
+  <div class="sec-title">&#x1F4DD; 今日のまとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">&#x2460;</span>防衛特別法人税は<span class="hl">2026年（令和8年）4月1日以後に開始する事業年度</span>から始まった、法人税に上乗せされる新しい税金。</li>
+    <li><span class="n">&#x2461;</span>計算は<span class="hl">（基準法人税額 − 基礎控除500万円）× 税率4%</span>。基礎控除は中小法人への配慮として設けられている。</li>
+    <li><span class="n">&#x2462;</span>多くの1人社長の会社は<span class="hlg">実質的な納税額が0円</span>になる見込みだが、正確な判定は決算数値で確認が必要。</li>
+    <li><span class="n">&#x2463;</span>対象になる最初の事業年度は<span class="hlo">決算月（事業年度の開始日）</span>によって異なる。</li>
+    <li><span class="n">&#x2464;</span><span class="hlr">納税額0円でも申告書の提出は必要</span>。この点だけは思い込みで済ませず、顧問税理士に確認すること。</li>
+  </ul>
+</div>
+
+<!-- Disclaimer -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報提供を目的としており、税務・法務に関する個別のアドバイスではありません。
+  防衛特別法人税の適用有無・税額・申告要否は、会社の決算数値や事業年度、適用される税額控除の状況によって異なります。
+  具体的な判断については、顧問税理士にご相談ください。<br>
+  記載内容は2026年7月時点（令和8年度）で確認できる制度に基づきます。「課税所得2,400万円程度」は一般的な試算例であり、公式な基準ラインではありません。制度・税率・金額は年度により改定されるため、最新情報は国税庁の公式サイトでご確認ください。
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>&#x1F4DA; <a href="index.html">バックナンバー一覧へ</a> &nbsp;&middot;&nbsp; 毎朝更新</p>
+</div>
+
+</div>
+</body>
+</html>
