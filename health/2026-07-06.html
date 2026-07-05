@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-07-06</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '📊';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 18px 16px;
+    font-size: 0.86rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.95rem; margin-bottom: 10px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.2em; }
+  .c3-col li { margin-bottom: 5px; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .mech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .mech-item {
+    background: #f0faf5;
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 0.85rem;
+    border-top: 3px solid #1a7a5a;
+  }
+  .mech-item .micon { font-size: 1.3rem; margin-bottom: 6px; }
+  .mech-item strong { display: block; color: #0d4a35; margin-bottom: 4px; font-size: 0.88rem; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .highlight { background: #cff0df; padding: 1px 5px; border-radius: 4px; }
+  .good { color: #1a7a5a; font-weight: 600; }
+  .bad  { color: #c0392b; font-weight: 600; }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-box {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin: 14px 0;
+    font-size: 0.92rem;
+  }
+  .def-box .def-label {
+    font-size: 0.75rem;
+    color: #1a7a5a;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  @media (max-width: 540px) {
+    .compare3 { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.9rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ヘッダー -->
+<div class="header">
+  <div class="label">健康・栄養 最新トピック ・ 2026-07-06</div>
+  <h1>あなたの体は「全国平均」とは違う<br>
+  24年分・131種類の栄養データが映す、隠れた個人差</h1>
+  <div class="subtitle">米国では1999年から、毎年一定数の国民から血液・尿を採って栄養状態を調べる大規模調査が続いています。2026年6月、その約24年分のデータをまとめた最新の政府報告書が公表されました。オメガ3が足りない人がほぼ全員という驚きの数字から、「サプリを飲む人と飲まない人」でまったく違う結果まで、「全国平均」の裏にある個人差を今日は読み解きます。</div>
+</div>
+
+<!-- タグ -->
+<div style="margin-bottom:18px;">
+  <span class="tag">精密栄養学</span>
+  <span class="tag">公的統計データ</span>
+  <span class="tag">オメガ3</span>
+  <span class="tag">ビタミンD</span>
+  <span class="tag">鉄・葉酸</span>
+  <span class="tag">エビデンスの読み方</span>
+</div>
+
+<!-- 今日の疑問 -->
+<div class="card">
+  <h2>🤔 今日の疑問:「国民の平均」は、あなたに当てはまるか?</h2>
+  <p>「日本人はビタミンDが足りない」「現代人はオメガ3(魚の油に多い脂肪酸)が不足しがち」——こうしたニュースをよく見かけます。でも、この「平均」の数字は、性別・年齢・サプリを飲むかどうかなどによって、実はかなりばらつきがあります。</p>
+  <p>精密栄養学(個人差に合わせて栄養を考える学問)の出発点は、まさにこの「平均だけでは見えない個人差」を数字で確認することです。今日は、その個人差を測るための土台となる、大規模な公的統計データを紹介します。</p>
+</div>
+
+<!-- 研究概要 -->
+<div class="card blue">
+  <h2>🔬 データの土台:米国政府が24年続けている栄養調査</h2>
+  <p>今回取り上げるのは、米国疾病予防管理センター(CDC)が2026年6月に公表した「栄養に関する生化学的指標の全国報告書(2026年版)」です。もとになっているのは、NHANES(全米健康栄養調査)という、1歳以上の国民から継続的に血液・尿を採取して健康状態を調べる、米国の代表的な公的統計調査です。分析結果は医学誌<em>Current Developments in Nutrition</em>に論文として掲載されました(Pfeiffer CMら、DOI: 10.1016/j.cdnut.2026.107688、2026年4月オンライン掲載)。</p>
+  <div class="flow">
+    <div class="flow-step">1999年〜<br>調査開始</div>
+    <div class="flow-arrow">▶</div>
+    <div class="flow-step">毎年、国民の代表サンプルから<br>採血・採尿を継続</div>
+    <div class="flow-arrow">▶</div>
+    <div class="flow-step alt">2023年8月まで<br>約24年分を蓄積</div>
+    <div class="flow-arrow">▶</div>
+    <div class="flow-step purp">131種類の<br>栄養バイオマーカーを分析</div>
+    <div class="flow-arrow">▶</div>
+    <div class="flow-step">2026年6月<br>CDCが報告書公表</div>
+  </div>
+  <p style="margin-top:10px;"><strong>バイオマーカー</strong>とは、血液や尿を調べることでわかる、体内の状態を示す指標のことです(例:血中ビタミンD濃度、赤血球のオメガ3脂肪酸の割合など)。今回の報告書は2,700以上の表・500以上の図からなる大規模なもので、今回のNHANES最新サイクル(2021〜2023年)分として50種類のバイオマーカーが新たに加わりました。さらに今回、初めて「サプリメントを飲んでいる人」と「飲んでいない人」を分けて集計しています。</p>
+</div>
+
+<!-- 調査の広がり(ステップ) -->
+<div class="flow" style="margin-top:-6px;">
+  <div class="flow-step gray" style="background:#eee;border-color:#999;">1999〜2002年版<br><strong>27種類</strong></div>
+  <div class="flow-arrow">▶</div>
+  <div class="flow-step gray" style="background:#eee;border-color:#999;">2003〜2006年版<br><strong>58種類</strong></div>
+  <div class="flow-arrow">▶</div>
+  <div class="flow-step purp">2026年版<br><strong>131種類</strong></div>
+</div>
+<p style="font-size:0.78rem;color:#777;text-align:center;margin-bottom:18px;">※ 報告書が対象とするバイオマーカーの数は回を追うごとに増えている</p>
+
+<!-- 数字カード -->
+<div class="num-row">
+  <div class="num-card">
+    <div class="big">131<span class="unit">種類</span></div>
+    <div class="desc">分析されたバイオマーカー数</div>
+  </div>
+  <div class="num-card blue-bg">
+    <div class="big">24<span class="unit">年分</span></div>
+    <div class="desc">NHANES調査期間(1999〜2023年8月)</div>
+  </div>
+  <div class="num-card orange-bg">
+    <div class="big">約98<span class="unit">%</span></div>
+    <div class="desc">オメガ3指数が理想値未満だった人の割合</div>
+  </div>
+  <div class="num-card purple-bg">
+    <div class="big">8<span class="unit">%</span></div>
+    <div class="desc">6歳以上でビタミンD「過剰」だった割合(以前は1%未満)</div>
+  </div>
+  <div class="num-card red-bg">
+    <div class="big">約6<span class="unit">pt上昇</span></div>
+    <div class="desc">出産可能年齢の女性の鉄欠乏・葉酸不足の増加幅</div>
+  </div>
+</div>
+
+<!-- 結果1:オメガ3 -->
+<div class="card orange">
+  <h2>🐟 発見1:オメガ3不足はほぼ「みんな」の問題</h2>
+  <p>今回の報告書では初めて「オメガ3指数」(赤血球の脂肪酸のうちEPA・DHAが占める割合)が全国規模で計算されました。その結果、理想とされる8%以上の人はごくわずかで、約98%の人が理想値に届いておらず、半数以上が「望ましくない」水準にとどまっていることがわかりました。</p>
+  <p>ただし注意が必要です。これは米国の国民を対象にした横断調査(ある一時点の集団を比較する調査)であり、魚介類の摂取量が多い日本の食生活にそのまま当てはまるわけではありません。また、この数字だけでは「病気になりやすい」とまでは言えず、心血管疾患リスクとの関連は、以前の記事(6月24日)で紹介したような別の研究(REDUCE-ITなど)で個別に検証する必要があります。</p>
+</div>
+
+<!-- 結果2:サプリ有無での違い -->
+<div class="card purple">
+  <h2>💊 発見2:「サプリを飲む人」と「飲まない人」で数字がまったく違う</h2>
+  <p>今回初めて集計された「サプリメント利用の有無」別のデータは、まさに個人差を可視化しています。ビタミンDを例にすると、全体では「不足リスクあり」の人の割合が2007〜2008年の18.8%から直近(2021〜2023年)の15.6%へゆるやかに下がった一方、ビタミンD入りサプリを利用している人だけを見ると12.8%から5.8%へと大きく下がっていました。</p>
+  <div class="compare3">
+    <div class="c3-col purple">
+      <h3>💊 サプリ利用者</h3>
+      <ul><li>ビタミンD不足リスク:<br>約12.8%→<strong>5.8%</strong>へ改善</li><li>ビタミンD「過剰」は<br>成人利用者・女性・非ヒスパニック系白人に多い</li></ul>
+    </div>
+    <div class="c3-col blue">
+      <h3>🧑‍🤝‍🧑 国民全体(平均)</h3>
+      <ul><li>ビタミンD不足リスク:<br>18.8%→<strong>15.6%</strong>と緩やかな改善</li><li>過剰摂取の割合は<br>1%未満→<strong>8%</strong>(6歳以上)に増加</li></ul>
+    </div>
+  </div>
+  <p style="margin-top:10px;">ここで注意したいのは、これも横断調査の「関連」にすぎない点です。「サプリを飲んでいるから不足が改善した」とも読めますが、「もともと健康意識が高い人がサプリも飲む」という交絡(見せかけの関連を生む要因)の可能性も否定できません。また、成人のサプリ利用者や女性、非ヒスパニック系白人で「摂りすぎ」の割合が高い点も見逃せず、「サプリ=飲むほど安心」ではないことを示しています。</p>
+</div>
+
+<!-- 結果3:女性の鉄・葉酸 -->
+<div class="card red">
+  <h2>🩸 発見3:出産可能年齢の女性で鉄・葉酸不足が増加傾向</h2>
+  <p>報告書は、出産可能年齢(15〜49歳)の女性において、鉄欠乏と葉酸不足の割合がこの調査期間を通じて約6ポイント増加したことも示しています。具体的な年ごとの数値までは今回確認できていませんが、この年代は妊娠・出産に備えて鉄・葉酸の需要が高まる時期でもあり、注目すべき傾向です。</p>
+</div>
+
+<!-- 注意点 -->
+<div class="warn">
+  <strong>⚠️ この報告書をどう読むべきか(とても重要):</strong>
+  <ul style="padding-left:1.4em; margin-top:8px;">
+    <li>これは横断調査(ある時点の集団を比較する観察研究)であり、原因と結果を証明する実験(RCT)ではありません。「なぜ」その傾向が起きたか(食生活の変化か、検査方法の改良か、サプリ利用の広がりかなど)までは、この報告書単体では特定できません。</li>
+    <li>対象は米国国民であり、食文化・日照量・魚介類の摂取量が異なる日本にそのまま当てはめることはできません。日本人のビタミンD不足については、以前の記事(6月5日)で紹介した国内コホート研究も参考にしてください。</li>
+    <li>サプリメントの利用は本人の申告に基づくものです。また「サプリを飲む人は不足指標が良い」という関連は相関であり、サプリそのものの効果とは限りません(健康意識の高さなど他の要因が影響している可能性があります)。</li>
+  </ul>
+</div>
+
+<!-- エビデンスの強さ -->
+<div class="card">
+  <h2>🧭 エビデンスの強さを整理する</h2>
+  <table class="ev-table">
+    <tr><th>知見</th><th>研究の種類</th><th>エビデンスの強さ</th></tr>
+    <tr>
+      <td>131種類の栄養バイオマーカーの実測値・経年変化</td>
+      <td>全国代表サンプルの横断調査(NHANES、公的統計)</td>
+      <td><span class="ev-badge ev-high">記述データとしては強い(実測)</span></td>
+    </tr>
+    <tr>
+      <td>サプリ利用者は不足指標が良い</td>
+      <td>横断的な関連(同時点の自己申告×血中濃度)</td>
+      <td><span class="ev-badge ev-low">相関のみ・因果は不明</span></td>
+    </tr>
+    <tr>
+      <td>米国人のオメガ3不足が日本人にも同程度当てはまる</td>
+      <td>未検証(米国データの単純な外挿)</td>
+      <td><span class="ev-badge ev-low">現時点では確認できない</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- 精密栄養学の視点 -->
+<div class="card">
+  <h2>🎯 精密栄養学の視点:「平均」の先にある自分のカテゴリー</h2>
+  <ul>
+    <li>今回の報告書がこれまでと大きく違うのは、「サプリを飲む人・飲まない人」「性別」「人種・民族」などのグループ別に数字を分けて示した点です。全体平均だけを見ていると、「自分はサプリを飲んでいるから大丈夫」「自分は摂りすぎているかもしれない」といった、自分自身のリスクの見立てができません。</li>
+    <li>精密栄養学は、こうした「属性ごとの違い」をさらに個人単位まで細かくしていく方向を目指す分野です。今回のような大規模で長期的な公的統計は、その土台となる基礎データとして重要な役割を果たします。</li>
+    <li>一方で、この報告書自体は「あなたに何を摂るべきか」を教えてくれるものではありません。自分の状態を知りたい場合は、実際に血液検査を受け、かかりつけ医や管理栄養士に相談することが基本です。</li>
+  </ul>
+</div>
+
+<!-- まとめ -->
+<div class="card" style="border-left-color:#1a7a5a;">
+  <h2>✅ 今日のまとめ</h2>
+  <ul class="step-list">
+    <li>米国CDCが2026年6月に公表した報告書は、1999〜2023年8月の約24年分・131種類の栄養バイオマーカーをまとめた大規模な公的統計データ。</li>
+    <li>オメガ3指数は約98%の人が理想値未満、出産可能年齢の女性では鉄欠乏・葉酸不足が約6ポイント増加するなど、複数の栄養面の課題が浮かび上がった。</li>
+    <li>初めてサプリ利用者・非利用者を分けて集計した結果、同じ「国民」でもビタミンDの不足リスク・過剰リスクの割合が大きく異なることが判明。</li>
+    <li>ただし横断調査であり因果関係の証明ではなく、米国データを日本にそのまま当てはめることもできない。「全国平均」の先にある自分自身のカテゴリーを意識することが、精密栄養学的な考え方の第一歩。</li>
+  </ul>
+</div>
+
+<!-- 免責 -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報提供を目的としており、医療上のアドバイスではありません。栄養素の必要量・効果・リスクは年齢・体質・持病・服薬状況によって大きく異なります。サプリメントの開始・中止や食事内容の変更を検討する際は、かかりつけ医・管理栄養士・薬剤師など専門家にご相談ください。本記事は特定のサプリメントの摂取・中止を推奨するものではありません。
+</div>
+
+<!-- 出典 -->
+<div class="sources">
+  <h3>📚 主な出典・参考文献</h3>
+  <ol>
+    <li>Centers for Disease Control and Prevention. "CDC Releases 2026 National Nutrition Report." 2026年6月.
+      <a href="https://www.cdc.gov/nutrition-report/2026-release/index.html" target="_blank">https://www.cdc.gov/nutrition-report/2026-release/index.html</a>
+    </li>
+    <li>Centers for Disease Control and Prevention. "About CDC's Nutrition Report."
+      <a href="https://www.cdc.gov/nutrition-report/about/index.html" target="_blank">https://www.cdc.gov/nutrition-report/about/index.html</a>
+    </li>
+    <li>Pfeiffer CM, Sternberg MR, Powers CD, et al. "Centers for Disease Control and Prevention's 2026 Nutrition Report Presents Data for 131 Biomarkers from the Cross-Sectional National Health and Nutrition Examination Survey (NHANES 1999–August 2023)." <em>Current Developments in Nutrition</em>, 2026. DOI: 10.1016/j.cdnut.2026.107688(2026年4月オンライン掲載)。
+      <a href="https://cdn.nutrition.org/article/S2475-2991(26)00053-3/fulltext" target="_blank">https://cdn.nutrition.org/article/S2475-2991(26)00053-3/fulltext</a>
+    </li>
+    <li>参考(日本人のビタミンD不足に関する既報記事):本連載2026年6月5日「ビタミンDの『隠れ不足』」も参照。</li>
+  </ol>
+  <p style="margin-top:8px; font-size:0.78rem;">※ 本記事はCDC公式ページおよび掲載論文の公開情報をもとに構成しています。個別のNHANES年次サンプルサイズなど、一次資料で確認できなかった詳細数値は本文中に記載していません。</p>
+</div>
+
+</div>
+</body>
+</html>
