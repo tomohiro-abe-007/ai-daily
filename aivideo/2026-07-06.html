@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI動画制作 日報 2026-07-06</title>
+<style>
+  :root {
+    --bg: #ece8e1;
+    --card: #faf6ec;
+    --dark: #1a3a5c;
+    --dark2: #1a5c3a;
+    --accent: #2a5c8a;
+    --accent2: #c85a00;
+    --text: #2a3540;
+    --muted: #7c8a82;
+    --border: #e0d8c8;
+    --highlight: #fff3cd;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, "Hiragino Sans", "Yu Gothic", sans-serif;
+    line-height: 1.75;
+    padding: 20px;
+  }
+  .wrap { max-width: 900px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #1a3a5c 0%, #1a5c3a 100%);
+    color: #fff;
+    border-radius: 20px;
+    padding: 44px 32px 36px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(26,58,92,.22);
+    margin-bottom: 24px;
+  }
+  .header-tag {
+    display: inline-block;
+    background: rgba(255,255,255,.18);
+    color: #e0f0e8;
+    border-radius: 20px;
+    padding: 4px 16px;
+    font-size: .82rem;
+    margin-bottom: 14px;
+    letter-spacing: .06em;
+  }
+  .header h1 { font-size: 1.7rem; letter-spacing: .03em; line-height: 1.4; margin-bottom: 10px; }
+  .header .sub { color: #c8dde8; font-size: .95rem; }
+  .header .date { color: #b0e0c0; font-size: .85rem; margin-top: 8px; }
+
+  .card {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 12px rgba(0,0,0,.07);
+    border: 1px solid var(--border);
+  }
+  .card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .point-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .point-card { background: #eef3f8; border-radius: 14px; padding: 20px 16px; text-align: center; border: 1px solid #d4e0ea; }
+  .point-icon { font-size: 2rem; margin-bottom: 8px; }
+  .point-title { font-size: .95rem; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
+  .point-desc { font-size: .83rem; color: var(--muted); line-height: 1.6; }
+
+  .bignum-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 20px; }
+  .bignum-card { background: linear-gradient(135deg, #1a3a5c, #1a5c3a); border-radius: 14px; padding: 18px 12px; text-align: center; color: #fff; }
+  .bignum { font-size: 1.5rem; font-weight: 800; color: #ffe0a0; line-height: 1.2; }
+  .bignum-label { font-size: .72rem; color: #cfe6d8; margin-top: 4px; line-height: 1.5; }
+
+  .step-list { list-style: none; }
+  .step-item { display: flex; gap: 14px; margin-bottom: 16px; align-items: flex-start; }
+  .step-num {
+    width: 34px; height: 34px;
+    background: linear-gradient(135deg, #1a3a5c, #1a5c3a);
+    color: #fff; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: .95rem; flex-shrink: 0; margin-top: 2px;
+  }
+  .step-body { flex: 1; }
+  .step-title { font-weight: 700; color: var(--dark); font-size: .95rem; }
+  .step-desc { font-size: .86rem; color: var(--muted); margin-top: 3px; line-height: 1.65; }
+
+  .chip-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .chip { background: #e8f0ec; color: #1a5c3a; border-radius: 20px; padding: 4px 14px; font-size: .82rem; font-weight: 600; border: 1px solid #c0dccc; }
+
+  .tbl { width: 100%; border-collapse: collapse; font-size: .88rem; }
+  .tbl th { background: #eaf1ea; padding: 10px 12px; text-align: left; border-bottom: 2px solid #c8ddc8; color: var(--dark); font-weight: 700; }
+  .tbl td { padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: top; color: var(--text); }
+  .tbl tr:last-child td { border-bottom: none; }
+  .tbl tr.good-row td { background: #f0fff4; }
+  .tbl tr.warn-row td { background: #fff6ea; }
+
+  .note-box { background: var(--highlight); border-left: 4px solid #e8a000; border-radius: 8px; padding: 12px 16px; font-size: .88rem; color: #5a4000; margin-top: 14px; line-height: 1.7; }
+
+  .summary-list { font-size: .95rem; line-height: 2.2; }
+  .summary-list li { list-style: none; display: flex; align-items: flex-start; gap: 8px; }
+  .summary-list li::before { content: "✅"; flex-shrink: 0; margin-top: 2px; }
+
+  .disclaimer { background: #f0ede8; border-radius: 12px; padding: 16px 20px; font-size: .82rem; color: var(--muted); margin-top: 24px; line-height: 1.7; border: 1px solid #ddd8d0; }
+
+  footer { text-align: center; color: var(--muted); font-size: .82rem; margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border); line-height: 1.9; }
+  footer a { color: var(--accent); }
+
+  /* flow diagram */
+  .flow-row { display: flex; gap: 0; align-items: center; flex-wrap: wrap; margin: 16px 0; justify-content: center; }
+  .flow-box { border-radius: 12px; padding: 14px 18px; text-align: center; min-width: 150px; font-size: .85rem; font-weight: 700; color: #fff; }
+  .flow-arrow { font-size: 1.4rem; color: #aaa; margin: 0 8px; }
+  .flow-sub { font-size: .7rem; font-weight: 400; margin-top: 4px; line-height: 1.4; opacity: .9; }
+
+  /* matrix / OK-NG grid */
+  .rule-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 16px; }
+  .rule-card { border-radius: 14px; padding: 16px 18px; }
+  .rule-card.ok { background: #eef8f0; border: 1px solid #bfe3c8; }
+  .rule-card.ng { background: #fdeeee; border: 1px solid #f0c4c4; }
+  .rule-head { font-weight: 700; font-size: .95rem; margin-bottom: 8px; }
+  .rule-card.ok .rule-head { color: #1a6c3a; }
+  .rule-card.ng .rule-head { color: #b03030; }
+  .rule-card ul { padding-left: 18px; font-size: .85rem; color: var(--text); line-height: 1.8; }
+
+  @media (max-width: 640px) {
+    .point-grid { grid-template-columns: 1fr; }
+    .bignum-grid { grid-template-columns: repeat(2, 1fr); }
+    .rule-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="header">
+  <div class="header-tag">🛠️ ツール情報回（続報）── 動画生成AI最新アップデート</div>
+  <h1>Seedance 2.5 続報<br>── ローンチ開始と「著作権フィルター」を知っておこう</h1>
+  <div class="sub">2026年6月23日発表の新モデルが7月3日に公開ウィンドウ入り。安全に使うための背景知識も一緒に解説</div>
+  <div class="date">2026-07-06 ｜ AI動画制作 日報</div>
+</div>
+
+<div class="card">
+  <div class="card-title">🎯 今日の3ポイント</div>
+  <div class="point-grid">
+    <div class="point-card">
+      <div class="point-icon">🚀</div>
+      <div class="point-title">7月3日、公開ウィンドウ入り</div>
+      <div class="point-desc">前回（7/4）の日報で速報した動画生成AI「Seedance 2.5」が、2026年7月3日から一般提供の展開をスタート。ただし本記事執筆時点でもまだ順次展開中で、全員がすぐ使えるわけではない</div>
+    </div>
+    <div class="point-card">
+      <div class="point-icon">🔒</div>
+      <div class="point-title">実在の顔・有名キャラは生成不可</div>
+      <div class="point-desc">2026年2月に映画業界団体から抗議を受けたことをきっかけに、ByteDanceは「実在の顔」や「著作権のあるキャラクター」を生成できなくするフィルターを追加。Seedance 2.5にも引き継がれている</div>
+    </div>
+    <div class="point-card">
+      <div class="point-icon">💰</div>
+      <div class="point-title">料金プランはまだ正式発表前</div>
+      <div class="point-desc">30秒ノーカット生成・参照素材50個などの新機能は使えるようになりつつあるが、具体的な料金プランは本記事執筆時点で未発表。必ず公式ページで最新情報を確認しよう</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">📅 ここまでの経緯をタイムラインで見る</div>
+  <p style="font-size:.9rem;color:var(--muted);margin-bottom:16px;">
+    Seedance 2.5は突然できたわけではなく、前バージョン「Seedance 2.0」をめぐる著作権論争の中で、安全対策を積み重ねながら育ってきたモデルです。
+  </p>
+  <div class="bignum-grid">
+    <div class="bignum-card">
+      <div class="bignum">2/20</div>
+      <div class="bignum-label">映画業界団体が<br>抗議文書を送付</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">3/30</div>
+      <div class="bignum-label">顔・キャラ<br>フィルター追加</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">6/23</div>
+      <div class="bignum-label">Seedance 2.5<br>発表</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">7/3</div>
+      <div class="bignum-label">公開ウィンドウ<br>開始</div>
+    </div>
+  </div>
+
+  <div class="flow-row">
+    <div class="flow-box" style="background:linear-gradient(135deg,#8a2a2a,#b03030);">
+      ① 2026年2月
+      <div class="flow-sub">映画会社・俳優団体が<br>「無断学習」に抗議</div>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box" style="background:linear-gradient(135deg,#8a5c1a,#c8830a);">
+      ② 2026年3月30日
+      <div class="flow-sub">顔・キャラを検出して<br>ブロックする機能を追加</div>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box" style="background:linear-gradient(135deg,#1a3a5c,#2a5c8a);">
+      ③ 2026年6月23日
+      <div class="flow-sub">Seedance 2.5発表<br>（30秒ノーカット生成など）</div>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box" style="background:linear-gradient(135deg,#1a5c3a,#2a8a5c);">
+      ④ 2026年7月3日〜
+      <div class="flow-sub">公開ウィンドウ開始<br>（順次展開中）</div>
+    </div>
+  </div>
+  <div class="chip-row">
+    <div class="chip">Seedance 2.5</div>
+    <div class="chip">30秒ノーカット生成</div>
+    <div class="chip">参照素材 最大50個</div>
+    <div class="chip">Dreamina／CapCut</div>
+  </div>
+  <div class="note-box">
+    💡 30秒ノーカット生成・参照素材50個・ローカル編集といった新機能の詳しい図解は、2026-07-04の日報で扱っています（本記事は「その後どうなったか」の続報回です）。
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🔒 なぜ「実在の顔」や「有名キャラ」が作れないの？</div>
+  <p style="font-size:.9rem;color:var(--muted);margin-bottom:14px;">
+    Seedance 2.0が2026年2月に登場した直後、Disney・Paramount・Sony・Netflix・Warner Bros.などの映画会社と、俳優らの労働組合SAG-AFTRAが加盟する業界団体MPA（Motion Picture Association）が、ByteDanceに抗議文書を送りました。
+    「自分たちの映画やキャラクターを無断でAIの学習に使われた」という内容です。
+  </p>
+  <div class="note-box">
+    💬 <strong>「差止め要求（cease-and-desist）」とは：</strong>「これ以上その行為をやめてください」と法的に警告する文書のことです。訴訟の一歩手前の段階でよく使われます。
+  </div>
+  <p style="font-size:.9rem;color:var(--muted);margin:14px 0;">
+    これを受けてByteDanceは2026年3月30日、次の2つの安全対策を発表しました。
+  </p>
+  <div class="rule-grid">
+    <div class="rule-card ok">
+      <div class="rule-head">✅ 追加された対策</div>
+      <ul>
+        <li>実在の有名人の顔をアップロードしても、認識してブロックする仕組み</li>
+        <li>ディズニーなど著作権のあるキャラクターと分かる見た目の生成をブロック</li>
+        <li>「C2PA」という電子透かしを動画に埋め込み、他のSNSに転載・加工されても追跡できるようにする</li>
+      </ul>
+    </div>
+    <div class="rule-card ng">
+      <div class="rule-head">⚠️ まだ解決していない問題</div>
+      <ul>
+        <li>「学習データに無断で使われた」こと自体への交渉・訴訟は続いており、決着していない</li>
+        <li>ByteDance自身も、これらの対策だけで問題が解消したとは明言していない</li>
+        <li>企業がSeedanceで作った動画を商用利用すると、このリスクを引き継ぐ可能性があると報じられている</li>
+      </ul>
+    </div>
+  </div>
+  <div class="note-box">
+    💡 <strong>「C2PA」とは：</strong>「この映像はAIで作られたのか、実写なのか」を記録しておく業界共通の透かしの規格です。Microsoft・Google・Adobeなどが支持しています。
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🎬 実践例：著作権トラブルを避けて安全に30秒動画を作る 5ステップ</div>
+  <p style="font-size:.88rem;color:var(--muted);margin-bottom:18px;">
+    「新機能を使いたいけど、著作権のトラブルには巻き込まれたくない」という人向けに、安全な使い方の基本手順をまとめました。
+  </p>
+  <ul class="step-list">
+    <li class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-title">参照素材は「自分の写真」か「自分で描いたキャラ」にする</div>
+        <div class="step-desc">有名人の顔写真やアニメ・映画のキャラクター画像を参照素材に使わない。自分自身や許可を得た人物の写真、オリジナルキャラのイラストを使う。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-title">プロンプトに有名人・作品名をそのまま書かない</div>
+        <div class="step-desc">「〇〇（俳優名）風に」「〇〇（アニメ名）のキャラで」といった指定はフィルターでブロックされやすく、著作権的にもリスクが高い。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-title">30秒ノーカット生成でオリジナルの商品紹介動画を作る</div>
+        <div class="step-desc">自社の商品写真・ロゴ・オリジナルキャラだけを参照素材として渡し、「登場→特徴紹介→締め」の流れを1本にまとめて生成する。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <div class="step-title">生成後、C2PA表示や利用規約を確認する</div>
+        <div class="step-desc">動画にAI生成であることを示す透かし・表示が入っているか、商用利用の条件がどうなっているかを公式ページで確認する。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">5</div>
+      <div class="step-body">
+        <div class="step-title">公開前に、料金プランと商用可否を必ず公式サイトで再確認する</div>
+        <div class="step-desc">Seedance 2.5はまだ料金・規約が流動的な段階。SNS投稿や広告に使う前に、Dreamina／CapCutの最新の公式情報をチェックする。</div>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="card">
+  <div class="card-title">📝 今日のまとめ</div>
+  <ul class="summary-list">
+    <li>ByteDanceの新モデル「Seedance 2.5」は2026年7月3日、一般提供の「公開ウィンドウ」に入った（ただし順次展開中）</li>
+    <li>背景には2026年2月のMPA（映画業界団体）からの抗議があり、3月30日に顔・キャラフィルターとC2PA透かしが追加された</li>
+    <li>この安全対策はSeedance 2.5にも引き継がれており、実在の有名人の顔や著作権のあるキャラクターは生成できない</li>
+    <li>ただし「学習データを無断で使った」こと自体の問題は未解決で、商用利用のリスクは使う側が引き継ぐ可能性がある</li>
+    <li>安全に使うコツは「自分の写真・オリジナルキャラを参照素材にする」「有名人・作品名をプロンプトに書かない」の2点</li>
+    <li>料金プランはまだ正式発表前。使う前に必ずDreamina／CapCutの公式ページで最新情報を確認する</li>
+  </ul>
+</div>
+
+<div class="disclaimer">
+  ⚠️ <strong>免責事項</strong><br>
+  本記事で紹介したAIツール（Seedance 2.5／2.0、CapCut、Dreaminaなど）の名称・機能・料金・商用利用の可否は頻繁に変更されます。
+  最新情報と利用規約は各ツールの公式ページで必ずご確認ください。
+  本記事は2026年7月3日〜6日時点の各種報道をもとにしており、著作権をめぐる交渉・訴訟の状況は今後変わる可能性があります。
+</div>
+
+<footer>
+  AI動画制作 日報 ─ 2026-07-06 ｜ ツール情報回（続報）<br>
+  出典：
+  <a href="https://www.techtimes.com/articles/318975/20260624/bytedance-seedance-25-native-30-second-ai-video-no-stitching-required.htm" target="_blank" rel="noopener">Tech Times（2026年6月24日）</a>／
+  <a href="https://www.techtimes.com/articles/319639/20260703/bytedance-seedance-25-launches-this-week-30-second-ai-video-carries-copyright-cloud.htm" target="_blank" rel="noopener">Tech Times（2026年7月3日）</a>／
+  <a href="https://www.axios.com/2026/02/20/hollywood-seedance-intellectual-property" target="_blank" rel="noopener">Axios（2026年2月20日）</a>／
+  <a href="https://www.cnbc.com/2026/02/16/bytedance-safegaurds-seedance-ai-copyright-disney-mpa-netflix-paramount-sony-universal.html" target="_blank" rel="noopener">CNBC（2026年2月16日）</a>／
+  <a href="https://www.scmp.com/tech/policy/article/3348290/bytedance-bolsters-seedance-20-watermarking-ip-safeguards-ahead-global-roll-out" target="_blank" rel="noopener">South China Morning Post（2026年3月時点）</a><br>
+  <a href="index.html" style="color:var(--accent);">← 一覧に戻る</a>
+</footer>
+
+</div>
+</body>
+</html>
