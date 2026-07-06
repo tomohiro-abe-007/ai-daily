@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-07-07</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #1e5a7a 0%, #0d3352 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #1e5a7a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.green  { border-left-color: #4a9e6a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.purple { border-left-color: #7a4a9e; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #1e5a7a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  /* Type comparison grid */
+  .type-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .type-grid { grid-template-columns: 1fr; } }
+  .type-card {
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-size: 0.86rem;
+    line-height: 1.65;
+  }
+  .type-card.main {
+    background: #e8f0f8;
+    border: 2px solid #1e5a7a;
+  }
+  .type-card.sub {
+    background: #f5f0fa;
+    border: 2px solid #7a4a9e;
+  }
+  .type-card .tl {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+  }
+  .type-card.main .tl { color: #0d3352; }
+  .type-card.sub .tl  { color: #4a1a7a; }
+  .type-card .tv { font-size: 1.0rem; font-weight: 700; margin-bottom: 6px; }
+  .type-card.main .tv { color: #1e5a7a; }
+  .type-card.sub .tv  { color: #7a4a9e; }
+
+  /* Big number stats */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 14px 10px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat .sl { font-size: 0.67rem; color: #888; margin-bottom: 3px; }
+  .stat .sv { font-size: 1.6rem; font-weight: 700; color: #1e5a7a; line-height: 1.1; }
+  .stat .su { font-size: 0.7rem; color: #666; margin-top: 2px; }
+
+  /* Flow steps */
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #1e5a7a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+  .f-arrow { color: #1e5a7a; font-size: 1.1rem; margin-left: 14px; margin-bottom: 4px; }
+
+  /* Calendar row */
+  .cal-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.84rem;
+  }
+  .cal-table th {
+    background: #1e5a7a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .cal-table td {
+    padding: 8px 12px;
+    border-bottom: 1px dotted #ddd;
+    line-height: 1.55;
+    vertical-align: top;
+  }
+  .cal-table tr:nth-child(even) td { background: #f5f8fc; }
+  .cal-table .timing {
+    font-weight: 700;
+    color: #1e5a7a;
+    white-space: nowrap;
+  }
+
+  /* Check list */
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  /* Template box */
+  .template-box {
+    background: #f5f8fc;
+    border: 2px dashed #1e5a7a;
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin: 14px 0;
+    font-size: 0.85rem;
+    line-height: 1.9;
+    color: #333;
+  }
+  .template-box .th {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #1e5a7a;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .template-box .fill {
+    background: #ddeeff;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-weight: 700;
+    color: #0a3f6e;
+  }
+  .template-box .note {
+    font-size: 0.75rem;
+    color: #888;
+    margin-top: 8px;
+    line-height: 1.65;
+  }
+
+  /* AI prompt box */
+  .prompt-box {
+    background: #f0f5ff;
+    border: 2px solid #4a6aae;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 12px 0;
+    font-size: 0.84rem;
+    line-height: 1.85;
+    color: #1a2a4a;
+  }
+  .prompt-box .ph {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #4a6aae;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+  .prompt-box .fill {
+    background: #d0e0ff;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-weight: 700;
+    color: #0a2a6e;
+  }
+
+  /* Info / Warn */
+  .info {
+    background: #e8f0f8;
+    border-left: 4px solid #1e5a7a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #0d3352;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #7a4010;
+  }
+
+  /* Summary list */
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #1e5a7a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+
+  .badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 8px;
+    margin-right: 4px;
+    vertical-align: middle;
+  }
+  .badge.law   { background: #1e5a7a; color: white; }
+  .badge.ai    { background: #4a6aae; color: white; }
+  .badge.tip   { background: #4a9e6a; color: white; }
+  .badge.warn  { background: #c8884a; color: white; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #1e5a7a; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #1e5a7a; }
+
+  /* Flow horizontal */
+  .flow-h {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 14px 0;
+  }
+  .flow-box {
+    background: white;
+    border: 2px solid #1e5a7a;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 0.81rem;
+    text-align: center;
+    line-height: 1.45;
+    color: #0d3352;
+    font-weight: 600;
+  }
+  .flow-arrow {
+    color: #1e5a7a;
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+  @media (max-width: 540px) {
+    .flow-h { flex-direction: column; align-items: flex-start; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+
+  /* Matrix */
+  .matrix {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.83rem;
+  }
+  .matrix th {
+    background: #0d3352;
+    color: white;
+    padding: 8px 12px;
+    text-align: center;
+    font-weight: 600;
+  }
+  .matrix td {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    vertical-align: top;
+    line-height: 1.55;
+  }
+  .matrix .row-head {
+    background: #e8f0f8;
+    font-weight: 700;
+    color: #0d3352;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .matrix .ok  { color: #4a9e6a; font-weight: 700; }
+  .matrix .ng  { color: #b54040; font-weight: 700; }
+  .matrix .mid { color: #c8884a; font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Header -->
+<div class="header">
+  <div class="meta">&#x1F4C5; 1人法人スタート 最新トピック &nbsp;2026-07-07</div>
+  <h1>&#x1F5B2;&#xFE0F; 生成AIの契約・著作権リスク<br>学習データ・生成物の著作権・利用規約の読み方</h1>
+  <div class="desc">
+    <span class="htag">AI活用</span>
+    <span class="htag">著作権</span>
+    <span class="htag">契約チェック</span>
+    <span class="htag">リスク管理</span>
+    <span class="htag">文化庁</span>
+    <br>
+    「AIが作った文章や画像を、会社のチラシ・SNS・ロゴに使っても大丈夫？」<br>
+    1人社長は法務担当も自分自身。最低限のルールを知っておくだけでリスクはぐっと減らせます。
+  </div>
+</div>
+
+<!-- Section 1: Why this matters -->
+<div class="card">
+  <div class="sec-title">&#x2696;&#xFE0F; なぜ1人社長ほど「AIと著作権」を知る必要があるのか</div>
+  <p>大きな会社なら法務部がチェックしてくれますが、1人法人では<span class="hl">代表者自身が「これは使っていいか」を判断</span>する場面が毎日あります。文化庁は2024年（令和6年）3月15日、生成AIと著作権に関する公的な整理として「<strong>AIと著作権に関する考え方について</strong>」を公表しました。これは裁判所の判決ではなく、あくまで現時点の「考え方」の整理ですが、実務判断の重要な拠り所になります。</p>
+
+  <div class="stats-row" style="margin-top:16px;">
+    <div class="stat">
+      <div class="sl">公表日</div>
+      <div class="sv">2024年</div>
+      <div class="su">令和6年3月15日（文化庁）</div>
+    </div>
+    <div class="stat">
+      <div class="sl">法的拘束力</div>
+      <div class="sv">なし</div>
+      <div class="su">ソフトロー（指針）扱い</div>
+    </div>
+    <div class="stat">
+      <div class="sl">整理の視点</div>
+      <div class="sv">2段階</div>
+      <div class="su">学習段階／生成・利用段階</div>
+    </div>
+  </div>
+
+  <div class="info">
+    &#x1F4A1; 「AIが作ったから著作権フリー」ではありません。AIを使わない通常の創作物と<span class="hl">同じ著作権法のルールが生成物にも適用される</span>、というのが基本の考え方です。
+  </div>
+
+  <div class="source">
+    出典：文化庁「AIと著作権に関する考え方について」（令和6年3月15日、文化審議会著作権分科会法制度小委員会）<br>
+    <a href="https://www.bunka.go.jp/seisaku/chosakuken/aiandcopyright.html" target="_blank">https://www.bunka.go.jp/seisaku/chosakuken/aiandcopyright.html</a>
+  </div>
+</div>
+
+<!-- Section 2: Two stages -->
+<div class="card orange">
+  <div class="sec-title">&#x1F504; 著作権を考える「2つの場面」を分けて理解する</div>
+  <p>文化庁の整理では、生成AIに関する著作権の問題を<strong>「開発・学習段階」と「生成・利用段階」</strong>の2つに分け、それぞれ別の条文・考え方で判断します。</p>
+
+  <div class="flow-h" style="margin-top:16px;">
+    <div class="flow-box">&#x1F9E0; ①<br>AI開発・<br>学習段階</div>
+    <div class="flow-arrow">&#x27A1;</div>
+    <div class="flow-box">&#x1F5BC;&#xFE0F; ②<br>生成・<br>利用段階</div>
+    <div class="flow-arrow">&#x27A1;</div>
+    <div class="flow-box">&#x1F4E4; ③<br>会社の資料・<br>SNSで公開</div>
+  </div>
+
+  <div class="type-grid" style="margin-top:14px;">
+    <div class="type-card main">
+      <div class="tl">&#x2460; AI開発・学習段階</div>
+      <div class="tv">著作権法30条の4</div>
+      AIがネット上の文章・画像を学習に使う行為は、<strong>「思想・感情の享受を目的としない利用」</strong>にあたる場合、原則として著作権者の許諾なく行えます。<br>
+      <span style="font-size:0.8rem;color:#888;">→ AI開発者側の話。1人社長が直接関わる場面は少ない。</span>
+    </div>
+    <div class="type-card sub">
+      <div class="tl">&#x2461; 生成・利用段階</div>
+      <div class="tv">通常の著作権法が適用</div>
+      AIが作った文章・画像を<strong>使う・公開する</strong>場面では、人間が作った場合と同じ著作権法が適用されます。<br>
+      <span style="font-size:0.8rem;color:#888;">→ 1人社長が日々判断する場面はこちら。</span>
+    </div>
+  </div>
+
+  <div class="warn">
+    &#x26A0;&#xFE0F; 生成・利用段階では、生成物が既存の著作物と似ていないかを<strong>「類似性」</strong>（表現が似ているか）と<strong>「依拠性」</strong>（既存の著作物を参考にして作られたか）の2つの観点から判断します。この2つが認められると著作権侵害になり得ます。
+  </div>
+
+  <div class="source">
+    出典：文化庁「AIと著作権に関する考え方について」（令和6年3月15日）<br>
+    <a href="https://www.bunka.go.jp/seisaku/chosakuken/aiandcopyright.html" target="_blank">https://www.bunka.go.jp/seisaku/chosakuken/aiandcopyright.html</a>
+  </div>
+</div>
+
+<!-- Section 3: Risk matrix -->
+<div class="card green">
+  <div class="sec-title">&#x1F9E9; 使い方別「著作権リスク」早見マトリクス</div>
+  <p>実務でよくある使い方を、リスクの高さの目安で整理しました。<span class="hl">最終的な侵害の有無はケースバイケース</span>で、以下はあくまで一般的な傾向です。</p>
+
+  <table class="matrix" style="margin-top:14px;">
+    <tr>
+      <th style="width:34%;">使い方の例</th>
+      <th style="width:16%;">リスク目安</th>
+      <th>注意点</th>
+    </tr>
+    <tr>
+      <td class="row-head">社内メモ・議事録の<br>下書き作成</td>
+      <td><span class="ok">◎ 低い</span></td>
+      <td>既存の著作物に依拠する必要がなく、表現も自社の情報が中心。比較的安心して使える。</td>
+    </tr>
+    <tr>
+      <td class="row-head">ブログ・SNS投稿文の<br>たたき台作成</td>
+      <td><span class="ok">○ 低〜中</span></td>
+      <td>他社記事を要約・言い換えさせる使い方は、依拠性が認められると侵害リスクが上がる。必ず自分の言葉に直す。</td>
+    </tr>
+    <tr>
+      <td class="row-head">特定の作家・作品の<br>「画風」を指定して生成</td>
+      <td><span class="mid">△ 中</span></td>
+      <td>画風・アイデア自体は著作権の対象外だが、既存作品に酷似した生成物は類似性・依拠性が認定される可能性がある。</td>
+    </tr>
+    <tr>
+      <td class="row-head">会社ロゴ・パッケージ<br>デザインの生成</td>
+      <td><span class="ng">✕ 高い</span></td>
+      <td>商標・意匠権も絡む。似た既存ロゴがないか事前に調査し、専門家（弁理士等）の確認を強く推奨。</td>
+    </tr>
+    <tr>
+      <td class="row-head">有名キャラクター等に<br>似せた画像生成</td>
+      <td><span class="ng">✕ 高い</span></td>
+      <td>依拠性・類似性がともに認められやすく、著作権侵害のリスクが最も高い使い方。商用利用は避ける。</td>
+    </tr>
+  </table>
+
+  <div class="info">
+    &#x1F4A1; 迷ったときの合言葉：「<strong>この生成物、既存の作品と偶然似た程度か、それとも狙って似せたか</strong>」。狙って似せる使い方ほどリスクは上がります。
+  </div>
+</div>
+
+<!-- Section 4: METI checklist -->
+<div class="card">
+  <div class="sec-title">&#x1F4CB; AIツールの利用規約チェック ── 経産省チェックリストの考え方</div>
+  <p>経済産業省は令和7年（2025年）2月18日、「<strong>AIの利用・開発に関する契約チェックリスト</strong>」を公表しました。AIサービスを使う側（利用者）が契約・利用規約で確認すべきポイントを、<span class="hl">インプット（入力データ）</span>と<span class="hl">アウトプット（生成物）</span>の2つに分けて整理しています。</p>
+
+  <div class="stats-row" style="margin-top:16px;">
+    <div class="stat">
+      <div class="sl">公表日</div>
+      <div class="sv">2025年</div>
+      <div class="su">令和7年2月18日（経産省）</div>
+    </div>
+    <div class="stat">
+      <div class="sl">インプット項目</div>
+      <div class="sv">37</div>
+      <div class="su">入力データの扱い方</div>
+    </div>
+    <div class="stat">
+      <div class="sl">アウトプット項目</div>
+      <div class="sv">29</div>
+      <div class="su">生成物の扱い方</div>
+    </div>
+  </div>
+
+  <p style="margin-top:14px;"><strong>1人社長が最低限確認したいポイント：</strong></p>
+  <ul class="check-list" style="margin-top:8px;">
+    <li><span class="ck">&#x2611;</span> 入力した自社の情報（顧客リスト・見積・契約書の内容など）が<strong>AIの学習に再利用されないか</strong>（オプトアウト設定の有無）</li>
+    <li><span class="ck">&#x2611;</span> 入力データを<strong>第三者に開示・提供されない</strong>と明記されているか</li>
+    <li><span class="ck">&#x2611;</span> 生成物（アウトプット）を<strong>商用利用してよいか</strong>（プランによって制限がある場合がある）</li>
+    <li><span class="ck">&#x2611;</span> 生成物の著作権・利用権が<strong>利用者に帰属する</strong>と規約に書かれているか</li>
+    <li><span class="ck">&#x2611;</span> サービス側が生成物の<strong>第三者権利侵害について補償</strong>してくれるか（補償の範囲）</li>
+    <li><span class="ck-bad">&#x26A0;</span> <span style="color:#888;">無料プランと有料プランで規約が異なることが多い ── 商用利用前に必ず該当プランの規約を確認</span></li>
+  </ul>
+
+  <div class="source">
+    出典：経済産業省「AIの利用・開発に関する契約チェックリスト」（令和7年2月18日公表）<br>
+    <a href="https://www.meti.go.jp/press/2024/02/20250218003/20250218003.html" target="_blank">https://www.meti.go.jp/press/2024/02/20250218003/20250218003.html</a>
+  </div>
+</div>
+
+<!-- Section 5: AI governance guideline -->
+<div class="card purple">
+  <div class="sec-title">&#x1F4D0; 「AI事業者ガイドライン」も知っておく ── ソフトローの位置づけ</div>
+  <p>総務省・経済産業省は「<strong>AI事業者ガイドライン</strong>」を策定・改訂しており、最新の第1.2版は令和8年（2026年）3月31日に公表されました。これは<span class="hl">法的拘束力のない「ソフトロー」（自主的な指針）</span>で、AIの開発者・提供者・利用者それぞれが自主的に検討すべき望ましい行動をまとめたものです。</p>
+
+  <div style="margin-top:14px;">
+    <div class="f-step">
+      <div class="f-num" style="background:#7a4a9e;">1</div>
+      <div class="f-text">
+        <strong>強制力はないが、実務上の「参考基準」になる</strong><br>
+        違反しても罰則はありませんが、トラブル時に「一般的な水準の注意を払っていたか」の目安として参照されうるものです。
+      </div>
+    </div>
+    <div class="f-step" style="margin-top:10px;">
+      <div class="f-num" style="background:#7a4a9e;">2</div>
+      <div class="f-text">
+        <strong>中小企業・スタートアップ向けの整理もある</strong><br>
+        大企業だけでなく「中小・スタートアップ企業」の取り組みレベルも整理されており、1人法人でも参考にしやすい内容です。
+      </div>
+    </div>
+    <div class="f-step" style="margin-top:10px;">
+      <div class="f-num" style="background:#7a4a9e;">3</div>
+      <div class="f-text">
+        <strong>AIエージェント利用時の留意点も追加（第1.2版）</strong><br>
+        AIに業務を任せる際は、権限の設定・人間による確認・操作履歴のチェックなどが望ましいとされています。
+      </div>
+    </div>
+  </div>
+
+  <div class="source">
+    出典：総務省・経済産業省「AI事業者ガイドライン（第1.2版）」（令和8年3月31日）<br>
+    <a href="https://www.meti.go.jp/shingikai/mono_info_service/ai_shakai_jisso/20260331_report.html" target="_blank">https://www.meti.go.jp/shingikai/mono_info_service/ai_shakai_jisso/20260331_report.html</a>
+  </div>
+</div>
+
+<!-- Section 6: AI prompt template -->
+<div class="card orange">
+  <div class="sec-title">&#x1F916; AI自身に「リスクチェック」をたたき台として頼む プロンプト例</div>
+  <p>最終判断はAIではなく人間（必要なら専門家）が行いますが、<span class="hl">論点の洗い出しはAIに手伝ってもらえます</span>。</p>
+
+  <div class="prompt-box" style="margin-top:14px;">
+    <div class="ph">&#x1F916; プロンプト例①：生成物を公開・商用利用する前の論点洗い出し</div>
+    これから作成する<span class="fill">【SNS投稿用の画像／会社案内の文章】</span>について、著作権上の注意点をチェックしたいです。<br>
+    ・生成に使う参考情報：<span class="fill">【〇〇のような雰囲気で、というイメージ】</span><br>
+    ・用途：<span class="fill">【自社SNS・商用利用】</span><br>
+    <br>
+    文化庁「AIと著作権に関する考え方について」の類似性・依拠性という2つの観点を踏まえ、<br>
+    「既存の作品に似すぎていないか確認すべきポイント」をリストアップしてください。<br>
+    最終判断は自分で行うことを前提に、論点の洗い出しだけをお願いします。
+  </div>
+
+  <div class="prompt-box">
+    <div class="ph">&#x1F916; プロンプト例②：AIツールの利用規約を要約してもらう</div>
+    以下はAIツール<span class="fill">【サービス名】</span>の利用規約の抜粋です。<br>
+    <br>
+    <span class="fill">【規約の該当箇所を貼り付け】</span><br>
+    <br>
+    次の3点について、規約に書かれている内容を要約してください。<br>
+    ①入力したデータはAIの学習に再利用されるか<br>
+    ②生成物を商用利用してよいか<br>
+    ③生成物の著作権は誰に帰属するか<br>
+    分からない・記載がない場合は「記載なし」と正直に答えてください。
+  </div>
+
+  <div class="warn">
+    &#x26A0;&#xFE0F; <strong>AIの要約や論点整理はあくまで「たたき台」です。</strong><br>
+    規約の解釈や著作権侵害の有無の最終判断は、弁護士・弁理士などの専門家に確認することをお勧めします。
+  </div>
+</div>
+
+<!-- Section 7: Practical checklist -->
+<div class="card">
+  <div class="sec-title">&#x2705; 今日からできる実践チェックリスト</div>
+  <ul class="check-list" style="margin-top:10px;">
+    <li><span class="ck">&#x2611;</span> 商用利用する生成物は、既存の有名作品・キャラクターに似ていないか目視で確認する</li>
+    <li><span class="ck">&#x2611;</span> 使っているAIツールの利用規約で「入力データの再利用」「生成物の権利帰属」を一度読む</li>
+    <li><span class="ck">&#x2611;</span> 顧客情報・契約書など機密性の高いデータは、学習に使われない設定（オプトアウト）を確認してから入力する</li>
+    <li><span class="ck">&#x2611;</span> ロゴ・パッケージなど商標・意匠が絡むデザインは、専門家に一度相談してから正式採用する</li>
+    <li><span class="ck">&#x2611;</span> 「他社記事の要約」的な使い方は、必ず自分の言葉に書き直してから公開する</li>
+    <li><span class="ck">&#x2611;</span> 判断に迷ったら、似せる意図があったかどうかを自分に問い直す</li>
+  </ul>
+</div>
+
+<!-- Section 8: Summary -->
+<div class="card">
+  <div class="sec-title">&#x1F4DD; 今日のまとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">①</span>「AIが作ったから著作権フリー」ではない。<span class="hlg">生成物にも通常の著作権法が適用</span>される（文化庁、令和6年3月）。</li>
+    <li><span class="n">②</span>著作権は「AI開発・学習段階」と「生成・利用段階」に分けて考える。1人社長が日々判断するのは主に後者。</li>
+    <li><span class="n">③</span>侵害の判断は<span class="hl">類似性</span>（表現が似ているか）と<span class="hl">依拠性</span>（既存作品を参考にしたか）の2点がカギ。</li>
+    <li><span class="n">④</span>AIツール利用時は、入力データの扱いと生成物の権利帰属を規約で確認する（経産省チェックリスト、令和7年2月）。</li>
+    <li><span class="n">⑤</span>「AI事業者ガイドライン」は法的拘束力のないソフトローだが、実務の参考基準として押さえておく。</li>
+    <li><span class="n">⑥</span>AIには論点整理のたたき台を任せ、最終判断・重要な意匠/商標が絡む案件は専門家に相談する。</li>
+  </ul>
+</div>
+
+<!-- Disclaimer -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報提供を目的としており、個別の法務・税務アドバイスではありません。
+  会社の状況（生成物の利用目的・既存著作物との関係・契約内容など）により結論は異なります。
+  著作権侵害の有無や契約上のリスクについての具体的な判断は、弁護士・弁理士など専門家にご相談ください。
+  制度・ガイドラインは改定されることがあります。最新情報は文化庁（<a href="https://www.bunka.go.jp/" target="_blank">https://www.bunka.go.jp/</a>）・経済産業省（<a href="https://www.meti.go.jp/" target="_blank">https://www.meti.go.jp/</a>）の公式サイトでご確認ください。<br>
+  本記事の内容の基準：文化庁「AIと著作権に関する考え方について」（令和6年3月）、経済産業省「AIの利用・開発に関する契約チェックリスト」（令和7年2月）、「AI事業者ガイドライン第1.2版」（令和8年3月）時点の情報。
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>&#x1F4DA; <a href="index.html">バックナンバー一覧へ</a> &nbsp;&middot;&nbsp; 毎朝更新</p>
+</div>
+
+</div>
+</body>
+</html>
