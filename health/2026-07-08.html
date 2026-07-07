@@ -1,6 +1,462 @@
-&lt;!DOCTYPE html&gt;
-&lt;html lang="ja"&gt;
-&lt;head&gt;
-&lt;meta charset="UTF-8"&gt;
-&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-&lt;title&gt;健康・栄養 最新トピック 2026-07-08&lt;/title&gt;
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-07-08</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '🏭';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 18px 16px;
+    font-size: 0.86rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.95rem; margin-bottom: 10px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.2em; }
+  .c3-col li { margin-bottom: 5px; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .mech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .mech-item {
+    background: #f0faf5;
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 0.85rem;
+    border-top: 3px solid #1a7a5a;
+  }
+  .mech-item .micon { font-size: 1.3rem; margin-bottom: 6px; }
+  .mech-item strong { display: block; color: #0d4a35; margin-bottom: 4px; font-size: 0.88rem; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .highlight { background: #cff0df; padding: 1px 5px; border-radius: 4px; }
+  .good { color: #1a7a5a; font-weight: 600; }
+  .bad  { color: #c0392b; font-weight: 600; }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-box {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin: 14px 0;
+    font-size: 0.92rem;
+  }
+  .def-box .def-label {
+    font-size: 0.75rem;
+    color: #1a7a5a;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  @media (max-width: 540px) {
+    .compare3 { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.9rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ヘッダー -->
+<div class="header">
+  <div class="label">健康・栄養 最新トピック ・ 2026-07-08</div>
+  <h1>超加工食品は「栄養の中身」をそろえてもリスクが残るのか<br>
+  米国4.8万人・最長20年のデータからわかったこと</h1>
+  <div class="subtitle">「超加工食品(UPF)」が体に良くないと言われるのは、糖分・脂肪・塩分が多いからでしょうか。それとも、それだけでは説明できない何かがあるのでしょうか。2026年6月、米タフツ大学のチームが、約4万8千人分・最長20年間の食事と健康データを使い、この問いに正面から挑んだ研究を発表しました。今日はこの研究をもとに、「栄養素」と「加工の仕方」を分けて考えることの意味を、精密栄養学(個人差に合わせて栄養を考える学問)の視点でやさしく解説します。</div>
+</div>
+
+<!-- タグ -->
+<div style="margin-bottom:18px;">
+  <span class="tag">精密栄養学</span>
+  <span class="tag">超加工食品</span>
+  <span class="tag">コホート研究</span>
+  <span class="tag">相関と因果</span>
+  <span class="tag">食事の質</span>
+  <span class="tag">NHANES</span>
+</div>
+
+<!-- 今日の疑問 -->
+<div class="card">
+  <h2>🤔 今日の疑問:超加工食品の何が悪いのか?</h2>
+  <p>「超加工食品(Ultra-Processed Food, UPF)」とは、家庭の調理ではまず使わないような添加物・乳化剤・香料などを使い、工場で高度に加工して作られる食品群を指す分類の呼び方です(スナック菓子、清涼飲料、インスタント食品などが代表例)。これまでの研究では、UPFを多く食べる人ほど肥満や心臓病、死亡リスクが高いという「関連」が繰り返し報告されてきました。</p>
+  <p>ただし、そこには長年の疑問がありました。「UPFが体に悪いのは、単に糖分・脂肪・塩分・食物繊維の少なさといった栄養素の中身が悪いからではないか?栄養素の質さえそろえれば、加工のされ方そのものは関係ないのではないか?」という点です。今日紹介する研究は、まさにこの疑問に答えようとしたものです。</p>
+</div>
+
+<!-- 研究概要 -->
+<div class="card blue">
+  <h2>🔬 研究の土台:4.8万人・20年分のデータで「栄養素」と「加工度」を切り分ける</h2>
+  <p>この研究は米タフツ大学フリードマン栄養科学政策大学院のDariush Mozaffarian氏(Food is Medicine Institute所長)らのチームが、米国の国民健康栄養調査(NHANES)1999〜2018年の10サイクル分のデータを解析したものです。医学誌<em>American Journal of Public Health</em>に2026年6月3日にオンライン先行公開され、2026年7月号(第116巻7号、1015〜1024ページ)に掲載されました(DOI: 10.2105/AJPH.2026.308499)。</p>
+  <div class="flow">
+    <div class="flow-step">NHANES<br>1999〜2018年<br>10サイクル分</div>
+    <div class="flow-arrow">▶</div>
+    <div class="flow-step">成人47,999人の<br>食事調査データ</div>
+    <div class="flow-arrow">▶</div>
+    <div class="flow-step purp">個人ごとの<br>「食事の質スコア」<br>(i.FCS)で調整</div>
+    <div class="flow-arrow">▶</div>
+    <div class="flow-step alt">心代謝マーカー・<br>全死亡との関連を<br>再解析</div>
+  </div>
+  <p style="margin-top:10px;">研究チームは、それぞれの人の食事に占めるUPF由来のエネルギー割合を計算し、体格指数(BMI)や血糖・血圧などの心代謝リスク指標との横断的な関連、および死因データベース(National Death Index)と照合した全死亡リスクとの関連を調べました。ポイントは、Food Compass Score(食品ごとの栄養学的な健康度を点数化した指標、同じタフツ大学チームが開発)を使って個人の食事の栄養の質を数値化し、その質を統計的にそろえた上でも、UPF摂取量そのものとの関連が残るかどうかを検証した点です。</p>
+</div>
+
+<!-- 数字カード -->
+<div class="num-row">
+  <div class="num-card">
+    <div class="big">47,999<span class="unit">人</span></div>
+    <div class="desc">解析対象となった米国成人の数</div>
+  </div>
+  <div class="num-card blue-bg">
+    <div class="big">20<span class="unit">年分</span></div>
+    <div class="desc">NHANES 1999〜2018年、10サイクルのデータ</div>
+  </div>
+  <div class="num-card orange-bg">
+    <div class="big">1.04<span class="unit">倍</span></div>
+    <div class="desc">UPF由来エネルギーが10%増えるごとの全死亡ハザード比</div>
+  </div>
+  <div class="num-card purple-bg">
+    <div class="big">1.02〜1.07</div>
+    <div class="desc">↑の95%信頼区間</div>
+  </div>
+</div>
+
+<!-- 発見1 -->
+<div class="card orange">
+  <h2>📊 発見1:心代謝マーカーは「良くなる指標」と「悪くなる指標」が混在</h2>
+  <p>UPF由来のエネルギー割合が10%増えるごとに、体格指数(BMI)・HbA1c(過去1〜2か月の平均血糖の目安)・拡張期血圧・総コレステロール/HDLコレステロール比は、統計的に高くなる方向の関連が見られました。一方で、HDLコレステロール(いわゆる善玉)とLDLコレステロール(いわゆる悪玉)は、むしろ低くなる方向の関連が見られています。</p>
+  <div class="compare3">
+    <div class="c3-col red">
+      <h3>⬆️ 悪化方向の関連</h3>
+      <ul><li>BMI(体格指数)</li><li>HbA1c(平均血糖の目安)</li><li>拡張期血圧</li><li>総コレステロール/HDL比</li></ul>
+    </div>
+    <div class="c3-col blue">
+      <h3>⬇️ 一見改善方向の関連</h3>
+      <ul><li>HDLコレステロール</li><li>LDLコレステロール</li></ul>
+    </div>
+  </div>
+  <p style="margin-top:10px;">LDLコレステロールが低いこと自体は一見好ましく見えますが、著者らはこれを「UPFの健康影響が単純ではない」ことの表れと位置づけています。指標ごとに向きが異なる以上、「UPFだから一律に悪い/良い」と単純化せず、総合的なリスク像として捉える必要があります。</p>
+</div>
+
+<!-- 発見2 -->
+<div class="card purple">
+  <h2>🧭 発見2:食事の質をそろえても、全死亡との関連は残った</h2>
+  <p>最も注目すべき結果は、Food Compass Scoreで個人の食事の栄養の質を統計的にそろえた後でも、UPF摂取量と全死亡リスクの関連(UPF由来エネルギー10%ごとにハザード比1.04、95%信頼区間1.02〜1.07)が完全には消えなかった点です。報道では、この関連は栄養の質だけでは「一部しか説明されなかった」と伝えられています。</p>
+  <div class="def-box">
+    <div class="def-label">読み解きのポイント</div>
+    栄養素の質(糖分・脂肪・食物繊維量など)を数値でそろえてもなお関連が残ったということは、加工の過程そのもの(食品の細胞構造の変化、栄養成分以外の添加物、包装由来の化学物質など)が、栄養素だけでは説明しきれない要因として関わっている可能性を示唆しています。ただしこれは「証明された」というより「示唆された」段階の知見です。
+  </div>
+</div>
+
+<!-- 注意点 -->
+<div class="warn">
+  <strong>⚠️ この数字をどう読むべきか(とても重要):</strong>
+  <ul style="padding-left:1.4em; margin-top:8px;">
+    <li>この研究は観察研究(前向きコホート研究:多数の人を追跡し、食事と病気・死亡の関連を統計的に見る研究)であり、ランダム化比較試験(RCT:参加者をくじ引きで介入群と対照群に分けて比較する、因果関係を証明しやすい研究デザイン)ではありません。「UPFを食べたから死亡リスクが上がった」と因果関係を証明したものではなく、あくまで「関連」が見られたという結果です。</li>
+    <li>ハザード比1.04(95%信頼区間1.02〜1.07)は統計的に意味のある関連ですが、数値としては小さめです。個人の絶対的なリスクの増分は、この数字だけでは分かりません。「UPFを少し食べただけで大きく寿命が縮む」という意味ではない点に注意してください。</li>
+    <li>食事内容は自己申告の調査(NHANESは主に24時間思い出し法)に基づいており、記憶違いや申告の偏りが結果に影響する可能性があります。また、UPFを多く食べる人は、運動不足や喫煙など他の生活習慣の傾向も併せ持つことがあり、そうした要因(交絡因子)を完全には排除できません。</li>
+    <li>UPFの健康影響については研究者の間でも見解が分かれています。「加工度そのものが独立したリスク要因」とする立場がある一方、「結局は栄養素の中身(糖・脂肪・食物繊維量など)で大部分は説明できる」とする立場の研究者もおり、今回の結果も「一部しか説明されなかった」という表現にとどまっています。今後さらなる検証が必要な発展途上のテーマです。</li>
+  </ul>
+</div>
+
+<!-- エビデンスの強さ -->
+<div class="card">
+  <h2>🧪 エビデンスの強さを整理する</h2>
+  <table class="ev-table">
+    <tr><th>知見</th><th>研究の種類</th><th>エビデンスの強さ</th></tr>
+    <tr>
+      <td>UPF摂取が多いほど心代謝マーカーが悪化する方向の関連</td>
+      <td>横断的な観察研究(NHANES、n=47,999)</td>
+      <td><span class="ev-badge ev-mid">関連あり・因果は不明</span></td>
+    </tr>
+    <tr>
+      <td>UPF摂取が多いほど全死亡リスクが高い</td>
+      <td>前向きコホート研究(最長20年追跡、死因データと照合)</td>
+      <td><span class="ev-badge ev-mid">関連あり・数値は小さめ・因果は未証明</span></td>
+    </tr>
+    <tr>
+      <td>この関連は栄養素の質だけでは説明しきれない</td>
+      <td>食事の質スコアで調整後の比較(同一データ内の統計解析)</td>
+      <td><span class="ev-badge ev-low">示唆の段階・専門家間でも見解が分かれる</span></td>
+    </tr>
+    <tr>
+      <td>UPFを減らせば寿命が延びる</td>
+      <td>この研究では未検証(介入研究が必要)</td>
+      <td><span class="ev-badge ev-low">現時点では証明されていない</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- 精密栄養学の視点 -->
+<div class="card">
+  <h2>🎯 精密栄養学の視点:「加工度」も個人差を考える材料のひとつ</h2>
+  <ul>
+    <li>これまでの栄養指導は主に「糖分・脂肪・塩分・食物繊維」といった栄養素の量に注目してきました。今回の研究は、栄養素の量に加えて「どう加工されたか」という軸も、健康リスクを考えるうえで無視できない可能性を示しています。ただし加工度の分類(NOVA分類など)自体にも、線引きの曖昧さや国際的な合意のばらつきがあり、発展途上の枠組みであることは理解しておく必要があります。</li>
+    <li>精密栄養学の観点では、UPFへの反応にも個人差がある可能性があります。例えば同じ量のUPFでも、もともとの代謝状態や腸内環境、生活習慣によって影響の出方は異なると考えられますが、この点を個人単位で検証した研究はまだ限られています。</li>
+    <li>現実的にできることは、「超加工食品をゼロにする」といった極端な対応ではなく、加工度の高い食品に偏りすぎず、野菜・果物・全粒穀物・たんぱく質源などをバランスよく組み合わせる、という従来からの基本を意識することです。</li>
+  </ul>
+</div>
+
+<!-- まとめ -->
+<div class="card" style="border-left-color:#1a7a5a;">
+  <h2>✅ 今日のまとめ</h2>
+  <ul class="step-list">
+    <li>2026年6月、米タフツ大学のMozaffarianらのチームが、NHANES1999〜2018年・成人47,999人分のデータを用いた研究を<em>American Journal of Public Health</em>誌(2026年7月号)に発表した。</li>
+    <li>UPF由来エネルギーが10%増えるごとに、心代謝マーカーの一部が悪化方向に関連し、全死亡リスクも1.04倍(95%信頼区間1.02〜1.07)高い方向の関連が見られた。</li>
+    <li>個人の食事の栄養の質(Food Compass Score)をそろえてもこの関連は完全には消えず、加工の過程自体が独立した要因である可能性が示唆されたが、「一部しか説明されなかった」という控えめな表現にとどまる。</li>
+    <li>これは観察研究であり因果関係の証明ではない。数値も相対リスクとしては小さめで、専門家の間でも解釈は分かれている。今日から「超加工食品をやめるべき」と結論づけるものではない。</li>
+  </ul>
+</div>
+
+<!-- 免責 -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、医療アドバイスではありません。効果・必要量・リスクは個人の体質・年齢・持病・服薬によって大きく異なります。実践の前には、かかりつけ医・管理栄養士・薬剤師など専門家にご相談ください。本記事は特定の食事制限やサプリメント、断食などを安易に推奨するものではありません。
+</div>
+
+<!-- 出典 -->
+<div class="sources">
+  <h3>📚 主な出典・参考文献</h3>
+  <ol>
+    <li>Wang L, Fan B, Shi P, Mozaffarian D, et al. "Ultraprocessed Food Versus Diet Quality in Relation to Cardiometabolic Health and All-Cause Mortality: NHANES 1999–2018." <em>American Journal of Public Health</em>. 2026;116(7):1015-1024. DOI: 10.2105/AJPH.2026.308499(2026年6月3日オンライン先行公開)。
+      <a href="https://pubmed.ncbi.nlm.nih.gov/42233198/" target="_blank">https://pubmed.ncbi.nlm.nih.gov/42233198/</a>
+    </li>
+    <li>American Journal of Public Health(掲載誌ページ). "Ultraprocessed Food Versus Diet Quality in Relation to Cardiometabolic Health and All-Cause Mortality: NHANES 1999–2018."
+      <a href="https://ajph.aphapublications.org/doi/10.2105/AJPH.2026.308499" target="_blank">https://ajph.aphapublications.org/doi/10.2105/AJPH.2026.308499</a>
+    </li>
+    <li>Tufts University, Tufts Now. "It May Not Just Be What's in Ultra-Processed Foods, but How They're Made." 2026年6月3日。
+      <a href="https://now.tufts.edu/2026/06/03/it-may-not-just-be-whats-ultra-processed-foods-how-theyre-made" target="_blank">https://now.tufts.edu/2026/06/03/it-may-not-just-be-whats-ultra-processed-foods-how-theyre-made</a>
+    </li>
+  </ol>
+  <p style="margin-top:8px; font-size:0.78rem;">※ 本記事は上記論文の掲載ページ・PubMed登録情報・大学プレスリリースの公開情報をもとに構成しています。論文本文の詳細な統計表(共変量調整前後の詳細な数値など)は、一次資料へのアクセス制限により、公開されている範囲の情報のみを記載しています。著者の並び順は複数の情報源に基づく推定であり、正確な著者順・肩書きは上記DOIの一次資料でご確認ください。</p>
+</div>
+
+</div>
+</body>
+</html>
