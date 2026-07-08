@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>デジタルノマド 最新トピック 2026-07-09</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    color: #2a2a2a;
+  }
+  .hero {
+    background: linear-gradient(135deg, #1e3a6e 0%, #0d2144 100%);
+    color: white;
+    border-radius: 10px;
+    padding: 48px 40px;
+    text-align: center;
+    width: 100%;
+    max-width: 760px;
+    margin-bottom: 28px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .hero .label {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 0.8rem;
+    margin-bottom: 14px;
+    letter-spacing: 0.05em;
+  }
+  .hero h1 { font-size: 1.4rem; margin-bottom: 12px; line-height: 1.55; }
+  .hero .meta { opacity: 0.8; font-size: 0.88rem; line-height: 1.7; }
+  .card {
+    background: #fff9f0;
+    border-radius: 8px;
+    padding: 28px 32px;
+    width: 100%;
+    max-width: 760px;
+    margin-bottom: 20px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.08);
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1e3a6e;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px dashed #8aaad4;
+  }
+  .card p { font-size: 0.93rem; line-height: 1.85; margin-bottom: 10px; }
+  .card p:last-child { margin-bottom: 0; }
+  .highlight-box {
+    background: #e8f0fd;
+    border-left: 4px solid #1e3a6e;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .highlight-box .hlabel { font-size: 0.75rem; color: #1e3a6e; font-weight: 600; margin-bottom: 6px; display: block; }
+  .highlight-box p { font-size: 0.9rem; margin: 0; }
+  .alert-box {
+    background: #fff3cd;
+    border-left: 4px solid #c9920a;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .alert-box .alabel { font-size: 0.75rem; color: #8a6000; font-weight: 600; margin-bottom: 6px; display: block; }
+  .alert-box p { font-size: 0.9rem; margin: 0; }
+  .green-box {
+    background: #e8f5ef;
+    border-left: 4px solid #2c6e4e;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .green-box .glabel { font-size: 0.75rem; color: #2c6e4e; font-weight: 600; margin-bottom: 6px; display: block; }
+  .green-box p { font-size: 0.9rem; margin: 0; }
+  .purple-box {
+    background: #f0eafd;
+    border-left: 4px solid #6a3ea0;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .purple-box .plabel { font-size: 0.75rem; color: #6a3ea0; font-weight: 600; margin-bottom: 6px; display: block; }
+  .purple-box p { font-size: 0.9rem; margin: 0; }
+  .number-row { display: flex; gap: 14px; flex-wrap: wrap; margin: 14px 0; }
+  .number-card {
+    flex: 1; min-width: 130px;
+    background: #1e3a6e; color: white;
+    border-radius: 8px; padding: 18px 14px; text-align: center;
+  }
+  .number-card .num { font-size: 1.15rem; font-weight: 700; margin-bottom: 6px; line-height: 1.25; letter-spacing: 0.02em; }
+  .number-card .desc { font-size: 0.72rem; opacity: 0.9; line-height: 1.5; }
+  .number-card.amber  { background: #c9920a; }
+  .number-card.red    { background: #c0392b; }
+  .number-card.green  { background: #2c6e4e; }
+  .number-card.purple { background: #6a3ea0; }
+  .number-card.gray   { background: #666; }
+  .compare-row { display: flex; gap: 14px; flex-wrap: wrap; margin: 14px 0; }
+  .compare-card {
+    flex: 1; min-width: 200px; border-radius: 8px;
+    padding: 16px 16px; font-size: 0.88rem; line-height: 1.7;
+  }
+  .compare-card h3 { font-size: 0.88rem; margin-bottom: 8px; padding-bottom: 6px; border-bottom: 1.5px dashed; }
+  .compare-card.red    { background: #fdeaea; border: 1.5px solid #c0392b; }
+  .compare-card.red h3 { color: #922b2b; border-color: #e8a0a0; }
+  .compare-card.green  { background: #e8f5ef; border: 1.5px solid #2c6e4e; }
+  .compare-card.green h3 { color: #2c6e4e; border-color: #b2d4c4; }
+  .compare-card.amber  { background: #fff8e8; border: 1.5px solid #c9920a; }
+  .compare-card.amber h3 { color: #7a5800; border-color: #f0d080; }
+  .compare-card.navy   { background: #eaf0fb; border: 1.5px solid #1e3a6e; }
+  .compare-card.navy h3 { color: #1e3a6e; border-color: #8aaad4; }
+  .compare-card.purple { background: #f0eafd; border: 1.5px solid #6a3ea0; }
+  .compare-card.purple h3 { color: #6a3ea0; border-color: #c0a0e8; }
+  .flow-wrap { display: flex; flex-direction: column; gap: 4px; margin: 14px 0; }
+  .flow-box {
+    background: #1e3a6e; color: white;
+    border-radius: 8px; padding: 14px 16px;
+    font-size: 0.88rem; line-height: 1.6;
+  }
+  .flow-box .fb-label { font-size: 0.7rem; opacity: 0.8; margin-bottom: 4px; display: block; }
+  .flow-box strong { font-size: 0.95rem; }
+  .flow-box.sub    { background: #2a5090; }
+  .flow-box.light  { background: #eaf0fb; color: #2a2a2a; border: 1.5px solid #8aaad4; }
+  .flow-box.amber  { background: #c9920a; }
+  .flow-box.green  { background: #2c6e4e; }
+  .flow-box.red    { background: #c0392b; }
+  .flow-box.purple { background: #6a3ea0; }
+  .flow-box.gray   { background: #666; }
+  .arrow-down { text-align: center; font-size: 1.5rem; color: #1e3a6e; margin: 4px 0; line-height: 1; }
+  .step-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 12px 0; }
+  .step-list li { display: flex; align-items: flex-start; gap: 12px; }
+  .step-num {
+    background: #1e3a6e; color: white; border-radius: 50%;
+    min-width: 28px; height: 28px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.78rem; font-weight: 700; flex-shrink: 0; margin-top: 2px;
+  }
+  .step-num.amber  { background: #c9920a; }
+  .step-num.red    { background: #c0392b; }
+  .step-num.green  { background: #2c6e4e; }
+  .step-num.purple { background: #6a3ea0; }
+  .step-num.gray   { background: #666; }
+  .step-list li div { font-size: 0.9rem; line-height: 1.7; }
+  .matrix-table { width: 100%; border-collapse: collapse; font-size: 0.87rem; margin: 14px 0; }
+  .matrix-table th {
+    background: #1e3a6e; color: white; padding: 10px 12px;
+    text-align: left; font-weight: 600; font-size: 0.82rem;
+  }
+  .matrix-table th:first-child { border-radius: 6px 0 0 0; }
+  .matrix-table th:last-child  { border-radius: 0 6px 0 0; }
+  .matrix-table td { padding: 10px 12px; border-bottom: 1px solid #d0d8e8; vertical-align: top; line-height: 1.55; }
+  .matrix-table tr:nth-child(even) td { background: #f2f5fc; }
+  .matrix-table .ok   { color: #2c6e4e; font-weight: 700; }
+  .matrix-table .ng   { color: #c0392b; font-weight: 700; }
+  .matrix-table .warn { color: #8a6000; font-weight: 700; }
+  .matrix-table .row-warn   td { background: #fff8e8 !important; }
+  .matrix-table .row-danger td { background: #fdeaea !important; }
+  .matrix-table .row-green  td { background: #e8f5ef !important; }
+  .matrix-table .row-navy   td { background: #eaf0fb !important; }
+  .matrix-table .row-purple td { background: #f0eafd !important; }
+  .check-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 12px 0; }
+  .check-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.9rem; line-height: 1.65; }
+  .check-icon {
+    min-width: 22px; height: 22px; border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.78rem; font-weight: 700; flex-shrink: 0; margin-top: 1px;
+  }
+  .check-icon.navy   { background: #1e3a6e; color: white; }
+  .check-icon.green  { background: #2c6e4e; color: white; }
+  .check-icon.amber  { background: #c9920a; color: white; }
+  .check-icon.red    { background: #c0392b; color: white; }
+  .check-icon.purple { background: #6a3ea0; color: white; }
+  .section-icon { font-size: 1.5rem; margin-right: 8px; vertical-align: middle; }
+  .tag {
+    display: inline-block; background: #1e3a6e; color: white;
+    font-size: 0.72rem; padding: 2px 8px; border-radius: 10px;
+    margin-right: 4px; vertical-align: middle;
+  }
+  .tag.amber  { background: #c9920a; }
+  .tag.red    { background: #c0392b; }
+  .tag.green  { background: #2c6e4e; }
+  .tag.purple { background: #6a3ea0; }
+  .tag.gray   { background: #888; }
+  .footer-card {
+    background: #f0ece3;
+    border: 1.5px solid #bbb;
+    border-radius: 8px;
+    padding: 20px 24px;
+    width: 100%;
+    max-width: 760px;
+    margin-bottom: 20px;
+    font-size: 0.82rem;
+    color: #555;
+    line-height: 1.8;
+  }
+  .footer-card .footer-title {
+    font-size: 0.78rem; color: #888; font-weight: 600;
+    margin-bottom: 10px; display: block;
+    text-transform: uppercase; letter-spacing: 0.08em;
+  }
+  .footnote { font-size: 0.78rem; color: #777; line-height: 1.7; margin-top: 12px; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 14px 0; }
+  @media (max-width: 560px) { .two-col { grid-template-columns: 1fr; } }
+  .mini-card {
+    border-radius: 8px; padding: 14px 16px;
+    font-size: 0.85rem; line-height: 1.65;
+  }
+  .mini-card h4 { font-size: 0.87rem; margin-bottom: 8px; }
+  .mini-card.navy   { background: #eaf0fb; border: 1.5px solid #8aaad4; }
+  .mini-card.navy h4 { color: #1e3a6e; }
+  .mini-card.amber  { background: #fff8e8; border: 1.5px solid #c9920a; }
+  .mini-card.amber h4 { color: #7a5800; }
+  .mini-card.green  { background: #e8f5ef; border: 1.5px solid #2c6e4e; }
+  .mini-card.green h4 { color: #2c6e4e; }
+  .mini-card.red    { background: #fdeaea; border: 1.5px solid #c0392b; }
+  .mini-card.red h4 { color: #922b2b; }
+  .mini-card.purple { background: #f0eafd; border: 1.5px solid #6a3ea0; }
+  .mini-card.purple h4 { color: #6a3ea0; }
+  .mini-card.gray   { background: #f4f4f4; border: 1.5px solid #aaa; }
+  .mini-card.gray h4 { color: #555; }
+  .timeline { display: flex; flex-direction: column; gap: 0; margin: 14px 0; }
+  .tl-row { display: flex; align-items: stretch; gap: 0; }
+  .tl-year {
+    min-width: 92px; text-align: right; padding: 12px 14px 12px 0;
+    font-size: 0.82rem; font-weight: 700; color: #1e3a6e;
+    border-right: 3px solid #8aaad4; flex-shrink: 0;
+  }
+  .tl-year.amber { color: #c9920a; border-color: #c9920a; }
+  .tl-year.green { color: #2c6e4e; border-color: #2c6e4e; }
+  .tl-year.red   { color: #c0392b; border-color: #c0392b; }
+  .tl-dot {
+    width: 14px; height: 14px; border-radius: 50%; background: #1e3a6e;
+    flex-shrink: 0; margin: 14px -8px 0 0; position: relative; z-index: 1;
+  }
+  .tl-dot.amber  { background: #c9920a; }
+  .tl-dot.green  { background: #2c6e4e; }
+  .tl-dot.red    { background: #c0392b; }
+  .tl-content { padding: 8px 0 8px 20px; font-size: 0.88rem; line-height: 1.65; }
+  .clock-row { display: flex; gap: 12px; flex-wrap: wrap; margin: 14px 0; }
+  .clock-card {
+    flex: 1; min-width: 150px; background: #eaf0fb; border: 1.5px solid #8aaad4;
+    border-radius: 8px; padding: 14px; text-align: center;
+  }
+  .clock-card .flag { font-size: 1.3rem; margin-bottom: 4px; }
+  .clock-card .place { font-size: 0.85rem; font-weight: 700; color: #1e3a6e; margin-bottom: 6px; }
+  .clock-card .zone { font-size: 0.78rem; color: #555; line-height: 1.6; }
+  .bar-wrap { margin: 16px 0; }
+  .bar-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .bar-label { min-width: 88px; font-size: 0.8rem; font-weight: 700; color: #1e3a6e; flex-shrink: 0; }
+  .bar-track { flex: 1; display: flex; background: #eee; border-radius: 4px; overflow: hidden; height: 26px; }
+  .bar-seg { display: flex; align-items: center; justify-content: center; font-size: 0.68rem; color: white; }
+</style>
+</head>
+<body>
+
+<!-- ヒーロー -->
+<div class="hero">
+  <div style="margin-bottom:14px;">
+    <span class="label">🕐 実務ノウハウ（バックログより）</span>
+  </div>
+  <h1>日本・スペイン・アメリカ、時差は「7〜8時間／13〜14時間／5〜6時間」<br>2026年のサマータイム切替日から逆算して、受注運用のコツを図解しました</h1>
+  <div class="meta">
+    デジタルノマド 最新トピック 2026-07-09<br>
+    情報収集日：2026年7月9日<br>
+    直近7日で本テーマに関する新規の一次情報は確認できなかったため、バックログの未解説テーマから選定
+  </div>
+</div>
+
+<!-- 今日のポイント -->
+<div class="card">
+  <h2><span class="section-icon">📌</span>今日のポイント（30秒まとめ）</h2>
+  <div class="number-row">
+    <div class="number-card navy">
+      <div class="num">7〜8<br>時間</div>
+      <div class="desc">日本 ⇔ スペインの時差<br>（夏は7h・冬は8h）</div>
+    </div>
+    <div class="number-card red">
+      <div class="num">13〜14<br>時間</div>
+      <div class="desc">日本 ⇔ 米国東部の時差<br>（ほぼ日中の重なりなし）</div>
+    </div>
+    <div class="number-card amber">
+      <div class="num">5〜6<br>時間</div>
+      <div class="desc">スペイン ⇔ 米国東部の時差<br>（切替期は一時的に5h）</div>
+    </div>
+    <div class="number-card green">
+      <div class="num">1〜2<br>時間</div>
+      <div class="desc">日本×スペインで<br>ライブ通話がしやすい時間帯</div>
+    </div>
+  </div>
+  <div class="highlight-box">
+    <span class="hlabel">💡 核心メッセージ（日本1人法人オーナーへ）</span>
+    <p>「日本とスペインを行き来しながら、世界中の顧客から稼ぐ」を実現するうえで、ビザや税金と同じくらい効いてくるのが<strong>時差の管理</strong>です。時差は毎年3月と10月、日本以外の国が「サマータイム（DST＝日照時間を有効に使うため、時計を1時間進める制度）」を切り替えるタイミングでズレます。しかも欧州と米国は切替日が違うため、年に2回、数週間だけ「いつもと違う時差」になる期間が生まれます。今日はこの仕組みを整理し、ライブ通話がしやすい時間帯と、非同期（Async＝相手がすぐ返信できなくても成立するやり取り）中心の運用のコツを図解します。</p>
+  </div>
+</div>
+
+<!-- 基本知識：3つのタイムゾーン -->
+<div class="card">
+  <h2><span class="section-icon">🌍</span>図解：3つのタイムゾーンの基本</h2>
+  <p>時差の話をする前提として、まず基準になる「協定世界時（UTC＝世界共通の時刻の物差し）」から見た、それぞれの標準時を押さえます。日本はサマータイムを採用していないため、1年を通じて同じ時差のままです（一方でスペイン・米国はサマータイムがあるため、年2回時差が変わります）。</p>
+  <div class="clock-row">
+    <div class="clock-card">
+      <div class="flag">🇯🇵</div>
+      <div class="place">日本（JST）</div>
+      <div class="zone">UTC+9<br>年間を通じて変化なし<br>（サマータイム制度なし）</div>
+    </div>
+    <div class="clock-card">
+      <div class="flag">🇪🇸</div>
+      <div class="place">スペイン（CET/CEST）</div>
+      <div class="zone">冬：UTC+1（CET）<br>夏：UTC+2（CEST）<br>2026年は3/29〜10/25が夏時間</div>
+    </div>
+    <div class="clock-card">
+      <div class="flag">🇺🇸</div>
+      <div class="place">米国東部（EST/EDT）</div>
+      <div class="zone">冬：UTC-5（EST）<br>夏：UTC-4（EDT）<br>2026年は3/8〜11/1が夏時間</div>
+    </div>
+  </div>
+  <p class="footnote">※ 米国東部（ニューヨークなど）を例に説明していますが、顧客が別のタイムゾーンの場合は同じ考え方で読み替えてください。スペイン国内でも自治州によって実務上の営業時間の慣習（昼休みの取り方など）は異なります。</p>
+</div>
+
+<!-- 図解：年2回のズレ期間 -->
+<div class="card">
+  <h2><span class="section-icon">🔄</span>図解：年に2回来る「時差のズレ期間」</h2>
+  <p>スペイン（EU）と米国はどちらもサマータイムを採用していますが、<strong>切替の日付が違います</strong>。EUは「3月最終日曜日に開始・10月最終日曜日に終了」、米国は「3月第2日曜日に開始・11月第1日曜日に終了」という別々のルールで動いているためです。この結果、年2回、数週間だけ「スペイン⇔米国の時差がいつもと違う（6時間ではなく5時間になる）」期間が発生します。日本はサマータイムがないため、この期間は「日本⇔スペイン」「日本⇔米国」の時差も普段と一時的に食い違う形になります。</p>
+  <div class="timeline">
+    <div class="tl-row">
+      <div class="tl-year">2026<br>3/8</div>
+      <div class="tl-dot"></div>
+      <div class="tl-content"><strong>米国がサマータイム開始（EST→EDT）</strong>：スペインはまだ冬時間のまま。この時点でスペイン⇔米国の時差は一時的に5時間に短縮。</div>
+    </div>
+    <div class="tl-row">
+      <div class="tl-year amber">2026<br>3/8〜3/29</div>
+      <div class="tl-dot amber"></div>
+      <div class="tl-content"><strong>⚠ 「ズレ期間①」約3週間</strong>：米国だけ夏時間、スペインは冬時間のまま。固定の定例ミーティングを「現地時刻」で決めていると、この期間だけ実際の時刻がずれる可能性あり。</div>
+    </div>
+    <div class="tl-row">
+      <div class="tl-year">2026<br>3/29</div>
+      <div class="tl-dot"></div>
+      <div class="tl-content"><strong>スペインもサマータイム開始（CET→CEST）</strong>：ここから10/25まで、スペイン⇔米国は通常通り6時間差・日本⇔スペインは7時間差の「安定期」に入る。</div>
+    </div>
+    <div class="tl-row">
+      <div class="tl-year">2026<br>10/25</div>
+      <div class="tl-dot"></div>
+      <div class="tl-content"><strong>スペインがサマータイム終了（CEST→CET）</strong>：米国はまだ夏時間のまま。</div>
+    </div>
+    <div class="tl-row">
+      <div class="tl-year amber">2026<br>10/25〜11/1</div>
+      <div class="tl-dot amber"></div>
+      <div class="tl-content"><strong>⚠ 「ズレ期間②」約1週間</strong>：スペインだけ冬時間に戻り、米国はまだ夏時間。スペイン⇔米国の時差が再び一時的に5時間に。</div>
+    </div>
+    <div class="tl-row">
+      <div class="tl-year">2026<br>11/1</div>
+      <div class="tl-dot"></div>
+      <div class="tl-content"><strong>米国もサマータイム終了（EDT→EST）</strong>：ここから翌年3/8まで、通常の冬パターン（スペイン⇔米国6時間差・日本⇔スペイン8時間差）に戻る。</div>
+    </div>
+  </div>
+  <p class="footnote">出典（アクセス確認日：2026年7月9日）：EUの夏時間開始・終了日（2026年3月29日開始・10月25日終了）は <a href="https://www.timeanddate.com/news/time/europe-starts-dst-2026.html" target="_blank" style="color:#1e3a6e;">timeanddate.com「Daylight Saving Time in Europe 2026」</a>および<a href="https://www.forbes.com/sites/jamiecartereurope/2026/03/26/uk-clocks-change-this-sunday-exact-time-british-summer-time-begins/" target="_blank" style="color:#1e3a6e;">Forbes（2026年3月26日付）</a>。米国の夏時間開始・終了日（2026年3月8日開始・11月1日終了）は<a href="https://www.cbsnews.com/news/daylight-savings-time-starts-2026/" target="_blank" style="color:#1e3a6e;">CBS News</a>および<a href="https://www.today.com/life/when-is-daylight-saving-2026-rcna259923" target="_blank" style="color:#1e3a6e;">TODAY.com</a>による。時差の計算（7〜8時間・13〜14時間・5〜6時間）は、上記の標準時／夏時間の定義から本記事で算出したものです。</p>
+</div>
+
+<!-- 図解：ゴールデンタイム -->
+<div class="card">
+  <h2><span class="section-icon">☎️</span>図解：ライブ通話がしやすい「ゴールデンタイム」</h2>
+  <p>お互いの営業時間を「9:00〜18:00」と仮定すると、日本×スペインは短いながらも日中の重なりがありますが、日本×米国東部はほぼ重なりません（日本の営業時間が、米国からは前日の夜〜深夜にあたるためです）。</p>
+  <div class="bar-wrap">
+    <div class="bar-row">
+      <div class="bar-label">🇯🇵 日本</div>
+      <div class="bar-track">
+        <div class="bar-seg" style="flex:9; background:#ddd; color:#999;">0-9時</div>
+        <div class="bar-seg" style="flex:9; background:#1e3a6e;">9-18時（営業時間）</div>
+        <div class="bar-seg" style="flex:6; background:#ddd; color:#999;">18-24時</div>
+      </div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">🇪🇸 スペイン(夏)</div>
+      <div class="bar-track">
+        <div class="bar-seg" style="flex:9; background:#c0392b;" title="日本16-18時に相当">日本16-18時=西9-11時</div>
+        <div class="bar-seg" style="flex:9; background:#2c6e4e;">スペイン営業時間(現地9-18時)</div>
+        <div class="bar-seg" style="flex:6; background:#ddd; color:#999;">現地夜</div>
+      </div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">🇺🇸 米国東部</div>
+      <div class="bar-track">
+        <div class="bar-seg" style="flex:24; background:#ddd; color:#777;">日本の営業時間(9-18時)は米国東部だと前日20時〜当日7時ごろ＝日中の重なりほぼなし</div>
+      </div>
+    </div>
+  </div>
+  <div class="compare-row">
+    <div class="compare-card green">
+      <h3>✅ 日本 × スペイン</h3>
+      日本の夕方（夏：16〜18時ごろ／冬：17〜18時ごろ）が、スペインの午前（現地9〜11時ごろ）にあたります。1〜2時間ほどですが、双方の営業時間内で重なる貴重な帯です。定例ミーティングはこの枠に置くのがおすすめ。
+    </div>
+    <div class="compare-card red">
+      <h3>❌ 日本 × 米国東部</h3>
+      お互いの営業時間はほぼ重なりません。ライブ通話をするなら、日本側が早朝（6〜8時ごろ）か夜（22時以降）に寄せる必要があります。相手に無理な時間を強いない前提で、非同期対応を基本にするのが現実的です。
+    </div>
+  </div>
+</div>
+
+<!-- 実務のコツ -->
+<div class="card">
+  <h2><span class="section-icon">🛠️</span>図解：1人法人が使える運用のコツ</h2>
+  <ul class="step-list">
+    <li><span class="step-num">1</span><div><strong>会議はUTC基準で決めてからローカル時刻に変換する。</strong>World Time Buddy・Google カレンダーの複数タイムゾーン表示などのツールを使い、「日本時間で」ではなく「協定世界時（UTC）で◯時、日本は+9、スペインは+1または+2」という決め方をすると、サマータイムの切替期でも齟齬が起きにくくなります。</div></li>
+    <li><span class="step-num amber">2</span><div><strong>固定の定例ミーティングは、3月と10月の「ズレ期間」に時刻がズレていないか事前に再確認する。</strong>特にスペイン⇔米国のやり取りは、この期間だけ時差が1時間短くなる点に注意してください。</div></li>
+    <li><span class="step-num green">3</span><div><strong>重なりが少ない相手には、非同期（Async）を基本にする。</strong>Loom等の録画動画での説明・書面での進捗報告・返信期限を明記したメールなど、「相手がすぐ反応できなくても仕事が進む」仕組みを先に作っておくと、無理な時間の通話を減らせます。</div></li>
+    <li><span class="step-num purple">4</span><div><strong>見積書・契約書には「営業日」の定義とタイムゾーンを明記する。</strong>「納期は◯月◯日 18:00（日本時間）まで」のように、締切時刻がどのタイムゾーン基準かを書いておくと、海外の顧客との認識違いを防げます。</div></li>
+    <li><span class="step-num red">5</span><div><strong>渡航のたびに、カレンダーアプリの表示タイムゾーンを更新する。</strong>日本滞在中は「東京」、スペイン滞在中は「マドリード」に切り替えておかないと、渡航直後に招待した会議の時刻がズレて表示される事故が起きやすいので注意してください。</div></li>
+  </ul>
+</div>
+
+<!-- マトリクス表 -->
+<div class="card">
+  <h2><span class="section-icon">📊</span>図解：顧客の地域別・おすすめの働き方マトリクス</h2>
+  <table class="matrix-table">
+    <thead>
+      <tr>
+        <th>顧客の地域</th>
+        <th>通常の時差（日本から見て）</th>
+        <th>ライブ通話の目安</th>
+        <th>おすすめの運用</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="row-green">
+        <td>スペイン・西欧</td>
+        <td>7〜8時間（夏7h・冬8h）</td>
+        <td class="ok">可能</td>
+        <td>日本の夕方＝現地午前に定例会議を設定</td>
+      </tr>
+      <tr class="row-warn">
+        <td>東欧・中東</td>
+        <td>6〜7時間程度</td>
+        <td class="warn">やや可能</td>
+        <td>西欧より少し重なりが増える。地域ごとのDSTルール要確認</td>
+      </tr>
+      <tr class="row-danger">
+        <td>米国東部</td>
+        <td>13〜14時間</td>
+        <td class="ng">困難</td>
+        <td>非同期を基本に、月1回など頻度を絞って早朝/深夜枠を確保</td>
+      </tr>
+      <tr class="row-danger">
+        <td>米国西部</td>
+        <td>16〜17時間</td>
+        <td class="ng">ほぼ不可</td>
+        <td>完全非同期運用が現実的</td>
+      </tr>
+      <tr class="row-navy">
+        <td>日本国内の顧客</td>
+        <td>0時間（渡航中は自分が海外にいる点に注意）</td>
+        <td class="ok">可能</td>
+        <td>スペイン滞在中は自分側の生活時間帯（現地朝〜昼）に設定</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="footnote">※ 上記は一般的な営業時間（9:00〜18:00）を仮定した目安です。実際の重なりは、顧客側の始業・終業時間や休憩習慣によって変わります。</p>
+</div>
+
+<!-- 関連する過去の日報 -->
+<div class="card">
+  <h2><span class="section-icon">📚</span>関連する過去の日報</h2>
+  <table class="matrix-table">
+    <thead>
+      <tr>
+        <th>今日の内容</th>
+        <th>関連する過去の日報</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>決済手段の違いによる着金タイミング・手数料</td>
+        <td>2026-06-08「Stripe・PayPal・Wise 日本1人法人の決済スタック実務」</td>
+      </tr>
+      <tr>
+        <td>シェンゲン域の90日/180日ルール（渡航スケジュールの制約）</td>
+        <td>2026-05-31「EES・ETIASと90/180日ルール」</td>
+      </tr>
+      <tr>
+        <td>税務上の居住地判定・183日ルール（時差とは別の日数基準）</td>
+        <td>2026-06-02「日西租税条約と非居住者判定」</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 出典 -->
+<div class="card">
+  <h2><span class="section-icon">🔗</span>主な参照元（アクセス確認日：2026年7月9日）</h2>
+  <ul class="check-list">
+    <li><span class="check-icon navy">R</span><div>timeanddate.com「Daylight Saving Time in Europe 2026」── EUの夏時間開始日（2026年3月29日）・終了日（2026年10月25日）の出典<br>
+      <a href="https://www.timeanddate.com/news/time/europe-starts-dst-2026.html" target="_blank" style="color:#1e3a6e;font-size:0.83rem;">timeanddate.com</a></div></li>
+    <li><span class="check-icon navy">R</span><div>Forbes「European Clocks Change This Sunday」（2026年3月26日付）── 上記の裏付け<br>
+      <a href="https://www.forbes.com/sites/jamiecartereurope/2026/03/26/uk-clocks-change-this-sunday-exact-time-british-summer-time-begins/" target="_blank" style="color:#1e3a6e;font-size:0.83rem;">forbes.com</a></div></li>
+    <li><span class="check-icon navy">R</span><div>CBS News「Daylight saving time 2026 starts Sunday」── 米国の夏時間開始日（2026年3月8日）の出典<br>
+      <a href="https://www.cbsnews.com/news/daylight-savings-time-starts-2026/" target="_blank" style="color:#1e3a6e;font-size:0.83rem;">cbsnews.com</a></div></li>
+    <li><span class="check-icon navy">R</span><div>TODAY.com「When is Daylight Saving 2026?」── 米国の夏時間終了日（2026年11月1日）の出典<br>
+      <a href="https://www.today.com/life/when-is-daylight-saving-2026-rcna259923" target="_blank" style="color:#1e3a6e;font-size:0.83rem;">today.com</a></div></li>
+  </ul>
+  <p class="footnote">R=一般ニュースメディアの報道にもとづく整理。時差の算出（7〜8時間・13〜14時間・5〜6時間、および「ズレ期間」の長さ）は、上記出典が示す標準時／夏時間の定義をもとに本記事で計算したものであり、個々のニュース記事内に数値として明記されているわけではありません。日本(JST)がサマータイムを採用していない点は広く知られた事実として扱っています。</p>
+</div>
+
+<!-- フッター -->
+<div class="footer-card">
+  <span class="footer-title">⚠ 免責事項 &amp; 専門家への相談推奨</span>
+  <p>
+    <strong>【ビザ・在留】</strong>本記事は時差管理という業務運用のテーマを扱っており、ビザ・在留資格の判断を含みません。ビザ・在留手続きについての正式な判断は、行政書士・移民弁護士へご確認ください。<br>
+    <strong>【税務・社会保険】</strong>本記事は税務判断を含みません。契約・請求書の締切表記や税務上の取り扱いについては、国際税務に強い税理士へご相談ください。<br>
+    <strong>【基準時点】</strong>本記事で紹介したサマータイムの開始・終了日は2026年時点のものです。ルールは国・年によって変わり得るため、翌年以降は改めてご確認ください。
+  </p>
+</div>
+
+</body>
+</html>
