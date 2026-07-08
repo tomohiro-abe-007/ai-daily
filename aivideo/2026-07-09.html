@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI動画制作 日報 2026-07-09</title>
+<style>
+  :root {
+    --bg: #ece8e1;
+    --card: #faf6ec;
+    --dark: #1a3a5c;
+    --dark2: #1a5c3a;
+    --accent: #2a5c8a;
+    --accent2: #c85a00;
+    --text: #2a3540;
+    --muted: #7c8a82;
+    --border: #e0d8c8;
+    --highlight: #fff3cd;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, "Hiragino Sans", "Yu Gothic", sans-serif;
+    line-height: 1.75;
+    padding: 20px;
+  }
+  .wrap { max-width: 900px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #1a3a5c 0%, #1a5c3a 100%);
+    color: #fff;
+    border-radius: 20px;
+    padding: 44px 32px 36px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(26,58,92,.22);
+    margin-bottom: 24px;
+  }
+  .header-tag {
+    display: inline-block;
+    background: rgba(255,255,255,.18);
+    color: #e0f0e8;
+    border-radius: 20px;
+    padding: 4px 16px;
+    font-size: .82rem;
+    margin-bottom: 14px;
+    letter-spacing: .06em;
+  }
+  .header h1 { font-size: 1.7rem; letter-spacing: .03em; line-height: 1.4; margin-bottom: 10px; }
+  .header .sub { color: #c8dde8; font-size: .95rem; }
+  .header .date { color: #b0e0c0; font-size: .85rem; margin-top: 8px; }
+
+  .card {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 12px rgba(0,0,0,.07);
+    border: 1px solid var(--border);
+  }
+  .card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .point-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .point-card { background: #eef3f8; border-radius: 14px; padding: 20px 16px; text-align: center; border: 1px solid #d4e0ea; }
+  .point-icon { font-size: 2rem; margin-bottom: 8px; }
+  .point-title { font-size: .95rem; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
+  .point-desc { font-size: .83rem; color: var(--muted); line-height: 1.6; }
+
+  .bignum-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 20px; }
+  .bignum-card { background: linear-gradient(135deg, #1a3a5c, #1a5c3a); border-radius: 14px; padding: 18px 12px; text-align: center; color: #fff; }
+  .bignum { font-size: 1.3rem; font-weight: 800; color: #ffe0a0; line-height: 1.2; }
+  .bignum-label { font-size: .72rem; color: #cfe6d8; margin-top: 4px; line-height: 1.5; }
+
+  .step-list { list-style: none; }
+  .step-item { display: flex; gap: 14px; margin-bottom: 16px; align-items: flex-start; }
+  .step-num {
+    width: 34px; height: 34px;
+    background: linear-gradient(135deg, #1a3a5c, #1a5c3a);
+    color: #fff; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: .95rem; flex-shrink: 0; margin-top: 2px;
+  }
+  .step-body { flex: 1; }
+  .step-title { font-weight: 700; color: var(--dark); font-size: .95rem; }
+  .step-desc { font-size: .86rem; color: var(--muted); margin-top: 3px; line-height: 1.65; }
+
+  .chip-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .chip { background: #e8f0ec; color: #1a5c3a; border-radius: 20px; padding: 4px 14px; font-size: .82rem; font-weight: 600; border: 1px solid #c0dccc; }
+
+  .tbl { width: 100%; border-collapse: collapse; font-size: .86rem; }
+  .tbl th { background: #eaf1ea; padding: 10px 10px; text-align: left; border-bottom: 2px solid #c8ddc8; color: var(--dark); font-weight: 700; }
+  .tbl td { padding: 10px 10px; border-bottom: 1px solid var(--border); vertical-align: top; color: var(--text); }
+  .tbl tr:last-child td { border-bottom: none; }
+
+  .note-box { background: var(--highlight); border-left: 4px solid #e8a000; border-radius: 8px; padding: 12px 16px; font-size: .88rem; color: #5a4000; margin-top: 14px; line-height: 1.7; }
+
+  .summary-list { font-size: .95rem; line-height: 2.2; }
+  .summary-list li { list-style: none; display: flex; align-items: flex-start; gap: 8px; }
+  .summary-list li::before { content: "✅"; flex-shrink: 0; margin-top: 2px; }
+
+  .disclaimer { background: #f0ede8; border-radius: 12px; padding: 16px 20px; font-size: .82rem; color: var(--muted); margin-top: 24px; line-height: 1.7; border: 1px solid #ddd8d0; }
+
+  footer { text-align: center; color: var(--muted); font-size: .82rem; margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border); line-height: 1.9; }
+  footer a { color: var(--accent); }
+
+  /* flow diagram */
+  .flow-row { display: flex; gap: 0; align-items: center; flex-wrap: wrap; margin: 16px 0; justify-content: center; }
+  .flow-box { border-radius: 12px; padding: 14px 18px; text-align: center; min-width: 150px; font-size: .85rem; font-weight: 700; color: #fff; }
+  .flow-arrow { font-size: 1.4rem; color: #aaa; margin: 0 8px; }
+  .flow-sub { font-size: .7rem; font-weight: 400; margin-top: 4px; line-height: 1.4; opacity: .9; }
+
+  /* hub diagram */
+  .hub-wrap { display: flex; flex-direction: column; align-items: center; margin: 18px 0 6px; }
+  .hub-top { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
+  .hub-box { border-radius: 12px; padding: 12px 16px; text-align: center; min-width: 150px; font-size: .82rem; font-weight: 700; color: #fff; }
+  .hub-sub { font-size: .68rem; font-weight: 400; margin-top: 4px; line-height: 1.4; opacity: .9; }
+  .hub-arrows { font-size: 1.3rem; color: #aaa; margin: 6px 0; }
+  .hub-center { background: linear-gradient(135deg, #2a3540, #1a3a5c); color: #fff; border-radius: 14px; padding: 16px 28px; font-weight: 800; font-size: 1.05rem; box-shadow: 0 4px 14px rgba(0,0,0,.18); }
+  .hub-center-sub { font-size: .75rem; font-weight: 400; margin-top: 4px; opacity: .85; }
+
+  /* rule grid reused as ok/ng */
+  .rule-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 16px; }
+  .rule-card { border-radius: 14px; padding: 16px 18px; }
+  .rule-card.ok { background: #eef8f0; border: 1px solid #bfe3c8; }
+  .rule-card.ng { background: #fdeeee; border: 1px solid #f0c4c4; }
+  .rule-head { font-weight: 700; font-size: .95rem; margin-bottom: 8px; }
+  .rule-card.ok .rule-head { color: #1a6c3a; }
+  .rule-card.ng .rule-head { color: #b03030; }
+  .rule-card ul { padding-left: 18px; font-size: .85rem; color: var(--text); line-height: 1.8; }
+
+  @media (max-width: 640px) {
+    .point-grid { grid-template-columns: 1fr; }
+    .bignum-grid { grid-template-columns: repeat(2, 1fr); }
+    .rule-grid { grid-template-columns: 1fr; }
+    .tbl { display: block; overflow-x: auto; white-space: nowrap; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="header">
+  <div class="header-tag">🛠️ ツール情報回 ── 動画生成AIプラットフォームの新展開</div>
+  <h1>Runwayに新モデルが大集合<br>── Nano Banana 2 Lite × Gemini Omni Flash × Seed Audio 1.0</h1>
+  <div class="sub">2026年6月30日〜7月1日のわずか2日で、Google・ByteDance発の新AIモデルが3つ、Runwayに追加された</div>
+  <div class="date">2026-07-09 ｜ AI動画制作 日報</div>
+</div>
+
+<div class="card">
+  <div class="card-title">🎯 今日の3ポイント</div>
+  <div class="point-grid">
+    <div class="point-card">
+      <div class="point-icon">🖼️</div>
+      <div class="point-title">画像が4秒で1枚</div>
+      <div class="point-desc">Googleの新モデル「Nano Banana 2 Lite」は約4秒で画像を1枚生成。これまでの標準モデルの約5倍速く、コストも大幅ダウン</div>
+    </div>
+    <div class="point-card">
+      <div class="point-icon">💬</div>
+      <div class="point-title">会話しながら動画編集</div>
+      <div class="point-desc">「Gemini Omni Flash」は10秒の動画＋音声を作れるだけでなく、「もっとカメラを引いて」のような会話形式でそのまま編集できる新タイプのAI</div>
+    </div>
+    <div class="point-card">
+      <div class="point-icon">🔊</div>
+      <div class="point-title">声・音楽・SEを1回で</div>
+      <div class="point-desc">「Seed Audio 1.0」はセリフ・BGM・環境音・効果音を1つのプロンプトからまとめて生成できる音声AI。最大120秒まで対応</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">📅 わずか2日間の出来事をタイムラインで見る</div>
+  <p style="font-size:.9rem;color:var(--muted);margin-bottom:16px;">
+    「Runway」は自社開発の動画生成AI(Gen-4.5など)を提供するだけでなく、他社が作った最新モデルも次々と自社の画面から使えるようにしています。この数日で起きた動きを整理すると、次のようになります。
+  </p>
+  <div class="bignum-grid">
+    <div class="bignum-card">
+      <div class="bignum">6/30</div>
+      <div class="bignum-label">Seed Audio 1.0が<br>Runwayに追加</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">6/30</div>
+      <div class="bignum-label">Nano Banana 2 Lite<br>Google側で発表</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">7/1</div>
+      <div class="bignum-label">Nano Banana 2 Lite/<br>Omni FlashがRunwayに追加</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">7/2</div>
+      <div class="bignum-label">Agent Skills<br>（開発者向け機能）追加</div>
+    </div>
+  </div>
+  <div class="note-box">
+    💡 <strong>Agent Skillsとは：</strong>プログラムを書く人(開発者)向けの機能で、コーディング用AIに「広告動画を作って」と一言頼むだけで、Runwayが自動生成〜書き出しまで実行してくれる仕組みです。動画編集アプリの画面上から使う一般的な使い方とは別枠の、上級者向け機能として覚えておけばOKです。
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">📊 3モデル比較表 ── 何を作るためのAIか</div>
+  <div style="overflow-x:auto;">
+  <table class="tbl">
+    <tr><th>モデル名</th><th>何を作る？</th><th>生成時間の目安</th><th>特徴</th><th>提供元</th></tr>
+    <tr><td>Nano Banana 2 Lite</td><td>画像</td><td>約4秒／枚</td><td>標準モデルの約5倍速・低コスト。大量のバリエーション出しに向く</td><td>Google</td></tr>
+    <tr><td>Gemini Omni Flash</td><td>動画＋音声</td><td>3〜10秒の動画</td><td>会話形式でそのまま編集を続けられる。720p・音声込みで一発生成</td><td>Google</td></tr>
+    <tr><td>Seed Audio 1.0</td><td>音声（セリフ・BGM・SE）</td><td>最大120秒</td><td>声・音楽・効果音をまとめて1回で生成。参照音声から声質を寄せる機能もあり</td><td>ByteDance（Seed）</td></tr>
+  </table>
+  </div>
+  <div class="chip-row">
+    <div class="chip">画像→動画→音声を1つの画面で</div>
+    <div class="chip">用途ごとにモデルを使い分け</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🧭 なぜ1つの画面に複数のAIが集まるの？</div>
+  <p style="font-size:.9rem;color:var(--muted);margin-bottom:8px;">
+    ひと昔前は「動画を作るならこのAI」と1本のモデルで完結させるのが主流でした。しかし最近のツールは、画像はGoogle製、動画はGoogle製、音声はByteDance製…というふうに、それぞれ得意なAIを1つの制作画面の中から呼び出せる「窓口（API＝AI機能を呼び出す仕組み）」になりつつあります。
+  </p>
+  <div class="hub-wrap">
+    <div class="hub-top">
+      <div class="hub-box" style="background:linear-gradient(135deg,#1a5c3a,#2a8a5c);">
+        Google<br>Nano Banana 2 Lite
+        <div class="hub-sub">画像を高速生成</div>
+      </div>
+      <div class="hub-box" style="background:linear-gradient(135deg,#1a3a5c,#2a5c8a);">
+        Google<br>Gemini Omni Flash
+        <div class="hub-sub">動画を会話で編集</div>
+      </div>
+      <div class="hub-box" style="background:linear-gradient(135deg,#8a5c1a,#c8830a);">
+        ByteDance<br>Seed Audio 1.0
+        <div class="hub-sub">声・音楽・SE生成</div>
+      </div>
+    </div>
+    <div class="hub-arrows">↓ ↓ ↓</div>
+    <div class="hub-center">
+      🎬 Runway（制作プラットフォーム）
+      <div class="hub-center-sub">1つの画面で画像・動画・音声を組み合わせて書き出す</div>
+    </div>
+  </div>
+  <div class="note-box">
+    💡 初心者が覚えておくべきポイントは1つだけ：「このツールは1社のAIしか使えない」という考え方は、もう古くなりつつあるということです。目的（画像／動画／音声）に応じて、プラットフォームの中で一番向いているモデルを選ぶ発想を持ちましょう。
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🎬 実践例：10秒の商品紹介ショート動画を3モデルで作る 5ステップ</div>
+  <p style="font-size:.88rem;color:var(--muted);margin-bottom:18px;">
+    「マグカップの新商品」を例に、3つのモデルを使い分けて1本の動画に仕上げる流れです。
+  </p>
+  <ul class="step-list">
+    <li class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-title">Nano Banana 2 Liteで商品画像のバリエーションを量産する</div>
+        <div class="step-desc">「白背景／木目の机／朝日が差す窓辺」など背景違いで10パターンほど作る。4秒／枚なので数分で全部そろう</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-title">一番良かった1枚を選ぶ</div>
+        <div class="step-desc">縮小して一覧表示し、目を引く1枚を選定（選び方のコツは2026-07-08の「サムネイル」回と共通）</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-title">Gemini Omni Flashで画像を10秒の動画にする</div>
+        <div class="step-desc">「カップにゆっくりコーヒーを注ぐ、湯気が立つ」のように動きを指示。音声も同時生成される</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <div class="step-title">会話形式で微調整する</div>
+        <div class="step-desc">「カメラをもう少し引いて」「湯気をもっと弱く」など、生成し直しではなく会話で追加指示を出して仕上げる</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">5</div>
+      <div class="step-body">
+        <div class="step-title">Seed Audio 1.0でナレーションとSEを足す</div>
+        <div class="step-desc">商品名・価格を読み上げるナレーションと、注ぐ音・完成の効果音を生成し、Runwayのタイムラインで動画と合わせて書き出す</div>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="card">
+  <div class="card-title">📝 今日のまとめ</div>
+  <ul class="summary-list">
+    <li>2026年6月30日〜7月1日の2日間で、Runway APIに「Seed Audio 1.0」「Nano Banana 2 Lite」「Gemini Omni Flash」の3モデルが相次いで追加された</li>
+    <li>Nano Banana 2 Lite（Google）は約4秒／枚・従来比5倍速の画像生成AI</li>
+    <li>Gemini Omni Flash（Google）は10秒動画＋ネイティブ音声を、会話形式で編集できる新タイプの動画AI</li>
+    <li>Seed Audio 1.0（ByteDance）はセリフ・BGM・効果音を1回でまとめて作れる音声AI</li>
+    <li>7月2日には開発者向けの「Agent Skills」も追加され、Runwayは「1つの画面で複数のAIを使い分けるプラットフォーム」へと進化を続けている</li>
+    <li>料金・利用条件・商用利用の可否は変わりやすいので、使う前に必ず公式ページで最新情報を確認しよう</li>
+  </ul>
+</div>
+
+<div class="disclaimer">
+  ⚠️ <strong>免責事項</strong><br>
+  本記事で紹介したAIツール（Runway、Nano Banana 2 Lite、Gemini Omni Flash、Seed Audio 1.0など）の名称・機能・料金・商用利用の可否は頻繁に変更されます。
+  最新情報と利用規約は各ツールの公式ページで必ずご確認ください。
+  本記事は2026年6月30日〜7月上旬時点の各種報道をもとにしています。
+</div>
+
+<footer>
+  AI動画制作 日報 ─ 2026-07-09 ｜ ツール情報回<br>
+  出典：
+  <a href="https://techcrunch.com/2026/06/30/google-introduces-a-faster-cheaper-image-generator-with-nano-banana-2-lite/" target="_blank" rel="noopener">TechCrunch（2026年6月30日）</a>／
+  <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-omni-flash-nano-banana-2-lite/" target="_blank" rel="noopener">Google公式ブログ（2026年6月）</a>／
+  <a href="https://venturebeat.com/technology/google-unveils-nano-banana-2-lite-aka-gemini-3-1-flash-lite-for-low-cost-4-second-fast-enterprise-image-generations" target="_blank" rel="noopener">VentureBeat（2026年7月2日）</a>／
+  <a href="https://ai.google.dev/gemini-api/docs/omni" target="_blank" rel="noopener">Google AI for Developers（Gemini Omni Flash公式ドキュメント）</a>／
+  <a href="https://www.segmind.com/models/seed-audio-1.0" target="_blank" rel="noopener">Segmind（Seed Audio 1.0モデル情報）</a>／
+  <a href="https://docs.dev.runwayml.com/api-details/api_changelog/" target="_blank" rel="noopener">Runway API Changelog（公式）</a><br>
+  <a href="index.html" style="color:var(--accent);">← 一覧に戻る</a>
+</footer>
+
+</div>
+</body>
+</html>
