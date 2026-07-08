@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-07-09</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #1e5a7a 0%, #0d3352 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #1e5a7a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.green  { border-left-color: #4a9e6a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.purple { border-left-color: #7a4a9e; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #1e5a7a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  /* Type comparison grid */
+  .type-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .type-grid { grid-template-columns: 1fr; } }
+  .type-card {
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-size: 0.86rem;
+    line-height: 1.65;
+  }
+  .type-card.main {
+    background: #e8f0f8;
+    border: 2px solid #1e5a7a;
+  }
+  .type-card.sub {
+    background: #f5f0fa;
+    border: 2px solid #7a4a9e;
+  }
+  .type-card .tl {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+  }
+  .type-card.main .tl { color: #0d3352; }
+  .type-card.sub .tl  { color: #4a1a7a; }
+  .type-card .tv { font-size: 1.0rem; font-weight: 700; margin-bottom: 6px; }
+  .type-card.main .tv { color: #1e5a7a; }
+  .type-card.sub .tv  { color: #7a4a9e; }
+
+  /* Big number stats */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 14px 10px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat .sl { font-size: 0.67rem; color: #888; margin-bottom: 3px; }
+  .stat .sv { font-size: 1.6rem; font-weight: 700; color: #1e5a7a; line-height: 1.1; }
+  .stat .su { font-size: 0.7rem; color: #666; margin-top: 2px; }
+
+  /* Flow steps */
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #1e5a7a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+  .f-arrow { color: #1e5a7a; font-size: 1.1rem; margin-left: 14px; margin-bottom: 4px; }
+
+  /* Check list */
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  /* AI prompt box */
+  .prompt-box {
+    background: #f0f5ff;
+    border: 2px solid #4a6aae;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 12px 0;
+    font-size: 0.84rem;
+    line-height: 1.85;
+    color: #1a2a4a;
+  }
+  .prompt-box .ph {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #4a6aae;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+  .prompt-box .fill {
+    background: #d0e0ff;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-weight: 700;
+    color: #0a2a6e;
+  }
+
+  /* Info / Warn */
+  .info {
+    background: #e8f0f8;
+    border-left: 4px solid #1e5a7a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #0d3352;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #7a4010;
+  }
+
+  /* Summary list */
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #1e5a7a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+
+  .badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 8px;
+    margin-right: 4px;
+    vertical-align: middle;
+  }
+  .badge.law   { background: #1e5a7a; color: white; }
+  .badge.ai    { background: #4a6aae; color: white; }
+  .badge.tip   { background: #4a9e6a; color: white; }
+  .badge.warn  { background: #c8884a; color: white; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #1e5a7a; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #1e5a7a; }
+
+  /* Flow horizontal */
+  .flow-h {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 14px 0;
+  }
+  .flow-box {
+    background: white;
+    border: 2px solid #1e5a7a;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 0.81rem;
+    text-align: center;
+    line-height: 1.45;
+    color: #0d3352;
+    font-weight: 600;
+  }
+  .flow-arrow {
+    color: #1e5a7a;
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+  @media (max-width: 540px) {
+    .flow-h { flex-direction: column; align-items: flex-start; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+
+  /* Matrix */
+  .matrix {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.83rem;
+  }
+  .matrix th {
+    background: #0d3352;
+    color: white;
+    padding: 8px 12px;
+    text-align: center;
+    font-weight: 600;
+  }
+  .matrix td {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    vertical-align: top;
+    line-height: 1.55;
+  }
+  .matrix .row-head {
+    background: #e8f0f8;
+    font-weight: 700;
+    color: #0d3352;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .matrix .ok  { color: #4a9e6a; font-weight: 700; }
+  .matrix .ng  { color: #b54040; font-weight: 700; }
+  .matrix .mid { color: #c8884a; font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Header -->
+<div class="header">
+  <div class="meta">&#x1F4C5; 1人法人スタート 最新トピック &nbsp;2026-07-09</div>
+  <h1>&#x1F46A; 家族を「扶養」に入れる基準が変わった<br>2026年4月から“労働契約書ベース”の判定に</h1>
+  <div class="desc">
+    <span class="htag">社会保険</span>
+    <span class="htag">被扶養者</span>
+    <span class="htag">家族を雇う</span>
+    <span class="htag">年収の壁</span>
+    <span class="htag">日本年金機構</span>
+    <br>
+    「配偶者にパートで手伝ってもらっているけど、扶養（ふよう）から外れない？」<br>
+    1人社長が家族を巻き込むほど避けて通れないテーマを、やさしく図解します。
+  </div>
+</div>
+
+<!-- Section 1: Basics -->
+<div class="card">
+  <div class="sec-title">&#x1F3E0; そもそも「被扶養者」って何？</div>
+  <p><strong>被扶養者（ひふようしゃ）</strong>とは、健康保険に入っている家族（被保険者＝ひほけんしゃ）に養われている配偶者や子どもなどのことです。被扶養者になると<span class="hl">自分では保険料を払わずに健康保険を使える</span>ため、1人社長が配偶者や親をパート・アルバイトとして手伝ってもらう場面でよく出てくる話です。</p>
+
+  <p style="margin-top:10px;">2026年（令和8年）4月1日から、この被扶養者かどうかの<strong>「年間収入の見込み方」</strong>が変わりました。日本年金機構・厚生労働省が公表した新ルールを整理します。</p>
+
+  <div class="stats-row" style="margin-top:16px;">
+    <div class="stat">
+      <div class="sl">収入基準</div>
+      <div class="sv">130万円</div>
+      <div class="su">未満（年間見込み収入）</div>
+    </div>
+    <div class="stat">
+      <div class="sl">同一世帯の場合</div>
+      <div class="sv">1/2未満</div>
+      <div class="su">被保険者の年収の半分未満も必要</div>
+    </div>
+    <div class="stat">
+      <div class="sl">施行日</div>
+      <div class="sv">2026年</div>
+      <div class="su">令和8年4月1日</div>
+    </div>
+  </div>
+
+  <div class="info">
+    &#x1F4A1; ここでの「130万円の壁」は<strong>健康保険の被扶養者になれるかどうか</strong>の基準です。よく話題になる「106万円の壁」（厚生年金への加入義務・企業規模要件）とは<span class="hl">別の制度</span>なので混同しないよう注意しましょう。
+  </div>
+
+  <div class="source">
+    出典：日本年金機構「労働契約内容による年間収入での被扶養者の認定の取り扱いについて」（2026年5月）<br>
+    <a href="https://www.nenkin.go.jp/oshirase/taisetu/jigyosho/2026/202605/0501.html" target="_blank">https://www.nenkin.go.jp/oshirase/taisetu/jigyosho/2026/202605/0501.html</a>
+  </div>
+</div>
+
+<!-- Section 2: Old vs New -->
+<div class="card orange">
+  <div class="sec-title">&#x1F504; 何が変わった？ 旧ルール vs 新ルール</div>
+  <p>これまでは、給与明細や課税証明書など<strong>実績と見込みの収入資料を総合的に見て</strong>年間収入を判断していました。残業代が多い月があると、扶養から外れたり戻ったりする不安定さが課題でした。</p>
+
+  <div class="type-grid" style="margin-top:14px;">
+    <div class="type-card sub">
+      <div class="tl">&#x2460; 旧ルール（〜2026年3月）</div>
+      <div class="tv">実績・総合判断</div>
+      給与明細・課税証明書などから<strong>過去の実績や見込み</strong>を総合的に見て年収を判断。残業や繁忙期の増収で扶養の可否が揺れやすかった。
+    </div>
+    <div class="type-card main">
+      <div class="tl">&#x2461; 新ルール（2026年4月〜）</div>
+      <div class="tv">労働契約書ベース</div>
+      <strong>労働条件通知書（雇用契約書）</strong>に書かれた時給・労働時間・日数などから年間収入を<span class="hl">機械的に計算</span>。契約上決まっていない残業代は原則含めない。
+    </div>
+  </div>
+
+  <div style="margin-top:16px;">
+    <div class="sec-title" style="font-size:0.92rem;">&#x1F9EE; 年間収入の計算の流れ</div>
+    <div class="flow-h">
+      <div class="flow-box">&#x1F4C4; ①<br>労働条件通知書<br>を作成・交付</div>
+      <div class="flow-arrow">&#x27A1;</div>
+      <div class="flow-box">&#x1F522; ②<br>時給×時間×日数<br>で年収を計算</div>
+      <div class="flow-arrow">&#x27A1;</div>
+      <div class="flow-box">&#x2696;&#xFE0F; ③<br>130万円未満か<br>を判定</div>
+      <div class="flow-arrow">&#x27A1;</div>
+      <div class="flow-box">&#x2705; ④<br>被扶養者として<br>認定</div>
+    </div>
+  </div>
+
+  <div class="warn">
+    &#x26A0;&#xFE0F; 「労働条件通知書」は、雇うときに労働基準法第15条に基づいて必ず渡す<strong>働き方の条件（賃金・時間・日数など）を書いた書類</strong>です。この内容が今回の判定のベースになるため、<span class="hl">曖昧な契約書のままだと判定できません</span>。
+  </div>
+
+  <div class="source">
+    出典：日本年金機構「労働契約内容による年間収入が基準額未満である場合の被扶養者の認定における年間収入の取り扱いについて」（令和7年12月）<br>
+    <a href="https://www.nenkin.go.jp/oshirase/taisetu/2025/202512/1225.html" target="_blank">https://www.nenkin.go.jp/oshirase/taisetu/2025/202512/1225.html</a>
+  </div>
+</div>
+
+<!-- Section 3: Employer certificate permanent -->
+<div class="card green">
+  <div class="sec-title">&#x1F4DD; 「事業主証明」の仕組みが恒久化された</div>
+  <p>繁忙期の残業などで<strong>一時的に</strong>収入が130万円を超えても、会社（事業主）が「一時的な収入変動である」ことを証明する書類を出せば、扶養にとどまれる仕組みがあります。これがもともとは期限付きの特例でしたが、<span class="hl">令和7年（2025年）10月1日の通知で恒久的な仕組み</span>になりました。</p>
+
+  <div style="margin-top:14px;">
+    <div class="f-step">
+      <div class="f-num" style="background:#4a9e6a;">1</div>
+      <div class="f-text">
+        <strong>対象となる収入</strong><br>
+        残業手当・繁忙手当・突発的な案件対応などによる<strong>一時的な増収</strong>が対象。基本給の引き上げなど恒常的な増収は対象外。
+      </div>
+    </div>
+    <div class="f-step" style="margin-top:10px;">
+      <div class="f-num" style="background:#4a9e6a;">2</div>
+      <div class="f-text">
+        <strong>証明書の有効期間</strong><br>
+        証明書の有効期間は<strong>1年</strong>。原則として<strong>連続2回（≒2年）</strong>までの利用を想定した運用です。
+      </div>
+    </div>
+    <div class="f-step" style="margin-top:10px;">
+      <div class="f-num" style="background:#4a9e6a;">3</div>
+      <div class="f-text">
+        <strong>3年連続で超過が確認された場合</strong><br>
+        130万円超過が<strong>3年連続</strong>で確認できたときは、扶養解除の手続きが必要になります。
+      </div>
+    </div>
+  </div>
+
+  <div class="source">
+    出典：厚生労働省・全国健康保険協会・日本年金機構「事務連絡」（令和7年10月1日）ほか<br>
+    <a href="https://www.mhlw.go.jp/hourei/doc/tsuchi/T251006S0070.pdf" target="_blank">https://www.mhlw.go.jp/hourei/doc/tsuchi/T251006S0070.pdf</a>
+  </div>
+</div>
+
+<!-- Section 4: What it means for solo founders -->
+<div class="card purple">
+  <div class="sec-title">&#x1F914; 1人社長にとって、どこが関係する？</div>
+  <p>1人社長が実際に関わりやすいのは、次の2つの場面です。制度上の扱いが異なる点に注意してください。</p>
+
+  <table class="matrix" style="margin-top:14px;">
+    <tr>
+      <th style="width:30%;">場面</th>
+      <th style="width:20%;">関係する仕組み</th>
+      <th>ポイント</th>
+    </tr>
+    <tr>
+      <td class="row-head">配偶者や家族を<br>パート従業員として雇う</td>
+      <td><span class="ok">◎ 直接関係</span></td>
+      <td>その家族に交付する<strong>労働条件通知書</strong>の時給・時間・日数が、そのまま被扶養者の判定材料になる。契約書の整備が必須。</td>
+    </tr>
+    <tr>
+      <td class="row-head">社長自身が家族の<br>健康保険の扶養に入る</td>
+      <td><span class="mid">△ 要確認</span></td>
+      <td>役員は労働契約書ではなく<strong>役員報酬の決定（株主総会・取締役会）</strong>に基づく収入。今回の新ルールがそのまま当てはまるかは、加入する健康保険組合・協会けんぽの窓口や社労士に確認するのが確実。</td>
+    </tr>
+  </table>
+
+  <div class="info">
+    &#x1F4A1; 家族を雇う場合は、<span class="hl">「労働条件通知書をきちんと作る」こと自体が、今回のルール変更への一番の備え</span>になります。
+  </div>
+</div>
+
+<!-- Section 5: Checklist -->
+<div class="card">
+  <div class="sec-title">&#x2705; 今日からできる実践チェックリスト</div>
+  <ul class="check-list" style="margin-top:10px;">
+    <li><span class="ck">&#x2611;</span> 配偶者・家族をパートで雇うときは、労働条件通知書を書面（または電子）で必ず交付する</li>
+    <li><span class="ck">&#x2611;</span> 時給×契約時間×契約日数で年間見込み収入を計算し、130万円未満に収まっているか確認する</li>
+    <li><span class="ck">&#x2611;</span> 契約に定めのない残業代は年収見込みに含めなくてよいが、実態と大きくずれないよう注意する</li>
+    <li><span class="ck">&#x2611;</span> 繁忙期に一時的な収入増が見込まれる場合は、事業主証明を使えるか事前に協会けんぽ・健康保険組合に確認する</li>
+    <li><span class="ck">&#x2611;</span> 社長自身が家族の扶養に入っている場合は、役員報酬決定書と併せて取り扱いを健康保険組合等に確認する</li>
+    <li><span class="ck-bad">&#x26A0;</span> <span style="color:#888;">「130万円の壁」（被扶養者認定）と「106万円の壁」（厚生年金加入）を混同しない</span></li>
+  </ul>
+</div>
+
+<!-- Section 6: AI prompt -->
+<div class="card orange">
+  <div class="sec-title">&#x1F916; 生成AIに「たたき台」を作ってもらうプロンプト例</div>
+  <p>最終的な書式・法的な要件確認は専門家に任せるとして、<span class="hl">たたき台の作成や計算はAIに手伝ってもらえます</span>。</p>
+
+  <div class="prompt-box" style="margin-top:14px;">
+    <div class="ph">&#x1F916; プロンプト例①：労働条件通知書のたたき台と年収見込みの計算</div>
+    これから配偶者（家族）をパート従業員として雇う予定です。<br>
+    ・時給：<span class="fill">【〇〇円】</span><br>
+    ・1日の労働時間：<span class="fill">【〇時間】</span><br>
+    ・週の労働日数：<span class="fill">【〇日】</span><br>
+    <br>
+    上記の条件で、労働条件通知書に記載する年間見込み収入を計算してください。<br>
+    また、健康保険の被扶養者基準である130万円未満に収まっているかも教えてください。<br>
+    ※最終的な書式・法的要件は自分で確認・専門家に相談することを前提に、計算とたたき台の作成だけをお願いします。
+  </div>
+
+  <div class="prompt-box">
+    <div class="ph">&#x1F916; プロンプト例②：制度の説明を家族向けにやさしく</div>
+    2026年4月から始まった健康保険の被扶養者認定の新ルール（労働契約内容ベースの年収判定）について、<br>
+    一緒に働く家族（<span class="fill">【配偶者／親】</span>）に口頭で説明する内容を、専門用語をできるだけ避けて3分で話せる長さにまとめてください。
+  </div>
+</div>
+
+<!-- Section 7: Summary -->
+<div class="card">
+  <div class="sec-title">&#x1F4DD; 今日のまとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">①</span>2026年（令和8年）4月1日から、健康保険の被扶養者認定の年間収入は<span class="hlg">労働条件通知書ベース</span>で判定される。</li>
+    <li><span class="n">②</span>基準は<span class="hl">130万円未満</span>（同一世帯の場合はさらに被保険者の年収の1/2未満）。契約に定めのない残業代は原則含めない。</li>
+    <li><span class="n">③</span>一時的な増収に対応する「事業主証明」の仕組みは令和7年10月に恒久化された（証明書は1年有効・原則連続2年まで）。</li>
+    <li><span class="n">④</span>「130万円の壁」（被扶養者認定）と「106万円の壁」（厚生年金加入）は<span class="hl">別の制度</span>。混同しないこと。</li>
+    <li><span class="n">⑤</span>1人社長が最も関係するのは、家族をパートで雇うときの労働条件通知書の整備。社長自身の扶養加入は専門家に要確認。</li>
+    <li><span class="n">⑥</span>AIには年収の計算やたたき台作成を任せ、契約書の最終確認・制度の適用は社労士・協会けんぽ等に相談する。</li>
+  </ul>
+</div>
+
+<!-- Disclaimer -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報提供を目的としており、個別の税務・法務・社会保険の判断を代わるものではありません。
+  会社や家族の働き方の状況（契約内容・世帯構成・他の収入の有無など）により結論は異なります。
+  具体的な判断は税理士・社会保険労務士など専門家、または加入する協会けんぽ・健康保険組合にご確認ください。
+  制度・基準額は改定されることがあります。最新情報は日本年金機構（<a href="https://www.nenkin.go.jp/" target="_blank">https://www.nenkin.go.jp/</a>）・厚生労働省（<a href="https://www.mhlw.go.jp/" target="_blank">https://www.mhlw.go.jp/</a>）の公式サイトでご確認ください。<br>
+  本記事の内容の基準：日本年金機構・厚生労働省の通知（令和7年10月1日、令和7年12月、令和8年3月）、施行日 令和8年（2026年）4月1日時点の情報。
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>&#x1F4DA; <a href="index.html">バックナンバー一覧へ</a> &nbsp;&middot;&nbsp; 毎朝更新</p>
+</div>
+
+</div>
+</body>
+</html>
