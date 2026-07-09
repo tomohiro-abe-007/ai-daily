@@ -43,6 +43,7 @@
 - 2026-07-07: 国連「AIガバナンスに関するグローバル対話」第1回（2026年7月6〜7日・ジュネーブ）・193か国参加・独立国際科学パネル（40名・ヨシュア・ベンジオ氏ら）が評価報告書を提示・「AIの進歩が科学と政策を追い越している」「制御が保証できない」と警告・国連事務総長「AIが人類の未来をバイブコードしてはならない」・WSIS Forum 2026（7/6-10）・ITU AI for Good（7/7-10）と同時開催・次回は2027年5月ニューヨーク（出典：国連公式サイト/UN News/ITU/UNESCO・2026年7月）
 - 2026-07-08: ホワイトハウス×AI大手 自主基準協議（2026年7月）・OpenAI・Google・Anthropicと最先端AIモデルのリリース前30日間レビューの枠組みを交渉中・大統領令「Promoting Advanced Artificial Intelligence Innovation and Security」2026年6月2日署名・当初90日→30日に短縮・政府は助言のみ（拒否権なし）・許認可制への発展を禁止・サイバー能力ベンチマーク設定予定・2026年7月7日の週に発表目標（出典：ホワイトハウス / TipRanks / Let's Data Science / faq.com.tw・2026年7月）
 - 2026-07-09: Z.ai GLM-5.2（2026年6月13日リリース）・Zhipu AIのグローバルブランドZ.aiが公開・約750Bパラメータ（MoE / 1回の推論では約40B active）・MITライセンス完全オープンソース・HuggingFace/ModelScope で公開・1Mトークンコンテキスト・IndexShare（2.9倍の省エネ注意機構）・SWE-bench Pro 62.1点（GPT-5.5の58.6点超え）・Terminal-Bench 2.1で81.0点（Claude Opus 4.8の85.0点に4点差）・コストはGPT-5.5の約6分の1・API利用は中国データリスクあり（出典：VentureBeat / Euronews / InfoWorld / TechTimes・2026年6月〜7月）
+- 2026-07-10: Microsoft Frontier Company（2026年7月2日発表）・25億ドル＋6,000人体制・AI導入支援に特化した新事業組織・顧客企業にエンジニア・業界専門家を常駐派遣・MIT Project NANDA「企業AI試験導入の95%が効果ゼロ」に対応・顧客データはAI学習に使用しない・競合AI製品も利用継続可能・責任者はロドリゴ・ケデ・リマ氏・法的に独立した別会社ではなくマイクロソフト内の新事業部門・料金・詳細条件は公式で要確認（出典：Microsoft 公式ブログ / CNBC / TechCrunch / GeekWire / Fortune・2026年7月）
 
 ## 未解説の候補トピック（今後の参考）
 
