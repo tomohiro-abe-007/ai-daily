@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-07-10</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #1e5a7a 0%, #0d3352 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #1e5a7a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.green  { border-left-color: #4a9e6a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.purple { border-left-color: #7a4a9e; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #1e5a7a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  .type-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .type-grid { grid-template-columns: 1fr; } }
+  .type-card {
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-size: 0.86rem;
+    line-height: 1.65;
+  }
+  .type-card.main {
+    background: #e8f0f8;
+    border: 2px solid #1e5a7a;
+  }
+  .type-card.sub {
+    background: #f5f0fa;
+    border: 2px solid #7a4a9e;
+  }
+  .type-card .tl {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+  }
+  .type-card.main .tl { color: #0d3352; }
+  .type-card.sub .tl  { color: #4a1a7a; }
+  .type-card .tv { font-size: 1.0rem; font-weight: 700; margin-bottom: 6px; }
+  .type-card.main .tv { color: #1e5a7a; }
+  .type-card.sub .tv  { color: #7a4a9e; }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 14px 10px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat .sl { font-size: 0.67rem; color: #888; margin-bottom: 3px; }
+  .stat .sv { font-size: 1.6rem; font-weight: 700; color: #1e5a7a; line-height: 1.1; }
+  .stat .su { font-size: 0.7rem; color: #666; margin-top: 2px; }
+
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #1e5a7a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+  .f-arrow { color: #1e5a7a; font-size: 1.1rem; margin-left: 14px; margin-bottom: 4px; }
+
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  .prompt-box {
+    background: #f0f5ff;
+    border: 2px solid #4a6aae;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 12px 0;
+    font-size: 0.84rem;
+    line-height: 1.85;
+    color: #1a2a4a;
+  }
+  .prompt-box .ph {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #4a6aae;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+  .prompt-box .fill {
+    background: #d0e0ff;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-weight: 700;
+    color: #0a2a6e;
+  }
+
+  .info {
+    background: #e8f0f8;
+    border-left: 4px solid #1e5a7a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #0d3352;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #7a4010;
+  }
+
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #1e5a7a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+
+  .badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 8px;
+    margin-right: 4px;
+    vertical-align: middle;
+  }
+  .badge.law   { background: #1e5a7a; color: white; }
+  .badge.ai    { background: #4a6aae; color: white; }
+  .badge.tip   { background: #4a9e6a; color: white; }
+  .badge.warn  { background: #c8884a; color: white; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #1e5a7a; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #1e5a7a; }
+
+  .flow-h {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 14px 0;
+  }
+  .flow-box {
+    background: white;
+    border: 2px solid #1e5a7a;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 0.81rem;
+    text-align: center;
+    line-height: 1.45;
+    color: #0d3352;
+    font-weight: 600;
+  }
+  .flow-arrow {
+    color: #1e5a7a;
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+  @media (max-width: 540px) {
+    .flow-h { flex-direction: column; align-items: flex-start; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+
+  .matrix {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.83rem;
+  }
+  .matrix th {
+    background: #0d3352;
+    color: white;
+    padding: 8px 12px;
+    text-align: center;
+    font-weight: 600;
+  }
+  .matrix td {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    vertical-align: top;
+    line-height: 1.55;
+  }
+  .matrix .row-head {
+    background: #e8f0f8;
+    font-weight: 700;
+    color: #0d3352;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .matrix .ok  { color: #4a9e6a; font-weight: 700; }
+  .matrix .ng  { color: #b54040; font-weight: 700; }
+  .matrix .mid { color: #c8884a; font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Header -->
+<div class="header">
+  <div class="meta">📅 1人法人スタート 最新トピック &nbsp;2026-07-10</div>
+  <h1>💻 「30万円→40万円」続報<br>少額減価償却の特例、正式に確定した3つの変更点</h1>
+  <div class="desc">
+    <span class="htag">法人税</span>
+    <span class="htag">減価償却</span>
+    <span class="htag">令和8年度税制改正</span>
+    <span class="htag">国税庁</span>
+    <br>
+    6月26日の記事では「税制改正大綱」段階の暫定情報をお伝えしましたが、その後、国税庁から正式な「改正の概要」が公表され、内容が固まりました。<span class="hl">大綱時点とズレていた点</span>を訂正しつつ、確定内容を図解します。
+  </div>
+</div>
+
+<!-- Section 1: recap & update notice -->
+<div class="card">
+  <div class="sec-title">🔄 前回のおさらいと、今回のアップデート</div>
+  <p><strong>少額減価償却資産の特例</strong>とは、中小企業（青色申告法人）が一定金額未満のパソコンや備品などを買ったとき、通常の減価償却（耐用年数に応じて数年に分けて費用化するルール）を使わず、<span class="hl">買った年に全額を経費にできる</span>特例です（根拠：租税特別措置法第67条の5）。</p>
+
+  <p style="margin-top:10px;">令和8年度税制改正でこの特例の対象金額が「30万円未満」から「40万円未満」に広がることは6月26日の記事で速報しましたが、あのときはまだ<strong>与党の税制改正大綱（案の段階）</strong>の情報でした。その後、法律が成立し、国税庁が「令和8年度法人税関係法令の改正の概要」を公表したことで、細かい内容が確定しています。</p>
+
+  <div class="warn" style="margin-top:12px;">
+    ⚠️ <strong>訂正</strong>：6月26日の記事では特例の適用期限を「令和9年3月31日まで」とご紹介しましたが、確定した内容では<strong>「令和11年3月31日まで」</strong>（3年延長）が正しい期限です。あわせて対象法人の要件にも変更があったため、今日の記事で最新版に更新します。
+  </div>
+</div>
+
+<!-- Section 2: 3 confirmed points -->
+<div class="card orange">
+  <div class="sec-title">📊 確定した3つの変更点</div>
+  <p>国税庁「令和8年度法人税関係法令の改正の概要」で確定した内容は次の3点です。いずれも<strong>令和8年4月1日以後に取得し、事業の用に供した資産</strong>から適用されます。</p>
+
+  <div class="stats-row" style="margin-top:16px;">
+    <div class="stat">
+      <div class="sl">① 対象金額</div>
+      <div class="sv">40万円</div>
+      <div class="su">未満（旧：30万円未満）</div>
+    </div>
+    <div class="stat">
+      <div class="sl">② 適用期限</div>
+      <div class="sv">令和11年</div>
+      <div class="su">3月31日まで（3年延長）</div>
+    </div>
+    <div class="stat">
+      <div class="sl">③ 従業員数要件</div>
+      <div class="sv">400人</div>
+      <div class="su">以下の法人が対象（旧：500人以下）</div>
+    </div>
+  </div>
+
+  <div class="info" style="margin-top:12px;">
+    💡 年間の適用上限額は<strong>300万円</strong>のままで変更はありません。40万円未満の資産を何個買っても、合計300万円までが即時償却の対象です。
+  </div>
+
+  <div style="margin-top:16px;">
+    <div class="sec-title" style="font-size:0.92rem;">🧭 大綱段階（暫定）→ 確定（法令改正後）</div>
+    <div class="type-grid">
+      <div class="type-card sub">
+        <div class="tl">① 大綱段階（〜2025年12月時点）</div>
+        <div class="tv">期限：令和9年3月31日まで（速報値）</div>
+        与党税制改正大綱の記載をもとにした暫定情報。細部は今後の法案・政省令で確定するとされていた。
+      </div>
+      <div class="type-card main">
+        <div class="tl">② 確定（令和8年度・法令改正後）</div>
+        <div class="tv">期限：令和11年3月31日まで＋従業員400人以下</div>
+        国税庁「改正の概要」で正式決定。<span class="hl">期限は3年延長</span>、対象法人の従業員数要件は500人以下→400人以下に厳格化。
+      </div>
+    </div>
+  </div>
+
+  <div class="source">
+    出典：国税庁「令和８年度法人税関係法令の改正の概要」（基準年度：令和8年度）<br>
+    <a href="https://www.nta.go.jp/publication/pamph/hojin/kaisei_gaiyo2026/01.htm" target="_blank">https://www.nta.go.jp/publication/pamph/hojin/kaisei_gaiyo2026/01.htm</a><br>
+    財務省「令和8年度税制改正の大綱」<br>
+    <a href="https://www.mof.go.jp/tax_policy/tax_reform/outline/fy2026/08taikou_03.htm" target="_blank">https://www.mof.go.jp/tax_policy/tax_reform/outline/fy2026/08taikou_03.htm</a><br>
+    中小企業庁「少額減価償却資産の特例」<br>
+    <a href="https://www.chusho.meti.go.jp/zaimu/zeisei/tokurei/syougaku_shisan.html" target="_blank">https://www.chusho.meti.go.jp/zaimu/zeisei/tokurei/syougaku_shisan.html</a>
+  </div>
+</div>
+
+<!-- Section 3: application date flow -->
+<div class="card green">
+  <div class="sec-title">📅 「事業年度」ではなく「取得日」で判定される点に注意</div>
+  <p>この特例で一番間違えやすいのが、<strong>令和8年4月1日という基準日は「事業年度の始まり」ではなく「資産を取得した日」で判定される</strong>という点です。決算期が4月始まりでない会社（たとえば12月決算の会社）は、同じ事業年度の中でも取得時期によって適用できるかどうかが変わります。</p>
+
+  <div class="flow-h" style="margin-top:14px;">
+    <div class="flow-box">🗓️ ①<br>資産の<br>取得日を確認</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-box">⚖️ ②<br>令和8年4月1日<br>より前か後か</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-box">💴 ③<br>前：30万円未満<br>後：40万円未満</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-box">✅ ④<br>基準を満たせば<br>即時償却OK</div>
+  </div>
+
+  <div class="warn">
+    ⚠️ 例：12月決算の会社が令和8年12月期の途中で資産を買う場合、<span class="hl">3月までの取得は「30万円未満」、4月以降の取得は「40万円未満」</span>が基準になります。同じ事業年度・同じ決算書の中で基準が2つ混在する点に注意してください。
+  </div>
+</div>
+
+<!-- Section 4: what it means for solo founders -->
+<div class="card purple">
+  <div class="sec-title">🤔 1人社長にとって、どこが関係する？</div>
+  <table class="matrix" style="margin-top:14px;">
+    <tr>
+      <th style="width:28%;">変更点</th>
+      <th style="width:20%;">1人社長への影響</th>
+      <th>ポイント</th>
+    </tr>
+    <tr>
+      <td class="row-head">対象金額<br>40万円未満に拡大</td>
+      <td><span class="ok">◎ プラス</span></td>
+      <td>これまで対象外だった30万〜40万円未満のノートPC・複合機・業務用ソフトなどが、<strong>令和8年4月1日以後の取得分から</strong>即時償却の対象になる。</td>
+    </tr>
+    <tr>
+      <td class="row-head">従業員数要件<br>500人→400人以下</td>
+      <td><span class="ok">◎ 影響なし</span></td>
+      <td>1人社長の会社は従業員0〜数名がほとんどのため、この要件変更で対象外になることは通常考えにくい。</td>
+    </tr>
+    <tr>
+      <td class="row-head">適用期限<br>令和11年3月31日まで</td>
+      <td><span class="mid">△ 要メモ</span></td>
+      <td>期限が来る前にまた改正される可能性もある。設備投資の計画時は、購入する事業年度の最新情報を都度確認するのが安全。</td>
+    </tr>
+  </table>
+
+  <div class="info" style="margin-top:12px;">
+    💡 ただし「40万円未満に収まるよう安く買う」ことが目的化しては本末転倒です。<span class="hl">必要な設備を必要なタイミングで買うことが大前提</span>で、その結果として即時償却が使えるかを確認する、という順番で考えましょう。
+  </div>
+</div>
+
+<!-- Section 5: concrete example -->
+<div class="card">
+  <div class="sec-title">🧮 具体例で比較：38万円のノートPCを買ったら</div>
+  <p>青色申告の中小企業（従業員400人以下）が、38万円（税抜）のノートパソコンを購入したケースで比較します。</p>
+
+  <div class="type-grid" style="margin-top:14px;">
+    <div class="type-card sub">
+      <div class="tl">① 令和8年3月までに取得</div>
+      <div class="tv">対象外 → 通常の減価償却</div>
+      基準は「30万円未満」なので38万円は対象外。パソコンの耐用年数4年に分けて毎年少しずつ費用化する。
+    </div>
+    <div class="type-card main">
+      <div class="tl">② 令和8年4月以後に取得</div>
+      <div class="tv">対象 → 全額即時償却</div>
+      基準が「40万円未満」に広がるため38万円は対象内。<span class="hl">購入した年に380,000円を全額経費</span>にできる。
+    </div>
+  </div>
+
+  <div class="info" style="margin-top:12px;">
+    💡 同じ38万円のパソコンでも、<strong>買うタイミングだけで経費にできる年が変わります</strong>。買い替え予定がある備品は、急ぎでなければ令和8年4月1日以後にずらすことも選択肢の一つです（もちろん業務上必要なタイミングを優先してください）。
+  </div>
+</div>
+
+<!-- Section 6: checklist -->
+<div class="card">
+  <div class="sec-title">✅ 今日からできる実践チェックリスト</div>
+  <ul class="check-list" style="margin-top:10px;">
+    <li><span class="ck">☑</span> パソコン・複合機・ソフトウェアなど40万円未満の備品を買うときは「取得日」をメモしておく</li>
+    <li><span class="ck">☑</span> 令和8年4月1日をまたぐ決算期は、資産ごとに30万円基準か40万円基準かを分けて管理する</li>
+    <li><span class="ck">☑</span> 年間の合計適用額が300万円を超えないか、購入予定リストで確認する</li>
+    <li><span class="ck">☑</span> 特例を使う年は、法人税申告書 別表16(7)の添付を忘れない</li>
+    <li><span class="ck-bad">⚠</span> <span style="color:#888;">「安く買うために特例基準を意識する」ことが目的化しないよう注意する（必要な投資を優先）</span></li>
+  </ul>
+</div>
+
+<!-- Section 7: AI prompt -->
+<div class="card orange">
+  <div class="sec-title">🤖 生成AIに「たたき台」を作ってもらうプロンプト例</div>
+  <p>最終判断は税理士に確認する前提で、<span class="hl">計算の整理やメモ作成はAIに手伝ってもらえます</span>。</p>
+
+  <div class="prompt-box" style="margin-top:14px;">
+    <div class="ph">🤖 プロンプト例：設備購入リストの即時償却チェック表</div>
+    今期（決算月：<span class="fill">【〇月】</span>）に購入予定の備品リストがあります。<br>
+    ・品目：<span class="fill">【例：ノートPC】</span> 金額：<span class="fill">【〇〇円】</span> 取得予定日：<span class="fill">【〇月〇日】</span><br>
+    （複数ある場合は品目ごとに列挙）<br>
+    <br>
+    令和8年度税制改正で少額減価償却資産の特例が「令和8年4月1日以後取得分から40万円未満（それより前は30万円未満）」に変わったことを前提に、<br>
+    各品目が即時償却の対象になるか、年間合計300万円の上限に収まっているかを表にまとめてください。<br>
+    ※最終的な適用可否・申告書の記載は税理士に確認することを前提に、整理とたたき台の作成だけをお願いします。
+  </div>
+</div>
+
+<!-- Section 8: summary -->
+<div class="card">
+  <div class="sec-title">📝 今日のまとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">①</span>少額減価償却資産の特例は、中小企業が一定金額未満の資産を<span class="hlg">買った年に全額経費</span>にできる仕組み（年間300万円上限）。</li>
+    <li><span class="n">②</span>令和8年度税制改正で対象金額が<span class="hl">30万円未満→40万円未満</span>に拡大。<span class="hl">令和8年4月1日以後に取得した資産</span>から適用。</li>
+    <li><span class="n">③</span>適用期限は<span class="hl">令和11年3月31日まで</span>（3年延長）に確定。対象法人の従業員数要件は500人以下→400人以下に厳格化された。</li>
+    <li><span class="n">④</span>基準日は「事業年度」ではなく「資産の取得日」。決算期をまたぐ会社は基準が混在する点に注意。</li>
+    <li><span class="n">⑤</span>1人社長は従業員数要件の影響を受けないことがほとんど。設備投資は「必要なタイミング」を優先しつつ、購入日を記録しておく。</li>
+    <li><span class="n">⑥</span>AIには購入予定リストの整理やチェック表作成を任せ、最終的な適用可否・申告処理は税理士に確認する。</li>
+  </ul>
+</div>
+
+<!-- Disclaimer -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報提供を目的としており、個別の税務・法務の判断を代わるものではありません。
+  資産の取得時期・金額・会社の状況（決算期・資本金・従業員数など）により結論は異なります。
+  具体的な適用可否や申告処理は、必ず税理士にご確認ください。
+  税率・金額・適用期限は改正されることがあります。最新情報は国税庁（<a href="https://www.nta.go.jp/" target="_blank">https://www.nta.go.jp/</a>）・財務省（<a href="https://www.mof.go.jp/" target="_blank">https://www.mof.go.jp/</a>）・中小企業庁（<a href="https://www.chusho.meti.go.jp/" target="_blank">https://www.chusho.meti.go.jp/</a>）の公式サイトでご確認ください。<br>
+  本記事の内容の基準年度：令和8年度（2026年度）税制改正、令和8年4月1日時点の情報。
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>📚 <a href="index.html">バックナンバー一覧へ</a> &nbsp;&middot;&nbsp; 毎朝更新</p>
+</div>
+
+</div>
+</body>
+</html>
