@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI動画制作 最新トピック 2026-07-10</title>
+<style>
+  :root {
+    --bg: #ece8e1;
+    --card: #faf6ec;
+    --dark: #1a3a5c;
+    --dark2: #1a5c3a;
+    --accent: #2a5c8a;
+    --accent2: #c85a00;
+    --text: #2a3540;
+    --muted: #7c8a82;
+    --border: #e0d8c8;
+    --highlight: #fff3cd;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, "Hiragino Sans", "Yu Gothic", sans-serif;
+    line-height: 1.75;
+    padding: 20px;
+  }
+  .wrap { max-width: 900px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #1a3a5c 0%, #1a5c3a 100%);
+    color: #fff;
+    border-radius: 20px;
+    padding: 44px 32px 36px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(26,58,92,.22);
+    margin-bottom: 24px;
+  }
+  .header-tag {
+    display: inline-block;
+    background: rgba(255,255,255,.18);
+    color: #e0f0e8;
+    border-radius: 20px;
+    padding: 4px 16px;
+    font-size: .82rem;
+    margin-bottom: 14px;
+    letter-spacing: .06em;
+  }
+  .header h1 { font-size: 1.7rem; letter-spacing: .03em; line-height: 1.4; margin-bottom: 10px; }
+  .header .sub { color: #c8dde8; font-size: .95rem; }
+  .header .date { color: #b0e0c0; font-size: .85rem; margin-top: 8px; }
+
+  .card {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 12px rgba(0,0,0,.07);
+    border: 1px solid var(--border);
+  }
+  .card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .point-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .point-card { background: #eef3f8; border-radius: 14px; padding: 20px 16px; text-align: center; border: 1px solid #d4e0ea; }
+  .point-icon { font-size: 2rem; margin-bottom: 8px; }
+  .point-title { font-size: .95rem; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
+  .point-desc { font-size: .83rem; color: var(--muted); line-height: 1.6; }
+
+  .bignum-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 20px; }
+  .bignum-card { background: linear-gradient(135deg, #1a3a5c, #1a5c3a); border-radius: 14px; padding: 18px 12px; text-align: center; color: #fff; }
+  .bignum { font-size: 1.3rem; font-weight: 800; color: #ffe0a0; line-height: 1.2; }
+  .bignum-label { font-size: .72rem; color: #cfe6d8; margin-top: 4px; line-height: 1.5; }
+
+  .step-list { list-style: none; }
+  .step-item { display: flex; gap: 14px; margin-bottom: 16px; align-items: flex-start; }
+  .step-num {
+    width: 34px; height: 34px;
+    background: linear-gradient(135deg, #1a3a5c, #1a5c3a);
+    color: #fff; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: .95rem; flex-shrink: 0; margin-top: 2px;
+  }
+  .step-body { flex: 1; }
+  .step-title { font-weight: 700; color: var(--dark); font-size: .95rem; }
+  .step-desc { font-size: .86rem; color: var(--muted); margin-top: 3px; line-height: 1.65; }
+
+  .chip-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .chip { background: #e8f0ec; color: #1a5c3a; border-radius: 20px; padding: 4px 14px; font-size: .82rem; font-weight: 600; border: 1px solid #c0dccc; }
+
+  .tbl { width: 100%; border-collapse: collapse; font-size: .88rem; }
+  .tbl th { background: #eaf1ea; padding: 10px 12px; text-align: left; border-bottom: 2px solid #c8ddc8; color: var(--dark); font-weight: 700; }
+  .tbl td { padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: top; color: var(--text); }
+  .tbl tr:last-child td { border-bottom: none; }
+  .tbl tr.good-row td { background: #f0fff4; }
+  .tbl tr.bad-row td { background: #fff2f0; }
+
+  .note-box { background: var(--highlight); border-left: 4px solid #e8a000; border-radius: 8px; padding: 12px 16px; font-size: .88rem; color: #5a4000; margin-top: 14px; line-height: 1.7; }
+
+  .summary-list { font-size: .95rem; line-height: 2.2; }
+  .summary-list li { list-style: none; display: flex; align-items: flex-start; gap: 8px; }
+  .summary-list li::before { content: "✅"; flex-shrink: 0; margin-top: 2px; }
+
+  .disclaimer { background: #f0ede8; border-radius: 12px; padding: 16px 20px; font-size: .82rem; color: var(--muted); margin-top: 24px; line-height: 1.7; border: 1px solid #ddd8d0; }
+
+  footer { text-align: center; color: var(--muted); font-size: .82rem; margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border); line-height: 1.9; }
+  footer a { color: var(--accent); }
+
+  /* flow diagram */
+  .flow-row { display: flex; gap: 0; align-items: center; flex-wrap: wrap; margin: 16px 0; justify-content: center; }
+  .flow-box { border-radius: 12px; padding: 12px 12px; text-align: center; min-width: 108px; font-size: .8rem; font-weight: 700; color: #fff; }
+  .flow-arrow { font-size: 1.2rem; color: #999; margin: 0 4px; flex-shrink: 0; }
+  .flow-sub { font-size: .64rem; font-weight: 400; margin-top: 4px; line-height: 1.35; opacity: .9; }
+
+  /* 波形イメージ（棒読み vs 抑揚あり） */
+  .wave-row { display: flex; align-items: flex-end; gap: 4px; height: 70px; margin: 14px 0 6px; padding: 0 6px; }
+  .wave-bar { flex: 1; border-radius: 4px 4px 0 0; }
+  .wave-flat { background: #b8c4cc; }
+  .wave-dyn { background: linear-gradient(180deg,#2a5c8a,#1a5c3a); }
+  .wave-caption { text-align: center; font-size: .8rem; color: var(--muted); margin-bottom: 18px; }
+
+  /* パラメータつまみ図 */
+  .knob-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 16px; }
+  .knob-card { background: #eef3f8; border-radius: 14px; padding: 18px 14px; text-align: center; border: 1px solid #d4e0ea; }
+  .knob-name { font-size: .88rem; font-weight: 700; color: var(--dark); margin-bottom: 10px; }
+  .knob-bar-track { background: #dfe6ec; border-radius: 20px; height: 10px; position: relative; margin: 10px 0; }
+  .knob-bar-fill { background: linear-gradient(90deg,#2a5c8a,#1a5c3a); height: 10px; border-radius: 20px; }
+  .knob-desc { font-size: .76rem; color: var(--muted); line-height: 1.6; }
+
+  @media (max-width: 640px) {
+    .point-grid { grid-template-columns: 1fr; }
+    .bignum-grid { grid-template-columns: repeat(2, 1fr); }
+    .knob-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="header">
+  <div class="header-tag">🌱 エバーグリーン技法回 ── AIナレーション</div>
+  <h1>AIナレーション・音声合成の使い方<br>── 「棒読み」を卒業して抑揚をつけるコツ</h1>
+  <div class="sub">AIの声は「文章の書き方」と「設定の微調整」だけで、驚くほど人間らしくなる</div>
+  <div class="date">2026-07-10 ｜ AI動画制作 最新トピック</div>
+</div>
+
+<div class="card">
+  <div class="card-title">🎯 今日の3ポイント</div>
+  <div class="point-grid">
+    <div class="point-card">
+      <div class="point-icon">📝</div>
+      <div class="point-title">原稿の「書き方」が9割</div>
+      <div class="point-desc">句読点・改行・「、」の位置を工夫するだけで、AIの読み上げに自然な間（ま）と抑揚が生まれる</div>
+    </div>
+    <div class="point-card">
+      <div class="point-icon">🎚️</div>
+      <div class="point-title">速度・高さ・強弱を微調整</div>
+      <div class="point-desc">多くの音声合成ツールにある「速度」「ピッチ(声の高さ)」「安定性」のつまみを文章の内容に合わせて動かす</div>
+    </div>
+    <div class="point-card">
+      <div class="point-icon">✂️</div>
+      <div class="point-title">一文を短く区切って生成</div>
+      <div class="point-desc">長い文章を一気に読ませず、意味のかたまりごとに分けて生成し、つなげる方が抑揚が安定しやすい</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🔊 「棒読み」と「抑揚あり」の違いを波形で見る</div>
+  <p style="font-size:.9rem;color:var(--muted);margin-bottom:6px;">
+    「棒読み(ぼうよみ)」とは、感情や強弱がなく一定の調子でずっと読み続けてしまう話し方のこと。声の大きさ・高さがずっと同じだと、聞いていて眠くなったり、内容が頭に入ってこなくなります。
+  </p>
+  <div style="font-size:.85rem;font-weight:700;color:var(--dark);margin-top:14px;">😴 棒読み（強弱・高低がほぼ一定）</div>
+  <div class="wave-row">
+    <div class="wave-bar wave-flat" style="height:46%"></div>
+    <div class="wave-bar wave-flat" style="height:48%"></div>
+    <div class="wave-bar wave-flat" style="height:44%"></div>
+    <div class="wave-bar wave-flat" style="height:47%"></div>
+    <div class="wave-bar wave-flat" style="height:45%"></div>
+    <div class="wave-bar wave-flat" style="height:48%"></div>
+    <div class="wave-bar wave-flat" style="height:46%"></div>
+    <div class="wave-bar wave-flat" style="height:47%"></div>
+    <div class="wave-bar wave-flat" style="height:45%"></div>
+    <div class="wave-bar wave-flat" style="height:46%"></div>
+  </div>
+  <div class="wave-caption">山の高さがほぼ一定 → 単調で耳に残らない</div>
+
+  <div style="font-size:.85rem;font-weight:700;color:var(--dark);margin-top:10px;">🙂 抑揚あり（強調したい語で高く・区切りで低く）</div>
+  <div class="wave-row">
+    <div class="wave-bar wave-dyn" style="height:30%"></div>
+    <div class="wave-bar wave-dyn" style="height:55%"></div>
+    <div class="wave-bar wave-dyn" style="height:85%"></div>
+    <div class="wave-bar wave-dyn" style="height:40%"></div>
+    <div class="wave-bar wave-dyn" style="height:20%"></div>
+    <div class="wave-bar wave-dyn" style="height:60%"></div>
+    <div class="wave-bar wave-dyn" style="height:90%"></div>
+    <div class="wave-bar wave-dyn" style="height:35%"></div>
+    <div class="wave-bar wave-dyn" style="height:50%"></div>
+    <div class="wave-bar wave-dyn" style="height:22%"></div>
+  </div>
+  <div class="wave-caption">山と谷の差が大きい → 大事な言葉が耳に残り、聞き取りやすい</div>
+
+  <div class="note-box">
+    💡 イメージ図です。実際の音声波形を測定したものではなく、「強弱の差が大きいほど聞きやすい」という考え方を図にしたものです。
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">📐 抑揚をコントロールする3つのつまみ</div>
+  <p style="font-size:.9rem;color:var(--muted);margin-bottom:6px;">
+    多くのAI音声合成ツール（例：VOICEVOX、CoeFont、ElevenLabsなど）には、声の質を調整するパラメータ（設定値）があります。代表的な3つを紹介します。
+  </p>
+  <div class="knob-grid">
+    <div class="knob-card">
+      <div class="knob-name">🏃 スピード（速度）</div>
+      <div class="knob-bar-track"><div class="knob-bar-fill" style="width:55%"></div></div>
+      <div class="knob-desc">説明パートはやや速め、感情を伝えたい場面はやや遅めにすると単調さが消える</div>
+    </div>
+    <div class="knob-card">
+      <div class="knob-name">🎵 ピッチ（声の高さ）</div>
+      <div class="knob-bar-track"><div class="knob-bar-fill" style="width:65%"></div></div>
+      <div class="knob-desc">疑問文や驚きの場面で少し上げ、落ち着いた場面で少し下げると自然な抑揚になる</div>
+    </div>
+    <div class="knob-card">
+      <div class="knob-name">🎯 安定性（表現の幅）</div>
+      <div class="knob-bar-track"><div class="knob-bar-fill" style="width:40%"></div></div>
+      <div class="knob-desc">数値を下げると表情豊かに、上げると落ち着いた読みに。下げすぎるとかえって不安定になるので中間から調整</div>
+    </div>
+  </div>
+  <div class="note-box">
+    ⚠️ つまみの名前・調整幅はツールごとに違います。ここでは考え方を示す一般的なイメージとして紹介しているので、実際の操作は使用するツールの公式マニュアルで確認してください。
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">✍️ 原稿の書き方で棒読みを防ぐ4コツ</div>
+  <table class="tbl">
+    <thead>
+      <tr><th>コツ</th><th>やり方</th><th>効果</th></tr>
+    </thead>
+    <tbody>
+      <tr class="good-row">
+        <td><strong>① 読点「、」を増やす</strong></td>
+        <td>「今日は晴れていて気持ちがいいので散歩に行きました」→「今日は晴れていて、気持ちがいいので、散歩に行きました」</td>
+        <td>AIが自然に「間(ま)」を取り、息継ぎのタイミングができる</td>
+      </tr>
+      <tr>
+        <td><strong>② 一文を短くする</strong></td>
+        <td>長い一文を2〜3文に分割し、1文20〜40文字程度を目安にする</td>
+        <td>文末ごとにトーンが下がる区切りができ、単調さが減る</td>
+      </tr>
+      <tr class="good-row">
+        <td><strong>③ 強調したい語の前後に間を作る</strong></td>
+        <td>「実は、、この方法が一番簡単です」のように読点や改行で「溜め」を作る</td>
+        <td>大事な言葉の前に間ができ、聞き手の注意を引きつけられる</td>
+      </tr>
+      <tr>
+        <td><strong>④ 感嘆符・疑問符を活用する</strong></td>
+        <td>「すごい！」「本当にそうでしょうか？」など感情がわかる記号を使う</td>
+        <td>多くのツールが記号を読み取り、声のトーンを自動で変化させる</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="card">
+  <div class="card-title">🛠️ 実践例：AIナレーションで説明動画の音声を作る5ステップ</div>
+  <p style="font-size:.88rem;color:var(--muted);margin-bottom:18px;">
+    商品紹介やハウツー動画のナレーションを、抑揚のある音声に仕上げる基本フローです。
+  </p>
+  <ul class="step-list">
+    <li class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-title">原稿を1文20〜40文字程度に区切って書く</div>
+        <div class="step-desc">「、」を適度に入れながら、強調したい言葉には感嘆符や疑問符を添える。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-title">意味のかたまり（段落）ごとに分けて生成する</div>
+        <div class="step-desc">全文を一度に流し込まず、導入・本題・まとめのブロックごとに音声を生成する。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-title">スピード・ピッチをブロックの内容に合わせて調整</div>
+        <div class="step-desc">説明パートはやや速め・標準ピッチ、感情を伝えたい結び部分はやや遅め・高めに設定する。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <div class="step-title">生成した音声を通しで聞き、単調な箇所を探す</div>
+        <div class="step-desc">同じ高さ・速さが続く部分があれば、その文だけ原稿を書き直して再生成する。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">5</div>
+      <div class="step-body">
+        <div class="step-title">ブロックをつなげてBGM・SEと合わせる</div>
+        <div class="step-desc">編集ソフトでブロック間の間隔を微調整し、BGMの音量を声より下げて聞き取りやすくする。</div>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="card">
+  <div class="card-title">📝 今日のまとめ</div>
+  <ul class="summary-list">
+    <li><strong>棒読み</strong>とは、強弱・高低がほぼ一定で単調に聞こえてしまう読み方のこと</li>
+    <li>抑揚づくりは<strong>原稿の書き方</strong>が土台。読点を増やす・一文を短くする・記号を活用するだけで大きく変わる</li>
+    <li><strong>スピード・ピッチ・安定性</strong>の3つのつまみを、文章の内容（説明/感情）に合わせて動かす</li>
+    <li>長い文章は一気に生成せず、<strong>意味のかたまりごとに分けて生成→つなげる</strong>方が抑揚が安定する</li>
+    <li>ツールの操作方法・パラメータ名は製品ごとに異なるため、実際に使う際は公式マニュアルを確認する</li>
+  </ul>
+</div>
+
+<div class="disclaimer">
+  ⚠️ <strong>免責事項</strong><br>
+  本記事で紹介した音声合成の設定名・調整方法は、一般的なAI音声合成ツールに共通する考え方の例として紹介したものです。実際のパラメータ名・操作方法・料金・商用利用の可否はツールごとに異なり、頻繁に変更されるため、利用の際は各ツールの公式ページ・利用規約で必ずご確認ください。
+</div>
+
+<footer>
+  AI動画制作 最新トピック ─ 2026-07-10 ｜ エバーグリーン技法回<br>
+  参考：抑揚づくり・音声パラメータの考え方は、音声合成・ナレーション制作における一般的な手法に基づく（エバーグリーン技法）<br>
+  <a href="index.html" style="color:var(--accent);">← 一覧に戻る</a>
+</footer>
+
+</div>
+</body>
+</html>
