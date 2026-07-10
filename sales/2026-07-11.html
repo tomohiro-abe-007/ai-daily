@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>インサイドセールス 最新トピック 2026-07-11</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  /* ── カバー ── */
+  .cover {
+    background: linear-gradient(135deg, #6d1b1b 0%, #a13a2c 50%, #d98a2e 100%);
+    color: white;
+    border-radius: 8px;
+    padding: 60px 40px;
+    text-align: center;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.3);
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent, transparent 28px,
+      rgba(255,255,255,0.05) 28px, rgba(255,255,255,0.05) 29px
+    );
+  }
+  .cover-emoji { font-size: 64px; display: block; margin-bottom: 16px; }
+  .cover h1 {
+    font-family: 'Klee One', sans-serif;
+    font-size: 2.0rem;
+    font-weight: 600;
+    line-height: 1.35;
+    margin-bottom: 12px;
+    position: relative;
+  }
+  .cover .subtitle { font-size: 1.05rem; opacity: 0.85; margin-bottom: 8px; position: relative; }
+  .cover .date-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 20px;
+    padding: 6px 20px;
+    font-size: 1rem;
+    margin-top: 16px;
+    position: relative;
+  }
+
+  /* ── カード共通 ── */
+  .card {
+    background: #fff9f0;
+    border-radius: 6px;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.12);
+    position: relative;
+    overflow: hidden;
+  }
+  .card-body {
+    padding: 40px 36px 28px 64px;
+    background: repeating-linear-gradient(0deg, transparent, transparent 31px, #e0d8c8 31px, #e0d8c8 32px);
+    background-color: #fff9f0;
+  }
+  .card-tab {
+    display: inline-block;
+    background: #a13a2c;
+    color: white;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 4px 16px;
+    border-radius: 0 0 6px 6px;
+    position: absolute;
+    top: 0; left: 32px;
+    letter-spacing: 0.05em;
+  }
+  .card h2 {
+    font-size: 1.28rem;
+    color: #6d1b1b;
+    margin-bottom: 16px;
+    margin-top: 4px;
+    line-height: 1.5;
+    border-left: 4px solid #c0532b;
+    padding-left: 12px;
+  }
+  p { line-height: 1.85; color: #333; font-size: 0.97rem; margin-bottom: 12px; }
+
+  /* ── 大きな数字カード ── */
+  .bignum-row {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+  }
+  .bignum-card {
+    flex: 1;
+    min-width: 140px;
+    border-radius: 10px;
+    padding: 20px 14px;
+    text-align: center;
+  }
+  .bignum-card.red   { background: #fdf2f2; border: 2px solid #c0392b; }
+  .bignum-card.blue  { background: #e8f4fd; border: 2px solid #2980b9; }
+  .bignum-card.green { background: #eafaf1; border: 2px solid #27ae60; }
+  .bignum-card.amber { background: #fef6e7; border: 2px solid #d98a2e; }
+  .bignum-card.indigo { background: #f6e9e4; border: 2px solid #a13a2c; }
+  .bignum-card .num {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.15;
+    display: block;
+  }
+  .bignum-card.red    .num { color: #c0392b; }
+  .bignum-card.blue   .num { color: #1a6ba0; }
+  .bignum-card.green  .num { color: #1e8449; }
+  .bignum-card.amber  .num { color: #b06b1a; }
+  .bignum-card.indigo .num { color: #7a2a1e; }
+  .bignum-card .unit  { font-size: 0.75rem; color: #888; }
+  .bignum-card .label { font-size: 0.82rem; font-weight: 700; margin-top: 6px; color: #555; line-height: 1.4; }
+
+  /* ── Before/After 対比 ── */
+  .vs-row { display: flex; gap: 14px; flex-wrap: wrap; margin: 20px 0; align-items: stretch; }
+  .vs-card {
+    flex: 1; min-width: 220px;
+    border-radius: 10px; padding: 18px 18px; border: 2px solid;
+  }
+  .vs-card.before { background: #f3f3f3; border-color: #999; }
+  .vs-card.after  { background: #eafaf1; border-color: #27ae60; }
+  .vs-card .vs-tag {
+    display: inline-block; font-size: 0.72rem; font-weight: 700;
+    padding: 2px 10px; border-radius: 10px; margin-bottom: 8px; color: white;
+  }
+  .vs-card.before .vs-tag { background: #888; }
+  .vs-card.after  .vs-tag { background: #27ae60; }
+  .vs-card ul { list-style: none; }
+  .vs-card li { font-size: 0.85rem; color: #444; line-height: 1.8; padding-left: 14px; position: relative; }
+  .vs-card li::before { content: '・'; position: absolute; left: 0; }
+  .vs-arrow {
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.6rem; color: #a13a2c; flex: 0 0 auto; padding: 0 4px;
+  }
+
+  /* ── ステップフロー ── */
+  .step-flow { display: flex; flex-direction: column; gap: 0; margin: 20px 0; }
+  .step-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px dotted #ddd;
+  }
+  .step-item:last-child { border-bottom: none; }
+  .step-num {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: #a13a2c;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .step-body { flex: 1; }
+  .step-title { font-size: 0.97rem; font-weight: 700; color: #6d1b1b; margin-bottom: 4px; }
+  .step-desc  { font-size: 0.85rem; color: #555; line-height: 1.7; margin: 0; }
+  .step-desc .calc { display: block; margin-top: 6px; font-family: 'Caveat', 'Klee One', sans-serif; font-size: 1.15rem; color: #a13a2c; font-weight: 700; }
+
+  /* ── チェックリスト ── */
+  .checklist { list-style: none; margin: 16px 0; }
+  .checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.92rem;
+    color: #444;
+    line-height: 1.7;
+  }
+  .checklist li:last-child { border-bottom: none; }
+  .checklist .chk {
+    width: 26px; height: 26px;
+    border-radius: 4px;
+    border: 2px solid #a13a2c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 0.85rem;
+    color: #a13a2c;
+    font-weight: 700;
+    margin-top: 2px;
+  }
+
+  /* ── 比較表 ── */
+  .tool-table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 0.88rem; }
+  .tool-table th, .tool-table td { padding: 10px 8px; text-align: left; border-bottom: 1px solid #e0d8c8; }
+  .tool-table th { color: #6d1b1b; font-size: 0.8rem; border-bottom: 2px solid #a13a2c; }
+  .tool-table td.price { color: #a13a2c; font-weight: 700; white-space: nowrap; }
+  .tool-table td.desc  { color: #555; }
+  .tool-table tr.best td { background: #eafaf1; }
+
+  /* ── 今日の一歩 ── */
+  .today-box {
+    background: linear-gradient(135deg, #6d1b1b, #c0532b);
+    color: white; border-radius: 8px;
+    padding: 24px 28px; margin: 16px 0; text-align: center;
+  }
+  .today-box .emoji { font-size: 2.2rem; display: block; margin-bottom: 8px; }
+  .today-box .title { font-size: 1.1rem; font-weight: 600; margin-bottom: 10px; }
+  .today-box .desc  { font-size: 0.92rem; opacity: 0.92; line-height: 1.8; text-align: left; }
+
+  /* ── 共通パーツ ── */
+  .highlight { background: #f6e2c8; border-radius: 4px; padding: 1px 6px; color: #6d1b1b; font-weight: 600; }
+  .callout {
+    border-radius: 6px; padding: 14px 16px; margin-top: 14px;
+  }
+  .callout.yellow { background: #fef9e7; border-left: 4px solid #d98a2e; }
+  .callout.green  { background: #eafaf1; border-left: 4px solid #27ae60; }
+  .callout.blue   { background: #e8f4fd; border-left: 4px solid #2980b9; }
+  .callout.wine   { background: #f6e9e4; border-left: 4px solid #a13a2c; }
+  .callout.red    { background: #fdf2f2; border-left: 4px solid #e74c3c; }
+
+  /* ── 免責 ── */
+  .disclaimer {
+    background: #fff; border: 1px solid #ddd; border-radius: 6px;
+    padding: 16px 20px; font-size: 0.8rem; color: #777; line-height: 1.7;
+    width: 100%; max-width: 820px; margin-bottom: 16px;
+  }
+  .disclaimer strong { color: #555; }
+
+  /* ── 出典 ── */
+  .sources {
+    background: #fff9f0; border-radius: 6px; padding: 16px 24px;
+    width: 100%; max-width: 820px; margin-bottom: 24px;
+    font-size: 0.8rem; color: #666; line-height: 1.8;
+  }
+  .sources h3 { font-size: 0.85rem; color: #6d1b1b; margin-bottom: 8px; }
+  .sources a { color: #a13a2c; text-decoration: none; }
+  .sources a:hover { text-decoration: underline; }
+  .sources ul { padding-left: 16px; }
+
+  /* ── バックリンク ── */
+  .back-link { text-align: center; margin-bottom: 20px; font-size: 0.9rem; }
+  .back-link a { color: #a13a2c; text-decoration: none; }
+  .back-link a:hover { text-decoration: underline; }
+
+  @media (max-width: 560px) {
+    .card-body { padding: 40px 18px 24px 24px; }
+    .bignum-row { flex-direction: column; }
+    .vs-row { flex-direction: column; }
+    .vs-arrow { transform: rotate(90deg); padding: 8px 0; }
+    .tool-table { font-size: 0.78rem; }
+    .tool-table th, .tool-table td { padding: 8px 4px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── カバー ── -->
+<div class="cover">
+  <span class="cover-emoji">🧭</span>
+  <h1>「聞けた」で終わらせない<br>ヒアリングを商談化につなげる4つの型</h1>
+  <div class="subtitle">インサイドセールス 最新トピック 2026-07-11</div>
+  <div class="date-badge">テレアポ・インサイドセールス 毎朝解説</div>
+</div>
+
+<!-- ── Section 01 ── -->
+<div class="card">
+  <span class="card-tab">01 今日のキーワード</span>
+  <div class="card-body">
+    <h2>👂 前回の続編：「聞けた」の先に何が必要?</h2>
+    <p>
+      6月29日の回では「聞く力」の基本、つまり相手の話をしっかり受け止める姿勢を解説しました。今日はその続編です。せっかく良い話が聞けても、それを次の担当者（フィールドセールスやAE=アカウントエグゼクティブ、契約に近い商談を進める役割の人）にきちんと渡せなければ、商談化（見込み客を「具体的な商談」の段階まで進めること）にはつながりません。
+    </p>
+    <div class="callout wine">
+      <strong>💡 今日のポイント</strong><br>
+      ヒアリングで聞いた内容を「何となく良さそう」で終わらせず、<strong>次の人が動けるレベルの情報</strong>に整理して渡す。そのための代表的な型が「BANT（バント)」と「SPIN(スピン)話法」です。
+    </div>
+  </div>
+</div>
+
+<!-- ── Section 02 ── -->
+<div class="card">
+  <span class="card-tab">02 型その1：BANT</span>
+  <div class="card-body">
+    <h2>🔑 商談化の合否を決める4つの確認項目「BANT」</h2>
+    <p>
+      BANTとは、相手が「今すぐ買える状態かどうか」を早めに見極めるための4つの頭文字です。難しい言葉に見えますが、中身はシンプルな質問の集まりです。
+    </p>
+
+    <div class="bignum-row">
+      <div class="bignum-card red">
+        <span class="num">B</span>
+        <div class="unit">Budget</div>
+        <div class="label">予算感はあるか<br>（金額の桁感でOK）</div>
+      </div>
+      <div class="bignum-card blue">
+        <span class="num">A</span>
+        <div class="unit">Authority</div>
+        <div class="label">決裁権者は誰か<br>（本人か、上司か）</div>
+      </div>
+      <div class="bignum-card green">
+        <span class="num">N</span>
+        <div class="unit">Needs</div>
+        <div class="label">困りごと・課題は<br>具体的にあるか</div>
+      </div>
+      <div class="bignum-card amber">
+        <span class="num">T</span>
+        <div class="unit">Timeframe</div>
+        <div class="label">いつ頃までに<br>解決したいか</div>
+      </div>
+    </div>
+
+    <div class="callout blue">
+      <strong>📎 発展形も知っておくと便利</strong><br>
+      最近はBANTに「競合の状況」と「社内の推進体制」を加えた「BANTCH(バントチ)」という型を紹介する解説記事も見られます。項目を増やしすぎると聞く側も答える側も疲れてしまうので、まずは基本のBANT4つを丁寧に埋めることを優先しましょう。
+    </div>
+  </div>
+</div>
+
+<!-- ── Section 03 ── -->
+<div class="card">
+  <span class="card-tab">03 型その2：SPIN話法</span>
+  <div class="card-body">
+    <h2>🔄 質問の「順番」を決める型「SPIN話法」</h2>
+    <p>
+      BANTが「何を聞くか」の型だとすると、SPIN話法は「どの順番で聞くか」の型です。いきなり予算を聞くと相手は身構えてしまうため、まず現状を聞き、少しずつ核心に近づいていきます。
+    </p>
+
+    <div class="step-flow">
+      <div class="step-item">
+        <div class="step-num">S</div>
+        <div class="step-body">
+          <div class="step-title">Situation（状況質問）</div>
+          <p class="step-desc">「今はどんなやり方で営業されていますか?」など、まず相手の今の状況を教えてもらう。</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">P</div>
+        <div class="step-body">
+          <div class="step-title">Problem（問題質問）</div>
+          <p class="step-desc">「そのやり方で困っていることはありますか?」と、課題に気づいてもらう質問をする。</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">I</div>
+        <div class="step-body">
+          <div class="step-title">Implication（示唆質問）</div>
+          <p class="step-desc">「その課題を放っておくと、どんな影響が出そうですか?」と、課題の大きさに気づいてもらう。</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">N</div>
+        <div class="step-body">
+          <div class="step-title">Need-payoff（解決質問）</div>
+          <p class="step-desc">「それが解決できたら、どんなふうに助かりますか?」と、解決した後の姿を相手自身に語ってもらう。</p>
+        </div>
+      </div>
+    </div>
+    <p style="font-size:0.85rem; color:#666;">
+      この流れで話を進めると、最後のNの段階で自然にBANTの「N(ニーズ)」と「T(時期)」が見えてくることが多く、2つの型は組み合わせて使いやすいと解説されています。
+    </p>
+  </div>
+</div>
+
+<!-- ── Section 04 ── -->
+<div class="card">
+  <span class="card-tab">04 商談化できる引き継ぎ vs できない引き継ぎ</span>
+  <div class="card-body">
+    <h2>📋 同じヒアリングでも「渡し方」で結果が変わる</h2>
+    <p>
+      同じ電話・同じ話を聞いていても、次の担当者に渡すメモの書き方次第で、商談化の判断スピードが大きく変わります。
+    </p>
+
+    <div class="vs-row">
+      <div class="vs-card before">
+        <span class="vs-tag">商談化しにくい例</span>
+        <ul>
+          <li>「興味ありそうでした」</li>
+          <li>「担当者は前向きな感じでした」</li>
+          <li>「詳しくは次回聞きます」</li>
+          <li>予算・決裁者・時期の情報なし</li>
+        </ul>
+      </div>
+      <div class="vs-arrow">→</div>
+      <div class="vs-card after">
+        <span class="vs-tag">商談化しやすい例</span>
+        <ul>
+          <li>「予算感は月10万円台と発言」</li>
+          <li>「決裁は部長。今回の担当者は起案者」</li>
+          <li>「今の課題は◯◯で、放置すると□□が困る」</li>
+          <li>「導入時期は今期中(〜9月)希望」</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout green">
+      <strong>✅ ポイント</strong><br>
+      「前向きでした」のような感想ではなく、<span class="highlight">相手が実際に発した言葉・数字</span>を渡すことが、次の担当者が動きやすいヒアリングです。
+    </div>
+  </div>
+</div>
+
+<!-- ── Section 05 ── -->
+<div class="card">
+  <span class="card-tab">05 引き継ぎメモのチェックリスト</span>
+  <div class="card-body">
+    <h2>📝 商談化の引き継ぎで書いておきたい5項目</h2>
+
+    <ul class="checklist">
+      <li>
+        <span class="chk">①</span>
+        <div><strong>B：予算感（数字 or 「未確認」）</strong><br>桁感だけでもよいので、聞けた範囲をそのまま記録する。</div>
+      </li>
+      <li>
+        <span class="chk">②</span>
+        <div><strong>A：決裁の流れ</strong><br>話した相手が決裁者本人か、稟議を回す立場かを明記する。</div>
+      </li>
+      <li>
+        <span class="chk">③</span>
+        <div><strong>N：課題の具体的な中身</strong><br>「困っている」ではなく、何にどう困っているかを一言でも書く。</div>
+      </li>
+      <li>
+        <span class="chk">④</span>
+        <div><strong>T：希望時期</strong><br>「今期中」「来年度」など、相手が口にした時期をそのまま書く。</div>
+      </li>
+      <li>
+        <span class="chk">⑤</span>
+        <div><strong>次回アクションと日時</strong><br>「いつ・誰が・何をするか」を1行で。次の担当者が迷わないようにする。</div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- ── Section 06 ── -->
+<div class="card">
+  <span class="card-tab">06 今日からできる一歩</span>
+  <div class="card-body">
+    <h2>👣 次の1件で、BANTの4項目をメモ欄に用意する</h2>
+
+    <div class="today-box">
+      <span class="emoji">🗒️</span>
+      <div class="title">今日の一歩：通話メモに「B・A・N・T」の4行を先に作っておく</div>
+      <div class="desc">
+        次に架電・面談する前に、メモ用紙やCRMの入力欄に「予算」「決裁者」「課題」「時期」の4行をあらかじめ用意しておきましょう。<br><br>
+        話しながら埋められた項目・埋められなかった項目が一目でわかるようになり、「今日は何を聞けなかったか」が明確になります。次の会話で聞くべきことも自然と絞られていきます。
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 免責 ── -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事で紹介したBANT・SPIN話法・BANTCHなどのフレームワークは、営業支援企業各社が公開している解説記事をもとに一般的な考え方を紹介したものであり、特定の成果（アポ獲得・商談化・成約）を保証するものではありません。
+  成果には個人差があり、業界・商材・企業のフェーズによって有効な進め方は変わります。実際に使用するCRM・SFAツールの機能や項目名は各社・各サービスで異なるため、詳細は自社の運用ルールや各ツールの公式情報をご確認ください。
+</div>
+
+<!-- ── 出典 ── -->
+<div class="sources">
+  <h3>📎 参考情報・出典</h3>
+  <ul>
+    <li><a href="https://sales-marker.jp/report/sales-hearing-works-spin-bant/" target="_blank">Sales Marker「営業のための課題ヒアリングフレームワーク｜SPIN・BANTなどのフレームワーク活用法」（参照日：2026年7月11日）</a></li>
+    <li><a href="https://ferret-one.com/blog/bant" target="_blank">ferret One「BANTでインサイドセールスを成功させる！必勝法をBtoB営業のプロが解説」（参照日：2026年7月11日）</a></li>
+    <li><a href="https://miitel.com/jp/column/spin-selling-technique/" target="_blank">MiiTel「成約率を上げるSPIN話法の活用術と、他話法の基本をおさらい(BANT/SNAP/MEDDIC)」（参照日：2026年7月11日）</a></li>
+    <li><a href="https://start-link.jp/hubspot-ai/btob-marketing/inside-sales/bantch-hearing-framework" target="_blank">start-link「BANTCHとは？インサイドセールスのヒアリングフレームワーク実践ガイド」（BANTCHの発展形について、参照日：2026年7月11日）</a></li>
+  </ul>
+</div>
+
+<!-- ── バックリンク ── -->
+<div class="back-link">
+  <a href="index.html">&larr; バックナンバー一覧へ</a>
+</div>
+
+</body>
+</html>
