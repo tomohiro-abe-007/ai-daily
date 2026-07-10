@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI動画制作 日報 2026-07-11</title>
+<style>
+  :root {
+    --bg: #ece8e1;
+    --card: #faf6ec;
+    --dark: #1a3a5c;
+    --dark2: #1a5c3a;
+    --accent: #2a5c8a;
+    --accent2: #c85a00;
+    --text: #2a3540;
+    --muted: #7c8a82;
+    --border: #e0d8c8;
+    --highlight: #fff3cd;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, "Hiragino Sans", "Yu Gothic", sans-serif;
+    line-height: 1.75;
+    padding: 20px;
+  }
+  .wrap { max-width: 900px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #1a3a5c 0%, #1a5c3a 100%);
+    color: #fff;
+    border-radius: 20px;
+    padding: 44px 32px 36px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(26,58,92,.22);
+    margin-bottom: 24px;
+  }
+  .header-tag {
+    display: inline-block;
+    background: rgba(255,255,255,.18);
+    color: #e0f0e8;
+    border-radius: 20px;
+    padding: 4px 16px;
+    font-size: .82rem;
+    margin-bottom: 14px;
+    letter-spacing: .06em;
+  }
+  .header h1 { font-size: 1.7rem; letter-spacing: .03em; line-height: 1.4; margin-bottom: 10px; }
+  .header .sub { color: #c8dde8; font-size: .95rem; }
+  .header .date { color: #b0e0c0; font-size: .85rem; margin-top: 8px; }
+
+  .card {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 12px rgba(0,0,0,.07);
+    border: 1px solid var(--border);
+  }
+  .card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .point-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .point-card { background: #eef3f8; border-radius: 14px; padding: 20px 16px; text-align: center; border: 1px solid #d4e0ea; }
+  .point-icon { font-size: 2rem; margin-bottom: 8px; }
+  .point-title { font-size: .95rem; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
+  .point-desc { font-size: .83rem; color: var(--muted); line-height: 1.6; }
+
+  .bignum-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 20px; }
+  .bignum-card { background: linear-gradient(135deg, #1a3a5c, #1a5c3a); border-radius: 14px; padding: 18px 12px; text-align: center; color: #fff; }
+  .bignum { font-size: 1.15rem; font-weight: 800; color: #ffe0a0; line-height: 1.2; }
+  .bignum-label { font-size: .72rem; color: #cfe6d8; margin-top: 4px; line-height: 1.5; }
+
+  .step-list { list-style: none; }
+  .step-item { display: flex; gap: 14px; margin-bottom: 16px; align-items: flex-start; }
+  .step-num {
+    width: 34px; height: 34px;
+    background: linear-gradient(135deg, #1a3a5c, #1a5c3a);
+    color: #fff; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: .95rem; flex-shrink: 0; margin-top: 2px;
+  }
+  .step-body { flex: 1; }
+  .step-title { font-weight: 700; color: var(--dark); font-size: .95rem; }
+  .step-desc { font-size: .86rem; color: var(--muted); margin-top: 3px; line-height: 1.65; }
+
+  .chip-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .chip { background: #e8f0ec; color: #1a5c3a; border-radius: 20px; padding: 4px 14px; font-size: .82rem; font-weight: 600; border: 1px solid #c0dccc; }
+
+  .tbl { width: 100%; border-collapse: collapse; font-size: .86rem; }
+  .tbl th { background: #eaf1ea; padding: 10px 10px; text-align: left; border-bottom: 2px solid #c8ddc8; color: var(--dark); font-weight: 700; }
+  .tbl td { padding: 10px 10px; border-bottom: 1px solid var(--border); vertical-align: top; color: var(--text); }
+  .tbl tr:last-child td { border-bottom: none; }
+
+  .note-box { background: var(--highlight); border-left: 4px solid #e8a000; border-radius: 8px; padding: 12px 16px; font-size: .88rem; color: #5a4000; margin-top: 14px; line-height: 1.7; }
+
+  .summary-list { font-size: .95rem; line-height: 2.2; }
+  .summary-list li { list-style: none; display: flex; align-items: flex-start; gap: 8px; }
+  .summary-list li::before { content: "✅"; flex-shrink: 0; margin-top: 2px; }
+
+  .disclaimer { background: #f0ede8; border-radius: 12px; padding: 16px 20px; font-size: .82rem; color: var(--muted); margin-top: 24px; line-height: 1.7; border: 1px solid #ddd8d0; }
+
+  footer { text-align: center; color: var(--muted); font-size: .82rem; margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border); line-height: 1.9; }
+  footer a { color: var(--accent); }
+
+  /* hub diagram */
+  .hub-wrap { display: flex; flex-direction: column; align-items: center; margin: 18px 0 6px; }
+  .hub-top { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
+  .hub-box { border-radius: 12px; padding: 12px 16px; text-align: center; min-width: 160px; font-size: .82rem; font-weight: 700; color: #fff; }
+  .hub-sub { font-size: .68rem; font-weight: 400; margin-top: 4px; line-height: 1.4; opacity: .9; }
+  .hub-arrows { font-size: 1.3rem; color: #aaa; margin: 6px 0; }
+  .hub-center { background: linear-gradient(135deg, #2a3540, #1a3a5c); color: #fff; border-radius: 14px; padding: 16px 28px; font-weight: 800; font-size: 1.05rem; box-shadow: 0 4px 14px rgba(0,0,0,.18); text-align: center; }
+  .hub-center-sub { font-size: .75rem; font-weight: 400; margin-top: 4px; opacity: .85; }
+
+  .rule-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 16px; }
+  .rule-card { border-radius: 14px; padding: 16px 18px; }
+  .rule-card.ok { background: #eef8f0; border: 1px solid #bfe3c8; }
+  .rule-card.ng { background: #fdeeee; border: 1px solid #f0c4c4; }
+  .rule-head { font-weight: 700; font-size: .95rem; margin-bottom: 8px; }
+  .rule-card.ok .rule-head { color: #1a6c3a; }
+  .rule-card.ng .rule-head { color: #b03030; }
+  .rule-card ul { padding-left: 18px; font-size: .85rem; color: var(--text); line-height: 1.8; }
+
+  @media (max-width: 640px) {
+    .point-grid { grid-template-columns: 1fr; }
+    .bignum-grid { grid-template-columns: repeat(2, 1fr); }
+    .rule-grid { grid-template-columns: 1fr; }
+    .tbl { display: block; overflow-x: auto; white-space: nowrap; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="header">
+  <div class="header-tag">🛠️ ツール情報回 ── 巨大IT企業が動画生成AI市場に本格参入</div>
+  <h1>Meta「Muse Video」始動<br>── 音声込み動画生成AIに新プレイヤー登場</h1>
+  <div class="sub">2026年7月7日、Meta Superintelligence Labsが画像生成AI「Muse Image」を公開し、動画生成AI「Muse Video」の試作版も披露した</div>
+  <div class="date">2026-07-11 ｜ AI動画制作 日報</div>
+</div>
+
+<div class="card">
+  <div class="card-title">🎯 今日の3ポイント</div>
+  <div class="point-grid">
+    <div class="point-card">
+      <div class="point-icon">🎬</div>
+      <div class="point-title">映像と音を1回でまとめて生成</div>
+      <div class="point-desc">「Muse Video」はセリフ・環境音・映像をまとめて1回で作る「ネイティブ音声(あとから音を足すのではなく、映像と同時に音も作る方式)」対応の動画生成AI</div>
+    </div>
+    <div class="point-card">
+      <div class="point-icon">🤖</div>
+      <div class="point-title">自分で調べて自己修正</div>
+      <div class="point-desc">「Muse Image」は生成後にWeb検索やコード実行(グラフやQRコードを正しく描くための裏計算)で自分の作品を確認・修正する「エージェント型(自律的に考えて動くAI)」</div>
+    </div>
+    <div class="point-card">
+      <div class="point-icon">📱</div>
+      <div class="point-title">今日から一部無料で使える</div>
+      <div class="point-desc">Muse ImageはMeta AIアプリ・Instagram Stories(米国)・WhatsApp(一部国)ですでに無料提供中。Muse Videoはまだ試作(プレビュー)段階で一般提供は「近日中」</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">📅 発表から3日間の出来事をタイムラインで見る</div>
+  <p style="font-size:.9rem;color:var(--muted);margin-bottom:16px;">
+    Metaは自社の巨大SNS(Instagram・WhatsApp・Facebook)を持つ強みを生かし、動画生成AI市場に本格参入しました。この数日の動きを整理すると、次のようになります。
+  </p>
+  <div class="bignum-grid">
+    <div class="bignum-card">
+      <div class="bignum">7/7</div>
+      <div class="bignum-label">Muse Image公開<br>Muse Videoプレビュー発表</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">7/7-8</div>
+      <div class="bignum-label">Instagram Stories(米国)<br>WhatsApp(一部国)で提供開始</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">7/9</div>
+      <div class="bignum-label">写真の無断使用への懸念<br>オプトアウト方法が話題に</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">数週間以内</div>
+      <div class="bignum-label">広告制作ツール<br>「Advantage+」へ統合予定</div>
+    </div>
+  </div>
+  <div class="note-box">
+    ⚠️ <strong>知っておきたい注意点：</strong>Muse Imageは「Instagramアカウントを@メンションすると、その人の公開写真を参照に使える」機能を持つため、自分の写真を勝手に使われたくない人向けにオプトアウト(利用停止)設定の解説記事が相次いで出ています。動画制作でSNS上の素材を扱うときは、常に「本人の許可」を意識しましょう。
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">📊 Muse Image と Muse Video 比較表</div>
+  <div style="overflow-x:auto;">
+  <table class="tbl">
+    <tr><th>モデル名</th><th>何を作る？</th><th>提供状況</th><th>特徴</th></tr>
+    <tr><td>Muse Image</td><td>画像</td><td>提供中(基本無料・高度な機能は有料プラン)</td><td>エージェント型・Instagramアカウント参照・電子透かし「Content Seal」付き</td></tr>
+    <tr><td>Muse Video</td><td>動画＋音声</td><td>試作(プレビュー)段階・一般提供は近日中</td><td>ネイティブ音声対応・Arena動画AIランキング3位・音と映像のズレは改善中</td></tr>
+  </table>
+  </div>
+  <div class="chip-row">
+    <div class="chip">同じ土台(事前学習基盤)の上に構築</div>
+    <div class="chip">画像→動画へ機能を拡張中</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🧭 「エージェント型」ってどういう仕組み？</div>
+  <p style="font-size:.9rem;color:var(--muted);margin-bottom:8px;">
+    従来のAI画像・動画生成は「プロンプトを1回入力→1回で出力」が基本でした。Muse Image/Videoは、出力する前に自分で調べ物をしたり計算したりして、答え合わせをしてから仕上げる点が新しいところです。
+  </p>
+  <div class="hub-wrap">
+    <div class="hub-top">
+      <div class="hub-box" style="background:linear-gradient(135deg,#1a3a5c,#2a5c8a);">
+        ① プロンプト入力
+        <div class="hub-sub">「グラフ入りの発表資料」など</div>
+      </div>
+      <div class="hub-box" style="background:linear-gradient(135deg,#1a5c3a,#2a8a5c);">
+        ② Web検索・コード実行
+        <div class="hub-sub">事実確認・正確な図やQRコードを裏計算</div>
+      </div>
+      <div class="hub-box" style="background:linear-gradient(135deg,#8a5c1a,#c8830a);">
+        ③ 自己修正
+        <div class="hub-sub">ズレや誤りを見つけて描き直す</div>
+      </div>
+    </div>
+    <div class="hub-arrows">↓ ↓ ↓</div>
+    <div class="hub-center">
+      🖼️🎬 画像／動画＋音声を出力
+      <div class="hub-center-sub">「一発勝負」ではなく「確認してから提出」する仕組み</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">⚖️ 得意なこと／まだ苦手なこと</div>
+  <div class="rule-grid">
+    <div class="rule-card ok">
+      <div class="rule-head">✅ 得意なこと</div>
+      <ul>
+        <li>正確なグラフ・QRコードなど「数字や記号が合っているか」が重要な画像</li>
+        <li>最新の出来事や実在の情報を反映した画像(Web検索で裏取りするため)</li>
+        <li>映像とセリフ・環境音を1回でまとめて生成すること</li>
+      </ul>
+    </div>
+    <div class="rule-card ng">
+      <div class="rule-head">🔧 まだ苦手なこと</div>
+      <ul>
+        <li>音声と映像の細かいタイミング同期(口の動きと声がズレることがある)</li>
+        <li>素早い動き(高速移動・格闘など)の物理的な正確さ</li>
+        <li>Muse Video自体がまだ試作段階で、尺・解像度・料金は未公開</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🎬 実践例：「音込み動画」を意識したプロンプトの書き方 5ステップ</div>
+  <p style="font-size:.88rem;color:var(--muted);margin-bottom:18px;">
+    Muse Videoはまだ一般には使えませんが、「映像と音を同時に指定する」書き方は、すでに使えるネイティブ音声対応ツール(Veo 3.1やSeedance 2.5など)でも今日から練習できます。カフェのシーンを例に見てみましょう。
+  </p>
+  <ul class="step-list">
+    <li class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-title">映像の動きを書く</div>
+        <div class="step-desc">「店員がカップをカウンターに置く、湯気が立ちのぼる」のように、誰が何をしているかとカメラワークを具体的に書く</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-title">音の要素を書き足す</div>
+        <div class="step-desc">「カップを置くコトンという音」「店内の小さなBGM」「小さな話し声」など、聞こえてほしい音を映像とセットで書く</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-title">音と映像のタイミングを揃える言葉を入れる</div>
+        <div class="step-desc">「カップを置くと同時に音が鳴る」のように"同時に"という言葉を入れると、音ズレしにくいプロンプトになる</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <div class="step-title">今使えるネイティブ音声対応ツールで試し撮りする</div>
+        <div class="step-desc">Veo 3.1やSeedance 2.5など、映像と音を同時生成できるツールで実際にプロンプトを試し、音ズレの有無を確認する</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">5</div>
+      <div class="step-body">
+        <div class="step-title">Muse Videoが公開されたら同じプロンプトで比較する</div>
+        <div class="step-desc">一般提供が始まったら同じ指示文で試し、音声同期の精度がどう違うかを見比べてみる。ツールが増えても「良いプロンプトの書き方」は使い回せる</div>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="card">
+  <div class="card-title">📝 今日のまとめ</div>
+  <ul class="summary-list">
+    <li>2026年7月7日、Meta Superintelligence Labsが画像生成AI「Muse Image」を公開し、動画生成AI「Muse Video」の試作版を披露した</li>
+    <li>Muse Videoはセリフ・環境音・映像をまとめて1回で作る「ネイティブ音声」対応で、動画AIランキングで3位を獲得</li>
+    <li>Muse Imageは検索やコード実行で自分の作品を確認・修正する「エージェント型」で、Instagramアカウントの参照など独自機能を持つ</li>
+    <li>Muse Imageは今日から一部無料で使えるが、Muse Videoはまだ試作段階で尺・解像度・料金は未公開</li>
+    <li>音声同期や高速な動きの正確さなど、Meta自身が課題として認めている弱点もある</li>
+    <li>写真の無断使用など著作権・プライバシー面の議論も出ているため、使う前に必ず公式ページで利用規約を確認しよう</li>
+  </ul>
+</div>
+
+<div class="disclaimer">
+  ⚠️ <strong>免責事項</strong><br>
+  本記事で紹介したAIツール（Meta AI、Muse Image、Muse Videoなど）の名称・機能・料金・商用利用の可否は頻繁に変更されます。
+  最新情報と利用規約は各ツールの公式ページで必ずご確認ください。
+  本記事は2026年7月7日〜9日時点の各種報道をもとにしています。
+</div>
+
+<footer>
+  AI動画制作 日報 ─ 2026-07-11 ｜ ツール情報回<br>
+  出典：
+  <a href="https://ai.meta.com/blog/introducing-muse-image-muse-video-msl/" target="_blank" rel="noopener">Meta AI公式ブログ（2026年7月7日）</a>／
+  <a href="https://techcrunch.com/2026/07/07/meta-rolls-out-muse-a-new-ai-image-generator/" target="_blank" rel="noopener">TechCrunch（2026年7月7日）</a>／
+  <a href="https://www.cnbc.com/2026/07/07/meta-ai-muse-image.html" target="_blank" rel="noopener">CNBC（2026年7月7日）</a>／
+  <a href="https://gigazine.net/news/20260708-muse-image-video-generation-ai/" target="_blank" rel="noopener">GIGAZINE（2026年7月8日）</a>／
+  <a href="https://www.itmedia.co.jp/aiplus/article/2607/08/2000000169/" target="_blank" rel="noopener">ITmedia NEWS（2026年7月8日）</a>／
+  <a href="https://gihyo.jp/article/2026/07/meta-muse-image-and-video" target="_blank" rel="noopener">gihyo.jp（2026年7月）</a>／
+  <a href="https://techcrunch.com/2026/07/09/how-to-stop-metas-ai-image-generator-from-using-your-instagram-photos/" target="_blank" rel="noopener">TechCrunch（2026年7月9日）</a><br>
+  <a href="index.html" style="color:var(--accent);">← 一覧に戻る</a>
+</footer>
+
+</div>
+</body>
+</html>
