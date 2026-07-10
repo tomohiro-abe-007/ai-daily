@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-07-11</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #1e5a7a 0%, #0d3352 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #1e5a7a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.green  { border-left-color: #4a9e6a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.purple { border-left-color: #7a4a9e; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #1e5a7a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  .type-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .type-grid { grid-template-columns: 1fr; } }
+  .type-card {
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-size: 0.86rem;
+    line-height: 1.65;
+  }
+  .type-card.main {
+    background: #e8f0f8;
+    border: 2px solid #1e5a7a;
+  }
+  .type-card.sub {
+    background: #f5f0fa;
+    border: 2px solid #7a4a9e;
+  }
+  .type-card .tl {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+  }
+  .type-card.main .tl { color: #0d3352; }
+  .type-card.sub .tl  { color: #4a1a7a; }
+  .type-card .tv { font-size: 1.0rem; font-weight: 700; margin-bottom: 6px; }
+  .type-card.main .tv { color: #1e5a7a; }
+  .type-card.sub .tv  { color: #7a4a9e; }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 14px 10px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat .sl { font-size: 0.67rem; color: #888; margin-bottom: 3px; }
+  .stat .sv { font-size: 1.5rem; font-weight: 700; color: #1e5a7a; line-height: 1.1; }
+  .stat .su { font-size: 0.7rem; color: #666; margin-top: 2px; }
+
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #1e5a7a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+  .f-arrow { color: #1e5a7a; font-size: 1.1rem; margin-left: 14px; margin-bottom: 4px; }
+
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  .prompt-box {
+    background: #f0f5ff;
+    border: 2px solid #4a6aae;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 12px 0;
+    font-size: 0.84rem;
+    line-height: 1.85;
+    color: #1a2a4a;
+  }
+  .prompt-box .ph {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #4a6aae;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+  .prompt-box .fill {
+    background: #d0e0ff;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-weight: 700;
+    color: #0a2a6e;
+  }
+
+  .info {
+    background: #e8f0f8;
+    border-left: 4px solid #1e5a7a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #0d3352;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #7a4010;
+  }
+
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #1e5a7a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+
+  .badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 8px;
+    margin-right: 4px;
+    vertical-align: middle;
+  }
+  .badge.law   { background: #1e5a7a; color: white; }
+  .badge.ai    { background: #4a6aae; color: white; }
+  .badge.tip   { background: #4a9e6a; color: white; }
+  .badge.warn  { background: #c8884a; color: white; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #1e5a7a; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #1e5a7a; }
+
+  .flow-h {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 14px 0;
+  }
+  .flow-box {
+    background: white;
+    border: 2px solid #1e5a7a;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 0.81rem;
+    text-align: center;
+    line-height: 1.45;
+    color: #0d3352;
+    font-weight: 600;
+  }
+  .flow-arrow {
+    color: #1e5a7a;
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+  @media (max-width: 540px) {
+    .flow-h { flex-direction: column; align-items: flex-start; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+
+  .matrix {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.83rem;
+  }
+  .matrix th {
+    background: #0d3352;
+    color: white;
+    padding: 8px 12px;
+    text-align: center;
+    font-weight: 600;
+  }
+  .matrix td {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    vertical-align: top;
+    line-height: 1.55;
+  }
+  .matrix .row-head {
+    background: #e8f0f8;
+    font-weight: 700;
+    color: #0d3352;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .matrix .ok  { color: #4a9e6a; font-weight: 700; }
+  .matrix .ng  { color: #b54040; font-weight: 700; }
+  .matrix .mid { color: #c8884a; font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Header -->
+<div class="header">
+  <div class="meta">📅 1人法人スタート 最新トピック &nbsp;2026-07-11</div>
+  <h1>💸 業績が厳しいとき、社長の給料は<br>いつ・どうやって下げていい？</h1>
+  <div class="desc">
+    <span class="htag">法人税</span>
+    <span class="htag">役員報酬</span>
+    <span class="htag">定期同額給与</span>
+    <span class="htag">国税庁</span>
+    <br>
+    社長1人の会社でも、役員報酬（自分への給料）は「毎月同じ額」でなければ経費にできないのが原則です。でも業績が悪化したときは、<span class="hl">例外的に期中でも減額できるルール</span>があります。今日はその仕組みを図解します。
+  </div>
+</div>
+
+<!-- Section 1: the base rule -->
+<div class="card">
+  <div class="sec-title">🔄 まず前提：役員報酬は「毎月同額」が原則</div>
+  <p><strong>定期同額給与</strong>（ていきどうがくきゅうよ＝毎月決まった時期に、決まった同じ金額を払う給与）は、役員報酬を会社の経費（損金）にするための代表的なルールです（根拠：法人税法第34条第1項第1号、法人税法施行令第69条）。</p>
+
+  <p style="margin-top:10px;">なぜこんなルールがあるかというと、<span class="hl">利益が出そうな月だけ役員報酬を増やして税金を減らす</span>、といった利益操作を防ぐためです。1人社長の会社は自分の意思だけで報酬額を変えられてしまうため、税務署はここを特に見ています。</p>
+
+  <div class="warn" style="margin-top:12px;">
+    ⚠️ 原則どおりに改定できるのは、<strong>事業年度が始まってから3か月以内</strong>（定時株主総会での見直し＝「通常改定」）だけ。それ以外のタイミングで金額を変えると、変更後の差額分が<strong>損金不算入</strong>（会社の経費として認められない＝法人税の計算上、利益に足し戻される）になってしまいます。</strong>
+  </div>
+
+  <div class="source">
+    出典：国税庁 No.5211「役員に対する給与」<br>
+    <a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/hojin/5211.htm" target="_blank">https://www.nta.go.jp/taxes/shiraberu/taxanswer/hojin/5211.htm</a><br>
+    e-Gov法令検索「法人税法施行令」第69条（基準年度：令和8年度時点の条文）<br>
+    <a href="https://laws.e-gov.go.jp/law/340CO0000000097/" target="_blank">https://laws.e-gov.go.jp/law/340CO0000000097/</a>
+  </div>
+</div>
+
+<!-- Section 2: 3 patterns -->
+<div class="card orange">
+  <div class="sec-title">📊 役員報酬を変えられる「3つのタイミング」</div>
+  <p>定期同額給与の扱いを崩さずに役員報酬を変更できるのは、次の3パターンだけです。</p>
+
+  <div class="stats-row" style="margin-top:16px;">
+    <div class="stat">
+      <div class="sl">① 通常改定</div>
+      <div class="sv">期首から</div>
+      <div class="su">3か月以内・増額も減額もOK</div>
+    </div>
+    <div class="stat">
+      <div class="sl">② 臨時改定事由</div>
+      <div class="sv">期中いつでも</div>
+      <div class="su">地位・職務の激変・増額も減額もOK</div>
+    </div>
+    <div class="stat">
+      <div class="sl">③ 業績悪化改定事由</div>
+      <div class="sv">期中いつでも</div>
+      <div class="su">経営の著しい悪化・減額のみ</div>
+    </div>
+  </div>
+
+  <table class="matrix" style="margin-top:14px;">
+    <tr>
+      <th style="width:22%;">事由</th>
+      <th style="width:24%;">いつ改定できる</th>
+      <th style="width:18%;">増額/減額</th>
+      <th>主な例</th>
+    </tr>
+    <tr>
+      <td class="row-head">① 通常改定</td>
+      <td>事業年度開始から3か月以内</td>
+      <td>どちらもOK</td>
+      <td>定時株主総会での毎年恒例の見直し</td>
+    </tr>
+    <tr>
+      <td class="row-head">② 臨時改定事由</td>
+      <td>期中いつでも</td>
+      <td>どちらもOK</td>
+      <td>代表取締役への昇格、担当業務の大幅な変更など「地位・職務」の急な変化</td>
+    </tr>
+    <tr>
+      <td class="row-head">③ 業績悪化<br>改定事由</td>
+      <td>期中いつでも</td>
+      <td><span class="ng">減額のみ</span></td>
+      <td>経営状況が著しく悪化し、報酬を下げざるを得ない場合</td>
+    </tr>
+  </table>
+
+  <div class="source">
+    出典：国税庁「役員給与に関するＱ＆Ａ」<br>
+    <a href="https://www.nta.go.jp/law/joho-zeikaishaku/hojin/qa.pdf" target="_blank">https://www.nta.go.jp/law/joho-zeikaishaku/hojin/qa.pdf</a>
+  </div>
+</div>
+
+<!-- Section 3: how strict is "significant deterioration" -->
+<div class="card green">
+  <div class="sec-title">🔍 「業績悪化改定事由」の基準はけっこう厳しい</div>
+  <p>今日いちばん間違えやすいのがここです。「業績悪化改定事由」で認められるのは、<strong>経営状況が著しく悪化し、やむを得ず役員報酬を下げざるを得ない事情</strong>がある場合に限られます。</p>
+
+  <div class="type-grid" style="margin-top:14px;">
+    <div class="type-card main">
+      <div class="tl">✅ 認められる例</div>
+      <div class="tv">客観的な事情がある場合</div>
+      ・株主に対する経営責任として減額<br>
+      ・銀行との返済リスケ交渉で減額を求められた<br>
+      ・取引先など利害関係者への信用維持のため、経営改善計画に減額が盛り込まれた
+    </div>
+    <div class="type-card sub">
+      <div class="tl">❌ 認められない例</div>
+      <div class="tv">単なる自己都合・一時的な事情</div>
+      ・一時的な資金繰りの悪化だけ<br>
+      ・単に「今月の売上目標に届かなかった」<br>
+      ・特に理由もなく「なんとなく心配だから」下げたい
+    </div>
+  </div>
+
+  <div class="info" style="margin-top:12px;">
+    💡 ポイントは「一時的」かどうかです。一時的な資金ショートは対象外ですが、資金繰り改善のために<strong>金融機関を交えたリスケ協議</strong>が行われているような場合は、客観的な悪化の証拠として認められやすくなります。
+  </div>
+
+  <div class="source">
+    出典：国税庁「役員給与に関するＱ＆Ａ」（業績悪化改定事由の例示）<br>
+    <a href="https://www.nta.go.jp/law/joho-zeikaishaku/hojin/qa.pdf" target="_blank">https://www.nta.go.jp/law/joho-zeikaishaku/hojin/qa.pdf</a>
+  </div>
+</div>
+
+<!-- Section 4: procedure flow -->
+<div class="card purple">
+  <div class="sec-title">📝 減額を実行するときの手順</div>
+  <p>1人社長の会社でも、「なんとなく報酬を下げた」だけでは税務署に説明できません。次の順番で、<span class="hl">客観的な記録を残す</span>ことが重要です。</p>
+
+  <div class="flow-h" style="margin-top:14px;">
+    <div class="flow-box">📉 ①<br>業績悪化の<br>事実を整理</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-box">📋 ②<br>株主総会で<br>減額を決議</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-box">🗂️ ③<br>議事録を<br>作成・保存</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-box">💴 ④<br>決議後の支給分<br>から減額を適用</div>
+  </div>
+
+  <div class="info" style="margin-top:12px;">
+    💡 株主が自分1人の会社でも、株主総会（または株主総会に代わる書面決議）の議事録は必ず作成・保存しましょう。「いつ・なぜ・いくら下げたか」を客観的に示す唯一の証拠になります。
+  </div>
+
+  <div class="warn" style="margin-top:10px;">
+    ⚠️ 定期同額給与の減額改定そのものに、税務署への<strong>事前の届出は不要</strong>です。ただし、賞与のように「事前確定届出給与」（あらかじめ税務署に届け出た金額・時期で支払う給与）も併用している場合は、これを変更するときに別途「変更届出書」を、決議の日から<strong>1か月以内</strong>に税務署へ提出する必要があります。両者を混同しないよう注意してください。
+  </div>
+
+  <div class="source">
+    出典：国税庁「Ｃ1-24 事前確定届出給与に関する変更届出」<br>
+    <a href="https://www.nta.go.jp/taxes/tetsuzuki/shinsei/annai/hojin/annai/6059.htm" target="_blank">https://www.nta.go.jp/taxes/tetsuzuki/shinsei/annai/hojin/annai/6059.htm</a>
+  </div>
+</div>
+
+<!-- Section 5: the comeback trap -->
+<div class="card red">
+  <div class="sec-title">⚠️ 業績が戻ったとき、すぐ報酬を戻すと危ない「罠」</div>
+  <p>業績悪化改定事由で報酬を下げたあと、業績が回復したからといって<strong>期中にすぐ元の金額へ戻す</strong>と、その増額改定が①〜③のどれにも当てはまらず、<span class="hl">増額分が損金不算入</span>になるおそれがあります。</p>
+
+  <div class="f-step">
+    <div class="f-num">1</div>
+    <div class="f-text">4月：業績悪化改定事由で月80万円→月50万円に減額（適正に処理）</div>
+  </div>
+  <div class="f-arrow">↓</div>
+  <div class="f-step">
+    <div class="f-num">2</div>
+    <div class="f-text">8月：業績が回復したので月80万円に戻したい……が、これは「通常改定」でも「臨時改定事由」でも「業績悪化改定事由」でもない</div>
+  </div>
+  <div class="f-arrow">↓</div>
+  <div class="f-step">
+    <div class="f-num">3</div>
+    <div class="f-text">結果：8月以降の増額分（月30万円×該当月数）が損金不算入になるリスク</div>
+  </div>
+
+  <div class="info" style="margin-top:12px;">
+    💡 安全策は、<strong>次の事業年度が始まってから3か月以内の「通常改定」</strong>のタイミングまで待って元の金額に戻すことです。業績が読みにくいときほど、期首の報酬設定は慎重に検討しましょう。
+  </div>
+</div>
+
+<!-- Section 6: checklist -->
+<div class="card">
+  <div class="sec-title">✅ 今日からできる実践チェックリスト</div>
+  <ul class="check-list" style="margin-top:10px;">
+    <li><span class="ck">☑</span> 役員報酬を変更したくなったら、まず「3パターンのどれに当てはまるか」を確認する</li>
+    <li><span class="ck">☑</span> 業績悪化を理由にする場合は、資金繰り表や試算表など「著しい悪化」を示す客観的な資料を残す</li>
+    <li><span class="ck">☑</span> 株主総会（1人株主でも）の議事録を必ず作成し、決議日・減額理由・金額を明記する</li>
+    <li><span class="ck">☑</span> 事前確定届出給与も併用している場合は、変更届出書の提出期限（決議から1か月）を確認する</li>
+    <li><span class="ck-bad">⚠</span> <span style="color:#888;">業績回復後にすぐ増額して戻すのは避け、次の期首の通常改定まで待つ</span></li>
+  </ul>
+</div>
+
+<!-- Section 7: AI prompt -->
+<div class="card orange">
+  <div class="sec-title">🤖 生成AIに「たたき台」を作ってもらうプロンプト例</div>
+  <p>最終判断は税理士に確認する前提で、<span class="hl">議事録や整理メモの下書き</span>はAIに手伝ってもらえます。</p>
+
+  <div class="prompt-box" style="margin-top:14px;">
+    <div class="ph">🤖 プロンプト例：役員報酬減額の株主総会議事録たたき台</div>
+    当社（株主1名・代表取締役1名の1人会社）は、<span class="fill">【業績悪化の具体的な事情】</span>により、代表取締役の月額役員報酬を<span class="fill">【現在の金額】</span>円から<span class="fill">【変更後の金額】</span>円に、<span class="fill">【○年○月○日】</span>の支給分から減額することを検討しています。<br>
+    <br>
+    法人税法上の「業績悪化改定事由」による定期同額給与の減額改定を想定した、臨時株主総会（書面決議）の議事録のたたき台を作成してください。決議日・減額理由・変更後の金額・適用開始時期を明記した形式でお願いします。<br>
+    ※内容は必ず税理士に確認し、実際の事実関係に沿って修正のうえ使用してください。
+  </div>
+</div>
+
+<!-- Section 8: summary -->
+<div class="card">
+  <div class="sec-title">📝 今日のまとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">①</span>役員報酬は<span class="hlg">毎月同額</span>が原則（定期同額給与）。期中に自由に変えると差額が損金不算入になる。</li>
+    <li><span class="n">②</span>例外的に変更できるのは<span class="hl">通常改定・臨時改定事由・業績悪化改定事由</span>の3パターンのみ。</li>
+    <li><span class="n">③</span>「業績悪化改定事由」は<span class="hl">経営状況の著しい悪化</span>が条件。一時的な資金繰り悪化や業績目標未達だけでは認められない。</li>
+    <li><span class="n">④</span>減額改定に税務署への事前届出は不要だが、<span class="hl">株主総会議事録などの客観的な記録</span>を必ず残す。</li>
+    <li><span class="n">⑤</span>業績が回復してもすぐ増額に戻すと否認リスクがある。<span class="hl">次の期首の通常改定</span>を待つのが安全。</li>
+    <li><span class="n">⑥</span>AIには議事録・整理メモのたたき台作りを任せ、最終的な適用可否は税理士に確認する。</li>
+  </ul>
+</div>
+
+<!-- Disclaimer -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報提供を目的としており、個別の税務・法務の判断を代わるものではありません。
+  「経営状況の著しい悪化」に該当するかどうかは会社ごとの事情により判断が異なります。
+  具体的な適用可否や議事録の作成・保存方法は、必ず税理士にご確認ください。
+  税率・要件・届出期限は改正されることがあります。最新情報は国税庁（<a href="https://www.nta.go.jp/" target="_blank">https://www.nta.go.jp/</a>）の公式サイトでご確認ください。<br>
+  本記事の内容の基準年度：令和8年度（2026年度）、令和8年7月時点の情報。
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>📚 <a href="index.html">バックナンバー一覧へ</a> &nbsp;&middot;&nbsp; 毎朝更新</p>
+</div>
+
+</div>
+</body>
+</html>
