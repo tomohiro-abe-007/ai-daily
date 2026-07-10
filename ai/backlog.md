@@ -44,6 +44,7 @@
 - 2026-07-08: ホワイトハウス×AI大手 自主基準協議（2026年7月）・OpenAI・Google・Anthropicと最先端AIモデルのリリース前30日間レビューの枠組みを交渉中・大統領令「Promoting Advanced Artificial Intelligence Innovation and Security」2026年6月2日署名・当初90日→30日に短縮・政府は助言のみ（拒否権なし）・許認可制への発展を禁止・サイバー能力ベンチマーク設定予定・2026年7月7日の週に発表目標（出典：ホワイトハウス / TipRanks / Let's Data Science / faq.com.tw・2026年7月）
 - 2026-07-09: Z.ai GLM-5.2（2026年6月13日リリース）・Zhipu AIのグローバルブランドZ.aiが公開・約750Bパラメータ（MoE / 1回の推論では約40B active）・MITライセンス完全オープンソース・HuggingFace/ModelScope で公開・1Mトークンコンテキスト・IndexShare（2.9倍の省エネ注意機構）・SWE-bench Pro 62.1点（GPT-5.5の58.6点超え）・Terminal-Bench 2.1で81.0点（Claude Opus 4.8の85.0点に4点差）・コストはGPT-5.5の約6分の1・API利用は中国データリスクあり（出典：VentureBeat / Euronews / InfoWorld / TechTimes・2026年6月〜7月）
 - 2026-07-10: Microsoft Frontier Company（2026年7月2日発表）・25億ドル＋6,000人体制・AI導入支援に特化した新事業組織・顧客企業にエンジニア・業界専門家を常駐派遣・MIT Project NANDA「企業AI試験導入の95%が効果ゼロ」に対応・顧客データはAI学習に使用しない・競合AI製品も利用継続可能・責任者はロドリゴ・ケデ・リマ氏・法的に独立した別会社ではなくマイクロソフト内の新事業部門・料金・詳細条件は公式で要確認（出典：Microsoft 公式ブログ / CNBC / TechCrunch / GeekWire / Fortune・2026年7月）
+- 2026-07-11: GPT-5.6 Sol 一般公開（2026年7月9日）＋ Cerebras WSE-3 で最大750トークン/秒・従来GPU比約10倍・一般公開はSol/Terra/Luna全3モデル対象・6月26日プレビュー→約13日間の米政府安全審査後に解禁・METRが「高リスク」に分類したモデル・Cerebras WSE-3は面積46,225mm²（GPU比約50倍）・Sol は推定70〜100ウェーファーで動作・推定3T総パラメータ・150Bアクティブ・API料金は公式で要確認（出典：OpenAI公式 / TechTimes / Cerebras公式 / Value Add Pulse / byteiota・2026年7月9日）
 
 ## 未解説の候補トピック（今後の参考）
 
@@ -57,7 +58,5 @@
 - マルチエージェント（複数AIの協調）：2026年のエージェントフレームワーク比較
 - AI音声・TTS最新事情：各社音声モデルの比較と活用例
 - John Jumper（AlphaFold 2・2024年ノーベル化学賞共同受賞者）がGoogle DeepMind→Anthropicへ移籍（2026年6月24日報道）
-- OpenAI GPT-5.6 Terra・Luna の一般公開展開（数週間以内予定・詳細公式で要確認）
 - Google Dataland AIアートミュージアム（2026年6月20日ロサンゼルス開館・Geminiがリアルタイムインタラクティブアートを生成）
 - Colorado AI Act改定（SB26-189・2026年5月14日署名）：元の包括的AI規制法を大幅縮小・施行日を2026年6月30日から2027年1月1日に延期・アルゴリズム意思決定の透明性開示に絞った内容に変更
-- OpenAI GPT-5.6 Sol on Cerebras（2026年7月予定）：最大750トークン/秒・従来GPU比約10倍の速度・70〜100枚のCerebras WSE-3ウェーファー上で動作・約3T総パラメータ・150Bアクティブ・初期は限定顧客向け（出典：OpenAI公式 / VentureBeat・2026年7月）
