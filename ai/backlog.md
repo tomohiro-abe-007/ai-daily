@@ -45,10 +45,11 @@
 - 2026-07-09: Z.ai GLM-5.2（2026年6月13日リリース）・Zhipu AIのグローバルブランドZ.aiが公開・約750Bパラメータ（MoE / 1回の推論では約40B active）・MITライセンス完全オープンソース・HuggingFace/ModelScope で公開・1Mトークンコンテキスト・IndexShare（2.9倍の省エネ注意機構）・SWE-bench Pro 62.1点（GPT-5.5の58.6点超え）・Terminal-Bench 2.1で81.0点（Claude Opus 4.8の85.0点に4点差）・コストはGPT-5.5の約6分の1・API利用は中国データリスクあり（出典：VentureBeat / Euronews / InfoWorld / TechTimes・2026年6月〜7月）
 - 2026-07-10: Microsoft Frontier Company（2026年7月2日発表）・25億ドル＋6,000人体制・AI導入支援に特化した新事業組織・顧客企業にエンジニア・業界専門家を常駐派遣・MIT Project NANDA「企業AI試験導入の95%が効果ゼロ」に対応・顧客データはAI学習に使用しない・競合AI製品も利用継続可能・責任者はロドリゴ・ケデ・リマ氏・法的に独立した別会社ではなくマイクロソフト内の新事業部門・料金・詳細条件は公式で要確認（出典：Microsoft 公式ブログ / CNBC / TechCrunch / GeekWire / Fortune・2026年7月）
 - 2026-07-11: GPT-5.6 Sol 一般公開（2026年7月9日）＋ Cerebras WSE-3 で最大750トークン/秒・従来GPU比約10倍・一般公開はSol/Terra/Luna全3モデル対象・6月26日プレビュー→約13日間の米政府安全審査後に解禁・METRが「高リスク」に分類したモデル・Cerebras WSE-3は面積46,225mm²（GPU比約50倍）・Sol は推定70〜100ウェーファーで動作・推定3T総パラメータ・150Bアクティブ・API料金は公式で要確認（出典：OpenAI公式 / TechTimes / Cerebras公式 / Value Add Pulse / byteiota・2026年7月9日）
+- 2026-07-12: SpaceXAI Grok 4.5（2026年7月8〜9日公開）・Cursor買収後初のモデル・1.5兆パラメータV9基盤（推定）・Terminal-Bench 2.1で83.3%・1兆件超のCursorトークンで訓練・コーディング/エージェント/法律/金融に特化・$2/$6（百万トークン・公式要確認）・Grok Build/Cursor全プラン/SpaceXAIコンソールで提供・EU未対応（2026年7月時点）・Elon曰く「Opusクラスだが速くて安い」（出典：Axios / TechCrunch / Bloomberg / Engadget・2026年7月8〜9日）
 
 ## 未解説の候補トピック（今後の参考）
 
-- xAI Grok 4.3 Beta（2026年4月）：動画・スライド・音声API対応のマルチモーダル推論
+- xAI Grok 4.3 Beta（2026年4月）：動画・スライド・音声API対応のマルチモーダル推論（※Grok 4.5解説済みにつき優先度低）
 - Microsoft Copilot Enterpriseセキュリティ脆弱性（CVE-2026-42824）：悪意あるリンク1クリックでデータ流出・2FAコード・メール・会議情報が窃取可能
 - Gemini 3.5 Pro（Google I/O 2026で予告・2026年6月GA予定・7月に延期）：2Mトークンコンテキスト・Deep Think推論・詳細は公式で要確認
 - Google Gemini 3.5 Flash詳報：市場シェア・Intelligence Index・284トークン/秒の生成速度
