@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-07-13</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #1e7a5a 0%, #0d4632 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #1e7a5a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.blue   { border-left-color: #1e5a7a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.purple { border-left-color: #7a4a9e; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #1e7a5a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  .type-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .type-grid { grid-template-columns: 1fr; } }
+  .type-card {
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-size: 0.86rem;
+    line-height: 1.65;
+  }
+  .type-card.main {
+    background: #e6f5ee;
+    border: 2px solid #1e7a5a;
+  }
+  .type-card.sub {
+    background: #e8f0f8;
+    border: 2px solid #1e5a7a;
+  }
+  .type-card .tl {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+  }
+  .type-card.main .tl { color: #0d4632; }
+  .type-card.sub .tl  { color: #0d3352; }
+  .type-card .tv { font-size: 1.0rem; font-weight: 700; margin-bottom: 6px; }
+  .type-card.main .tv { color: #1e7a5a; }
+  .type-card.sub .tv  { color: #1e5a7a; }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 14px 10px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat .sl { font-size: 0.67rem; color: #888; margin-bottom: 3px; }
+  .stat .sv { font-size: 1.5rem; font-weight: 700; color: #1e7a5a; line-height: 1.1; }
+  .stat .su { font-size: 0.7rem; color: #666; margin-top: 2px; }
+
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #1e7a5a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+  .f-arrow { color: #1e7a5a; font-size: 1.1rem; margin-left: 14px; margin-bottom: 4px; }
+
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  .prompt-box {
+    background: #f0f5ff;
+    border: 2px solid #4a6aae;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 12px 0;
+    font-size: 0.84rem;
+    line-height: 1.85;
+    color: #1a2a4a;
+  }
+  .prompt-box .ph {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #4a6aae;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+  .prompt-box .fill {
+    background: #d0e0ff;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-weight: 700;
+    color: #0a2a6e;
+  }
+
+  .info {
+    background: #e6f5ee;
+    border-left: 4px solid #1e7a5a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #0d4632;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #7a4010;
+  }
+
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #1e7a5a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+
+  .badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 8px;
+    margin-right: 4px;
+    vertical-align: middle;
+  }
+  .badge.law   { background: #1e7a5a; color: white; }
+  .badge.ai    { background: #4a6aae; color: white; }
+  .badge.tip   { background: #4a9e6a; color: white; }
+  .badge.warn  { background: #c8884a; color: white; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #1e7a5a; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #1e7a5a; }
+
+  .flow-h {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 14px 0;
+  }
+  .flow-box {
+    background: white;
+    border: 2px solid #1e7a5a;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 0.81rem;
+    text-align: center;
+    line-height: 1.45;
+    color: #0d4632;
+    font-weight: 600;
+  }
+  .flow-arrow {
+    color: #1e7a5a;
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+  @media (max-width: 540px) {
+    .flow-h { flex-direction: column; align-items: flex-start; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+
+  .matrix {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.83rem;
+  }
+  .matrix th {
+    background: #0d4632;
+    color: white;
+    padding: 8px 12px;
+    text-align: center;
+    font-weight: 600;
+  }
+  .matrix td {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    vertical-align: top;
+    line-height: 1.55;
+  }
+  .matrix .row-head {
+    background: #e6f5ee;
+    font-weight: 700;
+    color: #0d4632;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .matrix .ok  { color: #4a9e6a; font-weight: 700; }
+  .matrix .ng  { color: #b54040; font-weight: 700; }
+  .matrix .mid { color: #c8884a; font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Header -->
+<div class="header">
+  <div class="meta">📅 1人法人スタート 最新トピック &nbsp;2026-07-13</div>
+  <h1>🎁 社長の「ボーナス」を経費にするカギ、<br>それが事前確定届出給与</h1>
+  <div class="desc">
+    <span class="htag">法人税</span>
+    <span class="htag">役員賞与</span>
+    <span class="htag">事前確定届出給与</span>
+    <span class="htag">国税庁</span>
+    <br>
+    前回（7/11）は「毎月の役員報酬」を下げるルールでした。今日はその逆、<span class="hl">役員に賞与（ボーナス）を経費として払う</span>ための特別な仕組み「事前確定届出給与」を図解します。届出を1日でも間違えると全額アウトという、かなり厳しい制度です。
+  </div>
+</div>
+
+<!-- Section 1: what is it -->
+<div class="card">
+  <div class="sec-title">🧾 「事前確定届出給与」って何？</div>
+  <p>社長1人の会社でも、役員（自分自身）に賞与を払うことはできます。ただし何も対策せずに払うと、その賞与は<strong>会社の経費（損金）として認められません</strong>。</p>
+
+  <p style="margin-top:10px;">そこで使うのが<strong>事前確定届出給与</strong>（じぜんかくていとどけできゅうよ＝「いつ・いくら払うか」をあらかじめ税務署に届け出た給与）という制度です。あらかじめ支給時期と金額を決めて税務署に届け出て、<span class="hl">その届出どおりに支給した場合に限り</span>、経費として認めてもらえます（根拠：法人税法第34条第1項第2号）。</p>
+
+  <div class="type-grid" style="margin-top:14px;">
+    <div class="type-card sub">
+      <div class="tl">🔄 定期同額給与（7/11の話）</div>
+      <div class="tv">毎月の役員報酬</div>
+      ・毎月同じ時期に同じ金額<br>
+      ・事前の届出は不要<br>
+      ・変更できる時期に制限あり
+    </div>
+    <div class="type-card main">
+      <div class="tl">🎁 事前確定届出給与（今日の話）</div>
+      <div class="tv">役員へのボーナス</div>
+      ・支給時期・金額は自由に設定できる<br>
+      ・ただし<strong>事前の届出が必須</strong><br>
+      ・届出どおりでないと全額アウト
+    </div>
+  </div>
+
+  <div class="source">
+    出典：国税庁 No.5211「役員に対する給与」<br>
+    <a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/hojin/5211.htm" target="_blank">https://www.nta.go.jp/taxes/shiraberu/taxanswer/hojin/5211.htm</a>
+  </div>
+</div>
+
+<!-- Section 2: deadline -->
+<div class="card blue">
+  <div class="sec-title">⏰ 届出の期限は「どちらか早い日」まで</div>
+  <p>事前確定届出給与に関する届出書の提出期限は、次の2つのうち<strong>いずれか早い日</strong>です。</p>
+
+  <div class="stats-row" style="margin-top:14px;">
+    <div class="stat">
+      <div class="sl">パターンA</div>
+      <div class="sv">決議日+1か月</div>
+      <div class="su">株主総会等の決議日から1か月を経過する日</div>
+    </div>
+    <div class="stat">
+      <div class="sl">パターンB</div>
+      <div class="sv">期首+4か月</div>
+      <div class="su">その事業年度開始の日から4か月を経過する日</div>
+    </div>
+    <div class="stat">
+      <div class="sl">どちらか</div>
+      <div class="sv">早い方</div>
+      <div class="su">A・Bを比べて先に来る日が期限</div>
+    </div>
+  </div>
+
+  <div class="flow-h" style="margin-top:14px;">
+    <div class="flow-box">📋 ①<br>株主総会で<br>賞与の時期・金額を決議</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-box">🖊️ ②<br>届出書を作成</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-box">📮 ③<br>期限までに<br>税務署へ提出</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-box">💴 ④<br>届出どおりに<br>支給</div>
+  </div>
+
+  <div class="warn" style="margin-top:12px;">
+    ⚠️ 期限が土曜・日曜・祝日・年末年始にあたる場合は、その翌営業日が期限になります。ただし<strong>原則としてこの提出期限は延長できません</strong>。1日の遅れも認められないと考えておきましょう。
+  </div>
+
+  <div class="source">
+    出典：国税庁 C1-23「事前確定届出給与に関する届出」<br>
+    <a href="https://www.nta.go.jp/taxes/tetsuzuki/shinsei/annai/hojin/annai/5104.htm" target="_blank">https://www.nta.go.jp/taxes/tetsuzuki/shinsei/annai/hojin/annai/5104.htm</a>
+  </div>
+</div>
+
+<!-- Section 3: new company special rule -->
+<div class="card orange">
+  <div class="sec-title">🆕 設立したばかりの会社には特別ルールがある</div>
+  <p>設立初年度（第1期）は株主総会を開いていないケースも多いため、<strong>設立の日から2か月を経過する日</strong>が届出期限になる特例があります。これは、法人の設立時から役員としての職務を始める人（＝1人社長自身）が対象です。</p>
+
+  <div class="info" style="margin-top:12px;">
+    💡 つまり、設立して間もない1人社長が最初の事業年度に自分へ賞与を出したいなら、<span class="hl">設立日から2か月以内</span>に届出書を出す必要があります。決算期の設定次第では、通常の「期首から4か月」より短くなる点に注意してください。
+  </div>
+
+  <div class="source">
+    出典：国税庁 C1-23「事前確定届出給与に関する届出」（新設法人の届出期限の特例）<br>
+    <a href="https://www.nta.go.jp/taxes/tetsuzuki/shinsei/annai/hojin/annai/5104.htm" target="_blank">https://www.nta.go.jp/taxes/tetsuzuki/shinsei/annai/hojin/annai/5104.htm</a>
+  </div>
+</div>
+
+<!-- Section 4: mismatch = fully denied -->
+<div class="card red">
+  <div class="sec-title">💥 「届出どおり」でないと、差額どころか全額アウト</div>
+  <p>この制度でいちばん誤解されがちなのが、ズレたときの罰則の重さです。定期同額給与の「差額だけ損金不算入」とは違い、事前確定届出給与は<strong>1円でも1日でもズレると、支給額の全額が損金不算入</strong>になります。</p>
+
+  <table class="matrix" style="margin-top:14px;">
+    <tr>
+      <th style="width:30%;">支給の状況</th>
+      <th style="width:20%;">扱い</th>
+      <th>理由</th>
+    </tr>
+    <tr>
+      <td class="row-head">届出どおりの<br>時期・金額で支給</td>
+      <td class="ok">✅ 全額 損金算入</td>
+      <td>届出内容と支給の実態が完全に一致している</td>
+    </tr>
+    <tr>
+      <td class="row-head">金額だけ<br>多く／少なく支給</td>
+      <td class="ng">❌ 全額 損金不算入</td>
+      <td>差額だけでなく、支給額の全体が対象になる</td>
+    </tr>
+    <tr>
+      <td class="row-head">支給日が<br>数日ズレた</td>
+      <td class="ng">❌ 全額 損金不算入</td>
+      <td>「所定の時期」と異なる支給とみなされる</td>
+    </tr>
+    <tr>
+      <td class="row-head">期限に<br>1日遅れて届出</td>
+      <td class="ng">❌ 制度の適用なし</td>
+      <td>届出自体が無効になり、そもそも対象外になる</td>
+    </tr>
+  </table>
+
+  <div class="warn" style="margin-top:10px;">
+    ⚠️ 資金繰りの都合で「今月は少なめに払っておこう」と減らすと、その事業年度の賞与全体が経費として認められなくなるおそれがあります。届出をした以上は、原則としてそのとおりに払い切ることが前提です。
+  </div>
+
+  <div class="source">
+    出典：国税庁 質疑応答事例「事前確定届出給与に関する届出書を提出している法人が、届出書の記載額と異なる支給をした場合の取扱い」<br>
+    <a href="https://www.nta.go.jp/law/shitsugi/hojin/11/13.htm" target="_blank">https://www.nta.go.jp/law/shitsugi/hojin/11/13.htm</a>
+  </div>
+</div>
+
+<!-- Section 5: checklist -->
+<div class="card">
+  <div class="sec-title">✅ 今日からできる実践チェックリスト</div>
+  <ul class="check-list" style="margin-top:10px;">
+    <li><span class="ck">☑</span> 役員賞与を出す予定があるなら、まず「決議日から1か月」と「期首から4か月」のどちらが早いかを確認する</li>
+    <li><span class="ck">☑</span> 設立初年度は「設立日から2か月以内」という短い期限になる点を必ずカレンダーに入れる</li>
+    <li><span class="ck">☑</span> 届出書の金額・支給日は、無理のない現実的な数字にする（あとで変えられないため）</li>
+    <li><span class="ck">☑</span> 支給日が近づいたら、届出書どおりの金額・日付で振り込めているか事前にダブルチェックする</li>
+    <li><span class="ck-bad">⚠</span> <span style="color:#888;">資金繰りが厳しくても、届出額を勝手に減らして払うのは避け、事前に税理士へ相談する</span></li>
+  </ul>
+</div>
+
+<!-- Section 6: AI prompt -->
+<div class="card orange">
+  <div class="sec-title">🤖 生成AIに「たたき台」を作ってもらうプロンプト例</div>
+  <p>最終判断は税理士に確認する前提で、<span class="hl">届出内容の整理メモや議事録の下書き</span>はAIに手伝ってもらえます。</p>
+
+  <div class="prompt-box" style="margin-top:14px;">
+    <div class="ph">🤖 プロンプト例：事前確定届出給与の届出内容チェックメモ</div>
+    当社（株主1名・代表取締役1名の1人会社）は、<span class="fill">【設立日または直近の決算期開始日】</span>を基準に、代表取締役に対して<span class="fill">【支給予定日】</span>に<span class="fill">【支給予定額】</span>円の賞与（事前確定届出給与）を支給することを検討しています。<br>
+    <br>
+    法人税法上の事前確定届出給与の届出期限（決議日から1か月・事業年度開始から4か月のいずれか早い日、設立初年度は設立日から2か月）を踏まえ、いつまでに届出書を提出すべきかを整理してください。また、届出内容と支給実態を一致させるためのチェックリストも作成してください。<br>
+    ※期限の判定と届出書の記載内容は必ず税理士に確認のうえ、実際の事実関係に沿って提出してください。
+  </div>
+</div>
+
+<!-- Section 7: summary -->
+<div class="card">
+  <div class="sec-title">📝 今日のまとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">①</span>役員への賞与を経費にするには、あらかじめ税務署に<span class="hlg">時期と金額を届け出る</span>「事前確定届出給与」の制度を使う。</li>
+    <li><span class="n">②</span>届出期限は<span class="hl">「決議日から1か月」と「期首から4か月」のいずれか早い日</span>。原則として延長はできない。</li>
+    <li><span class="n">③</span>設立初年度は<span class="hl">設立日から2か月以内</span>という特例の期限になるため、特に注意が必要。</li>
+    <li><span class="n">④</span>届出内容と実際の支給が<span class="hl">1円・1日でもズレると全額が損金不算入</span>になる、厳しい制度。</li>
+    <li><span class="n">⑤</span>資金繰りの都合で金額を減らす対応は危険。無理のない金額をあらかじめ設定することが重要。</li>
+    <li><span class="n">⑥</span>AIには届出スケジュールの整理やチェックリスト作りを任せ、最終的な届出内容は税理士に確認する。</li>
+  </ul>
+</div>
+
+<!-- Disclaimer -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報提供を目的としており、個別の税務・法務の判断を代わるものではありません。
+  届出期限の計算方法や、届出内容と支給実態が一致しているかどうかの判断は会社ごとの事情により異なります。
+  具体的な適用可否や届出書の作成・提出は、必ず税理士にご確認ください。
+  税率・要件・届出期限は改正されることがあります。最新情報は国税庁（<a href="https://www.nta.go.jp/" target="_blank">https://www.nta.go.jp/</a>）の公式サイトでご確認ください。<br>
+  本記事の内容の基準年度：令和8年度（2026年度）、令和8年7月時点の情報。
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>📚 <a href="index.html">バックナンバー一覧へ</a> &nbsp;&middot;&nbsp; 毎朝更新</p>
+</div>
+
+</div>
+</body>
+</html>
