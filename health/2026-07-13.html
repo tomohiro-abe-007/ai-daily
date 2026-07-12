@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-07-13</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '🍓';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 18px 16px;
+    font-size: 0.86rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.95rem; margin-bottom: 10px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.2em; }
+  .c3-col li { margin-bottom: 5px; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .mech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .mech-item {
+    background: #f0faf5;
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 0.85rem;
+    border-top: 3px solid #1a7a5a;
+  }
+  .mech-item .micon { font-size: 1.3rem; margin-bottom: 6px; }
+  .mech-item strong { display: block; color: #0d4a35; margin-bottom: 4px; font-size: 0.88rem; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .highlight { background: #cff0df; padding: 1px 5px; border-radius: 4px; }
+  .good { color: #1a7a5a; font-weight: 600; }
+  .bad  { color: #c0392b; font-weight: 600; }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-box {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin: 14px 0;
+    font-size: 0.92rem;
+  }
+  .def-box .def-label {
+    font-size: 0.75rem;
+    color: #1a7a5a;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  @media (max-width: 540px) {
+    .compare3 { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.9rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ヘッダー -->
+<div class="header">
+  <div class="label">健康・栄養 最新トピック ・ 2026-07-13</div>
+  <h1>同じイチゴを食べても、効果は人によって違う?<br>
+  腸内細菌の「変換レシピ」が野菜・果物の健康効果を左右する</h1>
+  <div class="subtitle">「野菜や果物を食べれば健康にいい」とよく言われますが、その効果には個人差があります。ドイツ・イエナ大学とライプニッツ研究所などの国際研究チームが、腸内細菌(腸の中に住む無数の細菌)が持つ「酵素(化学反応を進めるタンパク質)」が、植物由来の健康成分をどう作り変えているかを大規模に解析しました。今日はこの研究を通じて、精密栄養学(個人差に合わせた栄養の考え方)の最前線をのぞいてみます。</div>
+</div>
+
+<!-- タグ -->
+<div style="margin-bottom:18px;">
+  <span class="tag">精密栄養学</span>
+  <span class="tag">腸内細菌</span>
+  <span class="tag">ファイトニュートリエント</span>
+  <span class="tag">Nature Microbiology</span>
+  <span class="tag">動物実験と観察研究の違い</span>
+</div>
+
+<!-- 今日の疑問 -->
+<div class="card">
+  <h2>🤔 今日の疑問:「体にいい野菜」なのに、効いた気がしない人がいるのはなぜ?</h2>
+  <p>ポリフェノールや食物繊維など、植物由来の健康に良いとされる化学成分を「ファイトニュートリエント(phytonutrient、植物性栄養素)」と呼びます。これらの多くは、食べてそのままの形では体にほとんど吸収されず、<strong>腸内細菌が持つ酵素によって「活性型」に作り変えられて初めて働く</strong>ことが知られています。</p>
+  <p>では、その「作り変える力」は誰でも同じなのでしょうか? もし人によって大きく違うなら、「野菜を食べれば健康にいい」という一般論だけでは説明できない個人差があるはずです。今回紹介する研究は、まさにこの問いに大規模データで迫ったものです。</p>
+</div>
+
+<!-- 研究概要 -->
+<div class="card blue">
+  <h2>🔬 研究の土台:775種類の植物成分 × 3,068人分の腸内細菌データ</h2>
+  <p>この研究「Gut microbiome-mediated transformation of dietary phytonutrients is associated with health outcomes」は、ドイツ・イエナ大学「Balance of the Microverse」研究拠点とライプニッツ研究所(Leibniz-HKI)を中心とした国際研究チーム(Zhang, Marfil-Sánchezら)によって、査読誌<em>Nature Microbiology</em>(2026年、通巻11号 pp.94-110)に2025年12月3日オンライン先行掲載されました(DOI: 10.1038/s41564-025-02197-z)。</p>
+  <div class="flow">
+    <div class="flow-step">酵素反応データベース<br>×<br>食品の健康効果<br>データベースを統合</div>
+    <div class="flow-arrow">▶</div>
+    <div class="flow-step purp">世界各地で公開されている<br>腸内細菌データ<br>3,068人分を解析</div>
+    <div class="flow-arrow">▶</div>
+    <div class="flow-step alt">775種類の植物成分の<br>「変換パターン」を<br>コンピュータ上で特定</div>
+  </div>
+  <p style="margin-top:10px;">これは新たに人を集めて食事を与える臨床試験ではなく、<strong>すでに世界中で公開されている腸内細菌の遺伝子データと、化学反応・健康効果に関する既存データベースを統合して解析する「データベース研究(計算科学的解析)」</strong>です。人数は多い一方、原因と結果を直接証明する研究デザインではない点に注意が必要です。</p>
+</div>
+
+<!-- 数字カード -->
+<div class="num-row">
+  <div class="num-card">
+    <div class="big">775<span class="unit">種類</span></div>
+    <div class="desc">腸内細菌の酵素で変換されうると分かった植物成分の数</div>
+  </div>
+  <div class="num-card blue-bg">
+    <div class="big">3,068<span class="unit">人分</span></div>
+    <div class="desc">解析に使われた世界各地の公開腸内細菌データ</div>
+  </div>
+  <div class="num-card orange-bg">
+    <div class="big">約70<span class="unit">%</span></div>
+    <div class="desc">この変換に関わっていた腸内細菌の酵素の割合(研究チーム発表資料より)</div>
+  </div>
+  <div class="num-card purple-bg">
+    <div class="big">525<span class="unit">/775種</span></div>
+    <div class="desc">代表的なプロバイオティクス菌59株のゲノムで変換可能と分かった成分数</div>
+  </div>
+</div>
+
+<!-- 発見1 -->
+<div class="card orange">
+  <h2>📊 発見:変換できる力には「大きな個人差・地域差」があった</h2>
+  <p>研究チームが3,068人分の腸内細菌データを比較したところ、植物成分を活性型に変換する能力には、<strong>人によって、そして住んでいる地域によって、大きなばらつきがある</strong>ことが分かりました。持っている腸内細菌の種類が違えば、同じイチゴやブロッコリーを食べても、体の中で起きる化学変化がまったく違う、というわけです。</p>
+  <p>さらに機械学習(コンピュータにパターンを学習させる統計手法)を使ったモデルでは、この「腸内細菌の酵素プロファイル(組み合わせの特徴)」が、健康な人とさまざまな病気を持つ人とを見分けるパターンとも関連していることが示されました。ただし、これは<strong>「関連(相関)」であって「その病気の原因になっている」と証明されたわけではない</strong>点は重要です。</p>
+</div>
+
+<!-- マウス実験:因果の検証 -->
+<div class="card purple">
+  <h2>🐭 マウス実験で「原因と結果」を確かめる:イチゴの効果は腸内細菌しだい</h2>
+  <p>ヒトの公開データ解析だけでは「関連」までしか言えません。そこで研究チームは、腸内細菌の有無で本当に効果が変わるのかを、マウスを使った実験で検証しました。</p>
+  <div class="mech-grid">
+    <div class="mech-item">
+      <div class="micon">🧫</div>
+      <strong>SPFマウス(通常の腸内細菌を持つ)</strong>
+      人工的に大腸炎を起こす「DSS大腸炎モデル」に17日間イチゴを加えた食事を与えたところ、体重減少や炎症の重症度スコアが有意に改善し、組織の損傷も軽くなった。
+    </div>
+    <div class="mech-item">
+      <div class="micon">🚫🦠</div>
+      <strong>無菌マウス(腸内細菌をまったく持たない)</strong>
+      同じイチゴを与えても、腸内細菌由来の酵素がないため、抗炎症効果の一部が十分に発揮されなかった。
+    </div>
+  </div>
+  <p style="margin-top:8px;">つまり「イチゴという食品そのもの」だけでなく、「それを受け取る腸内細菌がいるかどうか」が効果を左右していたことになります。これはマウスを使った実験的な比較であり、原因と結果の関係(因果関係)を示す強い根拠になりますが、<strong>あくまで動物実験の結果であり、ヒトで同じことが証明されたわけではありません。</strong></p>
+</div>
+
+<!-- 見落とされがちな点 -->
+<div class="card">
+  <h2>🔍 見落とされがちな点:「健康な食事」だけでは足りないかもしれない</h2>
+  <p>同じ号に掲載された解説記事(News &amp; Views、DOI: 10.1038/s41564-025-02220-3)では、この研究の意味についてこう指摘されています。</p>
+  <ul>
+    <li>健康効果が実証されている植物性食品を食べても、その人の腸内細菌が「変換する酵素」を十分に持っていなければ、期待した効果が出ない可能性がある。</li>
+    <li>病気の状態にある腸内細菌叢は、健康な人の腸内細菌叢と比べて植物成分を変換する能力そのものが違っている可能性があり、そうなると「みんな同じ食事法を実践すれば同じように健康になる」という一律のアドバイスには限界があるかもしれない。</li>
+    <li>ヒトのどの代謝物が実際にどんな体の変化を引き起こすのか、また食事の組み合わせがこの変換にどう影響するかは、まだ十分に分かっていない。</li>
+  </ul>
+</div>
+
+<!-- 注意点 -->
+<div class="warn">
+  <strong>⚠️ この結果をどう読むべきか(とても重要):</strong>
+  <ul style="padding-left:1.4em; margin-top:8px;">
+    <li>ヒトのデータ部分は、<span class="bad">3,068人分の既存データベースを統合したコンピュータ上の解析(観察・相関研究に近い性格)</span>であり、新たに人に食事を与えて効果を測った臨床試験(RCT)ではありません。「原因と結果」を直接証明するものではない点に注意してください。</li>
+    <li>因果関係を示す実験(イチゴと大腸炎)は<span class="bad">マウスのみ</span>で行われたものです。マウスで見られた結果がそのままヒトに当てはまるとは限りません。</li>
+    <li>現時点で「自分の腸内細菌の変換能力」を調べて個別に食事を最適化できる、検証済みの一般向け検査や方法はありません。市販の腸内細菌検査の結果だけをもとに大きく食事を変えることはおすすめできません。</li>
+    <li>「野菜・果物を食べることが無駄」という意味では全くなく、多様な植物性食品をバランス良く食べる基本方針は今回の研究でも揺らいでいません。</li>
+  </ul>
+</div>
+
+<!-- エビデンスの強さ -->
+<div class="card">
+  <h2>🧪 エビデンスの強さを整理する</h2>
+  <table class="ev-table">
+    <tr><th>知見</th><th>研究の種類</th><th>エビデンスの強さ</th></tr>
+    <tr>
+      <td>植物成分を変換する腸内細菌の能力には個人差・地域差がある</td>
+      <td>3,068人分の公開データベース解析(観察的)</td>
+      <td><span class="ev-badge ev-mid">大規模だが相関どまり</span></td>
+    </tr>
+    <tr>
+      <td>腸内細菌の酵素プロファイルと病気の状態に関連がある</td>
+      <td>機械学習によるパターン分類(観察的)</td>
+      <td><span class="ev-badge ev-low">関連のみ・因果は未証明</span></td>
+    </tr>
+    <tr>
+      <td>イチゴの抗炎症効果は腸内細菌の有無で変わる</td>
+      <td>マウス実験(SPF vs 無菌マウス、DSS大腸炎モデル)</td>
+      <td><span class="ev-badge ev-high">動物実験としては強い因果的根拠</span></td>
+    </tr>
+    <tr>
+      <td>ヒトで「腸内細菌に合わせた個別化食」の効果</td>
+      <td>今回の研究では未検証</td>
+      <td><span class="ev-badge ev-low">今後のヒトRCTが必要</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- 精密栄養学の視点 -->
+<div class="card">
+  <h2>🎯 精密栄養学の視点:「何を食べるか」だけでなく「誰が食べるか」</h2>
+  <ul class="step-list">
+    <li>従来の栄養学は「この成分にはこの効果がある」という食品側の性質に注目してきました。今回の研究は、その効果を受け取る側である<strong>腸内細菌の個人差</strong>にも同じくらい目を向ける必要があることを示しています。</li>
+    <li>腸内細菌の構成は、生まれ育った地域の食文化、これまでの食生活、抗生物質の使用歴などによって大きく変わることが知られています。「万人に効く食事法」を探すより、「自分の腸内細菌にとって意味のある食べ方」を考える方向性が、精密栄養学が目指す将来像のひとつです。</li>
+    <li>ただし、そのための実用的な検査法や個別化の方法は、まだ研究段階です。今できる現実的な対策は、特定の一品に頼るのではなく、<strong>多様な種類の野菜・果物・発酵食品を日常的に取り入れ、腸内細菌の「材料」と「多様性」の両方を保つこと</strong>です。</li>
+  </ul>
+</div>
+
+<!-- まとめ -->
+<div class="card" style="border-left-color:#1a7a5a;">
+  <h2>✅ 今日のまとめ</h2>
+  <ul class="step-list">
+    <li>イエナ大学・ライプニッツ研究所などの国際チームが、775種類の植物成分と3,068人分の腸内細菌データを統合解析(Zhang, Marfil-Sánchezら, <em>Nature Microbiology</em> 2026, DOI: 10.1038/s41564-025-02197-z, 2025年12月3日オンライン掲載)。</li>
+    <li>植物成分を「活性型」に変換する腸内細菌の力には、人によって・地域によって大きな差があることが分かった(ヒトデータは観察的解析)。</li>
+    <li>マウス実験では、イチゴの抗炎症効果が腸内細菌の有無によって変わることを確認(通常マウス vs 無菌マウス)。これは動物実験による因果的根拠であり、ヒトでの証明ではない。</li>
+    <li>「健康な食品を食べればみんな同じ効果が出る」とは限らず、腸内細菌という「受け手側」の個人差が精密栄養学の重要なテーマであることを示す研究。ただし個別化のための実用的な検査法はまだ確立していない。</li>
+  </ul>
+</div>
+
+<!-- 免責 -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、医療アドバイスではありません。効果・必要量・リスクは個人の体質・年齢・持病・服薬によって大きく異なります。実践の前には、かかりつけ医・管理栄養士・薬剤師など専門家にご相談ください。本記事は特定の食事制限・サプリメント・腸内細菌検査などを安易に推奨するものではありません。
+</div>
+
+<!-- 出典 -->
+<div class="sources">
+  <h3>📚 主な出典・参考文献</h3>
+  <ol>
+    <li>Zhang L, Marfil-Sánchez A, Kuo TH, Seelbinder B, van Dam L, Depetris-Chauvin A, et al. "Gut microbiome-mediated transformation of dietary phytonutrients is associated with health outcomes." <em>Nature Microbiology</em>. 2026;11:94-110(2025年12月3日オンライン先行掲載)。DOI: 10.1038/s41564-025-02197-z。
+      <a href="https://www.nature.com/articles/s41564-025-02197-z" target="_blank">https://www.nature.com/articles/s41564-025-02197-z</a>
+    </li>
+    <li>PubMed Central全文版:
+      <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12768975/" target="_blank">https://pmc.ncbi.nlm.nih.gov/articles/PMC12768975/</a>
+    </li>
+    <li>News &amp; Views解説記事「Gut microbial enzymes shape the health benefits of dietary phytonutrients」<em>Nature Microbiology</em> 2026。DOI: 10.1038/s41564-025-02220-3。
+      <a href="https://www.nature.com/articles/s41564-025-02220-3" target="_blank">https://www.nature.com/articles/s41564-025-02220-3</a>
+    </li>
+    <li>イエナ大学(University of Jena)プレスリリース「The Power of Gut Enzymes: Why Healthy Eating Affects Everyone Differently」2025年12月3日。
+      <a href="https://www.uni-jena.de/en/375639/the-power-of-gut-enzymes-why-healthy-eating-affects-everyone-differently" target="_blank">https://www.uni-jena.de/en/375639/the-power-of-gut-enzymes-why-healthy-eating-affects-everyone-differently</a>
+    </li>
+  </ol>
+  <p style="margin-top:8px; font-size:0.78rem;">※ 本記事は上記の査読誌論文・大学プレスリリースの公開情報をもとに構成しています。マウス実験の具体的な匹数など論文本文の詳細な統計値は、一次資料へのアクセス制限により、公開されている範囲の情報のみを記載しています。正確な統計値・著者全員・所属の詳細は上記DOIの一次資料でご確認ください。</p>
+</div>
+
+</div>
+</body>
+</html>
