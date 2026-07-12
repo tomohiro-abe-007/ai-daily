@@ -46,6 +46,7 @@
 - 2026-07-10: Microsoft Frontier Company（2026年7月2日発表）・25億ドル＋6,000人体制・AI導入支援に特化した新事業組織・顧客企業にエンジニア・業界専門家を常駐派遣・MIT Project NANDA「企業AI試験導入の95%が効果ゼロ」に対応・顧客データはAI学習に使用しない・競合AI製品も利用継続可能・責任者はロドリゴ・ケデ・リマ氏・法的に独立した別会社ではなくマイクロソフト内の新事業部門・料金・詳細条件は公式で要確認（出典：Microsoft 公式ブログ / CNBC / TechCrunch / GeekWire / Fortune・2026年7月）
 - 2026-07-11: GPT-5.6 Sol 一般公開（2026年7月9日）＋ Cerebras WSE-3 で最大750トークン/秒・従来GPU比約10倍・一般公開はSol/Terra/Luna全3モデル対象・6月26日プレビュー→約13日間の米政府安全審査後に解禁・METRが「高リスク」に分類したモデル・Cerebras WSE-3は面積46,225mm²（GPU比約50倍）・Sol は推定70〜100ウェーファーで動作・推定3T総パラメータ・150Bアクティブ・API料金は公式で要確認（出典：OpenAI公式 / TechTimes / Cerebras公式 / Value Add Pulse / byteiota・2026年7月9日）
 - 2026-07-12: SpaceXAI Grok 4.5（2026年7月8〜9日公開）・Cursor買収後初のモデル・1.5兆パラメータV9基盤（推定）・Terminal-Bench 2.1で83.3%・1兆件超のCursorトークンで訓練・コーディング/エージェント/法律/金融に特化・$2/$6（百万トークン・公式要確認）・Grok Build/Cursor全プラン/SpaceXAIコンソールで提供・EU未対応（2026年7月時点）・Elon曰く「Opusクラスだが速くて安い」（出典：Axios / TechCrunch / Bloomberg / Engadget・2026年7月8〜9日）
+- 2026-07-13: Apple vs OpenAI 企業秘密窃取訴訟（2026年7月10日提訴）・米カリフォルニア北部連邦地裁・「企業秘密の窃取・契約違反」・元Apple社員400人超がOpenAI在籍・チーフ・ハードウェア・オフィサー Tang Tan氏の採用活動での機密使用・Chang Liu氏のパソコン未返却・機密文書持ち出しが訴因・Jony Ive氏のio Productsも被告・2026年2月の警告書への返答なし（出典：TechCrunch / CNN / CNBC / Fortune / NBC News / Axios / The Japan Times・2026年7月10〜11日）
 
 ## 未解説の候補トピック（今後の参考）
 
@@ -59,5 +60,7 @@
 - マルチエージェント（複数AIの協調）：2026年のエージェントフレームワーク比較
 - AI音声・TTS最新事情：各社音声モデルの比較と活用例
 - John Jumper（AlphaFold 2・2024年ノーベル化学賞共同受賞者）がGoogle DeepMind→Anthropicへ移籍（2026年6月24日報道）
+- Anthropic Claude Cowork モバイル展開（2026年7月7〜9日発表）・iOS/Android対応・バックグラウンド実行・スマホから進捗確認・タスク許可通知・Max プランからベータ展開・Cowork使用量制限を8月5日まで2倍に延長（出典：9to5Mac / Dataconomy / Engadget・2026年7月7〜9日）
+- Apple Foundation Models 3（AFM 3）詳報（WWDC 2026・2026年6月発表）・5モデル体制（AFM 3 Core / AFM 3 Core Advanced 20B / AFM 3 Cloud / AFM 3 Cloud Image / AFM 3 Cloud Pro）・Google Cloud NVIDIA GB300に Private Cloud Compute を拡張・Gemini蒸留を使用するがGeminiモデルそのものは不使用（出典：Apple ML Research / 9to5Mac / MacStories・2026年6月）
 - Google Dataland AIアートミュージアム（2026年6月20日ロサンゼルス開館・Geminiがリアルタイムインタラクティブアートを生成）
 - Colorado AI Act改定（SB26-189・2026年5月14日署名）：元の包括的AI規制法を大幅縮小・施行日を2026年6月30日から2027年1月1日に延期・アルゴリズム意思決定の透明性開示に絞った内容に変更
