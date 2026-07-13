@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI動画制作 最新トピック 2026-07-14</title>
+<style>
+  :root {
+    --bg: #ece8e1;
+    --card: #faf6ec;
+    --dark: #1a3a5c;
+    --dark2: #1a5c3a;
+    --accent: #2a5c8a;
+    --accent2: #c85a00;
+    --text: #2a3540;
+    --muted: #7c8a82;
+    --border: #e0d8c8;
+    --highlight: #fff3cd;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, "Hiragino Sans", "Yu Gothic", sans-serif;
+    line-height: 1.75;
+    padding: 20px;
+  }
+  .wrap { max-width: 900px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #1a3a5c 0%, #1a5c3a 100%);
+    color: #fff;
+    border-radius: 20px;
+    padding: 44px 32px 36px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(26,58,92,.22);
+    margin-bottom: 24px;
+  }
+  .header-tag {
+    display: inline-block;
+    background: rgba(255,255,255,.18);
+    color: #e0f0e8;
+    border-radius: 20px;
+    padding: 4px 16px;
+    font-size: .82rem;
+    margin-bottom: 14px;
+    letter-spacing: .06em;
+  }
+  .header h1 { font-size: 1.7rem; letter-spacing: .03em; line-height: 1.4; margin-bottom: 10px; }
+  .header .sub { color: #c8dde8; font-size: .95rem; }
+  .header .date { color: #b0e0c0; font-size: .85rem; margin-top: 8px; }
+
+  .card {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 12px rgba(0,0,0,.07);
+    border: 1px solid var(--border);
+  }
+  .card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .point-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .point-card { background: #eef3f8; border-radius: 14px; padding: 20px 16px; text-align: center; border: 1px solid #d4e0ea; }
+  .point-icon { font-size: 2rem; margin-bottom: 8px; }
+  .point-title { font-size: .95rem; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
+  .point-desc { font-size: .83rem; color: var(--muted); line-height: 1.6; }
+
+  .bignum-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 20px; }
+  .bignum-card { background: linear-gradient(135deg, #1a3a5c, #1a5c3a); border-radius: 14px; padding: 18px 12px; text-align: center; color: #fff; }
+  .bignum { font-size: 1.15rem; font-weight: 800; color: #ffe0a0; line-height: 1.2; }
+  .bignum-label { font-size: .72rem; color: #cfe6d8; margin-top: 4px; line-height: 1.5; }
+
+  .step-list { list-style: none; }
+  .step-item { display: flex; gap: 14px; margin-bottom: 16px; align-items: flex-start; }
+  .step-num {
+    width: 34px; height: 34px;
+    background: linear-gradient(135deg, #1a3a5c, #1a5c3a);
+    color: #fff; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: .95rem; flex-shrink: 0; margin-top: 2px;
+  }
+  .step-body { flex: 1; }
+  .step-title { font-weight: 700; color: var(--dark); font-size: .95rem; }
+  .step-desc { font-size: .86rem; color: var(--muted); margin-top: 3px; line-height: 1.65; }
+
+  .chip-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .chip { background: #e8f0ec; color: #1a5c3a; border-radius: 20px; padding: 4px 14px; font-size: .82rem; font-weight: 600; border: 1px solid #c0dccc; }
+
+  .tbl { width: 100%; border-collapse: collapse; font-size: .86rem; }
+  .tbl th { background: #eaf1ea; padding: 10px 10px; text-align: left; border-bottom: 2px solid #c8ddc8; color: var(--dark); font-weight: 700; }
+  .tbl td { padding: 10px 10px; border-bottom: 1px solid var(--border); vertical-align: top; color: var(--text); }
+  .tbl tr:last-child td { border-bottom: none; }
+
+  .note-box { background: var(--highlight); border-left: 4px solid #e8a000; border-radius: 8px; padding: 12px 16px; font-size: .88rem; color: #5a4000; margin-top: 14px; line-height: 1.7; }
+
+  .summary-list { font-size: .95rem; line-height: 2.2; }
+  .summary-list li { list-style: none; display: flex; align-items: flex-start; gap: 8px; }
+  .summary-list li::before { content: "✅"; flex-shrink: 0; margin-top: 2px; }
+
+  .disclaimer { background: #f0ede8; border-radius: 12px; padding: 16px 20px; font-size: .82rem; color: var(--muted); margin-top: 24px; line-height: 1.7; border: 1px solid #ddd8d0; }
+
+  footer { text-align: center; color: var(--muted); font-size: .82rem; margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border); line-height: 1.9; }
+  footer a { color: var(--accent); }
+
+  /* flow diagram */
+  .flow-wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px; margin: 16px 0 4px; }
+  .flow-box { border-radius: 12px; padding: 12px 14px; text-align: center; min-width: 118px; font-size: .8rem; font-weight: 700; color: #fff; }
+  .flow-sub { font-size: .68rem; font-weight: 400; margin-top: 4px; line-height: 1.4; opacity: .9; }
+  .flow-arrow { font-size: 1.2rem; color: #aaa; }
+  .flow-label { text-align: center; font-size: .78rem; color: var(--muted); font-weight: 700; margin-bottom: 4px; }
+
+  .rule-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 16px; }
+  .rule-card { border-radius: 14px; padding: 16px 18px; }
+  .rule-card.ok { background: #eef8f0; border: 1px solid #bfe3c8; }
+  .rule-card.ng { background: #fdeeee; border: 1px solid #f0c4c4; }
+  .rule-head { font-weight: 700; font-size: .95rem; margin-bottom: 8px; }
+  .rule-card.ok .rule-head { color: #1a6c3a; }
+  .rule-card.ng .rule-head { color: #b03030; }
+  .rule-card ul { padding-left: 18px; font-size: .85rem; color: var(--text); line-height: 1.8; }
+
+  @media (max-width: 640px) {
+    .point-grid { grid-template-columns: 1fr; }
+    .bignum-grid { grid-template-columns: repeat(2, 1fr); }
+    .rule-grid { grid-template-columns: 1fr; }
+    .tbl { display: block; overflow-x: auto; white-space: nowrap; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="header">
+  <div class="header-tag">🛠️ ツール情報回 ── SNSアプリ本体に動画編集機能が内蔵される時代へ</div>
+  <h1>X(旧Twitter)のiOSアプリに動画編集機能<br>── グリーンスクリーンも標準搭載</h1>
+  <div class="sub">2026年7月7日、Xがアプリ内に新しい「Video Editor & Recorder」を追加。撮影・背景差し替え・多言語字幕・投稿が1つのアプリだけで完結するようになった</div>
+  <div class="date">2026-07-14 ｜ AI動画制作 日報</div>
+</div>
+
+<div class="card">
+  <div class="card-title">🎯 今日の3ポイント</div>
+  <div class="point-grid">
+    <div class="point-card">
+      <div class="point-icon">🎬</div>
+      <div class="point-title">撮影〜投稿がアプリ内で完結</div>
+      <div class="point-desc">これまでは外部の編集アプリで作ってから書き出してXに投稿する必要があったが、新エディターなら区切って撮り直せる「セグメント撮影」から投稿までワンストップ</div>
+    </div>
+    <div class="point-card">
+      <div class="point-icon">🟩</div>
+      <div class="point-title">緑の布なしで背景を差し替え</div>
+      <div class="point-desc">「グリーンスクリーン」機能という名前だが、実際に緑幕を用意する必要はなく、カメラロールの写真やX投稿の画像をそのまま動画の背景に設定できる</div>
+    </div>
+    <div class="point-card">
+      <div class="point-icon">🌍</div>
+      <div class="point-title">多言語キャプションを自動生成</div>
+      <div class="point-desc">字幕を複数言語で重ねて表示でき、見た目(フォントや配置)も調整可能。海外の視聴者にも届く動画をその場で作れる</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">📊 発表の要点を数字で見る</div>
+  <div class="bignum-grid">
+    <div class="bignum-card">
+      <div class="bignum">7/7</div>
+      <div class="bignum-label">新エディター発表<br>(2026年)</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">3つ</div>
+      <div class="bignum-label">主な新機能<br>字幕・背景差替・分割撮影</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">iOSのみ</div>
+      <div class="bignum-label">Android版は<br>アプリ刷新中のため未定</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">数週間以内</div>
+      <div class="bignum-label">追加アップデートを<br>予告済み</div>
+    </div>
+  </div>
+  <div class="note-box">
+    ⚠️ <strong>知っておきたい背景：</strong>X製品責任者のNikita Bier氏は、今回の狙いを「クリエイターがオリジナルの動画を作れる道具を用意し、そうしたクリエイターに報いること」と説明しています。他人の動画を転載するだけの投稿より、自分で撮った・作ったオリジナル動画を後押しする方針のようです。
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🔀 何が変わった？ 投稿までの流れをBefore/Afterで比較</div>
+  <div class="flow-label">Before：外部アプリを行き来する必要があった</div>
+  <div class="flow-wrap">
+    <div class="flow-box" style="background:linear-gradient(135deg,#8a5c1a,#c8830a);">① 撮影<div class="flow-sub">カメラアプリ</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box" style="background:linear-gradient(135deg,#8a5c1a,#c8830a);">② 背景合成<div class="flow-sub">別の編集アプリ</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box" style="background:linear-gradient(135deg,#8a5c1a,#c8830a);">③ 字幕入れ<div class="flow-sub">さらに別アプリのことも</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box" style="background:linear-gradient(135deg,#8a5c1a,#c8830a);">④ 書き出し<div class="flow-sub">スマホに保存</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box" style="background:linear-gradient(135deg,#8a5c1a,#c8830a);">⑤ X に再アップロード<div class="flow-sub">ここでやっと投稿</div></div>
+  </div>
+  <div class="flow-label" style="margin-top:22px;">After：Xアプリだけで完結</div>
+  <div class="flow-wrap">
+    <div class="flow-box" style="background:linear-gradient(135deg,#1a3a5c,#1a5c3a);">① 撮影<div class="flow-sub">アプリ内レコーダー</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box" style="background:linear-gradient(135deg,#1a3a5c,#1a5c3a);">② 背景・字幕を設定<div class="flow-sub">同じ画面内で編集</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box" style="background:linear-gradient(135deg,#1a3a5c,#1a5c3a);">③ そのまま投稿<div class="flow-sub">書き出し不要</div></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">📋 従来のグリーンバック合成 と X の新機能を比較</div>
+  <div style="overflow-x:auto;">
+  <table class="tbl">
+    <tr><th>比較項目</th><th>従来のグリーンバック合成</th><th>Xの新「グリーンスクリーン」機能</th></tr>
+    <tr><td>準備するもの</td><td>緑色の布・壁、照明機材、編集ソフト</td><td>スマホとXアプリだけ</td></tr>
+    <tr><td>撮影時の注意</td><td>服が緑と被ると透けて消えてしまう</td><td>特別な注意点は特に案内されていない(自動で人物を認識しているとみられる)</td></tr>
+    <tr><td>背景の差し替え</td><td>編集ソフトで緑色部分を切り抜いて別動画と合成</td><td>カメラロールの写真やX投稿の画像を背景として選ぶだけ</td></tr>
+    <tr><td>投稿までの手間</td><td>編集→書き出し→Xに再アップロード</td><td>撮影→編集→そのまま投稿</td></tr>
+  </table>
+  </div>
+  <div class="chip-row">
+    <div class="chip">名前は「グリーンスクリーン」でも緑の布は不要</div>
+    <div class="chip">背景は静止画のみ(動画背景は今のところ未対応)</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">⚖️ 得意なこと／今のところの制限</div>
+  <div class="rule-grid">
+    <div class="rule-card ok">
+      <div class="rule-head">✅ 得意なこと</div>
+      <ul>
+        <li>思いついたその場で縦型ショート動画を撮って投稿できるスピード感</li>
+        <li>背景差し替え・多言語字幕を1つの画面で仕上げられる手軽さ</li>
+        <li>CapCutなど外部アプリへの書き出しを挟まない分、投稿までの手間が減る</li>
+      </ul>
+    </div>
+    <div class="rule-card ng">
+      <div class="rule-head">🔧 今のところの制限</div>
+      <ul>
+        <li>現時点ではiOS版のみ。Android版はアプリ全体を作り直している最中で時期未定</li>
+        <li>背景に使えるのは写真(静止画)で、動画そのものを背景にする機能はまだ案内なし</li>
+        <li>他人の投稿画像を無断で背景に使うと権利関係のトラブルになりうるため要注意</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🎬 実践例：新エディターで「自己紹介ショート動画」を作る 5ステップ</div>
+  <p style="font-size:.88rem;color:var(--muted);margin-bottom:18px;">
+    「今日のおすすめ商品を紹介する」ような15〜30秒のトーク動画を例に、新エディターの使い方を見てみましょう。
+  </p>
+  <ul class="step-list">
+    <li class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-title">話す内容を1〜2文にまとめる</div>
+        <div class="step-desc">「このカフェの新作、香りが強めで甘さ控えめ」のように、結論から話す短い台本を用意する</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-title">アプリ内レコーダーでセグメント撮影する</div>
+        <div class="step-desc">一気に話しきれなくても、区切って撮り直せる「セグメント撮影」を使えば、噛んでしまった部分だけ撮り直せる</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-title">グリーンスクリーンで背景を設定する</div>
+        <div class="step-desc">カメラロールの写真や自分の過去のポスト画像を背景として選び、紹介したい商品や場所の雰囲気を背景で伝える</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <div class="step-title">多言語キャプションを追加する</div>
+        <div class="step-desc">話した内容に自動で字幕を重ね、フォントや表示位置を調整。海外のフォロワー向けに言語を増やすのもここで</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">5</div>
+      <div class="step-body">
+        <div class="step-title">書き出さずにそのまま投稿する</div>
+        <div class="step-desc">外部アプリへのエクスポートを挟まず、編集画面から直接ポスト。ここまでの一連の作業が1つのアプリで完結する</div>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="card">
+  <div class="card-title">📝 今日のまとめ</div>
+  <ul class="summary-list">
+    <li>2026年7月7日、Xがアプリ内に新しい「Video Editor & Recorder」を追加し、iOS版から利用できるようになった</li>
+    <li>目玉機能は「多言語キャプション」「グリーンスクリーン(背景差し替え)」「セグメント撮影」の3つ</li>
+    <li>グリーンスクリーンという名前だが実際の緑幕は不要で、カメラロールやX投稿の画像を背景として選ぶだけで使える</li>
+    <li>撮影から投稿までが1つのアプリで完結し、外部の編集アプリへの書き出しが不要になった</li>
+    <li>狙いは「オリジナル動画を作るクリエイターを後押しすること」とX製品責任者は説明している</li>
+    <li>現時点ではiOS版のみで、背景は静止画限定。Android版や機能拡張は今後数週間の追加アップデートを待つ必要がある</li>
+  </ul>
+</div>
+
+<div class="disclaimer">
+  ⚠️ <strong>免責事項</strong><br>
+  本記事で紹介したツール・機能（X、Xの新Video Editor & Recorderなど）の名称・機能・料金・商用利用の可否は頻繁に変更されます。
+  最新情報と利用規約は各サービスの公式ページで必ずご確認ください。
+  本記事は2026年7月7日〜9日時点の各種報道をもとにしています。
+</div>
+
+<footer>
+  AI動画制作 日報 ─ 2026-07-14 ｜ ツール情報回<br>
+  出典：
+  <a href="https://techcrunch.com/2026/07/07/x-adds-a-video-editor-to-encourage-creators-to-post-original-content-not-stolen-reposts/" target="_blank" rel="noopener">TechCrunch（2026年7月7日）</a>／
+  <a href="https://www.socialmediatoday.com/news/x-formerly-twitter-updates-video-editor-green-screen-recording/824544/" target="_blank" rel="noopener">Social Media Today（2026年7月）</a>／
+  <a href="https://www.mediapost.com/publications/article/416357/x-launches-video-editing-hub-for-original-creator.html" target="_blank" rel="noopener">MediaPost（2026年7月8日）</a>／
+  <a href="https://tech.yahoo.com/social-media/articles/x-rolls-updated-video-editor-190525829.html" target="_blank" rel="noopener">Yahoo Tech（2026年7月）</a>／
+  <a href="https://forest.watch.impress.co.jp/docs/news/2122877.html" target="_blank" rel="noopener">窓の杜（2026年7月）</a>／
+  <a href="https://www.watch.impress.co.jp/docs/news/2123127.html" target="_blank" rel="noopener">Impress Watch（2026年7月）</a><br>
+  <a href="index.html" style="color:var(--accent);">← 一覧に戻る</a>
+</footer>
+
+</div>
+</body>
+</html>
