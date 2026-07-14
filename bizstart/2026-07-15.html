@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-07-15</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #1e7a5a 0%, #0d4632 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #1e7a5a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.blue   { border-left-color: #1e5a7a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.purple { border-left-color: #7a4a9e; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #1e7a5a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  .type-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .type-grid { grid-template-columns: 1fr; } }
+  .type-card {
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-size: 0.86rem;
+    line-height: 1.65;
+  }
+  .type-card.main {
+    background: #e6f5ee;
+    border: 2px solid #1e7a5a;
+  }
+  .type-card.sub {
+    background: #e8f0f8;
+    border: 2px solid #1e5a7a;
+  }
+  .type-card .tl {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+  }
+  .type-card.main .tl { color: #0d4632; }
+  .type-card.sub .tl  { color: #0d3352; }
+  .type-card .tv { font-size: 1.0rem; font-weight: 700; margin-bottom: 6px; }
+  .type-card.main .tv { color: #1e7a5a; }
+  .type-card.sub .tv  { color: #1e5a7a; }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 14px 10px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat .sl { font-size: 0.67rem; color: #888; margin-bottom: 3px; }
+  .stat .sv { font-size: 1.5rem; font-weight: 700; color: #1e7a5a; line-height: 1.1; }
+  .stat .su { font-size: 0.7rem; color: #666; margin-top: 2px; }
+
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #1e7a5a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+  .f-arrow { color: #1e7a5a; font-size: 1.1rem; margin-left: 14px; margin-bottom: 4px; }
+
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  .prompt-box {
+    background: #f0f5ff;
+    border: 2px solid #4a6aae;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 12px 0;
+    font-size: 0.84rem;
+    line-height: 1.85;
+    color: #1a2a4a;
+  }
+  .prompt-box .ph {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #4a6aae;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+  .prompt-box .fill {
+    background: #d0e0ff;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-weight: 700;
+    color: #0a2a6e;
+  }
+
+  .info {
+    background: #e6f5ee;
+    border-left: 4px solid #1e7a5a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #0d4632;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #7a4010;
+  }
+
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #1e7a5a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+
+  .badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 8px;
+    margin-right: 4px;
+    vertical-align: middle;
+  }
+  .badge.law   { background: #1e7a5a; color: white; }
+  .badge.ai    { background: #4a6aae; color: white; }
+  .badge.tip   { background: #4a9e6a; color: white; }
+  .badge.warn  { background: #c8884a; color: white; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #1e7a5a; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #1e7a5a; }
+
+  .flow-h {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 14px 0;
+  }
+  .flow-box {
+    background: white;
+    border: 2px solid #1e7a5a;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 0.81rem;
+    text-align: center;
+    line-height: 1.45;
+    color: #0d4632;
+    font-weight: 600;
+  }
+  .flow-arrow {
+    color: #1e7a5a;
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+  @media (max-width: 540px) {
+    .flow-h { flex-direction: column; align-items: flex-start; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+
+  .matrix {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.83rem;
+  }
+  .matrix th {
+    background: #0d4632;
+    color: white;
+    padding: 8px 12px;
+    text-align: center;
+    font-weight: 600;
+  }
+  .matrix td {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    vertical-align: top;
+    line-height: 1.55;
+  }
+  .matrix .row-head {
+    background: #e6f5ee;
+    font-weight: 700;
+    color: #0d4632;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .matrix .ok  { color: #4a9e6a; font-weight: 700; }
+  .matrix .ng  { color: #b54040; font-weight: 700; }
+  .matrix .mid { color: #c8884a; font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Header -->
+<div class="header">
+  <div class="meta">📅 1人法人スタート 最新トピック &nbsp;2026-07-15</div>
+  <h1>📮 「フリーランスへの外注費」の消費税控除、<br>2026年10月からどう変わる？</h1>
+  <div class="desc">
+    <span class="htag">消費税</span>
+    <span class="htag">インボイス</span>
+    <span class="htag">令和8年度税制改正</span>
+    <span class="htag">財務省・国税庁</span>
+    <br>
+    インボイス制度には「免税事業者（消費税を納めなくてよい小さな事業者）から仕入れても、一定割合は消費税を差し引ける」という<span class="hl">経過措置</span>（けいかそち＝制度が急に厳しくならないための移行ルール）があります。この割合が<span class="hl">2026年10月から変わります</span>。フリーランスに外注している1人社長にとって身近な話を図解します。
+  </div>
+</div>
+
+<!-- Section 1: what is the transitional measure -->
+<div class="card">
+  <div class="sec-title">🧾 そもそも「経過措置」って何？</div>
+  <p>インボイス制度の本来のルールでは、<strong>適格請求書（インボイス）を発行できない相手（＝免税事業者）</strong>から仕入れても、消費税の仕入税額控除（買ったときに払った消費税を、自社が納める消費税から差し引ける仕組み）は原則できません。</p>
+
+  <p style="margin-top:10px;">ただし急に0円になると取引先が困るため、<strong>「しばらくの間は一定割合だけ控除を認める」</strong>という経過措置が2023年10月の制度開始から用意されています。</p>
+
+  <div class="flow-h" style="margin-top:14px;">
+    <div class="flow-box">🏢 ①<br>あなたの会社<br>（課税事業者）</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-box">🧑‍💻 ②<br>フリーランスに<br>外注（免税事業者）</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-box">📄 ③<br>インボイスは<br>発行されない</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-box">💴 ④<br>経過措置の割合だけ<br>控除できる</div>
+  </div>
+
+  <div class="source">
+    出典：国税庁「令和８年度税制改正特集」<br>
+    <a href="https://www.nta.go.jp/taxes/shiraberu/zeimokubetsu/shohi/keigenzeiritsu/invoice-review/index.htm" target="_blank">https://www.nta.go.jp/taxes/shiraberu/zeimokubetsu/shohi/keigenzeiritsu/invoice-review/index.htm</a>
+  </div>
+</div>
+
+<!-- Section 2: what changed -->
+<div class="card blue">
+  <div class="sec-title">🔄 令和8年度税制改正で何が変わった？</div>
+  <p>もともとの予定では、2026年10月から控除割合が<strong>80%→50%</strong>へ一気に下がることになっていました。しかし<span class="hl">令和8年度税制改正</span>（令和7年12月26日閣議決定・令和8年3月31日成立）で、下がり方が緩やかになり、期間も2年延長されました。</p>
+
+  <table class="matrix" style="margin-top:14px;">
+    <tr>
+      <th style="width:34%;">期間</th>
+      <th style="width:33%;">改正前の予定</th>
+      <th style="width:33%;">改正後（確定）</th>
+    </tr>
+    <tr>
+      <td class="row-head">〜2026年9月末</td>
+      <td class="mid">80%控除</td>
+      <td class="mid">80%控除（変更なし）</td>
+    </tr>
+    <tr>
+      <td class="row-head">2026年10月〜<br>2028年9月末</td>
+      <td class="ng">50%控除</td>
+      <td class="ok">70%控除</td>
+    </tr>
+    <tr>
+      <td class="row-head">2028年10月〜<br>2030年9月末</td>
+      <td class="ng">対象外（0%）</td>
+      <td class="mid">50%控除</td>
+    </tr>
+    <tr>
+      <td class="row-head">2030年10月〜<br>2031年9月末</td>
+      <td>―</td>
+      <td class="mid">30%控除</td>
+    </tr>
+    <tr>
+      <td class="row-head">2031年10月〜</td>
+      <td>対象外（0%）</td>
+      <td class="ng">対象外（0%）</td>
+    </tr>
+  </table>
+
+  <div class="info" style="margin-top:12px;">
+    💡 要するに、控除がなくなる時期が<span class="hl">2年先送り</span>され、下がり方も「一気に半分」ではなく「70%→50%→30%」と<span class="hl">段階的</span>になりました。1人社長にとっては、急な負担増が和らいだ形です。
+  </div>
+
+  <div class="source">
+    出典：財務省「令和８年度税制改正の大綱の概要」（令和7年12月26日閣議決定）<br>
+    <a href="https://www.mof.go.jp/tax_policy/tax_reform/outline/fy2026/08taikou_gaiyou.pdf" target="_blank">https://www.mof.go.jp/tax_policy/tax_reform/outline/fy2026/08taikou_gaiyou.pdf</a>
+  </div>
+</div>
+
+<!-- Section 3: numbers -->
+<div class="card orange">
+  <div class="sec-title">🔢 数字で見る改正のポイント</div>
+  <div class="stats-row">
+    <div class="stat">
+      <div class="sl">2026年10月〜の控除率</div>
+      <div class="sv">70%</div>
+      <div class="su">改正前の予定は50%だった</div>
+    </div>
+    <div class="stat">
+      <div class="sl">経過措置の期間延長</div>
+      <div class="sv">2年</div>
+      <div class="su">完全廃止が2031年10月に先送り</div>
+    </div>
+    <div class="stat">
+      <div class="sl">上限額の見直し</div>
+      <div class="sv">1億円</div>
+      <div class="su">改正前は10億円だった</div>
+    </div>
+  </div>
+
+  <div class="warn" style="margin-top:12px;">
+    ⚠️ 1つの免税事業者からの年間の課税仕入れ合計が<strong>1億円を超える部分</strong>には、この経過措置は使えなくなります（改正前の基準は10億円）。1人社長の会社では通常は関係ない金額ですが、「上限がある」ことは覚えておきましょう。
+  </div>
+
+  <div class="source">
+    出典：財務省「令和８年度税制改正の大綱の概要」（令和7年12月26日閣議決定）<br>
+    <a href="https://www.mof.go.jp/tax_policy/tax_reform/outline/fy2026/08taikou_gaiyou.pdf" target="_blank">https://www.mof.go.jp/tax_policy/tax_reform/outline/fy2026/08taikou_gaiyou.pdf</a>
+  </div>
+</div>
+
+<!-- Section 4: relevance to solo founder -->
+<div class="card purple">
+  <div class="sec-title">🙋 1人社長にとって、なぜこれが関係あるの？</div>
+  <p>デザイナー・ライター・エンジニアなど、<strong>インボイス登録をしていないフリーランス（免税事業者）に外注している</strong>1人社長は多いはずです。その外注費にかかる消費税は、2026年10月以降、経過措置により<span class="hl">70%までしか自社の消費税から差し引けません</span>（残り30%は自社の負担分になります）。</p>
+
+  <div class="type-grid" style="margin-top:14px;">
+    <div class="type-card sub">
+      <div class="tl">🧑‍💻 外注先がインボイス登録済み</div>
+      <div class="tv">影響なし</div>
+      通常どおり全額を仕入税額控除できる
+    </div>
+    <div class="type-card main">
+      <div class="tl">🧑‍🎨 外注先が免税事業者のまま</div>
+      <div class="tv">70%控除（〜2028年9月）</div>
+      経過措置の割合分だけ控除、残りは自社負担
+    </div>
+  </div>
+
+  <div class="info" style="margin-top:12px;">
+    💡 だからといって「取引先にインボイス登録を強制する」のは独占禁止法・下請法上の問題になり得ます。あくまで<span class="hl">自社の負担がどう変わるかを把握し、価格や契約条件を見直す材料にする</span>のが現実的な対応です。
+  </div>
+</div>
+
+<!-- Section 5: checklist -->
+<div class="card">
+  <div class="sec-title">✅ 今日からできる実践チェックリスト</div>
+  <ul class="check-list" style="margin-top:10px;">
+    <li><span class="ck">☑</span> 自社が外注しているフリーランス・個人事業主のうち、インボイス登録済みかどうかを一覧で確認する</li>
+    <li><span class="ck">☑</span> 会計ソフトの仕入税額控除の設定が「70%」の新しい経過措置に対応しているか、2026年10月までに確認する</li>
+    <li><span class="ck">☑</span> 経過措置はいずれ0%になることを踏まえ、外注先との今後の価格・契約の相談を早めに始める</li>
+    <li><span class="ck">☑</span> 自社が簡易課税を選んでいる場合は、この経過措置の対象外（影響なし）であることも確認する</li>
+    <li><span class="ck-bad">⚠</span> <span style="color:#888;">控除率や適用条件の細かい判断は顧問税理士に確認する</span></li>
+  </ul>
+</div>
+
+<!-- Section 6: AI prompt -->
+<div class="card orange">
+  <div class="sec-title">🤖 生成AIに「たたき台」を作ってもらうプロンプト例</div>
+  <p>最終判断は税理士に確認する前提で、<span class="hl">自社への影響の試算メモ</span>はAIに下書きしてもらえます。</p>
+
+  <div class="prompt-box" style="margin-top:14px;">
+    <div class="ph">🤖 プロンプト例：経過措置の影響試算メモ</div>
+    当社は消費税の課税事業者（本則課税）で、直近1年間でインボイス未登録のフリーランス（免税事業者）へ外注費として合計<span class="fill">【年間外注費の金額】</span>円を支払っています。<br>
+    <br>
+    2026年10月以降の仕入税額控除に関する経過措置（控除割合が80%から70%に変わる）を踏まえ、この外注費にかかる消費税のうち、控除できなくなる金額のおおまかな目安を試算するための計算式と、確認すべきポイントを整理してください。<br>
+    ※実際の控除可否・金額の判定は必ず税理士に確認してください。
+  </div>
+</div>
+
+<!-- Section 7: summary -->
+<div class="card">
+  <div class="sec-title">📝 今日のまとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">①</span>インボイス制度には、免税事業者からの仕入れでも一部を控除できる<span class="hlg">経過措置</span>があり、2023年10月〜2026年9月は80%控除。</li>
+    <li><span class="n">②</span>2026年10月からは、改正前の予定「50%」ではなく<span class="hl">「70%」控除</span>に緩和され、完全廃止も2年先送りされた（令和8年度税制改正・令和8年3月31日成立）。</li>
+    <li><span class="n">③</span>1つの免税事業者からの仕入額の上限は<span class="hl">10億円→1億円</span>に引き下げられた（1人社長にはほぼ影響なし）。</li>
+    <li><span class="n">④</span>免税事業者のフリーランスに外注している1人社長は、<span class="hl">2026年10月以降、控除できる割合が下がる</span>ことを踏まえた資金繰り・価格の見直しが必要。</li>
+    <li><span class="n">⑤</span>取引先にインボイス登録を強要するのはNG。自社の負担把握と早めの相談が現実的な対応。</li>
+    <li><span class="n">⑥</span>AIには試算メモの下書きを任せ、最終的な控除額・対応方針は税理士に確認する。</li>
+  </ul>
+</div>
+
+<!-- Disclaimer -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報提供を目的としており、個別の税務・法務の判断を代わるものではありません。
+  仕入税額控除の可否や具体的な金額の計算、取引先との対応方針は会社ごとの事情により異なります。
+  具体的な適用可否は、必ず税理士にご確認ください。
+  税率・要件・経過措置の内容は今後も改正されることがあります。最新情報は国税庁（<a href="https://www.nta.go.jp/" target="_blank">https://www.nta.go.jp/</a>）・財務省（<a href="https://www.mof.go.jp/" target="_blank">https://www.mof.go.jp/</a>）の公式サイトでご確認ください。<br>
+  本記事の内容の基準年度：令和8年度（2026年度）、令和8年7月時点の情報。
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>📚 <a href="index.html">バックナンバー一覧へ</a> &nbsp;&middot;&nbsp; 毎朝更新</p>
+</div>
+
+</div>
+</body>
+</html>
