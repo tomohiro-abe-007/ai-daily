@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI動画制作 最新トピック 2026-07-15</title>
+<style>
+  :root {
+    --bg: #ece8e1;
+    --card: #faf6ec;
+    --dark: #1a3a5c;
+    --dark2: #1a5c3a;
+    --accent: #2a5c8a;
+    --accent2: #c85a00;
+    --text: #2a3540;
+    --muted: #7c8a82;
+    --border: #e0d8c8;
+    --highlight: #fff3cd;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, "Hiragino Sans", "Yu Gothic", sans-serif;
+    line-height: 1.75;
+    padding: 20px;
+  }
+  .wrap { max-width: 900px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #1a3a5c 0%, #1a5c3a 100%);
+    color: #fff;
+    border-radius: 20px;
+    padding: 44px 32px 36px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(26,58,92,.22);
+    margin-bottom: 24px;
+  }
+  .header-tag {
+    display: inline-block;
+    background: rgba(255,255,255,.18);
+    color: #e0f0e8;
+    border-radius: 20px;
+    padding: 4px 16px;
+    font-size: .82rem;
+    margin-bottom: 14px;
+    letter-spacing: .06em;
+  }
+  .header h1 { font-size: 1.65rem; letter-spacing: .03em; line-height: 1.4; margin-bottom: 10px; }
+  .header .sub { color: #c8dde8; font-size: .95rem; }
+  .header .date { color: #b0e0c0; font-size: .85rem; margin-top: 8px; }
+
+  .card {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 12px rgba(0,0,0,.07);
+    border: 1px solid var(--border);
+  }
+  .card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .point-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .point-card { background: #eef3f8; border-radius: 14px; padding: 20px 16px; text-align: center; border: 1px solid #d4e0ea; }
+  .point-icon { font-size: 2rem; margin-bottom: 8px; }
+  .point-title { font-size: .95rem; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
+  .point-desc { font-size: .83rem; color: var(--muted); line-height: 1.6; }
+
+  .bignum-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 20px; }
+  .bignum-card { background: linear-gradient(135deg, #1a3a5c, #1a5c3a); border-radius: 14px; padding: 18px 12px; text-align: center; color: #fff; }
+  .bignum { font-size: 1.4rem; font-weight: 800; color: #ffe0a0; line-height: 1.2; }
+  .bignum-label { font-size: .72rem; color: #cfe6d8; margin-top: 4px; line-height: 1.5; }
+
+  .step-list { list-style: none; }
+  .step-item { display: flex; gap: 14px; margin-bottom: 16px; align-items: flex-start; }
+  .step-num {
+    width: 34px; height: 34px;
+    background: linear-gradient(135deg, #1a3a5c, #1a5c3a);
+    color: #fff; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: .95rem; flex-shrink: 0; margin-top: 2px;
+  }
+  .step-body { flex: 1; }
+  .step-title { font-weight: 700; color: var(--dark); font-size: .95rem; }
+  .step-desc { font-size: .86rem; color: var(--muted); margin-top: 3px; line-height: 1.65; }
+
+  .chip-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .chip { background: #e8f0ec; color: #1a5c3a; border-radius: 20px; padding: 4px 14px; font-size: .82rem; font-weight: 600; border: 1px solid #c0dccc; }
+
+  .tbl { width: 100%; border-collapse: collapse; font-size: .88rem; }
+  .tbl th { background: #eaf1ea; padding: 10px 12px; text-align: left; border-bottom: 2px solid #c8ddc8; color: var(--dark); font-weight: 700; }
+  .tbl td { padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: top; color: var(--text); }
+  .tbl tr:last-child td { border-bottom: none; }
+
+  .note-box { background: var(--highlight); border-left: 4px solid #e8a000; border-radius: 8px; padding: 12px 16px; font-size: .88rem; color: #5a4000; margin-top: 14px; line-height: 1.7; }
+
+  .summary-list { font-size: .95rem; line-height: 2.2; }
+  .summary-list li { list-style: none; display: flex; align-items: flex-start; gap: 8px; }
+  .summary-list li::before { content: "✅"; flex-shrink: 0; margin-top: 2px; }
+
+  .disclaimer { background: #f0ede8; border-radius: 12px; padding: 16px 20px; font-size: .82rem; color: var(--muted); margin-top: 24px; line-height: 1.7; border: 1px solid #ddd8d0; }
+
+  footer { text-align: center; color: var(--muted); font-size: .82rem; margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border); line-height: 1.9; }
+  footer a { color: var(--accent); }
+
+  /* 3つの方式カード */
+  .pattern-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 4px; }
+  .pattern-card { border-radius: 14px; padding: 18px 16px; color: #fff; }
+  .pattern-1 { background: linear-gradient(160deg,#c85a00,#e8a000); }
+  .pattern-2 { background: linear-gradient(160deg,#2a5c8a,#1a3a5c); }
+  .pattern-3 { background: linear-gradient(160deg,#1a5c3a,#2a7c50); }
+  .pattern-icon { font-size: 1.8rem; margin-bottom: 6px; }
+  .pattern-name { font-size: .95rem; font-weight: 800; margin-bottom: 8px; }
+  .pattern-line { font-size: .8rem; background: rgba(255,255,255,.16); border-radius: 8px; padding: 8px 10px; line-height: 1.6; }
+
+  /* 参照画像の受け渡しフロー */
+  .flow-row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-top: 6px; }
+  .flow-step { flex: 1; min-width: 120px; background: #eef3f8; border: 1px solid #d4e0ea; border-radius: 10px; padding: 12px 10px; text-align: center; }
+  .flow-step .fs-icon { font-size: 1.3rem; margin-bottom: 4px; }
+  .flow-step .fs-title { font-size: .82rem; font-weight: 700; color: var(--dark); }
+  .flow-step .fs-desc { font-size: .72rem; color: var(--muted); margin-top: 3px; line-height: 1.5; }
+  .flow-arrow { font-size: 1.3rem; color: var(--accent2); font-weight: 700; flex-shrink: 0; }
+  .flow-caption { text-align: center; font-size: .8rem; color: var(--muted); margin-top: 10px; }
+
+  /* ドリフトの図解（だんだんズレる様子） */
+  .drift-row { display: flex; align-items: flex-end; gap: 10px; margin-top: 10px; }
+  .drift-step { flex: 1; text-align: center; }
+  .drift-face { width: 100%; height: 46px; border-radius: 10px; background: linear-gradient(160deg,#2a5c8a,#1a3a5c); }
+  .drift-step:nth-child(2) .drift-face { background: linear-gradient(160deg,#3a6c9a,#2a5c8a); opacity: .85; transform: rotate(2deg); }
+  .drift-step:nth-child(3) .drift-face { background: linear-gradient(160deg,#5a8cba,#3a6c9a); opacity: .7; transform: rotate(4deg); }
+  .drift-step:nth-child(4) .drift-face { background: linear-gradient(160deg,#8aacd8,#5a8cba); opacity: .55; transform: rotate(6deg); }
+  .drift-label { font-size: .72rem; color: var(--muted); margin-top: 6px; }
+
+  @media (max-width: 640px) {
+    .point-grid { grid-template-columns: 1fr; }
+    .bignum-grid { grid-template-columns: 1fr; }
+    .pattern-grid { grid-template-columns: 1fr; }
+    .flow-row { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+    .drift-row { flex-wrap: wrap; }
+    .drift-step { flex: 0 0 45%; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="header">
+  <div class="header-tag">🌱 エバーグリーン技法回 ── キャラクター一貫性</div>
+  <h1>AIキャラクターの「顔」がブレない一貫性を保つコツ<br>── 参照画像・シード値・スタイル固定</h1>
+  <div class="sub">同じキャラのはずなのにシーンごとに顔が変わる…を防ぐ3つの方法</div>
+  <div class="date">2026-07-15 ｜ AI動画制作 最新トピック</div>
+</div>
+
+<div class="card">
+  <div class="card-title">🎯 今日の3ポイント</div>
+  <div class="point-grid">
+    <div class="point-card">
+      <div class="point-icon">🎭</div>
+      <div class="point-title">一貫性問題とは</div>
+      <div class="point-desc">AIで動画や画像を生成すると、同じキャラクターのつもりでもシーンが変わるたびに顔・服装・体型が微妙に(時には大きく)変わってしまう現象のこと</div>
+    </div>
+    <div class="point-card">
+      <div class="point-icon">🖼️</div>
+      <div class="point-title">対策①参照画像</div>
+      <div class="point-desc">基準となる1枚の画像をAIに読み込ませ、「このキャラと同じ顔・服で作って」と指示する方法。今の主流</div>
+    </div>
+    <div class="point-card">
+      <div class="point-icon">🔢</div>
+      <div class="point-title">対策②シード値固定</div>
+      <div class="point-desc">シード値(生成の「乱数の種」となる数字)を固定すると、同じプロンプトなら似た構図・雰囲気が再現されやすくなる</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">📉 ほうっておくと起きる「ドリフト」</div>
+  <p style="font-size:.9rem;color:var(--muted);margin-bottom:6px;">
+    参照画像を使わずに生成を繰り返すと、キャラクターの特徴が少しずつズレていきます。これを「ドリフト(drift=漂流)」と呼びます。
+  </p>
+  <div class="drift-row">
+    <div class="drift-step"><div class="drift-face"></div><div class="drift-label">シーン1<br>基準どおり</div></div>
+    <div class="drift-step"><div class="drift-face"></div><div class="drift-label">シーン2<br>少しズレる</div></div>
+    <div class="drift-step"><div class="drift-face"></div><div class="drift-label">シーン3<br>さらにズレる</div></div>
+    <div class="drift-step"><div class="drift-face"></div><div class="drift-label">シーン4<br>別人っぽい</div></div>
+  </div>
+  <div class="note-box">
+    💡 色が薄く・傾きが大きくなるほど「別人化」のイメージです。ドリフトを防ぐカギは「定期的に最初の基準画像へ立ち返ること(再アンカリング)」。
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🧩 一貫性を保つ3つの方式</div>
+  <div class="pattern-grid">
+    <div class="pattern-card pattern-1">
+      <div class="pattern-icon">🖼️</div>
+      <div class="pattern-name">① 参照画像方式</div>
+      <div class="pattern-line">キャラの正面写真・イラストを1枚アップロードし、「この見た目を保って」とAIに渡す</div>
+    </div>
+    <div class="pattern-card pattern-2">
+      <div class="pattern-icon">🔢</div>
+      <div class="pattern-name">② シード値固定</div>
+      <div class="pattern-line">生成のたびに変わる「乱数の種」を同じ数字に固定し、似た構図を再現しやすくする</div>
+    </div>
+    <div class="pattern-card pattern-3">
+      <div class="pattern-icon">🧬</div>
+      <div class="pattern-name">③ 専用キャラ機能</div>
+      <div class="pattern-line">ツールが用意する「キャラクター参照」専用機能。顔の骨格や服装をタグ付けして保持する</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">📊 3方式 比較表</div>
+  <table class="tbl">
+    <thead>
+      <tr><th>方式</th><th>やり方</th><th>得意なこと</th><th>弱点</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>🖼️ 参照画像</strong></td>
+        <td>基準画像をアップロードし、各シーンの生成時に読み込ませる</td>
+        <td>顔・服装の再現度が高く、動画の複数カットにまたがっても効きやすい</td>
+        <td>元画像の質が悪いと崩れやすい。ツールごとに読み込める枚数に上限がある</td>
+      </tr>
+      <tr>
+        <td><strong>🔢 シード値固定</strong></td>
+        <td>生成時のシード(数字)をメモしておき、次回も同じ値を入力する</td>
+        <td>操作が簡単で、画像1枚を用意する手間がない</td>
+        <td>プロンプトの言葉を変えると効果が弱まりやすく、動画の動き部分には効きにくい</td>
+      </tr>
+      <tr>
+        <td><strong>🧬 専用キャラ機能</strong></td>
+        <td>ツール内の「キャラクター参照」機能に画像を登録し、キャラ/背景/物をタグで区別する</td>
+        <td>顔の骨格・髪型・服装をまとめて保持でき、複数キャラの同時管理もしやすい</td>
+        <td>ツールごとに仕様が異なり、連続使用で少しずつ崩れる「ドリフト」は完全には防げない</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="note-box">
+    💡 実務では3つを組み合わせるのが基本。「専用キャラ機能で参照画像を登録し、可能ならシード値もメモしておく」のが今のセオリーです。
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🔁 「参照伝播」でシーンをつなぐ流れ</div>
+  <p style="font-size:.9rem;color:var(--muted);margin-bottom:6px;">
+    複数シーンを撮る動画では、直前のカットからきれいな1コマを取り出し、次のシーンの参照画像として使い回す「参照伝播(でんぱ)」というやり方が効果的です。
+  </p>
+  <div class="flow-row">
+    <div class="flow-step"><div class="fs-icon">🖼️</div><div class="fs-title">基準画像</div><div class="fs-desc">キャラの正面カット</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="fs-icon">🎬</div><div class="fs-title">シーン1生成</div><div class="fs-desc">基準画像を参照して生成</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="fs-icon">✂️</div><div class="fs-title">きれいな1コマ抽出</div><div class="fs-desc">シーン1から顔がよく写った静止画を保存</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="fs-icon">🎬</div><div class="fs-title">シーン2生成</div><div class="fs-desc">抽出した1コマを次の参照画像にする</div></div>
+  </div>
+  <div class="flow-caption">これを繰り返すことで、シーンをまたいでもキャラの見た目を引き継げる</div>
+</div>
+
+<div class="card">
+  <div class="card-title">🛠️ 実践例：3シーンのマスコット動画をブレさせない5ステップ</div>
+  <p style="font-size:.88rem;color:var(--muted);margin-bottom:18px;">
+    「カフェ→公園→自宅」の3シーンを移動する、AI生成のマスコットキャラクター動画を作る想定の基本フローです。
+  </p>
+  <ul class="step-list">
+    <li class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-title">キャラの基準画像を1枚つくる</div>
+        <div class="step-desc">正面・自然光・シンプルな背景で、顔と全身がはっきり写った1枚をAI画像生成で用意する。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-title">ツールの「参照画像・キャラ参照」機能に登録する</div>
+        <div class="step-desc">動画生成ツールの参照画像アップロード欄に基準画像を読み込ませ、シード値が使えるツールならその数値も控えておく。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-title">シーンごとに「同じキャラクター」だと明記してプロンプトを書く</div>
+        <div class="step-desc">「先ほどと同じ服装・髪型のキャラクターが公園を歩く」のように、直前カットとの同一性を言葉でも伝える。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <div class="step-title">各シーンの顔・服装を横並びで見比べる</div>
+        <div class="step-desc">3シーンのキャプチャを並べ、色味や輪郭がズレていないか確認。ズレていたら直前シーンのきれいな1コマを新しい参照画像にして作り直す。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">5</div>
+      <div class="step-body">
+        <div class="step-title">数シーンごとに基準画像へ立ち返る</div>
+        <div class="step-desc">5〜8カットほど進んだら一度、最初の基準画像を参照し直し(再アンカリング)、じわじわ進むドリフトをリセットする。</div>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="card">
+  <div class="card-title">📝 今日のまとめ</div>
+  <ul class="summary-list">
+    <li><strong>一貫性のズレ(ドリフト)</strong>は、AIキャラを複数シーンで使うと必ず起きうる現象と心得ておく</li>
+    <li>基本の対策は<strong>①参照画像 ②シード値固定 ③ツールの専用キャラ参照機能</strong>の3つ</li>
+    <li>直前カットのきれいな1コマを次の参照にする<strong>「参照伝播」</strong>で、シーンをまたいだ一貫性を保てる</li>
+    <li>5〜8カットごとに最初の基準画像へ戻る<strong>「再アンカリング」</strong>でドリフトの蓄積を防ぐ</li>
+    <li>ツールによって参照画像の対応枚数や仕様が異なるため、必ず公式ドキュメントで確認する</li>
+  </ul>
+</div>
+
+<div class="disclaimer">
+  ⚠️ <strong>免責事項</strong><br>
+  本記事で紹介したキャラクター一貫性の考え方・ワークフローは、AI画像/動画生成における一般的な手法の例として紹介したものです。効果はキャラクターの絵柄・使用するツールやモデルのバージョンによって異なります。本文中で言及したAIツールの名称・機能・料金・商用利用の可否は頻繁に変わるため、利用の際は各ツールの公式ページ・利用規約で必ずご確認ください。
+</div>
+
+<footer>
+  AI動画制作 最新トピック ─ 2026-07-15 ｜ エバーグリーン技法回<br>
+  参考：参照画像・シード値・専用キャラ参照機能によるキャラクター一貫性の考え方は、Kling AI「Elements」、Midjourney「Omni Reference」、Nano Banana Proの識別保持に関する一般的な解説記事を参考に構成（手法の仕様は各社公式ドキュメントで要確認）<br>
+  <a href="index.html" style="color:var(--accent);">← 一覧に戻る</a>
+</footer>
+
+</div>
+</body>
+</html>
