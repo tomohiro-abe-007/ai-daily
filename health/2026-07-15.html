@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-07-15</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '⚖️';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 18px 16px;
+    font-size: 0.86rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.95rem; margin-bottom: 10px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.2em; }
+  .c3-col li { margin-bottom: 5px; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .mech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .mech-item {
+    background: #f0faf5;
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 0.85rem;
+    border-top: 3px solid #1a7a5a;
+  }
+  .mech-item .micon { font-size: 1.3rem; margin-bottom: 6px; }
+  .mech-item strong { display: block; color: #0d4a35; margin-bottom: 4px; font-size: 0.88rem; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .highlight { background: #cff0df; padding: 1px 5px; border-radius: 4px; }
+  .good { color: #1a7a5a; font-weight: 600; }
+  .bad  { color: #c0392b; font-weight: 600; }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-box {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin: 14px 0;
+    font-size: 0.92rem;
+  }
+  .def-box .def-label {
+    font-size: 0.75rem;
+    color: #1a7a5a;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  @media (max-width: 540px) {
+    .compare3 { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.9rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ヘッダー -->
+<div class="header">
+  <div class="label">健康・栄養 最新トピック ・ 2026-07-15</div>
+  <h1>「毎日食べても平気」はどう決まる?<br>
+  食品添加物の安全量、ADIとNOAELの舞台裏</h1>
+  <div class="subtitle">保存料や甘味料などの「食品添加物」。「毎日ずっと食べても本当に平気?」と不安に思ったことはありませんか。実はその答えは、新しい論文1本ではなく、世界の専門家が半世紀以上かけて積み上げてきた「リスク評価」という仕組みで決まっています。今日は精密栄養学から少し視点を変えて、健康ニュースを読むときの土台になる「安全量の決め方」をやさしく解説します。</div>
+</div>
+
+<!-- タグ -->
+<div style="margin-bottom:18px;">
+  <span class="tag">食品安全学</span>
+  <span class="tag">ADI・NOAEL</span>
+  <span class="tag">JECFA</span>
+  <span class="tag">エビデンスの読み方</span>
+  <span class="tag">規制科学</span>
+</div>
+
+<!-- 今日の疑問 -->
+<div class="card">
+  <h2>🤔 今日の疑問:「基準値の何倍」というニュース、そのまま怖がっていい?</h2>
+  <p>「◯◯という物質が基準値の△倍検出された」というニュースを見ると、つい不安になります。しかし、その「基準値」自体がどれくらいの余裕(安全マージン)を持って決められているかを知らないと、リスクの大きさを正しく判断できません。</p>
+  <p>今日は、新しい研究論文の紹介ではなく、<strong>食品添加物の「安全な量」がどう決まるか</strong>という規制科学の基礎を、国連機関の公式資料をもとに解説します。これはニュースの数字を読み解くための「土台」になる知識です。</p>
+</div>
+
+<!-- 基本用語 -->
+<div class="card blue">
+  <h2>📖 まず言葉の意味を:NOAELとADI</h2>
+  <div class="def-grid">
+    <div class="def-item">
+      <div class="dterm">毒性試験(とくせいしけん)</div>
+      動物(主にラットなどのげっ歯類)に、量を変えながら長期間その物質を与え、健康への影響を観察する実験。
+    </div>
+    <div class="def-item">
+      <div class="dterm">NOAEL(無毒性量)</div>
+      No Observed Adverse Effect Level。毒性試験で、<strong>害となる影響が全く見られなかった最大の投与量</strong>。
+    </div>
+    <div class="def-item">
+      <div class="dterm">安全係数(不確実係数)</div>
+      動物からヒトへ結果を当てはめる際の「余裕分」。通常<strong>100</strong>(動物とヒトの種の違い10 × 人それぞれの体質の違い10)を使う。
+    </div>
+    <div class="def-item">
+      <div class="dterm">ADI(一日摂取許容量)</div>
+      Acceptable Daily Intake。NOAELを安全係数で割った値。<strong>一生涯、毎日摂り続けても健康への悪影響がないと考えられる量</strong>(体重1kgあたりmg)。
+    </div>
+  </div>
+</div>
+
+<!-- 数字カード -->
+<div class="num-row">
+  <div class="num-card">
+    <div class="big">100<span class="unit">倍</span></div>
+    <div class="desc">NOAELをADIに変換するときの安全係数(種差10×個体差10)</div>
+  </div>
+  <div class="num-card blue-bg">
+    <div class="big">1956<span class="unit">年</span></div>
+    <div class="desc">FAO/WHO合同食品添加物専門家委員会(JECFA)が最初の会合を開いた年</div>
+  </div>
+  <div class="num-card purple-bg">
+    <div class="big">1961<span class="unit">年</span></div>
+    <div class="desc">JECFAの第6回会合で、ADIという考え方が初めて確立された年</div>
+  </div>
+  <div class="num-card orange-bg">
+    <div class="big">2<span class="unit">機関</span></div>
+    <div class="desc">JECFAを共同運営する国連機関(FAO:食糧農業機関 / WHO:世界保健機関)</div>
+  </div>
+</div>
+
+<!-- 流れ図 -->
+<div class="card orange">
+  <h2>🔄 「安全な量」が決まるまでの流れ</h2>
+  <div class="flow">
+    <div class="flow-step">①動物実験で<br>NOAELを求める</div>
+    <div class="flow-arrow">▶</div>
+    <div class="flow-step purp">②安全係数100で<br>NOAELを割る</div>
+    <div class="flow-arrow">▶</div>
+    <div class="flow-step alt">③ADI(一日摂取<br>許容量)が決まる</div>
+    <div class="flow-arrow">▶</div>
+    <div class="flow-step">④各国がADIより<br>低い「使用基準」を設定</div>
+  </div>
+  <p style="margin-top:10px;">つまり、私たちが実際に食品から摂取してよいとされる基準値は、そもそも「ADI」というかなり保守的な(安全側に振った)数字を、さらに下回るように設定されるのが一般的です。ADI自体が、動物実験で「害が出なかった量」の<strong>さらに100分の1</strong>という、かなり厚みのある安全マージンの上に成り立っています。</p>
+</div>
+
+<!-- JECFAとは -->
+<div class="card purple">
+  <h2>🌍 JECFAという「国際専門家チーム」</h2>
+  <p>この仕組みを中心的に担っているのが、FAO(国連食糧農業機関)とWHO(世界保健機関)が共同で運営する<strong>JECFA(Joint FAO/WHO Expert Committee on Food Additives、FAO/WHO合同食品添加物専門家委員会)</strong>です。1955年のジュネーブでの合同会議を経て1956年に最初の科学的な会合が開かれ、各国政府から独立した毒性学・薬理学などの専門家が、世界中の毒性試験データを審査してADIなどを設定してきました。</p>
+  <p>JECFAの評価結果は、国際的な食品規格である<strong>コーデックス(Codex Alimentarius)</strong>の基準づくりの土台となり、日本の食品安全委員会をはじめ各国の規制当局もこれを参考に、自国の使用基準を決めています。</p>
+</div>
+
+<!-- 実例 -->
+<div class="card">
+  <h2>🍚 実例:「基準値の6倍」でも、なぜ健康影響がないと言えたのか</h2>
+  <p>日本の内閣府・食品安全委員会は、輸入米から残留基準値(0.01ppm)の6倍にあたる農薬メタミドホスが検出された事例を題材に、「なぜ食べても大丈夫と言えるのか」を解説する資料を公表しています。</p>
+  <p>ポイントは、<strong>「残留基準値」自体が、健康に影響が出る量よりもはるかに小さく設定されている</strong>という点です。基準値の6倍を摂取したとしても、それがただちにADI(一生涯毎日摂り続けても安全とされる量)を超えるとは限りません。食品安全委員会はこの資料の中で、実際の摂取量がADIの何分の1にとどまるかを試算し、健康リスクの大きさを具体的に示しています。</p>
+  <p style="margin-top:8px;"><strong>ただし</strong>、基準値を超えること自体は法律違反であり、流通は認められません。「基準値超え=即・健康被害」ではないという話と、「基準値を守らなくてよい」という話はまったく別問題です。この点を混同しないことが大切です。</p>
+</div>
+
+<!-- 賛否・限界 -->
+<div class="warn">
+  <strong>⚠️ この仕組みの限界・賛否が分かれる点:</strong>
+  <ul style="padding-left:1.4em; margin-top:8px;">
+    <li>NOAELやADIは、基本的に<span class="bad">1つの物質を単独で摂取した場合</span>を想定したモデルです。複数の添加物を同時に摂ったときの「複合影響(いわゆるカクテル効果)」を直接評価する仕組みではない、という指摘が一部の研究者・消費者団体からあります。</li>
+    <li>安全係数100(種差10×個体差10)は、長年の経験に基づく実務的な数字であり、すべての個人差(乳幼児・妊婦・特定の疾患を持つ人など)を完全にカバーする保証ではありません。</li>
+    <li>一方で、JECFAやFAO/WHOは新しい毒性試験データが出るたびに評価を継続的に見直しており、規制当局も複合曝露の評価手法を研究中です。同じ科学的なNOAEL/ADIの考え方を土台にしていても、どこまで慎重に規制するか(リスク管理)の判断は国によって異なり、これは「科学」というより各国の政策判断の違いによる部分もあります。</li>
+  </ul>
+</div>
+
+<!-- エビデンスの整理 -->
+<div class="card">
+  <h2>🧪 この仕組みは何に基づいているか</h2>
+  <table class="ev-table">
+    <tr><th>要素</th><th>根拠となるデータ</th><th>性質</th></tr>
+    <tr>
+      <td>NOAELの特定</td>
+      <td>動物を使った長期毒性試験(げっ歯類など)</td>
+      <td><span class="ev-badge ev-mid">動物実験・ヒトへの外挿には限界あり</span></td>
+    </tr>
+    <tr>
+      <td>安全係数100の設定</td>
+      <td>長年の毒性学の経験則・国際的な合意</td>
+      <td><span class="ev-badge ev-mid">科学的推定+実務的な保守的判断</span></td>
+    </tr>
+    <tr>
+      <td>ADI・使用基準の決定</td>
+      <td>JECFA等の専門家委員会による審査・合議</td>
+      <td><span class="ev-badge ev-high">国際的な専門家合意プロセス</span></td>
+    </tr>
+    <tr>
+      <td>複数物質の複合影響</td>
+      <td>個別のADIでは評価されていないことが多い</td>
+      <td><span class="ev-badge ev-low">研究途上・議論あり</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- 精密栄養学の視点 -->
+<div class="card">
+  <h2>🎯 精密栄養学の視点から見ると</h2>
+  <ul class="step-list">
+    <li>ADIやNOAELは、いわば「平均的な健康な成人」を想定した<strong>集団全体を守るための共通ルール</strong>です。個人の体質・代謝能力・持病などに合わせて最適化する精密栄養学の発想とは、前提が異なります。</li>
+    <li>将来的には、遺伝的な代謝の個人差(薬物代謝酵素の多型など)を考慮したリスク評価の研究も進められていますが、現状の食品添加物規制は「誰にとっても安全側に振った、保守的な共通基準」であると理解しておくのが実用的です。</li>
+    <li>基準の仕組みを知っておくと、「◯◯が基準値の△倍検出」というニュースを見たときに、それが即座に健康被害につながるものか、法令違反として是正されるべき問題なのかを、落ち着いて切り分けて考えられるようになります。</li>
+  </ul>
+</div>
+
+<!-- まとめ -->
+<div class="card" style="border-left-color:#1a7a5a;">
+  <h2>✅ 今日のまとめ</h2>
+  <ul class="step-list">
+    <li>食品添加物の「安全な量」は、動物実験で害が出なかった量(NOAEL)を、安全係数100(種差10×個体差10)で割った「ADI(一日摂取許容量)」という考え方で決められている。</li>
+    <li>この仕組みを国際的に担うのがFAO/WHO合同食品添加物専門家委員会(JECFA、1956年発会、1961年にADIの考え方を確立)で、各国の基準づくりの土台になっている。</li>
+    <li>実際の使用基準はADIよりさらに低く設定されるため、「基準値の数倍」を摂取しても直ちにADIを超えるとは限らない。ただし基準値超過そのものは法令違反であり、看過してよいという意味ではない。</li>
+    <li>複数物質の複合影響など、この仕組みにも限界や議論が残っている点は知っておく価値がある。</li>
+  </ul>
+</div>
+
+<!-- 免責 -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、医療アドバイスではありません。効果・必要量・リスクは個人の体質・年齢・持病・服薬によって大きく異なります。実践の前には、かかりつけ医・管理栄養士・薬剤師など専門家にご相談ください。本記事は特定の食品添加物・食事法を安易に推奨または否定するものではありません。
+</div>
+
+<!-- 出典 -->
+<div class="sources">
+  <h3>📚 主な出典・参考文献</h3>
+  <ol>
+    <li>WHO. "Joint FAO/WHO Expert Committee on Food Additives (JECFA) — About."
+      <a href="https://www.who.int/groups/joint-fao-who-expert-committee-on-food-additives-(jecfa)/about" target="_blank">https://www.who.int/groups/joint-fao-who-expert-committee-on-food-additives-(jecfa)/about</a>
+    </li>
+    <li>FAO. "Scientific advice: JECFA." Food Safety and Quality.
+      <a href="https://www.fao.org/food-safety/scientific-advice/jecfa/en" target="_blank">https://www.fao.org/food-safety/scientific-advice/jecfa/en</a>
+    </li>
+    <li>内閣府 食品安全委員会「一日摂取許容量(ADI)とは?」
+      <a href="https://www.fsc.go.jp/emerg/adi.pdf" target="_blank">https://www.fsc.go.jp/emerg/adi.pdf</a>
+    </li>
+    <li>公益財団法人 日本食品化学研究振興財団「指定添加物(規則別表一)のJECFAによる安全性評価」
+      <a href="https://www.ffcr.or.jp/tenka/secure/jecfa.html" target="_blank">https://www.ffcr.or.jp/tenka/secure/jecfa.html</a>
+    </li>
+  </ol>
+  <p style="margin-top:8px; font-size:0.78rem;">※ 本記事は上記の国連機関(FAO/WHO)および日本の公的機関(食品安全委員会)の公開資料をもとに構成しています。JECFAの発足年(1956年)・ADI確立年(1961年、第6回会合)は複数の公式資料で確認できる範囲の情報です。個別の添加物ごとの具体的なNOAEL数値・ADI数値は物質ごとに異なるため、正確な数値は各物質のJECFA評価書または食品安全委員会の評価書でご確認ください。</p>
+</div>
+
+</div>
+</body>
+</html>
