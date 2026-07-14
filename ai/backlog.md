@@ -48,6 +48,7 @@
 - 2026-07-12: SpaceXAI Grok 4.5（2026年7月8〜9日公開）・Cursor買収後初のモデル・1.5兆パラメータV9基盤（推定）・Terminal-Bench 2.1で83.3%・1兆件超のCursorトークンで訓練・コーディング/エージェント/法律/金融に特化・$2/$6（百万トークン・公式要確認）・Grok Build/Cursor全プラン/SpaceXAIコンソールで提供・EU未対応（2026年7月時点）・Elon曰く「Opusクラスだが速くて安い」（出典：Axios / TechCrunch / Bloomberg / Engadget・2026年7月8〜9日）
 - 2026-07-13: Apple vs OpenAI 企業秘密窃取訴訟（2026年7月10日提訴）・米カリフォルニア北部連邦地裁・「企業秘密の窃取・契約違反」・元Apple社員400人超がOpenAI在籍・チーフ・ハードウェア・オフィサー Tang Tan氏の採用活動での機密使用・Chang Liu氏のパソコン未返却・機密文書持ち出しが訴因・Jony Ive氏のio Productsも被告・2026年2月の警告書への返答なし（出典：TechCrunch / CNN / CNBC / Fortune / NBC News / Axios / The Japan Times・2026年7月10〜11日）
 - 2026-07-14: 検索エンジンのAI回答デフォルト化（2026年7月10日全世界適用）・約27年続いた「青いリンク一覧」が標準でなくなりGemini 3.5 FlashによるAI回答が先に表示・AI検索ユーザー10億人規模・パブリッシャーへのクリック数58%減・独占禁止法違反訴訟・GEO（生成エンジン最適化）という新概念が台頭（出典：TechTimes / mediacopilot.ai / tech-insider.org / ranksenseai.com・2026年7月）
+- 2026-07-15: Claude Corps（クロード・コープス）フェローシップ（2026年6月11日発表）・1億5,000万ドル投資・若者1,000人をAI人材として育成・400以上の米国非営利団体に1年間フルタイム派遣・給与年8万5,000ドル・18歳以上学歴不問・第1期100人応募締切2026年7月17日・運営はCodePath（雇用管理）とSocial Finance（効果測定）・「AIの恩恵格差」縮小がねらい（出典：The Register / Forbes / QZ.com / opportunitiesforyouth.org / Inc.com・2026年6月〜7月）
 
 ## 未解説の候補トピック（今後の参考）
 
