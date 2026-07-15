@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI動画制作 最新トピック 2026-07-16</title>
+<style>
+  :root {
+    --bg: #ece8e1;
+    --card: #faf6ec;
+    --dark: #1a3a5c;
+    --dark2: #1a5c3a;
+    --accent: #2a5c8a;
+    --accent2: #c85a00;
+    --text: #2a3540;
+    --muted: #7c8a82;
+    --border: #e0d8c8;
+    --highlight: #fff3cd;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, "Hiragino Sans", "Yu Gothic", sans-serif;
+    line-height: 1.75;
+    padding: 20px;
+  }
+  .wrap { max-width: 900px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #1a3a5c 0%, #1a5c3a 100%);
+    color: #fff;
+    border-radius: 20px;
+    padding: 44px 32px 36px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(26,58,92,.22);
+    margin-bottom: 24px;
+  }
+  .header-tag {
+    display: inline-block;
+    background: rgba(255,255,255,.18);
+    color: #e0f0e8;
+    border-radius: 20px;
+    padding: 4px 16px;
+    font-size: .82rem;
+    margin-bottom: 14px;
+    letter-spacing: .06em;
+  }
+  .header h1 { font-size: 1.65rem; letter-spacing: .03em; line-height: 1.4; margin-bottom: 10px; }
+  .header .sub { color: #c8dde8; font-size: .95rem; }
+  .header .date { color: #b0e0c0; font-size: .85rem; margin-top: 8px; }
+
+  .card {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 12px rgba(0,0,0,.07);
+    border: 1px solid var(--border);
+  }
+  .card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .point-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .point-card { background: #eef3f8; border-radius: 14px; padding: 20px 16px; text-align: center; border: 1px solid #d4e0ea; }
+  .point-icon { font-size: 2rem; margin-bottom: 8px; }
+  .point-title { font-size: .95rem; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
+  .point-desc { font-size: .83rem; color: var(--muted); line-height: 1.6; }
+
+  .bignum-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 20px; }
+  .bignum-card { background: linear-gradient(135deg, #1a3a5c, #1a5c3a); border-radius: 14px; padding: 18px 12px; text-align: center; color: #fff; }
+  .bignum { font-size: 1.4rem; font-weight: 800; color: #ffe0a0; line-height: 1.2; }
+  .bignum-label { font-size: .72rem; color: #cfe6d8; margin-top: 4px; line-height: 1.5; }
+
+  .step-list { list-style: none; }
+  .step-item { display: flex; gap: 14px; margin-bottom: 16px; align-items: flex-start; }
+  .step-num {
+    width: 34px; height: 34px;
+    background: linear-gradient(135deg, #1a3a5c, #1a5c3a);
+    color: #fff; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: .95rem; flex-shrink: 0; margin-top: 2px;
+  }
+  .step-body { flex: 1; }
+  .step-title { font-weight: 700; color: var(--dark); font-size: .95rem; }
+  .step-desc { font-size: .86rem; color: var(--muted); margin-top: 3px; line-height: 1.65; }
+
+  .chip-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .chip { background: #e8f0ec; color: #1a5c3a; border-radius: 20px; padding: 4px 14px; font-size: .82rem; font-weight: 600; border: 1px solid #c0dccc; }
+
+  .tbl { width: 100%; border-collapse: collapse; font-size: .88rem; }
+  .tbl th { background: #eaf1ea; padding: 10px 12px; text-align: left; border-bottom: 2px solid #c8ddc8; color: var(--dark); font-weight: 700; }
+  .tbl td { padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: top; color: var(--text); }
+  .tbl tr:last-child td { border-bottom: none; }
+
+  .note-box { background: var(--highlight); border-left: 4px solid #e8a000; border-radius: 8px; padding: 12px 16px; font-size: .88rem; color: #5a4000; margin-top: 14px; line-height: 1.7; }
+
+  .summary-list { font-size: .95rem; line-height: 2.2; }
+  .summary-list li { list-style: none; display: flex; align-items: flex-start; gap: 8px; }
+  .summary-list li::before { content: "✅"; flex-shrink: 0; margin-top: 2px; }
+
+  .disclaimer { background: #f0ede8; border-radius: 12px; padding: 16px 20px; font-size: .82rem; color: var(--muted); margin-top: 24px; line-height: 1.7; border: 1px solid #ddd8d0; }
+
+  footer { text-align: center; color: var(--muted); font-size: .82rem; margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border); line-height: 1.9; }
+  footer a { color: var(--accent); }
+
+  /* 3つのモデルカード */
+  .pattern-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 4px; }
+  .pattern-card { border-radius: 14px; padding: 18px 16px; color: #fff; }
+  .pattern-1 { background: linear-gradient(160deg,#c85a00,#e8a000); }
+  .pattern-2 { background: linear-gradient(160deg,#2a5c8a,#1a3a5c); }
+  .pattern-3 { background: linear-gradient(160deg,#1a5c3a,#2a7c50); }
+  .pattern-icon { font-size: 1.8rem; margin-bottom: 6px; }
+  .pattern-name { font-size: .95rem; font-weight: 800; margin-bottom: 8px; }
+  .pattern-line { font-size: .8rem; background: rgba(255,255,255,.16); border-radius: 8px; padding: 8px 10px; line-height: 1.6; }
+
+  /* ベースモデル→特化AIの流れ */
+  .flow-row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-top: 6px; }
+  .flow-step { flex: 1; min-width: 120px; background: #eef3f8; border: 1px solid #d4e0ea; border-radius: 10px; padding: 12px 10px; text-align: center; }
+  .flow-step .fs-icon { font-size: 1.3rem; margin-bottom: 4px; }
+  .flow-step .fs-title { font-size: .82rem; font-weight: 700; color: var(--dark); }
+  .flow-step .fs-desc { font-size: .72rem; color: var(--muted); margin-top: 3px; line-height: 1.5; }
+  .flow-arrow { font-size: 1.3rem; color: var(--accent2); font-weight: 700; flex-shrink: 0; }
+  .flow-caption { text-align: center; font-size: .8rem; color: var(--muted); margin-top: 10px; }
+
+  @media (max-width: 640px) {
+    .point-grid { grid-template-columns: 1fr; }
+    .bignum-grid { grid-template-columns: 1fr; }
+    .pattern-grid { grid-template-columns: 1fr; }
+    .flow-row { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="header">
+  <div class="header-tag">🛠️ ツール情報回 ── 国産アニメ特化AI</div>
+  <h1>アニメ特化の動画生成AI「AnimeGen」が無償公開<br>── 商用利用OKで自分でも試せる国内発モデル</h1>
+  <div class="sub">経済産業省・NEDOのプロジェクト支援で生まれた、日本発のアニメ特化AIモデル</div>
+  <div class="date">2026-07-16 ｜ AI動画制作 最新トピック</div>
+</div>
+
+<div class="card">
+  <div class="card-title">🎯 今日の3ポイント</div>
+  <div class="point-grid">
+    <div class="point-card">
+      <div class="point-icon">🎌</div>
+      <div class="point-title">誰が作った？</div>
+      <div class="point-desc">国内AIベンチャーのAIdeaLabが2026年7月13日に公開。「アニメ特化AIは海外に遅れている」という課題意識から作られた</div>
+    </div>
+    <div class="point-card">
+      <div class="point-icon">🆓</div>
+      <div class="point-title">何がすごい？</div>
+      <div class="point-desc">モデルの中身（重み）ごと無償公開。ライセンスはApache-2.0(オープンソースの一種で商用利用も自由に認めるライセンス)で商用利用もOK</div>
+    </div>
+    <div class="point-card">
+      <div class="point-icon">🏛️</div>
+      <div class="point-title">なぜ実現した？</div>
+      <div class="point-desc">経済産業省とNEDO(国の研究開発法人)が進める「GENIAC」という国内の生成AI開発力を強化するプロジェクトの支援を受けて開発された</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🔢 AnimeGenを数字で見る</div>
+  <div class="bignum-grid">
+    <div class="bignum-card">
+      <div class="bignum">2026/7/13</div>
+      <div class="bignum-label">公開日<br>（本記事の公開日ではなく事実確認済み）</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">3種類</div>
+      <div class="bignum-label">Text to Video・Image to Video・フレーム補間の3モデル/デモ</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">0円〜</div>
+      <div class="bignum-label">Hugging Face(AIモデルを公開・共有する世界最大級のサイト)上のデモは無料で試せる</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🧬 どうやって作られた？ ── ベースモデルからの流れ</div>
+  <p style="font-size:.9rem;color:var(--muted);margin-bottom:6px;">
+    AnimeGenはゼロから作られたわけではなく、既にあるAIモデルをアニメ表現向けに「ファインチューニング(追加学習で特定の目的に鍛え直すこと)」して作られています。
+  </p>
+  <div class="flow-row">
+    <div class="flow-step"><div class="fs-icon">🌐</div><div class="fs-title">Wan2.2（ベースモデル）</div><div class="fs-desc">Alibaba社が公開する汎用の動画生成AI。世界初のMoE(複数の専門家モデルを使い分ける仕組み)採用モデル</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="fs-icon">🎨</div><div class="fs-title">アニメ特化の追加学習</div><div class="fs-desc">GENIACの支援のもと、動きの表現・キャラの描き方・配色をアニメ向けに鍛え直す</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="fs-icon">🎬</div><div class="fs-title">AnimeGen</div><div class="fs-desc">T2V・I2V・フレーム補間の3モデルとしてHugging Faceで無償公開</div></div>
+  </div>
+  <div class="flow-caption">「海外の優れた土台を、日本のノウハウでアニメ向けに仕上げる」というアプローチ</div>
+</div>
+
+<div class="card">
+  <div class="card-title">🧩 公開された3つのモデル</div>
+  <div class="pattern-grid">
+    <div class="pattern-card pattern-1">
+      <div class="pattern-icon">✍️</div>
+      <div class="pattern-name">Text to Video</div>
+      <div class="pattern-line">文章のプロンプトだけからアニメ風の動画を生成するモデル</div>
+    </div>
+    <div class="pattern-card pattern-2">
+      <div class="pattern-icon">🖼️</div>
+      <div class="pattern-name">Image to Video</div>
+      <div class="pattern-line">1枚のイラスト・静止画を元に、動きをつけて動画化するモデル</div>
+    </div>
+    <div class="pattern-card pattern-3">
+      <div class="pattern-icon">🎞️</div>
+      <div class="pattern-name">フレーム補間</div>
+      <div class="pattern-line">コマとコマ(フレーム)の間を自動で滑らかに埋めて、動きをなめらかにするデモ</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">📊 海外の主要ツールとの違い</div>
+  <table class="tbl">
+    <thead>
+      <tr><th>ツール</th><th>特徴</th><th>ライセンス/料金</th><th>試し方</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>🎌 AnimeGen</strong><br>(AIdeaLab)</td>
+        <td>アニメ表現に特化。国内製</td>
+        <td>Apache-2.0で無償・商用利用OK</td>
+        <td>Hugging Faceのデモページで無料体験。本格利用は自分のPC/クラウドでダウンロードして実行(要GPU環境)</td>
+      </tr>
+      <tr>
+        <td>🌐 Wan2.2<br>(Alibaba・ベースモデル)</td>
+        <td>アニメに限らない汎用モデル</td>
+        <td>オープンソースで公開・商用利用OK</td>
+        <td>同じくローカル/クラウドで実行</td>
+      </tr>
+      <tr>
+        <td>☁️ Kling・Seedance・Runwayなど</td>
+        <td>汎用・高品質の商用クラウドサービス</td>
+        <td>基本は有料プラン(無料枠ありのものも)</td>
+        <td>ブラウザだけで完結、GPU環境の用意は不要</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="note-box">
+    💡 AnimeGenの最大の特徴は「無料で試せる」ことに加えて「モデルの中身ごと持ち帰れる」こと。ただし本格的に使うには自分のPCかクラウドにGPU環境を用意する必要があり、その点はブラウザだけで完結する海外の商用クラウドサービスと使い勝手が異なります。
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🛠️ 実践例：無料デモでアニメ風の一場面を作る5ステップ</div>
+  <p style="font-size:.88rem;color:var(--muted);margin-bottom:18px;">
+    Hugging Face上のAnimeGenデモを使えば、インストール不要・無料でアニメ風の短い動画を試作できます。
+  </p>
+  <ul class="step-list">
+    <li class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-title">Hugging FaceでAnimeGenのデモページを開く</div>
+        <div class="step-desc">「AnimeGen Text to Video」のデモ(Hugging Face Spaces)をブラウザで開く。アカウント登録なしで試せる場合が多い。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-title">オリジナルの場面をプロンプトで書く</div>
+        <div class="step-desc">例：「桜が舞う校庭で、オリジナルの女子高生キャラが振り返る、アニメ風、夕方の逆光」のように、自分で考えたキャラ・場面を短い文章で入力する。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-title">生成ボタンを押して待つ</div>
+        <div class="step-desc">数十秒〜数分ほど待つと5秒前後のアニメ風クリップが生成される。混雑状況により待ち時間は変動する。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <div class="step-title">気になる部分をプロンプトで調整して再生成</div>
+        <div class="step-desc">動きが硬い・色味が違うなど気になる点があれば、プロンプトの表現(スピード感・光の当たり方など)を変えて何度か試す。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">5</div>
+      <div class="step-body">
+        <div class="step-title">Image to Video・フレーム補間で仕上げる</div>
+        <div class="step-desc">気に入った1枚の絵があれば「Image to Video」で動画化したり、「フレーム補間」で動きをより滑らかにして、ショート動画の1カットに仕上げる。</div>
+      </div>
+    </li>
+  </ul>
+  <div class="note-box">
+    ⚠️ 実在の人物やアニメ・漫画の既存キャラクターを無断で再現するプロンプトは著作権・肖像権の侵害になり得ます。練習する際は、自分で考えたオリジナルキャラクターや場面で試しましょう。
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">📝 今日のまとめ</div>
+  <ul class="summary-list">
+    <li>国内AIベンチャー<strong>AIdeaLab</strong>が2026年7月13日、アニメ特化の動画生成AI「<strong>AnimeGen</strong>」を無償公開した</li>
+    <li>ライセンスは<strong>Apache-2.0</strong>で、モデルの中身ごと商用利用も可能</li>
+    <li>Alibaba社の汎用モデル「<strong>Wan2.2</strong>」をベースに、国のGENIACプロジェクト支援でアニメ向けに追加学習して作られた</li>
+    <li>公開モデルは<strong>Text to Video・Image to Video・フレーム補間</strong>の3種で、Hugging Face上のデモなら無料・インストール不要で体験できる</li>
+    <li>海外の商用クラウドサービスと違い、本格利用には自分でGPU環境を用意する必要がある点には注意</li>
+    <li>実在の人物や既存キャラクターの無断再現は避け、オリジナルキャラで練習するのが安全</li>
+  </ul>
+</div>
+
+<div class="disclaimer">
+  ⚠️ <strong>免責事項</strong><br>
+  本記事で紹介したAIツール（AnimeGen等）の名称・機能・料金・商用利用の可否は頻繁に変わるため、利用の際は各ツールの公式ページ・利用規約・ライセンス条項を必ずご確認ください。著作権のあるキャラクターや実在人物の肖像を無断で再現する行為は行わないでください。
+</div>
+
+<footer>
+  AI動画制作 最新トピック ─ 2026-07-16 ｜ ツール情報回<br>
+  出典(2026年7月確認)：
+  <a href="https://www.itmedia.co.jp/aiplus/article/2607/13/2000000187/">ITmedia NEWS「アニメ特化動画生成AI『AnimeGen』無償公開、商用利用も可」</a>／
+  <a href="https://note.com/aidealab/n/nf73e7091ec95">AIdeaLab公式note「アニメ特化の動画生成AIモデル『AnimeGen』を公開しました」</a>／
+  <a href="https://prtimes.jp/main/html/rd/p/000000026.000084222.html">PR TIMES「アニメ特化動画生成AIモデル『AnimeGen』を公開」</a>／
+  <a href="https://ai.watch.impress.co.jp/docs/news/2124781.html">AI Watch「商用利用可能なアニメ特化動画生成AIモデル『AnimeGen』を無償公開」</a>／
+  <a href="https://huggingface.co/aidealab/AnimeGen-T2V">Hugging Face「aidealab/AnimeGen-T2V」モデルページ</a><br>
+  <a href="index.html" style="color:var(--accent);">← 一覧に戻る</a>
+</footer>
+
+</div>
+</body>
+</html>
