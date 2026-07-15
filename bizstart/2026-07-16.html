@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-07-16</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #1e7a5a 0%, #0d4632 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #1e7a5a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.blue   { border-left-color: #1e5a7a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.purple { border-left-color: #7a4a9e; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #1e7a5a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  .type-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .type-grid { grid-template-columns: 1fr; } }
+  .type-card {
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-size: 0.86rem;
+    line-height: 1.65;
+  }
+  .type-card.main {
+    background: #e6f5ee;
+    border: 2px solid #1e7a5a;
+  }
+  .type-card.sub {
+    background: #e8f0f8;
+    border: 2px solid #1e5a7a;
+  }
+  .type-card .tl {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+  }
+  .type-card.main .tl { color: #0d4632; }
+  .type-card.sub .tl  { color: #0d3352; }
+  .type-card .tv { font-size: 1.0rem; font-weight: 700; margin-bottom: 6px; }
+  .type-card.main .tv { color: #1e7a5a; }
+  .type-card.sub .tv  { color: #1e5a7a; }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 14px 10px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat .sl { font-size: 0.67rem; color: #888; margin-bottom: 3px; }
+  .stat .sv { font-size: 1.5rem; font-weight: 700; color: #1e7a5a; line-height: 1.1; }
+  .stat .su { font-size: 0.7rem; color: #666; margin-top: 2px; }
+
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #1e7a5a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+  .f-arrow { color: #1e7a5a; font-size: 1.1rem; margin-left: 14px; margin-bottom: 4px; }
+
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  .prompt-box {
+    background: #f0f5ff;
+    border: 2px solid #4a6aae;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 12px 0;
+    font-size: 0.84rem;
+    line-height: 1.85;
+    color: #1a2a4a;
+  }
+  .prompt-box .ph {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #4a6aae;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+  .prompt-box .fill {
+    background: #d0e0ff;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-weight: 700;
+    color: #0a2a6e;
+  }
+
+  .info {
+    background: #e6f5ee;
+    border-left: 4px solid #1e7a5a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #0d4632;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #7a4010;
+  }
+
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #1e7a5a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+
+  .badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 8px;
+    margin-right: 4px;
+    vertical-align: middle;
+  }
+  .badge.law   { background: #1e7a5a; color: white; }
+  .badge.ai    { background: #4a6aae; color: white; }
+  .badge.tip   { background: #4a9e6a; color: white; }
+  .badge.warn  { background: #c8884a; color: white; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #1e7a5a; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #1e7a5a; }
+
+  .flow-h {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 14px 0;
+  }
+  .flow-box {
+    background: white;
+    border: 2px solid #1e7a5a;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 0.81rem;
+    text-align: center;
+    line-height: 1.45;
+    color: #0d4632;
+    font-weight: 600;
+  }
+  .flow-arrow {
+    color: #1e7a5a;
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+  @media (max-width: 540px) {
+    .flow-h { flex-direction: column; align-items: flex-start; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+
+  .matrix {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.83rem;
+  }
+  .matrix th {
+    background: #0d4632;
+    color: white;
+    padding: 8px 12px;
+    text-align: center;
+    font-weight: 600;
+  }
+  .matrix td {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    vertical-align: top;
+    line-height: 1.55;
+  }
+  .matrix .row-head {
+    background: #e6f5ee;
+    font-weight: 700;
+    color: #0d4632;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .matrix .ok  { color: #4a9e6a; font-weight: 700; }
+  .matrix .ng  { color: #b54040; font-weight: 700; }
+  .matrix .mid { color: #c8884a; font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Header -->
+<div class="header">
+  <div class="meta">📅 1人法人スタート 最新トピック &nbsp;2026-07-16</div>
+  <h1>💰 会社のお金が足りない時どうする？<br>1人法人の資金調達入門</h1>
+  <div class="desc">
+    <span class="htag">資金調達</span>
+    <span class="htag">日本政策金融公庫</span>
+    <span class="htag">信用保証協会</span>
+    <span class="htag">補助金</span>
+    <span class="htag">クラウドファンディング</span>
+    <br>
+    「売上が入ってくる前に、経費だけ先に出ていく」──1人社長にはよくある悩みです。今日は<span class="hl">代表的な4つの資金調達方法</span>を、それぞれの特徴・金額の目安つきで図解します。
+  </div>
+</div>
+
+<!-- Section 1: 4 types matrix -->
+<div class="card">
+  <div class="sec-title">🗺️ まずは全体像。資金調達には大きく4つの道がある</div>
+  <p>「お金を用意する方法」と一口に言っても、性質はまったく違います。<strong>返す必要があるか（融資・保証協会付融資）</strong>、<strong>原則返さなくてよいか（補助金・クラウドファンディングの一部）</strong>で、まず頭の中を整理しましょう。</p>
+
+  <table class="matrix" style="margin-top:14px;">
+    <tr>
+      <th style="width:22%;">方法</th>
+      <th style="width:16%;">返済</th>
+      <th style="width:24%;">スピード目安</th>
+      <th>ポイント</th>
+    </tr>
+    <tr>
+      <td class="row-head">🏦 公庫の<br>直接融資</td>
+      <td class="ng">必要<br>（利息あり）</td>
+      <td>申込〜実行まで<br>数週間〜1か月程度</td>
+      <td>無担保・無保証人が中心。事業計画の説得力が問われる</td>
+    </tr>
+    <tr>
+      <td class="row-head">🏛️ 信用保証協会<br>付き融資</td>
+      <td class="ng">必要<br>（利息＋保証料）</td>
+      <td>公庫よりやや<br>時間がかかることも</td>
+      <td>民間金融機関の借入に公的な「保証」を付けてもらう仕組み</td>
+    </tr>
+    <tr>
+      <td class="row-head">🎯 補助金</td>
+      <td class="ok">原則不要<br>（後払い）</td>
+      <td>公募〜入金まで<br>半年〜1年程度</td>
+      <td>先に自分で立て替えて支払い、あとから振り込まれるのが基本</td>
+    </tr>
+    <tr>
+      <td class="row-head">📣 クラウド<br>ファンディング</td>
+      <td class="mid">型による</td>
+      <td>準備〜実施で<br>1〜3か月程度</td>
+      <td>資金調達と同時に「ファン作り」「テストマーケティング」にもなる</td>
+    </tr>
+  </table>
+  <div class="info" style="margin-top:10px;">
+    💡 補助金は「もらえるお金」というイメージが強いですが、実際は<strong>先払い・後精算</strong>が基本です。手元の運転資金が足りるかどうかは別問題として考えましょう。
+  </div>
+</div>
+
+<!-- Section 2: JFC -->
+<div class="card blue">
+  <div class="sec-title">🏦 日本政策金融公庫「新規開業・スタートアップ支援資金」</div>
+  <p>創業期の代表的な借入先が、政府系金融機関の<strong>日本政策金融公庫（こうこ）</strong>です。新たに事業を始める方、または事業開始後おおむね7年以内の方が対象の融資制度があります。</p>
+
+  <div class="stats-row" style="margin-top:14px;">
+    <div class="stat">
+      <div class="sl">融資限度額</div>
+      <div class="sv">7,200万円</div>
+      <div class="su">うち運転資金は4,800万円まで</div>
+    </div>
+    <div class="stat">
+      <div class="sl">返済期間</div>
+      <div class="sv">設備20年<br>運転10年</div>
+      <div class="su">いずれも据置期間5年以内（それぞれ以内）</div>
+    </div>
+    <div class="stat">
+      <div class="sl">担保・保証人</div>
+      <div class="sv">原則不要</div>
+      <div class="su">無担保・無保証人で利用できる制度が中心</div>
+    </div>
+  </div>
+
+  <div class="warn" style="margin-top:12px;">
+    ⚠️ 過去の制度改正で自己資金の要件は原則不要とされていますが、<strong>審査では自己資金の有無や事業計画の実現性が判断材料になる</strong>のが実務です。「要件がないから準備しなくてよい」わけではありません。
+  </div>
+
+  <div class="source">
+    出典：日本政策金融公庫「新規開業・スタートアップ支援資金」<br>
+    <a href="https://www.jfc.go.jp/n/finance/search/01_sinkikaigyou_m.html" target="_blank">https://www.jfc.go.jp/n/finance/search/01_sinkikaigyou_m.html</a>（2026年7月時点）
+  </div>
+</div>
+
+<!-- Section 3: 信用保証協会 -->
+<div class="card orange">
+  <div class="sec-title">🏛️ 信用保証協会は「借入の保証人」になってくれる公的機関</div>
+  <p>信用保証協会は、銀行や信用金庫から融資を受ける際に<strong>公的な保証人</strong>として間に入ってくれる仕組みです。創業したばかりで実績がなくても利用しやすいよう、創業者向けの保証制度が用意されています。</p>
+
+  <div class="type-grid" style="margin-top:14px;">
+    <div class="type-card main">
+      <div class="tl">🎯 対象になる人</div>
+      <div class="tv">創業前後の具体的計画者</div>
+      事業を営んでいない個人で、<br>
+      ・1か月以内に個人で創業予定<br>
+      ・2か月以内に会社を設立して創業予定<br>
+      のいずれかで、具体的な計画を持つ方
+    </div>
+    <div class="type-card sub">
+      <div class="tl">💴 保証の内容</div>
+      <div class="tv">上限3,500万円・100%保証</div>
+      創業関連保証・再挑戦支援保証・スタートアップ創出促進保証の<strong>合計</strong>で3,500万円。保証期間10年以内、据置1年以内
+    </div>
+  </div>
+
+  <div class="info" style="margin-top:12px;">
+    💡 「公庫」と「保証協会付き融資」は<strong>別の窓口</strong>です。両方を使い分けたり、同時に検討したりする社長も多いので、まずはそれぞれの窓口（公庫の支店／地元の信用保証協会・取引金融機関）に相談してみましょう。
+  </div>
+
+  <div class="source">
+    出典：全国信用保証協会連合会「創業をお考えの方」<br>
+    <a href="https://www.zenshinhoren.or.jp/model-case/sogyo/" target="_blank">https://www.zenshinhoren.or.jp/model-case/sogyo/</a>（2026年7月時点）
+  </div>
+</div>
+
+<!-- Section 4: 補助金 -->
+<div class="card">
+  <div class="sec-title">🎯 補助金の例：小規模事業者持続化補助金</div>
+  <p>補助金は制度ごとに目的・金額・期限が大きく異なります。代表例として、販路開拓の取り組みを支援する<strong>小規模事業者持続化補助金</strong>を見てみましょう（第20回公募・2026年5月公開の公募要領ベース）。</p>
+
+  <div class="stats-row" style="margin-top:14px;">
+    <div class="stat">
+      <div class="sl">基本の上限</div>
+      <div class="sv">50万円</div>
+      <div class="su">補助率2/3</div>
+    </div>
+    <div class="stat">
+      <div class="sl">特例併用時<br>の上限</div>
+      <div class="sv">250万円</div>
+      <div class="su">インボイス特例＋賃金引上げ特例</div>
+    </div>
+    <div class="stat">
+      <div class="sl">申請の窓口</div>
+      <div class="sv">商工会<br>商工会議所</div>
+      <div class="su">経営計画づくりのサポートを受けながら申請</div>
+    </div>
+  </div>
+
+  <div class="warn" style="margin-top:12px;">
+    ⚠️ 補助金は「採択されたら終わり」ではありません。<strong>いったん自分で支払いを済ませ、完了報告のあとで補助額が振り込まれる</strong>のが一般的な流れです。立て替え分の資金繰りを見込んでおく必要があります。
+  </div>
+
+  <div class="source">
+    出典：中小企業庁「小規模事業者持続化補助金について」<br>
+    <a href="https://www.chusho.meti.go.jp/keiei/shokibo/jizoku/" target="_blank">https://www.chusho.meti.go.jp/keiei/shokibo/jizoku/</a>（2026年7月時点、第20回公募要領ベース）
+  </div>
+</div>
+
+<!-- Section 5: crowdfunding -->
+<div class="card purple">
+  <div class="sec-title">📣 クラウドファンディングは3つのタイプがある</div>
+  <p>クラウドファンディングは、インターネット経由で不特定多数の支援者からお金を集める方法です。仕組みによって性格が大きく異なります。</p>
+
+  <div class="type-grid" style="margin-top:14px;">
+    <div class="type-card main">
+      <div class="tl">🎁 購入型</div>
+      <div class="tv">返済不要</div>
+      支援のお礼に商品・サービスを提供する形。新商品のテストマーケティングにも使われる
+    </div>
+    <div class="type-card sub">
+      <div class="tl">💝 寄付型</div>
+      <div class="tv">返済不要</div>
+      支援者が対価を求めず資金を寄付する形。社会性の高いプロジェクトに向く
+    </div>
+  </div>
+  <div class="type-grid" style="margin-top:12px;">
+    <div class="type-card sub" style="grid-column: 1 / -1;">
+      <div class="tl">📈 金融型（融資・投資型）</div>
+      <div class="tv">返済・分配が発生する</div>
+      支援者が融資や出資を行い、事業の成長に応じたリターンを受け取る形。株式投資型なども含まれる
+    </div>
+  </div>
+
+  <div class="source">
+    出典：J-Net21（中小企業ビジネス支援サイト）経営ハンドブック「クラウドファンディング」<br>
+    <a href="https://j-net21.smrj.go.jp/handbook/finance/cloud.html" target="_blank">https://j-net21.smrj.go.jp/handbook/finance/cloud.html</a>
+  </div>
+</div>
+
+<!-- Section 6: flow -->
+<div class="card blue">
+  <div class="sec-title">🧭 場面別に見る「まず何を検討するか」の流れ</div>
+  <p>すべてを同時に検討する必要はありません。会社のフェーズに合わせて、優先順位をつけて動くのが現実的です。</p>
+
+  <div class="flow-h" style="margin-top:14px;">
+    <div class="flow-box">🏁 ①<br>設立前後<br>創業期</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-box">🏦 ②<br>公庫の創業融資・<br>保証協会付き融資を検討</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-box">🎯 ③<br>設備投資・販路開拓の<br>計画があれば補助金も確認</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-box">📣 ④<br>新商品を試したいなら<br>クラウドファンディングも選択肢</div>
+  </div>
+
+  <div class="info" style="margin-top:12px;">
+    💡 補助金とクラウドファンディングは、融資の返済原資を作るための「プラスアルファ」と考えるとバランスが取りやすくなります。まずは融資で運転資金の土台を確保するのが基本の順番です。
+  </div>
+</div>
+
+<!-- Section 7: checklist -->
+<div class="card">
+  <div class="sec-title">✅ 今日からできる実践チェックリスト</div>
+  <ul class="check-list" style="margin-top:10px;">
+    <li><span class="ck">☑</span> 「返す必要があるお金」と「原則返さなくてよいお金」を混同せず、資金調達方法ごとに区別して管理する</li>
+    <li><span class="ck">☑</span> 公庫・保証協会に相談する前に、簡単でよいので事業計画（売上見込み・使いみち）をまとめておく</li>
+    <li><span class="ck">☑</span> 補助金は「後払い」が基本であることを踏まえ、立て替え分の資金を確保できるか事前に確認する</li>
+    <li><span class="ck">☑</span> 補助金の申請窓口（商工会・商工会議所など）に、公募が始まる前から早めに相談しておく</li>
+    <li><span class="ck-bad">⚠</span> <span style="color:#888;">「必ず採択される」「絶対に得」といった話を鵜呑みにせず、制度の一次情報（公式サイト）を必ず確認する</span></li>
+  </ul>
+</div>
+
+<!-- Section 8: AI prompt -->
+<div class="card orange">
+  <div class="sec-title">🤖 生成AIに「事業計画のたたき台」を作ってもらうプロンプト例</div>
+  <p>融資や補助金の相談では、事業計画の言語化が最初のハードルになりがちです。<span class="hl">たたき台をAIに作ってもらい、数字や事実は自分で確認・修正する</span>という使い方が現実的です。</p>
+
+  <div class="prompt-box" style="margin-top:14px;">
+    <div class="ph">🤖 プロンプト例：創業融資の相談用・事業計画たたき台</div>
+    私は<span class="fill">【業種・事業内容】</span>の1人会社（代表取締役1名）を経営しています。<span class="fill">【資金の使いみち：設備／運転資金など】</span>のために<span class="fill">【調達したい金額】</span>円程度の資金調達を検討しています。<br>
+    <br>
+    日本政策金融公庫の創業融資、または信用保証協会付き融資の相談で使う事業計画のたたき台（事業概要・売上見込みの考え方・資金の使いみち・返済原資の考え方）を、箇条書きで整理してください。数字はあくまで仮置きとして扱い、実際の数値は自分で入れ直すことを前提にしてください。<br>
+    ※最終的な事業計画・借入額の妥当性は、金融機関・税理士・中小企業診断士などの専門家に確認してください。
+  </div>
+</div>
+
+<!-- Section 9: summary -->
+<div class="card">
+  <div class="sec-title">📝 今日のまとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">①</span>資金調達には大きく<span class="hlg">融資・保証協会付き融資・補助金・クラウドファンディング</span>の4つの道があり、性質が異なる。</li>
+    <li><span class="n">②</span>日本政策金融公庫の創業向け融資は<span class="hl">融資限度額7,200万円（運転資金4,800万円）</span>、原則無担保・無保証人。</li>
+    <li><span class="n">③</span>信用保証協会の創業関連の保証は<span class="hl">合計上限3,500万円・100%保証</span>で、民間融資を後押ししてくれる。</li>
+    <li><span class="n">④</span>補助金は原則返済不要だが、<span class="hl">先払い・後精算</span>が基本のため資金繰りに注意が必要。</li>
+    <li><span class="n">⑤</span>クラウドファンディングは<span class="hl">購入型・寄付型・金融型</span>の3タイプがあり、返済の有無が異なる。</li>
+    <li><span class="n">⑥</span>AIには事業計画のたたき台作りを任せ、最終判断・数字の確認は専門家や金融機関に相談する。</li>
+  </ul>
+</div>
+
+<!-- Disclaimer -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報提供を目的としており、個別の税務・法務・資金調達の判断を代わるものではありません。
+  融資・保証・補助金の要件や金額、採択の可否は制度の改正や個社の状況により変わります。
+  具体的な申込・申請にあたっては、必ず金融機関、税理士、中小企業診断士など専門家にご確認ください。
+  制度・金額・要件は改正されることがあります。最新情報は各制度の公式サイト（日本政策金融公庫 <a href="https://www.jfc.go.jp/" target="_blank">https://www.jfc.go.jp/</a>、中小企業庁 <a href="https://www.chusho.meti.go.jp/" target="_blank">https://www.chusho.meti.go.jp/</a>）でご確認ください。<br>
+  本記事の内容の基準年度：令和8年度（2026年度）、令和8年7月時点の情報。
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>📚 <a href="index.html">バックナンバー一覧へ</a> &nbsp;&middot;&nbsp; 毎朝更新</p>
+</div>
+
+</div>
+</body>
+</html>
