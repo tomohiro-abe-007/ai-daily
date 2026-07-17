@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-07-18</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '🪱';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 18px 16px;
+    font-size: 0.86rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.95rem; margin-bottom: 10px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.2em; }
+  .c3-col li { margin-bottom: 5px; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .mech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .mech-item {
+    background: #f0faf5;
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 0.85rem;
+    border-top: 3px solid #1a7a5a;
+  }
+  .mech-item .micon { font-size: 1.3rem; margin-bottom: 6px; }
+  .mech-item strong { display: block; color: #0d4a35; margin-bottom: 4px; font-size: 0.88rem; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .highlight { background: #cff0df; padding: 1px 5px; border-radius: 4px; }
+  .good { color: #1a7a5a; font-weight: 600; }
+  .bad  { color: #c0392b; font-weight: 600; }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-box {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin: 14px 0;
+    font-size: 0.92rem;
+  }
+  .def-box .def-label {
+    font-size: 0.75rem;
+    color: #1a7a5a;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  @media (max-width: 540px) {
+    .compare3 { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.9rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ヘッダー -->
+<div class="header">
+  <div class="label">健康・栄養 最新トピック ・ 2026-07-18</div>
+  <h1>腸の中の「虫」は、食物繊維がないと冬眠する<br>
+  ラットの寄生虫実験が映す、食物繊維と腸内エコシステムの深い関係</h1>
+  <div class="subtitle">2026年2月、チェコ科学アカデミーなどの国際チームが、ラットの腸に住む無害な条虫(じょうちゅう)を使った実験をNature Communications誌に発表しました。食物繊維が十分にあると条虫は元気に育ち、宿主の炎症を抑える働きまで見せた一方、食物繊維が不足すると成長も生殖も止め、まるで「冬眠」のような省エネ状態に入ったといいます。ヒトで証明された話ではありませんが、食物繊維が腸の中の生き物たちの振る舞いを丸ごと変えるという、精密栄養学の土台になる基礎研究を、仕組みと限界とあわせてやさしく解説します。</div>
+</div>
+
+<!-- タグ -->
+<div style="margin-bottom:18px;">
+  <span class="tag">動物実験(ラット)</span>
+  <span class="tag">腸内細菌叢</span>
+  <span class="tag">食物繊維</span>
+  <span class="tag">発達可塑性</span>
+  <span class="tag">精密栄養学</span>
+</div>
+
+<!-- 今日の疑問 -->
+<div class="card">
+  <h2>🤔 今日の疑問:食物繊維は「腸の中の生き物の振る舞い」まで変えるのか?</h2>
+  <p>「食物繊維は腸内細菌のエサになる」という話はよく聞きます。では、腸の中に細菌以外の生き物、たとえば「条虫(サナダムシの仲間)」がいた場合、食物繊維の量はその生き物の育ち方にまで影響するのでしょうか。</p>
+  <p>チェコ科学アカデミー寄生虫学研究所のJirků・Parkerらの国際チームは、ラットの腸に人体に無害とされる条虫<em>Hymenolepis diminuta</em>(ラット条虫)を住まわせ、餌の食物繊維の量を変えることで、条虫の育ち方・宿主の腸内細菌・炎症反応がどう変わるかを調べました。</p>
+</div>
+
+<!-- 基本用語 -->
+<div class="card blue">
+  <h2>📖 まず言葉の意味を</h2>
+  <div class="def-grid">
+    <div class="def-item">
+      <div class="dterm">条虫(じょうちゅう)</div>
+      サナダムシの仲間の寄生虫。今回使われた<em>Hymenolepis diminuta</em>(ラット条虫)は、ヒトにはほぼ感染せず、実験動物では病原性がないとされる種で、寄生虫と免疫の研究によく使われるモデル生物。
+    </div>
+    <div class="def-item">
+      <div class="dterm">発達可塑性(はったつかそせい)</div>
+      同じ遺伝子を持つ生き物でも、育つ環境(今回は食べ物の質)によって、体の大きさや成長の速さ、生殖できるかどうかまで大きく変わる性質のこと。
+    </div>
+    <div class="def-item">
+      <div class="dterm">構造性食物繊維</div>
+      野菜・穀物などの細胞壁を作る、人の消化酵素では分解できない炭水化物(セルロースなど)。腸内細菌が発酵させてエネルギー源に変える。
+    </div>
+    <div class="def-item">
+      <div class="dterm">ディスバイオシス</div>
+      腸内細菌の種類のバランスが崩れ、体に良い働きをする菌が減り、好ましくない菌が増えた状態のこと。
+    </div>
+  </div>
+</div>
+
+<!-- 数字カード -->
+<div class="num-row">
+  <div class="num-card">
+    <div class="big">2026<span class="unit">/2</span></div>
+    <div class="desc">Nature Communications誌にオンライン公開された年月(2026年2月20日)</div>
+  </div>
+  <div class="num-card blue-bg">
+    <div class="big">16<span class="unit">名</span></div>
+    <div class="desc">著者数。チェコ科学アカデミー寄生虫学研究所などによる国際共同研究</div>
+  </div>
+  <div class="num-card gray-bg">
+    <div class="big">数倍</div>
+    <div class="desc">低繊維食の条件で、条虫の体が高繊維食の条件と比べて小さくとどまった目安(正確な倍率・匹数は論文本文要確認)</div>
+  </div>
+  <div class="num-card red-bg">
+    <div class="big">約15<span class="unit">億人</span></div>
+    <div class="desc">(参考)世界で土壌伝播寄生虫に感染していると推計される人数。WHO発表。今回の研究とは別の文脈の数字</div>
+  </div>
+</div>
+
+<!-- 実験デザインの流れ図 -->
+<div class="card orange">
+  <h2>🔄 どうやって調べたか:食物繊維の量だけを変えて比べる</h2>
+  <div class="flow">
+    <div class="flow-step">ラットの腸に<br>条虫を定着させる</div>
+    <div class="flow-arrow">▶</div>
+    <div class="flow-step">餌を<br>①構造性食物繊維が<br>豊富な餌<br>または<br>②食物繊維が乏しい餌<br>(西洋型食)に分ける</div>
+    <div class="flow-arrow">▶</div>
+    <div class="flow-step alt">条虫の成長・生殖と<br>宿主の腸内細菌・<br>免疫反応を測定</div>
+  </div>
+  <p style="margin-top:10px;">餌の食物繊維量以外の条件をそろえたうえで比較する、実験室内での対照実験です。この記事執筆時点でアクセスできた情報の範囲では、群ごとの正確な匹数などの詳細は確認できていません。正確な数値は下記DOIの論文本文でご確認ください。</p>
+</div>
+
+<!-- 比較カード -->
+<div class="card">
+  <h2>⚖️ 高繊維食 vs 低繊維食、条虫はどう変わったか</h2>
+  <div class="compare3">
+    <div class="c3-col green">
+      <h3>🌾 食物繊維が豊富な餌</h3>
+      <ul>
+        <li>条虫は<strong class="good">元気に成長</strong></li>
+        <li><strong class="good">性成熟に達し、産卵</strong>する</li>
+        <li>宿主で<strong class="good">抗炎症反応</strong>を後押し</li>
+        <li>腸内細菌は<strong class="good">発酵性の菌が優勢</strong>で多様性が保たれる</li>
+      </ul>
+    </div>
+    <div class="c3-col red">
+      <h3>🍔 食物繊維が乏しい餌(西洋型食)</h3>
+      <ul>
+        <li>条虫は<strong class="bad">数倍小さいまま</strong></li>
+        <li><strong class="bad">性成熟に達せず、産卵もしない</strong></li>
+        <li>抗炎症効果は<strong class="bad">見られなくなる</strong></li>
+        <li>腸内細菌は<strong class="bad">多様性が低下</strong>し、ディスバイオシスに関連する菌が増える</li>
+      </ul>
+    </div>
+  </div>
+  <p>低繊維食の条虫は、遺伝子の発現(はたらき方)の面でも「成長・活動を抑えた省エネ状態」に一致する変化が確認され、研究チームはこれを哺乳類の冬眠になぞらえて説明しています。</p>
+</div>
+
+<!-- メカニズム -->
+<div class="card purple">
+  <h2>🔍 なぜこう変わるのか:食物繊維→腸内細菌→エネルギー供給という連鎖(研究チームの考察)</h2>
+  <div class="mech-grid">
+    <div class="mech-item">
+      <div class="micon">🌾</div>
+      <strong>①食物繊維が腸に届く</strong>
+      消化されなかった構造性食物繊維が、大腸まで届く。
+    </div>
+    <div class="mech-item">
+      <div class="micon">🦠</div>
+      <strong>②腸内細菌が発酵させる</strong>
+      発酵性の腸内細菌が食物繊維を分解し、短鎖脂肪酸などのエネルギー源や代謝物を作り出す。食物繊維が乏しいと、この供給が細る。
+    </div>
+    <div class="mech-item">
+      <div class="micon">🪱</div>
+      <strong>③条虫がエネルギー状態を感知</strong>
+      腸内の栄養環境が乏しいと条虫が感知し、成長・生殖にエネルギーを回さない「省エネモード」に切り替わると考えられている。
+    </div>
+    <div class="mech-item">
+      <div class="micon">🛡️</div>
+      <strong>④宿主の免疫反応にも影響</strong>
+      元気な条虫がいる・腸内細菌の多様性が保たれることが、宿主の炎症反応を穏やかに保つことに関連していた可能性がある。
+    </div>
+  </div>
+</div>
+
+<!-- 賛否・限界 -->
+<div class="warn">
+  <strong>⚠️ この結果をどう受け止めるか:ラットの基礎研究であり、「虫を摂る」ことを勧める話ではない</strong>
+  <ul style="padding-left:1.4em; margin-top:8px;">
+    <li>これは<span class="bad">ラット(動物実験)</span>の結果であり、ヒトで同じことが起きると証明されたわけではない。ヒトの腸内細菌や免疫システムはラットと異なる点が多く、そのまま当てはめることはできない。</li>
+    <li>「寄生虫が炎症を抑える」という考え方自体は、"衛生仮説"(清潔になりすぎた現代社会で寄生虫や微生物との接触が減り、アレルギー・自己免疫疾患が増えたとする仮説)を背景に、意図的に寄生虫を使う「寄生虫療法(helminthic therapy)」として研究・実践されてきた歴史がある。ただし長期的な安全性・有効性を示す質の高いヒト試験は乏しく、主流の医療機関では推奨されていない。</li>
+    <li>一方で、世界的にはヒトの寄生虫感染そのものが深刻な公衆衛生課題である。WHOによれば土壌伝播寄生虫は世界で約15億人に感染し、子どもの栄養不良・貧血・発育への悪影響、女性の妊娠関連リスクの増加などを引き起こすとされる。「無害な条虫」と「有害な寄生虫感染」を混同しないことが重要。</li>
+    <li>本研究の著者の一人(William Parker氏)は、寄生虫や微生物との共生が人体に有益という立場の研究を長年発表してきた研究者でもあり、この分野には研究者間で立場の違いがある点も踏まえて読むとよい。</li>
+  </ul>
+</div>
+
+<!-- エビデンスの整理 -->
+<div class="card">
+  <h2>🧪 この研究のエビデンスの強さ</h2>
+  <table class="ev-table">
+    <tr><th>要素</th><th>内容</th><th>強さの目安</th></tr>
+    <tr>
+      <td>研究デザイン</td>
+      <td>ラットを用いた対照実験(食物繊維量を変えて比較)</td>
+      <td><span class="ev-badge ev-mid">動物実験としては手堅い</span></td>
+    </tr>
+    <tr>
+      <td>査読状況</td>
+      <td>Nature Communications誌(査読誌)に掲載、2026年2月20日公開</td>
+      <td><span class="ev-badge ev-high">査読済み</span></td>
+    </tr>
+    <tr>
+      <td>対象</td>
+      <td>ラット(条虫を定着させた個体)。ヒトでの検証なし</td>
+      <td><span class="ev-badge ev-low">ヒトへの外挿は未確認</span></td>
+    </tr>
+    <tr>
+      <td>再現性・関連分野との整合性</td>
+      <td>「食物繊維不足が腸内細菌の多様性・機能を低下させる」という大枠は、マウスを使った過去の研究(Cell誌 2016年など)とも方向性が一致</td>
+      <td><span class="ev-badge ev-mid">動物実験間では一貫</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- 精密栄養学の視点 -->
+<div class="card">
+  <h2>🎯 精密栄養学の視点から見ると</h2>
+  <ul class="step-list">
+    <li>この研究の一番の教育的なポイントは、「食物繊維は栄養素の量の問題」ではなく、<strong>腸の中の生態系(細菌だけでなく、そこに住むほかの生き物の振る舞いまで)を丸ごと変える環境要因</strong>だという点です。</li>
+    <li>2016年にCell誌に発表された別のマウス研究(Desaiら)でも、食物繊維が不足すると腸内細菌が宿主の粘液(腸のバリア)を分解し始め、病原体に対する脆弱性が高まることが示されており、「食物繊維不足→腸内細菌の働き方が変わる→宿主への影響」という流れは、動物実験レベルでは複数の研究で繰り返し確認されている考え方です。</li>
+    <li>ヒトでも食物繊維の摂取量・種類には大きな個人差があり、それに応じて腸内細菌の構成や代謝物の作られ方も人によって異なることが知られています。今回のような基礎研究は、将来「その人の腸内環境に合わせてどんな食物繊維がどれだけ必要か」を考える精密栄養学の土台の一つになり得ますが、現時点ではまだ動物実験の段階です。</li>
+  </ul>
+</div>
+
+<!-- まとめ -->
+<div class="card" style="border-left-color:#1a7a5a;">
+  <h2>✅ 今日のまとめ</h2>
+  <ul class="step-list">
+    <li>チェコ科学アカデミー寄生虫学研究所のJirků・Parkerらの国際チームが、ラットの腸に住む無害な条虫<em>Hymenolepis diminuta</em>を使った実験をNature Communications誌に発表した(2026年2月20日公開、DOI: 10.1038/s41467-026-69475-0)。</li>
+    <li>食物繊維が豊富な餌では条虫が元気に成長・生殖し宿主の抗炎症反応を後押ししたが、食物繊維が乏しい餌では条虫は「冬眠」のような省エネ状態に入り、成長も生殖も止まり、抗炎症効果も消えた。</li>
+    <li>食物繊維は宿主の腸内細菌の多様性・発酵能力にも影響し、低繊維の「西洋型食」ではディスバイオシスに関連する細菌が増える傾向が見られた。</li>
+    <li>これはラットでの基礎研究であり、ヒトでの証明ではない。「寄生虫療法」は歴史的な仮説の延長にあるが安全性・有効性は確立されておらず、世界的には寄生虫感染そのものが子どもの栄養不良などを引き起こす公衆衛生課題でもある点を踏まえ、本記事は寄生虫を摂ることを勧めるものではない。</li>
+  </ul>
+</div>
+
+<!-- 免責 -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、医療アドバイスではありません。効果・必要量・リスクは個人の体質・年齢・持病・服薬によって大きく異なります。実践の前には、かかりつけ医・管理栄養士・薬剤師など専門家にご相談ください。本記事は寄生虫療法・特定の食事制限・サプリなどの実践を推奨するものではありません。寄生虫感染が疑われる症状がある場合は自己判断せず、必ず医療機関にご相談ください。
+</div>
+
+<!-- 出典 -->
+<div class="sources">
+  <h3>📚 主な出典・参考文献</h3>
+  <ol>
+    <li>Jirků M, Parker W, Kadlecová O, Moos M, Wiśniewska MM, Kuchta R, et al. "Developmental plasticity enables an intestinal tapeworm to adapt to dietary stress." Nature Communications, 2026年2月20日公開. DOI: 10.1038/s41467-026-69475-0
+      <a href="https://www.nature.com/articles/s41467-026-69475-0" target="_blank">https://www.nature.com/articles/s41467-026-69475-0</a>
+    </li>
+    <li>Biology Centre CAS. "Gut microbiome thrives on fiber – tapeworms confirm it." Press release, 2026年.
+      <a href="https://www.bc.cas.cz/en/news/news-detail/7876-gut-microbiome-thrives-on-fiber-%E2%80%93-tapeworms-confirm-it/" target="_blank">https://www.bc.cas.cz/en/news/news-detail/7876-gut-microbiome-thrives-on-fiber-tapeworms-confirm-it/</a>
+    </li>
+    <li>ScienceDaily. "Scientists discover the one nutrient beneficial parasites can't live without." 2026年7月7日.
+      <a href="https://www.sciencedaily.com/releases/2026/07/260707054114.htm" target="_blank">https://www.sciencedaily.com/releases/2026/07/260707054114.htm</a>
+    </li>
+    <li>World Health Organization. "Soil-transmitted helminth infections." Fact sheet.
+      <a href="https://www.who.int/news-room/fact-sheets/detail/soil-transmitted-helminth-infections" target="_blank">https://www.who.int/news-room/fact-sheets/detail/soil-transmitted-helminth-infections</a>
+    </li>
+    <li>Desai MS, Seekatz AM, Koropatkin NM, Kamada N, Hickey CA, Wolter M, et al. "A Dietary Fiber-Deprived Gut Microbiota Degrades the Colonic Mucus Barrier and Enhances Pathogen Susceptibility." Cell, 2016;167(5):1339-1353. DOI: 10.1016/j.cell.2016.10.043
+      <a href="https://pubmed.ncbi.nlm.nih.gov/27863247/" target="_blank">https://pubmed.ncbi.nlm.nih.gov/27863247/</a>
+    </li>
+  </ol>
+  <p style="margin-top:8px; font-size:0.78rem;">※ 本記事は上記の一次論文(DOI)および研究機関のプレスリリース、公的機関(WHO)の公開情報をもとに構成しています。実験群ごとの正確な匹数や統計値など論文本文の詳細は、アクセス制限のためこの記事執筆時点では未確認です。正確な数値は上記DOIから論文本文でご確認ください。</p>
+</div>
+
+</div>
+</body>
+</html>
