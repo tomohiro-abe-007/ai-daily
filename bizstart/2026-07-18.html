@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-07-18</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #1e7a5a 0%, #0d4632 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #1e7a5a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.blue   { border-left-color: #1e5a7a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.purple { border-left-color: #7a4a9e; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #1e7a5a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  .type-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .type-grid { grid-template-columns: 1fr; } }
+  .type-card {
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-size: 0.86rem;
+    line-height: 1.65;
+  }
+  .type-card.main {
+    background: #e6f5ee;
+    border: 2px solid #1e7a5a;
+  }
+  .type-card.sub {
+    background: #e8f0f8;
+    border: 2px solid #1e5a7a;
+  }
+  .type-card .tl {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+  }
+  .type-card.main .tl { color: #0d4632; }
+  .type-card.sub .tl  { color: #0d3352; }
+  .type-card .tv { font-size: 1.0rem; font-weight: 700; margin-bottom: 6px; }
+  .type-card.main .tv { color: #1e7a5a; }
+  .type-card.sub .tv  { color: #1e5a7a; }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 14px 10px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat .sl { font-size: 0.67rem; color: #888; margin-bottom: 3px; }
+  .stat .sv { font-size: 1.5rem; font-weight: 700; color: #1e7a5a; line-height: 1.1; }
+  .stat .su { font-size: 0.7rem; color: #666; margin-top: 2px; }
+
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #1e7a5a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+  .f-arrow { color: #1e7a5a; font-size: 1.1rem; margin-left: 14px; margin-bottom: 4px; }
+
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  .prompt-box {
+    background: #f0f5ff;
+    border: 2px solid #4a6aae;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 12px 0;
+    font-size: 0.84rem;
+    line-height: 1.85;
+    color: #1a2a4a;
+  }
+  .prompt-box .ph {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #4a6aae;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+  .prompt-box .fill {
+    background: #d0e0ff;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-weight: 700;
+    color: #0a2a6e;
+  }
+
+  .info {
+    background: #e6f5ee;
+    border-left: 4px solid #1e7a5a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #0d4632;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #7a4010;
+  }
+
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #1e7a5a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+
+  .badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 8px;
+    margin-right: 4px;
+    vertical-align: middle;
+  }
+  .badge.law   { background: #1e7a5a; color: white; }
+  .badge.ai    { background: #4a6aae; color: white; }
+  .badge.tip   { background: #4a9e6a; color: white; }
+  .badge.warn  { background: #c8884a; color: white; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #1e7a5a; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #1e7a5a; }
+
+  .flow-h {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 14px 0;
+  }
+  .flow-box {
+    background: white;
+    border: 2px solid #1e7a5a;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 0.81rem;
+    text-align: center;
+    line-height: 1.45;
+    color: #0d4632;
+    font-weight: 600;
+  }
+  .flow-arrow {
+    color: #1e7a5a;
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+  @media (max-width: 540px) {
+    .flow-h { flex-direction: column; align-items: flex-start; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+
+  .matrix {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.83rem;
+  }
+  .matrix th {
+    background: #0d4632;
+    color: white;
+    padding: 8px 12px;
+    text-align: center;
+    font-weight: 600;
+  }
+  .matrix td {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    vertical-align: top;
+    line-height: 1.55;
+  }
+  .matrix .row-head {
+    background: #e6f5ee;
+    font-weight: 700;
+    color: #0d4632;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .matrix .ok  { color: #4a9e6a; font-weight: 700; }
+  .matrix .ng  { color: #b54040; font-weight: 700; }
+  .matrix .mid { color: #c8884a; font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Header -->
+<div class="header">
+  <div class="meta">📅 1人法人スタート 最新トピック &nbsp;2026-07-18</div>
+  <h1>🤝 会社の借金、社長の個人資産は守れる？<br>経営者保証ガイドラインの基礎</h1>
+  <div class="desc">
+    <span class="htag">経営者保証</span>
+    <span class="htag">融資</span>
+    <span class="htag">信用保証協会</span>
+    <span class="htag">資金調達</span>
+    <span class="htag">7/16記事の関連トピック</span>
+    <br>
+    融資を受けるとき、社長個人が会社の借金の「連帯保証人」になるのが長年の商慣行でした。今日は<span class="hl">経営者保証なしで融資を受けるための3要件</span>と、それを後押しする公的な制度を図解します。
+  </div>
+</div>
+
+<!-- Section 1: そもそも経営者保証とは -->
+<div class="card">
+  <div class="sec-title">🧐 そもそも「経営者保証」って何が問題？</div>
+  <p>会社が銀行からお金を借りるとき、<strong>社長個人が会社の連帯保証人</strong>になることを求められる商慣行が長く続いてきました。この場合、もし会社が返済できなくなると、社長個人の自宅や預金など<strong>個人の財産も返済に充てられる</strong>可能性があります。</p>
+  <div class="warn" style="margin-top:12px;">
+    ⚠️ 1人社長の場合、「会社」と「自分」を分けて考えていても、いざという時には会社の失敗がそのまま自分の生活の破綻に直結しかねません。だからこそ、経営者保証を<strong>不要にできる仕組み</strong>を知っておく価値があります。
+  </div>
+  <div class="source">
+    出典：中小企業庁「経営者保証」<br>
+    <a href="https://www.chusho.meti.go.jp/kinyu/keieihosyou/" target="_blank">https://www.chusho.meti.go.jp/kinyu/keieihosyou/</a>（2026年7月時点）
+  </div>
+</div>
+
+<!-- Section 2: 3要件 -->
+<div class="card blue">
+  <div class="sec-title">📋 経営者保証ガイドラインの3要件</div>
+  <p>2014年から運用されている「経営者保証に関するガイドライン」では、<strong>3つの要件</strong>を満たすことで、経営者保証なしの融資や、既存の保証の解除を検討できるとされています。</p>
+
+  <div class="f-step" style="margin-top:14px;">
+    <div class="f-num">1</div>
+    <div class="f-text"><strong>法人と経営者の分離</strong> ── 役員報酬・賞与・配当や、オーナーへの貸付など、法人と個人の間のお金のやりとりを「社会通念上適切な範囲」に収める体制を整える</div>
+  </div>
+  <div class="f-arrow">↓</div>
+  <div class="f-step">
+    <div class="f-num">2</div>
+    <div class="f-text"><strong>財務基盤の健全性</strong> ── 業績や財務内容の改善に取り組み、借りたお金を返す力（返済能力）を高めていく</div>
+  </div>
+  <div class="f-arrow">↓</div>
+  <div class="f-step">
+    <div class="f-num">3</div>
+    <div class="f-text"><strong>適時適切な情報開示</strong> ── 決算書や試算表など、自社の財務状況を金融機関からの求めに応じて正確に開示し、経営の透明性を確保する</div>
+  </div>
+
+  <div class="info" style="margin-top:14px;">
+    💡 3つとも完璧である必要はありません。「どの要件が弱いか」を把握し、少しずつ改善していく姿勢を金融機関に見せることが実務上のポイントです。
+  </div>
+
+  <div class="source">
+    出典：中小企業庁「経営者保証」<br>
+    <a href="https://www.chusho.meti.go.jp/kinyu/keieihosyou/" target="_blank">https://www.chusho.meti.go.jp/kinyu/keieihosyou/</a>（2026年7月時点）
+  </div>
+</div>
+
+<!-- Section 3: 2023年4月の転機 -->
+<div class="card orange">
+  <div class="sec-title">📈 流れが変わった「2023年4月」</div>
+  <p>政府の「経営者保証改革プログラム」を受け、金融庁は2023年4月、金融機関向けの監督指針を改正しました。金融機関が経営者保証を求める場合、<strong>どの要件が不足しているか・どう改善すれば解除の可能性が高まるかを個別具体的に説明し、記録する</strong>ことが求められるようになっています。</p>
+
+  <div class="stats-row" style="margin-top:14px;">
+    <div class="stat">
+      <div class="sl">2023年4〜9月<br>実績</div>
+      <div class="sv">46.7%</div>
+      <div class="su">新規融資に占める経営者保証に依存しない融資の割合</div>
+    </div>
+    <div class="stat">
+      <div class="sl">前年同期<br>（2022年4〜9月）</div>
+      <div class="sv">33.8%</div>
+      <div class="su">1年で大きく上昇</div>
+    </div>
+    <div class="stat">
+      <div class="sl">相談窓口</div>
+      <div class="sv">金融庁に<br>専用窓口</div>
+      <div class="su">「説明がなかった」等の相談を受付</div>
+    </div>
+  </div>
+
+  <div class="info" style="margin-top:12px;">
+    💡 金融機関から経営者保証を求められたら、「なぜ必要なのか」「どうすれば外せるのか」を<strong>説明してもらう権利</strong>があります。遠慮せず質問してみましょう。
+  </div>
+
+  <div class="source">
+    出典：金融庁「『経営者保証に関するガイドライン』等の活用実績について」（2023年4月〜9月末実績）<br>
+    <a href="https://www.fsa.go.jp/news/r5/ginkou/20231226-2.html" target="_blank">https://www.fsa.go.jp/news/r5/ginkou/20231226-2.html</a>
+  </div>
+</div>
+
+<!-- Section 4: 保証料上乗せ型 -->
+<div class="card purple">
+  <div class="sec-title">🏛️ 信用保証協会「保証料上乗せ型」制度（2024年3月〜）</div>
+  <p>信用保証協会付き融資でも、2024年3月15日から<strong>保証料率を上乗せすることで経営者保証を提供しない</strong>ことを選べる制度の取り扱いが始まりました。</p>
+
+  <div class="type-grid" style="margin-top:14px;">
+    <div class="type-card main">
+      <div class="tl">✅ 財務要件を両方満たす</div>
+      <div class="tv">+0.25%</div>
+      所定の保証料率に0.25％を上乗せすることで経営者保証なしを選択（東京信用保証協会の例）
+    </div>
+    <div class="type-card sub">
+      <div class="tl">△ 一方のみ／設立2期未満</div>
+      <div class="tv">+0.45%</div>
+      財務要件を一方しか満たさない場合や、法人設立後2事業年度分の決算がまだない場合の上乗せ幅
+    </div>
+  </div>
+
+  <div class="warn" style="margin-top:12px;">
+    ⚠️ 設立直後の1人法人は「2事業年度分の決算がない」に該当しやすく、上乗せ幅は+0.45%側になりやすい点に注意してください。上乗せ分の一部は、当初3年間（2027年3月末までの時限措置）は国が補助する仕組みもあります。
+  </div>
+
+  <div class="source">
+    出典：中小企業庁「保証料率の上乗せにより経営者保証を提供しないことを選択できる信用保証制度等を開始します」<br>
+    <a href="https://www.chusho.meti.go.jp/kinyu/2024/240315.html" target="_blank">https://www.chusho.meti.go.jp/kinyu/2024/240315.html</a>（2024年3月15日公表）
+  </div>
+</div>
+
+<!-- Section 5: 事業承継特別保証 -->
+<div class="card">
+  <div class="sec-title">🔄 事業承継のタイミングで使える借り換え制度もある</div>
+  <p>将来、後継者に会社を引き継ぐ場面では、<strong>経営者保証付きの既存の借入を、経営者保証なしの借入に借り換えられる</strong>「事業承継特別保証制度」も用意されています。1人社長が今すぐ使う制度ではありませんが、「将来、保証を外して引き継げる道がある」と知っておくだけでも安心材料になります。</p>
+  <div class="info" style="margin-top:12px;">
+    💡 制度の詳細な要件・保証料率は取扱金融機関や信用保証協会によって異なります。利用を検討する段階になったら、必ず窓口で最新の条件を確認してください。
+  </div>
+  <div class="source">
+    出典：中小企業庁「事業承継時の経営者保証解除に向けた総合的な対策」<br>
+    <a href="https://www.chusho.meti.go.jp/kinyu/hosyoukaijo/index.html" target="_blank">https://www.chusho.meti.go.jp/kinyu/hosyoukaijo/index.html</a>（2026年7月時点）
+  </div>
+</div>
+
+<!-- Section 6: flow -->
+<div class="card blue">
+  <div class="sec-title">🧭 経営者保証を「外す・つけない」ための進め方</div>
+  <div class="flow-h" style="margin-top:14px;">
+    <div class="flow-box">📊 ①<br>決算書で<br>3要件を自己チェック</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-box">🧹 ②<br>法人と個人の<br>お金の分離を徹底</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-box">💬 ③<br>金融機関・保証協会に<br>相談し説明を求める</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-box">🏛️ ④<br>保証料上乗せ型等の<br>制度活用を検討</div>
+  </div>
+  <div class="info" style="margin-top:12px;">
+    💡 一度に全部をやろうとせず、まずは「①決算書を見て弱い要件を把握する」ことから始めるのが現実的です。
+  </div>
+</div>
+
+<!-- Section 7: checklist -->
+<div class="card">
+  <div class="sec-title">✅ 今日からできる実践チェックリスト</div>
+  <ul class="check-list" style="margin-top:10px;">
+    <li><span class="ck">☑</span> 役員報酬・経費の精算に、私的な支出が紛れ込んでいないか（法人と個人の分離）を見直す</li>
+    <li><span class="ck">☑</span> 決算書・試算表を求められたらすぐ出せる状態にしておく（適時適切な情報開示）</li>
+    <li><span class="ck">☑</span> 融資の際に経営者保証を求められたら、理由の説明を金融機関に求めてよいと知っておく</li>
+    <li><span class="ck">☑</span> 信用保証協会付き融資を利用する場合、「保証料上乗せ型」制度が使えるか窓口で確認する</li>
+    <li><span class="ck-bad">⚠</span> <span style="color:#888;">「絶対に保証は外せる」といった断定的な話を鵜呑みにせず、必ず金融機関・専門家に確認する</span></li>
+  </ul>
+</div>
+
+<!-- Section 8: AI prompt -->
+<div class="card orange">
+  <div class="sec-title">🤖 生成AIに「財務の透明性チェックリスト」を作ってもらうプロンプト例</div>
+  <p>3要件のうち「財務基盤の健全性」「適時適切な情報開示」は、<span class="hl">日々の記帳・書類整理の積み重ね</span>がものを言います。AIには準備のたたき台作りを手伝ってもらい、最終判断は専門家に相談しましょう。</p>
+
+  <div class="prompt-box" style="margin-top:14px;">
+    <div class="ph">🤖 プロンプト例：経営者保証ガイドライン対応の自己点検リスト作成</div>
+    私は<span class="fill">【業種・事業内容】</span>を営む1人会社（代表取締役1名）です。金融機関から融資を受ける際に「経営者保証に関するガイドライン」の3要件（法人と経営者の分離／財務基盤の健全性／適時適切な情報開示）を意識して準備を進めたいです。<br>
+    <br>
+    それぞれの要件について、1人社長が毎月・毎年チェックすべき項目を箇条書きでリストアップしてください。専門的な判断が必要な項目は「専門家に確認」と明記してください。<br>
+    ※最終的な融資条件・保証の要否は、必ず金融機関・信用保証協会・税理士に確認してください。
+  </div>
+</div>
+
+<!-- Section 9: summary -->
+<div class="card">
+  <div class="sec-title">📝 今日のまとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">①</span>経営者保証とは、会社の借金に<span class="hlg">社長個人が連帯保証人になる</span>商慣行のこと。会社が返せないと個人資産も対象になりうる。</li>
+    <li><span class="n">②</span>経営者保証を不要にする鍵は<span class="hl">法人と経営者の分離・財務基盤の健全性・適時適切な情報開示</span>の3要件。</li>
+    <li><span class="n">③</span>2023年4月の監督指針改正で、金融機関には<span class="hl">保証を求める理由の説明・記録</span>が求められるようになった。</li>
+    <li><span class="n">④</span>信用保証協会には2024年3月から<span class="hl">保証料率を上乗せして保証人を不要にできる制度</span>がある（+0.25%または+0.45%）。</li>
+    <li><span class="n">⑤</span>事業承継の場面では、<span class="hl">保証付き借入を保証なしに借り換えられる特別保証制度</span>も用意されている。</li>
+    <li><span class="n">⑥</span>まずは決算書での自己点検と、法人・個人のお金の分離から。判断は必ず専門家・金融機関に確認する。</li>
+  </ul>
+</div>
+
+<!-- Disclaimer -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報提供を目的としており、個別の税務・法務・融資の判断を代わるものではありません。
+  経営者保証の要否、保証料率、制度の適用条件は、金融機関・信用保証協会や個社の状況により異なります。
+  具体的な融資・保証の相談にあたっては、必ず取引金融機関、信用保証協会、税理士など専門家にご確認ください。
+  制度・金額・要件は改正されることがあります。最新情報は各制度の公式サイト（中小企業庁 <a href="https://www.chusho.meti.go.jp/" target="_blank">https://www.chusho.meti.go.jp/</a>、金融庁 <a href="https://www.fsa.go.jp/" target="_blank">https://www.fsa.go.jp/</a>）でご確認ください。<br>
+  本記事の内容の基準年度：令和8年度（2026年度）、令和8年7月時点の情報。融資実績の数値は金融庁公表の2023年4〜9月期実績。
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>📚 <a href="index.html">バックナンバー一覧へ</a> &nbsp;&middot;&nbsp; 毎朝更新</p>
+</div>
+
+</div>
+</body>
+</html>
