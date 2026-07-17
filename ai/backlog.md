@@ -51,6 +51,7 @@
 - 2026-07-15: Claude Corps（クロード・コープス）フェローシップ（2026年6月11日発表）・1億5,000万ドル投資・若者1,000人をAI人材として育成・400以上の米国非営利団体に1年間フルタイム派遣・給与年8万5,000ドル・18歳以上学歴不問・第1期100人応募締切2026年7月17日・運営はCodePath（雇用管理）とSocial Finance（効果測定）・「AIの恩恵格差」縮小がねらい（出典：The Register / Forbes / QZ.com / opportunitiesforyouth.org / Inc.com・2026年6月〜7月）
 - 2026-07-16: ByteDance Seedream 5.0 Pro（2026年7月8日リリース）・最上位画像生成モデル・15言語対応テキスト描画（アラビア語など右から左の言語も対応）・10以上の透明PNGレイヤーに自動分割・精密部分編集（ポイント/ボックス/アンカー選択）・複雑な情報の可視化（インフォグラフィック・ポスター・UIモックアップ）・一般向けDreaminaアプリ・開発者向けBytePlus ModelArk API・料金$0.045〜$0.09/枚（公式要確認）（出典：TestingCatalog / BigGo Finance / openpr.com / aireiter.com・2026年7月）
 - 2026-07-17: Thinking Machines Lab「Inkling」（2026年7月15日公開）・OpenAI元CTO ミラ・ムラティ設立のスタートアップが初のオープンウェイトモデルを公開・MoE設計（総パラメータ975B・1タスク41B使用）・45兆トークンで学習（テキスト/画像/音声/動画）・現在の出力はテキストのみ・コーディング性能でNemotron 3 Ultraの約3分の1のトークン数で同等の結果と主張・収益はファインチューニングツール「Tinker」から・顧客例：Bridgewater Associates（出典：TechCrunch / Axios / Fortune / SiliconANGLE・2026年7月15日）
+- 2026-07-18: Moonshot AI Kimi K3（2026年7月16日発表）・オープンソース史上最大2.8兆パラメータ・MoE（896専門家ユニット・1タスク16個起動）・1Mトークンコンテキスト・Kimi Delta Attention & Attention Residuals新技術・GDPval-AA v2で世界3位スコア1,687（Fable 5 Max・GPT-5.6 Sol Maxに次ぐ）・AA-Briefcaseで世界2位スコア1,527・DeepSeek V4 Proより約75%大規模・ウェイト公開は2026年7月27日予定（出典：VentureBeat / MarkTechPost / Axios / Fortune / People's Daily Online・2026年7月16〜17日）
 
 ## 未解説の候補トピック（今後の参考）
 
@@ -68,3 +69,6 @@
 - Apple Foundation Models 3（AFM 3）詳報（WWDC 2026・2026年6月発表）・5モデル体制（AFM 3 Core / AFM 3 Core Advanced 20B / AFM 3 Cloud / AFM 3 Cloud Image / AFM 3 Cloud Pro）・Google Cloud NVIDIA GB300に Private Cloud Compute を拡張・Gemini蒸留を使用するがGeminiモデルそのものは不使用（出典：Apple ML Research / 9to5Mac / MacStories・2026年6月）
 - Google Dataland AIアートミュージアム（2026年6月20日ロサンゼルス開館・Geminiがリアルタイムインタラクティブアートを生成）
 - Colorado AI Act改定（SB26-189・2026年5月14日署名）：元の包括的AI規制法を大幅縮小・施行日を2026年6月30日から2027年1月1日に延期・アルゴリズム意思決定の透明性開示に絞った内容に変更
+- Apple Intelligence × Alibaba Qwen（中国向け）：米国規制の最後のハードルを越え中国での提供が近づく・Qwenモデルを使用（2026年7月報道）
+- PrismML Bonsai 27B（2026年7月14日）：27Bモデルを3.9GBに圧縮・iPhone 17 Proで11トークン/秒を実現・デバイス上で動く軽量AIの新潮流
+- Gemini 3.5 Pro：2026年7月中旬が目標（未発表）・2Mトークンコンテキスト・Deep Think推論・API料金等は公式で要確認
