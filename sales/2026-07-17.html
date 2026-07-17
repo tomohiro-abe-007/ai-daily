@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>インサイドセールス 最新トピック 2026-07-17</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  /* ── カバー ── */
+  .cover {
+    background: linear-gradient(135deg, #6d1b1b 0%, #a13a2c 50%, #d98a2e 100%);
+    color: white;
+    border-radius: 8px;
+    padding: 60px 40px;
+    text-align: center;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.3);
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent, transparent 28px,
+      rgba(255,255,255,0.05) 28px, rgba(255,255,255,0.05) 29px
+    );
+  }
+  .cover-emoji { font-size: 64px; display: block; margin-bottom: 16px; }
+  .cover h1 {
+    font-family: 'Klee One', sans-serif;
+    font-size: 2.0rem;
+    font-weight: 600;
+    line-height: 1.35;
+    margin-bottom: 12px;
+    position: relative;
+  }
+  .cover .subtitle { font-size: 1.05rem; opacity: 0.85; margin-bottom: 8px; position: relative; }
+  .cover .date-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 20px;
+    padding: 6px 20px;
+    font-size: 1rem;
+    margin-top: 16px;
+    position: relative;
+  }
+
+  /* ── カード共通 ── */
+  .card {
+    background: #fff9f0;
+    border-radius: 6px;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.12);
+    position: relative;
+    overflow: hidden;
+  }
+  .card-body {
+    padding: 40px 36px 28px 64px;
+    background: repeating-linear-gradient(0deg, transparent, transparent 31px, #e0d8c8 31px, #e0d8c8 32px);
+    background-color: #fff9f0;
+  }
+  .card-tab {
+    display: inline-block;
+    background: #a13a2c;
+    color: white;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 4px 16px;
+    border-radius: 0 0 6px 6px;
+    position: absolute;
+    top: 0; left: 32px;
+    letter-spacing: 0.05em;
+  }
+  .card h2 {
+    font-size: 1.28rem;
+    color: #6d1b1b;
+    margin-bottom: 16px;
+    margin-top: 4px;
+    line-height: 1.5;
+    border-left: 4px solid #c0532b;
+    padding-left: 12px;
+  }
+  p { line-height: 1.85; color: #333; font-size: 0.97rem; margin-bottom: 12px; }
+
+  /* ── 大きな数字カード ── */
+  .bignum-row {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+  }
+  .bignum-card {
+    flex: 1;
+    min-width: 140px;
+    border-radius: 10px;
+    padding: 20px 14px;
+    text-align: center;
+  }
+  .bignum-card.red   { background: #fdf2f2; border: 2px solid #c0392b; }
+  .bignum-card.blue  { background: #e8f4fd; border: 2px solid #2980b9; }
+  .bignum-card.green { background: #eafaf1; border: 2px solid #27ae60; }
+  .bignum-card.amber { background: #fef6e7; border: 2px solid #d98a2e; }
+  .bignum-card.indigo { background: #f6e9e4; border: 2px solid #a13a2c; }
+  .bignum-card .num {
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 1.15;
+    display: block;
+  }
+  .bignum-card.red    .num { color: #c0392b; }
+  .bignum-card.blue   .num { color: #1a6ba0; }
+  .bignum-card.green  .num { color: #1e8449; }
+  .bignum-card.amber  .num { color: #b06b1a; }
+  .bignum-card.indigo .num { color: #7a2a1e; }
+  .bignum-card .unit  { font-size: 0.75rem; color: #888; }
+  .bignum-card .label { font-size: 0.82rem; font-weight: 700; margin-top: 6px; color: #555; line-height: 1.4; }
+
+  /* ── Before/After 対比 ── */
+  .vs-row { display: flex; gap: 14px; flex-wrap: wrap; margin: 20px 0; align-items: stretch; }
+  .vs-card {
+    flex: 1; min-width: 220px;
+    border-radius: 10px; padding: 18px 18px; border: 2px solid;
+  }
+  .vs-card.before { background: #f3f3f3; border-color: #999; }
+  .vs-card.after  { background: #eafaf1; border-color: #27ae60; }
+  .vs-card .vs-tag {
+    display: inline-block; font-size: 0.72rem; font-weight: 700;
+    padding: 2px 10px; border-radius: 10px; margin-bottom: 8px; color: white;
+  }
+  .vs-card.before .vs-tag { background: #888; }
+  .vs-card.after  .vs-tag { background: #27ae60; }
+  .vs-card ul { list-style: none; }
+  .vs-card li { font-size: 0.85rem; color: #444; line-height: 1.8; padding-left: 14px; position: relative; }
+  .vs-card li::before { content: '・'; position: absolute; left: 0; }
+  .vs-arrow {
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.6rem; color: #a13a2c; flex: 0 0 auto; padding: 0 4px;
+  }
+
+  /* ── フロー図 ── */
+  .flow-row { display: flex; align-items: center; gap: 10px; margin: 20px 0; flex-wrap: wrap; justify-content: center; }
+  .flow-box {
+    flex: 1; min-width: 130px; text-align: center;
+    border-radius: 10px; padding: 16px 10px; border: 2px solid #a13a2c;
+    background: #fdf2f2; font-size: 0.9rem; font-weight: 700; color: #6d1b1b;
+  }
+  .flow-box .sub { display: block; font-size: 0.72rem; font-weight: 400; color: #888; margin-top: 4px; }
+  .flow-arrow { font-size: 1.5rem; color: #a13a2c; flex: 0 0 auto; }
+
+  /* ── 手法カード ── */
+  .method-grid { display: flex; gap: 14px; flex-wrap: wrap; margin: 20px 0; }
+  .method-card {
+    flex: 1; min-width: 220px;
+    background: #fdf6ee; border: 2px solid #d98a2e; border-radius: 10px;
+    padding: 16px 18px;
+  }
+  .method-card .m-title { font-size: 0.95rem; font-weight: 700; color: #a13a2c; margin-bottom: 6px; }
+  .method-card .m-desc { font-size: 0.82rem; color: #555; line-height: 1.7; }
+  .method-card .m-phrase { font-size: 0.8rem; color: #b06b1a; margin-top: 8px; font-weight: 600; }
+
+  /* ── 今日の一歩 ── */
+  .today-box {
+    background: linear-gradient(135deg, #6d1b1b, #c0532b);
+    color: white; border-radius: 8px;
+    padding: 24px 28px; margin: 16px 0; text-align: center;
+  }
+  .today-box .emoji { font-size: 2.2rem; display: block; margin-bottom: 8px; }
+  .today-box .title { font-size: 1.1rem; font-weight: 600; margin-bottom: 10px; }
+  .today-box .desc  { font-size: 0.92rem; opacity: 0.92; line-height: 1.8; text-align: left; }
+
+  /* ── 共通パーツ ── */
+  .highlight { background: #f6e2c8; border-radius: 4px; padding: 1px 6px; color: #6d1b1b; font-weight: 600; }
+  .callout {
+    border-radius: 6px; padding: 14px 16px; margin-top: 14px;
+  }
+  .callout.yellow { background: #fef9e7; border-left: 4px solid #d98a2e; }
+  .callout.green  { background: #eafaf1; border-left: 4px solid #27ae60; }
+  .callout.blue   { background: #e8f4fd; border-left: 4px solid #2980b9; }
+  .callout.wine   { background: #f6e9e4; border-left: 4px solid #a13a2c; }
+  .callout.red    { background: #fdf2f2; border-left: 4px solid #e74c3c; }
+
+  /* ── 免責 ── */
+  .disclaimer {
+    background: #fff; border: 1px solid #ddd; border-radius: 6px;
+    padding: 16px 20px; font-size: 0.8rem; color: #777; line-height: 1.7;
+    width: 100%; max-width: 820px; margin-bottom: 16px;
+  }
+  .disclaimer strong { color: #555; }
+
+  /* ── 出典 ── */
+  .sources {
+    background: #fff9f0; border-radius: 6px; padding: 16px 24px;
+    width: 100%; max-width: 820px; margin-bottom: 24px;
+    font-size: 0.8rem; color: #666; line-height: 1.8;
+  }
+  .sources h3 { font-size: 0.85rem; color: #6d1b1b; margin-bottom: 8px; }
+  .sources a { color: #a13a2c; text-decoration: none; }
+  .sources a:hover { text-decoration: underline; }
+  .sources ul { padding-left: 16px; }
+
+  /* ── バックリンク ── */
+  .back-link { text-align: center; margin-bottom: 20px; font-size: 0.9rem; }
+  .back-link a { color: #a13a2c; text-decoration: none; }
+  .back-link a:hover { text-decoration: underline; }
+
+  @media (max-width: 560px) {
+    .card-body { padding: 40px 18px 24px 24px; }
+    .bignum-row { flex-direction: column; }
+    .vs-row { flex-direction: column; }
+    .vs-arrow { transform: rotate(90deg); padding: 8px 0; }
+    .flow-row { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+    .method-grid { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── カバー ── -->
+<div class="cover">
+  <span class="cover-emoji">🤖</span>
+  <h1>SDRの求人は減り、AEは増える？<br>「AIエージェントSDR」時代の二極化</h1>
+  <div class="subtitle">インサイドセールス 最新トピック 2026-07-17</div>
+  <div class="date-badge">テレアポ・インサイドセールス 毎朝解説</div>
+</div>
+
+<!-- ── Section 01 ── -->
+<div class="card">
+  <span class="card-tab">01 今日のキーワード</span>
+  <div class="card-body">
+    <h2>🔑 「AI SDR」って何？SDRとAEのおさらい</h2>
+    <p>
+      <span class="highlight">SDR（エスディーアール）</span>とは「Sales Development Representative」の略で、新しいお客さん候補に電話やメールで最初に連絡を取り、商談のアポを取る役割のことです。日本でいう「テレアポ」「インサイドセールス」に近い仕事です。
+    </p>
+    <p>
+      一方<span class="highlight">AE（エーイー）</span>は「Account Executive」の略で、SDRが取ったアポを引き継いで実際に商談し、契約をまとめる役割です（前回7/13・7/15の記事でも触れました）。
+    </p>
+    <p>
+      そして今日のキーワード<span class="highlight">AI SDR（AIエージェントSDR）</span>とは、リストへの架電・メール送信・返信対応などを、人の代わりに自動でおこなうAIソフトのことです。2025年ごろから、海外のSaaS（ソフトウェアを月額で提供する）企業を中心に導入が進んでいます。
+    </p>
+    <div class="callout wine">
+      <strong>💡 一言でいうと</strong><br>
+      SDR＝アポ取り担当、AE＝契約担当、AI SDR＝アポ取り作業の一部を自動化するAIツール、という関係です。
+    </div>
+  </div>
+</div>
+
+<!-- ── Section 02 ── -->
+<div class="card">
+  <span class="card-tab">02 数字で見る 2025年調査</span>
+  <div class="card-body">
+    <h2>📊 「SDRは減り、AEは増える」って本当？</h2>
+    <p>
+      米国の投資会社Emergence Capitalが560社以上のB2B SaaS企業を対象に行った調査（2025年4月実施・6月発表）では、次のような結果が報告されています。
+    </p>
+    <div class="bignum-row">
+      <div class="bignum-card red">
+        <span class="num">36%</span>
+        <div class="unit">前年比</div>
+        <div class="label">SDR/BDRの人数を<br>減らした企業の割合</div>
+      </div>
+      <div class="bignum-card green">
+        <span class="num">28%</span>
+        <div class="unit">同調査</div>
+        <div class="label">AEの人数を<br>増やした企業の割合</div>
+      </div>
+      <div class="bignum-card amber">
+        <span class="num">19%</span>
+        <div class="unit">同調査（参考）</div>
+        <div class="label">逆にSDRを<br>増やした企業の割合</div>
+      </div>
+    </div>
+    <div class="callout yellow">
+      <strong>📎 どう読む？</strong><br>
+      「新規開拓（SDR）の人数は減らしつつ、契約をまとめる（AE）人数は増やす」という会社が目立った、という調査結果です。ただしSDRを増やした企業も19%あり、全社が同じ動きをしているわけではありません。
+    </div>
+  </div>
+</div>
+
+<!-- ── Section 03 ── -->
+<div class="card">
+  <span class="card-tab">03 最新データ（2026年5月）</span>
+  <div class="card-body">
+    <h2>📈 実は「AIを使う会社」はSDRを増やしている</h2>
+    <p>
+      さらに新しいデータもあります。米国の営業系ニュースレターGrowth Unhinged（2026年5月29日公開）が、米国のB2B企業12万件超の求人情報を分析したところ、市場全体とAIを前提に事業を伸ばしている企業（AIネイティブ企業）とで、正反対の動きが見つかりました。
+    </p>
+    <div class="vs-row">
+      <div class="vs-card before">
+        <span class="vs-tag">市場全体（一般企業）</span>
+        <ul>
+          <li>SDR求人：前年比 約21%減</li>
+          <li>2026年第1四半期の求人総数も前年比15%減</li>
+          <li>背景：AI SDRツールの導入によるコスト見直し</li>
+        </ul>
+      </div>
+      <div class="vs-arrow">⇔</div>
+      <div class="vs-card after">
+        <span class="vs-tag">AIネイティブ企業</span>
+        <ul>
+          <li>SDR求人：同期間で2倍以上に増加</li>
+          <li>営業・マーケ全体の採用も前年比 約50%増</li>
+          <li>例：OpenAI・Cursor・LangChainなど</li>
+        </ul>
+      </div>
+    </div>
+    <div class="callout blue">
+      <strong>🔤 つまり</strong><br>
+      「AIがSDRの仕事を全部奪う」という単純な話ではなく、「AIを活かして急成長している会社ほど、人のSDRも一緒に増やしている」という<span class="highlight">二極化</span>が起きている、というのがポイントです。
+    </div>
+  </div>
+</div>
+
+<!-- ── Section 04 ── -->
+<div class="card">
+  <span class="card-tab">04 なぜ差がつく？</span>
+  <div class="card-body">
+    <h2>💰 人とAI、コストの違いから見える理由</h2>
+    <p>
+      同じくEmergence Capitalの調査を基にした分析では、米国のSaaS企業における「フルコスト（給与＋研修＋ツール＋管理コストなど込みの年間費用）」の目安として、次のような数字が紹介されています。
+    </p>
+    <div class="bignum-row">
+      <div class="bignum-card blue">
+        <span class="num">$98,000〜<br>$173,000</span>
+        <div class="unit">年間・米国目安</div>
+        <div class="label">人間のSDR1人分の<br>フルコスト</div>
+      </div>
+      <div class="bignum-card indigo">
+        <span class="num">$6,000〜<br>$24,000</span>
+        <div class="unit">年間・米国目安</div>
+        <div class="label">AI SDRソフトの<br>利用コスト</div>
+      </div>
+    </div>
+    <div class="callout red">
+      <strong>⚠️ 注意</strong><br>
+      これは米国のSaaS企業を対象にした目安で、給与水準・為替レート・企業規模によって実際の金額は大きく変わります。日本国内のインサイドセールス時給相場については、2026-06-05の記事もあわせてご覧ください。単純比較で「AIの方が安いから人はいらない」と結論づけられるものではなく、あくまで各社が採用判断をする際の一材料です。
+    </div>
+  </div>
+</div>
+
+<!-- ── Section 05 ── -->
+<div class="card">
+  <span class="card-tab">05 求職者への意味</span>
+  <div class="card-body">
+    <h2>🧭 これから仕事を探す人は、どう捉えればいい？</h2>
+    <p>
+      この二極化データから、テレアポ・インサイドセールスの仕事を目指す人が意識しておきたいポイントを3つにまとめました。
+    </p>
+    <div class="method-grid">
+      <div class="method-card">
+        <div class="m-title">① AIと役割分担できる人材になる</div>
+        <div class="m-desc">AI架電・メールツールの設定や、送信結果のチェック・改善ができる人は重宝されやすくなります。</div>
+      </div>
+      <div class="method-card">
+        <div class="m-title">② 「人にしかできない」工程を磨く</div>
+        <div class="m-desc">ヒアリング（BANT等）やクロージングなど、判断力・関係構築力が必要な工程は今も人が中心です。</div>
+      </div>
+      <div class="method-card">
+        <div class="m-title">③ AIネイティブ企業の求人にも目を向ける</div>
+        <div class="m-desc">AIを前提に伸びている企業は、逆にSDR・営業職の採用を増やしている場合があります。</div>
+      </div>
+    </div>
+    <div class="callout green">
+      <strong>🌱 まとめ</strong><br>
+      「AIに仕事を奪われる」と身構えるより、「AIと組んで成果を出せる人」を目指すほうが、今後の求人市場では有利に働きやすいと考えられます。
+    </div>
+  </div>
+</div>
+
+<!-- ── Section 06 ── -->
+<div class="card">
+  <span class="card-tab">06 今日からできる一歩</span>
+  <div class="card-body">
+    <h2>👣 AIを「壁打ち相手」として1回使ってみる</h2>
+    <div class="today-box">
+      <span class="emoji">🖊️</span>
+      <div class="title">今日の一歩：ChatGPTなどのAIチャットで、想定トークを1つ作ってもらう</div>
+      <div class="desc">
+        自分が担当している（または志望している）業界を1つ決めて、AIチャットに「テレアポの冒頭15秒トークを3パターン作って」とお願いしてみましょう。出てきた案をそのまま使うのではなく、自分の言葉で1文だけ直してみるのが今日からできる一歩です。<br><br>
+        こうした「AIに下書きさせて、自分で仕上げる」作業に慣れておくことが、そのままセクション05で触れた「AIと組んで成果を出せる人材」への一歩になります。
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 免責 ── -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事で紹介した調査データ・コスト目安は、米国を中心とした海外のB2B SaaS企業を対象にしたものであり、日本国内の求人動向・報酬水準とは前提が異なります。報酬・採用・成約の結果には個人差があり、市場・時期・スキルによって変わります。紹介した調査・数値・企業名は今後変更・更新される可能性があるため、実際の求職活動にあたっては各社・各媒体の最新情報もあわせてご確認ください。特定の成果を保証するものではありません。
+</div>
+
+<!-- ── 出典 ── -->
+<div class="sources">
+  <h3>📎 参考情報・出典</h3>
+  <ul>
+    <li><a href="https://www.saastr.com/the-great-sdr-downsizing-36-of-b2b-companies-cut-sales-development-teams-in-2025/" target="_blank">SaaStr「The Great SDR Downsizing: 36% of B2B Companies Cut Sales Development Teams in 2025」（Emergence Capital調査の紹介、公開日：2025年6月22日）</a></li>
+    <li><a href="https://www.emcap.com/beyond-benchmarks-2025" target="_blank">Emergence Capital「Beyond Benchmarks 2025」調査ページ（560社以上のB2B SaaS企業調査、調査実施：2025年4月）</a></li>
+    <li><a href="https://www.growthunhinged.com/p/who-s-actually-hiring-in-gtm-right-now" target="_blank">Growth Unhinged（Kyle Poyar）「Who's Actually Hiring in GTM Right Now」（米国GTM求人12万件超の分析、公開日：2026年5月29日）</a></li>
+  </ul>
+</div>
+
+<!-- ── バックリンク ── -->
+<div class="back-link">
+  <a href="index.html">&larr; バックナンバー一覧へ</a>
+</div>
+
+</body>
+</html>
