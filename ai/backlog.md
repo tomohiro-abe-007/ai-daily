@@ -52,6 +52,7 @@
 - 2026-07-16: ByteDance Seedream 5.0 Pro（2026年7月8日リリース）・最上位画像生成モデル・15言語対応テキスト描画（アラビア語など右から左の言語も対応）・10以上の透明PNGレイヤーに自動分割・精密部分編集（ポイント/ボックス/アンカー選択）・複雑な情報の可視化（インフォグラフィック・ポスター・UIモックアップ）・一般向けDreaminaアプリ・開発者向けBytePlus ModelArk API・料金$0.045〜$0.09/枚（公式要確認）（出典：TestingCatalog / BigGo Finance / openpr.com / aireiter.com・2026年7月）
 - 2026-07-17: Thinking Machines Lab「Inkling」（2026年7月15日公開）・OpenAI元CTO ミラ・ムラティ設立のスタートアップが初のオープンウェイトモデルを公開・MoE設計（総パラメータ975B・1タスク41B使用）・45兆トークンで学習（テキスト/画像/音声/動画）・現在の出力はテキストのみ・コーディング性能でNemotron 3 Ultraの約3分の1のトークン数で同等の結果と主張・収益はファインチューニングツール「Tinker」から・顧客例：Bridgewater Associates（出典：TechCrunch / Axios / Fortune / SiliconANGLE・2026年7月15日）
 - 2026-07-18: Moonshot AI Kimi K3（2026年7月16日発表）・オープンソース史上最大2.8兆パラメータ・MoE（896専門家ユニット・1タスク16個起動）・1Mトークンコンテキスト・Kimi Delta Attention & Attention Residuals新技術・GDPval-AA v2で世界3位スコア1,687（Fable 5 Max・GPT-5.6 Sol Maxに次ぐ）・AA-Briefcaseで世界2位スコア1,527・DeepSeek V4 Proより約75%大規模・ウェイト公開は2026年7月27日予定（出典：VentureBeat / MarkTechPost / Axios / Fortune / People's Daily Online・2026年7月16〜17日）
+- 2026-07-19: WAICO（World Artificial Intelligence Cooperation Organization・世界人工知能協力機構）設立（2026年7月16日調印）・29か国が設立協定に署名・本部は上海・アジア12か国・アフリカ10か国が中心・米国・欧州主要国・日本は不参加・国連事務総長グテーレス氏出席・中国外相王毅氏が調印・習近平「AIは一国のソロ演奏でなく国際協力の交響楽であるべき」・開発途上国に5,000人分のAI研修機会を提供予定・WAIC 2026（世界人工知能会議）と同時期・AIガバナンスの米中二極化が鮮明に（出典：Al Jazeera / CNBC / Xinhua / CGTN / thesun.ng・2026年7月16〜17日）
 
 ## 未解説の候補トピック（今後の参考）
 
