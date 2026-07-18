@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-07-19</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #1e7a5a 0%, #0d4632 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #1e7a5a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.blue   { border-left-color: #1e5a7a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.purple { border-left-color: #7a4a9e; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #1e7a5a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  .type-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .type-grid { grid-template-columns: 1fr; } }
+  .type-card {
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-size: 0.86rem;
+    line-height: 1.65;
+  }
+  .type-card.main {
+    background: #e6f5ee;
+    border: 2px solid #1e7a5a;
+  }
+  .type-card.sub {
+    background: #e8f0f8;
+    border: 2px solid #1e5a7a;
+  }
+  .type-card .tl {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+  }
+  .type-card.main .tl { color: #0d4632; }
+  .type-card.sub .tl  { color: #0d3352; }
+  .type-card .tv { font-size: 1.0rem; font-weight: 700; margin-bottom: 6px; }
+  .type-card.main .tv { color: #1e7a5a; }
+  .type-card.sub .tv  { color: #1e5a7a; }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 14px 10px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat .sl { font-size: 0.67rem; color: #888; margin-bottom: 3px; }
+  .stat .sv { font-size: 1.5rem; font-weight: 700; color: #1e7a5a; line-height: 1.1; }
+  .stat .su { font-size: 0.7rem; color: #666; margin-top: 2px; }
+
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #1e7a5a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+  .f-arrow { color: #1e7a5a; font-size: 1.1rem; margin-left: 14px; margin-bottom: 4px; }
+
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  .prompt-box {
+    background: #f0f5ff;
+    border: 2px solid #4a6aae;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 12px 0;
+    font-size: 0.84rem;
+    line-height: 1.85;
+    color: #1a2a4a;
+  }
+  .prompt-box .ph {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #4a6aae;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+  .prompt-box .fill {
+    background: #d0e0ff;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-weight: 700;
+    color: #0a2a6e;
+  }
+
+  .info {
+    background: #e6f5ee;
+    border-left: 4px solid #1e7a5a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #0d4632;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #7a4010;
+  }
+
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #1e7a5a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+
+  .badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 8px;
+    margin-right: 4px;
+    vertical-align: middle;
+  }
+  .badge.law   { background: #1e7a5a; color: white; }
+  .badge.ai    { background: #4a6aae; color: white; }
+  .badge.tip   { background: #4a9e6a; color: white; }
+  .badge.warn  { background: #c8884a; color: white; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #1e7a5a; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #1e7a5a; }
+
+  .flow-h {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 14px 0;
+  }
+  .flow-box {
+    background: white;
+    border: 2px solid #1e7a5a;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 0.81rem;
+    text-align: center;
+    line-height: 1.45;
+    color: #0d4632;
+    font-weight: 600;
+  }
+  .flow-arrow {
+    color: #1e7a5a;
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+  @media (max-width: 540px) {
+    .flow-h { flex-direction: column; align-items: flex-start; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+
+  .matrix {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.83rem;
+  }
+  .matrix th {
+    background: #0d4632;
+    color: white;
+    padding: 8px 12px;
+    text-align: center;
+    font-weight: 600;
+  }
+  .matrix td {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    vertical-align: top;
+    line-height: 1.55;
+  }
+  .matrix .row-head {
+    background: #e6f5ee;
+    font-weight: 700;
+    color: #0d4632;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .matrix .ok  { color: #4a9e6a; font-weight: 700; }
+  .matrix .ng  { color: #b54040; font-weight: 700; }
+  .matrix .mid { color: #c8884a; font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Header -->
+<div class="header">
+  <div class="meta">📅 1人法人スタート 最新トピック &nbsp;2026-07-19</div>
+  <h1>🩹 社長がケガをしても労災は出ない？<br>中小事業主等の労災保険「特別加入制度」</h1>
+  <div class="desc">
+    <span class="htag">労災保険</span>
+    <span class="htag">特別加入</span>
+    <span class="htag">社会保険</span>
+    <span class="htag">労働保険事務組合</span>
+    <br>
+    労災保険は本来<span class="hl">従業員のための保険</span>で、社長自身はケガをしても対象外です。でも一定の条件を満たせば<span class="hl">社長も労災に入れる「特別加入制度」</span>があります。今日はその仕組みと、1人社長がいま知っておくべき注意点を図解します。
+  </div>
+</div>
+
+<!-- Section 1: そもそも労災保険とは誰のためのものか -->
+<div class="card">
+  <div class="sec-title">🧐 労災保険は「従業員」のための保険</div>
+  <p>労災保険（労働者災害補償保険）は、仕事中や通勤中のケガ・病気・死亡に対して給付を行う制度です。ただし対象はあくまで<strong>「労働者」</strong>。会社の代表者（社長）や役員は、法律上「使用する側」であり「使用される側」ではないため、<strong>原則として労災保険の対象外</strong>です。</p>
+  <div class="warn" style="margin-top:12px;">
+    ⚠️ 1人社長が現場作業・配達・製造など、従業員と同じような体を使う仕事をしていても、何もしなければ<strong>仕事中にケガをしても労災の給付は受けられません</strong>。健康保険を使うことになり、休業補償なども原則ありません。
+  </div>
+  <div class="source">
+    出典：厚生労働省「労災保険への特別加入」<br>
+    <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/rousai/kanyu.html" target="_blank">https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/rousai/kanyu.html</a>（令和8年7月時点）
+  </div>
+</div>
+
+<!-- Section 2: 特別加入とは -->
+<div class="card blue">
+  <div class="sec-title">🛟 だから用意されている「特別加入制度」</div>
+  <p>労働者に準じて保護するのがふさわしい人には、任意で労災保険に入れる<strong>「特別加入制度」</strong>があります。対象は4つのグループに分かれますが、1人社長に関係が深いのは<strong>「中小事業主等」</strong>の区分です。</p>
+
+  <div class="type-grid" style="margin-top:14px;">
+    <div class="type-card main">
+      <div class="tl">✅ 中小事業主等（今日のテーマ）</div>
+      <div class="tv">法人代表者・役員・家族従事者</div>
+      一定規模以下の事業の代表者や、代表者以外の役員、家族従事者などが対象
+    </div>
+    <div class="type-card sub">
+      <div class="tl">△ 一人親方等</div>
+      <div class="tv">建設業・個人タクシー等</div>
+      特定の業種で個人事業として働く人向け。中小事業主等とは要件が異なる
+    </div>
+  </div>
+
+  <div class="info" style="margin-top:12px;">
+    💡 「一人親方」の特別加入は、建設業などの特定業種を個人事業主として営む人向けの別制度です。法人の代表者は基本的に「中小事業主等」の区分で検討します。
+  </div>
+
+  <div class="source">
+    出典：厚生労働省「特別加入制度のしおり（中小事業主等用）」<br>
+    <a href="https://www.mhlw.go.jp/new-info/kobetu/roudou/gyousei/rousai/040324-5.html" target="_blank">https://www.mhlw.go.jp/new-info/kobetu/roudou/gyousei/rousai/040324-5.html</a>
+  </div>
+</div>
+
+<!-- Section 3: 3要件、特に従業員が必要な点 -->
+<div class="card orange">
+  <div class="sec-title">📋 加入するための3つの要件 ── ここが最重要ポイント</div>
+  <p>「中小事業主等」として特別加入するには、次の<strong>3つの要件すべて</strong>を満たす必要があります。</p>
+
+  <div class="f-step" style="margin-top:14px;">
+    <div class="f-num">1</div>
+    <div class="f-text"><strong>労働者を雇用し、労働保険関係が成立していること</strong> ── パート・アルバイトも含め、<span class="hl">従業員を1人でも雇っている</span>ことが前提。従業員ゼロの1人社長は、この時点でまだ対象外</div>
+  </div>
+  <div class="f-arrow">↓</div>
+  <div class="f-step">
+    <div class="f-num">2</div>
+    <div class="f-text"><strong>労働保険事務組合に事務処理を委託していること</strong> ── 商工会・商工会議所などが運営する「労働保険事務組合」に、労働保険の手続きを委託する必要がある</div>
+  </div>
+  <div class="f-arrow">↓</div>
+  <div class="f-step">
+    <div class="f-num">3</div>
+    <div class="f-text"><strong>事業主本人を含め、役員・家族従事者など労働者以外の全員をまとめて加入させること</strong> ── 社長だけ選んで加入する、ということはできない</div>
+  </div>
+
+  <div class="warn" style="margin-top:14px;">
+    ⚠️ 今まさに従業員がゼロの1人社長は、要件①の時点でこの制度をまだ使えません。ただし<strong>将来アルバイトを1人でも雇った瞬間から使える可能性が出てくる</strong>ので、「雇ったら思い出すべき制度」として覚えておく価値があります。
+  </div>
+
+  <div class="source">
+    出典：厚生労働省「特別加入制度のしおり（中小事業主等用）」<br>
+    <a href="https://www.mhlw.go.jp/new-info/kobetu/roudou/gyousei/rousai/040324-5.html" target="_blank">https://www.mhlw.go.jp/new-info/kobetu/roudou/gyousei/rousai/040324-5.html</a>
+  </div>
+</div>
+
+<!-- Section 4: 給付基礎日額と保険料 -->
+<div class="card purple">
+  <div class="sec-title">💴 保険料の決まり方 ── 「給付基礎日額」を自分で選ぶ</div>
+  <p>特別加入の保険料は、自分で選んだ<strong>「給付基礎日額」</strong>（ケガをした時の補償の基準になる日額）をもとに計算します。給付基礎日額は<strong>3,500円〜25,000円の範囲・16段階</strong>から選べます。</p>
+
+  <div class="info" style="margin-top:12px;">
+    計算式：<strong>年間保険料 ＝ 給付基礎日額 × 365日 × 労災保険率</strong>（業種により異なる）
+  </div>
+
+  <div class="stats-row" style="margin-top:14px;">
+    <div class="stat">
+      <div class="sl">日額 3,500円<br>（最低額）</div>
+      <div class="sv">約3,833円</div>
+      <div class="su">年間保険料の目安（税率3/1000で試算）</div>
+    </div>
+    <div class="stat">
+      <div class="sl">日額 10,000円<br>（中間的な例）</div>
+      <div class="sv">約10,950円</div>
+      <div class="su">年間保険料の目安（税率3/1000で試算）</div>
+    </div>
+    <div class="stat">
+      <div class="sl">日額 25,000円<br>（最高額）</div>
+      <div class="sv">約27,375円</div>
+      <div class="su">年間保険料の目安（税率3/1000で試算）</div>
+    </div>
+  </div>
+
+  <div class="warn" style="margin-top:12px;">
+    ⚠️ 上の試算は「その他の各種事業」（令和8年度も労災保険率3/1000で令和7年度と同率）を例にしたものです。業種によって保険率は異なるため、実際の金額は労働保険事務組合や労働基準監督署で必ず確認してください。
+  </div>
+
+  <div class="source">
+    出典：厚生労働省「事業主の皆さまへ 令和8年度の労災保険率等について」<br>
+    <a href="https://www.mhlw.go.jp/content/roumuhiritu_r05.pdf" target="_blank">https://www.mhlw.go.jp/content/roumuhiritu_r05.pdf</a>（令和8年度は令和7年度と同率）
+  </div>
+</div>
+
+<!-- Section 5: 手続きの流れ -->
+<div class="card blue">
+  <div class="sec-title">🧭 加入までの流れ</div>
+  <div class="flow-h" style="margin-top:14px;">
+    <div class="flow-box">🏢 ①<br>労働保険事務組合に<br>事務委託を相談</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-box">📝 ②<br>特別加入申請書を<br>組合経由で提出</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-box">🏛️ ③<br>労働基準監督署長<br>経由で労働局長が審査</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-box">✅ ④<br>承認されたら<br>加入・保険料納付</div>
+  </div>
+  <div class="info" style="margin-top:12px;">
+    💡 窓口は各地の商工会・商工会議所や労働保険事務組合です。「従業員を雇う予定がある／雇った」段階になったら、まずそこに相談するのが実務的な第一歩です。
+  </div>
+  <div class="source">
+    出典：厚生労働省「特別加入制度のしおり（中小事業主等用）」<br>
+    <a href="https://www.mhlw.go.jp/new-info/kobetu/roudou/gyousei/rousai/040324-5.html" target="_blank">https://www.mhlw.go.jp/new-info/kobetu/roudou/gyousei/rousai/040324-5.html</a>
+  </div>
+</div>
+
+<!-- Section 6: checklist -->
+<div class="card">
+  <div class="sec-title">✅ 今日からできる実践チェックリスト</div>
+  <ul class="check-list" style="margin-top:10px;">
+    <li><span class="ck">☑</span> 今、従業員（パート・アルバイト含む）を雇っているか、雇う予定があるかを確認する</li>
+    <li><span class="ck">☑</span> 自分が現場作業・配達・製造など体を使う業務に関わっているかを振り返る</li>
+    <li><span class="ck">☑</span> 従業員を雇うタイミングで、地域の商工会・商工会議所に労働保険事務組合への委託を相談する</li>
+    <li><span class="ck">☑</span> 加入する場合、給付基礎日額をいくらにするか（3,500円〜25,000円）を考えておく</li>
+    <li><span class="ck-bad">⚠</span> <span style="color:#888;">従業員ゼロのままでは対象外。「入りたいのに入れない」と焦らず、雇用のタイミングで検討する</span></li>
+  </ul>
+</div>
+
+<!-- Section 7: AI prompt -->
+<div class="card orange">
+  <div class="sec-title">🤖 生成AIに「自分の労災リスク」を整理してもらうプロンプト例</div>
+  <p>特別加入が必要かどうかは、<span class="hl">日々の業務内容や働き方</span>によって変わります。AIには自分の業務の棚卸しを手伝ってもらい、最終的な要否判断は労働保険事務組合・社労士に確認しましょう。</p>
+
+  <div class="prompt-box" style="margin-top:14px;">
+    <div class="ph">🤖 プロンプト例：労災リスクの棚卸しと相談準備</div>
+    私は<span class="fill">【業種・事業内容】</span>を営む1人会社（代表取締役1名、従業員<span class="fill">【人数】</span>名）です。自分の日々の業務内容を箇条書きで伝えるので、仕事中にケガや事故のリスクがありそうな業務を指摘してください。<br>
+    <br>
+    業務内容：<span class="fill">【1日の業務の流れを箇条書きで貼り付け】</span><br>
+    <br>
+    そのうえで、労働保険事務組合や社会保険労務士に相談する際に聞くべき質問リストも作ってください。※特別加入の要否・保険料は、必ず労働保険事務組合・社労士・労働基準監督署に確認してください。
+  </div>
+</div>
+
+<!-- Section 8: summary -->
+<div class="card">
+  <div class="sec-title">📝 今日のまとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">①</span>労災保険は本来<span class="hlg">従業員のための保険</span>で、社長・役員は原則対象外。</li>
+    <li><span class="n">②</span>「特別加入制度」を使えば、<span class="hl">中小事業主等（法人代表者・役員・家族従事者）</span>も任意で労災に入れる。</li>
+    <li><span class="n">③</span>ただし加入には3要件が必須。特に<span class="hl">「従業員を1人でも雇っていること」</span>が前提で、従業員ゼロの1人社長はまだ対象外。</li>
+    <li><span class="n">④</span>保険料は<span class="hl">給付基礎日額（3,500円〜25,000円）×365日×労災保険率</span>で決まり、日額を自分で選べる。</li>
+    <li><span class="n">⑤</span>手続きは<span class="hl">労働保険事務組合（商工会・商工会議所等）への委託</span>が必須。窓口はまずそこに相談する。</li>
+    <li><span class="n">⑥</span>現場作業や配達など体を使う業務がある社長は、<span class="hl">従業員を雇うタイミングで検討する制度</span>として覚えておく。</li>
+  </ul>
+</div>
+
+<!-- Disclaimer -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報提供を目的としており、個別の労務・税務・法務の判断を代わるものではありません。
+  特別加入の可否、保険料率、手続きの詳細は、事業内容・雇用状況・所在地の労働保険事務組合により異なります。
+  具体的な加入の相談にあたっては、必ず労働保険事務組合、社会保険労務士、所轄の労働基準監督署にご確認ください。
+  制度・保険料率・要件は改正されることがあります。最新情報は厚生労働省公式サイト（<a href="https://www.mhlw.go.jp/" target="_blank">https://www.mhlw.go.jp/</a>）でご確認ください。<br>
+  本記事の内容の基準年度：令和8年度（2026年度）。労災保険率は令和8年度（令和7年度と同率）の「その他の各種事業」区分（3/1000）を用いた試算です。令和8年7月時点の情報。
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>📚 <a href="index.html">バックナンバー一覧へ</a> &nbsp;&middot;&nbsp; 毎朝更新</p>
+</div>
+
+</div>
+</body>
+</html>
