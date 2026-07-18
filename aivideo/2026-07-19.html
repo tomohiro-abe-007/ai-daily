@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI動画制作 最新トピック 2026-07-19</title>
+<style>
+  :root {
+    --bg: #ece8e1;
+    --card: #faf6ec;
+    --dark: #1a3a5c;
+    --dark2: #1a5c3a;
+    --accent: #2a5c8a;
+    --accent2: #c85a00;
+    --text: #2a3540;
+    --muted: #7c8a82;
+    --border: #e0d8c8;
+    --highlight: #fff3cd;
+    --warn: #8a2020;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, "Hiragino Sans", "Yu Gothic", sans-serif;
+    line-height: 1.75;
+    padding: 20px;
+  }
+  .wrap { max-width: 900px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #1a3a5c 0%, #1a5c3a 100%);
+    color: #fff;
+    border-radius: 20px;
+    padding: 44px 32px 36px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(26,58,92,.22);
+    margin-bottom: 24px;
+  }
+  .header-tag {
+    display: inline-block;
+    background: rgba(255,255,255,.18);
+    color: #e0f0e8;
+    border-radius: 20px;
+    padding: 4px 16px;
+    font-size: .82rem;
+    margin-bottom: 14px;
+    letter-spacing: .06em;
+  }
+  .header h1 { font-size: 1.55rem; letter-spacing: .03em; line-height: 1.45; margin-bottom: 10px; }
+  .header .sub { color: #c8dde8; font-size: .95rem; }
+  .header .date { color: #b0e0c0; font-size: .85rem; margin-top: 8px; }
+
+  .card {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 12px rgba(0,0,0,.07);
+    border: 1px solid var(--border);
+  }
+  .card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .point-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .point-card { background: #eef3f8; border-radius: 14px; padding: 20px 16px; text-align: center; border: 1px solid #d4e0ea; }
+  .point-icon { font-size: 2rem; margin-bottom: 8px; }
+  .point-title { font-size: .95rem; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
+  .point-desc { font-size: .83rem; color: var(--muted); line-height: 1.6; }
+
+  .bignum-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 20px; }
+  .bignum-card { background: linear-gradient(135deg, #1a3a5c, #1a5c3a); border-radius: 14px; padding: 18px 12px; text-align: center; color: #fff; }
+  .bignum { font-size: 1.4rem; font-weight: 800; color: #ffe0a0; line-height: 1.2; }
+  .bignum-label { font-size: .72rem; color: #cfe6d8; margin-top: 4px; line-height: 1.5; }
+
+  .step-list { list-style: none; }
+  .step-item { display: flex; gap: 14px; margin-bottom: 16px; align-items: flex-start; }
+  .step-num {
+    width: 34px; height: 34px;
+    background: linear-gradient(135deg, #1a3a5c, #1a5c3a);
+    color: #fff; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: .95rem; flex-shrink: 0; margin-top: 2px;
+  }
+  .step-body { flex: 1; }
+  .step-title { font-weight: 700; color: var(--dark); font-size: .95rem; }
+  .step-desc { font-size: .86rem; color: var(--muted); margin-top: 3px; line-height: 1.65; }
+
+  .chip-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .chip { background: #e8f0ec; color: #1a5c3a; border-radius: 20px; padding: 4px 14px; font-size: .82rem; font-weight: 600; border: 1px solid #c0dccc; }
+
+  .tbl { width: 100%; border-collapse: collapse; font-size: .86rem; }
+  .tbl th { background: #eaf1ea; padding: 10px 10px; text-align: left; border-bottom: 2px solid #c8ddc8; color: var(--dark); font-weight: 700; }
+  .tbl td { padding: 10px 10px; border-bottom: 1px solid var(--border); vertical-align: top; color: var(--text); }
+  .tbl tr:last-child td { border-bottom: none; }
+
+  .note-box { background: var(--highlight); border-left: 4px solid #e8a000; border-radius: 8px; padding: 12px 16px; font-size: .88rem; color: #5a4000; margin-top: 14px; line-height: 1.7; }
+  .warn-box { background: #fde8e4; border-left: 4px solid var(--warn); border-radius: 8px; padding: 12px 16px; font-size: .88rem; color: #6a1414; margin-top: 14px; line-height: 1.7; }
+
+  .summary-list { font-size: .95rem; line-height: 2.2; }
+  .summary-list li { list-style: none; display: flex; align-items: flex-start; gap: 8px; }
+  .summary-list li::before { content: "✅"; flex-shrink: 0; margin-top: 2px; }
+
+  .disclaimer { background: #f0ede8; border-radius: 12px; padding: 16px 20px; font-size: .82rem; color: var(--muted); margin-top: 24px; line-height: 1.7; border: 1px solid #ddd8d0; }
+
+  footer { text-align: center; color: var(--muted); font-size: .82rem; margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border); line-height: 1.9; }
+  footer a { color: var(--accent); }
+
+  /* タイムライン */
+  .time-row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-top: 6px; }
+  .time-step { flex: 1; min-width: 110px; border-radius: 10px; padding: 12px 8px; text-align: center; color: #fff; }
+  .time-1 { background: linear-gradient(160deg,#8aacd8,#5a8cba); }
+  .time-2 { background: linear-gradient(160deg,#f0d060,#e8a000); color:#4a3400; }
+  .time-3 { background: linear-gradient(160deg,#2a5c8a,#1a3a5c); }
+  .time-4 { background: linear-gradient(160deg,#c85a5a,#8a2020); }
+  .time-step .ts-icon { font-size: 1.3rem; margin-bottom: 4px; }
+  .time-step .ts-title { font-size: .8rem; font-weight: 700; }
+  .time-step .ts-desc { font-size: .68rem; margin-top: 3px; line-height: 1.5; opacity:.92; }
+  .time-arrow { font-size: 1.1rem; color: var(--accent2); font-weight: 700; flex-shrink: 0; }
+
+  /* 安全に使うフロー */
+  .flow-row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-top: 6px; }
+  .flow-step { flex: 1; min-width: 120px; background: #eef3f8; border: 1px solid #d4e0ea; border-radius: 10px; padding: 12px 10px; text-align: center; }
+  .flow-step .fs-icon { font-size: 1.3rem; margin-bottom: 4px; }
+  .flow-step .fs-title { font-size: .82rem; font-weight: 700; color: var(--dark); }
+  .flow-step .fs-desc { font-size: .72rem; color: var(--muted); margin-top: 3px; line-height: 1.5; }
+  .flow-arrow { font-size: 1.3rem; color: var(--accent2); font-weight: 700; flex-shrink: 0; }
+  .flow-caption { text-align: center; font-size: .8rem; color: var(--muted); margin-top: 10px; }
+
+  @media (max-width: 640px) {
+    .point-grid { grid-template-columns: 1fr; }
+    .bignum-grid { grid-template-columns: 1fr; }
+    .time-row { flex-direction: column; }
+    .time-arrow { transform: rotate(90deg); }
+    .flow-row { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+    .tbl { display: block; overflow-x: auto; white-space: nowrap; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="header">
+  <div class="header-tag">🛠️ ツール情報回 ── Seedance 2.5</div>
+  <h1>ByteDance「Seedance 2.5」APIが解禁<br>── 30秒動画“一発生成”の裏にある著作権リスク</h1>
+  <div class="sub">高性能ツールほど「できること」だけでなく「気をつけること」も一緒に覚えておきたい</div>
+  <div class="date">2026-07-19 ｜ AI動画制作 最新トピック</div>
+</div>
+
+<div class="card">
+  <div class="card-title">🎯 今日の3ポイント</div>
+  <div class="point-grid">
+    <div class="point-card">
+      <div class="point-icon">🚀</div>
+      <div class="point-title">何が起きた？</div>
+      <div class="point-desc">中国ByteDance(TikTok運営元)の動画生成AI「Seedance 2.5」のAPI(他サービスから呼び出せる窓口)が2026年7月16日に一般公開された</div>
+    </div>
+    <div class="point-card">
+      <div class="point-icon">🎬</div>
+      <div class="point-title">何がすごい？</div>
+      <div class="point-desc">30秒の動画をカット割りなしの“1本もの”として一発生成できる。これまで商用で使えるモデルには無かった長さ</div>
+    </div>
+    <div class="point-card">
+      <div class="point-icon">⚠️</div>
+      <div class="point-title">注意点は？</div>
+      <div class="point-desc">学習データの著作権をめぐる訴訟が未解決のまま。米国上院議員が運営元に停止を求める書簡を送るなど問題が続いている</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🔢 数字で見るSeedance 2.5</div>
+  <div class="bignum-grid">
+    <div class="bignum-card">
+      <div class="bignum">30秒</div>
+      <div class="bignum-label">1回の生成でつながる動画の長さ(継ぎ目なし)</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">最大50個</div>
+      <div class="bignum-label">参照素材(画像・動画・音声)を同時に使える数</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">4K/10bit</div>
+      <div class="bignum-label">出力できる最高解像度・色の階調</div>
+    </div>
+  </div>
+  <div class="note-box">
+    💡 基準：2026年7月16日、ByteDanceのクラウド基盤「BytePlus」経由でAPIが一般公開(Tech Times報道)。料金は用途・解像度によって変動し、目安は30秒動画で数百円〜4K設定だと2,000円超という報道もある。<strong>正式な料金・商用利用条件は公式サイトで要確認。</strong>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">📅 これまでの経緯タイムライン</div>
+  <p style="font-size:.9rem;color:var(--muted);margin-bottom:6px;">
+    前身の「Seedance 2.0」の頃から著作権をめぐる指摘が続いており、対策と公開が並行して進んできた。
+  </p>
+  <div class="time-row">
+    <div class="time-step time-1"><div class="ts-icon">🎥</div><div class="ts-title">2026年3月</div><div class="ts-desc">2.0が話題に。有名映画カットの再現などで著作権侵害の指摘が相次ぐ</div></div>
+    <div class="time-arrow">→</div>
+    <div class="time-step time-2"><div class="ts-icon">🛡️</div><div class="ts-title">3月30日</div><div class="ts-desc">C2PA透かし(AI生成の来歴情報)・実在の顔/著作権キャラの検出フィルターを追加</div></div>
+    <div class="time-arrow">→</div>
+    <div class="time-step time-3"><div class="ts-icon">📢</div><div class="ts-title">6月23日</div><div class="ts-desc">Volcano Engineのカンファレンスで「2.5」を正式発表</div></div>
+    <div class="time-arrow">→</div>
+    <div class="time-step time-4"><div class="ts-icon">✉️</div><div class="ts-title">7月16日</div><div class="ts-desc">API一般公開。同時に米上院議員が運営元へ停止要求の書簡を送付と報道</div></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">📊 Seedance 2.0 → 2.5 何が変わった？</div>
+  <table class="tbl">
+    <thead>
+      <tr><th></th><th>Seedance 2.0</th><th>Seedance 2.5</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>🎞️ 生成できる尺</strong></td>
+        <td>継ぎ目なしで数秒〜十数秒</td>
+        <td>継ぎ目なしで最大30秒に倍増</td>
+      </tr>
+      <tr>
+        <td><strong>🖼️ 参照素材</strong></td>
+        <td>十数個程度</td>
+        <td>画像・動画・音声を最大50個</td>
+      </tr>
+      <tr>
+        <td><strong>🛡️ 著作権対策</strong></td>
+        <td>2026年3月にC2PA透かし・顔/キャラフィルター追加</td>
+        <td>対策は継承。ただし訴訟・議員書簡など懸念は未解決</td>
+      </tr>
+      <tr>
+        <td><strong>🔌 提供形態</strong></td>
+        <td>Web(Dreamina等)中心</td>
+        <td>2026年7月16日よりBytePlus API公開・外部サービス組み込みが容易に</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="card">
+  <div class="card-title">🚨 なぜ「著作権リスク未解決」と言われるのか</div>
+  <p style="font-size:.9rem;color:var(--muted);margin-bottom:6px;">
+    Tech Timesなどの報道によると、対策は追加されているが根本的な問題はまだ決着していない。
+  </p>
+  <div class="warn-box">
+    ⚖️ 米国の映画業界団体(MPA)は、AIの<strong>学習データ自体</strong>に著作物が無断で使われた疑いを指摘。ある利用者が、実写映画の“最も制作費がかかったカット”をわずかな費用で再現できたと報告され、米上院議員2名が運営元へ<strong>サービス停止を求める書簡</strong>を送ったと報じられている(2026年7月16日前後、Tech Times)。C2PA透かしや顔/キャラ検出フィルターは追加済みだが、これらの訴訟・懸念に対する最終的な司法判断はまだ出ていない。
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🧭 商用で使う前にやっておきたい安全確認フロー</div>
+  <div class="flow-row">
+    <div class="flow-step"><div class="fs-icon">🙅</div><div class="fs-title">実在人物・有名キャラは避ける</div><div class="fs-desc">顔や著名キャラを狙って再現するプロンプトを使わない</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="fs-icon">📷</div><div class="fs-title">自前の参照素材を使う</div><div class="fs-desc">自分で撮った写真・動画・音声を参照に指定する</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="fs-icon">🔍</div><div class="fs-title">透かしを残す</div><div class="fs-desc">C2PA透かしをトリミング等で消さずに書き出す</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="fs-icon">📄</div><div class="fs-title">利用規約を確認</div><div class="fs-desc">公開時点の商用利用条件を公式サイトで再チェック</div></div>
+  </div>
+  <div class="flow-caption">「できるかどうか」ではなく「やって良いかどうか」を毎回確認する習慣をつけると安心</div>
+</div>
+
+<div class="card">
+  <div class="card-title">🛠️ 真似できる具体例：30秒商品紹介動画を安全に作る5ステップ</div>
+  <p style="font-size:.88rem;color:var(--muted);margin-bottom:18px;">
+    自社商品の紹介ショート動画をSeedance系ツールで作る想定の基本フローです(ツール名は例。実際に使う場合は各社の最新の利用規約で商用利用可否を確認してください)。
+  </p>
+  <ul class="step-list">
+    <li class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-title">自社商品の写真・動画を用意する</div>
+        <div class="step-desc">他社ロゴや有名キャラが写り込んでいないか確認しながら、参照素材として自分で撮影した写真・動画を集める。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-title">構成をカット割りせず1本のプロンプトで書く</div>
+        <div class="step-desc">30秒つながりで作れる強みを活かし、「手に取る→回す→使うシーン」のように時系列で流れるプロンプトにする。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-title">生成後にC2PA透かしの有無を確認する</div>
+        <div class="step-desc">書き出したファイルの情報にAI生成の来歴表示が残っているかチェックし、消えていたら別書き出し設定を試す。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <div class="step-title">商用利用の可否を公式ページで再確認する</div>
+        <div class="step-desc">料金プランごとに商用利用条件が異なる場合があるため、投稿・広告出稿の直前に公式の最新規約を見直す。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">5</div>
+      <div class="step-body">
+        <div class="step-title">投稿後も著作権に関するニュースを追う</div>
+        <div class="step-desc">訴訟や規約変更は今後も動く可能性があるため、使い続けるツールについては継続的にニュースをチェックする。</div>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="card">
+  <div class="card-title">📝 今日のまとめ</div>
+  <ul class="summary-list">
+    <li>ByteDance「Seedance 2.5」のAPIが<strong>2026年7月16日</strong>にBytePlus経由で一般公開された</li>
+    <li>継ぎ目なし<strong>30秒</strong>の動画を一発生成でき、参照素材は最大<strong>50個</strong>まで使える</li>
+    <li>C2PA透かしや顔/キャラフィルターは追加済みだが、<strong>著作権をめぐる訴訟・議員からの停止要求</strong>は未解決のまま報じられている</li>
+    <li>商用で使うなら「実在人物・著名キャラを避ける」「自前の素材を使う」「透かしを消さない」「規約を都度確認する」の4点を習慣にする</li>
+    <li>ツールの<strong>名称・機能・料金・商用可否は変わりやすい</strong>ため、必ず公式サイトの最新情報で確認する</li>
+  </ul>
+</div>
+
+<div class="disclaimer">
+  ⚠️ <strong>免責事項</strong><br>
+  紹介したAIツールの名称・機能・料金・商用利用の可否は頻繁に変わります。ご利用の際は必ず各社の公式ページで最新情報と利用規約をご確認ください。著作権のあるキャラクターや実在人物の肖像を無断で再現する行為は行わないでください。本記事は2026年7月時点で確認できた報道をもとに作成しており、訴訟や規約は今後変わる可能性があります。
+</div>
+
+<footer>
+  AI動画制作 最新トピック ─ 2026-07-19 ｜ ツール情報回<br>
+  参考：<a href="https://www.techtimes.com/articles/320683/20260716/seedance-25-api-live-bytedances-30-second-ai-video-carries-unresolved-copyright-risk.htm" target="_blank" rel="noopener">Seedance 2.5 API Is Live: ByteDance's 30-Second AI Video Carries Unresolved Copyright Risk - Tech Times</a>(基準：2026年7月16日)<br>
+  <a href="index.html" style="color:var(--accent);">← 一覧に戻る</a>
+</footer>
+
+</div>
+</body>
+</html>
