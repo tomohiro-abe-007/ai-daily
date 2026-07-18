@@ -12,9 +12,11 @@
 - スペイン語の与格の重複表現（le doy el libro a él）── なぜ代名詞と名詞を両方言うのか
 - スペイン語のnosotros/vosotros命令形と再帰動詞の命令形（levántate/sentaosなど）── tú/usted命令の続編
 - スペイン語の最上級（el/la más...de）── 比較級からの発展（「一番〜」の言い方）
-- 英語の相槌・つなぎ言葉（well, so, I mean, you know など）── スペイン語版との対応の続編として
 - 英語のI wish / If onlyで後悔・願望を言う（仮定法の応用）── if I were youの続編
 - スペイン語の接続法（subjuntivo）の入り口（Si yo fuera...）── 英語のwere-subjunctiveとの対応
+- 英語の冠詞（a/an/the/無冠詞）の感覚をつかむ── 日本語にない概念の基礎
+- スペイン語の無人称文・受け身表現（se puede, se vende, se dice）── 主語をぼかす言い方
+- 英語の複合名詞・句のアクセント位置（coffee cupのような2語の強勢パターン）
 
 ## 解説済みテーマ
 
@@ -62,3 +64,4 @@
 - 2026-07-14: スペイン語の比較表現（más...que / menos...que / tan...como）
 - 2026-07-16: スペイン語の相槌・つなぎ言葉（vale, claro, bueno, pues, o sea）
 - 2026-07-17: 英語の仮定法（if I were you など）の基礎
+- 2026-07-18: 英語の相槌・つなぎ言葉（well, so, I mean, you know, actually）
