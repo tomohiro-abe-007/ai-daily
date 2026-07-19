@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-07-20</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '⏰';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 18px 16px;
+    font-size: 0.86rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.95rem; margin-bottom: 10px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.2em; }
+  .c3-col li { margin-bottom: 5px; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .mech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .mech-item {
+    background: #f0faf5;
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 0.85rem;
+    border-top: 3px solid #1a7a5a;
+  }
+  .mech-item .micon { font-size: 1.3rem; margin-bottom: 6px; }
+  .mech-item strong { display: block; color: #0d4a35; margin-bottom: 4px; font-size: 0.88rem; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .highlight { background: #cff0df; padding: 1px 5px; border-radius: 4px; }
+  .good { color: #1a7a5a; font-weight: 600; }
+  .bad  { color: #c0392b; font-weight: 600; }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-box {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin: 14px 0;
+    font-size: 0.92rem;
+  }
+  .def-box .def-label {
+    font-size: 0.75rem;
+    color: #1a7a5a;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  @media (max-width: 540px) {
+    .compare3 { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.9rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ヘッダー -->
+<div class="header">
+  <div class="label">健康・栄養 最新トピック ・ 2026-07-20</div>
+  <h1>「1日8時間だけ食べる」を12週間やめた後、1年後も体重は減ったままだった<br>
+  スペイン・グラナダ大学の追跡RCT、「いつ食べるか」より「続けた後どうなるか」に注目</h1>
+  <div class="subtitle">スペイン・グラナダ大学(UGR)、ibs.GRANADA(グラナダ生物医学研究所)、ナバラ公立大学、CIBER(スペイン国立研究ネットワーク)の共同チームが、過体重・肥満の成人99人を対象に、12週間の時間制限食(1日8時間だけ食べる方法)をやめた後、1年間どうなったかを追跡したランダム化比較試験(RCT)の追跡調査を、査読誌Clinical Nutrition(欧州臨床栄養代謝学会の公式誌)に発表しました(2026年、DOI: 10.1016/j.clnu.2026.106706)。「8時間だけ食べる」窓を朝型にしても夜型にしても、1年後まで体重減少が続いていたという結果です。ただし対象は99人と規模は大きくなく、この時間制限食そのものは「特別な減量効果」を示したわけではないという先行研究もあります。数字と限界を整理してやさしく解説します。</div>
+</div>
+
+<!-- タグ -->
+<div style="margin-bottom:18px;">
+  <span class="tag">時間制限食(TRE)</span>
+  <span class="tag">間欠的断食</span>
+  <span class="tag">RCT追跡調査</span>
+  <span class="tag">クロノニュートリション</span>
+  <span class="tag">精密栄養学</span>
+</div>
+
+<!-- 今日の疑問 -->
+<div class="card">
+  <h2>🤔 今日の疑問:ダイエットをやめた後、効果は続くのか?</h2>
+  <p>「16時間断食」「1日8時間だけ食べる」といった時間制限食(TRE = Time-Restricted Eating、1日のうち食べてよい時間を区切る方法)は人気のダイエット法です。前回2026年7月12日の記事では、コクランのレビュー(世界22件・1,995人分のRCTを統合)が「間欠的断食は普通のカロリー制限と比べて、体重減少そのものに特別な力はない」と報告したことを紹介しました。</p>
+  <p>今日はその続きとして、「効果の大きさ」ではなく「効果が続くかどうか」に焦点を当てた新しい研究を見てみます。スペイン・グラナダ大学のチームが、時間制限食を12週間行った人たちを、その後1年間追跡調査しました。</p>
+</div>
+
+<!-- 基本用語 -->
+<div class="card blue">
+  <h2>📖 まず言葉の意味を</h2>
+  <div class="def-grid">
+    <div class="def-item">
+      <div class="dterm">時間制限食(TRE)</div>
+      1日のうち食べてよい時間帯を、例えば8時間などに区切る食事法。「16時間断食」「16:8」とも呼ばれる。何を食べるかではなく、いつ食べるかを制限する。
+    </div>
+    <div class="def-item">
+      <div class="dterm">クロノニュートリション</div>
+      「時間栄養学」。同じ食べ物・同じカロリーでも、食べる時間帯によって体への影響が変わるという考え方の研究分野。
+    </div>
+    <div class="def-item">
+      <div class="dterm">除脂肪体重・体脂肪</div>
+      体重の減り方には、脂肪が減る場合と、筋肉などの「脂肪以外の重さ(除脂肪体重)」が減る場合がある。健康的な減量では体脂肪が減ることが望ましい。
+    </div>
+    <div class="def-item">
+      <div class="dterm">セカンダリー解析(副次解析)</div>
+      もともと別の目的で行われた研究データを使って、追加の視点から改めて分析すること。今回の1年後追跡は、2024〜2025年に発表された親研究(n=197)の一部(n=99)を対象にした追跡解析にあたる。
+    </div>
+  </div>
+</div>
+
+<!-- 数字カード -->
+<div class="num-row">
+  <div class="num-card">
+    <div class="big">99<span class="unit">人</span></div>
+    <div class="desc">1年後まで追跡できた過体重・肥満の成人の人数(平均年齢49歳、女性50%、平均BMI 32)</div>
+  </div>
+  <div class="num-card blue-bg">
+    <div class="big">12<span class="unit">週間</span></div>
+    <div class="desc">最初に行われた時間制限食の介入期間(その後は特別な指導なしで1年間経過観察)</div>
+  </div>
+  <div class="num-card orange-bg">
+    <div class="big">約2.5<span class="unit">%</span></div>
+    <div class="desc">介入終了から12か月後の時点で、朝型・夜型グループが対照群より多く維持していた体重減少幅(概算)</div>
+  </div>
+  <div class="num-card purple-bg">
+    <div class="big">4<span class="unit">群</span></div>
+    <div class="desc">比較されたグループ数(対照・朝型TRE・夜型TRE・自分で時間を選ぶTRE)</div>
+  </div>
+</div>
+
+<!-- 研究の流れ図 -->
+<div class="card orange">
+  <h2>🔄 どうやって調べたか:12週間の介入→1年間の"その後"を見る</h2>
+  <div class="flow">
+    <div class="flow-step">①過体重・肥満の<br>成人197人を<br>4グループに分ける</div>
+    <div class="flow-arrow">▶</div>
+    <div class="flow-step alt">②12週間、地中海食+<br>それぞれの食事<br>タイミングを実施</div>
+    <div class="flow-arrow">▶</div>
+    <div class="flow-step purp">③介入終了<br>(特別な指導は<br>行わない)</div>
+    <div class="flow-arrow">▶</div>
+    <div class="flow-step">④1年後に体重・<br>体組成を<br>再測定(n=99)</div>
+  </div>
+  <p style="margin-top:10px;">4つのグループは、①対照(いつも通り12時間以上の時間で食事)、②朝型TRE(午前10時より前に始まる8時間だけ食べる)、③夜型TRE(午後1時より後に始まる8時間だけ食べる)、④自分で時間帯を選ぶTRE、でした。介入期間はいずれも地中海食をベースにしています。</p>
+</div>
+
+<!-- 比較カード -->
+<div class="card">
+  <h2>⚖️ 「効果の大きさ」の研究 vs 「効果の持続」の研究</h2>
+  <div class="compare3">
+    <div class="c3-col blue">
+      <h3>📊 コクランレビュー(2026年2月、07-12記事)</h3>
+      <ul>
+        <li>世界22件のRCT・1,995人を統合</li>
+        <li>問い:間欠的断食は<strong>普通のカロリー制限より痩せるか?</strong></li>
+        <li>結論:<strong class="bad">明確な差はなし</strong></li>
+        <li>「続けやすさ」を測った研究はゼロ件</li>
+      </ul>
+    </div>
+    <div class="c3-col green">
+      <h3>📈 グラナダ大学の追跡研究(2026年、今回)</h3>
+      <ul>
+        <li>1件のRCTの1年後追跡・99人(親研究n=197)</li>
+        <li>問い:時間制限食の効果は<strong>やめた後も続くか?</strong></li>
+        <li>結論:<strong class="good">朝型・夜型は1年後も体重減少を維持</strong></li>
+        <li>朝型では体脂肪の減少もより保たれた</li>
+      </ul>
+    </div>
+  </div>
+  <p style="margin-top:10px; font-size:0.85rem;">2つの研究は問いが違います。「痩せる力そのもの」はカロリー制限と大差なくても、「一度身についた食習慣が続きやすいか」は別の問題である可能性を示しています。</p>
+</div>
+
+<!-- 精密栄養学の視点 -->
+<div class="card purple">
+  <h2>🎯 精密栄養学の視点から見ると、なぜ重要か</h2>
+  <ul class="step-list">
+    <li>今回の研究のポイントは、「食べる時間帯を朝型にするか夜型にするかで、1年後の結果に大きな差がなかった」という点です。つまり、多くの人にとって「自分に合った時間帯を選べること」自体が、続けやすさにつながる可能性を示しています。</li>
+    <li>もとになった親研究(Nature Medicine掲載、n=197)では、内臓脂肪という主要な指標では、時間制限食が地中海食単独と比べて統計的に有意な追加効果を示していません。今回の1年後追跡は、その一部(99人)を対象にした副次的な解析であり、決定的な証拠というより「今後さらに調べる価値がある手がかり」として受け止めるのが適切です。</li>
+    <li>精密栄養学の観点では、「万人に効く食事法」を探すより、「その人が無理なく続けられる食事の形を選べること」自体に価値がある、という考え方につながります。</li>
+  </ul>
+</div>
+
+<!-- 賛否・限界 -->
+<div class="warn">
+  <strong>⚠️ この結果をどう受け止めるか:小規模な追跡データであり、「断食が特効薬」という意味ではない</strong>
+  <ul style="padding-left:1.4em; margin-top:8px;">
+    <li>1年後まで追跡できたのは<span class="bad">99人</span>で、スペイン・グラナダの単一施設の参加者に限られる。他の国・年齢層・体格の人にそのまま当てはまるとは限らない。</li>
+    <li>介入終了後の1年間は、参加者が食事内容や時間制限食を自主的に続けたかどうかの管理は緩く、自己申告に基づく部分がある。研究チームによれば、多くの参加者が何らかの形で断食を自主的に継続していたが、これは実験的に統制された行動ではない。</li>
+    <li>同じ元データ(親研究)の主要な指標である内臓脂肪では、時間制限食が地中海食単独を上回るとは示されていない。「体重を長く維持できた」という今回の結果と合わせて、多角的に見る必要がある。</li>
+    <li>この記事は2026年7月12日のコクランレビュー記事の続編にあたる。両者は問いが異なるため、「矛盾している」というより「見ている角度が違う」と理解するのが正確。</li>
+  </ul>
+</div>
+
+<!-- エビデンスの整理 -->
+<div class="card">
+  <h2>🧪 この研究のエビデンスの強さ</h2>
+  <table class="ev-table">
+    <tr><th>要素</th><th>内容</th><th>強さの目安</th></tr>
+    <tr>
+      <td>研究デザイン</td>
+      <td>ランダム化比較試験(RCT)の1年後追跡・副次解析</td>
+      <td><span class="ev-badge ev-mid">RCTだが追跡は観察的側面あり</span></td>
+    </tr>
+    <tr>
+      <td>査読状況</td>
+      <td>Clinical Nutrition誌(欧州臨床栄養代謝学会公式誌、査読誌)に掲載</td>
+      <td><span class="ev-badge ev-high">査読済み</span></td>
+    </tr>
+    <tr>
+      <td>対象・規模</td>
+      <td>過体重・肥満の成人99人(親研究n=197)、スペイン単一地域</td>
+      <td><span class="ev-badge ev-low">小規模・単一地域</span></td>
+    </tr>
+    <tr>
+      <td>因果関係</td>
+      <td>ランダム割り付けによる介入だが、介入終了後の行動は本人任せ</td>
+      <td><span class="ev-badge ev-mid">介入効果と自主的継続が混在</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- まとめ -->
+<div class="card" style="border-left-color:#1a7a5a;">
+  <h2>✅ 今日のまとめ</h2>
+  <ul class="step-list">
+    <li>スペイン・グラナダ大学などのチームが、過体重・肥満の成人99人を対象に、12週間の時間制限食(朝型・夜型・自由選択・対照の4群)をやめた後1年間の変化を追跡し、Clinical Nutrition誌に発表した(DOI: 10.1016/j.clnu.2026.106706)。</li>
+    <li>朝型・夜型の時間制限食グループは、介入終了から1年後も対照群より多く体重減少を維持しており(約2.5%の差)、朝型では体脂肪の減少もより保たれていた。</li>
+    <li>ただし対象は99人と小規模で単一地域、行動の自主性が絡む観察的な側面もある。同じ元データの主要指標(内臓脂肪)では時間制限食の優位性は示されていない点にも注意。</li>
+    <li>2026年7月12日に紹介したコクランレビュー(断食の減量効果そのものはカロリー制限と大差なし)と合わせて読むと、「痩せる力」より「続けやすさ」に時間制限食の意義があるかもしれない、という新しい視点が見えてくる。</li>
+  </ul>
+</div>
+
+<!-- 免責 -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、医療アドバイスではありません。効果・必要量・リスクは個人の体質・年齢・持病・服薬によって大きく異なります。実践の前には、かかりつけ医・管理栄養士・薬剤師など専門家にご相談ください。本記事は特定の断食法・食事制限を安易に推奨するものではありません。持病がある方や服薬中の方が食事パターンを大きく変える場合は、必ず専門家にご相談ください。
+</div>
+
+<!-- 出典 -->
+<div class="sources">
+  <h3>📚 主な出典・参考文献</h3>
+  <ol>
+    <li>University of Granada et al. "Effects of an early, late, and self-selected time-restricted eating intervention on weight loss maintenance in adults with overweight or obesity: A 12-month follow-up of a randomized controlled trial." Clinical Nutrition, 2026. DOI: 10.1016/j.clnu.2026.106706
+      <a href="https://doi.org/10.1016/j.clnu.2026.106706" target="_blank">https://doi.org/10.1016/j.clnu.2026.106706</a>
+    </li>
+    <li>Universidad de Granada. "Researchers show that intermittent fasting maintains long-term weight loss, regardless of meal timing." Press release, 2026年7月.
+      <a href="https://www.ugr.es/en/about/news/intermittent-fasting-maintains-long-term-weight-loss" target="_blank">https://www.ugr.es/en/about/news/intermittent-fasting-maintains-long-term-weight-loss</a>
+    </li>
+    <li>ScienceDaily. "Intermittent fasting helped people keep weight off for a year." 2026年7月18日.
+      <a href="https://www.sciencedaily.com/releases/2026/07/260718010154.htm" target="_blank">https://www.sciencedaily.com/releases/2026/07/260718010154.htm</a>
+    </li>
+    <li>親研究: "Effects of early, late and self-selected time-restricted eating on visceral adipose tissue and cardiometabolic health in participants with overweight or obesity: a randomized controlled trial." Nature Medicine, 2024/2025. PMID: 39775037, DOI: 10.1038/s41591-024-03375-y
+      <a href="https://pubmed.ncbi.nlm.nih.gov/39775037/" target="_blank">https://pubmed.ncbi.nlm.nih.gov/39775037/</a>
+    </li>
+    <li>参考(前回記事): Garegnani LI et al. "Intermittent fasting for the treatment of overweight and obesity." Cochrane Database of Systematic Reviews, 2026. DOI: 10.1002/14651858.CD015610.pub2
+      <a href="https://doi.org/10.1002/14651858.CD015610.pub2" target="_blank">https://doi.org/10.1002/14651858.CD015610.pub2</a>
+    </li>
+  </ol>
+  <p style="margin-top:8px; font-size:0.78rem;">※ 論文本文への直接アクセスが制限されていたため、詳細な統計値(信頼区間・p値など)や体脂肪の正確な変化量はプレスリリース・報道記事をもとに概算で構成しています。正確な数値は上記DOIから論文本文でご確認ください。</p>
+</div>
+
+</div>
+</body>
+</html>
