@@ -53,13 +53,14 @@
 - 2026-07-17: Thinking Machines Lab「Inkling」（2026年7月15日公開）・OpenAI元CTO ミラ・ムラティ設立のスタートアップが初のオープンウェイトモデルを公開・MoE設計（総パラメータ975B・1タスク41B使用）・45兆トークンで学習（テキスト/画像/音声/動画）・現在の出力はテキストのみ・コーディング性能でNemotron 3 Ultraの約3分の1のトークン数で同等の結果と主張・収益はファインチューニングツール「Tinker」から・顧客例：Bridgewater Associates（出典：TechCrunch / Axios / Fortune / SiliconANGLE・2026年7月15日）
 - 2026-07-18: Moonshot AI Kimi K3（2026年7月16日発表）・オープンソース史上最大2.8兆パラメータ・MoE（896専門家ユニット・1タスク16個起動）・1Mトークンコンテキスト・Kimi Delta Attention & Attention Residuals新技術・GDPval-AA v2で世界3位スコア1,687（Fable 5 Max・GPT-5.6 Sol Maxに次ぐ）・AA-Briefcaseで世界2位スコア1,527・DeepSeek V4 Proより約75%大規模・ウェイト公開は2026年7月27日予定（出典：VentureBeat / MarkTechPost / Axios / Fortune / People's Daily Online・2026年7月16〜17日）
 - 2026-07-19: WAICO（World Artificial Intelligence Cooperation Organization・世界人工知能協力機構）設立（2026年7月16日調印）・29か国が設立協定に署名・本部は上海・アジア12か国・アフリカ10か国が中心・米国・欧州主要国・日本は不参加・国連事務総長グテーレス氏出席・中国外相王毅氏が調印・習近平「AIは一国のソロ演奏でなく国際協力の交響楽であるべき」・開発途上国に5,000人分のAI研修機会を提供予定・WAIC 2026（世界人工知能会議）と同時期・AIガバナンスの米中二極化が鮮明に（出典：Al Jazeera / CNBC / Xinhua / CGTN / thesun.ng・2026年7月16〜17日）
+- 2026-07-20: Gemini 3.5 Pro 3度目の延期（2026年7月16日報道）・2026年5月のGoogle I/O 2026で予告・6月GA目標から3回連続未達・ハルシネーション頻発・再帰ツール呼び出しとSVG生成で構造的欠陥・競合（GPT-5.6）比でスコア不足・Alphabet株約4%下落（2026年7月16日）・「Gemini 3.6 Flash」をつなぎリリースとして検討との報道・次のリリース目標日は未発表（出典：9to5Google / Bloomberg / TechTimes / BusinessToday・2026年7月16〜17日）
 
 ## 未解説の候補トピック（今後の参考）
 
 - xAI Grok 4.3 Beta（2026年4月）：動画・スライド・音声API対応のマルチモーダル推論（※Grok 4.5解説済みにつき優先度低）
 - Microsoft Copilot Enterpriseセキュリティ脆弱性（CVE-2026-42824）：悪意あるリンク1クリックでデータ流出・2FAコード・メール・会議情報が窃取可能
-- Gemini 3.5 Pro（Google I/O 2026で予告・2026年6月GA予定・7月に延期）：2Mトークンコンテキスト・Deep Think推論・詳細は公式で要確認
 - Google Gemini 3.5 Flash詳報：市場シェア・Intelligence Index・284トークン/秒の生成速度
+- Gemini 3.6 Flash（つなぎリリース候補・2026年7月報道）：Gemini 3.5 Pro 遅延の代替として社内検討中・公式発表なし・内容は公式で要確認（出典：TechTimes・2026年7月16日）
 - AI×医療（創薬・診断）最新動向：製薬大手とAI企業の提携が相次ぐ
 - AI半導体競争：AMD・Intelの対抗策と次世代GPU市場
 - 日本のAI活用事例：製造業・金融・官公庁での実装事例
@@ -72,4 +73,3 @@
 - Colorado AI Act改定（SB26-189・2026年5月14日署名）：元の包括的AI規制法を大幅縮小・施行日を2026年6月30日から2027年1月1日に延期・アルゴリズム意思決定の透明性開示に絞った内容に変更
 - Apple Intelligence × Alibaba Qwen（中国向け）：米国規制の最後のハードルを越え中国での提供が近づく・Qwenモデルを使用（2026年7月報道）
 - PrismML Bonsai 27B（2026年7月14日）：27Bモデルを3.9GBに圧縮・iPhone 17 Proで11トークン/秒を実現・デバイス上で動く軽量AIの新潮流
-- Gemini 3.5 Pro：2026年7月中旬が目標（未発表）・2Mトークンコンテキスト・Deep Think推論・API料金等は公式で要確認
