@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI動画制作 最新トピック 2026-07-20</title>
+<style>
+  :root {
+    --bg: #ece8e1;
+    --card: #faf6ec;
+    --dark: #1a3a5c;
+    --dark2: #1a5c3a;
+    --accent: #2a5c8a;
+    --accent2: #c85a00;
+    --text: #2a3540;
+    --muted: #7c8a82;
+    --border: #e0d8c8;
+    --highlight: #fff3cd;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, "Hiragino Sans", "Yu Gothic", sans-serif;
+    line-height: 1.75;
+    padding: 20px;
+  }
+  .wrap { max-width: 900px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #1a3a5c 0%, #1a5c3a 100%);
+    color: #fff;
+    border-radius: 20px;
+    padding: 44px 32px 36px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(26,58,92,.22);
+    margin-bottom: 24px;
+  }
+  .header-tag {
+    display: inline-block;
+    background: rgba(255,255,255,.18);
+    color: #e0f0e8;
+    border-radius: 20px;
+    padding: 4px 16px;
+    font-size: .82rem;
+    margin-bottom: 14px;
+    letter-spacing: .06em;
+  }
+  .header h1 { font-size: 1.6rem; letter-spacing: .03em; line-height: 1.45; margin-bottom: 10px; }
+  .header .sub { color: #c8dde8; font-size: .95rem; }
+  .header .date { color: #b0e0c0; font-size: .85rem; margin-top: 8px; }
+
+  .card {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 12px rgba(0,0,0,.07);
+    border: 1px solid var(--border);
+  }
+  .card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .point-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .point-card { background: #eef3f8; border-radius: 14px; padding: 20px 16px; text-align: center; border: 1px solid #d4e0ea; }
+  .point-icon { font-size: 2rem; margin-bottom: 8px; }
+  .point-title { font-size: .95rem; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
+  .point-desc { font-size: .83rem; color: var(--muted); line-height: 1.6; }
+
+  .bignum-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 20px; }
+  .bignum-card { background: linear-gradient(135deg, #1a3a5c, #1a5c3a); border-radius: 14px; padding: 18px 12px; text-align: center; color: #fff; }
+  .bignum { font-size: 1.4rem; font-weight: 800; color: #ffe0a0; line-height: 1.2; }
+  .bignum-label { font-size: .72rem; color: #cfe6d8; margin-top: 4px; line-height: 1.5; }
+
+  .step-list { list-style: none; }
+  .step-item { display: flex; gap: 14px; margin-bottom: 16px; align-items: flex-start; }
+  .step-num {
+    width: 34px; height: 34px;
+    background: linear-gradient(135deg, #1a3a5c, #1a5c3a);
+    color: #fff; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: .95rem; flex-shrink: 0; margin-top: 2px;
+  }
+  .step-body { flex: 1; }
+  .step-title { font-weight: 700; color: var(--dark); font-size: .95rem; }
+  .step-desc { font-size: .86rem; color: var(--muted); margin-top: 3px; line-height: 1.65; }
+
+  .tbl { width: 100%; border-collapse: collapse; font-size: .86rem; }
+  .tbl th { background: #eaf1ea; padding: 10px 10px; text-align: left; border-bottom: 2px solid #c8ddc8; color: var(--dark); font-weight: 700; }
+  .tbl td { padding: 10px 10px; border-bottom: 1px solid var(--border); vertical-align: top; color: var(--text); }
+  .tbl tr:last-child td { border-bottom: none; }
+
+  .note-box { background: var(--highlight); border-left: 4px solid #e8a000; border-radius: 8px; padding: 12px 16px; font-size: .88rem; color: #5a4000; margin-top: 14px; line-height: 1.7; }
+
+  .summary-list { font-size: .95rem; line-height: 2.2; }
+  .summary-list li { list-style: none; display: flex; align-items: flex-start; gap: 8px; }
+  .summary-list li::before { content: "✅"; flex-shrink: 0; margin-top: 2px; }
+
+  .disclaimer { background: #f0ede8; border-radius: 12px; padding: 16px 20px; font-size: .82rem; color: var(--muted); margin-top: 24px; line-height: 1.7; border: 1px solid #ddd8d0; }
+
+  footer { text-align: center; color: var(--muted); font-size: .82rem; margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border); line-height: 1.9; }
+  footer a { color: var(--accent); }
+
+  /* カット比較フロー */
+  .flow-row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-top: 10px; }
+  .flow-step { flex: 1; min-width: 110px; background: #eef3f8; border: 1px solid #d4e0ea; border-radius: 10px; padding: 12px 10px; text-align: center; }
+  .flow-step.same { background: #fdeee0; border-color: #f0c8a0; }
+  .flow-step .fs-icon { font-size: 1.3rem; margin-bottom: 4px; }
+  .flow-step .fs-title { font-size: .82rem; font-weight: 700; color: var(--dark); }
+  .flow-step .fs-desc { font-size: .72rem; color: var(--muted); margin-top: 3px; line-height: 1.5; }
+  .flow-arrow { font-size: 1.3rem; color: var(--accent2); font-weight: 700; flex-shrink: 0; }
+  .flow-caption { text-align: center; font-size: .8rem; color: var(--muted); margin-top: 10px; }
+  .flow-label { font-size: .85rem; font-weight: 700; color: var(--dark); margin-top: 18px; margin-bottom: 2px; display: flex; align-items: center; gap: 6px; }
+  .flow-label:first-child { margin-top: 0; }
+
+  @media (max-width: 640px) {
+    .point-grid { grid-template-columns: 1fr; }
+    .bignum-grid { grid-template-columns: 1fr; }
+    .flow-row { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="header">
+  <div class="header-tag">🌱 エバーグリーン技法回 ── カット割り</div>
+  <h1>ジャンプカット vs スムーズカット<br>── 同じシーンでも「切り方」で印象が変わる</h1>
+  <div class="sub">テンポよく見せたいか、自然に見せたいか。目的に合わせてカットの種類を選ぶ</div>
+  <div class="date">2026-07-20 ｜ AI動画制作 最新トピック</div>
+</div>
+
+<div class="card">
+  <div class="card-title">🎯 今日の3ポイント</div>
+  <div class="point-grid">
+    <div class="point-card">
+      <div class="point-icon">⚡</div>
+      <div class="point-title">ジャンプカットとは</div>
+      <div class="point-desc">同じアングル・同じ被写体のまま時間だけ飛ばして切るカット(=場面転換)。前後のつながりが「ピョン」と飛んで見える</div>
+    </div>
+    <div class="point-card">
+      <div class="point-icon">🌊</div>
+      <div class="point-title">スムーズカットとは</div>
+      <div class="point-desc">動きや構図をなめらかに繋いで違和感なく切り替えるカット。「継続編集(コンティニュイティ編集)」とも呼ばれる</div>
+    </div>
+    <div class="point-card">
+      <div class="point-icon">🎚️</div>
+      <div class="point-title">使い分けの基準</div>
+      <div class="point-desc">テンポよく情報を詰め込みたいならジャンプカット、映像の世界観にじっくり浸らせたいならスムーズカットを選ぶ</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">📊 2つのカットの違い 比較表</div>
+  <table class="tbl">
+    <thead>
+      <tr><th>項目</th><th>⚡ ジャンプカット</th><th>🌊 スムーズカット</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>見た目の変化</strong></td>
+        <td>同じ画角のまま被写体だけ変化し、「飛んだ」印象になる</td>
+        <td>カメラワークや動きを繋げ、違和感なく切り替わる</td>
+      </tr>
+      <tr>
+        <td><strong>伝わる印象</strong></td>
+        <td>テンポが速い・カジュアル・エネルギッシュ</td>
+        <td>落ち着いている・上質・物語に没入しやすい</td>
+      </tr>
+      <tr>
+        <td><strong>代表的な使用例</strong></td>
+        <td>Vlog、ハウツー動画の「間」のカット、要点だけ抜き出すトーク動画</td>
+        <td>映画・ドラマ風の演出、商品紹介やブランド動画</td>
+      </tr>
+      <tr>
+        <td><strong>あまり向かないシーン</strong></td>
+        <td>感動的な場面・じっくり見せたい映像</td>
+        <td>テンポよく情報を詰め込みたい動画</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="note-box">
+    💡 どちらが「正解」というわけではない。同じ1本の動画の中でも「情報パートはジャンプカット、感情を見せたいパートはスムーズカット」のように使い分ける編集者も多い。
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🔍 図解:なぜ「飛んで見える」/「なめらかに見える」のか</div>
+  <div class="flow-label">⚡ ジャンプカットの仕組み</div>
+  <div class="flow-row">
+    <div class="flow-step same"><div class="fs-icon">🧍</div><div class="fs-title">ショットA</div><div class="fs-desc">同じ構図・同じ角度で話している</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step same"><div class="fs-icon">✂️</div><div class="fs-title">途中を丸ごとカット</div><div class="fs-desc">言い間違いや「間」を切り取る</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step same"><div class="fs-icon">🧍</div><div class="fs-title">ショットB</div><div class="fs-desc">同じ構図のまま姿勢だけ変化 → 「ピョン」と飛ぶ</div></div>
+  </div>
+  <div class="flow-label">🌊 スムーズカットの仕組み</div>
+  <div class="flow-row">
+    <div class="flow-step"><div class="fs-icon">🚶</div><div class="fs-title">ショットA</div><div class="fs-desc">歩き出す動作の「始まり」まで見せる</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="fs-icon">🔀</div><div class="fs-title">動きの途中で切替</div><div class="fs-desc">角度やサイズを変えて動作を継続</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="fs-icon">🚶</div><div class="fs-title">ショットB</div><div class="fs-desc">同じ動作の「続き」から始まる → 自然に繋がる</div></div>
+  </div>
+  <div class="flow-caption">ジャンプカットは「同じ構図なのに時間が飛ぶ」ことで違和感が生まれ、スムーズカットは「動作の途中でバトンタッチ」することで違和感を消す</div>
+</div>
+
+<div class="card">
+  <div class="card-title">🔢 数字で見るカット割りの目安</div>
+  <div class="bignum-grid">
+    <div class="bignum-card">
+      <div class="bignum">30度</div>
+      <div class="bignum-label">カメラ角度を最低30度変えると、意図しないジャンプカットを避けやすい(継続編集の基本ルール)</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">2倍</div>
+      <div class="bignum-label">フレームサイズ(ズーム)を約2倍変えると、同じアングルでも自然に繋がりやすい</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">1〜3秒</div>
+      <div class="bignum-label">テンポの速いジャンプカット系動画の1カットあたりの目安(スムーズカット主体は4〜8秒程度が目安)</div>
+    </div>
+  </div>
+  <div class="note-box">
+    📐 「30度ルール」「2倍(200%)ルール」は、映像編集で古くから使われている経験則。同じアングル・同じサイズのままわずかに違うだけのカットを繋ぐと、狙っていなくても不自然なジャンプカットになりやすいため、角度かサイズのどちらかを大きく変えるのが基本とされる。
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🤖 AI動画でジャンプカット/スムーズカットを作るコツ</div>
+  <div class="flow-label">⚡ ジャンプカットを作る流れ</div>
+  <div class="flow-row">
+    <div class="flow-step"><div class="fs-icon">📝</div><div class="fs-title">①構図を固定</div><div class="fs-desc">画角・カメラ位置・背景を同じプロンプトで統一</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="fs-icon">🎭</div><div class="fs-title">②被写体だけ変化</div><div class="fs-desc">表情・ポーズ・持ち物など一部だけ変えて指定</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="fs-icon">🔒</div><div class="fs-title">③一貫性を固定</div><div class="fs-desc">シード値やキャラクター参照機能で同一人物を保つ</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="fs-icon">✂️</div><div class="fs-title">④短く繋ぐ</div><div class="fs-desc">数秒のクリップをそのままハードカットで連結</div></div>
+  </div>
+  <div class="flow-label">🌊 スムーズカットを作る流れ</div>
+  <div class="flow-row">
+    <div class="flow-step"><div class="fs-icon">🖼️</div><div class="fs-title">①最終フレームを保存</div><div class="fs-desc">前のクリップの最後の1コマを書き出す</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="fs-icon">🎬</div><div class="fs-title">②開始フレームに使用</div><div class="fs-desc">Image to Video機能の開始画像として設定</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="fs-icon">🧭</div><div class="fs-title">③動きを合わせる</div><div class="fs-desc">動作の方向・速度をプロンプトで揃える(マッチカット)</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="fs-icon">💫</div><div class="fs-title">④繋ぎを整える</div><div class="fs-desc">必要に応じて短いクロスフェードで境目をぼかす</div></div>
+  </div>
+  <div class="note-box">
+    💡 多くのAI動画ツールにある「Image to Video(画像から動画を生成する機能)」の開始フレーム指定は、そのままスムーズカットの「動作の続きから始める」テクニックに応用できる。ツール名や機能名は各社で異なるため、使う前に公式ドキュメントで対応状況を確認しよう。
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🛠️ 実践例:AIで作る「朝のルーティン」ショート動画をジャンプカットで仕上げる5ステップ</div>
+  <p style="font-size:.88rem;color:var(--muted);margin-bottom:18px;">
+    9:16縦型・20秒前後のテンポ重視ショート動画を想定した基本フローです。
+  </p>
+  <ul class="step-list">
+    <li class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-title">シーンを箇条書きで洗い出す</div>
+        <div class="step-desc">「コーヒーを淹れる→着替える→机に座る→PCを開く」のように、見せたい行動だけを短い言葉でリストアップする。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-title">全シーン共通のプロンプトの「型」を作る</div>
+        <div class="step-desc">部屋の雰囲気・カメラ位置・光の入り方など、変えない要素を先に文章化しておく。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-title">シード値・キャラ参照で人物の一貫性を固定</div>
+        <div class="step-desc">同じ服装・髪型に見えるよう、参照画像やシード値を固定してシーンごとに生成する。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <div class="step-title">各シーンを2〜3秒の短いクリップで生成</div>
+        <div class="step-desc">1つの行動につき1クリップ、短めの尺で複数パターン生成しておくと編集で選びやすい。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">5</div>
+      <div class="step-body">
+        <div class="step-title">準備動作を削ってハードカットで連結</div>
+        <div class="step-desc">「立ち上がる」「振り返る」などの繋ぎ動作は思い切ってカットし、行動の要点だけを繋げてテンポを作る。</div>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="card">
+  <div class="card-title">📝 今日のまとめ</div>
+  <ul class="summary-list">
+    <li><strong>ジャンプカット</strong>は同じ構図のまま時間を飛ばす切り方。テンポが速くカジュアルな印象になる</li>
+    <li><strong>スムーズカット</strong>は動きや構図を繋いで違和感なく切り替える。落ち着いた印象で物語に没入させやすい</li>
+    <li>意図しないジャンプカットを避けるには<strong>「30度ルール」「2倍ズームルール」</strong>が目安になる</li>
+    <li>AI動画では、ジャンプカットは<strong>プロンプトを固定して被写体だけ変える</strong>、スムーズカットは<strong>前クリップの最終フレームを次の開始フレームに使う</strong>のがコツ</li>
+    <li>動画の目的(テンポ重視か没入重視か)に合わせて、1本の中でもカットの種類を使い分けてよい</li>
+  </ul>
+</div>
+
+<div class="disclaimer">
+  ⚠️ <strong>免責事項</strong><br>
+  本記事で紹介したカット割りの考え方・ルールは、映像編集における一般的な手法の例として紹介したものです。実際の効果は動画の内容・配信先プラットフォーム・視聴者層によって異なります。本文中で言及したAIツールの機能・料金・商用利用の可否は頻繁に変わるため、利用の際は各ツールの公式ページ・利用規約で必ずご確認ください。
+</div>
+
+<footer>
+  AI動画制作 最新トピック ─ 2026-07-20 ｜ エバーグリーン技法回<br>
+  参考:ジャンプカット/継続編集(コンティニュイティ編集)・30度ルール・200%ルールは、映像編集における一般的な手法に基づく(エバーグリーン技法)<br>
+  <a href="index.html" style="color:var(--accent);">← 一覧に戻る</a>
+</footer>
+
+</div>
+</body>
+</html>
