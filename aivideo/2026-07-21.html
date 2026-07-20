@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI動画制作 最新トピック 2026-07-21</title>
+<style>
+  :root {
+    --bg: #ece8e1;
+    --card: #faf6ec;
+    --dark: #1a3a5c;
+    --dark2: #1a5c3a;
+    --accent: #2a5c8a;
+    --accent2: #c85a00;
+    --text: #2a3540;
+    --muted: #7c8a82;
+    --border: #e0d8c8;
+    --highlight: #fff3cd;
+    --warn: #8a2020;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, "Hiragino Sans", "Yu Gothic", sans-serif;
+    line-height: 1.75;
+    padding: 20px;
+  }
+  .wrap { max-width: 900px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #1a3a5c 0%, #1a5c3a 100%);
+    color: #fff;
+    border-radius: 20px;
+    padding: 44px 32px 36px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(26,58,92,.22);
+    margin-bottom: 24px;
+  }
+  .header-tag {
+    display: inline-block;
+    background: rgba(255,255,255,.18);
+    color: #e0f0e8;
+    border-radius: 20px;
+    padding: 4px 16px;
+    font-size: .82rem;
+    margin-bottom: 14px;
+    letter-spacing: .06em;
+  }
+  .header h1 { font-size: 1.55rem; letter-spacing: .03em; line-height: 1.45; margin-bottom: 10px; }
+  .header .sub { color: #c8dde8; font-size: .95rem; }
+  .header .date { color: #b0e0c0; font-size: .85rem; margin-top: 8px; }
+
+  .card {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 12px rgba(0,0,0,.07);
+    border: 1px solid var(--border);
+  }
+  .card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .point-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .point-card { background: #eef3f8; border-radius: 14px; padding: 20px 16px; text-align: center; border: 1px solid #d4e0ea; }
+  .point-icon { font-size: 2rem; margin-bottom: 8px; }
+  .point-title { font-size: .95rem; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
+  .point-desc { font-size: .83rem; color: var(--muted); line-height: 1.6; }
+
+  .bignum-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 20px; }
+  .bignum-card { background: linear-gradient(135deg, #1a3a5c, #1a5c3a); border-radius: 14px; padding: 18px 12px; text-align: center; color: #fff; }
+  .bignum { font-size: 1.4rem; font-weight: 800; color: #ffe0a0; line-height: 1.2; }
+  .bignum-label { font-size: .72rem; color: #cfe6d8; margin-top: 4px; line-height: 1.5; }
+
+  .step-list { list-style: none; }
+  .step-item { display: flex; gap: 14px; margin-bottom: 16px; align-items: flex-start; }
+  .step-num {
+    width: 34px; height: 34px;
+    background: linear-gradient(135deg, #1a3a5c, #1a5c3a);
+    color: #fff; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: .95rem; flex-shrink: 0; margin-top: 2px;
+  }
+  .step-body { flex: 1; }
+  .step-title { font-weight: 700; color: var(--dark); font-size: .95rem; }
+  .step-desc { font-size: .86rem; color: var(--muted); margin-top: 3px; line-height: 1.65; }
+
+  .chip-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .chip { background: #e8f0ec; color: #1a5c3a; border-radius: 20px; padding: 4px 14px; font-size: .82rem; font-weight: 600; border: 1px solid #c0dccc; }
+
+  .tbl { width: 100%; border-collapse: collapse; font-size: .86rem; }
+  .tbl th { background: #eaf1ea; padding: 10px 10px; text-align: left; border-bottom: 2px solid #c8ddc8; color: var(--dark); font-weight: 700; }
+  .tbl td { padding: 10px 10px; border-bottom: 1px solid var(--border); vertical-align: top; color: var(--text); }
+  .tbl tr:last-child td { border-bottom: none; }
+
+  .note-box { background: var(--highlight); border-left: 4px solid #e8a000; border-radius: 8px; padding: 12px 16px; font-size: .88rem; color: #5a4000; margin-top: 14px; line-height: 1.7; }
+  .warn-box { background: #fde8e4; border-left: 4px solid var(--warn); border-radius: 8px; padding: 12px 16px; font-size: .88rem; color: #6a1414; margin-top: 14px; line-height: 1.7; }
+
+  .summary-list { font-size: .95rem; line-height: 2.2; }
+  .summary-list li { list-style: none; display: flex; align-items: flex-start; gap: 8px; }
+  .summary-list li::before { content: "✅"; flex-shrink: 0; margin-top: 2px; }
+
+  .disclaimer { background: #f0ede8; border-radius: 12px; padding: 16px 20px; font-size: .82rem; color: var(--muted); margin-top: 24px; line-height: 1.7; border: 1px solid #ddd8d0; }
+
+  footer { text-align: center; color: var(--muted); font-size: .82rem; margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border); line-height: 1.9; }
+  footer a { color: var(--accent); }
+
+  /* フロー図 */
+  .flow-row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-top: 6px; }
+  .flow-step { flex: 1; min-width: 120px; background: #eef3f8; border: 1px solid #d4e0ea; border-radius: 10px; padding: 12px 10px; text-align: center; }
+  .flow-step .fs-icon { font-size: 1.3rem; margin-bottom: 4px; }
+  .flow-step .fs-title { font-size: .82rem; font-weight: 700; color: var(--dark); }
+  .flow-step .fs-desc { font-size: .72rem; color: var(--muted); margin-top: 3px; line-height: 1.5; }
+  .flow-arrow { font-size: 1.3rem; color: var(--accent2); font-weight: 700; flex-shrink: 0; }
+  .flow-caption { text-align: center; font-size: .8rem; color: var(--muted); margin-top: 10px; }
+
+  /* 3カテゴリ マトリクス風カード */
+  .cat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 6px; }
+  .cat-card { border-radius: 14px; padding: 18px 14px; text-align: center; color: #fff; }
+  .cat-1 { background: linear-gradient(160deg,#5a8cba,#2a5c8a); }
+  .cat-2 { background: linear-gradient(160deg,#e8a860,#c85a00); }
+  .cat-3 { background: linear-gradient(160deg,#7ab88a,#1a5c3a); }
+  .cat-icon { font-size: 1.8rem; margin-bottom: 6px; }
+  .cat-title { font-size: .95rem; font-weight: 700; }
+  .cat-desc { font-size: .78rem; margin-top: 6px; line-height: 1.6; opacity: .95; }
+  .cat-ex { font-size: .72rem; margin-top: 8px; background: rgba(255,255,255,.18); border-radius: 8px; padding: 6px 8px; line-height: 1.6; }
+
+  @media (max-width: 640px) {
+    .point-grid { grid-template-columns: 1fr; }
+    .bignum-grid { grid-template-columns: 1fr; }
+    .flow-row { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+    .cat-grid { grid-template-columns: 1fr; }
+    .tbl { display: block; overflow-x: auto; white-space: nowrap; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="header">
+  <div class="header-tag">🛠️ ツール情報回 ── Google Photos「Video Remix」</div>
+  <h1>スマホの中の動画が“作品”に化ける<br>Google Photos新機能「Video Remix」</h1>
+  <div class="sub">難しい編集ソフトを開かなくても、AIが数分でスタイル変換してくれる時代</div>
+  <div class="date">2026-07-21 ｜ AI動画制作 最新トピック</div>
+</div>
+
+<div class="card">
+  <div class="card-title">🎯 今日の3ポイント</div>
+  <div class="point-grid">
+    <div class="point-card">
+      <div class="point-icon">📱</div>
+      <div class="point-title">何が起きた？</div>
+      <div class="point-desc">2026年7月8日、Googleが写真アプリ「Google Photos」に新機能「Video Remix(動画リミックス)」を発表。日本を含む対象国で順次利用可能に</div>
+    </div>
+    <div class="point-card">
+      <div class="point-icon">🎨</div>
+      <div class="point-title">何がすごい？</div>
+      <div class="point-desc">手持ちの動画クリップを選ぶだけで、背景差し替え・光の当て方変更・水彩画風などのアート変換を数分で自動生成してくれる</div>
+    </div>
+    <div class="point-card">
+      <div class="point-icon">🧠</div>
+      <div class="point-title">仕組みは？</div>
+      <div class="point-desc">Googleの新しいマルチモーダルAI(文章・画像・音声・動画をまとめて扱えるAI)モデル「Gemini Omni」が変換処理を担っている</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🔢 数字で見るVideo Remix</div>
+  <div class="bignum-grid">
+    <div class="bignum-card">
+      <div class="bignum">最大10秒</div>
+      <div class="bignum-label">1回の変換で処理できるクリップの長さ(60秒以内の動画からトリミングして選ぶ)</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">3カテゴリ</div>
+      <div class="bignum-label">背景変更(Reimagine)・光の演出(Filters)・アート化(Art styles)</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">数分</div>
+      <div class="bignum-label">生成完了までの目安時間(内容により変動)</div>
+    </div>
+  </div>
+  <div class="note-box">
+    💡 基準：2026年7月8日、Google公式ブログで発表。日本・米国・韓国・ブラジル・インドなど対象国のGoogle AI Plus/Pro/Ultraプラン(有料サブスクリプション)加入者から順次利用可能とされている。<strong>対応国・料金・プランの詳細は公式ページで要確認。</strong>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🎨 3つの変換カテゴリ</div>
+  <div class="cat-grid">
+    <div class="cat-card cat-1">
+      <div class="cat-icon">🏖️</div>
+      <div class="cat-title">Reimagine(背景変更)</div>
+      <div class="cat-desc">映っている背景を丸ごと差し替える</div>
+      <div class="cat-ex">例：部屋の中→夕暮れのビーチ、カフェの奥</div>
+    </div>
+    <div class="cat-card cat-2">
+      <div class="cat-icon">🌅</div>
+      <div class="cat-title">Filters(光の演出)</div>
+      <div class="cat-desc">照明・色味を後から変える「リライティング」</div>
+      <div class="cat-ex">例：ゴールデンアワー風、夢見るような柔らかい光</div>
+    </div>
+    <div class="cat-card cat-3">
+      <div class="cat-icon">🖌️</div>
+      <div class="cat-title">Art styles(アート化)</div>
+      <div class="cat-desc">実写映像を絵画・イラスト風に変換</div>
+      <div class="cat-ex">例：水彩画、鉛筆スケッチ、油絵、アニメ風</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🧭 使い方の流れ(公式ヘルプ・報道ベース)</div>
+  <div class="flow-row">
+    <div class="flow-step"><div class="fs-icon">➕</div><div class="fs-title">「作成」タブを開く</div><div class="fs-desc">Google Photosアプリ下部の「Create」からVideo Remixを選ぶ</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="fs-icon">🎬</div><div class="fs-title">動画を選ぶ</div><div class="fs-desc">60秒以内の動画から1〜10秒の区間をトリミングして選択</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="fs-icon">🎛️</div><div class="fs-title">スタイルを選ぶ</div><div class="fs-desc">Reimagine/Filters/Art stylesから好みのテンプレートを選択</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="fs-icon">✨</div><div class="fs-title">生成して保存</div><div class="fs-desc">「Generate」をタップし、数分待って完成クリップを保存</div></div>
+  </div>
+  <div class="flow-caption">編集ソフトを開かず、スマホ純正アプリだけで完結するのが最大の特徴</div>
+</div>
+
+<div class="card">
+  <div class="card-title">📊 スマホ純正編集とVideo Remixの違い</div>
+  <table class="tbl">
+    <thead>
+      <tr><th></th><th>これまでのスマホ動画編集</th><th>Video Remix</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>🖼️ 背景変更</strong></td>
+        <td>グリーンバック撮影や別アプリでの合成が必要</td>
+        <td>撮影済みの動画にAIが自動で背景を生成・合成</td>
+      </tr>
+      <tr>
+        <td><strong>💡 光の調整</strong></td>
+        <td>明るさ・色温度をスライダーで手動調整</td>
+        <td>「ゴールデンアワー」など仕上がりイメージから一発生成</td>
+      </tr>
+      <tr>
+        <td><strong>🖌️ アート風変換</strong></td>
+        <td>フィルターを重ねる程度で絵画のような質感は困難</td>
+        <td>水彩・油絵・スケッチ風などAIが質感ごと再構成</td>
+      </tr>
+      <tr>
+        <td><strong>🛠️ 必要なスキル</strong></td>
+        <td>編集アプリの操作に慣れが必要</td>
+        <td>タップ数回・専門知識不要</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="card">
+  <div class="card-title">🛠️ 真似できる具体例：休日の1シーンを“作品風”に仕上げる5ステップ</div>
+  <p style="font-size:.88rem;color:var(--muted);margin-bottom:18px;">
+    Google Photosに保存済みの何気ない動画を、SNS投稿用の1枚に仕上げる想定の基本フローです(画面や項目名は変更される可能性があるため、実際に使う際はアプリ内の最新表示に従ってください)。
+  </p>
+  <ul class="step-list">
+    <li class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-title">印象的な瞬間の動画を選ぶ</div>
+        <div class="step-desc">人物の表情や動きがはっきり映っている、60秒以内の動画をGoogle Photosから探す。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-title">「作成」タブでVideo Remixを開く</div>
+        <div class="step-desc">アプリ下部のCreateタブから該当メニューに入り、対象の動画を選択する。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-title">1〜10秒に区間をトリミングする</div>
+        <div class="step-desc">一番見せたい動きの部分だけを短く切り出す。短いほど狙った変化が出やすい。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <div class="step-title">目的に合わせてカテゴリを選ぶ</div>
+        <div class="step-desc">「思い出っぽく」→Filtersのゴールデンアワー、「作品っぽく」→Art stylesの水彩・油絵を試す。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">5</div>
+      <div class="step-body">
+        <div class="step-title">生成結果を見比べて投稿する</div>
+        <div class="step-desc">同じクリップで複数スタイルを試し、一番伝わるものを選んでSNSに投稿する。</div>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="card">
+  <div class="card-title">📝 今日のまとめ</div>
+  <ul class="summary-list">
+    <li>Google Photosの新機能「Video Remix」が<strong>2026年7月8日</strong>に発表され、日本を含む対象国で順次利用開始</li>
+    <li>Gemini Omniが土台となり、<strong>背景変更・光の演出・アート化</strong>の3カテゴリでスマホ動画を自動変換できる</li>
+    <li>変換できるのは<strong>1〜10秒</strong>のクリップで、生成には数分かかる</li>
+    <li>編集ソフト不要・タップ数回で完結するため、「AI動画は難しそう」と感じる人の最初の一歩に向いている</li>
+    <li>対応国・料金プラン・機能は変わりやすいため、必ずGoogle Photosアプリ内・公式ページの最新情報を確認する</li>
+  </ul>
+</div>
+
+<div class="disclaimer">
+  ⚠️ <strong>免責事項</strong><br>
+  紹介したAIツールの名称・機能・料金・商用利用の可否は頻繁に変わります。ご利用の際は必ず各社の公式ページで最新情報と利用規約をご確認ください。著作権のあるキャラクターや実在人物の肖像を無断で再現する行為は行わないでください。本記事は2026年7月時点で確認できた発表・報道をもとに作成しています。
+</div>
+
+<footer>
+  AI動画制作 最新トピック ─ 2026-07-21 ｜ ツール情報回<br>
+  参考：<a href="https://blog.google/products-and-platforms/products/photos/video-remix/" target="_blank" rel="noopener">Create shareable video clips in seconds with Video Remix in Google Photos - Google公式ブログ</a>(基準：2026年7月8日)<br>
+  参考：<a href="https://techcrunch.com/2026/07/08/google-photos-adds-a-new-ai-video-remix-tool/" target="_blank" rel="noopener">Google Photos adds a new AI 'Video Remix' tool - TechCrunch</a>(基準：2026年7月8日)<br>
+  参考：<a href="https://techpp.com/2026/07/13/how-to-use-google-photos-ai-video-remix-tool/" target="_blank" rel="noopener">How to Use Google Photos' New AI Video Remix Tool - TechPP</a>(基準：2026年7月13日)<br>
+  <a href="index.html" style="color:var(--accent);">← 一覧に戻る</a>
+</footer>
+
+</div>
+</body>
+</html>
