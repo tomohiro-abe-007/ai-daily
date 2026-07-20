@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-07-20</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '🧠';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 18px 16px;
+    font-size: 0.86rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.95rem; margin-bottom: 10px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.2em; }
+  .c3-col li { margin-bottom: 5px; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .mech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .mech-item {
+    background: #f0faf5;
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 0.85rem;
+    border-top: 3px solid #1a7a5a;
+  }
+  .mech-item .micon { font-size: 1.3rem; margin-bottom: 6px; }
+  .mech-item strong { display: block; color: #0d4a35; margin-bottom: 4px; font-size: 0.88rem; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .highlight { background: #cff0df; padding: 1px 5px; border-radius: 4px; }
+  .good { color: #1a7a5a; font-weight: 600; }
+  .bad  { color: #c0392b; font-weight: 600; }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-box {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin: 14px 0;
+    font-size: 0.92rem;
+  }
+  .def-box .def-label {
+    font-size: 0.75rem;
+    color: #1a7a5a;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  .quote-box {
+    background: #f5f0e8;
+    border-left: 4px solid #7a5abf;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    margin: 12px 0;
+    color: #444;
+    font-style: italic;
+  }
+  .quote-box .who { font-style: normal; font-weight: 700; color: #5a3a9a; margin-top: 6px; font-size: 0.78rem; }
+  @media (max-width: 540px) {
+    .compare3 { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.9rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ヘッダー -->
+<div class="header">
+  <div class="label">健康・栄養 最新トピック ・ 2026-07-20</div>
+  <h1>脳に「アルツハイマー病の兆し」が出た後でも、抗炎症食は認知症リスクを下げるのか<br>
+  スウェーデン15年追跡コホート・n=1,865が示したこと</h1>
+  <div class="subtitle">スウェーデン・カロリンスカ研究所のVetrano・Mrharらのチームが、ストックホルムの高齢者コホート「SNAC-K」に参加した60歳以上1,865人を最長15年追跡し、食事の炎症性と認知症発症の関係を調べた観察研究をJAMA Network Open誌に発表しました(2026年6月25日オンライン公開)。すでに血液中にアルツハイマー病の初期変化を示すバイオマーカーが現れていた人でも、炎症を抑えるタイプの食事をとっていた人は認知症の発症が21〜29%少なかったといいます。ただし研究チーム自身が「食事が認知症を防ぐと証明したわけではない」と釘を刺しています。数字とその意味、そして限界を整理してやさしく解説します。</div>
+</div>
+
+<!-- タグ -->
+<div style="margin-bottom:18px;">
+  <span class="tag">精密栄養学</span>
+  <span class="tag">抗炎症食</span>
+  <span class="tag">認知症・アルツハイマー病</span>
+  <span class="tag">コホート研究</span>
+  <span class="tag">血液バイオマーカー</span>
+</div>
+
+<!-- 今日の疑問 -->
+<div class="card">
+  <h2>🤔 今日の疑問:脳にすでに「変化の兆し」が出ていたら、食事を変えても遅いのか?</h2>
+  <p>アルツハイマー病は、もの忘れなどの症状が出るずっと前から、脳の中でゆっくりと変化が始まっているといわれています。最近では血液検査で、その「初期の変化」を示すたんぱく質(バイオマーカー)を測れるようになってきました。</p>
+  <p>もしこうしたバイオマーカーがすでに上がっていたら、そこから食事を工夫しても意味はあるのでしょうか。スウェーデン・カロリンスカ研究所のAnja Mrharさん、Davide Liborio Vetranoさんらのチームが、この疑問を15年間の追跡データで検証しました。</p>
+</div>
+
+<!-- 基本用語 -->
+<div class="card blue">
+  <h2>📖 まず言葉の意味を</h2>
+  <div class="def-grid">
+    <div class="def-item">
+      <div class="dterm">rEDII(逆転式・実証的食事性炎症指数)</div>
+      野菜・お茶・コーヒーを多く、赤身肉・加工肉・精製穀物・清涼飲料水を少なくとる食事ほど高くなるスコア。スコアが高いほど「炎症を抑える方向」の食事とみなす。
+    </div>
+    <div class="def-item">
+      <div class="dterm">p-tau217(リン酸化タウ217)</div>
+      アルツハイマー病の脳内で増える「タウのもつれ」に関連する血液中のたんぱく質。上昇はアルツハイマー病の初期変化の目安の一つ。
+    </div>
+    <div class="def-item">
+      <div class="dterm">NfL(神経細線維軽鎖)</div>
+      神経細胞がダメージを受けたときに血液中に増えるたんぱく質。神経の変性(壊れ具合)を示す指標。
+    </div>
+    <div class="def-item">
+      <div class="dterm">GFAP(グリア線維酸性たんぱく質)</div>
+      脳の中の「グリア細胞」という支持細胞が活性化したときに増えるたんぱく質。脳内の炎症反応の目安とされる。
+    </div>
+    <div class="def-item">
+      <div class="dterm">ハザード比(HR)</div>
+      ある条件の人が、比較対象の人に比べて何倍そのできごと(今回は認知症発症)が起きやすいかを表す数値。1より小さいほどリスクが低いことを意味する。
+    </div>
+    <div class="def-item">
+      <div class="dterm">コホート研究</div>
+      特定の集団を長期間追跡して、生活習慣とその後の病気の発症との関連を調べる観察研究の一種。介入(薬や食事の割り付け)は行わない。
+    </div>
+  </div>
+</div>
+
+<!-- 数字カード -->
+<div class="num-row">
+  <div class="num-card">
+    <div class="big">1,865<span class="unit">人</span></div>
+    <div class="desc">追跡開始時に認知症のなかった60歳以上の参加者数(スウェーデン・ストックホルム)</div>
+  </div>
+  <div class="num-card blue-bg">
+    <div class="big">最長15<span class="unit">年</span></div>
+    <div class="desc">追跡期間(平均8.4年)。98項目の食物摂取頻度調査でrEDIIを算出</div>
+  </div>
+  <div class="num-card orange-bg">
+    <div class="big">240<span class="unit">人</span></div>
+    <div class="desc">追跡期間中に認知症を発症した人数</div>
+  </div>
+  <div class="num-card purple-bg">
+    <div class="big">21〜29<span class="unit">%</span></div>
+    <div class="desc">バイオマーカーが上昇していた人で、抗炎症食の傾向が強いほど認知症リスクが低かった幅</div>
+  </div>
+</div>
+
+<!-- 研究の流れ -->
+<div class="card orange">
+  <h2>🔄 どうやって調べたか:食事調査 → 血液検査 → 15年後の発症を確認</h2>
+  <div class="flow">
+    <div class="flow-step">①SNAC-K参加<br>60歳以上・<br>認知症なし<br>n=1,865</div>
+    <div class="flow-arrow">▶</div>
+    <div class="flow-step">②98項目の<br>食物摂取頻度<br>調査でrEDII<br>を算出</div>
+    <div class="flow-arrow">▶</div>
+    <div class="flow-step alt">③血液で<br>p-tau217・NfL・<br>GFAPを測定</div>
+    <div class="flow-arrow">▶</div>
+    <div class="flow-step purp">④最長15年<br>追跡し発症を<br>確認(240人)</div>
+  </div>
+  <p style="margin-top:10px;">介入試験(食事を割り付ける実験)ではなく、もともとの食習慣とその後の経過を追いかける観察研究です。食事は自己申告の調査による推定である点にも注意してください。</p>
+</div>
+
+<!-- バイオマーカー別の結果 -->
+<div class="card">
+  <h2>🧬 バイオマーカー別に見た「食事とリスク低下」の関連</h2>
+  <table class="ev-table">
+    <tr><th>血液バイオマーカー</th><th>示すもの</th><th>抗炎症食スコア+1単位ごとのリスク低下</th></tr>
+    <tr>
+      <td>p-tau217</td>
+      <td>アルツハイマー病特有の「タウのもつれ」の初期変化</td>
+      <td>約29%低下(HR 0.71, 95%CI 0.58〜0.88)</td>
+    </tr>
+    <tr>
+      <td>GFAP</td>
+      <td>脳内のグリア細胞の活性化・炎症の目安</td>
+      <td>約27%低下(HR 0.73, 95%CI 0.60〜0.89)</td>
+    </tr>
+    <tr>
+      <td>NfL</td>
+      <td>神経細胞のダメージ(神経変性)の目安</td>
+      <td>約21%低下(HR 0.79, 95%CI 0.66〜0.95)</td>
+    </tr>
+  </table>
+  <p>3つのバイオマーカーいずれでも、数値が上昇していた参加者において、抗炎症食スコアが高いほど認知症の発症が少ない傾向が見られました。信頼区間(95%CI)がすべて1を下回っており、統計的には意味のある関連とされています。</p>
+</div>
+
+<!-- 比較 -->
+<div class="card blue">
+  <h2>⚖️ 「バイオマーカー上昇あり」と「上昇なし」で見え方が違う</h2>
+  <div class="compare3">
+    <div class="c3-col orange">
+      <h3>🔺 バイオマーカーが上昇していた人</h3>
+      <ul>
+        <li>抗炎症食との関連が<strong class="good">最もはっきり</strong>確認された</li>
+        <li>脳に初期変化が始まっていても、食事パターンとの関連が見られた点が研究の注目点</li>
+      </ul>
+    </div>
+    <div class="c3-col green">
+      <h3>◻️ バイオマーカーが上昇していなかった人を含む集団</h3>
+      <ul>
+        <li>今回参照できた報道の範囲では、上昇群ほど明確な数値は確認できていない</li>
+        <li>「まだ変化のない人にも同じ効果がある」と単純に一般化はできない</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- 精密栄養学の視点 -->
+<div class="card purple">
+  <h2>🎯 精密栄養学の視点から見ると、なぜ重要か</h2>
+  <ul class="step-list">
+    <li>この研究のポイントは、「みんな同じ食事アドバイス」ではなく、<strong>血液バイオマーカーという生物学的な情報と食事パターンを組み合わせて見る</strong>という発想です。</li>
+    <li>将来的には、血液検査でリスクが分かった人に対して、より積極的な食生活の工夫を提案する、といった個別化アプローチにつながる可能性があります。</li>
+    <li>ただし今回はあくまで観察研究であり、「バイオマーカー別に食事アドバイスを変えるべきだ」と結論づけられる段階ではありません。</li>
+  </ul>
+</div>
+
+<!-- 賛否・限界 -->
+<div class="warn">
+  <strong>⚠️ この結果をどう受け止めるか:研究チーム自身が「言い過ぎないで」と注意喚起</strong>
+  <div class="quote-box">
+    "The findings should not be overinterpreted. They do not show that diet can prevent dementia, nor do they prove that changing diet after biomarker changes have emerged will alter disease progression."
+    <div class="who">── 筆頭著者 Anja Mrharさん(カロリンスカ研究所)</div>
+  </div>
+  <ul style="padding-left:1.4em; margin-top:8px;">
+    <li>これは<span class="bad">観察研究</span>であり、食事を割り付けて比較したランダム化比較試験(RCT)ではない。「食事が原因でリスクが下がった」と因果関係を証明したものではなく、あくまで<strong>関連(相関)</strong>が確認された段階。</li>
+    <li>逆の可能性(認知症になりかけている人ほど食欲や食習慣が先に変化し、結果的に食事スコアが下がる「逆因果」)を完全には否定できない。研究チームは社会人口統計・生活習慣・持病など多くの要因を統計的に調整しているが、測定していない交絡要因が残る可能性はある。</li>
+    <li>対象はスウェーデン・ストックホルムに住む60歳以上の高齢者に限られる。日本を含む他の国・年齢層にそのまま当てはまるとは限らない。</li>
+    <li>独立した専門家(Dr. Emer MacSweeney氏)も、生活習慣がリスクに影響しうる可能性を認めつつ、認知症の発症は生物学的要因だけで決まるものではないと補足している。</li>
+  </ul>
+</div>
+
+<!-- エビデンスの整理 -->
+<div class="card">
+  <h2>🧪 この研究のエビデンスの強さ</h2>
+  <table class="ev-table">
+    <tr><th>要素</th><th>内容</th><th>強さの目安</th></tr>
+    <tr>
+      <td>研究デザイン</td>
+      <td>前向きコホート研究(観察研究)。ランダム化比較試験ではない</td>
+      <td><span class="ev-badge ev-mid">相関の確認にとどまる</span></td>
+    </tr>
+    <tr>
+      <td>査読状況</td>
+      <td>JAMA Network Open誌(査読誌)に掲載。DOI: 10.1001/jamanetworkopen.2026.20254</td>
+      <td><span class="ev-badge ev-high">査読済み</span></td>
+    </tr>
+    <tr>
+      <td>対象・規模</td>
+      <td>スウェーデン・ストックホルムの60歳以上1,865人、最長15年追跡</td>
+      <td><span class="ev-badge ev-mid">中規模・長期</span></td>
+    </tr>
+    <tr>
+      <td>因果関係</td>
+      <td>逆因果・未測定の交絡要因を否定できない。著者自身が過度な解釈に注意喚起</td>
+      <td><span class="ev-badge ev-low">因果は未証明</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- まとめ -->
+<div class="card" style="border-left-color:#1a7a5a;">
+  <h2>✅ 今日のまとめ</h2>
+  <ul class="step-list">
+    <li>スウェーデン・カロリンスカ研究所のMrhar・Vetranoらのチームが、SNAC-Kコホートの60歳以上1,865人を最長15年(平均8.4年)追跡した観察研究をJAMA Network Open誌に発表した(DOI: 10.1001/jamanetworkopen.2026.20254、2026年6月25日オンライン公開)。</li>
+    <li>血液中のアルツハイマー病バイオマーカー(p-tau217・GFAP・NfL)が上昇していた参加者では、炎症を抑える食事スコア(rEDII)が高いほど認知症発症リスクが21〜29%低かった。</li>
+    <li>ただし観察研究であり因果関係は未証明。著者自身が「食事が認知症を防ぐと示したわけではない」と明言している点、逆因果や未測定の交絡要因の可能性、対象がスウェーデンの高齢者に限られる点に注意。</li>
+    <li>精密栄養学的には、「血液バイオマーカー×食事パターン」を組み合わせて考える視点を示した点に意義があるが、個別化アドバイスとして実用化するのはまだ先の段階。</li>
+  </ul>
+</div>
+
+<!-- 免責 -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、医療アドバイスではありません。効果・必要量・リスクは個人の体質・年齢・持病・服薬によって大きく異なります。実践の前には、かかりつけ医・管理栄養士・薬剤師など専門家にご相談ください。本記事は特定の食事制限やサプリメントの使用を推奨するものではなく、認知症の診断・治療の代わりになるものでもありません。もの忘れなど気になる症状がある場合は、自己判断せず医療機関にご相談ください。
+</div>
+
+<!-- 出典 -->
+<div class="sources">
+  <h3>📚 主な出典・参考文献</h3>
+  <ol>
+    <li>Mrhar A, Vetrano DL, Carballo-Casla A, Grande G, et al. "Diet Quality and Dementia Risk in Older Adults With Alzheimer Pathology." JAMA Network Open. 2026;9(6):e2620254. DOI: 10.1001/jamanetworkopen.2026.20254(2026年6月25日オンライン公開)
+      <a href="https://doi.org/10.1001/jamanetworkopen.2026.20254" target="_blank">https://doi.org/10.1001/jamanetworkopen.2026.20254</a>
+    </li>
+    <li>Karolinska Institutet. "Healthier diet linked to lower dementia in older adults at risk." Press release, 2026年6月.
+      <a href="https://news.ki.se/healthier-diet-linked-to-lower-dementia-in-older-adults-at-risk" target="_blank">https://news.ki.se/healthier-diet-linked-to-lower-dementia-in-older-adults-at-risk</a>
+    </li>
+    <li>Medical News Today. "Alzheimer's: Anti-inflammatory diet may help reduce risk by up to 29%." 2026年7月.
+      <a href="https://www.medicalnewstoday.com/articles/anti-inflammatory-diets-lower-dementia-risk-even-alzheimers-early-signs" target="_blank">https://www.medicalnewstoday.com/articles/anti-inflammatory-diets-lower-dementia-risk-even-alzheimers-early-signs</a>
+    </li>
+    <li>StudyFinds. "Anti-Inflammatory Diet May Lower Dementia Risk, Even for People Already Showing Signs." 2026年7月.
+      <a href="https://studyfinds.com/anti-inflammatory-diet-linked-to-lower-dementia-risk-even-when-alzheimers-warning-signs-are-already-in-the-blood/" target="_blank">https://studyfinds.com/anti-inflammatory-diet-linked-to-lower-dementia-risk-even-when-alzheimers-warning-signs-are-already-in-the-blood/</a>
+    </li>
+  </ol>
+  <p style="margin-top:8px; font-size:0.78rem;">※ 本記事は、JAMA Network Open掲載論文の要旨情報と、複数の報道機関・大学プレスリリースをもとに構成しています。論文本文への直接アクセスが制限されていたため、バイオマーカーが上昇していない群の詳細な数値、共変量調整の完全なリスト、p値などの統計的細部はこの記事執筆時点では未確認です。正確な数値・詳細は上記DOIから論文本文でご確認ください。</p>
+</div>
+
+</div>
+</body>
+</html>
