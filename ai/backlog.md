@@ -54,6 +54,7 @@
 - 2026-07-18: Moonshot AI Kimi K3（2026年7月16日発表）・オープンソース史上最大2.8兆パラメータ・MoE（896専門家ユニット・1タスク16個起動）・1Mトークンコンテキスト・Kimi Delta Attention & Attention Residuals新技術・GDPval-AA v2で世界3位スコア1,687（Fable 5 Max・GPT-5.6 Sol Maxに次ぐ）・AA-Briefcaseで世界2位スコア1,527・DeepSeek V4 Proより約75%大規模・ウェイト公開は2026年7月27日予定（出典：VentureBeat / MarkTechPost / Axios / Fortune / People's Daily Online・2026年7月16〜17日）
 - 2026-07-19: WAICO（World Artificial Intelligence Cooperation Organization・世界人工知能協力機構）設立（2026年7月16日調印）・29か国が設立協定に署名・本部は上海・アジア12か国・アフリカ10か国が中心・米国・欧州主要国・日本は不参加・国連事務総長グテーレス氏出席・中国外相王毅氏が調印・習近平「AIは一国のソロ演奏でなく国際協力の交響楽であるべき」・開発途上国に5,000人分のAI研修機会を提供予定・WAIC 2026（世界人工知能会議）と同時期・AIガバナンスの米中二極化が鮮明に（出典：Al Jazeera / CNBC / Xinhua / CGTN / thesun.ng・2026年7月16〜17日）
 - 2026-07-20: Gemini 3.5 Pro 3度目の延期（2026年7月16日報道）・2026年5月のGoogle I/O 2026で予告・6月GA目標から3回連続未達・ハルシネーション頻発・再帰ツール呼び出しとSVG生成で構造的欠陥・競合（GPT-5.6）比でスコア不足・Alphabet株約4%下落（2026年7月16日）・「Gemini 3.6 Flash」をつなぎリリースとして検討との報道・次のリリース目標日は未発表（出典：9to5Google / Bloomberg / TechTimes / BusinessToday・2026年7月16〜17日）
+- 2026-07-21: Atlas 950 SuperPoD（WAIC 2026・上海・2026年7月16〜20日展示）・Ascend 950チップ×1,024〜最大8,192個構成・NVIDIA NVL144比6.7倍の計算性能を公称・1 EFLOPS FP8 / 2 EFLOPS FP4（公称）・Lingquプロトコルによるチップ間接続（TB級帯域・3μs遅延・公称）・Ascend 950PRは2026年4月から量産開始・韓国市場での2026年Q4展開計画報道・米輸出規制に対抗する独自AI半導体戦略・第三者検証は未実施（2026年7月時点）（出典：Huawei Central / Seoul Economic Daily / TrendForce / Tom's Hardware・2026年7月）
 
 ## 未解説の候補トピック（今後の参考）
 
