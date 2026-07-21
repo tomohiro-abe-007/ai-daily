@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-07-22</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #1e7a5a 0%, #0d4632 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #1e7a5a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.blue   { border-left-color: #1e5a7a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.purple { border-left-color: #7a4a9e; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #1e7a5a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  .type-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .type-grid { grid-template-columns: 1fr; } }
+  .type-card {
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-size: 0.86rem;
+    line-height: 1.65;
+  }
+  .type-card.main {
+    background: #e6f5ee;
+    border: 2px solid #1e7a5a;
+  }
+  .type-card.sub {
+    background: #fbe9e9;
+    border: 2px solid #b54040;
+  }
+  .type-card .tl {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+  }
+  .type-card.main .tl { color: #0d4632; }
+  .type-card.sub .tl  { color: #7a2020; }
+  .type-card .tv { font-size: 1.0rem; font-weight: 700; margin-bottom: 6px; }
+  .type-card.main .tv { color: #1e7a5a; }
+  .type-card.sub .tv  { color: #b54040; }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 14px 10px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat .sl { font-size: 0.67rem; color: #888; margin-bottom: 3px; }
+  .stat .sv { font-size: 1.5rem; font-weight: 700; color: #1e7a5a; line-height: 1.1; }
+  .stat .su { font-size: 0.7rem; color: #666; margin-top: 2px; }
+
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #1e7a5a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+  .f-arrow { color: #1e7a5a; font-size: 1.1rem; margin-left: 14px; margin-bottom: 4px; }
+
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  .prompt-box {
+    background: #f0f5ff;
+    border: 2px solid #4a6aae;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 12px 0;
+    font-size: 0.84rem;
+    line-height: 1.85;
+    color: #1a2a4a;
+  }
+  .prompt-box .ph {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #4a6aae;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+  .prompt-box .fill {
+    background: #d0e0ff;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-weight: 700;
+    color: #0a2a6e;
+  }
+
+  .info {
+    background: #e6f5ee;
+    border-left: 4px solid #1e7a5a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #0d4632;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #7a4010;
+  }
+
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #1e7a5a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+
+  .badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 8px;
+    margin-right: 4px;
+    vertical-align: middle;
+  }
+  .badge.law   { background: #1e7a5a; color: white; }
+  .badge.ai    { background: #4a6aae; color: white; }
+  .badge.tip   { background: #4a9e6a; color: white; }
+  .badge.warn  { background: #c8884a; color: white; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #1e7a5a; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #1e7a5a; }
+
+  .flow-h {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 14px 0;
+  }
+  .flow-box {
+    background: white;
+    border: 2px solid #1e7a5a;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 0.81rem;
+    text-align: center;
+    line-height: 1.45;
+    color: #0d4632;
+    font-weight: 600;
+  }
+  .flow-arrow {
+    color: #1e7a5a;
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+  @media (max-width: 540px) {
+    .flow-h { flex-direction: column; align-items: flex-start; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+
+  .matrix {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.83rem;
+  }
+  .matrix th {
+    background: #0d4632;
+    color: white;
+    padding: 8px 12px;
+    text-align: center;
+    font-weight: 600;
+  }
+  .matrix td {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    vertical-align: top;
+    line-height: 1.55;
+  }
+  .matrix .row-head {
+    background: #e6f5ee;
+    font-weight: 700;
+    color: #0d4632;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .matrix .ok  { color: #4a9e6a; font-weight: 700; }
+  .matrix .ng  { color: #b54040; font-weight: 700; }
+  .matrix .mid { color: #c8884a; font-weight: 700; }
+  .matrix-wrap { overflow-x: auto; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Header -->
+<div class="header">
+  <div class="meta">📅 1人法人スタート 最新トピック &nbsp;2026-07-22</div>
+  <h1>🧱 「130万円の壁」と「106万円の壁」、何が違う？<br>妻・親族が会社を手伝うとき1人社長が知っておくべき壁の正体</h1>
+  <div class="desc">
+    <span class="htag">年収の壁</span>
+    <span class="htag">社会保険</span>
+    <span class="htag">被扶養者認定</span>
+    <span class="htag">令和8年度</span>
+    <br>
+    「年収の壁」とひとことで言っても、実は<span class="hl">130万円の壁</span>と<span class="hl">106万円の壁</span>は<strong>別の制度</strong>です。配偶者や親族に会社を手伝ってもらう1人社長、いずれ人を雇うつもりの1人社長のために、2つの壁の違いと2026年の変更点を整理します。
+  </div>
+</div>
+
+<!-- Section 1: 2つの壁は別モノ -->
+<div class="card">
+  <div class="sec-title">🧐 まず結論 ── 「壁」は1つじゃなく2つある</div>
+  <p>「年収の壁」というニュースは、実は<strong>まったく違う2つの制度</strong>の話が混ざっています。どちらも「働く人（例えば社長の配偶者）の年収がいくらを超えると、負担が増えるか」という話ですが、<strong>誰の・どの保険の話か</strong>が違います。</p>
+
+  <div class="type-grid" style="margin-top:14px;">
+    <div class="type-card main">
+      <div class="tl">🏠 130万円の壁</div>
+      <div class="tv">健康保険の「扶養」に入れるか</div>
+      家族が社長（＝社会保険の被保険者）の<strong>扶養家族</strong>として保険料タダで健康保険に入れるかどうかの基準
+    </div>
+    <div class="type-card sub">
+      <div class="tl">🏢 106万円の壁</div>
+      <div class="tv">本人が会社の社会保険に入るか</div>
+      パートで働く本人が、勤め先の<strong>厚生年金・健康保険に本人として加入</strong>し、保険料を会社と折半で払うかどうかの基準
+    </div>
+  </div>
+
+  <div class="info" style="margin-top:12px;">
+    💡 106万円の壁は「働き手本人」が主役、130万円の壁は「扶養する側・される側の関係」が主役、という違いを押さえるだけで、ニュースがぐっと分かりやすくなります。
+  </div>
+</div>
+
+<!-- Section 2: 130万円の壁 詳細 -->
+<div class="card blue">
+  <div class="sec-title">🏠 130万円の壁 ── 健康保険の被扶養者認定</div>
+  <p>社長の配偶者・親族が、社長の加入する健康保険の「被扶養者」（保険料を払わずに保険に入れる家族）でいられるかどうかの基準です。</p>
+
+  <div class="stats-row" style="margin-top:14px;">
+    <div class="stat">
+      <div class="sl">一般の方の<br>収入基準</div>
+      <div class="sv">130万円<br>未満</div>
+      <div class="su">年間の見込み収入</div>
+    </div>
+    <div class="stat">
+      <div class="sl">60歳以上・<br>障害者の場合</div>
+      <div class="sv">180万円<br>未満</div>
+      <div class="su">年間の見込み収入</div>
+    </div>
+    <div class="stat">
+      <div class="sl">19〜23歳<br>未満の場合</div>
+      <div class="sv">150万円<br>未満</div>
+      <div class="su">年間の見込み収入</div>
+    </div>
+  </div>
+
+  <div class="info" style="margin-top:12px;">
+    さらに、<strong>同一世帯</strong>の場合はこの基準に加えて「社長（被保険者）の年収の2分の1未満」であることも必要です。
+  </div>
+
+  <div class="warn" style="margin-top:12px;">
+    ⚠️ 令和8年（2026年）4月1日以降の認定からは、基準額そのものは変わりませんが、<strong>実際に得た収入ではなく「労働条件通知書」など労働契約の内容から見込まれる年間収入</strong>で判定することが原則になりました。事業主証明の仕組みも恒久化されています。
+  </div>
+
+  <div class="source">
+    出典：日本年金機構「健康保険の被扶養者として認定されるための収入要件」<a href="https://www.nenkin.go.jp/section/faq/kounen/tekiyoukakudai/tanjikan/fuyounintei.html" target="_blank">https://www.nenkin.go.jp/section/faq/kounen/tekiyoukakudai/tanjikan/fuyounintei.html</a>／日本年金機構「労働契約内容による年間収入の取り扱いについて」<a href="https://www.nenkin.go.jp/oshirase/taisetu/2025/202512/1225.html" target="_blank">https://www.nenkin.go.jp/oshirase/taisetu/2025/202512/1225.html</a>（令和8年度時点）
+  </div>
+</div>
+
+<!-- Section 3: 106万円の壁 詳細 -->
+<div class="card red">
+  <div class="sec-title">🏢 106万円の壁 ── パート本人の社会保険加入</div>
+  <p>パートで働く本人が、勤め先の厚生年金・健康保険に「本人」として加入義務が生じるかどうかの基準です。加入すると、給料から社会保険料が天引きされる代わりに、将来の厚生年金や傷病手当金などが受け取れるようになります。</p>
+
+  <p style="margin-top:10px;"><strong>現行（2026年7月時点）の加入要件</strong>（すべて満たすと加入対象）</p>
+  <ul class="check-list" style="margin-top:8px;">
+    <li><span class="ck">☑</span> 週の所定労働時間が20時間以上</li>
+    <li><span class="ck">☑</span> 雇用期間の見込みが2か月を超える</li>
+    <li><span class="ck">☑</span> 賃金が月額8.8万円以上（年収換算で約106万円）</li>
+    <li><span class="ck">☑</span> 学生ではない</li>
+    <li><span class="ck">☑</span> 勤め先の従業員数が51人以上</li>
+  </ul>
+
+  <div class="warn" style="margin-top:12px;">
+    ⚠️ 2025年6月成立の年金制度改正法により、この<strong>「賃金月額8.8万円以上」という要件は2026年10月に撤廃</strong>される予定です。撤廃後は、週20時間以上働いていれば年収に関係なく加入対象になり、「106万円」という金額の壁自体がなくなります。企業規模要件（現行51人以上）は2035年10月にかけて段階的に撤廃される計画です。
+  </div>
+
+  <div class="source">
+    出典：厚生労働省「年金制度改正法が成立しました」<a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000147284_00017.html" target="_blank">https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000147284_00017.html</a>／同「社会保険適用拡大の見直し」<a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000147284_00021.html" target="_blank">https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000147284_00021.html</a>（令和8年7月時点、施行日は今後の政省令で確定）
+  </div>
+</div>
+
+<!-- Section 4: 比較マトリクス -->
+<div class="card">
+  <div class="sec-title">📊 2つの壁 まとめ比較表</div>
+  <div class="matrix-wrap">
+  <table class="matrix" style="margin-top:6px;">
+    <tr>
+      <th>項目</th>
+      <th>130万円の壁</th>
+      <th>106万円の壁</th>
+    </tr>
+    <tr>
+      <td class="row-head">誰の話？</td>
+      <td>扶養される家族（配偶者・親族）</td>
+      <td>パートで働く本人</td>
+    </tr>
+    <tr>
+      <td class="row-head">何が変わる？</td>
+      <td>健康保険の<strong>扶養に入れるか</strong></td>
+      <td>本人が<strong>会社の社会保険に加入</strong>するか</td>
+    </tr>
+    <tr>
+      <td class="row-head">基準額</td>
+      <td>130万円未満（一部180万/150万）</td>
+      <td>月8.8万円以上（年収約106万円）</td>
+    </tr>
+    <tr>
+      <td class="row-head">2026年の変更</td>
+      <td class="mid">判定方法が変更（4月〜）</td>
+      <td class="ng">賃金要件が撤廃予定（10月〜）</td>
+    </tr>
+    <tr>
+      <td class="row-head">超えたらどうなる</td>
+      <td>扶養から外れ、自分で保険加入</td>
+      <td>会社の社会保険に加入、保険料天引き</td>
+    </tr>
+  </table>
+  </div>
+</div>
+
+<!-- Section 5: 1人社長にとっての意味フロー -->
+<div class="card blue">
+  <div class="sec-title">🧭 1人社長にとって、いつこの話が関係してくるか</div>
+  <div class="flow-h" style="margin-top:14px;">
+    <div class="flow-box">👪 ①<br>配偶者・親族が<br>会社を手伝い始める</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-box">💴 ②<br>その人への給料の<br>金額・働く時間を決める</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-box">🔍 ③<br>130万円/106万円の<br>どちらの基準に触れるか確認</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-box">📋 ④<br>扶養のまま働くか、<br>社会保険加入かを選ぶ</div>
+  </div>
+  <div class="info" style="margin-top:12px;">
+    💡 従業員がまだいない1人社長でも、<strong>配偶者を専従者・パートとして会社の仕事に関わらせる場面</strong>で必ず出てくる話です。「収入をいくらに抑えるか」ではなく「働き方に見合った制度をどう選ぶか」という視点で考えるのがポイントです。
+  </div>
+</div>
+
+<!-- Section 6: AI prompt -->
+<div class="card orange">
+  <div class="sec-title">🤖 生成AIに家族の働き方を整理してもらうプロンプト例</div>
+  <p>制度の当てはめには家庭ごとの個別事情が絡むため、AIには<span class="hl">論点整理・下調べ</span>までを任せ、<span class="hl">最終判断は社会保険労務士・税理士に確認</span>しましょう。</p>
+
+  <div class="prompt-box" style="margin-top:14px;">
+    <div class="ph">🤖 プロンプト例：家族の働き方と年収の壁の整理</div>
+    私は1人社長です。配偶者（または親族）が週<span class="fill">【時間数】</span>時間、月給<span class="fill">【金額】</span>円で会社の仕事を手伝う予定です。<br>
+    <br>
+    1. この条件は「130万円の壁」「106万円の壁」のどちらに関係しそうか整理してください<br>
+    2. 現状の一般的な加入要件（労働時間・賃金・企業規模など）に照らして、社会保険に加入する可能性が高いかどうかの論点を挙げてください<br>
+    3. 扶養のまま働く場合と、社会保険に加入する場合のメリット・デメリットを比較してください<br>
+    ※あくまで論点整理としてお願いします。実際の加入義務・扶養認定の可否は、必ず年金事務所・社会保険労務士に確認します。
+  </div>
+</div>
+
+<!-- Section 7: summary -->
+<div class="card">
+  <div class="sec-title">📝 今日のまとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">①</span><span class="hlg">130万円の壁</span>は、家族が社長の<span class="hl">健康保険の扶養</span>に入れるかどうかの基準（年収130万円未満、一部180万/150万円）。</li>
+    <li><span class="n">②</span><span class="hlg">106万円の壁</span>は、パート本人が<span class="hl">会社の社会保険（厚生年金・健康保険）</span>に加入するかどうかの基準（週20時間・月給8.8万円等）。</li>
+    <li><span class="n">③</span>2026年4月から、130万円の壁は<span class="hl">労働契約内容による見込み年収</span>で判定するようになった（基準額自体は変わらず）。</li>
+    <li><span class="n">④</span>2026年10月から、106万円の壁は<span class="hl">賃金要件（月8.8万円）が撤廃</span>予定で、週20時間以上働けば年収に関係なく加入対象になる見込み。</li>
+    <li><span class="n">⑤</span>企業規模要件（現行51人以上）は<span class="hl">2035年10月にかけて段階的に撤廃</span>される計画。</li>
+    <li><span class="n">⑥</span>配偶者・親族が会社を手伝う1人社長は、<span class="hl">2つの壁を別物として</span>整理しておくと制度の理解が早い。</li>
+  </ul>
+</div>
+
+<!-- Disclaimer -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報提供を目的としており、個別の税務・法務・社会保険の判断を代わるものではありません。
+  被扶養者認定・社会保険加入の可否は、収入の実態・雇用契約の内容・企業規模等により異なります。
+  具体的な判断は、必ず年金事務所・全国健康保険協会（協会けんぽ）・社会保険労務士・税理士にご相談ください。
+  制度・基準額・施行時期は改正されることがあります。最新情報は日本年金機構公式サイト（<a href="https://www.nenkin.go.jp/" target="_blank">https://www.nenkin.go.jp/</a>）・厚生労働省公式サイト（<a href="https://www.mhlw.go.jp/" target="_blank">https://www.mhlw.go.jp/</a>）でご確認ください。<br>
+  本記事の内容の基準年度：令和8年度（2026年度）。130万円の壁の判定方法変更は令和8年4月1日以降の認定から適用。106万円の壁の賃金要件撤廃は令和7年6月成立の年金制度改正法に基づき2026年10月に予定（詳細な施行日は今後の政省令等で確定）。令和8年7月時点の情報。
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>📚 <a href="index.html">バックナンバー一覧へ</a> &nbsp;&middot;&nbsp; 毎朝更新</p>
+</div>
+
+</div>
+</body>
+</html>
