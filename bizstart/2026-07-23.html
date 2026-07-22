@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-07-23</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #1e7a5a 0%, #0d4632 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #1e7a5a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.blue   { border-left-color: #1e5a7a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.purple { border-left-color: #7a4a9e; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #1e7a5a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  .type-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .type-grid { grid-template-columns: 1fr; } }
+  .type-card {
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-size: 0.86rem;
+    line-height: 1.65;
+  }
+  .type-card.main {
+    background: #e6f5ee;
+    border: 2px solid #1e7a5a;
+  }
+  .type-card.sub {
+    background: #fbe9e9;
+    border: 2px solid #b54040;
+  }
+  .type-card .tl {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+  }
+  .type-card.main .tl { color: #0d4632; }
+  .type-card.sub .tl  { color: #7a2020; }
+  .type-card .tv { font-size: 1.0rem; font-weight: 700; margin-bottom: 6px; }
+  .type-card.main .tv { color: #1e7a5a; }
+  .type-card.sub .tv  { color: #b54040; }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 14px 10px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat .sl { font-size: 0.67rem; color: #888; margin-bottom: 3px; }
+  .stat .sv { font-size: 1.5rem; font-weight: 700; color: #1e7a5a; line-height: 1.1; }
+  .stat .su { font-size: 0.7rem; color: #666; margin-top: 2px; }
+
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #1e7a5a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+  .f-arrow { color: #1e7a5a; font-size: 1.1rem; margin-left: 14px; margin-bottom: 4px; }
+
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  .prompt-box {
+    background: #f0f5ff;
+    border: 2px solid #4a6aae;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 12px 0;
+    font-size: 0.84rem;
+    line-height: 1.85;
+    color: #1a2a4a;
+  }
+  .prompt-box .ph {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #4a6aae;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+  .prompt-box .fill {
+    background: #d0e0ff;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-weight: 700;
+    color: #0a2a6e;
+  }
+
+  .info {
+    background: #e6f5ee;
+    border-left: 4px solid #1e7a5a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #0d4632;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #7a4010;
+  }
+
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #1e7a5a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+
+  .badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 8px;
+    margin-right: 4px;
+    vertical-align: middle;
+  }
+  .badge.law   { background: #1e7a5a; color: white; }
+  .badge.ai    { background: #4a6aae; color: white; }
+  .badge.tip   { background: #4a9e6a; color: white; }
+  .badge.warn  { background: #c8884a; color: white; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #1e7a5a; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #1e7a5a; }
+
+  .flow-h {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 14px 0;
+  }
+  .flow-box {
+    background: white;
+    border: 2px solid #1e7a5a;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 0.81rem;
+    text-align: center;
+    line-height: 1.45;
+    color: #0d4632;
+    font-weight: 600;
+  }
+  .flow-arrow {
+    color: #1e7a5a;
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+  @media (max-width: 540px) {
+    .flow-h { flex-direction: column; align-items: flex-start; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+
+  .matrix {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.83rem;
+  }
+  .matrix th {
+    background: #0d4632;
+    color: white;
+    padding: 8px 12px;
+    text-align: center;
+    font-weight: 600;
+  }
+  .matrix td {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    vertical-align: top;
+    line-height: 1.55;
+  }
+  .matrix .row-head {
+    background: #e6f5ee;
+    font-weight: 700;
+    color: #0d4632;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .matrix .ok  { color: #4a9e6a; font-weight: 700; }
+  .matrix .ng  { color: #b54040; font-weight: 700; }
+  .matrix .mid { color: #c8884a; font-weight: 700; }
+  .matrix-wrap { overflow-x: auto; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Header -->
+<div class="header">
+  <div class="meta">📅 1人法人スタート 最新トピック &nbsp;2026-07-23</div>
+  <h1>🏯 会社の株を子どもや従業員に渡すと、税金はどうなる？<br>法人版「事業承継税制」と、延びた提出期限</h1>
+  <div class="desc">
+    <span class="htag">事業承継税制</span>
+    <span class="htag">特例承継計画</span>
+    <span class="htag">納税猶予</span>
+    <span class="htag">令和8年度</span>
+    <br>
+    設立したばかりの1人社長にはまだ先の話に思えますが、<span class="hl">会社を作った瞬間からあなたは「株主」</span>です。将来その株を家族や後継者に渡すときのための<strong>納税猶予の制度</strong>と、令和8年度税制改正で<strong>提出期限が延びた</strong>という最新情報を、やさしく整理します。
+  </div>
+</div>
+
+<!-- Section 1: そもそも何のための制度か -->
+<div class="card">
+  <div class="sec-title">🤔 そもそも「事業承継税制」って何のための制度？</div>
+  <p>会社の株式（＝会社の所有権のようなもの）を、後継者に<strong>贈与</strong>したり、社長が亡くなって<strong>相続</strong>させたりすると、受け取った後継者に「贈与税」「相続税」がかかります。会社の株には値段（評価額）がつくため、業績のよい会社ほど税額が高くなり、<strong>税金を払うために会社を売る・畳む</strong>という本末転倒な事態も起こり得ます。</p>
+  <p style="margin-top:10px;">これを防ぐため、一定の要件を満たせば、その株式にかかる贈与税・相続税の納税を一旦<strong>「猶予」（先送り）</strong>し、後継者がさらに次の後継者へ引き継ぐ・亡くなるなどの条件を満たせば最終的に<strong>「免除」</strong>される、というのが法人版事業承継税制です。</p>
+
+  <div class="warn" style="margin-top:12px;">
+    ⚠️ あくまで「猶予」であり、要件を満たせなくなる（雇用が大きく減る・株式を売却するなど）と猶予が打ち切られ、利子税を含めて一括納税になることがあります。使うかどうかは必ず税理士と一緒に検討する制度です。
+  </div>
+</div>
+
+<!-- Section 2: 一般措置 vs 特例措置 -->
+<div class="card blue">
+  <div class="sec-title">📊 「一般措置」と「特例措置」── 何が違う？</div>
+  <p>この制度には昔からある「一般措置」と、期間限定で有利な条件の「特例措置」の2種類があります。今から使うなら、実質的には特例措置が中心になります。</p>
+
+  <div class="matrix-wrap">
+  <table class="matrix" style="margin-top:12px;">
+    <tr>
+      <th>項目</th>
+      <th>一般措置</th>
+      <th>特例措置</th>
+    </tr>
+    <tr>
+      <td class="row-head">対象株式数</td>
+      <td>総株式数の<strong>3分の2</strong>まで</td>
+      <td class="ok">上限なし（全株式）</td>
+    </tr>
+    <tr>
+      <td class="row-head">納税猶予割合</td>
+      <td>贈与100%・相続80%</td>
+      <td class="ok">贈与・相続とも100%</td>
+    </tr>
+    <tr>
+      <td class="row-head">雇用確保要件<br>（5年平均8割維持）</td>
+      <td class="ng">未達だと猶予打ち切り</td>
+      <td class="ok">未達でも理由を報告すれば継続可</td>
+    </tr>
+    <tr>
+      <td class="row-head">対象となる後継者</td>
+      <td>原則1人</td>
+      <td class="ok">最大3人まで</td>
+    </tr>
+  </table>
+  </div>
+
+  <div class="info" style="margin-top:12px;">
+    💡 特例措置は納税者に有利な分、事前に「特例承継計画」を都道府県に提出しておく必要がある、期限付きの制度という点がポイントです。
+  </div>
+
+  <div class="source">
+    出典：中小企業庁「法人版事業承継税制（特例措置）」<a href="https://www.chusho.meti.go.jp/zaimu/shoukei/shoukei_enkatsu_zouyo_souzoku.html" target="_blank">https://www.chusho.meti.go.jp/zaimu/shoukei/shoukei_enkatsu_zouyo_souzoku.html</a>／国税庁「法人版事業承継税制」パンフレット<a href="https://www.nta.go.jp/publication/pamph/jigyo-shokei/houjin.htm" target="_blank">https://www.nta.go.jp/publication/pamph/jigyo-shokei/houjin.htm</a>（令和8年度時点）
+  </div>
+</div>
+
+<!-- Section 3: 最新ニュース 提出期限延長 -->
+<div class="card orange">
+  <div class="sec-title">🗓️ 【最新】特例承継計画の提出期限が延長</div>
+  <p>特例措置を使うには、事前に「特例承継計画」（後継者の氏名・承継の予定時期・承継後5年間の事業計画などを記載した書類）を作成し、都道府県庁に提出して確認を受ける必要があります。令和8年度税制改正で、<strong>この提出期限が延長</strong>されました。</p>
+
+  <div class="stats-row" style="margin-top:14px;">
+    <div class="stat">
+      <div class="sl">提出期限<br>（改正前）</div>
+      <div class="sv">令和8年<br>3月31日</div>
+      <div class="su">特例承継計画</div>
+    </div>
+    <div class="stat">
+      <div class="sl">提出期限<br>（改正後）</div>
+      <div class="sv">令和9年<br>9月30日</div>
+      <div class="su">1年6か月延長</div>
+    </div>
+    <div class="stat">
+      <div class="sl">株式取得期限<br>（据え置き）</div>
+      <div class="sv">令和9年<br>12月31日</div>
+      <div class="su">贈与・相続の実行期限</div>
+    </div>
+  </div>
+
+  <div class="warn" style="margin-top:12px;">
+    ⚠️ 延びたのは「計画を提出できる期限」だけです。実際に株式を贈与・相続する期限（令和9年12月31日まで）は変わっていません。計画を早めに出しても、株式の移転自体はこの期限までに済ませる必要があります。
+  </div>
+
+  <div class="source">
+    出典：中小企業庁「法人版事業承継税制（特例措置）」<a href="https://www.chusho.meti.go.jp/zaimu/shoukei/shoukei_enkatsu_zouyo_souzoku.html" target="_blank">https://www.chusho.meti.go.jp/zaimu/shoukei/shoukei_enkatsu_zouyo_souzoku.html</a>（令和8年度税制改正、令和8年7月時点の情報）
+  </div>
+</div>
+
+<!-- Section 4: 手続きの流れ -->
+<div class="card">
+  <div class="sec-title">🧭 特例措置を使うまでの5ステップ</div>
+  <div class="flow-h" style="margin-top:14px;">
+    <div class="flow-box">📝 ①<br>認定経営革新等<br>支援機関の指導・助言</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-box">🏛️ ②<br>特例承継計画を<br>都道府県庁へ提出・確認<br><span style="font-weight:400;">〜令和9年9月30日</span></div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-box">🤝 ③<br>株式の贈与・相続を実行<br><span style="font-weight:400;">〜令和9年12月31日</span></div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-box">✅ ④<br>都道府県知事の認定<br>（円滑化法に基づく）</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-box">📮 ⑤<br>税務署へ申告・<br>担保提供</div>
+  </div>
+  <div class="info" style="margin-top:12px;">
+    💡 いきなり都道府県に計画を出せるわけではなく、①の「認定経営革新等支援機関」（商工会・税理士など）の指導・助言を受ける工程が先に必要です。動き出すなら早めに専門家へ相談するのが安全です。
+  </div>
+</div>
+
+<!-- Section 5: 1人社長にとっての意味 -->
+<div class="card purple">
+  <div class="sec-title">🧑‍💼 まだ後継者がいない1人社長に、なぜこの話が関係する？</div>
+  <p>「うちはまだ自分1人だし、承継なんて何十年も先」と思うかもしれません。ですが、法人を設立した瞬間から、あなた自身がその会社の<strong>唯一の株主</strong>になっています。その株は、あなたに万一のことがあれば相続の対象になりますし、将来お子さんや従業員に会社を任せたいと思ったときにも、この制度が関わってきます。</p>
+
+  <div class="f-step" style="margin-top:14px;">
+    <div class="f-num">1</div>
+    <div class="f-text">法人を設立 ── この瞬間からあなたが株主になる</div>
+  </div>
+  <div class="f-arrow">↓</div>
+  <div class="f-step">
+    <div class="f-num">2</div>
+    <div class="f-text">事業が軌道に乗り、会社の評価額（株の値段）が上がっていく</div>
+  </div>
+  <div class="f-arrow">↓</div>
+  <div class="f-step">
+    <div class="f-num">3</div>
+    <div class="f-text">家族・従業員など後継者候補が見えてくる</div>
+  </div>
+  <div class="f-arrow">↓</div>
+  <div class="f-step">
+    <div class="f-num">4</div>
+    <div class="f-text">特例承継計画の作成を検討（期限：令和9年9月30日まで）</div>
+  </div>
+
+  <div class="info" style="margin-top:12px;">
+    💡 計画の作成には認定支援機関の指導を受ける準備期間が必要なため、「後継者候補がぼんやり見えてきた段階」で一度、制度の存在だけでも頭に入れておくと、いざというときに慌てずに済みます。
+  </div>
+</div>
+
+<!-- Section 6: AI prompt -->
+<div class="card orange">
+  <div class="sec-title">🤖 生成AIに事業承継の論点整理をしてもらうプロンプト例</div>
+  <p>事業承継税制の適用可否は会社ごとの株式評価・後継者の状況で大きく変わるため、AIには<span class="hl">論点整理・下調べ</span>までを任せ、<span class="hl">最終判断は税理士・司法書士に確認</span>しましょう。</p>
+
+  <div class="prompt-box" style="margin-top:14px;">
+    <div class="ph">🤖 プロンプト例：事業承継税制を使うべきかの論点整理</div>
+    私は1人社長の中小企業経営者です。将来、会社の株式を<span class="fill">【後継者候補：家族／従業員など】</span>に引き継ぐことを検討しています。<br>
+    <br>
+    1. 法人版事業承継税制（特例措置）の一般的な適用要件を、今の私の状況（後継者未確定・株式評価未確認）に当てはめたときの論点を挙げてください<br>
+    2. 特例承継計画を今のうちに準備しておくメリット・デメリットを整理してください<br>
+    3. 税理士・認定経営革新等支援機関に相談する際に、事前に準備しておくとよい資料のリストを作ってください<br>
+    ※あくまで論点整理としてお願いします。実際の適用要件・株式評価・提出手続きは、必ず税理士・認定経営革新等支援機関に確認します。
+  </div>
+</div>
+
+<!-- Section 7: summary -->
+<div class="card">
+  <div class="sec-title">📝 今日のまとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">①</span>事業承継税制は、会社の株式を後継者に渡すときにかかる<span class="hl">贈与税・相続税の納税を猶予・最終的に免除</span>する制度。</li>
+    <li><span class="n">②</span>期間限定の<span class="hlg">特例措置</span>は、対象株式の上限撤廃・猶予割合100%・後継者最大3人など、一般措置より有利。</li>
+    <li><span class="n">③</span>特例措置を使うための<span class="hl">「特例承継計画」の提出期限</span>は、令和8年度税制改正で<span class="hl">令和8年3月31日→令和9年9月30日</span>に延長された。</li>
+    <li><span class="n">④</span>ただし<span class="hl">株式の贈与・相続を実行する期限（令和9年12月31日）は据え置き</span>のため、計画だけ早く出しても実行は待ってくれない。</li>
+    <li><span class="n">⑤</span>1人社長も設立した瞬間から株主であり、<span class="hl">将来の承継を意識した早めの情報収集</span>が役に立つ。</li>
+  </ul>
+</div>
+
+<!-- Disclaimer -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報提供を目的としており、個別の税務・法務の判断を代わるものではありません。
+  事業承継税制の適用可否・猶予額・手続きは、会社の株式評価・後継者の状況・都道府県の運用等により異なります。
+  具体的な判断は、必ず税理士・認定経営革新等支援機関・都道府県の担当窓口にご相談ください。
+  制度・期限・要件は改正されることがあります。最新情報は中小企業庁公式サイト（<a href="https://www.chusho.meti.go.jp/" target="_blank">https://www.chusho.meti.go.jp/</a>）・国税庁公式サイト（<a href="https://www.nta.go.jp/" target="_blank">https://www.nta.go.jp/</a>）でご確認ください。<br>
+  本記事の内容の基準年度：令和8年度（2026年度）税制改正。特例承継計画の提出期限延長（令和9年9月30日まで）は令和8年度税制改正に基づく。令和8年7月時点の情報。
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>📚 <a href="index.html">バックナンバー一覧へ</a> &nbsp;&middot;&nbsp; 毎朝更新</p>
+</div>
+
+</div>
+</body>
+</html>
