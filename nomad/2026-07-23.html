@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>デジタルノマド 最新トピック 2026-07-23</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    color: #2a2a2a;
+  }
+  .hero {
+    background: linear-gradient(135deg, #1b6ea8 0%, #0d3a5c 100%);
+    color: white;
+    border-radius: 10px;
+    padding: 48px 40px;
+    text-align: center;
+    width: 100%;
+    max-width: 760px;
+    margin-bottom: 28px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .hero .label {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 0.8rem;
+    margin-bottom: 14px;
+    letter-spacing: 0.05em;
+  }
+  .hero h1 { font-size: 1.4rem; margin-bottom: 12px; line-height: 1.55; }
+  .hero .meta { opacity: 0.8; font-size: 0.88rem; line-height: 1.7; }
+  .card {
+    background: #fff9f0;
+    border-radius: 8px;
+    padding: 28px 32px;
+    width: 100%;
+    max-width: 760px;
+    margin-bottom: 20px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.08);
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1b6ea8;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px dashed #9cc4dd;
+  }
+  .card p { font-size: 0.93rem; line-height: 1.85; margin-bottom: 10px; }
+  .card p:last-child { margin-bottom: 0; }
+  .highlight-box {
+    background: #e9f2fa;
+    border-left: 4px solid #1b6ea8;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .highlight-box .hlabel { font-size: 0.75rem; color: #1b6ea8; font-weight: 600; margin-bottom: 6px; display: block; }
+  .highlight-box p { font-size: 0.9rem; margin: 0; }
+  .alert-box {
+    background: #fff3cd;
+    border-left: 4px solid #c9920a;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .alert-box .alabel { font-size: 0.75rem; color: #8a6000; font-weight: 600; margin-bottom: 6px; display: block; }
+  .alert-box p { font-size: 0.9rem; margin: 0; }
+  .green-box {
+    background: #e8f5ef;
+    border-left: 4px solid #2c6e4e;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .green-box .glabel { font-size: 0.75rem; color: #2c6e4e; font-weight: 600; margin-bottom: 6px; display: block; }
+  .green-box p { font-size: 0.9rem; margin: 0; }
+  .purple-box {
+    background: #f0eafd;
+    border-left: 4px solid #6a3ea0;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .purple-box .plabel { font-size: 0.75rem; color: #6a3ea0; font-weight: 600; margin-bottom: 6px; display: block; }
+  .purple-box p { font-size: 0.9rem; margin: 0; }
+  .number-row { display: flex; gap: 14px; flex-wrap: wrap; margin: 14px 0; }
+  .number-card {
+    flex: 1; min-width: 130px;
+    background: #1b6ea8; color: white;
+    border-radius: 8px; padding: 18px 14px; text-align: center;
+  }
+  .number-card .num { font-size: 1.15rem; font-weight: 700; margin-bottom: 6px; line-height: 1.25; letter-spacing: 0.02em; }
+  .number-card .desc { font-size: 0.72rem; opacity: 0.9; line-height: 1.5; }
+  .number-card.amber  { background: #c9920a; }
+  .number-card.red    { background: #c0392b; }
+  .number-card.green  { background: #2c6e4e; }
+  .number-card.navy   { background: #1e3a6e; }
+  .number-card.gray   { background: #666; }
+  .compare-row { display: flex; gap: 14px; flex-wrap: wrap; margin: 14px 0; }
+  .compare-card {
+    flex: 1; min-width: 200px; border-radius: 8px;
+    padding: 16px 16px; font-size: 0.88rem; line-height: 1.7;
+  }
+  .compare-card h3 { font-size: 0.88rem; margin-bottom: 8px; padding-bottom: 6px; border-bottom: 1.5px dashed; }
+  .compare-card.red    { background: #fdeaea; border: 1.5px solid #c0392b; }
+  .compare-card.red h3 { color: #922b2b; border-color: #e8a0a0; }
+  .compare-card.green  { background: #e8f5ef; border: 1.5px solid #2c6e4e; }
+  .compare-card.green h3 { color: #2c6e4e; border-color: #b2d4c4; }
+  .compare-card.amber  { background: #fff8e8; border: 1.5px solid #c9920a; }
+  .compare-card.amber h3 { color: #7a5800; border-color: #f0d080; }
+  .compare-card.navy   { background: #eaf0fb; border: 1.5px solid #1e3a6e; }
+  .compare-card.navy h3 { color: #1e3a6e; border-color: #8aaad4; }
+  .compare-card.blue { background: #e9f2fa; border: 1.5px solid #1b6ea8; }
+  .compare-card.blue h3 { color: #1b6ea8; border-color: #9cc4dd; }
+  .flow-wrap { display: flex; flex-direction: column; gap: 4px; margin: 14px 0; }
+  .flow-box {
+    background: #1b6ea8; color: white;
+    border-radius: 8px; padding: 14px 16px;
+    font-size: 0.88rem; line-height: 1.6;
+  }
+  .flow-box .fb-label { font-size: 0.7rem; opacity: 0.8; margin-bottom: 4px; display: block; }
+  .flow-box strong { font-size: 0.95rem; }
+  .flow-box.sub    { background: #4c93c2; }
+  .flow-box.light  { background: #e9f2fa; color: #2a2a2a; border: 1.5px solid #9cc4dd; }
+  .flow-box.amber  { background: #c9920a; }
+  .flow-box.green  { background: #2c6e4e; }
+  .flow-box.red    { background: #c0392b; }
+  .flow-box.navy   { background: #1e3a6e; }
+  .flow-box.gray   { background: #666; }
+  .arrow-down { text-align: center; font-size: 1.5rem; color: #1b6ea8; margin: 4px 0; line-height: 1; }
+  .step-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 12px 0; }
+  .step-list li { display: flex; align-items: flex-start; gap: 12px; }
+  .step-num {
+    background: #1b6ea8; color: white; border-radius: 50%;
+    min-width: 28px; height: 28px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.78rem; font-weight: 700; flex-shrink: 0; margin-top: 2px;
+  }
+  .step-num.amber  { background: #c9920a; }
+  .step-num.red    { background: #c0392b; }
+  .step-num.green  { background: #2c6e4e; }
+  .step-num.navy   { background: #1e3a6e; }
+  .step-num.gray   { background: #666; }
+  .step-list li div { font-size: 0.9rem; line-height: 1.7; }
+  .matrix-table { width: 100%; border-collapse: collapse; font-size: 0.87rem; margin: 14px 0; }
+  .matrix-table th {
+    background: #1b6ea8; color: white; padding: 10px 12px;
+    text-align: left; font-weight: 600; font-size: 0.82rem;
+  }
+  .matrix-table th:first-child { border-radius: 6px 0 0 0; }
+  .matrix-table th:last-child  { border-radius: 0 6px 0 0; }
+  .matrix-table td { padding: 10px 12px; border-bottom: 1px solid #cfe1ee; vertical-align: top; line-height: 1.55; }
+  .matrix-table tr:nth-child(even) td { background: #f0f6fb; }
+  .matrix-table .ok   { color: #2c6e4e; font-weight: 700; }
+  .matrix-table .ng   { color: #c0392b; font-weight: 700; }
+  .matrix-table .warn { color: #8a6000; font-weight: 700; }
+  .matrix-table .row-warn   td { background: #fff8e8 !important; }
+  .matrix-table .row-danger td { background: #fdeaea !important; }
+  .matrix-table .row-green  td { background: #e8f5ef !important; }
+  .matrix-table .row-navy   td { background: #eaf0fb !important; }
+  .matrix-table .row-blue   td { background: #e9f2fa !important; }
+  .check-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 12px 0; }
+  .check-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.9rem; line-height: 1.65; }
+  .check-icon {
+    min-width: 22px; height: 22px; border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.78rem; font-weight: 700; flex-shrink: 0; margin-top: 1px;
+  }
+  .check-icon.blue   { background: #1b6ea8; color: white; }
+  .check-icon.green  { background: #2c6e4e; color: white; }
+  .check-icon.amber  { background: #c9920a; color: white; }
+  .check-icon.red    { background: #c0392b; color: white; }
+  .check-icon.navy   { background: #1e3a6e; color: white; }
+  .section-icon { font-size: 1.5rem; margin-right: 8px; vertical-align: middle; }
+  .tag {
+    display: inline-block; background: #1b6ea8; color: white;
+    font-size: 0.72rem; padding: 2px 8px; border-radius: 10px;
+    margin-right: 4px; vertical-align: middle;
+  }
+  .tag.amber  { background: #c9920a; }
+  .tag.red    { background: #c0392b; }
+  .tag.green  { background: #2c6e4e; }
+  .tag.navy   { background: #1e3a6e; }
+  .tag.gray   { background: #888; }
+  .footer-card {
+    background: #f0ece3;
+    border: 1.5px solid #bbb;
+    border-radius: 8px;
+    padding: 20px 24px;
+    width: 100%;
+    max-width: 760px;
+    margin-bottom: 20px;
+    font-size: 0.82rem;
+    color: #555;
+    line-height: 1.8;
+  }
+  .footer-card .footer-title {
+    font-size: 0.78rem; color: #888; font-weight: 600;
+    margin-bottom: 10px; display: block;
+    text-transform: uppercase; letter-spacing: 0.08em;
+  }
+  .footnote { font-size: 0.78rem; color: #777; line-height: 1.7; margin-top: 12px; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 14px 0; }
+  @media (max-width: 560px) { .two-col { grid-template-columns: 1fr; } }
+  .mini-card {
+    border-radius: 8px; padding: 14px 16px;
+    font-size: 0.85rem; line-height: 1.65;
+  }
+  .mini-card h4 { font-size: 0.87rem; margin-bottom: 8px; }
+  .mini-card.navy   { background: #eaf0fb; border: 1.5px solid #8aaad4; }
+  .mini-card.navy h4 { color: #1e3a6e; }
+  .mini-card.amber  { background: #fff8e8; border: 1.5px solid #c9920a; }
+  .mini-card.amber h4 { color: #7a5800; }
+  .mini-card.green  { background: #e8f5ef; border: 1.5px solid #2c6e4e; }
+  .mini-card.green h4 { color: #2c6e4e; }
+  .mini-card.red    { background: #fdeaea; border: 1.5px solid #c0392b; }
+  .mini-card.red h4 { color: #922b2b; }
+  .mini-card.blue { background: #e9f2fa; border: 1.5px solid #1b6ea8; }
+  .mini-card.blue h4 { color: #1b6ea8; }
+  .mini-card.gray   { background: #f4f4f4; border: 1.5px solid #aaa; }
+  .mini-card.gray h4 { color: #555; }
+  .day-bar-wrap { margin: 16px 0; }
+  .day-bar-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .day-bar-label { min-width: 130px; font-size: 0.82rem; line-height: 1.5; }
+  .day-bar-track { flex: 1; background: #eee; border-radius: 6px; height: 22px; position: relative; overflow: hidden; }
+  .day-bar-fill { height: 100%; border-radius: 6px; display: flex; align-items: center; justify-content: flex-end; padding-right: 8px; color: white; font-size: 0.75rem; font-weight: 700; }
+  .day-bar-line { position: absolute; top: -4px; bottom: -4px; width: 2px; background: #c0392b; }
+  .day-bar-line-label { position: absolute; top: -18px; font-size: 0.68rem; color: #c0392b; font-weight: 700; white-space: nowrap; }
+</style>
+</head>
+<body>
+
+<!-- ヒーロー -->
+<div class="hero">
+  <div style="margin-bottom:14px;">
+    <span class="label">⚖️ 判例で学ぶ「183日ルール」</span>
+  </div>
+  <h1>「スペインにいた日数」は自己申告じゃない。<br>シャキーラ勝訴判決が教える、183日ルールの本当の争われ方</h1>
+  <div class="meta">
+    デジタルノマド 最新トピック 2026-07-23<br>
+    情報収集日：2026年7月22〜23日<br>
+    2026年4月15日付Audiencia Nacional(スペイン国家裁判所)判決(2026年5月18日前後に報道集中)を、日本↔スペイン往来生活者の視点で整理
+  </div>
+</div>
+
+<!-- 今日のポイント -->
+<div class="card">
+  <h2><span class="section-icon">📌</span>今日のポイント（30秒まとめ）</h2>
+  <div class="number-row">
+    <div class="number-card red">
+      <div class="num">183日</div>
+      <div class="desc">スペイン居住者と判定される<br>法定ボーダーライン<sup>※1</sup></div>
+    </div>
+    <div class="number-card amber">
+      <div class="num">163日</div>
+      <div class="desc">Hacienda（税務当局）が<br>主張した滞在日数<sup>※2</sup></div>
+    </div>
+    <div class="number-card green">
+      <div class="num">143日</div>
+      <div class="desc">本人側が主張した<br>滞在日数<sup>※2</sup></div>
+    </div>
+    <div class="number-card navy">
+      <div class="num">約8年</div>
+      <div class="desc">提訴から判決確定までの<br>係争期間<sup>※2</sup></div>
+    </div>
+  </div>
+  <div class="highlight-box">
+    <span class="hlabel">💡 核心メッセージ（1人法人オーナーへ）</span>
+    <p>2026年4月15日、スペインの国家裁判所（Audiencia Nacional）が、歌手シャキーラさんの2011年度の所得税・富裕税をめぐる約5,500万ユーロの追徴課税を全面的に取り消しました。争点は「183日ルール」。税務当局(Hacienda)は自分たちの数え方でも163日、本人側の数え方でも143日と、<strong>どちらの計算でも183日には届いていなかった</strong>のに、Haciendaは「一時的な不在」の解釈を広げてこれを183日超に見せかけようとし、裁判所がそれを退けました。日本とスペインを往来する1人法人オーナーにとって、「実際に何日いたか」だけでなく「Haciendaがどう数えようとするか」「それにどう反論できるか」を知っておくことは実務上とても重要です。</p>
+  </div>
+  <p style="font-size:0.8rem; color:#777;">※1 スペイン所得税法（Ley 35/2006、IRPF法）第9条1項。※2 複数の全国紙・通信社報道（El Diario、Infobae、CNN Español、Confilegal等、2026年5月18日前後）にもとづく。事件の正式な判決番号（SAN番号）は本記事では一次資料（Audiencia Nacional公式ページ）への直接アクセスができず未確認です。</p>
+</div>
+
+<!-- 図解：日数の数え方対決 -->
+<div class="card">
+  <h2><span class="section-icon">📏</span>図解：どちらの数え方でも「183日未満」だった</h2>
+  <p>まず押さえておきたいのは、<strong>この裁判は「183日を超えていたか、いなかったか」を争ったのではない</strong>という点です。Hacienda側の主張・本人側の主張、どちらの日数を採用しても183日のラインには届いていません。</p>
+  <div class="day-bar-wrap">
+    <div class="day-bar-row">
+      <div class="day-bar-label">🏛️ Hacienda（税務当局）の主張</div>
+      <div class="day-bar-track">
+        <div class="day-bar-fill" style="width:89%; background:#c9920a;">163日</div>
+      </div>
+    </div>
+    <div class="day-bar-row">
+      <div class="day-bar-label">🎤 本人側の主張</div>
+      <div class="day-bar-track">
+        <div class="day-bar-fill" style="width:78%; background:#2c6e4e;">143日</div>
+      </div>
+    </div>
+    <div class="day-bar-row">
+      <div class="day-bar-label">⚖️ 法定ボーダーライン</div>
+      <div class="day-bar-track" style="background:#fdeaea;">
+        <div class="day-bar-fill" style="width:100%; background:#c0392b;">183日（居住者になるライン）</div>
+      </div>
+    </div>
+  </div>
+  <p style="font-size:0.85rem; color:#666;">※バーの長さは183日を100%とした場合の目安比率です。実際の日数の正確な内訳（一次滞在・二次滞在の区切り等）は判決文の詳細確認が必要で、本記事では報道ベースの整理である旨を明記します。</p>
+  <div class="alert-box">
+    <span class="alabel">⚠ では何が争われたのか？</span>
+    <p>Haciendaは「163日」という数字そのものに、<strong>「一時的な不在（ausencias esporádicas＝散発的不在）」という別枠の日数を足し戻して183日を超えさせようとした</strong>とされます。つまり「海外に出ていた期間の一部も、実質的にはスペインにいたのと同じ扱いにする」という拡張解釈です。裁判所はこれを認めませんでした。次の項目で、この「散発的不在」の考え方を解説します。</p>
+  </div>
+</div>
+
+<!-- 図解：ausencias esporádicasとは -->
+<div class="card">
+  <h2><span class="section-icon">🧭</span>用語解説：「散発的不在（ausencias esporádicas）」って何？</h2>
+  <p>スペインの所得税法第9条1項は、「183日」を数えるとき、<strong>一時的にちょっと海外に出ていただけの期間（＝散発的不在）は、スペインにいた日数としてカウントしてよい</strong>、と定めています。たとえば「2週間だけ日本に一時帰国した」というような、生活の本拠がスペインにあることが明らかな短い外出であれば、その2週間もスペイン滞在日数に足してよい、という考え方です。</p>
+  <div class="two-col">
+    <div class="mini-card blue">
+      <h4>🔍 これまでの最高裁の考え方（2017年11月28日判決など）</h4>
+      <p style="font-size:0.85rem;">スペイン最高裁は、政府奨学金でルーマニアに9か月間派遣されていた研修生のケースで、「9か月もの長い不在は『散発的』とは言えない」と判断。<strong>「そのうちスペインに戻るつもりだったか」という本人の意図（主観）ではなく、不在の長さという客観的な事実だけで判断すべき</strong>という基準を示しました。</p>
+    </div>
+    <div class="mini-card red">
+      <h4>🚫 今回、裁判所が退けたHaciendaの主張</h4>
+      <p style="font-size:0.85rem;">Haciendaは「散発的不在」の枠を広く使って、本来は海外にいた期間まで「スペインにいた」扱いにしようとしました。しかし裁判所は、<strong>183日を超えるような長い不在そのものを「散発的」と呼ぶことはできない</strong>という2017年最高裁の考え方に沿って、Hacienda側の拡張解釈を否定しました。</p>
+    </div>
+  </div>
+  <div class="purple-box">
+    <span class="plabel">📎 中学生にもわかる一言たとえ</span>
+    <p>「1年のうち半分未満しか日本にいなかった人」を、学校側が「実はもっと日本にいたことにしよう」と後から数え直すことはできない、というイメージです。学校（Hacienda）は「本当にその日数だったのか」を証拠で示す責任（挙証責任）を負っており、都合よく数え方を変えることは認められません。</p>
+  </div>
+</div>
+
+<!-- 図解：家族要件 -->
+<div class="card">
+  <h2><span class="section-icon">💑</span>図解：もう1つの争点「内縁関係は配偶者とみなされるか」</h2>
+  <p>スペインの居住者判定には、183日ルールのほかに「配偶者・未成年の子がスペインに住んでいる」という<strong>家族要件（家族推定ルール）</strong>もあります（2026-06-02日報「日西租税条約と非居住者判定」で紹介済み）。今回のケースでは、2011年当時パートナーだった人物がスペイン居住者だったことから、Haciendaはこの家族要件の適用も主張しました。</p>
+  <table class="matrix-table">
+    <thead>
+      <tr>
+        <th>関係の種類</th>
+        <th>家族要件（配偶者要件）にあたるか</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="row-green">
+        <td>法律上の婚姻関係（配偶者）</td>
+        <td class="ok">あたる（家族推定ルールの対象）</td>
+      </tr>
+      <tr class="row-warn">
+        <td>恋愛関係・同居パートナー（内縁関係・事実婚を含む、法律上の婚姻なし）</td>
+        <td class="warn">あたらないと判断された（今回の判決）</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="green-box">
+    <span class="glabel">✅ 判決のポイント</span>
+    <p>裁判所は「2011年当時、スペイン居住者との法律上の婚姻関係はなかった」「恋愛関係は法律上、婚姻関係と同一視できない」として、家族要件によるスペイン居住認定も退けました。あわせて、スペインに本人の経済活動の中心（事業拠点等）があったことも証明されていないと判断しています。</p>
+  </div>
+</div>
+
+<!-- 経緯フロー -->
+<div class="card">
+  <h2><span class="section-icon">🔄</span>図解：8年に及んだ係争の流れ</h2>
+  <div class="flow-wrap">
+    <div class="flow-box navy">
+      <span class="fb-label">2011年</span>
+      対象となった課税年度。本人は世界ツアー中で、複数国を移動する生活だったとされる
+    </div>
+    <div class="arrow-down">↓</div>
+    <div class="flow-box sub">
+      <span class="fb-label">その後（時期は本記事では未確認）</span>
+      Haciendaが2011年分をスペイン居住者として課税すべきと判断し、追徴課税・加算税を通知
+    </div>
+    <div class="arrow-down">↓</div>
+    <div class="flow-box amber">
+      <span class="fb-label">不服申立て</span>
+      TEAC（中央経済行政審判所）への審査請求。TEACはHacienda側の判断を支持したとされる
+    </div>
+    <div class="arrow-down">↓</div>
+    <div class="flow-box light">
+      <span class="fb-label">Audiencia Nacionalへ提訴</span>
+      TEACの判断を不服として、Audiencia Nacional（国家裁判所、税務・行政の重大事件を扱う専門裁判所）に提訴
+    </div>
+    <div class="arrow-down">↓</div>
+    <div class="flow-box green">
+      <span class="fb-label">2026年4月15日｜判決</span>
+      Audiencia Nacional第4法廷が、Haciendaは2011年の居住者性を証明できていないとして課税処分・加算税を全面取消。還付（利息付）とHacienda側への訴訟費用負担を命じる
+    </div>
+  </div>
+  <p style="font-size:0.82rem; color:#777; margin-top:10px;">判決の公表・報道は2026年5月18日前後に集中。TEACへの審査請求日・審査結果の具体的な日付は本記事では一次資料未確認です。</p>
+</div>
+
+<!-- 1人法人オーナーへの実務インプリケーション -->
+<div class="card">
+  <h2><span class="section-icon">🇯🇵</span>図解：日本の1人法人オーナーにとっての実務的な意味</h2>
+  <p>今回のケースは著名人特有の事情（世界ツアー・巨額の資産・法人構造）が絡む特殊な事案です。日本とスペインを往来しながら1人法人として稼ぐ人に、そのまま同じ結論が当てはまるわけではありません。ただし、次の3点は共通して参考になります。</p>
+  <ul class="check-list">
+    <li><span class="check-icon blue">1</span><div><strong>「183日未満に抑えたい」場合、滞在日数の記録（渡航記録・搭乗券・EESの出入国記録等）を自分でも残しておくことが重要。</strong>今回の判決も、Hacienda側の主張する日数自体の裏付けの弱さが結論を左右しました。</div></li>
+    <li><span class="check-icon amber">2</span><div><strong>短い一時帰国・出張は「散発的不在」としてスペイン滞在日数に足し戻される可能性がある一方、長期の不在（今回は9か月が目安とされた最高裁判例あり）は足し戻されにくい。</strong>「何日ならセーフ」という一律の線引きは無く、個別事情による点に注意。</div></li>
+    <li><span class="check-icon green">3</span><div><strong>DNV（国際遠隔就労ビザ）保持者は事情が異なります。</strong>DNVは基本的にスペインでの継続的な居住（183日以上の滞在によるスペイン居住者化・ベックハム法適用）を前提とした制度であり、今回のケースのように「183日未満に抑えて非居住者でいたい」というニーズとは方向性が逆になる点を整理しておく必要があります（2026-06-01日報「ベックハム法入門」・2026-06-02日報「日西租税条約と非居住者判定」参照）。</div></li>
+  </ul>
+  <table class="matrix-table">
+    <thead>
+      <tr>
+        <th>ケース</th>
+        <th>183日ルール上の位置づけ</th>
+        <th>今回の判決との関係</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="row-blue">
+        <td>DNV取得前・短期滞在を繰り返しながら日本↔スペインを往来</td>
+        <td>183日未満に抑えて非居住者を維持したいケース</td>
+        <td>今回の判決の考え方が直接参考になる（日数の記録・散発的不在の範囲に注意）</td>
+      </tr>
+      <tr class="row-green">
+        <td>DNV取得後・ベックハム法適用を予定</td>
+        <td>むしろ183日以上の居住者になることを前提とする制度</td>
+        <td>今回のケースとは前提が逆。183日未満だとベックハム法の要件（スペイン居住者であること）を満たせない可能性がある点に注意</td>
+      </tr>
+      <tr class="row-warn">
+        <td>スペインに事実婚パートナーがいる、または将来できる可能性がある</td>
+        <td>家族要件（配偶者要件）の適用可能性</td>
+        <td>今回の判決は「内縁関係は配偶者要件にあたらない」としたが、個別事情や将来の法解釈変更により結論が変わり得る点に留意</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 実務チェックリスト -->
+<div class="card">
+  <h2><span class="section-icon">✅</span>実務チェックリスト</h2>
+  <ul class="check-list">
+    <li><span class="check-icon blue">1</span><div><strong>スペイン・日本それぞれの滞在日数を、自分でも記録しておく。</strong>搭乗券・パスポートのスタンプ・EES（出入国管理システム）記録・クレジットカード利用明細なども裏付け資料になり得る。</div></li>
+    <li><span class="check-icon navy">2</span><div><strong>「183日未満だから大丈夫」と一律に考えず、経済活動の中心地・家族関係など他の判定要素も合わせて確認する。</strong>183日ルールは複数ある判定基準の1つに過ぎない。</div></li>
+    <li><span class="check-icon amber">3</span><div><strong>DNV保持予定者は、183日ルールに関する「非居住者を維持したい人向け」の情報と、「居住者としてベックハム法を使いたい人向け」の情報を混同しない。</strong>目的によって望ましい滞在日数の方向性が逆になる。</div></li>
+    <li><span class="check-icon green">4</span><div><strong>居住者・非居住者の判定に迷う場合や、Haciendaから問い合わせ・課税通知が来た場合は、自己判断せず国際税務に詳しい税理士（Gestor／Asesor Fiscal）へ早めに相談する。</strong></div></li>
+  </ul>
+</div>
+
+<!-- 関連する過去の日報 -->
+<div class="card">
+  <h2><span class="section-icon">📚</span>関連する過去の日報</h2>
+  <table class="matrix-table">
+    <thead>
+      <tr>
+        <th>今日の内容</th>
+        <th>関連する過去の日報</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>183日ルール・散発的不在・家族推定ルールの基礎</td>
+        <td>2026-06-02「日西租税条約と非居住者判定」</td>
+      </tr>
+      <tr>
+        <td>ベックハム法（スペイン居住者であることが前提の優遇税制）</td>
+        <td>2026-06-01「ベックハム法入門」</td>
+      </tr>
+      <tr>
+        <td>シェンゲン90日/180日ルール（入国管理上の日数計算、税務上の183日ルールとは別物）</td>
+        <td>2026-07-11「シェンゲン90日/180日ルールの正しい数え方」</td>
+      </tr>
+      <tr>
+        <td>DNV承認後もUGEが継続的にチェックする仕組み</td>
+        <td>2026-07-21「国際遠隔就労ビザは『取れたら終わり』ではない」</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 出典 -->
+<div class="card">
+  <h2><span class="section-icon">🔗</span>主な参照元（検索確認日：2026年7月22〜23日）</h2>
+  <ul class="check-list">
+    <li><span class="check-icon navy">R</span><div>Poder Judicial（スペイン司法権評議会CGPJ公式サイト）判決紹介ページ「La Audiencia Nacional anula la liquidación y sanción de Hacienda de 55 millones de euros a la cantante Shakira por IRPF y Patrimonio de 2011」（原文への直接アクセスは403のため検索エンジンの要約情報にもとづく）<br>
+      <a href="https://www.poderjudicial.es/cgpj/es/Poder-Judicial/Noticias-Judiciales/La-Audiencia-Nacional-anula-la-liquidacion-y-sancion-de-Hacienda-de-55-millones-de-euros-a-la-cantante-Shakira-por-IRPF-y-Patrimonio-de-2011-" target="_blank" style="color:#1b6ea8;font-size:0.83rem;">poderjudicial.es</a></div></li>
+    <li><span class="check-icon amber">E</span><div>El Diario「Hacienda, condenada a devolver 55 millones a Shakira porque en 2011 no era residente en España」（2026年5月18日前後公開）<br>
+      <a href="https://www.eldiario.es/economia/hacienda-condenada-devolver-55-millones-shakira-2011-no-residente-espana_1_13228766.html" target="_blank" style="color:#1b6ea8;font-size:0.83rem;">eldiario.es</a></div></li>
+    <li><span class="check-icon amber">E</span><div>El Diario「Cómo Shakira venció a Hacienda: residencia fiscal, 'ausencias esporádicas' y su relación con Gerard Piqué」（家族要件・内縁関係の争点を解説）<br>
+      <a href="https://www.eldiario.es/economia/shakira-vencio-hacienda-residencia-fiscal-ausencias-esporadicas-relacion-gerard-pique_1_13230331.html" target="_blank" style="color:#1b6ea8;font-size:0.83rem;">eldiario.es</a></div></li>
+    <li><span class="check-icon amber">E</span><div>CNN Español「Un tribunal español da la razón a Shakira e insta a devolverle 60 millones de euros」（2026年5月18日）<br>
+      <a href="https://cnnespanol.cnn.com/2026/05/18/entretenimiento/shakira-tribunal-espanol-devolver-60-millones-efe" target="_blank" style="color:#1b6ea8;font-size:0.83rem;">cnnespanol.cnn.com</a></div></li>
+    <li><span class="check-icon amber">E</span><div>Confilegal「Opinión: La sentencia de Shakira」（判決の法的分析）<br>
+      <a href="https://confilegal.com/20260616-audiencia-nacional-anula-liquidaciones-shakira-residencia-fiscal-2011/" target="_blank" style="color:#1b6ea8;font-size:0.83rem;">confilegal.com</a></div></li>
+    <li><span class="check-icon amber">E</span><div>GV Legal Control「Caso Shakira: Sentencia de la Sala de lo Contencioso-Administrativo de la Audiencia Nacional」（TEAC審査請求の経緯を含む解説）<br>
+      <a href="https://www.gvlegalcontrol.com/blog/fiscal-es/caso-shakira-sentencia-de-la-sala-de-lo-contencioso-administrativo-de-la-audiencia-nacional-relativa-al-irpf-e-impuesto-sobre-el-patrimonio-del-ejercicio-2011" target="_blank" style="color:#1b6ea8;font-size:0.83rem;">gvlegalcontrol.com</a></div></li>
+    <li><span class="check-icon navy">R</span><div>Fiscal Impuestos「El TS sienta jurisprudencia: La residencia fiscal se mide por el criterio objetivo de permanencia」（2017年11月28日最高裁判例＝ICEX奨学生訴訟の解説）<br>
+      <a href="https://www.fiscal-impuestos.com/jurisprudencia-supremo-concepto-ausencias-esporadicas-determinantes-residencia-fiscal-espana-becas-icex.html" target="_blank" style="color:#1b6ea8;font-size:0.83rem;">fiscal-impuestos.com</a></div></li>
+  </ul>
+  <p class="footnote">R=公的機関の公式ページ・専門法律メディア。E=一般ニュースメディア・専門家解説サイト。本記事の情報源へのWebFetchによる原文直接確認はいずれも403エラーのため実施できず、WebSearchによる複数メディアの要約情報が一致する内容にもとづいて整理しています。判決の正式な事件番号（SAN番号）・TEAC審査請求の具体的な日付・追徴額の内訳（本税/加算税/富裕税の正確な区分）は、報道により表現の揺れがあり本記事では確定できていません。「163日」「143日」という日数も報道ベースの数字であり、判決文原本での確認はできていません。</p>
+</div>
+
+<!-- フッター -->
+<div class="footer-card">
+  <span class="footer-title">⚠ 免責事項 &amp; 専門家への相談推奨</span>
+  <p>
+    <strong>【ビザ・在留】</strong>本記事は税務上の居住者判定に関する判例を紹介したものであり、国際遠隔就労ビザ(DNV)を含む在留資格の取得・維持に関する正式な判断ではありません。ビザ・在留資格の判断は、必ず行政書士・移民弁護士へご確認ください。<br>
+    <strong>【税務・社会保険】</strong>183日ルール・居住者/非居住者の判定・家族要件の適用など、税務上の正式な判断は、国際税務に詳しい税理士へ必ずご確認ください。本記事はスペインの著名人の特殊な事案を紹介したものであり、個々の状況に同じ結論が当てはまることを保証するものではありません。「183日未満なら必ず非課税」「183日を超えても必ず居住者にならない」といった断定はできません。<br>
+    <strong>【基準時点】</strong>本記事で紹介した所得税法・判例は2026年7月時点で確認できた情報にもとづきます。制度・法解釈は今後変更され得るため、最新情報は必ず公式情報・専門家にご確認ください。
+  </p>
+</div>
+
+</body>
+</html>
