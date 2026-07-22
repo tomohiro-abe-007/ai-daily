@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-07-22</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '⏰';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 18px 16px;
+    font-size: 0.86rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.95rem; margin-bottom: 10px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.2em; }
+  .c3-col li { margin-bottom: 5px; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .mech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .mech-item {
+    background: #f0faf5;
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 0.85rem;
+    border-top: 3px solid #1a7a5a;
+  }
+  .mech-item .micon { font-size: 1.3rem; margin-bottom: 6px; }
+  .mech-item strong { display: block; color: #0d4a35; margin-bottom: 4px; font-size: 0.88rem; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .highlight { background: #cff0df; padding: 1px 5px; border-radius: 4px; }
+  .good { color: #1a7a5a; font-weight: 600; }
+  .bad  { color: #c0392b; font-weight: 600; }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-box {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin: 14px 0;
+    font-size: 0.92rem;
+  }
+  .def-box .def-label {
+    font-size: 0.75rem;
+    color: #1a7a5a;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  .quote-box {
+    background: #f5f0e8;
+    border-left: 4px solid #7a5abf;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    margin: 12px 0;
+    color: #444;
+    font-style: italic;
+  }
+  .quote-box .who { font-style: normal; font-weight: 700; color: #5a3a9a; margin-top: 6px; font-size: 0.78rem; }
+  @media (max-width: 540px) {
+    .compare3 { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.9rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ヘッダー -->
+<div class="header">
+  <div class="label">健康・栄養 最新トピック ・ 2026-07-22</div>
+  <h1>高齢者のワクチン、「効きにくかった人」ほどよく効いた<br>
+  食品にも含まれる成分スペルミジンと、免疫老化をめぐる小さな人での試験</h1>
+  <div class="subtitle">英オックスフォード大学のGhada Alsalehさん、ドイツ・マックスデルブリュック分子医学センターのKatja Simonさんらの国際チームが、65歳以上の健康な成人40人を対象にした二重盲検・ランダム化・プラセボ対照のパイロット試験をAging Cell誌に発表(DOI: 10.1111/acel.70545)。小麦胚芽・きのこ・熟成チーズなどの食品にも含まれる「スペルミジン」というポリアミンを13週間毎日とったところ、もともとワクチンへの反応が弱かった人たちで、免疫細胞の老化サインが減り抗体の働きが強まったと報告されました。「同じ介入でも効き方は人によって違う」という精密栄養学の核心に触れる、小規模だが興味深い研究を読み解きます。</div>
+</div>
+
+<!-- タグ -->
+<div style="margin-bottom:18px;">
+  <span class="tag">精密栄養学</span>
+  <span class="tag">スペルミジン</span>
+  <span class="tag">免疫老化</span>
+  <span class="tag">ランダム化比較試験</span>
+  <span class="tag">個人差</span>
+</div>
+
+<!-- 今日の疑問 -->
+<div class="card">
+  <h2>🤔 今日の疑問:同じワクチンを打っても、効き方に差があるのはなぜ?</h2>
+  <p>高齢になるほど、ワクチンを接種しても十分な抗体ができにくい人が増えることが知られています。免疫細胞そのものが年齢とともに「老化」し、働きが鈍くなるためだと考えられています。</p>
+  <p>今回、オックスフォード大学のAlsaleh・Simonさんらのチームは、細胞の"お掃除システム"を活発にすると言われる食品由来の成分「スペルミジン」を高齢者にとってもらい、ワクチンへの反応が変わるかを小規模なランダム化比較試験で確かめました。</p>
+</div>
+
+<!-- 基本用語 -->
+<div class="card blue">
+  <h2>📖 まず言葉の意味を</h2>
+  <div class="def-grid">
+    <div class="def-item">
+      <div class="dterm">スペルミジン(ポリアミンの一種)</div>
+      体内でも作られる物質で、小麦胚芽・きのこ・熟成チーズ(パルメザンやチェダーなど)といった食品にも含まれる。細胞の中の掃除・リサイクルの働き(オートファジー)を活発にすると考えられている。
+    </div>
+    <div class="def-item">
+      <div class="dterm">免疫老化(めんえきろうか、immunosenescence)</div>
+      加齢によって免疫細胞の働きが弱くなっていく現象。ワクチンを打っても十分な抗体ができにくくなる一因とされる。
+    </div>
+    <div class="def-item">
+      <div class="dterm">オートファジー</div>
+      細胞の中で古くなったタンパク質などを分解し、再利用する「細胞のお掃除システム」。年齢とともに働きが落ちるとされる。
+    </div>
+    <div class="def-item">
+      <div class="dterm">記憶B細胞・中和抗体</div>
+      記憶B細胞は、一度出会った病原体を「覚えて」おき、次に出会ったときに素早く抗体を作る免疫細胞。中和抗体はウイルスに結合し感染力を無力化する抗体のこと。
+    </div>
+    <div class="def-item">
+      <div class="dterm">p16(老化細胞の目印)</div>
+      細胞が分裂をやめて「老化細胞」と呼ばれる状態になると増えるタンパク質。老化のサインとして研究でよく使われる指標。
+    </div>
+    <div class="def-item">
+      <div class="dterm">二重盲検プラセボ対照RCT</div>
+      参加者にも研究者にも「誰が本物・誰が偽薬(プラセボ)を飲んでいるか」を分からないようにして比較する試験デザイン。思い込みによる偏りを防げる、信頼度の高い方法。
+    </div>
+  </div>
+</div>
+
+<!-- 数字カード -->
+<div class="num-row">
+  <div class="num-card">
+    <div class="big">40<span class="unit">人</span></div>
+    <div class="desc">対象者数(65歳以上の健康な成人、COVID-19ワクチンを3回接種済み)</div>
+  </div>
+  <div class="num-card orange-bg">
+    <div class="big">20<span class="unit">人 : 20人</span></div>
+    <div class="desc">スペルミジン群とプラセボ群の内訳(ランダムに割り付け)</div>
+  </div>
+  <div class="num-card blue-bg">
+    <div class="big">6<span class="unit">mg / 日</span></div>
+    <div class="desc">毎日とったスペルミジンの量(13週間、経口摂取)</div>
+  </div>
+  <div class="num-card purple-bg">
+    <div class="big">8<span class="unit">人</span></div>
+    <div class="desc">スペルミジン群20人のうち、ベースラインで抗体反応が弱く、効果が目立ったサブグループの人数</div>
+  </div>
+</div>
+
+<!-- 研究の流れ -->
+<div class="card orange">
+  <h2>🔄 どうやって調べたか</h2>
+  <div class="flow">
+    <div class="flow-step">①ベースライン<br>測定(n=40)<br>全員ワクチン<br>3回接種済み</div>
+    <div class="flow-arrow">▶</div>
+    <div class="flow-step alt">②ランダム<br>割付・二重盲検<br>(各20人)</div>
+    <div class="flow-arrow">▶</div>
+    <div class="flow-step">③6mg/日を<br>13週間<br>毎日摂取</div>
+    <div class="flow-arrow">▶</div>
+    <div class="flow-step purp">④血液・B細胞<br>を再解析<br>(IgG・p16など)</div>
+    <div class="flow-arrow">▶</div>
+    <div class="flow-step warn2">⑤反応が弱<br>かった8人に<br>効果が集中</div>
+  </div>
+  <p style="margin-top:10px;">摂取から2週間の時点ですでに記憶B細胞のp16(老化マーカー)減少が確認され、単一細胞RNAシーケンシング(1つ1つの細胞の遺伝子の働き方を調べる手法)で、オートファジーに関わる遺伝子群(TFEBの標的遺伝子)の発現が高まっていたと報告されています。</p>
+</div>
+
+<!-- 反応者 vs 非反応者 比較 -->
+<div class="card blue">
+  <h2>⚖️ 効果が出たのは「誰」だったのか</h2>
+  <div class="compare3">
+    <div class="c3-col blue">
+      <h3>💪 もともと反応が良かった人</h3>
+      <ul>
+        <li>ベースラインの段階ですでにワクチン特異的IgGが十分にあった</li>
+        <li>スペルミジンをとっても<strong>大きな変化は見られなかった</strong>(すでに十分な反応があったためとみられる)</li>
+      </ul>
+    </div>
+    <div class="c3-col purple">
+      <h3>😔 もともと反応が弱かった人(8人)</h3>
+      <ul>
+        <li>ベースラインでワクチン特異的IgGが低い「低反応群」だった</li>
+        <li>スペルミジン摂取後、IgG分泌・記憶B細胞の反応・中和抗体の働きが<strong class="good">有意に上昇</strong>し、老化マーカーp16も減少</li>
+      </ul>
+    </div>
+  </div>
+  <p style="margin-top:10px;">つまり「全員に均一に効いた」わけではなく、もともと免疫の老化が進み反応が鈍っていた人にだけ、効果がはっきり現れたということです。これはあらかじめ計画されていた主要な解析ではなく、結果を見た後に行われた事後(post-hoc)のサブグループ解析である点には注意が必要です。</p>
+</div>
+
+<!-- 仕組み -->
+<div class="card">
+  <h2>🔬 体の中で何が起きていたと考えられるか</h2>
+  <div class="mech-grid">
+    <div class="mech-item">
+      <div class="micon">🧹</div>
+      <strong>オートファジー活性化</strong>
+      細胞の「お掃除システム」が活発になり、B細胞の中の老廃物が片付けられたと考えられる
+    </div>
+    <div class="mech-item">
+      <div class="micon">🏷️</div>
+      <strong>老化マーカーp16の減少</strong>
+      記憶B細胞で老化のサインとされるp16が減り、細胞が若い状態に近づいた可能性
+    </div>
+    <div class="mech-item">
+      <div class="micon">🧬</div>
+      <strong>TFEB関連遺伝子の上昇</strong>
+      オートファジーを司る遺伝子群の働きが、1細胞ごとの遺伝子解析で高まっていた
+    </div>
+    <div class="mech-item">
+      <div class="micon">💉</div>
+      <strong>中和抗体活性の上昇</strong>
+      低反応だった人で、ウイルスを無力化する抗体の働きが強まったと報告されている
+    </div>
+  </div>
+</div>
+
+<!-- 精密栄養学の視点 -->
+<div class="card purple">
+  <h2>🎯 精密栄養学の視点から見ると</h2>
+  <ul class="step-list">
+    <li>この研究のポイントは「スペルミジンが免疫に良い」という一言では終わりません。<strong>もともとの反応の強さによって効き方がまったく違った</strong>という点こそが、精密栄養学が注目する「個人差」そのものです。</li>
+    <li>同じ量・同じ期間の介入でも、体の状態(この場合は老化した免疫細胞の割合)によって受け取る恩恵が異なる ── これは食事や栄養素の効果を考えるときにも当てはまる、重要な考え方です。</li>
+    <li>ただし、どういう人が「低反応群」になりやすいかを事前に見分ける方法や、遺伝的・生活習慣的な要因まではこの研究では調べられていません。今後の大規模な研究で確認すべき課題です。</li>
+  </ul>
+</div>
+
+<!-- 食品との関係についての注意 -->
+<div class="card orange">
+  <h2>🍽️ 「食品に含まれる成分」と聞いて注意したいこと</h2>
+  <p>スペルミジンは小麦胚芽・きのこ・熟成チーズなどの食品にも自然に含まれていますが、今回の研究で使われたのは<strong>精製された6mg/日のサプリメント</strong>です。普段の食事だけでこの量・この効果を再現できるかどうかは、この研究からは分かりません。「これらの食品を食べればワクチンが効きやすくなる」と直接結びつけるのは早計です。</p>
+</div>
+
+<!-- 限界 -->
+<div class="warn">
+  <strong>⚠️ この結果をどう受け止めるか:小規模なパイロット試験であることに注意</strong>
+  <ul style="padding-left:1.4em; margin-top:8px;">
+    <li>対象者は全体で<span class="bad">40人</span>、効果がはっきり出たサブグループはさらに少ない<span class="bad">8人</span>という、非常に小規模なパイロット(予備的)試験です。研究チーム自身も「効果を確かめるにはより大規模な試験が必要」としています。</li>
+    <li>効果が見られたのは「ベースラインで反応が弱かった人」という<strong>事後のサブグループ解析</strong>であり、あらかじめ計画された主要な検証ではありません。偶然の結果である可能性を完全には否定できません。</li>
+    <li>対象はCOVID-19ワクチンを3回接種済みの健康な高齢者に限られます。インフルエンザなど他のワクチンでも同じ効果があるかは、まだ確かめられていません。</li>
+    <li>介入期間は13週間と短く、長期的な安全性や効果の持続性は分かっていません。</li>
+    <li>本研究は「ワクチンの代わり」を示すものではありません。ワクチン接種そのものが感染症予防の中心的な手段であることに変わりはなく、今回の結果はあくまでその効果を補助できるかもしれない、という探索的な段階のデータです。</li>
+  </ul>
+</div>
+
+<!-- エビデンスの整理 -->
+<div class="card">
+  <h2>🧪 この研究のエビデンスの強さ</h2>
+  <table class="ev-table">
+    <tr><th>要素</th><th>内容</th><th>強さの目安</th></tr>
+    <tr>
+      <td>研究デザイン</td>
+      <td>二重盲検・ランダム化・プラセボ対照のパイロット試験</td>
+      <td><span class="ev-badge ev-high">介入試験として一定の信頼度</span></td>
+    </tr>
+    <tr>
+      <td>査読状況</td>
+      <td>Aging Cell誌(査読誌、2026年、DOI: 10.1111/acel.70545)</td>
+      <td><span class="ev-badge ev-high">査読済み</span></td>
+    </tr>
+    <tr>
+      <td>対象・規模</td>
+      <td>健康な65歳以上の成人40人(効果が目立ったサブグループは8人)</td>
+      <td><span class="ev-badge ev-low">非常に小規模なパイロット試験</span></td>
+    </tr>
+    <tr>
+      <td>主要な効果の位置づけ</td>
+      <td>事前計画された主解析ではなく、事後のサブグループ解析</td>
+      <td><span class="ev-badge ev-mid">探索的・確認的検証が必要</span></td>
+    </tr>
+    <tr>
+      <td>一般化可能性</td>
+      <td>COVID-19ワクチン既接種の健康な高齢者に限定。他ワクチンは未検証</td>
+      <td><span class="ev-badge ev-low">限定的</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- まとめ -->
+<div class="card" style="border-left-color:#1a7a5a;">
+  <h2>✅ 今日のまとめ</h2>
+  <ul class="step-list">
+    <li>英オックスフォード大学のAlsaleh、ドイツ・マックスデルブリュック分子医学センターのSimonさんらのチームが、65歳以上の健康な成人40人を対象にした二重盲検・ランダム化・プラセボ対照のパイロット試験をAging Cell誌に発表した(DOI: 10.1111/acel.70545)。</li>
+    <li>食品にも含まれる成分スペルミジンを6mg/日・13週間とったところ、もともとワクチンへの抗体反応が弱かった8人のサブグループで、老化マーカーp16の減少とIgG・記憶B細胞・中和抗体活性の上昇が確認された。反応がすでに良かった人には大きな変化は見られなかった。</li>
+    <li>「同じ介入でも、もともとの体の状態によって効き方が違う」という精密栄養学的なテーマを示す結果だが、対象者数がごく少なく事後解析である点、COVID-19ワクチン既接種の健康な高齢者に限定される点、長期的な安全性が未確認である点など、限界も多い探索段階の研究として受け止める必要がある。</li>
+    <li>食品由来の成分ではあるが、今回使われたのは精製サプリメントであり、食事だけで同じ効果が得られるかは不明。ワクチンの代わりになるものでもない。</li>
+  </ul>
+</div>
+
+<!-- 免責 -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、医療アドバイスではありません。効果・必要量・リスクは個人の体質・年齢・持病・服薬によって大きく異なります。実践の前には、かかりつけ医・管理栄養士・薬剤師など専門家にご相談ください。本記事は特定のサプリメントの摂取を推奨するものではありません。持病がある方・免疫抑制剤を服用中の方・妊娠中や授乳中の方がサプリメントの利用を検討する場合は、自己判断せず必ず専門家にご相談ください。ワクチン接種に関する判断についても、必ず医師にご相談ください。
+</div>
+
+<!-- 出典 -->
+<div class="sources">
+  <h3>📚 主な出典・参考文献</h3>
+  <ol>
+    <li>Alsaleh G, Simon AK, et al. "Spermidine Mitigates Immune Cell Senescence and Boosts Vaccine Responses in Healthy Older Adults—A Pilot Study." Aging Cell. 2026. DOI: 10.1111/acel.70545
+      <a href="https://doi.org/10.1111/acel.70545" target="_blank">https://doi.org/10.1111/acel.70545</a>
+    </li>
+    <li>ScienceDaily. "This food compound may help vaccines work better in older adults." 2026年7月19日.
+      <a href="https://www.sciencedaily.com/releases/2026/07/260719035951.htm" target="_blank">https://www.sciencedaily.com/releases/2026/07/260719035951.htm</a>
+    </li>
+    <li>News-Medical.net. "Spermidine supplement improves COVID 19 vaccine response in older adults." 2026年6月25日.
+      <a href="https://www.news-medical.net/news/20260625/Spermidine-supplement-improves-COVID-19-vaccine-response-in-older-adults.aspx" target="_blank">https://www.news-medical.net/news/20260625/...</a>
+    </li>
+    <li>Medical Xpress. "This natural compound may help boost vaccine responses in older adults." 2026年6月.
+      <a href="https://medicalxpress.com/news/2026-06-natural-compound-boost-vaccine-responses.html" target="_blank">https://medicalxpress.com/news/2026-06-natural-compound-boost-vaccine-responses.html</a>
+    </li>
+  </ol>
+  <p style="margin-top:8px; font-size:0.78rem;">※ 本記事は、Aging Cell誌掲載論文の要旨情報と、複数の報道機関のプレスリリース記事をもとに構成しています。論文本文への直接アクセスが制限されていたため、正確な統計値(p値・信頼区間など)や査読誌への掲載時期(オンライン先行公開日など)の詳細は、この記事執筆時点では未確認です。正確な数値・詳細は上記DOIから論文本文でご確認ください。</p>
+</div>
+
+</div>
+</body>
+</html>
