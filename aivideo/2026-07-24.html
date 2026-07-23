@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI動画制作 最新トピック 2026-07-24</title>
+<style>
+  :root {
+    --bg: #ece8e1;
+    --card: #faf6ec;
+    --dark: #1a3a5c;
+    --dark2: #1a5c3a;
+    --accent: #2a5c8a;
+    --accent2: #c85a00;
+    --text: #2a3540;
+    --muted: #7c8a82;
+    --border: #e0d8c8;
+    --highlight: #fff3cd;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, "Hiragino Sans", "Yu Gothic", sans-serif;
+    line-height: 1.75;
+    padding: 20px;
+  }
+  .wrap { max-width: 900px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #1a3a5c 0%, #1a5c3a 100%);
+    color: #fff;
+    border-radius: 20px;
+    padding: 44px 32px 36px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(26,58,92,.22);
+    margin-bottom: 24px;
+  }
+  .header-tag {
+    display: inline-block;
+    background: rgba(255,255,255,.18);
+    color: #e0f0e8;
+    border-radius: 20px;
+    padding: 4px 16px;
+    font-size: .82rem;
+    margin-bottom: 14px;
+    letter-spacing: .06em;
+  }
+  .header h1 { font-size: 1.6rem; letter-spacing: .03em; line-height: 1.45; margin-bottom: 10px; }
+  .header .sub { color: #c8dde8; font-size: .95rem; }
+  .header .date { color: #b0e0c0; font-size: .85rem; margin-top: 8px; }
+
+  .card {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 12px rgba(0,0,0,.07);
+    border: 1px solid var(--border);
+  }
+  .card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .point-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .point-card { background: #eef3f8; border-radius: 14px; padding: 20px 16px; text-align: center; border: 1px solid #d4e0ea; }
+  .point-icon { font-size: 2rem; margin-bottom: 8px; }
+  .point-title { font-size: .95rem; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
+  .point-desc { font-size: .83rem; color: var(--muted); line-height: 1.6; }
+
+  .bignum-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-top: 20px; }
+  .bignum-card { background: linear-gradient(135deg, #1a3a5c, #1a5c3a); border-radius: 14px; padding: 16px 8px; text-align: center; color: #fff; }
+  .bignum { font-size: 1.15rem; font-weight: 800; color: #ffe0a0; line-height: 1.2; }
+  .bignum-label { font-size: .68rem; color: #cfe6d8; margin-top: 4px; line-height: 1.5; }
+
+  .step-list { list-style: none; }
+  .step-item { display: flex; gap: 14px; margin-bottom: 16px; align-items: flex-start; }
+  .step-num {
+    width: 34px; height: 34px;
+    background: linear-gradient(135deg, #1a3a5c, #1a5c3a);
+    color: #fff; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: .95rem; flex-shrink: 0; margin-top: 2px;
+  }
+  .step-body { flex: 1; }
+  .step-title { font-weight: 700; color: var(--dark); font-size: .95rem; }
+  .step-desc { font-size: .86rem; color: var(--muted); margin-top: 3px; line-height: 1.65; }
+
+  .tbl { width: 100%; border-collapse: collapse; font-size: .86rem; }
+  .tbl th { background: #eaf1ea; padding: 10px 10px; text-align: left; border-bottom: 2px solid #c8ddc8; color: var(--dark); font-weight: 700; }
+  .tbl td { padding: 10px 10px; border-bottom: 1px solid var(--border); vertical-align: top; color: var(--text); }
+  .tbl tr:last-child td { border-bottom: none; }
+
+  .note-box { background: var(--highlight); border-left: 4px solid #e8a000; border-radius: 8px; padding: 12px 16px; font-size: .88rem; color: #5a4000; margin-top: 14px; line-height: 1.7; }
+
+  .summary-list { font-size: .95rem; line-height: 2.2; }
+  .summary-list li { list-style: none; display: flex; align-items: flex-start; gap: 8px; }
+  .summary-list li::before { content: "✅"; flex-shrink: 0; margin-top: 2px; }
+
+  .disclaimer { background: #f0ede8; border-radius: 12px; padding: 16px 20px; font-size: .82rem; color: var(--muted); margin-top: 24px; line-height: 1.7; border: 1px solid #ddd8d0; }
+
+  footer { text-align: center; color: var(--muted); font-size: .82rem; margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border); line-height: 1.9; }
+  footer a { color: var(--accent); }
+
+  .flow-row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-top: 10px; }
+  .flow-step { flex: 1; min-width: 110px; background: #eef3f8; border: 1px solid #d4e0ea; border-radius: 10px; padding: 12px 10px; text-align: center; }
+  .flow-step.key { background: #fdeee0; border-color: #f0c8a0; }
+  .flow-step .fs-icon { font-size: 1.3rem; margin-bottom: 4px; }
+  .flow-step .fs-title { font-size: .82rem; font-weight: 700; color: var(--dark); }
+  .flow-step .fs-desc { font-size: .72rem; color: var(--muted); margin-top: 3px; line-height: 1.5; }
+  .flow-arrow { font-size: 1.3rem; color: var(--accent2); font-weight: 700; flex-shrink: 0; }
+  .flow-caption { text-align: center; font-size: .8rem; color: var(--muted); margin-top: 10px; }
+  .flow-label { font-size: .85rem; font-weight: 700; color: var(--dark); margin-top: 18px; margin-bottom: 2px; display: flex; align-items: center; gap: 6px; }
+  .flow-label:first-child { margin-top: 0; }
+
+  .formula-box { display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap; background: #f3f0e6; border-radius: 12px; padding: 18px 14px; margin-top: 4px; }
+  .formula-part { background: #fff; border: 2px solid var(--accent); border-radius: 10px; padding: 10px 14px; text-align: center; min-width: 90px; }
+  .formula-part .fp-tag { font-size: .68rem; color: var(--muted); }
+  .formula-part .fp-word { font-size: .95rem; font-weight: 800; color: var(--dark); margin-top: 2px; }
+  .formula-plus { font-size: 1.2rem; color: var(--accent2); font-weight: 700; }
+
+  @media (max-width: 640px) {
+    .point-grid { grid-template-columns: 1fr; }
+    .bignum-grid { grid-template-columns: repeat(2, 1fr); }
+    .flow-row { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+    .formula-box { flex-direction: column; }
+    .formula-plus { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="header">
+  <div class="header-tag">🌱 エバーグリーン技法回 ── プロンプト設計</div>
+  <h1>AI動画プロンプトの「型」を覚える<br>── 迷ったら5つの要素を順番に埋めるだけ</h1>
+  <div class="sub">「主語＋動作＋カメラ＋光＋スタイル」の5点セットで、思い通りの映像に近づける</div>
+  <div class="date">2026-07-24 ｜ AI動画制作 最新トピック</div>
+</div>
+
+<div class="card">
+  <div class="card-title">🎯 今日の3ポイント</div>
+  <div class="point-grid">
+    <div class="point-card">
+      <div class="point-icon">🧩</div>
+      <div class="point-title">プロンプトは「型」がある</div>
+      <div class="point-desc">思いつきで長文を書くより、決まった5つの要素を順番に埋めていく方が安定した結果になりやすい</div>
+    </div>
+    <div class="point-card">
+      <div class="point-icon">📐</div>
+      <div class="point-title">5要素=主語・動作・カメラ・光・スタイル</div>
+      <div class="point-desc">「誰が」「何をする」「どう撮る」「どんな光」「どんな絵作り」を1文ずつ決めて組み合わせる</div>
+    </div>
+    <div class="point-card">
+      <div class="point-icon">🔁</div>
+      <div class="point-title">1要素だけ変えて再生成</div>
+      <div class="point-desc">結果が思い通りでない時は全部書き直さず、1要素だけ言い換えて再生成すると原因が特定しやすい</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🧮 プロンプトの型(公式)</div>
+  <div class="formula-box">
+    <div class="formula-part"><div class="fp-tag">①主語</div><div class="fp-word">誰が/何が</div></div>
+    <div class="formula-plus">+</div>
+    <div class="formula-part"><div class="fp-tag">②動作</div><div class="fp-word">何をする</div></div>
+    <div class="formula-plus">+</div>
+    <div class="formula-part"><div class="fp-tag">③カメラ</div><div class="fp-word">どう撮る</div></div>
+    <div class="formula-plus">+</div>
+    <div class="formula-part"><div class="fp-tag">④光</div><div class="fp-word">どんな光</div></div>
+    <div class="formula-plus">+</div>
+    <div class="formula-part"><div class="fp-tag">⑤スタイル</div><div class="fp-word">どんな絵作り</div></div>
+  </div>
+  <div class="note-box">
+    💡 この順番に絶対的な決まりはないが、「誰が・何をする」を先に決めてから「撮り方・光・仕上げ」を足していくと、AIに伝える情報の抜け漏れが減る。ツールによって得意な書き方(短い単語の羅列/自然な文章)が違うため、まずは公式のプロンプトガイドで推奨形式を確認しよう。
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">📊 5要素ごとの言い換え辞典</div>
+  <table class="tbl">
+    <thead>
+      <tr><th>要素</th><th>意味</th><th>言い換えの例</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>①主語</strong></td>
+        <td>映像の主役(人・物・場所)</td>
+        <td>20代女性のバリスタ / 湯気の立つラーメン / 夕暮れの港町</td>
+      </tr>
+      <tr>
+        <td><strong>②動作</strong></td>
+        <td>主語がしている具体的な行動</td>
+        <td>コーヒー豆を挽く / ゆっくり歩きながら振り返る / 波が静かに引く</td>
+      </tr>
+      <tr>
+        <td><strong>③カメラ</strong></td>
+        <td>画角(レンズ)・カメラワーク・距離感</td>
+        <td>広角でドリーイン / 望遠で圧縮したバストショット / 手持ち風のパン</td>
+      </tr>
+      <tr>
+        <td><strong>④光</strong></td>
+        <td>光の向き・時間帯・色味</td>
+        <td>逆光でシルエット気味 / ゴールデンアワーの柔らかい光 / 窓からの順光</td>
+      </tr>
+      <tr>
+        <td><strong>⑤スタイル</strong></td>
+        <td>映像全体の質感・雰囲気</td>
+        <td>シネマティックな粒状感 / 明るいCM風 / ドキュメンタリー風の手持ち感</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="note-box">
+    📖 「望遠で圧縮」「ゴールデンアワー」など専門用語は、過去の日報(画角の使い分け・光の使い方の回)でも解説済み。用語に迷ったら基礎回を見直すと理解が深まる。
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🔍 図解:5要素を組み立てるとどうなる?</div>
+  <div class="flow-row">
+    <div class="flow-step"><div class="fs-icon">🧑‍🍳</div><div class="fs-title">①主語</div><div class="fs-desc">若い料理人が</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="fs-icon">🔪</div><div class="fs-title">②動作</div><div class="fs-desc">野菜を丁寧に切る</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step key"><div class="fs-icon">🎥</div><div class="fs-title">③カメラ</div><div class="fs-desc">手元に寄った望遠ショット</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step key"><div class="fs-icon">🌤️</div><div class="fs-title">④光</div><div class="fs-desc">窓からの柔らかい順光</div></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><div class="fs-icon">🎞️</div><div class="fs-title">⑤スタイル</div><div class="fs-desc">シネマティックな質感</div></div>
+  </div>
+  <div class="flow-caption">
+    完成文例:「若い料理人が、まな板の上で野菜を丁寧に切っている。手元に寄った望遠ショット、窓からの柔らかい順光、シネマティックな質感で。」
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🔢 プロンプト作りの数字目安</div>
+  <div class="bignum-grid">
+    <div class="bignum-card">
+      <div class="bignum">5つ</div>
+      <div class="bignum-label">埋めるべき基本要素の数(主語/動作/カメラ/光/スタイル)</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">1文</div>
+      <div class="bignum-label">各要素は欲張らず短い1フレーズにまとめると伝わりやすい</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">1個</div>
+      <div class="bignum-label">結果が違う時に変える要素の数。一度に複数変えると原因が分からなくなる</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">3回</div>
+      <div class="bignum-label">同じプロンプトでも複数回生成し、良い結果を選ぶのが基本(ツールにより生成回数の制限あり)</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">80字</div>
+      <div class="bignum-label">日本語の場合、詰め込みすぎない目安の文字数(長すぎると要素が薄まりやすい)</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🛠️ 実践例:AIで作る「カフェの新作ドリンク」紹介ショート動画のプロンプト設計5ステップ</div>
+  <p style="font-size:.88rem;color:var(--muted);margin-bottom:18px;">
+    9:16縦型・10秒前後のシーンを想定した基本フローです。
+  </p>
+  <ul class="step-list">
+    <li class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-title">①主語を決める</div>
+        <div class="step-desc">「氷が入ったグラスに注がれる新作の桃ソーダ」のように、見せたい主役を一言で決める。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-title">②動作を決める</div>
+        <div class="step-desc">「炭酸がゆっくり泡立ちながら満たされていく」など、時間の経過が伝わる動きを短く書く。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-title">③カメラを決める</div>
+        <div class="step-desc">「真横からのマクロ気味な望遠ショット」など、過去回で学んだ画角の言葉を当てはめる。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <div class="step-title">④光を決める</div>
+        <div class="step-desc">「サイドから差し込む夕方の柔らかい光」など、光の向きと時間帯を指定する。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">5</div>
+      <div class="step-body">
+        <div class="step-title">⑤スタイルを足して1文に合体・生成</div>
+        <div class="step-desc">「爽やかなCM風」などを最後に足して5要素を1文につなげ、生成後は光かカメラだけを変えて再生成し比較する。</div>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="card">
+  <div class="card-title">📝 今日のまとめ</div>
+  <ul class="summary-list">
+    <li>AI動画のプロンプトは<strong>「主語＋動作＋カメラ＋光＋スタイル」</strong>の5要素を順番に埋める型にすると安定しやすい</li>
+    <li>各要素は欲張らず<strong>短い1フレーズ</strong>にまとめ、5つ合わせても詰め込みすぎない</li>
+    <li>思い通りの結果にならない時は、<strong>1要素だけ言い換えて再生成</strong>すると原因を切り分けやすい</li>
+    <li>カメラ・光の言葉は<strong>過去の基礎回(画角/構図/光の使い方)</strong>の語彙をそのまま流用できる</li>
+    <li>推奨されるプロンプトの書き方(単語羅列か自然文か)はツールごとに異なるため、<strong>公式ガイドも確認</strong>する</li>
+  </ul>
+</div>
+
+<div class="disclaimer">
+  ⚠️ <strong>免責事項</strong><br>
+  本記事で紹介したプロンプトの型・言い換え例は、AI動画制作における一般的な考え方の一例です。実際に得られる結果はツールやモデルのバージョンによって異なります。本文中で言及したAIツールの名称・機能・料金・商用利用の可否は頻繁に変わるため、利用の際は各ツールの公式ページ・利用規約で必ずご確認ください。
+</div>
+
+<footer>
+  AI動画制作 最新トピック ─ 2026-07-24 ｜ エバーグリーン技法回<br>
+  参考:プロンプトの5要素構成(主語・動作・カメラ・光・スタイル)は、AI動画制作における一般的な手法に基づく(エバーグリーン技法)<br>
+  <a href="index.html" style="color:var(--accent);">← 一覧に戻る</a>
+</footer>
+
+</div>
+</body>
+</html>
