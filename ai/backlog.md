@@ -55,13 +55,13 @@
 - 2026-07-19: WAICO（World Artificial Intelligence Cooperation Organization・世界人工知能協力機構）設立（2026年7月16日調印）・29か国が設立協定に署名・本部は上海・アジア12か国・アフリカ10か国が中心・米国・欧州主要国・日本は不参加・国連事務総長グテーレス氏出席・中国外相王毅氏が調印・習近平「AIは一国のソロ演奏でなく国際協力の交響楽であるべき」・開発途上国に5,000人分のAI研修機会を提供予定・WAIC 2026（世界人工知能会議）と同時期・AIガバナンスの米中二極化が鮮明に（出典：Al Jazeera / CNBC / Xinhua / CGTN / thesun.ng・2026年7月16〜17日）
 - 2026-07-20: Gemini 3.5 Pro 3度目の延期（2026年7月16日報道）・2026年5月のGoogle I/O 2026で予告・6月GA目標から3回連続未達・ハルシネーション頻発・再帰ツール呼び出しとSVG生成で構造的欠陥・競合（GPT-5.6）比でスコア不足・Alphabet株約4%下落（2026年7月16日）・「Gemini 3.6 Flash」をつなぎリリースとして検討との報道・次のリリース目標日は未発表（出典：9to5Google / Bloomberg / TechTimes / BusinessToday・2026年7月16〜17日）
 - 2026-07-21: Atlas 950 SuperPoD（WAIC 2026・上海・2026年7月16〜20日展示）・Ascend 950チップ×1,024〜最大8,192個構成・NVIDIA NVL144比6.7倍の計算性能を公称・1 EFLOPS FP8 / 2 EFLOPS FP4（公称）・Lingquプロトコルによるチップ間接続（TB級帯域・3μs遅延・公称）・Ascend 950PRは2026年4月から量産開始・韓国市場での2026年Q4展開計画報道・米輸出規制に対抗する独自AI半導体戦略・第三者検証は未実施（2026年7月時点）（出典：Huawei Central / Seoul Economic Daily / TrendForce / Tom's Hardware・2026年7月）
+- 2026-07-24: Gemini 3.6 Flash / 3.5 Flash-Lite / 3.5 Flash Cyber 同時リリース（2026年7月21日）・3.6 Flashはコーディング正答率37%→49%（DeepSWE+12pt）・PC操作精度78.4%→83.0%・出力トークン−17%・出力料金$9.00→$7.50（100万トークン・公式要確認）・知識カットオフ2025年1月→2026年3月・1Mトークンコンテキスト・3.5 Flash-Liteは最低コスト設計・3.5 Flash Cyberはセキュリティ脆弱性発見特化・Gemini 4の事前学習開始を同日予告・Gemini 3.5 Proは今回も未リリース（出典：TechCrunch / 9to5Google / GCN / Tech Insider / quasa.io・2026年7月21日）
 
 ## 未解説の候補トピック（今後の参考）
 
 - xAI Grok 4.3 Beta（2026年4月）：動画・スライド・音声API対応のマルチモーダル推論（※Grok 4.5解説済みにつき優先度低）
 - Microsoft Copilot Enterpriseセキュリティ脆弱性（CVE-2026-42824）：悪意あるリンク1クリックでデータ流出・2FAコード・メール・会議情報が窃取可能
 - Google Gemini 3.5 Flash詳報：市場シェア・Intelligence Index・284トークン/秒の生成速度
-- Gemini 3.6 Flash（つなぎリリース候補・2026年7月報道）：Gemini 3.5 Pro 遅延の代替として社内検討中・公式発表なし・内容は公式で要確認（出典：TechTimes・2026年7月16日）
 - AI×医療（創薬・診断）最新動向：製薬大手とAI企業の提携が相次ぐ
 - AI半導体競争：AMD・Intelの対抗策と次世代GPU市場
 - 日本のAI活用事例：製造業・金融・官公庁での実装事例
