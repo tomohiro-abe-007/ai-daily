@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-07-24</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #1e7a5a 0%, #0d4632 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #1e7a5a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.blue   { border-left-color: #1e5a7a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.purple { border-left-color: #7a4a9e; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #1e7a5a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  .type-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .type-grid { grid-template-columns: 1fr; } }
+  .type-card {
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-size: 0.86rem;
+    line-height: 1.65;
+  }
+  .type-card.main {
+    background: #e6f5ee;
+    border: 2px solid #1e7a5a;
+  }
+  .type-card.sub {
+    background: #fbe9e9;
+    border: 2px solid #b54040;
+  }
+  .type-card .tl {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+  }
+  .type-card.main .tl { color: #0d4632; }
+  .type-card.sub .tl  { color: #7a2020; }
+  .type-card .tv { font-size: 1.0rem; font-weight: 700; margin-bottom: 6px; }
+  .type-card.main .tv { color: #1e7a5a; }
+  .type-card.sub .tv  { color: #b54040; }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 14px 10px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat .sl { font-size: 0.67rem; color: #888; margin-bottom: 3px; }
+  .stat .sv { font-size: 1.5rem; font-weight: 700; color: #1e7a5a; line-height: 1.1; }
+  .stat .su { font-size: 0.7rem; color: #666; margin-top: 2px; }
+
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #1e7a5a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+  .f-arrow { color: #1e7a5a; font-size: 1.1rem; margin-left: 14px; margin-bottom: 4px; }
+
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  .prompt-box {
+    background: #f0f5ff;
+    border: 2px solid #4a6aae;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 12px 0;
+    font-size: 0.84rem;
+    line-height: 1.85;
+    color: #1a2a4a;
+  }
+  .prompt-box .ph {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #4a6aae;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+  .prompt-box .fill {
+    background: #d0e0ff;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-weight: 700;
+    color: #0a2a6e;
+  }
+
+  .info {
+    background: #e6f5ee;
+    border-left: 4px solid #1e7a5a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #0d4632;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #7a4010;
+  }
+
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #1e7a5a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+
+  .badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 8px;
+    margin-right: 4px;
+    vertical-align: middle;
+  }
+  .badge.law   { background: #1e7a5a; color: white; }
+  .badge.ai    { background: #4a6aae; color: white; }
+  .badge.tip   { background: #4a9e6a; color: white; }
+  .badge.warn  { background: #c8884a; color: white; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #1e7a5a; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #1e7a5a; }
+
+  .flow-h {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 14px 0;
+  }
+  .flow-box {
+    background: white;
+    border: 2px solid #1e7a5a;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 0.81rem;
+    text-align: center;
+    line-height: 1.45;
+    color: #0d4632;
+    font-weight: 600;
+  }
+  .flow-arrow {
+    color: #1e7a5a;
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+  @media (max-width: 540px) {
+    .flow-h { flex-direction: column; align-items: flex-start; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+
+  .matrix {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.83rem;
+  }
+  .matrix th {
+    background: #0d4632;
+    color: white;
+    padding: 8px 12px;
+    text-align: center;
+    font-weight: 600;
+  }
+  .matrix td {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    vertical-align: top;
+    line-height: 1.55;
+  }
+  .matrix .row-head {
+    background: #e6f5ee;
+    font-weight: 700;
+    color: #0d4632;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .matrix .ok  { color: #4a9e6a; font-weight: 700; }
+  .matrix .ng  { color: #b54040; font-weight: 700; }
+  .matrix .mid { color: #c8884a; font-weight: 700; }
+  .matrix-wrap { overflow-x: auto; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Header -->
+<div class="header">
+  <div class="meta">📅 1人法人スタート 最新トピック &nbsp;2026-07-24</div>
+  <h1>💴 赤字でも毎年7万円？<br>法人住民税「均等割」の正体を図解</h1>
+  <div class="desc">
+    <span class="htag">法人住民税</span>
+    <span class="htag">均等割</span>
+    <span class="htag">資本金1000万円以下</span>
+    <span class="htag">令和8年度</span>
+    <br>
+    「今期は赤字だから税金はゼロのはず」と思っていませんか？ 実は<span class="hl">利益が出ていなくても、会社が存在するだけで毎年必ずかかる税金</span>があります。それが法人住民税の「均等割」です。1人社長でも例外なく対象になるこの税金の仕組みを、やさしく整理します。
+  </div>
+</div>
+
+<!-- Section 1: そもそも均等割とは -->
+<div class="card">
+  <div class="sec-title">🤔 「均等割」って何？ なぜ赤字でもかかるの？</div>
+  <p>法人住民税は、会社の事務所がある<strong>都道府県</strong>と<strong>市区町村</strong>に納める税金です（東京23区は特別区として都にまとめて納付）。この法人住民税は、実は2つの部分に分かれています。</p>
+  <p style="margin-top:10px;">一方の「法人税割」は<strong>利益（法人税額）に連動</strong>する税金なので、赤字なら基本的にゼロです。しかしもう一方の「均等割」は、<strong>利益の有無に関係なく</strong>、会社がそこに存在している（事務所・事業所がある）ことそのものに対してかかる、いわば「会社の存在税」のような性格の税金です。だから赤字決算の年でも、均等割だけは必ず納める必要があります。</p>
+
+  <div class="type-grid" style="margin-top:14px;">
+    <div class="type-card sub">
+      <div class="tl">😰 均等割</div>
+      <div class="tv">赤字でもかかる</div>
+      資本金等の額・従業員数で決まる<strong>定額</strong>。利益がゼロでも1円も減らない。
+    </div>
+    <div class="type-card main">
+      <div class="tl">😌 法人税割</div>
+      <div class="tv">赤字ならゼロ</div>
+      法人税額に税率をかけて計算。赤字で法人税がゼロなら、こちらもゼロになる。
+    </div>
+  </div>
+
+  <div class="warn" style="margin-top:12px;">
+    ⚠️ 「今期は利益が出なかったから納税はナシ」と思い込んで均等割の納付を忘れ、期限後に気づいて延滞金がついた…という新設法人はよくあります。赤字でも納付書は届くと覚えておきましょう。
+  </div>
+</div>
+
+<!-- Section 2: 具体的な金額 -->
+<div class="card blue">
+  <div class="sec-title">💰 1人社長の会社なら、年間いくら？</div>
+  <p>均等割の金額は「資本金等の額」と「従業員数」で決まります。新設したばかりの1人法人（資本金1,000万円以下・従業員50人以下）の場合、標準税率では次の金額になります。</p>
+
+  <div class="stats-row" style="margin-top:14px;">
+    <div class="stat">
+      <div class="sl">都道府県民税<br>均等割</div>
+      <div class="sv">20,000円</div>
+      <div class="su">道府県・都に納付</div>
+    </div>
+    <div class="stat">
+      <div class="sl">市町村民税<br>均等割</div>
+      <div class="sv">50,000円</div>
+      <div class="su">市区町村に納付</div>
+    </div>
+    <div class="stat">
+      <div class="sl">年間合計</div>
+      <div class="sv">70,000円</div>
+      <div class="su">最低ライン</div>
+    </div>
+  </div>
+
+  <div class="info" style="margin-top:12px;">
+    💡 東京23区内の場合は、都道府県分と市町村分をまとめて「都民税」として東京都に一括で納めます（合計は同じく年7万円が標準）。23区外・他の道府県では、道府県と市区町村それぞれに別々に納付します。
+  </div>
+
+  <div class="source">
+    出典：東京都主税局「法人事業税・法人都民税」<a href="https://www.tax.metro.tokyo.lg.jp/shitsumon/work/a1" target="_blank">https://www.tax.metro.tokyo.lg.jp/shitsumon/work/a1</a>／総務省「地方税制度：法人住民税」<a href="https://www.soumu.go.jp/main_sosiki/jichi_zeisei/czaisei/czaisei_seido/150790_08.html" target="_blank">https://www.soumu.go.jp/main_sosiki/jichi_zeisei/czaisei/czaisei_seido/150790_08.html</a>（地方税法に基づく標準税率、令和8年度時点）
+  </div>
+</div>
+
+<!-- Section 3: 資本金・従業員数で変わる -->
+<div class="card orange">
+  <div class="sec-title">📊 会社が大きくなると、均等割も上がる</div>
+  <p>均等割は資本金等の額が大きいほど、また従業員数が多いほど、段階的に金額が上がっていく仕組みです。新設1人法人の資本金の目安と比べてみましょう。</p>
+
+  <div class="matrix-wrap">
+  <table class="matrix" style="margin-top:12px;">
+    <tr>
+      <th>資本金等の額</th>
+      <th>都道府県民税</th>
+      <th>市町村民税</th>
+      <th>年間合計</th>
+    </tr>
+    <tr>
+      <td class="row-head">1,000万円以下<br><span style="font-weight:400;">（従業員50人以下）</span></td>
+      <td class="ok">20,000円</td>
+      <td class="ok">50,000円</td>
+      <td><strong>70,000円</strong></td>
+    </tr>
+    <tr>
+      <td class="row-head">1,000万円超<br>1億円以下<br><span style="font-weight:400;">（従業員50人以下）</span></td>
+      <td class="mid">50,000円</td>
+      <td class="mid">130,000円</td>
+      <td><strong>180,000円</strong></td>
+    </tr>
+  </table>
+  </div>
+
+  <div class="warn" style="margin-top:12px;">
+    ⚠️ 多くの新設1人法人が資本金を「1,000万円未満」に設定するのは、この均等割の段差に加えて、消費税の設立2期免税の要件にも関わるためです（消費税の免税判定は別テーマなので、資本金額は税理士と一緒に慎重に決めましょう）。
+  </div>
+
+  <div class="source">
+    出典：総務省「地方税制度：法人住民税」<a href="https://www.soumu.go.jp/main_sosiki/jichi_zeisei/czaisei/czaisei_seido/150790_08.html" target="_blank">https://www.soumu.go.jp/main_sosiki/jichi_zeisei/czaisei/czaisei_seido/150790_08.html</a>（地方税法に基づく標準税率、令和8年度時点。自治体によっては均等割にも標準税率より高い「超過税率」を設定している場合があるため、本店所在地の自治体で必ず確認）
+  </div>
+</div>
+
+<!-- Section 4: いつ・どう納めるか -->
+<div class="card">
+  <div class="sec-title">🗓️ いつ・どうやって納めるの？</div>
+  <p>個人の住民税のように役所から一方的に金額が通知される「賦課課税」ではなく、法人住民税は<strong>自分で計算して申告し、納付する「申告納付」方式</strong>です。決算のたびに、法人税・消費税の申告と同じタイミングで手続きします。</p>
+
+  <div class="flow-h" style="margin-top:14px;">
+    <div class="flow-box">📅 ①<br>決算日<br>（事業年度終了）</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-box">🧮 ②<br>決算を確定<br>法人税・住民税を計算</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-box">📮 ③<br>都道府県・市区町村へ<br>申告書を提出</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-box">💳 ④<br>均等割を含めて<br>納付</div>
+  </div>
+
+  <div class="info" style="margin-top:12px;">
+    💡 提出・納付の期限は原則「決算日の翌日から2か月以内」（税務署への申告期限延長の届出をしている場合は3か月以内など、法人税の扱いに準じます）。均等割だけ別に払うのではなく、法人住民税の申告書の中でまとめて計算・納付する点を覚えておきましょう。
+  </div>
+
+  <div class="warn" style="margin-top:12px;">
+    ⚠️ 設立1期目・決算月変更などで事業年度が12か月に満たない場合、均等割は月割（1か月未満切り捨て、1か月以上は切り上げ）で計算されます。「設立から3か月しか経っていないのに満額請求された」と慌てないよう、月割の仕組みも頭に入れておくと安心です。
+  </div>
+</div>
+
+<!-- Section 5: AI prompt -->
+<div class="card purple">
+  <div class="sec-title">🤖 生成AIに均等割の見込み額を整理してもらうプロンプト例</div>
+  <p>均等割の正確な金額・適用税率は本店所在地の自治体（超過税率の有無など）によって変わるため、AIには<span class="hl">概算の整理・確認リストづくり</span>までを任せ、<span class="hl">最終確認は税理士または自治体窓口</span>で行いましょう。</p>
+
+  <div class="prompt-box" style="margin-top:14px;">
+    <div class="ph">🤖 プロンプト例：均等割の見込み額と確認事項の整理</div>
+    私は1人社長の新設法人です。資本金は<span class="fill">【金額】</span>円、従業員数は<span class="fill">【人数】</span>人、本店所在地は<span class="fill">【都道府県・市区町村】</span>です。決算日は<span class="fill">【月日】</span>で、設立日は<span class="fill">【設立日】</span>です。<br>
+    <br>
+    1. 標準税率を前提にした場合の法人住民税「均等割」の概算年額を、都道府県分・市区町村分に分けて教えてください<br>
+    2. 設立初年度は事業年度が12か月に満たないため月割計算になる旨を踏まえ、注意点を整理してください<br>
+    3. 本店所在地の自治体で均等割に「超過税率」が設定されていないか確認する際、どこに問い合わせればよいか教えてください<br>
+    ※あくまで概算の整理としてお願いします。正確な税額・申告書の作成は、必ず税理士または本店所在地の都道府県・市区町村の税務担当窓口に確認します。
+  </div>
+</div>
+
+<!-- Section 6: summary -->
+<div class="card">
+  <div class="sec-title">📝 今日のまとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">①</span>法人住民税は「均等割」と「法人税割」の2本立てで、<span class="hl">均等割は赤字でも必ずかかる</span>定額の税金。</li>
+    <li><span class="n">②</span>資本金1,000万円以下・従業員50人以下の1人法人なら、標準税率で<span class="hlg">都道府県2万円＋市区町村5万円＝年間7万円</span>が目安。</li>
+    <li><span class="n">③</span>資本金や従業員数が増えると<span class="hl">段階的に金額が上がる</span>仕組みになっている。</li>
+    <li><span class="n">④</span>均等割は<span class="hl">法人税・消費税の申告と同じタイミングで自分で申告・納付</span>する（決算日の翌日から原則2か月以内）。</li>
+    <li><span class="n">⑤</span>設立初年度など事業年度が12か月に満たない場合は<span class="hl">月割計算</span>になる点も覚えておく。</li>
+  </ul>
+</div>
+
+<!-- Disclaimer -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報提供を目的としており、個別の税務・法務の判断を代わるものではありません。
+  法人住民税・均等割の具体的な税額や超過税率の有無は、会社の状況（資本金等の額・従業員数・事業年度の長さ）や本店所在地の自治体によって異なります。
+  具体的な判断は、必ず税理士または本店所在地の都道府県・市区町村の税務担当窓口にご相談ください。
+  制度・税率は改正されることがあります。最新情報は総務省公式サイト（<a href="https://www.soumu.go.jp/" target="_blank">https://www.soumu.go.jp/</a>）・本店所在地の自治体公式サイトでご確認ください。<br>
+  本記事の内容の基準年度：令和8年度（2026年度）、地方税法に基づく標準税率。令和8年7月時点の情報。
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>📚 <a href="index.html">バックナンバー一覧へ</a> &nbsp;&middot;&nbsp; 毎朝更新</p>
+</div>
+
+</div>
+</body>
+</html>
