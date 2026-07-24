@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI動画制作 最新トピック 2026-07-25</title>
+<style>
+  :root {
+    --bg: #ece8e1;
+    --card: #faf6ec;
+    --dark: #1a3a5c;
+    --dark2: #1a5c3a;
+    --accent: #2a5c8a;
+    --accent2: #c85a00;
+    --text: #2a3540;
+    --muted: #7c8a82;
+    --border: #e0d8c8;
+    --highlight: #fff3cd;
+    --warn: #8a2020;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, "Hiragino Sans", "Yu Gothic", sans-serif;
+    line-height: 1.75;
+    padding: 20px;
+  }
+  .wrap { max-width: 900px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #1a3a5c 0%, #1a5c3a 100%);
+    color: #fff;
+    border-radius: 20px;
+    padding: 44px 32px 36px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(26,58,92,.22);
+    margin-bottom: 24px;
+  }
+  .header-tag {
+    display: inline-block;
+    background: rgba(255,255,255,.18);
+    color: #e0f0e8;
+    border-radius: 20px;
+    padding: 4px 16px;
+    font-size: .82rem;
+    margin-bottom: 14px;
+    letter-spacing: .06em;
+  }
+  .header h1 { font-size: 1.5rem; letter-spacing: .03em; line-height: 1.45; margin-bottom: 10px; }
+  .header .sub { color: #c8dde8; font-size: .95rem; }
+  .header .date { color: #b0e0c0; font-size: .85rem; margin-top: 8px; }
+
+  .card {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 12px rgba(0,0,0,.07);
+    border: 1px solid var(--border);
+  }
+  .card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .point-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .point-card { background: #eef3f8; border-radius: 14px; padding: 20px 16px; text-align: center; border: 1px solid #d4e0ea; }
+  .point-icon { font-size: 2rem; margin-bottom: 8px; }
+  .point-title { font-size: .95rem; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
+  .point-desc { font-size: .83rem; color: var(--muted); line-height: 1.6; }
+
+  .bignum-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 20px; }
+  .bignum-card { background: linear-gradient(135deg, #1a3a5c, #1a5c3a); border-radius: 14px; padding: 18px 12px; text-align: center; color: #fff; }
+  .bignum { font-size: 1.4rem; font-weight: 800; color: #ffe0a0; line-height: 1.2; }
+  .bignum-label { font-size: .72rem; color: #cfe6d8; margin-top: 4px; line-height: 1.5; }
+
+  .step-list { list-style: none; }
+  .step-item { display: flex; gap: 14px; margin-bottom: 16px; align-items: flex-start; }
+  .step-num {
+    width: 34px; height: 34px;
+    background: linear-gradient(135deg, #1a3a5c, #1a5c3a);
+    color: #fff; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: .95rem; flex-shrink: 0; margin-top: 2px;
+  }
+  .step-body { flex: 1; }
+  .step-title { font-weight: 700; color: var(--dark); font-size: .95rem; }
+  .step-desc { font-size: .86rem; color: var(--muted); margin-top: 3px; line-height: 1.65; }
+
+  .chip-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .chip { background: #e8f0ec; color: #1a5c3a; border-radius: 20px; padding: 4px 14px; font-size: .82rem; font-weight: 600; border: 1px solid #c0dccc; }
+
+  .tbl { width: 100%; border-collapse: collapse; font-size: .86rem; }
+  .tbl th { background: #eaf1ea; padding: 10px 10px; text-align: left; border-bottom: 2px solid #c8ddc8; color: var(--dark); font-weight: 700; }
+  .tbl td { padding: 10px 10px; border-bottom: 1px solid var(--border); vertical-align: top; color: var(--text); }
+  .tbl tr:last-child td { border-bottom: none; }
+
+  .note-box { background: var(--highlight); border-left: 4px solid #e8a000; border-radius: 8px; padding: 12px 16px; font-size: .88rem; color: #5a4000; margin-top: 14px; line-height: 1.7; }
+  .warn-box { background: #fde8e4; border-left: 4px solid var(--warn); border-radius: 8px; padding: 12px 16px; font-size: .88rem; color: #6a1414; margin-top: 14px; line-height: 1.7; }
+
+  .summary-list { font-size: .95rem; line-height: 2.2; }
+  .summary-list li { list-style: none; display: flex; align-items: flex-start; gap: 8px; }
+  .summary-list li::before { content: "✅"; flex-shrink: 0; margin-top: 2px; }
+
+  .disclaimer { background: #f0ede8; border-radius: 12px; padding: 16px 20px; font-size: .82rem; color: var(--muted); margin-top: 24px; line-height: 1.7; border: 1px solid #ddd8d0; }
+
+  footer { text-align: center; color: var(--muted); font-size: .82rem; margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border); line-height: 1.9; }
+  footer a { color: var(--accent); }
+
+  /* フロー図 */
+  .flow-row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-top: 6px; }
+  .flow-step { flex: 1; min-width: 120px; background: #eef3f8; border: 1px solid #d4e0ea; border-radius: 10px; padding: 12px 10px; text-align: center; }
+  .flow-step .fs-icon { font-size: 1.3rem; margin-bottom: 4px; }
+  .flow-step .fs-title { font-size: .82rem; font-weight: 700; color: var(--dark); }
+  .flow-step .fs-desc { font-size: .72rem; color: var(--muted); margin-top: 3px; line-height: 1.5; }
+  .flow-arrow { font-size: 1.3rem; color: var(--accent2); font-weight: 700; flex-shrink: 0; }
+  .flow-caption { text-align: center; font-size: .8rem; color: var(--muted); margin-top: 10px; }
+
+  /* 3カテゴリ マトリクス風カード */
+  .cat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 6px; }
+  .cat-card { border-radius: 14px; padding: 18px 14px; text-align: center; color: #fff; }
+  .cat-1 { background: linear-gradient(160deg,#5a8cba,#2a5c8a); }
+  .cat-2 { background: linear-gradient(160deg,#e8a860,#c85a00); }
+  .cat-3 { background: linear-gradient(160deg,#7ab88a,#1a5c3a); }
+  .cat-icon { font-size: 1.8rem; margin-bottom: 6px; }
+  .cat-title { font-size: .95rem; font-weight: 700; }
+  .cat-desc { font-size: .78rem; margin-top: 6px; line-height: 1.6; opacity: .95; }
+  .cat-ex { font-size: .72rem; margin-top: 8px; background: rgba(255,255,255,.18); border-radius: 8px; padding: 6px 8px; line-height: 1.6; }
+
+  /* 持株比率バー */
+  .stake-bar-wrap { margin-top: 14px; }
+  .stake-row { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+  .stake-label { width: 130px; font-size: .82rem; color: var(--dark); font-weight: 700; flex-shrink: 0; }
+  .stake-bar { flex: 1; height: 22px; background: #e4ded0; border-radius: 11px; overflow: hidden; position: relative; }
+  .stake-fill { height: 100%; background: linear-gradient(90deg,#1a3a5c,#1a5c3a); display: flex; align-items: center; justify-content: flex-end; padding-right: 8px; color: #fff; font-size: .74rem; font-weight: 700; }
+
+  @media (max-width: 640px) {
+    .point-grid { grid-template-columns: 1fr; }
+    .bignum-grid { grid-template-columns: 1fr; }
+    .flow-row { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+    .cat-grid { grid-template-columns: 1fr; }
+    .tbl { display: block; overflow-x: auto; white-space: nowrap; }
+    .stake-label { width: 100px; font-size: .76rem; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="header">
+  <div class="header-tag">🛠️ ツール情報回 ── Kling AI 大型資金調達</div>
+  <h1>動画生成AI「Kling」に約4000億円級の投資<br>中国IT大手3社が一斉出資、香港上場も視野に</h1>
+  <div class="sub">「AI動画は儲かるのか？」に、投資家たちが大きな金額で“YES”と答えた出来事</div>
+  <div class="date">2026-07-25 ｜ AI動画制作 最新トピック</div>
+</div>
+
+<div class="card">
+  <div class="card-title">🎯 今日の3ポイント</div>
+  <div class="point-grid">
+    <div class="point-card">
+      <div class="point-icon">📝</div>
+      <div class="point-title">何が起きた？</div>
+      <div class="point-desc">2026年7月2日、動画生成AI「Kling」を運営するKuaishou(快手)が、香港証券取引所に資金調達の届出を提出。Alibaba・Tencent・Baiduなど38社超が出資した</div>
+    </div>
+    <div class="point-card">
+      <div class="point-icon">💴</div>
+      <div class="point-title">金額はどれくらい？</div>
+      <div class="point-desc">調達額は約28億〜30億ドル(報道により幅あり、約4000億円規模)。調達後の企業価値(会社の評価額)はおよそ180億ドル(約2.7兆円)とされる</div>
+    </div>
+    <div class="point-card">
+      <div class="point-icon">📈</div>
+      <div class="point-title">なぜ注目？</div>
+      <div class="point-desc">Kling AIの売上が急拡大中と報じられており、「AI動画ツールは実際にお金を生み始めている」ことを示す代表例になっている</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🔢 数字で見る今回の資金調達</div>
+  <div class="bignum-grid">
+    <div class="bignum-card">
+      <div class="bignum">約28〜30億ドル</div>
+      <div class="bignum-label">今回の調達総額(約4000億円規模、報道により幅あり)</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">約180億ドル</div>
+      <div class="bignum-label">調達後の企業価値(約2.7兆円、post-moneyの評価額)</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">38社以上</div>
+      <div class="bignum-label">参加した投資家の数(Alibaba・Tencent・Baiduなど)</div>
+    </div>
+  </div>
+  <div class="note-box">
+    💡 基準：2026年7月2日、Kuaishouが香港証券取引所(HKEX)に届出。Bloomberg・South China Morning Post・TechNodeなど複数の経済メディアが報道。金額・評価額は報道時点の推定値であり、正式な最終確定額とは異なる場合がある。<strong>最新の正確な数値は各社の公式発表・IR情報で要確認。</strong>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🧩 出資した3タイプの顔ぶれ</div>
+  <div class="cat-grid">
+    <div class="cat-card cat-1">
+      <div class="cat-icon">🏢</div>
+      <div class="cat-title">中国IT大手3社</div>
+      <div class="cat-desc">Alibaba・Tencent・Baidu。自社のクラウドや広告事業とAI動画を組み合わせたい思惑</div>
+      <div class="cat-ex">例：Tencentは今回約2億ドルを拠出したと報道</div>
+    </div>
+    <div class="cat-card cat-2">
+      <div class="cat-icon">🏦</div>
+      <div class="cat-title">投資ファンド勢</div>
+      <div class="cat-desc">CPE・CITIC証券・Zhongguancun Science City Fundなど。将来の株式公開(IPO)による利益を狙う</div>
+      <div class="cat-ex">CPE・Guofang Venture Capital・BlueFive Capitalなどが共同で主導</div>
+    </div>
+    <div class="cat-card cat-3">
+      <div class="cat-icon">📱</div>
+      <div class="cat-title">親会社Kuaishou</div>
+      <div class="cat-desc">動画SNS「快手」の運営元。自社アプリの膨大な動画データとAI動画を組み合わせる戦略</div>
+      <div class="cat-ex">出資が増えた分、Kuaishouの持株比率は下がる(下の図解参照)</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">📊 Kuaishouの持株比率はどう変わる？</div>
+  <p style="font-size:.86rem;color:var(--muted);margin-bottom:8px;">新しい株主(出資者)が増えるほど、もともとの会社の「持ち分の割合」は薄まります。これを図で見てみましょう。</p>
+  <div class="stake-bar-wrap">
+    <div class="stake-row">
+      <div class="stake-label">調達前</div>
+      <div class="stake-bar"><div class="stake-fill" style="width:100%">Kuaishou 100%</div></div>
+    </div>
+    <div class="stake-row">
+      <div class="stake-label">調達後(見込み)</div>
+      <div class="stake-bar"><div class="stake-fill" style="width:68.33%">Kuaishou 約68.33%</div></div>
+    </div>
+  </div>
+  <div class="note-box">
+    💡 一言解説：「持株比率が薄まる(希薄化)」とは、新しい株主に会社の一部を渡す代わりに資金を受け取る仕組みのこと。Kuaishouは資金を得る一方で、会社全体を1人で決められる割合は少し減る。
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">📈 売上急拡大の実例(報道ベース)</div>
+  <table class="tbl">
+    <thead>
+      <tr><th>指標</th><th>2025年12月時点</th><th>2026年半ば時点(報道)</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>ARR(年間経常収益換算)</strong></td>
+        <td>約2.4億ドル</td>
+        <td>約5億ドル前後に急増と報道</td>
+      </tr>
+      <tr>
+        <td><strong>2026年第1四半期の売上</strong></td>
+        <td>─</td>
+        <td>約9600万ドル(前年同期比+300%)</td>
+      </tr>
+      <tr>
+        <td><strong>海外売上の割合</strong></td>
+        <td>─</td>
+        <td>約75%が海外由来と報道</td>
+      </tr>
+      <tr>
+        <td><strong>今後の計画</strong></td>
+        <td>─</td>
+        <td>今回の調達完了から12か月以内を目安に香港証券取引所への新規上場(IPO)を目指すと報道</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="note-box">
+    💡 一言解説：「ARR(Annual Recurring Revenue)」とは、月々の売上を1年分に換算した「安定して稼げている金額の目安」。「IPO(新規上場)」とは、会社の株を証券取引所で誰でも売買できるようにする手続きのこと。
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🛠️ 真似できる具体例：話題のKling AIを実際に試してみる5ステップ</div>
+  <p style="font-size:.88rem;color:var(--muted);margin-bottom:18px;">
+    資金調達のニュースだけで終わらせず、実際に触ってみることで「なぜ投資家がここまで注目するのか」を体感できます(料金・無料枠の有無は変わるため公式ページで要確認)。
+  </p>
+  <ul class="step-list">
+    <li class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-title">公式サイトでアカウント登録する</div>
+        <div class="step-desc">Kling AIの公式サイトにアクセスし、無料お試し枠の有無・利用条件を確認して登録する。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-title">短いクリップを1本生成してみる</div>
+        <div class="step-desc">まずは5〜10秒程度の短い動画を1本作り、生成速度や画質の感触をつかむ。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-title">カメラ・光・構図のキーワードを入れて試す</div>
+        <div class="step-desc">これまでの回で学んだ「ドリー」「ゴールデンアワー」「三分割構図」などの言葉をプロンプトに加えて変化を比べる。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <div class="step-title">透かし・著作権表示を確認する</div>
+        <div class="step-desc">生成された動画にAI生成であることを示す透かしや表示があるかを確認し、扱い方の注意点を把握する。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">5</div>
+      <div class="step-body">
+        <div class="step-title">商用利用前に公式の利用規約を読む</div>
+        <div class="step-desc">仕事や販売目的で使う場合は、料金プラン・商用利用可否・生成物の権利関係を必ず公式ページで確認してから使う。</div>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="card">
+  <div class="card-title">📝 今日のまとめ</div>
+  <ul class="summary-list">
+    <li>2026年7月2日、Kling AIの親会社Kuaishouが香港証券取引所に届出し、Alibaba・Tencent・Baiduなど38社超から約28〜30億ドルを調達したと報じられた</li>
+    <li>調達後の企業価値はおよそ180億ドル(約2.7兆円)で、Kuaishouの持株比率は100%→約68.33%に薄まる見込み</li>
+    <li>Kling AIのARR(年間経常収益換算)は2025年末の約2.4億ドルから2026年半ばには約5億ドル前後に急増と報道され、海外売上比率は約75%とされる</li>
+    <li>今回の調達完了から12か月以内をめどに香港証券取引所への新規上場(IPO)を目指すと報じられている</li>
+    <li>金額・評価額・上場計画はいずれも報道時点の推定であり、確定情報ではないため、続報や公式発表を継続して確認する必要がある</li>
+  </ul>
+</div>
+
+<div class="disclaimer">
+  ⚠️ <strong>免責事項</strong><br>
+  紹介したAIツールの名称・機能・料金・商用利用の可否は頻繁に変わります。ご利用の際は必ず各社の公式ページで最新情報と利用規約をご確認ください。著作権のあるキャラクターや実在人物の肖像を無断で再現する行為は行わないでください。本記事で紹介した資金調達額・評価額・企業計画は2026年7月時点の報道に基づく推定であり、確定情報ではありません。
+</div>
+
+<footer>
+  AI動画制作 最新トピック ─ 2026-07-25 ｜ ツール情報回<br>
+  参考：<a href="https://www.bloomberg.com/news/articles/2026-07-02/china-s-kling-ai-raises-2-billion-to-expand-ai-video-operations" target="_blank" rel="noopener">Alibaba, Tencent Join $2.8 Billion Funding for Kling AI - Bloomberg</a>(基準：2026年7月2日)<br>
+  参考：<a href="https://www.scmp.com/tech/article/3359250/kuaishou-files-us3-billion-kling-ai-funding-round-hong-kong-stock-exchange" target="_blank" rel="noopener">Kuaishou files US$3 billion Kling AI funding round to Hong Kong stock exchange - South China Morning Post</a>(基準：2026年7月2日)<br>
+  参考：<a href="https://technode.com/2026/07/03/tencent-joins-reported-3-billion-funding-round-for-kuaishous-kling-ai/" target="_blank" rel="noopener">Tencent joins reported $3 billion funding round for Kuaishou's Kling AI - TechNode</a>(基準：2026年7月3日)<br>
+  参考：<a href="https://techfundingnews.com/kling-ai-closes-3b-round-at-18b-valuation-as-alibaba-and-tencent-back-chinas-sora-rival/" target="_blank" rel="noopener">Kling AI closes $3B round at $18B valuation - Tech Funding News</a>(基準：2026年7月)<br>
+  <a href="index.html" style="color:var(--accent);">← 一覧に戻る</a>
+</footer>
+
+</div>
+</body>
+</html>
