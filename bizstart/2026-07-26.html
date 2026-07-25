@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-07-26</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #1e7a5a 0%, #0d4632 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #1e7a5a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.blue   { border-left-color: #1e5a7a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.purple { border-left-color: #7a4a9e; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #1e7a5a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  .type-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .type-grid { grid-template-columns: 1fr; } }
+  .type-card {
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-size: 0.86rem;
+    line-height: 1.65;
+  }
+  .type-card.main {
+    background: #e6f5ee;
+    border: 2px solid #1e7a5a;
+  }
+  .type-card.sub {
+    background: #fbe9e9;
+    border: 2px solid #b54040;
+  }
+  .type-card .tl {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+  }
+  .type-card.main .tl { color: #0d4632; }
+  .type-card.sub .tl  { color: #7a2020; }
+  .type-card .tv { font-size: 1.0rem; font-weight: 700; margin-bottom: 6px; }
+  .type-card.main .tv { color: #1e7a5a; }
+  .type-card.sub .tv  { color: #b54040; }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 14px 10px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat .sl { font-size: 0.67rem; color: #888; margin-bottom: 3px; }
+  .stat .sv { font-size: 1.5rem; font-weight: 700; color: #1e7a5a; line-height: 1.1; }
+  .stat .su { font-size: 0.7rem; color: #666; margin-top: 2px; }
+
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #1e7a5a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+  .f-arrow { color: #1e7a5a; font-size: 1.1rem; margin-left: 14px; margin-bottom: 4px; }
+
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  .prompt-box {
+    background: #f0f5ff;
+    border: 2px solid #4a6aae;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 12px 0;
+    font-size: 0.84rem;
+    line-height: 1.85;
+    color: #1a2a4a;
+  }
+  .prompt-box .ph {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #4a6aae;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+  .prompt-box .fill {
+    background: #d0e0ff;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-weight: 700;
+    color: #0a2a6e;
+  }
+
+  .info {
+    background: #e6f5ee;
+    border-left: 4px solid #1e7a5a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #0d4632;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #7a4010;
+  }
+
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #1e7a5a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+
+  .badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 8px;
+    margin-right: 4px;
+    vertical-align: middle;
+  }
+  .badge.law   { background: #1e7a5a; color: white; }
+  .badge.ai    { background: #4a6aae; color: white; }
+  .badge.tip   { background: #4a9e6a; color: white; }
+  .badge.warn  { background: #c8884a; color: white; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #1e7a5a; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #1e7a5a; }
+
+  .flow-h {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 14px 0;
+  }
+  .flow-box {
+    background: white;
+    border: 2px solid #1e7a5a;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 0.81rem;
+    text-align: center;
+    line-height: 1.45;
+    color: #0d4632;
+    font-weight: 600;
+  }
+  .flow-arrow {
+    color: #1e7a5a;
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+  @media (max-width: 540px) {
+    .flow-h { flex-direction: column; align-items: flex-start; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+
+  .matrix {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.83rem;
+  }
+  .matrix th {
+    background: #0d4632;
+    color: white;
+    padding: 8px 12px;
+    text-align: center;
+    font-weight: 600;
+  }
+  .matrix td {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    vertical-align: top;
+    line-height: 1.55;
+  }
+  .matrix .row-head {
+    background: #e6f5ee;
+    font-weight: 700;
+    color: #0d4632;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .matrix .ok  { color: #4a9e6a; font-weight: 700; }
+  .matrix .ng  { color: #b54040; font-weight: 700; }
+  .matrix .mid { color: #c8884a; font-weight: 700; }
+  .matrix-wrap { overflow-x: auto; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Header -->
+<div class="header">
+  <div class="meta">📅 1人法人スタート 最新トピック &nbsp;2026-07-26</div>
+  <h1>💻 紙の申告書、卒業できます<br>e-Tax・eLTAXで電子申告を始める方法を図解</h1>
+  <div class="desc">
+    <span class="htag">e-Tax</span>
+    <span class="htag">eLTAX</span>
+    <span class="htag">電子申告</span>
+    <span class="htag">利用者識別番号</span>
+    <br>
+    これまで法人税・法人住民税・法人事業税の仕組みを解説してきましたが、実際に申告書を<span class="hl">「どうやって」提出するか</span>はまだ扱っていませんでした。今日は税務署へ行かなくても申告できる仕組み、国税用の<span class="hl">「e-Tax」</span>と地方税用の<span class="hl">「eLTAX（エルタックス）」</span>の違いと始め方を、やさしく整理します。
+  </div>
+</div>
+
+<!-- Section 1: e-Tax と eLTAX の違い -->
+<div class="card">
+  <div class="sec-title">🤔 「e-Tax」と「eLTAX」って何が違うの？</div>
+  <p>どちらもインターネット経由で税金の申告・納付ができる仕組みですが、<strong>担当している税金の種類（国税か地方税か）</strong>が違います。1人社長の会社は、決算のたびにこの2つを両方とも使うことになります。</p>
+
+  <div class="type-grid" style="margin-top:14px;">
+    <div class="type-card main">
+      <div class="tl">🏛️ e-Tax（イータックス）</div>
+      <div class="tv">国税を電子申告</div>
+      運営は<strong>国税庁</strong>。法人税・消費税・地方法人税など<strong>国に納める税金</strong>の申告・納税に使う。
+    </div>
+    <div class="type-card sub">
+      <div class="tl">🏢 eLTAX（エルタックス）</div>
+      <div class="tv">地方税を電子申告</div>
+      運営は<strong>地方税共同機構</strong>。法人住民税・法人事業税など<strong>都道府県・市区町村に納める税金</strong>の申告・納税に使う。
+    </div>
+  </div>
+
+  <div class="info" style="margin-top:12px;">
+    💡 「税務署に出す申告書＝e-Tax」「都道府県・市区町村に出す申告書＝eLTAX」と覚えると整理しやすいです。窓口が別なので、利用者登録もそれぞれ別々に行う必要があります。
+  </div>
+
+  <div class="source">
+    出典：国税庁「【e-Tax】国税電子申告・納税システム」<a href="https://www.e-tax.nta.go.jp/" target="_blank">https://www.e-tax.nta.go.jp/</a>／地方税共同機構「eLTAX 地方税ポータルシステム」<a href="https://www.eltax.lta.go.jp/" target="_blank">https://www.eltax.lta.go.jp/</a>（令和8年7月時点）
+  </div>
+</div>
+
+<!-- Section 2: 義務？任意？ -->
+<div class="card blue">
+  <div class="sec-title">📊 電子申告は義務？ それとも任意？</div>
+  <p>電子申告には「義務化されている法人」と「任意の法人」があります。基準になるのは<strong>資本金の額</strong>です。</p>
+
+  <div class="stats-row" style="margin-top:14px;">
+    <div class="stat">
+      <div class="sl">義務化の<br>資本金基準</div>
+      <div class="sv">1億円超</div>
+      <div class="su">これを超える法人が対象</div>
+    </div>
+    <div class="stat">
+      <div class="sl">義務化の<br>開始事業年度</div>
+      <div class="sv">令和2年4月<br>1日以後</div>
+      <div class="su">に開始する事業年度から</div>
+    </div>
+    <div class="stat">
+      <div class="sl">1人社長の会社の<br>多くは</div>
+      <div class="sv">任意</div>
+      <div class="su">資本金1億円以下が大半</div>
+    </div>
+  </div>
+
+  <div class="info" style="margin-top:12px;">
+    💡 資本金1億円超の大法人・相互会社・投資法人などは、法人税・地方法人税・消費税について<span class="hl">確定申告・中間申告・修正申告のすべてを電子申告しなければならない</span>と法律で決まっています。一方、資本金1億円以下の中小法人（1人社長の会社の多くはこちら）は、電子申告か紙の申告かを<strong>自分で選べます</strong>。
+  </div>
+
+  <div class="warn" style="margin-top:12px;">
+    ⚠️ 義務化の対象ではなくても、多くの税理士・会計ソフト（freee申告・マネーフォワード クラウド確定申告など）は電子申告を前提に設計されています。24時間（メンテナンス時間を除く）受付・添付書類の一部省略・還付処理の迅速化といったメリットもあるため、実務上は任意の法人でも電子申告を選ぶケースが増えています。
+  </div>
+
+  <div class="source">
+    出典：国税庁 e-Tax「大法人の電子申告の義務化について」<a href="https://www.e-tax.nta.go.jp/hojin/gimuka/index.htm" target="_blank">https://www.e-tax.nta.go.jp/hojin/gimuka/index.htm</a>／同「電子申告の義務化の対象法人となった場合、届出書の提出を行う必要はありますか」<a href="https://www.e-tax.nta.go.jp/toiawase/qa/gimuka/02.htm" target="_blank">https://www.e-tax.nta.go.jp/toiawase/qa/gimuka/02.htm</a>（令和8年7月時点）
+  </div>
+</div>
+
+<!-- Section 3: 始め方5ステップ -->
+<div class="card orange">
+  <div class="sec-title">🪜 始め方を5ステップで図解</div>
+  <p>初めてでも、順番に進めれば迷いません。国税分（e-Tax）と地方税分（eLTAX）で登録の窓口が違う点だけ覚えておきましょう。</p>
+
+  <div style="margin-top:14px;">
+    <div class="f-step">
+      <div class="f-num">1</div>
+      <div class="f-text"><strong>マイナンバーカード</strong>とICカードリーダー、またはスマホの読み取り機能を準備する（もしくは税務署で発行する「ID・パスワード方式」の届出完了通知でも代用可）</div>
+    </div>
+    <div class="f-arrow">⬇</div>
+    <div class="f-step">
+      <div class="f-num">2</div>
+      <div class="f-text">e-Taxで<strong>「開始（変更等）届出書」</strong>をオンライン提出し、16桁の<strong>利用者識別番号</strong>を取得する</div>
+    </div>
+    <div class="f-arrow">⬇</div>
+    <div class="f-step">
+      <div class="f-num">3</div>
+      <div class="f-text">e-Taxソフトや会計・申告ソフトで<strong>法人税・消費税の申告書</strong>を作成し、e-Tax経由で送信する</div>
+    </div>
+    <div class="f-arrow">⬇</div>
+    <div class="f-step">
+      <div class="f-num">4</div>
+      <div class="f-text">eLTAXで<strong>利用届出（新規）</strong>を行って利用者IDを取得し、無料ソフト「PCdesk」などで<strong>住民税・事業税の申告書</strong>を作成・送信する</div>
+    </div>
+    <div class="f-arrow">⬇</div>
+    <div class="f-step">
+      <div class="f-num">5</div>
+      <div class="f-text"><strong>電子納税</strong>（ダイレクト納付・インターネットバンキング・クレジットカード納付等）で納付して完了</div>
+    </div>
+  </div>
+
+  <div class="info" style="margin-top:12px;">
+    💡 顧問税理士がいる場合は、開始届出書の提出や申告書の送信を<strong>代理送信</strong>してもらうこともできます。1人社長が自分だけで行う場合も、会計ソフトの多くはステップ2〜4を画面の案内に沿って進められるようになっています。
+  </div>
+
+  <div class="source">
+    出典：国税庁 e-Tax「ご利用の流れ」<a href="https://www.e-tax.nta.go.jp/start/index.htm" target="_blank">https://www.e-tax.nta.go.jp/start/index.htm</a>／地方税共同機構 eLTAX「PCdeskのご利用方法」<a href="https://www.eltax.lta.go.jp/first/" target="_blank">https://www.eltax.lta.go.jp/first/</a>（令和8年7月時点）
+  </div>
+</div>
+
+<!-- Section 4: 対比表 -->
+<div class="card">
+  <div class="sec-title">📋 e-Tax と eLTAX の違いを一覧で確認</div>
+
+  <div class="matrix-wrap">
+  <table class="matrix" style="margin-top:12px;">
+    <tr>
+      <th>項目</th>
+      <th>e-Tax（国税）</th>
+      <th>eLTAX（地方税）</th>
+    </tr>
+    <tr>
+      <td class="row-head">運営元</td>
+      <td>国税庁</td>
+      <td>地方税共同機構</td>
+    </tr>
+    <tr>
+      <td class="row-head">主な対象税目</td>
+      <td>法人税・地方法人税・消費税など</td>
+      <td>法人住民税・法人事業税など</td>
+    </tr>
+    <tr>
+      <td class="row-head">登録手続き</td>
+      <td>開始（変更等）届出書 → 利用者識別番号</td>
+      <td>利用届出（新規） → 利用者ID</td>
+    </tr>
+    <tr>
+      <td class="row-head">代表的な受付ソフト</td>
+      <td>e-Taxソフト／各種会計・申告ソフト</td>
+      <td>PCdesk（無料・DL版／WEB版／SP版）</td>
+    </tr>
+  </table>
+  </div>
+
+  <div class="info" style="margin-top:12px;">
+    💡 決算後の申告作業は、この2つの登録を<strong>両方とも1度だけ</strong>済ませておけば、翌期以降は同じ利用者識別番号・利用者IDを使い回せます。設立直後の最初の決算までに準備しておくと、後がぐっと楽になります。
+  </div>
+</div>
+
+<!-- Section 5: AI prompt -->
+<div class="card purple">
+  <div class="sec-title">🤖 生成AIに準備チェックリストを作ってもらうプロンプト例</div>
+  <p>電子申告そのものの操作や税額計算をAIに代行させるのは危険ですが、<span class="hl">「何を、どの順番で準備すればいいか」の整理</span>はAIが得意な領域です。最終的な申告内容の確認は必ず税理士または税務署・都道府県税事務所で行いましょう。</p>
+
+  <div class="prompt-box" style="margin-top:14px;">
+    <div class="ph">🤖 プロンプト例：e-Tax・eLTAX 電子申告の準備チェックリスト</div>
+    私は資本金<span class="fill">【金額】</span>円の1人社長の新設法人です。設立から<span class="fill">【〇か月】</span>が経ち、初めての決算・申告を<span class="fill">【自分で／顧問税理士と一緒に】</span>電子申告で行う予定です。<br>
+    <br>
+    1. e-Taxの利用者識別番号を取得するまでに準備すべきもの（マイナンバーカード等）を順番にリスト化してください<br>
+    2. eLTAXの利用届出（新規）で入力が必要になりそうな項目を、一般的な例で整理してください<br>
+    3. 法人税・消費税（e-Tax）と法人住民税・法人事業税（eLTAX）、それぞれの申告に必要な添付書類の一般的な例を教えてください<br>
+    4. 初めての申告でつまずきやすいポイントを、注意喚起としてまとめてください<br>
+    ※あくまで準備の整理としてお願いします。実際の申告内容・添付書類・税額の確定は、必ず税理士または所轄の税務署・都道府県税事務所に確認します。
+  </div>
+</div>
+
+<!-- Section 6: summary -->
+<div class="card">
+  <div class="sec-title">📝 今日のまとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">①</span><span class="hl">e-Tax＝国税庁</span>が運営する国税（法人税・消費税等）用、<span class="hl">eLTAX＝地方税共同機構</span>が運営する地方税（住民税・事業税等）用と、担当する税金が違う。</li>
+    <li><span class="n">②</span>電子申告が<span class="hlg">義務</span>なのは資本金<span class="hlg">1億円超</span>の大法人など（令和2年4月1日以後開始の事業年度から）。資本金1億円以下の1人社長の会社の多くは<span class="hlg">任意</span>。</li>
+    <li><span class="n">③</span>始め方は「①本人確認の準備 → ②e-Taxの利用者識別番号取得 → ③国税の申告 → ④eLTAXの利用届出 → ⑤地方税の申告と電子納税」の5ステップ。</li>
+    <li><span class="n">④</span>eLTAXの無料ソフト「PCdesk」はDL版・WEB版・SP版があり、住民税・事業税の申告書作成に使える。</li>
+    <li><span class="n">⑤</span>登録は最初の決算までに1度済ませておけば、翌期以降も同じ番号・IDを使い回せる。</li>
+  </ul>
+</div>
+
+<!-- Disclaimer -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報提供を目的としており、個別の税務・法務の判断を代わるものではありません。
+  電子申告の要否・具体的な操作方法・必要書類は、会社の状況（資本金の額・事業年度・税目）によって異なります。
+  具体的な判断や実際の申告手続きは、必ず税理士または所轄の税務署・都道府県税事務所・市区町村役場にご相談ください。
+  制度は改正されることがあります。最新情報は国税庁 e-Tax公式サイト（<a href="https://www.e-tax.nta.go.jp/" target="_blank">https://www.e-tax.nta.go.jp/</a>）・地方税共同機構 eLTAX公式サイト（<a href="https://www.eltax.lta.go.jp/" target="_blank">https://www.eltax.lta.go.jp/</a>）でご確認ください。<br>
+  本記事の内容の基準年度：令和8年度（2026年度）。大法人の電子申告義務化基準（資本金1億円超・令和2年4月1日以後開始事業年度から）を含め、令和8年7月時点の情報。
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>📚 <a href="index.html">バックナンバー一覧へ</a> &nbsp;&middot;&nbsp; 毎朝更新</p>
+</div>
+
+</div>
+</body>
+</html>
