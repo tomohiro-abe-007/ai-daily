@@ -57,6 +57,7 @@
 - 2026-07-21: Atlas 950 SuperPoD（WAIC 2026・上海・2026年7月16〜20日展示）・Ascend 950チップ×1,024〜最大8,192個構成・NVIDIA NVL144比6.7倍の計算性能を公称・1 EFLOPS FP8 / 2 EFLOPS FP4（公称）・Lingquプロトコルによるチップ間接続（TB級帯域・3μs遅延・公称）・Ascend 950PRは2026年4月から量産開始・韓国市場での2026年Q4展開計画報道・米輸出規制に対抗する独自AI半導体戦略・第三者検証は未実施（2026年7月時点）（出典：Huawei Central / Seoul Economic Daily / TrendForce / Tom's Hardware・2026年7月）
 - 2026-07-24: Gemini 3.6 Flash / 3.5 Flash-Lite / 3.5 Flash Cyber 同時リリース（2026年7月21日）・3.6 Flashはコーディング正答率37%→49%（DeepSWE+12pt）・PC操作精度78.4%→83.0%・出力トークン−17%・出力料金$9.00→$7.50（100万トークン・公式要確認）・知識カットオフ2025年1月→2026年3月・1Mトークンコンテキスト・3.5 Flash-Liteは最低コスト設計・3.5 Flash Cyberはセキュリティ脆弱性発見特化・Gemini 4の事前学習開始を同日予告・Gemini 3.5 Proは今回も未リリース（出典：TechCrunch / 9to5Google / GCN / Tech Insider / quasa.io・2026年7月21日）
 - 2026-07-25: DeepSeek V4 正式版・全面商用リリース（2026年7月15日）・V4-Pro（1.6兆パラメータMoE・49B active）・V4-Flash（284B・13B active）・1Mトークンコンテキスト・MITライセンスオープンソース・業界初の峰谷分時計費（時間帯課金）・ピーク時（北京9-12時・14-18時）は2倍・オフピークは格安・旧エンドポイント（deepseek-chat/deepseek-reasoner）2026年7月24日廃止・SWE-bench Verified 80.6%（参考値）・API料金は公式要確認（出典：deepseek.day / TechNode / DeepSeek API公式 / morphllm.com・2026年7月）
+- 2026-07-26: Alibaba Qwen3.8 Max プレビュー公開（2026年7月19日・WAIC 2026 上海）・2.4兆パラメータMoEマルチモーダルモデル・1回の推論で約220億パラメータが動作・最大984Kトークンコンテキスト・128K出力・「Fable 5 に次ぐ2位」と自称（ベンチマーク未公表・2026年7月21日時点）・Token Plan/Qoder/QoderWorkからプレビューアクセス可能・オープンウェイト公開を予告するが時期・ライセンス未定・API料金は公式で要確認（出典：MarkTechPost / TechTimes / FourWeekMBA / Coursiv / emergent.sh・2026年7月）
 
 ## 未解説の候補トピック（今後の参考）
 
