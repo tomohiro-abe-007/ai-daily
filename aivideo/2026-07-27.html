@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI動画制作 最新トピック 2026-07-27</title>
+<style>
+  :root {
+    --bg: #ece8e1;
+    --card: #faf6ec;
+    --dark: #1a3a5c;
+    --dark2: #1a5c3a;
+    --accent: #2a5c8a;
+    --accent2: #c85a00;
+    --text: #2a3540;
+    --muted: #7c8a82;
+    --border: #e0d8c8;
+    --highlight: #fff3cd;
+    --warn: #8a2020;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, "Hiragino Sans", "Yu Gothic", sans-serif;
+    line-height: 1.75;
+    padding: 20px;
+  }
+  .wrap { max-width: 900px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #1a3a5c 0%, #1a5c3a 100%);
+    color: #fff;
+    border-radius: 20px;
+    padding: 44px 32px 36px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(26,58,92,.22);
+    margin-bottom: 24px;
+  }
+  .header-tag {
+    display: inline-block;
+    background: rgba(255,255,255,.18);
+    color: #e0f0e8;
+    border-radius: 20px;
+    padding: 4px 16px;
+    font-size: .82rem;
+    margin-bottom: 14px;
+    letter-spacing: .06em;
+  }
+  .header h1 { font-size: 1.5rem; letter-spacing: .03em; line-height: 1.45; margin-bottom: 10px; }
+  .header .sub { color: #c8dde8; font-size: .95rem; }
+  .header .date { color: #b0e0c0; font-size: .85rem; margin-top: 8px; }
+
+  .card {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 12px rgba(0,0,0,.07);
+    border: 1px solid var(--border);
+  }
+  .card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .point-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .point-card { background: #eef3f8; border-radius: 14px; padding: 20px 16px; text-align: center; border: 1px solid #d4e0ea; }
+  .point-icon { font-size: 2rem; margin-bottom: 8px; }
+  .point-title { font-size: .95rem; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
+  .point-desc { font-size: .83rem; color: var(--muted); line-height: 1.6; }
+
+  .bignum-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 20px; }
+  .bignum-card { background: linear-gradient(135deg, #1a3a5c, #1a5c3a); border-radius: 14px; padding: 18px 12px; text-align: center; color: #fff; }
+  .bignum { font-size: 1.4rem; font-weight: 800; color: #ffe0a0; line-height: 1.2; }
+  .bignum-label { font-size: .72rem; color: #cfe6d8; margin-top: 4px; line-height: 1.5; }
+
+  .step-list { list-style: none; }
+  .step-item { display: flex; gap: 14px; margin-bottom: 16px; align-items: flex-start; }
+  .step-num {
+    width: 34px; height: 34px;
+    background: linear-gradient(135deg, #1a3a5c, #1a5c3a);
+    color: #fff; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: .95rem; flex-shrink: 0; margin-top: 2px;
+  }
+  .step-body { flex: 1; }
+  .step-title { font-weight: 700; color: var(--dark); font-size: .95rem; }
+  .step-desc { font-size: .86rem; color: var(--muted); margin-top: 3px; line-height: 1.65; }
+
+  .chip-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .chip { background: #e8f0ec; color: #1a5c3a; border-radius: 20px; padding: 4px 14px; font-size: .82rem; font-weight: 600; border: 1px solid #c0dccc; }
+
+  .tbl { width: 100%; border-collapse: collapse; font-size: .86rem; }
+  .tbl th { background: #eaf1ea; padding: 10px 10px; text-align: left; border-bottom: 2px solid #c8ddc8; color: var(--dark); font-weight: 700; }
+  .tbl td { padding: 10px 10px; border-bottom: 1px solid var(--border); vertical-align: top; color: var(--text); }
+  .tbl tr:last-child td { border-bottom: none; }
+
+  .note-box { background: var(--highlight); border-left: 4px solid #e8a000; border-radius: 8px; padding: 12px 16px; font-size: .88rem; color: #5a4000; margin-top: 14px; line-height: 1.7; }
+  .warn-box { background: #fde8e4; border-left: 4px solid var(--warn); border-radius: 8px; padding: 12px 16px; font-size: .88rem; color: #6a1414; margin-top: 14px; line-height: 1.7; }
+
+  .summary-list { font-size: .95rem; line-height: 2.2; }
+  .summary-list li { list-style: none; display: flex; align-items: flex-start; gap: 8px; }
+  .summary-list li::before { content: "✅"; flex-shrink: 0; margin-top: 2px; }
+
+  .disclaimer { background: #f0ede8; border-radius: 12px; padding: 16px 20px; font-size: .82rem; color: var(--muted); margin-top: 24px; line-height: 1.7; border: 1px solid #ddd8d0; }
+
+  footer { text-align: center; color: var(--muted); font-size: .82rem; margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border); line-height: 1.9; }
+  footer a { color: var(--accent); }
+
+  /* フロー図 */
+  .flow-row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-top: 6px; }
+  .flow-step { flex: 1; min-width: 120px; background: #eef3f8; border: 1px solid #d4e0ea; border-radius: 10px; padding: 12px 10px; text-align: center; }
+  .flow-step .fs-icon { font-size: 1.3rem; margin-bottom: 4px; }
+  .flow-step .fs-title { font-size: .82rem; font-weight: 700; color: var(--dark); }
+  .flow-step .fs-desc { font-size: .72rem; color: var(--muted); margin-top: 3px; line-height: 1.5; }
+  .flow-arrow { font-size: 1.3rem; color: var(--accent2); font-weight: 700; flex-shrink: 0; }
+  .flow-caption { text-align: center; font-size: .8rem; color: var(--muted); margin-top: 10px; }
+
+  /* 4カテゴリ マトリクス風カード */
+  .cat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 6px; }
+  .cat-card { border-radius: 14px; padding: 16px 10px; text-align: center; color: #fff; }
+  .cat-1 { background: linear-gradient(160deg,#5a8cba,#2a5c8a); }
+  .cat-2 { background: linear-gradient(160deg,#e8a860,#c85a00); }
+  .cat-3 { background: linear-gradient(160deg,#7ab88a,#1a5c3a); }
+  .cat-4 { background: linear-gradient(160deg,#b08ac0,#6a3a8a); }
+  .cat-icon { font-size: 1.6rem; margin-bottom: 6px; }
+  .cat-title { font-size: .86rem; font-weight: 700; }
+  .cat-desc { font-size: .72rem; margin-top: 6px; line-height: 1.6; opacity: .95; }
+  .cat-ex { font-size: .68rem; margin-top: 8px; background: rgba(255,255,255,.18); border-radius: 8px; padding: 5px 6px; line-height: 1.5; }
+
+  @media (max-width: 640px) {
+    .point-grid { grid-template-columns: 1fr; }
+    .bignum-grid { grid-template-columns: 1fr; }
+    .flow-row { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+    .cat-grid { grid-template-columns: 1fr 1fr; }
+    .tbl { display: block; overflow-x: auto; white-space: nowrap; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="header">
+  <div class="header-tag">🛠️ ツール情報回 ── FLUX 3(Black Forest Labs)</div>
+  <h1>画像AI「FLUX」が動画・音声にも進出<br>Black Forest Labs、初の"1つで全部"モデル「FLUX 3」を発表</h1>
+  <div class="sub">画像生成AIの実力派が、いよいよ動画づくりの土俵に本格参戦</div>
+  <div class="date">2026-07-27 ｜ AI動画制作 最新トピック</div>
+</div>
+
+<div class="card">
+  <div class="card-title">🎯 今日の3ポイント</div>
+  <div class="point-grid">
+    <div class="point-card">
+      <div class="point-icon">📢</div>
+      <div class="point-title">何が発表された？</div>
+      <div class="point-desc">2026年7月23日、画像生成AI「FLUX」シリーズを開発するBlack Forest Labsが、同社初の「ネイティブ・マルチモーダル(画像・動画・音声などを1つのAIでまとめて扱えること)」モデル「FLUX 3」を発表した</div>
+    </div>
+    <div class="point-card">
+      <div class="point-icon">🎬</div>
+      <div class="point-title">動画版はどうなる？</div>
+      <div class="point-desc">動画版「FLUX 3 Video」は招待制の早期アクセス(申し込んだ人だけが先に試せる公開方法)として先行スタート。最大20秒のクリップを、セリフ・効果音つきで生成できる</div>
+    </div>
+    <div class="point-card">
+      <div class="point-icon">🔍</div>
+      <div class="point-title">なぜ注目？</div>
+      <div class="point-desc">これまで画像生成が主戦場だったFLUXが動画に本格参入。「画像・動画・音声を別々のツールで用意する」時代から「1つのAIで済ませる」時代への転換点として注目されている</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🔢 FLUX 3 Videoを数字で見る</div>
+  <div class="bignum-grid">
+    <div class="bignum-card">
+      <div class="bignum">最大20秒</div>
+      <div class="bignum-label">1クリップで生成できる動画の長さ(音声つき)</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">3方式</div>
+      <div class="bignum-label">text-to-video／image-to-video／video-to-videoに対応</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">招待制</div>
+      <div class="bignum-label">公式サイト(bfl.ai)から早期アクセスを申請する仕組み</div>
+    </div>
+  </div>
+  <div class="note-box">
+    💡 基準：2026年7月23日発表。TestingCatalog・Tech Times・digitalapplied.comなど複数のメディアが報道。仕様・提供時期は早期アクセス段階の情報であり今後変わる可能性がある。<strong>最新の正確な情報は公式サイト(bfl.ai/models/flux-3)で要確認。</strong>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🧩 FLUX 3ファミリー ── 4つのモデルが役割分担</div>
+  <div class="cat-grid">
+    <div class="cat-card cat-1">
+      <div class="cat-icon">🎥</div>
+      <div class="cat-title">FLUX 3 Video</div>
+      <div class="cat-desc">動画+音声を同時生成。招待制の早期アクセス中</div>
+      <div class="cat-ex">API・限定パートナー向けに先行提供</div>
+    </div>
+    <div class="cat-card cat-2">
+      <div class="cat-icon">🖼️</div>
+      <div class="cat-title">FLUX 3 Image</div>
+      <div class="cat-desc">静止画生成の最新版。「数週間以内」に登場予定と発表</div>
+      <div class="cat-ex">これまでのFLUX.2 Proの後継にあたる位置づけ</div>
+    </div>
+    <div class="cat-card cat-3">
+      <div class="cat-icon">🧑‍💻</div>
+      <div class="cat-title">FLUX 3 Dev</div>
+      <div class="cat-desc">オープンウェイト(誰でも中身をダウンロードして使える)版。2026年後半に提供予定</div>
+      <div class="cat-ex">研究者・開発者が自分の環境で動かせるようになる想定</div>
+    </div>
+    <div class="cat-card cat-4">
+      <div class="cat-icon">🤖</div>
+      <div class="cat-title">FLUX 3 Action</div>
+      <div class="cat-desc">ロボットの動作生成向け。Audiの生産ラインで実証実験中と報道</div>
+      <div class="cat-ex">動画制作とは別分野だが「同じ頭脳」が使われている点が話題</div>
+    </div>
+  </div>
+  <div class="note-box">
+    💡 一言解説：ここでの「モダリティ」とは画像・動画・音声・ロボット動作といった「情報の種類」のこと。FLUX 3はこの複数の種類を1つのモデルの土台で扱えるように設計されている、というのが今回の発表の核心。
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🔄 FLUX 3 Videoの生成の流れ</div>
+  <div class="flow-row">
+    <div class="flow-step">
+      <div class="fs-icon">✍️</div>
+      <div class="fs-title">1. 入力する</div>
+      <div class="fs-desc">テキスト／画像／既存の動画のいずれかを渡す</div>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">
+      <div class="fs-icon">🎞️</div>
+      <div class="fs-title">2. 映像+音声を同時生成</div>
+      <div class="fs-desc">映像と音を別々に作らず、1回の生成でまとめて作る</div>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">
+      <div class="fs-icon">🔊</div>
+      <div class="fs-title">3. セリフ・効果音・環境音</div>
+      <div class="fs-desc">人の声(多言語対応)・効果音・背景の環境音まで一緒に出力</div>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">
+      <div class="fs-icon">🎬</div>
+      <div class="fs-title">4. 最大20秒の完成クリップ</div>
+      <div class="fs-desc">キーフレーム(節目となるコマ)を指定した場面転換にも対応</div>
+    </div>
+  </div>
+  <div class="flow-caption">音声を後から別ツールで足す手間を減らせる点が、これまでの動画生成AIとの違い</div>
+</div>
+
+<div class="card">
+  <div class="card-title">📊 FLUX.2 Pro(前世代) と FLUX 3 の違い</div>
+  <table class="tbl">
+    <thead>
+      <tr><th>比較項目</th><th>FLUX.2 Pro(2025年11月発表)</th><th>FLUX 3(2026年7月23日発表)</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>対応する情報の種類</strong></td>
+        <td>画像のみ</td>
+        <td>画像・動画・音声・ロボット動作の4種</td>
+      </tr>
+      <tr>
+        <td><strong>動画生成</strong></td>
+        <td>非対応</td>
+        <td>最大20秒・音声同期つきで対応(早期アクセス)</td>
+      </tr>
+      <tr>
+        <td><strong>提供状況</strong></td>
+        <td>商用APIとして提供中</td>
+        <td>Video/Actionは招待制、Imageは数週間以内、Dev(オープンウェイト)は2026年後半予定</td>
+      </tr>
+      <tr>
+        <td><strong>アーキテクチャ(設計の土台)</strong></td>
+        <td>画像特化モデル</td>
+        <td>Black Forest Labs初のネイティブ・マルチモーダル設計</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="card">
+  <div class="card-title">🛠️ 真似できる具体例：FLUX 3の登場に備える5ステップ</div>
+  <p style="font-size:.88rem;color:var(--muted);margin-bottom:18px;">
+    FLUX 3 Videoは現時点で招待制のため誰でもすぐ試せるわけではありません。「使える日」に備えて、今からできる準備を5ステップにまとめました(料金・提供開始時期は変わるため公式ページで要確認)。
+  </p>
+  <ul class="step-list">
+    <li class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-title">公式サイトで早期アクセスを申請する</div>
+        <div class="step-desc">bfl.ai/models/flux-3にアクセスし、用途を書いて早期アクセスの申し込みを行う(選考制のため通過するとは限らない)。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-title">今のうちに参考素材(画像)を用意する</div>
+        <div class="step-desc">既存のFLUX(画像生成)などで、動画にしたいキャラクターや商品の参照画像を複数の角度で作っておく。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-title">セリフ・効果音のイメージを台本化しておく</div>
+        <div class="step-desc">音声も同時生成できる強みを活かせるよう、20秒に収まるセリフと効果音・環境音のイメージをメモしておく。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <div class="step-title">キーフレーム(場面転換の節目)を考える</div>
+        <div class="step-desc">20秒の中でどこで場面を切り替えたいか、始まりと終わりのコマをイメージしておくと、使えるようになった時にすぐ試せる。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">5</div>
+      <div class="step-body">
+        <div class="step-title">商用利用の条件を公式ページで確認する</div>
+        <div class="step-desc">早期アクセスの段階では料金体系や商用利用の可否が確定していない場合があるため、使う前に必ず公式の利用規約を確認する。</div>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="card">
+  <div class="card-title">📝 今日のまとめ</div>
+  <ul class="summary-list">
+    <li>2026年7月23日、Black Forest Labsが画像・動画・音声・ロボット動作を1つのモデルで扱う「FLUX 3」を発表した</li>
+    <li>動画版「FLUX 3 Video」は招待制の早期アクセスで先行開始。最大20秒のクリップを音声つきで生成でき、text-to-video/image-to-video/video-to-videoの3方式に対応する</li>
+    <li>FLUX 3ファミリーはVideo(早期アクセス中)・Image(数週間以内)・Dev(オープンウェイト、2026年後半予定)・Action(ロボット向け)の4モデルで構成される</li>
+    <li>これまで画像特化だったFLUXが動画分野に本格参入したことで、「画像・動画・音声を別々のツールで用意する」から「1つのAIでまとめる」流れが一段と進んだ</li>
+    <li>提供時期・料金・商用利用条件は早期アクセス段階の情報であり、今後変更される可能性があるため公式サイトで継続確認が必要</li>
+  </ul>
+</div>
+
+<div class="disclaimer">
+  ⚠️ <strong>免責事項</strong><br>
+  紹介したAIツールの名称・機能・料金・商用利用の可否は頻繁に変わります。ご利用の際は必ず各社の公式ページで最新情報と利用規約をご確認ください。著作権のあるキャラクターや実在人物の肖像を無断で再現する行為は行わないでください。本記事で紹介した発表内容・提供時期は2026年7月時点の報道に基づく情報であり、確定情報ではありません。
+</div>
+
+<footer>
+  AI動画制作 最新トピック ─ 2026-07-27 ｜ ツール情報回<br>
+  参考：<a href="https://www.testingcatalog.com/icymi-black-forest-labs-opens-flux-3-video-early-access/" target="_blank" rel="noopener">ICYMI: Black Forest Labs opens FLUX 3 Video early access - TestingCatalog</a>(基準：2026年7月)<br>
+  参考：<a href="https://www.techtimes.com/articles/321552/20260725/flux-3-launches-black-forest-labs-enters-video-audio-physical-ai-one-model.htm" target="_blank" rel="noopener">FLUX 3 Launches: Black Forest Labs Enters Video, Audio, and Physical AI in One Model - Tech Times</a>(基準：2026年7月)<br>
+  参考：<a href="https://bfl.ai/models/flux-3" target="_blank" rel="noopener">FLUX 3 公式ページ - Black Forest Labs</a>(早期アクセス申込・公式情報)<br>
+  <a href="index.html" style="color:var(--accent);">← 一覧に戻る</a>
+</footer>
+
+</div>
+</body>
+</html>
