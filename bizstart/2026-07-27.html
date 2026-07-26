@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-07-27</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #1e7a5a 0%, #0d4632 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #1e7a5a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.blue   { border-left-color: #1e5a7a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.purple { border-left-color: #7a4a9e; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #1e7a5a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  .type-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .type-grid { grid-template-columns: 1fr; } }
+  .type-card {
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-size: 0.86rem;
+    line-height: 1.65;
+  }
+  .type-card.main {
+    background: #e6f5ee;
+    border: 2px solid #1e7a5a;
+  }
+  .type-card.sub {
+    background: #fbe9e9;
+    border: 2px solid #b54040;
+  }
+  .type-card .tl {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+  }
+  .type-card.main .tl { color: #0d4632; }
+  .type-card.sub .tl  { color: #7a2020; }
+  .type-card .tv { font-size: 1.0rem; font-weight: 700; margin-bottom: 6px; }
+  .type-card.main .tv { color: #1e7a5a; }
+  .type-card.sub .tv  { color: #b54040; }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 14px 10px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat .sl { font-size: 0.67rem; color: #888; margin-bottom: 3px; }
+  .stat .sv { font-size: 1.5rem; font-weight: 700; color: #1e7a5a; line-height: 1.1; }
+  .stat .su { font-size: 0.7rem; color: #666; margin-top: 2px; }
+
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #1e7a5a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+  .f-arrow { color: #1e7a5a; font-size: 1.1rem; margin-left: 14px; margin-bottom: 4px; }
+
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  .prompt-box {
+    background: #f0f5ff;
+    border: 2px solid #4a6aae;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 12px 0;
+    font-size: 0.84rem;
+    line-height: 1.85;
+    color: #1a2a4a;
+  }
+  .prompt-box .ph {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #4a6aae;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+  .prompt-box .fill {
+    background: #d0e0ff;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-weight: 700;
+    color: #0a2a6e;
+  }
+
+  .info {
+    background: #e6f5ee;
+    border-left: 4px solid #1e7a5a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #0d4632;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #7a4010;
+  }
+
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #1e7a5a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+
+  .badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 8px;
+    margin-right: 4px;
+    vertical-align: middle;
+  }
+  .badge.law   { background: #1e7a5a; color: white; }
+  .badge.ai    { background: #4a6aae; color: white; }
+  .badge.tip   { background: #4a9e6a; color: white; }
+  .badge.warn  { background: #c8884a; color: white; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #1e7a5a; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #1e7a5a; }
+
+  .flow-h {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 14px 0;
+  }
+  .flow-box {
+    background: white;
+    border: 2px solid #1e7a5a;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 0.81rem;
+    text-align: center;
+    line-height: 1.45;
+    color: #0d4632;
+    font-weight: 600;
+  }
+  .flow-arrow {
+    color: #1e7a5a;
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+  @media (max-width: 540px) {
+    .flow-h { flex-direction: column; align-items: flex-start; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+
+  .matrix {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.83rem;
+  }
+  .matrix th {
+    background: #0d4632;
+    color: white;
+    padding: 8px 12px;
+    text-align: center;
+    font-weight: 600;
+  }
+  .matrix td {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    vertical-align: top;
+    line-height: 1.55;
+  }
+  .matrix .row-head {
+    background: #e6f5ee;
+    font-weight: 700;
+    color: #0d4632;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .matrix .ok  { color: #4a9e6a; font-weight: 700; }
+  .matrix .ng  { color: #b54040; font-weight: 700; }
+  .matrix .mid { color: #c8884a; font-weight: 700; }
+  .matrix-wrap { overflow-x: auto; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Header -->
+<div class="header">
+  <div class="meta">📅 1人法人スタート 最新トピック &nbsp;2026-07-27</div>
+  <h1>🧑‍🤝‍🧑 その日から書類が3つ増えます<br>初めて人を雇う前に知っておきたいこと</h1>
+  <div class="desc">
+    <span class="htag">就業規則</span>
+    <span class="htag">雇用契約書</span>
+    <span class="htag">労働保険</span>
+    <span class="htag">社会保険</span>
+    <br>
+    これまで社長1人の税務・社会保険を中心に解説してきましたが、事業が育つと必ず来るのが<span class="hl">「初めて人を雇う」</span>場面です。社長1人のときにはなかった書類や届け出が、雇った瞬間に一気に増えます。今日は、雇う<strong>前</strong>に確認しておきたい「就業規則」「雇用契約書」のルールと、雇った<strong>あと</strong>に必要になる届け出の流れを、やさしく整理します。
+  </div>
+</div>
+
+<!-- Section 1: 就業規則 -->
+<div class="card">
+  <div class="sec-title">🤔 就業規則、うちの会社にも要る？</div>
+  <p>就業規則とは、労働時間・賃金・休日などの<strong>職場のルールブック</strong>のこと。作成・届出が法律で義務になるかどうかは、<strong>働く人の人数</strong>で決まります。</p>
+
+  <div class="type-grid" style="margin-top:14px;">
+    <div class="type-card main">
+      <div class="tl">📕 常時10人以上</div>
+      <div class="tv">作成・届出が義務</div>
+      正社員だけでなく<strong>パート・アルバイトも人数に含む</strong>。役員本人や業務委託の個人事業主はカウントしない。所轄の労働基準監督署へ届け出る。
+    </div>
+    <div class="type-card sub">
+      <div class="tl">📗 常時10人未満</div>
+      <div class="tv">法律上の義務なし</div>
+      1人目を雇っても、その時点では作成義務は<strong>発生しない</strong>。ただし厚生労働省も「作成することが望ましい」としており、任意で作るのは自由。
+    </div>
+  </div>
+
+  <div class="stats-row" style="margin-top:14px;">
+    <div class="stat">
+      <div class="sl">義務化の<br>人数基準</div>
+      <div class="sv">10人以上</div>
+      <div class="su">常時使用する労働者数</div>
+    </div>
+    <div class="stat">
+      <div class="sl">根拠となる<br>法律</div>
+      <div class="sv">労基法<br>89条</div>
+      <div class="su">作成・届出義務を規定</div>
+    </div>
+    <div class="stat">
+      <div class="sl">違反した<br>場合</div>
+      <div class="sv">30万円<br>以下の罰金</div>
+      <div class="su">労働基準法120条</div>
+    </div>
+  </div>
+
+  <div class="info" style="margin-top:12px;">
+    💡 1人目を雇う段階では就業規則は義務ではありませんが、後で従業員とのトラブル（休日の数え方、退職の手続きなど）を防ぐために、厚生労働省の「モデル就業規則」を参考に、簡単なものだけでも作っておく1人社長も少なくありません。
+  </div>
+
+  <div class="source">
+    出典：e-Gov法令検索「労働基準法」第89条・第120条<a href="https://laws.e-gov.go.jp/law/322AC0000000049" target="_blank">https://laws.e-gov.go.jp/law/322AC0000000049</a>／厚生労働省「モデル就業規則」<a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/zigyonushi/model/index.html" target="_blank">https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/zigyonushi/model/index.html</a>（令和8年7月時点）
+  </div>
+</div>
+
+<!-- Section 2: 雇用契約書 -->
+<div class="card blue">
+  <div class="sec-title">📄 人数に関係なく必須なのが「雇用契約書」</div>
+  <p>就業規則と違い、<strong>雇用契約書（労働条件通知書）</strong>は人数の要件が一切ありません。<span class="hl">1人でも雇うなら必ず必要</span>です。労働契約を結ぶときに、賃金・労働時間などの労働条件を<strong>書面（電子データでも可）</strong>で渡す義務が、雇う側にあります。</p>
+
+  <div class="warn" style="margin-top:14px;">
+    ⚠️ 2024年4月の改正で明示ルールが変わりました。すべての労働契約について、雇い入れ直後の就業場所・業務内容だけでなく、<strong>その「変更の範囲」</strong>まで明示することが新たに必須になっています。有期契約（契約社員など）の場合は、更新上限の有無・内容や、無期転換に関する事項も追加で明示が必要です。
+  </div>
+
+  <div class="info" style="margin-top:12px;">
+    💡 明示を怠ると就業規則と同じく30万円以下の罰金の対象になり得るほか、「言った・言わない」のトラブルの元になります。厚生労働省の特設サイトに新様式の労働条件通知書のひな形が公開されているので、それをベースに作るのが確実です。
+  </div>
+
+  <div class="source">
+    出典：e-Gov法令検索「労働基準法」第15条<a href="https://laws.e-gov.go.jp/law/322AC0000000049" target="_blank">https://laws.e-gov.go.jp/law/322AC0000000049</a>／厚生労働省「2024年4月から労働条件明示のルールが変わります」<a href="https://muki.mhlw.go.jp/rule.html" target="_blank">https://muki.mhlw.go.jp/rule.html</a>（令和8年7月時点）
+  </div>
+</div>
+
+<!-- Section 3: 届け出の流れ -->
+<div class="card orange">
+  <div class="sec-title">🪜 初めて人を雇ったら発生する届け出を図解</div>
+  <p>社長1人のときは自分の分の社会保険（健康保険・厚生年金）だけで済んでいましたが、従業員を1人でも雇うと、<strong>労働保険（雇用保険・労災保険）</strong>への加入が新たに必要になります。順番に見ていきましょう。</p>
+
+  <div style="margin-top:14px;">
+    <div class="f-step">
+      <div class="f-num">1</div>
+      <div class="f-text"><strong>労働保険 保険関係成立届</strong>を所轄の労働基準監督署へ提出（雇い入れ日の翌日から起算して<strong>10日以内</strong>）。あわせて<strong>雇用保険適用事業所設置届</strong>もハローワークへ提出（同じく10日以内）</div>
+    </div>
+    <div class="f-arrow">⬇</div>
+    <div class="f-step">
+      <div class="f-num">2</div>
+      <div class="f-text"><strong>雇用保険被保険者資格取得届</strong>をハローワークへ提出（資格取得の事実があった日の属する月の<strong>翌月10日まで</strong>）</div>
+    </div>
+    <div class="f-arrow">⬇</div>
+    <div class="f-step">
+      <div class="f-num">3</div>
+      <div class="f-text">従業員分の<strong>健康保険・厚生年金保険 被保険者資格取得届</strong>を年金事務所（協会けんぽの場合）へ提出（資格取得日から<strong>5日以内</strong>）</div>
+    </div>
+    <div class="f-arrow">⬇</div>
+    <div class="f-step">
+      <div class="f-num">4</div>
+      <div class="f-text"><strong>概算保険料</strong>の申告・納付（保険関係成立日の翌日から起算して<strong>50日以内</strong>）で労働保険の手続きが完了</div>
+    </div>
+  </div>
+
+  <div class="info" style="margin-top:12px;">
+    💡 社長本人はすでに健康保険・厚生年金には強制加入していますが、<strong>雇用保険・労災保険は原則対象外</strong>です。上の届け出は基本的に「新しく雇う従業員」の分だと考えると整理しやすいです。
+  </div>
+
+  <div class="source">
+    出典：厚生労働省「労働保険について」<a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/zigyonushi/zigyonushi_hoken.html" target="_blank">https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/zigyonushi/zigyonushi_hoken.html</a>／日本年金機構「就職したとき（健康保険・厚生年金保険の資格取得）の手続き」<a href="https://www.nenkin.go.jp/service/kounen/tekiyo/hihokensha1/20150422.html" target="_blank">https://www.nenkin.go.jp/service/kounen/tekiyo/hihokensha1/20150422.html</a>（令和8年7月時点）
+  </div>
+</div>
+
+<!-- Section 4: 比較表 -->
+<div class="card">
+  <div class="sec-title">📋 4つの届け出を一覧で確認</div>
+
+  <div class="matrix-wrap">
+  <table class="matrix" style="margin-top:12px;">
+    <tr>
+      <th>届け出</th>
+      <th>期限</th>
+      <th>提出先</th>
+    </tr>
+    <tr>
+      <td class="row-head">労働保険 保険関係成立届</td>
+      <td>雇い入れ日の翌日から10日以内</td>
+      <td>労働基準監督署</td>
+    </tr>
+    <tr>
+      <td class="row-head">雇用保険 適用事業所設置届</td>
+      <td>雇い入れ日の翌日から10日以内</td>
+      <td>ハローワーク</td>
+    </tr>
+    <tr>
+      <td class="row-head">雇用保険 被保険者資格取得届</td>
+      <td>資格取得日の属する月の翌月10日まで</td>
+      <td>ハローワーク</td>
+    </tr>
+    <tr>
+      <td class="row-head">健康保険・厚生年金 資格取得届</td>
+      <td>資格取得日から5日以内</td>
+      <td>年金事務所（協会けんぽの場合）</td>
+    </tr>
+    <tr>
+      <td class="row-head">概算保険料の申告・納付</td>
+      <td>保険関係成立日の翌日から50日以内</td>
+      <td>労働局・労基署・金融機関</td>
+    </tr>
+  </table>
+  </div>
+
+  <div class="info" style="margin-top:12px;">
+    💡 期限が10日・翌月10日・5日・50日とバラバラなので、雇い入れ日が決まったらまず<strong>カレンダーに全部書き出す</strong>のがおすすめです。会計・給与ソフトの多くは雇用時のタスクリスト機能を備えています。
+  </div>
+</div>
+
+<!-- Section 5: AI prompt -->
+<div class="card purple">
+  <div class="sec-title">🤖 生成AIに雇用準備チェックリストを作ってもらうプロンプト例</div>
+  <p>労働条件通知書の<span class="hl">たたき台作成</span>や、届け出の<span class="hl">期限を整理したチェックリスト作り</span>はAIが得意な領域です。ただし最終的な労働条件の適法性チェックや、実際の届け出書類の作成は、社会保険労務士や所轄の労働基準監督署・ハローワーク・年金事務所に必ず確認しましょう。</p>
+
+  <div class="prompt-box" style="margin-top:14px;">
+    <div class="ph">🤖 プロンプト例：初めての雇用に向けた準備チェックリスト</div>
+    私は1人社長の新設法人です。<span class="fill">【〇月〇日】</span>に、初めて従業員（<span class="fill">【正社員／パート・アルバイト】</span>、契約期間<span class="fill">【期間の定めなし／〇か月】</span>）を1人雇う予定です。<br>
+    <br>
+    1. 雇い入れ日から逆算して、労働保険・社会保険まわりで必要になる届け出と期限を、日付が近い順にリスト化してください<br>
+    2. 労働条件通知書に記載すべき基本項目（2024年4月改正の「就業場所・業務内容の変更の範囲」を含む）を箇条書きで整理してください<br>
+    3. 初めて人を雇う1人社長が見落としやすいポイントを、注意喚起としてまとめてください<br>
+    ※あくまで準備の整理としてお願いします。労働条件通知書の内容確定や実際の届け出は、必ず社会保険労務士または所轄の労働基準監督署・ハローワーク・年金事務所に確認します。
+  </div>
+</div>
+
+<!-- Section 6: summary -->
+<div class="card">
+  <div class="sec-title">📝 今日のまとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">①</span>就業規則の作成・届出義務は<span class="hlg">常時10人以上</span>（パート・アルバイト含む）を使用する場合に発生。10人未満は義務ではないが任意で作成可能。</li>
+    <li><span class="n">②</span><span class="hlg">雇用契約書（労働条件通知書）は人数に関係なく必須</span>。2024年4月改正で「就業場所・業務内容の変更の範囲」の明示が新たに必要になった。</li>
+    <li><span class="n">③</span>初めて雇うと「①保険関係成立届・雇用保険適用事業所設置届（10日以内）→②雇用保険資格取得届（翌月10日まで）→③社会保険資格取得届（5日以内）→④概算保険料の申告・納付（50日以内）」の順で届け出が発生する。</li>
+    <li><span class="n">④</span>社長本人は雇用保険・労災保険は原則対象外。今回の届け出は基本的に新しく雇う従業員の分。</li>
+    <li><span class="n">⑤</span>期限がバラバラなので、雇い入れ日が決まった時点でカレンダー化しておくと抜け漏れを防げる。</li>
+  </ul>
+</div>
+
+<!-- Disclaimer -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報提供を目的としており、個別の労務・税務・法務の判断を代わるものではありません。
+  就業規則の要否、労働条件通知書の記載内容、各種届け出の要否・期限は、会社の状況（雇用形態・雇い入れ日・従業員数など）によって異なります。
+  具体的な判断や実際の手続きは、必ず社会保険労務士、または所轄の労働基準監督署・公共職業安定所（ハローワーク）・年金事務所にご相談ください。
+  制度は改正されることがあります。最新情報は厚生労働省公式サイト（<a href="https://www.mhlw.go.jp/" target="_blank">https://www.mhlw.go.jp/</a>）・日本年金機構公式サイト（<a href="https://www.nenkin.go.jp/" target="_blank">https://www.nenkin.go.jp/</a>）でご確認ください。<br>
+  本記事の内容の基準年度：令和8年度（2026年度）。2024年4月施行の労働条件明示ルール改正を含め、令和8年7月時点の情報。
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>📚 <a href="index.html">バックナンバー一覧へ</a> &nbsp;&middot;&nbsp; 毎朝更新</p>
+</div>
+
+</div>
+</body>
+</html>
