@@ -58,6 +58,7 @@
 - 2026-07-24: Gemini 3.6 Flash / 3.5 Flash-Lite / 3.5 Flash Cyber 同時リリース（2026年7月21日）・3.6 Flashはコーディング正答率37%→49%（DeepSWE+12pt）・PC操作精度78.4%→83.0%・出力トークン−17%・出力料金$9.00→$7.50（100万トークン・公式要確認）・知識カットオフ2025年1月→2026年3月・1Mトークンコンテキスト・3.5 Flash-Liteは最低コスト設計・3.5 Flash Cyberはセキュリティ脆弱性発見特化・Gemini 4の事前学習開始を同日予告・Gemini 3.5 Proは今回も未リリース（出典：TechCrunch / 9to5Google / GCN / Tech Insider / quasa.io・2026年7月21日）
 - 2026-07-25: DeepSeek V4 正式版・全面商用リリース（2026年7月15日）・V4-Pro（1.6兆パラメータMoE・49B active）・V4-Flash（284B・13B active）・1Mトークンコンテキスト・MITライセンスオープンソース・業界初の峰谷分時計費（時間帯課金）・ピーク時（北京9-12時・14-18時）は2倍・オフピークは格安・旧エンドポイント（deepseek-chat/deepseek-reasoner）2026年7月24日廃止・SWE-bench Verified 80.6%（参考値）・API料金は公式要確認（出典：deepseek.day / TechNode / DeepSeek API公式 / morphllm.com・2026年7月）
 - 2026-07-26: Alibaba Qwen3.8 Max プレビュー公開（2026年7月19日・WAIC 2026 上海）・2.4兆パラメータMoEマルチモーダルモデル・1回の推論で約220億パラメータが動作・最大984Kトークンコンテキスト・128K出力・「Fable 5 に次ぐ2位」と自称（ベンチマーク未公表・2026年7月21日時点）・Token Plan/Qoder/QoderWorkからプレビューアクセス可能・オープンウェイト公開を予告するが時期・ライセンス未定・API料金は公式で要確認（出典：MarkTechPost / TechTimes / FourWeekMBA / Coursiv / emergent.sh・2026年7月）
+- 2026-07-27: Kimi K3 オープンウェイト公開（2026年7月27日・HuggingFace）・2.8兆パラメータMoE（896専門家・16起動・約50Bアクティブ）・1Mトークンコンテキスト・Modified MIT ライセンス（詳細はモデルカードで確認）・MXFP4圧縮でも1.4TB必要（H100 80GB×4〜8枚以上）・vals.ai SWE-bench Verified 93.40%（3位・1位GPT-5.6 Sol 96.20%・2位Fable 5 95.00%）・Program Bench 77.8（1位）・SWE Marathon 42.0（1位）・幻覚リスクのデータ未公表・コーディング特化・APIは継続提供（出典：TechTimes / modelfit.io / techi.com / interconnects.ai / cryptobriefing.com・2026年7月）
 
 ## 未解説の候補トピック（今後の参考）
 
