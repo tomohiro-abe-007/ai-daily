@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-07-28</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #1e7a5a 0%, #0d4632 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #1e7a5a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.blue   { border-left-color: #1e5a7a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.purple { border-left-color: #7a4a9e; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #1e7a5a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  .type-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .type-grid { grid-template-columns: 1fr; } }
+  .type-card {
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-size: 0.86rem;
+    line-height: 1.65;
+  }
+  .type-card.main {
+    background: #e6f5ee;
+    border: 2px solid #1e7a5a;
+  }
+  .type-card.sub {
+    background: #fbe9e9;
+    border: 2px solid #b54040;
+  }
+  .type-card .tl {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+  }
+  .type-card.main .tl { color: #0d4632; }
+  .type-card.sub .tl  { color: #7a2020; }
+  .type-card .tv { font-size: 1.0rem; font-weight: 700; margin-bottom: 6px; }
+  .type-card.main .tv { color: #1e7a5a; }
+  .type-card.sub .tv  { color: #b54040; }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 14px 10px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat .sl { font-size: 0.67rem; color: #888; margin-bottom: 3px; }
+  .stat .sv { font-size: 1.5rem; font-weight: 700; color: #1e7a5a; line-height: 1.1; }
+  .stat .su { font-size: 0.7rem; color: #666; margin-top: 2px; }
+
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #1e7a5a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+  .f-arrow { color: #1e7a5a; font-size: 1.1rem; margin-left: 14px; margin-bottom: 4px; }
+
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  .prompt-box {
+    background: #f0f5ff;
+    border: 2px solid #4a6aae;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 12px 0;
+    font-size: 0.84rem;
+    line-height: 1.85;
+    color: #1a2a4a;
+  }
+  .prompt-box .ph {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #4a6aae;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+  .prompt-box .fill {
+    background: #d0e0ff;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-weight: 700;
+    color: #0a2a6e;
+  }
+
+  .info {
+    background: #e6f5ee;
+    border-left: 4px solid #1e7a5a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #0d4632;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #7a4010;
+  }
+
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #1e7a5a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+
+  .badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 8px;
+    margin-right: 4px;
+    vertical-align: middle;
+  }
+  .badge.law   { background: #1e7a5a; color: white; }
+  .badge.ai    { background: #4a6aae; color: white; }
+  .badge.tip   { background: #4a9e6a; color: white; }
+  .badge.warn  { background: #c8884a; color: white; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #1e7a5a; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #1e7a5a; }
+
+  .flow-h {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 14px 0;
+  }
+  .flow-box {
+    background: white;
+    border: 2px solid #1e7a5a;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 0.81rem;
+    text-align: center;
+    line-height: 1.45;
+    color: #0d4632;
+    font-weight: 600;
+  }
+  .flow-arrow {
+    color: #1e7a5a;
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+  @media (max-width: 540px) {
+    .flow-h { flex-direction: column; align-items: flex-start; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+
+  .matrix {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.83rem;
+  }
+  .matrix th {
+    background: #0d4632;
+    color: white;
+    padding: 8px 12px;
+    text-align: center;
+    font-weight: 600;
+  }
+  .matrix td {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    vertical-align: top;
+    line-height: 1.55;
+  }
+  .matrix .row-head {
+    background: #e6f5ee;
+    font-weight: 700;
+    color: #0d4632;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .matrix .ok  { color: #4a9e6a; font-weight: 700; }
+  .matrix .ng  { color: #b54040; font-weight: 700; }
+  .matrix .mid { color: #c8884a; font-weight: 700; }
+  .matrix-wrap { overflow-x: auto; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Header -->
+<div class="header">
+  <div class="meta">📅 1人法人スタート 最新トピック &nbsp;2026-07-28</div>
+  <h1>🔄 失敗した日は「損した日」じゃない<br>PDCAで失敗を資産に変える回し方</h1>
+  <div class="desc">
+    <span class="htag">代表者のマインド</span>
+    <span class="htag">PDCA</span>
+    <span class="htag">振り返り</span>
+    <span class="htag">事業改善</span>
+    <br>
+    これまで税務や社会保険の手続きを中心に解説してきましたが、今日は少し違う角度から。<span class="hl">1人社長は「失敗を止めてくれる人」が社内にいません。</span>だからこそ、失敗をそのまま忘れるか、次に活かす「資産」に変えるかで、半年後・1年後の会社の姿が大きく変わります。今日は、その仕組み作りとしての<strong>PDCA</strong>（計画→実行→評価→改善を繰り返す仕事の回し方）を、1人法人向けにやさしく整理します。
+  </div>
+</div>
+
+<!-- Section 1 -->
+<div class="card">
+  <div class="sec-title">🤔 なぜ1人社長ほど「失敗の扱い方」が経営力になるのか</div>
+  <p>会社員であれば、うまくいかなかった仕事は上司や同僚が気づいて指摘してくれたり、フォローしてくれたりします。しかし1人社長の会社では、営業も経理も判断も全部自分に返ってきます。<strong>失敗に気づく人も、次に活かす人も自分しかいません。</strong></p>
+  <p style="margin-top:10px;">だからといって、失敗のたびに落ち込んだり、逆になかったことにしたりすると、同じ失敗を何度も繰り返してしまいます。そこで役立つのが<strong>PDCA</strong>という考え方です。<span class="hlg">Plan（計画）→ Do（実行）→ Check（評価・振り返り）→ Action（改善）</span>を順番に回し、また次のPlanに戻る、というシンプルな繰り返しの型です。</p>
+
+  <div class="info" style="margin-top:14px;">
+    💡 PDCAは特定の制度や法律に基づく話ではなく、製造業から広まった一般的な業務改善の考え方です。「難しい理論」ではなく、「思いつき」を「積み重ねられる経験」に変えるための、ただのメモの取り方だと考えるとわかりやすいです。
+  </div>
+</div>
+
+<!-- Section 2: flow -->
+<div class="card orange">
+  <div class="sec-title">🪜 1人法人でPDCAを回す4ステップ</div>
+  <p>大きな計画を立てる必要はありません。<strong>「2〜4週間」くらいの小さな仮説と検証</strong>を繰り返すのが、1人社長には現実的です。</p>
+
+  <div style="margin-top:14px;">
+    <div class="f-step">
+      <div class="f-num">P</div>
+      <div class="f-text"><strong>Plan（計画）：</strong>「今月は◯◯を試す」と、小さく仮説を立てる。例）「新しい問い合わせフォームを試す」「週1回SNSで発信する」</div>
+    </div>
+    <div class="f-arrow">⬇</div>
+    <div class="f-step">
+      <div class="f-num">D</div>
+      <div class="f-text"><strong>Do（実行）：</strong>期間を区切って（2〜4週間が目安）実際にやってみる。途中でやめず、まず期間中はやり切る</div>
+    </div>
+    <div class="f-arrow">⬇</div>
+    <div class="f-step">
+      <div class="f-num">C</div>
+      <div class="f-text"><strong>Check（評価・振り返り）：</strong>数字（件数・時間・売上など）と、感覚（やってみてどうだったか）の両方で振り返る</div>
+    </div>
+    <div class="f-arrow">⬇</div>
+    <div class="f-step">
+      <div class="f-num">A</div>
+      <div class="f-text"><strong>Action（改善）：</strong>「続ける」「やめる」「やり方を変える」のどれかを決めて、次のPlanにつなげる</div>
+    </div>
+  </div>
+
+  <div class="stats-row" style="margin-top:14px;">
+    <div class="stat">
+      <div class="sl">1サイクルの<br>目安期間</div>
+      <div class="sv">2〜4週間</div>
+      <div class="su">1人社長にちょうどいい長さ</div>
+    </div>
+    <div class="stat">
+      <div class="sl">振り返りに<br>使う質問</div>
+      <div class="sv">3つ</div>
+      <div class="su">やった・数字・次はどうする</div>
+    </div>
+    <div class="stat">
+      <div class="sl">記録に<br>かける時間</div>
+      <div class="sv">10分</div>
+      <div class="su">週末や月末にまとめて</div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 3: comparison -->
+<div class="card blue">
+  <div class="sec-title">⚖️ 失敗の扱い方、2つのタイプを比べる</div>
+  <p>同じ「うまくいかなかった経験」でも、扱い方次第でその後がまったく変わります。</p>
+
+  <div class="type-grid" style="margin-top:14px;">
+    <div class="type-card sub">
+      <div class="tl">😞 気持ちで片づけるタイプ</div>
+      <div class="tv">同じ失敗を繰り返しやすい</div>
+      「今回はダメだったな」で終わり、何が原因だったかを言葉にしない。記録が残らないので、半年後には同じ失敗を無自覚に繰り返してしまう。
+    </div>
+    <div class="type-card main">
+      <div class="tl">📝 記録して資産化するタイプ</div>
+      <div class="tv">失敗が次の判断材料になる</div>
+      「何を試して」「結果はどうで」「次はどうするか」を短い記録に残す。数か月分たまると、自分だけの「効く・効かない」の判断基準になっていく。
+    </div>
+  </div>
+
+  <div class="warn" style="margin-top:12px;">
+    ⚠️ 気をつけたいのは「反省しすぎる」ことです。PDCAのCheckは<strong>原因を探すための振り返り</strong>であって、自分を責めるための時間ではありません。「事実」と「感情」は分けて記録するのがコツです。
+  </div>
+</div>
+
+<!-- Section 4: template -->
+<div class="card">
+  <div class="sec-title">🗒️ 10分で書ける「失敗ログ」ミニテンプレート</div>
+  <p>ノートやメモアプリに、この4行だけ書く習慣をつけると、PDCAが自然に回り始めます。</p>
+
+  <ul class="check-list" style="margin-top:12px;">
+    <li><span class="ck">①</span>Plan：何を試すつもりだったか（1行）</li>
+    <li><span class="ck">②</span>Do：実際に何をしたか、いつまでやったか（1行）</li>
+    <li><span class="ck">③</span>Check：結果の数字は？やってみた感覚は？（2行）</li>
+    <li><span class="ck">④</span>Action：続ける／やめる／変える。次はどうするか（1行）</li>
+  </ul>
+
+  <div class="info" style="margin-top:12px;">
+    💡 「Check」を書くときは、まず数字（問い合わせ件数、成約数、かかった時間など）を先に書き、そのあとに感想を書くと、事実と感情がごちゃまぜになりにくいです。
+  </div>
+</div>
+
+<!-- Section 5: AI prompt -->
+<div class="card purple">
+  <div class="sec-title">🤖 生成AIに振り返り（PDCA）を手伝ってもらうプロンプト例</div>
+  <p>1人社長には「振り返り相手」がいません。生成AIに<span class="hl">壁打ち相手</span>（意見をぶつけて考えを整理する相手）になってもらうと、Checkの精度が上がりやすくなります。</p>
+
+  <div class="prompt-box" style="margin-top:14px;">
+    <div class="ph">🤖 プロンプト例：今月のPDCA振り返りを手伝ってもらう</div>
+    私は1人社長です。今月、<span class="fill">【試したこと】</span>を試しました。<br>
+    結果は<span class="fill">【数字・件数など】</span>で、実際にやってみた感覚としては<span class="fill">【うまくいった点／うまくいかなかった点】</span>でした。<br>
+    <br>
+    1. この結果から考えられる「うまくいった要因」「うまくいかなかった要因」をそれぞれ3つずつ挙げてください<br>
+    2. 来月も続けるべきこと、やめるべきこと、やり方を変えるべきことに分けて提案してください<br>
+    3. 次のサイクルで数字を測るなら、何を記録しておくとよいか教えてください<br>
+    ※最終的にどう判断するかは自分で決めます。AIの提案は「考えを整理するたたき台」として使います。
+  </div>
+</div>
+
+<!-- Section 6: summary -->
+<div class="card">
+  <div class="sec-title">📝 今日のまとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">①</span>1人社長は失敗に気づく人も直す人も自分しかいないため、「失敗の扱い方」がそのまま経営力になる。</li>
+    <li><span class="n">②</span>PDCA（<span class="hlg">Plan→Do→Check→Action</span>）は、思いつきを積み重ねられる経験に変えるためのシンプルな繰り返しの型。</li>
+    <li><span class="n">③</span>1人法人では<span class="hlg">2〜4週間の小さなサイクル</span>を回すのが現実的。大きな計画である必要はない。</li>
+    <li><span class="n">④</span>Checkでは「数字」と「感覚」を分けて記録し、反省しすぎず原因を探すことに集中する。</li>
+    <li><span class="n">⑤</span>「Plan・Do・Check・Action」を1行ずつ書くだけの失敗ログを続けると、数か月後には自分だけの判断基準が育つ。</li>
+  </ul>
+</div>
+
+<!-- Disclaimer -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報提供を目的としており、個別の経営判断・税務・法務・労務のアドバイスに代わるものではありません。
+  PDCAは特定の法制度に基づく手法ではなく、業務改善の一般的な考え方として紹介しています。実際の経営判断は、会社の状況に応じて代表者ご自身で行い、必要に応じて税理士・社会保険労務士・中小企業診断士などの専門家にご相談ください。
+  税務・社会保険に関する記述を含む回では、原則として制度・税率・金額の基準年度を明記しています（本記事は令和8年（2026年）7月時点の一般的な考え方の紹介です）。<br>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>📚 <a href="index.html">バックナンバー一覧へ</a> &nbsp;&middot;&nbsp; 毎朝更新</p>
+</div>
+
+</div>
+</body>
+</html>
