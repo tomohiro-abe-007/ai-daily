@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI動画制作 最新トピック 2026-07-28</title>
+<style>
+  :root {
+    --bg: #ece8e1;
+    --card: #faf6ec;
+    --dark: #1a3a5c;
+    --dark2: #1a5c3a;
+    --accent: #2a5c8a;
+    --accent2: #c85a00;
+    --text: #2a3540;
+    --muted: #7c8a82;
+    --border: #e0d8c8;
+    --highlight: #fff3cd;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, "Hiragino Sans", "Yu Gothic", sans-serif;
+    line-height: 1.75;
+    padding: 20px;
+  }
+  .wrap { max-width: 900px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #1a3a5c 0%, #1a5c3a 100%);
+    color: #fff;
+    border-radius: 20px;
+    padding: 44px 32px 36px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(26,58,92,.22);
+    margin-bottom: 24px;
+  }
+  .header-tag {
+    display: inline-block;
+    background: rgba(255,255,255,.18);
+    color: #e0f0e8;
+    border-radius: 20px;
+    padding: 4px 16px;
+    font-size: .82rem;
+    margin-bottom: 14px;
+    letter-spacing: .06em;
+  }
+  .header h1 { font-size: 1.6rem; letter-spacing: .03em; line-height: 1.45; margin-bottom: 10px; }
+  .header .sub { color: #c8dde8; font-size: .95rem; }
+  .header .date { color: #b0e0c0; font-size: .85rem; margin-top: 8px; }
+
+  .card {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 12px rgba(0,0,0,.07);
+    border: 1px solid var(--border);
+  }
+  .card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .point-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .point-card { background: #eef3f8; border-radius: 14px; padding: 20px 16px; text-align: center; border: 1px solid #d4e0ea; }
+  .point-icon { font-size: 2rem; margin-bottom: 8px; }
+  .point-title { font-size: .95rem; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
+  .point-desc { font-size: .83rem; color: var(--muted); line-height: 1.6; }
+
+  .bignum-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-top: 20px; }
+  .bignum-card { background: linear-gradient(135deg, #1a3a5c, #1a5c3a); border-radius: 14px; padding: 16px 8px; text-align: center; color: #fff; }
+  .bignum { font-size: 1.15rem; font-weight: 800; color: #ffe0a0; line-height: 1.2; }
+  .bignum-label { font-size: .68rem; color: #cfe6d8; margin-top: 4px; line-height: 1.5; }
+
+  .step-list { list-style: none; }
+  .step-item { display: flex; gap: 14px; margin-bottom: 16px; align-items: flex-start; }
+  .step-num {
+    width: 34px; height: 34px;
+    background: linear-gradient(135deg, #1a3a5c, #1a5c3a);
+    color: #fff; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: .95rem; flex-shrink: 0; margin-top: 2px;
+  }
+  .step-body { flex: 1; }
+  .step-title { font-weight: 700; color: var(--dark); font-size: .95rem; }
+  .step-desc { font-size: .86rem; color: var(--muted); margin-top: 3px; line-height: 1.65; }
+
+  .tbl { width: 100%; border-collapse: collapse; font-size: .86rem; }
+  .tbl th { background: #eaf1ea; padding: 10px 10px; text-align: left; border-bottom: 2px solid #c8ddc8; color: var(--dark); font-weight: 700; }
+  .tbl td { padding: 10px 10px; border-bottom: 1px solid var(--border); vertical-align: top; color: var(--text); }
+  .tbl tr:last-child td { border-bottom: none; }
+
+  .note-box { background: var(--highlight); border-left: 4px solid #e8a000; border-radius: 8px; padding: 12px 16px; font-size: .88rem; color: #5a4000; margin-top: 14px; line-height: 1.7; }
+
+  .summary-list { font-size: .95rem; line-height: 2.2; }
+  .summary-list li { list-style: none; display: flex; align-items: flex-start; gap: 8px; }
+  .summary-list li::before { content: "✅"; flex-shrink: 0; margin-top: 2px; }
+
+  .disclaimer { background: #f0ede8; border-radius: 12px; padding: 16px 20px; font-size: .82rem; color: var(--muted); margin-top: 24px; line-height: 1.7; border: 1px solid #ddd8d0; }
+
+  footer { text-align: center; color: var(--muted); font-size: .82rem; margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border); line-height: 1.9; }
+  footer a { color: var(--accent); }
+
+  .flow-row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-top: 10px; }
+  .flow-step { flex: 1; min-width: 110px; background: #eef3f8; border: 1px solid #d4e0ea; border-radius: 10px; padding: 12px 10px; text-align: center; }
+  .flow-step.key { background: #fdeee0; border-color: #f0c8a0; }
+  .flow-step .fs-icon { font-size: 1.3rem; margin-bottom: 4px; }
+  .flow-step .fs-title { font-size: .82rem; font-weight: 700; color: var(--dark); }
+  .flow-step .fs-desc { font-size: .72rem; color: var(--muted); margin-top: 3px; line-height: 1.5; }
+  .flow-arrow { font-size: 1.3rem; color: var(--accent2); font-weight: 700; flex-shrink: 0; }
+  .flow-caption { text-align: center; font-size: .8rem; color: var(--muted); margin-top: 10px; }
+
+  .layer-stack { display: flex; flex-direction: column; gap: 8px; margin-top: 12px; }
+  .layer-row { display: flex; align-items: center; gap: 12px; border-radius: 10px; padding: 12px 14px; border: 1px solid var(--border); }
+  .layer-row .lr-icon { font-size: 1.4rem; width: 34px; text-align: center; flex-shrink: 0; }
+  .layer-row .lr-title { font-weight: 700; font-size: .88rem; color: var(--dark); }
+  .layer-row .lr-desc { font-size: .78rem; color: var(--muted); margin-top: 2px; }
+  .layer-front { background: #fdeee0; }
+  .layer-mid { background: #f5eee0; }
+  .layer-back { background: #eef0f3; }
+
+  @media (max-width: 640px) {
+    .point-grid { grid-template-columns: 1fr; }
+    .bignum-grid { grid-template-columns: repeat(2, 1fr); }
+    .flow-row { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="header">
+  <div class="header-tag">🌱 エバーグリーン技法回 ── 複数人物・群衆シーン</div>
+  <h1>人が増えるほど崩れる、を防ぐ<br>── 複数人物・群衆シーンの作り方</h1>
+  <div class="sub">「大人数を一発生成」ではなく「少人数ずつ作って重ねる」が壊れないコツ</div>
+  <div class="date">2026-07-28 ｜ AI動画制作 最新トピック</div>
+</div>
+
+<div class="card">
+  <div class="card-title">🎯 今日の3ポイント</div>
+  <div class="point-grid">
+    <div class="point-card">
+      <div class="point-icon">🫂</div>
+      <div class="point-title">人数が増えると崩れやすい</div>
+      <div class="point-desc">AI動画は1人の顔・体は得意でも、複数人になると腕や顔が混ざって合体したり、同じ顔がコピーされたように重複しやすい</div>
+    </div>
+    <div class="point-card">
+      <div class="point-icon">🎚️</div>
+      <div class="point-title">一度に描く人数を減らす</div>
+      <div class="point-desc">「主役2〜3人だけ」を動画AIにはっきり生成させ、それ以外の人は背景としてぼかす・シルエット化するのが基本方針</div>
+    </div>
+    <div class="point-card">
+      <div class="point-icon">🎞️</div>
+      <div class="point-title">1カットで全員を見せない</div>
+      <div class="point-desc">大人数の集まりも、2〜3人ずつの複数カットに分けて編集でつなげば、視聴者には「1つの群衆」として自然に伝わる</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">📊 群衆シーンの作り方 3方式比較</div>
+  <table class="tbl">
+    <thead>
+      <tr><th>方式</th><th>やり方</th><th>崩れにくさ</th><th>向いている場面</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>①一括生成</strong></td>
+        <td>1つのプロンプトで5人以上を同時に生成させる</td>
+        <td>△ 崩れやすい(手足の混線・顔の重複が起きやすい)</td>
+        <td>背景に映る人数が2〜3人までの軽い群衆カット</td>
+      </tr>
+      <tr>
+        <td><strong>②分割合成</strong></td>
+        <td>主役は動画AIで個別生成、背景の群衆は望遠圧縮(遠くの被写体が引き寄せられて見える効果)や被写界深度(ピントが合う範囲)でぼかして重ねる</td>
+        <td>◎ 崩れにくい(細部を見せないので粗が目立たない)</td>
+        <td>イベント会場・街中など「背景に人がいる」シーン</td>
+      </tr>
+      <tr>
+        <td><strong>③少人数ショットの積み重ね</strong></td>
+        <td>全体を一度に見せず、2〜3人ずつの会話カットに分けて編集でつなぐ</td>
+        <td>○ 比較的安定(1カットの人数が少ないため)</td>
+        <td>会議・パーティーなど複数人が言葉を交わすシーン</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="note-box">
+    💡 迷ったら②と③の組み合わせがおすすめ。「主役は個別にはっきり」「背景はぼかす」「全体像は複数カットの積み重ねで見せる」の3つを併用すると、破綻がぐっと減る。
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🔍 図解:崩れにくい「レイヤー」の考え方</div>
+  <div class="layer-stack">
+    <div class="layer-row layer-front">
+      <div class="lr-icon">🧍‍♀️</div>
+      <div>
+        <div class="lr-title">手前(フォーカス層)── 主役1〜2人</div>
+        <div class="lr-desc">顔・表情・手の動きまではっきり見える。動画AIで個別に丁寧に生成する対象</div>
+      </div>
+    </div>
+    <div class="layer-row layer-mid">
+      <div class="lr-icon">🧑‍🤝‍🧑</div>
+      <div>
+        <div class="lr-title">中間層 ── 輪郭がわかる程度の数人</div>
+        <div class="lr-desc">表情までは見せず、体の向き・服の色くらいがわかればOKにする</div>
+      </div>
+    </div>
+    <div class="layer-row layer-back">
+      <div class="lr-icon">👥</div>
+      <div>
+        <div class="lr-title">奥の層 ── ぼかした群衆・シルエット</div>
+        <div class="lr-desc">望遠圧縮や浅い被写界深度でぼかし、個々の顔や手足が判別できない状態にする</div>
+      </div>
+    </div>
+  </div>
+  <div class="flow-caption">
+    AIは「はっきり描く部分」が多いほど崩れやすい。奥に行くほどぼかして情報量を減らすと、破綻に気づかれにくくなる。
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🔢 複数人物シーンづくりの数字目安</div>
+  <div class="bignum-grid">
+    <div class="bignum-card">
+      <div class="bignum">2〜3人</div>
+      <div class="bignum-label">動画AIが1カットで安定して破綻なく描きやすい人数の目安</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">70mm以上</div>
+      <div class="bignum-label">背景の群衆を圧縮してシルエット化しやすい望遠寄りの画角目安</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">3層</div>
+      <div class="bignum-label">手前(主役)・中間・奥(群衆)に分けて考えるレイヤーの数</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">3カット</div>
+      <div class="bignum-label">大人数の集まりを複数カットに分割する際の目安の数</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">1コマ送り</div>
+      <div class="bignum-label">手足の重なりや顔の重複をチェックする際の確認単位</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🛠️ 実践例:「誕生日パーティー」シーンを崩さず作る5ステップ</div>
+  <p style="font-size:.88rem;color:var(--muted);margin-bottom:18px;">
+    主賓+話し相手の2人を主役にした、パーティー会場シーンを想定した基本フローです。
+  </p>
+  <ul class="step-list">
+    <li class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-title">主役を2人に絞る</div>
+        <div class="step-desc">「主賓」と「話し相手」など、はっきり顔を見せたい人物を2人までに決める。増やすほど破綻リスクが上がる。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-title">主役2人だけをミディアムショットで生成する</div>
+        <div class="step-desc">顔と表情がはっきり見える距離で、動画AIに主役2人の会話シーンを生成させる。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-title">背景の人々はぼかして別に用意する</div>
+        <div class="step-desc">「奥に集まる人々」を望遠圧縮+浅い被写界深度で、個々の顔が判別できないくらいまでぼかして生成する。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <div class="step-title">編集ソフトで主役と背景を重ねる、または前後カットでつなぐ</div>
+        <div class="step-desc">主役ショットの後ろに背景ぼかしショットを重ねて合成するか、「主役アップ→会場全景(ぼかし)→主役アップ」の順にカットを割ってつなぐ。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">5</div>
+      <div class="step-body">
+        <div class="step-title">コマ送りで破綻チェックをする</div>
+        <div class="step-desc">再生をコマ送りにして、手足の重なり・顔の重複・不自然な接触ポイントがないか確認し、あれば該当カットだけ作り直す。</div>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="card">
+  <div class="card-title">📝 今日のまとめ</div>
+  <ul class="summary-list">
+    <li>AI動画は<strong>人数が増えるほど手足の混線や顔の重複</strong>が起きやすい</li>
+    <li>基本方針は<strong>主役2〜3人だけをはっきり生成し、それ以外はぼかす</strong>こと</li>
+    <li>手前(主役)・中間・奥(群衆)の<strong>3層のレイヤー</strong>で情報量を調整すると破綻に気づかれにくい</li>
+    <li>大人数の集まりは<strong>1カットで見せず、複数カットに分けて編集でつなぐ</strong>と安定する</li>
+    <li>仕上げは<strong>コマ送りでの破綻チェック</strong>を忘れずに行う</li>
+  </ul>
+</div>
+
+<div class="disclaimer">
+  ⚠️ <strong>免責事項</strong><br>
+  本記事で紹介した複数人物・群衆シーンの作り方・数値目安は、AI動画制作における一般的な考え方の一例です。実際の崩れやすさや仕上がりはツールやモデルのバージョン、題材によって異なります。本文中で言及したAIツールの機能・料金・商用利用の可否は頻繁に変わるため、利用の際は各ツールの公式ページ・利用規約で必ずご確認ください。
+</div>
+
+<footer>
+  AI動画制作 最新トピック ─ 2026-07-28 ｜ エバーグリーン技法回<br>
+  参考:複数人物・群衆シーンの崩れやすさへの対処は、AI動画制作における一般的な技法に基づく(エバーグリーン技法)<br>
+  <a href="index.html" style="color:var(--accent);">← 一覧に戻る</a>
+</footer>
+
+</div>
+</body>
+</html>
