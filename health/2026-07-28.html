@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-07-28</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '💊';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 18px 16px;
+    font-size: 0.86rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.95rem; margin-bottom: 10px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.2em; }
+  .c3-col li { margin-bottom: 5px; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .mech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .mech-item {
+    background: #f0faf5;
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 0.85rem;
+    border-top: 3px solid #1a7a5a;
+  }
+  .mech-item .micon { font-size: 1.3rem; margin-bottom: 6px; }
+  .mech-item strong { display: block; color: #0d4a35; margin-bottom: 4px; font-size: 0.88rem; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .highlight { background: #cff0df; padding: 1px 5px; border-radius: 4px; }
+  .good { color: #1a7a5a; font-weight: 600; }
+  .bad  { color: #c0392b; font-weight: 600; }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-box {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin: 14px 0;
+    font-size: 0.92rem;
+  }
+  .def-box .def-label {
+    font-size: 0.75rem;
+    color: #1a7a5a;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  .quote-box {
+    background: #f5f0e8;
+    border-left: 4px solid #7a5abf;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    margin: 12px 0;
+    color: #444;
+    font-style: italic;
+  }
+  .quote-box .who { font-style: normal; font-weight: 700; color: #5a3a9a; margin-top: 6px; font-size: 0.78rem; }
+  .swap-flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 10px 0;
+    justify-content: center;
+  }
+  .swap-item {
+    background: #fbe8e6;
+    border: 2px solid #c0392b;
+    border-radius: 8px;
+    padding: 10px 14px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 110px;
+  }
+  .swap-arrow { font-size: 1.3rem; color: #888; }
+  .swap-result {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 14px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 150px;
+  }
+  .swap-result .pct { font-size: 1.3rem; font-weight: 700; color: #1a7a5a; }
+  @media (max-width: 540px) {
+    .compare3 { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.9rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+    .swap-flow { flex-direction: column; }
+    .swap-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ヘッダー -->
+<div class="header">
+  <div class="label">健康・栄養 最新トピック ・ 2026-07-28</div>
+  <h1>「野菜好きな人はがんが少ない」から<br>
+  「その成分をサプリで飲めば防げる」は言えるのか?</h1>
+  <div class="subtitle">野菜や果物をよく食べる人ほど肺がんが少ない、という観察研究の関連をもとに、1990年代に世界中で「ベータカロテン(にんじん・かぼちゃなどに含まれる色素成分)のサプリで肺がんを防げるのでは」という大規模な臨床試験が行われました。結果は予想と逆で、喫煙者においてはむしろ肺がんが増えるという意外な結末に。「観察研究の関連」と「サプリを飲んだときの効果」がなぜ食い違うのか、その後の系統的レビューも含めてやさしく解説します。</div>
+</div>
+
+<!-- タグ -->
+<div style="margin-bottom:18px;">
+  <span class="tag">精密栄養学</span>
+  <span class="tag">サプリメント</span>
+  <span class="tag">ベータカロテン</span>
+  <span class="tag">RCT</span>
+  <span class="tag">エビデンスの読み方</span>
+</div>
+
+<!-- 今日の疑問 -->
+<div class="card">
+  <h2>🤔 今日の疑問:サプリで「食品の効果」は再現できるのか?</h2>
+  <p>「緑黄色野菜をよく食べる人ほど肺がんになりにくい」という関連は、1980年代までに複数の観察研究(食生活と病気の関連を、介入せずに記録・追跡する研究)で報告されていました。野菜に多く含まれる色素成分「ベータカロテン」がその理由ではないか、と考えられたのです。</p>
+  <p>この仮説を確かめるため、フィンランドと米国でそれぞれ数万人規模の大規模な臨床試験が行われました。しかし結果は、多くの研究者の予想を裏切るものでした。今日は「体に良さそうな成分」を抽出してサプリにしたときに、なぜ食品を食べるのと同じ効果が得られるとは限らないのかを、実際のデータで見ていきます。</p>
+</div>
+
+<!-- 基本用語 -->
+<div class="card blue">
+  <h2>📖 まず言葉の意味を</h2>
+  <div class="def-grid">
+    <div class="def-item">
+      <div class="dterm">観察研究</div>
+      人々の生活習慣や食事をそのまま記録し、病気になった人とならなかった人を比べる研究。「関連」は分かるが、他の生活習慣の違い(交絡因子)の影響を完全には取り除けず、「因果関係」の証明にはならない。
+    </div>
+    <div class="def-item">
+      <div class="dterm">RCT(無作為化比較試験)</div>
+      参加者をくじ引きのようにランダムに2グループ以上に分け、一方には介入(薬やサプリなど)を、もう一方には偽物(プラセボ)を与えて比べる研究。生活習慣などの偏りを減らせるため、観察研究より因果関係に近づける。
+    </div>
+    <div class="def-item">
+      <div class="dterm">プラセボ対照</div>
+      本物の薬やサプリと見た目・味が同じだが有効成分を含まない「偽薬(プラセボ)」を比較対象に使うこと。「気分の効果」だけで結果が変わらないようにする工夫。
+    </div>
+    <div class="def-item">
+      <div class="dterm">二重盲検</div>
+      参加者だけでなく、研究者側も「誰が本物を飲んでいるか」を分からなくする方法。期待や思い込みによる評価のブレ(バイアス)を防ぐ。
+    </div>
+    <div class="def-item">
+      <div class="dterm">交絡因子</div>
+      比べたい要因(この場合はベータカロテン)以外に、結果に影響してしまう別の要因。例:野菜をよく食べる人は喫煙率が低く運動もしている、など。
+    </div>
+    <div class="def-item">
+      <div class="dterm">メタ分析</div>
+      複数の研究結果を統計的にまとめて、より信頼できる全体像を導き出す手法。1つの研究より結論の安定性が高いとされる。
+    </div>
+  </div>
+</div>
+
+<!-- 数字カード -->
+<div class="num-row">
+  <div class="num-card red-bg">
+    <div class="big">+18<span class="unit">%</span></div>
+    <div class="desc">ATBC試験(フィンランド、喫煙男性29,133人)でベータカロテンを飲んだ群の肺がん発症リスク</div>
+  </div>
+  <div class="num-card red-bg">
+    <div class="big">+28<span class="unit">%</span></div>
+    <div class="desc">CARET試験(米国、喫煙者・アスベスト曝露者18,314人)でベータカロテン+ビタミンAを飲んだ群の肺がん発症リスク(試験は安全性の問題で予定より早く中止)</div>
+  </div>
+  <div class="num-card orange-bg">
+    <div class="big">78件<span class="unit">/29.7万人</span></div>
+    <div class="desc">コクランレビュー(2012年)が統合したRCTの数と参加者数</div>
+  </div>
+  <div class="num-card blue-bg">
+    <div class="big">84件<span class="unit">/74万人</span></div>
+    <div class="desc">米国予防医学専門委員会(USPSTF, 2022年)がまとめた研究の数と参加者数</div>
+  </div>
+</div>
+
+<!-- 研究の流れ -->
+<div class="card orange">
+  <h2>🔄 どういう経緯で分かったか</h2>
+  <div class="flow">
+    <div class="flow-step">①観察研究で<br>「野菜好きな人は<br>肺がんが少ない」<br>という関連を発見</div>
+    <div class="flow-arrow">▶</div>
+    <div class="flow-step alt">②「ベータカロテンを<br>サプリで補充すれば<br>予防できるのでは」<br>という仮説</div>
+    <div class="flow-arrow">▶</div>
+    <div class="flow-step purp">③喫煙者を対象に<br>大規模なプラセボ<br>対照RCTを実施<br>(ATBC・CARET)</div>
+    <div class="flow-arrow">▶</div>
+    <div class="flow-step warn2">④結果は逆:<br>肺がんリスクが<br>むしろ上昇</div>
+    <div class="flow-arrow">▶</div>
+    <div class="flow-step">⑤その後の<br>メタ分析・専門機関の<br>レビューでも同様の<br>傾向を確認</div>
+  </div>
+  <p style="margin-top:10px;">ATBC試験(The Alpha-Tocopherol, Beta Carotene Cancer Prevention Study Group, New England Journal of Medicine 1994年、DOI: 10.1056/NEJM199404143301501)は、フィンランドの50〜69歳の喫煙男性29,133人を対象にした二重盲検プラセボ対照RCTです。ベータカロテン20mg/日を中央値6.1年間飲んだ群は、飲まなかった群に比べて肺がんの発症リスクが18%高いという結果でした。</p>
+</div>
+
+<!-- 観察研究とRCTの違い -->
+<div class="card blue">
+  <h2>⚖️ 「観察研究で見えたもの」と「RCTで確かめたもの」</h2>
+  <div class="compare3">
+    <div class="c3-col green">
+      <h3>🥕 観察研究(1980年代まで)</h3>
+      <ul>
+        <li>野菜・果物を多く食べる人ほど肺がんが<strong class="good">少ない傾向</strong></li>
+        <li>血中ベータカロテン濃度が高い人ほどリスクが低い、という<strong>関連</strong>を確認</li>
+        <li>ただし喫煙・運動・所得など他の生活習慣の違い(交絡因子)の影響を完全には除けない</li>
+      </ul>
+    </div>
+    <div class="c3-col red">
+      <h3>💊 RCTでサプリを試した結果</h3>
+      <ul>
+        <li>喫煙者を対象にベータカロテンを<strong>高用量のサプリ</strong>として投与</li>
+        <li>ATBC試験:肺がんリスク<strong class="bad">+18%</strong>、CARET試験:<strong class="bad">+28%</strong></li>
+        <li>CARET試験は安全性への懸念から予定を早めて<strong>試験自体が中止</strong>された</li>
+      </ul>
+    </div>
+  </div>
+  <p style="margin-top:10px;">同じ「ベータカロテン」というキーワードでも、野菜として食べたときの関連と、抽出して高用量のサプリとして飲んだときの結果は一致しませんでした。CARET試験(Omenn GSら, New England Journal of Medicine 1996年、DOI: 10.1056/NEJM199605023341802)では、ベータカロテン30mgとビタミンA(レチニルパルミテート)25,000IUを毎日摂取した群で肺がん発症が28%、全死亡が17%それぞれ多いという結果が出て、1996年1月に予定より早く試験が打ち切られました。</p>
+</div>
+
+<!-- なぜ食い違ったか(仮説) -->
+<div class="card purple">
+  <h2>🧪 なぜ「食品」と「サプリ」で結果が食い違ったのか(考えられる理由)</h2>
+  <div class="mech-grid">
+    <div class="mech-item">
+      <div class="micon">🥗</div>
+      <strong>食品まるごと 対 単一成分</strong>
+      野菜には数百種類の栄養素・食物繊維・水分などが同時に含まれる。単一成分だけを高濃度に抽出すると、食品全体としての働きとは違う結果になる可能性がある(仮説段階)
+    </div>
+    <div class="mech-item">
+      <div class="micon">⚗️</div>
+      <strong>抗酸化物質の「量」の問題</strong>
+      ベータカロテンは低濃度では抗酸化的に働く一方、高濃度・高酸素環境(喫煙者の肺など)ではむしろ酸化を促進する方向に働く可能性が実験的に示唆されている(仮説段階、ヒトでの機序は未確定)
+    </div>
+    <div class="mech-item">
+      <div class="micon">❓</div>
+      <strong>観察研究側の交絡因子</strong>
+      野菜をよく食べる人は、喫煙率が低い・運動をする・受診行動が違うなど他の生活習慣も異なりやすく、それが「野菜と肺がんの関連」の一部を作っていた可能性がある
+    </div>
+    <div class="mech-item">
+      <div class="micon">🚬</div>
+      <strong>対象が喫煙者・高リスク集団</strong>
+      ATBC・CARETはいずれも喫煙者(CARETはアスベスト曝露者も含む)という特定の高リスク集団が対象で、非喫煙の一般集団に同じ結果が当てはまるとは限らない
+    </div>
+  </div>
+</div>
+
+<!-- 精密栄養学の視点 -->
+<div class="card purple">
+  <h2>🎯 精密栄養学の視点から見ると</h2>
+  <ul class="step-list">
+    <li>この結果が重要なのは、「同じ成分でも、誰が・どんな形で・どれくらいの量を摂るかによって効果の向き自体が変わりうる」ことを大規模RCTで具体的に示した点です。喫煙者という特定の集団で悪影響が確認された一方、非喫煙者を含む一般集団でも同じ悪影響が起こるかどうかは、この2つの試験だけでは断定できません。</li>
+    <li>その後、複数のRCTを統合したコクランのメタ分析(Bjelakovicら, Cochrane Database of Systematic Reviews 2012年、DOI: 10.1002/14651858.CD007176.pub2)でも、バイアスの少ない試験に限ると、ベータカロテン(相対リスク1.05)とビタミンE(相対リスク1.03)のサプリが全死亡リスクをわずかに高める方向の関連を示しました。</li>
+    <li>これらの蓄積を受け、米国予防医学専門委員会(USPSTF)は2022年、健康な一般成人に対して心血管疾患・がん予防目的でのベータカロテン・ビタミンEサプリの使用を「推奨しない」とし、それ以外の一部の単一・複合サプリについても「予防効果を判断する証拠が不十分」と結論づけています(JAMA 2022;327(23):2334-2347)。</li>
+  </ul>
+</div>
+
+<!-- サプリ効果チェックリスト -->
+<div class="card">
+  <h2>✅ サプリ・健康食品の話を聞いたときのチェックリスト</h2>
+  <ul class="step-list">
+    <li><strong>それは観察研究か、RCTか?</strong> 「~を食べる人は病気が少ない」という話は、多くの場合まだ関連止まりで、サプリとして摂ったときの効果を保証しない。</li>
+    <li><strong>プラセボ対照・二重盲検で行われたか?</strong> 比較対象や盲検化がない研究は、期待による思い込みの影響を受けやすい。</li>
+    <li><strong>対象者は誰か?</strong> 喫煙者・特定の疾患患者など限られた集団の結果を、自分にそのまま当てはめられるとは限らない。</li>
+    <li><strong>1つの研究だけの結果か、複数の研究を統合したメタ分析か?</strong> 単発の研究より、系統的レビュー・メタ分析のほうが結論が安定しやすい。</li>
+    <li><strong>「用量」は書かれているか?</strong> 食品として摂れる量と、サプリの高用量は別物として考える。</li>
+  </ul>
+</div>
+
+<!-- 限界・注意点 -->
+<div class="warn">
+  <strong>⚠️ この記事の内容をどう受け止めるか</strong>
+  <ul style="padding-left:1.4em; margin-top:8px;">
+    <li>ATBC・CARET試験は<strong>喫煙者(CARETはアスベスト曝露者も含む)</strong>を対象にした結果であり、「ベータカロテンのサプリは誰にとっても有害」と一般化できるものではありません。非喫煙者における影響は、この2試験だけでは判断できません。</li>
+    <li>これは<strong>ベータカロテン・ビタミンEという特定の抗酸化サプリ</strong>についての話であり、すべてのビタミン・ミネラルサプリに同じ結果が当てはまるわけではありません。USPSTFも多くの単一・複合サプリについては「証拠不十分」としており、「効果がない」と断定しているわけではない点に注意が必要です。</li>
+    <li>野菜・果物を<strong>食品として</strong>食べることの健康上のメリットを否定するものではありません。今回の結果は、あくまで「抽出して高用量のサプリにした場合」の話です。</li>
+    <li>サプリメントの開始・中止・変更を検討する際は、自己判断せず、かかりつけ医・薬剤師にご相談ください。特に喫煙者・持病のある方・妊娠中の方は注意が必要です。</li>
+  </ul>
+</div>
+
+<!-- エビデンスの整理 -->
+<div class="card">
+  <h2>🧪 今日取り上げた研究のエビデンスの強さ</h2>
+  <table class="ev-table">
+    <tr><th>研究</th><th>デザイン・規模</th><th>強さの目安</th></tr>
+    <tr>
+      <td>ATBC試験(1994年)</td>
+      <td>二重盲検プラセボ対照RCT、喫煙男性29,133人、中央値6.1年追跡</td>
+      <td><span class="ev-badge ev-high">因果関係を検証できるデザイン</span></td>
+    </tr>
+    <tr>
+      <td>CARET試験(1996年)</td>
+      <td>二重盲検プラセボ対照RCT、喫煙者・アスベスト曝露者18,314人、安全性理由で早期中止</td>
+      <td><span class="ev-badge ev-high">因果関係を検証できるデザイン</span></td>
+    </tr>
+    <tr>
+      <td>コクランレビュー(2012年)</td>
+      <td>78件のRCTを統合したメタ分析、参加者296,707人</td>
+      <td><span class="ev-badge ev-high">複数RCTの統合で結論が安定</span></td>
+    </tr>
+    <tr>
+      <td>USPSTF評価(2022年)</td>
+      <td>84件の研究を評価した系統的レビュー、参加者739,803人、専門委員会による勧告</td>
+      <td><span class="ev-badge ev-high">公的機関による系統的評価</span></td>
+    </tr>
+    <tr>
+      <td>一般集団への外挿</td>
+      <td>対象は主に喫煙者・特定リスク集団。非喫煙の健康な成人全体への当てはめ</td>
+      <td><span class="ev-badge ev-low">対象集団の違いに注意が必要</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- まとめ -->
+<div class="card" style="border-left-color:#1a7a5a;">
+  <h2>✅ 今日のまとめ</h2>
+  <ul class="step-list">
+    <li>「野菜好きな人は肺がんが少ない」という観察研究の関連をもとに、ベータカロテンのサプリで肺がんを防げるかを確かめる大規模RCTが行われた。</li>
+    <li>ATBC試験(喫煙男性29,133人、NEJM 1994年)では肺がんリスクが18%、CARET試験(喫煙者・アスベスト曝露者18,314人、NEJM 1996年)では28%それぞれ高いという、予想と逆の結果になった。CARET試験は安全性の懸念から予定より早く中止された。</li>
+    <li>その後のコクランのメタ分析(78件・296,707人)、米国予防医学専門委員会USPSTFの評価(84件・739,803人、2022年)でも、ベータカロテン・ビタミンEのサプリを一般集団の心血管疾患・がん予防目的で推奨しないという結論に至っている。</li>
+    <li>ただし結果は喫煙者などの特定集団での話であり、すべてのサプリ・すべての人に一般化できるものではない。「観察研究の関連」と「サプリとして摂ったときの効果」は別物であり、食品として野菜・果物を食べることのメリットを否定するものでもない。</li>
+  </ul>
+</div>
+
+<!-- 免責 -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、医療アドバイスではありません。効果・必要量・リスクは個人の体質・年齢・持病・服薬によって大きく異なります。実践の前には、かかりつけ医・管理栄養士・薬剤師など専門家にご相談ください。本記事は特定のサプリメント・食品・摂取量を推奨または禁止するものではなく、サプリメントの開始・中止・変更を自己判断で行うことは避けてください。喫煙中の方・持病のある方・妊娠中の方は特に注意が必要です。
+</div>
+
+<!-- 出典 -->
+<div class="sources">
+  <h3>📚 主な出典・参考文献</h3>
+  <ol>
+    <li>The Alpha-Tocopherol, Beta Carotene Cancer Prevention Study Group. "The Effect of Vitamin E and Beta Carotene on the Incidence of Lung Cancer and Other Cancers in Male Smokers." New England Journal of Medicine. 1994;330(15):1029-1035. DOI: 10.1056/NEJM199404143301501
+      <a href="https://www.nejm.org/doi/full/10.1056/NEJM199404143301501" target="_blank">https://www.nejm.org/doi/full/10.1056/NEJM199404143301501</a>
+    </li>
+    <li>Omenn GS, Goodman GE, Thornquist MD, et al. "Effects of a Combination of Beta Carotene and Vitamin A on Lung Cancer and Cardiovascular Disease." New England Journal of Medicine. 1996;334(18):1150-1155. DOI: 10.1056/NEJM199605023341802
+      <a href="https://www.nejm.org/doi/full/10.1056/NEJM199605023341802" target="_blank">https://www.nejm.org/doi/full/10.1056/NEJM199605023341802</a>
+    </li>
+    <li>Bjelakovic G, Nikolova D, Gluud LL, Simonetti RG, Gluud C. "Antioxidant supplements for prevention of mortality in healthy participants and patients with various diseases." Cochrane Database of Systematic Reviews. 2012. DOI: 10.1002/14651858.CD007176.pub2
+      <a href="https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD007176.pub2/abstract" target="_blank">https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD007176.pub2/abstract</a>
+    </li>
+    <li>US Preventive Services Task Force. "Vitamin and Mineral Supplements for the Primary Prevention of Cardiovascular Disease and Cancer: Updated Evidence Report and Systematic Review, and Recommendation Statement." JAMA. 2022;327(23):2326-2347.
+      <a href="https://jamanetwork.com/journals/jama/fullarticle/2793447" target="_blank">https://jamanetwork.com/journals/jama/fullarticle/2793447</a>
+    </li>
+  </ol>
+  <p style="margin-top:8px; font-size:0.78rem;">※ ATBC・CARETは1990年代の研究ですが、その後の系統的レビュー・公的機関の評価(2012年・2022年)まで一貫した結論が積み重ねられている「エビデンスの読み方」の代表例として、精密栄養学の基礎解説回として取り上げました。個々の研究デザイン・対象集団の詳細は、上記リンクの原文でご確認ください。</p>
+</div>
+
+</div>
+</body>
+</html>
