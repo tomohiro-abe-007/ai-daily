@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI動画制作 最新トピック 2026-07-29</title>
+<style>
+  :root {
+    --bg: #ece8e1;
+    --card: #faf6ec;
+    --dark: #1a3a5c;
+    --dark2: #1a5c3a;
+    --accent: #2a5c8a;
+    --accent2: #c85a00;
+    --text: #2a3540;
+    --muted: #7c8a82;
+    --border: #e0d8c8;
+    --highlight: #fff3cd;
+    --warn: #8a2020;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, "Hiragino Sans", "Yu Gothic", sans-serif;
+    line-height: 1.75;
+    padding: 20px;
+  }
+  .wrap { max-width: 900px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #1a3a5c 0%, #1a5c3a 100%);
+    color: #fff;
+    border-radius: 20px;
+    padding: 44px 32px 36px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(26,58,92,.22);
+    margin-bottom: 24px;
+  }
+  .header-tag {
+    display: inline-block;
+    background: rgba(255,255,255,.18);
+    color: #e0f0e8;
+    border-radius: 20px;
+    padding: 4px 16px;
+    font-size: .82rem;
+    margin-bottom: 14px;
+    letter-spacing: .06em;
+  }
+  .header h1 { font-size: 1.5rem; letter-spacing: .03em; line-height: 1.45; margin-bottom: 10px; }
+  .header .sub { color: #c8dde8; font-size: .95rem; }
+  .header .date { color: #b0e0c0; font-size: .85rem; margin-top: 8px; }
+
+  .card {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 12px rgba(0,0,0,.07);
+    border: 1px solid var(--border);
+  }
+  .card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .point-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .point-card { background: #eef3f8; border-radius: 14px; padding: 20px 16px; text-align: center; border: 1px solid #d4e0ea; }
+  .point-icon { font-size: 2rem; margin-bottom: 8px; }
+  .point-title { font-size: .95rem; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
+  .point-desc { font-size: .83rem; color: var(--muted); line-height: 1.6; }
+
+  .bignum-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 20px; }
+  .bignum-card { background: linear-gradient(135deg, #1a3a5c, #1a5c3a); border-radius: 14px; padding: 18px 12px; text-align: center; color: #fff; }
+  .bignum { font-size: 1.4rem; font-weight: 800; color: #ffe0a0; line-height: 1.2; }
+  .bignum-label { font-size: .72rem; color: #cfe6d8; margin-top: 4px; line-height: 1.5; }
+
+  .step-list { list-style: none; }
+  .step-item { display: flex; gap: 14px; margin-bottom: 16px; align-items: flex-start; }
+  .step-num {
+    width: 34px; height: 34px;
+    background: linear-gradient(135deg, #1a3a5c, #1a5c3a);
+    color: #fff; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: .95rem; flex-shrink: 0; margin-top: 2px;
+  }
+  .step-body { flex: 1; }
+  .step-title { font-weight: 700; color: var(--dark); font-size: .95rem; }
+  .step-desc { font-size: .86rem; color: var(--muted); margin-top: 3px; line-height: 1.65; }
+
+  .chip-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .chip { background: #e8f0ec; color: #1a5c3a; border-radius: 20px; padding: 4px 14px; font-size: .82rem; font-weight: 600; border: 1px solid #c0dccc; }
+
+  .tbl { width: 100%; border-collapse: collapse; font-size: .86rem; }
+  .tbl th { background: #eaf1ea; padding: 10px 10px; text-align: left; border-bottom: 2px solid #c8ddc8; color: var(--dark); font-weight: 700; }
+  .tbl td { padding: 10px 10px; border-bottom: 1px solid var(--border); vertical-align: top; color: var(--text); }
+  .tbl tr:last-child td { border-bottom: none; }
+
+  .note-box { background: var(--highlight); border-left: 4px solid #e8a000; border-radius: 8px; padding: 12px 16px; font-size: .88rem; color: #5a4000; margin-top: 14px; line-height: 1.7; }
+  .warn-box { background: #fde8e4; border-left: 4px solid var(--warn); border-radius: 8px; padding: 12px 16px; font-size: .88rem; color: #6a1414; margin-top: 14px; line-height: 1.7; }
+
+  .summary-list { font-size: .95rem; line-height: 2.2; }
+  .summary-list li { list-style: none; display: flex; align-items: flex-start; gap: 8px; }
+  .summary-list li::before { content: "✅"; flex-shrink: 0; margin-top: 2px; }
+
+  .disclaimer { background: #f0ede8; border-radius: 12px; padding: 16px 20px; font-size: .82rem; color: var(--muted); margin-top: 24px; line-height: 1.7; border: 1px solid #ddd8d0; }
+
+  footer { text-align: center; color: var(--muted); font-size: .82rem; margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border); line-height: 1.9; }
+  footer a { color: var(--accent); }
+
+  /* フロー図 */
+  .flow-row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-top: 6px; }
+  .flow-step { flex: 1; min-width: 120px; background: #eef3f8; border: 1px solid #d4e0ea; border-radius: 10px; padding: 12px 10px; text-align: center; }
+  .flow-step .fs-icon { font-size: 1.3rem; margin-bottom: 4px; }
+  .flow-step .fs-title { font-size: .82rem; font-weight: 700; color: var(--dark); }
+  .flow-step .fs-desc { font-size: .72rem; color: var(--muted); margin-top: 3px; line-height: 1.5; }
+  .flow-arrow { font-size: 1.3rem; color: var(--accent2); font-weight: 700; flex-shrink: 0; }
+  .flow-caption { text-align: center; font-size: .8rem; color: var(--muted); margin-top: 10px; }
+
+  /* 4カテゴリ マトリクス風カード */
+  .cat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 6px; }
+  .cat-card { border-radius: 14px; padding: 16px 10px; text-align: center; color: #fff; }
+  .cat-1 { background: linear-gradient(160deg,#5a8cba,#2a5c8a); }
+  .cat-2 { background: linear-gradient(160deg,#e8a860,#c85a00); }
+  .cat-3 { background: linear-gradient(160deg,#7ab88a,#1a5c3a); }
+  .cat-4 { background: linear-gradient(160deg,#b08ac0,#6a3a8a); }
+  .cat-icon { font-size: 1.6rem; margin-bottom: 6px; }
+  .cat-title { font-size: .86rem; font-weight: 700; }
+  .cat-desc { font-size: .72rem; margin-top: 6px; line-height: 1.6; opacity: .95; }
+  .cat-ex { font-size: .68rem; margin-top: 8px; background: rgba(255,255,255,.18); border-radius: 8px; padding: 5px 6px; line-height: 1.5; }
+
+  @media (max-width: 640px) {
+    .point-grid { grid-template-columns: 1fr; }
+    .bignum-grid { grid-template-columns: 1fr; }
+    .flow-row { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+    .cat-grid { grid-template-columns: 1fr 1fr; }
+    .tbl { display: block; overflow-x: auto; white-space: nowrap; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="header">
+  <div class="header-tag">🛠️ ツール情報回 ── Seedance 2.5 続報(ByteDance)</div>
+  <h1>動画生成AIで"3分の映像"が視野に?<br>Seedance 2.5に「超ロング動画モード」が出現</h1>
+  <div class="sub">標準30秒の壁を越える、実験的な180秒モードが姿を見せた</div>
+  <div class="date">2026-07-29 ｜ AI動画制作 最新トピック</div>
+</div>
+
+<div class="card">
+  <div class="card-title">🎯 今日の3ポイント</div>
+  <div class="point-grid">
+    <div class="point-card">
+      <div class="point-icon">📢</div>
+      <div class="point-title">何が起きた?</div>
+      <div class="point-desc">2026年7月、ByteDanceの動画生成AI「Seedance 2.5」に、標準の6倍にあたる最大180秒(3分)を1回の生成で作れる「Ultra-Long Video(Beta、まだ試験提供中という意味)」モードが、中国のアプリ「Jimeng」上で確認された。海外メディアTestingCatalogなどが報告している</div>
+    </div>
+    <div class="point-card">
+      <div class="point-icon">⏱️</div>
+      <div class="point-title">これまでとの違い</div>
+      <div class="point-desc">従来のSeedance 2.5は1回の生成につき最大30秒が上限だった。今回のベータモードは同じAIの技術をベースに、生成できる長さを一気に伸ばした点が最大の変化</div>
+    </div>
+    <div class="point-card">
+      <div class="point-icon">⚠️</div>
+      <div class="point-title">気をつけたいこと</div>
+      <div class="point-desc">ByteDance自身が30秒モードを「信頼性重視の標準」、180秒モードを「実験的」と位置づけている。ベータ版(正式版の前に試験公開される段階)のため、品質のばらつきなど実務利用には検証が必要</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🔢 Seedance 2.5「超ロング動画」を数字で見る</div>
+  <div class="bignum-grid">
+    <div class="bignum-card">
+      <div class="bignum">180秒</div>
+      <div class="bignum-label">Ultra-Long Video(Beta)で生成できる最大の長さ(=3分)</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">30秒</div>
+      <div class="bignum-label">これまでの標準モードの上限(信頼性重視の位置づけ)</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">約6倍</div>
+      <div class="bignum-label">180秒は標準モード(30秒)のおよそ6倍の長さに相当</div>
+    </div>
+  </div>
+  <div class="note-box">
+    💡 基準：2026年7月、TestingCatalog(X/旧Twitter・海外AIニュースメディア)の報告、およびkie.ai・CineDなど複数メディアの報道に基づく。対応アプリ・提供地域・料金は変わる可能性があるため<strong>公式ページ(Dreamina/Jimeng)で要確認</strong>。</div>
+</div>
+
+<div class="card">
+  <div class="card-title">🧩 Seedance 2.5の主な機能ふりかえり</div>
+  <div class="cat-grid">
+    <div class="cat-card cat-1">
+      <div class="cat-icon">⏱️</div>
+      <div class="cat-title">生成できる長さ</div>
+      <div class="cat-desc">標準は30秒。ベータのUltra-Long Videoなら180秒まで延長</div>
+      <div class="cat-ex">今回の新情報はこの部分</div>
+    </div>
+    <div class="cat-card cat-2">
+      <div class="cat-icon">🖼️</div>
+      <div class="cat-title">参照素材</div>
+      <div class="cat-desc">画像・動画・音声・テキストなど最大50個を1回の生成に反映</div>
+      <div class="cat-ex">7月のAPI公開時からの機能</div>
+    </div>
+    <div class="cat-card cat-3">
+      <div class="cat-icon">🎨</div>
+      <div class="cat-title">画質</div>
+      <div class="cat-desc">ネイティブ4K・10bitカラー(色の階調が滑らかな設定)で出力</div>
+      <div class="cat-ex">高解像度の書き出しに対応</div>
+    </div>
+    <div class="cat-card cat-4">
+      <div class="cat-icon">✂️</div>
+      <div class="cat-title">部分編集</div>
+      <div class="cat-desc">動画全体を作り直さず、一部分だけを描き直せる「リージョン編集」</div>
+      <div class="cat-ex">修正のたびに全部やり直さなくてよい</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">📊 標準モード vs Ultra-Long Video(Beta)</div>
+  <table class="tbl">
+    <thead>
+      <tr><th>比較項目</th><th>標準モード</th><th>Ultra-Long Video(Beta)</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>生成できる長さ</strong></td>
+        <td>最大30秒</td>
+        <td>最大180秒(3分)</td>
+      </tr>
+      <tr>
+        <td><strong>位置づけ</strong></td>
+        <td>信頼性重視の標準機能</td>
+        <td>実験的なベータ機能</td>
+      </tr>
+      <tr>
+        <td><strong>品質の安定性</strong></td>
+        <td>比較的安定</td>
+        <td>ばらつきが出る可能性あり(要検証)</td>
+      </tr>
+      <tr>
+        <td><strong>向いている用途</strong></td>
+        <td>ショート動画・広告の1カット</td>
+        <td>ストーリー性のある長尺コンテンツの試作</td>
+      </tr>
+      <tr>
+        <td><strong>提供状況(2026年7月時点)</strong></td>
+        <td>Jimeng/Dreamina/APIなどで提供中</td>
+        <td>一部アプリ(Jimeng)で確認、展開は順次拡大中とみられる</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="card">
+  <div class="card-title">🔄 実験的機能と付き合う基本の流れ</div>
+  <div class="flow-row">
+    <div class="flow-step">
+      <div class="fs-icon">✍️</div>
+      <div class="fs-title">1. まず30秒で試す</div>
+      <div class="fs-desc">信頼性の高い標準モードで、演出やキャラの再現度を確認する</div>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">
+      <div class="fs-icon">🔍</div>
+      <div class="fs-title">2. 破綻をチェック</div>
+      <div class="fs-desc">人物・背景・動きに違和感がないか30秒版で見極める</div>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">
+      <div class="fs-icon">🧪</div>
+      <div class="fs-title">3. ベータに切替</div>
+      <div class="fs-desc">問題なければUltra-Long Video(Beta)設定で180秒版を生成</div>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">
+      <div class="fs-icon">✅</div>
+      <div class="fs-title">4. 区間ごとに確認</div>
+      <div class="fs-desc">長尺版は前半・中盤・後半に分けて崩れがないか見直す</div>
+    </div>
+  </div>
+  <div class="flow-caption">「実験的」と明言されている機能ほど、短い信頼版で下地を確認してから本番の長尺を試すのが安全</div>
+</div>
+
+<div class="card">
+  <div class="card-title">🛠️ 真似できる具体例：180秒モードで商品ストーリー動画を試す5ステップ</div>
+  <p style="font-size:.88rem;color:var(--muted);margin-bottom:18px;">
+    Ultra-Long Video(Beta)は現時点で一部アプリでの確認段階のため、提供状況は要確認です。使えるようになった時に備えて、今から準備できる流れを5ステップにまとめました。
+  </p>
+  <ul class="step-list">
+    <li class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-title">台本を「30秒の章」に分けて書く</div>
+        <div class="step-desc">180秒をいきなり1本で考えず、起承転結にあたる30秒程度のブロックを6つ書き出しておくと、実験的機能でも扱いやすい。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-title">参照素材(商品写真・ロゴ・BGMイメージ)を用意する</div>
+        <div class="step-desc">最大50個まで反映できる参照機能を使い、商品の見た目やブランドカラーがブレないよう素材をそろえておく。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-title">まず標準の30秒モードでテスト生成する</div>
+        <div class="step-desc">最初の章だけを30秒モードで作り、演出のクセや商品の再現度を先に確認する。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <div class="step-title">問題なければUltra-Long Video(Beta)に切り替える</div>
+        <div class="step-desc">30秒版で違和感がなければ、同じ台本・参照素材でベータの180秒設定に切り替えて生成する。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">5</div>
+      <div class="step-body">
+        <div class="step-title">前半・中盤・後半に分けて見直す</div>
+        <div class="step-desc">長尺の生成結果は一気に見て終わりにせず、区間ごとに人物や背景の破綻がないかチェックし、必要ならリージョン編集で部分修正する。</div>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="card">
+  <div class="card-title">📝 今日のまとめ</div>
+  <ul class="summary-list">
+    <li>2026年7月、ByteDanceの動画生成AI「Seedance 2.5」に、最大180秒(3分)を1回で生成できる「Ultra-Long Video(Beta)」モードが中国のJimengアプリ上で確認された</li>
+    <li>これまでの標準モードは最大30秒。今回のベータモードは標準モードの約6倍にあたる長さまで生成できる</li>
+    <li>ByteDanceは30秒モードを「信頼性重視の標準」、180秒モードを「実験的」と位置づけており、品質のばらつきなどベータ特有の制約に注意が必要</li>
+    <li>最大50個の参照素材・ネイティブ4K/10bit出力・部分編集(リージョン編集)など、Seedance 2.5本体の機能はそのまま引き継がれている</li>
+    <li>対応アプリ・提供地域・料金・商用利用の可否は2026年7月時点の報道に基づく情報であり、今後変わる可能性があるため公式ページでの確認が必須</li>
+  </ul>
+</div>
+
+<div class="disclaimer">
+  ⚠️ <strong>免責事項</strong><br>
+  紹介したAIツールの名称・機能・料金・商用利用の可否は頻繁に変わります。ご利用の際は必ず各社の公式ページで最新情報と利用規約をご確認ください。著作権のあるキャラクターや実在人物の肖像を無断で再現する行為は行わないでください。本記事で紹介した機能・提供状況は2026年7月時点の報道に基づく情報であり、確定情報ではありません。
+</div>
+
+<footer>
+  AI動画制作 最新トピック ─ 2026-07-29 ｜ ツール情報回<br>
+  参考：<a href="https://x.com/testingcatalog/status/2075160295966642333" target="_blank" rel="noopener">Ultra-Long Video (Beta), powered by SeeDance 2.5, spotted on Jimeng - TestingCatalog(X)</a>(基準：2026年7月)<br>
+  参考：<a href="https://www.testingcatalog.com/exclusive-early-30-second-ai-videos-generated-by-seedance-2-5/" target="_blank" rel="noopener">Exclusive: Early 30-second AI videos generated by Seedance 2.5 - TestingCatalog</a>(基準：2026年7月)<br>
+  参考：<a href="https://kie.ai/blog/what-is-seedance-2-5" target="_blank" rel="noopener">What Is Seedance 2.5? ByteDance's 30-Second Video Model - kie.ai</a>(基準：2026年7月)<br>
+  参考：<a href="https://dreamina.capcut.com/seedance/seedance-2-5-long-video-generator" target="_blank" rel="noopener">Seedance 2.5 Long Video Generator: 30s to 180s - Dreamina 公式</a>(公式情報)<br>
+  <a href="index.html" style="color:var(--accent);">← 一覧に戻る</a>
+</footer>
+
+</div>
+</body>
+</html>
