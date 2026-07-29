@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-07-30</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #1e7a5a 0%, #0d4632 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #1e7a5a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.blue   { border-left-color: #1e5a7a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.purple { border-left-color: #7a4a9e; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #1e7a5a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 14px 10px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat .sl { font-size: 0.67rem; color: #888; margin-bottom: 3px; }
+  .stat .sv { font-size: 1.5rem; font-weight: 700; color: #1e7a5a; line-height: 1.1; }
+  .stat .su { font-size: 0.7rem; color: #666; margin-top: 2px; }
+
+  .type-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .type-grid { grid-template-columns: 1fr; } }
+  .type-card {
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-size: 0.86rem;
+    line-height: 1.65;
+  }
+  .type-card.main {
+    background: #e6f5ee;
+    border: 2px solid #1e7a5a;
+  }
+  .type-card.sub {
+    background: #eef2fb;
+    border: 2px solid #4a6aae;
+  }
+  .type-card .tl {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+  }
+  .type-card.main .tl { color: #0d4632; }
+  .type-card.sub .tl  { color: #1a2a6e; }
+  .type-card .tv { font-size: 1.0rem; font-weight: 700; margin-bottom: 6px; }
+  .type-card.main .tv { color: #1e7a5a; }
+  .type-card.sub .tv  { color: #4a6aae; }
+
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #1e7a5a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+  .f-arrow { color: #1e7a5a; font-size: 1.1rem; margin-left: 14px; margin-bottom: 4px; }
+
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  .info {
+    background: #e6f5ee;
+    border-left: 4px solid #1e7a5a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #0d4632;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #7a4010;
+  }
+
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #1e7a5a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+
+  .badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 8px;
+    margin-right: 4px;
+    vertical-align: middle;
+  }
+  .badge.law   { background: #1e7a5a; color: white; }
+  .badge.ai    { background: #4a6aae; color: white; }
+  .badge.tip   { background: #4a9e6a; color: white; }
+  .badge.warn  { background: #c8884a; color: white; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #1e7a5a; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #1e7a5a; }
+
+  .matrix {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.83rem;
+  }
+  .matrix th {
+    background: #0d4632;
+    color: white;
+    padding: 8px 12px;
+    text-align: center;
+    font-weight: 600;
+  }
+  .matrix td {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    vertical-align: top;
+    line-height: 1.55;
+  }
+  .matrix .row-head {
+    background: #e6f5ee;
+    font-weight: 700;
+    color: #0d4632;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .matrix .ok  { color: #4a9e6a; font-weight: 700; }
+  .matrix .ng  { color: #b54040; font-weight: 700; }
+  .matrix .mid { color: #c8884a; font-weight: 700; }
+  .matrix-wrap { overflow-x: auto; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Header -->
+<div class="header">
+  <div class="meta">📅 1人法人スタート 最新トピック &nbsp;2026-07-30</div>
+  <h1>🐖 退職金は自分でつくる時代<br>iDeCoと小規模企業共済、1人社長はどう使い分ける？</h1>
+  <div class="desc">
+    <span class="htag">老後資金</span>
+    <span class="htag">iDeCo</span>
+    <span class="htag">小規模企業共済</span>
+    <span class="htag">節税</span>
+    <br>
+    1人社長には、会社員のような退職金制度も厚生年金基金もありません。<span class="hl">自分の退職金・老後資金は自分で積み立てる</span>必要があります。その代表的な2つの制度が<strong>iDeCo</strong>（個人型確定拠出年金）と<strong>小規模企業共済</strong>です。名前は似ていませんが、実は税金の控除欄では同じ枠を使う"きょうだい制度"。違いと使い分け方をやさしく解説します。
+  </div>
+</div>
+
+<!-- Section 1: overview -->
+<div class="card">
+  <div class="sec-title">🤔 なぜ1人社長に「自分でつくる退職金」が必要か</div>
+  <p>会社員には退職金制度がある会社も多いですが、1人社長の会社は自分自身が「経営者」であり「唯一の役員」です。会社の退職金規程を作ることもできますが、資金繰りが厳しい創業期にはハードルが高いのが実情です。</p>
+  <p style="margin-top:10px;">そこで使われるのが、国がつくった2つの積み立て制度です。どちらも<span class="hlg">掛金がその年の所得から全額差し引ける（所得控除）</span>という共通の強みがあり、積み立てながら毎年の税負担を抑えられます。ただし、仕組みも受け取り方もまったく別物なので、違いを知らずに選ぶと後悔しがちです。</p>
+</div>
+
+<!-- Section 2: comparison cards -->
+<div class="card blue">
+  <div class="sec-title">⚖️ 2つの制度、ざっくり言うと？</div>
+  <div class="type-grid">
+    <div class="type-card main">
+      <div class="tl">🏛️ 小規模企業共済</div>
+      <div class="tv">「廃業・退職の備え」</div>
+      国（中小機構）が掛金を運用し、原則<strong>元本を保証</strong>した予定利率で増える。廃業・退職時に受け取る「退職金づくり」の制度。
+    </div>
+    <div class="type-card sub">
+      <div class="tl">📈 iDeCo</div>
+      <div class="tv">「自分で運用する年金」</div>
+      自分で選んだ投資信託・定期預金などで運用する。<strong>値動きがあり元本割れの可能性</strong>もあるが、増える余地も大きい「老後資金づくり」の制度。
+    </div>
+  </div>
+  <div class="info" style="margin-top:12px;">
+    💡 どちらか一方しか使えないわけではなく、<strong>1人社長は両方に同時加入できます。</strong>「手堅い分」と「増やす分」を分けて積み立てる人が多い制度です。
+  </div>
+</div>
+
+<!-- Section 3: numbers -->
+<div class="card orange">
+  <div class="sec-title">🔢 掛金の上限を数字で見る</div>
+  <p>毎月いくらまで積み立てられるかを、大きな数字で比べてみましょう。</p>
+  <div class="stats-row">
+    <div class="stat">
+      <div class="sl">小規模企業共済<br>月額の上限</div>
+      <div class="sv">70,000円</div>
+      <div class="su">下限1,000円〜500円単位で設定</div>
+    </div>
+    <div class="stat">
+      <div class="sl">iDeCo 月額の上限<br>（現行）</div>
+      <div class="sv">23,000円</div>
+      <div class="su">企業年金のない会社役員の場合</div>
+    </div>
+    <div class="stat">
+      <div class="sl">iDeCo 月額の上限<br>（2026年12月〜）</div>
+      <div class="sv">62,000円</div>
+      <div class="su">制度改正により引き上げ予定</div>
+    </div>
+  </div>
+  <div class="warn" style="margin-top:12px;">
+    ⚠️ iDeCoの上限引き上げは、2026年12月拠出分（2027年1月引き落とし分）からの<strong>予定</strong>です。厚生労働省の年金制度改正の一環として決定していますが、実際に自分の掛金を変更できるのは施行後になるため、加入している金融機関（運営管理機関）から届く案内を確認しましょう。
+  </div>
+  <div class="source">
+    出典：独立行政法人中小企業基盤整備機構「小規模企業共済 制度の概要」（<a href="https://www.smrj.go.jp/kyosai/skyosai/features/index.html" target="_blank" rel="noopener">smrj.go.jp</a>）／厚生労働省による確定拠出年金制度改正（2026年12月施行予定、2026年7月時点の公表情報）
+  </div>
+</div>
+
+<!-- Section 4: matrix -->
+<div class="card">
+  <div class="sec-title">📊 制度をまとめて比較</div>
+  <div class="matrix-wrap">
+  <table class="matrix">
+    <tr>
+      <th>比較項目</th>
+      <th>小規模企業共済</th>
+      <th>iDeCo</th>
+    </tr>
+    <tr>
+      <td class="row-head">加入資格</td>
+      <td>従業員5人以下（商業・サービス業等）または20人以下（建設業・製造業等）の会社役員・個人事業主</td>
+      <td>基本的に65歳未満の国民年金加入者なら誰でも（1人社長は「企業年金のない会社役員」区分）</td>
+    </tr>
+    <tr>
+      <td class="row-head">運用方法</td>
+      <td class="ok">機構が運用・原則元本保証</td>
+      <td class="mid">自分で運用商品を選ぶ・元本割れの可能性あり</td>
+    </tr>
+    <tr>
+      <td class="row-head">掛金の所得控除</td>
+      <td colspan="2" style="text-align:center;">どちらも<strong>「小規模企業共済等掛金控除」</strong>として全額所得控除（同じ控除の枠）</td>
+    </tr>
+    <tr>
+      <td class="row-head">引き出せる時期</td>
+      <td class="mid">廃業・退職時（一定の要件あり、任意解約は元本割れの可能性）</td>
+      <td class="ng">原則60歳まで引き出し不可</td>
+    </tr>
+    <tr>
+      <td class="row-head">受け取り方</td>
+      <td>一括・分割（10年/15年）・併用から選択</td>
+      <td>一時金・年金・併用から選択</td>
+    </tr>
+    <tr>
+      <td class="row-head">受取時の税区分</td>
+      <td>一括＝退職所得扱い／分割＝公的年金等の雑所得扱い</td>
+      <td>一時金＝退職所得扱い／年金＝公的年金等の雑所得扱い</td>
+    </tr>
+  </table>
+  </div>
+  <div class="source">出典：独立行政法人中小企業基盤整備機構「小規模企業共済」公式サイト（2026年7月時点情報）</div>
+</div>
+
+<!-- Section 5: steps -->
+<div class="card purple">
+  <div class="sec-title">🪜 1人社長が検討するときの3ステップ</div>
+  <div style="margin-top:14px;">
+    <div class="f-step">
+      <div class="f-num">1</div>
+      <div class="f-text"><strong>会社の資金繰りを確認する：</strong>掛金は毎月の固定支出になる。無理なく続けられる金額かを、まず資金繰り表で確認する</div>
+    </div>
+    <div class="f-arrow">⬇</div>
+    <div class="f-step">
+      <div class="f-num">2</div>
+      <div class="f-text"><strong>「元本保証」と「自分で運用」の割合を決める：</strong>手堅く備えたい分は小規模企業共済、長期で増やしたい分はiDeCo、という配分を考える</div>
+    </div>
+    <div class="f-arrow">⬇</div>
+    <div class="f-step">
+      <div class="f-num">3</div>
+      <div class="f-text"><strong>専門家・金融機関に確認して申し込む：</strong>小規模企業共済は商工会議所や金融機関の窓口、iDeCoは証券会社・銀行等の運営管理機関で手続きする</div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 6: dos and donts -->
+<div class="card red">
+  <div class="sec-title">✅ 気をつけたいポイント</div>
+  <ul class="check-list">
+    <li><span class="ck">◯</span>両方とも「事業資金」ではなく「個人の退職金・老後資金」を積み立てる制度</li>
+    <li><span class="ck">◯</span>小規模企業共済は加入後、従業員数などの加入資格を満たさなくなっても任意解約しなければ原則継続できる</li>
+    <li><span class="ck">◯</span>掛金は増額・減額ができる（小規模企業共済は500円単位、iDeCoは年1回変更可）ので、資金繰りに合わせて調整できる</li>
+    <li><span class="ck-bad">×</span>小規模企業共済は加入後20年未満で任意解約すると、掛金合計より受取額が少なくなる（元本割れの）場合がある</li>
+    <li><span class="ck-bad">×</span>iDeCoは原則60歳まで引き出せないため、直近の運転資金をここに回すのは避ける</li>
+    <li><span class="ck-bad">×</span>掛金の上限額・控除額は制度改正で変わることがあるため、加入前に必ず最新の公式情報を確認する</li>
+  </ul>
+</div>
+
+<!-- Section 7: summary -->
+<div class="card">
+  <div class="sec-title">📝 今日のまとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">①</span>1人社長には会社員のような退職金制度がなく、老後資金は自分で積み立てる必要がある。</li>
+    <li><span class="n">②</span>小規模企業共済は元本保証型の「廃業・退職への備え」、iDeCoは自分で運用する「老後資金づくり」。</li>
+    <li><span class="n">③</span>掛金の所得控除はどちらも同じ<span class="hlg">「小規模企業共済等掛金控除」</span>の枠を使う。</li>
+    <li><span class="n">④</span>両方に同時加入でき、月額上限は共済70,000円・iDeCo23,000円（2026年12月から62,000円に引き上げ予定）。</li>
+    <li><span class="n">⑤</span>資金繰りに無理のない範囲で、「手堅く備える分」と「増やす分」を分けて考えるのがコツ。</li>
+  </ul>
+</div>
+
+<!-- Disclaimer -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報提供を目的としており、個別の税務・法務・資産運用のアドバイスに代わるものではありません。iDeCo・小規模企業共済の加入条件や控除額、iDeCoの拠出限度額改正の内容は今後の法令・運用によって変更される可能性があります。
+  実際の加入・掛金設定・資産配分に関する判断は、会社と個人の資金状況に応じて代表者ご自身で行い、必要に応じて税理士・ファイナンシャルプランナー・運営管理機関（金融機関）などの専門家にご相談ください。
+  税務・社会保険に関する記述を含む回では、原則として制度・税率・金額の基準年度を明記しています（本記事は令和8年（2026年）7月時点の公表情報に基づく一般的な考え方の紹介です）。<br>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>📚 <a href="index.html">バックナンバー一覧へ</a> &nbsp;&middot;&nbsp; 毎朝更新</p>
+</div>
+
+</div>
+</body>
+</html>
