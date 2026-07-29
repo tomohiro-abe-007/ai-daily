@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-07-30</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '❤️';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.9rem; margin-bottom: 8px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.1em; }
+  .c3-col li { margin-bottom: 4px; }
+  .c3-col .or-val { font-size: 1.5rem; font-weight: 700; margin: 4px 0; }
+  .c3-col.red .or-val { color: #a0291e; }
+  .c3-col.green .or-val { color: #1a6e4a; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .mech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .mech-item {
+    background: #f0faf5;
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 0.85rem;
+    border-top: 3px solid #1a7a5a;
+  }
+  .mech-item .micon { font-size: 1.3rem; margin-bottom: 6px; }
+  .mech-item strong { display: block; color: #0d4a35; margin-bottom: 4px; font-size: 0.88rem; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .highlight { background: #cff0df; padding: 1px 5px; border-radius: 4px; }
+  .good { color: #1a7a5a; font-weight: 600; }
+  .bad  { color: #c0392b; font-weight: 600; }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-box {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin: 14px 0;
+    font-size: 0.92rem;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  .quote-box {
+    background: #f5f0e8;
+    border-left: 4px solid #7a5abf;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    margin: 12px 0;
+    color: #444;
+    font-style: italic;
+  }
+  .quote-box .who { font-style: normal; font-weight: 700; color: #5a3a9a; margin-top: 6px; font-size: 0.78rem; }
+  @media (max-width: 540px) {
+    .compare4 { grid-template-columns: 1fr 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.7rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ヘッダー -->
+<div class="header">
+  <div class="label">健康・栄養 最新トピック ・ 2026-07-30</div>
+  <h1>「オメガ3脂肪酸で不整脈が増える」は本当?<br>
+  34試験・11万人のデータが示した「効く人・注意な人」の境目</h1>
+  <div class="subtitle">米セントルークス心臓研究所のNada R. Abukneshaさん、James H. O'Keefeさんら国際チームが、EPA・DHA(オメガ3脂肪酸)を1日500mg以上・12か月以上投与した34件のランダム化比較試験(RCT、参加者114,326人分)を統合した最新のメタ分析をmedRxivに公開(2025年12月15日、査読前のプレプリント)。心房細動という不整脈のリスクが上がるのは「もともと心血管疾患のリスクが高い人」が「高用量(1日1500mg超)」を使った場合に限られ、それ以外の組み合わせでは統計的に意味のある増加は見られませんでした。「同じ量のオメガ3でも、リスクは人によって違う」という精密栄養学の視点から、数字の読み方を解説します。</div>
+</div>
+
+<!-- タグ -->
+<div style="margin-bottom:18px;">
+  <span class="tag">精密栄養学</span>
+  <span class="tag">オメガ3脂肪酸</span>
+  <span class="tag">心房細動</span>
+  <span class="tag">メタ分析</span>
+  <span class="tag">プレプリント</span>
+</div>
+
+<!-- 今日の疑問 -->
+<div class="card">
+  <h2>🤔 今日の疑問:オメガ3は「心臓にいい」はずでは?</h2>
+  <p>魚の油に含まれるEPA・DHAといったオメガ3脂肪酸は、これまで「心臓や血管によい」というイメージで語られることが多い成分です。実際、大規模試験のREDUCE-IT(2019年、本連載6月24日でも紹介)では高用量のEPAが心血管イベントを25%減らしたと報告されました。</p>
+  <p>その一方で、複数の試験で「オメガ3をとった人ほど心房細動という不整脈が増えるのでは」という懸念も指摘されてきました。今回のメタ分析は、過去に発表・未発表のRCTデータを集め直し、「どんな人が」「どのくらいの量で」リスクが上がるのかを、より細かく調べたものです。</p>
+</div>
+
+<!-- 基本用語 -->
+<div class="card blue">
+  <h2>📖 まず言葉の意味を</h2>
+  <div class="def-grid">
+    <div class="def-item">
+      <div class="dterm">心房細動(しんぼうさいどう)</div>
+      心臓の上側の部屋(心房)が小刻みに震え、脈が不規則になる不整脈。動悸や息切れの原因になるほか、放置すると脳梗塞のリスクも上がることがある。
+    </div>
+    <div class="def-item">
+      <div class="dterm">メタ分析</div>
+      複数の研究結果を統計的に一つにまとめ、より確かな全体像を導き出す手法。1つ1つの研究より参加人数が多く、判断の材料として重視されやすい。
+    </div>
+    <div class="def-item">
+      <div class="dterm">オッズ比(OR)</div>
+      あるできごとの「起こりやすさ」を2つのグループで比べた数字。1より大きいほどそのグループでリスクが高く、1に近いほど差がないことを意味する。
+    </div>
+    <div class="def-item">
+      <div class="dterm">95%信頼区間(CI)</div>
+      「本当の値はだいたいこの範囲に入るだろう」という統計的な幅。この範囲が1をまたいでいない場合に「統計的に意味のある差」と判断される。
+    </div>
+    <div class="def-item">
+      <div class="dterm">プレプリント</div>
+      正式な査読(専門家による事前チェック)を受ける前に公開された論文の原稿。研究の速報として役立つ一方、内容が査読で修正・撤回される可能性も残る段階。
+    </div>
+  </div>
+</div>
+
+<!-- 数字カード -->
+<div class="num-row">
+  <div class="num-card">
+    <div class="big">34<span class="unit">試験</span></div>
+    <div class="desc">統合されたランダム化比較試験(RCT)の数</div>
+  </div>
+  <div class="num-card blue-bg">
+    <div class="big">114,326<span class="unit">人</span></div>
+    <div class="desc">解析対象になった参加者の合計人数</div>
+  </div>
+  <div class="num-card red-bg">
+    <div class="big">OR 1.48</div>
+    <div class="desc">「高リスク×高用量」群のみで見られた心房細動のオッズ比(95%CI 1.21〜1.81)</div>
+  </div>
+  <div class="num-card orange-bg">
+    <div class="big">+0.8<span class="unit">%pt</span></div>
+    <div class="desc">同じ群での絶対リスク差(0.40〜1.1%pt)。相対的な「48%増」ほど大きな数字には見えない</div>
+  </div>
+</div>
+
+<!-- 研究の流れ -->
+<div class="card orange">
+  <h2>🔄 どうやって調べたか</h2>
+  <div class="flow">
+    <div class="flow-step">①EPA・DHAを<br>1日500mg以上・<br>12か月以上投与した<br>RCTを収集</div>
+    <div class="flow-arrow">▶</div>
+    <div class="flow-step alt">②未発表データも<br>含め34試験・<br>114,326人分を確保</div>
+    <div class="flow-arrow">▶</div>
+    <div class="flow-step purp">③「心血管疾患の<br>高リスク/そうでない」<br>「高用量(&gt;1500mg)/<br>低用量」で4群に分類</div>
+    <div class="flow-arrow">▶</div>
+    <div class="flow-step warn2">④群ごとに<br>新規の心房細動<br>発症率を統合</div>
+  </div>
+</div>
+
+<!-- 4群比較 -->
+<div class="card blue">
+  <h2>⚖️ 4つの組み合わせで結果が全然違った</h2>
+  <div class="compare4">
+    <div class="c3-col red">
+      <h3>🔴 高リスク × 高用量</h3>
+      <div class="or-val">OR 1.48</div>
+      <ul>
+        <li>95%CI 1.21〜1.81</li>
+        <li><strong class="bad">統計的に有意</strong>に上昇</li>
+      </ul>
+    </div>
+    <div class="c3-col green">
+      <h3>🟡 高リスク × 低用量</h3>
+      <div class="or-val">OR 1.07</div>
+      <ul>
+        <li>有意差<strong class="good">なし</strong></li>
+      </ul>
+    </div>
+    <div class="c3-col green">
+      <h3>🟢 低リスク × 低用量</h3>
+      <div class="or-val">OR 1.06</div>
+      <ul>
+        <li>有意差<strong class="good">なし</strong></li>
+      </ul>
+    </div>
+    <div class="c3-col green">
+      <h3>🟢 低リスク × 高用量</h3>
+      <div class="or-val">OR 0.95</div>
+      <ul>
+        <li>有意差<strong class="good">なし</strong></li>
+      </ul>
+    </div>
+  </div>
+  <p style="margin-top:10px;">「高リスク」は心血管疾患の既往などがある集団、「高用量」は1日1500mg超(REDUCE-IT試験の4g/日のような処方薬レベルの量)を指します。統計的に意味のあるリスク上昇が見られたのは、この2つが重なった場合だけでした。</p>
+</div>
+
+<!-- なぜ差が出るのか -->
+<div class="card purple">
+  <h2>🧪 なぜ「高リスク×高用量」でだけ差が出るのか</h2>
+  <div class="mech-grid">
+    <div class="mech-item">
+      <div class="micon">💊</div>
+      <strong>用量そのものの影響(仮説)</strong>
+      心臓の細胞膜や電気信号に関わる仕組みへの影響は、量が増えるほど強く出る可能性があると考えられているが、詳しいメカニズムはまだ研究段階
+    </div>
+    <div class="mech-item">
+      <div class="micon">❤️‍🩹</div>
+      <strong>もともとの心臓の状態</strong>
+      心血管疾患の既往がある人は心房の組織がすでに変化していることが多く、同じ刺激でも不整脈が起きやすい下地がある可能性
+    </div>
+    <div class="mech-item">
+      <div class="micon">📊</div>
+      <strong>試験単位のデータである限界</strong>
+      個人ごとのデータではなく試験ごとに再分類した解析のため、群の違いが用量以外の要因(試験の対象者の特徴など)を反映している可能性も否定できない
+    </div>
+  </div>
+</div>
+
+<!-- 精密栄養学の視点 -->
+<div class="card purple">
+  <h2>🎯 精密栄養学の視点から見ると</h2>
+  <p>この結果が象徴しているのは、「同じ成分・同じ量でも、効き方もリスクも人によって違う」という精密栄養学の基本的な考え方です。</p>
+  <ul class="step-list">
+    <li>心血管疾患の既往がなく、一般的なサプリメントの目安量(数百mg/日程度)をとっている人にとっては、今回の解析で有意なリスク上昇は確認されていません。</li>
+    <li>一方、すでに心血管疾患がありREDUCE-ITのような高用量(4g/日など)の処方を検討している人は、心房細動のリスクも含めて主治医と相談しながら判断する材料になります。</li>
+    <li>「オメガ3=無条件に体によい」でも「オメガ3=不整脈のもと」でもなく、「誰が・どのくらいの量を」がリスクと効果のどちらにも大きく関わるという、まさに精密栄養学的な結論です。</li>
+  </ul>
+</div>
+
+<!-- 限界 -->
+<div class="warn">
+  <strong>⚠️ この結果をどう受け止めるか</strong>
+  <ul style="padding-left:1.4em; margin-top:8px;">
+    <li>この論文は<span class="bad">medRxivに公開されたプレプリント</span>(2025年12月15日、DOI: 10.64898/2025.12.14.25342167)で、2026年7月30日時点で正式な査読誌への掲載は確認できていません。medRxiv自体も「査読による認証を受けておらず、臨床実践の指針に使うべきではない」と明記しています。</li>
+    <li>統合された34試験そのものはRCT(ランダム化比較試験)で信頼性の高いデザインですが、「高リスク/低リスク」「高用量/低用量」という4群への分類は<strong>試験単位</strong>で行われており、参加者一人ひとりのデータで直接検証したものではありません。</li>
+    <li>相対リスクでは「48%増」と大きく聞こえますが、絶対リスク差は<strong>+0.8ポイント</strong>にとどまります。相対risk比と絶対リスク差のどちらで語るかによって印象が大きく変わる点は、ニュースを読むときに注意が必要です。</li>
+    <li>「高用量」の基準(1日1500mg超)は、REDUCE-ITのような臨床試験・処方薬レベルの量を指しており、市販サプリメントの一般的な目安量(数百mg程度)とは前提が異なります。</li>
+    <li>この解析は心房細動という一つのリスクだけを見たものであり、REDUCE-ITなどが示した心血管イベント減少という効果を無効にするものではありません。効果とリスクは両方をあわせて考える必要があります。</li>
+  </ul>
+</div>
+
+<!-- エビデンスの整理 -->
+<div class="card">
+  <h2>🧪 この研究のエビデンスの強さ</h2>
+  <table class="ev-table">
+    <tr><th>要素</th><th>内容</th><th>強さの目安</th></tr>
+    <tr>
+      <td>研究デザイン</td>
+      <td>34件のRCT(ランダム化比較試験)を統合したメタ分析</td>
+      <td><span class="ev-badge ev-high">個々の試験はエビデンスの上位クラス</span></td>
+    </tr>
+    <tr>
+      <td>査読状況</td>
+      <td>medRxivプレプリント(2025年12月15日公開)。正式な査読誌掲載は未確認</td>
+      <td><span class="ev-badge ev-low">査読前・要フォローアップ</span></td>
+    </tr>
+    <tr>
+      <td>対象・規模</td>
+      <td>34試験・114,326人</td>
+      <td><span class="ev-badge ev-high">大規模</span></td>
+    </tr>
+    <tr>
+      <td>解析単位</td>
+      <td>参加者個人ではなく試験単位でのサブグループ分類</td>
+      <td><span class="ev-badge ev-mid">個人単位の検証ではない</span></td>
+    </tr>
+    <tr>
+      <td>効果量の大きさ</td>
+      <td>相対リスク+48%、絶対リスク差+0.8ポイント</td>
+      <td><span class="ev-badge ev-mid">相対値と絶対値の差に注意</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- まとめ -->
+<div class="card" style="border-left-color:#1a7a5a;">
+  <h2>✅ 今日のまとめ</h2>
+  <ul class="step-list">
+    <li>米セントルークス心臓研究所のAbuknesha・O'Keefeさんらのチームが、EPA・DHAを投与した34件のRCT(参加者114,326人)を統合したメタ分析をmedRxivに公開(2025年12月15日、査読前のプレプリント、DOI: 10.64898/2025.12.14.25342167、PMID: 41445624)。</li>
+    <li>心房細動リスクが統計的に有意に上がったのは「心血管疾患の高リスク患者」が「1日1500mg超の高用量」を使った場合のみ(OR 1.48、95%CI 1.21〜1.81、絶対リスク差+0.8ポイント)。それ以外の3つの組み合わせでは有意な差は見られなかった。</li>
+    <li>「同じ成分・同じ量でも人によってリスクが違う」という精密栄養学の視点を示す結果である一方、プレプリント段階であること、試験単位の分類であること、相対リスクと絶対リスクの印象の違いなど、読み解く上での注意点も多い。</li>
+    <li>効果とリスクは両方合わせて考える必要があり、すでにオメガ3の処方・サプリメントを利用している場合の判断は自己判断せず主治医に相談することが大切。</li>
+  </ul>
+</div>
+
+<!-- 免責 -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、医療アドバイスではありません。効果・必要量・リスクは個人の体質・年齢・持病・服薬によって大きく異なります。実践の前には、かかりつけ医・管理栄養士・薬剤師など専門家にご相談ください。本記事は特定のサプリメント・摂取量を推奨または禁止するものではありません。心血管疾患がある方・すでにオメガ3脂肪酸の処方を受けている方は、自己判断で摂取量を変えず、必ず主治医にご相談ください。
+</div>
+
+<!-- 出典 -->
+<div class="sources">
+  <h3>📚 主な出典・参考文献</h3>
+  <ol>
+    <li>Abuknesha NR, O'Keefe JH, Qian F, Tintle NL, Lin Y, et al. "Effects of Omega-3 Fatty Acid Treatment on Risk for Atrial Fibrillation: An Updated Meta-Analysis of 34 Trials including 114,326 Individuals." medRxiv. 2025年12月15日公開(プレプリント、査読前). DOI: 10.64898/2025.12.14.25342167. PMID: 41445624
+      <a href="https://www.medrxiv.org/content/10.64898/2025.12.14.25342167v1" target="_blank">https://www.medrxiv.org/content/10.64898/2025.12.14.25342167v1</a>
+    </li>
+    <li>PMC (PubMed Central)掲載版
+      <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12723971/" target="_blank">https://pmc.ncbi.nlm.nih.gov/articles/PMC12723971/</a>
+    </li>
+    <li>PubMed書誌情報(PMID: 41445624)
+      <a href="https://pubmed.ncbi.nlm.nih.gov/41445624/" target="_blank">https://pubmed.ncbi.nlm.nih.gov/41445624/</a>
+    </li>
+    <li>参考(本連載2026年6月24日で紹介済み):REDUCE-IT試験(Bhatt DL, et al. New England Journal of Medicine 2019, DOI: 10.1056/NEJMoa1812792)。高用量EPA(4g/日)による心血管イベント25%減少と、心房細動リスク上昇(HR約1.31)の両方を報告した試験。</li>
+  </ol>
+  <p style="margin-top:8px; font-size:0.78rem;">※ 本記事で紹介した論文はmedRxivのプレプリントであり、正式な査読誌への掲載状況は2026年7月30日時点で一次資料から確認できていません。統計モデルの詳細(試験単位分類の具体的な方法、感度分析の内容など)は本文全体を精読しないと分からない部分があり、正確な数値・詳細は上記DOI・PMIDから論文本文でご確認ください。</p>
+</div>
+
+</div>
+</body>
+</html>
