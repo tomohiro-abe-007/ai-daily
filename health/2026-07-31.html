@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-07-31</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '🧬';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.9rem; margin-bottom: 8px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.1em; }
+  .c3-col li { margin-bottom: 4px; }
+  .c3-col .or-val { font-size: 1.5rem; font-weight: 700; margin: 4px 0; }
+  .c3-col.red .or-val { color: #a0291e; }
+  .c3-col.green .or-val { color: #1a6e4a; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .mech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .mech-item {
+    background: #f0faf5;
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 0.85rem;
+    border-top: 3px solid #1a7a5a;
+  }
+  .mech-item .micon { font-size: 1.3rem; margin-bottom: 6px; }
+  .mech-item strong { display: block; color: #0d4a35; margin-bottom: 4px; font-size: 0.88rem; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .highlight { background: #cff0df; padding: 1px 5px; border-radius: 4px; }
+  .good { color: #1a7a5a; font-weight: 600; }
+  .bad  { color: #c0392b; font-weight: 600; }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-box {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin: 14px 0;
+    font-size: 0.92rem;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  .quote-box {
+    background: #f5f0e8;
+    border-left: 4px solid #7a5abf;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    margin: 12px 0;
+    color: #444;
+    font-style: italic;
+  }
+  .quote-box .who { font-style: normal; font-weight: 700; color: #5a3a9a; margin-top: 6px; font-size: 0.78rem; }
+  @media (max-width: 540px) {
+    .compare4 { grid-template-columns: 1fr 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.7rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ヘッダー -->
+<div class="header">
+  <div class="label">健康・栄養 最新トピック ・ 2026-07-31</div>
+  <h1>「天然のオゼンピック」が見つかった、は本当?<br>
+  AIが探し当てた食欲抑制ペプチド「BRP」、動物実験の先にある長い道のり</h1>
+  <div class="subtitle">米スタンフォード大学のLaetitia Coassolo(ライティシア・コアソロ)さん、Katrin Svensson(カトリン・スヴェンソン)さんらのチームが、AIを使って人体のたんぱく質から未知の食欲抑制物質「BRP」を発見し、Nature誌に発表(2025年3月5日オンライン公開、DOI: 10.1038/s41586-025-08683-y)。マウス・ミニブタでオゼンピックのような食欲抑制効果を示しつつ吐き気・筋肉減少が少なかったと報告され、2026年に入って改めて「天然のオゼンピック」として話題になっています。ただし研究はまだ動物実験の段階。話題に便乗した未承認品の販売も出てきており、「効いた」の中身を丁寧に見ていきます。</div>
+</div>
+
+<!-- タグ -->
+<div style="margin-bottom:18px;">
+  <span class="tag">精密栄養学</span>
+  <span class="tag">AI創薬</span>
+  <span class="tag">ペプチド</span>
+  <span class="tag">動物実験</span>
+  <span class="tag">消費者注意</span>
+</div>
+
+<!-- 今日の疑問 -->
+<div class="card">
+  <h2>🤔 今日の疑問:なぜ「天然のオゼンピック」が話題に?</h2>
+  <p>セマグルチド(商品名オゼンピック・ウゴービなど)をはじめとするGLP-1受容体作動薬は、体重減少効果の高さで世界的に注目されている薬です。ただし、吐き気などの消化器症状や、筋肉量の減少が起きやすいという課題も指摘されています。</p>
+  <p>今回話題になっているのは、スタンフォード大学のチームがAIを使い、人の体の中にもともとある未知のペプチド(小さなたんぱく質の断片)の中から、GLP-1とは別の仕組みで食欲を抑える物質「BRP」を見つけ出したという基礎研究です。2025年3月にNature誌で発表された後、2026年に入ってから複数のメディアで改めて取り上げられ、関心が再燃しています。</p>
+</div>
+
+<!-- 基本用語 -->
+<div class="card blue">
+  <h2>📖 まず言葉の意味を</h2>
+  <div class="def-grid">
+    <div class="def-item">
+      <div class="dterm">プロホルモン</div>
+      体の中でホルモンとして働く前、たんぱく質の「原材料」の状態。切り分けられることで初めて働きを持つ。
+    </div>
+    <div class="def-item">
+      <div class="dterm">視床下部(ししょうかぶ)</div>
+      脳の中心近くにあり、食欲・体温・睡眠などを自動的に調整している部位。
+    </div>
+    <div class="def-item">
+      <div class="dterm">POMCニューロン</div>
+      視床下部にある、食欲を抑える方向に働く神経細胞のグループ。
+    </div>
+    <div class="def-item">
+      <div class="dterm">GLP-1受容体作動薬</div>
+      腸から出るホルモンGLP-1の働きをまねて血糖値・食欲をコントロールする薬(セマグルチドなど)。
+    </div>
+    <div class="def-item">
+      <div class="dterm">ミニブタ</div>
+      実験用に小型化されたブタの品種。消化器や代謝がヒトに近く、薬の効果を確かめる研究によく使われる。
+    </div>
+    <div class="def-item">
+      <div class="dterm">前臨床試験</div>
+      ヒトで試す前の、細胞や動物を使った研究の段階。ここで有望でも、ヒトで同じ効果・安全性が出るとは限らない。
+    </div>
+  </div>
+</div>
+
+<!-- 数字カード -->
+<div class="num-row">
+  <div class="num-card">
+    <div class="big">2,600<span class="unit">種類</span></div>
+    <div class="desc">AIが解析した未知のペプチド候補の数</div>
+  </div>
+  <div class="num-card orange-bg">
+    <div class="big">最大50<span class="unit">%</span></div>
+    <div class="desc">注射1回後1時間の食事量減少(マウス・ミニブタ)</div>
+  </div>
+  <div class="num-card blue-bg">
+    <div class="big">6<span class="unit">g差</span></div>
+    <div class="desc">肥満マウス2週間の体重差(BRP群−3g、無治療群+3g)</div>
+  </div>
+  <div class="num-card red-bg">
+    <div class="big">0<span class="unit">件</span></div>
+    <div class="desc">2026年半ば時点で登録されているヒト臨床試験の数</div>
+  </div>
+</div>
+
+<!-- 発見の流れ -->
+<div class="card orange">
+  <h2>🔄 どうやって見つけたか</h2>
+  <div class="flow">
+    <div class="flow-step">①AIアルゴリズム<br>「Peptide Predictor」で<br>人体のプロホルモンを解析</div>
+    <div class="flow-arrow">▶</div>
+    <div class="flow-step alt">②約2,600種類の<br>未知ペプチド候補を予測</div>
+    <div class="flow-arrow">▶</div>
+    <div class="flow-step purp">③候補を1つずつ<br>実験室でスクリーニングし<br>「BRP」を特定</div>
+    <div class="flow-arrow">▶</div>
+    <div class="flow-step warn2">④マウス・ミニブタに投与し<br>食欲抑制効果を確認</div>
+  </div>
+</div>
+
+<!-- 比較 -->
+<div class="card blue">
+  <h2>⚖️ BRP(研究段階) vs GLP-1薬(承認薬)</h2>
+  <div class="compare4">
+    <div class="c3-col purple">
+      <h3>🧬 BRP(研究段階)</h3>
+      <ul>
+        <li>視床下部のPOMCニューロンに作用</li>
+        <li>マウス・ミニブタで吐き気・筋肉減少<strong class="good">少なめ</strong></li>
+        <li>ヒトでの試験は<strong class="bad">0件</strong></li>
+        <li>承認・販売は<strong class="bad">一切なし</strong></li>
+      </ul>
+    </div>
+    <div class="c3-col green">
+      <h3>💉 セマグルチドなど(承認薬)</h3>
+      <ul>
+        <li>GLP-1受容体を介し全身(消化管・膵臓等)に作用</li>
+        <li>吐き気・筋肉量減少が<strong class="bad">起きうる</strong></li>
+        <li>大規模なヒト試験で承認済み</li>
+        <li>医師の処方で使用可能</li>
+      </ul>
+    </div>
+  </div>
+  <p style="margin-top:10px;">BRPは「非インクレチン(non-incretin)」ペプチド、つまりGLP-1の仕組みを使わない点が最大の特徴です。ただし、この比較はあくまでマウス・ミニブタでの動物実験データとヒトで承認された薬の情報を並べたものであり、ヒトでの直接比較ではありません。</p>
+</div>
+
+<!-- メカニズム -->
+<div class="card purple">
+  <h2>🧪 なぜ副作用が少ないと考えられているか</h2>
+  <div class="mech-grid">
+    <div class="mech-item">
+      <div class="micon">🎯</div>
+      <strong>作用する場所がピンポイント</strong>
+      視床下部のPOMCニューロンという食欲を抑える神経に絞って作用すると考えられている(動物実験での観察)
+    </div>
+    <div class="mech-item">
+      <div class="micon">🚫</div>
+      <strong>GLP-1経路を使わない</strong>
+      消化管の動きを遅くする働きがないため、吐き気などの消化器症状が出にくい可能性(仮説段階)
+    </div>
+    <div class="mech-item">
+      <div class="micon">📊</div>
+      <strong>まだ動物実験の範囲</strong>
+      詳しい安全性・長期的な影響・ヒトでの用量はすべて未確認。マウス・ミニブタの結果がそのままヒトに当てはまるとは限らない
+    </div>
+  </div>
+</div>
+
+<!-- 視点 -->
+<div class="card purple">
+  <h2>🎯 精密栄養学・創薬の視点から見ると</h2>
+  <ul class="step-list">
+    <li>今回の研究は「食事」そのものではなく「AIを使った新しい創薬手法」の話です。体の中にすでにある未知の物質をAIで探し出すというアプローチは、将来の精密医療・精密栄養学にもつながる可能性があります。</li>
+    <li>ただし「効く仕組みが見つかった」と「ヒトで安全かつ効果的に使える」の間には、前臨床試験→治験(第I〜III相)→承認という長い道のりがあります。専門家の見立てでも、実用化は早くて5〜7年先とされています。</li>
+    <li>研究を率いたSvenssonさんらはBRPに関する特許の発明者であり、開発を進める企業「Merrifield Therapeutics」も共同設立しています。研究自体はNatureの査読を経ていますが、商業化に関わる利益相反がある点も知っておくとよい情報です。</li>
+  </ul>
+</div>
+
+<!-- 警告 -->
+<div class="warn">
+  <strong>⚠️ この話題をどう受け止めるか</strong>
+  <ul style="padding-left:1.4em; margin-top:8px;">
+    <li>報告されている効果は<strong>マウス・ミニブタでの動物実験</strong>の結果であり、「ヒトで証明された」わけではありません。動物で効いた物質がヒトでも同じように効き、同じように安全とは限りません。</li>
+    <li>2026年7月時点で、BRPのヒト臨床試験は登録・報告されておらず、FDA(米食品医薬品局)の審査も受けていません。医薬品としてもサプリメントとしても、正規のルートでは一切販売されていません。</li>
+    <li>それにもかかわらず、「天然のオゼンピック」という報道をきっかけに、未承認のペプチドを個人輸入・販売する業者が現れているという指摘があります。出所や純度が確認できない物質を自己判断で使うことは、健康被害につながるおそれがあり推奨されません。</li>
+    <li>実用化までの期間は専門家の推定でも早くて5〜7年とされ、実際に承認されるかどうかも今後の治験の結果次第です。</li>
+  </ul>
+</div>
+
+<!-- エビデンスの整理 -->
+<div class="card">
+  <h2>🧪 この研究のエビデンスの強さ</h2>
+  <table class="ev-table">
+    <tr><th>要素</th><th>内容</th><th>強さの目安</th></tr>
+    <tr>
+      <td>掲載誌</td>
+      <td>Nature誌(査読あり国際学術誌)、2025年3月5日オンライン公開</td>
+      <td><span class="ev-badge ev-high">査読済み・高インパクト誌</span></td>
+    </tr>
+    <tr>
+      <td>研究デザイン</td>
+      <td>AIによる候補予測+細胞・動物での基礎実験</td>
+      <td><span class="ev-badge ev-mid">前臨床(基礎)研究</span></td>
+    </tr>
+    <tr>
+      <td>対象</td>
+      <td>マウス(肥満・通常)、ミニブタ</td>
+      <td><span class="ev-badge ev-low">ヒトでの検証なし</span></td>
+    </tr>
+    <tr>
+      <td>ヒトへの外挿</td>
+      <td>臨床試験は未実施・未登録(2026年7月時点)</td>
+      <td><span class="ev-badge ev-low">現時点では不明</span></td>
+    </tr>
+    <tr>
+      <td>利益相反</td>
+      <td>著者が特許発明者・開発企業の共同設立者</td>
+      <td><span class="ev-badge ev-mid">開示済み・留意点</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- まとめ -->
+<div class="card" style="border-left-color:#1a7a5a;">
+  <h2>✅ 今日のまとめ</h2>
+  <ul class="step-list">
+    <li>米スタンフォード大学のCoassolo・Svenssonさんらのチームが、AIを使って人体の未知ペプチド「BRP」を発見し、Nature誌に発表(2025年3月5日、DOI: 10.1038/s41586-025-08683-y)。2026年に入り改めて話題になっている。</li>
+    <li>マウス・ミニブタへの投与で、GLP-1薬(セマグルチドなど)とは別の脳の仕組み(視床下部のPOMCニューロン)を介して食事量を最大50%減らし、吐き気・筋肉減少が少なかったと報告された。</li>
+    <li>ただし、これらはすべて動物実験の結果。2026年7月時点でヒト臨床試験は0件、FDAの審査も未実施で、正規の販売ルートは存在しない。</li>
+    <li>話題に便乗した未承認品の個人輸入・販売には注意が必要。「動物実験で効いた」と「ヒトで証明された」は全く別の段階であることを、この事例は象徴している。</li>
+  </ul>
+</div>
+
+<!-- 免責 -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、医療アドバイスではありません。効果・必要量・リスクは個人の体質・年齢・持病・服薬によって大きく異なります。実践の前には、かかりつけ医・管理栄養士・薬剤師など専門家にご相談ください。本記事で紹介したBRPペプチドは研究段階の物質であり、ヒトでの安全性・有効性は確認されていません。いかなる未承認の物質・サプリメントの購入・使用も推奨するものではなく、既存のGLP-1薬の使用・中止についても自己判断せず必ず主治医にご相談ください。
+</div>
+
+<!-- 出典 -->
+<div class="sources">
+  <h3>📚 主な出典・参考文献</h3>
+  <ol>
+    <li>Coassolo L, Svensson KJ, et al. "Prohormone cleavage prediction uncovers a non-incretin anti-obesity peptide." Nature. 2025年3月5日オンライン公開. DOI: 10.1038/s41586-025-08683-y
+      <a href="https://www.nature.com/articles/s41586-025-08683-y" target="_blank">https://www.nature.com/articles/s41586-025-08683-y</a>
+    </li>
+    <li>Stanford Medicine News「Naturally occurring molecule rivals Ozempic in weight loss without side effects」(2025年3月)
+      <a href="https://med.stanford.edu/news/all-news/2025/03/ozempic-rival.html" target="_blank">https://med.stanford.edu/news/all-news/2025/03/ozempic-rival.html</a>
+    </li>
+    <li>ScienceDaily「AI helps Stanford scientists discover "natural Ozempic" without the usual side effects」(2026年7月19日再報道)
+      <a href="https://www.sciencedaily.com/releases/2026/07/260719230608.htm" target="_blank">https://www.sciencedaily.com/releases/2026/07/260719230608.htm</a>
+    </li>
+    <li>ScienceDaily「Stanford scientists discover "natural Ozempic" without side effects」(2026年4月12日)
+      <a href="https://www.sciencedaily.com/releases/2026/04/260412221946.htm" target="_blank">https://www.sciencedaily.com/releases/2026/04/260412221946.htm</a>
+    </li>
+    <li>Medical Daily「No, You Cannot Buy This Yet: What The Stanford Appetite Molecule Finding Actually Means For Patients」── ヒト臨床試験未実施・FDA未審査・未承認販売業者への注意喚起
+      <a href="https://www.medicaldaily.com/stanford-brp-appetite-peptide-not-available-consumer-warning-476468" target="_blank">https://www.medicaldaily.com/stanford-brp-appetite-peptide-not-available-consumer-warning-476468</a>
+    </li>
+  </ol>
+  <p style="margin-top:8px; font-size:0.78rem;">※ 本記事は2025年3月に発表された研究が2026年に入り複数メディアで再度報道されたものを扱っています。研究自体は動物実験(マウス・ミニブタ)段階であり、2026年7月時点でヒトでの臨床試験データは確認できていません。開発企業名・実用化までの見込み年数は複数の報道記事に基づく情報であり、正式な治験計画は本記事執筆時点で公表されていません。</p>
+</div>
+
+</div>
+</body>
+</html>
