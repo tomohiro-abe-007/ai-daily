@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI動画制作 最新トピック 2026-07-31</title>
+<style>
+  :root {
+    --bg: #ece8e1;
+    --card: #faf6ec;
+    --dark: #1a3a5c;
+    --dark2: #1a5c3a;
+    --accent: #2a5c8a;
+    --accent2: #c85a00;
+    --text: #2a3540;
+    --muted: #7c8a82;
+    --border: #e0d8c8;
+    --highlight: #fff3cd;
+    --warn: #8a2020;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, "Hiragino Sans", "Yu Gothic", sans-serif;
+    line-height: 1.75;
+    padding: 20px;
+  }
+  .wrap { max-width: 900px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #1a3a5c 0%, #1a5c3a 100%);
+    color: #fff;
+    border-radius: 20px;
+    padding: 44px 32px 36px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(26,58,92,.22);
+    margin-bottom: 24px;
+  }
+  .header-tag {
+    display: inline-block;
+    background: rgba(255,255,255,.18);
+    color: #e0f0e8;
+    border-radius: 20px;
+    padding: 4px 16px;
+    font-size: .82rem;
+    margin-bottom: 14px;
+    letter-spacing: .06em;
+  }
+  .header h1 { font-size: 1.5rem; letter-spacing: .03em; line-height: 1.45; margin-bottom: 10px; }
+  .header .sub { color: #c8dde8; font-size: .95rem; }
+  .header .date { color: #b0e0c0; font-size: .85rem; margin-top: 8px; }
+
+  .card {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 12px rgba(0,0,0,.07);
+    border: 1px solid var(--border);
+  }
+  .card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .point-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .point-card { background: #eef3f8; border-radius: 14px; padding: 20px 16px; text-align: center; border: 1px solid #d4e0ea; }
+  .point-icon { font-size: 2rem; margin-bottom: 8px; }
+  .point-title { font-size: .95rem; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
+  .point-desc { font-size: .83rem; color: var(--muted); line-height: 1.6; }
+
+  .bignum-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 20px; }
+  .bignum-card { background: linear-gradient(135deg, #1a3a5c, #1a5c3a); border-radius: 14px; padding: 18px 12px; text-align: center; color: #fff; }
+  .bignum { font-size: 1.4rem; font-weight: 800; color: #ffe0a0; line-height: 1.2; }
+  .bignum-label { font-size: .72rem; color: #cfe6d8; margin-top: 4px; line-height: 1.5; }
+
+  .step-list { list-style: none; }
+  .step-item { display: flex; gap: 14px; margin-bottom: 16px; align-items: flex-start; }
+  .step-num {
+    width: 34px; height: 34px;
+    background: linear-gradient(135deg, #1a3a5c, #1a5c3a);
+    color: #fff; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: .95rem; flex-shrink: 0; margin-top: 2px;
+  }
+  .step-body { flex: 1; }
+  .step-title { font-weight: 700; color: var(--dark); font-size: .95rem; }
+  .step-desc { font-size: .86rem; color: var(--muted); margin-top: 3px; line-height: 1.65; }
+
+  .chip-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .chip { background: #e8f0ec; color: #1a5c3a; border-radius: 20px; padding: 4px 14px; font-size: .82rem; font-weight: 600; border: 1px solid #c0dccc; }
+
+  .tbl { width: 100%; border-collapse: collapse; font-size: .86rem; }
+  .tbl th { background: #eaf1ea; padding: 10px 10px; text-align: left; border-bottom: 2px solid #c8ddc8; color: var(--dark); font-weight: 700; }
+  .tbl td { padding: 10px 10px; border-bottom: 1px solid var(--border); vertical-align: top; color: var(--text); }
+  .tbl tr:last-child td { border-bottom: none; }
+
+  .note-box { background: var(--highlight); border-left: 4px solid #e8a000; border-radius: 8px; padding: 12px 16px; font-size: .88rem; color: #5a4000; margin-top: 14px; line-height: 1.7; }
+  .warn-box { background: #fde8e4; border-left: 4px solid var(--warn); border-radius: 8px; padding: 12px 16px; font-size: .88rem; color: #6a1414; margin-top: 14px; line-height: 1.7; }
+
+  .summary-list { font-size: .95rem; line-height: 2.2; }
+  .summary-list li { list-style: none; display: flex; align-items: flex-start; gap: 8px; }
+  .summary-list li::before { content: "✅"; flex-shrink: 0; margin-top: 2px; }
+
+  .disclaimer { background: #f0ede8; border-radius: 12px; padding: 16px 20px; font-size: .82rem; color: var(--muted); margin-top: 24px; line-height: 1.7; border: 1px solid #ddd8d0; }
+
+  footer { text-align: center; color: var(--muted); font-size: .82rem; margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border); line-height: 1.9; }
+  footer a { color: var(--accent); }
+
+  /* フロー図 */
+  .flow-row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-top: 6px; }
+  .flow-step { flex: 1; min-width: 120px; background: #eef3f8; border: 1px solid #d4e0ea; border-radius: 10px; padding: 12px 10px; text-align: center; }
+  .flow-step .fs-icon { font-size: 1.3rem; margin-bottom: 4px; }
+  .flow-step .fs-title { font-size: .82rem; font-weight: 700; color: var(--dark); }
+  .flow-step .fs-desc { font-size: .72rem; color: var(--muted); margin-top: 3px; line-height: 1.5; }
+  .flow-arrow { font-size: 1.3rem; color: var(--accent2); font-weight: 700; flex-shrink: 0; }
+  .flow-caption { text-align: center; font-size: .8rem; color: var(--muted); margin-top: 10px; }
+
+  /* 分岐図（1つの土台→2方向） */
+  .branch-wrap { margin-top: 10px; }
+  .branch-root { background: linear-gradient(135deg, #1a3a5c, #1a5c3a); color: #fff; border-radius: 12px; padding: 14px 16px; text-align: center; font-weight: 700; font-size: .92rem; }
+  .branch-root .br-sub { font-weight: 400; font-size: .74rem; color: #cfe6d8; margin-top: 4px; }
+  .branch-lines { display: flex; justify-content: center; gap: 40px; margin: 6px 0; }
+  .branch-lines .bl { width: 2px; height: 18px; background: var(--border); }
+  .branch-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .branch-card { border-radius: 14px; padding: 16px 14px; text-align: center; border: 1px solid var(--border); }
+  .branch-card.a { background: #eef3f8; }
+  .branch-card.b { background: #fdf0e4; }
+  .branch-icon { font-size: 1.6rem; margin-bottom: 6px; }
+  .branch-title { font-size: .9rem; font-weight: 700; color: var(--dark); }
+  .branch-desc { font-size: .78rem; color: var(--muted); margin-top: 6px; line-height: 1.6; }
+
+  @media (max-width: 640px) {
+    .point-grid { grid-template-columns: 1fr; }
+    .bignum-grid { grid-template-columns: 1fr; }
+    .flow-row { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+    .branch-grid { grid-template-columns: 1fr; }
+    .branch-lines { gap: 20px; }
+    .tbl { display: block; overflow-x: auto; white-space: nowrap; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="header">
+  <div class="header-tag">🛠️ ツール情報回 ── FLUX 3 Action</div>
+  <h1>動画を作るAIの"頭脳"が<br>ロボットの手も動かし始めた</h1>
+  <div class="sub">Black Forest Labs「FLUX 3 Action」── Audiの生産ラインで進む実証実験を読み解く</div>
+  <div class="date">2026-07-31 ｜ AI動画制作 最新トピック</div>
+</div>
+
+<div class="card">
+  <div class="card-title">🎯 今日の3ポイント</div>
+  <div class="point-grid">
+    <div class="point-card">
+      <div class="point-icon">📢</div>
+      <div class="point-title">何が起きた？</div>
+      <div class="point-desc">2026年7月23日発表の「FLUX 3」ファミリーの1つ、ロボットの動作予測向けモデル「FLUX 3 Action」の実証実験内容が明らかになった。ロボット企業mimicと組んだ「FLUX-mimic」がAudiの生産ラインでテストされている</div>
+    </div>
+    <div class="point-card">
+      <div class="point-icon">🤖</div>
+      <div class="point-title">何がすごい？</div>
+      <div class="point-desc">反応速度は約101ミリ秒で人の視覚反射に近い速さ。部品の仕分けやケーブルなど不定形な物の扱いなど、これまでのプログラム式ロボットが苦手だった作業に対応できるとされる</div>
+    </div>
+    <div class="point-card">
+      <div class="point-icon">🎬</div>
+      <div class="point-title">動画制作と何の関係が？</div>
+      <div class="point-desc">動画を生成するAIとロボットを動かすAIは、実は「時間とともに何が起こるかを予測する」という同じ土台を使っている。動画AIの"動きのリアルさ"の裏側を知るヒントになる</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🔢 FLUX 3 Actionを数字で見る</div>
+  <div class="bignum-grid">
+    <div class="bignum-card">
+      <div class="bignum">約101ミリ秒</div>
+      <div class="bignum-label">認識してから動くまでの反応速度(人の視覚反射に近い水準)</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">約30分</div>
+      <div class="bignum-label">特定の作業を追加で覚えさせるのに必要とされるデータ量の目安</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">4種類</div>
+      <div class="bignum-label">FLUX 3ファミリー全体が扱う情報の種類(画像・動画・音声・ロボット動作)</div>
+    </div>
+  </div>
+  <div class="note-box">
+    💡 基準：2026年7月23日、Black Forest Labs公式ブログ「FLUX 3 x mimic」ほかで発表。Bloomberg・Decrypt・TechTimesなど複数メディアが報道。数値は早期実証段階での公表値であり、正式な性能保証ではない。<strong>最新の正確な情報は公式サイト(bfl.ai)で要確認。</strong>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🧩 なぜ「動画」と「ロボット」が同じAIでつながるのか</div>
+  <p style="font-size:.86rem;color:var(--muted);margin-bottom:10px;">FLUX 3は、大量の動画から「次の瞬間に何が起こるか」を予測する力を1つの土台として学習し、それを2つの方向に使い分けています。</p>
+  <div class="branch-wrap">
+    <div class="branch-root">
+      🎞️ 共通の土台：大量の動画から「時間の流れに沿った変化」を学習
+      <div class="br-sub">画像・動画・音声・動作をまとめて扱うマルチモーダル設計</div>
+    </div>
+    <div class="branch-lines"><div class="bl"></div><div class="bl"></div></div>
+    <div class="branch-grid">
+      <div class="branch-card a">
+        <div class="branch-icon">🎥</div>
+        <div class="branch-title">分岐A：FLUX 3 Video</div>
+        <div class="branch-desc">「次のコマ」を予測して映像+音声を生成する方向に使う(動画クリエイター向け)</div>
+      </div>
+      <div class="branch-card b">
+        <div class="branch-icon">🦾</div>
+        <div class="branch-title">分岐B：FLUX 3 Action</div>
+        <div class="branch-desc">「次の動き」を予測してロボットの関節を動かす方向に使う(Audiで実証実験中)</div>
+      </div>
+    </div>
+  </div>
+  <div class="note-box">
+    💡 一言解説：「マルチモーダル」とは画像・動画・音声・動作といった複数の「情報の種類(モダリティ)」を1つのAIでまとめて扱えること。同じ「動きを予測する力」が、映像を作ることにも、ロボットを動かすことにも応用できる、というのが今回の核心。
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">📊 従来のロボット制御 vs FLUX 3 Action</div>
+  <table class="tbl">
+    <thead>
+      <tr><th>項目</th><th>従来のプログラム式ロボット</th><th>FLUX 3 Action(動画由来モデル)</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>動きの作り方</strong></td>
+        <td>人が動作を1つずつ細かくプログラムする</td>
+        <td>大量の動画から「動きのパターン」を学習する</td>
+      </tr>
+      <tr>
+        <td><strong>新しい作業への対応</strong></td>
+        <td>作業ごとに再プログラムが必要</td>
+        <td>少量のデータ(目安約30分)で追加学習できるとされる</td>
+      </tr>
+      <tr>
+        <td><strong>得意な場面</strong></td>
+        <td>決まった手順の単純作業</td>
+        <td>ケーブルや布など不定形な物、複数手順の組み立て作業</td>
+      </tr>
+      <tr>
+        <td><strong>今回の実例</strong></td>
+        <td>─</td>
+        <td>Audi生産ラインで部品の仕分け・ECU(電子制御ユニット)の組み込みなどをテスト中</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="note-box">
+    💡 一言解説：「FLUX-mimic」はBlack Forest Labsとロボット企業mimicが共同開発した、FLUX 3を土台にしたロボット制御モデルのこと。動画生成AIの技術がそのまま流用されているわけではないが、同じ設計思想から生まれている点が特徴。
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🛠️ 真似できる具体例：動画AIの「物理理解力」をチェックする5ステップ</div>
+  <p style="font-size:.88rem;color:var(--muted);margin-bottom:18px;">
+    ロボットは試せなくても、「動きを正しく予測できるか」という視点は動画生成AIを選ぶときにそのまま使えます。ツールを選ぶ前に試してみましょう(料金・機能は変わるため公式ページで要確認)。
+  </p>
+  <ul class="step-list">
+    <li class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-title">シンプルな物理動作のプロンプトを用意する</div>
+        <div class="step-desc">「コップを持ち上げて机に置く」など、重さや接触がわかりやすい短い1文を用意する。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-title">複数の動画生成AIで同じプロンプトを試す</div>
+        <div class="step-desc">同じ文章を手持ちの動画AIツールに入力し、生成された動きを並べて比較する。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-title">「不自然な瞬間」を探す</div>
+        <div class="step-desc">物がすり抜ける・手の形が崩れる・重さを感じない動きなど、物理的におかしい箇所がないか確認する。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <div class="step-title">得意な動きの傾向をメモしておく</div>
+        <div class="step-desc">ツールごとに得意/不得意な動きのパターンを記録しておき、作りたい動画の内容に合わせて使い分ける。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">5</div>
+      <div class="step-body">
+        <div class="step-title">気になるツールの公式技術情報も読んでおく</div>
+        <div class="step-desc">基盤モデルの仕組みを軽く知っておくと、今後リリースされる新機能の理解が早くなる。</div>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="card">
+  <div class="card-title">📝 今日のまとめ</div>
+  <ul class="summary-list">
+    <li>2026年7月23日発表のFLUX 3ファミリーの1つ「FLUX 3 Action」について、ロボット企業mimicとの協業「FLUX-mimic」がAudiの生産ラインで実証実験中であることが報じられた</li>
+    <li>反応速度は約101ミリ秒(人の視覚反射に近い水準)、特定作業への追加学習は目安約30分のデータで可能とされる</li>
+    <li>FLUX 3は画像・動画・音声・ロボット動作という4種類の情報を「時間の流れに沿った変化の予測」という共通の土台で扱う設計になっている</li>
+    <li>動画生成AIの動きのリアルさも同じ「物理理解力」に支えられており、ツール選びの際にシンプルな物理動作プロンプトで比較する視点が役立つ</li>
+    <li>数値・実証結果は早期段階の公表情報であり、正式な性能保証ではないため、続報や公式発表を継続して確認する必要がある</li>
+  </ul>
+</div>
+
+<div class="disclaimer">
+  ⚠️ <strong>免責事項</strong><br>
+  紹介したAIツールの名称・機能・料金・商用利用の可否は頻繁に変わります。ご利用の際は必ず各社の公式ページで最新情報と利用規約をご確認ください。著作権のあるキャラクターや実在人物の肖像を無断で再現する行為は行わないでください。本記事で紹介した実証実験の内容・数値は2026年7月時点の報道・公式発表に基づく情報であり、確定的な性能保証ではありません。
+</div>
+
+<footer>
+  AI動画制作 最新トピック ─ 2026-07-31 ｜ ツール情報回<br>
+  参考：<a href="https://bfl.ai/blog/flux-3-mimic" target="_blank" rel="noopener">FLUX 3 x mimic: The Next Generation of Video-Action Models - Black Forest Labs</a>(基準：2026年7月23日)<br>
+  参考：<a href="https://www.bloomberg.com/news/articles/2026-07-23/black-forest-labs-unveils-first-model-for-robotics-in-shift-to-physical-ai" target="_blank" rel="noopener">Black Forest Labs Unveils First Model for Robotics in Shift to Physical AI - Bloomberg</a>(基準：2026年7月23日)<br>
+  参考：<a href="https://decrypt.co/374189/black-forest-labs-flux-3-image-video-robot-hands" target="_blank" rel="noopener">Black Forest Labs Unveils FLUX 3 AI: Ditches Stills for Video—And Robot Hands - Decrypt</a>(基準：2026年7月23日)<br>
+  参考：<a href="https://bfl.ai/blog/flux-3" target="_blank" rel="noopener">FLUX 3 - Real World Models 公式ページ - Black Forest Labs</a>(早期アクセス申込・公式情報)<br>
+  <a href="index.html" style="color:var(--accent);">← 一覧に戻る</a>
+</footer>
+
+</div>
+</body>
+</html>
