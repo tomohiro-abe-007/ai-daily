@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-07-31</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #1e7a5a 0%, #0d4632 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #1e7a5a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.blue   { border-left-color: #1e5a7a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.purple { border-left-color: #7a4a9e; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #1e7a5a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  .type-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .type-grid { grid-template-columns: 1fr; } }
+  .type-card {
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-size: 0.86rem;
+    line-height: 1.65;
+  }
+  .type-card.main {
+    background: #e6f5ee;
+    border: 2px solid #1e7a5a;
+  }
+  .type-card.sub {
+    background: #fbe9e9;
+    border: 2px solid #b54040;
+  }
+  .type-card .tl {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+  }
+  .type-card.main .tl { color: #0d4632; }
+  .type-card.sub .tl  { color: #7a2020; }
+  .type-card .tv { font-size: 1.0rem; font-weight: 700; margin-bottom: 6px; }
+  .type-card.main .tv { color: #1e7a5a; }
+  .type-card.sub .tv  { color: #b54040; }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 14px 10px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat .sl { font-size: 0.67rem; color: #888; margin-bottom: 3px; }
+  .stat .sv { font-size: 1.5rem; font-weight: 700; color: #1e7a5a; line-height: 1.1; }
+  .stat .su { font-size: 0.7rem; color: #666; margin-top: 2px; }
+
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #1e7a5a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+  .f-arrow { color: #1e7a5a; font-size: 1.1rem; margin-left: 14px; margin-bottom: 4px; }
+
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  .prompt-box {
+    background: #f0f5ff;
+    border: 2px solid #4a6aae;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 12px 0;
+    font-size: 0.84rem;
+    line-height: 1.85;
+    color: #1a2a4a;
+  }
+  .prompt-box .ph {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #4a6aae;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+  .prompt-box .fill {
+    background: #d0e0ff;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-weight: 700;
+    color: #0a2a6e;
+  }
+
+  .info {
+    background: #e6f5ee;
+    border-left: 4px solid #1e7a5a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #0d4632;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #7a4010;
+  }
+
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #1e7a5a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+
+  .badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 8px;
+    margin-right: 4px;
+    vertical-align: middle;
+  }
+  .badge.law   { background: #1e7a5a; color: white; }
+  .badge.ai    { background: #4a6aae; color: white; }
+  .badge.tip   { background: #4a9e6a; color: white; }
+  .badge.warn  { background: #c8884a; color: white; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #1e7a5a; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #1e7a5a; }
+
+  .flow-h {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 14px 0;
+  }
+  .flow-box {
+    background: white;
+    border: 2px solid #1e7a5a;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 0.81rem;
+    text-align: center;
+    line-height: 1.45;
+    color: #0d4632;
+    font-weight: 600;
+  }
+  .flow-arrow {
+    color: #1e7a5a;
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+  @media (max-width: 540px) {
+    .flow-h { flex-direction: column; align-items: flex-start; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+
+  .matrix {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.83rem;
+  }
+  .matrix th {
+    background: #0d4632;
+    color: white;
+    padding: 8px 12px;
+    text-align: center;
+    font-weight: 600;
+  }
+  .matrix td {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    vertical-align: top;
+    line-height: 1.55;
+  }
+  .matrix .row-head {
+    background: #e6f5ee;
+    font-weight: 700;
+    color: #0d4632;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .matrix .ok  { color: #4a9e6a; font-weight: 700; }
+  .matrix .ng  { color: #b54040; font-weight: 700; }
+  .matrix .mid { color: #c8884a; font-weight: 700; }
+  .matrix-wrap { overflow-x: auto; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Header -->
+<div class="header">
+  <div class="meta">📅 1人法人スタート 最新トピック &nbsp;2026-07-31</div>
+  <h1>📋 就業規則は「作った日」がゴールじゃない<br>周知・意見書・モデル規則の落とし穴</h1>
+  <div class="desc">
+    <span class="htag">周知義務</span>
+    <span class="htag">労基法106条</span>
+    <span class="htag">意見書</span>
+    <span class="htag">モデル就業規則</span>
+    <br>
+    前回（7/27）は「常時10人以上」で就業規則の作成・届出義務が発生する話をしました。今日はその<span class="hl">続き</span>です。就業規則は、作って労働基準監督署に届け出ただけでは実は<strong>まだ完成していません</strong>。「周知（しゅうち）」＝働く人に内容を知らせる手続きをして初めて効力を持ちます。作った後にやるべきことと、モデル就業規則をそのまま使う際の注意点を整理します。
+  </div>
+</div>
+
+<!-- Section 1: 周知義務 -->
+<div class="card">
+  <div class="sec-title">📢 「周知」しないと就業規則は効かない</div>
+  <p>労働基準法第106条は、就業規則を作成・届出したあと、<strong>働く人（労働者）に内容を知らせる「周知」</strong>まで使用者に義務づけています。周知の方法は法律で3つに限定されています。</p>
+
+  <div class="type-grid" style="margin-top:14px;">
+    <div class="type-card main">
+      <div class="tl">📌 掲示・備え付け</div>
+      <div class="tv">作業場の見やすい場所</div>
+      就業規則を常時、事務所や休憩室など<strong>誰でも見られる場所</strong>に掲示するか、備え付けておく方法。
+    </div>
+    <div class="type-card main">
+      <div class="tl">📄 書面交付</div>
+      <div class="tv">1人1冊を手渡し</div>
+      就業規則を印刷して、働く人<strong>1人ひとりに配布</strong>する方法。
+    </div>
+  </div>
+  <div class="type-grid" style="margin-top:12px;">
+    <div class="type-card main">
+      <div class="tl">💻 磁気記録＋機器設置</div>
+      <div class="tv">社内共有フォルダ等</div>
+      データ化して、<strong>各作業場に労働者がいつでも内容を確認できる機器（PCなど）を設置</strong>する方法。クラウド共有だけで「見られる状態」を作っていないと不十分になりうる点に注意。
+    </div>
+    <div class="type-card sub">
+      <div class="tl">🚫 やってはいけない例</div>
+      <div class="tv">社長の机の引き出しに保管</div>
+      届出さえ済めば良いと考え、<strong>誰も見られない場所にしまい込む</strong>のは周知義務を満たさない。
+    </div>
+  </div>
+
+  <div class="stats-row" style="margin-top:14px;">
+    <div class="stat">
+      <div class="sl">周知義務の<br>根拠条文</div>
+      <div class="sv">労基法<br>106条</div>
+      <div class="su">作成届出（89条）とは別の義務</div>
+    </div>
+    <div class="stat">
+      <div class="sl">違反した<br>場合</div>
+      <div class="sv">30万円<br>以下の罰金</div>
+      <div class="su">労働基準法120条</div>
+    </div>
+    <div class="stat">
+      <div class="sl">周知して<br>いない場合</div>
+      <div class="sv">効力<br>生じない</div>
+      <div class="su">最高裁判例（次章）</div>
+    </div>
+  </div>
+
+  <div class="source">
+    出典：e-Gov法令検索「労働基準法」第106条・第120条<a href="https://laws.e-gov.go.jp/law/322AC0000000049" target="_blank">https://laws.e-gov.go.jp/law/322AC0000000049</a>（令和8年7月時点）
+  </div>
+</div>
+
+<!-- Section 2: 判例 -->
+<div class="card red">
+  <div class="sec-title">⚖️ 「届出しただけ」では懲戒解雇もできない ── フジ興産事件</div>
+  <p>周知の重要性を示す代表的な最高裁判例が「フジ興産事件」（最高裁第二小法廷 平成15年10月10日判決）です。就業規則にもとづいて労働者を懲戒解雇した会社に対し、最高裁は<strong>次のように</strong>判断しました。</p>
+
+  <div class="warn" style="margin-top:14px;">
+    ⚠️ 就業規則が法的な拘束力を持つには、その内容を適用される事業場の労働者に<strong>周知させる手続きが取られていること</strong>が必要。労基署に<strong>届け出ただけでは効力は生じない</strong>。
+  </div>
+
+  <div class="info" style="margin-top:12px;">
+    💡 つまり、せっかく作った懲戒解雇や減給の規定も、周知していなければ「なかったこと」として扱われるリスクがあります。1人社長でも、初めて雇う従業員には<strong>雇用契約と同時に就業規則の在り処・見方を伝える</strong>のがおすすめです。
+  </div>
+
+  <div class="source">
+    出典：最高裁判所第二小法廷 平成15年10月10日判決（フジ興産事件）／e-Gov法令検索「労働基準法」第106条<a href="https://laws.e-gov.go.jp/law/322AC0000000049" target="_blank">https://laws.e-gov.go.jp/law/322AC0000000049</a>（令和8年7月時点）
+  </div>
+</div>
+
+<!-- Section 3: 変更時の意見書・届出フロー -->
+<div class="card blue">
+  <div class="sec-title">🪜 就業規則を作る・変えるときの4ステップ</div>
+  <p>就業規則を新しく作るときも、後から変更するときも、労働基準法第90条により<strong>働く人の代表の意見を聴く</strong>手続きが必要です。流れを図解します。</p>
+
+  <div style="margin-top:14px;">
+    <div class="f-step">
+      <div class="f-num">1</div>
+      <div class="f-text"><strong>労働者代表を決める</strong>。労働者の過半数で組織する労働組合があればその労働組合、なければ<strong>投票・挙手など民主的な方法</strong>で選ばれた過半数代表者。使用者が一方的に指名するのはNG</div>
+    </div>
+    <div class="f-arrow">⬇</div>
+    <div class="f-step">
+      <div class="f-num">2</div>
+      <div class="f-text">代表者から就業規則（案）について<strong>意見を聴取</strong>し、「意見書」を作成してもらう（反対意見でも構わない）</div>
+    </div>
+    <div class="f-arrow">⬇</div>
+    <div class="f-step">
+      <div class="f-num">3</div>
+      <div class="f-text">「就業規則（変更）届」「意見書」「就業規則本体」の3点をそろえ、所轄の<strong>労働基準監督署へ届出</strong>（変更の場合は「遅滞なく」提出）</div>
+    </div>
+    <div class="f-arrow">⬇</div>
+    <div class="f-step">
+      <div class="f-num">4</div>
+      <div class="f-text">前章の3方法のいずれかで<strong>労働者へ周知</strong>して、初めて効力が生じる</div>
+    </div>
+  </div>
+
+  <div class="info" style="margin-top:12px;">
+    💡 常時10人未満で作成義務がない会社が任意で就業規則を作った場合も、いったん作って運用を始めた以上は<strong>変更時の意見聴取・周知の考え方は同じ</strong>と考えておくとトラブルを防げます。
+  </div>
+
+  <div class="source">
+    出典：e-Gov法令検索「労働基準法」第90条<a href="https://laws.e-gov.go.jp/law/322AC0000000049" target="_blank">https://laws.e-gov.go.jp/law/322AC0000000049</a>（令和8年7月時点）
+  </div>
+</div>
+
+<!-- Section 4: モデル就業規則の注意点 -->
+<div class="card orange">
+  <div class="sec-title">📕 モデル就業規則「そのままコピペ」の落とし穴</div>
+  <p>厚生労働省は「モデル就業規則」をWord・PDF形式で無料公開しており、直近では<strong>令和7年12月26日</strong>に改訂版（国会・地方議会議員への立候補休暇の規定例などを追加）が公表されています。ただし、これは<strong>あくまで参考のひな形</strong>であり、そのまま転記すると自社の実態と合わない規定が入り込むことがあります。</p>
+
+  <div class="matrix-wrap">
+  <table class="matrix" style="margin-top:14px;">
+    <tr>
+      <th>区分</th>
+      <th>内容</th>
+      <th>記載の要否</th>
+    </tr>
+    <tr>
+      <td class="row-head">絶対的<br>必要記載事項</td>
+      <td>労働時間・休憩・休日・休暇／賃金の決定・計算・支払方法・締切・支払時期／退職に関する事項（解雇事由を含む）</td>
+      <td class="ng">全社必須</td>
+    </tr>
+    <tr>
+      <td class="row-head">相対的<br>必要記載事項</td>
+      <td>退職手当／賞与など臨時の賃金／安全衛生／災害補償／表彰・制裁（懲戒）／食費・作業用品の負担 など</td>
+      <td class="mid">制度があるなら記載必須</td>
+    </tr>
+  </table>
+  </div>
+
+  <div class="warn" style="margin-top:14px;">
+    ⚠️ 自社に「退職金制度」や「賞与」がまだ無いのに、モデル規則の条文をそのまま残してしまうと、<strong>支給を約束したのと同じ扱い</strong>になりかねません。逆に懲戒の種類や休職期間など、自社の実態より緩い基準をそのまま採用すると、いざという時に対応できない規定になってしまいます。
+  </div>
+
+  <div class="info" style="margin-top:12px;">
+    💡 モデル規則は「たたき台」として使い、①制度が実在しない条文は削除するか制度設計してから記載する、②休暇日数や手当額は自社の実態に合わせて数字を入れ直す、③改訂内容（立候補休暇など）を自社に必要か確認する、の3点を意識すると安全です。
+  </div>
+
+  <div class="source">
+    出典：厚生労働省「モデル就業規則」（令和7年12月改訂版）<a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/zigyonushi/model/index.html" target="_blank">https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/zigyonushi/model/index.html</a>／e-Gov法令検索「労働基準法」第89条<a href="https://laws.e-gov.go.jp/law/322AC0000000049" target="_blank">https://laws.e-gov.go.jp/law/322AC0000000049</a>（令和8年7月時点）
+  </div>
+</div>
+
+<!-- Section 5: AI prompt -->
+<div class="card purple">
+  <div class="sec-title">🤖 生成AIに周知・見直しチェックをしてもらうプロンプト例</div>
+  <p>モデル就業規則をベースにした<span class="hl">条文ごとの点検リスト作り</span>や、<span class="hl">周知方法の記録の整理</span>は生成AIが得意な領域です。ただし条文の適法性そのものの最終確認や、実際の労使協議・届出は、必ず社会保険労務士や所轄の労働基準監督署に相談しましょう。</p>
+
+  <div class="prompt-box" style="margin-top:14px;">
+    <div class="ph">🤖 プロンプト例：モデル就業規則の見直しチェックリスト作成</div>
+    私は1人社長の新設法人です。厚生労働省のモデル就業規則を参考に、自社用の就業規則の下書きを作っています。<br>
+    現時点で自社にある制度は<span class="fill">【例：賞与なし／退職金制度なし／休職制度なし】</span>です。<br>
+    <br>
+    1. モデル就業規則に含まれがちな条文のうち、上記の制度が無い場合に<strong>削除するか制度設計してから記載すべき条文</strong>の一覧を作ってください<br>
+    2. 周知方法（掲示・書面交付・電子データ＋機器設置）のうち、常時1〜数名の小規模事業所に向いている方法とその実施記録の残し方を提案してください<br>
+    3. 就業規則を変更した場合に必要な「意見聴取→意見書→労基署届出→周知」の手順をチェックリスト形式でまとめてください<br>
+    ※あくまで下書き整理としてお願いします。条文の適法性の最終判断と実際の届出手続きは、必ず社会保険労務士または所轄の労働基準監督署に確認します。
+  </div>
+</div>
+
+<!-- Section 6: summary -->
+<div class="card">
+  <div class="sec-title">📝 今日のまとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">①</span>就業規則は<span class="hlg">労基署への届出＋労働者への「周知」</span>が済んで初めて法的な効力を持つ（労基法106条）。</li>
+    <li><span class="n">②</span>周知の方法は「掲示・備付」「書面交付」「電子データ＋機器設置」の<span class="hlg">3つのみ</span>。引き出しに保管しているだけでは不十分。</li>
+    <li><span class="n">③</span>フジ興産事件（最高裁 平成15年10月10日）は、周知していない就業規則には拘束力が生じないと判断した代表的判例。</li>
+    <li><span class="n">④</span>新規作成・変更いずれも、労働者代表からの<span class="hlg">意見聴取（90条）→意見書添付→労基署届出→周知</span>の順で手続きする。</li>
+    <li><span class="n">⑤</span>厚生労働省のモデル就業規則（令和7年12月改訂版）は便利な出発点だが、<span class="hlg">自社に無い制度の条文をそのまま残さない</span>など、実態に合わせた見直しが欠かせない。</li>
+  </ul>
+</div>
+
+<!-- Disclaimer -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報提供を目的としており、個別の労務・税務・法務の判断を代わるものではありません。
+  就業規則の周知方法の適否、意見聴取の進め方、モデル就業規則をベースにした条文の可否は、会社の実態（従業員数・制度の有無など）によって異なります。
+  具体的な判断や実際の届出手続きは、必ず社会保険労務士、または所轄の労働基準監督署にご相談ください。
+  制度は改正されることがあります。最新情報は厚生労働省公式サイト（<a href="https://www.mhlw.go.jp/" target="_blank">https://www.mhlw.go.jp/</a>）・e-Gov法令検索（<a href="https://laws.e-gov.go.jp/" target="_blank">https://laws.e-gov.go.jp/</a>）でご確認ください。<br>
+  本記事の内容の基準年度：令和8年度（2026年度）。厚生労働省モデル就業規則は令和7年12月改訂版を基準に、令和8年7月時点の情報を記載しています。
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>📚 <a href="index.html">バックナンバー一覧へ</a> &nbsp;&middot;&nbsp; 毎朝更新</p>
+</div>
+
+</div>
+</body>
+</html>
