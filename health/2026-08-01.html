@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-08-01</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '🧬';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.9rem; margin-bottom: 8px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.1em; }
+  .c3-col li { margin-bottom: 4px; }
+  .c3-col .or-val { font-size: 1.5rem; font-weight: 700; margin: 4px 0; }
+  .c3-col.red .or-val { color: #a0291e; }
+  .c3-col.green .or-val { color: #1a6e4a; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .mech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .mech-item {
+    background: #f0faf5;
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 0.85rem;
+    border-top: 3px solid #1a7a5a;
+  }
+  .mech-item .micon { font-size: 1.3rem; margin-bottom: 6px; }
+  .mech-item strong { display: block; color: #0d4a35; margin-bottom: 4px; font-size: 0.88rem; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .highlight { background: #cff0df; padding: 1px 5px; border-radius: 4px; }
+  .good { color: #1a7a5a; font-weight: 600; }
+  .bad  { color: #c0392b; font-weight: 600; }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-box {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin: 14px 0;
+    font-size: 0.92rem;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  .quote-box {
+    background: #f5f0e8;
+    border-left: 4px solid #7a5abf;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    margin: 12px 0;
+    color: #444;
+    font-style: italic;
+  }
+  .quote-box .who { font-style: normal; font-weight: 700; color: #5a3a9a; margin-top: 6px; font-size: 0.78rem; }
+  @media (max-width: 540px) {
+    .compare4 { grid-template-columns: 1fr 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.7rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ヘッダー -->
+<div class="header">
+  <div class="label">健康・栄養 最新トピック ・ 2026-08-01</div>
+  <h1>寝不足の夜、お腹の中の菌も一緒に変わっている?<br>
+  約7,000人のオランダ人コホートが示す、睡眠と腸内細菌の"双方向"の関係</h1>
+  <div class="subtitle">オランダ・フローニンゲン大学医療センター(UMCG)のWu・Andreu-Sánchez・Zhernakovaさんらの国際チームが、大規模住民コホート「Lifelines」の参加者6,941人を対象にした観察研究をNature Communications誌に発表(2026年2月、DOI: 10.1038/s41467-026-68791-9)。睡眠の質・日中の眠気・社会的な生活時間のズレ(社会的ジェットラグ)・クロノタイプ(朝型・夜型)と、腸内細菌の種類・多様性との関連を調べ、137種類の細菌が睡眠と結びついていることを確認。統計的な媒介分析では「睡眠が細菌を変える」流れが中心である一方、「コーヒー摂取→特定の細菌→社会的ジェットラグ」という食事を介した経路も見つかりました。横断的な観察研究であり、因果関係の証明ではない点に注意しながら読み解きます。</div>
+</div>
+
+<!-- タグ -->
+<div style="margin-bottom:18px;">
+  <span class="tag">精密栄養学</span>
+  <span class="tag">腸内細菌叢</span>
+  <span class="tag">睡眠科学</span>
+  <span class="tag">観察研究</span>
+  <span class="tag">大規模コホート</span>
+</div>
+
+<!-- 今日の疑問 -->
+<div class="card">
+  <h2>🤔 今日の疑問:睡眠と腸内細菌、どっちが先?</h2>
+  <p>「寝不足だとお腹の調子が悪くなる」「腸内環境を整えると眠りが良くなる」──どちらも聞いたことがあるかもしれません。実はこの2つは矛盾しておらず、睡眠と腸内細菌はお互いに影響し合う"双方向"の関係にある可能性が指摘されています。</p>
+  <p>今回紹介するのは、オランダの大規模住民コホート「Lifelines Dutch Microbiome Project」の参加者6,941人分の睡眠アンケートと便サンプルのデータを使い、この関係をこれまでで最大級の規模で調べた研究です。「どちらが原因でどちらが結果か」を統計的に推定する<span class="highlight">媒介分析</span>という手法も使われています。</p>
+</div>
+
+<!-- 基本用語 -->
+<div class="card blue">
+  <h2>📖 まず言葉の意味を</h2>
+  <div class="def-grid">
+    <div class="def-item">
+      <div class="dterm">PSQI(ピッツバーグ睡眠質問票)</div>
+      眠りの深さ・寝つきの良さなどを自己申告で答え、睡眠の質を点数化する国際的な質問票。
+    </div>
+    <div class="def-item">
+      <div class="dterm">MCTQ(ミュンヘン・クロノタイプ質問票)</div>
+      平日と休日の睡眠時間のズレから、朝型・夜型の傾向(クロノタイプ)や生活リズムのズレを計算する質問票。
+    </div>
+    <div class="def-item">
+      <div class="dterm">社会的ジェットラグ</div>
+      平日と休日で睡眠のタイミングが大きくズレることで起きる、時差ボケのような体内時計の乱れ。
+    </div>
+    <div class="def-item">
+      <div class="dterm">アルファ多様性</div>
+      1人の腸の中に、どれだけ多くの種類の細菌がバランスよく住んでいるかを表す指標。
+    </div>
+    <div class="def-item">
+      <div class="dterm">ベータ多様性</div>
+      人と人との間で、腸内細菌の顔ぶれ(構成)がどれだけ違うかを表す指標。
+    </div>
+    <div class="def-item">
+      <div class="dterm">媒介分析(メディエーション分析)</div>
+      「AがCに影響する時、間にBが挟まっているか」を統計的に推定する手法。因果関係を直接証明するものではなく、あくまで推定。
+    </div>
+  </div>
+</div>
+
+<!-- 数字カード -->
+<div class="num-row">
+  <div class="num-card">
+    <div class="big">6,941<span class="unit">人</span></div>
+    <div class="desc">解析対象になったオランダの住民コホート参加者数</div>
+  </div>
+  <div class="num-card orange-bg">
+    <div class="big">137<span class="unit">種</span></div>
+    <div class="desc">睡眠の指標のどれかと関連していた腸内細菌の種類</div>
+  </div>
+  <div class="num-card blue-bg">
+    <div class="big">25.1<span class="unit">%</span></div>
+    <div class="desc">「睡眠の質が良くない・かなり良くない」と回答した人の割合</div>
+  </div>
+  <div class="num-card purple-bg">
+    <div class="big">35.6<span class="unit">%</span></div>
+    <div class="desc">137種のうち、別の独立したコホートでも再現できた割合</div>
+  </div>
+</div>
+
+<!-- 研究の流れ -->
+<div class="card orange">
+  <h2>🔄 どうやって調べたか</h2>
+  <div class="flow">
+    <div class="flow-step">①参加者6,941人に<br>睡眠アンケート<br>(PSQI・ESS・MCTQ)を実施</div>
+    <div class="flow-arrow">▶</div>
+    <div class="flow-step alt">②同じ参加者の<br>便サンプルから<br>腸内細菌データを取得</div>
+    <div class="flow-arrow">▶</div>
+    <div class="flow-step purp">③睡眠指標と<br>細菌の多様性・種類の<br>関連を統計解析</div>
+    <div class="flow-arrow">▶</div>
+    <div class="flow-step warn2">④媒介分析で<br>「どちらが先か」を推定<br>+別コホートで再現確認</div>
+  </div>
+</div>
+
+<!-- 3つの睡眠指標との関連 -->
+<div class="card blue">
+  <h2>⚖️ 3つの睡眠指標、それぞれ関連した細菌の数</h2>
+  <div class="compare4">
+    <div class="c3-col green">
+      <h3>😴 睡眠の質(PSQI)</h3>
+      <div class="or-val">119種</div>
+      <ul>
+        <li>質が低いほどアルファ多様性(細菌の種類の豊かさ)が低い傾向</li>
+        <li>最も多くの細菌種と関連</li>
+      </ul>
+    </div>
+    <div class="c3-col orange">
+      <h3>🕰️ 社会的ジェットラグ</h3>
+      <div class="or-val">20種</div>
+      <ul>
+        <li>平日・休日の睡眠時間のズレが大きいほど多様性が低い傾向</li>
+        <li>コーヒー摂取との関わりが確認された細菌を含む</li>
+      </ul>
+    </div>
+    <div class="c3-col purple">
+      <h3>🌙 クロノタイプ(朝型/夜型)</h3>
+      <div class="or-val">24種</div>
+      <ul>
+        <li>夜型の傾向が強いほど多様性が低い傾向</li>
+        <li>ベータ多様性(人による細菌構成の違い)とも関連</li>
+      </ul>
+    </div>
+  </div>
+  <p style="margin-top:10px;">重複を除いた合計で137種類の細菌が、睡眠の質・社会的ジェットラグ・クロノタイプのいずれかと統計的に関連していました。数が多い「睡眠の質」との関連が最も強く出ている点が特徴です。</p>
+</div>
+
+<!-- メカニズム・方向性 -->
+<div class="card purple">
+  <h2>🧪 「どちらが先か」の手がかり</h2>
+  <div class="mech-grid">
+    <div class="mech-item">
+      <div class="micon">➡️</div>
+      <strong>主な流れ:睡眠→細菌</strong>
+      媒介分析では、細菌の量が変化している例の多くは「その人の睡眠行動の結果」として起きている可能性が高いと報告された。
+    </div>
+    <div class="mech-item">
+      <div class="micon">☕</div>
+      <strong>一部は食事を介した逆方向も</strong>
+      Clostridia綱の細菌「UC5_1_1E11」「SGB14844」の2種が、コーヒー摂取が社会的ジェットラグに与える影響を"仲介"している可能性が示された(媒介分析による推定)。
+    </div>
+    <div class="mech-item">
+      <div class="micon">🧍</div>
+      <strong>再現率は約3分の1</strong>
+      137種のうち独立したコホートで再現できたのは35.6%。残りは今回のコホート特有の結果である可能性もあり、個人差・集団差を考える材料になる。
+    </div>
+  </div>
+</div>
+
+<!-- 視点 -->
+<div class="card purple">
+  <h2>🎯 精密栄養学の視点から見ると</h2>
+  <ul class="step-list">
+    <li>この研究がおもしろいのは、「睡眠が悪いと腸内細菌が乱れる」という単純な一方向の話ではなく、コーヒーのような身近な食習慣が特定の腸内細菌を介して睡眠リズムに影響しうる、という"逆方向"の経路も示した点です。同じ量のコーヒーでも、人によって腸内細菌の顔ぶれが違えば、社会的ジェットラグへの影響も変わるかもしれません。</li>
+    <li>ただし今回わかったのは「関連」と「統計的に推定された経路」であり、「このコーヒーの飲み方をすればジェットラグが減る」と実証されたわけではありません。精密栄養学が目指す「個人の腸内細菌に合わせた助言」は、こうした大規模データが積み重なった先にある将来像です。</li>
+    <li>睡眠の質を良くすること自体は、腸内環境だけでなく代謝・免疫など広い意味で健康の土台になるとされています。特定の菌や食品を狙い撃ちするより、まずは睡眠リズムを整えることが基本という点は変わりません。</li>
+  </ul>
+</div>
+
+<!-- 警告 -->
+<div class="warn">
+  <strong>⚠️ この研究をどう受け止めるか</strong>
+  <ul style="padding-left:1.4em; margin-top:8px;">
+    <li>この研究は<strong>観察研究(横断解析)</strong>であり、ランダム化比較試験(RCT)ではありません。「睡眠が原因で細菌が変わる」「コーヒーが原因でジェットラグが変わる」と因果関係が証明されたわけではなく、あくまで統計的な関連・推定です。</li>
+    <li>睡眠の評価はPSQI・ESS・MCTQという<strong>自己申告の質問票</strong>によるもので、活動量計などによる客観的な睡眠測定ではありません。回答のクセ(思い出しの誤差など)が結果に影響する可能性があります。</li>
+    <li>対象はオランダの一般住民6,941人という<strong>単一の地域集団</strong>です。食文化・生活習慣が異なる集団(日本を含む)でも同じ関連が見られるかは、この研究だけでは分かりません。</li>
+    <li>137種類の関連細菌のうち、独立したコホートで再現できたのは35.6%にとどまります。残りの結果は今後さらに検証が必要な段階です。</li>
+  </ul>
+</div>
+
+<!-- エビデンスの整理 -->
+<div class="card">
+  <h2>🧪 この研究のエビデンスの強さ</h2>
+  <table class="ev-table">
+    <tr><th>要素</th><th>内容</th><th>強さの目安</th></tr>
+    <tr>
+      <td>掲載誌</td>
+      <td>Nature Communications誌(査読あり国際学術誌)、2026年2月オンライン公開</td>
+      <td><span class="ev-badge ev-high">査読済み・高インパクト誌</span></td>
+    </tr>
+    <tr>
+      <td>研究デザイン</td>
+      <td>大規模住民コホートの横断解析+統計的媒介分析</td>
+      <td><span class="ev-badge ev-mid">観察研究(相関・推定)</span></td>
+    </tr>
+    <tr>
+      <td>対象</td>
+      <td>オランダの成人6,941人(Lifelines Dutch Microbiome Project)</td>
+      <td><span class="ev-badge ev-mid">大規模だが単一地域</span></td>
+    </tr>
+    <tr>
+      <td>睡眠の測定方法</td>
+      <td>PSQI・ESS・MCTQによる自己申告アンケート</td>
+      <td><span class="ev-badge ev-low">客観的測定ではない</span></td>
+    </tr>
+    <tr>
+      <td>再現性</td>
+      <td>137種中35.6%を独立コホートで再現確認</td>
+      <td><span class="ev-badge ev-mid">部分的に検証済み</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- まとめ -->
+<div class="card" style="border-left-color:#1a7a5a;">
+  <h2>✅ 今日のまとめ</h2>
+  <ul class="step-list">
+    <li>オランダ・UMCGのWu・Zhernakovaさんらのチームが、住民コホート6,941人分のデータでNature Communications誌に発表(2026年2月、DOI: 10.1038/s41467-026-68791-9)。睡眠の質・社会的ジェットラグ・クロノタイプと腸内細菌137種が関連していた。</li>
+    <li>統計的な媒介分析では「睡眠が細菌を変える」流れが中心だが、「コーヒー摂取→特定の細菌(Clostridia UC5_1_1E11・SGB14844)→社会的ジェットラグ」という食事を介した経路も見つかった。</li>
+    <li>ただし横断的な観察研究であり因果は未証明。睡眠評価は自己申告、対象はオランダの単一集団、細菌の再現率も35.6%にとどまる点には注意が必要。</li>
+    <li>「同じ習慣でも人によって腸内細菌が違えば影響も違う」という精密栄養学の考え方を裏づける材料の一つと言える。</li>
+  </ul>
+</div>
+
+<!-- 免責 -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、医療アドバイスではありません。効果・必要量・リスクは個人の体質・年齢・持病・服薬によって大きく異なります。睡眠の悩みや腸内環境の不調が続く場合は、自己判断でサプリメントや極端な食事制限・断食などを行わず、かかりつけ医・管理栄養士・薬剤師など専門家にご相談ください。
+</div>
+
+<!-- 出典 -->
+<div class="sources">
+  <h3>📚 主な出典・参考文献</h3>
+  <ol>
+    <li>Wu J, Andreu-Sánchez S, Peng H, Gacesa R, Gois MB, Brushett S, Weersma R, Wang D, Kurilshikov A, Zhernakova A, Fu J, Zhernakova DV. "The interplay of sleep characteristics with health factors and gut microbiome." Nature Communications. 2026年2月オンライン公開. DOI: 10.1038/s41467-026-68791-9
+      <a href="https://www.nature.com/articles/s41467-026-68791-9" target="_blank">https://www.nature.com/articles/s41467-026-68791-9</a>
+    </li>
+    <li>同論文 PMC(PubMed Central)全文
+      <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC13013938/" target="_blank">https://pmc.ncbi.nlm.nih.gov/articles/PMC13013938/</a>
+    </li>
+  </ol>
+  <p style="margin-top:8px; font-size:0.78rem;">※ 本研究はオランダの住民コホート「Lifelines Dutch Microbiome Project」を用いた観察研究(横断解析+媒介分析)です。因果関係を直接証明するものではなく、対象もオランダの成人集団に限られる点にご留意ください。</p>
+</div>
+
+</div>
+</body>
+</html>
