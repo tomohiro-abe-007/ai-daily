@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-08-02</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #1e7a5a 0%, #0d4632 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #1e7a5a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.blue   { border-left-color: #1e5a7a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.purple { border-left-color: #7a4a9e; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #1e7a5a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  .type-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .type-grid { grid-template-columns: 1fr; } }
+  .type-card {
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-size: 0.86rem;
+    line-height: 1.65;
+  }
+  .type-card.main {
+    background: #e6f5ee;
+    border: 2px solid #1e7a5a;
+  }
+  .type-card.sub {
+    background: #fbe9e9;
+    border: 2px solid #b54040;
+  }
+  .type-card .tl {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+  }
+  .type-card.main .tl { color: #0d4632; }
+  .type-card.sub .tl  { color: #7a2020; }
+  .type-card .tv { font-size: 1.0rem; font-weight: 700; margin-bottom: 6px; }
+  .type-card.main .tv { color: #1e7a5a; }
+  .type-card.sub .tv  { color: #b54040; }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 14px 10px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat .sl { font-size: 0.67rem; color: #888; margin-bottom: 3px; }
+  .stat .sv { font-size: 1.5rem; font-weight: 700; color: #1e7a5a; line-height: 1.1; }
+  .stat .su { font-size: 0.7rem; color: #666; margin-top: 2px; }
+
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #1e7a5a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-num.now { background: #b54040; }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+  .f-arrow { color: #1e7a5a; font-size: 1.1rem; margin-left: 14px; margin-bottom: 4px; }
+
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  .prompt-box {
+    background: #f0f5ff;
+    border: 2px solid #4a6aae;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 12px 0;
+    font-size: 0.84rem;
+    line-height: 1.85;
+    color: #1a2a4a;
+  }
+  .prompt-box .ph {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #4a6aae;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+  .prompt-box .fill {
+    background: #d0e0ff;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-weight: 700;
+    color: #0a2a6e;
+  }
+
+  .info {
+    background: #e6f5ee;
+    border-left: 4px solid #1e7a5a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #0d4632;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #7a4010;
+  }
+
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #1e7a5a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+
+  .badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 8px;
+    margin-right: 4px;
+    vertical-align: middle;
+  }
+  .badge.law   { background: #1e7a5a; color: white; }
+  .badge.ai    { background: #4a6aae; color: white; }
+  .badge.tip   { background: #4a9e6a; color: white; }
+  .badge.warn  { background: #c8884a; color: white; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #1e7a5a; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #1e7a5a; }
+
+  .matrix {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.83rem;
+  }
+  .matrix th {
+    background: #0d4632;
+    color: white;
+    padding: 8px 12px;
+    text-align: center;
+    font-weight: 600;
+  }
+  .matrix td {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    vertical-align: top;
+    line-height: 1.55;
+  }
+  .matrix .row-head {
+    background: #e6f5ee;
+    font-weight: 700;
+    color: #0d4632;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .matrix .ok  { color: #4a9e6a; font-weight: 700; }
+  .matrix .ng  { color: #b54040; font-weight: 700; }
+  .matrix .mid { color: #c8884a; font-weight: 700; }
+  .matrix-wrap { overflow-x: auto; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Header -->
+<div class="header">
+  <div class="meta">📅 1人法人スタート 最新トピック &nbsp;2026-08-02</div>
+  <h1>🧭 「106万円の壁」が消える日は2026年10月1日<br>1人社長の会社は対象になる？ならない？</h1>
+  <div class="desc">
+    <span class="htag">社会保険適用拡大</span>
+    <span class="htag">106万円の壁</span>
+    <span class="htag">特定適用事業所</span>
+    <span class="htag">令和7年年金制度改正法</span>
+    <br>
+    7/22の記事では「130万円の壁」と「106万円の壁」の違いを整理しました。今日はその<span class="hl">続報</span>です。実際に何が変わるのか、そして一番気になる「<strong>1人社長の会社は今回の改正の対象になるのか</strong>」を、事業所の規模ごとのスケジュールとあわせて図解します。
+  </div>
+</div>
+
+<!-- Section 1: 何が変わるか -->
+<div class="card">
+  <div class="sec-title">📅 2026年10月1日に変わること</div>
+  <p>令和7年（2025年）6月13日に成立した年金制度改正法により、パート・アルバイトなど<strong>短時間労働者</strong>（正社員より働く時間が短い人）が社会保険（健康保険・厚生年金）に入る条件のうち、「賃金要件（月8.8万円以上＝いわゆる<strong>年収106万円の壁</strong>）」が撤廃されます。</p>
+
+  <div class="stats-row" style="margin-top:14px;">
+    <div class="stat">
+      <div class="sl">施行日</div>
+      <div class="sv">2026年<br>10月1日</div>
+      <div class="su">賃金要件の撤廃</div>
+    </div>
+    <div class="stat">
+      <div class="sl">撤廃される<br>要件</div>
+      <div class="sv">月8.8万円<br>以上</div>
+      <div class="su">「106万円の壁」の正体</div>
+    </div>
+    <div class="stat">
+      <div class="sl">残る労働<br>時間要件</div>
+      <div class="sv">週20時間<br>以上</div>
+      <div class="su">今後の主な判断基準</div>
+    </div>
+  </div>
+
+  <div class="info" style="margin-top:14px;">
+    💡 賃金要件がなくなると、たとえば時給1,200円で週20時間・月80時間ほど働く人（月収約9.6万円）は、これまで「106万円の壁」未満でも加入対象外だった働き方でも、<strong>今後は週の労働時間だけで加入対象になり得る</strong>ということです。
+  </div>
+
+  <div class="source">
+    出典：日本年金機構「短時間労働者に対する健康保険・厚生年金保険の適用拡大」<a href="https://www.nenkin.go.jp/service/kounen/tekiyo/jigyosho/tanjikan.html" target="_blank">https://www.nenkin.go.jp/service/kounen/tekiyo/jigyosho/tanjikan.html</a>／厚生労働省「『年収の壁』への対応」<a href="https://www.mhlw.go.jp/stf/taiou_001_00002.html" target="_blank">https://www.mhlw.go.jp/stf/taiou_001_00002.html</a>（令和8年8月時点）
+  </div>
+</div>
+
+<!-- Section 2: 現行要件との比較 -->
+<div class="card orange">
+  <div class="sec-title">🔍 今と10月以降で、加入の条件はどう変わる？</div>
+  <p>短時間労働者が社会保険に入るかどうかは、実は「賃金要件」だけでなく<strong>複数の条件をすべて満たすか</strong>で決まります。今回変わるのはそのうちの1つだけです。</p>
+
+  <div class="matrix-wrap">
+  <table class="matrix" style="margin-top:14px;">
+    <tr>
+      <th>条件</th>
+      <th>〜2026年9月</th>
+      <th>2026年10月〜</th>
+    </tr>
+    <tr>
+      <td class="row-head">週の所定<br>労働時間</td>
+      <td>20時間以上</td>
+      <td class="ok">20時間以上（変更なし）</td>
+    </tr>
+    <tr>
+      <td class="row-head">雇用期間<br>の見込み</td>
+      <td>2か月超</td>
+      <td class="ok">2か月超（変更なし）</td>
+    </tr>
+    <tr>
+      <td class="row-head">賃金要件</td>
+      <td>月8.8万円以上</td>
+      <td class="ng">撤廃</td>
+    </tr>
+    <tr>
+      <td class="row-head">学生でない<br>こと</td>
+      <td>対象外</td>
+      <td class="ok">対象外（変更なし）</td>
+    </tr>
+    <tr>
+      <td class="row-head">勤務先の<br>事業所規模</td>
+      <td>従業員51人超</td>
+      <td class="mid">51人超（変更なし・次章で解説）</td>
+    </tr>
+  </table>
+  </div>
+
+  <div class="warn" style="margin-top:14px;">
+    ⚠️ 「賃金要件」が消えるだけで、<strong>事業所規模の要件（従業員51人超）は今回は変わりません</strong>。ここが1人社長の会社にとって一番のポイントです。
+  </div>
+</div>
+
+<!-- Section 3: 特定適用事業所と企業規模スケジュール -->
+<div class="card blue">
+  <div class="sec-title">🏢 「特定適用事業所」って何？ 1人社長の会社は対象？</div>
+  <p>短時間労働者の社会保険加入が義務になるのは、勤務先が<strong>「特定適用事業所」</strong>（従業員数がある基準を超える会社）である場合だけです。基準の従業員数は、今後段階的に引き下げられていきます。</p>
+
+  <div style="margin-top:14px;">
+    <div class="f-step">
+      <div class="f-num now">今</div>
+      <div class="f-text"><strong>2026年10月〜：従業員51人超</strong>の会社が対象。賃金要件は撤廃されるが、事業所規模の基準はここが維持される</div>
+    </div>
+    <div class="f-arrow">⬇</div>
+    <div class="f-step">
+      <div class="f-num">1</div>
+      <div class="f-text">2027年10月〜：<strong>従業員36人超</strong>の会社に拡大</div>
+    </div>
+    <div class="f-arrow">⬇</div>
+    <div class="f-step">
+      <div class="f-num">2</div>
+      <div class="f-text">2029年10月〜：<strong>従業員21人超</strong>の会社に拡大</div>
+    </div>
+    <div class="f-arrow">⬇</div>
+    <div class="f-step">
+      <div class="f-num">3</div>
+      <div class="f-text">2032年10月〜：<strong>従業員11人超</strong>の会社に拡大</div>
+    </div>
+    <div class="f-arrow">⬇</div>
+    <div class="f-step">
+      <div class="f-num">4</div>
+      <div class="f-text">2035年10月〜：事業所規模の要件が<strong>撤廃</strong>され、原則すべての会社が対象に</div>
+    </div>
+  </div>
+
+  <div class="info" style="margin-top:14px;">
+    💡 代表者1人（＋従業員数名まで）の会社は、事業所規模の要件でみるとまだ何年も先の話です。2026年10月時点で<strong>直接の義務は生じません</strong>。ただし、労使が合意すれば規模に関係なく任意で適用対象にできる制度（任意特定適用事業所）はすでにあります。
+  </div>
+
+  <div class="source">
+    出典：日本年金機構「短時間労働者に対する健康保険・厚生年金保険の適用拡大」<a href="https://www.nenkin.go.jp/service/kounen/tekiyo/jigyosho/tanjikan.html" target="_blank">https://www.nenkin.go.jp/service/kounen/tekiyo/jigyosho/tanjikan.html</a>（令和8年8月時点。企業規模要件の引き下げスケジュールは令和7年年金制度改正法にもとづく予定であり、今後の政令等で確定します）
+  </div>
+</div>
+
+<!-- Section 4: 1人社長にとっての意味 -->
+<div class="card red">
+  <div class="sec-title">🙋 それでも1人社長が知っておくべき理由</div>
+  <p>「うちは51人もいないから関係ない」で終わらせず、次の2点は覚えておくと安心です。</p>
+
+  <ul class="check-list" style="margin-top:8px;">
+    <li><span class="ck">✔</span>将来パート・アルバイトを雇うときの「時給を上げても社会保険料は増えない」という前提が、賃金要件の撤廃で崩れる。<strong>週の労働時間</strong>で判断される場面が増えていく</li>
+    <li><span class="ck">✔</span>事業所規模の基準は2027年・2029年・2032年と段階的に下がる。<strong>将来従業員を増やす計画がある会社ほど</strong>、早めにスケジュールを頭に入れておくと資金計画が立てやすい</li>
+  </ul>
+
+  <div class="warn" style="margin-top:14px;">
+    ⚠️ 「106万円を超えないように働いてもらえば社会保険料はかからない」という調整は、<strong>事業所規模の要件を満たす会社ではもう使えなくなる</strong>点に注意してください。
+  </div>
+</div>
+
+<!-- Section 5: AI prompt -->
+<div class="card purple">
+  <div class="sec-title">🤖 生成AIに社会保険料の増加シミュレーションを手伝ってもらうプロンプト例</div>
+  <p>将来パートを雇う際の<span class="hl">「もし加入対象になったら会社負担はいくら増えるか」の試算の型づくり</span>は生成AIが得意な領域です。ただし、実際の加入判定や保険料額の確定は、必ず年金事務所または社会保険労務士に確認しましょう。</p>
+
+  <div class="prompt-box" style="margin-top:14px;">
+    <div class="ph">🤖 プロンプト例：パート雇用時の社会保険料シミュレーション表を作る</div>
+    私は1人社長の新設法人です。将来、パート・アルバイトを<span class="fill">【例：週20時間・時給1,200円】</span>で1人雇うことを検討しています。<br>
+    <br>
+    1. この働き方が「週の所定労働時間20時間以上」の条件に該当するかを整理してください<br>
+    2. もし社会保険（健康保険・厚生年金）の加入対象になった場合、会社負担の保険料はおおよそどのくらいの割合になるか、計算の考え方（標準報酬月額・保険料率の仕組み）を説明してください（具体的な料率は最新の協会けんぽ・厚生年金の公表値で確認するよう案内してください）<br>
+    3. 加入対象になる場合とならない場合で、会社の人件費がどう変わるかを比較する表のたたき台を作ってください<br>
+    ※あくまで試算のたたき台としてお願いします。実際の加入判定・保険料額は必ず年金事務所または社会保険労務士に確認します。
+  </div>
+</div>
+
+<!-- Section 6: summary -->
+<div class="card">
+  <div class="sec-title">📝 今日のまとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">①</span>2026年10月1日から、短時間労働者の社会保険加入における<span class="hlg">「賃金月8.8万円以上」要件（106万円の壁）が撤廃</span>される（令和7年年金制度改正法）。</li>
+    <li><span class="n">②</span>週20時間以上・雇用見込み2か月超・学生でないことの3条件と、<span class="hlg">勤務先が「特定適用事業所」であること</span>は変わらない。</li>
+    <li><span class="n">③</span>特定適用事業所の基準（従業員数）は<span class="hlg">51人超→2027年36人超→2029年21人超→2032年11人超→2035年撤廃</span>と段階的に引き下げられる予定。</li>
+    <li><span class="n">④</span>従業員がごく少数の1人社長の会社は、2026年10月時点では<span class="hlg">直接の義務は生じない</span>が、将来の雇用計画には影響し得る。</li>
+    <li><span class="n">⑤</span>「収入を106万円未満に抑えれば保険料がかからない」という調整は、規模要件を満たす会社では<span class="hlg">今後使えなくなっていく</span>。</li>
+  </ul>
+</div>
+
+<!-- Disclaimer -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報提供を目的としており、個別の税務・社会保険・法務の判断を代わるものではありません。
+  社会保険への加入義務の有無、企業規模要件の該当判定、保険料の具体的な金額は、会社の実態（従業員数・雇用形態など）や今後の政令等によって異なります。
+  具体的な判断は、必ず年金事務所、社会保険労務士、または税理士にご相談ください。
+  制度は改正されることがあります。最新情報は日本年金機構公式サイト（<a href="https://www.nenkin.go.jp/" target="_blank">https://www.nenkin.go.jp/</a>）・厚生労働省公式サイト（<a href="https://www.mhlw.go.jp/" target="_blank">https://www.mhlw.go.jp/</a>）でご確認ください。<br>
+  本記事の内容の基準年度：令和8年度（2026年度）。令和8年8月時点の情報にもとづき、令和7年6月13日成立の年金制度改正法による2026年10月1日施行の改正内容を記載しています。
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>📚 <a href="index.html">バックナンバー一覧へ</a> &nbsp;&middot;&nbsp; 毎朝更新</p>
+</div>
+
+</div>
+</body>
+</html>
