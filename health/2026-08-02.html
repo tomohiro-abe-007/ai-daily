@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-08-02</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '🔍';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.9rem; margin-bottom: 8px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.1em; }
+  .c3-col li { margin-bottom: 4px; }
+  .c3-col .or-val { font-size: 1.5rem; font-weight: 700; margin: 4px 0; }
+  .c3-col.red .or-val { color: #a0291e; }
+  .c3-col.green .or-val { color: #1a6e4a; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .mech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .mech-item {
+    background: #f0faf5;
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 0.85rem;
+    border-top: 3px solid #1a7a5a;
+  }
+  .mech-item .micon { font-size: 1.3rem; margin-bottom: 6px; }
+  .mech-item strong { display: block; color: #0d4a35; margin-bottom: 4px; font-size: 0.88rem; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .highlight { background: #cff0df; padding: 1px 5px; border-radius: 4px; }
+  .good { color: #1a7a5a; font-weight: 600; }
+  .bad  { color: #c0392b; font-weight: 600; }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-box {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin: 14px 0;
+    font-size: 0.92rem;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  .quote-box {
+    background: #f5f0e8;
+    border-left: 4px solid #7a5abf;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    margin: 12px 0;
+    color: #444;
+    font-style: italic;
+  }
+  .quote-box .who { font-style: normal; font-weight: 700; color: #5a3a9a; margin-top: 6px; font-size: 0.78rem; }
+  @media (max-width: 540px) {
+    .compare4 { grid-template-columns: 1fr 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.7rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ヘッダー -->
+<div class="header">
+  <div class="label">健康・栄養 最新トピック ・ 2026-08-02</div>
+  <h1>「ホルモン補充療法は心臓にいい」はずだったのに、なぜ正反対の結果に?<br>
+  観察研究のニュースを正しく読み解くコツ</h1>
+  <div class="subtitle">今週(2026年7月25〜28日)は米国栄養学会の年次総会「NUTRITION 2026」が開催され、「マルチビタミンで高齢者の自立度が向上」「食べる時間を短くすると思考力が保たれる」といったニュースが数多く報じられました。これらの多くはまだ査読前の学会発表(アブストラクト)段階です。そこで今日は特定の新しい研究ではなく、「○○が△△を下げる/防ぐ」というニュースをどう読めば良いかを、医学史上もっとも有名な"逆転劇"の一つ、ホルモン補充療法(HRT)と心臓病を巡る観察研究とランダム化比較試験(RCT)の話を教材にして、やさしく解説します。</div>
+</div>
+
+<!-- タグ -->
+<div style="margin-bottom:18px;">
+  <span class="tag">精密栄養学</span>
+  <span class="tag">エビデンスの読み方</span>
+  <span class="tag">観察研究</span>
+  <span class="tag">ランダム化比較試験(RCT)</span>
+  <span class="tag">エバーグリーン解説</span>
+</div>
+
+<!-- 今日の疑問 -->
+<div class="card">
+  <h2>🤔 今日の疑問:「関連がある」と「効果がある」はどう違う?</h2>
+  <p>ニュースやSNSでよく見る「○○を食べる人は△△病が少ない」「○○という習慣が寿命を延ばす」という見出し。これらの多くは<span class="highlight">観察研究(かんさつけんきゅう)</span>という、人々の生活習慣と健康状態をただ記録して比較する研究から来ています。</p>
+  <p>ですが「関連(相関)がある」ことと、「その習慣が原因で結果が起きた(因果関係)」ことは、実はまったく別の話です。この違いを取り違えると、期待外れどころか、時には健康を損なう判断をしてしまうことすらあります。今日はその典型例を紹介します。</p>
+</div>
+
+<!-- 基本用語 -->
+<div class="card blue">
+  <h2>📖 まず言葉の意味を</h2>
+  <div class="def-grid">
+    <div class="def-item">
+      <div class="dterm">観察研究</div>
+      人々の生活習慣や健康状態をそのまま記録・追跡し、統計的な関連を調べる研究。介入(治療や食事の指定)は行わない。
+    </div>
+    <div class="def-item">
+      <div class="dterm">ランダム化比較試験(RCT)</div>
+      参加者をくじ引きのようにランダムに2グループへ分け、片方だけに介入(薬・食事など)を行って比較する実験。因果関係を確かめる力が最も強い。
+    </div>
+    <div class="def-item">
+      <div class="dterm">相関(関連)</div>
+      2つの物事が同時に起きやすい・同じ方向に動きやすいという統計的な結びつき。原因と結果とは限らない。
+    </div>
+    <div class="def-item">
+      <div class="dterm">交絡因子(こうらくいんし)</div>
+      本当は結果に影響している別の要因なのに、調べている習慣のせいだと見間違えてしまう"隠れた第三の要因"。
+    </div>
+    <div class="def-item">
+      <div class="dterm">健康な使用者バイアス</div>
+      「その習慣を選ぶ人は、もともと健康意識が高く、他の生活習慣も良い」ために、習慣そのもの以外の理由で結果が良く見えてしまう現象。
+    </div>
+    <div class="def-item">
+      <div class="dterm">学会発表(アブストラクト)</div>
+      学会で発表される研究の要旨。専門家が選抜はするが、論文として正式に査読(ピアレビュー)される前の速報段階であることが多い。
+    </div>
+  </div>
+</div>
+
+<!-- 数字カード -->
+<div class="num-row">
+  <div class="num-card">
+    <div class="big">48,470<span class="unit">人</span></div>
+    <div class="desc">観察研究「ナースヘルス研究」の追跡対象者数(米国の看護師)</div>
+  </div>
+  <div class="num-card blue-bg">
+    <div class="big">約50<span class="unit">%減</span></div>
+    <div class="desc">観察研究のメタ分析が示した、HRT使用者の心疾患リスク低下(相対リスク0.50)</div>
+  </div>
+  <div class="num-card orange-bg">
+    <div class="big">16,608<span class="unit">人</span></div>
+    <div class="desc">RCT「WHI試験」でHRTを実際に割り付けられた参加者数</div>
+  </div>
+  <div class="num-card red-bg">
+    <div class="big">29<span class="unit">%増</span></div>
+    <div class="desc">同じRCTで判明した、HRT群の心疾患リスク上昇(ハザード比1.29)</div>
+  </div>
+</div>
+
+<!-- 同じ疑問、正反対の答え -->
+<div class="card orange">
+  <h2>⚖️ 同じ「HRTは心臓にいいか?」、正反対の答えが出た2つの研究</h2>
+  <div class="compare4">
+    <div class="c3-col green">
+      <h3>📋 観察研究(ナースヘルス研究)</h3>
+      <div class="or-val good">リスク約50%減</div>
+      <ul>
+        <li>米国の看護師48,470人を10年追跡(Stampfer, NEJM 1991)</li>
+        <li>HRTを自分の意思で選んで飲んでいた人を比較</li>
+        <li>複数の観察研究をまとめたメタ分析でも相対リスク0.50(Stampfer & Colditz, 1991)</li>
+      </ul>
+    </div>
+    <div class="c3-col red">
+      <h3>🧪 RCT(WHI試験)</h3>
+      <div class="or-val bad">リスク29%増</div>
+      <ul>
+        <li>閉経後女性16,608人をくじ引きでHRT群・偽薬群に無作為割付(Rossouw, JAMA 2002)</li>
+        <li>心疾患ハザード比1.29、脳卒中1.41、乳がん1.26とリスク上昇が確認され試験が早期中止に</li>
+      </ul>
+    </div>
+  </div>
+  <p style="margin-top:10px;">同じ「HRTは心臓病を防ぐか」という問いに対して、観察研究とRCTでまったく逆の答えが出ました。この"逆転"は医学史上もっとも有名な教訓の一つとして今も語り継がれています。</p>
+</div>
+
+<!-- なぜ逆転したか -->
+<div class="card purple">
+  <h2>🧩 なぜ結果が逆転したのか</h2>
+  <div class="flow">
+    <div class="flow-step">①HRTを自分で選ぶ人は<br>健康意識が高く<br>所得・教育水準も高い傾向</div>
+    <div class="flow-arrow">▶</div>
+    <div class="flow-step alt">②そうした人は<br>もともと運動習慣や<br>定期健診の受診率も高い</div>
+    <div class="flow-arrow">▶</div>
+    <div class="flow-step purp">③心疾患リスクが<br>もともと低いグループが<br>HRT群に多く集まる</div>
+    <div class="flow-arrow">▶</div>
+    <div class="flow-step warn2">④観察研究では<br>「HRTのおかげ」に<br>見えてしまう</div>
+  </div>
+  <div class="mech-grid" style="margin-top:14px;">
+    <div class="mech-item">
+      <div class="micon">👥</div>
+      <strong>健康な使用者バイアス</strong>
+      HRTを続けられる人は体調が良く通院もできる人に偏りやすく、そもそも病気になりにくい集団だった可能性が指摘されている。
+    </div>
+    <div class="mech-item">
+      <div class="micon">⏳</div>
+      <strong>タイミング仮説</strong>
+      観察研究の対象者は閉経直後にHRTを始めた人が多かった一方、WHI試験は平均63歳と閉経から時間が経った女性が多く、開始時期の違いも結果に影響した可能性が専門家により議論されている。
+    </div>
+    <div class="mech-item">
+      <div class="micon">🎲</div>
+      <strong>ランダム化の力</strong>
+      RCTはくじ引きで割り付けるため、健康意識や所得などの交絡因子が両グループに均等に散らばり、介入そのものの効果を取り出しやすい。
+    </div>
+  </div>
+</div>
+
+<!-- Bradford Hillの視点 -->
+<div class="card blue">
+  <h2>🔬 「本当に原因と言えるか」を考える視点(Bradford Hillの基準より抜粋)</h2>
+  <p>英国の統計学者オースティン・ブラッドフォード・ヒルは1965年、観察研究の関連が本当に因果関係と言えるかを判断する視点を提案しました(Hill, 1965)。代表的な4つを紹介します。</p>
+  <ul class="step-list">
+    <li><strong>量反応関係:</strong>摂取量・曝露量が増えるほど効果も強くなっているか。</li>
+    <li><strong>時間性:</strong>原因とされる習慣は、結果より確実に前から存在していたか(逆の因果関係でないか)。</li>
+    <li><strong>整合性:</strong>異なる集団・異なる方法の研究でも同じような関連が繰り返し確認されているか。</li>
+    <li><strong>妥当な生物学的機序:</strong>「なぜそうなるのか」という体の仕組みの説明が成り立つか。</li>
+  </ul>
+  <p style="margin-top:6px; font-size:0.82rem; color:#666;">※ヒルの基準は「絶対のルール」ではなく判断のための視点であり、これを満たしても因果関係が確定するわけではないと、提案者自身が論文の中で述べています。</p>
+</div>
+
+<!-- チェックリスト -->
+<div class="card">
+  <h2>✅ ニュースを読むときの5つのチェックポイント</h2>
+  <ul class="step-list">
+    <li><strong>研究デザインは何か:</strong>観察研究か、RCTか、それらをまとめたメタ分析か。見出しだけでは分からないので本文・原著論文を確認する。</li>
+    <li><strong>「関連」か「証明した」か:</strong>「~と関連していた」「~の可能性が示唆された」なら相関どまり。「効果を証明した」と断定する記事は誇張の可能性を疑う。</li>
+    <li><strong>査読済みか、学会発表段階か:</strong>学会のアブストラクトは専門家の事前選抜はあるが、論文としての査読はまだのことが多い。</li>
+    <li><strong>対象と人数:</strong>動物実験かヒトか、少人数のパイロット試験か数万人規模のコホートか。</li>
+    <li><strong>相対リスクか絶対リスクか:</strong>「リスク50%減」でも、元のリスクが0.1%なら0.05%になるだけ、ということもある。</li>
+  </ul>
+</div>
+
+<!-- 警告 -->
+<div class="warn">
+  <strong>⚠️ 誤解しないでほしいこと</strong>
+  <ul style="padding-left:1.4em; margin-top:8px;">
+    <li>この記事は「観察研究は無意味」と言いたいわけではありません。ランダム化ができない長期的な生活習慣の研究では観察研究が唯一の手段であることも多く、次のRCTを設計するための重要な仮説を生み出します。実際、多くの観察研究の関連はその後のRCTでも支持されています。</li>
+    <li>HRTの例は、観察研究とRCTが正反対の結果になった数少ない有名なケースであり、「観察研究は必ず外れる」という意味ではありません。</li>
+    <li>この記事はHRT(ホルモン補充療法)の是非を判断するものではありません。現在のHRTの適応・リスク評価は年齢や開始時期によって専門家の見解も更新されています。ホルモン補充療法を検討する場合は、必ず婦人科医など専門家にご相談ください。</li>
+  </ul>
+</div>
+
+<!-- エビデンスの整理 -->
+<div class="card">
+  <h2>🧪 研究デザインごとの「因果関係を示す力」の目安</h2>
+  <table class="ev-table">
+    <tr><th>研究デザイン</th><th>特徴</th><th>因果関係を示す力</th></tr>
+    <tr>
+      <td>メタ分析・系統的レビュー(RCTを統合)</td>
+      <td>複数のRCTを統計的に統合。ただし元のRCTの質に結果が左右される</td>
+      <td><span class="ev-badge ev-high">最も強い</span></td>
+    </tr>
+    <tr>
+      <td>ランダム化比較試験(RCT)</td>
+      <td>介入をランダムに割り付け、交絡因子の影響を減らせる</td>
+      <td><span class="ev-badge ev-high">強い</span></td>
+    </tr>
+    <tr>
+      <td>前向きコホート研究(観察研究)</td>
+      <td>集団を追跡して関連を調べる。交絡因子の影響を受けやすい</td>
+      <td><span class="ev-badge ev-mid">中程度(相関どまり)</span></td>
+    </tr>
+    <tr>
+      <td>横断研究・症例対照研究</td>
+      <td>ある一時点のデータを比較。逆の因果関係の可能性を排除しにくい</td>
+      <td><span class="ev-badge ev-mid">弱め(相関どまり)</span></td>
+    </tr>
+    <tr>
+      <td>学会発表(未査読アブストラクト)・動物実験</td>
+      <td>速報性は高いが査読前、またはヒトでの検証がまだ</td>
+      <td><span class="ev-badge ev-low">参考情報どまり</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- 視点 -->
+<div class="card purple">
+  <h2>🎯 精密栄養学の視点から見ると</h2>
+  <ul class="step-list">
+    <li>精密栄養学が最終的にRCTで確かめようとしているのも、「ある食事・習慣が"本当に"特定の人の体に効くのか」という因果関係です。観察研究が示す"関連"は出発点であり、そこから交絡因子を取り除きながら仮説を絞り込み、最終的にRCTで検証するというプロセスをたどります。</li>
+    <li>ニュースの見出しだけで一喜一憂せず、「これは観察研究か、RCTか」「査読済みか」を一呼吸おいて確認する習慣が、精密栄養学の情報を正しく活用する第一歩になります。</li>
+  </ul>
+</div>
+
+<!-- まとめ -->
+<div class="card" style="border-left-color:#1a7a5a;">
+  <h2>✅ 今日のまとめ</h2>
+  <ul class="step-list">
+    <li>「○○が△△を下げる」というニュースの多くは観察研究による"関連"であり、原因と結果を証明したわけではないことが多い。</li>
+    <li>ホルモン補充療法(HRT)と心疾患の例では、観察研究(ナースヘルス研究など、対象48,470人、メタ分析で相対リスク0.50)が示した「約50%のリスク低下」が、RCT(WHI試験、対象16,608人、ハザード比1.29)では逆に「29%のリスク上昇」という正反対の結果になった。</li>
+    <li>健康な使用者バイアスや交絡因子が、観察研究の結果を実際より良く(あるいは悪く)見せてしまうことがある。</li>
+    <li>ニュースを読むときは、研究デザイン・査読の有無・対象人数・相対リスクか絶対リスクかの4点をチェックする習慣を持つと、誇張された見出しに振り回されにくくなる。</li>
+  </ul>
+</div>
+
+<!-- 免責 -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、医療アドバイスではありません。効果・必要量・リスクは個人の体質・年齢・持病・服薬によって大きく異なります。ホルモン補充療法をはじめ、特定の治療・サプリメント・食事制限の実践を検討する場合は、自己判断せず、かかりつけ医・管理栄養士・薬剤師など専門家にご相談ください。
+</div>
+
+<!-- 出典 -->
+<div class="sources">
+  <h3>📚 主な出典・参考文献</h3>
+  <ol>
+    <li>Rossouw JE, Anderson GL, Prentice RL, et al. "Risks and Benefits of Estrogen Plus Progestin in Healthy Postmenopausal Women: Principal Results From the Women's Health Initiative Randomized Controlled Trial." JAMA. 2002;288(3):321-333. DOI: 10.1001/jama.288.3.321
+      <a href="https://pubmed.ncbi.nlm.nih.gov/12117397/" target="_blank">https://pubmed.ncbi.nlm.nih.gov/12117397/</a>
+    </li>
+    <li>Stampfer MJ, Colditz GA, Willett WC, et al. "Postmenopausal estrogen therapy and cardiovascular disease. Ten-year follow-up from the Nurses' Health Study." N Engl J Med. 1991;325(11):756-762. PMID: 1870648
+      <a href="https://pubmed.ncbi.nlm.nih.gov/1870648/" target="_blank">https://pubmed.ncbi.nlm.nih.gov/1870648/</a>
+    </li>
+    <li>Stampfer MJ, Colditz GA. "Estrogen replacement therapy and coronary heart disease: a quantitative assessment of the epidemiologic evidence." Prev Med. 1991;20(1):47-63.(観察研究のメタ分析、相対リスク0.50・95%信頼区間0.43-0.56)
+      <a href="https://academic.oup.com/ije/article/33/3/445/716654" target="_blank">https://academic.oup.com/ije/article/33/3/445/716654(International Journal of Epidemiology 再録版)</a>
+    </li>
+    <li>Hill AB. "The Environment and Disease: Association or Causation?" Proc R Soc Med. 1965;58(5):295-300. PMID: 14283879
+      <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC1898525/" target="_blank">https://pmc.ncbi.nlm.nih.gov/articles/PMC1898525/</a>
+    </li>
+    <li>Ioannidis JPA. "Why Most Published Research Findings Are False." PLoS Med. 2005;2(8):e124. DOI: 10.1371/journal.pmed.0020124
+      <a href="https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.0020124" target="_blank">https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.0020124</a>
+    </li>
+  </ol>
+  <p style="margin-top:8px; font-size:0.78rem;">※ 本記事は特定の新しい研究の紹介ではなく、「観察研究のニュースをどう読むか」を、既に決着のついた医学史上の事例(HRTと心疾患)を教材として解説したものです。今週報じられたNUTRITION 2026学会関連のニュース(マルチビタミンと高齢者の機能維持、食事時間制限と認知機能など)は、いずれも査読前の学会発表(アブストラクト)段階であるため、本記事では数値の紹介を見送りました。査読済み論文として正式発表され次第、改めて取り上げます。</p>
+</div>
+
+</div>
+</body>
+</html>
