@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>生成AI 最新トピック 2026-08-02</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .cover {
+    background: linear-gradient(135deg, #1a3a6e 0%, #2e6bc4 100%);
+    color: white;
+    border-radius: 8px;
+    padding: 60px 40px;
+    text-align: center;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.3);
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 28px,
+      rgba(255,255,255,0.07) 28px,
+      rgba(255,255,255,0.07) 29px
+    );
+  }
+  .cover-emoji { font-size: 64px; display: block; margin-bottom: 16px; }
+  .cover h1 {
+    font-family: 'Klee One', sans-serif;
+    font-size: 2.4rem;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 12px;
+    position: relative;
+  }
+  .cover .subtitle {
+    font-size: 1.05rem;
+    opacity: 0.85;
+    margin-bottom: 8px;
+    position: relative;
+  }
+  .cover .date-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 20px;
+    padding: 6px 20px;
+    font-size: 1rem;
+    margin-top: 16px;
+    position: relative;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 6px;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.12);
+    position: relative;
+    overflow: hidden;
+  }
+  .card-body {
+    padding: 28px 36px 28px 64px;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 31px,
+      #e0d8c8 31px,
+      #e0d8c8 32px
+    );
+    background-color: #fff9f0;
+    min-height: 200px;
+  }
+  .card-body::before {
+    content: '';
+    position: absolute;
+    left: 52px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #a0b8e8;
+    opacity: 0.7;
+  }
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 8px;
+    border-bottom: 2px dashed #c8b89a;
+  }
+  .card-emoji { font-size: 2rem; }
+  .card-title {
+    font-family: 'Klee One', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #2c3e50;
+    line-height: 1.3;
+  }
+  .topic-badge {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-left: auto;
+    white-space: nowrap;
+  }
+  .badge-blue   { background: #e0eeff; color: #2255aa; border: 1px solid #a0c0f5; }
+  .badge-green  { background: #e0f5e0; color: #1e7e34; border: 1px solid #a0d8a0; }
+  .badge-purple { background: #f0e0ff; color: #7b2fbe; border: 1px solid #c8a0f0; }
+  .badge-orange { background: #fff0d0; color: #cc6600; border: 1px solid #f0c070; }
+  .badge-red    { background: #ffe0e0; color: #aa2222; border: 1px solid #f0a0a0; }
+  .badge-teal   { background: #d0f0f0; color: #006060; border: 1px solid #80d0d0; }
+  .badge-steel  { background: #deeaf8; color: #0d5c8a; border: 1px solid #8ab4d8; }
+  .badge-lime   { background: #e8f8d0; color: #3d7000; border: 1px solid #a0d060; }
+
+  .simple-box {
+    background: #fff7e0;
+    border-left: 4px solid #f5c842;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin: 16px 0;
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+  .simple-box .label {
+    display: inline-block;
+    background: #f5c842;
+    color: #5a4000;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+  }
+
+  .point-list {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0;
+  }
+  .point-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 0;
+    font-size: 0.97rem;
+    line-height: 1.7;
+    color: #333;
+    border-bottom: 1px dotted #ddd;
+  }
+  .point-list li:last-child { border-bottom: none; }
+  .point-list .marker {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-top: 2px;
+  }
+  .marker-blue   { background: #2255aa; color: white; }
+  .marker-red    { background: #aa2222; color: white; }
+  .marker-orange { background: #cc6600; color: white; }
+  .marker-green  { background: #1e7e34; color: white; }
+  .marker-steel  { background: #0d5c8a; color: white; }
+  .marker-purple { background: #7b2fbe; color: white; }
+  .marker-teal   { background: #006060; color: white; }
+  .marker-lime   { background: #3d7000; color: white; }
+
+  .hl-yellow { background: linear-gradient(transparent 60%, #ffe566 60%); }
+  .hl-pink   { background: linear-gradient(transparent 60%, #ffb3c6 60%); }
+  .hl-blue   { background: linear-gradient(transparent 60%, #b3d4ff 60%); }
+  .hl-green  { background: linear-gradient(transparent 60%, #b3f0b3 60%); }
+  .hl-red    { background: linear-gradient(transparent 60%, #ffb3b3 60%); }
+  .hl-purple { background: linear-gradient(transparent 60%, #d4b3ff 60%); }
+
+  .sticky {
+    background: #fff9c4;
+    border-radius: 4px;
+    padding: 12px 16px;
+    margin: 14px 0;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.1);
+    transform: rotate(-0.5deg);
+    display: inline-block;
+    width: 100%;
+    color: #4a3800;
+  }
+
+  .source {
+    font-size: 0.78rem;
+    color: #888;
+    margin-top: 14px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+  }
+  .source a { color: #5577aa; text-decoration: none; }
+  .source a:hover { text-decoration: underline; }
+
+  .summary-card {
+    background: linear-gradient(135deg, #1a3a6e 0%, #2e6bc4 100%);
+    color: white;
+    border-radius: 8px;
+    padding: 36px 40px;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.2);
+  }
+  .summary-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px dashed rgba(255,255,255,0.4);
+  }
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+  }
+  .summary-item {
+    background: rgba(255,255,255,0.12);
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  .summary-item .s-emoji { font-size: 1.6rem; display: block; margin-bottom: 6px; }
+  .summary-item .s-title { font-weight: 600; margin-bottom: 4px; font-size: 1rem; }
+
+  .footer {
+    text-align: center;
+    color: #888;
+    font-size: 0.8rem;
+    padding: 20px;
+    max-width: 820px;
+    width: 100%;
+  }
+
+  .toc {
+    background: #f8f4ec;
+    border: 2px solid #c8b89a;
+    border-radius: 8px;
+    padding: 20px 28px;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+  }
+  .toc h2 { font-size: 1.1rem; color: #5a4030; margin-bottom: 12px; }
+  .toc ol { padding-left: 20px; }
+  .toc li { padding: 4px 0; font-size: 0.93rem; }
+  .toc a { color: #2255aa; text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+
+  .two-col {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 16px 0;
+  }
+  .two-col-item {
+    flex: 1;
+    min-width: 200px;
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 0.85rem;
+    line-height: 1.7;
+  }
+
+  .stat-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 16px 0;
+  }
+  .stat-box {
+    flex: 1;
+    min-width: 140px;
+    background: rgba(255,255,255,0.85);
+    border-radius: 8px;
+    padding: 14px 16px;
+    text-align: center;
+    border: 2px solid #c8b89a;
+  }
+  .stat-num {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #1a3a6e;
+    line-height: 1.2;
+  }
+  .stat-label {
+    font-size: 0.78rem;
+    color: #666;
+    margin-top: 4px;
+  }
+
+  @media (max-width: 600px) {
+    .card-body { padding: 20px 20px 20px 44px; }
+    .card-title { font-size: 1.15rem; }
+    .cover h1 { font-size: 1.8rem; }
+    .summary-card { padding: 24px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- 表紙 -->
+<div class="cover">
+  <span class="cover-emoji">💰📉🤖</span>
+  <h1>生成AI 最新トピック</h1>
+  <div class="subtitle">AIモデルの値段が最大80%ダウン ── OpenAIがGPT-5.6の大幅値下げと研究者向け無料提供を発表（2026年7月30日）</div>
+  <div class="date-badge">📅 2026年8月2日号</div>
+</div>
+
+<!-- 目次 -->
+<div class="toc">
+  <h2>📋 今日の目次</h2>
+  <ol>
+    <li><a href="#topic1">何が起きた？── GPT-5.6の2モデルが最大80%値下げ</a></li>
+    <li><a href="#topic2">研究者向け無料提供── 10万人の科学者にフロンティアAIを開放</a></li>
+    <li><a href="#topic3">なぜ値下げするの？── AI価格競争の流れと私たちへの影響</a></li>
+    <li><a href="#summary">今日のまとめ</a></li>
+  </ol>
+</div>
+
+<!-- ===== トピック1：概要 ===== -->
+<div class="card" id="topic1">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">📉</span>
+      <div class="card-title">何が起きた？<br>── GPT-5.6の2モデルが最大80%値下げ</div>
+      <span class="topic-badge badge-blue">価格・コスト</span>
+    </div>
+
+    <div class="simple-box">
+      <span class="label">🌱 やさしく解説</span><br>
+      2026年7月30日、OpenAI（オープンエーアイ）はAIモデル「GPT-5.6」シリーズのうち2つのモデルについて、<span class="hl-yellow">利用料金を大幅に値下げすると発表しました</span>。軽量・高速な「Luna（ルナ）」は価格が最大80%ダウン、中間モデルの「Terra（テラ）」も約20%安くなりました。AIモデルの使用量が増えるにつれ、企業や開発者がコストを強く意識しはじめた結果、<span class="hl-blue">競争激化の中でOpenAIが「より安く、より使いやすく」する方向に踏み切った形です</span>。（出典：CNBC・2026年7月30日）
+    </div>
+
+    <ul class="point-list">
+      <li>
+        <span class="marker marker-blue">①</span>
+        <span>
+          <strong>「GPT-5.6 Luna（ルナ）」── 入力コストが80%ダウン</strong><br>
+          GPT-5.6 Lunaは、3つのGPT-5.6モデル（Sol・Terra・Luna）の中で<span class="hl-yellow">最も軽量・高速・低コストな位置づけのモデル</span>です。今回の値下げにより、入力トークン（※AIに送るテキスト）100万件あたりの料金が<span class="hl-red">$1.00（約150円）→ $0.20（約30円）</span>へと80%下がりました。出力トークン（※AIが返すテキスト）も$6.00→$1.20へと大幅に削減されています。ただし料金は変更される場合があるため、<span class="hl-blue">最新の金額は公式で要確認</span>です。（出典：CNBC・2026年7月30日 / buildfastwithai・2026年7月31日）
+        </span>
+      </li>
+      <li>
+        <span class="marker marker-orange">②</span>
+        <span>
+          <strong>「GPT-5.6 Terra（テラ）」── 約20%値下げ</strong><br>
+          GPT-5.6 Terraは、性能とコストのバランスをとった中間グレードのモデルです。入力料金が$2.50→$2.00、出力料金が$15.00→$12.00とそれぞれ約20%下がりました。LunaほどではありませんがTerraも引き下げられており、<span class="hl-yellow">「幅広い用途で使われるモデルを安くする」</span>という方針が見えます。最上位の「Sol（ソル）」の料金変更については今回の発表では報じられていません。<span class="hl-blue">詳細は公式で要確認</span>です。（出典：CNBC・2026年7月30日 / buildfastwithai・2026年7月31日）
+        </span>
+      </li>
+      <li>
+        <span class="marker marker-green">③</span>
+        <span>
+          <strong>「トークン（token）」って何？── やさしく言い換え</strong><br>
+          AIの料金でよく使われる<span class="hl-yellow">「トークン（token）」</span>とは、テキストを細かく区切った単位のことです。英語なら約4文字、日本語なら約1〜2文字が1トークンに相当することが多く、<span class="hl-blue">「100万トークン」は日本語の文章でおよそ100万文字分（ちょっとした本1〜2冊くらい）</span>のイメージです。AIサービスは「テキストを処理した量（トークン数）」に応じて料金が発生します。今回の値下げは、特に大量にAIを使う企業や開発者に恩恵が大きいと言えます。（出典：CNBC・2026年7月30日）
+        </span>
+      </li>
+    </ul>
+
+    <div class="two-col">
+      <div class="two-col-item" style="background:#e0eeff; border:2px solid #a0c0f5;">
+        <strong style="color:#1a3a6e;">📊 GPT-5.6 Luna の料金変化（参考値）</strong><br>
+        <span style="font-size:0.82rem; color:#333; line-height:1.9;">
+          入力：$1.00 → <strong>$0.20</strong>（▼80%）<br>
+          出力：$6.00 → <strong>$1.20</strong>（▼80%）<br>
+          ※単位：100万トークンあたり<br>
+          ※最新料金は公式で要確認<br>
+          （出典：CNBC / buildfastwithai・2026年7月30〜31日）
+        </span>
+      </div>
+      <div class="two-col-item" style="background:#fff0d0; border:2px solid #f0c070;">
+        <strong style="color:#cc6600;">📊 GPT-5.6 Terra の料金変化（参考値）</strong><br>
+        <span style="font-size:0.82rem; color:#333; line-height:1.9;">
+          入力：$2.50 → <strong>$2.00</strong>（▼20%）<br>
+          出力：$15.00 → <strong>$12.00</strong>（▼20%）<br>
+          ※単位：100万トークンあたり<br>
+          ※最新料金は公式で要確認<br>
+          （出典：CNBC / buildfastwithai・2026年7月30〜31日）
+        </span>
+      </div>
+    </div>
+
+    <div class="sticky">
+      ✏️ <strong>中学生的に言うと：</strong>「2026年7月30日、OpenAIが軽量AIモデル（Luna）を最大80%値下げ。中間モデル（Terra）も約20%下げた。AIをたくさん使う企業・開発者にとっては大きなコスト削減になる。最新の料金は公式で確認を。」
+    </div>
+
+    <div class="source">
+      📎 出典：
+      <a href="https://www.cnbc.com/2026/07/30/open-ai-price-cut-gpt.html" target="_blank">CNBC – "OpenAI cuts prices for two of its GPT-5.6 AI models as companies grow sensitive to costs"（2026年7月30日）</a> /
+      <a href="https://www.buildfastwithai.com/blogs/gpt-5-6-price-cut" target="_blank">buildfastwithai – "GPT-5.6 Price Cut: Luna 80% Cheaper, What It Means"（2026年7月31日）</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== トピック2：研究者向け無料提供 ===== -->
+<div class="card" id="topic2">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">🔬</span>
+      <div class="card-title">研究者向け無料提供<br>── 10万人の科学者にフロンティアAIを開放</div>
+      <span class="topic-badge badge-teal">研究・教育</span>
+    </div>
+
+    <div class="simple-box">
+      <span class="label">🌱 やさしく解説</span><br>
+      値下げと同時期に、OpenAIは<span class="hl-yellow">「科学者・数学者・エンジニアら約10万人を対象に、最先端のAIモデルを2027年まで無料で提供するプログラム」</span>を発表しました。大学や研究機関に所属する研究者はふだん、最上位クラスのAI（「フロンティアモデル」と呼ばれる）を費用の問題で十分に使えないことが多く、<span class="hl-blue">このプログラムはその格差を縮めることを目的としています</span>。（出典：QZ.com・2026年7月31日）
+    </div>
+
+    <ul class="point-list">
+      <li>
+        <span class="marker marker-teal">①</span>
+        <span>
+          <strong>「フロンティアモデル（frontier model）」って何？</strong><br>
+          <span class="hl-yellow">「フロンティアモデル」</span>とは、現時点で最も高性能な最前線（フロンティア）のAIモデルのことです。処理能力や推論力が非常に高い一方、コストも高く、<span class="hl-blue">大企業や資金豊富な研究機関でなければ気軽に使えない</span>という問題がありました。今回のプログラムはそうした研究者に無料でアクセスを提供することで、<span class="hl-green">科学的な発見や研究を加速させることを狙っています</span>。（出典：QZ.com・2026年7月31日）
+        </span>
+      </li>
+      <li>
+        <span class="marker marker-blue">②</span>
+        <span>
+          <strong>なぜ「無料」提供するの？── 研究加速と社会的信頼のため</strong><br>
+          OpenAIが研究者向けに無料提供する背景には、<span class="hl-yellow">「AIが社会に貢献できることを示し、研究コミュニティとの信頼関係を築く」</span>という狙いがあると見られています。また、研究者にOpenAIのモデルを使ってもらうことで、<span class="hl-blue">「世界の最先端研究にOpenAIのモデルが使われる」という実績を積む</span>メリットも企業側にはあります。プログラムの具体的な参加条件や使用上限は、<span class="hl-red">公式で要確認</span>です。（出典：QZ.com / softonic・2026年7月31日）
+        </span>
+      </li>
+      <li>
+        <span class="marker marker-orange">③</span>
+        <span>
+          <strong>ユーザー数10億人突破── 値下げとプログラムの相乗効果</strong><br>
+          同時期に、OpenAIはChatGPTのユーザー数が<span class="hl-yellow">10億人を突破した</span>と報じられています（出典：QZ.com・2026年7月31日）。今回の値下げと研究者向けプログラムは、<span class="hl-blue">さらなる利用拡大を促す施策として機能すると考えられています</span>。ただし「10億人突破」の公式な発表時期・詳細は公式で要確認です。（出典：QZ.com・2026年7月31日）
+        </span>
+      </li>
+    </ul>
+
+    <div class="stat-row">
+      <div class="stat-box">
+        <div class="stat-num">約10万人</div>
+        <div class="stat-label">無料提供の対象となる<br>研究者・科学者・エンジニアの数<br>（出典：QZ.com・2026年7月31日）</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">2027年<br style="font-size:1rem;">まで</div>
+        <div class="stat-label">無料提供の期間の目安<br>（出典：QZ.com・2026年7月31日）<br>詳細は公式で要確認</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">10億人</div>
+        <div class="stat-label">ChatGPTのユーザー数（推計）<br>（出典：QZ.com・2026年7月31日）<br>公式確認中</div>
+      </div>
+    </div>
+
+    <div class="sticky">
+      ✏️ <strong>中学生的に言うと：</strong>「OpenAIは科学者・研究者ら約10万人に最先端AIを2027年まで無料で使えるプログラムを開始。お金がなくて最高性能のAIを使えなかった大学研究者なども使えるようになる。詳しくは公式で確認を。」
+    </div>
+
+    <div class="source">
+      📎 出典：
+      <a href="https://qz.com/openai-billion-users-gpt-price-cuts-073126" target="_blank">QZ.com – "OpenAI surpasses 1 billion users after cutting GPT-5.6 prices"（2026年7月31日）</a> /
+      <a href="https://en.softonic.com/articles/openai-cuts-gpt-5-6-prices-by-up-to-80-what-does-it-mean-for-usage-limits" target="_blank">Softonic – "OpenAI cuts GPT-5.6 prices by up to 80%: what does it mean for usage limits?"（2026年7月31日）</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== トピック3：AI価格競争 ===== -->
+<div class="card" id="topic3">
+  <div class="card-body">
+    <div class="card-header">
+      <span class="card-emoji">⚔️</span>
+      <div class="card-title">なぜ値下げするの？<br>── AI価格競争の流れと私たちへの影響</div>
+      <span class="topic-badge badge-orange">業界トレンド</span>
+    </div>
+
+    <div class="simple-box">
+      <span class="label">🌱 やさしく解説</span><br>
+      今回の値下げは突然の出来事ではなく、<span class="hl-yellow">AI業界全体で続いてきた「価格競争（価格が下がり続ける競い合い）」の流れの一部</span>です。OpenAIのほか、Google・Anthropic・DeepSeekなどのライバルも次々と価格を下げてきており、<span class="hl-blue">「より多くの人にAIを使ってもらう」ために料金を引き下げる動きが続いています</span>。（出典：CNBC・2026年7月30日）
+    </div>
+
+    <ul class="point-list">
+      <li>
+        <span class="marker marker-orange">①</span>
+        <span>
+          <strong>AI価格競争── なぜここまで安くなるの？</strong><br>
+          AIモデルの料金が下がる理由には大きく2つあります。一つは<span class="hl-yellow">「半導体（GPU）の処理効率が上がり、AIを動かすコスト自体が下がっていること」</span>。もう一つは<span class="hl-blue">「競合他社との競争が激しくなり、より安い選択肢を出さないと顧客を取られてしまうこと」</span>です。特に中国のDeepSeekなどが低コストで高性能なモデルを公開してから、業界全体の価格引き下げ圧力が強まりました。（出典：CNBC・2026年7月30日）
+        </span>
+      </li>
+      <li>
+        <span class="marker marker-blue">②</span>
+        <span>
+          <strong>企業がコストを気にし始めた── 「AI疲れ」という現実</strong><br>
+          AI活用を進めてきた企業の中には、<span class="hl-red">「使用料がかさんで費用対効果が見えにくい」</span>という声が増えてきました。CNBC（経済ニュース）の報道では、企業がAIコストに敏感になってきたことが今回の値下げの背景の一つとして挙げられています。<span class="hl-yellow">「高くて使えない」から「安くて当たり前」へ</span>── AIの世界でも"コモディティ化（日用品化）"が進んでいます。（出典：CNBC・2026年7月30日）
+        </span>
+      </li>
+      <li>
+        <span class="marker marker-green">③</span>
+        <span>
+          <strong>私たちへの影響── 個人・中小企業・学生にも恩恵</strong><br>
+          API（エーピーアイ）経由でAIを使う企業や開発者だけでなく、<span class="hl-green">個人でアプリを作っている人や中小企業にとっても、料金低下はAI活用のハードルを下げる</span>ものです。また研究者向けの無料提供は、<span class="hl-blue">大学生や若手研究者が最先端AIを試せる機会</span>につながります。一方で「どのモデルを選ぶべきか」「安いモデルと高いモデルの差は何か」を理解する必要性も高まっています。（出典：CNBC・2026年7月30日 / QZ.com・2026年7月31日）
+        </span>
+      </li>
+    </ul>
+
+    <div class="sticky">
+      ✏️ <strong>中学生的に言うと：</strong>「AI業界では各社が競い合って料金を下げ続けている。コストが下がると、個人や中小企業・学生でも最先端AIを使いやすくなる。今回の値下げも、その流れの一つ。」
+    </div>
+
+    <div class="source">
+      📎 出典：
+      <a href="https://www.cnbc.com/2026/07/30/open-ai-price-cut-gpt.html" target="_blank">CNBC – "OpenAI cuts prices for two of its GPT-5.6 AI models as companies grow sensitive to costs"（2026年7月30日）</a> /
+      <a href="https://finance.yahoo.com/technology/ai/articles/openai-just-cut-gpt-5-013753910.html" target="_blank">Yahoo Finance – "OpenAI Just Cut GPT-5.6 Luna's Price by 80 Percent"（2026年7月31日）</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== まとめ ===== -->
+<div class="summary-card" id="summary">
+  <h2>📝 今日のまとめ ── GPT-5.6 大幅値下げ＆研究者向け無料提供（2026年7月30日）</h2>
+  <div class="summary-grid">
+    <div class="summary-item">
+      <span class="s-emoji">📉</span>
+      <div class="s-title">Luna が最大80%値下げ</div>
+      GPT-5.6の軽量モデル「Luna」の入力料金が$1.00→$0.20へ。中間モデル「Terra」も約20%下落。AI利用のコスト負担が大きく軽減される（料金詳細は公式要確認）。
+    </div>
+    <div class="summary-item">
+      <span class="s-emoji">🔬</span>
+      <div class="s-title">研究者10万人に無料提供</div>
+      科学者・数学者・エンジニア約10万人を対象に、最先端AIモデルを2027年まで無料で提供するプログラムを開始。資金不足で使えなかった研究者へのアクセスを拡大（詳細は公式要確認）。
+    </div>
+    <div class="summary-item">
+      <span class="s-emoji">⚔️</span>
+      <div class="s-title">AI価格競争が加速中</div>
+      Google・Anthropic・DeepSeekなどとの競争が激しく、AI業界全体で料金引き下げが続いている。企業がAIコストを意識しはじめたことも背景にある。
+    </div>
+    <div class="summary-item">
+      <span class="s-emoji">🌍</span>
+      <div class="s-title">個人・学生にも恩恵</div>
+      値下がりで個人や中小企業・学生もAIを使いやすくなる。一方で「どのモデルが自分に合うか」を選ぶ知識の重要性も増している。
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <p>出典の基準日：2026年8月2日 / 発表日：2026年7月30〜31日<br>
+  料金・プログラム詳細は変更される場合があります。最新情報はOpenAI公式サイトでご確認ください。<br>
+  ← <a href="index.html" style="color:#5577aa;">バックナンバー一覧</a>に戻る</p>
+</div>
+
+</body>
+</html>
