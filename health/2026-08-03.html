@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-08-03</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '🧬';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.9rem; margin-bottom: 8px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.1em; }
+  .c3-col li { margin-bottom: 4px; }
+  .c3-col .or-val { font-size: 1.5rem; font-weight: 700; margin: 4px 0; }
+  .c3-col.red .or-val { color: #a0291e; }
+  .c3-col.green .or-val { color: #1a6e4a; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .mech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .mech-item {
+    background: #f0faf5;
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 0.85rem;
+    border-top: 3px solid #1a7a5a;
+  }
+  .mech-item .micon { font-size: 1.3rem; margin-bottom: 6px; }
+  .mech-item strong { display: block; color: #0d4a35; margin-bottom: 4px; font-size: 0.88rem; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .highlight { background: #cff0df; padding: 1px 5px; border-radius: 4px; }
+  .good { color: #1a7a5a; font-weight: 600; }
+  .bad  { color: #c0392b; font-weight: 600; }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-box {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin: 14px 0;
+    font-size: 0.92rem;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  .quote-box {
+    background: #f5f0e8;
+    border-left: 4px solid #7a5abf;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    margin: 12px 0;
+    color: #444;
+    font-style: italic;
+  }
+  .quote-box .who { font-style: normal; font-weight: 700; color: #5a3a9a; margin-top: 6px; font-size: 0.78rem; }
+  @media (max-width: 540px) {
+    .compare4 { grid-template-columns: 1fr 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.7rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ヘッダー -->
+<div class="header">
+  <div class="label">健康・栄養 最新トピック ・ 2026-08-03</div>
+  <h1>「あなたに合わせた食事」は本当に効くのか?<br>
+  24件のRCTを集めた最新レビューが出した答え</h1>
+  <div class="subtitle">精密栄養学(遺伝子・体質・生活習慣の個人差に合わせて食事アドバイスを変える分野)は、この10年で急速に研究が進んできました。では実際に、ランダム化比較試験(RCT、くじ引きのようにグループ分けして効果を確かめる実験)でどこまで効果が確認されているのでしょうか。アイルランド・ダブリン大学のTilde MartinsenさんとLorraine Brennanさんが、2000〜2025年に発表された24件のRCTを集めて整理したレビュー論文をFood & Function誌に発表(2026年、17巻2号646-658頁、DOI: 10.1039/D5FO02969D)。今日はこのレビューと、精密栄養学で最も有名な大規模試験「Food4Me」の実際の数字を見ながら、「効いたこと」と「まだ差がついていないこと」を整理します。</div>
+</div>
+
+<!-- タグ -->
+<div style="margin-bottom:18px;">
+  <span class="tag">精密栄養学</span>
+  <span class="tag">ランダム化比較試験(RCT)</span>
+  <span class="tag">系統的レビュー</span>
+  <span class="tag">Food4Me試験</span>
+  <span class="tag">エバーグリーン解説</span>
+</div>
+
+<!-- 今日の疑問 -->
+<div class="card">
+  <h2>🤔 今日の疑問:「あなたに合わせた食事」って、本当に効果があるの?</h2>
+  <p>「あなたの遺伝子・腸内細菌・体質に合わせた食事アドバイス」という言葉を、サプリや検査キットの広告で見たことがある人も多いと思います。これは<span class="highlight">精密栄養学(Precision Nutrition)</span>と呼ばれる研究分野の考え方です。</p>
+  <p>「一人ひとり違うのだから、個別化したアドバイスの方が効きそう」というのは直感的には自然に思えます。しかし、それが本当に効果があるかどうかは、印象ではなくランダム化比較試験(RCT)で確かめる必要があります。今日紹介する2026年のレビュー論文は、これまでに発表されたRCTを集めて「実際どこまで確認されているか」を整理したものです。</p>
+</div>
+
+<!-- 基本用語 -->
+<div class="card blue">
+  <h2>📖 まず言葉の意味を</h2>
+  <div class="def-grid">
+    <div class="def-item">
+      <div class="dterm">精密栄養学(Precision Nutrition)</div>
+      遺伝子・腸内細菌・血液データ・生活習慣など、個人の体質の違いに合わせて食事のアドバイスを一人ひとり変えていく考え方。
+    </div>
+    <div class="def-item">
+      <div class="dterm">ランダム化比較試験(RCT)</div>
+      参加者をくじ引きのようにランダムに複数グループへ分け、介入(食事アドバイスなど)を行って比較する実験。因果関係を確かめる力が強い。
+    </div>
+    <div class="def-item">
+      <div class="dterm">系統的レビュー</div>
+      決まった検索方法で関連する論文を幅広く集めて整理した論文。今回のレビューは各研究の結果を並べて紹介する形式で、数値を1つに統合する「メタ分析」ではない。
+    </div>
+    <div class="def-item">
+      <div class="dterm">表現型(フェノタイプ)</div>
+      血液検査の値・体格・血圧など、実際に測定できるその人の身体の特徴。
+    </div>
+    <div class="def-item">
+      <div class="dterm">遺伝子型(ジェノタイプ)</div>
+      DNAの配列によって決まる、生まれつきの体質の情報。
+    </div>
+    <div class="def-item">
+      <div class="dterm">Healthy Eating Index(健康的な食事指数)</div>
+      食事の内容が栄養指針にどれだけ沿っているかを点数化した指標。高いほど食事の質が良いとされる。
+    </div>
+  </div>
+</div>
+
+<!-- 数字カード -->
+<div class="num-row">
+  <div class="num-card">
+    <div class="big">24<span class="unit">件</span></div>
+    <div class="desc">2026年のレビューに含まれたRCTの数(2000〜2025年発表、PubMed検索)</div>
+  </div>
+  <div class="num-card blue-bg">
+    <div class="big">12<span class="unit">件</span></div>
+    <div class="desc">食事+表現型・代謝バイオマーカーに基づく精密栄養のRCT</div>
+  </div>
+  <div class="num-card purple-bg">
+    <div class="big">5<span class="unit">件</span></div>
+    <div class="desc">遺伝子型に基づく精密栄養のRCT</div>
+  </div>
+  <div class="num-card orange-bg">
+    <div class="big">1,607<span class="unit">人</span></div>
+    <div class="desc">精密栄養学で最大級のRCT「Food4Me」の参加者数(欧州7か国)</div>
+  </div>
+  <div class="num-card">
+    <div class="big">+1.27<span class="unit">点</span></div>
+    <div class="desc">Food4Meで精密栄養群が対照群よりHEIスコアで多く改善した差(6か月後)</div>
+  </div>
+</div>
+
+<!-- 改善した指標・しなかった指標 -->
+<div class="card orange">
+  <h2>⚖️ 24件のRCTで、何が改善して、何は差がつかなかったのか</h2>
+  <div class="compare4">
+    <div class="c3-col green">
+      <h3>✅ 多くの研究で改善が見られたもの</h3>
+      <ul>
+        <li>食事の質(Healthy Eating Indexなどの指標)</li>
+        <li>HbA1c(過去1〜2か月の平均血糖の指標)</li>
+        <li>中性脂肪(トリグリセリド)</li>
+        <li>インスリン感受性(血糖を下げるホルモンへの体の反応)</li>
+      </ul>
+    </div>
+    <div class="c3-col red">
+      <h3>△ はっきり差がつかなかったもの</h3>
+      <ul>
+        <li>体重減少:グループ間で有意差が出た研究はごく一部</li>
+        <li>血圧:ほとんどの研究でグループ間の有意差なし</li>
+      </ul>
+    </div>
+  </div>
+  <p style="margin-top:10px; font-size:0.82rem; color:#666;">※このレビューは24件の結果を統合した「1つの効果の大きさ(効果量)」を算出したものではなく、「多くの研究に共通して見られた傾向」を整理したものです。個々の研究の質・規模にはばらつきがあります。</p>
+</div>
+
+<!-- Food4Meのレベル設計 -->
+<div class="card purple">
+  <h2>🧩 代表例「Food4Me」試験:情報を足しても伸びなかった話</h2>
+  <p style="margin-bottom:10px;">Food4Meは、欧州7か国(英・アイルランド・オランダ・スペイン・ドイツ・ギリシャ・ポーランド)で行われた、精密栄養学で最大級のRCTです(5,562人をスクリーニングし1,607人を無作為割付、6か月間追跡)。参加者は次の4グループにランダムに分けられました。</p>
+  <div class="flow">
+    <div class="flow-step">Level 0<br>対照群<br>一般的な食事指導</div>
+    <div class="flow-arrow">▶</div>
+    <div class="flow-step alt">Level 1<br>食事データのみで<br>個別化アドバイス</div>
+    <div class="flow-arrow">▶</div>
+    <div class="flow-step purp">Level 2<br>+血液・体格などの<br>表現型データ</div>
+    <div class="flow-arrow">▶</div>
+    <div class="flow-step warn2">Level 3<br>+遺伝子型<br>データ</div>
+  </div>
+  <p style="margin-top:10px;">6か月後、精密栄養群(Level 1〜3)は対照群よりHealthy Eating Indexが<span class="highlight">+1.27点</span>多く改善しました(Celis-Moralesら, 2017)。ところが、Level 1(食事データのみ)と、表現型・遺伝子型データを追加したLevel 2・3との間には、明確な"上乗せ効果"は確認されませんでした。</p>
+</div>
+
+<!-- 賛否 -->
+<div class="card blue">
+  <h2>🔬 賛否が分かれるところ:遺伝子型に基づく個別化は必要か</h2>
+  <div class="compare4">
+    <div class="c3-col blue">
+      <h3>期待する立場</h3>
+      遺伝子型データを活かせば、将来的にはもっと精密な個別化が可能になるという見方。研究分野としては今も活発に投資・研究が続いている。
+    </div>
+    <div class="c3-col orange">
+      <h3>慎重な立場</h3>
+      現時点のRCT(Food4Meなど)では、遺伝子型を追加しても食事データだけの個別化に比べて明確な上乗せ効果は確認されておらず、コストに見合うかを疑問視する声もある。
+    </div>
+  </div>
+  <p style="margin-top:10px;">今回のレビューの著者らも、「精密栄養学のアドバイスにどれだけ従えたか(アドヒアランス)」と成果の関係を確かめた研究がまだ少ない、と研究の空白(ギャップ)を指摘しています。</p>
+</div>
+
+<!-- エビデンスの整理 -->
+<div class="card">
+  <h2>🧪 今日出てきた情報の「証拠としての強さ」の目安</h2>
+  <table class="ev-table">
+    <tr><th>情報の種類</th><th>特徴</th><th>証拠としての強さ</th></tr>
+    <tr>
+      <td>Food4Me本体の結果(RCT, n=1,607)</td>
+      <td>実際にランダムに割り付けて比較した個別のRCT</td>
+      <td><span class="ev-badge ev-high">強い(個別研究として)</span></td>
+    </tr>
+    <tr>
+      <td>今回のレビュー(24件のRCTを整理)</td>
+      <td>複数のRCTを並べて紹介。数値の統合(メタ分析)はしていない</td>
+      <td><span class="ev-badge ev-mid">参考になるが要注意</span></td>
+    </tr>
+    <tr>
+      <td>個々のRCTの中でも小規模なもの</td>
+      <td>24件の中には数十人規模の試験も含まれ、質・規模にばらつきがある</td>
+      <td><span class="ev-badge ev-mid">研究ごとに確認が必要</span></td>
+    </tr>
+    <tr>
+      <td>広告・商品での「あなたに合う食事がわかる」という宣伝</td>
+      <td>研究段階の手法を根拠にしていても、商品自体の効果を保証するRCTがあるとは限らない</td>
+      <td><span class="ev-badge ev-low">個別に要確認</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- 警告 -->
+<div class="warn">
+  <strong>⚠️ 誤解しないでほしいこと</strong>
+  <ul style="padding-left:1.4em; margin-top:8px;">
+    <li>24件のRCTは対象者・介入期間・測定方法がさまざまで、質を単純に横並びで比較できるわけではありません。多くは数週間〜6か月程度の短期試験で、病気の発症など長期の健康アウトカムを確かめたものは多くありません。</li>
+    <li>体重減少や血圧については、精密栄養学のアドバイスで明確な差が出なかった研究が多い、という点も正直に伝わるべき結果です。「個別化すれば必ず痩せる」といった単純な話ではありません。</li>
+    <li>Food4Meで遺伝子型データの上乗せ効果が確認されなかったのはこの試験での結果であり、今後別の切り口・別の遺伝子で効果が見つかる可能性を否定するものではありません。</li>
+    <li>市販の遺伝子検査キットやサプリの「あなたに合った食事」がこのレビューの内容をそのまま裏付けているとは限りません。個別の商品の効果は別途確認が必要です。</li>
+  </ul>
+</div>
+
+<!-- 視点 -->
+<div class="card purple">
+  <h2>🎯 精密栄養学の視点から見ると</h2>
+  <ul class="step-list">
+    <li>今回のレビューが示すのは、「個人差を考えた食事アドバイスは、画一的な指導よりわずかに効果が高い可能性がある」という段階です。特に食事の質や一部の代謝指標(HbA1c・中性脂肪・インスリン感受性)では改善が見られやすい一方、体重や血圧のようにより大きな変化が必要な指標では、まだ差がはっきりしません。</li>
+    <li>「遺伝子を調べれば劇的に痩せる」という単純な話ではなく、今後はどんな人に・どんな個別化が・どれくらい効くのかを、より大規模で長期のRCTで確かめていく段階にあると言えます。</li>
+  </ul>
+</div>
+
+<!-- まとめ -->
+<div class="card" style="border-left-color:#1a7a5a;">
+  <h2>✅ 今日のまとめ</h2>
+  <ul class="step-list">
+    <li>2026年のレビュー論文(Martinsen & Brennan, Food & Function誌)は、2000〜2025年に発表された精密栄養学の24件のRCT(食事+表現型ベース12件、遺伝子型ベース5件など)を集めて整理した。</li>
+    <li>食事の質やHbA1c・中性脂肪・インスリン感受性など代謝の指標では、多くの研究で改善が見られた一方、体重減少や血圧では明確な差が出ない研究が多かった。</li>
+    <li>代表例のFood4Me試験(欧州7か国、1,607人)では、精密栄養群のHealthy Eating Indexが対照群より6か月で+1.27点多く改善したが、遺伝子型データを追加しても、食事データだけの個別化との間に明確な上乗せ効果はなかった。</li>
+    <li>レビューの著者は、「アドバイスにどれだけ従えたか」と成果の関係を確かめた研究がまだ不足しているとも指摘しており、精密栄養学は発展途上の分野であることを踏まえて情報を受け取りたい。</li>
+  </ul>
+</div>
+
+<!-- 免責 -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、医療アドバイスではありません。効果・必要量・リスクは個人の体質・年齢・持病・服薬によって大きく異なります。特定の食事法・サプリメント・遺伝子検査キットなどの実践を検討する場合は、自己判断せず、かかりつけ医・管理栄養士・薬剤師など専門家にご相談ください。
+</div>
+
+<!-- 出典 -->
+<div class="sources">
+  <h3>📚 主な出典・参考文献</h3>
+  <ol>
+    <li>Martinsen T, Brennan L. "Key evidence for personalised nutrition: a review of randomised controlled trials." Food Funct. 2026;17(2):646-658. DOI: 10.1039/D5FO02969D(2026年1月時点でオンライン公開・PubMed収載確認)
+      <a href="https://pubmed.ncbi.nlm.nih.gov/41493072/" target="_blank">https://pubmed.ncbi.nlm.nih.gov/41493072/</a>
+    </li>
+    <li>Forster H, Fallaize R, Gibney ER, et al. "Design and baseline characteristics of the Food4Me study: a web-based randomised controlled trial of personalised nutrition in seven European countries." Genes Nutr. 2014;9(6):450. DOI: 10.1007/s12263-014-0450-2
+      <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4261071/" target="_blank">https://pmc.ncbi.nlm.nih.gov/articles/PMC4261071/</a>
+    </li>
+    <li>Celis-Morales C, Livingstone KM, Marsaux CFM, et al. "Effect of personalized nutrition on health-related behaviour change: evidence from the Food4Me European randomized controlled trial." Int J Epidemiol. 2017;46(2):578-588. DOI: 10.1093/ije/dyw186
+      <a href="https://academic.oup.com/ije/article/46/2/578/2622850" target="_blank">https://academic.oup.com/ije/article/46/2/578/2622850</a>
+    </li>
+  </ol>
+  <p style="margin-top:8px; font-size:0.78rem;">※ 本記事は2026年に発表された系統的レビュー(Martinsen & Brennan)を軸に、その中で扱われた代表的なRCTであるFood4Me試験(2014年デザイン論文・2017年結果論文)の実測値を組み合わせて解説したものです。レビュー内の個々の研究(24件)すべてを検証したものではなく、レビュー著者が報告した全体的な傾向とFood4Meの具体的数値を紹介しています。</p>
+</div>
+
+</div>
+</body>
+</html>

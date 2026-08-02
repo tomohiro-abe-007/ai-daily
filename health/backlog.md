@@ -2,6 +2,12 @@
 
 今後の記事候補。使ったテーマは削除し、新しく見つけた有望テーマは追記する。
 
+## 未使用テーマ（追記：2026-08-03 検索で見つけた有望テーマ）
+
+- Food4Me試験の「誰に一番効いたか」続報 ── Characteristics of participants who benefit most from personalised nutrition(British Journal of Nutrition掲載、Food4Meコンソーシアム)。高齢者・ベースラインの食事の質が低い人ほど精密栄養アドバイスで改善しやすかったという分析。08-03記事(24件のRCTレビュー)の続編として使える
+- Food4Me「アドヒアランス(継続度)とHealthy Eating Indexの変化」の続報 ── Clustering of adherence to personalised dietary recommendations and changes in healthy eating index within the Food4Me study(推奨の遵守パターンごとにグループ分けした解析、Corrigendumあり、要最新版確認)。2026年レビューが指摘した「アドヒアランスと成果の関係の研究不足」という課題に直接関連する切り口
+- 精密栄養学の系統的レビュー(Martinsen & Brennan, 2026)に含まれる遺伝子型ベースの個別5研究の内訳 ── どの遺伝子(FTO・APOE・MTHFRなど)を使った試験が含まれているか、原著論文を精読して深掘りする回として使える
+
 ## 未使用テーマ（追記：2026-08-01 検索で見つけた有望テーマ）
 
 - GenON Programme(精密栄養学RCTプロトコル論文) ── 肥満の遺伝的リスク(高/低)で層別化し、標準食事指導 vs 満腹感重視の食事指導を比較する2×2要因ランダム化比較試験(成人120人、18週間、Diabetes, Obesity and Metabolism誌にプロトコル掲載)。結果発表はまだ先の見込みで、プロトコル論文段階である点の確認が必要
