@@ -65,6 +65,7 @@
 - 2026-07-31: Open Secure AI Alliance 発足（2026年7月27日）・NVIDIA 主導37社結成・メンバーにMicrosoft/IBM/Red Hat/Cloudflare/CrowdStrike/Palantir/Databricks/Hugging Face/SpaceXAI/Linux Foundation/Dell/Adobe/Salesforce等・OpenAI/Google/Anthropicは不参加・NVIDIA が NOOA フレームワーク（AIエージェント行動追跡）をオープンソース公開（GitHub v0.0.6）・Microsoft が MDASH（AI脆弱性発見システム）を提供・SpaceXAI が Grok Build をオープンソース化・Linux Foundation の Akrites/OpenSSF を土台に活動（出典：NVIDIA Blog / The Hacker News / CoinDesk / CyberPress / Engadget・2026年7月27日）
 - 2026-08-01: 日本・法務省AI音声ガイドライン草案了承（2026年7月28日）・専門家委員会がAIによる声の無断利用に民事責任（損害賠償・削除請求）を認める草案を大筋了承・既存のパブリシティ権を「AIで再現した声」に適用・非営利でも・AI明記でも侵害になりうると明記・AIで俳優の顔からわいせつ画像を生成した場合はパブリシティ権＋肖像権の両方を侵害・日本国内のAI音声裁判例はゼロ（2026年7月時点）・最終報告書は2026年8月公表予定（出典：The Japan Times / Nippon.com / Asia News Network / Siliconera・2026年7月）
 - 2026-08-02: OpenAI GPT-5.6 大幅値下げ（2026年7月30日）・Luna 入力$1.00→$0.20（▼80%）/ 出力$6.00→$1.20・Terra 入力$2.50→$2.00（▼20%）/ 出力$15.00→$12.00・研究者・科学者・エンジニア約10万人に最先端モデルを2027年まで無料提供・企業のAIコスト意識の高まりとDeepSeek等の競合圧力が背景・ChatGPT 10億ユーザー突破（推計）（出典：CNBC / QZ.com / Yahoo Finance / buildfastwithai・2026年7月30〜31日）
+- 2026-08-03: OpenAI 次世代モデル「Astra」プレビュー（2026年8月1日）・マルチエージェント方式・複数AIが協力して長時間作業・10年以上未解決の数学難題10問を解決・最注目：非ソフィック群の明示的な構成（1999年から未解決）・249ページ論文＋Lean4機械検証証明書をGitHubに公開・Sol API換算コスト約$2,000（公式要確認）・名称「Astra」は仮・GPT-6/5.7/別シリーズ未決定・一般公開・API未発表・CEOが米政府関係者にデモ済み（出典：The Next Web / The Decoder / byteiota / Softonic・2026年8月1日）
 
 ## 未解説の候補トピック（今後の参考）
 
