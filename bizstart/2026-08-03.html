@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-08-03</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #1e7a5a 0%, #0d4632 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #1e7a5a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.blue   { border-left-color: #1e5a7a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.purple { border-left-color: #7a4a9e; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #1e7a5a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  .type-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .type-grid { grid-template-columns: 1fr; } }
+  .type-card {
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-size: 0.86rem;
+    line-height: 1.65;
+  }
+  .type-card.main {
+    background: #e6f5ee;
+    border: 2px solid #1e7a5a;
+  }
+  .type-card.sub {
+    background: #fbe9e9;
+    border: 2px solid #b54040;
+  }
+  .type-card .tl {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+  }
+  .type-card.main .tl { color: #0d4632; }
+  .type-card.sub .tl  { color: #7a2020; }
+  .type-card .tv { font-size: 1.0rem; font-weight: 700; margin-bottom: 6px; }
+  .type-card.main .tv { color: #1e7a5a; }
+  .type-card.sub .tv  { color: #b54040; }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 14px 10px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat .sl { font-size: 0.67rem; color: #888; margin-bottom: 3px; }
+  .stat .sv { font-size: 1.5rem; font-weight: 700; color: #1e7a5a; line-height: 1.1; }
+  .stat .su { font-size: 0.7rem; color: #666; margin-top: 2px; }
+
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #1e7a5a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-num.now { background: #b54040; }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+  .f-arrow { color: #1e7a5a; font-size: 1.1rem; margin-left: 14px; margin-bottom: 4px; }
+
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  .prompt-box {
+    background: #f0f5ff;
+    border: 2px solid #4a6aae;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 12px 0;
+    font-size: 0.84rem;
+    line-height: 1.85;
+    color: #1a2a4a;
+  }
+  .prompt-box .ph {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #4a6aae;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+  .prompt-box .fill {
+    background: #d0e0ff;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-weight: 700;
+    color: #0a2a6e;
+  }
+
+  .info {
+    background: #e6f5ee;
+    border-left: 4px solid #1e7a5a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #0d4632;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #7a4010;
+  }
+
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #1e7a5a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+
+  .badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 8px;
+    margin-right: 4px;
+    vertical-align: middle;
+  }
+  .badge.law   { background: #1e7a5a; color: white; }
+  .badge.ai    { background: #4a6aae; color: white; }
+  .badge.tip   { background: #4a9e6a; color: white; }
+  .badge.warn  { background: #c8884a; color: white; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #1e7a5a; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #1e7a5a; }
+
+  .matrix {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.83rem;
+  }
+  .matrix th {
+    background: #0d4632;
+    color: white;
+    padding: 8px 12px;
+    text-align: center;
+    font-weight: 600;
+  }
+  .matrix td {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    vertical-align: top;
+    line-height: 1.55;
+  }
+  .matrix .row-head {
+    background: #e6f5ee;
+    font-weight: 700;
+    color: #0d4632;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .matrix .ok  { color: #4a9e6a; font-weight: 700; }
+  .matrix .ng  { color: #b54040; font-weight: 700; }
+  .matrix .mid { color: #c8884a; font-weight: 700; }
+  .matrix-wrap { overflow-x: auto; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Header -->
+<div class="header">
+  <div class="meta">📅 1人法人スタート 最新トピック &nbsp;2026-08-03</div>
+  <h1>🏠 実家の個人事業、いつか継ぐかもしれない人へ<br>「個人版事業承継税制」で相続税・贈与税が消える仕組みを図解</h1>
+  <div class="desc">
+    <span class="htag">個人版事業承継税制</span>
+    <span class="htag">特定事業用資産</span>
+    <span class="htag">個人事業承継計画</span>
+    <span class="htag">令和8年度税制改正</span>
+    <br>
+    7/23の記事では自社株式を対象にした「法人版」事業承継税制を取り上げました。今日はその<span class="hl">対になる制度</span>、個人事業主向けの「個人版事業承継税制」です。あなた自身は法人の代表者でも、実家が個人事業（飲食店・工務店・美容室など）を営んでいるなら、知っておいて損はありません。
+  </div>
+</div>
+
+<!-- Section 1: 制度概要 -->
+<div class="card">
+  <div class="sec-title">📋 これは何をしてくれる制度？</div>
+  <p>個人版事業承継税制は、青色申告をしていた個人事業者の後継者として、経営承継円滑化法にもとづく<strong>都道府県知事の認定</strong>を受けた人が、贈与・相続によって事業用の資産（後述する「特定事業用資産」）を取得した場合に、その資産にかかる<strong>贈与税・相続税の納税を猶予</strong>し、後継者が亡くなったときなどに<strong>全額免除</strong>される制度です。</p>
+
+  <div class="stats-row" style="margin-top:14px;">
+    <div class="stat">
+      <div class="sl">納税猶予の割合</div>
+      <div class="sv">100%</div>
+      <div class="su">特定事業用資産の相続税・贈与税</div>
+    </div>
+    <div class="stat">
+      <div class="sl">対象になる税</div>
+      <div class="sv">相続税<br>贈与税</div>
+      <div class="su">両方が対象</div>
+    </div>
+    <div class="stat">
+      <div class="sl">免除のタイミング</div>
+      <div class="sv">後継者の<br>死亡等</div>
+      <div class="su">猶予税額がゼロになる</div>
+    </div>
+  </div>
+
+  <div class="source">
+    出典：国税庁「個人版事業承継税制」<a href="https://www.nta.go.jp/publication/pamph/jigyo-shokei/kojin.htm" target="_blank">https://www.nta.go.jp/publication/pamph/jigyo-shokei/kojin.htm</a>／国税庁タックスアンサーNo.4153「個人の事業用資産についての相続税の納税猶予及び免除」<a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/sozoku/4153.htm" target="_blank">https://www.nta.go.jp/taxes/shiraberu/taxanswer/sozoku/4153.htm</a>（令和8年度・令和8年8月時点）
+  </div>
+</div>
+
+<!-- Section 2: 対象資産 -->
+<div class="card orange">
+  <div class="sec-title">🏠 対象になる「特定事業用資産」って何？</div>
+  <p>すべての事業用財産が対象になるわけではありません。対象は次の3種類で構成される「特定事業用資産」に限られます。</p>
+
+  <ul class="check-list" style="margin-top:8px;">
+    <li><span class="ck">✔</span><strong>宅地等</strong>（事業で使っている土地。<strong>400㎡まで</strong>）</li>
+    <li><span class="ck">✔</span><strong>建物</strong>（事業で使っている建物。床面積<strong>800㎡まで</strong>）</li>
+    <li><span class="ck">✔</span><strong>建物以外の減価償却資産</strong>（機械装置・器具備品・事業用車両など固定資産税の課税対象になっている資産、乳牛や果樹などの生物、特許権などの無形固定資産）</li>
+  </ul>
+
+  <div class="warn" style="margin-top:14px;">
+    ⚠️ 不動産貸付業・駐車場業などは対象外です。あくまで青色申告をしている「事業」の承継が前提の制度です。
+  </div>
+
+  <div class="source">
+    出典：国税庁タックスアンサーNo.4153<a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/sozoku/4153.htm" target="_blank">https://www.nta.go.jp/taxes/shiraberu/taxanswer/sozoku/4153.htm</a>（令和8年8月時点）
+  </div>
+</div>
+
+<!-- Section 3: スケジュール -->
+<div class="card blue">
+  <div class="sec-title">🕰️ いつまでに何をすればいい？</div>
+  <p>この制度は<strong>10年間限定</strong>の制度で、特定事業用資産を<strong>平成31年（2019年）1月1日から令和10年（2028年）12月31日まで</strong>の間に贈与・相続等で取得した場合が対象です。適用を受けるには、その前段階として「個人事業承継計画」の提出が必要です。</p>
+
+  <div style="margin-top:14px;">
+    <div class="f-step">
+      <div class="f-num">1</div>
+      <div class="f-text"><strong>個人事業承継計画</strong>を都道府県に提出（令和8年度税制改正で提出期限が<strong>令和8年3月31日→令和10年9月30日</strong>に延長）</div>
+    </div>
+    <div class="f-arrow">⬇</div>
+    <div class="f-step">
+      <div class="f-num">2</div>
+      <div class="f-text">都道府県知事の<strong>確認</strong>を受ける</div>
+    </div>
+    <div class="f-arrow">⬇</div>
+    <div class="f-step">
+      <div class="f-num now">3</div>
+      <div class="f-text">特定事業用資産の<strong>贈与・相続を実行</strong>（実行期限は<strong>令和10年12月31日</strong>で据え置き・延長なし）</div>
+    </div>
+    <div class="f-arrow">⬇</div>
+    <div class="f-step">
+      <div class="f-num">4</div>
+      <div class="f-text">申告期限までに<strong>担保を提供</strong>して納税猶予を申請</div>
+    </div>
+    <div class="f-arrow">⬇</div>
+    <div class="f-step">
+      <div class="f-num">5</div>
+      <div class="f-text">後継者の死亡等により<strong>猶予税額が免除</strong></div>
+    </div>
+  </div>
+
+  <div class="warn" style="margin-top:14px;">
+    ⚠️ 計画の<strong>提出期限は延びました</strong>が、実際に贈与・相続を行う<strong>期限は延びていません</strong>。「計画はまだ先でいい」と後回しにすると、資産を取得するタイミング自体が間に合わなくなる点に注意してください。
+  </div>
+
+  <div class="source">
+    出典：中小企業庁「個人版事業承継税制の前提となる認定」<a href="https://www.chusho.meti.go.jp/zaimu/shoukei/shoukei_kojin_ninntei.html" target="_blank">https://www.chusho.meti.go.jp/zaimu/shoukei/shoukei_kojin_ninntei.html</a>（令和8年8月時点。個人事業承継計画の提出期限延長は令和8年度税制改正にもとづく）
+  </div>
+</div>
+
+<!-- Section 4: 法人版との比較 -->
+<div class="card">
+  <div class="sec-title">⚖️ 7/23に扱った「法人版」とどう違う？</div>
+  <p>同じ「事業承継税制」でも、対象と延長幅が異なります。自社が法人でも、実家が個人事業なら両方の制度を知っておく必要があります。</p>
+
+  <div class="matrix-wrap">
+  <table class="matrix" style="margin-top:14px;">
+    <tr>
+      <th>比較項目</th>
+      <th>法人版（特例措置）</th>
+      <th>個人版</th>
+    </tr>
+    <tr>
+      <td class="row-head">対象資産</td>
+      <td>自社の株式</td>
+      <td>特定事業用資産<br>（宅地・建物・減価償却資産）</td>
+    </tr>
+    <tr>
+      <td class="row-head">納税猶予割合</td>
+      <td class="ok">100%</td>
+      <td class="ok">100%</td>
+    </tr>
+    <tr>
+      <td class="row-head">計画提出期限<br>（改正後）</td>
+      <td>令和9年9月30日</td>
+      <td>令和10年9月30日</td>
+    </tr>
+    <tr>
+      <td class="row-head">延長幅</td>
+      <td>1年6か月</td>
+      <td class="mid">2年6か月</td>
+    </tr>
+    <tr>
+      <td class="row-head">資産取得の<br>実行期限</td>
+      <td>令和9年12月31日<br>（据え置き）</td>
+      <td>令和10年12月31日<br>（据え置き）</td>
+    </tr>
+  </table>
+  </div>
+
+  <div class="info" style="margin-top:14px;">
+    💡 個人版のほうが計画提出の猶予も資産取得の実行期限も、法人版よりそれぞれ1年長く設定されています。
+  </div>
+
+  <div class="source">
+    出典：中小企業庁「法人版事業承継税制(特例措置)」<a href="https://www.chusho.meti.go.jp/zaimu/shoukei/shoukei_enkatsu_zouyo_souzoku.html" target="_blank">https://www.chusho.meti.go.jp/zaimu/shoukei/shoukei_enkatsu_zouyo_souzoku.html</a>／中小企業庁「個人版事業承継税制の前提となる認定」<a href="https://www.chusho.meti.go.jp/zaimu/shoukei/shoukei_kojin_ninntei.html" target="_blank">https://www.chusho.meti.go.jp/zaimu/shoukei/shoukei_kojin_ninntei.html</a>（令和8年8月時点。両制度とも提出期限延長は令和8年度税制改正にもとづく）
+  </div>
+</div>
+
+<!-- Section 5: 1人社長にとっての意味 -->
+<div class="card red">
+  <div class="sec-title">🙋 「うちは法人だから関係ない」で終わらせていい？</div>
+  <p>1人社長の多くは、もともと個人事業主（フリーランス）として活動してから法人成りした人です。だからこそ、この制度が身近になる場面があります。</p>
+
+  <ul class="check-list" style="margin-top:8px;">
+    <li><span class="ck">✔</span>実家の親が今も<strong>個人事業主として青色申告</strong>で店や工房を営んでいる場合、将来その事業用資産を相続・贈与で引き継ぐ可能性がある</li>
+    <li><span class="ck">✔</span>自分の法人の<strong>自社株式にはこの個人版制度は使えない</strong>。あくまで「個人事業として営んでいる事業の資産」が対象という点を混同しない</li>
+    <li><span class="ck">✔</span>計画提出と資産取得には<strong>都道府県への申請・専門家の関与</strong>が必要になるため、対象になりそうなら早めに税理士に相談する</li>
+  </ul>
+
+  <div class="source">
+    出典：国税庁「個人版事業承継税制」<a href="https://www.nta.go.jp/publication/pamph/jigyo-shokei/kojin.htm" target="_blank">https://www.nta.go.jp/publication/pamph/jigyo-shokei/kojin.htm</a>（令和8年8月時点）
+  </div>
+</div>
+
+<!-- Section 6: AI prompt -->
+<div class="card purple">
+  <div class="sec-title">🤖 生成AIに「家族との話し合いの準備」を手伝ってもらうプロンプト例</div>
+  <p>制度の適用可否や税額の計算は専門家の領域ですが、<span class="hl">家族と何を確認すべきかの論点整理</span>は生成AIが得意な作業です。話し合いの前に頭を整理するために使ってみましょう。</p>
+
+  <div class="prompt-box" style="margin-top:14px;">
+    <div class="ph">🤖 プロンプト例：実家の事業承継について家族と話す前の論点整理</div>
+    実家が<span class="fill">【例：個人事業で飲食店】</span>を営んでおり、将来私が事業を引き継ぐ可能性があります。<br>
+    <br>
+    1. 「個人版事業承継税制」の対象になりそうか判断するために、家族に確認しておくべき質問リストを作ってください（青色申告をしているか、事業用の土地・建物・設備の状況など）<br>
+    2. 承継の話し合いを始めるタイミングとして、いつ頃までに準備を始めるのが望ましいか、一般的な流れを教えてください<br>
+    3. 話し合いの結果を税理士に相談する際に、事前にまとめておくと役立つ情報の一覧を作ってください<br>
+    ※制度の適用可否・具体的な税額・手続きの要否は、必ず税理士または中小企業庁の相談窓口に確認します。
+  </div>
+</div>
+
+<!-- Section 7: summary -->
+<div class="card">
+  <div class="sec-title">📝 今日のまとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">①</span>個人版事業承継税制は、個人事業の後継者が特定事業用資産を贈与・相続で取得した場合に<span class="hlg">相続税・贈与税を100%納税猶予</span>し、後継者の死亡等で免除する制度。</li>
+    <li><span class="n">②</span>対象は<span class="hlg">宅地等（400㎡まで）・建物（800㎡まで）・建物以外の減価償却資産</span>で構成される「特定事業用資産」に限られる。</li>
+    <li><span class="n">③</span>令和8年度税制改正で「個人事業承継計画」の提出期限が<span class="hlg">令和8年3月31日→令和10年9月30日（2年6か月延長）</span>されたが、資産取得の実行期限（令和10年12月31日）は据え置き。</li>
+    <li><span class="n">④</span>7/23に扱った法人版（自社株式が対象）と比べると、<span class="hlg">個人版のほうが計画提出・資産取得ともに期限が1年長い</span>。</li>
+    <li><span class="n">⑤</span>自分は法人の代表者でも、<span class="hlg">実家が個人事業主なら対象になり得る</span>制度。早めに家族と税理士に相談を。</li>
+  </ul>
+</div>
+
+<!-- Disclaimer -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報提供を目的としており、個別の税務・法務の判断を代わるものではありません。
+  制度の適用可否、対象資産の該当性、猶予税額の計算は、事業の実態や取得する資産の内容によって異なります。
+  具体的な判断は、必ず税理士または中小企業庁・都道府県の事業承継相談窓口にご相談ください。
+  制度は改正されることがあります。最新情報は国税庁公式サイト（<a href="https://www.nta.go.jp/" target="_blank">https://www.nta.go.jp/</a>）・中小企業庁公式サイト（<a href="https://www.chusho.meti.go.jp/" target="_blank">https://www.chusho.meti.go.jp/</a>）でご確認ください。<br>
+  本記事の内容の基準年度：令和8年度（2026年度）。令和8年8月時点の情報にもとづき、令和8年度税制改正による個人事業承継計画の提出期限延長等を記載しています。
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>📚 <a href="index.html">バックナンバー一覧へ</a> &nbsp;&middot;&nbsp; 毎朝更新</p>
+</div>
+
+</div>
+</body>
+</html>
