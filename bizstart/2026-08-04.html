@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-08-04</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #1e7a5a 0%, #0d4632 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #1e7a5a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.blue   { border-left-color: #1e5a7a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.purple { border-left-color: #7a4a9e; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #1e7a5a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  .type-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .type-grid { grid-template-columns: 1fr; } }
+  .type-card {
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-size: 0.86rem;
+    line-height: 1.65;
+  }
+  .type-card.main {
+    background: #e6f5ee;
+    border: 2px solid #1e7a5a;
+  }
+  .type-card.sub {
+    background: #fbe9e9;
+    border: 2px solid #b54040;
+  }
+  .type-card .tl {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+  }
+  .type-card.main .tl { color: #0d4632; }
+  .type-card.sub .tl  { color: #7a2020; }
+  .type-card .tv { font-size: 1.0rem; font-weight: 700; margin-bottom: 6px; }
+  .type-card.main .tv { color: #1e7a5a; }
+  .type-card.sub .tv  { color: #b54040; }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 14px 10px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat .sl { font-size: 0.67rem; color: #888; margin-bottom: 3px; }
+  .stat .sv { font-size: 1.5rem; font-weight: 700; color: #1e7a5a; line-height: 1.1; }
+  .stat .su { font-size: 0.7rem; color: #666; margin-top: 2px; }
+
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #1e7a5a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-num.now { background: #b54040; }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+  .f-arrow { color: #1e7a5a; font-size: 1.1rem; margin-left: 14px; margin-bottom: 4px; }
+
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  .prompt-box {
+    background: #f0f5ff;
+    border: 2px solid #4a6aae;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 12px 0;
+    font-size: 0.84rem;
+    line-height: 1.85;
+    color: #1a2a4a;
+  }
+  .prompt-box .ph {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #4a6aae;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+  .prompt-box .fill {
+    background: #d0e0ff;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-weight: 700;
+    color: #0a2a6e;
+  }
+
+  .info {
+    background: #e6f5ee;
+    border-left: 4px solid #1e7a5a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #0d4632;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #7a4010;
+  }
+
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #1e7a5a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+
+  .badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 8px;
+    margin-right: 4px;
+    vertical-align: middle;
+  }
+  .badge.law   { background: #1e7a5a; color: white; }
+  .badge.ai    { background: #4a6aae; color: white; }
+  .badge.tip   { background: #4a9e6a; color: white; }
+  .badge.warn  { background: #c8884a; color: white; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #1e7a5a; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #1e7a5a; }
+
+  .flow-h {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 14px 0;
+  }
+  .flow-box {
+    background: white;
+    border: 2px solid #1e7a5a;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 0.81rem;
+    text-align: center;
+    line-height: 1.45;
+    color: #0d4632;
+    font-weight: 600;
+  }
+  .flow-arrow {
+    color: #1e7a5a;
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+  @media (max-width: 540px) {
+    .flow-h { flex-direction: column; align-items: flex-start; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+
+  .matrix {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.83rem;
+  }
+  .matrix th {
+    background: #0d4632;
+    color: white;
+    padding: 8px 12px;
+    text-align: center;
+    font-weight: 600;
+  }
+  .matrix td {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    vertical-align: top;
+    line-height: 1.55;
+  }
+  .matrix .row-head {
+    background: #e6f5ee;
+    font-weight: 700;
+    color: #0d4632;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .matrix .ok  { color: #4a9e6a; font-weight: 700; }
+  .matrix .ng  { color: #b54040; font-weight: 700; }
+  .matrix .mid { color: #c8884a; font-weight: 700; }
+  .matrix-wrap { overflow-x: auto; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Header -->
+<div class="header">
+  <div class="meta">📅 1人法人スタート 最新トピック &nbsp;2026-08-04</div>
+  <h1>🗳️ 「誰でもいいから」で選ぶと無効になる<br>36協定・就業規則のカギを握る「過半数代表者」の正しい選び方</h1>
+  <div class="desc">
+    <span class="htag">過半数代表者</span>
+    <span class="htag">労基法施行規則6条の2</span>
+    <span class="htag">民主的手続き</span>
+    <span class="htag">36協定</span>
+    <br>
+    7/31の記事では、就業規則を変更するときに「過半数代表者」から意見を聴く義務（労基法90条）を取り上げました。今日はその<span class="hl">代表者自身を、そもそもどう選べばいいのか</span>を深掘りします。選び方を間違えると、36協定も就業規則の届出も<strong>無効になりかねない</strong>、意外と知られていないルールです。
+  </div>
+</div>
+
+<!-- Section 1: そもそも過半数代表者とは -->
+<div class="card">
+  <div class="sec-title">🙋 そもそも「過半数代表者」って、誰のこと？</div>
+  <p>「過半数代表者」とは、会社に労働者の過半数で組織する労働組合がない場合に、<strong>労働者側を代表して会社と労使協定を結んだり、意見を述べたりする人</strong>のことです。社長が「この人にお願い」と決める役職ではなく、労働者自身が選ぶ立場です。1人社長の会社でも、<strong>従業員を1人でも雇った瞬間から</strong>関わってくる可能性があります。</p>
+
+  <ul class="check-list" style="margin-top:10px;">
+    <li><span class="ck">✔</span>時間外労働・休日労働をさせるための<strong>36協定</strong>を結ぶとき</li>
+    <li><span class="ck">✔</span><strong>就業規則</strong>を作成・変更して労働基準監督署に届け出るとき（労基法90条の意見聴取）</li>
+    <li><span class="ck">✔</span>変形労働時間制・裁量労働制など、労使協定が必要な制度を導入するとき</li>
+  </ul>
+
+  <div class="info" style="margin-top:12px;">
+    💡 役員だけの1人社長の会社で従業員がゼロなら、過半数代表者は不要です。7/27の記事で扱った「初めて人を雇うとき」のタイミングで、このテーマが現実味を帯びてきます。
+  </div>
+
+  <div class="source">
+    出典：厚生労働省「労働者代表（過半数代表者）の選出、適正に行っていますか？」<a href="https://hi-elcc.mhlw.go.jp/" target="_blank">https://hi-elcc.mhlw.go.jp/</a>（令和8年8月時点）
+  </div>
+</div>
+
+<!-- Section 2: 法律の2つの条件 -->
+<div class="card blue">
+  <div class="sec-title">📜 法律が定める「2つの条件」（労働基準法施行規則6条の2第1項）</div>
+  <p>過半数代表者になれる人には、法律上はっきりとした条件があります。どちらか一方でも満たさないと、選出自体が無効になります。</p>
+
+  <div class="type-grid" style="margin-top:14px;">
+    <div class="type-card main">
+      <div class="tl">条件①</div>
+      <div class="tv">管理監督者ではないこと</div>
+      労基法41条2号でいう「監督若しくは管理の地位にある者」（部長・工場長など経営者と一体的な立場の人）は、そもそも代表者になれません。
+    </div>
+    <div class="type-card main">
+      <div class="tl">条件②</div>
+      <div class="tv">民主的な手続きで選ばれていること</div>
+      投票・挙手など、労働者の過半数がその人を支持していると分かる方法で選ばれ、かつ<strong>使用者の意向に基づいて選ばれた人でない</strong>こと。
+    </div>
+  </div>
+
+  <div class="info" style="margin-top:8px;">
+    💡 厚生労働省の通達（平成11年3月31日 基発169号）では、「投票・挙手<strong>等</strong>」の「等」には、労働者間の話し合いや持ち回り決議（書面を回して合意を集める方法）なども含まれるとされています。
+  </div>
+
+  <div class="source">
+    出典：労働基準法施行規則第6条の2第1項／厚生労働省 平成11年3月31日基発169号通達（令和8年8月時点の解釈）
+  </div>
+</div>
+
+<!-- Section 3: OK vs NG -->
+<div class="card orange">
+  <div class="sec-title">⚖️ OKな選び方・NGな選び方</div>
+  <p>「みんな忙しいから」「特に反対もなさそうだから」と、なんとなく決めてしまいがちな場面ですが、次のような選び方はNGとされています。</p>
+
+  <div class="type-grid" style="margin-top:14px;">
+    <div class="type-card main">
+      <div class="tl">✅ OKな選び方</div>
+      投票／挙手／労働者どうしの話し合いで一致／回覧して同意を集める持ち回り決議
+    </div>
+    <div class="type-card sub">
+      <div class="tl">🚫 NGな選び方</div>
+      社長が「あなたにお願い」と指名／親睦会の幹事をそのまま流用／異論がないからと黙って決める／管理監督者を選ぶ
+    </div>
+  </div>
+
+  <ul class="check-list" style="margin-top:12px;">
+    <li><span class="ck-bad">✕</span>社長や上司が候補者を指名する、または「事実上」誘導する</li>
+    <li><span class="ck-bad">✕</span>親睦会の代表・社員旅行の幹事など、別の目的で選ばれた人をそのまま流用する</li>
+    <li><span class="ck-bad">✕</span>「特に異論がないので〇〇さんで」と、労働者の意思確認をせずに進める</li>
+    <li><span class="ck-bad">✕</span>部長・店長など、労基法41条2号にあたる管理監督者を選ぶ</li>
+  </ul>
+
+  <div class="source">
+    出典：厚生労働省「労働者代表（過半数代表者）の選出、適正に行っていますか？」（令和8年8月時点）
+  </div>
+</div>
+
+<!-- Section 4: 選出の4ステップ -->
+<div class="card">
+  <div class="sec-title">🧭 正しく選ぶための4ステップ</div>
+  <div class="flow-h" style="margin-top:14px;">
+    <div class="flow-box">📢 ①<br>目的を明示<br><span style="font-weight:400;">「36協定を結ぶ代表者を<br>選びます」と周知</span></div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-box">🙋 ②<br>候補者を募る<br><span style="font-weight:400;">立候補・推薦を受け付け</span></div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-box">🗳️ ③<br>民主的な方法で決定<br><span style="font-weight:400;">投票・挙手・話し合い等</span></div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-box">📝 ④<br>記録を残す<br><span style="font-weight:400;">誰が・いつ・どう選ばれたか</span></div>
+  </div>
+  <div class="info" style="margin-top:12px;">
+    💡 従業員が数人しかいない小規模な会社ほど「わざわざ手続きを踏むのが大げさ」に感じがちですが、人数が少ないからこそ、選出の目的を明示して記録に残す一手間が、後々のトラブル防止につながります。
+  </div>
+</div>
+
+<!-- Section 5: 会社が守るべき義務 -->
+<div class="card purple">
+  <div class="sec-title">🛡️ 選ばれた後、会社が守るべき2つの義務</div>
+  <p>過半数代表者を選んで終わりではありません。会社側にも法律で義務づけられたことがあります。</p>
+
+  <ul class="check-list" style="margin-top:10px;">
+    <li><span class="ck">✔</span><strong>不利益取扱いの禁止</strong>（施行規則6条の2第3項）：過半数代表者になったこと・なろうとしたこと・正当な活動をしたことを理由に、解雇や評価の引き下げなど不利益な扱いをしてはいけない</li>
+    <li><span class="ck">✔</span><strong>事務遂行への配慮義務</strong>（施行規則6条の2第4項）：意見をまとめるための時間の確保、社内メールや掲示板の利用許可など、代表者が業務を円滑に行えるよう配慮する</li>
+  </ul>
+
+  <div class="source">
+    出典：労働基準法施行規則第6条の2第3項・第4項（令和8年8月時点）
+  </div>
+</div>
+
+<!-- Section 6: 無効になるとどうなるか -->
+<div class="card red">
+  <div class="sec-title">😬 選出が無効だと、何が起きる？</div>
+  <p>過半数代表者の選出方法に問題があると、その人が結んだ36協定や、意見を聴いたとされる就業規則の手続きそのものが<strong>無効</strong>と判断されるおそれがあります。</p>
+
+  <div class="warn" style="margin-top:12px;">
+    ⚠️ 36協定が無効になると、法律上は「時間外労働をさせる根拠がない」状態になり、残業をさせていたこと自体が労基法違反になるリスクがあります。就業規則の意見聴取が無効なら、届出をやり直す必要が出てくることもあります。
+  </div>
+
+  <div class="source">
+    出典：厚生労働省「労働者代表（過半数代表者）の選出、適正に行っていますか？」（令和8年8月時点）
+  </div>
+</div>
+
+<!-- Section 7: AI prompt -->
+<div class="card orange">
+  <div class="sec-title">🤖 生成AIに「選出のお知らせ文・記録書式」を作ってもらうプロンプト例</div>
+  <p>選出の目的を周知する社内文書や、選出結果を残す記録シートの<span class="hl">たたき台づくり</span>は生成AIが得意です。ただし最終的な運用や個別の判断は、必ず社労士に確認しましょう。</p>
+
+  <div class="prompt-box" style="margin-top:14px;">
+    <div class="ph">🤖 プロンプト例：過半数代表者の選出案内・記録シートの作成</div>
+    従業員<span class="fill">【人数】</span>名の会社で、36協定を締結するための過半数代表者を選出します。<br>
+    <br>
+    1. 「投票・挙手等の民主的な方法で選ぶこと」「使用者が指名しないこと」を明示した、従業員向けの選出案内文の案を作ってください<br>
+    2. 立候補・推薦の受付から選出完了までの流れを、簡単なチェックリスト形式にしてください<br>
+    3. 「いつ・どんな方法で・誰が選ばれたか」を記録するための簡易な記録シートのひな形を作ってください<br>
+    ※作成した文書・記録の内容が法的要件を満たしているかは、必ず社会保険労務士に確認します。
+  </div>
+</div>
+
+<!-- Section 8: summary -->
+<div class="card">
+  <div class="sec-title">📝 今日のまとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">①</span>過半数代表者は、36協定の締結や就業規則の意見聴取など、<span class="hl">労働者を1人でも雇ったら</span>関わってくる立場。</li>
+    <li><span class="n">②</span>法律上の条件は2つ：<span class="hl">管理監督者ではないこと</span>と、<span class="hl">投票・挙手等の民主的手続きで選ばれ、使用者の意向に基づいていないこと</span>（労基法施行規則6条の2第1項）。</li>
+    <li><span class="n">③</span><span class="hl">社長による指名・黙示の了承・親睦会代表の流用</span>はNG。目的を明示した投票・挙手・話し合いで選ぶ。</li>
+    <li><span class="n">④</span>選出後は会社側にも<span class="hl">不利益取扱いの禁止・事務遂行への配慮義務</span>がある。</li>
+    <li><span class="n">⑤</span>選出方法に問題があると、<span class="hl">36協定や就業規則の手続きが無効になるリスク</span>がある。小規模の会社ほど、目的の明示と記録を丁寧に。</li>
+  </ul>
+</div>
+
+<!-- Disclaimer -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報提供を目的としており、個別の労務・法務の判断を代わるものではありません。
+  過半数代表者の選出方法の適否は、会社の実態や選出時の具体的な手続きによって判断が分かれることがあります。
+  具体的な判断は、必ず社会保険労務士や所轄の労働基準監督署にご相談ください。
+  制度・解釈は改正・変更されることがあります。最新情報は厚生労働省公式サイト（<a href="https://www.mhlw.go.jp/" target="_blank">https://www.mhlw.go.jp/</a>）でご確認ください。<br>
+  本記事の内容の基準年度：令和8年度（2026年度）。労働基準法施行規則第6条の2、令和8年8月時点の情報にもとづく。
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>📚 <a href="index.html">バックナンバー一覧へ</a> &nbsp;&middot;&nbsp; 毎朝更新</p>
+</div>
+
+</div>
+</body>
+</html>
