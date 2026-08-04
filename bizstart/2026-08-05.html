@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-08-05</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #1e7a5a 0%, #0d4632 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #1e7a5a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.blue   { border-left-color: #1e5a7a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.purple { border-left-color: #7a4a9e; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #1e7a5a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  .type-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .type-grid { grid-template-columns: 1fr; } }
+  .type-card {
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-size: 0.86rem;
+    line-height: 1.65;
+  }
+  .type-card.main {
+    background: #e6f5ee;
+    border: 2px solid #1e7a5a;
+  }
+  .type-card.sub {
+    background: #fbe9e9;
+    border: 2px solid #b54040;
+  }
+  .type-card .tl {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+  }
+  .type-card.main .tl { color: #0d4632; }
+  .type-card.sub .tl  { color: #7a2020; }
+  .type-card .tv { font-size: 1.0rem; font-weight: 700; margin-bottom: 6px; }
+  .type-card.main .tv { color: #1e7a5a; }
+  .type-card.sub .tv  { color: #b54040; }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 14px 10px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat .sl { font-size: 0.67rem; color: #888; margin-bottom: 3px; }
+  .stat .sv { font-size: 1.5rem; font-weight: 700; color: #1e7a5a; line-height: 1.1; }
+  .stat .su { font-size: 0.7rem; color: #666; margin-top: 2px; }
+
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #1e7a5a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-num.now { background: #b54040; }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+  .f-arrow { color: #1e7a5a; font-size: 1.1rem; margin-left: 14px; margin-bottom: 4px; }
+
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  .prompt-box {
+    background: #f0f5ff;
+    border: 2px solid #4a6aae;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 12px 0;
+    font-size: 0.84rem;
+    line-height: 1.85;
+    color: #1a2a4a;
+  }
+  .prompt-box .ph {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #4a6aae;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+  .prompt-box .fill {
+    background: #d0e0ff;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-weight: 700;
+    color: #0a2a6e;
+  }
+
+  .info {
+    background: #e6f5ee;
+    border-left: 4px solid #1e7a5a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #0d4632;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #7a4010;
+  }
+
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #1e7a5a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+
+  .badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 8px;
+    margin-right: 4px;
+    vertical-align: middle;
+  }
+  .badge.law   { background: #1e7a5a; color: white; }
+  .badge.ai    { background: #4a6aae; color: white; }
+  .badge.tip   { background: #4a9e6a; color: white; }
+  .badge.warn  { background: #c8884a; color: white; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #1e7a5a; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #1e7a5a; }
+
+  .flow-h {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 14px 0;
+  }
+  .flow-box {
+    background: white;
+    border: 2px solid #1e7a5a;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 0.81rem;
+    text-align: center;
+    line-height: 1.45;
+    color: #0d4632;
+    font-weight: 600;
+  }
+  .flow-arrow {
+    color: #1e7a5a;
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+  @media (max-width: 540px) {
+    .flow-h { flex-direction: column; align-items: flex-start; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+
+  .matrix {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.83rem;
+  }
+  .matrix th {
+    background: #0d4632;
+    color: white;
+    padding: 8px 12px;
+    text-align: center;
+    font-weight: 600;
+  }
+  .matrix td {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    vertical-align: top;
+    line-height: 1.55;
+  }
+  .matrix .row-head {
+    background: #e6f5ee;
+    font-weight: 700;
+    color: #0d4632;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .matrix .ok  { color: #4a9e6a; font-weight: 700; }
+  .matrix .ng  { color: #b54040; font-weight: 700; }
+  .matrix .mid { color: #c8884a; font-weight: 700; }
+  .matrix-wrap { overflow-x: auto; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Header -->
+<div class="header">
+  <div class="meta">📅 1人法人スタート 最新トピック &nbsp;2026-08-05</div>
+  <h1>⏰ 「残業してもらう」には契約書1枚じゃ足りない<br>36協定の結び方と、月45時間・年360時間の上限を図解</h1>
+  <div class="desc">
+    <span class="htag">36協定</span>
+    <span class="htag">労基法36条</span>
+    <span class="htag">時間外労働の上限規制</span>
+    <span class="htag">過半数代表者</span>
+    <br>
+    8/4の記事では、36協定を結ぶ相手となる<span class="hl">「過半数代表者」の正しい選び方</span>を取り上げました。今日はその続きとして、<span class="hl">36協定そのものの中身</span>──残業させられる上限時間と、届出の流れを図解します。
+  </div>
+</div>
+
+<!-- Section 1: そもそも36協定とは -->
+<div class="card">
+  <div class="sec-title">📜 そもそも「36協定」って何？</div>
+  <p>「36協定（サブロク協定）」は、労働基準法<strong>第36条</strong>にもとづく労使協定の通称です。労働基準法は原則として<strong>1日8時間・週40時間</strong>を超える労働（法定時間外労働）や、週1日の休日（法定休日）の労働を禁止していますが、36協定を結んで所轄の労働基準監督署に<strong>届け出れば</strong>、その範囲内で例外的に残業・休日労働をさせることができます。</p>
+
+  <div class="info" style="margin-top:12px;">
+    💡 逆にいうと、36協定を結ばずに法定時間を超えて働かせると、それだけで労働基準法違反です。<strong>役員だけの1人社長の会社で従業員がゼロ</strong>なら不要ですが、7/27の記事で扱った「初めて人を雇う」タイミングから、この協定が必要になる可能性があります。
+  </div>
+
+  <div class="source">
+    出典：労働基準法第36条／厚生労働省「時間外労働の上限規制」<a href="https://hatarakikatakaikaku.mhlw.go.jp/overtime.html" target="_blank">https://hatarakikatakaikaku.mhlw.go.jp/overtime.html</a>（令和8年8月時点）
+  </div>
+</div>
+
+<!-- Section 2: 上限規制の基本 -->
+<div class="card blue">
+  <div class="sec-title">🔢 上限規制の基本の数字</div>
+  <p>2019年の働き方改革関連法により、時間外労働の上限は<strong>法律で罰則付きの上限</strong>として定められています。中小企業には2020年4月1日から適用されています。</p>
+
+  <div class="stats-row" style="margin-top:14px;">
+    <div class="stat">
+      <div class="sl">原則の上限（月）</div>
+      <div class="sv">45<span style="font-size:0.9rem;">時間</span></div>
+      <div class="su">時間外労働のみ</div>
+    </div>
+    <div class="stat">
+      <div class="sl">原則の上限（年）</div>
+      <div class="sv">360<span style="font-size:0.9rem;">時間</span></div>
+      <div class="su">時間外労働のみ</div>
+    </div>
+    <div class="stat">
+      <div class="sl">中小企業の適用開始</div>
+      <div class="sv">2020<span style="font-size:0.9rem;">年4月</span></div>
+      <div class="su">大企業は2019年4月〜</div>
+    </div>
+  </div>
+
+  <div class="info" style="margin-top:8px;">
+    💡 この「月45時間・年360時間」を超えて残業させたい場合は、あとで説明する<strong>特別条項付き36協定</strong>を結ぶ必要があります。何も定めなければ、この数字が絶対の上限です。
+  </div>
+
+  <div class="source">
+    出典：厚生労働省「時間外労働の上限規制」<a href="https://hatarakikatakaikaku.mhlw.go.jp/overtime.html" target="_blank">https://hatarakikatakaikaku.mhlw.go.jp/overtime.html</a>（令和8年8月時点）
+  </div>
+</div>
+
+<!-- Section 3: 特別条項付き36協定 -->
+<div class="card orange">
+  <div class="sec-title">🚨 それでも足りないときの「特別条項」</div>
+  <p>繁忙期などで月45時間・年360時間では足りない場合は、「特別条項」を付けた36協定を結ぶことで、さらに上限を伸ばせます。ただし、この特別条項にも法律で決められた<strong>上限の上限</strong>があります。</p>
+
+  <div class="matrix-wrap" style="margin-top:14px;">
+    <table class="matrix">
+      <tr>
+        <th>項目</th>
+        <th>原則</th>
+        <th>特別条項あり</th>
+      </tr>
+      <tr>
+        <td class="row-head">年間の時間外労働</td>
+        <td>360時間まで</td>
+        <td class="mid">720時間まで</td>
+      </tr>
+      <tr>
+        <td class="row-head">単月（時間外＋休日労働）</td>
+        <td>該当なし</td>
+        <td class="mid">100時間未満</td>
+      </tr>
+      <tr>
+        <td class="row-head">複数月平均（時間外＋休日労働）</td>
+        <td>該当なし</td>
+        <td class="mid">2〜6か月平均80時間以内</td>
+      </tr>
+      <tr>
+        <td class="row-head">月45時間を超えられる回数</td>
+        <td>0回</td>
+        <td class="mid">年6回まで</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="warn" style="margin-top:12px;">
+    ⚠️ 特別条項があっても、「単月100時間未満」「複数月平均80時間以内」は<strong>必ず守らなければならない絶対的な上限</strong>です。この水準は労災の「過労死ライン」の目安とも重なるため、実務上は上限ギリギリまで使うことは避けるべきとされています。
+  </div>
+
+  <div class="source">
+    出典：厚生労働省「時間外労働の上限規制」<a href="https://hatarakikatakaikaku.mhlw.go.jp/overtime.html" target="_blank">https://hatarakikatakaikaku.mhlw.go.jp/overtime.html</a>（令和8年8月時点）
+  </div>
+</div>
+
+<!-- Section 4: 締結・届出の5ステップ -->
+<div class="card">
+  <div class="sec-title">🧭 締結から効力発生までの5ステップ</div>
+  <div class="flow-h" style="margin-top:14px;">
+    <div class="flow-box">🙋 ①<br>過半数代表者を選ぶ<br><span style="font-weight:400;">8/4記事の民主的手続きで</span></div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-box">💬 ②<br>上限時間を協議<br><span style="font-weight:400;">業務の種類・延長時間</span></div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-box">📄 ③<br>協定届を作成<br><span style="font-weight:400;">所定の様式に記入</span></div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-box">🏢 ④<br>労基署へ届出<br><span style="font-weight:400;">郵送・持参・電子申請</span></div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-box">✅ ⑤<br>効力発生<br><span style="font-weight:400;">届出が受理されて有効に</span></div>
+  </div>
+  <div class="info" style="margin-top:12px;">
+    💡 36協定は<strong>届け出て初めて効力を持ちます</strong>。「協定書は作ったけれど届出はまだ」という状態で残業させると、それは無届けの時間外労働＝労基法違反になってしまいます。
+  </div>
+</div>
+
+<!-- Section 5: 新様式のポイント -->
+<div class="card purple">
+  <div class="sec-title">✅ 新様式のポイント：押印廃止とチェックボックス</div>
+  <p>36協定届は<strong>令和3年（2021年）4月</strong>から様式が新しくなり、使用者・労働者代表双方の押印・署名欄が原則不要になりました。その代わりに、次の内容を<strong>チェックボックス</strong>で確認する形になっています。</p>
+
+  <ul class="check-list" style="margin-top:10px;">
+    <li><span class="ck">✔</span>労働者代表（過半数代表者）が、管理監督者ではないこと</li>
+    <li><span class="ck">✔</span>投票・挙手等の民主的な方法で選出され、使用者の意向に基づく選出でないこと</li>
+  </ul>
+
+  <div class="info" style="margin-top:12px;">
+    💡 このチェックボックスの中身は、まさに8/4の記事で扱った「労働基準法施行規則6条の2第1項」の2要件そのものです。押印がなくなった分、<strong>誰を・どう選んだかを会社側が正しく理解しているか</strong>が、以前より問われる形になったといえます。
+  </div>
+
+  <div class="warn" style="margin-top:10px;">
+    ⚠️ ただし、36協定届が「協定書」を兼ねる場合（届出書とは別に協定書を作らない場合）は、労使双方の押印・署名が必要になる点に注意してください。
+  </div>
+
+  <div class="source">
+    出典：厚生労働省「36協定届の新様式」（令和3年4月〜、令和8年8月時点の情報）
+  </div>
+</div>
+
+<!-- Section 6: 罰則 -->
+<div class="card red">
+  <div class="sec-title">😬 違反すると、どうなる？</div>
+  <p>36協定を結ばずに時間外・休日労働をさせたり、協定で定めた上限や法律の絶対的な上限を超えて働かせたりすると、労働基準法違反になります。</p>
+
+  <div class="warn" style="margin-top:12px;">
+    ⚠️ 労働基準法第119条により、<strong>6か月以下の懲役または30万円以下の罰金</strong>の対象になり得ます。また、是正勧告に従わないなど悪質なケースでは、労働基準監督署の判断で企業名が公表されることもあります。
+  </div>
+
+  <div class="info" style="margin-top:10px;">
+    💡 建設業・自動車運転の業務・医師などは上限規制の適用に猶予期間がありましたが、令和6年（2024年）4月からは基本的にすべての業種に上限規制が適用されています（いわゆる「2024年問題」）。
+  </div>
+
+  <div class="source">
+    出典：労働基準法第119条／厚生労働省「時間外労働の上限規制」（令和8年8月時点）
+  </div>
+</div>
+
+<!-- Section 7: AI prompt -->
+<div class="card orange">
+  <div class="sec-title">🤖 生成AIに「36協定の社内説明資料」を作ってもらうプロンプト例</div>
+  <p>協定届そのものは所定の様式に沿って正確に作る必要がありますが、<span class="hl">従業員向けの説明資料や、上限時間の社内早見表</span>の下書きは生成AIが得意です。届出内容自体の最終判断は必ず社労士に確認しましょう。</p>
+
+  <div class="prompt-box" style="margin-top:14px;">
+    <div class="ph">🤖 プロンプト例：36協定の社内向け説明資料の作成</div>
+    従業員<span class="fill">【人数】</span>名の会社で、36協定（特別条項<span class="fill">【あり／なし】</span>）を締結します。<br>
+    <br>
+    1. 「時間外労働は原則月45時間・年360時間まで」であることを、従業員にやさしく伝える説明文の案を作ってください<br>
+    2. 特別条項を使う場合の上限（月100時間未満・複数月平均80時間以内・年6回まで）を、一目でわかる早見表にしてください<br>
+    3. 「なぜこの協定が必要なのか」を新入社員にも伝わるQ&amp;A形式で3問作ってください<br>
+    ※協定届に記載する具体的な時間・様式の正確性は、必ず社会保険労務士に確認します。
+  </div>
+</div>
+
+<!-- Section 8: summary -->
+<div class="card">
+  <div class="sec-title">📝 今日のまとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">①</span>36協定は労基法36条にもとづく協定。結んで<span class="hl">労基署に届け出て初めて</span>、法定時間を超える残業・休日労働をさせられる。</li>
+    <li><span class="n">②</span>原則の上限は<span class="hl">月45時間・年360時間</span>。中小企業には2020年4月から適用済み。</li>
+    <li><span class="n">③</span>特別条項を付けても、<span class="hl">年720時間・単月100時間未満・複数月平均80時間以内・月45時間超は年6回まで</span>という絶対的な上限がある。</li>
+    <li><span class="n">④</span>2021年4月からの新様式では押印が廃止され、代わりに<span class="hl">過半数代表者の選出要件を満たすかのチェックボックス</span>が新設された。</li>
+    <li><span class="n">⑤</span>違反すると<span class="hl">6か月以下の懲役または30万円以下の罰金</span>の対象になり得る。従業員を1人でも雇う予定があるなら、早めに仕組みを理解しておきたい。</li>
+  </ul>
+</div>
+
+<!-- Disclaimer -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報提供を目的としており、個別の労務・法務の判断を代わるものではありません。
+  36協定の具体的な内容や様式の記載方法は、会社の実態によって異なります。
+  具体的な判断は、必ず社会保険労務士や所轄の労働基準監督署にご相談ください。
+  制度・解釈は改正・変更されることがあります。最新情報は厚生労働省公式サイト（<a href="https://www.mhlw.go.jp/" target="_blank">https://www.mhlw.go.jp/</a>）でご確認ください。<br>
+  本記事の内容の基準年度：令和8年度（2026年度）。労働基準法第36条・第119条、令和8年8月時点の情報にもとづく。
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>📚 <a href="index.html">バックナンバー一覧へ</a> &nbsp;&middot;&nbsp; 毎朝更新</p>
+</div>
+
+</div>
+</body>
+</html>
