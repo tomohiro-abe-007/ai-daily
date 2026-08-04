@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-08-04</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '🎯';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.9rem; margin-bottom: 8px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.1em; }
+  .c3-col li { margin-bottom: 4px; }
+  .c3-col .or-val { font-size: 1.5rem; font-weight: 700; margin: 4px 0; }
+  .c3-col.red .or-val { color: #a0291e; }
+  .c3-col.green .or-val { color: #1a6e4a; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .mech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .mech-item {
+    background: #f0faf5;
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 0.85rem;
+    border-top: 3px solid #1a7a5a;
+  }
+  .mech-item .micon { font-size: 1.3rem; margin-bottom: 6px; }
+  .mech-item strong { display: block; color: #0d4a35; margin-bottom: 4px; font-size: 0.88rem; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .highlight { background: #cff0df; padding: 1px 5px; border-radius: 4px; }
+  .good { color: #1a7a5a; font-weight: 600; }
+  .bad  { color: #c0392b; font-weight: 600; }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-box {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin: 14px 0;
+    font-size: 0.92rem;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  .quote-box {
+    background: #f5f0e8;
+    border-left: 4px solid #7a5abf;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    margin: 12px 0;
+    color: #444;
+    font-style: italic;
+  }
+  .quote-box .who { font-style: normal; font-weight: 700; color: #5a3a9a; margin-top: 6px; font-size: 0.78rem; }
+  .benefit-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    margin: 14px 0;
+  }
+  .benefit-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+  .benefit-item .bicon { font-size: 1.2rem; margin-bottom: 4px; }
+  @media (max-width: 540px) {
+    .compare4 { grid-template-columns: 1fr 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.7rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ヘッダー -->
+<div class="header">
+  <div class="label">健康・栄養 最新トピック ・ 2026-08-04</div>
+  <h1>「あなたに合わせた食事」は、誰に一番効くのか?<br>
+  Food4Me試験が見つけた"よく効くタイプ"</h1>
+  <div class="subtitle">昨日は、精密栄養学(個人差に合わせた食事アドバイス)の効果を24件のRCTでまとめたレビュー論文(Martinsen & Brennan, 2026)と、その代表例である欧州の大規模試験「Food4Me」の全体結果を紹介しました。今日はその続きとして、Food4Meのデータをさらに掘り下げた論文「Characteristics of participants who benefit most from personalised nutrition(誰が精密栄養からもっとも恩恵を受けたか)」(Livingstone, Celis-Moralesほか、British Journal of Nutrition誌、2020年、123巻12号1396-1405頁、DOI: 10.1017/S0007114520000653)を取り上げます。「効果があった」の中身を年齢・性別・食事の質などで分けて見ると、どんな傾向が見えてくるのかをやさしく解説します。</div>
+</div>
+
+<!-- タグ -->
+<div style="margin-bottom:18px;">
+  <span class="tag">精密栄養学</span>
+  <span class="tag">Food4Me試験</span>
+  <span class="tag">サブグループ解析</span>
+  <span class="tag">オッズ比</span>
+  <span class="tag">続報</span>
+</div>
+
+<!-- 今日の疑問 -->
+<div class="card">
+  <h2>🤔 今日の疑問:「効いた・効かなかった」を平均だけで見ていいの?</h2>
+  <p>昨日の記事では、Food4Me試験(欧州7か国、1,607人が参加した6か月間のランダム化比較試験)で、精密栄養アドバイスを受けたグループは、一般的な食事指導を受けたグループより<span class="highlight">食事の質の指標(Healthy Eating Index)が平均+1.27点多く改善した</span>という「全体の平均の差」を紹介しました。</p>
+  <p>しかし1,607人全員が同じように効果を得たわけではありません。「平均で効果があった」という結果の裏には、大きく改善した人・ほとんど変わらなかった人が混ざっています。今日紹介する2020年の論文は、その"誰が"の部分を詳しく調べたものです。</p>
+</div>
+
+<!-- 基本用語 -->
+<div class="card blue">
+  <h2>📖 まず言葉の意味を</h2>
+  <div class="def-grid">
+    <div class="def-item">
+      <div class="dterm">サブグループ解析</div>
+      試験の参加者全体ではなく、年齢・性別など特定の条件でグループ分けして、効果に差があるかを調べる解析。参考にはなるが、本来の主目的(主要評価項目)ではないため慎重な解釈が必要。
+    </div>
+    <div class="def-item">
+      <div class="dterm">オッズ比(Odds Ratio, OR)</div>
+      あるグループが「効果を得られる」見込みが、別のグループの何倍かを表す数値。1より大きいほど「効果を得やすい」、1より小さいほど「効果を得にくい」ことを示す。
+    </div>
+    <div class="def-item">
+      <div class="dterm">95%信頼区間(CI)</div>
+      その数値が「だいたいこの範囲に収まるだろう」という統計的な幅。区間が1をまたぐ場合は「有意な差とは言えない」と判断する。
+    </div>
+    <div class="def-item">
+      <div class="dterm">ベースライン</div>
+      介入(アドバイスなど)を始める前、試験開始時点での測定値。
+    </div>
+    <div class="def-item">
+      <div class="dterm">多重検定の問題</div>
+      たくさんの項目を一度に統計検定すると、本当は差がないのに「偶然差があるように見えてしまう」確率が上がる問題。
+    </div>
+  </div>
+</div>
+
+<!-- 数字カード -->
+<div class="num-row">
+  <div class="num-card">
+    <div class="big">1,607<span class="unit">人</span></div>
+    <div class="desc">Food4Me試験の参加者数(欧州7か国)</div>
+  </div>
+  <div class="num-card blue-bg">
+    <div class="big">1,269<span class="unit">人</span></div>
+    <div class="desc">6か月間の試験を完了し、この解析の対象になった人数</div>
+  </div>
+  <div class="num-card purple-bg">
+    <div class="big">≥5<span class="unit">%</span></div>
+    <div class="desc">「効果があった(ベネフィット)」と判定する変化量のしきい値</div>
+  </div>
+  <div class="num-card orange-bg">
+    <div class="big">0.32</div>
+    <div class="desc">ドイツの参加者の「効果あり」オッズ比(他国平均と比べた場合、95%CI 0.12-0.88)</div>
+  </div>
+</div>
+
+<!-- ベネフィットの定義 -->
+<div class="card purple">
+  <h2>📏 そもそも「効果があった」はどう決めた?</h2>
+  <p style="margin-bottom:10px;">この論文では、6か月後に次のいずれかで<span class="highlight">5%以上</span>望ましい方向に変化した人を「ベネフィットがあった」と定義しました。</p>
+  <div class="benefit-grid">
+    <div class="benefit-item"><div class="bicon">⚖️</div>体重・ウエスト周囲径の5%以上の減少</div>
+    <div class="benefit-item"><div class="bicon">🐟</div>オメガ3指数の5%以上の上昇</div>
+    <div class="benefit-item"><div class="bicon">🥕</div>血中カロテノイド(野菜・果物の指標)の5%以上の上昇</div>
+    <div class="benefit-item"><div class="bicon">🩸</div>血中コレステロールの5%以上の減少</div>
+    <div class="benefit-item"><div class="bicon">🪑</div>座位時間の5%以上の減少</div>
+    <div class="benefit-item"><div class="bicon">🏃</div>身体活動量の5%以上の増加</div>
+  </div>
+  <p style="font-size:0.82rem; color:#666;">※どれか1つでも達成すれば「ベネフィットあり」と数える形式です。体重や血圧そのものが大きく下がったことを意味するわけではない点に注意してください。</p>
+</div>
+
+<!-- 誰が効果を得やすかったか -->
+<div class="card orange">
+  <h2>🔍 どんな人が「効果あり」になりやすかったか</h2>
+  <div class="compare4">
+    <div class="c3-col green">
+      <h3>✅ 効果を得やすい傾向があった特徴</h3>
+      <ul>
+        <li><strong>女性</strong>(男性より効果ありの見込みが高い)</li>
+        <li><strong>年齢が高い人</strong>(若い人より効果ありの見込みが高い)</li>
+        <li><strong>試験開始時点で食事の質(HEI)が低かった人</strong>(もともと改善の伸びしろが大きかったと考えられる)</li>
+      </ul>
+    </div>
+    <div class="c3-col blue">
+      <h3>➖ 差が見られなかった特徴</h3>
+      <ul>
+        <li>体重・肥満の状態(BMIの区分)</li>
+        <li>遺伝的リスク(調べた遺伝子多型のリスクの高低)</li>
+        <li>社会経済的な立場(学歴・収入など)</li>
+      </ul>
+    </div>
+  </div>
+  <p style="margin-top:10px; font-size:0.82rem; color:#666;">※「効果を得やすい傾向」は統計的に有意な関連として報告されていますが、具体的なオッズ比の数値は原著論文の表を直接ご確認ください。国別の分析では、ドイツの参加者は他国平均と比べて「効果あり」と判定される見込みが低い(オッズ比0.32、95%CI 0.12-0.88)という結果も示されました。</p>
+</div>
+
+<!-- 解釈のステップ -->
+<div class="card blue">
+  <h2>🧭 この結果をどう読むか</h2>
+  <ul class="step-list">
+    <li>「食事の質がもともと低かった人ほど改善しやすい」という結果は、統計的にはよくある現象です(平均への回帰:極端に低い値は、放っておいても平均に近づきやすい傾向)。精密栄養アドバイスそのものの効果なのか、この統計的な性質が混じっているのかは、この解析だけでは完全には切り分けられません。</li>
+    <li>女性・高齢者で「効果あり」の見込みが高かった一因として、著者らはもともとの生活習慣の違いや、アドバイスへの取り組みやすさの違いを可能性として挙げていますが、断定はしていません。</li>
+    <li>遺伝的リスクや社会経済状況で差が出なかったことは、「精密栄養学は特定の人だけに効く特別な仕組みではない」ことを示す一方、「遺伝子データを使えば効果が上乗せされる」という期待とは異なる結果でもあります。</li>
+  </ul>
+</div>
+
+<!-- 警告 -->
+<div class="warn">
+  <strong>⚠️ 誤解しないでほしいこと</strong>
+  <ul style="padding-left:1.4em; margin-top:8px;">
+    <li>この解析は、あらかじめ計画された主要な評価項目ではなく、試験データを後から複数の切り口で調べたサブグループ解析です。著者ら自身が、<strong>多重検定の調整をしていないため偶然による誤りのリスクが高い</strong>ことと、<strong>より大規模な試験での再現(replication)が必要</strong>であることを論文中で明記しています。</li>
+    <li>「効果あり」の判定は6項目のうち1つでも5%以上改善すれば該当する緩やかな基準であり、体重や血圧が劇的に改善したことを意味するものではありません。</li>
+    <li>今回の解析が「精密栄養アドバイスを受けたグループ」と「一般的な指導を受けたグループ」を区別してどこまで比較しているかは論文本文の詳細な設定によります。「効果を得やすい人の特徴」であって「その人には必ず効く」という保証ではない点に注意してください。</li>
+    <li>対象者の96.7%が白人系ヨーロッパ人であり、他の人種・地域にそのまま当てはまるとは限りません。</li>
+  </ul>
+</div>
+
+<!-- エビデンスの整理 -->
+<div class="card">
+  <h2>🧪 今日出てきた情報の「証拠としての強さ」の目安</h2>
+  <table class="ev-table">
+    <tr><th>情報の種類</th><th>特徴</th><th>証拠としての強さ</th></tr>
+    <tr>
+      <td>Food4Me本体の主要結果(RCT, n=1,607)</td>
+      <td>あらかじめ計画された主要評価項目についてのランダム化比較試験の結果</td>
+      <td><span class="ev-badge ev-high">強い</span></td>
+    </tr>
+    <tr>
+      <td>今日紹介した「誰に効いたか」の解析(n=1,269)</td>
+      <td>同じRCTのデータを使った事後的なサブグループ解析。多重検定未調整</td>
+      <td><span class="ev-badge ev-mid">参考情報・再現待ち</span></td>
+    </tr>
+    <tr>
+      <td>ドイツの参加者のオッズ比(0.32)などの国別差</td>
+      <td>7か国中の1グループの結果。国ごとの人数はさらに少なく誤差が大きい</td>
+      <td><span class="ev-badge ev-low">解釈に注意</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- 視点 -->
+<div class="card purple">
+  <h2>🎯 精密栄養学の視点から見ると</h2>
+  <ul class="step-list">
+    <li>「平均で効果があった」という結果を鵜呑みにせず、「誰に」「どのくらい」効いたのかを分けて見ることは、精密栄養学が目指す方向性そのものです。今回の結果は、女性・高齢者・もともと食事の質が低かった人で効果が出やすい"傾向"を示した最初の手がかりの一つと言えます。</li>
+    <li>一方で、遺伝的リスクや社会経済状況では差が出なかったことから、「高価な遺伝子検査をすれば効果が上乗せされる」といった単純な話ではないことも見えてきます。サブグループ解析はあくまで仮説を生み出す段階の情報であり、確定的な結論には大規模な追試が必要です。</li>
+  </ul>
+</div>
+
+<!-- まとめ -->
+<div class="card" style="border-left-color:#1a7a5a;">
+  <h2>✅ 今日のまとめ</h2>
+  <ul class="step-list">
+    <li>Food4Me試験(欧州7か国、n=1,607、6か月完了者n=1,269)のデータを使い、体重・ウエスト・オメガ3指数・カロテノイド・コレステロール・座位時間・身体活動量のいずれかで5%以上望ましい変化があった人を「ベネフィットあり」と定義して分析(Livingstone, Celis-Moralesほか, British Journal of Nutrition, 2020, DOI: 10.1017/S0007114520000653)。</li>
+    <li>女性・高齢者・ベースラインの食事の質(HEI)が低かった人ほど「ベネフィットあり」の見込みが高い傾向が示された一方、体重の状態・遺伝的リスク・社会経済的な立場では差が見られなかった。</li>
+    <li>国別ではドイツの参加者が他国平均より「ベネフィットあり」の見込みが低い(オッズ比0.32、95%CI 0.12-0.88)結果も示された。</li>
+    <li>この解析は事前に計画された主要評価項目ではないサブグループ解析であり、多重検定の調整をしていないこと・より大規模な試験での再現が必要であることを著者ら自身が明記している。「平均への回帰」など統計的な性質が混じっている可能性も踏まえ、仮説を提示する段階の情報として受け取りたい。</li>
+  </ul>
+</div>
+
+<!-- 免責 -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、医療アドバイスではありません。効果・必要量・リスクは個人の体質・年齢・持病・服薬によって大きく異なります。特定の食事法・サプリメント・遺伝子検査キットなどの実践を検討する場合は、自己判断せず、かかりつけ医・管理栄養士・薬剤師など専門家にご相談ください。
+</div>
+
+<!-- 出典 -->
+<div class="sources">
+  <h3>📚 主な出典・参考文献</h3>
+  <ol>
+    <li>Livingstone KM, Celis-Morales C, Navas-Carretero S, San-Cristobal R, Forster H, Woolhead C, O'Donovan CB, Moschonis G, Manios Y, Traczyk I, Gundersen TE, Drevon CA, Marsaux CFM, Fallaize R, et al. "Characteristics of participants who benefit most from personalised nutrition: findings from the pan-European Food4Me randomised controlled trial." Br J Nutr. 2020;123(12):1396-1405. DOI: 10.1017/S0007114520000653
+      <a href="https://www.cambridge.org/core/journals/british-journal-of-nutrition/article/characteristics-of-participants-who-benefit-most-from-personalised-nutrition-findings-from-the-paneuropean-food4me-randomised-controlled-trial/61D528B59882FF102F73D0DD2A0CCAAE" target="_blank">https://www.cambridge.org/core/journals/.../61D528B59882FF102F73D0DD2A0CCAAE</a>
+    </li>
+    <li>Martinsen T, Brennan L. "Key evidence for personalised nutrition: a review of randomised controlled trials." Food Funct. 2026;17(2):646-658. DOI: 10.1039/D5FO02969D(昨日紹介したレビュー論文。今回の記事の出発点)
+      <a href="https://pubmed.ncbi.nlm.nih.gov/41493072/" target="_blank">https://pubmed.ncbi.nlm.nih.gov/41493072/</a>
+    </li>
+    <li>Celis-Morales C, Livingstone KM, Marsaux CFM, et al. "Effect of personalized nutrition on health-related behaviour change: evidence from the Food4Me European randomized controlled trial." Int J Epidemiol. 2017;46(2):578-588. DOI: 10.1093/ije/dyw186(Food4Me本体の主要結果)
+      <a href="https://academic.oup.com/ije/article/46/2/578/2622850" target="_blank">https://academic.oup.com/ije/article/46/2/578/2622850</a>
+    </li>
+  </ol>
+  <p style="margin-top:8px; font-size:0.78rem;">※ 出典1は2020年発表の論文であり、2026年の新しい研究ではありません。昨日紹介した2026年のレビュー論文が引用する24件のRCTの1つ(Food4Me試験)について、「誰に効いたか」を掘り下げた原著論文として本日改めて取り上げています。</p>
+</div>
+
+</div>
+</body>
+</html>
