@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-08-06</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #1e7a5a 0%, #0d4632 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #1e7a5a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.blue   { border-left-color: #1e5a7a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.purple { border-left-color: #7a4a9e; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #1e7a5a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  .type-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .type-grid { grid-template-columns: 1fr; } }
+  .type-card {
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-size: 0.86rem;
+    line-height: 1.65;
+  }
+  .type-card.main {
+    background: #e6f5ee;
+    border: 2px solid #1e7a5a;
+  }
+  .type-card.sub {
+    background: #fbe9e9;
+    border: 2px solid #b54040;
+  }
+  .type-card .tl {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+  }
+  .type-card.main .tl { color: #0d4632; }
+  .type-card.sub .tl  { color: #7a2020; }
+  .type-card .tv { font-size: 1.0rem; font-weight: 700; margin-bottom: 6px; }
+  .type-card.main .tv { color: #1e7a5a; }
+  .type-card.sub .tv  { color: #b54040; }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 14px 10px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat .sl { font-size: 0.67rem; color: #888; margin-bottom: 3px; }
+  .stat .sv { font-size: 1.5rem; font-weight: 700; color: #1e7a5a; line-height: 1.1; }
+  .stat .su { font-size: 0.7rem; color: #666; margin-top: 2px; }
+
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #1e7a5a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-num.now { background: #b54040; }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+  .f-arrow { color: #1e7a5a; font-size: 1.1rem; margin-left: 14px; margin-bottom: 4px; }
+
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  .prompt-box {
+    background: #f0f5ff;
+    border: 2px solid #4a6aae;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 12px 0;
+    font-size: 0.84rem;
+    line-height: 1.85;
+    color: #1a2a4a;
+  }
+  .prompt-box .ph {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #4a6aae;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+  .prompt-box .fill {
+    background: #d0e0ff;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-weight: 700;
+    color: #0a2a6e;
+  }
+
+  .info {
+    background: #e6f5ee;
+    border-left: 4px solid #1e7a5a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #0d4632;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #7a4010;
+  }
+
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #1e7a5a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+
+  .badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 8px;
+    margin-right: 4px;
+    vertical-align: middle;
+  }
+  .badge.law   { background: #1e7a5a; color: white; }
+  .badge.ai    { background: #4a6aae; color: white; }
+  .badge.tip   { background: #4a9e6a; color: white; }
+  .badge.warn  { background: #c8884a; color: white; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #1e7a5a; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #1e7a5a; }
+
+  .flow-h {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 14px 0;
+  }
+  .flow-box {
+    background: white;
+    border: 2px solid #1e7a5a;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 0.81rem;
+    text-align: center;
+    line-height: 1.45;
+    color: #0d4632;
+    font-weight: 600;
+  }
+  .flow-arrow {
+    color: #1e7a5a;
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+  @media (max-width: 540px) {
+    .flow-h { flex-direction: column; align-items: flex-start; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+
+  .matrix {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.83rem;
+  }
+  .matrix th {
+    background: #0d4632;
+    color: white;
+    padding: 8px 12px;
+    text-align: center;
+    font-weight: 600;
+  }
+  .matrix td {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    vertical-align: top;
+    line-height: 1.55;
+  }
+  .matrix .row-head {
+    background: #e6f5ee;
+    font-weight: 700;
+    color: #0d4632;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .matrix .ok  { color: #4a9e6a; font-weight: 700; }
+  .matrix .ng  { color: #b54040; font-weight: 700; }
+  .matrix .mid { color: #c8884a; font-weight: 700; }
+  .matrix-wrap { overflow-x: auto; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Header -->
+<div class="header">
+  <div class="meta">📅 1人法人スタート 最新トピック &nbsp;2026-08-06</div>
+  <h1>🔄 「残業させない」という選択肢もある<br>変形労働時間制・裁量労働制の基礎を図解</h1>
+  <div class="desc">
+    <span class="htag">変形労働時間制</span>
+    <span class="htag">裁量労働制</span>
+    <span class="htag">労基法32条</span>
+    <span class="htag">みなし労働時間</span>
+    <br>
+    8/5の記事では、法律の上限内で残業をさせるための<span class="hl">「36協定」</span>を取り上げました。今日はその応用編として、そもそも<span class="hl">「何時間働いたら残業になるか」の数え方自体を変える</span>仕組み──変形労働時間制と裁量労働制を図解します。
+  </div>
+</div>
+
+<!-- Section 1: 36協定との違い -->
+<div class="card">
+  <div class="sec-title">📜 36協定との違い：「上限を広げる」か「数え方を変える」か</div>
+  <p>36協定は、1日8時間・週40時間という法定労働時間を超えて働かせるために、残業代を払いながら上限まで残業させる「許可証」のような仕組みでした。これに対して<strong>変形労働時間制</strong>と<strong>裁量労働制</strong>は、繁忙期・閑散期の差が大きい仕事や、時間配分を労働者の裁量に任せたい仕事について、そもそも「1日・1週間の何時間を超えたら残業（法定時間外労働）になるか」の<span class="hlg">数え方自体を変える</span>仕組みです。</p>
+
+  <div class="info" style="margin-top:12px;">
+    💡 どちらも法定労働時間の「例外」を作る制度という点は共通していますが、変形労働時間制でも定めた枠を超えて働かせれば残業代が発生し、その残業が法定の上限を超える場合は別途36協定も必要になります。「どちらか一方を選ぶ」というより、組み合わせて使う会社も多い制度です。
+  </div>
+
+  <div class="source">
+    出典：厚生労働省「労働時間・休日に関する主な制度」／労働基準法第32条の2〜32条の5、第38条の3・第38条の4（令和8年8月時点）
+  </div>
+</div>
+
+<!-- Section 2: 変形労働時間制の4タイプ比較 -->
+<div class="card blue">
+  <div class="sec-title">🗓️ 変形労働時間制、4つのタイプを比較</div>
+  <p>「変形労働時間制」と一口にいっても、対象期間の長さや向いている業種によって4つのタイプに分かれます。まずは全体像を比較表で押さえましょう。</p>
+
+  <div class="matrix-wrap" style="margin-top:14px;">
+    <table class="matrix">
+      <tr>
+        <th>種類</th>
+        <th>根拠条文</th>
+        <th>向いている仕事</th>
+        <th>手続き</th>
+      </tr>
+      <tr>
+        <td class="row-head">1ヶ月単位</td>
+        <td>労基法32条の2</td>
+        <td>月末月初が忙しい経理・小売の棚卸など</td>
+        <td>就業規則<br>または労使協定</td>
+      </tr>
+      <tr>
+        <td class="row-head">1年単位</td>
+        <td>労基法32条の4</td>
+        <td>季節で繁閑差が大きい観光業など</td>
+        <td class="mid">労使協定＋<br>届出が必須</td>
+      </tr>
+      <tr>
+        <td class="row-head">1週間単位<br>非定型的</td>
+        <td>労基法32条の5</td>
+        <td>常時30人未満の小売・旅館・飲食店</td>
+        <td class="mid">労使協定＋<br>届出が必須</td>
+      </tr>
+      <tr>
+        <td class="row-head">フレックス<br>タイム制</td>
+        <td>労基法32条の3</td>
+        <td>始業・終業を労働者自身が決める仕事</td>
+        <td>労使協定<br>（清算期間1か月超は届出必要）</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="info" style="margin-top:12px;">
+    💡 就業規則の作成・届出義務は「常時10人以上」の事業場に生じます（労基法89条）。10人未満の会社で労使協定だけで導入する場合も、労使協定そのものは種類によって届出が必須な点に注意してください。
+  </div>
+
+  <div class="source">
+    出典：厚生労働省「変形労働時間制の概要」／労働基準法第32条の2〜32条の5（令和8年8月時点）
+  </div>
+</div>
+
+<!-- Section 3: 1年単位の数字 -->
+<div class="card orange">
+  <div class="sec-title">📊 1年単位変形労働時間制、数字で見る上限</div>
+  <p>4タイプの中でもっとも導入率が高い「1年単位の変形労働時間制」には、労使協定で自由に決められない<strong>法律上の上限</strong>があります。</p>
+
+  <div class="stats-row" style="margin-top:14px;">
+    <div class="stat">
+      <div class="sl">対象期間中の労働日数</div>
+      <div class="sv">280<span style="font-size:0.9rem;">日</span></div>
+      <div class="su">対象期間が3か月超の場合</div>
+    </div>
+    <div class="stat">
+      <div class="sl">1日の労働時間</div>
+      <div class="sv">10<span style="font-size:0.9rem;">時間</span></div>
+      <div class="su">これが限度</div>
+    </div>
+    <div class="stat">
+      <div class="sl">1週間の労働時間</div>
+      <div class="sv">52<span style="font-size:0.9rem;">時間</span></div>
+      <div class="su">これが限度</div>
+    </div>
+  </div>
+
+  <div class="warn" style="margin-top:12px;">
+    ⚠️ 対象期間が3か月を超える場合は、週48時間を超える週が連続して3週以内、かつ対象期間を3か月ごとに区切った各期間で週48時間を超える週が3回以内、といった細かい制約もあります。実際にシフトを組む段階では、必ず社会保険労務士に確認してください。
+  </div>
+
+  <div class="source">
+    出典：厚生労働省「1年単位の変形労働時間制」／労働基準法第32条の4・労働基準法施行規則（令和8年8月時点）
+  </div>
+</div>
+
+<!-- Section 4: 裁量労働制の2タイプ -->
+<div class="card purple">
+  <div class="sec-title">🧠 裁量労働制の2つのタイプ</div>
+  <p>裁量労働制は、労使協定や労使委員会の決議で定めた時間だけ働いたと「みなす」制度です。実際の労働時間が長くても短くても、協定で定めた時間分を働いたものとして扱われます。</p>
+
+  <div class="type-grid" style="margin-top:14px;">
+    <div class="type-card main">
+      <div class="tl">専門業務型（労基法38条の3）</div>
+      <div class="tv">対象：法令で定める20業務のみ</div>
+      研究開発、デザイナー、システムコンサルタントなど。2024年4月の改正で「M&amp;Aアドバイザーの業務」が加わり19業務→20業務に。<br>手続き：労使協定を締結し、労基署へ届出。
+    </div>
+    <div class="type-card sub">
+      <div class="tl">企画業務型（労基法38条の4）</div>
+      <div class="tv">対象：本社等での企画・立案・調査・分析</div>
+      経営に関する企画・立案・調査・分析業務が対象。<br>手続き：労使委員会を設置し、委員の5分の4以上の多数で決議。労基署へ届出のうえ、原則6か月以内ごとに1回の定期報告が必要。
+    </div>
+  </div>
+
+  <div class="info" style="margin-top:12px;">
+    💡 専門業務型は対象業務が20業務に限定列挙されているのに対し、企画業務型は「本社などで事業運営に関する企画立案を行う」という性質で判断されるぶん、導入のハードル（労使委員会の設置・定期報告）が高めに設計されています。
+  </div>
+
+  <div class="source">
+    出典：厚生労働省「専門業務型裁量労働制」「企画業務型裁量労働制の解説」（令和6年4月1日施行、令和8年8月時点の情報）
+  </div>
+</div>
+
+<!-- Section 5: 導入時の注意点 -->
+<div class="card red">
+  <div class="sec-title">⚠️ 導入するときに見落としやすい注意点</div>
+  <ul class="check-list">
+    <li><span class="ck-bad">✘</span>「みなし労働時間制」でも、深夜労働（22時〜翌5時）と休日労働の割増賃金の支払い義務はなくならない。</li>
+    <li><span class="ck-bad">✘</span>2024年4月の改正で、裁量労働制の導入・継続には<strong>労働者本人の同意</strong>と、同意を撤回する手続きの整備が必須になった。同意しない・撤回したことを理由に不利益な取り扱いをすることは禁止されている。</li>
+    <li><span class="ck-bad">✘</span>対象業務に該当しない仕事にみなし労働時間制を適用すると、その適用自体が無効となり、実労働時間ベースでの未払い残業代を請求されるリスクがある。</li>
+    <li><span class="ck-bad">✘</span>変形労働時間制も、就業規則や労使協定で定めたシフト（労働日・労働時間）を事前に労働者へ周知していなければ、無効と判断される可能性がある。</li>
+  </ul>
+
+  <div class="source">
+    出典：厚生労働省「裁量労働制の概要」（令和6年4月1日施行の見直し内容を含む、令和8年8月時点）
+  </div>
+</div>
+
+<!-- Section 6: 1人社長の会社にとっての意味 -->
+<div class="card">
+  <div class="sec-title">🏢 1人社長の会社にとっての意味</div>
+  <p>代表者（役員）自身は労働基準法上の「労働者」にはあたらないため、これらの制度はそもそも代表者本人には関係しません。関係してくるのは、<strong>繁閑差のあるアルバイト・パート・正社員を雇うようになったとき</strong>です。</p>
+
+  <div class="flow-h" style="margin-top:14px;">
+    <div class="flow-box">👤 ①<br>役員だけの会社<br><span style="font-weight:400;">制度は不要</span></div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-box">🙋 ②<br>初めて人を雇う<br><span style="font-weight:400;">7/27記事の手続きから</span></div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-box">🗓️ ③<br>通常の労働時間管理<br><span style="font-weight:400;">まずはここから</span></div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-box">🔄 ④<br>繁閑差が目立ってきたら<br><span style="font-weight:400;">変形労働時間制を検討</span></div>
+  </div>
+
+  <div class="info" style="margin-top:12px;">
+    💡 いきなり複雑な制度を入れる必要はありません。最初の1人を雇う段階では通常の労働時間管理で十分なことが多く、事業が育って繁忙期のズレが経営課題になってきた段階で検討すれば十分間に合います。
+  </div>
+</div>
+
+<!-- Section 7: AI prompt -->
+<div class="card orange">
+  <div class="sec-title">🤖 生成AIに「変形労働時間制の社内説明資料」を作ってもらうプロンプト例</div>
+  <p>労使協定・就業規則そのものの条文は専門家の確認が必須ですが、<span class="hl">従業員向けのやさしい説明文や、シフト表の叩き台</span>作りは生成AIが得意な領域です。</p>
+
+  <div class="prompt-box" style="margin-top:14px;">
+    <div class="ph">🤖 プロンプト例：変形労働時間制の社内向け説明資料の作成</div>
+    従業員<span class="fill">【人数】</span>名の<span class="fill">【業種】</span>で、<span class="fill">【1ヶ月単位／1年単位】</span>の変形労働時間制の導入を検討しています。<br>
+    <br>
+    1. この制度が「残業代をゼロにする制度」ではないことを含め、従業員にやさしく伝える説明文の案を作ってください<br>
+    2. 繁忙期・閑散期のイメージ（<span class="fill">【繁忙期の時期】</span>）をもとに、1週間分のシフト表のたたき台を作ってください<br>
+    3. 従業員から聞かれそうな質問と回答をQ&amp;A形式で3つ作ってください<br>
+    ※実際の労使協定の内容・シフトの適法性は、必ず社会保険労務士に確認します。
+  </div>
+</div>
+
+<!-- Section 8: summary -->
+<div class="card">
+  <div class="sec-title">📝 今日のまとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">①</span>36協定が「残業の上限を広げる」仕組みなのに対し、変形労働時間制・裁量労働制は<span class="hl">「何時間から残業になるかの数え方を変える」</span>仕組み。</li>
+    <li><span class="n">②</span>変形労働時間制には<span class="hl">1ヶ月単位・1年単位・1週間単位非定型的・フレックスタイム制</span>の4タイプがあり、業種や繁閑パターンで向き不向きがある。</li>
+    <li><span class="n">③</span>1年単位の場合、<span class="hl">労働日数280日・1日10時間・1週52時間</span>という法律上の上限がある。</li>
+    <li><span class="n">④</span>裁量労働制は<span class="hl">専門業務型（20業務限定）と企画業務型（労使委員会が必要）</span>の2種類。どちらも本人同意と、深夜・休日の割増賃金支払いは必須。</li>
+    <li><span class="n">⑤</span>代表者1人の会社には直接関係しないが、<span class="hl">繁閑差のある人を雇うようになったとき</span>の選択肢として仕組みを知っておくと役立つ。</li>
+  </ul>
+</div>
+
+<!-- Disclaimer -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報提供を目的としており、個別の労務・法務の判断を代わるものではありません。
+  変形労働時間制・裁量労働制の具体的な導入可否や協定・就業規則の内容は、会社の実態によって異なります。
+  具体的な判断は、必ず社会保険労務士や所轄の労働基準監督署にご相談ください。
+  制度・解釈は改正・変更されることがあります。最新情報は厚生労働省公式サイト（<a href="https://www.mhlw.go.jp/" target="_blank">https://www.mhlw.go.jp/</a>）でご確認ください。<br>
+  本記事の内容の基準年度：令和8年度（2026年度）。労働基準法第32条の2〜32条の5、第38条の3・第38条の4、令和8年8月時点の情報にもとづく（裁量労働制の見直しは令和6年4月1日施行）。
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>📚 <a href="index.html">バックナンバー一覧へ</a> &nbsp;&middot;&nbsp; 毎朝更新</p>
+</div>
+
+</div>
+</body>
+</html>
