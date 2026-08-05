@@ -68,6 +68,7 @@
 - 2026-08-03: OpenAI 次世代モデル「Astra」プレビュー（2026年8月1日）・マルチエージェント方式・複数AIが協力して長時間作業・10年以上未解決の数学難題10問を解決・最注目：非ソフィック群の明示的な構成（1999年から未解決）・249ページ論文＋Lean4機械検証証明書をGitHubに公開・Sol API換算コスト約$2,000（公式要確認）・名称「Astra」は仮・GPT-6/5.7/別シリーズ未決定・一般公開・API未発表・CEOが米政府関係者にデモ済み（出典：The Next Web / The Decoder / byteiota / Softonic・2026年8月1日）
 - 2026-08-04: DeepSeek-V4-Flash-0731 正式リリース（2026年7月31日）・オープンソース・MITライセンス・Hugging Faceで即日公開（166.9GB）・MoE構造（総2840億パラメータ・稼働130億）・1Mトークンコンテキスト・9ベンチマーク全てで前フラッグシップのプレビュー版を上回る（DeepSWE: 7.3→54.4, Terminal Bench 2.1: 61.8→82.7）・ポストトレーニングのみでの大幅改善・DSpark投機的デコードモジュール搭載（出典：MarkTechPost / Hugging Face Blog / DigitalApplied・2026年7月31日）
 - 2026-08-05: MiniMax H3（2026年8月3日オープンソース公開）・33Bパラメータ・オムニモーダル動画生成AI・2K画質・最大15秒・ネイティブデュアルチャンネル音声同時生成・FL2VAとRef2VAの2チェックポイント・Hugging Faceで42.5GB公開・コミュニティライセンス（商用は要確認）・Artificial Analysis評価で動画編集1位・テキスト→動画2位・画像→動画3位・APIコストはSeedance 2.5比約12分の1（報告値・公式要確認）・ロボット応用を視野（出典：MiniMax公式 / ComfyUI Wiki / Atlas Cloud / OpenSourceForYou / TechFlowPost・2026年8月）
+- 2026-08-06: MCP（Model Context Protocol）2026-07-28仕様・誕生以来最大の仕様更新・ステートレス化（セッションID・初期化ハンドシェイク廃止）・毎回独立したリクエスト方式に変更・ロードバランサーやサーバーレス環境に普通に展開可能・マルチラウンドトリップリクエスト追加・認証・認可強化・公式拡張フレームワーク整備・旧仕様との互換性問題あり・廃止機能は最低12ヶ月動作保証（出典：MCP公式ブログ / Appwrite / Digital Applied / Microsoft Community Hub / The Register・2026年7月28日）
 
 ## 未解説の候補トピック（今後の参考）
 
