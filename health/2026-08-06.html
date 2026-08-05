@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-08-06</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '🏃';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.9rem; margin-bottom: 8px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.1em; }
+  .c3-col li { margin-bottom: 4px; }
+  .c3-col .or-val { font-size: 1.5rem; font-weight: 700; margin: 4px 0; }
+  .c3-col.red .or-val { color: #a0291e; }
+  .c3-col.green .or-val { color: #1a6e4a; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .mech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .mech-item {
+    background: #f0faf5;
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 0.85rem;
+    border-top: 3px solid #1a7a5a;
+  }
+  .mech-item .micon { font-size: 1.3rem; margin-bottom: 6px; }
+  .mech-item strong { display: block; color: #0d4a35; margin-bottom: 4px; font-size: 0.88rem; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .highlight { background: #cff0df; padding: 1px 5px; border-radius: 4px; }
+  .good { color: #1a7a5a; font-weight: 600; }
+  .bad  { color: #c0392b; font-weight: 600; }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-box {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin: 14px 0;
+    font-size: 0.92rem;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  .quote-box {
+    background: #f5f0e8;
+    border-left: 4px solid #7a5abf;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    margin: 12px 0;
+    color: #444;
+    font-style: italic;
+  }
+  .quote-box .who { font-style: normal; font-weight: 700; color: #5a3a9a; margin-top: 6px; font-size: 0.78rem; }
+  .benefit-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    margin: 14px 0;
+  }
+  .benefit-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+  .benefit-item .bicon { font-size: 1.2rem; margin-bottom: 4px; }
+  @media (max-width: 540px) {
+    .compare4 { grid-template-columns: 1fr 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.7rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ヘッダー -->
+<div class="header">
+  <div class="label">健康・栄養 最新トピック ・ 2026-08-06</div>
+  <h1>週1回にまとめても、週3回と同じくらい効く?<br>
+  香港・315人トライアルが示した「運動の分け方」</h1>
+  <div class="subtitle">「運動した方がいいのはわかっているけど、平日は時間がない」という人は多いはずです。香港大学(HKUMed)のSiu(シウ)さんらのチームが、内臓脂肪型肥満(お腹まわりに脂肪がつくタイプの肥満)がある成人315人を対象に、同じ運動量を「週1回にまとめる」場合と「週3回に分ける」場合を比べたランダム化比較試験をNature Communications誌に発表しました(2026年、DOI: 10.1038/s41467-025-68149-7)。2026年7月末〜8月上旬に複数の科学報道機関が取り上げた、比較的新しい人での実験結果です。今日はこの研究をやさしく解説します。</div>
+</div>
+
+<!-- タグ -->
+<div style="margin-bottom:18px;">
+  <span class="tag">運動</span>
+  <span class="tag">HIIT</span>
+  <span class="tag">内臓脂肪型肥満</span>
+  <span class="tag">ランダム化比較試験(RCT)</span>
+  <span class="tag">精密"運動"学</span>
+</div>
+
+<!-- 今日の疑問 -->
+<div class="card">
+  <h2>🤔 今日の疑問:運動は「まとめて」やっても「小分け」にしても同じ?</h2>
+  <p>運動のガイドラインでは「週3回以上に分けて運動しましょう」と言われることがよくあります。しかし平日忙しい人にとっては、週末にまとめて運動する方が続けやすいという声も少なくありません。</p>
+  <p>そこで香港大学のチームは、<span class="highlight">「1週間の運動量(合計75分の高強度インターバルトレーニング)を同じにそろえたうえで、1回にまとめるか・3回に分けるかで効果に差が出るか」</span>を、きちんとランダム化比較試験(参加者をくじ引きのようにグループ分けして比べる、信頼性の高い研究デザイン)で確かめました。</p>
+</div>
+
+<!-- 基本用語 -->
+<div class="card blue">
+  <h2>📖 まず言葉の意味を</h2>
+  <div class="def-grid">
+    <div class="def-item">
+      <div class="dterm">HIIT(高強度インターバルトレーニング)</div>
+      「きつい運動」と「休憩・軽い運動」を交互にくり返すトレーニング方法。短時間でも効果が出やすいとされる。
+    </div>
+    <div class="def-item">
+      <div class="dterm">内臓脂肪型肥満(central obesity)</div>
+      お腹の内臓のまわりに脂肪がたまるタイプの肥満。ウエスト周囲径(おへそまわりの太さ)で判定することが多い。
+    </div>
+    <div class="def-item">
+      <div class="dterm">心肺持久力(VO2max)</div>
+      運動中に体がどれだけ効率よく酸素を取り込んで使えるかを示す指標。値が高いほど「スタミナがある」状態。
+    </div>
+    <div class="def-item">
+      <div class="dterm">アセッサーブラインド(assessor-blinded)</div>
+      参加者本人はどの運動グループかわかっているが、体脂肪などを測定する担当者には教えない仕組み。運動そのものを本人に隠すことはできないため、こうした形の"盲検化"が使われる。
+    </div>
+    <div class="def-item">
+      <div class="dterm">95%信頼区間(CI)</div>
+      その数値が「だいたいこの範囲に収まるだろう」という統計的な幅。区間が0(差なし)をまたがなければ、統計的に意味のある差と判断できる。
+    </div>
+  </div>
+</div>
+
+<!-- 数字カード -->
+<div class="num-row">
+  <div class="num-card">
+    <div class="big">315<span class="unit">人</span></div>
+    <div class="desc">参加した香港在住の中国系成人(過体重+内臓脂肪型肥満)</div>
+  </div>
+  <div class="num-card blue-bg">
+    <div class="big">105<span class="unit">人×3群</span></div>
+    <div class="desc">週1回群・週3回群・対照群に均等にランダム振り分け</div>
+  </div>
+  <div class="num-card orange-bg">
+    <div class="big">75<span class="unit">分/週</span></div>
+    <div class="desc">両運動群とも合計時間はそろえたHIITの量</div>
+  </div>
+  <div class="num-card purple-bg">
+    <div class="big">16<span class="unit">週間</span></div>
+    <div class="desc">介入期間(効果を測定するまでの期間)</div>
+  </div>
+</div>
+
+<!-- 対象者プロフィール -->
+<div class="card orange">
+  <h2>👥 参加した人はどんな人?</h2>
+  <div class="benefit-grid">
+    <div class="benefit-item"><div class="bicon">🚻</div>女性 64.8%(204人)</div>
+    <div class="benefit-item"><div class="bicon">🎂</div>平均年齢 48.2歳(SD 12.5)</div>
+    <div class="benefit-item"><div class="bicon">⚖️</div>平均BMI 28.7(SD 3.8)</div>
+    <div class="benefit-item"><div class="bicon">📏</div>平均ウエスト周囲径 94.8cm(SD 9.3)</div>
+  </div>
+  <p style="font-size:0.82rem; color:#666; margin-top:8px;">※香港在住の中国系(East Asian)成人が対象。人種・地域が異なる集団にそのまま当てはまるとは限りません。</p>
+</div>
+
+<!-- 3群の比較 -->
+<div class="card blue">
+  <h2>🔀 3つのグループ、それぞれ何をした?</h2>
+  <div class="compare4">
+    <div class="c3-col green">
+      <h3>① 週1回群(H1)</h3>
+      <ul>
+        <li>75分のHIITを<strong>1回のセッションにまとめて</strong>実施</li>
+        <li>週に1度、しっかり汗をかくイメージ</li>
+      </ul>
+    </div>
+    <div class="c3-col blue">
+      <h3>② 週3回群(H3)</h3>
+      <ul>
+        <li>75分のHIITを<strong>25分×3回に分けて</strong>実施</li>
+        <li>週の合計量はH1とまったく同じ</li>
+      </ul>
+    </div>
+    <div class="c3-col orange">
+      <h3>③ 対照群(CON)</h3>
+      <ul>
+        <li>2週間に1回の健康教育セミナーのみ</li>
+        <li>運動プログラムには参加しない</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- 図解:同じ量を分け方だけ変える -->
+<div class="card purple">
+  <h2>🧩 「同じ量」を「分け方」だけ変えた実験デザイン</h2>
+  <div class="flow">
+    <div class="flow-step purp">週の運動量<br><strong>合計75分</strong>で統一</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step">週1回に<br>まとめる(H1)</div>
+    <div class="flow-arrow">/</div>
+    <div class="flow-step alt">週3回に<br>分ける(H3)</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step">16週間後に<br>効果を比較</div>
+  </div>
+  <p style="font-size:0.82rem; color:#666;">「運動の合計量」という条件をそろえたうえで「頻度(分け方)」だけを変えているのがこの実験のポイントです。量そのものが違う比較(例:週1回だけ25分 vs 週3回で75分)ではありません。</p>
+</div>
+
+<!-- 結果 -->
+<div class="card">
+  <h2>📊 16週間後、何が起きたか</h2>
+  <p style="margin-bottom:10px;">対照群と比べて、<span class="highlight">週1回群・週3回群のどちらも体脂肪量・体脂肪率・ウエスト周囲径が有意に減少</span>し、<span class="highlight">2つの運動群の間には統計的に意味のある差はありませんでした</span>。確認できた具体的な数値は次の通りです。</p>
+  <div class="num-row">
+    <div class="num-card red-bg">
+      <div class="big">−0.8<span class="unit">kg</span></div>
+      <div class="desc">週1回群の体脂肪量の変化(対照群と比べて、95%CI −1.4〜−0.2)</div>
+    </div>
+    <div class="num-card red-bg">
+      <div class="big">−1.0<span class="unit">kg</span></div>
+      <div class="desc">週3回群の体脂肪量の変化(対照群と比べて、95%CI −1.6〜−0.5)</div>
+    </div>
+  </div>
+  <p style="font-size:0.85rem;">体重・BMIにもゆるやかな改善が見られました。唯一、<strong>心肺持久力(VO2max)は両群とも改善しましたが、週3回群の方が伸びが大きかった</strong>と報告されており、「頻度による差が出た数少ない項目」とされています。研究チームからは運動関連の重大な有害事象は報告されませんでした。</p>
+</div>
+
+<!-- 精密運動学の視点 -->
+<div class="card purple">
+  <h2>🎯 精密栄養学ならぬ「精密"運動"学」の視点</h2>
+  <ul class="step-list">
+    <li>体重や体脂肪を目的にするなら、<strong>「週にどれだけ運動するか(総量)」が大事で、「何回に分けるか」はそれほど重要ではない</strong>可能性を示した結果です。忙しくて平日に運動できない人にとっては、週末にまとめて運動する選択肢にも根拠があるとわかります。</li>
+    <li>一方で、心肺持久力(スタミナ)を重視するなら、同じ量でも小分けにして頻度を増やす方が有利かもしれないという「目的によって最適な分け方が変わる」精密栄養学的な視点も見えてきました。</li>
+  </ul>
+</div>
+
+<!-- 警告 -->
+<div class="warn">
+  <strong>⚠️ 誤解しないでほしいこと</strong>
+  <ul style="padding-left:1.4em; margin-top:8px;">
+    <li>これは<strong>単一の研究(1つのRCT)</strong>であり、香港在住の中国系成人315人という特定の集団を対象にしています。他の人種・年齢層・持病がある人にそのまま当てはまるとは限りません。</li>
+    <li>減少した体脂肪量は<strong>1kg未満</strong>と、数字としては小さめです。「統計的に意味のある差」であることと「体感できるほど大きな変化」であることは別の話です。</li>
+    <li>HIITは名前の通り「高強度」の運動です。心臓や関節に持病がある方が始める場合は、自己判断せず医師に相談してから行うことが望まれます。</li>
+    <li>この記事のテーマは「運動」であり、食事内容(栄養)は変えていません。精密栄養学が扱う食事の個人差とは別の切り口の研究です。</li>
+    <li>参加者本人は運動グループを知っているため(運動を隠すことは不可能)、体重管理へのモチベーションなど心理的な影響が結果に混じっている可能性も否定できません。</li>
+  </ul>
+</div>
+
+<!-- エビデンスの整理 -->
+<div class="card">
+  <h2>🧪 今日出てきた情報の「証拠としての強さ」の目安</h2>
+  <table class="ev-table">
+    <tr><th>情報の種類</th><th>特徴</th><th>証拠としての強さ</th></tr>
+    <tr>
+      <td>体脂肪量の変化(週1回・週3回 vs 対照群)</td>
+      <td>単一施設のランダム化比較試験(n=315)、95%信頼区間で確認された結果</td>
+      <td><span class="ev-badge ev-mid">中程度(単一RCT・追試待ち)</span></td>
+    </tr>
+    <tr>
+      <td>体脂肪率・ウエスト周囲径の変化</td>
+      <td>同じ試験内で有意差ありと報告。ただし具体的な数値は原論文の表でのみ確認可能</td>
+      <td><span class="ev-badge ev-mid">中程度(単一RCT・追試待ち)</span></td>
+    </tr>
+    <tr>
+      <td>「週3回の方がVO2maxの伸びが大きい」という頻度差</td>
+      <td>1試験内の副次的な比較。差の大きさ・信頼区間は本記事では未確認</td>
+      <td><span class="ev-badge ev-low">解釈に注意</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- まとめ -->
+<div class="card" style="border-left-color:#1a7a5a;">
+  <h2>✅ 今日のまとめ</h2>
+  <ul class="step-list">
+    <li>香港大学(HKUMed)のSiu, Leung, Bernalさんらのチームが、過体重+内臓脂肪型肥満のある成人315人(香港・中国系、女性64.8%、平均48.2歳)を、週1回HIIT群(105人)・週3回HIIT群(105人)・対照群(105人)にランダムに分けた16週間のRCTをNature Communications誌に発表(2026年、DOI: 10.1038/s41467-025-68149-7)。</li>
+    <li>週の運動量(合計75分のHIIT)をそろえたうえで「1回にまとめる」か「3回に分ける」かを比較したところ、体脂肪量は対照群と比べて週1回群−0.8kg(95%CI −1.4〜−0.2)・週3回群−1.0kg(95%CI −1.6〜−0.5)減少し、体脂肪率・ウエスト周囲径も両群で有意に改善。2群の間に統計的な差はなかった。</li>
+    <li>心肺持久力(VO2max)は両群とも改善したが、週3回群でより大きく伸びたと報告されている。</li>
+    <li>単一のRCTであり対象は香港の中国系成人に限られること、体脂肪の減少幅自体は1kg未満と小さいこと、HIITは高強度の運動であるため持病がある人は医師への相談が望ましいことに注意。</li>
+  </ul>
+</div>
+
+<!-- 免責 -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、医療アドバイスではありません。効果・必要量・リスクは個人の体質・年齢・持病・服薬によって大きく異なります。新しい運動プログラムや食事法を始める場合は、自己判断せず、かかりつけ医・管理栄養士・薬剤師など専門家にご相談ください。
+</div>
+
+<!-- 出典 -->
+<div class="sources">
+  <h3>📚 主な出典・参考文献</h3>
+  <ol>
+    <li>Siu PM, Leung CK, Bernal JDK, Yu AP, Recchia F, Tam BT, Fong DYT, Chan DKC, Ngai HH, Lee CH, Yung PSH, Wong SHS, Gibala M. "Once and thrice weekly interval training in adults with central obesity: a randomized controlled trial." Nature Communications. 2026. DOI: 10.1038/s41467-025-68149-7(受理日:2025年12月16日、受付日:2025年5月20日)
+      <a href="https://www.nature.com/articles/s41467-025-68149-7" target="_blank">https://www.nature.com/articles/s41467-025-68149-7</a>
+    </li>
+    <li>ScienceDaily. "This once-a-week workout may help cut belly fat, study shows." 2026年8月1日。
+      <a href="https://www.sciencedaily.com/releases/2026/08/260801042831.htm" target="_blank">https://www.sciencedaily.com/releases/2026/08/260801042831.htm</a>
+    </li>
+    <li>The University of Hong Kong, LKS Faculty of Medicine, School of Public Health. "HKUMed finds once-weekly brisk interval walk rivals thrice-weekly for fat loss with the same total workout time." プレスリリース、2026年。
+      <a href="https://sph.hku.hk/en/News-And-Events/Press-Releases/2026/HKUMed-finds-once-weekly-brisk-interval-walk-rivals-thrice-weekly" target="_blank">https://sph.hku.hk/en/News-And-Events/Press-Releases/2026/HKUMed-finds-once-weekly-brisk-interval-walk-rivals-thrice-weekly</a>
+    </li>
+  </ol>
+  <p style="margin-top:8px; font-size:0.78rem;">※ 本記事は査読誌Nature Communications掲載論文の一次情報を中心に、複数の科学報道機関(ScienceDaily、HKUMed公式プレスリリース等)の報道内容を突き合わせて作成しました。体脂肪率・ウエスト周囲径の具体的な変化量、心肺持久力の頻度差の大きさなど、原論文の表でのみ確認できる詳細数値は本記事では明記せず「有意差あり/差の傾向」までの記載にとどめています。</p>
+</div>
+
+</div>
+</body>
+</html>
