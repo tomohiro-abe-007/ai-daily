@@ -69,6 +69,7 @@
 - 2026-08-04: DeepSeek-V4-Flash-0731 正式リリース（2026年7月31日）・オープンソース・MITライセンス・Hugging Faceで即日公開（166.9GB）・MoE構造（総2840億パラメータ・稼働130億）・1Mトークンコンテキスト・9ベンチマーク全てで前フラッグシップのプレビュー版を上回る（DeepSWE: 7.3→54.4, Terminal Bench 2.1: 61.8→82.7）・ポストトレーニングのみでの大幅改善・DSpark投機的デコードモジュール搭載（出典：MarkTechPost / Hugging Face Blog / DigitalApplied・2026年7月31日）
 - 2026-08-05: MiniMax H3（2026年8月3日オープンソース公開）・33Bパラメータ・オムニモーダル動画生成AI・2K画質・最大15秒・ネイティブデュアルチャンネル音声同時生成・FL2VAとRef2VAの2チェックポイント・Hugging Faceで42.5GB公開・コミュニティライセンス（商用は要確認）・Artificial Analysis評価で動画編集1位・テキスト→動画2位・画像→動画3位・APIコストはSeedance 2.5比約12分の1（報告値・公式要確認）・ロボット応用を視野（出典：MiniMax公式 / ComfyUI Wiki / Atlas Cloud / OpenSourceForYou / TechFlowPost・2026年8月）
 - 2026-08-06: MCP（Model Context Protocol）2026-07-28仕様・誕生以来最大の仕様更新・ステートレス化（セッションID・初期化ハンドシェイク廃止）・毎回独立したリクエスト方式に変更・ロードバランサーやサーバーレス環境に普通に展開可能・マルチラウンドトリップリクエスト追加・認証・認可強化・公式拡張フレームワーク整備・旧仕様との互換性問題あり・廃止機能は最低12ヶ月動作保証（出典：MCP公式ブログ / Appwrite / Digital Applied / Microsoft Community Hub / The Register・2026年7月28日）
+- 2026-08-07: Mistral Shieldstral（2026年8月公開）・3Bパラメータのオープンソースコンテンツ審査AI・Apache 2.0ライセンス・HuggingFace（mistralai/Shieldstral-1.0-3B）・16GB GPU1枚で動作・自然言語ポリシー（yes/no質問）で審査基準を設定・テキスト＋画像のマルチモーダル対応・12言語・テキスト安全性F1 84.9%・マルチモーダル安全性F1 83.8%（公式値）・7倍大きなモデルに匹敵と主張・約5,410万サンプルで学習・アラビア語・インドネシア語は苦手・性能数値はMistral自己申告（出典：Mistral AI公式 / Seeking Alpha / Channel Insider / Unite.AI・2026年8月）
 
 ## 未解説の候補トピック（今後の参考）
 
