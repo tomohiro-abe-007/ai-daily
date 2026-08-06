@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>デジタルノマド 最新トピック 2026-08-07</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    color: #2a2a2a;
+  }
+  .hero {
+    background: linear-gradient(135deg, #1e3a6e 0%, #0d2144 100%);
+    color: white;
+    border-radius: 10px;
+    padding: 48px 40px;
+    text-align: center;
+    width: 100%;
+    max-width: 760px;
+    margin-bottom: 28px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .hero .label {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 0.8rem;
+    margin-bottom: 14px;
+    letter-spacing: 0.05em;
+  }
+  .hero h1 { font-size: 1.4rem; margin-bottom: 12px; line-height: 1.55; }
+  .hero .meta { opacity: 0.8; font-size: 0.88rem; line-height: 1.7; }
+  .card {
+    background: #fff9f0;
+    border-radius: 8px;
+    padding: 28px 32px;
+    width: 100%;
+    max-width: 760px;
+    margin-bottom: 20px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.08);
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1e3a6e;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px dashed #8aaad4;
+  }
+  .card p { font-size: 0.93rem; line-height: 1.85; margin-bottom: 10px; }
+  .card p:last-child { margin-bottom: 0; }
+  .highlight-box {
+    background: #e8f0fd;
+    border-left: 4px solid #1e3a6e;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .highlight-box .hlabel { font-size: 0.75rem; color: #1e3a6e; font-weight: 600; margin-bottom: 6px; display: block; }
+  .highlight-box p { font-size: 0.9rem; margin: 0; }
+  .alert-box {
+    background: #fff3cd;
+    border-left: 4px solid #c9920a;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .alert-box .alabel { font-size: 0.75rem; color: #8a6000; font-weight: 600; margin-bottom: 6px; display: block; }
+  .alert-box p { font-size: 0.9rem; margin: 0; }
+  .green-box {
+    background: #e8f5ef;
+    border-left: 4px solid #2c6e4e;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .green-box .glabel { font-size: 0.75rem; color: #2c6e4e; font-weight: 600; margin-bottom: 6px; display: block; }
+  .green-box p { font-size: 0.9rem; margin: 0; }
+  .purple-box {
+    background: #f0eafd;
+    border-left: 4px solid #6a3ea0;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .purple-box .plabel { font-size: 0.75rem; color: #6a3ea0; font-weight: 600; margin-bottom: 6px; display: block; }
+  .purple-box p { font-size: 0.9rem; margin: 0; }
+  .number-row { display: flex; gap: 14px; flex-wrap: wrap; margin: 14px 0; }
+  .number-card {
+    flex: 1; min-width: 130px;
+    background: #1e3a6e; color: white;
+    border-radius: 8px; padding: 18px 14px; text-align: center;
+  }
+  .number-card .num { font-size: 1.15rem; font-weight: 700; margin-bottom: 6px; line-height: 1.25; letter-spacing: 0.02em; }
+  .number-card .desc { font-size: 0.72rem; opacity: 0.9; line-height: 1.5; }
+  .number-card.amber  { background: #c9920a; }
+  .number-card.red    { background: #c0392b; }
+  .number-card.green  { background: #2c6e4e; }
+  .number-card.purple { background: #6a3ea0; }
+  .number-card.gray   { background: #666; }
+  .compare-row { display: flex; gap: 14px; flex-wrap: wrap; margin: 14px 0; }
+  .compare-card {
+    flex: 1; min-width: 200px; border-radius: 8px;
+    padding: 16px 16px; font-size: 0.88rem; line-height: 1.7;
+  }
+  .compare-card h3 { font-size: 0.88rem; margin-bottom: 8px; padding-bottom: 6px; border-bottom: 1.5px dashed; }
+  .compare-card.red    { background: #fdeaea; border: 1.5px solid #c0392b; }
+  .compare-card.red h3 { color: #922b2b; border-color: #e8a0a0; }
+  .compare-card.green  { background: #e8f5ef; border: 1.5px solid #2c6e4e; }
+  .compare-card.green h3 { color: #2c6e4e; border-color: #b2d4c4; }
+  .compare-card.amber  { background: #fff8e8; border: 1.5px solid #c9920a; }
+  .compare-card.amber h3 { color: #7a5800; border-color: #f0d080; }
+  .compare-card.navy   { background: #eaf0fb; border: 1.5px solid #1e3a6e; }
+  .compare-card.navy h3 { color: #1e3a6e; border-color: #8aaad4; }
+  .compare-card.purple { background: #f0eafd; border: 1.5px solid #6a3ea0; }
+  .compare-card.purple h3 { color: #6a3ea0; border-color: #c0a0e8; }
+  .flow-wrap { display: flex; flex-direction: column; gap: 4px; margin: 14px 0; }
+  .flow-box {
+    background: #1e3a6e; color: white;
+    border-radius: 8px; padding: 14px 16px;
+    font-size: 0.88rem; line-height: 1.6;
+  }
+  .flow-box .fb-label { font-size: 0.7rem; opacity: 0.8; margin-bottom: 4px; display: block; }
+  .flow-box strong { font-size: 0.95rem; }
+  .flow-box.sub    { background: #2a5090; }
+  .flow-box.light  { background: #eaf0fb; color: #2a2a2a; border: 1.5px solid #8aaad4; }
+  .flow-box.amber  { background: #c9920a; }
+  .flow-box.green  { background: #2c6e4e; }
+  .flow-box.red    { background: #c0392b; }
+  .flow-box.purple { background: #6a3ea0; }
+  .flow-box.gray   { background: #666; }
+  .arrow-down { text-align: center; font-size: 1.5rem; color: #1e3a6e; margin: 4px 0; line-height: 1; }
+  .step-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 12px 0; }
+  .step-list li { display: flex; align-items: flex-start; gap: 12px; }
+  .step-num {
+    background: #1e3a6e; color: white; border-radius: 50%;
+    min-width: 28px; height: 28px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.78rem; font-weight: 700; flex-shrink: 0; margin-top: 2px;
+  }
+  .step-num.amber  { background: #c9920a; }
+  .step-num.red    { background: #c0392b; }
+  .step-num.green  { background: #2c6e4e; }
+  .step-num.purple { background: #6a3ea0; }
+  .step-num.gray   { background: #666; }
+  .step-list li div { font-size: 0.9rem; line-height: 1.7; }
+  .matrix-table { width: 100%; border-collapse: collapse; font-size: 0.87rem; margin: 14px 0; }
+  .matrix-table th {
+    background: #1e3a6e; color: white; padding: 10px 12px;
+    text-align: left; font-weight: 600; font-size: 0.82rem;
+  }
+  .matrix-table th:first-child { border-radius: 6px 0 0 0; }
+  .matrix-table th:last-child  { border-radius: 0 6px 0 0; }
+  .matrix-table td { padding: 10px 12px; border-bottom: 1px solid #d0d8e8; vertical-align: top; line-height: 1.55; }
+  .matrix-table tr:nth-child(even) td { background: #f2f5fc; }
+  .matrix-table .ok   { color: #2c6e4e; font-weight: 700; }
+  .matrix-table .ng   { color: #c0392b; font-weight: 700; }
+  .matrix-table .warn { color: #8a6000; font-weight: 700; }
+  .matrix-table .row-warn   td { background: #fff8e8 !important; }
+  .matrix-table .row-danger td { background: #fdeaea !important; }
+  .matrix-table .row-green  td { background: #e8f5ef !important; }
+  .matrix-table .row-navy   td { background: #eaf0fb !important; }
+  .matrix-table .row-purple td { background: #f0eafd !important; }
+  .check-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 12px 0; }
+  .check-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.9rem; line-height: 1.65; }
+  .check-icon {
+    min-width: 22px; height: 22px; border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.78rem; font-weight: 700; flex-shrink: 0; margin-top: 1px;
+  }
+  .check-icon.navy   { background: #1e3a6e; color: white; }
+  .check-icon.green  { background: #2c6e4e; color: white; }
+  .check-icon.amber  { background: #c9920a; color: white; }
+  .check-icon.red    { background: #c0392b; color: white; }
+  .check-icon.purple { background: #6a3ea0; color: white; }
+  .section-icon { font-size: 1.5rem; margin-right: 8px; vertical-align: middle; }
+  .tag {
+    display: inline-block; background: #1e3a6e; color: white;
+    font-size: 0.72rem; padding: 2px 8px; border-radius: 10px;
+    margin-right: 4px; vertical-align: middle;
+  }
+  .tag.amber  { background: #c9920a; }
+  .tag.red    { background: #c0392b; }
+  .tag.green  { background: #2c6e4e; }
+  .tag.purple { background: #6a3ea0; }
+  .tag.gray   { background: #888; }
+  .footer-card {
+    background: #f0ece3;
+    border: 1.5px solid #bbb;
+    border-radius: 8px;
+    padding: 20px 24px;
+    width: 100%;
+    max-width: 760px;
+    margin-bottom: 20px;
+    font-size: 0.82rem;
+    color: #555;
+    line-height: 1.8;
+  }
+  .footer-card .footer-title {
+    font-size: 0.78rem; color: #888; font-weight: 600;
+    margin-bottom: 10px; display: block;
+    text-transform: uppercase; letter-spacing: 0.08em;
+  }
+  .footnote { font-size: 0.78rem; color: #777; line-height: 1.7; margin-top: 12px; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 14px 0; }
+  @media (max-width: 560px) { .two-col { grid-template-columns: 1fr; } }
+  .mini-card {
+    border-radius: 8px; padding: 14px 16px;
+    font-size: 0.85rem; line-height: 1.65;
+  }
+  .mini-card h4 { font-size: 0.87rem; margin-bottom: 8px; }
+  .mini-card.navy   { background: #eaf0fb; border: 1.5px solid #8aaad4; }
+  .mini-card.navy h4 { color: #1e3a6e; }
+  .mini-card.amber  { background: #fff8e8; border: 1.5px solid #c9920a; }
+  .mini-card.amber h4 { color: #7a5800; }
+  .mini-card.green  { background: #e8f5ef; border: 1.5px solid #2c6e4e; }
+  .mini-card.green h4 { color: #2c6e4e; }
+  .mini-card.red    { background: #fdeaea; border: 1.5px solid #c0392b; }
+  .mini-card.red h4 { color: #922b2b; }
+  .mini-card.purple { background: #f0eafd; border: 1.5px solid #6a3ea0; }
+  .mini-card.purple h4 { color: #6a3ea0; }
+  .mini-card.gray   { background: #f4f4f4; border: 1.5px solid #aaa; }
+  .mini-card.gray h4 { color: #555; }
+</style>
+</head>
+<body>
+
+<!-- ヒーロー -->
+<div class="hero">
+  <div style="margin-bottom:14px;">
+    <span class="label">📊 記帳・会計ソフトの実務を整理</span>
+  </div>
+  <h1>Wiseの残高は、記帳ソフトに自動で反映されるとは限らない。海外収入がある1人法人の「外貨の記帳」の基本</h1>
+  <div class="meta">
+    デジタルノマド 最新トピック 2026-08-07<br>
+    情報収集日：2026年8月7日<br>
+    直近7日の検索では、スペインDNV(国際遠隔就労ビザ)・税務まわりで一次資料(BOE等)にもとづく新規性の高いニュースは見つかりませんでした。今回は、2026-08-06日報の実務ポイントで「次回以降の課題」としていた、会計ソフト(freee・マネーフォワード等)とWiseの連携、外貨での記帳・為替差損益の扱いを整理します
+  </div>
+</div>
+
+<!-- 今日のポイント -->
+<div class="card">
+  <h2><span class="section-icon">📌</span>今日のポイント（30秒まとめ）</h2>
+  <div class="number-row">
+    <div class="number-card navy">
+      <div class="num">TTM/TTB/TTS</div>
+      <div class="desc">外貨建取引を円に換算する<br>ときに使う3つのレートの呼び方<sup>※1</sup></div>
+    </div>
+    <div class="number-card amber">
+      <div class="num">期末</div>
+      <div class="desc">外貨預金・売掛金などを<br>為替差損益として評価し直す代表的なタイミング<sup>※1</sup></div>
+    </div>
+    <div class="number-card green">
+      <div class="num">公式アプリあり</div>
+      <div class="desc">freeeには外貨建取引を<br>専用に扱う公式アプリがある<sup>※2</sup></div>
+    </div>
+    <div class="number-card red">
+      <div class="num">手動 or CSV</div>
+      <div class="desc">Wise残高をfreeeに取り込む<br>際の実務として確認できたやり方<sup>※3</sup></div>
+    </div>
+  </div>
+  <div class="highlight-box">
+    <span class="hlabel">💡 なぜ今日この話題か</span>
+    <p>2026-08-06日報では、海外の顧客から複数通貨で受け取った報酬を、Wiseのような多通貨サービスでどう両替すればコストを抑えられるかを整理しました。その最後で「会計ソフトとの連携や、複数通貨での記帳・為替差損益の扱いは次回以降の課題」としていた部分を、今回掘り下げます。日本の1人法人として海外から報酬を受け取る場合、両替の工夫と同じくらい、日本での記帳・確定申告の実務も避けて通れないためです。</p>
+  </div>
+</div>
+
+<!-- 為替レートの基本 -->
+<div class="card">
+  <h2><span class="section-icon">🔤</span>図解：外貨を円に換算するときの3つのレート</h2>
+  <p>外貨建て(USD・EUR等)の取引を日本円の帳簿に記録するときは、その日の為替レートで円に換算します。この換算に使うレートには、TTM・TTB・TTSという3つの呼び方があります<sup>※1</sup>。</p>
+  <div class="compare-row">
+    <div class="compare-card navy">
+      <h3>🎯 TTM（仲値）</h3>
+      銀行が「買う値段」と「売る値段」のちょうど中間のレート。原則として、これを取引の日の換算に使う<sup>※1</sup>
+    </div>
+    <div class="compare-card green">
+      <h3>📥 TTB（対顧客電信買相場）</h3>
+      銀行が外貨を「買い取る」ときのレート。収益・資産側の換算に、継続して使うなら例外的に使える<sup>※1</sup>
+    </div>
+    <div class="compare-card amber">
+      <h3>📤 TTS（対顧客電信売相場）</h3>
+      銀行が外貨を「売り渡す」ときのレート。費用・負債側の換算に、継続して使うなら例外的に使える<sup>※1</sup>
+    </div>
+  </div>
+  <div class="alert-box">
+    <span class="alabel">⚠ 用語は知っておく程度でよい</span>
+    <p>実務上は、原則のTTM(仲値)を使っておけば大きく外すことはありません。TTB/TTSを使う例外ルールは「一度決めたら継続して使う」ことが条件になるなど細かい決まりがあるため、どちらを使うかは税理士と事前にすり合わせておくのが安全です。</p>
+  </div>
+</div>
+
+<!-- 為替差損益が発生する仕組み -->
+<div class="card">
+  <h2><span class="section-icon">🔁</span>図解：為替差損益は「期末」に発生する</h2>
+  <p>Wiseの残高やドル建ての売掛金のように、決算日をまたいでそのまま外貨で持ち続ける「外貨建金銭債権債務」は、決算のタイミングで改めて円に換算し直します<sup>※1</sup>。取引時に記帳したときのレートと、決算日のレートに差があると、その差額が「為替差益」または「為替差損」として計上されます。</p>
+  <div class="flow-wrap">
+    <div class="flow-box navy" style="background:#1e3a6e;">
+      <span class="fb-label">STEP 1　取引時</span>
+      米ドルで報酬を受け取り、その日のTTM(仲値)で円換算して記帳する
+    </div>
+    <div class="arrow-down">↓</div>
+    <div class="flow-box sub">
+      <span class="fb-label">STEP 2　決算日まで、そのままドル残高として保有</span>
+      Wise等の口座にUSD残高として置いたまま、期末を迎える
+    </div>
+    <div class="arrow-down">↓</div>
+    <div class="flow-box amber">
+      <span class="fb-label">STEP 3　決算日</span>
+      決算日時点のレートで、そのUSD残高を改めて円換算し直す(期末時換算)
+    </div>
+    <div class="arrow-down">↓</div>
+    <div class="flow-box red">
+      <span class="fb-label">STEP 4　差額を計上</span>
+      取引時の円換算額と決算日の円換算額の差 → 為替差益(営業外収益) または 為替差損(営業外費用) として帳簿に反映
+    </div>
+  </div>
+  <p class="footnote">※為替が円安に動いていれば為替差益、円高に動いていれば為替差損になりやすい、というのが一般的な傾向です。ただし外貨をいつ・どの通貨で・どれだけ保有しているかによって結果は変わるため、断定はできません。</p>
+</div>
+
+<!-- freee vs マネーフォワードの外貨対応 -->
+<div class="card">
+  <h2><span class="section-icon">⚖️</span>比較：freeeとマネーフォワードの外貨対応（本セッションで確認できた範囲）</h2>
+  <div class="two-col">
+    <div class="mini-card navy">
+      <h4>🟦 freee会計</h4>
+      公式ヘルプセンターに「外貨の設定をする」「外貨対応について」というページがあり、外貨建取引を専用に扱う公式アプリ「外貨建取引管理アプリ」も提供されている(為替レートの自動取得・円換算・決算時の為替差損益の自動計上に対応するとされる)<sup>※2</sup>。ただし、この機能がどのプラン(契約コース)から使えるかは情報源によって記述がまちまちで、本セッションでは確定できなかった。導入前に公式サイトで契約プランごとの対応状況を確認する必要がある
+    </div>
+    <div class="mini-card gray">
+      <h4>⬜ マネーフォワード クラウド会計</h4>
+      公式サポートに外貨建取引の会計処理の考え方を解説するページはあるが、freeeの「外貨建取引管理アプリ」に相当する専用機能があるかどうかは、本セッションの調査では確認できなかった。連結会計(グループ会社向けの上位製品)には外貨換算の機能があるが、これは通常の1人法人が使うクラウド会計とは別の製品である点に注意<sup>※4</sup>
+    </div>
+  </div>
+  <div class="alert-box">
+    <span class="alabel">⚠ 断定を避けている理由</span>
+    <p>両社の公式サイトへの直接アクセスができない状況で調査したため、検索エンジン経由の要約情報にもとづく整理にとどまっています。特にプランごとの対応範囲は変更されやすい部分なので、契約前に必ず各社の最新の公式ページで確認してください。</p>
+  </div>
+</div>
+
+<!-- Wiseとの連携の実際 -->
+<div class="card">
+  <h2><span class="section-icon">🔌</span>図解：Wiseの残高は「自動連携」ではなく「手動・CSV」が実務の定石</h2>
+  <p>海外の銀行やクレジットカードを会計ソフトに登録すると、多くの場合は明細が自動で取り込まれます。ではWise(旧TransferWise)の残高も、freeeやマネーフォワードに自動で同期されるのでしょうか。</p>
+  <div class="flow-wrap">
+    <div class="flow-box light">
+      <span class="fb-label">よくある期待</span>
+      Wiseの口座を、他の銀行口座と同じように登録すれば、入出金明細が自動で会計ソフトに反映されるはず
+    </div>
+    <div class="arrow-down">↓ 実際は…</div>
+    <div class="flow-box red">
+      <span class="fb-label">確認できた実務</span>
+      freee公式の税理士相談Q&amp;A(複数件)では、Wiseの取引を「現金」または「預け金」の科目で口座を作り、入出金を手動で登録・仕訳する運用が案内されている<sup>※3</sup>。同期対応の可否は本セッションでは確定できなかったが、少なくとも「まず手動登録を前提に運用する」という考え方が実務者の間で共有されている
+    </div>
+  </div>
+  <div class="green-box">
+    <span class="glabel">✅ 実務上の備え</span>
+    <p>Wiseの明細はCSVでダウンロードできるため、自動連携が使えない場合でも、CSVを会計ソフトに取り込む・もしくは手作業で仕訳を入力する運用であれば対応できます<sup>※3</sup>。手数料(2026-08-06既報)は「支払手数料」、両替による差額は「為替差損益」というように、勘定科目の割り振りルールを税理士とあらかじめ決めておくと、月々の記帳がぶれません。</p>
+  </div>
+</div>
+
+<!-- 実務ポイント -->
+<div class="card">
+  <h2><span class="section-icon">🧭</span>日本の1人法人オーナー向け実務ポイント</h2>
+  <ul class="check-list">
+    <li><span class="check-icon navy">1</span><div><strong>Wiseなどの海外送金サービスの残高は、会計ソフトに自動で同期されない前提で運用を準備しましょう。</strong>CSVエクスポート→取り込み、または手動仕訳のどちらで運用するかを、契約している会計ソフトの仕様に合わせて決めておくとスムーズです。</div></li>
+    <li><span class="check-icon amber">2</span><div><strong>外貨取引の量が多いなら、freeeの「外貨建取引管理アプリ」のような専用機能の利用を検討する価値があります。</strong>ただし対応プランは変更され得るため、契約前に必ず公式サイトの最新情報を確認してください。</div></li>
+    <li><span class="check-icon green">3</span><div><strong>為替レートの換算方法(TTM原則か、TTB/TTSの継続適用か)と、決算時の外貨建残高の評価方法は、税理士と事前に方針を決めておきましょう。</strong>一度決めたルールを毎期変更すると、税務上問題になり得ます。</div></li>
+    <li><span class="check-icon purple">4</span><div><strong>為替差損益は、実際に両替していなくても決算時に「含み」の差額として計上されることがあります。</strong>資金繰りとは別に、決算時に思わぬ損益が出ることを理解しておくと安心です。この分野の最終判断は必ず税理士に確認してください。</div></li>
+  </ul>
+</div>
+
+<!-- 関連する過去の日報 -->
+<div class="card">
+  <h2><span class="section-icon">📚</span>関連する過去の日報</h2>
+  <table class="matrix-table">
+    <thead>
+      <tr><th>今日の内容</th><th>関連する過去の日報</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>複数通貨で受け取った報酬を、両替コストを抑えて使う基本原則</td>
+        <td>2026-08-06「外貨受け取りと為替ルートの基本」</td>
+      </tr>
+      <tr>
+        <td>Stripe・PayPal・Wiseの決済スタック全体像・手数料比較</td>
+        <td>2026-06-08「日本1人法人の決済スタック実務」</td>
+      </tr>
+      <tr>
+        <td>PayPalで受け取る際の「本当のコスト」(決済手数料＋通貨換算手数料の二段構え)</td>
+        <td>2026-07-26「PayPalで受け取る本当のコスト」</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 出典 -->
+<div class="card">
+  <h2><span class="section-icon">🔗</span>主な参照元（検索確認日：2026年8月7日）</h2>
+  <ul class="check-list">
+    <li><span class="check-icon navy">1</span><div>国税庁 法人税基本通達 第13章の2「外貨建取引の換算等」(13の2-1-2・13の2-1-3ほか、TTM/TTB/TTSの原則と例外、外貨建金銭債権債務の期末換算) ── 国税庁公式サイト(nta.go.jp)への直接アクセスは本セッションでは403のため未確認。条文を掲載する税務データベース(zeiken.co.jp)経由での確認にとどまる<br>
+      <a href="https://www.nta.go.jp/law/tsutatsu/kihon/hojin/13_2/13_2_01.htm" target="_blank" style="color:#1e3a6e;font-size:0.83rem;">nta.go.jp（法人税基本通達）</a>／
+      <a href="https://www.zeiken.co.jp/hourei/HHHOU000030/13-2-1-2.html" target="_blank" style="color:#1e3a6e;font-size:0.83rem;">zeiken.co.jp（通達13の2-1-2）</a></div></li>
+    <li><span class="check-icon green">2</span><div>freee公式ヘルプセンター「外貨の設定をする」「外貨対応について」「外貨建取引をアプリで管理する」(外貨建取引管理アプリの機能説明)<br>
+      <a href="https://support.freee.co.jp/hc/ja/articles/48045755404057" target="_blank" style="color:#1e3a6e;font-size:0.83rem;">support.freee.co.jp（外貨の設定）</a>／
+      <a href="https://foreign-exchange.freee-apps.jp/" target="_blank" style="color:#1e3a6e;font-size:0.83rem;">foreign-exchange.freee-apps.jp（外貨建取引管理アプリ）</a></div></li>
+    <li><span class="check-icon amber">3</span><div>freee公式 税理士相談Q&amp;A「Wise（海外送金アプリ）を利用した場合の仕訳について」ほか複数件(freee税理士等による回答であり、freee社の公式見解そのものではない)<br>
+      <a href="https://advisors-freee.jp/qa/accounting/2081" target="_blank" style="color:#1e3a6e;font-size:0.83rem;">advisors-freee.jp（Wiseの仕訳Q&amp;A）</a>／
+      <a href="https://wise.com/ja/help/articles/2960247" target="_blank" style="color:#1e3a6e;font-size:0.83rem;">wise.com（会計ソフトウェアとの接続案内）</a></div></li>
+    <li><span class="check-icon gray">4</span><div>マネーフォワード クラウド公式サポート・公式ブログ(外貨建取引の会計処理の考え方、連結会計の外貨対応)<br>
+      <a href="https://biz.moneyforward.com/accounting/basic/55651/" target="_blank" style="color:#1e3a6e;font-size:0.83rem;">biz.moneyforward.com（外貨建取引の解説）</a></div></li>
+  </ul>
+  <p class="footnote">本セッションでは国税庁・freee・マネーフォワード各社の公式サイトへの直接アクセスの多くが403エラーとなったため、検索エンジンが取得した要約情報、および複数の独立した情報源(税務データベース・freee公式Q&amp;A・税理士事務所ブログ)の記述の一致にもとづき整理しています。特に会計ソフトの対応プラン・連携可否は変更されやすいため、契約・運用の前に必ず各社公式サイトの最新情報をご確認ください。</p>
+</div>
+
+<!-- フッター -->
+<div class="footer-card">
+  <span class="footer-title">⚠ 免責事項 &amp; 専門家への相談推奨</span>
+  <p>
+    <strong>【本記事の性質】</strong>本記事は、日本の1人法人が海外から外貨で収入を得る場合の、記帳・会計ソフトの取り扱いに関する一般的な仕組みの紹介です。特定のサービス・会計ソフトの利用を推奨するものではなく、機能・対応プランは各社の公式情報・最新のアプリ内表示を必ずご確認ください。<br>
+    <strong>【数値・制度の基準時点】</strong>本記事で紹介した内容は、2026年8月7日時点の検索で確認できた公開情報にもとづきます。会計ソフトの機能・対応プラン、税務の取り扱いは変更されることがあるため、実際の運用は必ず最新の公式情報でご確認ください。<br>
+    <strong>【ビザ・在留】</strong>本記事はビザ・在留資格に関する内容を含みません。ビザ・在留の正式な判断は、必ず行政書士・移民弁護士へご確認ください。<br>
+    <strong>【税務・社会保険】</strong>外貨建取引の換算方法・為替差損益の計上・会計ソフトの選定は、会社の状況によって最適な方法が異なります。正式な判断は、必ず国際税務に強い税理士へご確認ください。「必ず節税になる」「この方法が正しい」といった断定を行うものではありません。<br>
+    <strong>【基準時点】</strong>本記事の内容は2026年8月7日時点で確認できた情報にもとづきます。制度・サービス仕様は変更される可能性があるため、実際の内容は必ず公式情報でご確認ください。
+  </p>
+</div>
+
+</body>
+</html>
