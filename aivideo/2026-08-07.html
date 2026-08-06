@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI動画制作 最新トピック 2026-08-07</title>
+<style>
+  :root {
+    --bg: #ece8e1;
+    --card: #faf6ec;
+    --dark: #1a3a5c;
+    --dark2: #1a5c3a;
+    --accent: #2a5c8a;
+    --accent2: #c85a00;
+    --text: #2a3540;
+    --muted: #7c8a82;
+    --border: #e0d8c8;
+    --highlight: #fff3cd;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, "Hiragino Sans", "Yu Gothic", sans-serif;
+    line-height: 1.75;
+    padding: 20px;
+  }
+  .wrap { max-width: 900px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #1a3a5c 0%, #1a5c3a 100%);
+    color: #fff;
+    border-radius: 20px;
+    padding: 44px 32px 36px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(26,58,92,.22);
+    margin-bottom: 24px;
+  }
+  .header-tag {
+    display: inline-block;
+    background: rgba(255,255,255,.18);
+    color: #e0f0e8;
+    border-radius: 20px;
+    padding: 4px 16px;
+    font-size: .82rem;
+    margin-bottom: 14px;
+    letter-spacing: .06em;
+  }
+  .header h1 { font-size: 1.6rem; letter-spacing: .03em; line-height: 1.45; margin-bottom: 10px; }
+  .header .sub { color: #c8dde8; font-size: .95rem; }
+  .header .date { color: #b0e0c0; font-size: .85rem; margin-top: 8px; }
+
+  .card {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 12px rgba(0,0,0,.07);
+    border: 1px solid var(--border);
+  }
+  .card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .point-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .point-card { background: #eef3f8; border-radius: 14px; padding: 20px 16px; text-align: center; border: 1px solid #d4e0ea; }
+  .point-icon { font-size: 2rem; margin-bottom: 8px; }
+  .point-title { font-size: .95rem; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
+  .point-desc { font-size: .83rem; color: var(--muted); line-height: 1.6; }
+
+  .bignum-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-top: 20px; }
+  .bignum-card { background: linear-gradient(135deg, #1a3a5c, #1a5c3a); border-radius: 14px; padding: 16px 8px; text-align: center; color: #fff; }
+  .bignum { font-size: 1.05rem; font-weight: 800; color: #ffe0a0; line-height: 1.2; }
+  .bignum-label { font-size: .68rem; color: #cfe6d8; margin-top: 4px; line-height: 1.5; }
+
+  .step-list { list-style: none; }
+  .step-item { display: flex; gap: 14px; margin-bottom: 16px; align-items: flex-start; }
+  .step-num {
+    width: 34px; height: 34px;
+    background: linear-gradient(135deg, #1a3a5c, #1a5c3a);
+    color: #fff; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: .95rem; flex-shrink: 0; margin-top: 2px;
+  }
+  .step-body { flex: 1; }
+  .step-title { font-weight: 700; color: var(--dark); font-size: .95rem; }
+  .step-desc { font-size: .86rem; color: var(--muted); margin-top: 3px; line-height: 1.65; }
+
+  .tbl { width: 100%; border-collapse: collapse; font-size: .86rem; }
+  .tbl th { background: #eaf1ea; padding: 10px 10px; text-align: left; border-bottom: 2px solid #c8ddc8; color: var(--dark); font-weight: 700; }
+  .tbl td { padding: 10px 10px; border-bottom: 1px solid var(--border); vertical-align: top; color: var(--text); }
+  .tbl tr:last-child td { border-bottom: none; }
+
+  .note-box { background: var(--highlight); border-left: 4px solid #e8a000; border-radius: 8px; padding: 12px 16px; font-size: .88rem; color: #5a4000; margin-top: 14px; line-height: 1.7; }
+
+  .summary-list { font-size: .95rem; line-height: 2.2; }
+  .summary-list li { list-style: none; display: flex; align-items: flex-start; gap: 8px; }
+  .summary-list li::before { content: "✅"; flex-shrink: 0; margin-top: 2px; }
+
+  .disclaimer { background: #f0ede8; border-radius: 12px; padding: 16px 20px; font-size: .82rem; color: var(--muted); margin-top: 24px; line-height: 1.7; border: 1px solid #ddd8d0; }
+
+  footer { text-align: center; color: var(--muted); font-size: .82rem; margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border); line-height: 1.9; }
+  footer a { color: var(--accent); }
+
+  .group-label { font-size: .82rem; font-weight: 700; color: var(--dark); margin: 14px 0 8px; }
+  .group-label:first-child { margin-top: 0; }
+
+  .flow-row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-top: 10px; }
+  .flow-step { flex: 1; min-width: 110px; background: #eef3f8; border: 1px solid #d4e0ea; border-radius: 10px; padding: 12px 10px; text-align: center; }
+  .flow-step.key { background: #fdeee0; border-color: #f0c8a0; }
+  .flow-step .fs-icon { font-size: 1.3rem; margin-bottom: 4px; }
+  .flow-step .fs-title { font-size: .82rem; font-weight: 700; color: var(--dark); }
+  .flow-step .fs-desc { font-size: .72rem; color: var(--muted); margin-top: 3px; line-height: 1.5; }
+  .flow-arrow { font-size: 1.3rem; color: var(--accent2); font-weight: 700; flex-shrink: 0; }
+  .flow-caption { text-align: center; font-size: .8rem; color: var(--muted); margin-top: 10px; }
+
+  .interval-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .interval-card { border-radius: 12px; padding: 16px 10px; text-align: center; color: #fff; box-shadow: inset 0 0 0 1px rgba(255,255,255,.25); }
+  .interval-card .ic-label { font-size: .88rem; font-weight: 700; }
+  .interval-card .ic-desc { font-weight: 400; font-size: .72rem; margin-top: 5px; opacity: .95; line-height: 1.5; }
+
+  @media (max-width: 640px) {
+    .point-grid { grid-template-columns: 1fr; }
+    .bignum-grid { grid-template-columns: repeat(2, 1fr); }
+    .interval-grid { grid-template-columns: repeat(2, 1fr); }
+    .flow-row { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="header">
+  <div class="header-tag">🌱 エバーグリーン技法回 ── タイムラプス・ハイパーラプス</div>
+  <h1>雲や人の流れが一瞬で流れていく、あの映像はどう作る?<br>タイムラプス・ハイパーラプスの仕組みとAIでの再現コツ</h1>
+  <div class="sub">「長い時間」を「短い映像」に圧縮して見せるテクニックを、AIプロンプトへの応用方法つきで解説</div>
+  <div class="date">2026-08-07 ｜ AI動画制作 最新トピック</div>
+</div>
+
+<div class="card">
+  <div class="card-title">🎯 今日の3ポイント</div>
+  <div class="point-grid">
+    <div class="point-card">
+      <div class="point-icon">📸</div>
+      <div class="point-title">タイムラプスとは?</div>
+      <div class="point-desc">カメラを固定したまま一定の間隔(インターバル)で撮り続け、早送りでつないで長い時間の変化を数秒〜数十秒に圧縮して見せる技法</div>
+    </div>
+    <div class="point-card">
+      <div class="point-icon">🚶</div>
+      <div class="point-title">ハイパーラプスとは?</div>
+      <div class="point-desc">タイムラプスにカメラの「移動」を組み合わせたもの。歩いたり乗り物で動きながら時間を圧縮する、動きのあるタイムラプス</div>
+    </div>
+    <div class="point-card">
+      <div class="point-icon">🎬</div>
+      <div class="point-title">AI動画ではどう作る?</div>
+      <div class="point-desc">写真を1枚ずつ撮る代わりに、プロンプトに"time-lapse"(タイムラプス)"hyperlapse"(ハイパーラプス)などの言葉を入れて、時間圧縮そのものを生成させる</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🔍 図解:タイムラプスができる仕組み</div>
+  <div class="flow-row">
+    <div class="flow-step">
+      <div class="fs-icon">📷</div>
+      <div class="fs-title">①一定間隔で撮影</div>
+      <div class="fs-desc">カメラを固定し、数秒〜数分おきに1枚ずつシャッターを切る</div>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step key">
+      <div class="fs-icon">🖼️</div>
+      <div class="fs-title">②写真を並べてつなぐ</div>
+      <div class="fs-desc">撮った写真を撮影順に並べ、動画の1コマずつとして再生する</div>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">
+      <div class="fs-icon">⏩</div>
+      <div class="fs-title">③時間が圧縮されて見える</div>
+      <div class="fs-desc">実際は数時間かかった変化が、数秒〜数十秒の映像として見える</div>
+    </div>
+  </div>
+  <div class="flow-caption">ハイパーラプスは①の「固定カメラ」を「移動しながらの撮影」に変えたもの。仕組みは同じで、視点だけが動く</div>
+</div>
+
+<div class="card">
+  <div class="card-title">📊 タイムラプス vs ハイパーラプス 比較表</div>
+  <table class="tbl">
+    <thead>
+      <tr><th>項目</th><th>📸 タイムラプス</th><th>🚶 ハイパーラプス</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>カメラの動き</strong></td>
+        <td>固定(三脚などで動かさない)</td>
+        <td>移動(歩く・乗り物・スライダーなど)</td>
+      </tr>
+      <tr>
+        <td><strong>見え方の特徴</strong></td>
+        <td>景色や光、人・車の流れなど「その場の変化」が主役</td>
+        <td>移動+時間圧縮が組み合わさった、ダイナミックな動き</td>
+      </tr>
+      <tr>
+        <td><strong>向いている題材</strong></td>
+        <td>雲・夕焼け・星空・人の流れ・工事の進み具合</td>
+        <td>街歩き・道路・混雑した通路・自然の中の移動</td>
+      </tr>
+      <tr>
+        <td><strong>AIプロンプトの言葉例</strong></td>
+        <td>"time-lapse of clouds moving across the sky"</td>
+        <td>"hyperlapse walking through a busy city street, fast forward motion"</td>
+      </tr>
+      <tr>
+        <td><strong>実写での難易度</strong></td>
+        <td>低い(固定するだけなので撮影自体は楽)</td>
+        <td>高い(手ブレやつなぎ目の処理が必要。AI動画ならこの手間が不要)</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="note-box">
+    💡 AI動画生成では写真を撮り集める作業自体が不要になる。プロンプトに時間圧縮を示す言葉を入れるだけで、モデルが「圧縮された動き」を直接生成してくれる。
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🔍 図解:題材別の撮影間隔(インターバル)の目安</div>
+  <p style="font-size:.83rem;color:var(--muted);margin-bottom:12px;">
+    実写でタイムラプスを撮るときの一般的な間隔の考え方。動きが速い題材ほど間隔を短く、遅い題材ほど間隔を長くするのが基本
+  </p>
+  <div class="interval-grid">
+    <div class="interval-card" style="background:#2a94a8;">
+      <div class="ic-label">☁️ 雲の動き</div>
+      <div class="ic-desc">1〜5秒間隔<br>動きが速い題材</div>
+    </div>
+    <div class="interval-card" style="background:#e0821e;">
+      <div class="ic-label">🌇 夕焼け・朝焼け</div>
+      <div class="ic-desc">2〜10秒間隔<br>光の変化がゆるやか</div>
+    </div>
+    <div class="interval-card" style="background:#5a4a8a;">
+      <div class="ic-label">✨ 星の動き</div>
+      <div class="ic-desc">15〜30秒間隔<br>長時間露光と組み合わせ</div>
+    </div>
+    <div class="interval-card" style="background:#1a5c8a;">
+      <div class="ic-label">🚗 人・車の流れ</div>
+      <div class="ic-desc">5〜15秒間隔<br>交差点や駅前など</div>
+    </div>
+    <div class="interval-card" style="background:#1a5c3a;">
+      <div class="ic-label">🌱 植物の成長</div>
+      <div class="ic-desc">数分〜数時間間隔<br>非常にゆっくりした変化</div>
+    </div>
+    <div class="interval-card" style="background:#c8402a;">
+      <div class="ic-label">🏗️ 工事の進み具合</div>
+      <div class="ic-desc">数分〜1日おき<br>数週間分を数十秒に</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🔢 数字で見るタイムラプス作りの目安</div>
+  <div class="bignum-grid">
+    <div class="bignum-card">
+      <div class="bignum">1〜5秒</div>
+      <div class="bignum-label">雲や夕焼けなど動きが速い題材の撮影間隔の目安</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">10〜30倍速</div>
+      <div class="bignum-label">一般的なタイムラプスの再生速度倍率の目安</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">数百〜数千枚</div>
+      <div class="bignum-label">実写タイムラプスで必要になる元写真の枚数の目安</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">数秒指定</div>
+      <div class="bignum-label">AI動画なら"time-lapse"と圧縮したい時間を伝えるだけで自動生成できる</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">要確認</div>
+      <div class="bignum-label">再現できる圧縮感の強さはツール・モデルごとに差があるため生成結果を見て調整する</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🛠️ 実践例:駅前の交差点を舞台にした「雲のタイムラプス+人の流れのハイパーラプス」オープニング映像を作る5ステップ</div>
+  <p style="font-size:.88rem;color:var(--muted);margin-bottom:18px;">
+    固定視点のタイムラプスと、移動視点のハイパーラプスを1本の中で使い分けて練習する例です。
+  </p>
+  <ul class="step-list">
+    <li class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-title">見せたい「時間の変化」を決める</div>
+        <div class="step-desc">今回は「朝から夕方にかけて雲が流れる空」と「交差点を行き交う人や車」の2つの変化を選ぶ。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-title">カメラが固定か移動かを決める</div>
+        <div class="step-desc">空のカットは固定視点の「タイムラプス」、交差点のカットは歩いて横切るような「ハイパーラプス」で作ると決める。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-title">1本目:空のタイムラプスを生成する</div>
+        <div class="step-desc">"static camera, time-lapse of clouds moving across the sky above a city, morning to evening light change"のようなプロンプトで生成する。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <div class="step-title">2本目:交差点のハイパーラプスを生成する</div>
+        <div class="step-desc">"hyperlapse camera moving forward through a busy pedestrian crossing, people and cars in fast motion"のようなプロンプトで生成する。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">5</div>
+      <div class="step-body">
+        <div class="step-title">2本をつなぎ、圧縮感の強さを言葉で調整する</div>
+        <div class="step-desc">圧縮感が弱いと感じたら"extremely fast motion"、強すぎると感じたら"gently accelerated"のように言葉を変えて再生成し、狙った速さに近づける。</div>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="card">
+  <div class="card-title">📝 今日のまとめ</div>
+  <ul class="summary-list">
+    <li><strong>タイムラプス</strong>=固定カメラで一定間隔の変化を圧縮、<strong>ハイパーラプス</strong>=それに「移動」を加えたもの</li>
+    <li>実写では<strong>題材ごとに撮影間隔を変える</strong>のが基本(速い動きは短い間隔、遅い動きは長い間隔)</li>
+    <li>AI動画では写真を集める作業が不要になり、<strong>プロンプトの言葉だけで時間圧縮を再現</strong>できる</li>
+    <li>プロンプトには<strong>"time-lapse"</strong>(固定視点)と<strong>"hyperlapse"</strong>(移動視点)を使い分けて入れる</li>
+    <li>圧縮感が強すぎ・弱すぎのときは<strong>"extremely fast"⇄"gently accelerated"</strong>のような言葉で調整する</li>
+  </ul>
+</div>
+
+<div class="disclaimer">
+  ⚠️ <strong>免責事項</strong><br>
+  本記事で紹介したタイムラプス・ハイパーラプスの仕組みや撮影間隔の目安は、映像制作における一般的な基礎知識をAI動画制作向けにやさしく整理した一例です。実際に再現できる圧縮感やプロンプトの効き方はAI動画生成ツールやモデルのバージョンによって異なります。本文中で言及したAIツールの機能・料金・商用利用の可否は頻繁に変わるため、利用の際は各ツールの公式ページ・利用規約で必ずご確認ください。
+</div>
+
+<footer>
+  AI動画制作 最新トピック ─ 2026-08-07 ｜ エバーグリーン技法回<br>
+  参考:タイムラプス・ハイパーラプスは映像制作の基礎知識。AI動画プロンプトへの応用例として整理(エバーグリーン技法)<br>
+  <a href="index.html" style="color:var(--accent);">← 一覧に戻る</a>
+</footer>
+
+</div>
+</body>
+</html>
