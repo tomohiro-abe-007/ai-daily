@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-08-07</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #1e7a5a 0%, #0d4632 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #1e7a5a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.blue   { border-left-color: #1e5a7a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.purple { border-left-color: #7a4a9e; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #1e7a5a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  .type-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .type-grid { grid-template-columns: 1fr; } }
+  .type-card {
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-size: 0.86rem;
+    line-height: 1.65;
+  }
+  .type-card.main {
+    background: #e6f5ee;
+    border: 2px solid #1e7a5a;
+  }
+  .type-card.sub {
+    background: #fbe9e9;
+    border: 2px solid #b54040;
+  }
+  .type-card .tl {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+  }
+  .type-card.main .tl { color: #0d4632; }
+  .type-card.sub .tl  { color: #7a2020; }
+  .type-card .tv { font-size: 1.0rem; font-weight: 700; margin-bottom: 6px; }
+  .type-card.main .tv { color: #1e7a5a; }
+  .type-card.sub .tv  { color: #b54040; }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 14px 10px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat .sl { font-size: 0.67rem; color: #888; margin-bottom: 3px; }
+  .stat .sv { font-size: 1.5rem; font-weight: 700; color: #1e7a5a; line-height: 1.1; }
+  .stat .su { font-size: 0.7rem; color: #666; margin-top: 2px; }
+
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #1e7a5a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-num.now { background: #b54040; }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+  .f-arrow { color: #1e7a5a; font-size: 1.1rem; margin-left: 14px; margin-bottom: 4px; }
+
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  .prompt-box {
+    background: #f0f5ff;
+    border: 2px solid #4a6aae;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 12px 0;
+    font-size: 0.84rem;
+    line-height: 1.85;
+    color: #1a2a4a;
+  }
+  .prompt-box .ph {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #4a6aae;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+  .prompt-box .fill {
+    background: #d0e0ff;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-weight: 700;
+    color: #0a2a6e;
+  }
+
+  .info {
+    background: #e6f5ee;
+    border-left: 4px solid #1e7a5a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #0d4632;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #7a4010;
+  }
+
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #1e7a5a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+
+  .badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 8px;
+    margin-right: 4px;
+    vertical-align: middle;
+  }
+  .badge.law   { background: #1e7a5a; color: white; }
+  .badge.ai    { background: #4a6aae; color: white; }
+  .badge.tip   { background: #4a9e6a; color: white; }
+  .badge.warn  { background: #c8884a; color: white; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #1e7a5a; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #1e7a5a; }
+
+  .flow-h {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 14px 0;
+  }
+  .flow-box {
+    background: white;
+    border: 2px solid #1e7a5a;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 0.81rem;
+    text-align: center;
+    line-height: 1.45;
+    color: #0d4632;
+    font-weight: 600;
+  }
+  .flow-arrow {
+    color: #1e7a5a;
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+  @media (max-width: 540px) {
+    .flow-h { flex-direction: column; align-items: flex-start; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+
+  .matrix {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.83rem;
+  }
+  .matrix th {
+    background: #0d4632;
+    color: white;
+    padding: 8px 12px;
+    text-align: center;
+    font-weight: 600;
+  }
+  .matrix td {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    vertical-align: top;
+    line-height: 1.55;
+  }
+  .matrix .row-head {
+    background: #e6f5ee;
+    font-weight: 700;
+    color: #0d4632;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .matrix .ok  { color: #4a9e6a; font-weight: 700; }
+  .matrix .ng  { color: #b54040; font-weight: 700; }
+  .matrix .mid { color: #c8884a; font-weight: 700; }
+  .matrix-wrap { overflow-x: auto; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Header -->
+<div class="header">
+  <div class="meta">📅 1人法人スタート 最新トピック &nbsp;2026-08-07</div>
+  <h1>👶 毎月の給与から、また少し引かれます<br>「子ども・子育て支援金」が始まった仕組みを図解</h1>
+  <div class="desc">
+    <span class="htag">子ども・子育て支援金</span>
+    <span class="htag">協会けんぽ</span>
+    <span class="htag">標準報酬月額</span>
+    <span class="htag">労使折半</span>
+    <br>
+    令和8年4月分の保険料から、健康保険料に上乗せするかたちで新しい徴収がひっそり始まりました。「支援金って何？」「うちの会社の負担はいくら増えた？」を、1人社長の目線で図解します。
+  </div>
+</div>
+
+<!-- Section 1: 制度の正体 -->
+<div class="card">
+  <div class="sec-title">📜 これは「新しい税金」ではなく「保険料への上乗せ」</div>
+  <p><strong>子ども・子育て支援金</strong>は、児童手当の拡充など少子化対策の財源を確保するために創設された制度です。<span class="hlg">医療保険料（健康保険料）に上乗せするかたちで徴収</span>される点が特徴で、給与明細を見ても「支援金」という項目が単独で目立つとは限りません。</p>
+
+  <div class="info" style="margin-top:12px;">
+    💡 根拠となる法律は「子ども・子育て支援法等の一部を改正する法律」（令和6年法律第47号）。児童手当の拡充部分などは段階的に施行されており、社会保険料への上乗せ徴収は<span class="hl">令和8年4月1日</span>から始まりました。
+  </div>
+
+  <div class="source">
+    出典：こども家庭庁「子ども・子育て支援金制度について」／衆議院「子ども・子育て支援法等の一部を改正する法律」（令和6年法律第47号）（令和8年8月時点）
+  </div>
+</div>
+
+<!-- Section 2: 数字で見る -->
+<div class="card orange">
+  <div class="sec-title">📊 数字で見る「子ども・子育て支援金」（協会けんぽ・令和8年度）</div>
+  <div class="stats-row" style="margin-top:4px;">
+    <div class="stat">
+      <div class="sl">支援金率</div>
+      <div class="sv">0.23<span style="font-size:0.9rem;">%</span></div>
+      <div class="su">標準報酬月額に対して</div>
+    </div>
+    <div class="stat">
+      <div class="sl">負担の分け方</div>
+      <div class="sv">1/2</div>
+      <div class="su">会社と本人で折半</div>
+    </div>
+    <div class="stat">
+      <div class="sl">徴収開始</div>
+      <div class="sv">4<span style="font-size:0.9rem;">月分</span></div>
+      <div class="su">令和8年4月分保険料から</div>
+    </div>
+  </div>
+
+  <div class="warn" style="margin-top:12px;">
+    ⚠️ 支援金率は協会けんぽの令和8年度の数値です。健康保険組合や共済組合では料率が異なる場合があるため、自社が加入する保険者の公表情報を必ず確認してください。また支援金率は<span class="hl">令和10年度にかけて0.4%程度まで段階的に引き上げられる見込み</span>と報じられていますが、各年度の確定料率ではないため、毎年度の公式発表で確認が必要です。
+  </div>
+
+  <div class="source">
+    出典：全国健康保険協会（協会けんぽ）「子ども・子育て支援金率について」（令和8年度）（令和8年8月時点）
+  </div>
+</div>
+
+<!-- Section 3: 徴収の流れ（2段階） -->
+<div class="card blue">
+  <div class="sec-title">🔄 実は2段階で変わった、令和8年の保険料</div>
+  <p>令和8年は、健康保険料まわりの変更が2段階で起きた年でした。同じタイミングだと勘違いしやすいので、順番を図解します。</p>
+
+  <div class="flow-h" style="margin-top:14px;">
+    <div class="flow-box">📅 令和8年3月分<br><span style="font-weight:400;">（4月納付分）</span><br>健康保険料率・<br>介護保険料率が改定</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-box">📅 令和8年4月分<br><span style="font-weight:400;">（5月納付分）</span><br>子ども・子育て<br>支援金の徴収開始</div>
+  </div>
+
+  <div class="info" style="margin-top:12px;">
+    💡 「先月と今月で2回、保険料が変わった気がする」と感じた1人社長は勘違いではありません。料率改定と支援金の徴収開始は、1か月ずれて実施されています。
+  </div>
+
+  <div class="source">
+    出典：全国健康保険協会（協会けんぽ）都道府県毎の令和8年度保険料額表・子ども・子育て支援金率について（令和8年8月時点）
+  </div>
+</div>
+
+<!-- Section 4: 計算例 -->
+<div class="card purple">
+  <div class="sec-title">🧮 計算してみる：役員報酬30万円の場合</div>
+  <p>支援金の計算式はシンプルです。<strong>標準報酬月額（または標準賞与額）× 支援金率</strong>で決まり、健康保険料と同じように会社と本人で折半します。</p>
+
+  <div class="type-grid" style="margin-top:14px;">
+    <div class="type-card main">
+      <div class="tl">計算式</div>
+      <div class="tv">300,000円 × 0.23%</div>
+      ＝ 月額690円（支援金の合計額）<br>
+      標準報酬月額は実際の報酬月額そのものではなく、区分表にあてはめた金額を使います。
+    </div>
+    <div class="type-card sub">
+      <div class="tl">負担の内訳（折半）</div>
+      <div class="tv">会社345円 ／ 本人345円</div>
+      健康保険料・介護保険料と合算されて、給与天引き＆会社負担分とあわせて年金事務所または協会けんぽへ納付されます。
+    </div>
+  </div>
+
+  <div class="info" style="margin-top:12px;">
+    💡 1人社長の会社では「会社＝自分」なので、実質的には月690円（年間8,280円）ほど、法人と個人の合計負担が増えたイメージです。金額自体は小さいものの、算定基礎届・月額変更届のたびに標準報酬月額が変わると、支援金の負担額も連動して変わる点を覚えておきましょう。
+  </div>
+
+  <div class="source">
+    出典：全国健康保険協会（協会けんぽ）令和8年度保険料額表・子ども・子育て支援金率について（令和8年8月時点、金額は標準報酬月額30万円の場合の試算例）
+  </div>
+</div>
+
+<!-- Section 5: 1人社長にとっての意味 -->
+<div class="card">
+  <div class="sec-title">🏢 1人社長の会社にとっての意味</div>
+  <ul class="check-list">
+    <li><span class="ck">✓</span>協会けんぽ・健康保険組合など<strong>被用者保険（健康保険）に加入している法人はすべて対象</strong>。役員1人だけの会社でも例外はない。</li>
+    <li><span class="ck">✓</span>手続きは不要。健康保険料と一体で徴収されるため、<strong>年金事務所や協会けんぽへの別途の届出は発生しない</strong>。</li>
+    <li><span class="ck">✓</span>金額の変動要因は、標準報酬月額の変更（算定基礎届・月額変更届）と、支援金率そのものの見直しの2つ。</li>
+    <li><span class="ck-bad">✘</span>「知らないうちに保険料が上がった」と誤解しやすいが、正体は支援金の上乗せ。給与計算ソフトの保険料額表が更新されていれば自動で反映される。</li>
+  </ul>
+
+  <div class="source">
+    出典：全国健康保険協会（協会けんぽ）・こども家庭庁 公表資料（令和8年8月時点）
+  </div>
+</div>
+
+<!-- Section 6: AI prompt -->
+<div class="card orange">
+  <div class="sec-title">🤖 生成AIに「保険料改定の社内メモ」を作ってもらうプロンプト例</div>
+  <p>支援金そのものの制度設計は専門家・公的資料の確認が必須ですが、<span class="hl">従業員向けのお知らせ文</span>や<span class="hl">自分用の負担額メモ</span>作りは生成AIが得意な領域です。</p>
+
+  <div class="prompt-box" style="margin-top:14px;">
+    <div class="ph">🤖 プロンプト例：子ども・子育て支援金の社内向けお知らせ文の作成</div>
+    従業員<span class="fill">【人数】</span>名の会社です。令和8年4月分の給与（5月支払い分）から、健康保険料に「子ども・子育て支援金」が上乗せされ、標準報酬月額に0.23%をかけた額を会社と従業員で折半することになりました。<br>
+    <br>
+    1. 従業員が驚かないよう、変更点をやさしく伝えるお知らせ文の案を作ってください<br>
+    2. 標準報酬月額が<span class="fill">【金額】</span>円の場合の、本人負担額の計算例を1つ添えてください<br>
+    3. 「これは新しい税金ですか？」という質問への回答例を作ってください<br>
+    ※実際の料率・金額は必ず協会けんぽ・自社が加入する保険者の公式情報で確認してから配布します。
+  </div>
+</div>
+
+<!-- Section 7: summary -->
+<div class="card">
+  <div class="sec-title">📝 今日のまとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">①</span>子ども・子育て支援金は、少子化対策の財源として<span class="hl">健康保険料に上乗せするかたち</span>で徴収される新しい仕組み。令和8年4月1日施行（根拠：令和6年法律第47号）。</li>
+    <li><span class="n">②</span>協会けんぽの令和8年度の支援金率は<span class="hl">0.23%</span>、<span class="hl">標準報酬月額（標準賞与額）× 支援金率</span>で計算し、会社と本人で折半する。</li>
+    <li><span class="n">③</span>徴収開始は<span class="hl">令和8年4月分保険料（5月納付分）</span>から。健康保険料率の改定（3月分・4月納付分）とは1か月ずれている。</li>
+    <li><span class="n">④</span>役員1人だけの会社でも、被用者保険に加入していれば対象。<span class="hl">別途の届出は不要</span>で、保険料額表の更新にあわせて自動で反映される。</li>
+    <li><span class="n">⑤</span>支援金率は令和10年度にかけて0.4%程度まで引き上げられる<span class="hl">見込み</span>と報じられているが、確定額ではないため毎年度の公式発表を確認する。</li>
+  </ul>
+</div>
+
+<!-- Disclaimer -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報提供を目的としており、個別の税務・社会保険の判断を代わるものではありません。
+  支援金率・標準報酬月額・具体的な負担額は、加入している保険者（協会けんぽ・健康保険組合など）や会社の状況によって異なります。
+  具体的な判断は、必ず税理士・社会保険労務士や、加入する保険者・年金事務所にご相談ください。
+  制度・料率は年度ごとに見直される可能性があります。最新情報はこども家庭庁公式サイト（<a href="https://www.cfa.go.jp/" target="_blank">https://www.cfa.go.jp/</a>）・全国健康保険協会公式サイト（<a href="https://www.kyoukaikenpo.or.jp/" target="_blank">https://www.kyoukaikenpo.or.jp/</a>）でご確認ください。<br>
+  本記事の内容の基準年度：令和8年度（2026年度）。子ども・子育て支援法等の一部を改正する法律（令和6年法律第47号、令和8年4月1日施行部分）、協会けんぽ令和8年度支援金率にもとづく、令和8年8月時点の情報。
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>📚 <a href="index.html">バックナンバー一覧へ</a> &nbsp;&middot;&nbsp; 毎朝更新</p>
+</div>
+
+</div>
+</body>
+</html>
