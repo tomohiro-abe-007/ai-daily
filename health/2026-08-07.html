@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-08-07</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '🥩';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.9rem; margin-bottom: 8px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.1em; }
+  .c3-col li { margin-bottom: 4px; }
+  .c3-col .or-val { font-size: 1.5rem; font-weight: 700; margin: 4px 0; }
+  .c3-col.red .or-val { color: #a0291e; }
+  .c3-col.green .or-val { color: #1a6e4a; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .mech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .mech-item {
+    background: #f0faf5;
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 0.85rem;
+    border-top: 3px solid #1a7a5a;
+  }
+  .mech-item .micon { font-size: 1.3rem; margin-bottom: 6px; }
+  .mech-item strong { display: block; color: #0d4a35; margin-bottom: 4px; font-size: 0.88rem; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .highlight { background: #cff0df; padding: 1px 5px; border-radius: 4px; }
+  .good { color: #1a7a5a; font-weight: 600; }
+  .bad  { color: #c0392b; font-weight: 600; }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-box {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin: 14px 0;
+    font-size: 0.92rem;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  .quote-box {
+    background: #f5f0e8;
+    border-left: 4px solid #7a5abf;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    margin: 12px 0;
+    color: #444;
+    font-style: italic;
+  }
+  .quote-box .who { font-style: normal; font-weight: 700; color: #5a3a9a; margin-top: 6px; font-size: 0.78rem; }
+  .benefit-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    margin: 14px 0;
+  }
+  .benefit-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+  .benefit-item .bicon { font-size: 1.2rem; margin-bottom: 4px; }
+  @media (max-width: 540px) {
+    .compare4 { grid-template-columns: 1fr 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.7rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ヘッダー -->
+<div class="header">
+  <div class="label">健康・栄養 最新トピック ・ 2026-08-07</div>
+  <h1>たんぱく質は「摂るほど良い」のか?<br>
+  350本超のレビューが注目する「少なめ」の仕組み</h1>
+  <div class="subtitle">高たんぱく食品・プロテイン強化食品が人気の一方で、「たんぱく質、あるいは特定のアミノ酸を少なめにする方が体に良いのでは?」という視点をまとめたレビュー論文が2026年7月31日に発表されました。米ウィスコンシン大学マディソン校のBrooke A. Knopfさん、Dudley W. Lammingさんが、350本を超える研究をもとに「たんぱく質・アミノ酸制限」が老化や代謝にどう関わるかを整理し、Cell Press Blue誌に発表(DOI: 10.1016/j.cpblue.2026.100079)。ただし土台となる知見の多くは動物実験によるもので、ヒトでの証明はまだ限定的です。今日はこのレビューを、動物実験とヒトの違いに注意しながらやさしく解説します。</div>
+</div>
+
+<!-- タグ -->
+<div style="margin-bottom:18px;">
+  <span class="tag">精密栄養学</span>
+  <span class="tag">たんぱく質</span>
+  <span class="tag">アミノ酸制限</span>
+  <span class="tag">レビュー論文</span>
+  <span class="tag">動物実験 vs ヒト試験</span>
+</div>
+
+<!-- 今日の疑問 -->
+<div class="card">
+  <h2>🤔 今日の疑問:たんぱく質は「多いほど良い」で合っている?</h2>
+  <p>筋トレ・ダイエットの世界では「たんぱく質を積極的に摂ろう」という考え方が広く定着しています。しかし老化研究の分野では、まったく逆の視点も長年注目されてきました。<span class="highlight">「たんぱく質、特に一部のアミノ酸を少なめにすることが、代謝や老化にプラスに働くのではないか」</span>という仮説です。</p>
+  <p>今回のレビューは、この「制限」側の研究を350本以上集めて、体の中で何が起きているのかを整理したものです。新しい実験をした論文ではなく、既存の研究を読み解いて地図を作る「総説(レビュー)」である点にまず注意してください。</p>
+</div>
+
+<!-- 基本用語 -->
+<div class="card blue">
+  <h2>📖 まず言葉の意味を</h2>
+  <div class="def-grid">
+    <div class="def-item">
+      <div class="dterm">レビュー論文(総説)</div>
+      新しい実験・観察データそのものではなく、既存の研究をたくさん集めて全体像を整理する論文。数値を統合するメタ分析とは違い、著者の視点で知見をまとめる形式。
+    </div>
+    <div class="def-item">
+      <div class="dterm">mTORC1</div>
+      細胞に「栄養が十分ある」と伝わると活発になり、体の成長・増殖を進めるスイッチ役のたんぱく質複合体。たんぱく質(アミノ酸)を摂ると働きが強まる。
+    </div>
+    <div class="def-item">
+      <div class="dterm">GCN2</div>
+      細胞内で特定のアミノ酸が不足すると働き出すセンサー役のたんぱく質。不足を感知して、体の反応を切り替えるスイッチのひとつ。
+    </div>
+    <div class="def-item">
+      <div class="dterm">FGF21(線維芽細胞増殖因子21)</div>
+      主に肝臓から出るホルモン。たんぱく質摂取が減ると血中で増え、エネルギー消費・血糖コントロールなどに関わるとされる「絶食ホルモン」とも呼ばれる物質。
+    </div>
+    <div class="def-item">
+      <div class="dterm">BCAA(分岐鎖アミノ酸)</div>
+      ロイシン・イソロイシン・バリンの3種類の必須アミノ酸の総称。筋肉づくりに関わる一方、mTORC1を強く刺激するアミノ酸としても知られる。
+    </div>
+  </div>
+</div>
+
+<!-- 数字カード -->
+<div class="num-row">
+  <div class="num-card">
+    <div class="big">350<span class="unit">本超</span></div>
+    <div class="desc">今回のレビューがまとめた研究論文の数(Knopf & Lamming, 2026)</div>
+  </div>
+  <div class="num-card purple-bg">
+    <div class="big">3<span class="unit">種類</span></div>
+    <div class="desc">レビューが特に注目するアミノ酸:メチオニン・イソロイシン・バリン</div>
+  </div>
+  <div class="num-card blue-bg">
+    <div class="big">+30/+40<span class="unit">%</span></div>
+    <div class="desc">FGF21を多く作るマウスの平均寿命が延びた割合(オス/メス、2012年の別の基礎研究)</div>
+  </div>
+  <div class="num-card orange-bg">
+    <div class="big">8<span class="unit">人</span></div>
+    <div class="desc">ヒトでの小規模試験(健康な成人男性、2025年、急性摂食フェーズ)</div>
+  </div>
+</div>
+
+<!-- メカニズムの図解 -->
+<div class="card purple">
+  <h2>🧬 体の中で何が起きていると考えられているか</h2>
+  <div class="flow">
+    <div class="flow-step purp">たんぱく質・<br>アミノ酸を<br>少なめにする</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step">mTORC1が<br>おとなしくなる<br>+ GCN2が働く</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step alt">肝臓からFGF21<br>というホルモンが<br>増える</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step">エネルギー消費↑<br>血糖コントロール改善<br>炎症↓(と考えられる)</div>
+  </div>
+  <p style="font-size:0.82rem; color:#666;">この一連の流れの大部分は、酵母・ハエ・マウスなど動物やモデル生物での実験を積み重ねて描かれた「仮説の地図」です。矢印の一つひとつがヒトで完全に確認されているわけではありません。</p>
+</div>
+
+<!-- 動物実験 vs ヒトでの証拠 -->
+<div class="card blue">
+  <h2>🔬 動物実験でわかっていること・ヒトでわかっていること</h2>
+  <div class="compare4">
+    <div class="c3-col green">
+      <h3>🐭 動物実験(比較的しっかり確認)</h3>
+      <ul>
+        <li>FGF21を多く作れるように操作したマウスは、通常のマウスより平均寿命が長い(Zhang ら, eLife 2012)</li>
+        <li>FGF21を持たないマウスは、たんぱく質制限をしても寿命が延びない・代謝改善も起きない(Hill ら, Nature Communications 2022, 雄マウス)</li>
+        <li>→ マウスでは「FGF21が必要」という因果関係にかなり近い証拠がある</li>
+      </ul>
+    </div>
+    <div class="c3-col orange">
+      <h3>🧑 ヒトでの証拠(まだ限定的)</h3>
+      <ul>
+        <li>健康な成人男性でたんぱく質を減らした食事(5週間)にすると、血中FGF21が上昇(Nicolaisen ら, Nature Metabolism 2025, 急性実験n=8)</li>
+        <li>ただし確認できたのは「ホルモン濃度」「体重維持に必要なエネルギー量」までで、寿命や病気のリスクを見た研究ではない</li>
+        <li>→ ヒトでは「関連」はあるが「老化を防ぐ」という因果関係の証明はまだ先</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- 精密栄養学の視点 -->
+<div class="card purple">
+  <h2>🎯 精密栄養学の視点:「少なめ」が合う人・合わない人</h2>
+  <ul class="step-list">
+    <li>レビューの著者Lamming氏は、報道の中で「座りがちな生活を送る多くの成人にとって、たんぱく質を強化した食品が期待されるほどの健康効果をもたらすとは限らない」という趣旨を述べています。</li>
+    <li>一方で同氏は「万人に低たんぱく食を勧めるものではない」ことも明確にしており、妊娠中の人・成長期の子ども・高齢者・大きなケガや手術からの回復期にある人など、たんぱく質の必要量が高い人には当てはまらないと注意を促しています。</li>
+    <li>「同じ食事アドバイスでも、年齢・活動量・体の状態によって最適なたんぱく質量は違う」という、精密栄養学そのもののテーマがここでも表れています。</li>
+  </ul>
+</div>
+
+<!-- 警告 -->
+<div class="warn">
+  <strong>⚠️ 誤解しないでほしいこと</strong>
+  <ul style="padding-left:1.4em; margin-top:8px;">
+    <li>今回のものは<strong>レビュー(総説)論文</strong>であり、新しく人を対象に実験をした研究ではありません。既存の主に動物実験の知見を整理・仮説化したものです。</li>
+    <li>核となるメカニズム(mTORC1・GCN2・FGF21)の多くは<strong>酵母・ハエ・マウスなど動物実験</strong>に基づいており、「ヒトで老化を防ぐと証明された」わけではありません。</li>
+    <li>ヒトでのFGF21上昇を確認した試験は<strong>健康な成人男性、実質わずか数週間・少人数</strong>の研究であり、長期的な健康アウトカム(病気の予防・寿命)を見たものではありません。</li>
+    <li>著者自身が明言している通り、<strong>妊婦・成長期の子ども・高齢者・大きな怪我や手術からの回復期の人</strong>にはこの話は当てはまらず、たんぱく質を減らすことは勧められません。</li>
+    <li>「たんぱく質を減らせば健康になる」と単純化せず、自己判断でたんぱく質摂取量を大きく変える前に、必ず医師・管理栄養士に相談してください。</li>
+  </ul>
+</div>
+
+<!-- エビデンスの整理 -->
+<div class="card">
+  <h2>🧪 今日出てきた情報の「証拠としての強さ」の目安</h2>
+  <table class="ev-table">
+    <tr><th>情報の種類</th><th>特徴</th><th>証拠としての強さ</th></tr>
+    <tr>
+      <td>レビュー全体の主張(制限で代謝が改善する可能性)</td>
+      <td>350本超の既存研究を著者の視点でまとめた総説。新規データなし</td>
+      <td><span class="ev-badge ev-mid">仮説の整理(検証はこれから)</span></td>
+    </tr>
+    <tr>
+      <td>マウスでのFGF21と寿命の関係</td>
+      <td>遺伝子操作マウスでの複数の実験による、動物での因果に近い証拠</td>
+      <td><span class="ev-badge ev-mid">動物実験としては強いが、ヒトへの外挿は未証明</span></td>
+    </tr>
+    <tr>
+      <td>ヒトでのたんぱく質制限とFGF21上昇</td>
+      <td>健康な成人男性、少人数・短期間のヒト試験、代理指標(バイオマーカー)を測定</td>
+      <td><span class="ev-badge ev-low">小規模・短期・代理指標のみ</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- まとめ -->
+<div class="card" style="border-left-color:#1a7a5a;">
+  <h2>✅ 今日のまとめ</h2>
+  <ul class="step-list">
+    <li>米ウィスコンシン大学マディソン校のBrooke A. Knopfさん、Dudley W. Lammingさんが、たんぱく質・アミノ酸制限と老化・代謝の関係をまとめたレビュー論文をCell Press Blue誌に発表(2026年7月31日、DOI: 10.1016/j.cpblue.2026.100079、350本超の研究を統合)。</li>
+    <li>メチオニン・イソロイシン・バリンなど特定のアミノ酸を減らすと、mTORC1が抑えられ・GCN2が働き、肝臓からFGF21というホルモンが増えることで代謝が変化する可能性を整理。この仕組みの大部分は動物実験(マウス等)に基づく。</li>
+    <li>FGF21を多く作るマウスは寿命が延び(Zhang ら, eLife 2012)、FGF21がないマウスはたんぱく質制限の恩恵を受けられない(Hill ら, Nature Communications 2022)という、動物では因果に近い証拠がある一方、ヒトでは健康な男性8人規模の短期試験でFGF21上昇が確認された程度にとどまる(Nicolaisen ら, Nature Metabolism 2025)。</li>
+    <li>著者自身が「万人への推奨ではない」と明言しており、妊婦・成長期の子ども・高齢者・けが/手術からの回復期の人は対象外。動物実験での知見とヒトでの証明を混同しないことが重要。</li>
+  </ul>
+</div>
+
+<!-- 免責 -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、医療アドバイスではありません。効果・必要量・リスクは個人の体質・年齢・持病・服薬によって大きく異なります。特定の食事制限やたんぱく質摂取量の変更を始める場合は、自己判断せず、かかりつけ医・管理栄養士・薬剤師など専門家にご相談ください。
+</div>
+
+<!-- 出典 -->
+<div class="sources">
+  <h3>📚 主な出典・参考文献</h3>
+  <ol>
+    <li>Knopf BA, Lamming DW. "The hallmarks of protein and amino acid restriction in aging and longevity." Cell Press Blue. 2026. DOI: 10.1016/j.cpblue.2026.100079
+      <a href="https://www.cell.com/cell-press-blue/fulltext/S3051-3839(26)00077-0" target="_blank">https://www.cell.com/cell-press-blue/fulltext/S3051-3839(26)00077-0</a>
+    </li>
+    <li>Zhang Y, Xie Y, Berglund ED, et al. "The starvation hormone, fibroblast growth factor-21, extends lifespan in mice." eLife. 2012;1:e00065. DOI: 10.7554/eLife.00065(オスマウス平均寿命 約+30%、メスマウス 約+40%)
+      <a href="https://elifesciences.org/articles/00065" target="_blank">https://elifesciences.org/articles/00065</a>
+    </li>
+    <li>Hill CM, Albarado DC, Coco LG, et al. "FGF21 is required for protein restriction to extend lifespan and improve metabolic health in male mice." Nature Communications. 2022;13:1897. DOI: 10.1038/s41467-022-29499-8
+      <a href="https://www.nature.com/articles/s41467-022-29499-8" target="_blank">https://www.nature.com/articles/s41467-022-29499-8</a>
+    </li>
+    <li>Nicolaisen TS, Lyster AE, Sjøberg KA, et al. "Dietary protein restriction elevates FGF21 levels and energy requirements to maintain body weight in lean men." Nature Metabolism. 2025;7:602-616. DOI: 10.1038/s42255-025-01236-7(急性摂食フェーズ:健康な成人男性8人)
+      <a href="https://www.nature.com/articles/s42255-025-01236-7" target="_blank">https://www.nature.com/articles/s42255-025-01236-7</a>
+    </li>
+    <li>ScienceDaily. "Eating less protein could slow aging, major review finds." 2026年8月1日。
+      <a href="https://www.sciencedaily.com/releases/2026/08/260801042811.htm" target="_blank">https://www.sciencedaily.com/releases/2026/08/260801042811.htm</a>
+    </li>
+  </ol>
+  <p style="margin-top:8px; font-size:0.78rem;">※ 本記事は査読誌Cell Press Blue掲載のレビュー論文を中心に、著者らが引用する個別の一次研究(eLife 2012、Nature Communications 2022、Nature Metabolism 2025)、および複数の科学報道機関(ScienceDaily等)の報道内容を突き合わせて作成しました。レビュー論文自体は新規データを含まないため、寿命延長効果の具体的な数値は、レビューが引用する個別のマウス実験の数値であることを明記しています。</p>
+</div>
+
+</div>
+</body>
+</html>
