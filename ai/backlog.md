@@ -70,6 +70,7 @@
 - 2026-08-05: MiniMax H3（2026年8月3日オープンソース公開）・33Bパラメータ・オムニモーダル動画生成AI・2K画質・最大15秒・ネイティブデュアルチャンネル音声同時生成・FL2VAとRef2VAの2チェックポイント・Hugging Faceで42.5GB公開・コミュニティライセンス（商用は要確認）・Artificial Analysis評価で動画編集1位・テキスト→動画2位・画像→動画3位・APIコストはSeedance 2.5比約12分の1（報告値・公式要確認）・ロボット応用を視野（出典：MiniMax公式 / ComfyUI Wiki / Atlas Cloud / OpenSourceForYou / TechFlowPost・2026年8月）
 - 2026-08-06: MCP（Model Context Protocol）2026-07-28仕様・誕生以来最大の仕様更新・ステートレス化（セッションID・初期化ハンドシェイク廃止）・毎回独立したリクエスト方式に変更・ロードバランサーやサーバーレス環境に普通に展開可能・マルチラウンドトリップリクエスト追加・認証・認可強化・公式拡張フレームワーク整備・旧仕様との互換性問題あり・廃止機能は最低12ヶ月動作保証（出典：MCP公式ブログ / Appwrite / Digital Applied / Microsoft Community Hub / The Register・2026年7月28日）
 - 2026-08-07: Mistral Shieldstral（2026年8月公開）・3Bパラメータのオープンソースコンテンツ審査AI・Apache 2.0ライセンス・HuggingFace（mistralai/Shieldstral-1.0-3B）・16GB GPU1枚で動作・自然言語ポリシー（yes/no質問）で審査基準を設定・テキスト＋画像のマルチモーダル対応・12言語・テキスト安全性F1 84.9%・マルチモーダル安全性F1 83.8%（公式値）・7倍大きなモデルに匹敵と主張・約5,410万サンプルで学習・アラビア語・インドネシア語は苦手・性能数値はMistral自己申告（出典：Mistral AI公式 / Seeking Alpha / Channel Insider / Unite.AI・2026年8月）
+- 2026-08-08: PrismML Bonsai 27B（2026年7月14日）・27Bパラメータ（Qwen3.6 27B ベース）を3.9GBに圧縮・テルナリ版5.9GBで精度94.6%維持・iPhone 17 Pro系で秒11トークン・1ビット量子化技術・クラウドなし端末上で動作・Appleとの交渉報道（CNBC・公式未発表）（出典：Medium / Decrypt / LLM Configurator / Developers Digest・2026年7月）
 
 ## 未解説の候補トピック（今後の参考）
 
@@ -87,4 +88,3 @@
 - Google Dataland AIアートミュージアム（2026年6月20日ロサンゼルス開館・Geminiがリアルタイムインタラクティブアートを生成）
 - Colorado AI Act改定（SB26-189・2026年5月14日署名）：元の包括的AI規制法を大幅縮小・施行日を2026年6月30日から2027年1月1日に延期・アルゴリズム意思決定の透明性開示に絞った内容に変更
 - Apple Intelligence × Alibaba Qwen（中国向け）：米国規制の最後のハードルを越え中国での提供が近づく・Qwenモデルを使用（2026年7月報道）
-- PrismML Bonsai 27B（2026年7月14日）：27Bモデルを3.9GBに圧縮・iPhone 17 Proで11トークン/秒を実現・デバイス上で動く軽量AIの新潮流
