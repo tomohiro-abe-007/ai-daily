@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-08-08</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '🧬';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.9rem; margin-bottom: 8px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.1em; }
+  .c3-col li { margin-bottom: 4px; }
+  .c3-col .or-val { font-size: 1.4rem; font-weight: 700; margin: 4px 0; }
+  .c3-col.red .or-val { color: #a0291e; }
+  .c3-col.green .or-val { color: #1a6e4a; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .mech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .mech-item {
+    background: #f0faf5;
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 0.85rem;
+    border-top: 3px solid #1a7a5a;
+  }
+  .mech-item .micon { font-size: 1.3rem; margin-bottom: 6px; }
+  .mech-item strong { display: block; color: #0d4a35; margin-bottom: 4px; font-size: 0.88rem; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .highlight { background: #cff0df; padding: 1px 5px; border-radius: 4px; }
+  .good { color: #1a7a5a; font-weight: 600; }
+  .bad  { color: #c0392b; font-weight: 600; }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-box {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin: 14px 0;
+    font-size: 0.92rem;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  .quote-box {
+    background: #f5f0e8;
+    border-left: 4px solid #7a5abf;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    margin: 12px 0;
+    color: #444;
+    font-style: italic;
+  }
+  .quote-box .who { font-style: normal; font-weight: 700; color: #5a3a9a; margin-top: 6px; font-size: 0.78rem; }
+  .benefit-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    margin: 14px 0;
+  }
+  .benefit-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+  .benefit-item .bicon { font-size: 1.2rem; margin-bottom: 4px; }
+  @media (max-width: 540px) {
+    .compare4 { grid-template-columns: 1fr 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.7rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ヘッダー -->
+<div class="header">
+  <div class="label">健康・栄養 最新トピック ・ 2026-08-08</div>
+  <h1>「集中力サプリ」の成分チロシン、多い男性ほど寿命が短い?<br>
+  27万人の遺伝データが示した、性別で分かれる結果</h1>
+  <div class="subtitle">チロシンは体内でドーパミンの材料になるアミノ酸で、「集中力を高める」サプリメントにもよく配合されています。香港大学のJie V. Zhaoさんらのチームが、UK Biobankの参加者272,475人分のデータと、生まれつきの遺伝子の違いを利用する「メンデルランダム化」という手法を組み合わせ、血中チロシン・フェニルアラニン濃度と寿命の関係を調べた研究をAging誌に発表しました(2025年、DOI: 10.18632/aging.206326)。「観察研究では両方とも死亡リスクと関連していたのに、遺伝子を使った手法で残ったのはチロシンだけ、しかも男性限定」という結果から、相関と因果の違い・個人差(性差)の重要性を一緒に見ていきます。</div>
+</div>
+
+<!-- タグ -->
+<div style="margin-bottom:18px;">
+  <span class="tag">精密栄養学</span>
+  <span class="tag">アミノ酸</span>
+  <span class="tag">メンデルランダム化</span>
+  <span class="tag">相関と因果</span>
+  <span class="tag">性差</span>
+</div>
+
+<!-- 今日の疑問 -->
+<div class="card">
+  <h2>🤔 今日の疑問:「関連がある」と「原因である」はどう違う?</h2>
+  <p>「○○の血中濃度が高い人は、△△のリスクが高い」というニュースはよく見かけますが、それだけでは<span class="highlight">「○○を減らせば△△が防げる」とは言い切れません</span>。年齢・生活習慣・持病など、他の要因が影響している可能性(交絡)が残るからです。</p>
+  <p>今回の研究は、この「相関」と「原因」を区別するために、生まれつきの遺伝子の違いを利用する<strong>メンデルランダム化(MR)</strong>という統計手法を使いました。同じ研究の中で「観察研究の結果」と「MRの結果」を両方見ることで、この手法が何を教えてくれるのかがよくわかります。</p>
+</div>
+
+<!-- 基本用語 -->
+<div class="card blue">
+  <h2>📖 まず言葉の意味を</h2>
+  <div class="def-grid">
+    <div class="def-item">
+      <div class="dterm">チロシン・フェニルアラニン</div>
+      どちらもたんぱく質の材料になるアミノ酸。フェニルアラニンは体内でチロシンに変換され、チロシンはさらにドーパミンなど脳内物質の材料になる。肉・魚・大豆製品などに含まれ、サプリメントとしても市販される。
+    </div>
+    <div class="def-item">
+      <div class="dterm">コホート研究</div>
+      ある集団を一定期間追跡し、特定の要因(ここでは血中アミノ酸濃度)と病気・死亡との関連を調べる観察研究の一種。「関連」は示せても、それだけでは「原因」とは言い切れない。
+    </div>
+    <div class="def-item">
+      <div class="dterm">ハザード比(HR)</div>
+      ある要因を持つ人が、持たない人と比べてどれだけ死亡などのイベントが起きやすいかを示す指標。1より大きいほどリスクが高いことを意味する。
+    </div>
+    <div class="def-item">
+      <div class="dterm">メンデルランダム化(MR)</div>
+      生まれつきの遺伝子の違いは、生活習慣などに左右されず「くじ引き」のようにランダムに決まる、という考え方を利用した統計手法。交絡因子や逆の因果の影響を受けにくく、通常の観察研究より因果関係に近づけるとされる。
+    </div>
+  </div>
+</div>
+
+<!-- 数字カード -->
+<div class="num-row">
+  <div class="num-card">
+    <div class="big">272,475<span class="unit">人</span></div>
+    <div class="desc">解析対象となったUK Biobank参加者数</div>
+  </div>
+  <div class="num-card orange-bg">
+    <div class="big">23,964<span class="unit">人</span></div>
+    <div class="desc">追跡期間中に死亡が確認された人数(男性14,230人・女性9,734人)</div>
+  </div>
+  <div class="num-card blue-bg">
+    <div class="big">HR1.03</div>
+    <div class="desc">血中チロシンが1標準偏差高い男性の死亡リスク比(観察研究、95%CI 1.01-1.05)</div>
+  </div>
+  <div class="num-card purple-bg">
+    <div class="big">−0.91<span class="unit">年</span></div>
+    <div class="desc">遺伝的に高いチロシン値と関連する、男性の推定寿命短縮(MR分析、95%CI −1.60〜−0.21)</div>
+  </div>
+</div>
+
+<!-- 分析の流れ -->
+<div class="card purple">
+  <h2>🧭 2段階の分析の流れ</h2>
+  <div class="flow">
+    <div class="flow-step purp">27万人超の<br>血中アミノ酸濃度<br>を測定</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step">①観察研究<br>(Cox回帰)で<br>死亡との関連を確認</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step alt">②遺伝子の違いを<br>利用したMRで<br>因果関係に近づける</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step">①と②を比べて<br>「見かけの関連」か<br>を判定</div>
+  </div>
+  <p style="font-size:0.82rem; color:#666;">この2段階を踏むことで、「ただの相関」と「原因である可能性が高いもの」をある程度区別しようとしています。</p>
+</div>
+
+<!-- 観察研究 vs MR比較 -->
+<div class="card blue">
+  <h2>🔬 観察研究とメンデルランダム化で、結果が食い違った</h2>
+  <div class="compare4">
+    <div class="c3-col orange">
+      <h3>🧪 チロシン・観察研究</h3>
+      <ul>
+        <li>男性:HR1.03(95%CI 1.01-1.05)で死亡リスクとやや関連</li>
+        <li>女性:HR1.00(95%CI 0.98-1.03)で有意な関連なし</li>
+      </ul>
+    </div>
+    <div class="c3-col green">
+      <h3>🧬 チロシン・MR分析</h3>
+      <ul>
+        <li>男性:遺伝的に高いと寿命が平均<strong>約0.91年</strong>短い(95%CI −1.60〜−0.21)</li>
+        <li>女性:有意な関連は見られず</li>
+        <li>→ 男性では観察研究とMRの結果が一致</li>
+      </ul>
+    </div>
+    <div class="c3-col orange">
+      <h3>🧪 フェニルアラニン・観察研究</h3>
+      <ul>
+        <li>男女とも死亡リスクと関連(男性HR1.04, 女性HR1.04)</li>
+        <li>心血管疾患死・がん死とも関連あり</li>
+      </ul>
+    </div>
+    <div class="c3-col red">
+      <h3>🧬 フェニルアラニン・MR分析</h3>
+      <ul>
+        <li>チロシンで調整すると、男女とも有意な関連は消失</li>
+        <li>→ 観察研究で見えた関連は、チロシンとの関係による「見かけ上」だった可能性</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- 精密栄養学の視点 -->
+<div class="card purple">
+  <h2>🎯 精密栄養学の視点:同じアミノ酸でも男女で結果が違う</h2>
+  <ul class="step-list">
+    <li>チロシンと寿命の関連は、観察研究・メンデルランダム化のどちらでも<strong>男性でのみ</strong>確認され、女性では見られませんでした。「同じ栄養素でも、性別によって体への影響が異なりうる」という精密栄養学の視点そのものです。</li>
+    <li>一方フェニルアラニンは、観察研究だけを見ると男女とも死亡リスクと関連しているように見えましたが、チロシンの影響を差し引くとその関連は消えました。これは「一見関連がありそうでも、別の要因が背景にある」という、栄養疫学でよくある落とし穴の実例です。</li>
+    <li>研究チーム自身が、今回のMR分析は<strong>「生まれつき血中濃度が高い状態」を調べたものであり、サプリメントとしてチロシンを摂取した場合と同じ結果になるとは限らない</strong>と明記しています。</li>
+  </ul>
+</div>
+
+<!-- 警告 -->
+<div class="warn">
+  <strong>⚠️ 誤解しないでほしいこと</strong>
+  <ul style="padding-left:1.4em; margin-top:8px;">
+    <li>MR分析が調べたのは<strong>生まれつき遺伝的に血中濃度が高い状態</strong>であり、「チロシンを含むサプリを飲むと寿命が縮む」ことを直接示した研究ではありません。研究チーム自身がこの違いを明記しています。</li>
+    <li>観察研究部分(Cox回帰によるハザード比)は、あくまで<strong>相関関係</strong>です。生活習慣・食事全体・持病などの交絡因子の影響が完全には排除できません。</li>
+    <li>効果の大きさは平均<strong>0.91年</strong>で、95%信頼区間は−1.60〜−0.21年とやや幅があり、個人の寿命を大きく左右するというよりは、集団としての平均的な傾向です。</li>
+    <li><strong>女性では同様の関連が確認されておらず</strong>、結果を男女問わず一般化するのは適切ではありません。</li>
+    <li>チロシンを含むサプリメントの摂取をやめたり新たに始めたりする前に、自己判断せず医師・管理栄養士に相談してください。</li>
+  </ul>
+</div>
+
+<!-- エビデンスの整理 -->
+<div class="card">
+  <h2>🧪 今日出てきた情報の「証拠としての強さ」の目安</h2>
+  <table class="ev-table">
+    <tr><th>情報の種類</th><th>特徴</th><th>証拠としての強さ</th></tr>
+    <tr>
+      <td>観察研究(コホート、Cox回帰)</td>
+      <td>UK Biobank参加者272,475人、死亡23,964人の大規模データ。ただし観察研究であり交絡因子の影響は排除しきれない</td>
+      <td><span class="ev-badge ev-mid">大規模だが観察研究の限界あり</span></td>
+    </tr>
+    <tr>
+      <td>チロシンとMRによる寿命短縮(男性)</td>
+      <td>遺伝子変異を利用し交絡因子の影響を受けにくいMR手法。観察研究の結果とも一致</td>
+      <td><span class="ev-badge ev-mid">因果関係に近づく手法だが単一研究</span></td>
+    </tr>
+    <tr>
+      <td>フェニルアラニンと死亡リスクの当初の関連</td>
+      <td>観察研究では見られたが、MRでチロシンを調整すると消失</td>
+      <td><span class="ev-badge ev-low">見かけ上の関連だった可能性が高い</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- まとめ -->
+<div class="card" style="border-left-color:#1a7a5a;">
+  <h2>✅ 今日のまとめ</h2>
+  <ul class="step-list">
+    <li>香港大学のJie V. Zhaoさんらの国際チームが、UK Biobank参加者272,475人(追跡中の死亡23,964人)のデータを使い、血中チロシン・フェニルアラニン濃度と寿命の関係を、観察研究(Cox回帰)とメンデルランダム化(MR)の両方で調べた研究をAging誌に発表(2025年、DOI: 10.18632/aging.206326)。</li>
+    <li>チロシンは観察研究(男性HR1.03)・MR分析(男性のみ、遺伝的に高いと寿命が平均約0.91年短い、95%CI −1.60〜−0.21)の両方で、男性においてのみ死亡リスク・寿命短縮との関連が確認された。女性では有意な関連なし。</li>
+    <li>フェニルアラニンは観察研究では男女とも死亡リスクと関連していたが、チロシンの影響を差し引くMR分析ではその関連が消え、当初の関連が見かけ上だった可能性が示された。</li>
+    <li>研究チームは、今回のMR分析が調べたのは生まれつきの血中濃度であり、サプリメント摂取の効果を直接示すものではないと明記。効果量も平均0.91年とそれほど大きくなく、性差がある点も踏まえ、一般化には注意が必要。</li>
+  </ul>
+</div>
+
+<!-- 免責 -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、医療アドバイスではありません。効果・必要量・リスクは個人の体質・年齢・持病・服薬によって大きく異なります。サプリメントの摂取を始める・やめる場合は、自己判断せず、かかりつけ医・管理栄養士・薬剤師など専門家にご相談ください。
+</div>
+
+<!-- 出典 -->
+<div class="sources">
+  <h3>📚 主な出典・参考文献</h3>
+  <ol>
+    <li>Zhao JV, et al. "The role of phenylalanine and tyrosine in longevity: a cohort and Mendelian randomization study." Aging (Albany NY). 2025. DOI: 10.18632/aging.206326
+      <a href="https://doi.org/10.18632/aging.206326" target="_blank">https://doi.org/10.18632/aging.206326</a>(基準日:2025年10月掲載)
+    </li>
+    <li>PubMed. PMID: 41045493.
+      <a href="https://pubmed.ncbi.nlm.nih.gov/41045493/" target="_blank">https://pubmed.ncbi.nlm.nih.gov/41045493/</a>(基準日:2026年8月確認)
+    </li>
+    <li>Aging(Impact Journals)ニュースルーム. "High Tyrosine Levels Linked to Shorter Lifespan in Men."
+      <a href="https://www.aging-us.com/news-room/high-tyrosine-levels-linked-to-shorter-lifespan-in-men" target="_blank">https://www.aging-us.com/news-room/high-tyrosine-levels-linked-to-shorter-lifespan-in-men</a>(基準日:2026年)
+    </li>
+    <li>EurekAlert!(Impact Journals発). "High tyrosine levels linked to shorter lifespan in men."
+      <a href="https://www.eurekalert.org/news-releases/1105915" target="_blank">https://www.eurekalert.org/news-releases/1105915</a>(基準日:2026年)
+    </li>
+  </ol>
+  <p style="margin-top:8px; font-size:0.78rem;">※ 本記事は査読誌Aging(Albany NY)掲載論文(DOI: 10.18632/aging.206326)を一次情報とし、PubMed収録情報および論文発行元Impact Journalsの公式ニュースルーム・プレスリリースの記述を突き合わせて作成しました。論文本文への直接アクセスができなかったため、数値(ハザード比・信頼区間・人数など)は複数の独立した情報源で一致した内容のみを採用しています。この論文は2025年10月に掲載され、2026年2月・6月に科学報道機関で改めて取り上げられていますが、本記事は論文の公表時点を基準に記述しています。</p>
+</div>
+
+</div>
+</body>
+</html>
