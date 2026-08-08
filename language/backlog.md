@@ -2,10 +2,10 @@
 
 ## 未解説テーマ（エバーグリーン）
 
+- スペイン語の願望・後悔表現（ojalá + 接続法）── 英語のI wish/If onlyのスペイン語版、08-09の逆向きブリッジ
 - スペイン語の関係代名詞の発展（cuyo/el cual/dondeの基礎）── que/quienの続編、07-27の英語関係副詞の続編としても使える
 - スペイン語の与格の重複表現（le doy el libro a él）── なぜ代名詞と名詞を両方言うのか
 - スペイン語のnosotros/vosotros命令形と再帰動詞の命令形（levántate/sentaosなど）── tú/usted命令の続編
-- 英語のI wish / If onlyで後悔・願望を言う（仮定法の応用）── if I were youの続編
 - スペイン語の接続法（subjuntivo）の入り口（Si yo fuera...）── 英語のwere-subjunctiveとの対応
 - スペイン語の無人称文・受け身表現（se puede, se vende, se dice）── 主語をぼかす言い方
 - アルゼンチンなどのvoseo（vos＋独自の活用）── vosotros/ustedesの続編、南米のもう一つの二人称
@@ -92,3 +92,4 @@
 - 2026-08-05: 英語の弱形（weak forms）の基礎（a/of/to/canなどが会話で弱く聞こえる仕組み）── 08-01の文リズムの続編
 - 2026-08-07: スペイン語の音節の区切り方（diptongo/hiatoの基礎）── 07-05のアクセント記号ルールをさらに使いこなすための土台
 - 2026-08-08: 英語の音節の数え方（母音字がいくつあっても1音節になる訳：mouth, eightなど）── 08-07のスペイン語diptongo/hiatoとの対比、逆向きブリッジ
+- 2026-08-09: 英語のI wish / If onlyで後悔・願望を言う（仮定法の応用）── 07-17のif I were youの続編
