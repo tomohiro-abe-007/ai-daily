@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-08-10</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '🫀';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.9rem; margin-bottom: 8px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.1em; }
+  .c3-col li { margin-bottom: 4px; }
+  .c3-col .or-val { font-size: 1.4rem; font-weight: 700; margin: 4px 0; }
+  .c3-col.red .or-val { color: #a0291e; }
+  .c3-col.green .or-val { color: #1a6e4a; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .mech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .mech-item {
+    background: #f0faf5;
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 0.85rem;
+    border-top: 3px solid #1a7a5a;
+  }
+  .mech-item .micon { font-size: 1.3rem; margin-bottom: 6px; }
+  .mech-item strong { display: block; color: #0d4a35; margin-bottom: 4px; font-size: 0.88rem; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .highlight { background: #cff0df; padding: 1px 5px; border-radius: 4px; }
+  .good { color: #1a7a5a; font-weight: 600; }
+  .bad  { color: #c0392b; font-weight: 600; }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-box {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin: 14px 0;
+    font-size: 0.92rem;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  .quote-box {
+    background: #f5f0e8;
+    border-left: 4px solid #7a5abf;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    margin: 12px 0;
+    color: #444;
+    font-style: italic;
+  }
+  .quote-box .who { font-style: normal; font-weight: 700; color: #5a3a9a; margin-top: 6px; font-size: 0.78rem; }
+  .benefit-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    margin: 14px 0;
+  }
+  .benefit-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+  .benefit-item .bicon { font-size: 1.2rem; margin-bottom: 4px; }
+  @media (max-width: 540px) {
+    .compare4 { grid-template-columns: 1fr 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.7rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ヘッダー -->
+<div class="header">
+  <div class="label">健康・栄養 最新トピック ・ 2026-08-10</div>
+  <h1>週150分の運動で、心臓は十分守れているのか?<br>
+  17,088人・約8年追跡のデータと、専門家の間で割れた読み方</h1>
+  <div class="subtitle">「週150分の運動」は世界保健機関(WHO)なども採用している、成人向けの代表的な運動量の目安です。英国のZhide Liangさんらのチームが、健康調査データベース「UK Biobank」の参加者17,088人分の加速度計データと心肺体力データを使い、運動量・体力と心血管疾患(心臓発作・脳卒中など)リスクの関係をコホート研究とメンデルランダム化(遺伝情報を使った分析)の両方で調べ、British Journal of Sports Medicine誌に発表しました(DOI: 10.1136/bjsports-2025-111351、2026年5月に大きく報道)。「150分で足りているのか、もっと必要なのか」という数字だけでなく、この研究の伝えられ方をめぐって専門家の意見が割れている点も、やさしく見ていきます。</div>
+</div>
+
+<!-- タグ -->
+<div style="margin-bottom:18px;">
+  <span class="tag">運動・代謝</span>
+  <span class="tag">心血管疾患</span>
+  <span class="tag">用量反応関係</span>
+  <span class="tag">コホート研究</span>
+  <span class="tag">エビデンスの読み方</span>
+</div>
+
+<!-- 今日の疑問 -->
+<div class="card">
+  <h2>🤔 今日の疑問:「週150分」は本当に十分な目安なのか?</h2>
+  <p>健康診断や運動指導の場面で「1週間に150分、少し息が弾む程度の運動をしましょう」という目安を聞いたことがある人は多いと思います。この数字は、多くの国の公的機関が採用してきた代表的な基準です。</p>
+  <p>今回の研究は、この150分という目安を達成した人と、もっと多く運動している人とで、心血管疾患のリスクがどれくらい違うのかを、大規模なデータで細かく比べました。その結果が「週150分では足りないかもしれない」という強い見出しで報じられ、専門家の間で「その伝え方は論文の中身を正確に反映していない」という反論も出ています。</p>
+</div>
+
+<!-- 基本用語 -->
+<div class="card blue">
+  <h2>📖 まず言葉の意味を</h2>
+  <div class="def-grid">
+    <div class="def-item">
+      <div class="dterm">中等度〜高強度身体活動(MVPA)</div>
+      早歩きで少し息が弾む程度(中等度)から、ジョギングのように息が切れる程度(高強度)までの運動。今回の研究ではこの合計時間を1週間単位で評価している。
+    </div>
+    <div class="def-item">
+      <div class="dterm">心肺持久力(体力)</div>
+      心臓や肺が酸素を取り込み、全身に送り届ける能力。一般に「体力」と呼ばれるものの一つで、運動量とは別に心血管の健康と関係することが知られている。
+    </div>
+    <div class="def-item">
+      <div class="dterm">用量反応関係(ドーズレスポンス)</div>
+      運動量や薬の量など「どれだけ行ったか」と、効果や結果がどう変化するかの関係。今回の研究は、直線的ではなく途中で伸び方が変わる「非線形」の関係を報告している。
+    </div>
+    <div class="def-item">
+      <div class="dterm">デバイス計測(加速度計)</div>
+      手首などに装着する機器で体の動きを機械的に記録する方法。「週に何分運動しましたか?」という自己申告(アンケート)より、記憶違いや見栄による誤差が少ないとされる。
+    </div>
+    <div class="def-item">
+      <div class="dterm">メンデルランダム化(MR)</div>
+      生まれつきの遺伝的な体質の違いを「自然の実験」とみなして利用し、観察研究だけでは分かりにくい因果関係に迫ろうとする統計手法。ランダム化比較試験(RCT)の代わりにはならないが、補強材料として使われる。
+    </div>
+  </div>
+</div>
+
+<!-- 数字カード -->
+<div class="num-row">
+  <div class="num-card">
+    <div class="big">17,088<span class="unit">人</span></div>
+    <div class="desc">UK Biobankの参加者のうち、加速度計と体力データがそろった対象者数</div>
+  </div>
+  <div class="num-card blue-bg">
+    <div class="big">150<span class="unit">分/週</span></div>
+    <div class="desc">現行の公的ガイドラインの目安。達成者はリスクが平均8〜9%低い</div>
+  </div>
+  <div class="num-card orange-bg">
+    <div class="big">560〜610<span class="unit">分/週</span></div>
+    <div class="desc">この研究が示した「十分な防御(30%超のリスク低下)」に届くライン</div>
+  </div>
+  <div class="num-card purple-bg">
+    <div class="big">12<span class="unit">%</span></div>
+    <div class="desc">実際に560〜610分/週を達成していた参加者の割合</div>
+  </div>
+</div>
+
+<!-- 研究の流れ -->
+<div class="card purple">
+  <h2>🧭 どうやって調べたのか</h2>
+  <div class="flow">
+    <div class="flow-step purp">UK Biobank参加者<br>(2013〜2015年に<br>加速度計を装着)</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step">運動量(MVPA)と<br>心肺体力を<br>同時に測定</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step">平均約8年<br>追跡し、心血管疾患<br>の発症・死亡を記録</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step alt">コホート研究として<br>量反応関係を解析</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step">遺伝データを使う<br>メンデルランダム化で<br>補強的に検証</div>
+  </div>
+</div>
+
+<!-- 目安の比較 -->
+<div class="card blue">
+  <h2>📏 「現行の目安」と「この研究が示す目安」</h2>
+  <div class="compare4">
+    <div class="c3-col green">
+      <h3>✅ 現行ガイドライン</h3>
+      <div class="or-val">週150分</div>
+      <ul>
+        <li>多くの公的機関が採用してきた代表的な目安</li>
+        <li>達成者は未達成者よりリスクが平均<strong>8〜9%</strong>低い</li>
+        <li>この研究のデータ自体も、この目安を支持している</li>
+      </ul>
+    </div>
+    <div class="c3-col orange">
+      <h3>📈 研究が示す「十分な防御」ライン</h3>
+      <div class="or-val">週560〜610分</div>
+      <ul>
+        <li>現行目安の約3〜4倍にあたる運動量</li>
+        <li>達成者はリスクが<strong>30%超</strong>低い(「十分な防御」の目安として設定)</li>
+        <li>実際に達成していたのは参加者の12%のみ</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- 体力による違い -->
+<div class="card">
+  <h2>💪 体力(心肺持久力)によっても必要量が変わる</h2>
+  <div class="mech-grid">
+    <div class="mech-item">
+      <div class="micon">🏃</div>
+      <strong>体力が高い人</strong>
+      同じ運動量でも、体力が低い人より大きい保護効果が得られやすい傾向。
+    </div>
+    <div class="mech-item">
+      <div class="micon">🚶</div>
+      <strong>体力が低い人</strong>
+      体力が高い人と同じくらいの保護効果を得るには、週あたり<strong>30〜50分ほど多く</strong>運動する必要があったと報告されている。
+    </div>
+    <div class="mech-item">
+      <div class="micon">📟</div>
+      <strong>加速度計での客観測定</strong>
+      自己申告に頼らずデバイスで運動量を測っている点は、この研究の方法論的な強みとして複数の専門家が評価している。
+    </div>
+  </div>
+</div>
+
+<!-- 賛否両論 -->
+<div class="card orange">
+  <h2>⚖️ この研究、実は読み方をめぐって意見が割れている</h2>
+  <div class="compare4">
+    <div class="c3-col orange">
+      <h3>📢 プレスリリース・報道の伝え方</h3>
+      <ul>
+        <li>「週560〜610分の運動で、心血管疾患リスクが大きく下がる」という見出しで、多くのメディアが「今の目安(150分)では足りないかもしれない」というトーンで報道</li>
+        <li>体力が低い人はさらに多くの運動が必要、という点も強調</li>
+      </ul>
+    </div>
+    <div class="c3-col red">
+      <h3>🧐 専門家からの反論</h3>
+      <ul>
+        <li>英オックスフォード大学のAiden Doherty教授は「プレスリリースは論文の中身を正確に反映していない」とコメント</li>
+        <li>「論文のデータそのものは、現行のWHOガイドライン(150分)を支持する内容だ」と指摘</li>
+        <li>「560分を超えないと効果がない、と受け取るのは誤解を招く」「600分超を目標に掲げるのは非現実的で、かえって『どうせ無理』と運動をあきらめさせかねない」との懸念も</li>
+      </ul>
+    </div>
+  </div>
+  <p style="font-size:0.85rem; color:#555; margin-top:6px;">つまり争点は「データの信頼性」ではなく、<span class="highlight">同じデータをどう伝えるか</span>という点にあります。用量反応関係はなだらかな曲線であり、150分でも意味のある効果が出ている一方、増やせばさらに効果が積み上がる、という両方が同時に成り立つ内容です。</p>
+</div>
+
+<!-- 警告 -->
+<div class="warn">
+  <strong>⚠️ 誤解しないでほしいこと</strong>
+  <ul style="padding-left:1.4em; margin-top:8px;">
+    <li>この研究は<strong>観察研究(コホート研究)+メンデルランダム化</strong>であり、運動時間をランダムに割り付けて比較したランダム化比較試験(RCT)ではありません。「運動を増やせば必ずこの通りにリスクが下がる」と証明したものではない点に注意が必要です。</li>
+    <li>UK Biobankは参加率が低く、参加者は一般集団より<strong>健康意識が高く社会経済的な状況も良い傾向</strong>があることが知られています(いわゆる「健康ボランティア効果」)。結果をそのまま全ての人に当てはめてよいかは慎重に見る必要があります。</li>
+    <li>「560〜610分に届かないと意味がない」という読み方は誤りです。150分の達成でも平均8〜9%のリスク低下という<strong>意味のある効果</strong>が報告されています。</li>
+    <li>心疾患の既往がある人・体力に不安がある人が急に運動量を大きく増やすと、けがや事故のリスクも高まります。運動量を大きく変える場合は、自己判断せずかかりつけ医に相談してください。</li>
+  </ul>
+</div>
+
+<!-- エビデンスの整理 -->
+<div class="card">
+  <h2>🧪 今日出てきた情報の「証拠としての強さ」の目安</h2>
+  <table class="ev-table">
+    <tr><th>情報の種類</th><th>特徴</th><th>証拠としての強さ</th></tr>
+    <tr>
+      <td>運動量・体力とCVDリスクの量反応関係(メイン結果)</td>
+      <td>コホート研究(UK Biobank, n=17,088、デバイス計測、追跡約8年)+メンデルランダム化、査読誌掲載</td>
+      <td><span class="ev-badge ev-mid">中程度〜やや高い(単一コホート、要追試)</span></td>
+    </tr>
+    <tr>
+      <td>「週560〜610分が必要」という解釈そのもの</td>
+      <td>同じ論文データについて専門家の間で読み方・伝え方の評価が分かれている</td>
+      <td><span class="ev-badge ev-low">要注意(報道の切り取り方に左右される)</span></td>
+    </tr>
+    <tr>
+      <td>体力レベル別に必要な運動量が変わるという分析</td>
+      <td>探索的な層別解析</td>
+      <td><span class="ev-badge ev-mid">中程度(追加の検証が必要)</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- まとめ -->
+<div class="card" style="border-left-color:#1a7a5a;">
+  <h2>✅ 今日のまとめ</h2>
+  <ul class="step-list">
+    <li>英国のZhide Liangさんらのチームが、UK Biobank参加者17,088人の加速度計データと心肺体力データを使い、身体活動量・体力と心血管疾患リスクの関係をコホート研究+メンデルランダム化で調べ、British Journal of Sports Medicine誌に発表(DOI: 10.1136/bjsports-2025-111351、2026年5月に大きく報道)。</li>
+    <li>現行ガイドラインの週150分を達成した人はリスクが平均8〜9%低く、週560〜610分まで増やすとリスク低下が30%を超える「十分な防御」に達したが、実際にこの量を達成していたのは参加者のわずか12%だった。体力が低い人は、体力が高い人と同じ効果を得るのに週30〜50分ほど多く運動する必要があったと報告されている。</li>
+    <li>この結果の伝え方(「もっと運動が必要」という見出し)について、オックスフォード大学の専門家などから「論文のデータ自体は現行ガイドラインを支持する内容であり、プレスリリースは正確に反映していない」との反論があり、専門家の間で見解が分かれている。</li>
+    <li>観察研究であること、UK Biobank参加者の健康ボランティア効果という既知の偏りがあることを踏まえ、560分という数字にとらわれすぎず、「今より少しでも多く体を動かす」ことを基本に、運動量を大きく変える場合は医師に相談することが勧められる。</li>
+  </ul>
+</div>
+
+<!-- 免責 -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、医療アドバイスではありません。効果・必要量・リスクは個人の体質・年齢・持病・服薬によって大きく異なります。運動習慣を大きく変える場合や、心疾患などの持病がある場合は、自己判断せず、かかりつけ医・管理栄養士・薬剤師など専門家にご相談ください。
+</div>
+
+<!-- 出典 -->
+<div class="sources">
+  <h3>📚 主な出典・参考文献</h3>
+  <ol>
+    <li>Liang Z, Du S, Zhao S, Wang X, Yan Q, Xu B, Ng S, Ning Z. "Joint non‑linear dose–response associations of device‑measured physical activity and cardiorespiratory fitness with cardiovascular disease: a cohort and Mendelian randomisation study." British Journal of Sports Medicine. 2026. DOI: 10.1136/bjsports-2025-111351
+      <a href="https://doi.org/10.1136/bjsports-2025-111351" target="_blank">https://doi.org/10.1136/bjsports-2025-111351</a>(基準日:2026年5月19日プレスリリース配信)
+    </li>
+    <li>BMJ Group(出版元プレスリリース). "560-610 minutes of exercise a week needed for substantial heart benefits."
+      <a href="https://bmjgroup.com/560-610-minutes-of-exercise-a-week-needed-for-substantial-heart-benefits/" target="_blank">https://bmjgroup.com/560-610-minutes-of-exercise-a-week-needed-for-substantial-heart-benefits/</a>(基準日:2026年5月19日)
+    </li>
+    <li>EurekAlert! "560-610 minutes of exercise a week needed for substantial heart benefits."
+      <a href="https://www.eurekalert.org/news-releases/1128460" target="_blank">https://www.eurekalert.org/news-releases/1128460</a>(基準日:2026年5月19日)
+    </li>
+    <li>Science Media Centre. "Expert reaction to study on amount of exercise done a week and benefits to heart health, using Mendelian randomisation."
+      <a href="https://www.sciencemediacentre.org/expert-reaction-to-study-on-amount-of-exercise-done-a-week-and-benefits-to-heart-health-using-mendelian-randomisation/" target="_blank">https://www.sciencemediacentre.org/expert-reaction-to-study-on-amount-of-exercise-done-a-week-and-benefits-to-heart-health-using-mendelian-randomisation/</a>(基準日:2026年5月)
+    </li>
+    <li>ScienceDaily. "Scientists reveal how much exercise you really need to protect your heart."
+      <a href="https://www.sciencedaily.com/releases/2026/08/260806050724.htm" target="_blank">https://www.sciencedaily.com/releases/2026/08/260806050724.htm</a>(基準日:2026年8月6日、再報道)
+    </li>
+  </ol>
+  <p style="margin-top:8px; font-size:0.78rem;">※ 本記事は査読誌British Journal of Sports Medicine掲載論文(DOI: 10.1136/bjsports-2025-111351)を一次情報とし、出版元BMJ Group・EurekAlertのプレスリリース、独立した科学メディアセンター(Science Media Centre)による専門家コメント、複数の医療専門メディアの報道を突き合わせて作成しました。ネットワーク制限により論文本文への直接アクセスができなかったため、数値(参加者数・リスク低下率など)は複数の独立した情報源で一致した内容のみを採用しています。体力レベル別の必要運動量の詳細な信頼区間や、CVDリスクの正確な比較対象群の定義など、論文本文でしか確認できない統計値は本記事では扱っていません。</p>
+</div>
+
+</div>
+</body>
+</html>
