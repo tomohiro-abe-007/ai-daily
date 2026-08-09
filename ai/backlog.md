@@ -72,6 +72,7 @@
 - 2026-08-07: Mistral Shieldstral（2026年8月公開）・3Bパラメータのオープンソースコンテンツ審査AI・Apache 2.0ライセンス・HuggingFace（mistralai/Shieldstral-1.0-3B）・16GB GPU1枚で動作・自然言語ポリシー（yes/no質問）で審査基準を設定・テキスト＋画像のマルチモーダル対応・12言語・テキスト安全性F1 84.9%・マルチモーダル安全性F1 83.8%（公式値）・7倍大きなモデルに匹敵と主張・約5,410万サンプルで学習・アラビア語・インドネシア語は苦手・性能数値はMistral自己申告（出典：Mistral AI公式 / Seeking Alpha / Channel Insider / Unite.AI・2026年8月）
 - 2026-08-08: PrismML Bonsai 27B（2026年7月14日）・27Bパラメータ（Qwen3.6 27B ベース）を3.9GBに圧縮・テルナリ版5.9GBで精度94.6%維持・iPhone 17 Pro系で秒11トークン・1ビット量子化技術・クラウドなし端末上で動作・Appleとの交渉報道（CNBC・公式未発表）（出典：Medium / Decrypt / LLM Configurator / Developers Digest・2026年7月）
 - 2026-08-09: ChatGPT 思考スライダー（2026年8月6日）・GPT-5.6 Sol にAIの考える深さを調節する「思考スライダー（Thinking Slider）」追加・スライダーlow=高速/high=深い推論・Plus・Pro対象・無料プランはGPT-5.6 Lunaがデフォルト・テキストチャット制限撤廃・事実エラーがGPT-5.5 Instant比68%減（金融・医療・法律の内部評価）・10代向け安全機能も同時追加（出典：OpenAI公式 / 9to5Mac / Help Net Security・2026年8月6〜7日）
+- 2026-08-10: Apple Intelligence × Alibaba Qwen 中国展開（2026年7月15日CAC承認）・22か月の審査を経て中国で利用可能に・文章系はアリババQwen・検索は百度AI・データは中国国内サーバー保存・7社同時承認（Huawei/Xiaomi/Samsung/OPPO/vivo/Nubia含む）・実際のサービス開始時期は未発表（2026年8月時点）（出典：TechCrunch / MacRumors / TechTimes / Digital Applied・2026年7月）
 
 ## 未解説の候補トピック（今後の参考）
 
@@ -88,4 +89,4 @@
 - Apple Foundation Models 3（AFM 3）詳報（WWDC 2026・2026年6月発表）・5モデル体制（AFM 3 Core / AFM 3 Core Advanced 20B / AFM 3 Cloud / AFM 3 Cloud Image / AFM 3 Cloud Pro）・Google Cloud NVIDIA GB300に Private Cloud Compute を拡張・Gemini蒸留を使用するがGeminiモデルそのものは不使用（出典：Apple ML Research / 9to5Mac / MacStories・2026年6月）
 - Google Dataland AIアートミュージアム（2026年6月20日ロサンゼルス開館・Geminiがリアルタイムインタラクティブアートを生成）
 - Colorado AI Act改定（SB26-189・2026年5月14日署名）：元の包括的AI規制法を大幅縮小・施行日を2026年6月30日から2027年1月1日に延期・アルゴリズム意思決定の透明性開示に絞った内容に変更
-- Apple Intelligence × Alibaba Qwen（中国向け）：米国規制の最後のハードルを越え中国での提供が近づく・Qwenモデルを使用（2026年7月報道）
+- ~~Apple Intelligence × Alibaba Qwen（中国向け）：米国規制の最後のハードルを越え中国での提供が近づく・Qwenモデルを使用（2026年7月報道）~~ ← 2026-08-10 解説済み
