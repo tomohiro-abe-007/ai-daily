@@ -73,6 +73,7 @@
 - 2026-08-08: PrismML Bonsai 27B（2026年7月14日）・27Bパラメータ（Qwen3.6 27B ベース）を3.9GBに圧縮・テルナリ版5.9GBで精度94.6%維持・iPhone 17 Pro系で秒11トークン・1ビット量子化技術・クラウドなし端末上で動作・Appleとの交渉報道（CNBC・公式未発表）（出典：Medium / Decrypt / LLM Configurator / Developers Digest・2026年7月）
 - 2026-08-09: ChatGPT 思考スライダー（2026年8月6日）・GPT-5.6 Sol にAIの考える深さを調節する「思考スライダー（Thinking Slider）」追加・スライダーlow=高速/high=深い推論・Plus・Pro対象・無料プランはGPT-5.6 Lunaがデフォルト・テキストチャット制限撤廃・事実エラーがGPT-5.5 Instant比68%減（金融・医療・法律の内部評価）・10代向け安全機能も同時追加（出典：OpenAI公式 / 9to5Mac / Help Net Security・2026年8月6〜7日）
 - 2026-08-10: Apple Intelligence × Alibaba Qwen 中国展開（2026年7月15日CAC承認）・22か月の審査を経て中国で利用可能に・文章系はアリババQwen・検索は百度AI・データは中国国内サーバー保存・7社同時承認（Huawei/Xiaomi/Samsung/OPPO/vivo/Nubia含む）・実際のサービス開始時期は未発表（2026年8月時点）（出典：TechCrunch / MacRumors / TechTimes / Digital Applied・2026年7月）
+- 2026-08-11: Meta Muse Glimmer 30B（2026年8月10日公開）・30Bパラメータ・オープンウェイト・PC上でローカル動作するAIエージェントモデル・Muse Spark 1.2の蒸留版・131Kトークンコンテキスト・dFlash技術（RTX 5090で3.1倍高速化）・MCP Atlas 75.5点（Gemma 31B比+21点）・AIME 2026：94.7点・100言語以上対応・テキスト＋画像同時理解・Ollama/LM Studio/llama.cpp対応・Hugging Face公開（meta-models/Muse-Glimmer-30B）・ザッカーバーグ「The Future is for Everyone」論文と同時発表（出典：Bloomberg / CNBC / Neowin / AMD公式ブログ・2026年8月10日）
 
 ## 未解説の候補トピック（今後の参考）
 
