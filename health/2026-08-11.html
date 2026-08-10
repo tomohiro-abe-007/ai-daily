@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-08-11</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '🥛';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.9rem; margin-bottom: 8px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.1em; }
+  .c3-col li { margin-bottom: 4px; }
+  .c3-col .or-val { font-size: 1.4rem; font-weight: 700; margin: 4px 0; }
+  .c3-col.red .or-val { color: #a0291e; }
+  .c3-col.green .or-val { color: #1a6e4a; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .mech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .mech-item {
+    background: #f0faf5;
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 0.85rem;
+    border-top: 3px solid #1a7a5a;
+  }
+  .mech-item .micon { font-size: 1.3rem; margin-bottom: 6px; }
+  .mech-item strong { display: block; color: #0d4a35; margin-bottom: 4px; font-size: 0.88rem; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .highlight { background: #cff0df; padding: 1px 5px; border-radius: 4px; }
+  .good { color: #1a7a5a; font-weight: 600; }
+  .bad  { color: #c0392b; font-weight: 600; }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-box {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin: 14px 0;
+    font-size: 0.92rem;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  .quote-box {
+    background: #f5f0e8;
+    border-left: 4px solid #7a5abf;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    margin: 12px 0;
+    color: #444;
+    font-style: italic;
+  }
+  .quote-box .who { font-style: normal; font-weight: 700; color: #5a3a9a; margin-top: 6px; font-size: 0.78rem; }
+  .benefit-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    margin: 14px 0;
+  }
+  .benefit-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+  .benefit-item .bicon { font-size: 1.2rem; margin-bottom: 4px; }
+  @media (max-width: 540px) {
+    .compare4 { grid-template-columns: 1fr 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.7rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ヘッダー -->
+<div class="header">
+  <div class="label">健康・栄養 最新トピック ・ 2026-08-11</div>
+  <h1>全脂肪(ふつうの脂肪分)の牛乳・ヨーグルトは、本当に太る?<br>
+  74人・12週間のRCTが投げかけた問い</h1>
+  <div class="subtitle">カナダ・トロント大学のGerald Harvey Andersonさんらのチームが、過体重・肥満の成人74人を対象に、全脂肪(無調整)の乳製品を1日3杯とる生活を12週間続けてもらうランダム化比較試験(RCT)を行い、Journal of Nutrition誌に発表しました(2026年、DOI: 10.1016/j.tjnut.2026.101373)。多くの国の食事指針は今も「低脂肪・無脂肪の乳製品を選びましょう」と勧めていますが、この研究では体重・体組成・コレステロールに目立った差は見られず、むしろ血圧や栄養素の摂取量で良い変化も報告されました。ただし資金の出どころにも注意が必要な研究です。やさしく見ていきます。</div>
+</div>
+
+<!-- タグ -->
+<div style="margin-bottom:18px;">
+  <span class="tag">精密栄養学</span>
+  <span class="tag">乳製品・脂質</span>
+  <span class="tag">ランダム化比較試験(RCT)</span>
+  <span class="tag">食事指針</span>
+  <span class="tag">利益相反の見方</span>
+</div>
+
+<!-- 今日の疑問 -->
+<div class="card">
+  <h2>🤔 今日の疑問:「低脂肪乳製品を選ぶ」は今も正しいアドバイスか?</h2>
+  <p>カナダやアメリカの公的な食事指針は、長年「乳製品は低脂肪・無脂肪のものを1日3杯」と勧めてきました。牛乳やヨーグルト、チーズに含まれる脂肪(飽和脂肪酸を含む)を減らすことが、体重管理や心臓の健康に良いと考えられてきたためです。</p>
+  <p>今回の研究チームは、この「常識」を実際にヒトで検証するため、全脂肪の乳製品を毎日とる生活を12週間続けてもらい、低脂肪の食生活と比べて体重や健康指標がどう変わるかを、ランダム化比較試験(RCT、参加者をくじ引きのようにランダムに複数の群へ振り分けて比べる、もっとも証拠として信頼度が高いとされる研究デザインの一つ)で調べました。</p>
+</div>
+
+<!-- 基本用語 -->
+<div class="card blue">
+  <h2>📖 まず言葉の意味を</h2>
+  <div class="def-grid">
+    <div class="def-item">
+      <div class="dterm">全脂肪乳製品</div>
+      脂肪分を減らす加工をしていない、ふつうの牛乳・ヨーグルト・チーズなど。日本の「低脂肪乳」のような加工品と対になる言葉。
+    </div>
+    <div class="def-item">
+      <div class="dterm">ランダム化比較試験(RCT)</div>
+      参加者をくじ引きのようにランダムに複数の群に振り分け、介入(この場合は食事内容)の効果を比べる研究デザイン。観察研究より「原因と結果」の関係を確かめやすい。
+    </div>
+    <div class="def-item">
+      <div class="dterm">体組成</div>
+      体重だけでなく、体の中の脂肪の量・筋肉の量などの内訳。体重が同じでも体組成は人によって違う。
+    </div>
+    <div class="def-item">
+      <div class="dterm">インスリン抵抗性</div>
+      血糖を下げるホルモン「インスリン」が効きにくくなっている状態。2型糖尿病の前段階の指標の一つとして使われる。
+    </div>
+    <div class="def-item">
+      <div class="dterm">利益相反(COI)</div>
+      研究者や研究費の出どころが、研究対象の企業・業界と利害関係を持つこと。研究の質そのものとは別に、結果の解釈や強調のしかたに影響しうるため、読者は資金源を確認する習慣が勧められる。
+    </div>
+  </div>
+</div>
+
+<!-- 数字カード -->
+<div class="num-row">
+  <div class="num-card">
+    <div class="big">74<span class="unit">人</span></div>
+    <div class="desc">過体重・肥満(BMI 25〜34.9)の成人。3つの群にランダムに割り付け</div>
+  </div>
+  <div class="num-card blue-bg">
+    <div class="big">3<span class="unit">杯/日</span></div>
+    <div class="desc">乳製品群がとった全脂肪乳製品の量(牛乳・ヨーグルト・チーズなど)</div>
+  </div>
+  <div class="num-card orange-bg">
+    <div class="big">12<span class="unit">週間</span></div>
+    <div class="desc">介入の実施期間。試験自体は2020年9月〜2023年2月に実施</div>
+  </div>
+  <div class="num-card purple-bg">
+    <div class="big">3<span class="unit">群</span></div>
+    <div class="desc">低乳製品カロリー制限群/エネルギー中立群/自由摂取群に分けて比較</div>
+  </div>
+</div>
+
+<!-- 研究の流れ -->
+<div class="card purple">
+  <h2>🧭 どうやって調べたのか</h2>
+  <div class="flow">
+    <div class="flow-step purp">過体重・肥満の<br>成人74人を<br>スクリーニング</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step">3つの食事群に<br>ランダムに割り付け</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step alt">12週間、<br>指定の食事を<br>継続</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step">体重・体組成・<br>血中脂質・血圧・<br>食事内容を測定</div>
+  </div>
+</div>
+
+<!-- 3群比較 -->
+<div class="card blue">
+  <h2>📏 くらべた3つの食事パターン</h2>
+  <div class="compare4">
+    <div class="c3-col blue">
+      <h3>🥗 低乳製品・カロリー制限群</h3>
+      <ul>
+        <li>乳製品を控えめにし、摂取カロリーを制限</li>
+        <li>従来の「減量には低脂肪・低カロリー」という考え方に近い群(比較の基準)</li>
+      </ul>
+    </div>
+    <div class="c3-col green">
+      <h3>⚖️ エネルギー中立+乳製品3杯群</h3>
+      <ul>
+        <li>全脂肪乳製品を1日3杯とりつつ、総エネルギー量は変えない設計</li>
+        <li>「乳製品を足しても他で調整すれば体重は変わらないはず」という仮説を検証</li>
+      </ul>
+    </div>
+    <div class="c3-col orange">
+      <h3>🍽️ 自由摂取+乳製品3杯群</h3>
+      <ul>
+        <li>全脂肪乳製品を1日3杯とった上で、他の食事量は特に制限しない</li>
+        <li>もっとも「現実の食生活」に近い設計</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- 結果 -->
+<div class="card">
+  <h2>🔍 12週間後にわかったこと</h2>
+  <div class="mech-grid">
+    <div class="mech-item">
+      <div class="micon">⚖️</div>
+      <strong>体重・体組成:差なし</strong>
+      3群のあいだで、体重・体脂肪量・体組成に目立った差は見られなかった。
+    </div>
+    <div class="mech-item">
+      <div class="micon">🩸</div>
+      <strong>コレステロール・インスリン抵抗性:差なし</strong>
+      全脂肪乳製品を3杯とった群でも、血中コレステロールの悪化やインスリン抵抗性の増加は確認されなかった。
+    </div>
+    <div class="mech-item">
+      <div class="micon">💗</div>
+      <strong>血圧:自由摂取群で改善</strong>
+      自由摂取+乳製品3杯群では、収縮期血圧(上の血圧)の改善が報告された。
+    </div>
+    <div class="mech-item">
+      <div class="micon">🧪</div>
+      <strong>栄養素摂取量:乳製品群で増加</strong>
+      乳製品を3杯とった群は、カルシウム・たんぱく質・ビタミンD・カリウム・マグネシウムの摂取量が多かった。
+    </div>
+  </div>
+</div>
+
+<!-- 資金源の注意 -->
+<div class="warn">
+  <strong>💰 この研究、資金の出どころにも注目してほしい</strong>
+  <p style="margin-top:8px;">この研究は、カナダの「Dairy Research Cluster 3」(カナダ農業パートナーシップ AgriScienceプログラムのもと、カナダ酪農家連合(Dairy Farmers of Canada)とカナダ農業・農産食品省が共同で拠出する研究費の枠組み)と、産学連携助成プログラム「Mitacs Accelerate」からの支援を受けて実施されました。著者らは論文中で利益相反はないと申告していますが、乳業界とつながりのある資金の枠組みで行われた研究である点は、結果を読むときに意識しておく価値があります。資金源があるからといって結果が誤りとは限りませんが、「業界に都合の良い結果が強調されやすくないか」を確認する視点は、精密栄養学的な情報リテラシーの基本の一つです。</p>
+</div>
+
+<!-- 現行指針との比較 -->
+<div class="card orange">
+  <h2>📋 現行の食事指針とのギャップ</h2>
+  <div class="compare4">
+    <div class="c3-col orange">
+      <h3>📖 現行の指針</h3>
+      <ul>
+        <li>カナダ・米国の食事指針は現在も、成人に「低脂肪・無脂肪の乳製品を1日3杯」を推奨</li>
+        <li>飽和脂肪酸の摂取を減らす考え方が背景にある</li>
+      </ul>
+    </div>
+    <div class="c3-col green">
+      <h3>🔬 今回の研究が示したこと</h3>
+      <ul>
+        <li>全脂肪乳製品を3杯とっても、体重・体組成・コレステロールに悪化は見られなかった</li>
+        <li>研究チームは、こうした知見が指針にまだ十分反映されていないと指摘</li>
+      </ul>
+    </div>
+  </div>
+  <p style="font-size:0.85rem; color:#555; margin-top:6px;">乳製品の脂肪は、バターやクリームなど脂肪単体とは異なり、カルシウムやたんぱく質など他の栄養素と一緒に体に入ってくるため、単純な「脂肪の量」だけでは語れない可能性がある、という考え方も研究分野の中にはあります。ただし、この論文自体がその仕組みを直接証明したものではない点に注意してください。</p>
+</div>
+
+<!-- 注意点 -->
+<div class="warn">
+  <strong>⚠️ 誤解しないでほしいこと</strong>
+  <ul style="padding-left:1.4em; margin-top:8px;">
+    <li>参加者は<strong>74人という比較的小規模</strong>な単一研究であり、大規模な追試での確認が必要です。</li>
+    <li>介入期間は<strong>12週間</strong>と短く、心臓発作・脳卒中・糖尿病の発症といった「本当に知りたい結果(ハードエンドポイント)」ではなく、体重・血中脂質・血圧などの<strong>代理指標(サロゲートマーカー)</strong>を見たものです。長期の健康影響はこの研究だけでは分かりません。</li>
+    <li>対象はカナダの過体重・肥満の成人に限られ、痩せ型の人や子ども、高齢者、持病のある人にそのまま当てはまるとは限りません。</li>
+    <li>「全脂肪乳製品なら何杯とっても良い」という意味ではありません。乳製品には飽和脂肪酸も含まれ、個人の心血管疾患リスク・コレステロール値・持病によって適量は変わります。</li>
+    <li>食事内容を大きく変える場合は、自己判断せず、かかりつけ医・管理栄養士に相談してください。</li>
+  </ul>
+</div>
+
+<!-- エビデンスの整理 -->
+<div class="card">
+  <h2>🧪 今日出てきた情報の「証拠としての強さ」の目安</h2>
+  <table class="ev-table">
+    <tr><th>情報の種類</th><th>特徴</th><th>証拠としての強さ</th></tr>
+    <tr>
+      <td>体重・体組成・血中脂質に差がなかったという結果</td>
+      <td>ヒト対象のRCT(n=74)、査読誌掲載、ただし単一研究・小規模</td>
+      <td><span class="ev-badge ev-mid">中程度(要追試・大規模化)</span></td>
+    </tr>
+    <tr>
+      <td>自由摂取群での血圧改善</td>
+      <td>同じRCT内の一群での結果。多重比較・偶然の可能性も考慮すべき</td>
+      <td><span class="ev-badge ev-low">やや弱い(単一の探索的所見)</span></td>
+    </tr>
+    <tr>
+      <td>「全脂肪乳製品は指針が言うほど悪くない」という一般化</td>
+      <td>この1研究だけでなく他の研究の蓄積が必要。資金源にも留意</td>
+      <td><span class="ev-badge ev-low">要注意(結論の一般化は時期尚早)</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- まとめ -->
+<div class="card" style="border-left-color:#1a7a5a;">
+  <h2>✅ 今日のまとめ</h2>
+  <ul class="step-list">
+    <li>カナダ・トロント大学のGerald Harvey Andersonさんらのチームが、過体重・肥満の成人74人を対象に、全脂肪乳製品を1日3杯とる生活を12週間続けるRCTを行い、Journal of Nutrition誌に発表(2026年、DOI: 10.1016/j.tjnut.2026.101373)。</li>
+    <li>低乳製品・カロリー制限群と比べても、体重・体組成・血中コレステロール・インスリン抵抗性に目立った差はなく、自由摂取+乳製品群では収縮期血圧の改善、乳製品をとった群ではカルシウム・たんぱく質・ビタミンDなどの摂取量増加が報告された。</li>
+    <li>カナダ・米国の食事指針は今も「低脂肪・無脂肪の乳製品」を推奨しており、今回の結果はその考え方に一石を投じるものだが、参加者74人・12週間という小規模・短期の単一研究であり、資金は乳業界とつながりのある枠組みから拠出されている点にも注意が必要。</li>
+    <li>「全脂肪乳製品は無条件に体に良い」と結論づけるのではなく、個人の心血管リスクや持病を踏まえ、食事内容を大きく変える前にはかかりつけ医・管理栄養士に相談することが勧められる。</li>
+  </ul>
+</div>
+
+<!-- 免責 -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、医療アドバイスではありません。効果・必要量・リスクは個人の体質・年齢・持病・服薬によって大きく異なります。食事内容を大きく変える場合は、自己判断せず、かかりつけ医・管理栄養士・薬剤師など専門家にご相談ください。
+</div>
+
+<!-- 出典 -->
+<div class="sources">
+  <h3>📚 主な出典・参考文献</h3>
+  <ol>
+    <li>Anderson GH, Zhou CZC, Vien S, Soo M, Salamat S, Akbarifakhrabadi M, Chomka L, Kathirvel P, Siddiqi F, Fabek H, Luhovyy B. "The Effect of Three Daily Servings of Full-Fat Dairy for 12 Weeks on Body Weight, Body Composition, Energy Metabolism, Blood Lipids, and Dietary Intake of Adults with Overweight and Obesity." The Journal of Nutrition. 2026;156(4):101373. DOI: 10.1016/j.tjnut.2026.101373
+      <a href="https://doi.org/10.1016/j.tjnut.2026.101373" target="_blank">https://doi.org/10.1016/j.tjnut.2026.101373</a>(基準日:2026年8月)
+    </li>
+    <li>University of Toronto, Temerty Faculty of Medicine. "Full-fat dairy shows benefits without raising body fat or cholesterol, study finds."
+      <a href="https://temertymedicine.utoronto.ca/news/full-fat-dairy-shows-benefits-without-raising-body-fat-or-cholesterol-study-finds" target="_blank">https://temertymedicine.utoronto.ca/news/full-fat-dairy-shows-benefits-without-raising-body-fat-or-cholesterol-study-finds</a>(基準日:2026年7月)
+    </li>
+    <li>ScienceDaily. "For decades, we were told to choose low-fat dairy. New research says otherwise."
+      <a href="https://www.sciencedaily.com/releases/2026/08/260808234948.htm" target="_blank">https://www.sciencedaily.com/releases/2026/08/260808234948.htm</a>(基準日:2026年8月8日)
+    </li>
+    <li>Al Jazeera. "Why choosing low-fat dairy is not necessarily better for your health."
+      <a href="https://www.aljazeera.com/news/2026/8/10/why-choosing-low-fat-dairy-is-not-necessarily-better-for-your-health" target="_blank">https://www.aljazeera.com/news/2026/8/10/why-choosing-low-fat-dairy-is-not-necessarily-better-for-your-health</a>(基準日:2026年8月10日)
+    </li>
+    <li>DairyReporter. "Study backs three daily servings of full-fat dairy."
+      <a href="https://www.dairyreporter.com/Article/2026/08/05/study-backs-three-daily-servings-of-full-fat-dairy/" target="_blank">https://www.dairyreporter.com/Article/2026/08/05/study-backs-three-daily-servings-of-full-fat-dairy/</a>(基準日:2026年8月5日)
+    </li>
+  </ol>
+  <p style="margin-top:8px; font-size:0.78rem;">※ 本記事は査読誌The Journal of Nutrition掲載論文(DOI: 10.1016/j.tjnut.2026.101373)を一次情報とし、発表元トロント大学のプレスリリース、および複数の独立した報道(ScienceDaily・Al Jazeera・DairyReporterなど)を突き合わせて作成しました。ネットワーク制限により論文本文・Abstractへの直接アクセスができなかったため、体重・血圧などの変化量の具体的な数値(kg・mmHg・信頼区間・p値)は、論文本文でしか確認できないため本記事では扱わず、複数の独立した情報源で一致した定性的な結果(差の有無・改善の方向性)のみを採用しています。研究の資金提供元(Dairy Research Cluster 3、Dairy Farmers of Canada等)は複数の報道で一致して報告されている情報です。</p>
+</div>
+
+</div>
+</body>
+</html>
