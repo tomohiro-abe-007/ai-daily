@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-08-12</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '🍬';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.9rem; margin-bottom: 8px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.1em; }
+  .c3-col li { margin-bottom: 4px; }
+  .c3-col .or-val { font-size: 1.4rem; font-weight: 700; margin: 4px 0; }
+  .c3-col.red .or-val { color: #a0291e; }
+  .c3-col.green .or-val { color: #1a6e4a; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .mech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .mech-item {
+    background: #f0faf5;
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 0.85rem;
+    border-top: 3px solid #1a7a5a;
+  }
+  .mech-item .micon { font-size: 1.3rem; margin-bottom: 6px; }
+  .mech-item strong { display: block; color: #0d4a35; margin-bottom: 4px; font-size: 0.88rem; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .highlight { background: #cff0df; padding: 1px 5px; border-radius: 4px; }
+  .good { color: #1a7a5a; font-weight: 600; }
+  .bad  { color: #c0392b; font-weight: 600; }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-box {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin: 14px 0;
+    font-size: 0.92rem;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  .quote-box {
+    background: #f5f0e8;
+    border-left: 4px solid #7a5abf;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    margin: 12px 0;
+    color: #444;
+    font-style: italic;
+  }
+  .quote-box .who { font-style: normal; font-weight: 700; color: #5a3a9a; margin-top: 6px; font-size: 0.78rem; }
+  .benefit-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    margin: 14px 0;
+  }
+  .benefit-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+  .benefit-item .bicon { font-size: 1.2rem; margin-bottom: 4px; }
+  @media (max-width: 540px) {
+    .compare4 { grid-template-columns: 1fr 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.7rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ヘッダー -->
+<div class="header">
+  <div class="label">健康・栄養 最新トピック ・ 2026-08-12</div>
+  <h1>「甘いものを減らせば、甘党が治る」は本当か?<br>
+  180人・6か月RCTが投げかけた問い</h1>
+  <div class="subtitle">オランダ・ワーヘニンゲン大学とイギリス・ボーンマス大学の国際チーム(Eva M Čadさんら)が、健康な成人180人を対象に、食事の「甘さの量」を少なめ・ふつう・多めの3段階に6か月間コントロールしてもらうランダム化比較試験(RCT)「Sweet Tooth Trial」を行い、American Journal of Clinical Nutrition誌に発表しました(DOI: 10.1016/j.ajcnut.2025.09.041)。甘いものを減らしても、甘さへの好みも、体重も、代謝の指標もほとんど変わらなかったという結果です。「甘いものを断てば甘党が治る」という考え方に一石を投じる研究を、やさしく見ていきます。</div>
+</div>
+
+<!-- タグ -->
+<div style="margin-bottom:18px;">
+  <span class="tag">精密栄養学</span>
+  <span class="tag">味覚と嗜好</span>
+  <span class="tag">ランダム化比較試験(RCT)</span>
+  <span class="tag">食事指針</span>
+  <span class="tag">相関と因果</span>
+</div>
+
+<!-- 今日の疑問 -->
+<div class="card">
+  <h2>🤔 今日の疑問:甘いものを減らせば、甘さへの欲求は減っていくのか?</h2>
+  <p>「甘いものを食べ続けていると、どんどん甘いものが欲しくなる」「しばらく甘いものを断てば、舌が慣れて薄味でも満足できるようになる」──こうした考え方は、世界保健機関(WHO)をはじめ多くの国の食事指針が、遊離糖類(砂糖やはちみつなど、食品に添加・調理で加えられる糖分)を減らすよう勧める根拠のひとつになっています。</p>
+  <p>しかし、この「甘さへの慣れ(順応)」は、実際にヒトでどれだけ確かめられているのでしょうか。今回の研究チームは、健康な成人に食事の甘さのレベルを6か月間コントロールしてもらうランダム化比較試験(RCT、参加者をくじ引きのようにランダムに複数の群へ振り分けて比べる、証拠として信頼度が高いとされる研究デザインの一つ)で、この考え方を直接検証しました。</p>
+</div>
+
+<!-- 基本用語 -->
+<div class="card blue">
+  <h2>📖 まず言葉の意味を</h2>
+  <div class="def-grid">
+    <div class="def-item">
+      <div class="dterm">甘味嗜好性(sweet taste liking)</div>
+      甘い味をどれくらい「好ましい」と感じるかという、その人の味覚の好み。甘さへの欲求(クレービング)とは少し違う、心理学・感覚科学の測定概念。
+    </div>
+    <div class="def-item">
+      <div class="dterm">甘さへの順応(sweetness adaptation)仮説</div>
+      甘いものを減らす生活を続けると、舌や脳が「薄い甘さ」に慣れていき、やがて甘いものへの欲求そのものが下がるはずだ、という考え方。今回の研究が検証した仮説。
+    </div>
+    <div class="def-item">
+      <div class="dterm">ランダム化比較試験(RCT)</div>
+      参加者をくじ引きのようにランダムに複数の群に振り分け、介入の効果を比べる研究デザイン。観察研究より「原因と結果」の関係を確かめやすい。
+    </div>
+    <div class="def-item">
+      <div class="dterm">心血管代謝バイオマーカー</div>
+      血糖値・コレステロール・インスリンの効きやすさなど、糖尿病や心臓病のなりやすさを反映する血液検査の指標のこと。
+    </div>
+  </div>
+</div>
+
+<!-- 数字カード -->
+<div class="num-row">
+  <div class="num-card">
+    <div class="big">180<span class="unit">人</span></div>
+    <div class="desc">健康な成人(女性123人・男性57人、平均35±15歳、BMI 23±3)</div>
+  </div>
+  <div class="num-card blue-bg">
+    <div class="big">6<span class="unit">か月</span></div>
+    <div class="desc">介入期間。終了後さらに4か月間、食生活が元に戻るかを追跡</div>
+  </div>
+  <div class="num-card orange-bg">
+    <div class="big">3<span class="unit">群</span></div>
+    <div class="desc">甘さ「少なめ・ふつう・多め」の食事にランダムに割り付け</div>
+  </div>
+  <div class="num-card purple-bg">
+    <div class="big">50<span class="unit">%</span></div>
+    <div class="desc">研究側が2週間ごとに食品・飲料を配達し、1日のエネルギー必要量の約半分をまかなった割合</div>
+  </div>
+</div>
+
+<!-- 研究の流れ -->
+<div class="card purple">
+  <h2>🧭 どうやって調べたのか</h2>
+  <div class="flow">
+    <div class="flow-step purp">健康な成人<br>180人を<br>3群にランダム割付</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step">2週間ごとに<br>食品パックを配達<br>(必要エネルギーの約半分)</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step alt">6か月間、<br>指定の甘さレベルの<br>食事を継続</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step">甘味の好み・食事量・<br>体重・代謝指標を測定<br>(終了後4か月も追跡)</div>
+  </div>
+</div>
+
+<!-- 3群比較 -->
+<div class="card blue">
+  <h2>📏 くらべた3つの「甘さレベル」</h2>
+  <div class="compare4">
+    <div class="c3-col blue">
+      <h3>🥦 甘さ少なめ群(n=61)</h3>
+      <div class="or-val" style="color:#0d3660;">7%</div>
+      <ul>
+        <li>提供された食品・飲料のうち、砂糖・低カロリー甘味料・果物・乳製品由来の「甘い」ものが占める割合が約7%</li>
+      </ul>
+    </div>
+    <div class="c3-col green">
+      <h3>⚖️ ふつうの甘さ群(n=60)</h3>
+      <div class="or-val">35%</div>
+      <ul>
+        <li>一般的な食生活に近い、甘い食品・飲料の割合が約35%</li>
+      </ul>
+    </div>
+    <div class="c3-col orange">
+      <h3>🍭 甘さ多め群(n=59)</h3>
+      <div class="or-val" style="color:#b85e10;">80%</div>
+      <ul>
+        <li>甘い食品・飲料の割合が約80%と、かなり甘さの強い食生活</li>
+      </ul>
+    </div>
+  </div>
+  <p style="font-size:0.82rem; color:#555; margin-top:4px;">※「甘さ」の由来は砂糖だけでなく、低カロリー甘味料・果物・乳製品なども含まれており、特定の一つの成分だけを試したものではありません。</p>
+</div>
+
+<!-- 結果 -->
+<div class="card">
+  <h2>🔍 6か月後にわかったこと</h2>
+  <div class="mech-grid">
+    <div class="mech-item">
+      <div class="micon">👅</div>
+      <strong>甘味の好み:変わらず</strong>
+      甘さ少なめ群でも、甘いものへの好みが薄れることはなく、甘さ多め群でも、より甘いものを好むようにはならなかった。
+    </div>
+    <div class="mech-item">
+      <div class="micon">🍽️</div>
+      <strong>食事量・体重:差なし</strong>
+      3群のあいだで、エネルギー摂取量や体重に目立った差は見られなかった。
+    </div>
+    <div class="mech-item">
+      <div class="micon">🩸</div>
+      <strong>糖尿病・心血管の指標:差なし</strong>
+      血糖・コレステロールなど、糖尿病や心臓病のなりやすさに関わる指標にも、3群間で意味のある差は確認されなかった。
+    </div>
+    <div class="mech-item">
+      <div class="micon">↩️</div>
+      <strong>試験終了後:元の食生活に戻る傾向</strong>
+      介入が終わった後の4か月間の追跡調査で、多くの参加者はもとの食習慣に戻っていく傾向が見られた。
+    </div>
+  </div>
+</div>
+
+<!-- 現行指針との比較 -->
+<div class="card orange">
+  <h2>📋 現行の食事指針とのギャップ</h2>
+  <div class="compare4">
+    <div class="c3-col orange">
+      <h3>📖 これまでの考え方</h3>
+      <ul>
+        <li>WHOなどの指針は、甘さそのものへの曝露を減らせば、甘さへの欲求や摂取量が下がっていくという前提を含んでいる</li>
+        <li>「甘いものを断てば舌が慣れて、自然と甘党が治る」というアドバイスの土台にもなってきた</li>
+      </ul>
+    </div>
+    <div class="c3-col green">
+      <h3>🔬 今回の研究が示したこと</h3>
+      <ul>
+        <li>甘さのレベルを6か月変えても、甘味の好み・食事量・体重・代謝指標はほとんど動かなかった</li>
+        <li>研究チームは、体重管理には「甘いかどうか」より「砂糖の量やカロリーなど食品の中身」に注目したガイダンスの方が有用ではないか、と提案している</li>
+      </ul>
+    </div>
+  </div>
+  <p style="font-size:0.85rem; color:#555; margin-top:6px;">注意:この研究が否定しているのは「甘さへの曝露を減らせば嗜好や体重が変わる」という<strong>メカニズムの前提</strong>であり、「糖分の摂りすぎ」自体が虫歯や過剰カロリーの原因になりうるという、糖分を控える他の理由まで否定するものではありません。</p>
+</div>
+
+<!-- 注意点 -->
+<div class="warn">
+  <strong>⚠️ 誤解しないでほしいこと</strong>
+  <ul style="padding-left:1.4em; margin-top:8px;">
+    <li>対象は<strong>健康な成人(平均BMI 23、標準体重の範囲)</strong>であり、肥満や糖尿病治療を目的に食事療法に取り組んでいる人にそのまま当てはまるとは限りません。</li>
+    <li>各群<strong>約60人</strong>という中規模の単一研究であり、大規模な追試での確認が必要です。</li>
+    <li>「甘さ」は砂糖・低カロリー甘味料・果物・乳製品など複数の由来をまとめて扱っており、特定の成分(例:精製された砂糖だけ)を切り分けた結果ではありません。</li>
+    <li>6か月という期間が、長年の食習慣で作られた味覚の好みを変えるのに十分な長さだったかどうかも、まだ分かっていません。</li>
+    <li>食事内容を大きく変える場合は、自己判断せず、かかりつけ医・管理栄養士に相談してください。</li>
+  </ul>
+</div>
+
+<!-- エビデンスの整理 -->
+<div class="card">
+  <h2>🧪 今日出てきた情報の「証拠としての強さ」の目安</h2>
+  <table class="ev-table">
+    <tr><th>情報の種類</th><th>特徴</th><th>証拠としての強さ</th></tr>
+    <tr>
+      <td>甘味の好み・食事量・体重・代謝指標に差がなかったという結果</td>
+      <td>健康な成人180人対象のRCT、査読誌掲載、6か月という比較的長い介入期間</td>
+      <td><span class="ev-badge ev-mid">中程度(要追試・対象を広げた確認)</span></td>
+    </tr>
+    <tr>
+      <td>「甘さを減らせば甘党が治る」という考え方への反証</td>
+      <td>この1研究の結果であり、過去の短期研究(数週間規模)とも一致する部分はあるが、長期・多集団での再現が必要</td>
+      <td><span class="ev-badge ev-mid">中程度</span></td>
+    </tr>
+    <tr>
+      <td>「糖分を控える必要はない」という一般化</td>
+      <td>本研究が検証したのは「甘さへの曝露と嗜好・体重の関係」のみ。虫歯予防やカロリー管理など、糖分を控える他の理由には言及していない</td>
+      <td><span class="ev-badge ev-low">誤った一般化に注意</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- まとめ -->
+<div class="card" style="border-left-color:#1a7a5a;">
+  <h2>✅ 今日のまとめ</h2>
+  <ul class="step-list">
+    <li>オランダ・ワーヘニンゲン大学とイギリス・ボーンマス大学の国際チームが、健康な成人180人を対象に、食事の甘さレベルを少なめ(7%)・ふつう(35%)・多め(80%)の3群に分けて6か月間コントロールするRCT「Sweet Tooth Trial」を行い、American Journal of Clinical Nutrition誌に発表(DOI: 10.1016/j.ajcnut.2025.09.041)。</li>
+    <li>甘さを減らしても増やしても、甘いものへの好み・エネルギー摂取量・体重・糖尿病や心血管の指標に、3群間で目立った差は見られなかった。</li>
+    <li>「甘さを減らせば甘さへの欲求が下がる」という、多くの食事指針の前提となってきた考え方に一石を投じる結果だが、対象は健康な成人約180人の単一研究であり、大規模な追試が必要。糖分を控える他の健康上の理由(虫歯・カロリー管理など)まで否定するものではない。</li>
+    <li>食事の内容を大きく変える場合は、自己判断せず、かかりつけ医・管理栄養士に相談することが勧められる。</li>
+  </ul>
+</div>
+
+<!-- 免責 -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、医療アドバイスではありません。効果・必要量・リスクは個人の体質・年齢・持病・服薬によって大きく異なります。食事内容を大きく変える場合は、自己判断せず、かかりつけ医・管理栄養士・薬剤師など専門家にご相談ください。
+</div>
+
+<!-- 出典 -->
+<div class="sources">
+  <h3>📚 主な出典・参考文献</h3>
+  <ol>
+    <li>Čad EM, Mars M, Pretorius L, van der Kruijssen M, Tang CS, de Jong HBT, Balvers M, Appleton KM, de Graaf K. "The Sweet Tooth Trial: A Parallel Randomized Controlled Trial Investigating the Effects of A 6-Month Low, Regular, or High Dietary Sweet Taste Exposure on Sweet Taste Liking, and Various Outcomes Related to Food Intake and Weight Status." The American Journal of Clinical Nutrition. 2026. DOI: 10.1016/j.ajcnut.2025.09.041 / PMID: 41485871
+      <a href="https://doi.org/10.1016/j.ajcnut.2025.09.041" target="_blank">https://doi.org/10.1016/j.ajcnut.2025.09.041</a>(基準日:2026年8月)
+    </li>
+    <li>Wageningen University & Research. "Preference for sweet cannot be easily unlearned."
+      <a href="https://www.wur.nl/en/newsarticle/preference-for-sweet-cannot-be-easily-unlearned.htm" target="_blank">https://www.wur.nl/en/newsarticle/preference-for-sweet-cannot-be-easily-unlearned.htm</a>(基準日:2026年8月)
+    </li>
+    <li>ScienceDaily. "Cutting sweet foods doesn't curb cravings or improve health."
+      <a href="http://www.sciencedaily.com/releases/2026/08/260807235103.htm" target="_blank">https://www.sciencedaily.com/releases/2026/08/260807235103.htm</a>(基準日:2026年8月7日)
+    </li>
+    <li>EurekAlert!. "Eating more sweet food may not sway sweet preference."
+      <a href="https://www.eurekalert.org/news-releases/1084797" target="_blank">https://www.eurekalert.org/news-releases/1084797</a>(基準日:2026年8月)
+    </li>
+    <li>International Sweeteners Association. "New research challenges long-standing beliefs about sweet taste exposure and liking: Findings of the Sweet Tooth trial."
+      <a href="https://www.sweeteners.org/latest-science-post/new-research-challenges-long-standing-beliefs-about-sweet-taste-exposure-and-liking-findings-of-the-sweet-tooth-trial/" target="_blank">https://www.sweeteners.org/latest-science-post/new-research-challenges-long-standing-beliefs-about-sweet-taste-exposure-and-liking-findings-of-the-sweet-tooth-trial/</a>(基準日:2026年8月、業界団体による解説である点に留意)
+    </li>
+  </ol>
+  <p style="margin-top:8px; font-size:0.78rem;">※ 本記事は査読誌American Journal of Clinical Nutrition掲載論文(DOI: 10.1016/j.ajcnut.2025.09.041、PMID: 41485871)を一次情報とし、発表元ワーヘニンゲン大学のプレスリリース、および複数の独立した報道(ScienceDaily・EurekAlert!など)を突き合わせて作成しました。ネットワーク制限により論文本文・Abstractへの直接アクセスができなかったため、群間差の具体的な統計値(平均値の差・信頼区間・p値など)は論文本文でしか確認できず本記事では扱わず、複数の独立した情報源で一致した定性的な結果(差の有無)のみを採用しています。参加者の人数・年齢・BMI・群ごとの甘さの割合(7%/35%/80%)は、複数の独立した情報源で一致して報告されている数値です。</p>
+</div>
+
+</div>
+</body>
+</html>
