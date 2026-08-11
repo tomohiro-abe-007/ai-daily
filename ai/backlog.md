@@ -74,6 +74,7 @@
 - 2026-08-09: ChatGPT 思考スライダー（2026年8月6日）・GPT-5.6 Sol にAIの考える深さを調節する「思考スライダー（Thinking Slider）」追加・スライダーlow=高速/high=深い推論・Plus・Pro対象・無料プランはGPT-5.6 Lunaがデフォルト・テキストチャット制限撤廃・事実エラーがGPT-5.5 Instant比68%減（金融・医療・法律の内部評価）・10代向け安全機能も同時追加（出典：OpenAI公式 / 9to5Mac / Help Net Security・2026年8月6〜7日）
 - 2026-08-10: Apple Intelligence × Alibaba Qwen 中国展開（2026年7月15日CAC承認）・22か月の審査を経て中国で利用可能に・文章系はアリババQwen・検索は百度AI・データは中国国内サーバー保存・7社同時承認（Huawei/Xiaomi/Samsung/OPPO/vivo/Nubia含む）・実際のサービス開始時期は未発表（2026年8月時点）（出典：TechCrunch / MacRumors / TechTimes / Digital Applied・2026年7月）
 - 2026-08-11: Meta Muse Glimmer 30B（2026年8月10日公開）・30Bパラメータ・オープンウェイト・PC上でローカル動作するAIエージェントモデル・Muse Spark 1.2の蒸留版・131Kトークンコンテキスト・dFlash技術（RTX 5090で3.1倍高速化）・MCP Atlas 75.5点（Gemma 31B比+21点）・AIME 2026：94.7点・100言語以上対応・テキスト＋画像同時理解・Ollama/LM Studio/llama.cpp対応・Hugging Face公開（meta-models/Muse-Glimmer-30B）・ザッカーバーグ「The Future is for Everyone」論文と同時発表（出典：Bloomberg / CNBC / Neowin / AMD公式ブログ・2026年8月10日）
+- 2026-08-12: OpenAI Daybreak拡張＋GPT-5.6-Cyber（2026年8月10日発表）・承認制サイバーセキュリティプログラム「Daybreak」をBlue/Redの2層に拡張・Blueは防御調査向け（GPT-5.6 Sol・制限一部解除）・Redは高度研究向け（GPT-5.6-Cyber・専用サイバーモデル）・高度サイバータスク完了率95%（通常モデル1.5%・前世代57.3%・内部評価）・ChromeのV8エンジンでゼロデイ脆弱性を発見しGoogleが修正（CVE-2026-15903）・Accenture/IBM/CrowdStrike/Cisco/Palo Alto Networks/Sophos/Cloudflare/Fortinet等がパートナー・参加には身元確認・法的誓約・継続監視が必要・一般ユーザーは使用不可（出典：Axios / VentureBeat / Infosecurity Magazine / Neowin / QZ.com・2026年8月10〜11日）
 
 ## 未解説の候補トピック（今後の参考）
 
