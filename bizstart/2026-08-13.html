@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-08-13</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #1e7a5a 0%, #0d4632 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #1e7a5a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.blue   { border-left-color: #1e5a7a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.purple { border-left-color: #7a4a9e; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #1e7a5a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  .type-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .type-grid { grid-template-columns: 1fr; } }
+  .type-card {
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-size: 0.86rem;
+    line-height: 1.65;
+  }
+  .type-card.main {
+    background: #e6f5ee;
+    border: 2px solid #1e7a5a;
+  }
+  .type-card.sub {
+    background: #fff3e0;
+    border: 2px solid #c8884a;
+  }
+  .type-card .tl {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+  }
+  .type-card.main .tl { color: #0d4632; }
+  .type-card.sub .tl  { color: #7a4010; }
+  .type-card .tv { font-size: 1.0rem; font-weight: 700; margin-bottom: 6px; }
+  .type-card.main .tv { color: #1e7a5a; }
+  .type-card.sub .tv  { color: #c8884a; }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 12px 6px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat.now { background: #fff3e0; box-shadow: 0 0 0 2px #c8884a inset; }
+  .stat .sl { font-size: 0.62rem; color: #888; margin-bottom: 3px; line-height: 1.4; }
+  .stat .sv { font-size: 1.1rem; font-weight: 700; color: #1e7a5a; line-height: 1.15; }
+  .stat.now .sv { color: #c8884a; }
+  .stat.end .sv { color: #b54040; }
+  .stat .su { font-size: 0.62rem; color: #666; margin-top: 2px; }
+
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #1e7a5a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-num.now { background: #b54040; }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+  .f-arrow { color: #1e7a5a; font-size: 1.1rem; margin-left: 14px; margin-bottom: 4px; }
+
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  .prompt-box {
+    background: #f0f5ff;
+    border: 2px solid #4a6aae;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 12px 0;
+    font-size: 0.84rem;
+    line-height: 1.85;
+    color: #1a2a4a;
+  }
+  .prompt-box .ph {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #4a6aae;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+  .prompt-box .fill {
+    background: #d0e0ff;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-weight: 700;
+    color: #0a2a6e;
+  }
+
+  .info {
+    background: #e6f5ee;
+    border-left: 4px solid #1e7a5a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #0d4632;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #7a4010;
+  }
+
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #1e7a5a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+
+  .badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 8px;
+    margin-right: 4px;
+    vertical-align: middle;
+  }
+  .badge.law   { background: #1e7a5a; color: white; }
+  .badge.ai    { background: #4a6aae; color: white; }
+  .badge.tip   { background: #4a9e6a; color: white; }
+  .badge.warn  { background: #c8884a; color: white; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #1e7a5a; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #1e7a5a; }
+
+  .matrix {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.83rem;
+  }
+  .matrix th {
+    background: #0d4632;
+    color: white;
+    padding: 8px 12px;
+    text-align: center;
+    font-weight: 600;
+  }
+  .matrix td {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    vertical-align: top;
+    line-height: 1.55;
+  }
+  .matrix .row-head {
+    background: #e6f5ee;
+    font-weight: 700;
+    color: #0d4632;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .matrix .ok  { color: #4a9e6a; font-weight: 700; }
+  .matrix .ng  { color: #b54040; font-weight: 700; }
+  .matrix .mid { color: #c8884a; font-weight: 700; }
+  .matrix-wrap { overflow-x: auto; }
+
+  .split-wrap {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 10px;
+    align-items: center;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .split-wrap { grid-template-columns: 1fr; } }
+  .split-card {
+    border-radius: 10px;
+    padding: 16px 14px;
+    text-align: center;
+    background: #fff3e0;
+    border: 2px solid #c8884a;
+  }
+  .split-card .vl { font-size: 0.75rem; font-weight: 700; margin-bottom: 6px; color: #7a4010; }
+  .split-card .vv { font-size: 1.5rem; font-weight: 700; color: #c8884a; }
+  .split-card .vs { font-size: 0.72rem; color: #777; margin-top: 4px; }
+  .split-mid { text-align: center; font-size: 1.3rem; color: #999; font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Header -->
+<div class="header">
+  <div class="meta">📅 1人法人スタート 最新トピック &nbsp;2026-08-13</div>
+  <h1>🍚 コンビニ弁当の消費税が「1%」に?<br>2027年4月からの新しい仕組みを整理</h1>
+  <div class="desc">
+    <span class="htag">給付付き税額控除</span>
+    <span class="htag">飲食料品の消費税1%</span>
+    <span class="htag">2027年4月〜2年間</span>
+    <span class="htag">基本方針・閣議決定</span>
+    <br>
+    2026年8月5日、政府は<span class="hl">「給付付き税額控除」の制度導入の基本方針</span>を閣議決定しました。柱の一つが「飲食料品の消費税率を2027年4月から2年間、8%→1%に引き下げる」という内容です。まだ<strong>法律ではなく「方針」の段階</strong>ですが、食品・飲食料品を扱う1人社長には関係の深いニュースなので、今日はここを図解します。
+  </div>
+</div>
+
+<!-- Section 1: 何が決まったか -->
+<div class="card">
+  <div class="sec-title">📢 何が決まったのか（2026年8月5日 閣議決定）</div>
+  <p>「給付付き税額控除」とは、所得の低い人ほど税負担の軽減や現金給付を手厚くする仕組みのことです。政府はこの本格導入までの<strong>「つなぎ」の2年間</strong>として、まず消費税率の引き下げと現金給付を組み合わせる方針を決めました。</p>
+
+  <div class="type-grid" style="margin-top:14px;">
+    <div class="type-card main">
+      <div class="tl">つなぎ措置（先行実施）</div>
+      <div class="tv">2027年4月〜2年間</div>
+      軽減税率対象の飲食料品（酒類を除く）の消費税率を8%→1%に引き下げ。残り1%分は所得に連動した現金給付でカバーし、家計の負担を「実質ゼロ」に近づける。
+    </div>
+    <div class="type-card sub">
+      <div class="tl">本格導入</div>
+      <div class="tv">2029年度（令和11年度）</div>
+      「給付付き税額控除」制度そのものを本格スタート。対象者・給付額の詳細は今後さらに詰められる予定。
+    </div>
+  </div>
+
+  <div class="warn" style="margin-top:14px;">
+    ⚠️ 現時点はあくまで<strong>「基本方針」の閣議決定</strong>です。関連法案はこの秋の臨時国会に提出される予定で、正式に法律として成立したわけではありません。今後、内容が修正される可能性があります。
+  </div>
+
+  <div class="source">
+    出典：内閣官房「『飲食料品に係る消費税率の引下げ』及び『給付付き税額控除』（政府の基本方針）について」<a href="https://www.cas.go.jp/jp/seisaku/shouhizei_zeigakukoujo/index.html" target="_blank">https://www.cas.go.jp/jp/seisaku/shouhizei_zeigakukoujo/index.html</a>（令和8年8月5日公表）
+  </div>
+</div>
+
+<!-- Section 2: 数字で見る -->
+<div class="card blue">
+  <div class="sec-title">🔢 数字で見る今回の基本方針</div>
+
+  <div class="stats-row">
+    <div class="stat">
+      <div class="sl">現行の<br>軽減税率</div>
+      <div class="sv">8%</div>
+      <div class="su">飲食料品（酒類除く）</div>
+    </div>
+    <div class="stat now">
+      <div class="sl">引き下げ後<br>の税率</div>
+      <div class="sv">1%</div>
+      <div class="su">2027年4月〜</div>
+    </div>
+    <div class="stat">
+      <div class="sl">実施期間</div>
+      <div class="sv">2年間</div>
+      <div class="su">令和9年4月〜11年3月</div>
+    </div>
+    <div class="stat">
+      <div class="sl">本格導入</div>
+      <div class="sv">2029年度</div>
+      <div class="su">令和11年度</div>
+    </div>
+  </div>
+
+  <p style="margin-top:10px;">標準税率10%はそのままで、変わるのは軽減税率（現行8%）が適用されている飲食料品の部分だけです。10%の対象（外食・酒類など）には影響しません。</p>
+
+  <div class="source">
+    出典：首相官邸「『給付付き税額控除』の制度導入の基本方針の閣議決定についての会見」<a href="https://www.kantei.go.jp/jp/105/statement/2026/0805kaiken.html" target="_blank">https://www.kantei.go.jp/jp/105/statement/2026/0805kaiken.html</a>（令和8年8月5日）
+  </div>
+</div>
+
+<!-- Section 3: 対象になるのは何か -->
+<div class="card orange">
+  <div class="sec-title">🍱 「対象」と「対象外」を整理</div>
+  <p>現行の軽減税率（8%）は「飲食料品（酒類を除く）」と「週2回以上発行の新聞の定期購読」が対象です。今回の1%への引き下げは、このうち<strong>飲食料品の部分</strong>を軸に検討が進んでいます。</p>
+
+  <div class="matrix-wrap">
+    <table class="matrix">
+      <tr>
+        <th>区分</th>
+        <th>具体例</th>
+        <th>税率の扱い</th>
+      </tr>
+      <tr>
+        <td class="row-head">対象</td>
+        <td>スーパー・コンビニの食品、弁当・惣菜のテイクアウトなど（酒類を除く）</td>
+        <td class="ok">2027年4月〜1%</td>
+      </tr>
+      <tr>
+        <td class="row-head">対象外</td>
+        <td>店内飲食（外食）、酒類</td>
+        <td class="ng">10%のまま据え置き</td>
+      </tr>
+      <tr>
+        <td class="row-head">従来どおり</td>
+        <td>それ以外の商品・サービス全般</td>
+        <td class="mid">10%のまま</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="info" style="margin-top:10px;">
+    💡 同じ飲食店でも「テイクアウト」と「店内飲食」で税率が分かれる点は、現在のインボイス制度でもおなじみの区分です。今回はその軽減税率側の数字が8%→1%に変わるイメージです。
+  </div>
+
+  <div class="source">
+    出典：財務省「軽減税率制度の対象品目」<a href="https://www.mof.go.jp/tax_policy/summary/consumption/keigen_02.pdf" target="_blank">https://www.mof.go.jp/tax_policy/summary/consumption/keigen_02.pdf</a>／日本経済新聞「食品の消費税減税、外食はテイクアウト活路 店内飲食は10%据え置き」（2026年8月）
+  </div>
+</div>
+
+<!-- Section 4: スケジュール -->
+<div class="card">
+  <div class="sec-title">🗓️ ここまでの流れとこれから</div>
+
+  <div style="margin-top:10px;">
+    <div class="f-step">
+      <div class="f-num">1</div>
+      <div class="f-text">2026年7月29日：超党派の「社会保障国民会議」が中間とりまとめを決定</div>
+    </div>
+    <div class="f-arrow">⬇</div>
+    <div class="f-step">
+      <div class="f-num">2</div>
+      <div class="f-text">2026年8月5日：政府が「給付付き税額控除」導入の基本方針を閣議決定（今回のニュース）</div>
+    </div>
+    <div class="f-arrow">⬇</div>
+    <div class="f-step">
+      <div class="f-num">3</div>
+      <div class="f-text">2026年秋：臨時国会に関連法案を提出予定（<strong>未提出・未成立</strong>）</div>
+    </div>
+    <div class="f-arrow">⬇</div>
+    <div class="f-step">
+      <div class="f-num now">4</div>
+      <div class="f-text">2027年4月1日：法案が成立すれば、飲食料品の消費税1%＋所得連動給付を先行実施</div>
+    </div>
+    <div class="f-arrow">⬇</div>
+    <div class="f-step">
+      <div class="f-num">5</div>
+      <div class="f-text">2029年度：給付付き税額控除を本格導入</div>
+    </div>
+  </div>
+
+  <div class="warn" style="margin-top:12px;">
+    ⚠️ ③の法案提出・成立がまだなので、①②はすでに起きた事実ですが、④⑤は「予定」です。今後のニュースで法案の中身や施行時期が変わる可能性があります。
+  </div>
+</div>
+
+<!-- Section 5: 1人社長への影響 -->
+<div class="card purple">
+  <div class="sec-title">🧑‍💼 1人社長にとって何が変わるか</div>
+  <p>まだ8か月以上先の話ですが、今のうちに「自分の会社は関係あるか」を整理しておくと安心です。</p>
+
+  <div class="type-grid" style="margin-top:14px;">
+    <div class="type-card main">
+      <div class="tl">飲食料品を扱う会社</div>
+      <div class="tv">準備が必要になる可能性</div>
+      食品のEC・製造・卸・テイクアウト販売などをしている場合、2027年4月にレジ・請求書（インボイス）の税率区分に「1%」が追加される見込み。使っている会計・POSソフトが対応するか、今後ベンダーの案内を確認しておく。
+    </div>
+    <div class="type-card sub">
+      <div class="tl">飲食料品を扱わない会社</div>
+      <div class="tv">直接の税率変更はなし</div>
+      自社の請求書・経理処理に変更はない見込み。ただし物価対策としての性格が強い制度なので、取引先や消費者の購買動向・景気への影響には注目しておきたい。
+    </div>
+  </div>
+
+  <ul class="check-list" style="margin-top:8px;">
+    <li><span class="ck">✔</span>今すぐ何かの手続きが必要になるわけではない（法案はまだ未提出）</li>
+    <li><span class="ck">✔</span>2026年10月開始のインボイス経過措置変更（8/11記事）とは<strong>別の話</strong>なので混同しないよう注意</li>
+  </ul>
+</div>
+
+<!-- Section 6: AI prompt -->
+<div class="card">
+  <div class="sec-title">🤖 生成AIに自社への影響を整理してもらうプロンプト例</div>
+  <p>制度の要点を自分の事業に当てはめて整理する<span class="hl">たたき台づくり</span>は、生成AIが得意な作業です。ただし正式な法案の内容が固まるまでは、確定情報として扱わないよう気をつけましょう。</p>
+
+  <div class="prompt-box" style="margin-top:14px;">
+    <div class="ph">🤖 プロンプト例：消費税1%化のニュースを自社視点で整理</div>
+    私は<span class="fill">【業種：例 食品のオンライン販売】</span>を営む1人社長です。<br>
+    <br>
+    1. 「2027年4月から飲食料品の消費税が1%になる」というニュースが、私の事業にどう関係しそうか整理してください<br>
+    2. 準備しておくとよさそうなこと（会計ソフト・レジ・請求書まわり）を箇条書きにしてください<br>
+    3. まだ法案が未提出の「基本方針」段階であることを踏まえ、今すぐ動く必要がある部分と、今後の続報を待てばよい部分を分けてください<br>
+    4. 最終判断は税理士に確認するよう、必ず注記してください
+  </div>
+</div>
+
+<!-- Section 7: summary -->
+<div class="card">
+  <div class="sec-title">📝 今日のまとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">①</span>2026年8月5日、政府は「給付付き税額控除」導入の<span class="hlg">基本方針</span>を閣議決定した。</li>
+    <li><span class="n">②</span>つなぎ措置として、<span class="hlg">2027年4月から2年間</span>、飲食料品（酒類・外食を除く）の消費税率が<span class="hlg">8%→1%</span>になる予定。</li>
+    <li><span class="n">③</span>残り1%分は所得連動の<span class="hlg">現金給付</span>でカバーし、実質ゼロ化を目指す。給付付き税額控除の本格導入は<span class="hlg">2029年度</span>。</li>
+    <li><span class="n">④</span>関連法案は<span class="hlg">この秋の臨時国会に提出予定</span>で、まだ成立していない「方針」の段階。</li>
+    <li><span class="n">⑤</span>飲食料品を扱う1人社長は、今後の<span class="hlg">レジ・請求書（インボイス）対応</span>の続報に注目しておくとよい。</li>
+  </ul>
+</div>
+
+<!-- Disclaimer -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報提供を目的としており、個別の税務・法務に関する判断を代わるものではありません。
+  本記事で紹介した「給付付き税額控除」および飲食料品の消費税率引下げは、2026年8月5日時点で閣議決定された「基本方針」の内容であり、関連法案は今後の国会審議を経て正式に成立するものです。実施時期・対象範囲・給付額などは今後変更される可能性があります。
+  具体的な対応・判断は、必ず税理士など専門家にご相談ください。最新情報は内閣官房・財務省の公式サイトでご確認ください。<br>
+  本記事の内容の基準：令和8年（2026年）8月5日時点の政府公表情報にもとづいて記載しています。制度の施行を予定している年度は令和9年度（2027年度）です。
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>📚 <a href="index.html">バックナンバー一覧へ</a> &nbsp;&middot;&nbsp; 毎朝更新</p>
+</div>
+
+</div>
+</body>
+</html>
