@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-08-13</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '💪';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.9rem; margin-bottom: 8px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.1em; }
+  .c3-col li { margin-bottom: 4px; }
+  .c3-col .or-val { font-size: 1.4rem; font-weight: 700; margin: 4px 0; }
+  .c3-col.red .or-val { color: #a0291e; }
+  .c3-col.green .or-val { color: #1a6e4a; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .mech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .mech-item {
+    background: #f0faf5;
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 0.85rem;
+    border-top: 3px solid #1a7a5a;
+  }
+  .mech-item .micon { font-size: 1.3rem; margin-bottom: 6px; }
+  .mech-item strong { display: block; color: #0d4a35; margin-bottom: 4px; font-size: 0.88rem; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .highlight { background: #cff0df; padding: 1px 5px; border-radius: 4px; }
+  .good { color: #1a7a5a; font-weight: 600; }
+  .bad  { color: #c0392b; font-weight: 600; }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-box {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin: 14px 0;
+    font-size: 0.92rem;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  .quote-box {
+    background: #f5f0e8;
+    border-left: 4px solid #7a5abf;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    margin: 12px 0;
+    color: #444;
+    font-style: italic;
+  }
+  .quote-box .who { font-style: normal; font-weight: 700; color: #5a3a9a; margin-top: 6px; font-size: 0.78rem; }
+  .benefit-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    margin: 14px 0;
+  }
+  .benefit-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+  .benefit-item .bicon { font-size: 1.2rem; margin-bottom: 4px; }
+  @media (max-width: 540px) {
+    .compare4 { grid-template-columns: 1fr 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.7rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ヘッダー -->
+<div class="header">
+  <div class="label">健康・栄養 最新トピック ・ 2026-08-13</div>
+  <h1>筋トレは「週90〜120分」がちょうどいい?<br>
+  30年・147,374人を追跡した観察研究</h1>
+  <div class="subtitle">米ハーバード大学公衆衛生大学院のYiwen Zhangさんらのチームが、米国の3つの大規模コホート(男性医療従事者・女性看護師、計147,374人)を最大30年間追跡し、筋力トレーニング(レジスタンス・トレーニング)の時間と死亡リスクの関係を調べた観察研究をBritish Journal of Sports Medicine誌に発表しました(2026年6月2日オンライン掲載、DOI: 10.1136/bjsports-2025-110503)。週90〜119分の筋トレを行っていた人は、全く行っていない人より死亡リスクが低く、120分を超えるとそれ以上リスクは下がらなかったという結果です。「筋トレは何分やればいいのか」という素朴な疑問に、大規模データがひとつの目安を示しました。</div>
+</div>
+
+<!-- タグ -->
+<div style="margin-bottom:18px;">
+  <span class="tag">運動と健康科学</span>
+  <span class="tag">筋力トレーニング</span>
+  <span class="tag">前向きコホート研究(観察研究)</span>
+  <span class="tag">ハザード比</span>
+  <span class="tag">相関と因果</span>
+</div>
+
+<!-- 今日の疑問 -->
+<div class="card">
+  <h2>🤔 今日の疑問:筋トレは、結局何分やればいいのか?</h2>
+  <p>世界保健機関(WHO)は2020年のガイドラインで「主要な筋肉群すべてを使う筋力トレーニングを、中強度以上で週2日以上行う」ことを推奨しています。ただしこの推奨には「1回何分」「合計週何分」といった具体的な時間の目安は示されていません。</p>
+  <p>今回の研究チームは、米国の医療従事者を対象にした3つの大規模コホート研究のデータを使い、「週に何分の筋トレが、死亡リスクの低下と最も強く結びついているか」を長期間にわたって調べました。</p>
+</div>
+
+<!-- 基本用語 -->
+<div class="card blue">
+  <h2>📖 まず言葉の意味を</h2>
+  <div class="def-grid">
+    <div class="def-item">
+      <div class="dterm">レジスタンス・トレーニング(筋力トレーニング)</div>
+      筋肉に負荷(重り・自重・ゴムバンドなど)をかけて鍛える運動。ウォーキングやランニングなどの有酸素運動とは別の運動カテゴリーとして扱われる。
+    </div>
+    <div class="def-item">
+      <div class="dterm">前向きコホート研究(観察研究)</div>
+      特定の集団を長期間追跡し、生活習慣と病気・死亡の関連を調べる研究デザイン。参加者をランダムに割り付けるRCTとは異なり、原因と結果を直接証明することはできない。
+    </div>
+    <div class="def-item">
+      <div class="dterm">ハザード比(HR)</div>
+      ある集団が別の集団と比べて、ある時点で死亡などのイベントが起こる速さが何倍かを示す数値。1より小さいほどリスクが低いことを意味する(例:HR0.87は約13%低い)。
+    </div>
+    <div class="def-item">
+      <div class="dterm">逆の因果関係(reverse causation)</div>
+      「運動しないから病気になる」のではなく、「すでに病気の兆候があるから運動できなくなっている」という、原因と結果の向きが逆転している可能性のこと。観察研究の弱点のひとつ。
+    </div>
+  </div>
+</div>
+
+<!-- 数字カード -->
+<div class="num-row">
+  <div class="num-card">
+    <div class="big">147,374<span class="unit">人</span></div>
+    <div class="desc">対象者(男性31,540人+女性115,834人、米国の医療従事者)</div>
+  </div>
+  <div class="num-card blue-bg">
+    <div class="big">最大30<span class="unit">年</span></div>
+    <div class="desc">追跡期間。運動習慣は2〜4年ごとの質問票で自己申告</div>
+  </div>
+  <div class="num-card orange-bg">
+    <div class="big">90〜119<span class="unit">分/週</span></div>
+    <div class="desc">死亡リスク低下との関連が最も強かった筋トレ時間帯</div>
+  </div>
+  <div class="num-card purple-bg">
+    <div class="big">13<span class="unit">%↓</span></div>
+    <div class="desc">この時間帯での全死因死亡リスクの低下(ハザード比0.87)</div>
+  </div>
+</div>
+
+<!-- 研究の流れ -->
+<div class="card purple">
+  <h2>🧭 どうやって調べたのか</h2>
+  <div class="flow">
+    <div class="flow-step purp">米国の3つの<br>大規模コホートを統合<br>(計147,374人)</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step">2〜4年ごとの<br>質問票で筋トレ時間・<br>頻度を自己申告</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step alt">最大30年間追跡し、<br>死因(全死因・心血管・<br>神経疾患・がん)を記録</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step">筋トレ時間帯ごとの<br>死亡リスクを、他の要因を<br>調整して解析</div>
+  </div>
+  <p style="font-size:0.82rem; color:#555; margin-top:4px;">3つのコホート:健康専門家追跡調査(HPFS、男性、1992〜2022年)、看護師健康研究(NHS、女性、2002〜2021年)、看護師健康研究II(NHS II、女性、2003〜2021年)。</p>
+</div>
+
+<!-- 死因別の結果 -->
+<div class="card">
+  <h2>🔍 週90〜119分の筋トレと関連していたこと</h2>
+  <table class="ev-table">
+    <tr><th>死因</th><th>筋トレなしと比べたリスク低下</th><th>ハザード比(HR)</th></tr>
+    <tr><td>全死因死亡</td><td><strong>約13%低い</strong></td><td>0.87</td></tr>
+    <tr><td>心血管疾患による死亡</td><td><strong>約19%低い</strong></td><td>0.81</td></tr>
+    <tr><td>神経疾患による死亡(認知症・パーキンソン病など)</td><td><strong>約27%低い</strong></td><td>0.73</td></tr>
+  </table>
+  <p style="font-size:0.85rem; color:#555; margin-top:6px;">週120分を超えて筋トレを行っても、これ以上リスクが下がることはなく「頭打ち」の傾向が見られました。ただしこれは「多すぎると害になる」という意味ではなく、120分を超えた分の追加のメリットが、このデータでは確認できなかったということです。</p>
+</div>
+
+<!-- がんだけ違うパターン -->
+<div class="card orange">
+  <h2>⚠️ がんによる死亡だけ、違うパターンだった</h2>
+  <div class="compare4">
+    <div class="c3-col orange">
+      <h3>🎗️ 週1〜29分</h3>
+      <div class="or-val" style="color:#b85e10;">21%↓</div>
+      <ul><li>がんによる死亡リスクの低下</li></ul>
+    </div>
+    <div class="c3-col orange">
+      <h3>🎗️ 週30〜59分</h3>
+      <div class="or-val" style="color:#b85e10;">18%↓</div>
+      <ul><li>がんによる死亡リスクの低下</li></ul>
+    </div>
+    <div class="c3-col green">
+      <h3>❓ 週90〜119分</h3>
+      <div class="or-val">明確な差なし</div>
+      <ul><li>全死因・心血管・神経疾患では最も効果が大きかった時間帯だが、がん死亡では特に際立った低下は確認されていない</li></ul>
+    </div>
+  </div>
+  <p style="font-size:0.85rem; color:#555; margin-top:6px;">がんによる死亡だけは「短い時間帯」でリスク低下が目立ち、「多いほど良い」という単純な関係にはなりませんでした。研究チームは、サンプル数が少ない区分での偶然のばらつきや、すでにがんの影響で運動量が制限されている人がいる可能性(逆の因果関係)を否定しきれないとしています。</p>
+</div>
+
+<!-- 有酸素+筋トレの組み合わせ -->
+<div class="card blue">
+  <h2>🏃 有酸素運動と組み合わせると、さらに差が</h2>
+  <p>有酸素運動(ウォーキング・ランニング・水泳など)と筋トレの両方を行っていた人は、どちらも行っていなかった人と比べて、<strong>最大45%</strong>死亡リスクが低いという結果でした。研究チームは、現行ガイドラインが有酸素運動と筋トレの両方を推奨していることを、このデータが裏づける内容だとしています。</p>
+</div>
+
+<!-- 注意点 -->
+<div class="warn">
+  <strong>⚠️ 誤解しないでほしいこと</strong>
+  <ul style="padding-left:1.4em; margin-top:8px;">
+    <li>この研究は<strong>観察研究(コホート研究)</strong>であり、参加者をランダムに割り付けたRCT(ランダム化比較試験)ではありません。「筋トレをすれば必ず長生きできる」という<strong>因果関係を証明したものではありません</strong>。</li>
+    <li>運動時間は<strong>本人の自己申告(質問票)</strong>によるもので、記憶違いや過少・過大申告の影響を受ける可能性があります。</li>
+    <li>対象は<strong>米国の医療従事者(女性が約8割)</strong>という限られた集団であり、人種構成や職業背景が異なる集団、日本を含む他国の人にそのまま当てはまるとは限りません。</li>
+    <li><strong>逆の因果関係</strong>(病気の兆候がある人ほど運動しにくくなる)の可能性は完全には否定できません。研究チームは8年・12年のタイムラグ解析(発症の影響が出る前の運動データだけを使う手法)でも結果が大きく変わらなかったとしていますが、限界として明記されています。</li>
+    <li>持病がある方・運動習慣がない方が新しく筋トレを始める場合は、自己判断せず、かかりつけ医に相談することが勧められます。</li>
+  </ul>
+</div>
+
+<!-- エビデンスの整理 -->
+<div class="card">
+  <h2>🧪 今日出てきた情報の「証拠としての強さ」の目安</h2>
+  <table class="ev-table">
+    <tr><th>情報の種類</th><th>特徴</th><th>証拠としての強さ</th></tr>
+    <tr>
+      <td>週90〜119分の筋トレと全死因・心血管・神経疾患死のリスク低下の関連</td>
+      <td>147,374人・最大30年追跡の大規模コホート、査読誌掲載、複数のタイムラグ解析で結果が概ね安定</td>
+      <td><span class="ev-badge ev-mid">中程度(観察研究、因果は未確定)</span></td>
+    </tr>
+    <tr>
+      <td>がん死亡が少ない運動時間帯で大きく低下したという結果</td>
+      <td>パターンが一貫せず、区分ごとのサンプル数・偶然のばらつきの影響が疑われる</td>
+      <td><span class="ev-badge ev-low">弱い(要追加検証)</span></td>
+    </tr>
+    <tr>
+      <td>「筋トレをすれば長生きできる」という一般化</td>
+      <td>観察研究1件(関連する複数コホート)の結果であり、ランダム化比較試験による因果関係の証明ではない</td>
+      <td><span class="ev-badge ev-low">誤った一般化に注意</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- まとめ -->
+<div class="card" style="border-left-color:#1a7a5a;">
+  <h2>✅ 今日のまとめ</h2>
+  <ul class="step-list">
+    <li>米ハーバード大学公衆衛生大学院のYiwen Zhangさんらのチームが、米国の3つの大規模コホート(計147,374人)を最大30年間追跡し、筋力トレーニングの時間と死亡リスクの関係を調べた観察研究をBritish Journal of Sports Medicine誌に発表(2026年6月2日オンライン掲載、DOI: 10.1136/bjsports-2025-110503)。</li>
+    <li>週90〜119分の筋トレを行っていた人は、行っていない人と比べて全死因死亡リスクが約13%、心血管疾患死が約19%、神経疾患死が約27%それぞれ低く、120分を超えてもそれ以上のリスク低下はみられなかった。</li>
+    <li>ただしがんによる死亡だけは、より短い週1〜59分の範囲で大きなリスク低下がみられ、「多いほど良い」という単純な関係にはならなかった。有酸素運動と筋トレを両方行っていた人は、どちらも行っていない人と比べて最大45%死亡リスクが低かった。</li>
+    <li>大規模・長期の観察研究だが、ランダム化比較試験ではなく、対象も米国の医療従事者(女性が多数)に偏っているため、因果関係の証明や他の集団への一般化には注意が必要。運動習慣を大きく変える場合は、自己判断せず、かかりつけ医に相談することが望ましい。</li>
+  </ul>
+</div>
+
+<!-- 免責 -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、医療アドバイスではありません。効果・必要量・リスクは個人の体質・年齢・持病・服薬によって大きく異なります。運動習慣を大きく変える場合は、自己判断せず、かかりつけ医・管理栄養士・薬剤師など専門家にご相談ください。
+</div>
+
+<!-- 出典 -->
+<div class="sources">
+  <h3>📚 主な出典・参考文献</h3>
+  <ol>
+    <li>Zhang Y, Lee DH, Rezende LFM, Ma Y, Giovannucci E. "Long-term resistance training with all-cause and cause-specific mortality: assessing dose-response and joint associations with aerobic physical activity." British Journal of Sports Medicine. 2026. DOI: 10.1136/bjsports-2025-110503 / PMID: 42230125
+      <a href="https://pubmed.ncbi.nlm.nih.gov/42230125/" target="_blank">https://pubmed.ncbi.nlm.nih.gov/42230125/</a>(基準日:2026年6月2日オンライン掲載)
+    </li>
+    <li>Harvard T.H. Chan School of Public Health. "Moderate amount of strength training each week could boost longevity."
+      <a href="https://hsph.harvard.edu/news/moderate-amount-of-strength-training-each-week-could-boost-longevity/" target="_blank">https://hsph.harvard.edu/news/moderate-amount-of-strength-training-each-week-could-boost-longevity/</a>(基準日:2026年6月)
+    </li>
+    <li>ScienceDaily. "Scientists found the strength training sweet spot for a longer life."
+      <a href="https://www.sciencedaily.com/releases/2026/06/260611024609.htm" target="_blank">https://www.sciencedaily.com/releases/2026/06/260611024609.htm</a>(基準日:2026年6月11日、2026年8月8日にも再掲・再報道)
+    </li>
+    <li>World Health Organization. "WHO guidelines on physical activity and sedentary behaviour" (2020).
+      <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7719906/" target="_blank">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7719906/</a>(基準日:2020年、筋力トレーニングの現行推奨事項として参照)
+    </li>
+  </ol>
+  <p style="margin-top:8px; font-size:0.78rem;">※ 本記事は査読誌British Journal of Sports Medicine掲載論文(DOI: 10.1136/bjsports-2025-110503、PMID: 42230125)を一次情報とし、発表元ハーバード大学公衆衛生大学院のプレスリリース、および複数の独立した報道(ScienceDailyなど)を突き合わせて作成しました。ネットワーク制限により論文本文・Abstractへの直接アクセスができなかったため、95%信頼区間などの詳細な統計値は複数の報道で一致して確認できたハザード比・パーセンテージのみを採用し、確認できなかった時間帯別の詳細数値(例:1〜89分/週の全死因・心血管死のリスク)は本記事では扱っていません。対象人数(147,374人、うち男性31,540人・女性115,834人)・追跡期間(最大30年)・主要な数値(HR0.87/0.81/0.73、がん死亡21%/18%、併用時最大45%)は複数の独立した情報源で一致して報告されている数値です。</p>
+</div>
+
+</div>
+</body>
+</html>
