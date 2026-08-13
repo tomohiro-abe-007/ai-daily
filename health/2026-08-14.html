@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-08-14</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '🦠';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.9rem; margin-bottom: 8px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.1em; }
+  .c3-col li { margin-bottom: 4px; }
+  .c3-col .or-val { font-size: 1.4rem; font-weight: 700; margin: 4px 0; }
+  .c3-col.red .or-val { color: #a0291e; }
+  .c3-col.green .or-val { color: #1a6e4a; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .mech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .mech-item {
+    background: #f0faf5;
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 0.85rem;
+    border-top: 3px solid #1a7a5a;
+  }
+  .mech-item .micon { font-size: 1.3rem; margin-bottom: 6px; }
+  .mech-item strong { display: block; color: #0d4a35; margin-bottom: 4px; font-size: 0.88rem; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .highlight { background: #cff0df; padding: 1px 5px; border-radius: 4px; }
+  .good { color: #1a7a5a; font-weight: 600; }
+  .bad  { color: #c0392b; font-weight: 600; }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-box {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin: 14px 0;
+    font-size: 0.92rem;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  .quote-box {
+    background: #f5f0e8;
+    border-left: 4px solid #7a5abf;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    margin: 12px 0;
+    color: #444;
+    font-style: italic;
+  }
+  .quote-box .who { font-style: normal; font-weight: 700; color: #5a3a9a; margin-top: 6px; font-size: 0.78rem; }
+  .benefit-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    margin: 14px 0;
+  }
+  .benefit-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+  .benefit-item .bicon { font-size: 1.2rem; margin-bottom: 4px; }
+  @media (max-width: 540px) {
+    .compare4 { grid-template-columns: 1fr 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.7rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ヘッダー -->
+<div class="header">
+  <div class="label">健康・栄養 最新トピック ・ 2026-08-14</div>
+  <h1>「あなたの腸内細菌の結果」、本人に返すとどうなる?<br>
+  南ア・ケニア、778人の声から</h1>
+  <div class="subtitle">南アフリカ・ウィットウォータースランド大学(Wits大学)のClaudine K. Nkera-Gutabaraさんらのチームが、南アフリカとケニアの女性1,801人が参加した大規模腸内細菌叢研究「AWI-Gen 2」の枠組みの中で、個人ごとの腸内細菌の検査結果を参加者本人に返す取り組みを行い、その反応を調べた混合研究法(質的+量的)の調査をmSystems誌(米国微生物学会)に発表しました(2026年、DOI: 10.1128/msystems.01800-25、PMID: 42079144)。3つの地域で計778人が結果説明会に参加し、多くが結果を歓迎し、食生活を見直すきっかけになったと語りました。精密栄養学が実際に「個人に届く」ためには何が必要か、やさしく見ていきます。</div>
+</div>
+
+<!-- タグ -->
+<div style="margin-bottom:18px;">
+  <span class="tag">精密栄養学</span>
+  <span class="tag">腸内細菌叢(マイクロバイオーム)</span>
+  <span class="tag">研究倫理・個人結果の返却</span>
+  <span class="tag">混合研究法(質的研究)</span>
+  <span class="tag">アフリカの健康科学</span>
+</div>
+
+<!-- 今日の疑問 -->
+<div class="card">
+  <h2>🤔 今日の疑問:検査で分かった「あなたの体の中身」は、あなたに返されるべきか?</h2>
+  <p>精密栄養学は「一人ひとりに合わせた」食事アドバイスを目指す分野です。その土台には、腸内細菌叢(腸の中に住む細菌の集まり)を調べる大規模な研究が数多くあります。ところが、こうした研究の多くは参加者から検体を採るだけで、解析結果を参加者本人に「返す」ことはあまりありません。研究のためのデータ提供者として扱われがちだったのです。</p>
+  <p>今回の研究チームは、アフリカ最大級の腸内細菌叢研究のひとつ「AWI-Gen 2」で、あえて個人ごとの結果を参加者に返し、現地の言葉と分かりやすい方法で説明する取り組みを行い、参加者がどう感じたかを詳しく調べました。</p>
+</div>
+
+<!-- 基本用語 -->
+<div class="card blue">
+  <h2>📖 まず言葉の意味を</h2>
+  <div class="def-grid">
+    <div class="def-item">
+      <div class="dterm">腸内細菌叢(マイクロバイオーム)</div>
+      腸の中に住む数百種類もの細菌の集まり。消化・免疫・代謝など体のさまざまな働きに関わっており、人によって構成が大きく異なる。
+    </div>
+    <div class="def-item">
+      <div class="dterm">個人結果の返却(return of results)</div>
+      研究で得られた本人のデータ(遺伝子・腸内細菌など)を、研究終了後や途中で参加者本人に伝えること。研究倫理上の重要な論点のひとつ。
+    </div>
+    <div class="def-item">
+      <div class="dterm">混合研究法(mixed-methods)</div>
+      インタビューや観察などの「質的データ」と、人数・割合などの「量的データ」を組み合わせて分析する研究デザイン。今回のように「効果」ではなく「体験・反応」を調べるのに向く。
+    </div>
+    <div class="def-item">
+      <div class="dterm">Foldscope(フォールドスコープ)</div>
+      紙とレンズだけで作れる、数百円程度の安価な顕微鏡キット。今回の説明会で、参加者が自分の腸内細菌を身近に感じられるよう使われた。
+    </div>
+  </div>
+</div>
+
+<!-- 数字カード -->
+<div class="num-row">
+  <div class="num-card">
+    <div class="big">1,801<span class="unit">人</span></div>
+    <div class="desc">土台となった腸内細菌叢研究「AWI-Gen 2」の参加者(42〜86歳の女性)</div>
+  </div>
+  <div class="num-card blue-bg">
+    <div class="big">3<span class="unit">地域</span></div>
+    <div class="desc">南アフリカ(アニンコート・ソウェト)、ケニア(ナイロビ)で実施</div>
+  </div>
+  <div class="num-card orange-bg">
+    <div class="big">1,001<span class="unit">人</span></div>
+    <div class="desc">結果を伝えるフィードバック説明会に招待された人数</div>
+  </div>
+  <div class="num-card purple-bg">
+    <div class="big">778<span class="unit">人</span></div>
+    <div class="desc">実際に参加・応答した人数(招待者の約78%)</div>
+  </div>
+</div>
+
+<!-- 研究の流れ -->
+<div class="card purple">
+  <h2>🧭 どうやって「結果」を届けたのか</h2>
+  <div class="flow">
+    <div class="flow-step purp">腸内細菌サンプルを<br>採取・解析<br>(AWI-Gen 2研究)</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step">個人ごとの結果を<br>現地の言葉・視覚的な<br>資料でレポート化</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step alt">少人数・自宅訪問形式の<br>説明会を開催<br>(Foldscopeなども活用)</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step">半構造化インタビュー・<br>観察で参加者の<br>反応を記録</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step purp">反応をテーマ別に<br>分析(5つの<br>共通テーマ)</div>
+  </div>
+  <p style="font-size:0.82rem; color:#555; margin-top:4px;">地域ごとに説明の方法を変え、少人数グループでの説明・自宅への訪問・視覚的なたとえ話・現地の言葉での説明を組み合わせました。</p>
+</div>
+
+<!-- 5つのテーマ -->
+<div class="card">
+  <h2>💬 参加者の反応に見られた5つのテーマ</h2>
+  <div class="mech-grid">
+    <div class="mech-item">
+      <div class="micon">📄</div>
+      <strong>レポートの理解度</strong>
+      専門的な内容を自分ごととして理解できたか
+    </div>
+    <div class="mech-item">
+      <div class="micon">😊</div>
+      <strong>感情的な反応</strong>
+      結果を知って驚き・安心・不安などをどう感じたか
+    </div>
+    <div class="mech-item">
+      <div class="micon">🩺</div>
+      <strong>健康との関連の実感</strong>
+      自分の体調や生活とどうつながると感じたか
+    </div>
+    <div class="mech-item">
+      <div class="micon">🤝</div>
+      <strong>研究機関への信頼</strong>
+      結果を返してもらえたことが信頼にどう影響したか
+    </div>
+    <div class="mech-item">
+      <div class="micon">💡</div>
+      <strong>説明会改善への提案</strong>
+      次回以降、どう伝えてほしいかの具体的な要望
+    </div>
+  </div>
+  <p style="font-size:0.85rem; color:#555; margin-top:4px;">参加者は結果を伝えられたことをおおむね歓迎し、なかには「食物繊維が豊富な食品をもっと食べたい」と話した人もいました。</p>
+</div>
+
+<!-- 従来 vs 今回の対比 -->
+<div class="card orange">
+  <h2>⚖️ 「データを提供するだけ」と「結果が返ってくる」の違い</h2>
+  <div class="compare4">
+    <div class="c3-col red">
+      <h3>🚫 従来ありがちなパターン</h3>
+      <ul>
+        <li>検体は採るが、個人の解析結果は返さない</li>
+        <li>研究成果は論文・統計としてのみ公表</li>
+        <li>参加者は「データの提供者」にとどまりやすい</li>
+      </ul>
+    </div>
+    <div class="c3-col green">
+      <h3>✅ 今回の取り組み</h3>
+      <ul>
+        <li>個人ごとのレポートを現地語・対面で説明</li>
+        <li>視覚教材(Foldscope等)で身近に理解</li>
+        <li>参加者の反応を丁寧に聞き取り、次に活かす</li>
+      </ul>
+    </div>
+  </div>
+  <p style="font-size:0.85rem; color:#555; margin-top:6px;">信頼が高まる一方、条件も見えてきました。参加者は「繰り返しの採血など負担が大きい手続き」を嫌う傾向があり、「結果をできるだけ早く返してほしい」という声も多く聞かれました。透明性と負担の少なさが、信頼を左右する鍵だったといえます。</p>
+</div>
+
+<!-- 精密栄養学の視点 -->
+<div class="card blue">
+  <h2>🔬 精密栄養学の視点:なぜこの調査が重要なのか</h2>
+  <p>精密栄養学の研究基盤となる腸内細菌叢のデータベースは、これまで欧米圏の集団に偏って蓄積されてきた面があります。アフリカのように十分にデータが集まっていない地域で、しかも「結果を本人にどう返すか」まで踏み込んで調べた今回のような取り組みは、精密栄養学が特定の地域・集団だけのものにならないために欠かせない一歩です。個人に合わせた栄養アドバイスを届けるには、まず「個人の結果を、分かりやすく、負担なく、本人に届ける」という基本の仕組みづくりが土台になります。</p>
+</div>
+
+<!-- 注意点 -->
+<div class="warn">
+  <strong>⚠️ 誤解しないでほしいこと</strong>
+  <ul style="padding-left:1.4em; margin-top:8px;">
+    <li>この研究は<strong>質的・記述的な混合研究法</strong>による調査であり、腸内細菌の状態を改善したり病気を防いだりする<strong>効果を検証したRCT(ランダム化比較試験)ではありません</strong>。「結果を返せば健康になる」ことを証明したものではないのです。</li>
+    <li>説明会に<strong>参加・応答した778人</strong>は、招待された1,001人のうち関心の高かった人たちである可能性があり(自己選択バイアス)、招待されても参加しなかった人の意見は十分に反映されていない可能性があります。</li>
+    <li>対象は<strong>南アフリカ・ケニアの42〜86歳の女性</strong>という特定の集団であり、他の年齢層・性別・地域にそのまま当てはまるとは限りません。</li>
+    <li>「信頼が高まった」「食生活を見直そうと思った」という反応は<strong>本人の発言・自己申告</strong>に基づくもので、実際に行動が変わったか、健康状態が改善したかまでは追跡されていません。</li>
+    <li>ネットワーク制限のため論文本文への直接アクセスができず、PubMed収録情報・研究機関の発表・複数の科学報道を突き合わせて作成しました。</li>
+  </ul>
+</div>
+
+<!-- エビデンスの整理 -->
+<div class="card">
+  <h2>🧪 今日出てきた情報の「証拠としての強さ」の目安</h2>
+  <table class="ev-table">
+    <tr><th>情報の種類</th><th>特徴</th><th>証拠としての強さ</th></tr>
+    <tr>
+      <td>778人が説明会に参加し、5つの共通テーマが確認されたこと</td>
+      <td>査読誌(mSystems)掲載、多施設・混合研究法による記述的分析</td>
+      <td><span class="ev-badge ev-mid">中程度(質的記述研究、効果検証ではない)</span></td>
+    </tr>
+    <tr>
+      <td>「個人結果を返すと参加者の信頼が高まる」という一般化</td>
+      <td>単一プロジェクト・特定地域(南ア・ケニア)・特定の年齢層/性別の所見</td>
+      <td><span class="ev-badge ev-low">弱い(他集団への一般化は不可)</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- まとめ -->
+<div class="card" style="border-left-color:#1a7a5a;">
+  <h2>✅ 今日のまとめ</h2>
+  <ul class="step-list">
+    <li>南アフリカ・Wits大学のClaudine K. Nkera-Gutabaraさんらのチームが、南ア・ケニアの女性1,801人が参加する腸内細菌叢研究「AWI-Gen 2」の枠組みで、個人ごとの検査結果を本人に返す取り組みを行い、その反応をmSystems誌に発表(2026年、DOI: 10.1128/msystems.01800-25)。</li>
+    <li>3つの地域で計1,001人が説明会に招待され、778人(約78%)が参加。結果を歓迎する声が多く、5つの共通テーマ(理解度・感情的反応・健康との関連の実感・信頼・改善提案)が抽出された。</li>
+    <li>個人結果の返却は信頼を高める一方、繰り返しの採血などの負担軽減・迅速なフィードバックが条件だった。</li>
+    <li>質的・記述的な調査であり健康アウトカムを検証したRCTではないこと、説明会に参加した人には自己選択バイアスがある可能性、対象が特定の地域・年齢層・性別に限られる点には注意が必要。</li>
+  </ul>
+</div>
+
+<!-- 免責 -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、医療アドバイスではありません。効果・必要量・リスクは個人の体質・年齢・持病・服薬によって大きく異なります。食生活を大きく変える場合や、腸内細菌検査・サプリメントの利用を検討する場合は、自己判断せず、かかりつけ医・管理栄養士・薬剤師など専門家にご相談ください。
+</div>
+
+<!-- 出典 -->
+<div class="sources">
+  <h3>📚 主な出典・参考文献</h3>
+  <ol>
+    <li>Nkera-Gutabara CK, et al. "Participant engagement and feedback in microbiome projects: a case of AWI-Gen 2." mSystems (American Society for Microbiology). 2026. DOI: 10.1128/msystems.01800-25 / PMID: 42079144
+      <a href="https://pubmed.ncbi.nlm.nih.gov/42079144/" target="_blank">https://pubmed.ncbi.nlm.nih.gov/42079144/</a>(基準日:2026年)
+    </li>
+    <li>University of the Witwatersrand (Wits University). "African-led study delivers one of the largest microbiome feedback initiatives."
+      <a href="https://www.wits.ac.za/news/latest-news/research-news/2026/--2026-08/african-led-study-delivers-one-of-the-largest-microbiome-feedback-initiatives.html" target="_blank">https://www.wits.ac.za/news/latest-news/research-news/2026/--2026-08/african-led-study-delivers-one-of-the-largest-microbiome-feedback-initiatives.html</a>(基準日:2026年8月)
+    </li>
+    <li>Medical Xpress. "African-led study delivers one of the largest microbiome feedback initiatives."
+      <a href="https://medicalxpress.com/news/2026-08-african-largest-microbiome-feedback.html" target="_blank">https://medicalxpress.com/news/2026-08-african-largest-microbiome-feedback.html</a>(基準日:2026年8月)
+    </li>
+    <li>bioRxiv(査読前プレプリント版). "Participant engagement and feedback in microbiome projects: a case of AWI-Gen 2."
+      <a href="https://www.biorxiv.org/content/10.64898/2026.04.20.718838v1" target="_blank">https://www.biorxiv.org/content/10.64898/2026.04.20.718838v1</a>(基準日:2026年4月20日投稿)
+    </li>
+  </ol>
+  <p style="margin-top:8px; font-size:0.78rem;">※ 本記事は査読誌mSystems掲載論文(DOI: 10.1128/msystems.01800-25、PMID: 42079144)を一次情報とし、発表元Wits大学のプレスリリース、および複数の独立した科学報道(Medical Xpressなど)を突き合わせて作成しました。ネットワーク制限により論文本文・Abstractへの直接アクセスができなかったため、対象人数(1,801人、招待1,001人、参加778人〈内訳:アニンコート496人・ソウェト87人・ナイロビ195人〉)・5つのテーマ・Foldscope等の手法は、複数の独立した情報源で一致して報告されている内容のみを採用しています。参加率(約78%)は招待数と参加数から本記事作成時に算出した数値であり、原論文で直接この割合が示されているわけではない点にご留意ください。</p>
+</div>
+
+</div>
+</body>
+</html>
