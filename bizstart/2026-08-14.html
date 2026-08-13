@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-08-14</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #1e7a5a 0%, #0d4632 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #1e7a5a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.blue   { border-left-color: #1e5a7a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.purple { border-left-color: #7a4a9e; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #1e7a5a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  .type-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .type-grid { grid-template-columns: 1fr; } }
+  .type-card {
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-size: 0.86rem;
+    line-height: 1.65;
+  }
+  .type-card.main {
+    background: #e6f5ee;
+    border: 2px solid #1e7a5a;
+  }
+  .type-card.sub {
+    background: #fff3e0;
+    border: 2px solid #c8884a;
+  }
+  .type-card .tl {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+  }
+  .type-card.main .tl { color: #0d4632; }
+  .type-card.sub .tl  { color: #7a4010; }
+  .type-card .tv { font-size: 1.0rem; font-weight: 700; margin-bottom: 6px; }
+  .type-card.main .tv { color: #1e7a5a; }
+  .type-card.sub .tv  { color: #c8884a; }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 12px 6px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat.now { background: #fff3e0; box-shadow: 0 0 0 2px #c8884a inset; }
+  .stat .sl { font-size: 0.62rem; color: #888; margin-bottom: 3px; line-height: 1.4; }
+  .stat .sv { font-size: 1.1rem; font-weight: 700; color: #1e7a5a; line-height: 1.15; }
+  .stat.now .sv { color: #c8884a; }
+  .stat.end .sv { color: #b54040; }
+  .stat .su { font-size: 0.62rem; color: #666; margin-top: 2px; }
+
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #1e7a5a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-num.now { background: #b54040; }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+  .f-arrow { color: #1e7a5a; font-size: 1.1rem; margin-left: 14px; margin-bottom: 4px; }
+
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  .prompt-box {
+    background: #f0f5ff;
+    border: 2px solid #4a6aae;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 12px 0;
+    font-size: 0.84rem;
+    line-height: 1.85;
+    color: #1a2a4a;
+  }
+  .prompt-box .ph {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #4a6aae;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+  .prompt-box .fill {
+    background: #d0e0ff;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-weight: 700;
+    color: #0a2a6e;
+  }
+
+  .info {
+    background: #e6f5ee;
+    border-left: 4px solid #1e7a5a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #0d4632;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #7a4010;
+  }
+
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #1e7a5a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+
+  .badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 8px;
+    margin-right: 4px;
+    vertical-align: middle;
+  }
+  .badge.law   { background: #1e7a5a; color: white; }
+  .badge.ai    { background: #4a6aae; color: white; }
+  .badge.tip   { background: #4a9e6a; color: white; }
+  .badge.warn  { background: #c8884a; color: white; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #1e7a5a; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #1e7a5a; }
+
+  .matrix {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.83rem;
+  }
+  .matrix th {
+    background: #0d4632;
+    color: white;
+    padding: 8px 12px;
+    text-align: center;
+    font-weight: 600;
+  }
+  .matrix td {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    vertical-align: top;
+    line-height: 1.55;
+  }
+  .matrix .row-head {
+    background: #e6f5ee;
+    font-weight: 700;
+    color: #0d4632;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .matrix .ok  { color: #4a9e6a; font-weight: 700; }
+  .matrix .ng  { color: #b54040; font-weight: 700; }
+  .matrix .mid { color: #c8884a; font-weight: 700; }
+  .matrix-wrap { overflow-x: auto; }
+
+  .split-wrap {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 10px;
+    align-items: center;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .split-wrap { grid-template-columns: 1fr; } }
+  .split-card {
+    border-radius: 10px;
+    padding: 16px 14px;
+    text-align: center;
+    background: #fff3e0;
+    border: 2px solid #c8884a;
+  }
+  .split-card .vl { font-size: 0.75rem; font-weight: 700; margin-bottom: 6px; color: #7a4010; }
+  .split-card .vv { font-size: 1.5rem; font-weight: 700; color: #c8884a; }
+  .split-card .vs { font-size: 0.72rem; color: #777; margin-top: 4px; }
+  .split-mid { text-align: center; font-size: 1.3rem; color: #999; font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Header -->
+<div class="header">
+  <div class="meta">📅 1人法人スタート 最新トピック &nbsp;2026-08-14</div>
+  <h1>🤰 産前産後休業は保険料免除、でも育休は対象外<br>代表者（役員）の場合だけ起きる「ねじれ」を整理</h1>
+  <div class="desc">
+    <span class="htag">産前産後休業</span>
+    <span class="htag">保険料免除</span>
+    <span class="htag">育休は対象外</span>
+    <span class="htag">日本年金機構</span>
+    <br>
+    「代表者（役員）でも、産休・育休中は社会保険料が免除になる」と思っていませんか？ 実は<span class="hl">産前産後休業は免除の対象になる</span>のに、<span class="hl">育児休業は原則ならない</span>という、代表者ならではの「ねじれ」があります。今日はこの違いを日本年金機構の情報にもとづいて図解します。
+  </div>
+</div>
+
+<!-- Section 1: 結論 -->
+<div class="card">
+  <div class="sec-title">📢 結論を先に：産休はOK、育休はNG</div>
+  <p>健康保険・厚生年金保険には「産前産後休業中」「育児休業中」の保険料を免除する制度があります。従業員であればどちらも対象ですが、<strong>代表者・役員（法人の事業主側の立場）</strong>だと話が変わります。</p>
+
+  <div class="type-grid" style="margin-top:14px;">
+    <div class="type-card main">
+      <div class="tl">産前産後休業中</div>
+      <div class="tv">代表者・役員も免除の対象</div>
+      被保険者であれば事業主・役員でも、産前産後休業期間中の健康保険料・厚生年金保険料（被保険者分＋会社負担分）が免除される。
+    </div>
+    <div class="type-card sub">
+      <div class="tl">育児休業中</div>
+      <div class="tv">代表者・役員は原則対象外</div>
+      育休中の保険料免除は「育児・介護休業法」にもとづく育児休業のみが対象。事業主または労働者でない役員はこの法律上の育休を取得できないため、免除の申出もできない。
+    </div>
+  </div>
+
+  <div class="warn" style="margin-top:14px;">
+    ⚠️ 「産休も育休も同じ扱い」だと思い込んでいると、育休のつもりで保険料が免除され続けていると勘違いしてしまうことがあります。代表者・役員は<strong>切り替わるタイミングに注意</strong>が必要です。
+  </div>
+
+  <div class="source">
+    出典：日本年金機構「事業主または労働者ではない役員は、育児休業による厚生年金保険の保険料免除の申し出はできますか。」<a href="https://www.nenkin.go.jp/section/faq/kounen/hokenryo/ikukyujigyounushi.html" target="_blank">https://www.nenkin.go.jp/section/faq/kounen/hokenryo/ikukyujigyounushi.html</a>
+  </div>
+</div>
+
+<!-- Section 2: 産前産後休業の期間 -->
+<div class="card blue">
+  <div class="sec-title">🔢 「産前産後休業期間」とはいつからいつまでか</div>
+  <p>免除の対象になる「産前産後休業期間」は、健康保険法・厚生年金保険法で次のように決まっています。</p>
+
+  <div class="stats-row">
+    <div class="stat">
+      <div class="sl">産前<br>（単胎）</div>
+      <div class="sv">42日</div>
+      <div class="su">出産予定日以前</div>
+    </div>
+    <div class="stat now">
+      <div class="sl">産前<br>（多胎妊娠）</div>
+      <div class="sv">98日</div>
+      <div class="su">出産予定日以前</div>
+    </div>
+    <div class="stat">
+      <div class="sl">産後</div>
+      <div class="sv">56日</div>
+      <div class="su">出産日の後</div>
+    </div>
+    <div class="stat">
+      <div class="sl">起点</div>
+      <div class="sv">出産日</div>
+      <div class="su">予定日より後に出産した場合は出産予定日</div>
+    </div>
+  </div>
+
+  <p style="margin-top:10px;">この「妊娠・出産を理由に労務に従事しなかった期間」が産前産後休業にあたります。代表者・役員であっても、実際にこの期間に業務を行っていなければ対象になります。</p>
+
+  <div class="source">
+    出典：日本年金機構「産前産後休業期間中の保険料免除」<a href="https://www.nenkin.go.jp/service/kounen/hokenryo/menjo/sankyu-menjo/index.html" target="_blank">https://www.nenkin.go.jp/service/kounen/hokenryo/menjo/sankyu-menjo/index.html</a>
+  </div>
+</div>
+
+<!-- Section 3: 免除の範囲と計算 -->
+<div class="card orange">
+  <div class="sec-title">🧮 免除される保険料の範囲と期間の数え方</div>
+
+  <div class="type-grid" style="margin-top:4px;">
+    <div class="type-card main">
+      <div class="tl">免除される保険料</div>
+      <div class="tv">健康保険料＋厚生年金保険料</div>
+      被保険者負担分・会社（事業主）負担分の<strong>両方</strong>が免除される。給与の支給の有無や金額に関係なく免除される。
+    </div>
+    <div class="type-card sub">
+      <div class="tl">免除される期間</div>
+      <div class="tv">開始月 〜 終了日翌日の前月</div>
+      産前産後休業を「開始した月」から、「終了予定日の翌日が属する月」の<strong>前月</strong>までが免除の対象月になる。
+    </div>
+  </div>
+
+  <div class="info" style="margin-top:14px;">
+    💡 免除された期間も、将来の年金額を計算するときは「保険料を納めた期間」として扱われます。免除された分だけ将来もらえる年金が減る、という制度ではありません。
+  </div>
+
+  <div class="source">
+    出典：日本年金機構「厚生年金保険料等の免除（産前産後休業・育児休業等期間）」<a href="https://www.nenkin.go.jp/service/kounen/hokenryo/menjo/20140122-01.html" target="_blank">https://www.nenkin.go.jp/service/kounen/hokenryo/menjo/20140122-01.html</a>
+  </div>
+</div>
+
+<!-- Section 4: 手続きの流れ -->
+<div class="card">
+  <div class="sec-title">📝 免除を受けるための手続きの流れ</div>
+
+  <div style="margin-top:10px;">
+    <div class="f-step">
+      <div class="f-num">1</div>
+      <div class="f-text">産前産後休業に入る（代表者本人が「休業する」と決めて、実際に業務から離れる）</div>
+    </div>
+    <div class="f-arrow">⬇</div>
+    <div class="f-step">
+      <div class="f-num">2</div>
+      <div class="f-text">事業主が「産前産後休業取得者申出書」を年金事務所に提出する</div>
+    </div>
+    <div class="f-arrow">⬇</div>
+    <div class="f-step">
+      <div class="f-num">3</div>
+      <div class="f-text">提出のタイミングは、<strong>休業期間中</strong>、または<strong>休業終了後1か月以内</strong></div>
+    </div>
+    <div class="f-arrow">⬇</div>
+    <div class="f-step">
+      <div class="f-num now">4</div>
+      <div class="f-text">対象月の健康保険料・厚生年金保険料が免除される（1人社長の場合、提出するのも受理するのも自分の会社という点に注意）</div>
+    </div>
+  </div>
+
+  <div class="warn" style="margin-top:12px;">
+    ⚠️ 予定日と実際の出産日がずれた場合は、休業期間も変わるため「産前産後休業取得者変更届」の提出が必要になることがあります。
+  </div>
+</div>
+
+<!-- Section 5: なぜ育休は対象外か -->
+<div class="card purple">
+  <div class="sec-title">🧑‍💼 なぜ育休だけ「代表者は対象外」になるのか</div>
+  <p>育児休業中の保険料免除は、「育児休業、介護休業等育児又は家族介護を行う労働者の福祉に関する法律」（育児・介護休業法）にもとづく育児休業等の取得が前提になっています。</p>
+
+  <div class="matrix-wrap">
+    <table class="matrix">
+      <tr>
+        <th>立場</th>
+        <th>育児・介護休業法上の育休</th>
+        <th>育休中の保険料免除</th>
+      </tr>
+      <tr>
+        <td class="row-head">従業員（労働者）</td>
+        <td>取得できる</td>
+        <td class="ok">対象になる</td>
+      </tr>
+      <tr>
+        <td class="row-head">代表者・役員<br>（事業主側）</td>
+        <td>法律上の「労働者」ではないため取得の対象外</td>
+        <td class="ng">原則、対象にならない</td>
+      </tr>
+    </table>
+  </div>
+
+  <p style="margin-top:12px;">代表者・役員は会社を経営する「使用者」側の立場であり、育児・介護休業法が対象とする「労働者」にはあたりません。そのため、育休の制度そのものを法律上取得できず、それに連動する保険料免除の申出もできない、という整理です。</p>
+
+  <ul class="check-list" style="margin-top:8px;">
+    <li><span class="ck">✔</span>産前産後休業の免除は、被保険者であれば代表者・役員も対象</li>
+    <li><span class="ck-bad">✘</span>育児休業の免除は、育児・介護休業法上の「労働者」だけが対象</li>
+  </ul>
+
+  <div class="source">
+    出典：日本年金機構「事業主または労働者ではない役員は、育児休業による厚生年金保険の保険料免除の申し出はできますか。」<a href="https://www.nenkin.go.jp/section/faq/kounen/hokenryo/ikukyujigyounushi.html" target="_blank">https://www.nenkin.go.jp/section/faq/kounen/hokenryo/ikukyujigyounushi.html</a>
+  </div>
+</div>
+
+<!-- Section 6: AI prompt -->
+<div class="card">
+  <div class="sec-title">🤖 生成AIに自社のケースを整理してもらうプロンプト例</div>
+  <p>「自分は産前産後休業と育休、どちらの期間がいつからいつまでになるか」を<span class="hl">たたき台として整理</span>させるのは、生成AIが得意な作業です。最終的な期間・金額は、必ず年金事務所や社会保険労務士に確認しましょう。</p>
+
+  <div class="prompt-box" style="margin-top:14px;">
+    <div class="ph">🤖 プロンプト例：産前産後休業の免除期間を整理する</div>
+    私は1人社長（代表取締役）で、健康保険・厚生年金保険の被保険者です。<br>
+    出産予定日は<span class="fill">【例：2027年〇月〇日】</span>です。<br>
+    <br>
+    1. 産前産後休業期間（産前42日・産後56日、出産日基準）を計算してください<br>
+    2. 社会保険料が免除される「対象月」（開始月〜終了日翌日が属する月の前月）を計算してください<br>
+    3. 育児休業に入る場合は、代表者・役員は保険料免除の対象外になる可能性が高いことを注意書きとして添えてください<br>
+    4. 最終的な期間・手続きは年金事務所または社会保険労務士に確認するよう、必ず注記してください
+  </div>
+</div>
+
+<!-- Section 7: まとめ -->
+<div class="card">
+  <div class="sec-title">📝 今日のまとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">①</span>産前産後休業中は、代表者・役員でも<span class="hlg">健康保険料・厚生年金保険料</span>が免除される。</li>
+    <li><span class="n">②</span>対象期間は<span class="hlg">産前42日（多胎98日）・産後56日</span>（出産日基準）。</li>
+    <li><span class="n">③</span>免除を受けるには、事業主が<span class="hlg">「産前産後休業取得者申出書」</span>を休業中または終了後1か月以内に年金事務所へ提出する。</li>
+    <li><span class="n">④</span>一方、<span class="hlg">育児休業中の保険料免除</span>は育児・介護休業法上の「労働者」が対象で、代表者・役員は<span class="hlg">原則対象外</span>。</li>
+    <li><span class="n">⑤</span>「産休はOK、育休はNG」という<span class="hlg">ねじれ</span>を、切り替わるタイミングで見落とさないようにする。</li>
+  </ul>
+</div>
+
+<!-- Disclaimer -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報提供を目的としており、個別の税務・法務・社会保険に関する判断を代わるものではありません。産前産後休業・育児休業中の保険料免除の取り扱いは、被保険者区分・会社の状況・実際の休業実態などにより異なる場合があります。
+  具体的な手続き・判断は、必ず年金事務所または社会保険労務士など専門家にご相談ください。<br>
+  本記事の内容の基準：日本年金機構が公表している制度内容にもとづき、令和8年（2026年）8月時点の情報として記載しています。
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>📚 <a href="index.html">バックナンバー一覧へ</a> &nbsp;&middot;&nbsp; 毎朝更新</p>
+</div>
+
+</div>
+</body>
+</html>
