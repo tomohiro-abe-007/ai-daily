@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-08-15</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #1e7a5a 0%, #0d4632 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #1e7a5a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.blue   { border-left-color: #1e5a7a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.purple { border-left-color: #7a4a9e; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #1e7a5a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  .type-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .type-grid { grid-template-columns: 1fr; } }
+  .type-card {
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-size: 0.86rem;
+    line-height: 1.65;
+  }
+  .type-card.main {
+    background: #e6f5ee;
+    border: 2px solid #1e7a5a;
+  }
+  .type-card.sub {
+    background: #fff3e0;
+    border: 2px solid #c8884a;
+  }
+  .type-card .tl {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+  }
+  .type-card.main .tl { color: #0d4632; }
+  .type-card.sub .tl  { color: #7a4010; }
+  .type-card .tv { font-size: 1.0rem; font-weight: 700; margin-bottom: 6px; }
+  .type-card.main .tv { color: #1e7a5a; }
+  .type-card.sub .tv  { color: #c8884a; }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 12px 6px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat.now { background: #fff3e0; box-shadow: 0 0 0 2px #c8884a inset; }
+  .stat .sl { font-size: 0.62rem; color: #888; margin-bottom: 3px; line-height: 1.4; }
+  .stat .sv { font-size: 1.1rem; font-weight: 700; color: #1e7a5a; line-height: 1.15; }
+  .stat.now .sv { color: #c8884a; }
+  .stat.end .sv { color: #b54040; }
+  .stat .su { font-size: 0.62rem; color: #666; margin-top: 2px; }
+
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #1e7a5a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-num.now { background: #b54040; }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+  .f-arrow { color: #1e7a5a; font-size: 1.1rem; margin-left: 14px; margin-bottom: 4px; }
+
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  .prompt-box {
+    background: #f0f5ff;
+    border: 2px solid #4a6aae;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 12px 0;
+    font-size: 0.84rem;
+    line-height: 1.85;
+    color: #1a2a4a;
+  }
+  .prompt-box .ph {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #4a6aae;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+  .prompt-box .fill {
+    background: #d0e0ff;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-weight: 700;
+    color: #0a2a6e;
+  }
+
+  .info {
+    background: #e6f5ee;
+    border-left: 4px solid #1e7a5a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #0d4632;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #7a4010;
+  }
+
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #1e7a5a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+
+  .badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 8px;
+    margin-right: 4px;
+    vertical-align: middle;
+  }
+  .badge.law   { background: #1e7a5a; color: white; }
+  .badge.ai    { background: #4a6aae; color: white; }
+  .badge.tip   { background: #4a9e6a; color: white; }
+  .badge.warn  { background: #c8884a; color: white; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #1e7a5a; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #1e7a5a; }
+
+  .matrix {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.83rem;
+  }
+  .matrix th {
+    background: #0d4632;
+    color: white;
+    padding: 8px 12px;
+    text-align: center;
+    font-weight: 600;
+  }
+  .matrix td {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    vertical-align: top;
+    line-height: 1.55;
+  }
+  .matrix .row-head {
+    background: #e6f5ee;
+    font-weight: 700;
+    color: #0d4632;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .matrix .ok  { color: #4a9e6a; font-weight: 700; }
+  .matrix .ng  { color: #b54040; font-weight: 700; }
+  .matrix .mid { color: #c8884a; font-weight: 700; }
+  .matrix-wrap { overflow-x: auto; }
+
+  .split-wrap {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 10px;
+    align-items: center;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .split-wrap { grid-template-columns: 1fr; } }
+  .split-card {
+    border-radius: 10px;
+    padding: 16px 14px;
+    text-align: center;
+    background: #fff3e0;
+    border: 2px solid #c8884a;
+  }
+  .split-card .vl { font-size: 0.75rem; font-weight: 700; margin-bottom: 6px; color: #7a4010; }
+  .split-card .vv { font-size: 1.5rem; font-weight: 700; color: #c8884a; }
+  .split-card .vs { font-size: 0.72rem; color: #777; margin-top: 4px; }
+  .split-mid { text-align: center; font-size: 1.3rem; color: #999; font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Header -->
+<div class="header">
+  <div class="meta">📅 1人法人スタート 最新トピック &nbsp;2026-08-15</div>
+  <h1>🧮 売上を集計するだけで消費税が計算できる?<br>「簡易課税制度」の基礎を図解</h1>
+  <div class="desc">
+    <span class="htag">簡易課税制度</span>
+    <span class="htag">みなし仕入率</span>
+    <span class="htag">基準期間5,000万円以下</span>
+    <span class="htag">2年縛り</span>
+    <br>
+    消費税の計算方法には、実際の経費を1つずつ集計する「本則課税」のほかに、<span class="hl">売上だけで計算できる「簡易課税制度」</span>という選択肢があります。8/11の記事では「2割特例」が2026年9月で終わることを紹介しましたが、その後の受け皿にもなりうるのがこの制度です。今日は基準期間・みなし仕入率・2割特例との違いを図解します。
+  </div>
+</div>
+
+<!-- Section 1: 本則課税との違い -->
+<div class="card">
+  <div class="sec-title">📊 「本則課税」と「簡易課税」、何が違う？</div>
+  <p>消費税の納税額は、原則として「売上にかかる消費税」から「仕入・経費にかかる消費税」を差し引いて計算します。この差し引き方に、2つのやり方があります。</p>
+
+  <div class="type-grid" style="margin-top:14px;">
+    <div class="type-card main">
+      <div class="tl">本則課税（原則）</div>
+      <div class="tv">実額を1件ずつ集計</div>
+      仕入・経費のレシートやインボイス（適格請求書）を1件ずつ集計して、実際にかかった消費税額を計算する。手間はかかるが、実態に近い金額になる。
+    </div>
+    <div class="type-card sub">
+      <div class="tl">簡易課税制度</div>
+      <div class="tv">売上×みなし仕入率</div>
+      売上にかかる消費税額に、業種ごとに決まった「みなし仕入率」をかけるだけで仕入税額控除を計算する。仕入先ごとのインボイス保存は不要で、事務負担が軽い。
+    </div>
+  </div>
+
+  <div class="source">
+    出典：国税庁タックスアンサー「No.6505 簡易課税制度」<a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shohi/6505.htm" target="_blank">https://www.nta.go.jp/taxes/shiraberu/taxanswer/shohi/6505.htm</a>（令和8年8月時点）
+  </div>
+</div>
+
+<!-- Section 2: 数字で見る適用要件 -->
+<div class="card blue">
+  <div class="sec-title">🔢 数字で見る適用要件</div>
+
+  <div class="stats-row">
+    <div class="stat">
+      <div class="sl">基準期間の<br>課税売上高上限</div>
+      <div class="sv">5,000万円</div>
+      <div class="su">以下なら選択できる</div>
+    </div>
+    <div class="stat now">
+      <div class="sl">届出書の<br>提出期限</div>
+      <div class="sv">前日まで</div>
+      <div class="su">適用したい課税期間の初日の前日</div>
+    </div>
+    <div class="stat">
+      <div class="sl">継続適用<br>期間</div>
+      <div class="sv">2年間</div>
+      <div class="su">原則やめられない</div>
+    </div>
+    <div class="stat">
+      <div class="sl">業種の<br>区分数</div>
+      <div class="sv">6区分</div>
+      <div class="su">第一種〜第六種</div>
+    </div>
+  </div>
+
+  <p style="margin-top:10px;">「基準期間」とは、原則としてその事業年度の<strong>前々事業年度</strong>のことです。新設法人の1期目・2期目は基準期間となる事業年度がまだ存在しないため、この判定とは別のルールになります（後述）。</p>
+
+  <div class="source">
+    出典：国税庁タックスアンサー「No.6505 簡易課税制度」<a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shohi/6505.htm" target="_blank">https://www.nta.go.jp/taxes/shiraberu/taxanswer/shohi/6505.htm</a>（令和8年8月時点）
+  </div>
+</div>
+
+<!-- Section 3: みなし仕入率6区分 -->
+<div class="card orange">
+  <div class="sec-title">🏭 業種別「みなし仕入率」6区分</div>
+  <p>自分の事業がどの区分に当たるかで、消費税の負担が変わります。同じ会社でも複数の事業を営んでいる場合は、事業ごとに区分を分けて計算します。</p>
+
+  <div class="matrix-wrap">
+    <table class="matrix">
+      <tr>
+        <th>区分</th>
+        <th>業種の例</th>
+        <th>みなし仕入率</th>
+      </tr>
+      <tr>
+        <td class="row-head">第一種事業</td>
+        <td>卸売業</td>
+        <td class="ok">90%</td>
+      </tr>
+      <tr>
+        <td class="row-head">第二種事業</td>
+        <td>小売業</td>
+        <td class="ok">80%</td>
+      </tr>
+      <tr>
+        <td class="row-head">第三種事業</td>
+        <td>製造業、建設業、農林漁業など</td>
+        <td class="mid">70%</td>
+      </tr>
+      <tr>
+        <td class="row-head">第四種事業</td>
+        <td>飲食店業など、他の区分に当てはまらない事業</td>
+        <td class="mid">60%</td>
+      </tr>
+      <tr>
+        <td class="row-head">第五種事業</td>
+        <td>サービス業、金融・保険業、運輸通信業</td>
+        <td class="ng">50%</td>
+      </tr>
+      <tr>
+        <td class="row-head">第六種事業</td>
+        <td>不動産業</td>
+        <td class="ng">40%</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="info" style="margin-top:10px;">
+    💡 コンサルティング・デザイン・Web制作など「1人社長」に多いサービス業は、原則<strong>第五種（みなし仕入率50%）</strong>です。仕入や外注費が少ない業種ほど、簡易課税の方が有利になりやすい傾向があります。
+  </div>
+
+  <div class="source">
+    出典：国税庁タックスアンサー「No.6509 簡易課税制度の事業区分」<a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shohi/6509.htm" target="_blank">https://www.nta.go.jp/taxes/shiraberu/taxanswer/shohi/6509.htm</a>（令和8年8月時点）
+  </div>
+</div>
+
+<!-- Section 4: 選択までの流れ -->
+<div class="card">
+  <div class="sec-title">🗓️ 選択までの流れ</div>
+
+  <div style="margin-top:10px;">
+    <div class="f-step">
+      <div class="f-num">1</div>
+      <div class="f-text">基準期間（原則、前々事業年度）の課税売上高が5,000万円以下かを確認する</div>
+    </div>
+    <div class="f-arrow">⬇</div>
+    <div class="f-step">
+      <div class="f-num">2</div>
+      <div class="f-text">「消費税簡易課税制度選択届出書」を、適用したい課税期間の初日の前日までに税務署へ提出する</div>
+    </div>
+    <div class="f-arrow">⬇</div>
+    <div class="f-step">
+      <div class="f-num">3</div>
+      <div class="f-text">適用が始まった課税期間から、原則<strong>2年間</strong>は本則課税に戻れない（継続適用）</div>
+    </div>
+    <div class="f-arrow">⬇</div>
+    <div class="f-step">
+      <div class="f-num">4</div>
+      <div class="f-text">基準期間の課税売上高が5,000万円を超えた年は、届出書を出したままでも自動的に本則課税に切り替わる</div>
+    </div>
+  </div>
+
+  <div class="info" style="margin-top:12px;">
+    💡 <strong>新設法人の特例：</strong>設立1期目・2期目は基準期間となる事業年度がまだないため、原則の「前日まで」ルールとは別に、<strong>その事業年度が終わる日まで</strong>に届出書を提出すれば、その課税期間から簡易課税を適用できる特例があります。
+  </div>
+
+  <div class="source">
+    出典：国税庁タックスアンサー「No.6531 新規開業又は法人の新規設立のとき」<a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shohi/6531.htm" target="_blank">https://www.nta.go.jp/taxes/shiraberu/taxanswer/shohi/6531.htm</a>（令和8年8月時点）
+  </div>
+</div>
+
+<!-- Section 5: 2割特例との違い -->
+<div class="card purple">
+  <div class="sec-title">⚖️ 「2割特例」との違いに注意</div>
+  <p>8/11の記事で紹介した「2割特例」も、みなし仕入率で計算する点は似ていますが、まったく別の制度です。2026年9月に2割特例が終わる方は、特に混同しないよう気をつけましょう。</p>
+
+  <div class="type-grid" style="margin-top:14px;">
+    <div class="type-card main">
+      <div class="tl">簡易課税制度</div>
+      <div class="tv">恒久的な制度</div>
+      基準期間の課税売上高が5,000万円以下なら、誰でも選択できる。みなし仕入率は業種ごとに40%〜90%。選択後は原則2年間継続適用。
+    </div>
+    <div class="type-card sub">
+      <div class="tl">2割特例（インボイス経過措置）</div>
+      <div class="tv">2026年9月末までの時限措置</div>
+      免税事業者からインボイス発行事業者になった方だけが対象。みなし仕入率は業種を問わず一律80%。課税期間ごとに選択でき、2年縛りはない。
+    </div>
+  </div>
+
+  <div class="warn" style="margin-top:14px;">
+    ⚠️ 2割特例は2026年9月30日を含む課税期間までで終了します。その後も売上ベースの簡便な計算を続けたい場合は、あらためて簡易課税制度の届出書を提出する必要があります。要件・仕入率が異なるため、自動的には切り替わりません。
+  </div>
+</div>
+
+<!-- Section 6: 1人社長にとってのポイント -->
+<div class="card">
+  <div class="sec-title">🧑‍💼 1人社長にとってのポイント</div>
+  <ul class="check-list">
+    <li><span class="ck">✔</span>経費・仕入が少ないサービス業（みなし仕入率50%）は、簡易課税の方が本則課税より納税額が軽くなるケースが多い</li>
+    <li><span class="ck">✔</span>逆に、外注費や仕入が多い業種は本則課税の方が有利な場合もあるため、両方で試算してから届出を判断する</li>
+    <li><span class="ck">✔</span>2026年9月に2割特例が終わる方は、10月以降の計算方法（簡易課税か本則課税か）を今のうちに検討しておく</li>
+    <li><span class="ck">✔</span>一度届出書を出すと原則2年間は変更できないため、翌期以降の売上見込みもふまえて判断する</li>
+  </ul>
+</div>
+
+<!-- Section 7: AI prompt -->
+<div class="card">
+  <div class="sec-title">🤖 生成AIに試算のたたき台を作ってもらうプロンプト例</div>
+  <p>「自分の業種は第何種か」「簡易課税と本則課税、どちらが有利になりやすいか」といった<span class="hl">整理のたたき台づくり</span>は、生成AIが得意な作業です。最終的な有利不利の判断は必ず試算と専門家確認が必要です。</p>
+
+  <div class="prompt-box" style="margin-top:14px;">
+    <div class="ph">🤖 プロンプト例：簡易課税制度の検討</div>
+    私は<span class="fill">【業種：例 Webデザイン(サービス業)】</span>を営む1人社長です。基準期間の課税売上高は<span class="fill">【金額：例 800万円】</span>です。<br>
+    <br>
+    1. 私の業種は簡易課税のみなし仕入率で第何種に当たりそうか、一般的な考え方を整理してください<br>
+    2. 簡易課税と本則課税、どちらが有利になりやすいか、判断のポイントを箇条書きにしてください<br>
+    3. 簡易課税制度選択届出書を提出する場合の、一般的な提出期限の考え方を教えてください<br>
+    4. 実際の届出・試算・最終判断は税理士に確認するよう、必ず注記してください
+  </div>
+</div>
+
+<!-- Section 8: summary -->
+<div class="card">
+  <div class="sec-title">📝 今日のまとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">①</span>簡易課税制度は、基準期間の課税売上高が<span class="hlg">5,000万円以下</span>の事業者が選べる、売上ベースで消費税を計算できる制度。</li>
+    <li><span class="n">②</span>業種を<span class="hlg">第一種〜第六種</span>の6区分に分け、<span class="hlg">40%〜90%のみなし仕入率</span>を売上にかけて仕入税額控除を計算する。</li>
+    <li><span class="n">③</span>届出書は原則、適用したい課税期間の<span class="hlg">初日の前日まで</span>に提出。新設法人は1期目・2期目に限り、<span class="hlg">事業年度終了の日まで</span>の提出でも間に合う特例がある。</li>
+    <li><span class="n">④</span>一度選択すると、原則<span class="hlg">2年間</span>は本則課税に戻れない。</li>
+    <li><span class="n">⑤</span>2026年9月に終わる「2割特例」（8/11記事）とは<span class="hlg">別の制度</span>なので、混同しないよう注意する。</li>
+  </ul>
+</div>
+
+<!-- Disclaimer -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報提供を目的としており、個別の税務・法務に関する判断を代わるものではありません。簡易課税と本則課税のどちらが有利かは、業種・経費構成・投資予定など会社ごとの状況によって異なります。
+  具体的な判断・届出は、必ず税理士など専門家にご相談ください。<br>
+  本記事の内容の基準：令和8年（2026年）8月時点の国税庁公表情報にもとづいて記載しています。基準期間の課税売上高要件（5,000万円）やみなし仕入率は、今後の税制改正により変更される可能性があります。
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>📚 <a href="index.html">バックナンバー一覧へ</a> &nbsp;&middot;&nbsp; 毎朝更新</p>
+</div>
+
+</div>
+</body>
+</html>
