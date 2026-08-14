@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-08-15</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '🍊';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.9rem; margin-bottom: 8px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.1em; }
+  .c3-col li { margin-bottom: 4px; }
+  .c3-col .or-val { font-size: 1.4rem; font-weight: 700; margin: 4px 0; }
+  .c3-col.red .or-val { color: #a0291e; }
+  .c3-col.green .or-val { color: #1a6e4a; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .mech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .mech-item {
+    background: #f0faf5;
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 0.85rem;
+    border-top: 3px solid #1a7a5a;
+  }
+  .mech-item .micon { font-size: 1.3rem; margin-bottom: 6px; }
+  .mech-item strong { display: block; color: #0d4a35; margin-bottom: 4px; font-size: 0.88rem; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .highlight { background: #cff0df; padding: 1px 5px; border-radius: 4px; }
+  .good { color: #1a7a5a; font-weight: 600; }
+  .bad  { color: #c0392b; font-weight: 600; }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-box {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin: 14px 0;
+    font-size: 0.92rem;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  .quote-box {
+    background: #f5f0e8;
+    border-left: 4px solid #7a5abf;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    margin: 12px 0;
+    color: #444;
+    font-style: italic;
+  }
+  .quote-box .who { font-style: normal; font-weight: 700; color: #5a3a9a; margin-top: 6px; font-size: 0.78rem; }
+  .benefit-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    margin: 14px 0;
+  }
+  .benefit-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+  .benefit-item .bicon { font-size: 1.2rem; margin-bottom: 4px; }
+  @media (max-width: 540px) {
+    .compare4 { grid-template-columns: 1fr 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.7rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ヘッダー -->
+<div class="header">
+  <div class="label">健康・栄養 最新トピック ・ 2026-08-15</div>
+  <h1>同じ「オレンジジュース」でも、体重によって体の中の"効き方"が違う?</h1>
+  <div class="subtitle">ブラジル・サンパウロ大学のLayanne Nascimento Fragaさん、米ノースカロライナ州立大学のDragan Milenkovicさんら、サンパウロ大学・ノースカロライナ州立大学・UCデービスの国際チームが、健康な成人20人にオレンジジュースを60日間毎日飲んでもらい、血液中の免疫細胞の遺伝子の働き方(遺伝子発現)がどう変わるかを調べた研究をMolecular Nutrition & Food Research誌に発表しました(2025年、DOI: 10.1002/mnfr.70299、PMID: 41169019)。同じジュースを飲んでも、標準体重の人と過体重の人とで、変化する遺伝子の"種類"が違っていたと報告されています。「同じ食べ物でも人によって効き方が違う」という精密栄養学の考え方を、身近な飲み物を例にやさしく見ていきます。</div>
+</div>
+
+<!-- タグ -->
+<div style="margin-bottom:18px;">
+  <span class="tag">精密栄養学</span>
+  <span class="tag">栄養ゲノミクス(食べ物と遺伝子)</span>
+  <span class="tag">単群・前後比較研究</span>
+  <span class="tag">体重による個人差</span>
+  <span class="tag">相関と因果</span>
+</div>
+
+<!-- 今日の疑問 -->
+<div class="card">
+  <h2>🤔 今日の疑問:同じものを食べても、体の中では同じことが起きているのか?</h2>
+  <p>精密栄養学は「一人ひとりに合わせた」食事アドバイスを目指す分野です。その根っこにあるのは、「同じ食べ物でも、体質によって体への影響が違うのではないか」という発想です。</p>
+  <p>今回の研究チームは、多くの家庭で身近な「オレンジジュース」を題材に、健康な大人にコップ2杯強を60日間毎日飲んでもらい、血液の中の免疫細胞で遺伝子の働き方(遺伝子発現)がどう変わるかを調べました。さらに、標準体重の人と過体重の人で反応に違いがあるかも比較しています。</p>
+</div>
+
+<!-- 基本用語 -->
+<div class="card blue">
+  <h2>📖 まず言葉の意味を</h2>
+  <div class="def-grid">
+    <div class="def-item">
+      <div class="dterm">遺伝子発現(トランスクリプトーム)</div>
+      体の設計図である遺伝子が「オン」になって実際に働き出すこと。同じ遺伝子を持っていても、働くか働かないかは食事や環境で変わる。
+    </div>
+    <div class="def-item">
+      <div class="dterm">PBMC(末梢血単核球)</div>
+      血液の中にある白血球の一種で、免疫を担当する細胞。採血だけで調べられるため、体の中の変化を知る手がかりとしてよく使われる。
+    </div>
+    <div class="def-item">
+      <div class="dterm">マイクロRNA(miRNA)</div>
+      遺伝子の働き方を細かく調節する、小さなRNAの一種。ブレーキやアクセルのような役割を果たす。
+    </div>
+    <div class="def-item">
+      <div class="dterm">単群・前後比較デザイン</div>
+      飲まないグループ(対照群)を置かず、同じ人たちの「飲む前」と「飲んだ後」だけを比べる研究のやり方。手軽だが、他の要因の影響を除きにくい弱点がある。
+    </div>
+  </div>
+</div>
+
+<!-- 数字カード -->
+<div class="num-row">
+  <div class="num-card">
+    <div class="big">500<span class="unit">mL/日</span></div>
+    <div class="desc">毎日飲んだオレンジジュースの量(コップ2杯強)</div>
+  </div>
+  <div class="num-card blue-bg">
+    <div class="big">60<span class="unit">日間</span></div>
+    <div class="desc">飲み続けた期間</div>
+  </div>
+  <div class="num-card orange-bg">
+    <div class="big">20<span class="unit">人</span></div>
+    <div class="desc">遺伝子発現を調べた対象者(健康な男性10人・女性10人)</div>
+  </div>
+  <div class="num-card purple-bg">
+    <div class="big">1,705<span class="unit">個</span></div>
+    <div class="desc">摂取前後で働き方が変わった遺伝子の数</div>
+  </div>
+</div>
+
+<!-- 研究の流れ -->
+<div class="card purple">
+  <h2>🧭 どうやって調べたのか</h2>
+  <div class="flow">
+    <div class="flow-step purp">柑橘類を3日間<br>控えて体を<br>リセット</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step">オレンジジュース<br>500mLを60日間<br>毎日摂取</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step alt">摂取前後で<br>血液からPBMC<br>(免疫細胞)を採取</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step">マイクロアレイで<br>遺伝子発現を<br>まとめて解析</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step purp">標準体重 vs<br>過体重で<br>反応を比較</div>
+  </div>
+  <p style="font-size:0.82rem; color:#555; margin-top:4px;">全体では85人が研究に協力し、そのうち遺伝子発現の詳しい解析には20人(男性10人・女性10人)分のデータが使われました。</p>
+</div>
+
+<!-- 全体で見られた変化 -->
+<div class="card">
+  <h2>🧬 60日間で変化がみられた、3つの代表的な経路</h2>
+  <div class="mech-grid">
+    <div class="mech-item">
+      <div class="micon">🔥</div>
+      <strong>炎症に関わる遺伝子</strong>
+      IL6・IL1βなど。体の中の"火種"のような炎症反応に関わる
+    </div>
+    <div class="mech-item">
+      <div class="micon">🩸</div>
+      <strong>脂質代謝に関わる遺伝子</strong>
+      GSK3B・RIPK1など。脂肪の合成・分解のバランスに関わる
+    </div>
+    <div class="mech-item">
+      <div class="micon">💓</div>
+      <strong>血圧調整に関わる遺伝子</strong>
+      NAMPT・NLRP3など。血管や血圧のコントロールに関わるとされる
+    </div>
+  </div>
+  <p style="font-size:0.85rem; color:#555; margin-top:4px;">これらを含む1,705個の遺伝子(mRNA・miRNAなど)の働き方が、オレンジジュースを60日間飲んだ前後で変化していました。</p>
+</div>
+
+<!-- 標準体重 vs 過体重の対比 -->
+<div class="card orange">
+  <h2>⚖️ 標準体重の人と、過体重の人で「変わる遺伝子」が違った</h2>
+  <div class="compare4">
+    <div class="c3-col green">
+      <h3>🙂 標準体重の人で目立った変化</h3>
+      <ul>
+        <li>炎症に関わる遺伝子(STAT3・MAPKなど)が変化</li>
+        <li>免疫・炎症のバランス調整に関わる経路が中心</li>
+      </ul>
+    </div>
+    <div class="c3-col orange">
+      <h3>🧍 過体重の人で目立った変化</h3>
+      <ul>
+        <li>脂質代謝・脂肪細胞の働きに関わる遺伝子(GSK3B・GRK6など)が変化</li>
+        <li>脂肪の合成・蓄積に関わる経路が中心</li>
+      </ul>
+    </div>
+  </div>
+  <p style="font-size:0.85rem; color:#555; margin-top:6px;">同じ量のオレンジジュースを、同じ期間飲んでも、もともとの体重の状態によって体の中で"反応する場所"が異なっていた、というのが今回の研究の中心的な発見です。</p>
+</div>
+
+<!-- 精密栄養学の視点 -->
+<div class="card blue">
+  <h2>🔬 精密栄養学の視点:なぜこの研究が重要なのか</h2>
+  <p>「野菜を食べよう」「果物を摂ろう」といった食事アドバイスは、これまで基本的に全員一律の内容でした。しかし今回のように、同じ食品でも体重などの個人の特徴によって遺伝子レベルの反応が異なるとしたら、将来的には「あなたの体質なら、この食品はこう働きやすい」という、より個人に合わせたアドバイスが可能になるかもしれません。精密栄養学は、こうした分子レベルの個人差を積み重ねて、一人ひとりに合った食事の提案につなげようとしている分野です。</p>
+</div>
+
+<!-- 注意点 -->
+<div class="warn">
+  <strong>⚠️ 誤解しないでほしいこと</strong>
+  <ul style="padding-left:1.4em; margin-top:8px;">
+    <li>この研究は<strong>「飲まないグループ」を置かない単群・前後比較デザイン</strong>です。60日間で見られた変化がオレンジジュースだけによるものか、季節や生活習慣の変化など他の要因が混じっていないかを完全には切り分けられません。</li>
+    <li>遺伝子発現の詳しい解析の対象は<strong>健康な成人わずか20人</strong>(標準体重・過体重に分けるとさらに少人数)であり、小規模な探索的研究です。</li>
+    <li>今回わかったのは<strong>「血液細胞の遺伝子の働き方が変わった」という分子レベルの変化(代理指標)</strong>であり、実際に血圧が下がった・心臓病が減ったといった<strong>臨床的な効果を証明したものではありません</strong>。</li>
+    <li>100%オレンジジュースには果物由来とはいえ<strong>糖分も比較的多く含まれます</strong>。「体に良いから多いほど良い」という意味ではなく、飲み過ぎには注意が必要です。</li>
+    <li>ネットワーク制限のため論文本文への直接アクセスができず、PubMed収録情報・複数の科学メディアの報道を突き合わせて作成しました。</li>
+  </ul>
+</div>
+
+<!-- エビデンスの整理 -->
+<div class="card">
+  <h2>🧪 今日出てきた情報の「証拠としての強さ」の目安</h2>
+  <table class="ev-table">
+    <tr><th>情報の種類</th><th>特徴</th><th>証拠としての強さ</th></tr>
+    <tr>
+      <td>60日間のオレンジジュース摂取で、血液細胞の遺伝子発現(1,705個)が変化したこと</td>
+      <td>査読誌掲載、対照群のない単群・前後比較の介入研究、分子レベルの代理指標</td>
+      <td><span class="ev-badge ev-mid">中程度(対照群なし・代理指標)</span></td>
+    </tr>
+    <tr>
+      <td>「体重によって変化する遺伝子の種類が違う」という一般化</td>
+      <td>わずか20人(標準体重・過体重で分割)の探索的サブグループ解析</td>
+      <td><span class="ev-badge ev-low">弱い(少人数・仮説を生む段階)</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- まとめ -->
+<div class="card" style="border-left-color:#1a7a5a;">
+  <h2>✅ 今日のまとめ</h2>
+  <ul class="step-list">
+    <li>サンパウロ大学・ノースカロライナ州立大学・UCデービスの国際チーム(Layanne Nascimento Fragaさんら)が、健康な成人20人にオレンジジュース500mLを60日間毎日飲んでもらい、血液中の免疫細胞(PBMC)の遺伝子発現の変化を調べた研究をMolecular Nutrition & Food Research誌に発表(2025年、DOI: 10.1002/mnfr.70299)。</li>
+    <li>炎症・脂質代謝・血圧調整に関わる遺伝子を中心に、合計1,705個の遺伝子の働き方が摂取前後で変化した。</li>
+    <li>標準体重の人では炎症関連の遺伝子、過体重の人では脂質代謝関連の遺伝子が、それぞれ目立って変化しており、「同じ食品でも体質によって反応する経路が違う」可能性を示した。</li>
+    <li>対照群のない単群・前後比較デザインであり、対象も20人と小規模、示されたのは分子レベルの代理指標であって血圧低下や病気予防そのものを証明したものではない点には注意が必要。</li>
+  </ul>
+</div>
+
+<!-- 免責 -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、医療アドバイスではありません。効果・必要量・リスクは個人の体質・年齢・持病・服薬によって大きく異なります。食生活を大きく変える場合や、特定の食品・飲み物を多量に摂ることを検討する場合は、自己判断せず、かかりつけ医・管理栄養士・薬剤師など専門家にご相談ください。
+</div>
+
+<!-- 出典 -->
+<div class="sources">
+  <h3>📚 主な出典・参考文献</h3>
+  <ol>
+    <li>Fraga LN, Milenkovic D, Duarte IAE, Nuthikattu S, Coutinho CP, Lajolo FM, Hassimotto NMA. "A Global Transcriptomic Analysis Reveals Body Weight-Specific Molecular Responses to Chronic Orange Juice Consumption in Healthy Individuals." Molecular Nutrition & Food Research. 2025;69(24):e70299. DOI: 10.1002/mnfr.70299 / PMID: 41169019
+      <a href="https://pubmed.ncbi.nlm.nih.gov/41169019/" target="_blank">https://pubmed.ncbi.nlm.nih.gov/41169019/</a>(基準日:2025年10月30日オンライン公開)
+    </li>
+    <li>ScienceDaily. "Drinking orange juice every day may change thousands of genes."
+      <a href="https://www.sciencedaily.com/releases/2026/08/260813045548.htm" target="_blank">https://www.sciencedaily.com/releases/2026/08/260813045548.htm</a>(基準日:2026年8月13日)
+    </li>
+    <li>StudyFinds. "Your Body Weight Dictates What Orange Juice Actually Does Inside You."
+      <a href="https://studyfinds.org/body-weight-dictates-what-orange-juice-does-inside-you/" target="_blank">https://studyfinds.org/body-weight-dictates-what-orange-juice-does-inside-you/</a>(基準日:2026年8月)
+    </li>
+    <li>Medical Xpress. "Daily orange juice may shift gene activity tied to heart health."
+      <a href="https://medicalxpress.com/news/2025-11-daily-orange-juice-shift-gene.html" target="_blank">https://medicalxpress.com/news/2025-11-daily-orange-juice-shift-gene.html</a>(基準日:2025年11月)
+    </li>
+  </ol>
+  <p style="margin-top:8px; font-size:0.78rem;">※ 本記事は査読誌Molecular Nutrition & Food Research掲載論文(DOI: 10.1002/mnfr.70299、PMID: 41169019)を一次情報とし、複数の独立した科学報道(ScienceDaily、StudyFinds、Medical Xpressなど)を突き合わせて作成しました。ネットワーク制限により論文本文・Abstractへの直接アクセスができなかったため、対象人数(登録85人、遺伝子発現解析20人〈男性10人・女性10人〉)・摂取量(500mL/日・60日間)・変化した遺伝子数(1,705個)・体重別サブグループで異なった代表遺伝子名(標準体重:STAT3・MAPKなど、過体重:GSK3B・GRK6など)は、複数の独立した情報源で一致して報告されている内容のみを採用しています。</p>
+</div>
+
+</div>
+</body>
+</html>
