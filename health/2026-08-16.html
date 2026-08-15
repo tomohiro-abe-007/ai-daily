@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-08-16</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '🌱';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.9rem; margin-bottom: 8px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.1em; }
+  .c3-col li { margin-bottom: 4px; }
+  .c3-col .or-val { font-size: 1.4rem; font-weight: 700; margin: 4px 0; }
+  .c3-col.red .or-val { color: #a0291e; }
+  .c3-col.green .or-val { color: #1a6e4a; }
+  .c3-col.orange .or-val { color: #b85e10; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .mech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .mech-item {
+    background: #f0faf5;
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 0.85rem;
+    border-top: 3px solid #1a7a5a;
+  }
+  .mech-item .micon { font-size: 1.3rem; margin-bottom: 6px; }
+  .mech-item strong { display: block; color: #0d4a35; margin-bottom: 4px; font-size: 0.88rem; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .highlight { background: #cff0df; padding: 1px 5px; border-radius: 4px; }
+  .good { color: #1a7a5a; font-weight: 600; }
+  .bad  { color: #c0392b; font-weight: 600; }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-box {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin: 14px 0;
+    font-size: 0.92rem;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  .quote-box {
+    background: #f5f0e8;
+    border-left: 4px solid #7a5abf;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    margin: 12px 0;
+    color: #444;
+    font-style: italic;
+  }
+  .quote-box .who { font-style: normal; font-weight: 700; color: #5a3a9a; margin-top: 6px; font-size: 0.78rem; }
+  .benefit-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    margin: 14px 0;
+  }
+  .benefit-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+  .benefit-item .bicon { font-size: 1.2rem; margin-bottom: 4px; }
+  @media (max-width: 540px) {
+    .compare4 { grid-template-columns: 1fr 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.7rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ヘッダー -->
+<div class="header">
+  <div class="label">健康・栄養 最新トピック ・ 2026-08-16</div>
+  <h1>「乳酸菌サプリ」と「植物30種類ミックス」、腸内細菌が大きく変わったのはどっち?</h1>
+  <div class="subtitle">英ロンドン大学キングス・カレッジ(King's College London)栄養科学科と、同大教授Sarah Berryさんが最高科学責任者を務める栄養テック企業ZOEの共同チームが、食物繊維の少ない食生活を送る英国の健康な成人399人を対象に、①30種類超の野菜・果物・ナッツなどを混ぜた粉末ブレンド、②乳酸菌サプリ(Lacticaseibacillus rhamnosus GG)、③パンのクルトン(対照)の3グループを6週間比較するランダム化比較試験「BIOMEスタディ」を行い、British Journal of Nutrition誌に発表しました(2026年、DOI: 10.1017/S0007114526107703)。結果は「植物ミックス」の方が乳酸菌サプリより腸内細菌の変化が大きいというものでしたが、この研究には見逃せない利益相反もあります。今日はその中身と読み方を、やさしく見ていきます。</div>
+</div>
+
+<!-- タグ -->
+<div style="margin-bottom:18px;">
+  <span class="tag">腸内環境</span>
+  <span class="tag">ランダム化比較試験(RCT)</span>
+  <span class="tag">食物繊維・植物性食品</span>
+  <span class="tag">利益相反(COI)に注意</span>
+  <span class="tag">相関と因果</span>
+</div>
+
+<!-- 今日の疑問 -->
+<div class="card">
+  <h2>🤔 今日の疑問:腸内細菌を増やすには、サプリと野菜、どちらが効くのか?</h2>
+  <p>「腸活」という言葉が広まり、ヨーグルトや乳酸菌サプリを毎日とっている人も多いはずです。一方で「野菜はできるだけ多くの種類を食べた方がいい」ともよく言われます。では実際に比べてみると、どちらが腸内細菌(腸に住む微生物の集まり、腸内細菌叢〈そう〉)をより大きく変えるのでしょうか。</p>
+  <p>今回の研究チームは、食物繊維をあまりとっていない健康な成人399人を3つのグループに分け、6週間にわたって「植物30種類超のブレンド」「乳酸菌サプリ」「対照食品(パンのクルトン)」を比べました。</p>
+</div>
+
+<!-- 基本用語 -->
+<div class="card blue">
+  <h2>📖 まず言葉の意味を</h2>
+  <div class="def-grid">
+    <div class="def-item">
+      <div class="dterm">腸内細菌叢(そう)</div>
+      腸の中に住む、数百種類ともいわれる細菌の集まり。消化だけでなく免疫や気分にも関わるとされる。
+    </div>
+    <div class="def-item">
+      <div class="dterm">SGB(種類レベルの菌の分類単位)</div>
+      便のDNAを解析して、細菌を「種類」ごとに数える際の単位。今回の記事では便宜上「〜種類の菌」と表現する。
+    </div>
+    <div class="def-item">
+      <div class="dterm">ランダム化比較試験(RCT)</div>
+      くじ引きのようにグループをランダムに分けて効果を比べる実験。原因と結果(因果関係)を確かめやすい研究デザイン。
+    </div>
+    <div class="def-item">
+      <div class="dterm">利益相反(COI)</div>
+      研究者や資金提供者が、研究結果によって金銭的な利益を得る可能性がある状態。結果の解釈には注意が必要になる。
+    </div>
+  </div>
+</div>
+
+<!-- 数字カード -->
+<div class="num-row">
+  <div class="num-card">
+    <div class="big">399<span class="unit">人</span></div>
+    <div class="desc">ランダムに3グループへ割り付けられた参加者(最終解析は349人)</div>
+  </div>
+  <div class="num-card blue-bg">
+    <div class="big">6<span class="unit">週間</span></div>
+    <div class="desc">介入を続けた期間</div>
+  </div>
+  <div class="num-card orange-bg">
+    <div class="big">35〜65<span class="unit">歳</span></div>
+    <div class="desc">対象年齢(平均51歳、女性76%・男性24%)</div>
+  </div>
+  <div class="num-card purple-bg">
+    <div class="big">&lt;20<span class="unit">g/日</span></div>
+    <div class="desc">参加条件:もともとの食物繊維摂取量が少ない人</div>
+  </div>
+</div>
+
+<!-- 研究の流れ -->
+<div class="card purple">
+  <h2>🧭 どうやって調べたのか</h2>
+  <div class="flow">
+    <div class="flow-step purp">食物繊維の少ない<br>健康な成人399人<br>を募集</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step">ランダムに<br>3グループへ<br>1:1:1で割り付け</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step alt">6週間、毎日<br>それぞれの<br>介入を継続</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step">便のDNA解析で<br>腸内細菌の変化を<br>比較(349人分)</div>
+  </div>
+  <p style="font-size:0.82rem; color:#555; margin-top:4px;">主な評価項目は腸内細菌の構成の変化。あわせて、消化器症状・活力・空腹感などをアンケートで自己申告してもらった。</p>
+</div>
+
+<!-- 3グループの比較 -->
+<div class="card orange">
+  <h2>⚖️ 3つのグループ、それぞれの中身と結果</h2>
+  <div class="compare4">
+    <div class="c3-col green">
+      <h3>🌱 植物ブレンド群</h3>
+      野菜・果物・ナッツ・種・ハーブ・スパイス・きのこなど30種類超を混ぜた粉末、1日30g
+      <div class="or-val">57種類</div>
+      6週間で相対量が変化した菌の種類数
+    </div>
+    <div class="c3-col blue">
+      <h3>💊 乳酸菌サプリ群</h3>
+      Lacticaseibacillus rhamnosus GG(乳酸菌の一種)を1日1カプセル(150億CFU)
+      <div class="or-val">4種類</div>
+      6週間で相対量が変化した菌の種類数
+    </div>
+    <div class="c3-col orange">
+      <h3>🍞 対照群(クルトン)</h3>
+      カロリーをそろえたパンのクルトンを1日28g(食物繊維をほぼ含まない対照食品)
+      <div class="or-val">14種類</div>
+      6週間で相対量が変化した菌の種類数
+    </div>
+  </div>
+  <p style="font-size:0.85rem; color:#555; margin-top:6px;">植物ブレンド群は、対照群・乳酸菌サプリ群のどちらと比べても統計的に有意に多くの菌の種類で変化がみられた(いずれもP&lt;0.001)。変化した菌は、健康と関連しやすいとされる種類が増え、そうでない種類が減る傾向だったと報告されている。</p>
+</div>
+
+<!-- 自己申告の変化 -->
+<div class="card">
+  <h2>📋 参加者が自分で感じた変化(アンケートによる自己申告)</h2>
+  <div class="num-row">
+    <div class="num-card">
+      <div class="big">55<span class="unit">%</span></div>
+      <div class="desc">植物ブレンド群で「消化不良が減った」と回答した割合</div>
+    </div>
+    <div class="num-card blue-bg">
+      <div class="big">35<span class="unit">%</span></div>
+      <div class="desc">植物ブレンド群で便秘が改善(対照群は25%)</div>
+    </div>
+    <div class="num-card orange-bg">
+      <div class="big">18<span class="unit">%</span></div>
+      <div class="desc">植物ブレンド群で胸焼けが改善(対照群は12%)</div>
+    </div>
+    <div class="num-card purple-bg">
+      <div class="big">69<span class="unit">%</span></div>
+      <div class="desc">植物ブレンド群で何らかの消化器症状の改善を報告</div>
+    </div>
+  </div>
+  <p style="font-size:0.85rem; color:#555;">植物ブレンド群では活力が増した・空腹感が減ったという自己申告も、対照群より多くみられた。ただしこれらは客観的な検査値ではなく、あくまで参加者自身の主観的な回答である点に注意。</p>
+</div>
+
+<!-- 利益相反の警告(重要) -->
+<div class="card red">
+  <h2>🚩 見逃せない利益相反(COI):この試験、実は"自社製品"の試験でもある</h2>
+  <ul>
+    <li>研究の中心人物であるSarah Berryさんは、King's College Londonの教授であると同時に、<strong>栄養テック企業ZOEの最高科学責任者(Chief Scientist)</strong>でもあります。</li>
+    <li>試験で使われた「植物30種類超のブレンド」は、<strong>ZOEが実際に販売している市販サプリメント「Daily30」そのもの</strong>です。つまりこの研究は、自社の商品が自社の対照食品・他社のサプリより優れているかを調べた試験でもあります。</li>
+    <li>参加者は<strong>すでにZOEのアプリ・サービスを使っている「ZOE Health Study」の登録者から募集</strong>されており、一般の人よりZOEや腸活に関心が高い集団に偏っている可能性があります(健康ボランティア効果)。</li>
+    <li>だからといって結果が間違っているとは限りませんが、「企業が自社製品の優位性を示す研究には、資金・データの扱い・報告のしかたに偏りが生じやすい」という一般的な注意点は、この研究にもそのまま当てはまります。</li>
+  </ul>
+</div>
+
+<!-- 精密栄養学・腸内環境の視点 -->
+<div class="card blue">
+  <h2>🔬 このニュースから学べること</h2>
+  <p>「腸に良いことをするなら、サプリ1種類より食品の多様性を増やす方が効果的かもしれない」という考え方自体は、これまでの腸内細菌研究の流れとも大きくは矛盾しません。ふだんの食事に、豆・全粒穀物・野菜・果物・ナッツなど、いろいろな種類の植物性食品を少しずつ増やしていくことは、特別なサプリを探すより取り組みやすい人も多いはずです。</p>
+  <p>一方で、今回の具体的な数字(57種類・69%など)は、あくまで<strong>この1本の試験、しかも企業と利害関係のある研究チームが出した結果</strong>です。「植物30種類のブレンドを買うべきだ」という結論に直接つながる話ではなく、独立した研究チームによる追試や、より長期・大規模な試験を待つ必要があります。</p>
+</div>
+
+<!-- 注意点 -->
+<div class="warn">
+  <strong>⚠️ 誤解しないでほしいこと</strong>
+  <ul style="padding-left:1.4em; margin-top:8px;">
+    <li>対象は<strong>食物繊維の少ない英国の健康な成人349人(平均51歳、女性が多数)</strong>に限られ、他の年齢層・持病のある人・他国の食生活の人にそのまま当てはまるとは限りません。</li>
+    <li>腸内細菌の変化は<strong>便のDNA解析による「種類数・相対量の変化」</strong>であり、それ自体が病気の予防や治療効果を証明したものではありません。</li>
+    <li>消化器症状・活力などの改善は<strong>参加者本人の自己申告(主観的評価)</strong>であり、味や食感の違いから「どのグループか分かってしまう」ことによる思い込みの影響を完全には排除できません。</li>
+    <li>比較対象の乳酸菌サプリは<strong>1菌株のみ</strong>であり、「サプリ全般が植物ミックスより劣る」という意味ではありません。マルチ株のサプリや他の菌株では結果が異なる可能性があります。</li>
+    <li>前述の通り<strong>研究チームと試験対象商品の間に明確な利益相反がある</strong>点は、結果を読むうえで必ず考慮すべき情報です。</li>
+    <li>ネットワーク制限のため論文本文への直接アクセスができず、学術誌の抄録情報・複数の科学報道を突き合わせて作成しました。</li>
+  </ul>
+</div>
+
+<!-- エビデンスの整理 -->
+<div class="card">
+  <h2>🧪 今日出てきた情報の「証拠としての強さ」の目安</h2>
+  <table class="ev-table">
+    <tr><th>情報の種類</th><th>特徴</th><th>証拠としての強さ</th></tr>
+    <tr>
+      <td>植物ブレンド群で腸内細菌の変化(種類数)が対照群・サプリ群より大きかったこと</td>
+      <td>査読誌掲載、3群RCT、349人分析、統計的に有意(P&lt;0.001)</td>
+      <td><span class="ev-badge ev-mid">中程度〜やや高い(ただし単一試験・利益相反あり)</span></td>
+    </tr>
+    <tr>
+      <td>消化器症状・活力・空腹感の改善</td>
+      <td>自己申告(主観評価)、盲検化が不完全な可能性</td>
+      <td><span class="ev-badge ev-low">弱い(主観評価・思い込みの影響を排除しきれない)</span></td>
+    </tr>
+    <tr>
+      <td>「植物30種類のブレンドを買うべき」という一般化</td>
+      <td>企業関連の資金・研究者による単一試験、独立した追試なし</td>
+      <td><span class="ev-badge ev-low">弱い(利益相反・追試待ち)</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- まとめ -->
+<div class="card" style="border-left-color:#1a7a5a;">
+  <h2>✅ 今日のまとめ</h2>
+  <ul class="step-list">
+    <li>King's College LondonとZOEの共同チームが、食物繊維の少ない健康な成人399人(最終解析349人)を対象に、植物30種類超のブレンド・乳酸菌サプリ・対照食品(クルトン)を6週間比べるRCT「BIOMEスタディ」をBritish Journal of Nutrition誌に発表(2026年、DOI: 10.1017/S0007114526107703)。</li>
+    <li>腸内細菌の変化(種類数)は植物ブレンド群で57種類、対照群で14種類、乳酸菌サプリ群で4種類と、植物ブレンド群が最も大きい変化を示した(いずれもP&lt;0.001)。</li>
+    <li>消化不良・便秘・胸焼けの改善や活力の向上など、参加者の自己申告でも植物ブレンド群で良い変化が多く報告された。</li>
+    <li>ただし研究の中心人物が試験対象商品を販売する企業の最高科学責任者を兼ねているという明確な利益相反があり、参加者も同社サービスの登録者から募集されている点には注意が必要。結果自体を否定するものではないが、独立した追試を待ちたい。</li>
+  </ul>
+</div>
+
+<!-- 免責 -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、医療アドバイスではありません。効果・必要量・リスクは個人の体質・年齢・持病・服薬によって大きく異なります。特定のサプリメントや食品ブレンドの購入・摂取を検討する場合は、自己判断せず、かかりつけ医・管理栄養士・薬剤師など専門家にご相談ください。
+</div>
+
+<!-- 出典 -->
+<div class="sources">
+  <h3>📚 主な出典・参考文献</h3>
+  <ol>
+    <li>Berry SE ら(King's College London / ZOE). "Does a diverse whole-food plant-based dietary intervention improve gut microbiome composition, gut symptoms, energy and hunger in healthy adults? A randomised controlled trial." British Journal of Nutrition. 2026. DOI: 10.1017/S0007114526107703
+      <a href="https://doi.org/10.1017/S0007114526107703" target="_blank">https://doi.org/10.1017/S0007114526107703</a>(基準日:2026年7月)
+    </li>
+    <li>NutraIngredients. "Zoe study: Plant diversity beats probiotics for gut health."
+      <a href="https://www.nutraingredients.com/Article/2026/07/16/zoe-study-plant-diversity-beats-probiotics-for-gut-health/" target="_blank">https://www.nutraingredients.com/Article/2026/07/16/zoe-study-plant-diversity-beats-probiotics-for-gut-health/</a>(基準日:2026年7月16日)
+    </li>
+    <li>Medical Xpress. "Eating a wide variety of plants every day could be more beneficial than taking a probiotic."
+      <a href="https://medicalxpress.com/news/2026-07-wide-variety-day-beneficial-probiotic.html" target="_blank">https://medicalxpress.com/news/2026-07-wide-variety-day-beneficial-probiotic.html</a>(基準日:2026年7月)
+    </li>
+    <li>[your]NEWS. "30-Plant Food Blend Reshapes Gut Microbiome in Six Weeks, Randomized Trial Finds."
+      <a href="https://yournews.com/2026/08/10/7151914/30-plant-food-blend-reshapes-gut-microbiome-in-six-weeks-randomized/" target="_blank">https://yournews.com/2026/08/10/7151914/30-plant-food-blend-reshapes-gut-microbiome-in-six-weeks-randomized/</a>(基準日:2026年8月10日)
+    </li>
+    <li>ZOE. "Daily30" 商品ページ(試験対象商品・利益相反の確認用)
+      <a href="https://zoe.com/en-gb/daily30" target="_blank">https://zoe.com/en-gb/daily30</a>(基準日:2026年8月)
+    </li>
+  </ol>
+  <p style="margin-top:8px; font-size:0.78rem;">※ 本記事は査読誌British Journal of Nutrition掲載論文(DOI: 10.1017/S0007114526107703)を一次情報とし、複数の独立した科学報道(NutraIngredients、Medical Xpress、[your]NEWSなど)を突き合わせて作成しました。ネットワーク制限により論文本文・Abstractへの直接アクセスができなかったため、対象人数(登録399人・最終解析349人)・平均年齢(51歳)・介入量(植物ブレンド30g/日、乳酸菌サプリ150億CFU/日、クルトン28g/日)・腸内細菌の変化(57種類 vs 14種類 vs 4種類)・症状改善割合(消化不良55%、便秘35%対25%、胸焼け18%対12%、消化器症状全般69%)は、複数の独立した情報源で一致して報告されている内容のみを採用しています。研究チームと試験対象商品(ZOE社「Daily30」)との利益相反は、ZOE社の公式商品ページ・報道内容から確認できる事実に基づいています。</p>
+</div>
+
+</div>
+</body>
+</html>
