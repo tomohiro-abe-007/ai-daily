@@ -78,6 +78,7 @@
 - 2026-08-13: Cloudflare「AIのトラフィックが人間を超えた」（2026年8月7日Q2決算発表）・CFO トーマス・セイファート氏がAI・ボットのトラフィックが2026年5月に人間を初めて上回ったと発表・5年以内に1,000倍予測（外部未検証・CFO自身が「予測は外れてきた」と補足）・CEO マシュー・プリンス氏「AIエージェントはカメラ1台を探すのに5,000サイトを巡回する」・人間の通信量が減るのではなくAIが爆発的に増えるため相対的に小さくなる・GEO（Generative Engine Optimization）という概念が台頭（出典：The Register / TechSpot / TechRadar / mezha.ua・2026年8月7日）
 - 2026-08-14: Prime Intellect「Prime Agent」公開（2026年8月6日）・オープンソース（MITライセンス）・RLM＋持続的IPythonカーネル・ARC-AGI-3で95.5%（人間専門家基準超え・報告値）・ハーネスなし単体では1%未満→ハーネスで劇的改善・新モデルではなく既存モデルを賢く使う仕組み
 - 2026-08-15: Google Gemini 3.7 Flash（2026年8月13日リリース）・3週間ぶりのフラッシュシリーズ更新・DeepSWE v1.1コーディング評価65.3%（前モデル3.6 Flashの49.0%から大幅向上）・導入価格$0.75/$3.75（百万トークン・2026年末まで・公式要確認）・1Mトークンコンテキスト・Google AI Studio/Gemini API/Antigravity CLIで利用可・Geminiアプリ「Spark」ではAI Pro/Ultra要・Gemini 3.5 Proは未公開継続（出典：Google公式ブログ / SiliconANGLE / 9to5Google / Bloomberg・2026年8月13日）
+- 2026-08-16: Geminiアプリ月間10億ユーザー（MAU）突破（2026年8月11日・Sundar Pichai発表）・Google史上最速成長プロダクト・Google15番目の10億人サービス・2025年5月4億人→2026年5月9億人→2026年8月11日10億人超・iOS 1億人超・63%が音声入力・Gemini Liveセッションの5回に1回はカメラ/画面共有・1日1.5億枚画像生成・40以上のアプリで自律タスク対応（出典：Google公式ブログ / TechCrunch / 9to5Google / Forbes / The AI Insider・2026年8月11〜12日）
 
 ## 未解説の候補トピック（今後の参考）
 
