@@ -79,10 +79,11 @@
 - 2026-08-14: Prime Intellect「Prime Agent」公開（2026年8月6日）・オープンソース（MITライセンス）・RLM＋持続的IPythonカーネル・ARC-AGI-3で95.5%（人間専門家基準超え・報告値）・ハーネスなし単体では1%未満→ハーネスで劇的改善・新モデルではなく既存モデルを賢く使う仕組み
 - 2026-08-15: Google Gemini 3.7 Flash（2026年8月13日リリース）・3週間ぶりのフラッシュシリーズ更新・DeepSWE v1.1コーディング評価65.3%（前モデル3.6 Flashの49.0%から大幅向上）・導入価格$0.75/$3.75（百万トークン・2026年末まで・公式要確認）・1Mトークンコンテキスト・Google AI Studio/Gemini API/Antigravity CLIで利用可・Geminiアプリ「Spark」ではAI Pro/Ultra要・Gemini 3.5 Proは未公開継続（出典：Google公式ブログ / SiliconANGLE / 9to5Google / Bloomberg・2026年8月13日）
 - 2026-08-16: Geminiアプリ月間10億ユーザー（MAU）突破（2026年8月11日・Sundar Pichai発表）・Google史上最速成長プロダクト・Google15番目の10億人サービス・2025年5月4億人→2026年5月9億人→2026年8月11日10億人超・iOS 1億人超・63%が音声入力・Gemini Liveセッションの5回に1回はカメラ/画面共有・1日1.5億枚画像生成・40以上のアプリで自律タスク対応（出典：Google公式ブログ / TechCrunch / 9to5Google / Forbes / The AI Insider・2026年8月11〜12日）
+- 2026-08-17: Grok 4.6（2026年8月12日・SpaceXAI）・Artificial Analysis Intelligence Index 61点（GPT-5.6 Solと同点・Grok 4.5の56点から向上）・50万トークンコンテキスト・テキスト＋画像入力/テキスト出力・推論深度 low/medium/high/xhigh の4段階・知識カットオフ2026年2月1日・API料金$2/$6（入力/出力・200K以下）・200K超えで$4/$12に倍増（リクエスト全体・公式要確認）・SpaceXAI API(grok-4.6)/Cursor/Grok Build/OpenRouter/Vercel/Cloudflareで同日利用可（出典：VentureBeat / MarkTechPost / Artificial Analysis / 9to5Mac / codersera.com・2026年8月12日）
 
 ## 未解説の候補トピック（今後の参考）
 
-- xAI Grok 4.3 Beta（2026年4月）：動画・スライド・音声API対応のマルチモーダル推論（※Grok 4.5解説済みにつき優先度低）
+- xAI Grok 4.3 Beta（2026年4月）：動画・スライド・音声API対応のマルチモーダル推論（※Grok 4.6解説済みにつき優先度低）
 - Microsoft Copilot Enterpriseセキュリティ脆弱性（CVE-2026-42824）：悪意あるリンク1クリックでデータ流出・2FAコード・メール・会議情報が窃取可能
 - Google Gemini 3.5 Flash詳報：市場シェア・Intelligence Index・284トークン/秒の生成速度
 - AI×医療（創薬・診断）最新動向：製薬大手とAI企業の提携が相次ぐ
