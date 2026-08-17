@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-08-18</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #2a4d7a 0%, #10233f 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #2a4d7a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.blue   { border-left-color: #1e5a7a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.green  { border-left-color: #1e7a5a; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #2a4d7a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin: 14px 0;
+  }
+  .stats-row.c3 { grid-template-columns: repeat(3, 1fr); }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 12px 6px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat.now { background: #fff3e0; box-shadow: 0 0 0 2px #c8884a inset; }
+  .stat .sl { font-size: 0.62rem; color: #888; margin-bottom: 3px; line-height: 1.4; }
+  .stat .sv { font-size: 1.05rem; font-weight: 700; color: #2a4d7a; line-height: 1.15; }
+  .stat.now .sv { color: #c8884a; }
+  .stat .su { font-size: 0.62rem; color: #666; margin-top: 2px; }
+
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #2a4d7a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-num.now { background: #b54040; }
+  .f-num.later { background: #999; }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+  .f-arrow { color: #2a4d7a; font-size: 1.1rem; margin-left: 14px; margin-bottom: 4px; }
+
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  .prompt-box {
+    background: #f0f5ff;
+    border: 2px solid #4a6aae;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 12px 0;
+    font-size: 0.84rem;
+    line-height: 1.85;
+    color: #1a2a4a;
+  }
+  .prompt-box .ph {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #4a6aae;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+  .prompt-box .fill {
+    background: #d0e0ff;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-weight: 700;
+    color: #0a2a6e;
+  }
+
+  .info {
+    background: #e8eef8;
+    border-left: 4px solid #2a4d7a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #16294a;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #7a4010;
+  }
+
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #2a4d7a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #2a4d7a; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #2a4d7a; }
+
+  .split-wrap {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 10px;
+    align-items: center;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .split-wrap { grid-template-columns: 1fr; } }
+  .split-card {
+    border-radius: 10px;
+    padding: 16px 14px;
+    text-align: center;
+    background: #fff3e0;
+    border: 2px solid #c8884a;
+  }
+  .split-card.blue { background: #e8eef8; border-color: #2a4d7a; }
+  .split-card .vl { font-size: 0.75rem; font-weight: 700; margin-bottom: 6px; color: #7a4010; }
+  .split-card.blue .vl { color: #16294a; }
+  .split-card .vv { font-size: 1.4rem; font-weight: 700; color: #c8884a; }
+  .split-card.blue .vv { color: #2a4d7a; }
+  .split-card .vs { font-size: 0.72rem; color: #777; margin-top: 4px; }
+  .split-mid { text-align: center; font-size: 1.3rem; color: #999; font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Header -->
+<div class="header">
+  <div class="meta">📅 1人法人スタート 最新トピック &nbsp;2026-08-18</div>
+  <h1>🏦 事業承継で急にお金が要るとき どうする?<br>経営承継円滑化法「金融支援」を図解</h1>
+  <div class="desc">
+    <span class="htag">経営承継円滑化法</span>
+    <span class="htag">信用保証の特例</span>
+    <span class="htag">日本政策金融公庫</span>
+    <span class="htag">中小企業庁</span>
+    <br>
+    7/23・8/3・8/8の記事では、事業承継税制（相続税・贈与税の納税猶予）を扱いました。実は同じ経営承継円滑化法には、もう1つ「金融支援」という別メニューがあります。株式の買取り資金や納税資金など、事業承継でまとまったお金が必要になったときに使える"別枠"の仕組みを図解します。
+  </div>
+</div>
+
+<!-- Section 1: 背景 -->
+<div class="card">
+  <div class="sec-title">📊 なぜこの制度があるのか</div>
+  <p>先代の経営者が亡くなったり退任したりして会社を引き継ぐとき、次のような<strong>大きな資金ニーズ</strong>が一時的に発生することがあります。</p>
+
+  <ul class="check-list" style="margin-top:10px;">
+    <li><span class="ck">①</span>相続などで分散した株式・事業用資産を買い取る資金</li>
+    <li><span class="ck">②</span>株式や事業用資産の承継にともなう相続税・贈与税の納税資金</li>
+    <li><span class="ck">③</span>代表者交代による取引先からの信用力低下で、運転資金の資金繰りが悪化する場合の資金</li>
+  </ul>
+
+  <p style="margin-top:10px;">こうした資金ニーズに対応するため、経営承継円滑化法では<span class="hl">通常の借入枠とは別枠</span>で使える「金融支援」（中小企業信用保険法・日本政策金融公庫法の特例）が用意されています。7/23〜8/8で扱った<strong>事業承継税制（納税猶予）とは別の支援メニュー</strong>である点に注意してください。</p>
+
+  <div class="source">
+    出典：中小企業庁「経営承継円滑化法による支援」<a href="https://www.chusho.meti.go.jp/zaimu/shoukei/shoukei_enkatsu.html" target="_blank">https://www.chusho.meti.go.jp/zaimu/shoukei/shoukei_enkatsu.html</a>（令和8年8月時点の公表情報にもとづく）
+  </div>
+</div>
+
+<!-- Section 2: 制度の基本情報 -->
+<div class="card blue">
+  <div class="sec-title">📄 制度の基本情報</div>
+  <div class="stats-row">
+    <div class="stat now">
+      <div class="sl">支援<br>メニュー</div>
+      <div class="sv">2種類</div>
+      <div class="su">信用保証／日本公庫</div>
+    </div>
+    <div class="stat">
+      <div class="sl">認定を<br>行う機関</div>
+      <div class="sv">都道府県<br>知事</div>
+      <div class="su">主たる事業所の所在地</div>
+    </div>
+    <div class="stat">
+      <div class="sl">対象となる<br>資金ニーズ</div>
+      <div class="sv">3類型</div>
+      <div class="su">買取資金／納税資金／資金繰り</div>
+    </div>
+    <div class="stat">
+      <div class="sl">税制の認定<br>との関係</div>
+      <div class="sv">別物</div>
+      <div class="su">認定は別途申請が必要</div>
+    </div>
+  </div>
+
+  <p>根拠法は「中小企業における経営の承継の円滑化に関する法律」（経営承継円滑化法、平成20年法律第33号）です。認定は中小企業者の<strong>主たる事業所が所在する都道府県知事</strong>が行い、認定を受けた中小企業者・その代表者個人・事業を営んでいない後継者個人が支援の対象になり得ます。</p>
+
+  <div class="source">
+    出典：中小企業庁「経営承継円滑化法による支援」（令和8年8月時点）
+  </div>
+</div>
+
+<!-- Section 3: 信用保証の特例 -->
+<div class="card orange">
+  <div class="sec-title">🛡️ ①信用保証の特例（別枠）</div>
+  <p>信用保証協会には、もともと会社ごとに保証を受けられる上限額（一般保証枠）があります。経営承継円滑化法の認定を受けると、<span class="hlo">この上限とは別に、同額をもう1枠</span>使えるようになります。</p>
+
+  <div class="stats-row c3" style="margin-top:14px;">
+    <div class="stat">
+      <div class="sl">普通保険</div>
+      <div class="sv">2億円<br>+2億円</div>
+      <div class="su">通常枠＋別枠</div>
+    </div>
+    <div class="stat">
+      <div class="sl">無担保保険</div>
+      <div class="sv">8,000万<br>+8,000万</div>
+      <div class="su">通常枠＋別枠（円）</div>
+    </div>
+    <div class="stat">
+      <div class="sl">特別小口保険</div>
+      <div class="sv">2,000万<br>+2,000万</div>
+      <div class="su">通常枠＋別枠（円）</div>
+    </div>
+  </div>
+
+  <div class="info" style="margin-top:12px;">
+    💡 通常の保証枠をすでに使い切っていても、経営承継円滑化法の認定があれば<strong>枠を追加</strong>できる可能性があります。ただし実際にいくら借りられるかは、金融機関・信用保証協会の審査によります。
+  </div>
+
+  <div class="source">
+    出典：中小企業庁「経営承継円滑化法による支援」・全国信用保証協会連合会公表情報（令和8年8月時点）
+  </div>
+</div>
+
+<!-- Section 4: 日本政策金融公庫の特例 -->
+<div class="card blue">
+  <div class="sec-title">🏦 ②日本政策金融公庫の特例（別枠融資）</div>
+  <p>日本政策金融公庫には「事業承継・集約・活性化支援資金」という融資制度があり、経営承継円滑化法の認定を受けた中小企業者の代表者などが対象になります。小規模事業者向けの<strong>国民生活事業</strong>では、通常の各種融資とは<span class="hl">別枠</span>で利用できます。</p>
+
+  <div class="split-wrap">
+    <div class="split-card">
+      <div class="vl">融資限度額</div>
+      <div class="vv">最大 7,200万円</div>
+      <div class="vs">通常の融資枠とは別枠</div>
+    </div>
+    <div class="split-mid">内</div>
+    <div class="split-card blue">
+      <div class="vl">うち運転資金</div>
+      <div class="vv">最大 4,800万円</div>
+      <div class="vs">資金繰り悪化への対応など</div>
+    </div>
+  </div>
+
+  <p>返済期間は設備資金20年以内（うち据置5年以内）、運転資金10年以内（うち据置5年以内）です。7/16記事で紹介した創業時の「新規開業・スタートアップ支援資金」（別枠7,200万円）と同じように、<strong>事業承継の場面でも独立した別枠</strong>が用意されているとイメージすると分かりやすいです。</p>
+
+  <div class="source">
+    出典：日本政策金融公庫「事業承継・集約・活性化支援資金」<a href="https://www.jfc.go.jp/n/finance/search/jigyoukeisyou_t.html" target="_blank">https://www.jfc.go.jp/n/finance/search/jigyoukeisyou_t.html</a>（令和8年8月時点の公表情報にもとづく）
+  </div>
+</div>
+
+<!-- Section 5: 手続きの流れ -->
+<div class="card">
+  <div class="sec-title">🔄 認定から融資までの流れ</div>
+
+  <div style="margin-top:6px;">
+    <div class="f-step">
+      <div class="f-num">1</div>
+      <div class="f-text">株式・事業用資産の買取り、納税、資金繰り悪化など、事業承継にともなう資金ニーズが発生する</div>
+    </div>
+    <div class="f-arrow">⬇</div>
+    <div class="f-step">
+      <div class="f-num now">2</div>
+      <div class="f-text">主たる事業所がある都道府県庁の窓口に、金融支援のための認定を申請する（必要書類を提出）</div>
+    </div>
+    <div class="f-arrow">⬇</div>
+    <div class="f-step">
+      <div class="f-num now">3</div>
+      <div class="f-text">都道府県知事の認定を受ける</div>
+    </div>
+    <div class="f-arrow">⬇</div>
+    <div class="f-step">
+      <div class="f-num later">4</div>
+      <div class="f-text">認定書をもとに、信用保証協会・取扱金融機関、または日本政策金融公庫へ保証・融資を申し込む</div>
+    </div>
+  </div>
+
+  <div class="warn" style="margin-top:12px;">
+    ⚠️ 認定には事前の申請と一定の期間が必要です。資金が必要になってからその場ですぐ使える制度ではないため、資金繰り表（6/9記事）を見ながら<strong>早めに都道府県窓口や専門家に相談</strong>しておくことが大切です。
+  </div>
+
+  <div class="source">
+    出典：中小企業庁「経営承継円滑化法による支援」（令和8年8月時点）
+  </div>
+</div>
+
+<!-- Section 6: 税制の認定との違い -->
+<div class="card red">
+  <div class="sec-title">🔀 事業承継税制の認定とは"別物"</div>
+  <p>7/23記事の「事業承継税制（一般措置・特例措置）」で扱った<strong>納税猶予のための認定</strong>と、今日紹介した<strong>金融支援のための認定</strong>は、どちらも経営承継円滑化法にもとづく制度ですが、目的も認定基準も異なる<span class="hl">別々の手続き</span>です。</p>
+
+  <ul class="check-list" style="margin-top:10px;">
+    <li><span class="ck">✔</span>納税猶予だけ使いたい → 事業承継税制の認定のみでよい</li>
+    <li><span class="ck">✔</span>資金調達だけ使いたい → 金融支援の認定のみでよい</li>
+    <li><span class="ck">✔</span>両方使いたい（納税資金を借入でまかないたい等） → それぞれ別に認定申請が必要</li>
+  </ul>
+
+  <div class="source">
+    出典：中小企業庁「経営承継円滑化法による支援」（令和8年8月時点）
+  </div>
+</div>
+
+<!-- Section 7: 1人社長にとってのポイント -->
+<div class="card">
+  <div class="sec-title">🧑‍💼 1人社長にとってのポイント</div>
+  <ul class="check-list">
+    <li><span class="ck">✔</span>将来、子どもや後継者に会社を譲る・M&Aで譲渡するなど「代表者が交代する」場面で、まとまった資金が必要になったときの選択肢になる</li>
+    <li><span class="ck">✔</span>通常の借入枠を使い切っていても、認定を受ければ別枠で追加の保証・融資を受けられる可能性がある</li>
+    <li><span class="ck">✔</span>認定は都道府県知事から受ける必要があり、事前の申請期間が必要。急場しのぎの制度ではない</li>
+    <li><span class="ck">✔</span>事業承継税制（納税猶予）の認定とはセットではなく別物。目的に応じて使い分けるか、両方申請する</li>
+    <li><span class="ck">✔</span>具体的な要件・必要書類・保証枠の実際の利用可否は、都道府県の窓口・信用保証協会・日本政策金融公庫、または税理士・中小企業診断士に確認する</li>
+  </ul>
+</div>
+
+<!-- Section 8: AI prompt -->
+<div class="card">
+  <div class="sec-title">🤖 生成AIに論点整理を手伝ってもらうプロンプト例</div>
+  <p>「自分のケースでどの支援が使えそうか」「必要な書類は何か」といった<span class="hl">論点の整理</span>は生成AIが得意です。最終的な認定の可否・融資額の判断は、必ず都道府県窓口・金融機関・専門家で確認しましょう。</p>
+
+  <div class="prompt-box" style="margin-top:14px;">
+    <div class="ph">🤖 プロンプト例：経営承継円滑化法の金融支援の該当確認</div>
+    私は1人社長の法人です。<span class="fill">【状況：例 数年後に子どもに会社を譲る予定で、株式の買取り資金の準備を検討中】</span>という状況です。<br>
+    <br>
+    1. 経営承継円滑化法の「金融支援」（信用保証の特例・日本政策金融公庫の特例）について、私のケースで検討すべきポイントを整理してください<br>
+    2. 都道府県への認定申請までに、事前に準備しておいたほうがよい資料・情報を箇条書きにしてください<br>
+    3. 事業承継税制（納税猶予）の認定と、金融支援の認定のどちらが自分の目的に合っているか、判断材料を整理してください<br>
+    4. 最終的な認定要件・融資条件の確認は、都道府県の窓口・日本政策金融公庫・信用保証協会・税理士等の専門家に必ず相談するよう、注記してください
+  </div>
+</div>
+
+<!-- Section 9: summary -->
+<div class="card">
+  <div class="sec-title">📝 今日のまとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">①</span>経営承継円滑化法には、7/23〜8/8で扱った事業承継税制（納税猶予）とは別に<span class="hlg">「金融支援」</span>という支援メニューがある。</li>
+    <li><span class="n">②</span>対象となるのは、株式・事業用資産の<span class="hlg">買取資金</span>、相続税等の<span class="hlg">納税資金</span>、代表者交代による<span class="hlg">資金繰り悪化</span>への対応の3類型。</li>
+    <li><span class="n">③</span>信用保証協会の一般保証枠（普通保険2億円・無担保保険8,000万円・特別小口保険2,000万円）と<span class="hlg">同額の別枠</span>が用意される。</li>
+    <li><span class="n">④</span>日本政策金融公庫にも「事業承継・集約・活性化支援資金」があり、国民生活事業では通常枠とは別に<span class="hlg">最大7,200万円</span>（うち運転資金4,800万円）を借りられる。</li>
+    <li><span class="n">⑤</span>利用には<span class="hlg">都道府県知事の認定</span>が必要で、事業承継税制の認定とは別の手続き。早めに都道府県窓口へ相談するのが安心。</li>
+  </ul>
+</div>
+
+<!-- Disclaimer -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報提供を目的としており、個別の税務・法務・資金調達に関する判断を代わるものではありません。金融支援の対象可否・保証枠・融資条件は、事業所の状況や金融機関・信用保証協会の審査によって異なります。
+  具体的な認定申請・借入のご相談は、必ず主たる事業所が所在する都道府県の窓口、信用保証協会、日本政策金融公庫、または税理士・中小企業診断士など専門家にご確認ください。<br>
+  本記事の内容の基準：令和8年（2026年）8月時点で公表されている中小企業庁・日本政策金融公庫の情報にもとづいて記載しています。金額・要件は制度改正により変更される場合があります。
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>📚 <a href="index.html">バックナンバー一覧へ</a> &nbsp;&middot;&nbsp; 毎朝更新</p>
+</div>
+
+</div>
+</body>
+</html>
