@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-08-19</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '🥩';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.9rem; margin-bottom: 8px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.1em; }
+  .c3-col li { margin-bottom: 4px; }
+  .c3-col .or-val { font-size: 1.4rem; font-weight: 700; margin: 4px 0; }
+  .c3-col.red .or-val { color: #a0291e; }
+  .c3-col.green .or-val { color: #1a6e4a; }
+  .c3-col.orange .or-val { color: #b85e10; }
+  .c3-col.blue .or-val { color: #0d3660; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .mech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .mech-item {
+    background: #f0faf5;
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 0.85rem;
+    border-top: 3px solid #1a7a5a;
+  }
+  .mech-item .micon { font-size: 1.3rem; margin-bottom: 6px; }
+  .mech-item strong { display: block; color: #0d4a35; margin-bottom: 4px; font-size: 0.88rem; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .highlight { background: #cff0df; padding: 1px 5px; border-radius: 4px; }
+  .good { color: #1a7a5a; font-weight: 600; }
+  .bad  { color: #c0392b; font-weight: 600; }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-box {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin: 14px 0;
+    font-size: 0.92rem;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  .quote-box {
+    background: #f5f0e8;
+    border-left: 4px solid #7a5abf;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    margin: 12px 0;
+    color: #444;
+    font-style: italic;
+  }
+  .quote-box .who { font-style: normal; font-weight: 700; color: #5a3a9a; margin-top: 6px; font-size: 0.78rem; }
+  .benefit-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    margin: 14px 0;
+  }
+  .benefit-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+  .benefit-item .bicon { font-size: 1.2rem; margin-bottom: 4px; }
+  @media (max-width: 540px) {
+    .compare4 { grid-template-columns: 1fr 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.7rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ヘッダー -->
+<div class="header">
+  <div class="label">健康・栄養 最新トピック ・ 2026-08-19</div>
+  <h1>たんぱく質は「もっと摂ろう」が新常識に?<br>アメリカの新・食事ガイドラインに、専門家から「一般化しすぎ」の声</h1>
+  <div class="subtitle">米保健福祉省(HHS)・米農務省(USDA)が2026年1月7日に発表した最新の公式食事指針「2025-2030年版 Dietary Guidelines for Americans」で、たんぱく質の推奨摂取量が従来の基準の最大2倍に引き上げられました。これに対し米国栄養学会の学術誌The Journal of Nutritionに2026年7月24日、根拠となった研究の対象範囲を超えて「全米国民向け」に広げすぎているという指摘(Perspective論文)が発表されています。今日は両方の言い分をやさしく整理します。</div>
+</div>
+
+<!-- タグ -->
+<div style="margin-bottom:18px;">
+  <span class="tag">精密栄養学</span>
+  <span class="tag">公的機関の指針</span>
+  <span class="tag">たんぱく質摂取量</span>
+  <span class="tag">エビデンスの一般化</span>
+  <span class="tag">査読済み意見論文(Perspective)</span>
+</div>
+
+<!-- 今日の疑問 -->
+<div class="card">
+  <h2>🤔 今日の疑問:「もっとたんぱく質を」という国の指針、そのまま信じていい?</h2>
+  <p>アメリカ政府は5年に一度、食事の公式な指針「Dietary Guidelines for Americans」を改定しています。2026年1月に発表された最新版では、たんぱく質のすすめる量が大きく引き上げられ、話題になりました。</p>
+  <p>ただし発表から半年後、専門家グループから「その数字のもとになった研究は、実は限られた人たちを対象にしたものだ」という指摘が査読誌に載りました。国の指針と、それに疑問を投げかけた研究者の意見、両方を見ていきます。</p>
+</div>
+
+<!-- 基本用語 -->
+<div class="card blue">
+  <h2>📖 まず言葉の意味を</h2>
+  <div class="def-grid">
+    <div class="def-item">
+      <div class="dterm">RDA(推奨栄養素摂取量)</div>
+      健康な人のほぼ全員が不足にならないように設定された、栄養素の摂取目安。たんぱく質の現行RDAは体重1kgあたり0.8g/日。
+    </div>
+    <div class="def-item">
+      <div class="dterm">食事ガイドライン(Dietary Guidelines)</div>
+      米保健福祉省(HHS)と米農務省(USDA)が共同でおよそ5年ごとに改定する、国としての公式な食事指針。学校給食や医療者向けの助言のもとにもなる。
+    </div>
+    <div class="def-item">
+      <div class="dterm">迅速システマティックレビュー</div>
+      特定の問いについて、これまでの複数の研究(ここでは主にRCT)を体系的な手順で集めて比較・要約する研究方法を、通常より短い期間で行ったもの。
+    </div>
+    <div class="def-item">
+      <div class="dterm">Perspective(パースペクティブ論文)</div>
+      新しい実験データを示す論文ではなく、既存のエビデンスの解釈・妥当性について専門家が意見を述べる、査読を経た論文の一種。</div>
+  </div>
+</div>
+
+<!-- 数字カード -->
+<div class="num-row">
+  <div class="num-card blue-bg">
+    <div class="big">0.8<span class="unit">g/kg</span></div>
+    <div class="desc">これまでのRDA(体重1kgあたり/日)</div>
+  </div>
+  <div class="num-card">
+    <div class="big">1.2〜1.6<span class="unit">g/kg</span></div>
+    <div class="desc">新ガイドラインが示す推奨量</div>
+  </div>
+  <div class="num-card orange-bg">
+    <div class="big">50〜100<span class="unit">%</span></div>
+    <div class="desc">現行RDAからの増加幅</div>
+  </div>
+  <div class="num-card gray-bg">
+    <div class="big">10<span class="unit">%未満</span></div>
+    <div class="desc">飽和脂肪の上限(総エネルギー比、今回変更なし)</div>
+  </div>
+</div>
+<p style="font-size:0.82rem; color:#555; margin: -6px 0 4px; text-align:center;">体重60kgの人なら、現行RDAで約48g/日 → 新推奨では約72〜96g/日に相当</p>
+
+<!-- 経緯フロー -->
+<div class="card purple">
+  <h2>🧭 どういう順番で「対立」が生まれたのか</h2>
+  <div class="flow">
+    <div class="flow-step purp">体重管理に関する<br>RCTの迅速<br>システマティックレビュー</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step">2026年1月7日<br>HHS・USDAが<br>新ガイドライン発表</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step alt">たんぱく質推奨を<br>1.2〜1.6g/kg/日へ<br>全米国民向けに設定</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step warn2">2026年7月24日<br>研究者チームが<br>Perspective論文で反論</div>
+  </div>
+  <p style="font-size:0.82rem; color:#555; margin-top:4px;">根拠となったRCTレビューの対象は、主に「過体重・肥満の成人が減量を目指す」場面。健康な人の栄養素充足に関するナラティブレビューも補助的に使われた。</p>
+</div>
+
+<!-- 対立する見解 -->
+<div class="card orange">
+  <h2>⚖️ 政府ガイドライン vs 専門家の指摘、何がすれ違っているのか</h2>
+  <div class="compare4">
+    <div class="c3-col blue">
+      <h3>🏛 新ガイドライン(2026年1月7日)</h3>
+      <div class="or-val">1.2〜1.6 g/kg/日</div>
+      <ul>
+        <li>全米国民向けの推奨量として設定</li>
+        <li>根拠は主に体重管理に関するRCTレビュー</li>
+        <li>無糖の全脂肪乳製品を推奨(従来の低脂肪推奨から転換)</li>
+      </ul>
+    </div>
+    <div class="c3-col red">
+      <h3>🔬 専門家の指摘(2026年7月24日)</h3>
+      <div class="or-val">根拠不十分</div>
+      <ul>
+        <li>もとの研究対象は「過体重・肥満の成人」に限られる</li>
+        <li>全年齢層への一律適用を裏づける根拠は不十分</li>
+        <li>飽和脂肪10%未満の上限と、動物性たんぱく質・全脂肪乳製品重視は両立しにくいとの矛盾も指摘</li>
+      </ul>
+    </div>
+  </div>
+  <div class="quote-box">
+    「ある集団にとって最適なことが、十分な根拠なしに全員にとって最適だとみなされるべきではない」<br>ガイドラインはその基準に届いていない。
+    <div class="who">— Stefan Pasiakos氏(Pennington Biomedical Research Center)、Journal of Nutrition誌のPerspective論文にて</div>
+  </div>
+</div>
+
+<!-- 精密栄養学の視点 -->
+<div class="card blue">
+  <h2>🧬 これが「精密栄養学」の話とつながる理由</h2>
+  <p>精密栄養学とは、年齢・体格・活動量・持病の有無など個人差に合わせて食事のアドバイスを最適化しようという考え方です。今回の対立は、「全員に同じ1つの数字を勧める」という国の指針が持つ限界を浮き彫りにしています。</p>
+  <p>過体重・肥満で減量を目指す成人にとって効果があった量が、健康な体重の若者や高齢者、腎臓に持病のある人にもそのまま当てはまるとは限りません。一律の数字は分かりやすい一方、「誰にとっての最適か」が見えにくくなる側面もあります。</p>
+</div>
+
+<!-- 前回記事との関連 -->
+<div class="card">
+  <h2>🔗 8/7回で紹介した「たんぱく質は摂るほど良い?」との関係</h2>
+  <p>8月7日の回では、Knopfさん・Lammingさんによる350本超のレビュー(Cell Press Blue誌、2026年7月31日、DOI: 10.1016/j.cpblue.2026.100079)をもとに、「たんぱく質・アミノ酸を制限したほうが老化や代謝によい可能性」を示す研究の多くが動物実験に基づくものだと紹介しました。今回の話は逆方向(もっと摂ろう)に見えますが、対象になっている集団が異なる点に注意が必要です。今回のガイドラインが根拠にしたのは主に「過体重・肥満の成人の減量」研究であり、8/7のレビューが主に扱ったのは老化研究(多くが動物実験)。同じ「たんぱく質」というテーマでも、どの集団・目的についての話かによって結論の向きが変わりうることが分かります。</p>
+</div>
+
+<!-- 注意点 -->
+<div class="warn">
+  <strong>⚠️ 誤解しないでほしいこと</strong>
+  <ul style="padding-left:1.4em; margin-top:8px;">
+    <li>新しいガイドラインは<strong>査読を経た研究論文そのものではなく、政府機関による政策文書</strong>。「1.2〜1.6g/kg」という数字は、複数のRCTを束ねたレビューをもとにした推奨値であり、1本の決定的な実験結果ではない。</li>
+    <li>根拠となったRCTレビューの対象は<strong>主に過体重・肥満の成人の体重管理</strong>という場面。健康な体重の人・高齢者・成長期の子どもなど、他の集団でも同じ量が最適とは証明されていない。</li>
+    <li>Pasiakosさんらの指摘は<strong>査読済みのPerspective(意見)論文</strong>であり、新しい実験データを示すものではない。既存のエビデンスの解釈をめぐる専門家グループの見解である点に留意。</li>
+    <li>飽和脂肪の上限(総エネルギーの10%未満)は<strong>変更されていない</strong>ため、動物性たんぱく質や全脂肪乳製品を増やす場合は脂質・飽和脂肪の摂りすぎにも注意が必要。</li>
+    <li>個人のたんぱく質必要量は<strong>腎機能・年齢・持病の有無・運動量</strong>によって大きく変わる。自己判断で大幅に摂取量を増減しないこと。</li>
+    <li>ネットワーク制限のためガイドライン原文・Perspective論文本文への直接アクセスができず、複数の検索結果・要約記事を突き合わせて作成した。対象RCTの本数・具体的な統計値(信頼区間など)は確認できていないため、本記事では取り上げていない。</li>
+  </ul>
+</div>
+
+<!-- エビデンスの整理 -->
+<div class="card">
+  <h2>🧪 今日出てきた情報の「証拠としての強さ」の目安</h2>
+  <table class="ev-table">
+    <tr><th>情報の種類</th><th>特徴</th><th>証拠としての強さ</th></tr>
+    <tr>
+      <td>たんぱく質推奨量 1.2〜1.6g/kg/日という数字</td>
+      <td>体重管理に関する複数RCTの迅速システマティックレビューが土台。対象は主に過体重・肥満の成人</td>
+      <td><span class="ev-badge ev-mid">中程度(直接データだが対象が限定的)</span></td>
+    </tr>
+    <tr>
+      <td>新ガイドラインという文書そのもの</td>
+      <td>米政府機関(HHS・USDA)による公式な政策文書。査読論文ではなく政策判断</td>
+      <td><span class="ev-badge ev-mid">政策文書(エビデンスグレードの対象外)</span></td>
+    </tr>
+    <tr>
+      <td>「全年齢への一般化は根拠不十分」という指摘</td>
+      <td>査読誌(The Journal of Nutrition)掲載のPerspective(意見)論文。新規の実験データではない</td>
+      <td><span class="ev-badge ev-low">専門家の意見(査読済みだが一次データではない)</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- まとめ -->
+<div class="card" style="border-left-color:#1a7a5a;">
+  <h2>✅ 今日のまとめ</h2>
+  <ul class="step-list">
+    <li>米HHS・USDAが2026年1月7日、5年ぶりに改定した「2025-2030年版 食事ガイドライン」を発表。たんぱく質の推奨量を現行RDA(0.8g/kg/日)から1.2〜1.6g/kg/日へ、50〜100%引き上げた。根拠は主に体重管理に関するRCTの迅速システマティックレビュー。</li>
+    <li>2026年7月24日、米国栄養学会の学術誌The Journal of NutritionにPasiakosさんら(Pennington Biomedical Research Center)のPerspective論文が発表され、「過体重・肥満の成人向けの知見を、根拠不十分なまま全米国民に一般化している」と指摘。飽和脂肪10%未満の上限との矛盾も指摘された。</li>
+    <li>この指摘自体も査読済みのPerspective(意見)論文であり、新しい実験データを提示したものではない点には注意が必要。</li>
+    <li>「国の指針=万人への最適解」とは限らない。自分に必要なたんぱく質量は、年齢・活動量・腎機能・持病の有無などをふまえて、かかりつけ医・管理栄養士に相談するのが安全。</li>
+  </ul>
+</div>
+
+<!-- 免責 -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、医療アドバイスではありません。効果・必要量・リスクは個人の体質・年齢・持病・服薬によって大きく異なります。たんぱく質の摂取量を大きく変える場合、特に腎臓病など持病のある方は、自己判断せず、かかりつけ医・管理栄養士・薬剤師など専門家にご相談ください。
+</div>
+
+<!-- 出典 -->
+<div class="sources">
+  <h3>📚 主な出典・参考文献</h3>
+  <ol>
+    <li>U.S. Department of Health and Human Services & U.S. Department of Agriculture. "Dietary Guidelines for Americans, 2025-2030." 2026年1月7日発表.
+      <a href="https://www.hhs.gov/press-room/fact-sheet-historic-reset-federal-nutrition-policy.html" target="_blank">https://www.hhs.gov/press-room/fact-sheet-historic-reset-federal-nutrition-policy.html</a>(基準日:2026年1月)
+    </li>
+    <li>Pasiakos ST, et al. "Perspectives on the Protein Recommendations in the 2025–2030 Dietary Guidelines for Americans." The Journal of Nutrition. 2026年7月24日オンライン公開. DOI: 10.1016/j.tjnut.2026.101754
+      <a href="https://doi.org/10.1016/j.tjnut.2026.101754" target="_blank">https://doi.org/10.1016/j.tjnut.2026.101754</a>(基準日:2026年7月)
+    </li>
+    <li>American Society for Nutrition. "New Perspective in The Journal of Nutrition Reviews Protein Recommendations in the 2025-2030 Dietary Guidelines."
+      <a href="https://nutrition.org/new-perspective-in-the-journal-of-nutrition-reviews-protein-recommendations-in-the-2025-2030-dietary-guidelines/" target="_blank">https://nutrition.org/new-perspective-in-the-journal-of-nutrition-reviews-protein-recommendations-in-the-2025-2030-dietary-guidelines/</a>(基準日:2026年7月)
+    </li>
+  </ol>
+  <p style="margin-top:8px; font-size:0.78rem;">※ 本記事は、米HHS・USDAによる公式発表(2026年1月7日)と、査読誌The Journal of Nutrition掲載のPasiakosら によるPerspective論文(2026年7月24日、DOI: 10.1016/j.tjnut.2026.101754)を一次情報とし、複数の検索エンジンによる要約・報道記事を突き合わせて作成しました。ネットワーク制限によりガイドライン原文・論文本文への直接アクセスができなかったため、たんぱく質推奨量の数値(0.8g/kg→1.2〜1.6g/kg、50〜100%増)、発表日、著者名・所属(Stefan Pasiakos氏、Pennington Biomedical Research Center)、直接引用文は、複数の独立した検索結果で一致して確認できた内容のみを採用しています。根拠となったRCTの具体的な本数・対象人数、ガイドライン全文のページ数などの細部は確認できなかったため、本記事では言及していません。</p>
+</div>
+
+</div>
+</body>
+</html>
