@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-08-20</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '🥗';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.9rem; margin-bottom: 8px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.1em; }
+  .c3-col li { margin-bottom: 4px; }
+  .c3-col .or-val { font-size: 1.4rem; font-weight: 700; margin: 4px 0; }
+  .c3-col.red .or-val { color: #a0291e; }
+  .c3-col.green .or-val { color: #1a6e4a; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .mech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .mech-item {
+    background: #f0faf5;
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 0.85rem;
+    border-top: 3px solid #1a7a5a;
+  }
+  .mech-item .micon { font-size: 1.3rem; margin-bottom: 6px; }
+  .mech-item strong { display: block; color: #0d4a35; margin-bottom: 4px; font-size: 0.88rem; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .highlight { background: #cff0df; padding: 1px 5px; border-radius: 4px; }
+  .good { color: #1a7a5a; font-weight: 600; }
+  .bad  { color: #c0392b; font-weight: 600; }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-box {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin: 14px 0;
+    font-size: 0.92rem;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  .quote-box {
+    background: #f5f0e8;
+    border-left: 4px solid #7a5abf;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    margin: 12px 0;
+    color: #444;
+    font-style: italic;
+  }
+  .quote-box .who { font-style: normal; font-weight: 700; color: #5a3a9a; margin-top: 6px; font-size: 0.78rem; }
+  .benefit-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    margin: 14px 0;
+  }
+  .benefit-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+  .benefit-item .bicon { font-size: 1.2rem; margin-bottom: 4px; }
+  @media (max-width: 540px) {
+    .compare4 { grid-template-columns: 1fr 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.7rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ヘッダー -->
+<div class="header">
+  <div class="label">健康・栄養 最新トピック ・ 2026-08-20</div>
+  <h1>「量は同じなのにカロリーだけ減った」<br>ヴィーガン食は本当にやせるのか?</h1>
+  <div class="subtitle">米国の非営利団体Physicians Committee for Responsible Medicine(PCRM)のHana Kahleovaさんらのチームが、過体重の成人244人を対象にした16週間のランダム化比較試験(RCT)のデータを使い、「食品のエネルギー密度(1gあたりのカロリー)」に着目した二次解析をJAMA Network Open誌に発表しました(2026年8月6日、DOI: 10.1001/jamanetworkopen.2026.27483)。肉・乳製品・卵を含まない低脂肪ヴィーガン食を「好きなだけ」食べてよいと指示された群は、対照群と比べてエネルギー密度が平均約30%下がり、摂取カロリーはさらに357kcal/日減少。食べた食品の総重量はほとんど変わりませんでした。ただし著者全員が植物性食を推進する団体の所属という利益相反があり、独立系の科学ウォッチ団体からは再現研究を求める声も上がっています。今日はこの研究を、数字と注意点の両方からやさしく見ていきます。</div>
+</div>
+
+<!-- タグ -->
+<div style="margin-bottom:18px;">
+  <span class="tag">精密栄養学</span>
+  <span class="tag">エネルギー密度</span>
+  <span class="tag">ランダム化比較試験(RCT)</span>
+  <span class="tag">二次解析</span>
+  <span class="tag">利益相反(COI)の読み方</span>
+</div>
+
+<!-- 今日の疑問 -->
+<div class="card">
+  <h2>🤔 今日の疑問:同じ「量」を食べても、カロリーだけ減らせるとしたら?</h2>
+  <p>ダイエットというと「量を減らす」「カロリーを計算する」というイメージが強いですが、今回紹介する研究のポイントは違います。「食べる量(重さ)はほぼ変えず、食品の中身を変えるだけで、摂取カロリーが自然に減った」という報告です。</p>
+  <p>鍵になるのは「エネルギー密度」という考え方。同じグラム数でも、脂肪や砂糖が多い食品はカロリーが濃く、水分や食物繊維が多い野菜・果物・豆類はカロリーが薄い、という違いに注目した研究です。</p>
+</div>
+
+<!-- 基本用語 -->
+<div class="card blue">
+  <h2>📖 まず言葉の意味を</h2>
+  <div class="def-grid">
+    <div class="def-item">
+      <div class="dterm">エネルギー密度</div>
+      食品1gあたりに含まれるカロリー(kcal/g)。脂肪・砂糖が多い加工食品は密度が高く、野菜・果物・豆類・全粒穀物のように水分や食物繊維が多い食品は密度が低い。
+    </div>
+    <div class="def-item">
+      <div class="dterm">二次解析(secondary analysis)</div>
+      すでに実施されたランダム化比較試験のデータを使って、当初の主要な目的とは別の視点で改めて分析すること。試験開始前に「主要な評価項目」として登録されていたものではない点に注意。
+    </div>
+    <div class="def-item">
+      <div class="dterm">対照群・ランダム割付</div>
+      比較のために介入(ここではヴィーガン食)を行わないグループ。今回は参加者をランダムに2群へ振り分け、片方だけ食事を変えてもらった。
+    </div>
+    <div class="def-item">
+      <div class="dterm">利益相反(COI)</div>
+      研究者や資金提供者が、特定の結果を望む立場・利害関係にあること。あるからといって結果が誤りとは限らないが、読者が知っておくべき文脈。
+    </div>
+  </div>
+</div>
+
+<!-- 数字カード -->
+<div class="num-row">
+  <div class="num-card">
+    <div class="big">244<span class="unit">人</span></div>
+    <div class="desc">対象になった過体重の米国成人(ヴィーガン群・対照群に1:1でランダム割付)</div>
+  </div>
+  <div class="num-card blue-bg">
+    <div class="big">16<span class="unit">週間</span></div>
+    <div class="desc">介入期間。量やカロリーの制限は一切指示されなかった</div>
+  </div>
+  <div class="num-card orange-bg">
+    <div class="big">▼30<span class="unit">%</span></div>
+    <div class="desc">ヴィーガン群でのエネルギー密度の低下(対照群は変化なし)</div>
+  </div>
+  <div class="num-card purple-bg">
+    <div class="big">357<span class="unit">kcal/日</span></div>
+    <div class="desc">対照群と比べ、ヴィーガン群でさらに減った摂取カロリー</div>
+  </div>
+</div>
+
+<!-- 仕組みの流れ -->
+<div class="card purple">
+  <h2>🧭 なぜ「量はそのまま」でカロリーが減るのか</h2>
+  <div class="flow">
+    <div class="flow-step purp">肉・乳製品・卵を<br>やめて植物性食品に</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step">野菜・果物・豆類・<br>全粒穀物が中心に</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step alt">食品1gあたりの<br>カロリー(密度)が低下</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step">同じ「重さ」を食べても<br>総カロリーは少なくなる</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step purp">カロリー計算なしでも<br>摂取エネルギーが減る</div>
+  </div>
+  <p style="font-size:0.82rem; color:#555; margin-top:4px;">参加者は「好きなだけ食べてよい」と指示されただけで、量やカロリーの制限は一度も求められていません。それでも食べた食品の総重量はほとんど変わらなかった、という点がこの研究のポイントです。</p>
+</div>
+
+<!-- 2群の比較 -->
+<div class="card orange">
+  <h2>⚖️ 対照群 vs ヴィーガン群、何がどう変わったか</h2>
+  <div class="compare4">
+    <div class="c3-col blue">
+      <h3>😐 対照群(食事は変えない)</h3>
+      <ul>
+        <li>普段どおりの食事を継続するよう指示</li>
+        <li>エネルギー密度:目立った変化なし</li>
+        <li>摂取カロリー:大きな変化なし</li>
+      </ul>
+    </div>
+    <div class="c3-col green">
+      <h3>🥗 ヴィーガン群(低脂肪・自由摂取)</h3>
+      <ul>
+        <li>肉・乳製品・卵を含まない食事。野菜・果物・全粒穀物・豆類が中心</li>
+        <li>エネルギー密度:平均<strong>約30%低下</strong></li>
+        <li>摂取カロリー:対照群よりさらに<strong>357kcal/日減少</strong></li>
+        <li>食べた食品の総重量:目立った変化なし</li>
+      </ul>
+    </div>
+  </div>
+  <p style="font-size:0.85rem; color:#555; margin-top:6px;">さらに、エネルギー密度がより大きく下がった人ほど体重の減り方も大きいという関連がみられ、この関連は摂取カロリーの変化を考慮しても残っていました。ただしこれは試験の中で観察された「相関」であり、体重が減った理由をすべて説明する単純な直線的因果関係とまでは言い切れません。</p>
+</div>
+
+<!-- 精密栄養学の視点 -->
+<div class="card blue">
+  <h2>🔬 精密栄養学の視点:「量を減らす」以外の選択肢としてのエネルギー密度</h2>
+  <p>減量のアドバイスは「カロリーを計算する」「量を減らす」に偏りがちですが、満腹感は胃の中に入る食品の「量(重さ・かさ)」にも大きく左右されることが、これまでの栄養学でも知られています。エネルギー密度の低い食品を選べば、同じ満腹感を得ながら摂取カロリーを減らせる可能性がある、という考え方です。ただし、食品の好み・満腹感の感じ方・生活スタイルには個人差が大きく、「密度の低い食事なら誰でも同じように続けられ、同じだけ痩せる」とまでは言えません。精密栄養学的には、この仕組みが自分に合うかどうかを見極めることが次の課題になります。</p>
+</div>
+
+<!-- 注意点 -->
+<div class="warn">
+  <strong>⚠️ 誤解しないでほしいこと</strong>
+  <ul style="padding-left:1.4em; margin-top:8px;">
+    <li>これは<strong>二次解析</strong>であり、試験開始前に登録されていた主要な評価項目そのものではありません。「エネルギー密度」という切り口は、データが集まったあとに掘り下げられたものです。</li>
+    <li>著者5人全員が<strong>Physicians Committee for Responsible Medicine(PCRM)</strong>という、動物性食品を減らし植物性食を推進する立場の非営利団体に所属しています。これは研究結果を無効にするものではありませんが、無視できない<strong>利益相反</strong>です。独立系の科学ウォッチ団体Sense About Scienceも同様の点を指摘し、独立した研究チームによる再現を求めています。</li>
+    <li>食事内容・摂取量は参加者の<strong>自己申告の記録</strong>に基づいており、思い出しバイアス(過少・過大申告)の可能性があります。</li>
+    <li>食事の性質上、参加者にも研究者にも「どちらの食事を割り当てられたか」を隠す(盲検化する)ことができない試験です。</li>
+    <li>対象は<strong>米国の過体重の成人244人</strong>という単一研究であり、正常体重の人・高齢者・持病がある人など他の集団にそのまま当てはまるとは限りません。対照群は「食事の指導なし」であり、地中海食や通常のカロリー制限など他の減量法と直接比較されたわけではありません。</li>
+    <li>低脂肪ヴィーガン食を自己流で長期間続けると、ビタミンB12・鉄・オメガ3脂肪酸・良質なたんぱく質などが不足しやすくなります。大きく食事パターンを変える場合は、自己判断せず管理栄養士などに相談してください。</li>
+  </ul>
+</div>
+
+<!-- エビデンスの整理 -->
+<div class="card">
+  <h2>🧪 今日出てきた情報の「証拠としての強さ」の目安</h2>
+  <table class="ev-table">
+    <tr><th>情報の種類</th><th>特徴</th><th>証拠としての強さ</th></tr>
+    <tr>
+      <td>ヴィーガン群でエネルギー密度が下がり、摂取カロリーが減ったこと</td>
+      <td>査読誌(JAMA Network Open)掲載、ランダム化比較試験のデータに基づく</td>
+      <td><span class="ev-badge ev-mid">中〜高(RCTデータの二次解析)</span></td>
+    </tr>
+    <tr>
+      <td>「エネルギー密度の低下が大きいほど体重減少も大きい」という関連</td>
+      <td>試験内での相関・媒介分析(それ自体は個別にランダム化されたものではない)</td>
+      <td><span class="ev-badge ev-mid">中程度(関連であり因果の完全証明ではない)</span></td>
+    </tr>
+    <tr>
+      <td>「ヴィーガン食は他の減量法より優れている」という一般化</td>
+      <td>単一研究、他の減量法との直接比較なし、著者全員に利益相反あり</td>
+      <td><span class="ev-badge ev-low">弱い(独立した再現研究が必要)</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- まとめ -->
+<div class="card" style="border-left-color:#1a7a5a;">
+  <h2>✅ 今日のまとめ</h2>
+  <ul class="step-list">
+    <li>PCRM所属のHana Kahleovaさんらのチームが、過体重の成人244人を対象にした16週間RCTのデータを使い、「エネルギー密度」に着目した二次解析をJAMA Network Open誌に発表(2026年8月6日、DOI: 10.1001/jamanetworkopen.2026.27483)。</li>
+    <li>肉・乳製品・卵を含まない低脂肪ヴィーガン食を自由に食べてよいと指示された群は、対照群と比べてエネルギー密度が平均約30%低下し、摂取カロリーはさらに357kcal/日減少。食べた食品の総重量はほとんど変わらなかった。</li>
+    <li>エネルギー密度の低下が大きい人ほど体重減少も大きいという関連があり、カロリー計算や量の制限を意識しなくても、食品の選び方だけで摂取エネルギーが自然に減る可能性を示した。</li>
+    <li>ただし二次解析であること、著者全員が植物性食を推進する団体に所属する利益相反があること、自己申告の食事記録に基づくこと、対照群が「食事指導なし」で他の減量法と直接比較されていないことには注意が必要。独立した研究チームによる再現が望まれる。</li>
+  </ul>
+</div>
+
+<!-- 免責 -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、医療アドバイスではありません。効果・必要量・リスクは個人の体質・年齢・持病・服薬によって大きく異なります。食事パターンを大きく変える場合(ヴィーガン食への切り替えを含む)は、自己判断せず、かかりつけ医・管理栄養士・薬剤師など専門家にご相談ください。
+</div>
+
+<!-- 出典 -->
+<div class="sources">
+  <h3>📚 主な出典・参考文献</h3>
+  <ol>
+    <li>Kahleova H, Znayenko-Miller T, Maracine C, Holubkov R, Barnard ND. "Vegan Diets and Dietary Energy Density: A Secondary Analysis of a Randomized Clinical Trial." JAMA Network Open. 2026;9(8):e2627483. DOI: 10.1001/jamanetworkopen.2026.27483
+      <a href="https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2852520" target="_blank">https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2852520</a>(基準日:2026年8月6日)
+    </li>
+    <li>Physicians Committee for Responsible Medicine. "Low-Fat Vegan Diet Cuts Dietary Energy Density by Nearly a Third, Helping Explain Weight Loss, New Study Finds."
+      <a href="https://www.pcrm.org/news/news-releases/low-fat-vegan-diet-cuts-dietary-energy-density-nearly-third-helping-explain" target="_blank">https://www.pcrm.org/news/news-releases/low-fat-vegan-diet-cuts-dietary-energy-density-nearly-third-helping-explain</a>(基準日:2026年8月、研究資金・実施元のプレスリリースにつき利益相反に留意)
+    </li>
+    <li>ScienceDaily. "Low-fat vegan diet helps people lose weight without eating less."
+      <a href="https://www.sciencedaily.com/releases/2026/08/260815064825.htm" target="_blank">https://www.sciencedaily.com/releases/2026/08/260815064825.htm</a>(基準日:2026年8月15日)
+    </li>
+    <li>Medical Xpress. "Low-fat vegan diet cuts dietary energy density by nearly a third, helping explain weight loss."
+      <a href="https://medicalxpress.com/news/2026-08-fat-vegan-diet-dietary-energy.html" target="_blank">https://medicalxpress.com/news/2026-08-fat-vegan-diet-dietary-energy.html</a>(基準日:2026年8月)
+    </li>
+    <li>Sense About Science. "Low-fat vegan diet weight loss linked to energy density, not portion cuts."(独立系科学ウォッチ団体による解説・COI指摘)
+      <a href="https://www.senseaboutscience.org.uk/low-fat-vegan-diet-weight-loss-linked-to-energy-density-not-portion-cuts/" target="_blank">https://www.senseaboutscience.org.uk/low-fat-vegan-diet-weight-loss-linked-to-energy-density-not-portion-cuts/</a>(基準日:2026年8月)
+    </li>
+  </ol>
+  <p style="margin-top:8px; font-size:0.78rem;">※ 本記事は査読誌JAMA Network Open掲載論文(DOI: 10.1001/jamanetworkopen.2026.27483)を一次情報とし、実施元PCRMのプレスリリース、および複数の独立した科学報道(ScienceDaily、Medical Xpressなど)、独立系科学ウォッチ団体Sense About Scienceの解説を突き合わせて作成しました。ネットワーク制限により論文本文・Abstractへの直接アクセスができなかったため、対象人数(244人)・介入期間(16週間)・エネルギー密度の低下幅(約30%)・摂取カロリー差(357kcal/日)は、複数の独立した情報源で一致して報告されている数値のみを採用しています。参加者の年齢・BMIなど詳細な特性、体重減少量そのものの具体的な数値(kg・信頼区間)は原文にしかない可能性が高く、本記事では確認できた範囲にとどめています。</p>
+</div>
+
+</div>
+</body>
+</html>
