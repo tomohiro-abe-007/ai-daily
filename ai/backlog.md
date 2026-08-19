@@ -82,6 +82,7 @@
 - 2026-08-17: Grok 4.6（2026年8月12日・SpaceXAI）・Artificial Analysis Intelligence Index 61点（GPT-5.6 Solと同点・Grok 4.5の56点から向上）・50万トークンコンテキスト・テキスト＋画像入力/テキスト出力・推論深度 low/medium/high/xhigh の4段階・知識カットオフ2026年2月1日・API料金$2/$6（入力/出力・200K以下）・200K超えで$4/$12に倍増（リクエスト全体・公式要確認）・SpaceXAI API(grok-4.6)/Cursor/Grok Build/OpenRouter/Vercel/Cloudflareで同日利用可（出典：VentureBeat / MarkTechPost / Artificial Analysis / 9to5Mac / codersera.com・2026年8月12日）
 - 2026-08-18: Anthropic Q2 2026 決算速報（2026年8月15日報道・CNBC/Fortune）・速報値売上$11.5B超（前年同期$787Mから14倍増）・Q1 2026は$4.73B・調整後営業利益がプラスに（初の黒字化）・計算コスト比率71%→56%に低下・上半期受注済み売上$16.2B・2026年6月にIPO向けS-1を機密提出・CFOクリシュナ・ラオ氏が投資家面談主導・引受証券会社はモルガン・スタンレー/ゴールドマン/JPモルガン（出典：CNBC / Fortune / The Next Web / letsdatascience.com・2026年8月15日）
 - 2026-08-19: Wiz Red Agent × GitHub Copilot Autofix（2026年6〜8月）・SnowflakeのGitHubリポジトリにスクリプトインジェクション脆弱性・2026年6月18日にコードが主要ブランチへ取り込まれる・Wiz社のAIセキュリティエージェント「Red Agent」が2026年6月23日に発見・報告・Snowflakeは同日修正・認証情報を無効化・実害ゼロ確認済み・Copilot Autofixが共著したコードに含まれていたとWizは主張・GitHubは「脆弱なコードは人間のエンジニアが書いた」と反論・両社の主張は2026年8月時点で食い違い継続中（出典：Wiz Blog / Forbes / SC Media / The Hacker News / Cyber Kendra / The Next Web・2026年8月）
+- 2026-08-20: ChatGPT for Teens（2026年8月18日リリース）・OpenAIが13〜17歳向け専用モードを発表・有害コンテンツフィルター強化・AIが「感情を持つふり」「意識があるふり」をしない設計・Study Mode（ヒント式解説）・クイズ・ラーニングビジュアライゼーション・「丸写し防止」リマインダー・無料プランを含む全プランで提供・年齢確認は身分証なしの「申告＋AI推定」方式・完璧な確認はできないがプライバシーと安全のバランスを優先（出典：OpenAI 公式 / CNBC / TechCrunch / Washington Post / Axios・2026年8月18日）
 
 ## 未解説の候補トピック（今後の参考）
 
