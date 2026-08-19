@@ -4,6 +4,7 @@
 
 - スペイン語の関係代名詞の発展（cuyo/el cual/dondeの基礎）── que/quienの続編、07-27の英語関係副詞の続編としても使える
 - スペイン語の与格の重複表現（le doy el libro a él）── なぜ代名詞と名詞を両方言うのか
+- 英語のyou know?/get it?/see?など意味ベースの確認フレーズ── 08-20のスペイン語¿sabes?/¿me entiendes?の逆向きブリッジ、right?のような形式タグとは違う「意味で聞く」タグを整理
 - スペイン語のnosotros/vosotros命令形と再帰動詞の命令形（levántate/sentaosなど）── tú/usted命令の続編
 - スペイン語の接続法（subjuntivo）の入り口（Si yo fuera...）── 英語のwere-subjunctiveとの対応
 - スペイン語の無人称文・受け身表現（se puede, se vende, se dice）── 主語をぼかす言い方
@@ -27,7 +28,6 @@
 - スペイン語のesperar que / querer que など、接続法を要求する動詞の整理 ── 08-10のojalá接続法の続編、動詞由来の接続法トリガー
 - スペイン語の増大辞(aumentativo) -ón/-azo の使い方（hombrón, cochazoなど）── 08-14の指小辞-ito/-itaの反対語、「大きい・強調・時には皮肉」を表す語尾変化
 - 英語の-ish(強調・おおよそを表す接尾辞: greenish, fortyish, tallish)── 08-15の-y/-let(小さい・親しみ)とは別系統の「あいまいさ・程度」を足す接尾辞、日常会話でよく使われる
-- スペイン語の口語タグ表現（¿eh?/¿sabes?/¿me entiendes?など、¿no?/¿verdad?以外のカジュアル確認表現）── 08-19の英語right?/huh?/eh?の逆向きブリッジ、スペイン語側のくだけた確認表現を整理
 
 ## 解説済みテーマ
 
@@ -103,3 +103,4 @@
 - 2026-08-16: 英語のTAG QUESTION（付加疑問文、isn't it?/don't you?など）の作り方と会話での役割
 - 2026-08-17: スペイン語のタグ疑問文（¿no?/¿verdad?/¿cierto?）── 08-16の英語tag questionの逆向きブリッジ
 - 2026-08-19: 英語の口語タグ表現（right?/huh?/eh?）── 08-16の英語tag question・08-17のスペイン語¿no?/¿verdad?の続編、不変タグの英語版を整理
+- 2026-08-20: スペイン語の口語タグ表現（¿eh?/¿sabes?/¿me entiendes?など、¿no?/¿verdad?以外のカジュアル確認表現）── 08-19の英語right?/huh?/eh?の逆向きブリッジ、スペイン語側のくだけた確認表現を整理
