@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-08-21</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '🥑';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.9rem; margin-bottom: 8px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.1em; }
+  .c3-col li { margin-bottom: 4px; }
+  .c3-col .or-val { font-size: 1.4rem; font-weight: 700; margin: 4px 0; }
+  .c3-col.red .or-val { color: #a0291e; }
+  .c3-col.green .or-val { color: #1a6e4a; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .mech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .mech-item {
+    background: #f0faf5;
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 0.85rem;
+    border-top: 3px solid #1a7a5a;
+  }
+  .mech-item .micon { font-size: 1.3rem; margin-bottom: 6px; }
+  .mech-item strong { display: block; color: #0d4a35; margin-bottom: 4px; font-size: 0.88rem; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .highlight { background: #cff0df; padding: 1px 5px; border-radius: 4px; }
+  .good { color: #1a7a5a; font-weight: 600; }
+  .bad  { color: #c0392b; font-weight: 600; }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-box {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin: 14px 0;
+    font-size: 0.92rem;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  .quote-box {
+    background: #f5f0e8;
+    border-left: 4px solid #7a5abf;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    margin: 12px 0;
+    color: #444;
+    font-style: italic;
+  }
+  .quote-box .who { font-style: normal; font-weight: 700; color: #5a3a9a; margin-top: 6px; font-size: 0.78rem; }
+  .benefit-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    margin: 14px 0;
+  }
+  .benefit-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+  .benefit-item .bicon { font-size: 1.2rem; margin-bottom: 4px; }
+  .matrix {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .mx-cell {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .mx-cell .mx-head { font-weight: 700; font-size: 0.88rem; margin-bottom: 6px; }
+  .mx-cell.ok  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .mx-cell.ok  .mx-head { color: #1a6e4a; }
+  .mx-cell.ng  { background: #f0ece3; border: 2px dashed #aaa; }
+  .mx-cell.ng  .mx-head { color: #777; }
+  @media (max-width: 540px) {
+    .compare4 { grid-template-columns: 1fr 1fr; }
+    .matrix { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.7rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ヘッダー -->
+<div class="header">
+  <div class="label">健康・栄養 最新トピック ・ 2026-08-21</div>
+  <h1>「アボカド1日1個でLDL粒子が減った」<br>——でも、この試験の“本命の結果”は差なしだった</h1>
+  <div class="subtitle">米ペンシルベニア州立大学のJanhavi J. Damaniさん・Kristina S. Petersenさんらのチームが、腹囲の大きい米国成人786人を対象に「1日1個のアボカドを26週間食べる」ランダム化比較試験(RCT)のデータを解析し、Journal of Clinical Lipidology誌に発表しました(DOI: 10.1016/j.jacl.2026.06.005)。血液中の<strong>LDL粒子の数</strong>が対照群と比べ平均49.1 nmol/L減少(95%信頼区間 −83.6〜−14.5、P=0.005)。一方で、粒子の大きさ・HDL粒子・中性脂肪を運ぶ粒子、そして<strong>アポリポたんぱくB(apoB)には差がありませんでした</strong>。さらに大事な文脈があります。この解析の元になったHAT試験(参加者1008人)の<strong>本来の主目的だった「内臓脂肪の減少」は、達成されていません</strong>。今日は「良いニュースの数字」の裏にある、研究の読み方を一緒に確認します。</div>
+</div>
+
+<!-- タグ -->
+<div style="margin-bottom:18px;">
+  <span class="tag">エビデンスの読み方</span>
+  <span class="tag">主要評価項目と探索的解析</span>
+  <span class="tag">LDL粒子数(LDL-P)</span>
+  <span class="tag">アポB</span>
+  <span class="tag">利益相反(COI)</span>
+  <span class="tag">代理指標</span>
+</div>
+
+<!-- 今日の疑問 -->
+<div class="card">
+  <h2>🤔 今日の疑問:「〇〇が減った」というニュース、どこまで信じていい?</h2>
+  <p>「アボカドを1日1個食べたら、心臓病のリスク因子が下がった」。こう聞くと、多くの人は「アボカドは心臓に良いんだ」と受け取ります。実際に今回の研究では、たしかに数字が動いています。しかも、査読(専門家による審査)を通った医学誌に載った、ランダム化比較試験のデータです。</p>
+  <p>でも同じ試験には、あまり大きく報じられていないもう一つの結果があります。この試験が<strong>そもそも一番知りたかったこと</strong>——「アボカドで内臓脂肪が減るか」——については、<strong>差がつかなかった</strong>のです。</p>
+  <p>今日はこの「一つの試験の中に、良い結果と差なしの結果が同居している」状況を題材に、ニュースの数字の受け止め方を練習します。</p>
+</div>
+
+<!-- 基本用語 -->
+<div class="card blue">
+  <h2>📖 まず言葉の意味を</h2>
+  <div class="def-grid">
+    <div class="def-item">
+      <div class="dterm">LDL粒子数(LDL-P)</div>
+      「悪玉コレステロール」を運ぶ小さな運搬船(LDL粒子)が、血液中に何個あるかを数えた値。健康診断でおなじみの「LDLコレステロール値」が<em>荷物の総量</em>だとすれば、こちらは<em>船の数</em>にあたる。単位はnmol/L(ナノモル毎リットル)。
+    </div>
+    <div class="def-item">
+      <div class="dterm">アポリポたんぱくB(apoB)</div>
+      LDLなど動脈硬化に関わる粒子1個につき1個だけ付いている「荷札」のようなたんぱく質。これを測れば粒子の数がわかるため、近年の研究では<strong>リスク指標としてapoBが最も信頼できる</strong>とされている。
+    </div>
+    <div class="def-item">
+      <div class="dterm">主要評価項目(primary outcome)</div>
+      試験を始める<strong>前に</strong>「これで成功・失敗を判定します」と決めて登録しておく、いちばん大事な物差し。後から都合よく変えられないようにするための仕組み。
+    </div>
+    <div class="def-item">
+      <div class="dterm">探索的解析(exploratory analysis)</div>
+      データが集まった後で「他にも何か変わっていないかな」と幅広く調べる分析。たくさん調べれば偶然の差も出やすいため、<strong>結論ではなく「次の仮説」</strong>として扱うのがルール。
+    </div>
+    <div class="def-item">
+      <div class="dterm">付随研究(ancillary study)</div>
+      すでに行われた大きな試験の血液サンプルなどを使い、別の研究チームが別の切り口で行う追加研究。今回のLDL粒子の解析がこれにあたる。
+    </div>
+    <div class="def-item">
+      <div class="dterm">代理指標(サロゲート)</div>
+      「心筋梗塞になったか」のような本当に知りたい結果の代わりに、測りやすい血液の値などで代用すること。代理指標が改善しても、病気そのものが減るとは限らない。
+    </div>
+  </div>
+</div>
+
+<!-- 数字カード -->
+<div class="num-row">
+  <div class="num-card blue-bg">
+    <div class="big">1008<span class="unit">人</span></div>
+    <div class="desc">元になったHAT試験の参加者数(腹囲が大きい米国成人)</div>
+  </div>
+  <div class="num-card">
+    <div class="big">786<span class="unit">人</span></div>
+    <div class="desc">今回のLDL粒子解析の対象。74%が女性、平均年齢51歳(±14)</div>
+  </div>
+  <div class="num-card orange-bg">
+    <div class="big">26<span class="unit">週間</span></div>
+    <div class="desc">1日1個のアボカドを、いつもの食事に足す期間(約6か月)</div>
+  </div>
+  <div class="num-card purple-bg">
+    <div class="big">▼49.1</div>
+    <div class="desc">LDL粒子数の減少(nmol/L)。95%信頼区間 −83.6〜−14.5、P=0.005</div>
+  </div>
+</div>
+
+<!-- 調べ方の流れ -->
+<div class="card purple">
+  <h2>🧭 どうやって調べたのか(5ステップ)</h2>
+  <div class="flow">
+    <div class="flow-step purp">腹囲の大きい<br>成人1008人を募集</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step">くじ引きで<br>2つのグループに</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step alt">片方は毎日<br>アボカド1個を追加<br>(26週間)</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step">開始時と26週後に<br>空腹時の採血</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step purp">NMR(核磁気共鳴)で<br>粒子の数を測定<br>786人分を解析</div>
+  </div>
+  <p style="font-size:0.82rem; color:#555; margin-top:4px;">アボカド群には2週間ごとに新鮮なアボカドが配られ、それ以外の栄養指導はありませんでした。対照群は「いつも通りの食事」を続けます。食べ物を配る試験の性質上、参加者にどちらのグループかを隠す(盲検化する)ことはできません。</p>
+</div>
+
+<!-- 変わった/変わらなかった -->
+<div class="card orange">
+  <h2>⚖️ 変わったもの vs 変わらなかったもの</h2>
+  <div class="compare4">
+    <div class="c3-col green">
+      <h3>✅ 差がついた(1項目)</h3>
+      <div class="or-val">▼49.1 nmol/L</div>
+      <ul>
+        <li><strong>LDL粒子の総数(LDL-P)</strong>が対照群より減少</li>
+        <li>95%信頼区間 −83.6〜−14.5</li>
+        <li>P=0.005(偶然では説明しにくい差)</li>
+      </ul>
+    </div>
+    <div class="c3-col red">
+      <h3>➖ 差がつかなかった(多数)</h3>
+      <ul>
+        <li><strong>アポB(apoB)</strong>:変化なし</li>
+        <li><strong>アポA-1</strong>:変化なし</li>
+        <li><strong>LDL粒子の大きさ・サブクラス</strong>:変化なし</li>
+        <li><strong>HDL粒子(善玉側)</strong>:変化なし</li>
+        <li><strong>中性脂肪を運ぶ粒子(TRL-P)</strong>:変化なし</li>
+      </ul>
+    </div>
+  </div>
+  <p style="font-size:0.85rem; color:#555; margin-top:6px;">ここが今日いちばん考えてほしいところです。<strong>LDL粒子の数が減ったのに、粒子1個に1個ずつ付いている「荷札」であるapoBは減っていません。</strong>本来この2つはほぼ連動するはずの値です。片方だけが動いたという結果は、「本当に粒子が減ったのか」「測定方法の違いによる誤差なのか」を慎重に見る理由になります。</p>
+</div>
+
+<!-- 主要評価項目との対比マトリクス -->
+<div class="card red">
+  <h2>🎯 いちばん大事な文脈:同じ試験の「本命の結果」はどうだったか</h2>
+  <div class="matrix">
+    <div class="mx-cell ng">
+      <div class="mx-head">🎯 主要評価項目(試験前に登録)</div>
+      <p style="font-size:0.84rem;"><strong>内臓脂肪の量(MRIで測定)</strong><br>群間差 0.017 L(95%信頼区間 −0.024〜0.058)、<strong>P=0.405 → 差なし</strong></p>
+      <p style="font-size:0.8rem; color:#666;">2022年 Journal of the American Heart Association 誌に発表(1008人)。この試験は「内臓脂肪が減るか」を確かめる目的で設計され、その答えは「減らなかった」でした。</p>
+    </div>
+    <div class="mx-cell ok">
+      <div class="mx-head">🔍 探索的な付随解析(今回の報告)</div>
+      <p style="font-size:0.84rem;"><strong>LDL粒子の数</strong><br>▼49.1 nmol/L、P=0.005 → <strong>差あり</strong></p>
+      <p style="font-size:0.8rem; color:#555;">2026年 Journal of Clinical Lipidology 誌に発表(786人)。論文自身が、この粒子の解析を「探索的(exploratory)な項目」と位置づけています。</p>
+    </div>
+  </div>
+  <p style="font-size:0.86rem; margin-top:8px;">大切なのは<strong>どちらかが嘘だということではない</strong>という点です。両方とも同じ試験の、正直に報告された結果です。ただし科学の世界では、<span class="highlight">「事前に決めた本命の物差しで差がつかなかった試験の、後から調べた項目で出た差」</span>は、独立した確認が済むまで「仮説」として扱うのが原則です。</p>
+</div>
+
+<!-- 「4%」の読み方 -->
+<div class="card blue">
+  <h2>📐 「心臓病リスクが約4%下がる計算」の意味</h2>
+  <p>報道では「およそ4%の心血管疾患リスク低下に相当する」という表現が使われています。これは<strong>実際に心筋梗塞や脳卒中が減ったのを数えた結果ではありません</strong>。LDL粒子の数と将来の病気の関係について、これまでの疫学研究(集団を観察した研究)から得られている関係式にあてはめて<strong>推計した数字</strong>です。</p>
+  <div class="flow">
+    <div class="flow-step">試験で測ったのは<br>「血液の値」だけ</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step alt">過去の観察研究の<br>関係式にあてはめる</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step warn2">「約4%リスク低下<br>に相当」という<strong>推計</strong></div>
+  </div>
+  <p style="font-size:0.85rem; color:#555;">26週間・786人という規模では、心筋梗塞や脳卒中が実際に何件起きたかを比べることはそもそもできません。代理指標(サロゲート)が改善しても病気が減らなかった例は、医学の歴史に何度もあります。「4%」は目安であって、約束ではありません。</p>
+</div>
+
+<!-- 精密栄養学の視点 -->
+<div class="card">
+  <h2>🔬 精密栄養学の視点:平均の「小さな差」は、誰にとっての差なのか</h2>
+  <p>精密栄養学(せいみつえいようがく=一人ひとりの体質や生活に合わせて栄養を考える分野)の目線で見ると、今回の結果はもう一つの問いを投げかけます。<strong>786人の平均で49 nmol/Lという差は、全員に均等に起きたのか、それとも一部の人に大きな変化があって平均を押し上げたのか</strong>——という問いです。</p>
+  <div class="mech-grid">
+    <div class="mech-item">
+      <div class="micon">🧬</div>
+      <strong>もともとの値が違う</strong>
+      LDL粒子数が高い人と低い人では、同じ食事の変化でも動く幅が違う可能性があります。
+    </div>
+    <div class="mech-item">
+      <div class="micon">🍽️</div>
+      <strong>何と「置き換えた」か</strong>
+      アボカドは「足す」指示でしたが、実際にはお菓子を減らした人、何も減らさなかった人がいるはずです。置き換えた相手によって効果は変わります。
+    </div>
+    <div class="mech-item">
+      <div class="micon">📊</div>
+      <strong>平均は個人を表さない</strong>
+      平均で差が出ても「あなたも同じだけ下がる」という意味にはなりません。逆に、平均で差がなくても効く人がいる可能性もあります。
+    </div>
+  </div>
+  <p style="font-size:0.85rem; color:#555;">今回の論文からは、こうした「誰に効いたのか」という内訳は確認できていません。精密栄養学的には、そここそが次に知りたい部分です。</p>
+</div>
+
+<!-- 注意点 -->
+<div class="warn">
+  <strong>⚠️ 誤解しないでほしいこと</strong>
+  <ul style="padding-left:1.4em; margin-top:8px;">
+    <li>今回の解析は<strong>探索的な付随研究</strong>です。試験前に「これで判定する」と登録された項目ではありません。多くの項目を調べれば、偶然差が出る項目も現れます。</li>
+    <li>元のHAT試験の<strong>主要評価項目(内臓脂肪)は達成されていません</strong>(P=0.405)。過去の報告では、肝臓の脂肪・炎症の指標(hsCRP)・メタボリックシンドロームの構成要素にも群間差はありませんでした。</li>
+    <li><strong>粒子の数(LDL-P)は減ったのに、apoBは減っていません。</strong>近年の大規模研究では、この2つが食い違うときは<strong>apoBのほうが心血管リスクをよく表す</strong>と報告されています。今回はその「より信頼される指標」が動かなかった、という読み方もできます。</li>
+    <li>この試験は<strong>Hass Avocado Board(米国のアボカド生産者団体)が資金を出し、アボカドも提供</strong>しています。試験実施中は盲検化されていないデータにアクセスしなかったと明記されていますが、業界資金の研究であることは読者が知っておくべき文脈です(資金源=結果が誤り、という意味ではありません)。</li>
+    <li>食べ物を配る試験の性質上、<strong>参加者を盲検化できません</strong>。「良いものを食べている」という意識が、他の生活習慣に影響した可能性を排除できません。</li>
+    <li>対象は<strong>腹囲の大きい米国成人</strong>で、74%が女性、平均51歳です。日本人・若年層・やせ型の人・持病のある人にそのまま当てはまるとは限りません。</li>
+    <li>アボカドは1個あたり200〜300kcal程度と、決してカロリーの低い食品ではありません。「足すだけ」で摂取エネルギーが増えれば、別の不利益が生じる可能性があります。</li>
+  </ul>
+</div>
+
+<!-- エビデンスの整理 -->
+<div class="card">
+  <h2>🧪 今日出てきた情報の「証拠としての強さ」の目安</h2>
+  <table class="ev-table">
+    <tr><th>情報の種類</th><th>特徴</th><th>証拠としての強さ</th></tr>
+    <tr>
+      <td>アボカド1個/日で内臓脂肪は減らなかった</td>
+      <td>1008人のRCTの<strong>主要評価項目</strong>。事前登録された物差しで判定</td>
+      <td><span class="ev-badge ev-high">高い(RCTの主要評価項目)</span></td>
+    </tr>
+    <tr>
+      <td>LDL粒子数が49.1 nmol/L減った</td>
+      <td>同じRCTのデータを使った786人の付随研究。論文自身が「探索的」と明記</td>
+      <td><span class="ev-badge ev-mid">中程度(探索的解析、要再現)</span></td>
+    </tr>
+    <tr>
+      <td>apoB・HDL粒子・粒子サイズには差がなかった</td>
+      <td>同じ解析内の結果。より信頼される指標apoBが動いていない</td>
+      <td><span class="ev-badge ev-mid">中程度(「差がない」の証明ではなく「差を示せなかった」)</span></td>
+    </tr>
+    <tr>
+      <td>「心臓病リスクが約4%下がる」</td>
+      <td>実際の発症数ではなく、過去の疫学データからの<strong>推計</strong></td>
+      <td><span class="ev-badge ev-low">弱い(代理指標からの外挿)</span></td>
+    </tr>
+    <tr>
+      <td>「アボカドは心臓に良い食品だ」という一般化</td>
+      <td>単一試験、業界資金、盲検化不可、主要評価項目は未達成</td>
+      <td><span class="ev-badge ev-low">弱い(独立した再現研究が必要)</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- まとめ -->
+<div class="card" style="border-left-color:#1a7a5a;">
+  <h2>✅ 今日のまとめ</h2>
+  <ul class="step-list">
+    <li>Damaniさん・Petersenさんらのチームが、腹囲の大きい米国成人786人・26週間のRCTデータを解析し、アボカド1個/日でLDL粒子数が49.1 nmol/L減少したと報告(Journal of Clinical Lipidology、DOI: 10.1016/j.jacl.2026.06.005)。</li>
+    <li>ただし同じ解析で、apoB・アポA-1・HDL粒子・中性脂肪を運ぶ粒子・粒子サイズには差がなかった。粒子1個に1個付く「荷札」であるapoBが動いていない点は、慎重に読む理由になる。</li>
+    <li>元になったHAT試験(1008人)の主要評価項目である内臓脂肪の減少は達成されておらず(P=0.405)、今回の粒子解析は論文自身が「探索的」と位置づけている。</li>
+    <li>「約4%のリスク低下」は実際の発症数ではなく、過去の疫学データからの推計。業界団体の資金による試験であることも含め、独立した再現研究が待たれる段階。</li>
+    <li>読み方の教訓:ニュースの見出しになった数字を見たら、<strong>「それは事前に決められた本命の物差しか、後から探した項目か」</strong>を確認する習慣をつけると、情報にふり回されにくくなります。</li>
+  </ul>
+</div>
+
+<!-- 免責 -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、医療アドバイスではありません。効果・必要量・リスクは個人の体質・年齢・持病・服薬によって大きく異なります。本記事は特定の食品を推奨するものでも、避けるよう勧めるものでもありません。脂質異常症・心疾患の治療中の方、食事内容やサプリメントを大きく変えようとお考えの方は、自己判断せず、かかりつけ医・管理栄養士・薬剤師など専門家にご相談ください。
+</div>
+
+<!-- 出典 -->
+<div class="sources">
+  <h3>📚 主な出典・参考文献</h3>
+  <ol>
+    <li>Damani JJ, Kris-Etherton PM, Matthan NR, Li Z, Sabaté J, Reboussin DM, Petersen KS. "Effect of incorporating 1 avocado per day on lipoprotein particle concentrations compared to habitual intake in adults with abdominal obesity: An ancillary study of the Habitual Diet and Avocado Trial, a randomized controlled trial." Journal of Clinical Lipidology. 2026. DOI: 10.1016/j.jacl.2026.06.005
+      <a href="https://www.lipidjournal.com/article/S1933-2874(26)00397-1/fulltext" target="_blank">https://www.lipidjournal.com/article/S1933-2874(26)00397-1/fulltext</a>(基準日:2026年、査読誌掲載)
+    </li>
+    <li>Lichtenstein AH, Kris-Etherton PM, Petersen KS, et al. "Effect of Incorporating 1 Avocado Per Day Versus Habitual Diet on Visceral Adiposity: A Randomized Trial." Journal of the American Heart Association. 2022. DOI: 10.1161/JAHA.122.025657(HAT試験の主要評価項目の報告。内臓脂肪の群間差 0.017 L [−0.024, 0.058]、P=0.405)
+      <a href="https://www.ahajournals.org/doi/10.1161/JAHA.122.025657" target="_blank">https://www.ahajournals.org/doi/10.1161/JAHA.122.025657</a>(基準日:2022年7月)
+    </li>
+    <li>"The Habitual Diet and Avocado Trial (HAT): A Collaborative Multicenter Model for Large-Scale, Privately Funded Nutrition Research Consortia." Current Developments in Nutrition. 2026;10(6):107713(試験の資金源・実施体制に関する報告。Hass Avocado Boardが資金提供・アボカド提供、試験実施中は盲検化データへのアクセスなしと記載)
+      <a href="https://www.sciencedirect.com/science/article/pii/S2475299126000788" target="_blank">https://www.sciencedirect.com/science/article/pii/S2475299126000788</a>(基準日:2026年6月)
+    </li>
+    <li>米国国立医学図書館 ClinicalTrials.gov 登録情報「Habitual Diet and Avocado Trial」NCT03528031(試験の事前登録内容)
+      <a href="https://clinicaltrials.gov/study/NCT03528031" target="_blank">https://clinicaltrials.gov/study/NCT03528031</a>(基準日:2026年8月確認)
+    </li>
+    <li>"Apolipoprotein B outperforms low density lipoprotein particle number as a marker of cardiovascular risk in the UK Biobank." PubMed PMID: 40887080(LDL粒子数とapoBが食い違う場合、apoBのほうがリスクをよく表すとする大規模データ解析)
+      <a href="https://pubmed.ncbi.nlm.nih.gov/40887080/" target="_blank">https://pubmed.ncbi.nlm.nih.gov/40887080/</a>(基準日:2025年)
+    </li>
+    <li>Sniderman AD, et al. "ApoB, LDL-C, and non-HDL-C as markers of cardiovascular risk." Journal of Clinical Lipidology. 2025. PubMed PMID: 40681368(apoBを第一の指標とすべきとする総説)
+      <a href="https://www.lipidjournal.com/article/S1933-2874(25)00315-0/abstract" target="_blank">https://www.lipidjournal.com/article/S1933-2874(25)00315-0/abstract</a>(基準日:2025年)
+    </li>
+    <li>Penn State University プレスリリース "Eating an avocado a day lowers heart disease risk factor for people with obesity"(研究実施機関による発表。「約4%のリスク低下に相当」という推計の出所)
+      <a href="https://www.psu.edu/news/health-and-human-development/story/eating-avocado-day-lowers-heart-disease-risk-factor-people" target="_blank">https://www.psu.edu/news/health-and-human-development/story/eating-avocado-day-lowers-heart-disease-risk-factor-people</a>(基準日:2026年7月)
+    </li>
+  </ol>
+  <p style="margin-top:8px; font-size:0.78rem;">※ 本記事は査読誌 Journal of Clinical Lipidology 掲載論文(DOI: 10.1016/j.jacl.2026.06.005)および同じ試験の主要評価項目を報告した Journal of the American Heart Association 掲載論文(DOI: 10.1161/JAHA.122.025657)を一次情報とし、試験の資金源に関する報告(Current Developments in Nutrition 2026;10(6):107713)、研究機関のプレスリリース、複数の独立した科学報道を突き合わせて作成しました。ネットワーク制限により論文本文・Abstractへの直接アクセスができなかったため、記載した数値(786人、1008人、26週間、LDL粒子数 −49.1 nmol/L [95%CI −83.6, −14.5] P=0.005、内臓脂肪の群間差 0.017 L [−0.024, 0.058] P=0.405、平均年齢51±14歳、女性74%)は、複数の独立した情報源で一致して報告されているものだけを採用しています。ベースラインのLDL粒子数の絶対値、「約4%」という推計の具体的な計算方法、各群の詳細な食事摂取量データは原文にしかない可能性が高く、本記事では確認できた範囲にとどめています。</p>
+</div>
+
+</div>
+</body>
+</html>
