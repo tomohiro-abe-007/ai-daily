@@ -4,7 +4,6 @@
 
 - スペイン語の関係代名詞の発展（cuyo/el cual/dondeの基礎）── que/quienの続編、07-27の英語関係副詞の続編としても使える
 - スペイン語の与格の重複表現（le doy el libro a él）── なぜ代名詞と名詞を両方言うのか
-- 英語のyou know?/get it?/see?など意味ベースの確認フレーズ── 08-20のスペイン語¿sabes?/¿me entiendes?の逆向きブリッジ、right?のような形式タグとは違う「意味で聞く」タグを整理
 - スペイン語のnosotros/vosotros命令形と再帰動詞の命令形（levántate/sentaosなど）── tú/usted命令の続編
 - スペイン語の接続法（subjuntivo）の入り口（Si yo fuera...）── 英語のwere-subjunctiveとの対応
 - アルゼンチンなどのvoseo（vos＋独自の活用）── vosotros/ustedesの続編、南米のもう一つの二人称
@@ -30,6 +29,8 @@
 - スペイン語のestar de vs. ser de(出身・所属を表す表現の違い)── ser用法の応用、生活シーンで自己紹介の幅を広げる
 - 英語のused to / would(過去の習慣を表す言い方の違い)── 過去形の入り口(06-24)の発展、「昔は〜したものだ」の言い方
 - スペイン語の間接疑問文(No sé qué hora es.のような疑問詞+平叙語順)── 08-21のse構文の後に読みたい、疑問文の語順が変わる感覚を整理
+- 英語のDoes that make sense?/Are you following?などフォーマルな理解確認フレーズ── 08-22のyou know?/get it?/see?のフォーマル版、ビジネス英語で使える丁寧な確認表現を整理
+- スペイン語のfiller word(este, o sea, bueno)の使い方── 08-22の英語you know?のように、意味が薄れて間つなぎ化した表現の整理、08-16のvale/claro/pues/o seaの発展
 
 ## 解説済みテーマ
 
@@ -107,3 +108,4 @@
 - 2026-08-19: 英語の口語タグ表現（right?/huh?/eh?）── 08-16の英語tag question・08-17のスペイン語¿no?/¿verdad?の続編、不変タグの英語版を整理
 - 2026-08-20: スペイン語の口語タグ表現（¿eh?/¿sabes?/¿me entiendes?など、¿no?/¿verdad?以外のカジュアル確認表現）── 08-19の英語right?/huh?/eh?の逆向きブリッジ、スペイン語側のくだけた確認表現を整理
 - 2026-08-21: スペイン語の無人称文・受け身表現（se puede, se vende, se prohíbeなど）── 主語をぼかす言い方、街の看板・貼り紙で頻出する実用表現
+- 2026-08-22: 英語のyou know?/get it?/see?など意味ベースの確認フレーズ（know what I mean?を含む）── 08-19の形式タグright?/huh?/eh?・08-20のスペイン語¿sabes?/¿me entiendes?の逆向きブリッジ、意味を使って理解や共感を確認するタグを整理
