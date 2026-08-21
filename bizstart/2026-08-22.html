@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-08-22</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #2a4d7a 0%, #10233f 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #2a4d7a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.blue   { border-left-color: #1e5a7a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.green  { border-left-color: #1e7a5a; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #2a4d7a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin: 14px 0;
+  }
+  .stats-row.c3 { grid-template-columns: repeat(3, 1fr); }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 12px 6px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat.now { background: #fff3e0; box-shadow: 0 0 0 2px #c8884a inset; }
+  .stat .sl { font-size: 0.62rem; color: #888; margin-bottom: 3px; line-height: 1.4; }
+  .stat .sv { font-size: 1.05rem; font-weight: 700; color: #2a4d7a; line-height: 1.15; }
+  .stat.now .sv { color: #c8884a; }
+  .stat .su { font-size: 0.62rem; color: #666; margin-top: 2px; }
+
+  .bignum {
+    background: white;
+    border-radius: 12px;
+    padding: 18px 14px;
+    text-align: center;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.1);
+    border: 2px dashed #c8884a;
+    margin: 14px 0;
+  }
+  .bignum .bl { font-size: 0.76rem; color: #888; margin-bottom: 6px; }
+  .bignum .bv { font-size: 2.1rem; font-weight: 700; color: #c8884a; line-height: 1.1; }
+  .bignum .bs { font-size: 0.76rem; color: #666; margin-top: 6px; line-height: 1.6; }
+
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #2a4d7a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-num.now { background: #b54040; }
+  .f-num.later { background: #999; }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+  .f-arrow { color: #2a4d7a; font-size: 1.1rem; margin-left: 14px; margin-bottom: 4px; }
+
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  table.cmp {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.83rem;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.08);
+  }
+  table.cmp th, table.cmp td {
+    border: 1px solid #e4dccd;
+    padding: 9px 10px;
+    line-height: 1.55;
+    vertical-align: top;
+  }
+  table.cmp thead th { background: #2a4d7a; color: white; font-weight: 600; text-align: center; }
+  table.cmp tbody th { background: #f5efe2; color: #5a4020; text-align: left; font-weight: 600; white-space: nowrap; }
+  table.cmp td { color: #444; }
+  .wrap-x { overflow-x: auto; }
+
+  .ladder { margin: 14px 0; }
+  .rung {
+    display: grid;
+    grid-template-columns: 118px 1fr;
+    gap: 10px;
+    align-items: center;
+    background: white;
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin-bottom: 6px;
+    box-shadow: 1px 2px 6px rgba(0,0,0,0.07);
+    border-left: 5px solid #ccc;
+  }
+  @media (max-width: 540px) { .rung { grid-template-columns: 1fr; gap: 4px; } }
+  .rung.r0 { border-left-color: #b54040; }
+  .rung.r1 { border-left-color: #c8884a; }
+  .rung.r2 { border-left-color: #1e7a5a; }
+  .rung .rk { font-size: 0.78rem; font-weight: 700; color: #555; }
+  .rung .rv { font-size: 0.87rem; line-height: 1.55; }
+  .rung.r0 .rv strong { color: #b54040; }
+  .rung.r1 .rv strong { color: #c8884a; }
+  .rung.r2 .rv strong { color: #1e7a5a; }
+
+  .prompt-box {
+    background: #f0f5ff;
+    border: 2px solid #4a6aae;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 12px 0;
+    font-size: 0.84rem;
+    line-height: 1.85;
+    color: #1a2a4a;
+  }
+  .prompt-box .ph {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #4a6aae;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+  .prompt-box .fill {
+    background: #d0e0ff;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-weight: 700;
+    color: #0a2a6e;
+  }
+
+  .info {
+    background: #e8eef8;
+    border-left: 4px solid #2a4d7a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #16294a;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #7a4010;
+  }
+
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #2a4d7a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #2a4d7a; word-break: break-all; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #2a4d7a; }
+
+  .split-wrap {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 10px;
+    align-items: center;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .split-wrap { grid-template-columns: 1fr; } }
+  .split-card {
+    border-radius: 10px;
+    padding: 16px 14px;
+    text-align: center;
+    background: #fff3e0;
+    border: 2px solid #c8884a;
+  }
+  .split-card.blue { background: #e8eef8; border-color: #2a4d7a; }
+  .split-card .vl { font-size: 0.75rem; font-weight: 700; margin-bottom: 6px; color: #7a4010; }
+  .split-card.blue .vl { color: #16294a; }
+  .split-card .vv { font-size: 1.4rem; font-weight: 700; color: #c8884a; }
+  .split-card.blue .vv { color: #2a4d7a; }
+  .split-card .vs { font-size: 0.72rem; color: #777; margin-top: 4px; }
+  .split-mid { text-align: center; font-size: 1.3rem; color: #999; font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Header -->
+<div class="header">
+  <div class="meta">📅 1人法人スタート 最新トピック &nbsp;2026-08-22</div>
+  <h1>従業員を1人雇ったら、毎年6〜7月に何をする?<br>労働保険料「年度更新」の仕組みを図解</h1>
+  <div class="desc">
+    <span class="htag">労働保険料</span>
+    <span class="htag">年度更新</span>
+    <span class="htag">雇用保険</span>
+    <span class="htag">労災保険</span>
+    <span class="htag">概算保険料・確定保険料</span>
+    <br>
+    代表者1人だけの会社は、実は労働保険（労災保険・雇用保険）に入る必要がありません。加入が必要になるのは、<strong>従業員を1人でも雇ったとき</strong>です。7/4の記事で「雇ったときの手続き」を扱いましたが、加入した後は毎年6/1〜7/10に「年度更新（ねんどこうしん）」という保険料の申告・納付が待っています。社会保険の算定基礎届（7/1の記事）とよく混同されるので、違いも含めて図解します。
+  </div>
+</div>
+
+<!-- Section 1: 労働保険とは（復習） -->
+<div class="card">
+  <div class="sec-title">📋 そもそも労働保険とは? ── 復習</div>
+  <p><span class="hl">労働保険</span>とは、<strong>労災保険（仕事中や通勤中のケガ・病気を補償する保険）</strong>と<strong>雇用保険（失業したときなどに給付を受けられる保険）</strong>をあわせた呼び方です。窓口はどちらも労働基準監督署・公共職業安定所（ハローワーク）が中心で、保険料の申告・納付は一体で行うため「労働保険」とまとめて呼ばれます。</p>
+
+  <p style="margin-top:10px;">代表者（役員）は労働者ではないため、原則として労災保険・雇用保険には加入できません。会社が労働保険に加入するのは、<span class="hlo">従業員（アルバイト・パートを含む）を1人でも雇ったとき</span>からです。加入すると、保険関係成立届の提出とあわせて「概算保険料（がいさんほけんりょう）」という<strong>その年度に納める保険料の見込み額</strong>を最初に申告・納付します。</p>
+
+  <div class="info">
+    💡 ここから先の「年度更新」は、<strong>すでに従業員を雇って労働保険に加入している会社</strong>が対象の手続きです。代表者1人だけで従業員がいない会社には関係ありません。
+  </div>
+
+  <div class="source">
+    出典：厚生労働省「労働保険の成立手続」<a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/roudouhoken/seiritu/index.html" target="_blank">https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/roudouhoken/seiritu/index.html</a>（令和8年〈2026年〉8月時点の公表情報にもとづく）
+  </div>
+</div>
+
+<!-- Section 2: 年度更新のスケジュール -->
+<div class="card blue">
+  <div class="sec-title">🗓️ 年度更新のスケジュールを図解</div>
+  <p>労働保険料は、まず<strong>見込み額（概算）</strong>を先に払い、1年たってから<strong>実際の額（確定）</strong>で精算するという「先払い＋後精算」の仕組みです。この精算と翌年度分の申告をまとめて行うのが「年度更新」で、原則<span class="hlo">毎年6月1日〜7月10日</span>の間に手続きします。</p>
+
+  <div class="f-step" style="margin-top:14px;">
+    <div class="f-num">1</div>
+    <div class="f-text">4月〜翌3月（労働保険の年度）に、従業員に実際に給与を支払う</div>
+  </div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step">
+    <div class="f-num now">2</div>
+    <div class="f-text"><strong style="color:#b54040;">翌年度の6/1〜7/10</strong>に、①前年度分を実際の賃金総額で計算し直した「確定保険料」の精算と、②今年度分の見込み額「概算保険料」の申告・納付を<strong>同時に</strong>行う</div>
+  </div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step">
+    <div class="f-num later">3</div>
+    <div class="f-text">また1年後、②の年度が終わったら同じサイクルを繰り返す</div>
+  </div>
+
+  <p style="margin-top:14px;">令和8年度も申告・納付期間は<strong>6月1日〜7月10日</strong>でした。申告書は労働基準監督署・都道府県労働局への郵送のほか、電子申請（e-Gov）でも提出できます。</p>
+
+  <div class="source">
+    出典：厚生労働省「労働保険年度更新に係るお知らせ」<a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/hoken/roudouhoken21/index.html" target="_blank">https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/hoken/roudouhoken21/index.html</a>（令和8年度の申告・納付期間：令和8年6月1日〜7月10日）
+  </div>
+</div>
+
+<!-- Section 3: 計算式と保険料率 -->
+<div class="card orange">
+  <div class="sec-title">🧮 いくら払う? 計算式は「賃金総額 × 保険料率」</div>
+  <div class="bignum">
+    <div class="bl">労働保険料の基本計算式</div>
+    <div class="bv">賃金総額 × 保険料率</div>
+    <div class="bs">賃金総額＝1年間に従業員に支払った給与・賞与などの合計額</div>
+  </div>
+
+  <p>保険料率は「労災保険率」と「雇用保険率」の2つを合わせたもので、業種によって異なります。デスクワーク中心の会社によくあてはまる<strong>「その他の各種事業」</strong>を例にすると、令和8年度は次のとおりです。</p>
+
+  <div class="stats-row c3" style="margin-top:14px;">
+    <div class="stat">
+      <div class="sl">労災保険率<br>（その他の各種事業）</div>
+      <div class="sv">3/1,000</div>
+      <div class="su">全額 事業主負担</div>
+    </div>
+    <div class="stat now">
+      <div class="sl">雇用保険率<br>（一般の事業）</div>
+      <div class="sv">13.5/1,000</div>
+      <div class="su">事業主8.5＋労働者5</div>
+    </div>
+    <div class="stat">
+      <div class="sl">合計<br>（目安）</div>
+      <div class="sv">16.5/1,000</div>
+      <div class="su">賃金総額×約1.65%</div>
+    </div>
+  </div>
+
+  <p>労災保険率は業種ごとに3年に一度見直され、直近の改定は令和6年度、その後令和7・8年度は同率で据え置かれています（次回改定は令和9年度の見込み）。雇用保険率は<span class="hl">事業主と労働者で負担割合が異なり</span>、労災保険は全額を会社（事業主）が負担する点が特徴です。</p>
+
+  <div class="warn">
+    ⚠️ 保険料率は業種（一般の事業／建設の事業／農林水産業など）によって大きく変わります。正確な料率は必ず所轄の労働局・厚生労働省の最新の料率表で確認してください。
+  </div>
+
+  <div class="source">
+    出典：厚生労働省「労災保険率表」「令和8年度雇用保険料率のご案内」（令和8年〈2026年〉度・その他の各種事業の労災保険率3/1,000、一般の事業の雇用保険率13.5/1,000〈労働者負担5/1,000・事業主負担8.5/1,000〉。各都道府県労働局の公表情報にもとづく）
+  </div>
+</div>
+
+<!-- Section 4: 概算と確定の関係 -->
+<div class="card">
+  <div class="sec-title">🔁 「概算」と「確定」、二重請求に見えるカラクリ</div>
+  <p>年度更新の書類を初めて見ると「今年の分と去年の分、両方払うの?」と驚くかもしれません。仕組みを図にすると、こうなります。</p>
+
+  <div class="split-wrap">
+    <div class="split-card blue">
+      <div class="vl">① 前年度分の精算</div>
+      <div class="vv">確定保険料</div>
+      <div class="vs">前年度に実際に支払った賃金総額で再計算</div>
+    </div>
+    <div class="split-mid">＋</div>
+    <div class="split-card">
+      <div class="vl">② 今年度分の前払い</div>
+      <div class="vv">概算保険料</div>
+      <div class="vs">今年度に支払う見込みの賃金総額で計算</div>
+    </div>
+  </div>
+
+  <p>①の確定保険料と、前年度にすでに払っていた概算保険料を比べて、差額を精算します。</p>
+
+  <ul class="check-list" style="margin-top:12px;">
+    <li><span class="ck">✓</span><strong>確定保険料 &gt; 前年度に払った概算保険料</strong> → 不足額を追加で納付</li>
+    <li><span class="ck">✓</span><strong>確定保険料 &lt; 前年度に払った概算保険料</strong> → 払いすぎた分は今年度分に充当（充当額）</li>
+  </ul>
+
+  <div class="info">
+    💡 なお、今年度の見込み賃金総額が前年度実績の<strong>2分の1〜2倍の範囲内</strong>であれば、前年度の確定賃金総額をそのまま今年度の概算賃金総額として使う特例計算が認められています。従業員数が大きく変わらない1人社長の会社では、実務上この特例で計算するケースが多くなります。
+  </div>
+
+  <div class="source">
+    出典：厚生労働省「労働保険年度更新申告書の書き方」（令和8年度版）（令和8年〈2026年〉8月時点）
+  </div>
+</div>
+
+<!-- Section 5: 算定基礎届との違い -->
+<div class="card green">
+  <div class="sec-title">🆚 社会保険の「算定基礎届」（7/1記事）とどう違う?</div>
+  <p>「毎年決まった時期に、給与をもとに保険料を計算し直す」という点で、社会保険の<strong>算定基礎届（7/1記事）</strong>とよく似ていて混同されがちです。対象にしている保険がまったく違うので、比べて整理しておきましょう。</p>
+
+  <div class="wrap-x">
+  <table class="cmp">
+    <thead>
+      <tr>
+        <th style="width:24%;"></th>
+        <th>🧭 労働保険料の年度更新</th>
+        <th>📝 算定基礎届（社会保険）</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>対象の保険</th>
+        <td>労災保険・雇用保険</td>
+        <td>健康保険・厚生年金保険</td>
+      </tr>
+      <tr>
+        <th>代表者（役員）は対象?</th>
+        <td>対象外（そもそも加入できない）</td>
+        <td><strong>対象</strong>（役員報酬をもとに計算）</td>
+      </tr>
+      <tr>
+        <th>従業員がいない1人社長</th>
+        <td>労働保険自体に未加入 → 手続き不要</td>
+        <td>社会保険は強制加入 → 毎年手続きが必要</td>
+      </tr>
+      <tr>
+        <th>計算の基準</th>
+        <td>1年間の賃金総額の実績・見込み</td>
+        <td>4〜6月の報酬の平均額（標準報酬月額）</td>
+      </tr>
+      <tr>
+        <th>申告・提出期間</th>
+        <td>6月1日〜7月10日</td>
+        <td>7月1日〜7月10日</td>
+      </tr>
+      <tr>
+        <th>提出先</th>
+        <td>労働基準監督署・都道府県労働局</td>
+        <td>年金事務所</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <p>提出期間が重なっているため、従業員を雇っている1人社長の会社では、<span class="hlg">6〜7月に労働保険料の年度更新と社会保険の算定基礎届の両方</span>が発生することになります。カレンダーにまとめて登録しておくと抜け漏れを防げます。</p>
+
+  <div class="source">
+    出典：厚生労働省「労働保険年度更新に係るお知らせ」／日本年金機構「算定基礎届の提出」（令和8年〈2026年〉8月時点）
+  </div>
+</div>
+
+<!-- Section 6: 延納 -->
+<div class="card orange">
+  <div class="sec-title">💴 一度に払うのが大変なときは「延納」も使える</div>
+  <p>概算保険料は原則一括納付ですが、金額が大きい場合は<span class="hl">3回に分けて納付（延納）</span>できる制度があります。</p>
+
+  <div class="bignum">
+    <div class="bl">延納が使える条件</div>
+    <div class="bv">概算保険料 40万円以上</div>
+    <div class="bs">労災保険・雇用保険のどちらか一方のみの場合は20万円以上。<br>労働保険事務組合に事務委託している場合は金額を問わず延納可能</div>
+  </div>
+
+  <div class="ladder">
+    <div class="rung r0">
+      <div class="rk">第1期</div>
+      <div class="rv">納期限 <strong>7月10日</strong></div>
+    </div>
+    <div class="rung r1">
+      <div class="rk">第2期</div>
+      <div class="rv">納期限 <strong>9月30日</strong></div>
+    </div>
+    <div class="rung r2">
+      <div class="rk">第3期</div>
+      <div class="rv">納期限 <strong>翌年1月31日</strong></div>
+    </div>
+  </div>
+
+  <div class="warn">
+    ⚠️ 延納が使えるかどうかは<strong>「今年度の概算保険料」だけ</strong>で判定します。前年度分の不足額（追加精算）を合算した結果40万円を超えても、今年度の概算保険料そのものが40万円（または20万円）未満なら延納は使えません。
+  </div>
+
+  <div class="source">
+    出典：厚生労働省「労働保険料の申告・納付」（令和8年〈2026年〉8月時点）
+  </div>
+</div>
+
+<!-- Section 7: 申告しないとどうなるか -->
+<div class="card red">
+  <div class="sec-title">🚨 申告を忘れる・遅れるとどうなる?</div>
+  <p>年度更新の申告を期限までに行わないと、会社が計算する代わりに<span class="hlo">政府（労働局）が保険料額を決定</span>してしまいます。これを「認定決定」といいます。</p>
+
+  <div class="f-step" style="margin-top:14px;">
+    <div class="f-num">1</div>
+    <div class="f-text">7月10日までに申告書を提出しない</div>
+  </div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step">
+    <div class="f-num now">2</div>
+    <div class="f-text">労働局が職権で保険料額を<strong>認定決定</strong>し、通知が届く</div>
+  </div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step">
+    <div class="f-num later">3</div>
+    <div class="f-text">確定保険料に<strong>不足があれば、その10%相当の追徴金</strong>が上乗せされる</div>
+  </div>
+
+  <p style="margin-top:14px;">法令を知らなかった・経営が苦しかったなど「やむを得ない事情」がある場合は追徴金が免除されることもありますが、まずは<span class="hl">期限内に申告する</span>のが基本です。従業員を雇った時点で、翌年から毎年6〜7月に手続きが発生することをスケジュールに組み込んでおきましょう。</p>
+
+  <div class="source">
+    出典：厚生労働省「労働保険料の申告・納付」（認定決定・追徴金の取扱いについて、令和8年〈2026年〉8月時点）
+  </div>
+</div>
+
+<!-- Section 8: チェックリスト -->
+<div class="card blue">
+  <div class="sec-title">✅ 1人社長がこの手続きと付き合うときのチェックリスト</div>
+  <ul class="check-list">
+    <li><span class="ck">①</span>従業員がいない間は、労働保険（＝年度更新）そのものが不要。まずは<strong>いつ最初の従業員を雇う予定か</strong>を意識しておく。</li>
+    <li><span class="ck">②</span>従業員を雇ったら、保険関係成立届の提出とあわせて<strong>翌年から毎年6/1〜7/10に年度更新がある</strong>ことをカレンダーに登録する。</li>
+    <li><span class="ck">③</span>社会保険の算定基礎届（7/1〜7/10）と時期が重なるので、<strong>2つの手続きを混同しない</strong>。対象保険・対象者が違う。</li>
+    <li><span class="ck">④</span>概算保険料が40万円以上になりそうなら、<strong>延納（3回払い）</strong>を検討して資金繰りを平準化する。</li>
+    <li><span class="ck">⑤</span>給与計算ソフトや顧問社労士がいる場合は、賃金総額の集計・申告書作成を任せられるか早めに確認する。</li>
+    <li><span class="ck-bad">✗</span>「去年と同じだろう」と申告を後回しにしない。期限を過ぎると<strong>認定決定・追徴金</strong>のリスクがある。</li>
+  </ul>
+</div>
+
+<!-- Section 9: AI prompt -->
+<div class="card">
+  <div class="sec-title">🤖 生成AIに準備を手伝ってもらうプロンプト例</div>
+  <p>賃金総額の集計方法の整理や、延納するかどうかの資金繰りシミュレーションは生成AIが得意です。ただし<span class="hl">保険料率・期限・申告書の記載内容</span>は必ず最新の公式情報や社会保険労務士に確認してください。</p>
+
+  <div class="prompt-box" style="margin-top:14px;">
+    <div class="ph">🤖 プロンプト例：労働保険料の年度更新の準備</div>
+    私は代表者1人＋従業員<span class="fill">【例：2名】</span>の法人です。従業員の年間賃金総額は概算で<span class="fill">【例：600万円】</span>、業種は<span class="fill">【例：ITサービス業（その他の各種事業）】</span>です。<br>
+    <br>
+    1. 労働保険料の年度更新で必要になる「賃金総額」に含まれるもの・含まれないもの（通勤手当・賞与・現物給与の扱いなど）を整理してください<br>
+    2. 上記の賃金総額と一般的な保険料率（労災保険率・雇用保険率）を使って、概算保険料のおおよその金額を試算してください（正確な料率は自分で公式情報を確認する前提）<br>
+    3. 概算保険料が40万円以上になりそうな場合、延納（3回払い）を使うかどうかの判断ポイントを、資金繰りの観点から整理してください<br>
+    4. 社会保険の算定基礎届（7/1〜7/10）と労働保険の年度更新（6/1〜7/10）を混同しないためのチェックリストを作ってください<br>
+    5. 最新の保険料率・期限・申告書の様式は、厚生労働省・都道府県労働局の公式情報で必ず確認する必要があることを注記してください
+  </div>
+
+  <div class="warn">
+    ⚠️ 生成AIは保険料率や期限の数字を古い年度のまま答えることがあります。<strong>年度が変わるたびに、労働局の最新の料率表と申告期間を確認</strong>する習慣をつけましょう。
+  </div>
+</div>
+
+<!-- Section 10: summary -->
+<div class="card">
+  <div class="sec-title">📝 今日のまとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">①</span>労働保険（労災保険・雇用保険）は<span class="hlg">従業員を1人でも雇ったら加入が必要</span>。代表者だけの会社は加入対象外。</li>
+    <li><span class="n">②</span>加入後は毎年<span class="hlg">6月1日〜7月10日</span>に「年度更新」があり、前年度分の<strong>確定保険料の精算</strong>と今年度分の<strong>概算保険料の申告・納付</strong>を同時に行う。</li>
+    <li><span class="n">③</span>計算式は<span class="hlg">「賃金総額 × 保険料率」</span>。保険料率は業種ごとに異なり、労災保険は全額事業主負担、雇用保険は事業主・労働者で分担する。</li>
+    <li><span class="n">④</span>確定保険料と前年度に払った概算保険料を比べ、<strong>不足額は追加納付、払いすぎは充当</strong>する仕組み。</li>
+    <li><span class="n">⑤</span>社会保険の<strong>算定基礎届（7/1〜7/10、7/1記事）とは対象保険がまったく別</strong>で、期間が重なるだけの別手続き。</li>
+    <li><span class="n">⑥</span>概算保険料が<span class="hlg">40万円以上（片方のみなら20万円以上）</span>なら、7/10・9/30・翌1/31の3回に分ける「延納」が使える。</li>
+    <li><span class="n">⑦</span>申告を忘れると<strong>認定決定・追徴金（不足額の10%）</strong>のリスクがあるため、従業員を雇った翌年から必ずスケジュールに組み込む。</li>
+  </ul>
+</div>
+
+<!-- Disclaimer -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報提供を目的としたものであり、個別の労務・税務に関するアドバイスではありません。労働保険への加入要否、保険料率、賃金総額に含める範囲、延納の可否、申告手続きの詳細は、会社の業種・従業員の雇用形態・給与体系によって結論が変わります。
+  具体的な判断にあたっては、必ず社会保険労務士・税理士などの専門家、または所轄の労働基準監督署・都道府県労働局・ハローワークにご相談ください。<br>
+  <strong>本記事の基準：</strong>令和8年（2026年）8月時点で公表されている厚生労働省・都道府県労働局の情報にもとづいて記載しています。令和8年度の労働保険料の申告・納付期間は令和8年6月1日〜7月10日、労災保険率は令和6年度改定分がそのまま適用されています（次回改定は令和9年度の見込み）。保険料率・申告期間・延納の基準額は年度ごとに見直される場合がありますので、実際にご利用の際は必ず最新の公式情報をご確認ください。
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>📚 <a href="index.html">バックナンバー一覧へ</a> &nbsp;&middot;&nbsp; 毎朝更新</p>
+</div>
+
+</div>
+</body>
+</html>
