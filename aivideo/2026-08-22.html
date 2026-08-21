@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI動画制作 最新トピック 2026-08-22</title>
+<style>
+  :root {
+    --bg: #ece8e1;
+    --card: #faf6ec;
+    --dark: #1a3a5c;
+    --dark2: #1a5c3a;
+    --accent: #2a5c8a;
+    --accent2: #c85a00;
+    --text: #2a3540;
+    --muted: #7c8a82;
+    --border: #e0d8c8;
+    --highlight: #fff3cd;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, "Hiragino Sans", "Yu Gothic", sans-serif;
+    line-height: 1.75;
+    padding: 20px;
+  }
+  .wrap { max-width: 900px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #1a3a5c 0%, #1a5c3a 100%);
+    color: #fff;
+    border-radius: 20px;
+    padding: 44px 32px 36px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(26,58,92,.22);
+    margin-bottom: 24px;
+  }
+  .header-tag {
+    display: inline-block;
+    background: rgba(255,255,255,.18);
+    color: #e0f0e8;
+    border-radius: 20px;
+    padding: 4px 16px;
+    font-size: .82rem;
+    margin-bottom: 14px;
+    letter-spacing: .06em;
+  }
+  .header h1 { font-size: 1.55rem; letter-spacing: .03em; line-height: 1.45; margin-bottom: 10px; }
+  .header .sub { color: #c8dde8; font-size: .95rem; }
+  .header .date { color: #b0e0c0; font-size: .85rem; margin-top: 8px; }
+
+  .card {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 12px rgba(0,0,0,.07);
+    border: 1px solid var(--border);
+  }
+  .card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .point-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .point-card { background: #eef3f8; border-radius: 14px; padding: 20px 16px; text-align: center; border: 1px solid #d4e0ea; }
+  .point-icon { font-size: 2rem; margin-bottom: 8px; }
+  .point-title { font-size: .95rem; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
+  .point-desc { font-size: .83rem; color: var(--muted); line-height: 1.6; }
+
+  .bignum-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-top: 20px; }
+  .bignum-card { background: linear-gradient(135deg, #1a3a5c, #1a5c3a); border-radius: 14px; padding: 16px 8px; text-align: center; color: #fff; }
+  .bignum { font-size: 1.05rem; font-weight: 800; color: #ffe0a0; line-height: 1.2; }
+  .bignum-label { font-size: .68rem; color: #cfe6d8; margin-top: 4px; line-height: 1.5; }
+
+  .step-list { list-style: none; }
+  .step-item { display: flex; gap: 14px; margin-bottom: 16px; align-items: flex-start; }
+  .step-num {
+    width: 34px; height: 34px;
+    background: linear-gradient(135deg, #1a3a5c, #1a5c3a);
+    color: #fff; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: .95rem; flex-shrink: 0; margin-top: 2px;
+  }
+  .step-body { flex: 1; }
+  .step-title { font-weight: 700; color: var(--dark); font-size: .95rem; }
+  .step-desc { font-size: .86rem; color: var(--muted); margin-top: 3px; line-height: 1.65; }
+
+  .tbl { width: 100%; border-collapse: collapse; font-size: .86rem; }
+  .tbl th { background: #eaf1ea; padding: 10px 10px; text-align: left; border-bottom: 2px solid #c8ddc8; color: var(--dark); font-weight: 700; }
+  .tbl td { padding: 10px 10px; border-bottom: 1px solid var(--border); vertical-align: top; color: var(--text); }
+  .tbl tr:last-child td { border-bottom: none; }
+
+  .note-box { background: var(--highlight); border-left: 4px solid #e8a000; border-radius: 8px; padding: 12px 16px; font-size: .88rem; color: #5a4000; margin-top: 14px; line-height: 1.7; }
+
+  .summary-list { font-size: .95rem; line-height: 2.2; }
+  .summary-list li { list-style: none; display: flex; align-items: flex-start; gap: 8px; }
+  .summary-list li::before { content: "✅"; flex-shrink: 0; margin-top: 2px; }
+
+  .disclaimer { background: #f0ede8; border-radius: 12px; padding: 16px 20px; font-size: .82rem; color: var(--muted); margin-top: 24px; line-height: 1.7; border: 1px solid #ddd8d0; }
+
+  footer { text-align: center; color: var(--muted); font-size: .82rem; margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border); line-height: 1.9; }
+  footer a { color: var(--accent); }
+
+  .shadow-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 6px; }
+  .shadow-card { background: #eef3f8; border: 1px solid #d4e0ea; border-radius: 14px; padding: 18px 10px; text-align: center; }
+  .shadow-card .s-sun { font-size: 1.6rem; }
+  .shadow-card .s-obj { font-size: 1.8rem; margin: 6px 0 2px; }
+  .shadow-bar { height: 8px; border-radius: 6px; background: linear-gradient(90deg, #2a2a2a, #7a7a7a); margin: 8px auto; }
+  .shadow-card .s-name { font-weight: 700; color: var(--dark); font-size: .92rem; margin-top: 10px; }
+  .shadow-card .s-effect { font-size: .78rem; color: var(--muted); margin-top: 4px; line-height: 1.55; }
+  .shadow-caption { text-align: center; font-size: .8rem; color: var(--muted); margin-top: 14px; }
+
+  .time-flow { display: flex; align-items: center; justify-content: space-between; gap: 6px; margin-top: 8px; flex-wrap: wrap; }
+  .time-step { flex: 1; min-width: 90px; text-align: center; background: #eef3f8; border: 1px solid #d4e0ea; border-radius: 12px; padding: 12px 6px; }
+  .time-step .t-icon { font-size: 1.5rem; }
+  .time-step .t-label { font-size: .78rem; font-weight: 700; color: var(--dark); margin-top: 4px; }
+  .time-step .t-desc { font-size: .7rem; color: var(--muted); margin-top: 2px; line-height: 1.5; }
+  .time-arrow { font-size: 1.1rem; color: var(--accent2); flex-shrink: 0; }
+
+  @media (max-width: 640px) {
+    .point-grid { grid-template-columns: 1fr; }
+    .bignum-grid { grid-template-columns: repeat(2, 1fr); }
+    .shadow-grid { grid-template-columns: 1fr; }
+    .time-flow { flex-direction: column; }
+    .time-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="header">
+  <div class="header-tag">🌓 エバーグリーン技法回 ── 影の使い方</div>
+  <h1>影を見れば、時間も奥行きもわかる<br>「影」で映像に立体感と時間帯を語らせるコツ</h1>
+  <div class="sub">影の「長さ」「濃さ」「向き」を変えるだけで、平面的な映像に奥行きが生まれ、朝・昼・夕方といった時間帯まで伝わる仕組みを、AIプロンプトへの応用方法つきで解説</div>
+  <div class="date">2026-08-22 ｜ AI動画制作 最新トピック</div>
+</div>
+
+<div class="card">
+  <div class="card-title">🎯 今日の3ポイント</div>
+  <div class="point-grid">
+    <div class="point-card">
+      <div class="point-icon">📏</div>
+      <div class="point-title">影の「長さ」</div>
+      <div class="point-desc">太陽が低い(朝・夕方)ほど影は長く伸び、太陽が高い(正午)ほど影は短くなる。影の長さだけで「今が何時ごろか」を視聴者に伝えられる</div>
+    </div>
+    <div class="point-card">
+      <div class="point-icon">⚫</div>
+      <div class="point-title">影の「濃さ」</div>
+      <div class="point-desc">光が強くはっきりしているほど影の輪郭はくっきり濃くなり、曇りや間接光では影がぼんやり薄くなる。緊張感や穏やかさの演出に直結する</div>
+    </div>
+    <div class="point-card">
+      <div class="point-icon">📐</div>
+      <div class="point-title">影の「奥行き効果」</div>
+      <div class="point-desc">物と地面の間に影が落ちることで、AI生成画像でも「浮いている違和感」がなくなり、被写体が地面にしっかり接地して見える</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🔍 図解:太陽の高さと影の変化</div>
+  <div class="shadow-grid">
+    <div class="shadow-card">
+      <div class="s-sun">🌅</div>
+      <div class="s-obj">🧍</div>
+      <div class="shadow-bar" style="width:85%;"></div>
+      <div class="s-name">朝・夕方(太陽が低い)</div>
+      <div class="s-effect">影は長く伸びる。ノスタルジックで叙情的な雰囲気に向く</div>
+    </div>
+    <div class="shadow-card">
+      <div class="s-sun">☀️</div>
+      <div class="s-obj">🧍</div>
+      <div class="shadow-bar" style="width:35%;"></div>
+      <div class="s-name">正午(太陽が高い)</div>
+      <div class="s-effect">影は短く真下に落ちる。活気やはっきりした印象に向く</div>
+    </div>
+    <div class="shadow-card">
+      <div class="s-sun">☁️</div>
+      <div class="s-obj">🧍</div>
+      <div class="shadow-bar" style="width:60%;opacity:.35;"></div>
+      <div class="s-name">曇り・室内(拡散光)</div>
+      <div class="s-effect">影は薄く輪郭もぼやける。穏やかで柔らかい印象に向く</div>
+    </div>
+  </div>
+  <div class="shadow-caption">同じ人物・同じポーズでも、影の長さと濃さを変えるだけで「時間帯」と「雰囲気」が伝わる</div>
+</div>
+
+<div class="card">
+  <div class="card-title">📊 影の要素 比較表</div>
+  <table class="tbl">
+    <thead>
+      <tr><th>影の要素</th><th>変化の仕方</th><th>伝わる印象</th><th>AIプロンプトの言葉例</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>長さ</strong></td>
+        <td>太陽が低いほど長く、高いほど短くなる</td>
+        <td>長い影=朝夕・郷愁感 / 短い影=正午・活気</td>
+        <td>"long stretched shadows at golden hour"</td>
+      </tr>
+      <tr>
+        <td><strong>濃さ・輪郭</strong></td>
+        <td>直射光ほど濃くくっきり、拡散光ほど薄くぼやける</td>
+        <td>濃い影=緊張感・ドラマ性 / 薄い影=穏やかさ</td>
+        <td>"hard shadows with sharp edges" / "soft diffused shadows"</td>
+      </tr>
+      <tr>
+        <td><strong>向き</strong></td>
+        <td>光源の反対方向に影が伸びる</td>
+        <td>影の向きで光源(太陽・照明)の位置が視聴者にわかる</td>
+        <td>"shadow falling to the left of the subject"</td>
+      </tr>
+      <tr>
+        <td><strong>接地影(コンタクトシャドウ)</strong></td>
+        <td>物と地面が接する部分にできる小さく濃い影</td>
+        <td>これがないと被写体が「浮いて」不自然に見える</td>
+        <td>"subtle contact shadow where feet touch the ground"</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="note-box">
+    💡 AI動画・画像生成で被写体が「浮いて見える」「合成っぽい」と感じたら、まず接地影(足元や物の下の小さな影)が正しく落ちているか確認するのがコツ。
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🕐 図解:1日の中での影の変化フロー</div>
+  <div class="time-flow">
+    <div class="time-step">
+      <div class="t-icon">🌅</div>
+      <div class="t-label">早朝</div>
+      <div class="t-desc">影が最も長い</div>
+    </div>
+    <div class="time-arrow">➡</div>
+    <div class="time-step">
+      <div class="t-icon">🌇</div>
+      <div class="t-label">ゴールデンアワー</div>
+      <div class="t-desc">長く暖色の影</div>
+    </div>
+    <div class="time-arrow">➡</div>
+    <div class="time-step">
+      <div class="t-icon">☀️</div>
+      <div class="t-label">正午</div>
+      <div class="t-desc">影が最も短い</div>
+    </div>
+    <div class="time-arrow">➡</div>
+    <div class="time-step">
+      <div class="t-icon">🌆</div>
+      <div class="t-label">夕方</div>
+      <div class="t-desc">再び影が伸びる</div>
+    </div>
+    <div class="time-arrow">➡</div>
+    <div class="time-step">
+      <div class="t-icon">🌙</div>
+      <div class="t-label">夜</div>
+      <div class="t-desc">人工光で影が複数方向に</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🔢 数字で見る影の目安</div>
+  <div class="bignum-grid">
+    <div class="bignum-card">
+      <div class="bignum">太陽高度15度</div>
+      <div class="bignum-label">早朝・夕方の目安。影の長さは被写体の高さの約3〜4倍にもなる</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">太陽高度60〜90度</div>
+      <div class="bignum-label">正午前後の目安。影の長さは被写体の高さの半分以下になる</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">1〜2語</div>
+      <div class="bignum-label">"long shadows"や"soft shadows"の一言をプロンプトに足すだけで効果を再現できる</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">0.5〜1秒</div>
+      <div class="bignum-label">動画内で影の向きが急に変わると違和感の原因になる。同一シーン内は光源方向を統一するのが目安</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">要確認</div>
+      <div class="bignum-label">実際に再現される影の精度はツール・モデルごとに差があるため生成結果を見て調整する</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🛠️ 実践例:同じカットを「朝」と「正午」の2つの影で作り比べる5ステップ</div>
+  <p style="font-size:.88rem;color:var(--muted);margin-bottom:18px;">
+    同じ構図・同じ被写体でも、影の設定を変えるだけで時間帯の異なる2つの映像になることを体験する練習例です。
+  </p>
+  <ul class="step-list">
+    <li class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-title">共通の構図を決める</div>
+        <div class="step-desc">例:公園のベンチに座る人物を横から撮ったカット。被写体・カメラアングル・背景は2パターンとも同じにする。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-title">パターンA:「朝」の影で生成する</div>
+        <div class="step-desc">"a person sitting on a park bench, early morning light, long soft shadows stretching across the ground"のようなプロンプトで生成する。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-title">パターンB:「正午」の影で生成する</div>
+        <div class="step-desc">"a person sitting on a park bench, midday sun overhead, short hard shadows directly beneath the subject"のようなプロンプトで生成する。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <div class="step-title">接地影を確認する</div>
+        <div class="step-desc">ベンチの脚や人物の足元に、地面と接する小さな影がきちんと落ちているかを見て、浮いて見える部分がないか確認する。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">5</div>
+      <div class="step-body">
+        <div class="step-title">2パターンを並べて印象を比較する</div>
+        <div class="step-desc">同じ構図なのに「朝の落ち着いた雰囲気」と「正午の活気ある雰囲気」がどう違って見えるかを確認し、狙った時間帯に合う方を選ぶ。</div>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="card">
+  <div class="card-title">📝 今日のまとめ</div>
+  <ul class="summary-list">
+    <li>影の<strong>「長さ」</strong>で時間帯(朝夕は長い・正午は短い)、<strong>「濃さ」</strong>で光の強さや雰囲気が伝わる</li>
+    <li>物と地面が接する<strong>「接地影」</strong>がないと、AI生成の被写体は浮いて不自然に見えやすい</li>
+    <li>影は光源の<strong>反対方向</strong>に伸びるため、同じシーン内では影の向きを揃えると自然に見える</li>
+    <li>AIプロンプトでは<strong>"long shadows" / "hard shadows" / "soft shadows"</strong>などの一言を足すだけで再現できる</li>
+    <li>同じ構図でも<strong>影の設定を変えるだけ</strong>で、まったく違う時間帯・雰囲気の映像になる</li>
+  </ul>
+</div>
+
+<div class="disclaimer">
+  ⚠️ <strong>免責事項</strong><br>
+  本記事で紹介した影の見え方や太陽高度の目安は、映像制作における一般的な基礎知識をAI動画制作向けにやさしく整理した一例です。実際に再現される影の精度やプロンプトの効き方はAI動画生成ツールやモデルのバージョンによって異なります。本文中で言及したAIツールの機能・料金・商用利用の可否は頻繁に変わるため、利用の際は各ツールの公式ページ・利用規約で必ずご確認ください。
+</div>
+
+<footer>
+  AI動画制作 最新トピック ─ 2026-08-22 ｜ エバーグリーン技法回<br>
+  参考:影(シャドウ)による奥行き・時間帯の演出は映像制作の基礎知識。AI動画プロンプトへの応用例として整理(エバーグリーン技法)<br>
+  <a href="index.html" style="color:var(--accent);">← 一覧に戻る</a>
+</footer>
+
+</div>
+</body>
+</html>
