@@ -82,6 +82,7 @@
 - 2026-08-18：LinkedIn「AIっぽい投稿だ」通報ボタン入門 ── "量産した文章"より"自分の言葉"が問われる時代へ（2026年7月30日発表・段階的ロールアウト中、TechCrunch・Forbes・Fortune・Social Media Today等の海外メディア報道、2026年8月10日Forbes続報、AI生成率の数字はPangram社調査で公式統計ではない旨を明記、詳細仕様は公式で要確認）
 - 2026-08-20：Instagram「グリッド並べ替え」入門 ── 見せたい実績を、いちばん先に見せる整理術（2026年6月8日グローバル展開開始とMeta公式発表、ABC News・Tech Times・Yahoo Tech・Caliber.Az等の海外メディア報道、2026年8月時点でもStack Influence等が続報として紹介、展開は端末ごとに段階的なため対応状況は公式で要確認）
 - 2026-08-21：Featured「Find Creators」入門 ── Instagram・TikTok・YouTube・LinkedInの3.8億人から自然な言葉でコラボ相手を検索できる新ツール（2026年8月18日GlobeNewswireプレスリリースで確認、Manila Times・MarTech Seriesも報道、フォロワー数・クリエイター数はFeatured社の自社発表値、料金・対応言語は公式で要確認）
+- 2026-08-22：Meta AI「ビジネスアシスタント」入門 ── Instagram・広告・Google Workspaceのデータをまとめて聞ける新機能、初のMacデスクトップアプリも公開（2026年8月19日Axios・Social Media Today報道、8月20日Engadget・SmallBizTrendsも報道、料金・対応地域・日本語対応は公式で要確認）
 
 ## 今後追加したい有望テーマ
 
