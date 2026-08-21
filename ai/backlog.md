@@ -84,6 +84,7 @@
 - 2026-08-19: Wiz Red Agent × GitHub Copilot Autofix（2026年6〜8月）・SnowflakeのGitHubリポジトリにスクリプトインジェクション脆弱性・2026年6月18日にコードが主要ブランチへ取り込まれる・Wiz社のAIセキュリティエージェント「Red Agent」が2026年6月23日に発見・報告・Snowflakeは同日修正・認証情報を無効化・実害ゼロ確認済み・Copilot Autofixが共著したコードに含まれていたとWizは主張・GitHubは「脆弱なコードは人間のエンジニアが書いた」と反論・両社の主張は2026年8月時点で食い違い継続中（出典：Wiz Blog / Forbes / SC Media / The Hacker News / Cyber Kendra / The Next Web・2026年8月）
 - 2026-08-20: ChatGPT for Teens（2026年8月18日リリース）・OpenAIが13〜17歳向け専用モードを発表・有害コンテンツフィルター強化・AIが「感情を持つふり」「意識があるふり」をしない設計・Study Mode（ヒント式解説）・クイズ・ラーニングビジュアライゼーション・「丸写し防止」リマインダー・無料プランを含む全プランで提供・年齢確認は身分証なしの「申告＋AI推定」方式・完璧な確認はできないがプライバシーと安全のバランスを優先（出典：OpenAI 公式 / CNBC / TechCrunch / Washington Post / Axios・2026年8月18日）
 - 2026-08-21: Z.AI GLM-5.3 リリース（2026年8月14日）・中国智谱AIが「オープンソース最強のコーディングモデル」と主張・7,430億パラメータMoE・GLM-5.2ベースにポストトレーニングのみで50%コーディング能力向上・Terminal-Bench 3.0で4.6→28.3（約6.2倍・オープンソース1位・自己申告）・オープンソース269プロジェクトから2,436件の脆弱性を発見（45年前のコード欠陥含む）・当初はGLM Coding Planサービス経由のみ・ウェイトはHugging Faceで2026年8月28日ごろ公開予定・ライセンス詳細は公式で要確認（出典：The Decoder / Decrypt / MLQ News / Dev.to / explainx.ai・2026年8月14日）
+- 2026-08-22: OpenAI「Private Safety Processing（プライベート・セーフティ・プロセッシング）」発表（2026年8月19日）・会話ログを保存しないゼロデータリテンション（ZDR）設定を維持したまま悪用パターンを検知・複数会話をまたいだ長期的安全性監視（long-horizon safety monitoring）・OpenAIスタッフは内容を閲覧不可・MicrosoftとDatabricksが早期テスター・2026年9月に技術白書公開と広範展開予定・料金詳細は公式で要確認（出典：TechCrunch / Axios / Help Net Security / Security Boulevard / OpenAI公式・2026年8月19〜20日）
 
 ## 未解説の候補トピック（今後の参考）
 
