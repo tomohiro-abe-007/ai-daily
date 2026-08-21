@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-08-22</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '🥤';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.9rem; margin-bottom: 8px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.1em; }
+  .c3-col li { margin-bottom: 4px; }
+  .c3-col .or-val { font-size: 1.4rem; font-weight: 700; margin: 4px 0; }
+  .c3-col.red .or-val { color: #a0291e; }
+  .c3-col.green .or-val { color: #1a6e4a; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .mech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .mech-item {
+    background: #f0faf5;
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 0.85rem;
+    border-top: 3px solid #1a7a5a;
+  }
+  .mech-item .micon { font-size: 1.3rem; margin-bottom: 6px; }
+  .mech-item strong { display: block; color: #0d4a35; margin-bottom: 4px; font-size: 0.88rem; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .highlight { background: #cff0df; padding: 1px 5px; border-radius: 4px; }
+  .good { color: #1a7a5a; font-weight: 600; }
+  .bad  { color: #c0392b; font-weight: 600; }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-box {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin: 14px 0;
+    font-size: 0.92rem;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  .quote-box {
+    background: #f5f0e8;
+    border-left: 4px solid #7a5abf;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    margin: 12px 0;
+    color: #444;
+    font-style: italic;
+  }
+  .quote-box .who { font-style: normal; font-weight: 700; color: #5a3a9a; margin-top: 6px; font-size: 0.78rem; }
+  .benefit-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    margin: 14px 0;
+  }
+  .benefit-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+  .benefit-item .bicon { font-size: 1.2rem; margin-bottom: 4px; }
+  .matrix {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .mx-cell {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .mx-cell .mx-head { font-weight: 700; font-size: 0.88rem; margin-bottom: 6px; }
+  .mx-cell.ok  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .mx-cell.ok  .mx-head { color: #1a6e4a; }
+  .mx-cell.ng  { background: #f0ece3; border: 2px dashed #aaa; }
+  .mx-cell.ng  .mx-head { color: #777; }
+  @media (max-width: 540px) {
+    .compare4 { grid-template-columns: 1fr 1fr; }
+    .matrix { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.7rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ヘッダー -->
+<div class="header">
+  <div class="label">健康・栄養 最新トピック ・ 2026-08-22</div>
+  <h1>「カロリーゼロだから安心」の甘味料<br>——21件の試験を束ねた解析で見えた、小さな変化と反論</h1>
+  <div class="subtitle">米タフツ大学 Food is Medicine Institute(Friedman School of Nutrition Science and Policy内)のMeng Wangさんらの研究チームが、アスパルテーム・スクラロースなど<strong>非栄養甘味料(カロリーがほぼない甘味料)</strong>に関するこれまでの研究をまとめたレビュー論文を、Current Atherosclerosis Reports誌に発表しました(DOI: 10.1007/s11883-026-01429-9、2026年6月30日にタフツ大学がプレスリリースで公表)。成人を対象にした<strong>21件のランダム化比較試験(RCT)</strong>を水・プラセボと比較したメタ分析では、甘味料をとったグループのほうが<strong>空腹時インスリンとHbA1c(過去1〜2か月の血糖の平均を表す指標)</strong>がわずかに高い傾向。腸内細菌を調べた試験やヒトの便をマウスに移す実験からは、腸内細菌の変化が関わっている可能性も示されました。一方、業界団体である International Sweeteners Association(国際甘味料協会)は「HbA1cの差はわずか0.07ポイントで、臨床的に意味のある差ではない」と反論しています。今日は、この「小さいけれど気になる変化」をどう受け止めればいいか、一緒に考えます。</div>
+</div>
+
+<!-- タグ -->
+<div style="margin-bottom:18px;">
+  <span class="tag">非栄養甘味料</span>
+  <span class="tag">腸内細菌</span>
+  <span class="tag">血糖値・インスリン</span>
+  <span class="tag">メタ分析</span>
+  <span class="tag">観察研究との違い</span>
+  <span class="tag">利益相反(COI)</span>
+</div>
+
+<!-- 今日の疑問 -->
+<div class="card">
+  <h2>🤔 今日の疑問:「ゼロカロリーだから体にいい」は本当?</h2>
+  <p>ダイエット飲料やノンシュガーのお菓子に使われる甘味料は、長年「砂糖の代わりに使えば、カロリーを減らせて体にいい」と考えられてきました。ところが今回、これまでの研究を幅広く集めて見直したレビューが、「血糖にかかわる指標がわずかに悪化する方向に動いた」と報告しました。</p>
+  <p>ただし同じニュースには、業界団体からの反論もセットで報じられています。「差は小さすぎて意味がない」という声です。<strong>どちらも間違ってはいない</strong>可能性があります——数字の大きさをどう評価するかは、立場によって変わるからです。</p>
+  <p>今日は、この「小さな差をどう読むか」を題材に、精密栄養学・腸内細菌・エビデンスの読み方を一緒に確認します。</p>
+</div>
+
+<!-- 基本用語 -->
+<div class="card blue">
+  <h2>📖 まず言葉の意味を</h2>
+  <div class="def-grid">
+    <div class="def-item">
+      <div class="dterm">非栄養甘味料(NNS)</div>
+      カロリーがほとんどないのに甘さを感じさせる成分の総称。アスパルテーム・スクラロースなどの人工甘味料や、植物由来のステビアなどを含む。「人工甘味料」と呼ばれることも多い。
+    </div>
+    <div class="def-item">
+      <div class="dterm">空腹時インスリン</div>
+      何も食べていない状態で測った、血液中のインスリン(血糖値を下げるホルモン)の量。高いと、体がインスリンに反応しにくくなっている(インスリン抵抗性)サインのことがある。
+    </div>
+    <div class="def-item">
+      <div class="dterm">HbA1c(ヘモグロビンエーワンシー)</div>
+      過去1〜2か月間の血糖値の平均的な高さを映す指標。健康診断の「今日の血糖値」に対し、こちらは<em>最近の通信簿</em>のようなもの。
+    </div>
+    <div class="def-item">
+      <div class="dterm">メタ分析</div>
+      複数の研究の結果を統計的に一つにまとめ、全体としての傾向を見る手法。個々の試験より対象人数が増える分、判断材料としては強くなる。
+    </div>
+    <div class="def-item">
+      <div class="dterm">観察研究(コホート研究)</div>
+      人々の生活習慣とその後の病気の発生を長期間追いかけて記録する研究。「関連」はわかるが、<strong>「原因と結果」を証明するものではない</strong>。
+    </div>
+    <div class="def-item">
+      <div class="dterm">便移植(糞便微生物移植)実験</div>
+      ある個体の便に含まれる腸内細菌を、別の個体の腸に移す実験手法。今回はヒトの便をマウスに移す実験が、甘味料の影響を調べる手がかりに使われた。
+    </div>
+  </div>
+</div>
+
+<!-- 数字カード -->
+<div class="num-row">
+  <div class="num-card blue-bg">
+    <div class="big">21<span class="unit">件</span></div>
+    <div class="desc">メタ分析の対象になったRCT(成人、比較対象は水またはプラセボ)</div>
+  </div>
+  <div class="num-card orange-bg">
+    <div class="big">0.07<span class="unit">pt</span></div>
+    <div class="desc">HbA1cの上昇幅。業界団体(ISA)が「小さすぎる」と指摘した数値</div>
+  </div>
+  <div class="num-card purple-bg">
+    <div class="big">1<span class="unit">件</span></div>
+    <div class="desc">ヒトの便をマウスに移植し、腸内細菌への影響を調べた試験</div>
+  </div>
+</div>
+
+<!-- 調べ方の流れ -->
+<div class="card purple">
+  <h2>🧭 どうやって調べたのか(5ステップ)</h2>
+  <div class="flow">
+    <div class="flow-step purp">世界中の<br>甘味料関連の研究を<br>収集</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step">成人対象のRCT<br>21件を対象に<br>メタ分析</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step alt">腸内細菌を調べた<br>試験・ヒト便→マウス<br>移植実験も分析</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step">大規模な<br>観察研究(コホート)<br>のデータも参照</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step purp">2026年6月30日<br>レビューとして<br>発表</div>
+  </div>
+  <p style="font-size:0.82rem; color:#555; margin-top:4px;">今回の報告は、新しく人を集めて行った実験ではなく、すでに発表された複数の研究を集めて評価する「レビュー(総説)」です。RCT部分は水・プラセボという<strong>カロリーのない対照</strong>と比べており、砂糖そのものと比べた試験ではありません。</p>
+</div>
+
+<!-- レビューの立場 vs 業界団体の反論 -->
+<div class="card orange">
+  <h2>⚖️ レビューの立場 vs 業界団体(ISA)の反論</h2>
+  <div class="compare4">
+    <div class="c3-col green">
+      <h3>📊 レビューが報告した傾向</h3>
+      <div class="or-val">HbA1c +0.07pt</div>
+      <ul>
+        <li>甘味料群は水・プラセボ群より空腹時インスリン・HbA1cが高め</li>
+        <li>インスリンの効きにくさ(インスリン抵抗性)が悪化する傾向</li>
+        <li>腸内細菌の構成・働きの変化が関わっている可能性</li>
+      </ul>
+    </div>
+    <div class="c3-col blue">
+      <h3>🏭 国際甘味料協会(ISA)の反論</h3>
+      <ul>
+        <li>HbA1cの差はわずか<strong>0.07ポイント</strong>で、臨床的に意味のある差ではない</li>
+        <li>研究間の<strong>不均一性(ばらつき)</strong>が大きい</li>
+        <li>「甘味料 vs 砂糖そのもの」を比べた結果ではない</li>
+      </ul>
+    </div>
+  </div>
+  <p style="font-size:0.85rem; color:#555; margin-top:6px;">どちらも「事実として存在する見方」です。ただしISA(国際甘味料協会)は<strong>甘味料メーカーが加盟する業界団体</strong>であり、反論そのものに利益相反(自社製品を守りたい立場)があることは、読者として押さえておく必要があります。だからといって、指摘の中身(数値の大きさ・ばらつきの大きさ)が誤りだというわけでもありません。</p>
+</div>
+
+<!-- メカニズム -->
+<div class="card">
+  <h2>🦠 なぜ腸内細菌が関係するのか(3ステップ)</h2>
+  <div class="mech-grid">
+    <div class="mech-item">
+      <div class="micon">🥤</div>
+      <strong>①腸まで届く</strong>
+      多くの非栄養甘味料は小腸で吸収されにくく、そのまま大腸まで届いて腸内細菌と直接触れる。
+    </div>
+    <div class="mech-item">
+      <div class="micon">🔄</div>
+      <strong>②細菌の構成・働きが変化</strong>
+      レビューが紹介した1件の試験では、ヒトの便(甘味料をとった人・とっていない人)をそれぞれマウスに移植したところ、腸内細菌の種類や働きに違いが生まれた。
+    </div>
+    <div class="mech-item">
+      <div class="micon">📈</div>
+      <strong>③血糖への影響(仮説段階)</strong>
+      腸内細菌の変化が、インスリンの効きやすさに影響しているのではないか、というのがレビューの仮説。ヒトで完全に証明された仕組みではない。
+    </div>
+  </div>
+</div>
+
+<!-- 精密栄養学の視点 -->
+<div class="card">
+  <h2>🔬 精密栄養学の視点:「みんなに同じだけ起きる」わけではないかもしれない</h2>
+  <p>今回のレビューは、あくまで多数の研究をまとめた<strong>集団としての平均的な傾向</strong>です。腸内細菌の構成は一人ひとり大きく異なるため、同じ甘味料をとっても、<strong>もともとの腸内細菌のタイプによって影響の出方が違う</strong>可能性があります。</p>
+  <p style="font-size:0.85rem; color:#555;">つまり「甘味料は誰にとっても同じだけ血糖に影響する」と決まったわけではなく、「一部の人には影響が出やすく、一部の人にはほとんど出ないのかもしれない」という、精密栄養学らしい次の問いが残っています。この内訳は、今回のレビューだけでは確認できていません。</p>
+</div>
+
+<!-- 注意点 -->
+<div class="warn">
+  <strong>⚠️ 誤解しないでほしいこと</strong>
+  <ul style="padding-left:1.4em; margin-top:8px;">
+    <li>RCT部分の比較対象は<strong>水・プラセボ</strong>です。<strong>「甘味料 vs ふつうの砂糖」を比べた試験ではありません</strong>。砂糖の置き換えとして甘味料を使う場面での結論ではない点に注意してください。</li>
+    <li>観察研究(コホート研究)の部分は<strong>相関</strong>であり、因果関係を証明するものではありません。もともと血糖管理が必要な人ほど甘味料を選びやすい、といった逆の関係(交絡)の可能性も否定できません。</li>
+    <li>腸内細菌のメカニズムを示したのは、レビュー中の<strong>限られた試験(ヒト→マウス移植を含む1件)</strong>です。動物実験を含み、ヒトで完全に証明された仕組みではありません。</li>
+    <li>HbA1cの上昇幅(0.07ポイント)は非常に小さく、個人の健康にとってどこまで意味があるかは<strong>専門家の間でも見解が分かれています</strong>。</li>
+    <li>甘味料にはアスパルテーム・スクラロース・ステビアなど複数の種類があり、レビューはこれらをまとめて評価しています。種類ごとの違いを、この記事では区別しきれていません。</li>
+    <li>反論を出した国際甘味料協会(ISA)は<strong>甘味料業界の利益団体</strong>です。利益相反があることは念頭に置きつつ、指摘の中身自体は参考になる場合もあります。</li>
+  </ul>
+</div>
+
+<!-- エビデンスの整理 -->
+<div class="card">
+  <h2>🧪 今日出てきた情報の「証拠としての強さ」の目安</h2>
+  <table class="ev-table">
+    <tr><th>情報の種類</th><th>特徴</th><th>証拠としての強さ</th></tr>
+    <tr>
+      <td>RCTのメタ分析(21件、水・プラセボ対照)</td>
+      <td>成人対象のランダム化比較試験を統合。ただし対照は砂糖ではなく水・プラセボ</td>
+      <td><span class="ev-badge ev-mid">中程度(メタ分析だが対照設定に注意)</span></td>
+    </tr>
+    <tr>
+      <td>観察研究:非栄養甘味料と2型糖尿病リスクの関連</td>
+      <td>大規模コホートによる関連の報告</td>
+      <td><span class="ev-badge ev-low">弱い(相関、交絡因子の影響が大きい)</span></td>
+    </tr>
+    <tr>
+      <td>腸内細菌叢の変化(ヒト→マウス移植実験)</td>
+      <td>限られた試験内の一部の解析。動物実験を含む</td>
+      <td><span class="ev-badge ev-low">弱い(メカニズム仮説段階)</span></td>
+    </tr>
+    <tr>
+      <td>ISA(国際甘味料協会)による反論</td>
+      <td>業界団体による見解。利益相反あり</td>
+      <td><span class="ev-badge ev-low">参考程度(独立した第三者評価ではない)</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- まとめ -->
+<div class="card" style="border-left-color:#1a7a5a;">
+  <h2>✅ 今日のまとめ</h2>
+  <ul class="step-list">
+    <li>米タフツ大学のMeng Wangさんらが、非栄養甘味料に関する研究をまとめたレビューを発表(Current Atherosclerosis Reports、DOI: 10.1007/s11883-026-01429-9、2026年6月30日プレスリリース)。</li>
+    <li>成人対象のRCT21件のメタ分析では、甘味料群は水・プラセボ群より空腹時インスリン・HbA1cが高め。腸内細菌の変化が関わっている可能性も示された。</li>
+    <li>一方、国際甘味料協会(ISA、業界団体)は「HbA1cの差は0.07ポイントで臨床的に意味がない」と反論。数値の大きさをどう評価するかは、立場によって見解が分かれる。</li>
+    <li>RCT部分の比較対象は水・プラセボであり、「甘味料 vs 砂糖そのもの」を比べた研究ではない点、観察研究部分は相関にとどまる点には注意が必要。</li>
+    <li>読み方の教訓:「わずかな差」が報じられたときは、<strong>比較対象は何か(砂糖か、それとも水か)</strong>と、<strong>反論を出しているのは誰か(独立した第三者か、利害関係のある団体か)</strong>の両方を確認する習慣をつけると、情報にふり回されにくくなります。</li>
+  </ul>
+</div>
+
+<!-- 免責 -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、医療アドバイスではありません。効果・必要量・リスクは個人の体質・年齢・持病・服薬によって大きく異なります。本記事は特定の甘味料・食品の使用を推奨するものでも、避けるよう勧めるものでもありません。糖尿病・血糖コントロールでお困りの方、食事内容を大きく変えようとお考えの方は、自己判断せず、かかりつけ医・管理栄養士・薬剤師など専門家にご相談ください。
+</div>
+
+<!-- 出典 -->
+<div class="sources">
+  <h3>📚 主な出典・参考文献</h3>
+  <ol>
+    <li>Wang M, et al. "Artificial and Other Non-Nutritive Sweeteners, the Microbiome, and Cardiometabolic Health." Current Atherosclerosis Reports. 2026. DOI: 10.1007/s11883-026-01429-9
+      <a href="https://link.springer.com/article/10.1007/s11883-026-01429-9" target="_blank">https://link.springer.com/article/10.1007/s11883-026-01429-9</a>(基準日:2026年、査読誌掲載)
+    </li>
+    <li>タフツ大学(Food is Medicine Institute, Friedman School of Nutrition Science and Policy)プレスリリース "Growing Evidence That Sugar Substitutes Disrupt Gut Health and Metabolism"
+      <a href="https://now.tufts.edu/2026/06/30/growing-evidence-sugar-substitutes-disrupt-gut-health-and-metabolism" target="_blank">https://now.tufts.edu/2026/06/30/growing-evidence-sugar-substitutes-disrupt-gut-health-and-metabolism</a>(基準日:2026年6月30日)
+    </li>
+    <li>EurekAlert! "Growing evidence that sugar substitutes disrupt gut health and metabolism"(同プレスリリースの配信版)
+      <a href="https://www.eurekalert.org/news-releases/1134115" target="_blank">https://www.eurekalert.org/news-releases/1134115</a>(基準日:2026年6月30日)
+    </li>
+    <li>International Sweeteners Association(国際甘味料協会) "New review does not undermine the established evidence supporting low/no calorie sweeteners as sugar alternatives"(業界団体による反論記事。HbA1c上昇幅0.07ポイントという数値の出所)
+      <a href="https://www.sweeteners.org/new-review-does-not-undermine-the-established-evidence-supporting-low-no-calorie-sweeteners-as-sugar-alternatives/" target="_blank">https://www.sweeteners.org/new-review-does-not-undermine-the-established-evidence-supporting-low-no-calorie-sweeteners-as-sugar-alternatives/</a>(基準日:2026年7月)
+    </li>
+  </ol>
+  <p style="margin-top:8px; font-size:0.78rem;">※ ネットワーク制限により、査読論文本文(Current Atherosclerosis Reports)・タフツ大学プレスリリース・国際甘味料協会の反論記事それぞれへの直接アクセスができなかったため、本記事はニュース検索を通じて得られた各記事の要約情報を突き合わせ、複数の独立した情報源で一致して報告されている内容(著者名、掲載誌、DOI、RCT21件、水・プラセボ対照、HbA1c上昇0.07ポイント、ヒト→マウス便移植実験、International Sweeteners Associationの反論内容)のみを採用しています。RCT・観察研究それぞれの具体的な対象人数、甘味料の種類ごとの内訳、統計的な信頼区間・p値などの詳細数値は原文にしかない可能性が高く、本記事では確認できた範囲にとどめています。</p>
+</div>
+
+</div>
+</body>
+</html>
