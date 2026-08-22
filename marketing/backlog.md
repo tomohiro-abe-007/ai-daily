@@ -83,9 +83,12 @@
 - 2026-08-20：Instagram「グリッド並べ替え」入門 ── 見せたい実績を、いちばん先に見せる整理術（2026年6月8日グローバル展開開始とMeta公式発表、ABC News・Tech Times・Yahoo Tech・Caliber.Az等の海外メディア報道、2026年8月時点でもStack Influence等が続報として紹介、展開は端末ごとに段階的なため対応状況は公式で要確認）
 - 2026-08-21：Featured「Find Creators」入門 ── Instagram・TikTok・YouTube・LinkedInの3.8億人から自然な言葉でコラボ相手を検索できる新ツール（2026年8月18日GlobeNewswireプレスリリースで確認、Manila Times・MarTech Seriesも報道、フォロワー数・クリエイター数はFeatured社の自社発表値、料金・対応言語は公式で要確認）
 - 2026-08-22：Meta AI「ビジネスアシスタント」入門 ── Instagram・広告・Google Workspaceのデータをまとめて聞ける新機能、初のMacデスクトップアプリも公開（2026年8月19日Axios・Social Media Today報道、8月20日Engadget・SmallBizTrendsも報道、料金・対応地域・日本語対応は公式で要確認）
+- 2026-08-23：見込み客が集まる「お役立ち資料」の作り方 ── 売り込まずに連絡先をもらう、いちばん基本の型（リードマグネット入門、エバーグリーンテーマ。登録率の目安数値はshno.co「Lead Magnet Conversion Statistics for 2026」の民間集計値）
 
 ## 今後追加したい有望テーマ
 
+- Instagram Edits「デスクトップ版」＆「Loudness Match」入門 ── 動画編集アプリEditsのPC対応と音量自動調整機能（2026年8月時点で複数メディアが言及、発表日・提供国は公式で要確認）
+- LinkedIn Campaign Manager「Auto-Targeting」入門（要再検証）── URLや顧客リストを渡すだけでLinkedInが商圏を自動構築する機能。2026年8月のまとめ記事で紹介されているが、検索では2025年9月にも同様の発表が見つかっており、初出時期に食い違いがあるため、扱う場合は公式ヘルプで機能の現状を必ず確認すること
 - Instagram「AI Creator」プロフィールラベル入門 ── AIを使って作った投稿だと分かるよう自分で表示できる新機能（2026年5月4日発表、Social Media Today・Engadget等の海外メディア報道、限定ロールアウト中で今後拡大予定、詳細は公式で要確認）
 - LinkedIn AI ad variants／Ads Personalization深掘り編 ── バリエーション自動生成とターゲット別最適化の実践ガイド（2026年7月1日発表分の続報、詳細は公式で要確認）
 
