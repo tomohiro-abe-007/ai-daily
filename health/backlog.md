@@ -2,6 +2,12 @@
 
 今後の記事候補。使ったテーマは削除し、新しく見つけた有望テーマは追記する。
 
+## 未使用テーマ（追記：2026-08-23 検索で見つけた有望テーマ）
+
+- 08-23記事(Verroest, Jokelainen, Choudhary, Walkowiak, Karhu, Palaniswamy, Auvinen, Järvelin, Herzig, Razaら, European Journal of Nutrition 2026, DOI: 10.1007/s00394-026-04038-z)の続報候補 ── 統計的な信頼区間・p値、体組成の測定方法(DXAか生体電気インピーダンスか)の詳細、参加者のCYP1A2遺伝子型を実際に測定しているかどうかが、論文本文で確認できれば深掘り記事化を検討。ネットワーク制限(link.springer.com / oulu.fi / sciencedaily.com / eurekalert.org がブロック対象)で本文未確認
+- 「コーヒー摂取量とCYP1A2遺伝子型を実際にかけ合わせた研究」を独立テーマにする回 ── 08-23記事では2006年のJAMA研究(Cornelisら、心筋梗塞リスク)を背景として紹介したが、体組成・ホルモンとCYP1A2遺伝子型を直接かけ合わせた最新研究が見つかれば、精密栄養学の実例として独立記事化を検討
+- コーヒーと男女差のある性ホルモン反応の機序 ── なぜ女性では総テストステロンに差がなく、男性でのみ総テストステロンとSHBGが連動して上がるのか。ホルモンの基礎代謝経路の解説として掘り下げられるか、一次論文の確認が必要
+
 ## 未使用テーマ（追記：2026-08-21 検索で見つけた有望テーマ）
 
 - 08-21記事(Damani JJ, Kris-Etherton PM, Matthan NR, Li Z, Sabaté J, Reboussin DM, Petersen KS, Journal of Clinical Lipidology 2026, DOI: 10.1016/j.jacl.2026.06.005)の続報候補 ── ベースラインのLDL粒子数の絶対値、「約4%のリスク低下」という推計の具体的な計算方法(どの疫学データ・どの関係式を使ったか)、各群の詳細な食事摂取量データ、LDL-Pだけが下がりapoBが動かなかった理由についての著者らの考察が、論文本文で確認できれば深掘り記事化を検討。ネットワーク制限(lipidjournal.com / ahajournals.org / clinicaltrials.gov / psu.edu がブロック対象)で本文・Abstract未確認

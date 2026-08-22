@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-08-23</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '☕';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.9rem; margin-bottom: 8px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.1em; }
+  .c3-col li { margin-bottom: 4px; }
+  .c3-col .or-val { font-size: 1.4rem; font-weight: 700; margin: 4px 0; }
+  .c3-col.red .or-val { color: #a0291e; }
+  .c3-col.green .or-val { color: #1a6e4a; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .mech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .mech-item {
+    background: #f0faf5;
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 0.85rem;
+    border-top: 3px solid #1a7a5a;
+  }
+  .mech-item .micon { font-size: 1.3rem; margin-bottom: 6px; }
+  .mech-item strong { display: block; color: #0d4a35; margin-bottom: 4px; font-size: 0.88rem; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .highlight { background: #cff0df; padding: 1px 5px; border-radius: 4px; }
+  .good { color: #1a7a5a; font-weight: 600; }
+  .bad  { color: #c0392b; font-weight: 600; }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-box {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin: 14px 0;
+    font-size: 0.92rem;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  .quote-box {
+    background: #f5f0e8;
+    border-left: 4px solid #7a5abf;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    margin: 12px 0;
+    color: #444;
+    font-style: italic;
+  }
+  .quote-box .who { font-style: normal; font-weight: 700; color: #5a3a9a; margin-top: 6px; font-size: 0.78rem; }
+  .benefit-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    margin: 14px 0;
+  }
+  .benefit-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+  .benefit-item .bicon { font-size: 1.2rem; margin-bottom: 4px; }
+  .matrix {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .mx-cell {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .mx-cell .mx-head { font-weight: 700; font-size: 0.88rem; margin-bottom: 6px; }
+  .mx-cell.ok  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .mx-cell.ok  .mx-head { color: #1a6e4a; }
+  .mx-cell.ng  { background: #f0ece3; border: 2px dashed #aaa; }
+  .mx-cell.ng  .mx-head { color: #777; }
+  @media (max-width: 540px) {
+    .compare4 { grid-template-columns: 1fr 1fr; }
+    .matrix { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.7rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ヘッダー -->
+<div class="header">
+  <div class="label">健康・栄養 最新トピック ・ 2026-08-23</div>
+  <h1>「コーヒーをよく飲む人は脂肪が少なく筋肉も多い」<br>——でも、それは"証明"ではない理由</h1>
+  <div class="subtitle">フィンランド・オウル大学のLuca Verroestさん、Ghulam Shere Razaさんらのチームが、1966年生まれの成人2,264人(全員46歳)を対象に、コーヒー摂取量と体組成・ホルモンの関係を調べた研究をEuropean Journal of Nutrition誌に発表しました(2026年7月16日、DOI: 10.1007/s00394-026-04038-z)。1日<strong>5杯以上</strong>コーヒーを飲むグループは、飲まないグループと比べて<strong>体脂肪率が低く・内臓脂肪が少なく・筋肉量が多い</strong>のに、体格指数(BMI)には差がありませんでした。男性では血液中のテストステロン(男性ホルモン)にも違いが見られましたが、これは「コーヒーが原因でそうなった」と証明したものではありません。今日はこの研究を題材に、"関連"と"原因"の見分け方を一緒に確認します。</div>
+</div>
+
+<!-- タグ -->
+<div style="margin-bottom:18px;">
+  <span class="tag">観察研究の読み方</span>
+  <span class="tag">横断研究</span>
+  <span class="tag">相関と因果</span>
+  <span class="tag">性ホルモン</span>
+  <span class="tag">精密栄養学</span>
+  <span class="tag">カフェイン代謝の個人差</span>
+</div>
+
+<!-- 今日の疑問 -->
+<div class="card">
+  <h2>🤔 今日の疑問:コーヒーをたくさん飲む人は、なぜ体脂肪が少ないのか?</h2>
+  <p>「コーヒーをよく飲む人ほど、体脂肪が少なく筋肉が多かった」——2026年8月、フィンランドの大規模な追跡調査からこんな報告がありました。SNSや一部の海外メディアでは「コーヒーが脂肪を減らす」「筋肉を増やす」といった見出しで紹介されています。</p>
+  <p>ですが、研究チーム自身がまず伝えているのは<strong>「これは"関連"を見つけた研究であって、"原因と結果"を証明した研究ではない」</strong>という注意点です。今日は、このニュースの中身と、「関連はあるのに、原因とは言い切れない」とはどういうことかを、順を追って見ていきます。</p>
+</div>
+
+<!-- 基本用語 -->
+<div class="card blue">
+  <h2>📖 まず言葉の意味を</h2>
+  <div class="def-grid">
+    <div class="def-item">
+      <div class="dterm">横断研究(cross-sectional study)</div>
+      ある一時点で、参加者の生活習慣と体の状態を<em>同時に</em>測って比べる研究方法。「コーヒーを多く飲む人と少ない人で、"今の"体はどう違うか」はわかるが、時間の流れを追っていないため「どちらが先に起きたか」までは分からない。
+    </div>
+    <div class="def-item">
+      <div class="dterm">逆の因果関係(reverse causation)</div>
+      「コーヒーが体脂肪を減らした」のではなく、<strong>「もともと痩せていて代謝が良い生活を送っている人が、コーヒーを飲む習慣も持ちやすかった」</strong>という、原因と結果が逆になっている可能性。
+    </div>
+    <div class="def-item">
+      <div class="dterm">SHBG(性ホルモン結合グロブリン)</div>
+      血液中でテストステロンなどの性ホルモンを運ぶ「荷物運び役」のたんぱく質。これにくっついている間、ホルモンは働けない。SHBGが増えると、ホルモンの総量が同じでも「自由に働ける分(遊離型)」は減ることがある。
+    </div>
+    <div class="def-item">
+      <div class="dterm">BCAA(分岐鎖アミノ酸)</div>
+      ロイシン・イソロイシン・バリンという3種類のアミノ酸。血液中の濃度が高い状態が続くと、インスリンが効きにくくなる状態(インスリン抵抗性)との関連が過去の研究で報告されている。
+    </div>
+    <div class="def-item">
+      <div class="dterm">CYP1A2遺伝子</div>
+      肝臓でカフェインを分解する酵素の設計図となる遺伝子。人によって「速く分解するタイプ」と「ゆっくり分解するタイプ」があり、同じ量のコーヒーでも体への影響の出方や感じ方が変わりうる。
+    </div>
+  </div>
+</div>
+
+<!-- 数字カード -->
+<div class="num-row">
+  <div class="num-card blue-bg">
+    <div class="big">2,264<span class="unit">人</span></div>
+    <div class="desc">対象者数。全員が1966年生まれ・46歳で同じ健康診断を受けた「北フィンランド出生コホート1966」の参加者</div>
+  </div>
+  <div class="num-card">
+    <div class="big">4<span class="unit">グループ</span></div>
+    <div class="desc">自己申告のコーヒー摂取量で「飲まない〜1日5杯以上」に分類</div>
+  </div>
+  <div class="num-card orange-bg">
+    <div class="big">27<span class="unit">% vs 29%</span></div>
+    <div class="desc">体脂肪率のめやす。1日5杯以上グループ 約27% / 非飲用グループ 約29%</div>
+  </div>
+  <div class="num-card purple-bg">
+    <div class="big">▼約6<span class="unit">%</span></div>
+    <div class="desc">内臓脂肪のめやす。5杯以上グループは非飲用グループより少なかった</div>
+  </div>
+</div>
+
+<!-- 調べ方の流れ -->
+<div class="card purple">
+  <h2>🧭 どうやって調べたのか(5ステップ)</h2>
+  <div class="flow">
+    <div class="flow-step purp">1966年生まれの<br>46歳・2,264人を対象</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step">自己申告の<br>コーヒー摂取量で<br>4グループに分類</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step alt">体重・体脂肪率・<br>内臓脂肪・筋肉量<br>などを測定</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step">採血で<br>コレステロール・<br>インスリン・性ホルモンを分析</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step purp">グループ間を<br>同じ時点で比較</div>
+  </div>
+  <p style="font-size:0.82rem; color:#555; margin-top:4px;">全員が同じ「46歳」という一時点でのデータで、コーヒーを飲ませる実験(介入)ではありません。あくまで「今の生活習慣」と「今の体の状態」を同時に測って比べた、観察研究です。</p>
+</div>
+
+<!-- 男女差マトリクス -->
+<div class="card orange">
+  <h2>⚖️ 男性と女性で違ったホルモンの動き</h2>
+  <div class="compare4">
+    <div class="c3-col blue">
+      <h3>👨 男性:コーヒーが多いほど…</h3>
+      <ul>
+        <li><strong>総テストステロン</strong>が高い傾向</li>
+        <li><strong>SHBG</strong>(運び役たんぱく質)も高い</li>
+        <li>その結果、<strong>遊離テストステロン</strong>(自由に働ける分)はむしろ低い</li>
+      </ul>
+    </div>
+    <div class="c3-col purple">
+      <h3>👩 女性:コーヒーが多いほど…</h3>
+      <ul>
+        <li><strong>SHBG</strong>が高い傾向</li>
+        <li><strong>遊離テストステロン</strong>は低い傾向</li>
+        <li>総テストステロン・生物学的利用能テストステロンには<strong>はっきりした差はなし</strong></li>
+      </ul>
+    </div>
+  </div>
+  <p style="font-size:0.85rem; color:#555; margin-top:6px;">男女とも共通していたのは、コーヒーが多いグループほど<strong>BCAA(分岐鎖アミノ酸)の血中濃度が低い</strong>傾向があったことです。BCAAはインスリン抵抗性との関連が指摘される物質で、この結果は「コーヒーの多いグループのほうがインスリンの効きが良さそう」という方向と一致します。ただしこれも<strong>横断研究の中の関連</strong>であり、原因と結果を証明したものではありません。</p>
+</div>
+
+<!-- 精密栄養学の視点 -->
+<div class="card">
+  <h2>🔬 精密栄養学の視点:同じコーヒーでも、遺伝子で「効き方」が変わる</h2>
+  <p>精密栄養学(せいみつえいようがく=一人ひとりの体質に合わせて栄養を考える分野)の目線では、コーヒーは実は「個人差」が大きい飲み物の代表格として知られています。カギを握るのが、先ほど紹介した<strong>CYP1A2遺伝子</strong>です。</p>
+  <div class="mech-grid">
+    <div class="mech-item">
+      <div class="micon">⚡</div>
+      <strong>速く分解するタイプ</strong>
+      カフェインが体内に留まる時間が短く、影響が出にくいとされる。
+    </div>
+    <div class="mech-item">
+      <div class="micon">🐢</div>
+      <strong>ゆっくり分解するタイプ</strong>
+      カフェインが長く残りやすく、同じ量でも心臓や血管への影響が出やすい可能性がある。
+    </div>
+    <div class="mech-item">
+      <div class="micon">📊</div>
+      <strong>過去の大規模研究</strong>
+      Cornelisさんらのチームがコスタリカで行った症例対照研究(非致死性の心筋梗塞患者2,014人 vs 対照2,014人)では、<strong>「ゆっくり分解するタイプ」の人だけ</strong>、コーヒーの摂取量が多いほど心筋梗塞のリスクが高い傾向がみられた(JAMA、2006年)。
+    </div>
+  </div>
+  <p style="font-size:0.85rem; color:#555;">つまり「コーヒーが体に良いか悪いか」を一つの答えで決めるのは難しく、<strong>同じ量のコーヒーでも、遺伝的な体質によって効き方が違う</strong>可能性があります。今回のフィンランドの研究では、参加者の遺伝子タイプまでは調べられていません。「体脂肪が少ない人ほどコーヒーをよく飲む」という関連の背景に、こうした個人差が隠れているかもしれない、という一つの視点として捉えてください。</p>
+</div>
+
+<!-- 注意点 -->
+<div class="warn">
+  <strong>⚠️ 誤解しないでほしいこと</strong>
+  <ul style="padding-left:1.4em; margin-top:8px;">
+    <li>この研究は<strong>横断研究(観察研究の一種)</strong>です。コーヒーを飲ませて効果を確かめる実験(RCT)ではなく、「コーヒーが体脂肪を減らす」と証明したものではありません。</li>
+    <li><strong>逆の因果関係</strong>が起きている可能性があります。もともと痩せていて代謝が良い生活を送っている人のほうが、コーヒーを飲む習慣を続けやすかっただけかもしれません。</li>
+    <li>対象は<strong>フィンランドの1966年生まれ・46歳という一時点の集団</strong>です。他の年齢層・他の国・他の文化圏にそのまま当てはまるとは限りません。</li>
+    <li>コーヒー摂取量は<strong>本人の申告</strong>に基づいており、実際の量とズレがある可能性があります。</li>
+    <li>研究チーム自身も、この結果を根拠に「コーヒーを増やすべき」という食事指針にするには<strong>さらなる研究が必要</strong>だと述べています。</li>
+    <li>カフェインには血圧上昇・不眠・不安・動悸などを引き起こす面もあります。妊娠中の方、不整脈や胃腸の持病がある方、カフェインに敏感な方は、量を増やす前に医師に相談してください。</li>
+  </ul>
+</div>
+
+<!-- エビデンスの整理 -->
+<div class="card">
+  <h2>🧪 今日出てきた情報の「証拠としての強さ」の目安</h2>
+  <table class="ev-table">
+    <tr><th>情報の種類</th><th>特徴</th><th>証拠としての強さ</th></tr>
+    <tr>
+      <td>コーヒー摂取量が多い人ほど体脂肪率・内臓脂肪が少ない</td>
+      <td>横断観察研究(n=2,264、46歳の一時点)</td>
+      <td><span class="ev-badge ev-mid">中程度(関連のみ、因果関係は不明)</span></td>
+    </tr>
+    <tr>
+      <td>男性で総テストステロン・SHBGが高い傾向</td>
+      <td>同じ横断研究内の関連</td>
+      <td><span class="ev-badge ev-mid">中程度(関連のみ、因果関係は不明)</span></td>
+    </tr>
+    <tr>
+      <td>「コーヒーが体脂肪を減らす・筋肉を増やす」という因果的な主張</td>
+      <td>横断研究からは証明できない。逆の因果関係の可能性が残る</td>
+      <td><span class="ev-badge ev-low">弱い(未証明)</span></td>
+    </tr>
+    <tr>
+      <td>CYP1A2遺伝子タイプでカフェインの心血管への影響が変わる</td>
+      <td>症例対照研究(コスタリカ、心筋梗塞患者/対照 各2,014人、JAMA 2006年)</td>
+      <td><span class="ev-badge ev-mid">中程度(観察研究だが広く再現・引用されている知見)</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- まとめ -->
+<div class="card" style="border-left-color:#1a7a5a;">
+  <h2>✅ 今日のまとめ</h2>
+  <ul class="step-list">
+    <li>フィンランド・オウル大学のVerroestさん・Razaさんらのチームが、46歳の成人2,264人を対象にした横断研究で、コーヒー摂取量が多いグループほど体脂肪率・内臓脂肪が少なく筋肉量が多い傾向を報告(European Journal of Nutrition、2026年7月16日、DOI: 10.1007/s00394-026-04038-z)。</li>
+    <li>男性では総テストステロン・SHBGが高い一方、遊離テストステロンは低い傾向。女性ではSHBGが高く遊離テストステロンが低いが、総テストステロンには差がなかった。</li>
+    <li>これは<strong>横断研究</strong>であり、「コーヒーが原因でそうなった」とは証明されていない。もともと代謝が良い人がコーヒーを飲む習慣を持ちやすいという、逆方向の可能性が残る。</li>
+    <li>コーヒーの影響には<strong>CYP1A2遺伝子による個人差</strong>があることが過去の研究(JAMA、2006年)で示されており、「同じ量でも人によって効き方が違う」という精密栄養学的な視点が重要になる。</li>
+    <li>読み方の教訓:「〇〇な人ほど△△だった」というニュースを見たら、<strong>「原因と結果が逆になっていないか」</strong>を一度立ち止まって考える習慣をつけると、情報にふり回されにくくなります。</li>
+  </ul>
+</div>
+
+<!-- 免責 -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、医療アドバイスではありません。効果・必要量・リスクは個人の体質・年齢・持病・服薬によって大きく異なります。本記事はコーヒーやカフェインの摂取を推奨するものでも、避けるよう勧めるものでもありません。妊娠中の方、不整脈・胃腸疾患などの持病がある方、カフェインの摂取量を大きく変えようとお考えの方は、自己判断せず、かかりつけ医・管理栄養士・薬剤師など専門家にご相談ください。
+</div>
+
+<!-- 出典 -->
+<div class="sources">
+  <h3>📚 主な出典・参考文献</h3>
+  <ol>
+    <li>Verroest L, Jokelainen J, Choudhary S, Walkowiak J, Karhu T, Palaniswamy S, Auvinen J, Järvelin MR, Herzig KH, Raza GS. "Associations of habitual coffee intake with testosterone and cardiometabolic markers: the Northern Finland birth cohort 1966 study." European Journal of Nutrition. 2026. DOI: 10.1007/s00394-026-04038-z
+      <a href="https://doi.org/10.1007/s00394-026-04038-z" target="_blank">https://doi.org/10.1007/s00394-026-04038-z</a>(基準日:2026年7月16日発表)
+    </li>
+    <li>University of Oulu プレスリリース "Study links coffee consumption to metabolic health and sex hormones"(研究実施機関による発表。対象者数・グループ分け・体脂肪率/内臓脂肪/ホルモンの数値の出所)
+      <a href="https://www.oulu.fi/en/news/study-links-coffee-consumption-metabolic-health-and-sex-hormones" target="_blank">https://www.oulu.fi/en/news/study-links-coffee-consumption-metabolic-health-and-sex-hormones</a>(基準日:2026年8月19日)
+    </li>
+    <li>"Coffee drinkers have less fat, more muscle, and surprising hormone differences." ScienceDaily.
+      <a href="https://www.sciencedaily.com/releases/2026/08/260819041228.htm" target="_blank">https://www.sciencedaily.com/releases/2026/08/260819041228.htm</a>(基準日:2026年8月19日)
+    </li>
+    <li>EurekAlert! プレスリリース "Study links coffee consumption to metabolic health and sex hormones"
+      <a href="https://www.eurekalert.org/news-releases/1139970" target="_blank">https://www.eurekalert.org/news-releases/1139970</a>(基準日:2026年8月19日)
+    </li>
+    <li>Cornelis MC, El-Sohemy A, Kabagambe EK, Campos H. "Coffee, CYP1A2 Genotype, and Risk of Myocardial Infarction." JAMA. 2006;295(10):1135-1141. PMID: 16522833(症例対照研究、非致死性心筋梗塞患者2,014人・対照2,014人、コスタリカ。CYP1A2遺伝子型でコーヒーと心筋梗塞リスクの関連が変わることを示した代表的研究)
+      <a href="https://pubmed.ncbi.nlm.nih.gov/16522833/" target="_blank">https://pubmed.ncbi.nlm.nih.gov/16522833/</a>(基準日:2006年3月)
+    </li>
+    <li>"Genotype–Drug–Diet Interactions in Metabolic Regulation: CYP1A2 rs762551 Modulates the Effect of Caffeine on Lipid and Glucose Profiles in the Context of Pharmacotherapy." Nutrients. 2025;17(14):2288. DOI: 10.3390/nu17142288(CYP1A2遺伝子多型がカフェインと脂質・血糖マーカーの関連に与える影響を調べた査読論文。個人差の仕組みに関する背景情報として参照)
+      <a href="https://doi.org/10.3390/nu17142288" target="_blank">https://doi.org/10.3390/nu17142288</a>(基準日:2025年7月)
+    </li>
+  </ol>
+  <p style="margin-top:8px; font-size:0.78rem;">※ 本記事は査読誌 European Journal of Nutrition 掲載論文(DOI: 10.1007/s00394-026-04038-z)を一次情報とし、研究実施機関(オウル大学)およびEurekAlert!のプレスリリース、複数の独立した科学報道を突き合わせて作成しました。ネットワーク制限により論文本文・Abstractへの直接アクセスができなかったため、記載した数値(2,264人、46歳、体脂肪率約27%/29%、内臓脂肪の約6%の差、4グループの分類)は、複数の独立した情報源で一致して報告されているものだけを採用しています。統計的な信頼区間・p値、体組成の測定方法の詳細、遺伝子型の直接測定の有無は原文にしかない可能性が高く、本記事では確認できた範囲にとどめています。CYP1A2遺伝子・カフェイン代謝の個人差については、広く引用される2006年のJAMA掲載研究、および2025年のNutrients誌掲載論文を背景情報として付記しました。</p>
+</div>
+
+</div>
+</body>
+</html>
