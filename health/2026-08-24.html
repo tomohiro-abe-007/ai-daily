@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-08-24</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '🧀';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.9rem; margin-bottom: 8px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.1em; }
+  .c3-col li { margin-bottom: 4px; }
+  .c3-col .or-val { font-size: 1.4rem; font-weight: 700; margin: 4px 0; }
+  .c3-col.red .or-val { color: #a0291e; }
+  .c3-col.green .or-val { color: #1a6e4a; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .mech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .mech-item {
+    background: #f0faf5;
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 0.85rem;
+    border-top: 3px solid #1a7a5a;
+  }
+  .mech-item .micon { font-size: 1.3rem; margin-bottom: 6px; }
+  .mech-item strong { display: block; color: #0d4a35; margin-bottom: 4px; font-size: 0.88rem; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .highlight { background: #cff0df; padding: 1px 5px; border-radius: 4px; }
+  .good { color: #1a7a5a; font-weight: 600; }
+  .bad  { color: #c0392b; font-weight: 600; }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-box {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin: 14px 0;
+    font-size: 0.92rem;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  .quote-box {
+    background: #f5f0e8;
+    border-left: 4px solid #7a5abf;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    margin: 12px 0;
+    color: #444;
+    font-style: italic;
+  }
+  .quote-box .who { font-style: normal; font-weight: 700; color: #5a3a9a; margin-top: 6px; font-size: 0.78rem; }
+  .benefit-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    margin: 14px 0;
+  }
+  .benefit-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+  .benefit-item .bicon { font-size: 1.2rem; margin-bottom: 4px; }
+  .matrix {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .mx-cell {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .mx-cell .mx-head { font-weight: 700; font-size: 0.88rem; margin-bottom: 6px; }
+  .mx-cell.ok  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .mx-cell.ok  .mx-head { color: #1a6e4a; }
+  .mx-cell.ng  { background: #f0ece3; border: 2px dashed #aaa; }
+  .mx-cell.ng  .mx-head { color: #777; }
+  @media (max-width: 540px) {
+    .compare4 { grid-template-columns: 1fr 1fr; }
+    .matrix { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.7rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ヘッダー -->
+<div class="header">
+  <div class="label">健康・栄養 最新トピック ・ 2026-08-24</div>
+  <h1>「チーズのクセを作る菌」に腸によいかもしれない菌がいた<br>——でも、まだ"食べれば効く"の証明ではない</h1>
+  <div class="subtitle">英レディング大学のSabrina Longleyさん、Glenn Gibsonさん、Anisha Wijeyesekeraさんらのチームが、熟成期間の異なる英国産チーズ3種類を丸ごと調べ、それぞれの菌の種類と、菌が作り出す物質の変化を追った研究をACS Food Science & Technology誌に発表しました(2026年5月、DOI: 10.1021/acsfoodscitech.5c01243)。すべてのチーズから「腸によい可能性がある」とされる種類の菌が見つかりましたが、これは<strong>チーズという食品そのものを調べた研究</strong>で、人がチーズを食べて腸内環境が変わるかどうかを確かめた研究ではありません。今日はこの研究を題材に、「食品の中に何があるか」と「食べて体に効くか」の違いを一緒に見ていきます。</div>
+</div>
+
+<!-- タグ -->
+<div style="margin-bottom:18px;">
+  <span class="tag">発酵食品</span>
+  <span class="tag">プロバイオティクス</span>
+  <span class="tag">腸内細菌叢</span>
+  <span class="tag">食品科学とヒト試験の違い</span>
+  <span class="tag">利益相反</span>
+  <span class="tag">精密栄養学</span>
+</div>
+
+<!-- 今日の疑問 -->
+<div class="card">
+  <h2>🤔 今日の疑問:チーズの"香りを作る菌"は、腸にもいいのか?</h2>
+  <p>2026年8月、「チーズのおいしさを作る菌が、腸の健康にも役立つかもしれない」という報道が海外で相次ぎました。英レディング大学の研究チームが、地元オックスフォードシャーの工房で作られた3種類のチーズを熟成の過程ごと丸ごと分析したところ、どのチーズからも「腸によいとされる菌」が見つかったという内容です。</p>
+  <p>ただし、この報道のもとになった論文は<strong>チーズという"食品"を化学・微生物の面から調べた研究</strong>であり、実際に人がそのチーズを食べて腸の中がどう変わるかを確かめたものではありません。今日は、この研究で分かったことと、まだ分かっていないことを、順を追って整理します。</p>
+</div>
+
+<!-- 基本用語 -->
+<div class="card blue">
+  <h2>📖 まず言葉の意味を</h2>
+  <div class="def-grid">
+    <div class="def-item">
+      <div class="dterm">発酵食品</div>
+      微生物(細菌やカビなど)のはたらきで、原料の成分が変化してできる食品。チーズ・ヨーグルト・納豆・味噌などが代表例。どんな菌がどう働くかで、味や香り、含まれる物質が変わる。
+    </div>
+    <div class="def-item">
+      <div class="dterm">プロバイオティクス</div>
+      「十分な量を摂取したときに、体によい影響を与えるとされる生きた微生物」のこと(FAO/WHOの定義がもと)。ただし、食品に「その可能性がある菌」が入っていることと、実際に体に効くと証明されていることは<strong>別の話</strong>。
+    </div>
+    <div class="def-item">
+      <div class="dterm">プロピオン酸</div>
+      腸内細菌が作り出す物質の一種(短鎖脂肪酸の仲間)。今回のチーズに含まれていたPropionibacterium freudenreichiiという菌が作る。炎症をおさえる・コレステロールの合成をおさえる・食欲を調整する、といった働きが<em>他の研究で</em>報告されている物質。
+    </div>
+    <div class="def-item">
+      <div class="dterm">食品マトリックス効果</div>
+      同じ菌や栄養素でも、それを包む食品全体(脂肪・たんぱく質などの構造)によって、体への影響の出方が変わるという考え方。今回の研究チームは「チーズの脂肪・たんぱく質が、菌が腸まで届く助けになるかもしれない」という<strong>仮説</strong>を示しているが、これ自体は今回の研究で直接確かめられてはいない。
+    </div>
+    <div class="def-item">
+      <div class="dterm">ヒト介入試験</div>
+      実際に人にその食品を食べてもらい、体にどんな変化が起きるかを調べる研究。今回のチーズ研究チームによる介入試験は、記事執筆時点で<strong>「進行中」</strong>であり、結果はまだ出ていない。
+    </div>
+  </div>
+</div>
+
+<!-- 数字カード -->
+<div class="num-row">
+  <div class="num-card blue-bg">
+    <div class="big">3<span class="unit">種類</span></div>
+    <div class="desc">調べたチーズの種類。すべて英オックスフォードシャーの同じ工房(Nettlebed Creamery)で作られたもの</div>
+  </div>
+  <div class="num-card">
+    <div class="big">9<span class="unit">ヶ月</span></div>
+    <div class="desc">3種類のうち最も長く熟成させた「干し草熟成タイプ」の熟成期間のめやす</div>
+  </div>
+  <div class="num-card orange-bg">
+    <div class="big">2<span class="unit">/3種類</span></div>
+    <div class="desc">プロピオン酸を作る菌(P. freudenreichii)が見つかったチーズの数</div>
+  </div>
+  <div class="num-card red-bg">
+    <div class="big">0<span class="unit">人</span></div>
+    <div class="desc">この論文で実際にチーズを食べて調べられた「人」の数。ヒトでの介入試験はまだこれから</div>
+  </div>
+</div>
+
+<!-- 調べ方の流れ -->
+<div class="card purple">
+  <h2>🧭 どうやって調べたのか(5ステップ)</h2>
+  <div class="flow">
+    <div class="flow-step purp">同じ工房で作られた<br>チーズ3種類を用意</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step">熟成が進む<br>複数の時点で<br>サンプルを採取</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step alt">DNA解析で<br>どんな菌が<br>どれだけいるか同定</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step">化学分析で<br>菌が作った物質<br>(酸・香り成分)を測定</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step purp">熟成に伴う<br>菌相と成分の<br>変化を比較</div>
+  </div>
+  <p style="font-size:0.82rem; color:#555; margin-top:4px;">対象は「チーズそのもの」で、人にも動物にも食べさせていません。あくまで食品を分析した研究であり、体への効果を調べた研究ではないことがポイントです。</p>
+</div>
+
+<!-- 3種のチーズ比較 -->
+<div class="card orange">
+  <h2>🧀 3種類のチーズ、熟成のしかたと菌の違い</h2>
+  <div class="compare4">
+    <div class="c3-col green">
+      <h3>① 白カビ・ソフトタイプ</h3>
+      <ul>
+        <li>熟成期間:<strong>1週間強</strong></li>
+        <li>主な菌:<strong>Streptococcus thermophilus</strong>(ヨーグルトの発酵にも使われる菌)、<strong>Lactococcus lactis</strong></li>
+      </ul>
+    </div>
+    <div class="c3-col orange">
+      <h3>② ウォッシュ・セミソフトタイプ</h3>
+      <ul>
+        <li>熟成期間:<strong>数週間</strong></li>
+        <li>①の菌に加えて<strong>Propionibacterium freudenreichii</strong>(プロピオン酸を作る菌)が出現</li>
+      </ul>
+    </div>
+    <div class="c3-col blue">
+      <h3>③ 干し草熟成・セミハードタイプ</h3>
+      <ul>
+        <li>熟成期間:<strong>約9ヶ月</strong></li>
+        <li>②と同じくP. freudenreichiiを含み、熟成が長い分、菌相・成分がより複雑</li>
+      </ul>
+    </div>
+  </div>
+  <p style="font-size:0.85rem; color:#555; margin-top:6px;"><strong>Lactococcus lactis</strong>は3種類すべてに共通して存在し、熟成の長さや工程によって、そこに加わる菌の種類が変わっていく様子が確認されました。同じ牛乳から作っても、発酵のさせ方次第でチーズの中の"菌の世界"が変わるということです。</p>
+</div>
+
+<!-- 精密栄養学の視点 -->
+<div class="card">
+  <h2>🔬 精密栄養学の視点:「入っている」と「効く」の間にある距離</h2>
+  <p>精密栄養学(せいみつえいようがく=一人ひとりの体質に合わせて栄養を考える分野)では、「同じ食品でも、加工・発酵のさせ方や、食べる人の体質によって効果が変わりうる」という視点を大事にします。今回の研究はその入り口にあたる「食品側の情報」を丁寧に調べたものです。</p>
+  <div class="mech-grid">
+    <div class="mech-item">
+      <div class="micon">🧫</div>
+      <strong>生きて届くかは別問題</strong>
+      チーズの中に菌がいても、胃酸や消化液にさらされながら腸まで生きて届くかどうかは、菌の種類や食べる人の消化器の状態によって変わりうる。
+    </div>
+    <div class="mech-item">
+      <div class="micon">🧈</div>
+      <strong>マトリックス効果は仮説</strong>
+      研究チームは「チーズの脂肪・たんぱく質が菌を保護し、腸への届きやすさを助けるかもしれない」という考えを示しているが、これは今回の研究で直接証明されたものではない。
+    </div>
+    <div class="mech-item">
+      <div class="micon">🔬</div>
+      <strong>次はヒト試験</strong>
+      研究チームは現在、干し草熟成タイプのチーズが実際にヒトの腸内細菌叢やコレステロールに影響するかを調べる介入試験を進めている段階(結果はまだ未発表)。
+    </div>
+  </div>
+  <p style="font-size:0.85rem; color:#555;">「体によいとされる菌が入っている食品」というだけで、その食品を食べれば必ず効果があるとは限りません。<strong>食品の中身を調べる研究(今回)</strong>と、<strong>人が食べて何が起きるかを調べる研究(これから)</strong>は、別の段階だと意識することが大切です。</p>
+</div>
+
+<!-- 注意点 -->
+<div class="warn">
+  <strong>⚠️ 誤解しないでほしいこと</strong>
+  <ul style="padding-left:1.4em; margin-top:8px;">
+    <li>この研究は<strong>チーズという食品そのものの微生物・化学分析</strong>です。人にも動物にも食べさせておらず、「チーズを食べると腸内環境が改善する」と証明したものではありません。</li>
+    <li>「腸によい可能性がある菌が入っていた」ことと、「その菌が実際に人の腸に定着し、健康効果を発揮する」ことは<strong>別の段階</strong>です。ヒト介入試験は現在進行中で、結果は未発表です。</li>
+    <li>調べたのは<strong>同じ工房が作った3種類のチーズのみ</strong>です。他のメーカーや他の種類のチーズに、同じ菌や結果がそのまま当てはまるとは限りません。</li>
+    <li><strong>利益相反</strong>があります。この研究は分析対象のチーズを作ったNettlebed Creamery社の支援を受けており、責任著者はこの企業に一部の時間、雇用されています。</li>
+    <li>チーズは一般に<strong>飽和脂肪や塩分</strong>も多く含む食品です。腸によいかもしれない菌が入っているからといって、量を大きく増やすことは勧められません。特に脂質異常症・高血圧など持病のある方は、食事の変更前に専門家に相談してください。</li>
+  </ul>
+</div>
+
+<!-- エビデンスの整理 -->
+<div class="card">
+  <h2>🧪 今日出てきた情報の「証拠としての強さ」の目安</h2>
+  <table class="ev-table">
+    <tr><th>情報の種類</th><th>特徴</th><th>証拠としての強さ</th></tr>
+    <tr>
+      <td>3種類のチーズに「腸によい可能性がある」種類の菌が含まれていた</td>
+      <td>食品そのものの微生物・化学分析(ヒト・動物試験なし、チーズ3種)</td>
+      <td><span class="ev-badge ev-mid">中程度(食品の成分としては確認、健康効果は未検証)</span></td>
+    </tr>
+    <tr>
+      <td>プロピオン酸に抗炎症・コレステロール調整・食欲調整の働きがある</td>
+      <td>研究チームが背景として言及した一般的な知見(今回の研究で直接示したものではない)</td>
+      <td><span class="ev-badge ev-low">弱い(このチーズでの効果として未証明)</span></td>
+    </tr>
+    <tr>
+      <td>「このチーズを食べると腸内環境やコレステロールが改善する」</td>
+      <td>ヒト介入試験は現在進行中、結果は未発表</td>
+      <td><span class="ev-badge ev-low">現時点では未証明</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- まとめ -->
+<div class="card" style="border-left-color:#1a7a5a;">
+  <h2>✅ 今日のまとめ</h2>
+  <ul class="step-list">
+    <li>英レディング大学のLongleyさん、Gibsonさん、Wijeyesekeraさんらのチームが、英オックスフォードシャー産のチーズ3種類(熟成期間1週間強〜約9ヶ月)を丸ごと分析し、すべてから「腸によい可能性がある」種類の菌を確認(ACS Food Science & Technology、2026年5月、DOI: 10.1021/acsfoodscitech.5c01243)。</li>
+    <li>共通してLactococcus lactisが確認され、熟成が進んだ2種類にはプロピオン酸を作るPropionibacterium freudenreichiiも出現。プロピオン酸自体は他の研究で抗炎症・コレステロール調整などとの関連が報告されている物質。</li>
+    <li>ただしこの研究は<strong>食品の中身を調べた研究</strong>であり、人が食べて腸内環境が変わるかを確かめたヒト試験ではない。ヒト介入試験は<strong>現在進行中</strong>で結果は未発表。</li>
+    <li>分析対象のチーズを作った企業の支援を受けた研究であり、責任著者がその企業に一部雇用されているという<strong>利益相反</strong>も存在する。</li>
+    <li>読み方の教訓:「〇〇という体によい菌・成分が入っていた」という報道を見たら、<strong>「それは食品を調べた話か、人で確かめた話か」</strong>を区別する習慣をつけると、期待しすぎずにニュースを読めます。</li>
+  </ul>
+</div>
+
+<!-- 免責 -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、医療アドバイスではありません。効果・必要量・リスクは個人の体質・年齢・持病・服薬によって大きく異なります。本記事は特定のチーズや発酵食品の摂取を推奨するものではありません。チーズは飽和脂肪・塩分を多く含む食品でもあるため、食事内容を変える前に、かかりつけ医・管理栄養士・薬剤師など専門家にご相談ください。
+</div>
+
+<!-- 出典 -->
+<div class="sources">
+  <h3>📚 主な出典・参考文献</h3>
+  <ol>
+    <li>Longley S, Gibson GR, Wijeyesekera A. "Microbial and Biochemical Characterization of Three Artisan British Cheeses throughout the Maturation Process." ACS Food Science & Technology. 2026;6(5):1314-1324. DOI: 10.1021/acsfoodscitech.5c01243
+      <a href="https://doi.org/10.1021/acsfoodscitech.5c01243" target="_blank">https://doi.org/10.1021/acsfoodscitech.5c01243</a>(基準日:オンライン公開2026年5月1日、掲載号2026年5月15日)
+    </li>
+    <li>University of Reading プレスリリース "Could artisan cheeses that please ease diseases"(研究実施機関による発表。チーズの種類・熟成期間・菌名・利益相反情報の出所)
+      <a href="https://www.reading.ac.uk/news/2026/Research-News/Could-artisan-cheeses-that-please-ease-diseases" target="_blank">https://www.reading.ac.uk/news/2026/Research-News/Could-artisan-cheeses-that-please-ease-diseases</a>(基準日:2026年5月)
+    </li>
+    <li>"The bacteria that make cheese taste so good may also benefit your gut." ScienceDaily.
+      <a href="https://www.sciencedaily.com/releases/2026/08/260816044847.htm" target="_blank">https://www.sciencedaily.com/releases/2026/08/260816044847.htm</a>(基準日:2026年8月16日)
+    </li>
+    <li>"Bacteria found in artisan cheeses may ease disease." Phys.org.
+      <a href="https://phys.org/news/2026-05-bacteria-artisan-cheeses-ease-disease.html" target="_blank">https://phys.org/news/2026-05-bacteria-artisan-cheeses-ease-disease.html</a>(基準日:2026年5月)
+    </li>
+  </ol>
+  <p style="margin-top:8px; font-size:0.78rem;">※ 本記事は査読誌ACS Food Science & Technology掲載論文(DOI: 10.1021/acsfoodscitech.5c01243)を一次情報とし、研究実施機関(レディング大学)のプレスリリース、および複数の独立した科学報道を突き合わせて作成しました。ネットワーク制限により論文本文・Abstractへの直接アクセスができなかったため、記載した内容(チーズ3種類の熟成期間・菌の種類・利益相反の内容)は、複数の独立した情報源で一致して報告されているものだけを採用しています。菌の存在量の統計値、化学分析の詳細な数値、進行中とされるヒト介入試験の具体的な設計(対象人数・期間など)は原文にしかない可能性が高く、本記事では確認できた範囲にとどめています。</p>
+</div>
+
+</div>
+</body>
+</html>
