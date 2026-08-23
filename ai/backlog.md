@@ -86,6 +86,7 @@
 - 2026-08-21: Z.AI GLM-5.3 リリース（2026年8月14日）・中国智谱AIが「オープンソース最強のコーディングモデル」と主張・7,430億パラメータMoE・GLM-5.2ベースにポストトレーニングのみで50%コーディング能力向上・Terminal-Bench 3.0で4.6→28.3（約6.2倍・オープンソース1位・自己申告）・オープンソース269プロジェクトから2,436件の脆弱性を発見（45年前のコード欠陥含む）・当初はGLM Coding Planサービス経由のみ・ウェイトはHugging Faceで2026年8月28日ごろ公開予定・ライセンス詳細は公式で要確認（出典：The Decoder / Decrypt / MLQ News / Dev.to / explainx.ai・2026年8月14日）
 - 2026-08-22: OpenAI「Private Safety Processing（プライベート・セーフティ・プロセッシング）」発表（2026年8月19日）・会話ログを保存しないゼロデータリテンション（ZDR）設定を維持したまま悪用パターンを検知・複数会話をまたいだ長期的安全性監視（long-horizon safety monitoring）・OpenAIスタッフは内容を閲覧不可・MicrosoftとDatabricksが早期テスター・2026年9月に技術白書公開と広範展開予定・料金詳細は公式で要確認（出典：TechCrunch / Axios / Help Net Security / Security Boulevard / OpenAI公式・2026年8月19〜20日）
 - 2026-08-23: 「ほぼ自律型AIサイバー攻撃」世界初の記録（2026年7月初旬発生・2026年8月12〜14日報告）・イスラエルのDreamが報告・中国との関与が疑われるハッカーがAIエージェントを悪用・最大8体のAIエージェントが4日間並列攻撃・21政府システム調査・85アカウント不正取得・個人情報2,500件以上窃取・使用ツールはオープンソースのHermesとOpenClaw・"near-autonomous"（The Register）vs "end-to-end autonomous"（Tom's Hardware）で表現差異・攻撃者未確定・台湾政府公式発表なし（出典：Tom's Hardware / CNN Business / The Register / CyberScoop / Security Affairs / Cyber Magazine / SecureWorld・2026年8月）
+- 2026-08-24: Microsoft 365 Copilot「SearchLeak」脆弱性（CVE-2026-42824）・Varonis Threat Labsが発見・プロンプトインジェクション＋HTMLレンダリング競合状態＋BingのSSRFを組み合わせた3段階攻撃・悪意あるリンク1クリックでSharePoint/Exchange/Teams内データを外部送信・通常のDLP・プロキシ・CASBでは検知困難・Microsoftが2026年6月初旬にクラウド修正完了・ユーザー手動対応不要（出典：Dark Reading / Kiteworks / NeuralTrust / Cybersecurity News / BeyondMachines・2026年）
 
 ## 未解説の候補トピック（今後の参考）
 
@@ -94,7 +95,6 @@
 - ByteDance Seed 2.1 Turbo（2026年8月10日）：高速化された新シリーズ
 - Google Earth AI画像生成の即日停止（2026年8月）：偽の災害・紛争シーン生成問題で24時間以内に停止
 - xAI Grok 4.3 Beta（2026年4月）：動画・スライド・音声API対応のマルチモーダル推論（※Grok 4.6解説済みにつき優先度低）
-- Microsoft Copilot Enterpriseセキュリティ脆弱性（CVE-2026-42824）：悪意あるリンク1クリックでデータ流出・2FAコード・メール・会議情報が窃取可能
 - Google Gemini 3.5 Flash詳報：市場シェア・Intelligence Index・284トークン/秒の生成速度
 - AI×医療（創薬・診断）最新動向：製薬大手とAI企業の提携が相次ぐ
 - AI半導体競争：AMD・Intelの対抗策と次世代GPU市場
