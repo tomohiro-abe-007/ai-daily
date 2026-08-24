@@ -2,7 +2,6 @@
 
 ## 未解説テーマ（エバーグリーン）
 
-- スペイン語のlo que/lo cual（先行詞なしで文全体を受ける関係詞）── 08-24のcuyo/el cual/dondeの続編、「もの」ではなく「こと」を受ける中性形の関係詞を扱う
 - スペイン語の与格の重複表現（le doy el libro a él）── なぜ代名詞と名詞を両方言うのか
 - スペイン語のnosotros/vosotros命令形と再帰動詞の命令形（levántate/sentaosなど）── tú/usted命令の続編
 - スペイン語の接続法（subjuntivo）の入り口（Si yo fuera...）── 英語のwere-subjunctiveとの対応
@@ -31,6 +30,8 @@
 - スペイン語の間接疑問文(No sé qué hora es.のような疑問詞+平叙語順)── 08-21のse構文の後に読みたい、疑問文の語順が変わる感覚を整理
 - 英語のDoes that make sense?/Are you following?などフォーマルな理解確認フレーズ── 08-22のyou know?/get it?/see?のフォーマル版、ビジネス英語で使える丁寧な確認表現を整理
 - スペイン語のfiller word(este, o sea, bueno)の使い方── 08-22の英語you know?のように、意味が薄れて間つなぎ化した表現の整理、08-16のvale/claro/pues/o seaの発展
+- 英語のfree relative pronoun「what」の基礎（What you said surprised me.など）── 08-25のスペイン語lo queの逆向きブリッジ、先行詞なしで「〜すること」を表す英語側の整理
+- スペイン語のlo que sea / cueste lo que cueste など、lo que+接続法を使った慣用表現 ── 08-25のlo que/lo cualの発展、決まり文句としての使い方を扱う
 
 ## 解説済みテーマ
 
@@ -111,3 +112,4 @@
 - 2026-08-22: 英語のyou know?/get it?/see?など意味ベースの確認フレーズ（know what I mean?を含む）── 08-19の形式タグright?/huh?/eh?・08-20のスペイン語¿sabes?/¿me entiendes?の逆向きブリッジ、意味を使って理解や共感を確認するタグを整理
 - 2026-08-23: 英語の分詞構文の基礎（-ing/-edで文をつなぐ）── 07-07の関係代名詞・07-28の非制限用法の続編、who is/which wasを省略して動詞を分詞に変える圧縮表現を整理
 - 2026-08-24: スペイン語の関係代名詞の発展（cuyo/el cual/dondeの基礎）── 07-08のque/quienの続編、「〜の」「フォーマルなwhich」「〜する場所」を表す3つの関係詞を整理、07-27の英語関係副詞whereとの対応も紹介
+- 2026-08-25: スペイン語のlo que/lo cual（先行詞なしで文全体を受ける中性関係詞）── 08-24のcuyo/el cual/dondeの続編、「〜すること」と「それは〜」の2つの働きを整理、07-28の英語コンマ+whichとの対応も紹介
