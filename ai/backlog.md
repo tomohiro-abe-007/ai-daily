@@ -87,13 +87,13 @@
 - 2026-08-22: OpenAI「Private Safety Processing（プライベート・セーフティ・プロセッシング）」発表（2026年8月19日）・会話ログを保存しないゼロデータリテンション（ZDR）設定を維持したまま悪用パターンを検知・複数会話をまたいだ長期的安全性監視（long-horizon safety monitoring）・OpenAIスタッフは内容を閲覧不可・MicrosoftとDatabricksが早期テスター・2026年9月に技術白書公開と広範展開予定・料金詳細は公式で要確認（出典：TechCrunch / Axios / Help Net Security / Security Boulevard / OpenAI公式・2026年8月19〜20日）
 - 2026-08-23: 「ほぼ自律型AIサイバー攻撃」世界初の記録（2026年7月初旬発生・2026年8月12〜14日報告）・イスラエルのDreamが報告・中国との関与が疑われるハッカーがAIエージェントを悪用・最大8体のAIエージェントが4日間並列攻撃・21政府システム調査・85アカウント不正取得・個人情報2,500件以上窃取・使用ツールはオープンソースのHermesとOpenClaw・"near-autonomous"（The Register）vs "end-to-end autonomous"（Tom's Hardware）で表現差異・攻撃者未確定・台湾政府公式発表なし（出典：Tom's Hardware / CNN Business / The Register / CyberScoop / Security Affairs / Cyber Magazine / SecureWorld・2026年8月）
 - 2026-08-24: Microsoft 365 Copilot「SearchLeak」脆弱性（CVE-2026-42824）・Varonis Threat Labsが発見・プロンプトインジェクション＋HTMLレンダリング競合状態＋BingのSSRFを組み合わせた3段階攻撃・悪意あるリンク1クリックでSharePoint/Exchange/Teams内データを外部送信・通常のDLP・プロキシ・CASBでは検知困難・Microsoftが2026年6月初旬にクラウド修正完了・ユーザー手動対応不要（出典：Dark Reading / Kiteworks / NeuralTrust / Cybersecurity News / BeyondMachines・2026年）
+- 2026-08-25: 衛星地図アプリ×Nano Banana 2 AI画像生成（2026年7月30日公開・24時間以内停止）・テキストプロンプトで衛星・航空写真に重ね合わせたAI合成画像を生成・正当活用例：歴史的場所の可視化・不動産シミュレーション・インフォグラフィック・偽の災害・爆撃・紛争シーンが多数作成され炎上・「衛星写真＝客観的証拠」の信頼性を毀損するリスク・人権調査・災害調査への悪影響懸念・「より強いガードレールを整えた後に再公開予定」と説明・再公開時期は未発表（出典：Forbes / TechTimes / AI Chat Daily / AlternativeTo / Search Engine Journal / CBC News・2026年7〜8月）
 
 ## 未解説の候補トピック（今後の参考）
 
 - Google DeepMind Gemini 2 Humanoid Model（2026年8月6日）：ヒューマノイドロボット向け基盤モデル
 - IBM×NVIDIA AIクラスター契約$240M（2026年8月12日）：大規模AI計算基盤の企業導入
 - ByteDance Seed 2.1 Turbo（2026年8月10日）：高速化された新シリーズ
-- Google Earth AI画像生成の即日停止（2026年8月）：偽の災害・紛争シーン生成問題で24時間以内に停止
 - xAI Grok 4.3 Beta（2026年4月）：動画・スライド・音声API対応のマルチモーダル推論（※Grok 4.6解説済みにつき優先度低）
 - Google Gemini 3.5 Flash詳報：市場シェア・Intelligence Index・284トークン/秒の生成速度
 - AI×医療（創薬・診断）最新動向：製薬大手とAI企業の提携が相次ぐ
