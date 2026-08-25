@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-08-26</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '🧬';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.9rem; margin-bottom: 8px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.1em; }
+  .c3-col li { margin-bottom: 4px; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .mech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .mech-item {
+    background: #f0faf5;
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 0.85rem;
+    border-top: 3px solid #1a7a5a;
+  }
+  .mech-item .micon { font-size: 1.3rem; margin-bottom: 6px; }
+  .mech-item strong { display: block; color: #0d4a35; margin-bottom: 4px; font-size: 0.88rem; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .highlight { background: #cff0df; padding: 1px 5px; border-radius: 4px; }
+  .good { color: #1a7a5a; font-weight: 600; }
+  .bad  { color: #c0392b; font-weight: 600; }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-box {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin: 14px 0;
+    font-size: 0.92rem;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  .quote-box {
+    background: #f5f0e8;
+    border-left: 4px solid #7a5abf;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    margin: 12px 0;
+    color: #444;
+    font-style: italic;
+  }
+  .quote-box .who { font-style: normal; font-weight: 700; color: #5a3a9a; margin-top: 6px; font-size: 0.78rem; }
+  .matrix {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .mx-cell {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .mx-cell .mx-head { font-weight: 700; font-size: 0.88rem; margin-bottom: 6px; }
+  .mx-cell.ok  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .mx-cell.ok  .mx-head { color: #1a6e4a; }
+  .mx-cell.ng  { background: #f0ece3; border: 2px dashed #aaa; }
+  .mx-cell.ng  .mx-head { color: #777; }
+  @media (max-width: 540px) {
+    .compare4 { grid-template-columns: 1fr 1fr; }
+    .matrix { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.7rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ヘッダー -->
+<div class="header">
+  <div class="label">健康・栄養 最新トピック ・ 2026-08-26</div>
+  <h1>「ビタミンDのサプリは死亡リスクを下げない」大規模試験――でも"もともと足りていた人"を測っていただけだとしたら?</h1>
+  <div class="subtitle">世界最大級のビタミンDのランダム化比較試験(RCT)であるVITAL試験・D-Health試験は、どちらも「死亡リスクは変わらない」という結果でした。ところが2026年、この2つの試験データを別の角度から見直した研究が発表されました。「参加者の多くはもともと血中ビタミンDが十分だった人たちで、"足りない人"を狙って調べたわけではなかったのでは?」という視点です。今日はこの研究をもとに、精密栄養学と「エビデンスの強さ」の両方を考えます。</div>
+</div>
+
+<!-- タグ -->
+<div style="margin-bottom:18px;">
+  <span class="tag">ビタミンD</span>
+  <span class="tag">サプリメント</span>
+  <span class="tag">RCTと観察研究</span>
+  <span class="tag">個人差(欠乏 vs 充足)</span>
+  <span class="tag">エビデンスの強さ</span>
+</div>
+
+<!-- 今日の疑問 -->
+<div class="card">
+  <h2>🤔 今日の疑問:「効果なし」の大規模試験、本当にみんなに当てはまる?</h2>
+  <p>ビタミンDのサプリメントについて、「大規模な試験で寿命を延ばす効果は確認されなかった」というニュースを見た人もいるかもしれません。実際、参加者2万人を超える2つの大規模RCT(VITAL試験・D-Health試験)は、どちらも「サプリを飲んでも死亡リスクは変わらない」という結果でした。</p>
+  <p>ところが2026年、ドイツがん研究センター(DKFZ)のYouqing Wangさん、Ben Schöttkerさん、Hermann Brennerさんらのチームが、<strong>英国の大規模データベース「UK Biobank」を使い、この2つの試験を"もし対象者をビタミンD不足の人に絞っていたら"という条件でコンピューター上で再現(エミュレーション)する</strong>という研究をClinical Nutrition誌に発表しました。その結果、見え方が変わってくる可能性が示されています。</p>
+</div>
+
+<!-- 基本用語 -->
+<div class="card blue">
+  <h2>📖 まず言葉の意味を</h2>
+  <div class="def-grid">
+    <div class="def-item">
+      <div class="dterm">25(OH)D(血中ビタミンD濃度)</div>
+      血液検査で測る、体内のビタミンD量の指標。一般的な目安として、30nmol/L未満は「欠乏」、30〜50nmol/L未満は「不足」、50nmol/L以上は「充足」と分類されることが多い。
+    </div>
+    <div class="def-item">
+      <div class="dterm">ハザード比(HR)</div>
+      ある集団と比べて、別の集団で「その時点までに何かが起きる速さ・確率」が何倍かを示す数値。今回で言えば死亡リスクの比較で、1より小さいほどリスクが低いことを意味する。
+    </div>
+    <div class="def-item">
+      <div class="dterm">95%信頼区間(CI)</div>
+      統計的な推定の「幅」。この幅が1をまたがない場合、偶然とは考えにくい差として扱われることが多い。
+    </div>
+    <div class="def-item">
+      <div class="dterm">標的試験エミュレーション(target trial emulation)</div>
+      観察研究のデータを使い、「もしこの条件でRCTを行ったら」という架空の試験を、統計的な手法でできるだけ忠実に再現しようとする方法。RCTそのものではなく、あくまで観察データに基づく推定である点に注意が必要。
+    </div>
+    <div class="def-item">
+      <div class="dterm">ランダム化比較試験(RCT)と観察研究の違い</div>
+      RCTは参加者をくじ引きのように無作為に2グループへ分けて比べる試験で、因果関係を示す証拠として最も強いとされる。観察研究は、すでにある行動・体質の違いをそのまま比較するため、原因と結果の関係を確定するのは難しい。
+    </div>
+  </div>
+</div>
+
+<!-- 数字カード -->
+<div class="num-row">
+  <div class="num-card blue-bg">
+    <div class="big">25,871<span class="unit">人</span></div>
+    <div class="desc">VITAL試験(米国、Manson ら, NEJM 2019年)の参加者数。ビタミンD3を1日2000IU、5.3年間投与</div>
+  </div>
+  <div class="num-card orange-bg">
+    <div class="big">21,315<span class="unit">人</span></div>
+    <div class="desc">D-Health試験(オーストラリア、Neale ら, Lancet Diabetes Endocrinol 2022年)の参加者数。月1回6万IUを5年間投与</div>
+  </div>
+  <div class="num-card purple-bg">
+    <div class="big">237,502<span class="unit">人</span></div>
+    <div class="desc">今回、UK Biobankのデータから解析対象とされた人数(Wang ら, Clinical Nutrition 2026年)</div>
+  </div>
+  <div class="num-card gray-bg">
+    <div class="big">15〜25<span class="unit">%</span></div>
+    <div class="desc">ビタミンDが「不足・欠乏」していた人に限定した場合に統計モデルで推定された死亡リスクの低下幅(HR 0.75〜0.85、いずれも95%CIが1をまたがない)</div>
+  </div>
+</div>
+
+<!-- 研究の流れ -->
+<div class="card purple">
+  <h2>🧭 「効果なし」の結論に、なぜ疑問が持たれたのか(5ステップ)</h2>
+  <div class="flow">
+    <div class="flow-step purp">① VITAL・D-Health<br>世界最大級のRCTを<br>実施</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step">② 結果:死亡リスクに<br>有意な差なし<br>「効果なし」と報道</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step alt">③ 疑問:参加者は<br>もともと"足りていた人"<br>が大半では?</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step">④ UK Biobankの<br>23.7万人データで<br>"欠乏者だけ"を再現</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step purp">⑤ 欠乏・不足者では<br>死亡リスク低下の兆候<br>(要RCTでの確認)</div>
+  </div>
+  <p style="font-size:0.82rem; color:#555; margin-top:4px;">④は実際に新しい試験を行ったのではなく、すでにあるUK Biobankの観察データを統計的に加工して「もしこういう試験をしたら」を推定したものです。⑤の結果はまだ仮説の段階だと考えてください。</p>
+</div>
+
+<!-- 3試験比較 -->
+<div class="card orange">
+  <h2>⚖️ 3つの研究を並べてみると</h2>
+  <div class="compare4">
+    <div class="c3-col blue">
+      <h3>🇺🇸 VITAL試験</h3>
+      <ul>
+        <li>本物のRCT(無作為化比較試験)</li>
+        <li>米国の成人25,871人</li>
+        <li>ビタミンD3 1日2000IU、5.3年</li>
+        <li>結果:死亡リスクに差なし</li>
+      </ul>
+    </div>
+    <div class="c3-col green">
+      <h3>🇦🇺 D-Health試験</h3>
+      <ul>
+        <li>本物のRCT</li>
+        <li>豪州の高齢者21,315人</li>
+        <li>ビタミンD3 月1回6万IU、5年</li>
+        <li>結果:死亡リスクに差なし</li>
+      </ul>
+    </div>
+    <div class="c3-col purple">
+      <h3>🔬 今回のUK Biobank解析</h3>
+      <ul>
+        <li>RCTではなく統計的エミュレーション</li>
+        <li>英国の成人237,502人(観察データ)</li>
+        <li>「もし不足・欠乏者に絞ったら」を再現</li>
+        <li>結果:欠乏・不足者では低下の兆候</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- 足りている人 vs 足りない人 マトリクス -->
+<div class="card">
+  <h2>🧩 「足りている人」と「足りない人」で見え方が変わる</h2>
+  <div class="matrix">
+    <div class="mx-cell ok">
+      <div class="mx-head">✅ もともと十分だった人(参加者の大半)</div>
+      実際のRCT(VITAL・D-Health)でも、今回の統計的な再現でも、どちらも「サプリを飲んでも死亡リスクは変わらない」という結果で一致しています。
+    </div>
+    <div class="mx-cell ng">
+      <div class="mx-head">❓ 不足・欠乏していた人(参加者の一部)</div>
+      実際のRCTでは人数が少なく確実な結論が出せていませんでしたが、統計的な再現ではハザード比0.75〜0.85(死亡リスクが15〜25%程度低い可能性)という結果が示されました。ただしこれはRCTでの直接確認ではありません。
+    </div>
+  </div>
+</div>
+
+<!-- 賛否・限界 -->
+<div class="card">
+  <h2>🔬 この結果、どこまで信じてよいか</h2>
+  <p>今回の研究が使った「標的試験エミュレーション」という手法は、観察データからできるだけRCTに近い形で因果関係を推定しようとする、近年広がってきた統計手法です。米ハーバード大学のRebecca Hubbardさんら統計学者のグループは、2024年のNew England Journal of Medicine誌の論考で、この手法について次のように整理しています。</p>
+  <div class="quote-box">
+    標的試験エミュレーションは、観察データを扱う際によくある偏り(バイアス)の一部を減らせる有用な枠組みだが、無作為化という土台がないため、測定されていない要因による交絡(見かけ上の関連)を完全には取り除けない。得られた結果は「本物のRCTでの検証が望まれる仮説」として扱うべきだ、という趣旨の指摘。
+    <div class="who">出典:Hubbard RA, et al. N Engl J Med. 2024;391(21):1975-1977.</div>
+  </div>
+  <p>つまり、今回のビタミンDの結果も「不足・欠乏している人には効果があるかもしれない」という<strong>有望な仮説</strong>ではありますが、「証明された」とまでは言えません。この仮説を確かめるには、最初からビタミンD不足・欠乏の人だけを対象にした新しいRCTが必要です。</p>
+</div>
+
+<!-- 注意点 -->
+<div class="warn">
+  <strong>⚠️ 誤解しないでほしいこと</strong>
+  <ul style="padding-left:1.4em; margin-top:8px;">
+    <li>今回の「欠乏・不足者で死亡リスクが下がるかもしれない」という結果は、<strong>観察データを使った統計的な推定であり、新しく行われたRCTの結果ではありません</strong>。仮説の段階だと考えてください。</li>
+    <li>自分が「ビタミンD不足・欠乏」かどうかは、症状だけでは分からず、血液検査(25(OH)D値)で確認する必要があります。自己判断で高用量のサプリを摂り始めることは勧められません。</li>
+    <li>ビタミンDは脂溶性のビタミンで、摂りすぎると高カルシウム血症などの健康被害につながる可能性があります。必要量は年齢・持病・日光を浴びる量などで大きく異なります。</li>
+    <li>サプリメントの利用を検討する際は、自己判断せず、かかりつけ医・管理栄養士・薬剤師など専門家にご相談ください。</li>
+  </ul>
+</div>
+
+<!-- エビデンスの整理 -->
+<div class="card">
+  <h2>🧪 今日出てきた情報の「証拠としての強さ」の目安</h2>
+  <table class="ev-table">
+    <tr><th>情報の種類</th><th>特徴</th><th>証拠としての強さ</th></tr>
+    <tr>
+      <td>ビタミンDサプリは(集団平均で見ると)死亡リスクを下げない</td>
+      <td>2つの大規模RCT(VITAL n=25,871、D-Health n=21,315)が一致して同じ結果</td>
+      <td><span class="ev-badge ev-high">高い(大規模RCT2件が一致)</span></td>
+    </tr>
+    <tr>
+      <td>ビタミンD不足・欠乏の人ではサプリで死亡リスクが下がるかもしれない</td>
+      <td>観察データ(UK Biobank n=237,502)を使った統計的エミュレーション、RCTでの直接確認はまだない</td>
+      <td><span class="ev-badge ev-low">低〜中(仮説段階、RCTでの追試待ち)</span></td>
+    </tr>
+    <tr>
+      <td>標的試験エミュレーションは観察研究の因果推論を改善しうるが限界もある</td>
+      <td>統計学者による総説(Hubbard ら, NEJM, 2024年)</td>
+      <td><span class="ev-badge ev-mid">専門家の間でおおむね合意</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- まとめ -->
+<div class="card" style="border-left-color:#1a7a5a;">
+  <h2>✅ 今日のまとめ</h2>
+  <ul class="step-list">
+    <li>ビタミンDサプリの効果を調べた世界最大級の2つのRCT(VITAL・D-Health、合わせて4万人超)は、どちらも「死亡リスクに変化なし」という結果だった。</li>
+    <li>2026年、ドイツがん研究センターのWangさん・Schöttkerさん・Brennerさんらが、英UK Biobankの237,502人分のデータを使い、この2試験を「もし不足・欠乏者に絞っていたら」という条件で統計的に再現(Clinical Nutrition誌)。</li>
+    <li>もともと血中ビタミンDが十分だった人では、実際のRCTでも今回の再現でも「効果なし」で一致。一方、不足・欠乏していた人ではハザード比0.75〜0.85(死亡リスク15〜25%程度低い可能性)という結果が示された。</li>
+    <li>ただしこれは観察データに基づく統計的な推定(標的試験エミュレーション)であり、新しいRCTの結果ではない。Hubbardさんら統計学者(NEJM, 2024年)が指摘する通り、「本物のRCTで確かめるべき仮説」の段階にとどまる。</li>
+    <li>「サプリは効果なし」という一つの見出しの裏にも、「誰にとって効果がないのか(=もともと足りている人)」という個人差の視点が隠れていることがある、という精密栄養学的な教訓が読み取れる回でした。</li>
+  </ul>
+</div>
+
+<!-- 免責 -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、医療アドバイスではありません。効果・必要量・リスクは個人の体質・年齢・持病・服薬によって大きく異なります。本記事は特定のサプリメントの利用を推奨するものではありません。ご自身のビタミンD摂取・サプリメント利用を検討される際は、かかりつけ医・管理栄養士・薬剤師など専門家にご相談ください。
+</div>
+
+<!-- 出典 -->
+<div class="sources">
+  <h3>📚 主な出典・参考文献</h3>
+  <ol>
+    <li>Wang Y, Sha S, Gwenzi T, Schöttker B, Brenner H. "Impact of vitamin D supplementation on all-cause mortality: Randomized trials revisited." Clin Nutr. 2026;58:106597. DOI: 10.1016/j.clnu.2026.106597 / PMID: 41719624
+      <a href="https://doi.org/10.1016/j.clnu.2026.106597" target="_blank">https://doi.org/10.1016/j.clnu.2026.106597</a>(基準日:2026年、Clinical Nutrition誌掲載分)
+    </li>
+    <li>Manson JE, Cook NR, Lee IM, et al. "Vitamin D Supplements and Prevention of Cancer and Cardiovascular Disease." N Engl J Med. 2019;380(1):33-44.(VITAL試験、基準日:2019年1月)</li>
+    <li>Neale RE, Baxter C, Romero BD, et al. "The D-Health Trial: a randomised controlled trial of the effect of vitamin D on mortality." Lancet Diabetes Endocrinol. 2022;10(2):120-128. DOI: 10.1016/S2213-8587(21)00345-4
+      <a href="https://doi.org/10.1016/S2213-8587(21)00345-4" target="_blank">https://doi.org/10.1016/S2213-8587(21)00345-4</a>(基準日:2022年2月)
+    </li>
+    <li>Hubbard RA, Gatsonis CA, Hogan JW, Hunter DJ, Normand SL, Troxel AB. "'Target Trial Emulation' for Observational Studies — Potential and Pitfalls." N Engl J Med. 2024;391(21):1975-1977. DOI: 10.1056/NEJMp2407586
+      <a href="https://doi.org/10.1056/NEJMp2407586" target="_blank">https://doi.org/10.1056/NEJMp2407586</a>(基準日:2024年11月23日)
+    </li>
+  </ol>
+  <p style="margin-top:8px; font-size:0.78rem;">※ ネットワーク制限により、上記論文の本文・アブストラクトへの直接アクセスができなかったため、検索エンジンで得られる著者名・掲載誌・DOI・数値情報をもとに作成しています。信頼区間などの詳細な統計値は、可能な範囲で複数の検索結果を突き合わせて確認していますが、原論文本文での最終確認が望ましい点にご留意ください。</p>
+</div>
+
+</div>
+</body>
+</html>
