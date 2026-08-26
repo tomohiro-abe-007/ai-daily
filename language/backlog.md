@@ -31,8 +31,8 @@
 - 英語のDoes that make sense?/Are you following?などフォーマルな理解確認フレーズ── 08-22のyou know?/get it?/see?のフォーマル版、ビジネス英語で使える丁寧な確認表現を整理
 - スペイン語のfiller word(este, o sea, bueno)の使い方── 08-22の英語you know?のように、意味が薄れて間つなぎ化した表現の整理、08-16のvale/claro/pues/o seaの発展
 - スペイン語のlo que sea / cueste lo que cueste など、lo que+接続法を使った慣用表現 ── 08-25のlo que/lo cualの発展、決まり文句としての使い方を扱う
-- 英語のwhatever（〜するものは何でも、〜するのは何でも）── 08-26の関係詞whatの発展、譲歩・自由選択のニュアンスを扱う
 - スペイン語のquien単独用法（先行詞なしで「〜する人」を表す使い方）── 08-26の英語の自由関係詞whatと似た発想をスペイン語側で扱う
+- 英語のwhoever/whichever（人・限られた選択肢を表すwhateverの仲間）── 08-27のwhateverの発展、名詞用法と譲歩用法の両方を仲間の語で確認する
 
 ## 解説済みテーマ
 
@@ -115,3 +115,4 @@
 - 2026-08-24: スペイン語の関係代名詞の発展（cuyo/el cual/dondeの基礎）── 07-08のque/quienの続編、「〜の」「フォーマルなwhich」「〜する場所」を表す3つの関係詞を整理、07-27の英語関係副詞whereとの対応も紹介
 - 2026-08-25: スペイン語のlo que/lo cual（先行詞なしで文全体を受ける中性関係詞）── 08-24のcuyo/el cual/dondeの続編、「〜すること」と「それは〜」の2つの働きを整理、07-28の英語コンマ+whichとの対応も紹介
 - 2026-08-26: 英語の関係詞what（free relative pronoun、先行詞なしで「〜すること」を表す）── 08-25のスペイン語lo queの逆向きブリッジ、疑問詞whatとの違いと主語・目的語・補語での使い方を整理
+- 2026-08-27: 英語のwhatever（「anything that」の名詞用法と「no matter what」の譲歩用法）── 08-26の関係詞whatの発展、whoever/whicheverとの仲間分けも整理
