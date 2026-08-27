@@ -97,9 +97,7 @@
 - Google DeepMind Gemini 2 Humanoid Model（2026年8月6日）：ヒューマノイドロボット向け基盤モデル
 - IBM×NVIDIA AIクラスター契約$240M（2026年8月12日）：大規模AI計算基盤の企業導入
 - ByteDance Seed 2.1 Turbo（2026年8月10日）：高速化された新シリーズ
-- Google Earth AI画像生成の即日停止（2026年8月）：偽の災害・紛争シーン生成問題で24時間以内に停止
 - xAI Grok 4.3 Beta（2026年4月）：動画・スライド・音声API対応のマルチモーダル推論（※Grok 4.6解説済みにつき優先度低）
-- Microsoft Copilot Enterpriseセキュリティ脆弱性（CVE-2026-42824）：悪意あるリンク1クリックでデータ流出・2FAコード・メール・会議情報が窃取可能
 - Google Gemini 3.5 Flash詳報：市場シェア・Intelligence Index・284トークン/秒の生成速度
 - AI×医療（創薬・診断）最新動向：製薬大手とAI企業の提携が相次ぐ
 - AI半導体競争：AMD・Intelの対抗策と次世代GPU市場

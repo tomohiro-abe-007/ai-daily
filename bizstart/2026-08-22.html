@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-08-22</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #2a4d7a 0%, #10233f 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #2a4d7a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.blue   { border-left-color: #1e5a7a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.green  { border-left-color: #1e7a5a; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #2a4d7a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin: 14px 0;
+  }
+  .stats-row.c3 { grid-template-columns: repeat(3, 1fr); }
+  .stats-row.c2 { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 12px 6px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat.now { background: #fff3e0; box-shadow: 0 0 0 2px #c8884a inset; }
+  .stat .sl { font-size: 0.62rem; color: #888; margin-bottom: 3px; line-height: 1.4; }
+  .stat .sv { font-size: 1.05rem; font-weight: 700; color: #2a4d7a; line-height: 1.15; }
+  .stat.now .sv { color: #c8884a; }
+  .stat .su { font-size: 0.62rem; color: #666; margin-top: 2px; }
+
+  .bignum {
+    background: white;
+    border-radius: 12px;
+    padding: 18px 14px;
+    text-align: center;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.1);
+    border: 2px dashed #c8884a;
+    margin: 14px 0;
+  }
+  .bignum .bl { font-size: 0.76rem; color: #888; margin-bottom: 6px; }
+  .bignum .bv { font-size: 2.1rem; font-weight: 700; color: #c8884a; line-height: 1.1; }
+  .bignum .bs { font-size: 0.76rem; color: #666; margin-top: 6px; line-height: 1.6; }
+
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #2a4d7a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-num.now { background: #b54040; }
+  .f-num.later { background: #999; }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+  .f-arrow { color: #2a4d7a; font-size: 1.1rem; margin-left: 14px; margin-bottom: 4px; }
+
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  table.cmp {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.83rem;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.08);
+  }
+  table.cmp th, table.cmp td {
+    border: 1px solid #e4dccd;
+    padding: 9px 10px;
+    line-height: 1.55;
+    vertical-align: top;
+  }
+  table.cmp thead th { background: #2a4d7a; color: white; font-weight: 600; text-align: center; }
+  table.cmp tbody th { background: #f5efe2; color: #5a4020; text-align: left; font-weight: 600; white-space: nowrap; }
+  table.cmp td { color: #444; }
+  .wrap-x { overflow-x: auto; }
+
+  .ladder { margin: 14px 0; }
+  .rung {
+    display: grid;
+    grid-template-columns: 118px 1fr;
+    gap: 10px;
+    align-items: center;
+    background: white;
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin-bottom: 6px;
+    box-shadow: 1px 2px 6px rgba(0,0,0,0.07);
+    border-left: 5px solid #ccc;
+  }
+  @media (max-width: 540px) { .rung { grid-template-columns: 1fr; gap: 4px; } }
+  .rung.r0 { border-left-color: #b54040; }
+  .rung.r1 { border-left-color: #c8884a; }
+  .rung.r2 { border-left-color: #1e7a5a; }
+  .rung .rk { font-size: 0.78rem; font-weight: 700; color: #555; }
+  .rung .rv { font-size: 0.87rem; line-height: 1.55; }
+  .rung.r0 .rv strong { color: #b54040; }
+  .rung.r1 .rv strong { color: #c8884a; }
+  .rung.r2 .rv strong { color: #1e7a5a; }
+
+  .prompt-box {
+    background: #f0f5ff;
+    border: 2px solid #4a6aae;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 12px 0;
+    font-size: 0.84rem;
+    line-height: 1.85;
+    color: #1a2a4a;
+  }
+  .prompt-box .ph {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #4a6aae;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+  .prompt-box .fill {
+    background: #d0e0ff;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-weight: 700;
+    color: #0a2a6e;
+  }
+
+  .info {
+    background: #e8eef8;
+    border-left: 4px solid #2a4d7a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #16294a;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #7a4010;
+  }
+
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #2a4d7a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #2a4d7a; word-break: break-all; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #2a4d7a; }
+
+  .split-wrap {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 10px;
+    align-items: center;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .split-wrap { grid-template-columns: 1fr; } }
+  .split-card {
+    border-radius: 10px;
+    padding: 16px 14px;
+    text-align: center;
+    background: #fff3e0;
+    border: 2px solid #c8884a;
+  }
+  .split-card.blue { background: #e8eef8; border-color: #2a4d7a; }
+  .split-card .vl { font-size: 0.75rem; font-weight: 700; margin-bottom: 6px; color: #7a4010; }
+  .split-card.blue .vl { color: #16294a; }
+  .split-card .vv { font-size: 1.4rem; font-weight: 700; color: #c8884a; }
+  .split-card.blue .vv { color: #2a4d7a; }
+  .split-card .vs { font-size: 0.72rem; color: #777; margin-top: 4px; }
+  .split-mid { text-align: center; font-size: 1.3rem; color: #999; font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Header -->
+<div class="header">
+  <div class="meta">📅 1人法人スタート 最新トピック &nbsp;2026-08-22</div>
+  <h1>🕐 「今日は3時間だけ、明日は12時間」──帳尻はいつ合わせる？<br>フレックスタイム制「清算期間」の届出と繰越ルールを図解</h1>
+  <div class="desc">
+    <span class="htag">フレックスタイム制</span>
+    <span class="htag">清算期間</span>
+    <span class="htag">労基法32条の3</span>
+    <span class="htag">労働時間の繰越</span>
+    <br>
+    8/6の記事で「変形労働時間制・裁量労働制の基礎」を扱いましたが、その中の1タイプ「フレックスタイム制」には、もう少し掘り下げておきたい実務ポイントがあります。総労働時間の帳尻を合わせる期間（清算期間）は1か月だけでなく最大3か月まで選べますが、期間の長さによって届出の要否や残業代の計算方法が変わり、月をまたいだ労働時間の過不足の扱いにも注意が必要です。従業員を雇う予定がある1人社長に向けて、図解で整理します。
+  </div>
+</div>
+
+<!-- Section 1: おさらい -->
+<div class="card">
+  <div class="sec-title">📊 おさらい：フレックスタイム制のしくみ</div>
+  <p>フレックスタイム制は、労働基準法<strong>32条の3</strong>にもとづく制度です。会社は一定期間（<span class="hl">清算期間</span>）の<strong>総労働時間</strong>だけを決め、労働者は日々の始業・終業時刻を自分で決めて、その枠の中でつじつまを合わせて働きます。</p>
+
+  <div class="f-step" style="margin-top:14px;">
+    <div class="f-num">1</div>
+    <div class="f-text">会社が「清算期間」と「その期間の総労働時間」を決める（労使協定・就業規則に規定）</div>
+  </div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step">
+    <div class="f-num now">2</div>
+    <div class="f-text">労働者は日ごとに、始業・終業の時刻を自分で決めて働く</div>
+  </div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step">
+    <div class="f-num later">3</div>
+    <div class="f-text">清算期間が終わったところで、実際に働いた時間と総労働時間を比べて過不足を精算する</div>
+  </div>
+
+  <p style="margin-top:14px;">この③の「精算のしかた」が、今日のテーマです。清算期間は<span class="hlo">最大3か月</span>まで設定できます（2019年4月1日施行の働き方改革関連法により、それまでの上限1か月から延長されました）。</p>
+
+  <div class="source">
+    出典：厚生労働省「フレックスタイム制のわかりやすい解説＆導入の手引き」<a href="https://jsite.mhlw.go.jp/shiga-roudoukyoku/content/contents/000380237.pdf" target="_blank">https://jsite.mhlw.go.jp/shiga-roudoukyoku/</a> ／ 厚生労働省「フレックスタイム制とは」<a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/flextime01.html" target="_blank">https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/flextime01.html</a>（令和8年〈2026年〉8月時点）
+  </div>
+</div>
+
+<!-- Section 2: 届出の要否 -->
+<div class="card blue">
+  <div class="sec-title">📮 清算期間の長さで変わる「届出」の要否</div>
+  <p>フレックスタイム制を導入するには、必ず労使協定（過半数労働組合、なければ<strong>過半数代表者</strong>との協定。8/4記事で選び方を解説）を結ぶ必要がありますが、その協定を<span class="hl">労働基準監督署に届け出るかどうか</span>は、清算期間の長さで変わります。</p>
+
+  <div class="split-wrap">
+    <div class="split-card blue">
+      <div class="vl">清算期間が 1か月以内</div>
+      <div class="vv">届出<br>不要</div>
+      <div class="vs">労使協定は締結するが、労基署への届出義務なし</div>
+    </div>
+    <div class="split-mid">⇔</div>
+    <div class="split-card">
+      <div class="vl">清算期間が 1か月超（〜3か月）</div>
+      <div class="vv">届出<br>必須</div>
+      <div class="vs">労使協定を所轄労働基準監督署長に届け出る</div>
+    </div>
+  </div>
+
+  <div class="warn">
+    ⚠️ <strong>「協定を結べば終わり」ではありません。</strong>清算期間を1か月を超える設定にした場合は、労使協定に加えて労働基準監督署への届出まで済ませて、初めて有効になります。届出を忘れたまま運用すると、法定通りのフレックスタイム制として扱われない（＝時間外労働の計算などで不利になる）リスクがあります。
+  </div>
+
+  <div class="source">
+    出典：厚生労働省「フレックスタイム制とは」<a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/flextime01.html" target="_blank">https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/flextime01.html</a>（令和8年〈2026年〉8月時点）
+  </div>
+</div>
+
+<!-- Section 3: 総枠の計算 -->
+<div class="card orange">
+  <div class="sec-title">🧮 「総労働時間」の上限はどう決まる？</div>
+  <p>清算期間を長くしても、無制限に働かせてよいわけではありません。法定労働時間の総枠は、次の式で決まります。</p>
+
+  <div class="bignum">
+    <div class="bl">法定労働時間の総枠（計算式）</div>
+    <div class="bv">清算期間の暦日数 ÷ 7 × 40時間</div>
+    <div class="bs">1週間あたり40時間という原則を、清算期間の日数分に引き延ばす考え方</div>
+  </div>
+
+  <div class="stats-row c3">
+    <div class="stat">
+      <div class="sl">清算期間<br>1か月（30日）</div>
+      <div class="sv">171.4h</div>
+      <div class="su">40×30÷7</div>
+    </div>
+    <div class="stat">
+      <div class="sl">清算期間<br>1か月（31日）</div>
+      <div class="sv">177.1h</div>
+      <div class="su">40×31÷7</div>
+    </div>
+    <div class="stat now">
+      <div class="sl">清算期間<br>3か月（91日）</div>
+      <div class="sv">520h</div>
+      <div class="su">40×91÷7</div>
+    </div>
+  </div>
+
+  <p>この総枠を超えて働いた時間が、時間外労働（残業）として割増賃金の対象になります。</p>
+
+  <div class="source">
+    出典：厚生労働省 栃木労働局「フレックスタイム制導入のポイント（労基法32条の3）」<a href="https://jsite.mhlw.go.jp/tochigi-roudoukyoku/hourei_seido_tetsuzuki/roudoukijun_keiyaku/roukijou/roukihou_point/_79129/transformation32-3.html" target="_blank">https://jsite.mhlw.go.jp/tochigi-roudoukyoku/</a>（令和8年〈2026年〉8月時点）
+  </div>
+</div>
+
+<!-- Section 4: 週50時間ルール -->
+<div class="card red">
+  <div class="sec-title">⏰ 清算期間3か月なら「月ごとの週50時間」もチェック</div>
+  <p>清算期間を1か月を超える設定にすると、もう1つ別のチェックが加わります。<strong>「特定の月に労働時間が偏る」</strong>ことを防ぐため、清算期間の途中の各月ごとにも上限が設けられているのです。</p>
+
+  <p style="margin-top:10px;">清算期間が1か月を超える場合、時間外労働（残業）になるのは次の<span class="hlo">2つの基準</span>のどちらかに当てはまったときです。</p>
+
+  <div class="f-step" style="margin-top:14px;">
+    <div class="f-num">①</div>
+    <div class="f-text">清算期間の<strong>途中の各月ごと</strong>に、実労働時間が<span class="hlo">週平均50時間</span>を超えた部分 → その<strong>月の給与</strong>で残業代を支払う</div>
+  </div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step">
+    <div class="f-num now">②</div>
+    <div class="f-text">清算期間<strong>全体</strong>の実労働時間の合計が、③で計算した<strong>総枠</strong>を超えた部分 → 清算期間<strong>最終月の給与</strong>で残業代を支払う</div>
+  </div>
+
+  <div class="info" style="margin-top:14px;">
+    💡 ①と②で残業代の支払いタイミングが違います。「今月だけ働きすぎた」場合は①の基準でその月のうちに清算され、「3か月トータルでは働きすぎた」場合は②の基準で最終月にまとめて清算される、という二段構えです。なお、月60時間を超える時間外労働には<strong>50%以上</strong>の割増賃金が必要というルールは、フレックスタイム制でも変わらず適用されます（中小企業も2023年4月から猶予措置が終了し全企業に適用）。
+  </div>
+
+  <div class="source">
+    出典：厚生労働省 栃木労働局「フレックスタイム制導入のポイント（労基法32条の3）」<a href="https://jsite.mhlw.go.jp/tochigi-roudoukyoku/hourei_seido_tetsuzuki/roudoukijun_keiyaku/roukijou/roukihou_point/_79129/transformation32-3.html" target="_blank">https://jsite.mhlw.go.jp/tochigi-roudoukyoku/</a>（令和8年〈2026年〉8月時点）
+  </div>
+</div>
+
+<!-- Section 5: 繰越ルール（本題） -->
+<div class="card green">
+  <div class="sec-title">🔄 過不足は次の清算期間に繰り越せる？ ── 「不足」と「過剰」で扱いが違う</div>
+  <p>ここが今日いちばん伝えたいポイントです。清算期間が終わったときに、総労働時間ぴったりで終わることはまれで、多くの場合は「働きすぎた（過剰）」か「働き足りなかった（不足）」のどちらかになります。この過不足を次の清算期間に繰り越せるかどうかは、<span class="hl">過剰か不足かで扱いが違います</span>。</p>
+
+  <div class="split-wrap">
+    <div class="split-card blue">
+      <div class="vl">⬇️ 不足していた場合</div>
+      <div class="vv">繰り越し<br>OK</div>
+      <div class="vs">不足分を、次の清算期間の総労働時間に上乗せして働くことは差し支えないとされている</div>
+    </div>
+    <div class="split-card">
+      <div class="vl">⬆️ 超過していた場合</div>
+      <div class="vv">繰り越し<br>NG</div>
+      <div class="vs">その清算期間内で残業代として清算する必要がある。支払いを次期に先送りすることはできない</div>
+    </div>
+  </div>
+
+  <div class="warn">
+    ⚠️ <strong>「働きすぎた分」を来月の労働時間に付け替えて残業代を減らす、という運用はできません。</strong>清算期間の総枠を超えて働いた時間は、その清算期間の賃金支払日に残業代として支払う必要があります。支払いを翌期に繰り延べることは、労働基準法24条の<strong>賃金全額払いの原則</strong>に抵触するおそれがあると解されています。一方、「働き足りなかった分」を翌期の総労働時間に上乗せして、その分だけ多く働いてもらうことは認められています（ただし、上乗せした結果、翌期の賃金がその期の総労働時間分に届かない場合は、その期でも別途清算が必要です）。
+  </div>
+
+  <div class="info">
+    💡 1人社長の実務としては「不足は繰り越せる／超過は繰り越せない」という<span class="hl">非対称のルール</span>を、就業規則や給与計算ソフトの設定にきちんと反映しておくことが大切です。多くの勤怠管理・給与計算ソフトはこの計算に対応していますが、初期設定を誤ると「超過分を翌月に繰り越す」設定になってしまうことがあるため、導入時に社労士や提供元に確認しましょう。
+  </div>
+
+  <div class="source">
+    出典：フレックスタイム制における労働時間の過不足の繰越に関する解説（行政通達にもとづく整理）<a href="https://www.legalnetworks.net/flextime16" target="_blank">https://www.legalnetworks.net/flextime16</a>（労働基準法24条の賃金全額払いの原則との関係を含む。最終的な適用は所轄労働基準監督署・社会保険労務士にご確認ください）
+  </div>
+</div>
+
+<!-- Section 6: 実務チェックリスト -->
+<div class="card">
+  <div class="sec-title">✅ 1人社長がフレックスタイム制を検討するときのチェックリスト</div>
+  <ul class="check-list">
+    <li><span class="ck">①</span><strong>清算期間は1か月にするか、3か月まで延ばすか。</strong>1か月なら届出不要でシンプル、3か月なら繁忙期・閑散期の差を吸収しやすい半面、届出と週50時間の管理が必要になる。</li>
+    <li><span class="ck">②</span><strong>労使協定に必要事項を過不足なく記載する。</strong>対象者の範囲・清算期間・総労働時間・標準となる1日の労働時間・コアタイム（設ける場合）などを定める。</li>
+    <li><span class="ck">③</span><strong>1か月を超える設定にするなら、労基署への届出を忘れない。</strong>労使協定の締結だけでは効力が完成しない。</li>
+    <li><span class="ck">④</span><strong>給与計算ソフトが週50時間ルール・総枠計算に対応しているか確認する。</strong>手計算でのミスは残業代未払いのリスクに直結する。</li>
+    <li><span class="ck">⑤</span><strong>「超過分は繰り越せない」ことを前提に運用ルールを作る。</strong>不足分の繰越しは可能でも、過剰分は当該清算期間内で必ず清算する。</li>
+  </ul>
+</div>
+
+<!-- Section 7: AI prompt -->
+<div class="card">
+  <div class="sec-title">🤖 生成AIに検討を手伝ってもらうプロンプト例</div>
+  <p>清算期間ごとの<span class="hl">総枠の計算</span>や<span class="hl">労使協定のたたき台作成</span>は生成AIが得意な領域です。ただし、実際の労使協定の内容・届出の要否・給与計算への反映は、必ず社会保険労務士や所轄労働基準監督署に確認してください。</p>
+
+  <div class="prompt-box" style="margin-top:14px;">
+    <div class="ph">🤖 プロンプト例：フレックスタイム制の清算期間の検討</div>
+    私は代表者1人の法人で、今後<span class="fill">【例：1〜2名】</span>のスタッフを雇い、フレックスタイム制を導入することを検討しています。想定する清算期間は<span class="fill">【例：1か月／3か月】</span>、清算期間の暦日数は<span class="fill">【例：30日】</span>です。<br>
+    <br>
+    1. 上記の清算期間における法定労働時間の総枠を計算してください（計算式も示してください）<br>
+    2. 清算期間を1か月にする場合と3か月にする場合で、届出義務・残業代の計算方法・実務負担がどう変わるか比較表を作ってください<br>
+    3. 清算期間が1か月を超える場合に必要になる「各月ごとの週平均50時間」のチェックについて、給与計算担当者向けの簡単なチェックリストを作ってください<br>
+    4. 労働時間の不足分・超過分をそれぞれ次の清算期間に繰り越せるかどうかの基本的な考え方を整理してください<br>
+    5. 最終的な労使協定の文言・届出の要否・給与計算への反映は、社会保険労務士および所轄労働基準監督署に確認する必要がある旨を注記してください
+  </div>
+
+  <div class="warn">
+    ⚠️ 生成AIは労働時間の繰越しルールなど、細かい行政解釈を誤って説明することがあります。<strong>就業規則・労使協定に反映する前に、必ず社会保険労務士のチェックを受けてください。</strong>
+  </div>
+</div>
+
+<!-- Section 8: summary -->
+<div class="card">
+  <div class="sec-title">📝 今日のまとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">①</span>フレックスタイム制（労基法32条の3）の清算期間は<span class="hlg">最大3か月</span>まで設定できる。</li>
+    <li><span class="n">②</span>清算期間が<span class="hlg">1か月以内なら労基署への届出は不要</span>、<strong>1か月を超えると届出が必須</strong>になる。</li>
+    <li><span class="n">③</span>法定労働時間の総枠は<span class="hlg">清算期間の暦日数÷7×40時間</span>で計算する（3か月・91日なら520時間）。</li>
+    <li><span class="n">④</span>清算期間が1か月を超える場合、<strong>各月ごとの週平均50時間超え</strong>と<strong>清算期間全体の総枠超え</strong>の2つの基準で時間外労働を判定する。</li>
+    <li><span class="n">⑤</span>労働時間の<span class="hlg">不足分は次の清算期間に繰り越して働くことができる</span>が、<strong>超過分（すでに働いた分）を繰り越すことはできず</strong>、当該清算期間内で残業代として清算する必要がある。</li>
+    <li><span class="n">⑥</span>給与計算ソフトの設定・労使協定の記載内容は、社会保険労務士に確認しながら整えるのが安全。</li>
+  </ul>
+</div>
+
+<!-- Disclaimer -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報提供を目的としたものであり、個別の労務・法務に関するアドバイスではありません。フレックスタイム制の導入可否、清算期間の設定、労使協定の内容、時間外労働の計算方法は、会社の実態・就業規則・雇用形態によって結論が変わります。
+  具体的な判断にあたっては、必ず社会保険労務士・弁護士などの専門家、または所轄の労働基準監督署にご相談ください。<br>
+  <strong>本記事の基準：</strong>令和8年（2026年）8月時点で公表されている厚生労働省の情報にもとづいて記載しています。清算期間の上限3か月への延長は、2019年4月1日施行の働き方改革関連法（労働基準法の一部改正）によるものです。労働時間の繰越しに関する取り扱いは行政解釈にもとづく一般的な整理であり、個別の事案では判断が異なる場合があります。
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>📚 <a href="index.html">バックナンバー一覧へ</a> &nbsp;&middot;&nbsp; 毎朝更新</p>
+</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-08-25</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #2a4d7a 0%, #10233f 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #2a4d7a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.blue   { border-left-color: #1e5a7a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.green  { border-left-color: #1e7a5a; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #2a4d7a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin: 14px 0;
+  }
+  .stats-row.c3 { grid-template-columns: repeat(3, 1fr); }
+  .stats-row.c2 { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 12px 6px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat.now { background: #fff3e0; box-shadow: 0 0 0 2px #c8884a inset; }
+  .stat .sl { font-size: 0.62rem; color: #888; margin-bottom: 3px; line-height: 1.4; }
+  .stat .sv { font-size: 1.05rem; font-weight: 700; color: #2a4d7a; line-height: 1.15; }
+  .stat.now .sv { color: #c8884a; }
+  .stat .su { font-size: 0.62rem; color: #666; margin-top: 2px; }
+
+  .bignum {
+    background: white;
+    border-radius: 12px;
+    padding: 18px 14px;
+    text-align: center;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.1);
+    border: 2px dashed #c8884a;
+    margin: 14px 0;
+  }
+  .bignum .bl { font-size: 0.76rem; color: #888; margin-bottom: 6px; }
+  .bignum .bv { font-size: 2.1rem; font-weight: 700; color: #c8884a; line-height: 1.1; }
+  .bignum .bs { font-size: 0.76rem; color: #666; margin-top: 6px; line-height: 1.6; }
+
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #2a4d7a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-num.now { background: #b54040; }
+  .f-num.later { background: #999; }
+  .f-num.opt { background: #c8884a; }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+  .f-arrow { color: #2a4d7a; font-size: 1.1rem; margin-left: 14px; margin-bottom: 4px; }
+
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  table.cmp {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.83rem;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.08);
+  }
+  table.cmp th, table.cmp td {
+    border: 1px solid #e4dccd;
+    padding: 9px 10px;
+    line-height: 1.55;
+    vertical-align: top;
+  }
+  table.cmp thead th { background: #2a4d7a; color: white; font-weight: 600; text-align: center; }
+  table.cmp tbody th { background: #f5efe2; color: #5a4020; text-align: left; font-weight: 600; white-space: nowrap; }
+  table.cmp td { color: #444; }
+  .wrap-x { overflow-x: auto; }
+
+  .prompt-box {
+    background: #f0f5ff;
+    border: 2px solid #4a6aae;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 12px 0;
+    font-size: 0.84rem;
+    line-height: 1.85;
+    color: #1a2a4a;
+  }
+  .prompt-box .ph {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #4a6aae;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+  .prompt-box .fill {
+    background: #d0e0ff;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-weight: 700;
+    color: #0a2a6e;
+  }
+
+  .info {
+    background: #e8eef8;
+    border-left: 4px solid #2a4d7a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #16294a;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #7a4010;
+  }
+
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #2a4d7a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #2a4d7a; word-break: break-all; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #2a4d7a; }
+
+  .split-wrap {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 10px;
+    align-items: center;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .split-wrap { grid-template-columns: 1fr; } }
+  .split-card {
+    border-radius: 10px;
+    padding: 16px 14px;
+    text-align: center;
+    background: #fff3e0;
+    border: 2px solid #c8884a;
+  }
+  .split-card.blue { background: #e8eef8; border-color: #2a4d7a; }
+  .split-card .vl { font-size: 0.75rem; font-weight: 700; margin-bottom: 6px; color: #7a4010; }
+  .split-card.blue .vl { color: #16294a; }
+  .split-card .vv { font-size: 1.4rem; font-weight: 700; color: #c8884a; }
+  .split-card.blue .vv { color: #2a4d7a; }
+  .split-card .vs { font-size: 0.72rem; color: #777; margin-top: 4px; }
+  .split-mid { text-align: center; font-size: 1.3rem; color: #999; font-weight: 700; }
+
+  .gauge {
+    background: #eee;
+    border-radius: 20px;
+    height: 30px;
+    overflow: hidden;
+    display: flex;
+    margin: 10px 0;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.15);
+  }
+  .gauge .g-fill {
+    background: linear-gradient(90deg, #1e7a5a, #4a9e6a);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 0.78rem;
+    font-weight: 700;
+  }
+  .gauge .g-rest {
+    background: #ddd;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #888;
+    font-size: 0.72rem;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Header -->
+<div class="header">
+  <div class="meta">📅 1人法人スタート 最新トピック &nbsp;2026-08-25</div>
+  <h1>🏖️ 有給休暇は「取らせる」義務もある<br>年5日、会社が指定して取らせないと罰金です</h1>
+  <div class="desc">
+    <span class="htag">年次有給休暇</span>
+    <span class="htag">年5日取得義務</span>
+    <span class="htag">労基法39条7項</span>
+    <span class="htag">年次有給休暇管理簿</span>
+    <br>
+    8/22・8/23の記事でフレックスタイム制の労働時間管理を扱いましたが、同じ「労働時間・休暇の管理」というテーマで、もう1つ見落とされがちなルールがあります。それが「年次有給休暇は、労働者に取らせる義務が会社側にもある」という制度です。1人社長の会社でも、スタッフを1人でも雇えば対象になります。今日はこの「年5日取得義務」の基礎をやさしく図解します。
+  </div>
+</div>
+
+<!-- Section 1: 全体像 -->
+<div class="card">
+  <div class="sec-title">📋 有給休暇は「取る権利」から「取らせる義務」へ</div>
+  <p>年次有給休暇（略して「年休」「有休」）は、もともと労働者が<span class="hl">自分の意思で請求して取るもの</span>でした。ところが実際には「言い出しにくい」「忙しくて取れない」という理由で、取得率が伸び悩んでいました。そこで働き方改革関連法により、<span class="hl">2019年4月1日から</span>、会社側にも一定の年休を取らせる義務が課されるようになりました。</p>
+
+  <div class="bignum">
+    <div class="bl">会社が取らせなければならない年休日数</div>
+    <div class="bv">年5日</div>
+    <div class="bs">対象労働者について、会社が時季を指定して最低5日は取得させる（労働基準法39条7項）</div>
+  </div>
+
+  <div class="info">
+    💡 これは「労働者が自分で申請した年休」とは別の話ではありません。労働者が自分で5日以上すでに取っていれば、会社が追加で時季指定する必要はなくなります（詳しくはセクション3で）。
+  </div>
+
+  <div class="source">
+    出典：厚生労働省「働き方改革関連法解説（労働基準法関係）」ほか厚生労働省公表資料にもとづく（労働基準法39条7項、施行日2019年4月1日、令和8年〈2026年〉8月時点で制度に変更なし）
+  </div>
+</div>
+
+<!-- Section 2: 対象者 -->
+<div class="card blue">
+  <div class="sec-title">👤 対象になるのはどんな労働者？</div>
+  <p>「うちは1人社長だから関係ない」と思いがちですが、条件を満たす労働者を1人でも雇えば対象になります。企業規模（従業員数）の要件は<span class="hl">ありません</span>。</p>
+
+  <div class="split-wrap">
+    <div class="split-card blue">
+      <div class="vl">対象になる</div>
+      <div class="vv">年10日以上</div>
+      <div class="vs">年次有給休暇が10日以上付与される労働者。管理監督者も対象に含まれる。正社員・パート・アルバイトの区別は問わない（比例付与で10日以上になれば対象）</div>
+    </div>
+    <div class="split-mid">⇔</div>
+    <div class="split-card">
+      <div class="vl">対象外</div>
+      <div class="vv">年10日未満</div>
+      <div class="vs">週の所定労働日数が少ないパート等で、比例付与の年休日数が10日に満たない労働者</div>
+    </div>
+  </div>
+
+  <div class="warn">
+    ⚠️ ポイントは「事業場の従業員規模を問わない」こと。就業規則の作成義務（労基法89条、7/27記事）は常時10人以上が基準でしたが、年5日取得義務は<strong>従業員が1人でも該当すれば適用</strong>されます。
+  </div>
+</div>
+
+<!-- Section 3: 時季指定の仕組み -->
+<div class="card orange">
+  <div class="sec-title">🗓️ 会社が「いつ休むか」を指定する仕組み</div>
+  <p>会社は対象労働者に対して、労働者の意見を聴き、その意見を<span class="hlo">できる限り尊重した上で</span>、あらかじめ時季（日付）を指定して年休を取得させます（時季指定義務）。ただし、すべてのケースで会社が指定するわけではありません。</p>
+
+  <div class="f-step" style="margin-top:14px;">
+    <div class="f-num">①</div>
+    <div class="f-text">労働者が自分の意思で年休を請求・取得した日数（自主取得分）をカウント</div>
+  </div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step">
+    <div class="f-num later">②</div>
+    <div class="f-text">計画年休（労使協定にもとづき会社が計画的に付与する年休）で取得した日数もカウント</div>
+  </div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step">
+    <div class="f-num opt">③</div>
+    <div class="f-text">①＋②が5日に満たない場合のみ、会社が不足分について時季を指定して取得させる</div>
+  </div>
+
+  <div class="gauge">
+    <div class="g-fill" style="width:60%;">自主取得・計画年休 3日</div>
+    <div class="g-rest" style="width:40%;">会社指定 2日</div>
+  </div>
+  <p style="font-size:0.83rem; color:#777;">※ 例：労働者が自分で3日取得済みなら、会社が指定するのは残り2日でよい。すでに5日以上取っていれば会社の時季指定は不要。</p>
+</div>
+
+<!-- Section 4: 年次有給休暇管理簿 -->
+<div class="card green">
+  <div class="sec-title">📒 「年次有給休暇管理簿」の作成・保存義務</div>
+  <p>会社は対象労働者ごとに、年休の取得状況を記録した<span class="hl">「年次有給休暇管理簿」</span>を作成しなければなりません（労働基準法施行規則24条の7）。</p>
+
+  <div class="stats-row c3">
+    <div class="stat now">
+      <div class="sl">記載事項①</div>
+      <div class="sv">時季</div>
+      <div class="su">取得した日付</div>
+    </div>
+    <div class="stat now">
+      <div class="sl">記載事項②</div>
+      <div class="sv">日数</div>
+      <div class="su">取得した日数</div>
+    </div>
+    <div class="stat now">
+      <div class="sl">記載事項③</div>
+      <div class="sv">基準日</div>
+      <div class="su">年休が発生した日</div>
+    </div>
+  </div>
+
+  <div class="bignum">
+    <div class="bl">保存期間</div>
+    <div class="bv">3年間</div>
+    <div class="bs">年休を与えた期間中、および当該期間満了後3年間の保存が必要（労基則24条の7）</div>
+  </div>
+
+  <div class="info">
+    💡 賃金台帳や労働者名簿と合わせて調製してもよいとされています。給与計算ソフトや勤怠管理ソフトで自動的に管理簿を出力できる製品も多いので、記帳・給与計算のツール（6/5記事）と一緒に整備すると手間が減ります。
+  </div>
+
+  <div class="source">
+    出典：厚生労働省パンフレット「年5日の年次有給休暇の確実な取得」（労働基準法施行規則24条の7、令和8年〈2026年〉8月時点）
+  </div>
+</div>
+
+<!-- Section 5: 就業規則・罰則 -->
+<div class="card red">
+  <div class="sec-title">⚖️ 就業規則への記載と、違反したときの罰則</div>
+  <p>会社が時季指定を行う場合は、<span class="hl">対象労働者の範囲や時季指定の方法を就業規則に記載</span>する必要があります。常時10人以上の労働者を使用する事業場は就業規則の作成・届出義務があるため（労基法89条、7/27記事）、その中に年休の時季指定に関する規定を盛り込みます。</p>
+
+  <div class="f-step" style="margin-top:14px;">
+    <div class="f-num now">根拠</div>
+    <div class="f-text">労働基準法39条7項（義務）・120条（罰則）</div>
+  </div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step">
+    <div class="f-num later">内容</div>
+    <div class="f-text">対象労働者に年5日取得させなかった場合、<strong>30万円以下の罰金</strong></div>
+  </div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step">
+    <div class="f-num opt">単位</div>
+    <div class="f-text">違反は<strong>対象労働者ごとに成立</strong>すると解されている（刑法上の併合罪の考え方）</div>
+  </div>
+
+  <div class="warn" style="margin-top:14px;">
+    ⚠️ 「1回違反したら30万円」ではなく、<strong>取得させられなかった労働者の人数分</strong>が積み上がる可能性がある、という考え方です。対象者が複数いる会社ほど、進捗管理の重要性が増します。
+  </div>
+
+  <div class="source">
+    出典：厚生労働省「年5日の年次有給休暇の確実な取得」／労働基準法39条7項・120条（令和8年〈2026年〉8月時点）
+  </div>
+</div>
+
+<!-- Section 6: 1人社長への影響 -->
+<div class="card">
+  <div class="sec-title">🧑‍💼 1人社長・役員だけの会社ではどうなる？</div>
+  <p>代表者1人だけの会社で、従業員を雇っていない場合は、そもそも年休を付与すべき「労働者」がいないため、この制度の対象になりません。ただし、<span class="hl">スタッフを1人でも雇い、その人に年10日以上の年休が発生した時点</span>から、会社に管理義務が生じます。</p>
+
+  <ul class="check-list">
+    <li><span class="ck">✓</span>従業員なし・役員のみ ── 対象外（管理の必要なし）</li>
+    <li><span class="ck">✓</span>正社員・契約社員を雇用し、年休が年10日以上付与された ── 対象（管理簿の作成・進捗管理が必要）</li>
+    <li><span class="ck">✓</span>パート・アルバイトでも、比例付与で年10日以上になる場合 ── 対象</li>
+    <li><span class="ck-bad">✗</span>「口約束で有休は自由に取っていいことにしている」だけでは管理簿の作成義務は免除されない</li>
+  </ul>
+
+  <div class="info">
+    💡 初めて人を雇うタイミング（7/27記事「1人会社の事業拡大ステップ」）で、労働条件通知書・36協定・就業規則とあわせて、年休の付与日数と取得管理の仕組みも準備しておくと安心です。
+  </div>
+</div>
+
+<!-- Section 7: AI prompt -->
+<div class="card">
+  <div class="sec-title">🤖 生成AIに年休管理のたたき台を作ってもらうプロンプト例</div>
+  <p>年次有給休暇管理簿のフォーマットや、進捗確認のリマインド文面を作るのは生成AIが得意な領域です。ただし、実際の付与日数・基準日の計算や運用ルールは、必ず社会保険労務士に確認してください。</p>
+
+  <div class="prompt-box" style="margin-top:14px;">
+    <div class="ph">🤖 プロンプト例：年次有給休暇管理簿のたたき台</div>
+    私は代表者1人の法人で、従業員<span class="fill">【例：1名】</span>を雇用しています。入社日は<span class="fill">【例：2026年4月1日】</span>、雇用形態は<span class="fill">【例：正社員】</span>です。<br>
+    <br>
+    1. 労働基準法施行規則24条の7に定める記載事項（時季・日数・基準日）を満たす年次有給休暇管理簿のExcelフォーマット案を作ってください<br>
+    2. 基準日から半年ごとに「年5日取得できているか」を確認するリマインドチェックリストを作ってください<br>
+    3. 就業規則に記載する時季指定に関する条文案（対象労働者の範囲・指定方法）のたたき台を作ってください<br>
+    4. 付与日数の計算方法・具体的な運用ルールは社会保険労務士に確認する必要がある旨を注記してください
+  </div>
+
+  <div class="warn">
+    ⚠️ 生成AIが作った管理簿・条文案には、法改正の反映漏れや計算誤りが含まれることがあります。<strong>運用開始前に、必ず社会保険労務士のチェックを受けてください。</strong>
+  </div>
+</div>
+
+<!-- Section 8: summary -->
+<div class="card">
+  <div class="sec-title">📝 今日のまとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">①</span>2019年4月1日から、<span class="hlg">年10日以上</span>の年休が付与される労働者には、会社が<strong>年5日</strong>を時季指定して取得させる義務がある（労基法39条7項）。</li>
+    <li><span class="n">②</span>対象は<strong>管理監督者を含む全労働者</strong>で、事業場の従業員規模要件は<span class="hlg">ない</span>。</li>
+    <li><span class="n">③</span>労働者が自分で取得した日数・計画年休の日数は<strong>5日から控除</strong>できる。</li>
+    <li><span class="n">④</span><strong>年次有給休暇管理簿</strong>（時季・日数・基準日を記載）の作成・<span class="hlg">3年間の保存</span>が必要（労基則24条の7）。</li>
+    <li><span class="n">⑤</span>違反すると<strong>30万円以下の罰金</strong>（労基法120条）。違反は<span class="hlg">対象労働者ごとに成立</span>する可能性がある。</li>
+    <li><span class="n">⑥</span>1人社長のみの会社は対象外だが、<strong>従業員を雇った時点</strong>から管理が必要になる。</li>
+  </ul>
+</div>
+
+<!-- Disclaimer -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報提供を目的としたものであり、個別の労務・法務に関するアドバイスではありません。対象労働者の判定、時季指定の方法、管理簿の運用は、会社の雇用形態・実態によって結論が変わります。
+  具体的な判断にあたっては、必ず社会保険労務士・弁護士などの専門家、または所轄の労働基準監督署にご相談ください。<br>
+  <strong>本記事の基準：</strong>令和8年（2026年）8月時点で公表されている厚生労働省の情報にもとづいて記載しています。年5日取得義務は労働基準法39条7項（2019年4月1日施行）、罰則は同法120条、年次有給休暇管理簿は労働基準法施行規則24条の7にもとづくものです。
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>📚 <a href="index.html">バックナンバー一覧へ</a> &nbsp;&middot;&nbsp; 毎朝更新</p>
+</div>
+
+</div>
+</body>
+</html>
