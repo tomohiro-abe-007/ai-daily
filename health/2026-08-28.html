@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-08-28</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '🧬';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.9rem; margin-bottom: 8px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.1em; }
+  .c3-col li { margin-bottom: 4px; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .mech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .mech-item {
+    background: #f0faf5;
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 0.85rem;
+    border-top: 3px solid #1a7a5a;
+  }
+  .mech-item .micon { font-size: 1.3rem; margin-bottom: 6px; }
+  .mech-item strong { display: block; color: #0d4a35; margin-bottom: 4px; font-size: 0.88rem; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .highlight { background: #cff0df; padding: 1px 5px; border-radius: 4px; }
+  .good { color: #1a7a5a; font-weight: 600; }
+  .bad  { color: #c0392b; font-weight: 600; }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-box {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin: 14px 0;
+    font-size: 0.92rem;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  .quote-box {
+    background: #f5f0e8;
+    border-left: 4px solid #7a5abf;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    margin: 12px 0;
+    color: #444;
+    font-style: italic;
+  }
+  .quote-box .who { font-style: normal; font-weight: 700; color: #5a3a9a; margin-top: 6px; font-size: 0.78rem; }
+  .matrix {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .mx-cell {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .mx-cell .mx-head { font-weight: 700; font-size: 0.88rem; margin-bottom: 6px; }
+  .mx-cell.ok  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .mx-cell.ok  .mx-head { color: #1a6e4a; }
+  .mx-cell.ng  { background: #fbe8e6; border: 2px solid #c0392b; }
+  .mx-cell.ng  .mx-head { color: #a0291e; }
+  @media (max-width: 540px) {
+    .compare4 { grid-template-columns: 1fr 1fr; }
+    .matrix { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.7rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ヘッダー -->
+<div class="header">
+  <div class="label">健康・栄養 最新トピック ・ 2026-08-28</div>
+  <h1>同じ「低糖質ダイエット」でも、LDLコレステロールが上がる人・上がらない人がいるのはなぜ?</h1>
+  <div class="subtitle">米スタンフォード大学医学部のAlexa Baradさんが、有名な大規模ダイエット比較試験「DIETFITS」のデータを使い、低糖質(低炭水化物)ダイエット中に飽和脂肪酸の摂取量が変わったとき、LDLコレステロールがどう変化するかを遺伝的な体質別に調べた研究を、2026年7月に米国栄養学会の年次学術集会「NUTRITION 2026」で発表しました。まだ学会発表の段階で査読誌には載っていない結果ですが、「同じ食事でも人によって効き方が違う」という精密栄養学の考え方を具体的な数字で示す例として、今日はこの研究を読み解きます。</div>
+</div>
+
+<!-- タグ -->
+<div style="margin-bottom:18px;">
+  <span class="tag">精密栄養学</span>
+  <span class="tag">DIETFITS試験</span>
+  <span class="tag">低炭水化物ダイエット</span>
+  <span class="tag">多遺伝子スコア(PGS)</span>
+  <span class="tag">学会発表(査読前)</span>
+</div>
+
+<!-- 今日の疑問 -->
+<div class="card">
+  <h2>🤔 今日の疑問:「低糖質でLDLが上がった」は、みんなに起きること?</h2>
+  <p>低糖質(低炭水化物)ダイエットを始めた人の中には、「健康診断でLDLコレステロールが上がってしまった」という声を聞くことがあります。ただ、実際には低糖質ダイエットを試した人みんなでLDLが同じように上がるわけではなく、上がる人もいればほとんど変わらない人もいます。この個人差は、いったい何によって決まるのでしょうか。</p>
+  <p>2026年7月27日、米スタンフォード大学医学部のAlexa Baradさん(博士・管理栄養士)らのチームが、2018年に発表された大規模なダイエット比較試験「DIETFITS」のデータを掘り下げ、<strong>LDLコレステロールに関わる数千の遺伝的な違いをまとめた「多遺伝子スコア(PGS-LDL)」ごとに、低糖質ダイエット中の飽和脂肪酸摂取量の変化とLDL変化の関係を比較する</strong>研究を、米国栄養学会(American Society for Nutrition)の年次学術集会「NUTRITION 2026」(米メリーランド州ナショナルハーバー、2026年7月25〜28日開催)で発表しました。</p>
+</div>
+
+<!-- 基本用語 -->
+<div class="card blue">
+  <h2>📖 まず言葉の意味を</h2>
+  <div class="def-grid">
+    <div class="def-item">
+      <div class="dterm">DIETFITS試験</div>
+      米スタンフォード大学のChristopher Gardnerさんらが行った、過体重・肥満の成人609人を対象に「健康的な低脂肪食」と「健康的な低炭水化物食」を12か月間比べたランダム化比較試験(RCT)。JAMA誌に2018年発表。
+    </div>
+    <div class="def-item">
+      <div class="dterm">飽和脂肪酸(SFA)</div>
+      肉の脂身やバターなどに多く含まれる脂肪の一種。摂取量が多いとLDLコレステロールを上げやすいとされる成分。
+    </div>
+    <div class="def-item">
+      <div class="dterm">LDLコレステロール</div>
+      血液検査でおなじみの、いわゆる「悪玉コレステロール」。数値が高い状態が続くと動脈硬化のリスクに関わるとされる。
+    </div>
+    <div class="def-item">
+      <div class="dterm">多遺伝子スコア(ポリジェニックスコア、PGS)</div>
+      1つの遺伝子だけでなく、数千個の遺伝的な違い(変異)を組み合わせて計算する、体質の「傾向」を表す数値。今回はLDLコレステロールが上がりやすい体質かどうかを表す「PGS-LDL」を使用。
+    </div>
+    <div class="def-item">
+      <div class="dterm">二次解析</div>
+      すでに行われた試験のデータを、元の試験とは別の新しい問い(今回は「遺伝的リスク別に見るとどうか」)で改めて分析し直す研究の進め方。
+    </div>
+    <div class="def-item">
+      <div class="dterm">学会発表(会議アブストラクト)</div>
+      学会の年次大会で発表される研究要旨。専門家委員会による審査は受けているが、査読誌の論文と同じ厳密な査読プロセスは経ていないことが多く、確定した結論ではなく「途中経過」として扱う必要がある。
+    </div>
+  </div>
+</div>
+
+<!-- 数字カード -->
+<div class="num-row">
+  <div class="num-card gray-bg">
+    <div class="big">609<span class="unit">人</span></div>
+    <div class="desc">元のDIETFITS試験全体の参加者数(Gardner ら, JAMA 2018年, 12か月RCT)</div>
+  </div>
+  <div class="num-card blue-bg">
+    <div class="big">431<span class="unit">人</span></div>
+    <div class="desc">今回、遺伝子データがあり二次解析の対象となった人数(低炭水化物群223人+低脂肪群208人)</div>
+  </div>
+  <div class="num-card orange-bg">
+    <div class="big">-36〜+126<span class="unit">%</span></div>
+    <div class="desc">低炭水化物群での6か月後のLDLコレステロール変化率の幅。減った人もいれば2倍超に増えた人もいる大きなばらつき</div>
+  </div>
+  <div class="num-card purple-bg">
+    <div class="big">-53〜+145<span class="unit">%</span></div>
+    <div class="desc">低脂肪群での同じ変化率の幅。こちらも同様に個人差が大きい</div>
+  </div>
+</div>
+
+<!-- 研究の流れ -->
+<div class="card purple">
+  <h2>🧭 「同じ食事、違う結果」をどう調べたか(5ステップ)</h2>
+  <div class="flow">
+    <div class="flow-step purp">① DIETFITS試験<br>(2018年JAMA)<br>609人・12か月RCT</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step">② 遺伝子データが<br>ある431人を対象に<br>二次解析</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step alt">③ 数千の遺伝的変異を<br>統合しPGS-LDLを<br>算出</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step">④ 飽和脂肪酸摂取量の<br>変化とLDL変化の<br>関係を比較</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step purp">⑤ 低炭水化物群でのみ<br>遺伝的リスクが高いほど<br>関連が強いと判明</div>
+  </div>
+  <p style="font-size:0.82rem; color:#555; margin-top:4px;">①はすでに終わっていた試験のデータを、②〜⑤で新しい角度から分析し直したものです。新しく人を集めて試験をやり直したわけではありません。</p>
+</div>
+
+<!-- 低炭水化物 vs 低脂肪 比較 -->
+<div class="card orange">
+  <h2>⚖️ 低炭水化物群と低脂肪群を並べてみると</h2>
+  <div class="compare4">
+    <div class="c3-col green">
+      <h3>🥑 低炭水化物群(n=223)</h3>
+      <ul>
+        <li>6か月後のLDL変化率:-36〜+126%</li>
+        <li>遺伝的リスク(PGS-LDL)が高い群ほど、飽和脂肪酸摂取増加とLDL上昇の関連が強くなった</li>
+        <li>統計的に有意な「遺伝的リスク×飽和脂肪酸変化」の交互作用あり</li>
+      </ul>
+    </div>
+    <div class="c3-col blue">
+      <h3>🍞 低脂肪群(n=208)</h3>
+      <ul>
+        <li>6か月後のLDL変化率:-53〜+145%</li>
+        <li>遺伝的リスクと飽和脂肪酸摂取変化は、それぞれ単独ではLDL変化と関連</li>
+        <li>両者を掛け合わせた交互作用は統計的に有意ではなかった</li>
+      </ul>
+    </div>
+  </div>
+  <p style="font-size:0.82rem; color:#555; margin-top:8px;">どちらの群でも「遺伝的リスクが高いほど」「飽和脂肪酸摂取が増えるほど」LDLは上がりやすい傾向がそれぞれ単独で見られましたが、この2つが「掛け合わさって強め合う」関係がはっきり見えたのは低炭水化物群だけでした。</p>
+</div>
+
+<!-- 遺伝的リスク別マトリクス -->
+<div class="card">
+  <h2>🧩 低炭水化物ダイエット中、遺伝的リスクでこう変わる</h2>
+  <div class="matrix">
+    <div class="mx-cell ok">
+      <div class="mx-head">✅ 遺伝的リスクが低いグループ</div>
+      飽和脂肪酸の摂取量が増えても、LDLコレステロールの上昇との関連は弱く(関連の強さを示す統計値で約-1.6)、ほとんど動かない傾向。
+    </div>
+    <div class="mx-cell ng">
+      <div class="mx-head">⚠️ 遺伝的リスクが高いグループ</div>
+      飽和脂肪酸の摂取量が増えるほどLDLコレステロールが大きく上昇する関連が確認された(関連の強さを示す統計値で約10.5、低リスク群の約6倍)。
+    </div>
+  </div>
+  <p style="font-size:0.8rem; color:#555; margin-top:8px;">中間の遺伝的リスク群では、この統計値は約5.0と報告されており、リスクが上がるにつれて段階的に関連が強くなる傾向が示されています。数値の単位(LDLの何を1単位とした回帰係数か)は、今回参照できた二次情報だけでは確認できていません。</p>
+</div>
+
+<!-- 賛否・限界 -->
+<div class="card">
+  <h2>🔬 この結果、どこまで信じてよいか</h2>
+  <p>この研究について、NUTRITION 2026を主催する米国栄養学会自身が「学会発表の抄録(アブストラクト)は専門家委員会による審査・選定を経ているが、科学誌への掲載に必要な査読プロセスとは異なる」という趣旨の注意を添えています。つまり今回の結果は、これから査読誌に論文として掲載され、他の研究者による検証を受けるまでは、<strong>「有望な仮説」の段階</strong>として扱うべきだということです。</p>
+  <p>また、これは元のDIETFITS試験の対象者(18〜50歳の過体重・肥満の成人)のうち、遺伝子データが取得できた431人に限った<strong>二次解析(事後的な追加分析)</strong>です。元の試験は「体重減少にどちらの食事が効くか」を調べるために設計されたもので、今回のようなLDLコレステロールと遺伝的リスクの関係を確かめるために最初から計画されたものではありません。</p>
+</div>
+
+<!-- 注意点 -->
+<div class="warn">
+  <strong>⚠️ 誤解しないでほしいこと</strong>
+  <ul style="padding-left:1.4em; margin-top:8px;">
+    <li>今回調べられたのはLDLコレステロールという<strong>血液検査の数値(代理指標)</strong>であり、実際に心筋梗塞や脳卒中などの病気が増えたかどうかを直接調べた研究ではありません。</li>
+    <li>対象は18〜50歳の過体重・肥満の成人という特定の集団で、すべての人にそのまま当てはまるとは限りません。</li>
+    <li>自分の「LDLに関する遺伝的リスク」は、市販の簡易的な遺伝子検査だけで正確に判断できるものではなく、専門的な解析が必要です。</li>
+    <li>低炭水化物ダイエットを検討する際は自己判断で始めず、かかりつけ医・管理栄養士など専門家にご相談ください。特にすでにLDLコレステロールが高いと言われている方は注意が必要です。</li>
+  </ul>
+</div>
+
+<!-- エビデンスの整理 -->
+<div class="card">
+  <h2>🧪 今日出てきた情報の「証拠としての強さ」の目安</h2>
+  <table class="ev-table">
+    <tr><th>情報の種類</th><th>特徴</th><th>証拠としての強さ</th></tr>
+    <tr>
+      <td>低炭水化物食・低脂肪食は、どちらも体重減少に有効(効果に大差なし)</td>
+      <td>大規模RCT(DIETFITS試験、n=609、12か月、JAMA 2018年)</td>
+      <td><span class="ev-badge ev-high">高い(大規模RCT)</span></td>
+    </tr>
+    <tr>
+      <td>低炭水化物食では遺伝的リスクが高い人ほど飽和脂肪酸増加でLDLが上がりやすい</td>
+      <td>既存RCTデータの二次解析(n=431)、学会発表段階・査読前</td>
+      <td><span class="ev-badge ev-low">低〜中(仮説段階、査読誌での確認待ち)</span></td>
+    </tr>
+    <tr>
+      <td>この個人差が実際の心血管疾患リスクの差につながるか</td>
+      <td>今回の研究では調べられていない</td>
+      <td><span class="ev-badge ev-low">未検証</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- まとめ -->
+<div class="card" style="border-left-color:#1a7a5a;">
+  <h2>✅ 今日のまとめ</h2>
+  <ul class="step-list">
+    <li>低炭水化物ダイエットでLDLコレステロールが上がるかどうかには、大きな個人差がある(今回の解析では6か月でー36%〜+126%の幅)。</li>
+    <li>米スタンフォード大学のAlexa Baradさんらが、大規模RCT「DIETFITS試験」(609人、JAMA 2018年)のうち遺伝子データがある431人を対象に二次解析を行い、LDLに関わる数千の遺伝的変異をまとめた「多遺伝子スコア(PGS-LDL)」を計算した。</li>
+    <li>低炭水化物群では、遺伝的リスクが高い人ほど飽和脂肪酸摂取量の増加とLDL上昇の関連が強くなる(統計的に有意な交互作用)という結果が示された。低脂肪群ではこの交互作用は見られなかった。</li>
+    <li>この結果は2026年7月、米国栄養学会の年次学術集会「NUTRITION 2026」で発表された段階であり、査読誌にはまだ掲載されていない。また、調べられたのはLDLという血液検査の値であり、実際の心血管疾患リスクへの影響は今回の研究では確認されていない。</li>
+    <li>「低糖質ダイエットでLDLが上がった」という体験談も、「上がらなかった」という体験談も、どちらも体質(遺伝的な背景)による個人差として説明できるかもしれない、という精密栄養学的な視点を教えてくれる研究でした。</li>
+  </ul>
+</div>
+
+<!-- 免責 -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、医療アドバイスではありません。効果・必要量・リスクは個人の体質・年齢・持病・服薬によって大きく異なります。本記事は特定の食事法を推奨するものではありません。低炭水化物ダイエットの開始やLDLコレステロールが気になる場合は、自己判断せず、かかりつけ医・管理栄養士など専門家にご相談ください。
+</div>
+
+<!-- 出典 -->
+<div class="sources">
+  <h3>📚 主な出典・参考文献</h3>
+  <ol>
+    <li>Barad A, et al. "Genetic modification of LDL-C response to change in saturated fat intake: A secondary analysis of the DIETFITS trial." American Society for Nutrition 年次学術集会「NUTRITION 2026」(米メリーランド州ナショナルハーバー、2026年7月25〜28日開催)にて2026年7月27日発表。(基準日:2026年7月)</li>
+    <li>The Cardiology Advisor. "ASN: Genetics, Change in Saturated Fat Intake Contribute to LDL-C Response."
+      <a href="https://www.thecardiologyadvisor.com/news/asn-genetics-change-in-saturated-fat-intake-contribute-to-ldl-c-response/" target="_blank">https://www.thecardiologyadvisor.com/news/asn-genetics-change-in-saturated-fat-intake-contribute-to-ldl-c-response/</a>(基準日:2026年7月)
+    </li>
+    <li>EurekAlert! "Is your diet driving up your cholesterol? That may depend on your genes."
+      <a href="https://www.eurekalert.org/news-releases/1136476" target="_blank">https://www.eurekalert.org/news-releases/1136476</a>(基準日:2026年7月)
+    </li>
+    <li>ScienceDaily. "Your genes may decide whether a low-carb diet sends cholesterol soaring."
+      <a href="https://www.sciencedaily.com/releases/2026/08/260823015009.htm" target="_blank">https://www.sciencedaily.com/releases/2026/08/260823015009.htm</a>(基準日:2026年8月23日)
+    </li>
+    <li>Gardner CD, Trepanowski JF, Del Gobbo LC, et al. "Effect of Low-Fat vs Low-Carbohydrate Diet on 12-Month Weight Loss in Overweight Adults and the Association With Genotype Pattern or Insulin Secretion: The DIETFITS Randomized Clinical Trial." JAMA. 2018;319(7):667-679. DOI: 10.1001/jama.2018.0245(元のDIETFITS試験、基準日:2018年2月)</li>
+  </ol>
+  <p style="margin-top:8px; font-size:0.78rem;">※ ネットワーク制限により、上記のうち一部サイト(EurekAlert!・ScienceDaily・Medical Xpress・News-Medical等)へは本文への直接アクセスができなかったため、検索エンジンで得られる要約・引用文をもとに、著者名・所属・発表日・数値情報を複数の情報源で突き合わせて作成しています。学会発表の抄録そのもの(一次資料)には未アクセスのため、査読誌への正式掲載時に数値の再確認が望まれます。</p>
+</div>
+
+</div>
+</body>
+</html>
