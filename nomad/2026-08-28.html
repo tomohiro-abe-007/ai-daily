@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>デジタルノマド 最新トピック 2026-08-28</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    color: #2a2a2a;
+  }
+  .hero {
+    background: linear-gradient(135deg, #1e5e4e 0%, #0d3a2e 100%);
+    color: white;
+    border-radius: 10px;
+    padding: 48px 40px;
+    text-align: center;
+    width: 100%;
+    max-width: 760px;
+    margin-bottom: 28px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .hero .label {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 0.8rem;
+    margin-bottom: 14px;
+    letter-spacing: 0.05em;
+  }
+  .hero h1 { font-size: 1.4rem; margin-bottom: 12px; line-height: 1.55; }
+  .hero .meta { opacity: 0.8; font-size: 0.88rem; line-height: 1.7; }
+  .card {
+    background: #fff9f0;
+    border-radius: 8px;
+    padding: 28px 32px;
+    width: 100%;
+    max-width: 760px;
+    margin-bottom: 20px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.08);
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1e5e4e;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px dashed #8ac4ad;
+  }
+  .card p { font-size: 0.93rem; line-height: 1.85; margin-bottom: 10px; }
+  .card p:last-child { margin-bottom: 0; }
+  .highlight-box {
+    background: #e8f5f0;
+    border-left: 4px solid #1e5e4e;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .highlight-box .hlabel { font-size: 0.75rem; color: #1e5e4e; font-weight: 600; margin-bottom: 6px; display: block; }
+  .highlight-box p { font-size: 0.9rem; margin: 0; }
+  .alert-box {
+    background: #fff3cd;
+    border-left: 4px solid #c9920a;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .alert-box .alabel { font-size: 0.75rem; color: #8a6000; font-weight: 600; margin-bottom: 6px; display: block; }
+  .alert-box p { font-size: 0.9rem; margin: 0; }
+  .green-box {
+    background: #e8f5ef;
+    border-left: 4px solid #2c6e4e;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .green-box .glabel { font-size: 0.75rem; color: #2c6e4e; font-weight: 600; margin-bottom: 6px; display: block; }
+  .green-box p { font-size: 0.9rem; margin: 0; }
+  .purple-box {
+    background: #f0eafd;
+    border-left: 4px solid #6a3ea0;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .purple-box .plabel { font-size: 0.75rem; color: #6a3ea0; font-weight: 600; margin-bottom: 6px; display: block; }
+  .purple-box p { font-size: 0.9rem; margin: 0; }
+  .number-row { display: flex; gap: 14px; flex-wrap: wrap; margin: 14px 0; }
+  .number-card {
+    flex: 1; min-width: 130px;
+    background: #1e5e4e; color: white;
+    border-radius: 8px; padding: 18px 14px; text-align: center;
+  }
+  .number-card .num { font-size: 1.15rem; font-weight: 700; margin-bottom: 6px; line-height: 1.25; letter-spacing: 0.02em; }
+  .number-card .desc { font-size: 0.72rem; opacity: 0.9; line-height: 1.5; }
+  .number-card.amber  { background: #c9920a; }
+  .number-card.red    { background: #c0392b; }
+  .number-card.green  { background: #2c6e4e; }
+  .number-card.purple { background: #6a3ea0; }
+  .number-card.gray   { background: #666; }
+  .number-card.navy   { background: #1e3a6e; }
+  .compare-row { display: flex; gap: 14px; flex-wrap: wrap; margin: 14px 0; }
+  .compare-card {
+    flex: 1; min-width: 200px; border-radius: 8px;
+    padding: 16px 16px; font-size: 0.88rem; line-height: 1.7;
+  }
+  .compare-card h3 { font-size: 0.88rem; margin-bottom: 8px; padding-bottom: 6px; border-bottom: 1.5px dashed; }
+  .compare-card.red    { background: #fdeaea; border: 1.5px solid #c0392b; }
+  .compare-card.red h3 { color: #922b2b; border-color: #e8a0a0; }
+  .compare-card.green  { background: #e8f5ef; border: 1.5px solid #2c6e4e; }
+  .compare-card.green h3 { color: #2c6e4e; border-color: #b2d4c4; }
+  .compare-card.amber  { background: #fff8e8; border: 1.5px solid #c9920a; }
+  .compare-card.amber h3 { color: #7a5800; border-color: #f0d080; }
+  .compare-card.navy   { background: #eaf0fb; border: 1.5px solid #1e3a6e; }
+  .compare-card.navy h3 { color: #1e3a6e; border-color: #8aaad4; }
+  .compare-card.purple { background: #f0eafd; border: 1.5px solid #6a3ea0; }
+  .compare-card.purple h3 { color: #6a3ea0; border-color: #c0a0e8; }
+  .flow-wrap { display: flex; flex-direction: column; gap: 4px; margin: 14px 0; }
+  .flow-box {
+    background: #1e5e4e; color: white;
+    border-radius: 8px; padding: 14px 16px;
+    font-size: 0.88rem; line-height: 1.6;
+  }
+  .flow-box .fb-label { font-size: 0.7rem; opacity: 0.8; margin-bottom: 4px; display: block; }
+  .flow-box strong { font-size: 0.95rem; }
+  .flow-box.sub    { background: #2a7a62; }
+  .flow-box.light  { background: #eaf5f0; color: #2a2a2a; border: 1.5px solid #8ac4ad; }
+  .flow-box.amber  { background: #c9920a; }
+  .flow-box.green  { background: #2c6e4e; }
+  .flow-box.red    { background: #c0392b; }
+  .flow-box.purple { background: #6a3ea0; }
+  .flow-box.gray   { background: #666; }
+  .arrow-down { text-align: center; font-size: 1.5rem; color: #1e5e4e; margin: 4px 0; line-height: 1; }
+  .step-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 12px 0; }
+  .step-list li { display: flex; align-items: flex-start; gap: 12px; }
+  .step-num {
+    background: #1e5e4e; color: white; border-radius: 50%;
+    min-width: 28px; height: 28px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.78rem; font-weight: 700; flex-shrink: 0; margin-top: 2px;
+  }
+  .step-num.amber  { background: #c9920a; }
+  .step-num.red    { background: #c0392b; }
+  .step-num.green  { background: #2c6e4e; }
+  .step-num.purple { background: #6a3ea0; }
+  .step-num.gray   { background: #666; }
+  .step-list li div { font-size: 0.9rem; line-height: 1.7; }
+  .matrix-table { width: 100%; border-collapse: collapse; font-size: 0.87rem; margin: 14px 0; }
+  .matrix-table th {
+    background: #1e5e4e; color: white; padding: 10px 12px;
+    text-align: left; font-weight: 600; font-size: 0.82rem;
+  }
+  .matrix-table th:first-child { border-radius: 6px 0 0 0; }
+  .matrix-table th:last-child  { border-radius: 0 6px 0 0; }
+  .matrix-table td { padding: 10px 12px; border-bottom: 1px solid #cfe0d8; vertical-align: top; line-height: 1.55; }
+  .matrix-table tr:nth-child(even) td { background: #f0f7f3; }
+  .matrix-table .ok   { color: #2c6e4e; font-weight: 700; }
+  .matrix-table .ng   { color: #c0392b; font-weight: 700; }
+  .matrix-table .warn { color: #8a6000; font-weight: 700; }
+  .matrix-table .row-warn   td { background: #fff8e8 !important; }
+  .matrix-table .row-danger td { background: #fdeaea !important; }
+  .matrix-table .row-green  td { background: #e8f5ef !important; }
+  .matrix-table .row-navy   td { background: #eaf0fb !important; }
+  .matrix-table .row-purple td { background: #f0eafd !important; }
+  .check-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 12px 0; }
+  .check-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.9rem; line-height: 1.65; }
+  .check-icon {
+    min-width: 22px; height: 22px; border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.78rem; font-weight: 700; flex-shrink: 0; margin-top: 1px;
+  }
+  .check-icon.navy   { background: #1e3a6e; color: white; }
+  .check-icon.green  { background: #2c6e4e; color: white; }
+  .check-icon.amber  { background: #c9920a; color: white; }
+  .check-icon.red    { background: #c0392b; color: white; }
+  .check-icon.purple { background: #6a3ea0; color: white; }
+  .section-icon { font-size: 1.5rem; margin-right: 8px; vertical-align: middle; }
+  .tag {
+    display: inline-block; background: #1e5e4e; color: white;
+    font-size: 0.72rem; padding: 2px 8px; border-radius: 10px;
+    margin-right: 4px; vertical-align: middle;
+  }
+  .tag.amber  { background: #c9920a; }
+  .tag.red    { background: #c0392b; }
+  .tag.green  { background: #2c6e4e; }
+  .tag.purple { background: #6a3ea0; }
+  .tag.gray   { background: #888; }
+  .footer-card {
+    background: #f0ece3;
+    border: 1.5px solid #bbb;
+    border-radius: 8px;
+    padding: 20px 24px;
+    width: 100%;
+    max-width: 760px;
+    margin-bottom: 20px;
+    font-size: 0.82rem;
+    color: #555;
+    line-height: 1.8;
+  }
+  .footer-card .footer-title {
+    font-size: 0.78rem; color: #888; font-weight: 600;
+    margin-bottom: 10px; display: block;
+    text-transform: uppercase; letter-spacing: 0.08em;
+  }
+  .footnote { font-size: 0.78rem; color: #777; line-height: 1.7; margin-top: 12px; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 14px 0; }
+  @media (max-width: 560px) { .two-col { grid-template-columns: 1fr; } }
+  .mini-card {
+    border-radius: 8px; padding: 14px 16px;
+    font-size: 0.85rem; line-height: 1.65;
+  }
+  .mini-card h4 { font-size: 0.87rem; margin-bottom: 8px; }
+  .mini-card.navy   { background: #eaf0fb; border: 1.5px solid #8aaad4; }
+  .mini-card.navy h4 { color: #1e3a6e; }
+  .mini-card.amber  { background: #fff8e8; border: 1.5px solid #c9920a; }
+  .mini-card.amber h4 { color: #7a5800; }
+  .mini-card.green  { background: #e8f5ef; border: 1.5px solid #2c6e4e; }
+  .mini-card.green h4 { color: #2c6e4e; }
+  .mini-card.red    { background: #fdeaea; border: 1.5px solid #c0392b; }
+  .mini-card.red h4 { color: #922b2b; }
+  .mini-card.purple { background: #f0eafd; border: 1.5px solid #6a3ea0; }
+  .mini-card.purple h4 { color: #6a3ea0; }
+  .mini-card.gray   { background: #f4f4f4; border: 1.5px solid #aaa; }
+  .mini-card.gray h4 { color: #555; }
+</style>
+</head>
+<body>
+
+<!-- ヒーロー -->
+<div class="hero">
+  <div style="margin-bottom:14px;">
+    <span class="label">👴 社会保障ウォッチ（新規・本日施行）</span>
+  </div>
+  <h1>自営業者(autónomo)向け「柔軟な引退制度」が本日施行(2026年8月28日)<br>── Real Decreto 416/2026、将来スペインで年金と1人法人の仕事を両立する人への影響を整理</h1>
+  <div class="meta">
+    デジタルノマド 最新トピック 2026-08-28<br>
+    情報収集日：2026年8月28日<br>
+    スペインの「柔軟な引退(jubilación flexible)」という年金制度が、本日2026年8月28日から自営業者(autónomo、日本の個人事業主に近い区分)にも初めて開放されました。DNV(国際遠隔就労ビザ)取得後にRETA(自営業者向け社会保障)へ加入する人にとって、遠い将来の話ではありますが、押さえておく価値のある制度変更です
+  </div>
+</div>
+
+<!-- 今日のポイント -->
+<div class="card">
+  <h2><span class="section-icon">📌</span>今日のポイント（30秒まとめ）</h2>
+  <div class="number-row">
+    <div class="number-card">
+      <div class="num">8月28日</div>
+      <div class="desc">Real Decreto(王令) 416/2026が施行された日＝まさに今日</div>
+    </div>
+    <div class="number-card amber">
+      <div class="num">25%</div>
+      <div class="desc">自営業者がこの制度で活動を続けながら受け取れる年金の割合。残り75%は活動中は停止</div>
+    </div>
+    <div class="number-card purple">
+      <div class="num">3年</div>
+      <div class="desc">引退の直前3年間、RETA(自営業者向け社会保障)に未加入であることが利用の条件</div>
+    </div>
+    <div class="number-card green">
+      <div class="num">今回が初</div>
+      <div class="desc">「柔軟な引退」を自営業者に開放するのは今回が初めて。従来は賃金労働者のパートタイム就労限定</div>
+    </div>
+  </div>
+  <div class="highlight-box">
+    <span class="hlabel">💡 まず結論</span>
+    <p>今日紹介するのは、<strong>デジタルノマドビザ(DNV)そのものの変更ではありません。</strong>スペイン国内の年金・社会保障制度の話です。ただし、DNV取得後にRETA(自営業者向け社会保障、2026-06-17既報)へ加入して長くスペインで1人法人の仕事を続ける人にとっては、「将来、年金をもらいながら働き続ける」という選択肢の幅が広がった変更として知っておく価値があります。</p>
+  </div>
+</div>
+
+<!-- 図解：何が変わったのか -->
+<div class="card">
+  <h2><span class="section-icon">🔍</span>図解：今日、何がどう変わったのか</h2>
+  <p>「柔軟な引退(jubilación flexible)」とは、年金を受け取りながらパートタイムで働き続けられる制度です。実はこれまで、自営業者(autónomo)はこの制度の対象外でした。今回の変更の経緯をSTEPで整理します。</p>
+  <div class="flow-wrap">
+    <div class="flow-box navy" style="background:#1e3a6e;">
+      <span class="fb-label">STEP1　これまで(〜2026年8月27日、根拠：Real Decreto 1132/2002)</span>
+      「柔軟な引退」は賃金労働者(会社員)のパートタイム就労のみが対象。自営業者(autónomo)は利用できなかった。引退から1年間の待機期間も必須だった
+    </div>
+    <div class="arrow-down">↓</div>
+    <div class="flow-box amber">
+      <span class="fb-label">STEP2　公布(2026年5月27日付)</span>
+      Real Decreto 416/2026がBOE官報(BOE-A-2026-11474)に公布され、旧Real Decreto 1132/2002を廃止。新しい枠組みを約3か月の周知期間を経て施行することに
+    </div>
+    <div class="arrow-down">↓</div>
+    <div class="flow-box green">
+      <span class="fb-label">STEP3　施行(2026年8月28日＝本日)</span>
+      自営業者(RETA加入者)にも「柔軟な引退」が初めて開放。年金の25%を受け取りながら自営業を続けられるように。賃金労働者側は1年間の待機義務が撤廃され、引退後6か月経過で+15%〜+25%の加算インセンティブも新設
+    </div>
+    <div class="arrow-down">↓</div>
+    <div class="flow-box light">
+      <span class="fb-label">STEP4　今後</span>
+      本制度は「まだ引退していない人」には直接関係しない。将来、実際に年金受給年齢に近づいた時点で、社会保険労務士に相当するスペインのヘストール(gestor)・社会保障庁(TGSS)に条件を確認するのが安全
+    </div>
+  </div>
+  <div class="alert-box">
+    <span class="alabel">⚠ 注意点</span>
+    <p>柔軟な引退中にRETAへ支払う保険料は、<strong>将来の年金額を増やす効果を持ちません。</strong>複数の法律系メディアが、Real Decreto 416/2026第7条2項の内容として「柔軟な引退中の保険料は、既に決定された年金の改善にも、繰下げ受給加算にも反映されない」という趣旨を伝えています(条文原文は本セッションでは未確認)。</p>
+  </div>
+</div>
+
+<!-- 比較：3つの制度の違い -->
+<div class="card">
+  <h2><span class="section-icon">📊</span>整理：似た名前の3つの「働きながら年金」制度</h2>
+  <p>スペインには「働きながら年金の一部をもらう」制度が複数あり紛らわしいため、今回の変更点を含めて整理しました。</p>
+  <table class="matrix-table">
+    <thead>
+      <tr><th>制度名</th><th>対象</th><th>受け取れる年金の割合</th><th>主な条件</th></tr>
+    </thead>
+    <tbody>
+      <tr class="row-navy">
+        <td>活動的引退<br>(jubilación activa)</td>
+        <td>自営業者・賃金労働者(以前から存在する別の既存制度)</td>
+        <td>原則50%<br>(従業員を雇う自営業者は100%)</td>
+        <td>老齢年金の受給資格を満たしていること。今回の改正の対象外</td>
+      </tr>
+      <tr class="row-green">
+        <td>柔軟な引退・自営業者ルート<br>(jubilación flexible／autónomo)</td>
+        <td class="ok">RETA加入の自営業者<br>(今回初めて対象に)</td>
+        <td class="warn">25%<br>(残り75%は活動中停止)</td>
+        <td>引退の直前3年間、RETA未加入であること</td>
+      </tr>
+      <tr class="row-navy">
+        <td>柔軟な引退・賃金労働者ルート<br>(jubilación flexible／asalariado)</td>
+        <td>パートタイムで働く賃金労働者(従来から対象、要件が緩和)</td>
+        <td>稼働時間に応じて按分。6か月経過後は稼働55〜80%で+25%、33〜55%で+15%の加算</td>
+        <td>1年間の待機義務が今回撤廃</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="footnote">数字はIberley・laboral-social.com・El Blog Salmón・Pymesyautonomos・Campmany Abogados等、複数の独立した法律・労務系メディアの記述の一致にもとづく整理です。BOE官報原文(BOE-A-2026-11474)への直接アクセスは本セッションではブロックされたため、条文そのものでの確認はできていません。</p>
+</div>
+
+<!-- 実務ポイント -->
+<div class="card">
+  <h2><span class="section-icon">🧭</span>1人法人オーナーへの実務ポイント</h2>
+  <ul class="check-list">
+    <li><span class="check-icon green">1</span><div><strong>今日から急いで何かをする必要がある制度ではありません。</strong>今回の変更は、すでに年金受給年齢に達した(または近づいた)自営業者向けの制度であり、これからDNVを申請する段階の方には直接関係しません。</div></li>
+    <li><span class="check-icon navy">2</span><div><strong>ただし、長期的にスペインでRETA(自営業者向け社会保障、2026-06-17既報)に加入して1人法人の仕事を続ける計画がある方は、将来の選択肢として知っておく価値があります。</strong>「引退＝仕事をやめる」以外に、「年金の25%をもらいながら事業を続ける」という道が、自営業者にも初めて開かれました。</div></li>
+    <li><span class="check-icon amber">3</span><div><strong>この制度を使うには、引退の直前3年間RETA未加入である必要がある点に注意。</strong>逆に言えば、ずっとRETA加入者として働き続けてきた人がそのまま切れ目なく使える制度ではなく、一度完全に引退してから再開する人向けの設計になっている、と複数の解説記事が説明しています。</div></li>
+    <li><span class="check-icon purple">4</span><div><strong>柔軟な引退中の保険料は将来の年金額を増やしません。</strong>老後の資金計画は、スペインの公的年金だけに頼らず、日本の年金・私的な積立(iDeCo等)も含めて別途考えておくのが安全です。</div></li>
+    <li><span class="check-icon red">5</span><div><strong>日西社会保障協定(2026-08-11既報)は、年金の「加入期間の通算」を対象にした協定です。</strong>日本の年金加入期間とスペインRETA期間をどう通算し、今回の柔軟な引退制度がその通算部分にどう関わるかは、本セッションでは確認できていません。実際に引退が視野に入った段階で、日西両国の年金制度に詳しい専門家へ確認することを推奨します。</div></li>
+  </ul>
+</div>
+
+<!-- 出典 -->
+<div class="card">
+  <h2><span class="section-icon">🔗</span>主な参照元（検索確認日：2026年8月28日）</h2>
+  <ul class="check-list">
+    <li><span class="check-icon navy">1</span><div>Iberley「Publicada la nueva regulación de la jubilación flexible: RD 416/2026」・「Las 12 claves del nuevo régimen jurídico de la jubilación flexible: RD 416/2026」(法律データベースサイト。BOE-A-2026-11474・Real Decreto 416/2026, de 27 de mayoを引用) ── boe.esへの直接アクセスは本セッションではブロックされたため、これら法律データベースサイト経由での確認</div></li>
+    <li><span class="check-icon amber">2</span><div>El Blog Salmón「Entra en vigor el 28 de agosto: cambia la jubilación flexible y los jubilados que vuelvan a trabajar como autónomos perderán el 75% de su pensión」(2026年8月28日付)</div></li>
+    <li><span class="check-icon green">3</span><div>Pymesyautonomos「Los jubilados que combinen un trabajo con el retiro a partir de hoy cobrarán hasta un 25% más de pensión」(2026年8月28日付)、El Diario de Madrid(2026年8月28日付)、Periódico de Ibiza(2026年8月28日付)、Noticias de Navarra(2026年8月27日付) ── いずれも独立した報道で、施行日(8月28日)・25%という数字が一致</div></li>
+    <li><span class="check-icon purple">4</span><div>Laboral-social.com「Jubilación flexible 2026: nueva regulación tras la derogación del RD」 ── 旧Real Decreto 1132/2002が廃止され、従来は賃金労働者のパートタイム就労のみが対象だった点を確認</div></li>
+    <li><span class="check-icon red">5</span><div>Campmany Abogados「Diferencias entre la jubilación activa y la flexible」・Esteban Asesores「Nueva Jubilación Flexible 2026」・Tomarial「Las nuevas reglas de la jubilación flexible tras el RD 416/2026」 ── 既存の「活動的引退(jubilación activa、50%)」との違いを整理する際に参照</div></li>
+  </ul>
+  <p class="footnote">あわせて、スペイン⇔イタリア間の域内国境検査(期限：2026年9月7日24時)、スペイン富裕税の違憲審査判決、ETIASの新日程、外国人法・庇護法改正案の続報を再検索しましたが、2026年8月28日時点でも状況変化は確認できませんでした(ETIASについては、eu-LISA理事会が2026年9月に開催され、その後に改訂スケジュールが示される見込みという既報の情報から変化なし)。</p>
+</div>
+
+<!-- フッター -->
+<div class="footer-card">
+  <span class="footer-title">⚠ 免責事項 &amp; 専門家への相談推奨</span>
+  <p>
+    <strong>【本記事の性質】</strong>本記事は、スペインの法律・労務系メディア複数の記述の一致にもとづく紹介であり、公式な法令解説ではありません。BOE官報原文(BOE-A-2026-11474)への直接アクセスは本セッションではできておらず、条文そのものでの確認はできていない点をご了承ください。<br>
+    <strong>【新ルールか否か】</strong>「柔軟な引退」制度自体は2002年から存在しますが、自営業者(autónomo)への適用は今回のReal Decreto 416/2026(2026年5月27日付公布、2026年8月28日施行)で初めて認められたものであり、既存ルールの単純な再解説ではありません。<br>
+    <strong>【対象範囲】</strong>本記事はDNV(国際遠隔就労ビザ)そのものの制度変更ではなく、スペイン国内の自営業者向け年金・社会保障制度の話です。今すぐ引退を考えている方以外には、将来の参考情報としてお読みください。<br>
+    <strong>【税務・社会保険】</strong>年金・社会保障・RETAに関する正式な判断は、必ずスペインの社会保険労務士に相当する専門家(gestor)や、国際税務・社会保障に詳しい専門家へご確認ください。「必ず適用される」「必ず有利になる」といった断定を行うものではありません。<br>
+    <strong>【基準時点】</strong>本記事の内容は2026年8月28日時点で確認できた情報にもとづきます。制度は変更される可能性があるため、最新情報は必ず公式情報でご確認ください。
+  </p>
+</div>
+
+</body>
+</html>
