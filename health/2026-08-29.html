@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-08-29</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '🥫';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.9rem; margin-bottom: 8px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.1em; }
+  .c3-col li { margin-bottom: 4px; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .mech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .mech-item {
+    background: #f0faf5;
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 0.85rem;
+    border-top: 3px solid #1a7a5a;
+  }
+  .mech-item .micon { font-size: 1.3rem; margin-bottom: 6px; }
+  .mech-item strong { display: block; color: #0d4a35; margin-bottom: 4px; font-size: 0.88rem; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .highlight { background: #cff0df; padding: 1px 5px; border-radius: 4px; }
+  .good { color: #1a7a5a; font-weight: 600; }
+  .bad  { color: #c0392b; font-weight: 600; }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-box {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin: 14px 0;
+    font-size: 0.92rem;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  .quote-box {
+    background: #f5f0e8;
+    border-left: 4px solid #7a5abf;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    margin: 12px 0;
+    color: #444;
+    font-style: italic;
+  }
+  .quote-box .who { font-style: normal; font-weight: 700; color: #5a3a9a; margin-top: 6px; font-size: 0.78rem; }
+  .matrix {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .mx-cell {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .mx-cell .mx-head { font-weight: 700; font-size: 0.88rem; margin-bottom: 6px; }
+  .mx-cell.ok  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .mx-cell.ok  .mx-head { color: #1a6e4a; }
+  .mx-cell.ng  { background: #fbe8e6; border: 2px solid #c0392b; }
+  .mx-cell.ng  .mx-head { color: #a0291e; }
+  @media (max-width: 540px) {
+    .compare4 { grid-template-columns: 1fr 1fr; }
+    .matrix { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.7rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ヘッダー -->
+<div class="header">
+  <div class="label">健康・栄養 最新トピック ・ 2026-08-29</div>
+  <h1>超加工食品をよく食べる男性は前立腺がんリスクが24〜31%高い<br>――でも、この数字は"原因"を証明したわけではない</h1>
+  <div class="subtitle">米フロリダ・アトランティック大学(FAU)のCharles H. Hennekelsさんらのチームが、米国の大規模健康調査「NHANES」に参加した男性17,024人分のデータを使い、超加工食品(UPF)をよく食べる人ほど前立腺がんの割合が高いかどうかを調べた研究を、2026年8月に米国医学誌「American Journal of Medicine」に発表しました。「原因と結果」を言うにはまだ足りない部分も含めて、今日はこの研究の読み方を一緒に見ていきます。</div>
+</div>
+
+<!-- タグ -->
+<div style="margin-bottom:18px;">
+  <span class="tag">超加工食品(UPF)</span>
+  <span class="tag">前立腺がん</span>
+  <span class="tag">NHANES</span>
+  <span class="tag">横断研究</span>
+  <span class="tag">相関と因果</span>
+</div>
+
+<!-- 今日の疑問 -->
+<div class="card">
+  <h2>🤔 今日の疑問:「超加工食品でがんになる」と言えるの?</h2>
+  <p>ソーセージやスナック菓子、清涼飲料水、菓子パンなど、工場で強く加工された「超加工食品」は、肥満や心臓病との関連がよく報じられています。では、男性に多い「前立腺がん」とも関係があるのでしょうか。</p>
+  <p>2026年8月、米フロリダ・アトランティック大学のHunter Scottさん(医学生)・Yanna Willettさん(英オックスフォード大学博士課程)・John Dunnさん(医学生)・Timothy D. Dyeさん・Charles H. Hennekelsさん(予防医学教授)らのチームが、米国の代表的な健康調査「NHANES」の男性17,024人分のデータを分析し、超加工食品の摂取割合と前立腺がんの申告割合の関係を調べた結果を発表しました。</p>
+</div>
+
+<!-- 基本用語 -->
+<div class="card blue">
+  <h2>📖 まず言葉の意味を</h2>
+  <div class="def-grid">
+    <div class="def-item">
+      <div class="dterm">超加工食品(UPF)</div>
+      家庭の調理では使わないような添加物や工業的な処理を経て作られた食品。清涼飲料水・スナック菓子・加工肉・菓子パンなどが代表例。食品を加工度で4段階に分ける「NOVA分類」の最も加工度が高い区分。
+    </div>
+    <div class="def-item">
+      <div class="dterm">NHANES</div>
+      米国疾病予防管理センター(CDC)が続けている、国を代表する集団を対象にした健康・栄養調査。今回は2003〜2023年の分のデータが使われた。
+    </div>
+    <div class="def-item">
+      <div class="dterm">横断研究(クロスセクショナル研究)</div>
+      ある一時点で、食事などの生活習慣と病気の有無を同時に調べる研究方法。「どちらが先か」という時間の前後関係を確認できないという弱点がある。
+    </div>
+    <div class="def-item">
+      <div class="dterm">交絡因子</div>
+      年齢や喫煙、貧困度など、調べたい関係(超加工食品とがん)の両方に影響しうる別の要因。これを考慮せずに比較すると、見かけ上の関連が生まれることがある。
+    </div>
+    <div class="def-item">
+      <div class="dterm">自己申告(セルフレポート)</div>
+      「医師にがんと言われたことがありますか」という質問への本人の回答をもとにデータを集める方法。病理検査やがん登録データそのものではないため、正確さに限界がある。
+    </div>
+    <div class="def-item">
+      <div class="dterm">統計的に有意</div>
+      観察された差が、偶然のばらつきだけでは説明しにくいと判断される基準を満たしていること。「有意でない」場合、その差は偶然の範囲内かもしれないという意味になる。
+    </div>
+  </div>
+</div>
+
+<!-- 数字カード -->
+<div class="num-row">
+  <div class="num-card gray-bg">
+    <div class="big">17,024<span class="unit">人</span></div>
+    <div class="desc">対象になった18歳以上の米国人男性の数(NHANES 2003〜2023年分)</div>
+  </div>
+  <div class="num-card blue-bg">
+    <div class="big">29<span class="unit">%</span></div>
+    <div class="desc">超加工食品の摂取割合が高い3グループ(合計)の前立腺がん申告割合が、最も少ないグループより高かった割合</div>
+  </div>
+  <div class="num-card orange-bg">
+    <div class="big">24〜31<span class="unit">%</span></div>
+    <div class="desc">年齢・人種民族・喫煙状況・貧困度で調整した後も残ったリスクの高さの範囲</div>
+  </div>
+  <div class="num-card red-bg">
+    <div class="big">34<span class="unit">%※</span></div>
+    <div class="desc">摂取量が最も多い1グループだけで見た場合の推定リスク。※統計的に有意ではなかった(該当グループの症例数が少なかったため)</div>
+  </div>
+</div>
+
+<!-- 研究の流れ -->
+<div class="card purple">
+  <h2>🧭 どうやって調べたか(5ステップ)</h2>
+  <div class="flow">
+    <div class="flow-step purp">① NHANES<br>2003〜2023年分<br>男性17,024人</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step">② 24時間思い出し法の<br>食事調査を<br>2日分実施</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step alt">③ NOVA分類で<br>超加工食品由来の<br>カロリー割合を算出</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step">④ 摂取割合(約20%未満<br>〜44%超)で<br>4グループに分割</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step purp">⑤ 前立腺がんの<br>自己申告の有無と<br>比較・統計調整</div>
+  </div>
+  <p style="font-size:0.82rem; color:#555; margin-top:4px;">食事調査はたった2日分の「思い出し」であり、一生の食習慣そのものを測ったわけではない点に注意が必要です。</p>
+</div>
+
+<!-- 摂取量グループ比較 -->
+<div class="card orange">
+  <h2>⚖️ 摂取量が少ないグループ と 多いグループ</h2>
+  <div class="compare4">
+    <div class="c3-col green">
+      <h3>🥗 最も少ないグループ(約20%未満)</h3>
+      <ul>
+        <li>1日の総カロリーのうち、超加工食品由来が2割未満</li>
+        <li>今回の比較の基準(リスク1倍)として使われた</li>
+      </ul>
+    </div>
+    <div class="c3-col red">
+      <h3>🥫 より多いグループ(3グループ合計)</h3>
+      <ul>
+        <li>最も少ないグループと比べ、調整前で前立腺がん申告割合が29%高い</li>
+        <li>年齢・人種民族・喫煙・貧困度で調整後も24〜31%高いまま有意差が残った</li>
+        <li>摂取量が最も多い1グループ(44%超)だけに絞ると34%という推定値も出たが、有意差なし</li>
+      </ul>
+    </div>
+  </div>
+  <p style="font-size:0.82rem; color:#555; margin-top:8px;">「たくさん食べるほど段階的にリスクが上がる」という単純な比例関係というより、「一定より多く食べるグループ全体」で申告割合が高かった、という結果です。</p>
+</div>
+
+<!-- 賛否・限界 -->
+<div class="card">
+  <h2>🔬 この結果、どこまで信じてよいか</h2>
+  <p>この研究がまず伝えているのは「関連(相関)」であり、「超加工食品が前立腺がんの原因である」という証明ではありません。今回の研究デザインは<strong>横断研究</strong>、つまり食事とがんの有無を同じ時点で一度に尋ねる方法です。そのため、「がんと診断されたあとに食生活が変わった」という順番だった可能性を否定できません。</p>
+  <p>加えて、前立腺がんの有無は病理検査やがん登録データではなく<strong>本人の自己申告</strong>にもとづいており、食事の内容も<strong>2日間の思い出しだけ</strong>から推定されたものです。家族歴やPSA検査(前立腺がんの血液検査)を受けた頻度、運動量といった、今回調整されていない要因の影響が残っている可能性(残余交絡)も考えられます。研究チーム自身も、この関連をさらに確かめるための大規模な観察研究や、ランダム化比較試験(RCT)が必要だと述べています。</p>
+</div>
+
+<!-- 注意点 -->
+<div class="warn">
+  <strong>⚠️ 誤解しないでほしいこと</strong>
+  <ul style="padding-left:1.4em; margin-top:8px;">
+    <li>「超加工食品=即座にがんの原因」という単純な話ではなく、あくまで<strong>統計的な関連</strong>が示された段階です。</li>
+    <li>最も摂取量が多いグループだけを見た34%という数字は、統計的に有意ではなかった(偶然の範囲内である可能性が残る)点に注意してください。</li>
+    <li>今回の対象は米国の成人男性であり、日本人を含む他の集団にそのまま当てはまるとは限りません。</li>
+    <li>前立腺がんのリスクが気になる場合は、自己判断で食事だけを変えようとせず、かかりつけ医や管理栄養士にご相談ください。</li>
+  </ul>
+</div>
+
+<!-- エビデンスの整理 -->
+<div class="card">
+  <h2>🧪 今日出てきた情報の「証拠としての強さ」の目安</h2>
+  <table class="ev-table">
+    <tr><th>情報の種類</th><th>特徴</th><th>証拠としての強さ</th></tr>
+    <tr>
+      <td>超加工食品の摂取割合が高い男性は、前立腺がんの申告割合も高い</td>
+      <td>横断観察研究(NHANES、n=17,024、交絡因子で調整済み)</td>
+      <td><span class="ev-badge ev-mid">中程度(観察研究、横断的)</span></td>
+    </tr>
+    <tr>
+      <td>超加工食品が前立腺がんの"原因"である</td>
+      <td>今回の研究では調べられていない(横断研究・自己申告・逆の因果の可能性)</td>
+      <td><span class="ev-badge ev-low">未証明(相関のみ)</span></td>
+    </tr>
+    <tr>
+      <td>摂取量が最も多いグループ単独でのリスク上昇(34%)</td>
+      <td>統計的に有意ではなかった(症例数が少ない可能性)</td>
+      <td><span class="ev-badge ev-low">不確実</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- まとめ -->
+<div class="card" style="border-left-color:#1a7a5a;">
+  <h2>✅ 今日のまとめ</h2>
+  <ul class="step-list">
+    <li>米フロリダ・アトランティック大学のHennekelsさんらのチームが、NHANESの男性17,024人分のデータを分析し、超加工食品の摂取割合と前立腺がんの自己申告割合の関係を調べた(American Journal of Medicine、2026年8月)。</li>
+    <li>超加工食品の摂取割合が高い3グループでは、最も少ないグループと比べて申告割合が29%高く、年齢・人種民族・喫煙・貧困度で調整しても24〜31%高いままだった。摂取量が最も多い1グループだけに絞った34%という数字は統計的に有意ではなかった。</li>
+    <li>研究デザインは横断研究であり、前立腺がんの有無は自己申告、食事は2日分の思い出しにもとづく。「食事が先か、がんの診断が先か」という順番を確認できず、家族歴やPSA検査の頻度など調整されていない要因も残っている。</li>
+    <li>研究チーム自身が、この関連を確かめるための大規模な観察研究やランダム化比較試験(RCT)が今後必要だと述べている。</li>
+    <li>「相関」と「因果」を区別しながらニュースの数字を読む、というこのシリーズでたびたび出てくる視点が、今回の研究にもそのまま当てはまります。</li>
+  </ul>
+</div>
+
+<!-- 免責 -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、医療アドバイスではありません。効果・必要量・リスクは個人の体質・年齢・持病・服薬によって大きく異なります。本記事は特定の食事制限やサプリメント、断食などを推奨するものではありません。前立腺がんのリスクや食生活の見直しについては、自己判断せず、かかりつけ医・管理栄養士・薬剤師など専門家にご相談ください。
+</div>
+
+<!-- 出典 -->
+<div class="sources">
+  <h3>📚 主な出典・参考文献</h3>
+  <ol>
+    <li>Scott H, Willett Y, Dunn J, Dye TD, Hennekels CH. "Consumption of Ultra-Processed Foods and Increased Risks of Prostate Cancer in a Random Sample of United States Adults." <em>American Journal of Medicine</em>. 2026. DOI: 10.1016/j.amjmed.2026.07.043
+      <a href="https://www.amjmed.com/article/S0002-9343(26)00595-4/abstract" target="_blank">https://www.amjmed.com/article/S0002-9343(26)00595-4/abstract</a>(基準日:2026年8月)
+    </li>
+    <li>Florida Atlantic University. "Ultra-Processed Foods Linked to Notably Higher Prostate Cancer Risks."
+      <a href="https://www.fau.edu/newsdesk/articles/ultra-processed-foods-prostate-cancer-risk" target="_blank">https://www.fau.edu/newsdesk/articles/ultra-processed-foods-prostate-cancer-risk</a>(基準日:2026年8月)
+    </li>
+    <li>ScienceDaily. "Eating more ultra-processed foods may raise prostate cancer risk by 30%."
+      <a href="https://www.sciencedaily.com/releases/2026/08/260826055457.htm" target="_blank">https://www.sciencedaily.com/releases/2026/08/260826055457.htm</a>(基準日:2026年8月26日)
+    </li>
+    <li>ConsumerAffairs. "Study links ultra-processed foods to higher prostate cancer risk — but doesn't prove cause."
+      <a href="https://www.consumeraffairs.com/news/study-links-ultra-processed-foods-to-higher-prostate-cancer-riskbut-doesnt-prove-cause-081726.html" target="_blank">https://www.consumeraffairs.com/news/study-links-ultra-processed-foods-to-higher-prostate-cancer-riskbut-doesnt-prove-cause-081726.html</a>(基準日:2026年8月17日)
+    </li>
+    <li>U.S. News & World Report. "Processed Foods Linked To Prostate Cancer Risk."
+      <a href="https://www.usnews.com/news/health-news/articles/2026-08-14/processed-foods-linked-to-prostate-cancer-risk" target="_blank">https://www.usnews.com/news/health-news/articles/2026-08-14/processed-foods-linked-to-prostate-cancer-risk</a>(基準日:2026年8月14日)
+    </li>
+  </ol>
+  <p style="margin-top:8px; font-size:0.78rem;">※ ネットワーク制限により、上記サイトの多く(American Journal of Medicine本文・FAU・ScienceDaily・ConsumerAffairs・U.S. News等)へ直接アクセスできなかったため、検索エンジンで得られる要約・引用文を複数の情報源で突き合わせて作成しています。論文本文そのもの(一次資料)には未アクセスのため、正確な信頼区間(95%CI)やp値など細部の数値は今後の確認が望まれます。</p>
+</div>
+
+</div>
+</body>
+</html>
