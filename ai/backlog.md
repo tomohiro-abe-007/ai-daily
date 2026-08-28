@@ -91,6 +91,7 @@
 - 2026-08-26: ARIA（オーストラリア・レコーディング産業協会）音楽チャートAI除外ルール（2026年8月24〜25日発表・8月31日適用開始）・「AIが創作要素の大部分を生成した楽曲」を公式チャートから除外・「AIを補助ツールとして使い実質的に人間が作った楽曲」はOK・マドンナ曲カバーがAIボーカル＋ドラムでチャート首位に入った事例がきっかけ・ARIA違反曲のランキング削除・順位変更・受賞歴取消が可能・世界初の国レベルでの音楽チャートAI楽曲除外ルール・米英日は2026年8月時点で同様ルール未導入（出典：ARIA公式 / Billboard / Variety / ABC News Australia / Digital Music News・2026年8月）
 - 2026-08-27: 英国×ウクライナ「AI防衛パートナーシップ協定」（2026年8月24日署名）・英国が世界初のアベンジャーズAIラボアクセス国に・500万枚以上の戦場画像データ・DELTAシステム由来・英国は大学・研究者・AI技術を提供・初期プロジェクト：光ファイバーをAIセンサーに転用・低消費電力ドローン向けAIチップ開発（出典：英国政府公式 / Kyiv Independent / The Defense Post・2026年8月24〜25日）
 - 2026-08-28: Slack Code（2026年8月20〜24日発表・Salesforce）・Slackに専用「コードチャンネル」を新設・Claude Code/Devin/GitHub Copilot/ChatGPT/Vercelエージェント対応・4タブ構成（会話・計画・差分・プレビュー）・チーム全員がリアルタイムでAI作業を確認・一時停止・方向変更可能・本番プッシュは人間承認必須・全プランで利用可能（公式要確認）（出典：Salesforce公式プレスリリース / Slack公式ブログ / VentureBeat / The Next Web・2026年8月）
+- 2026-08-29: Claudeエージェントツール4種正式公開（GA）（2026年8月19日・Anthropic）・コンピューター使用（computer_toolset_20260801）・ブラウザ使用（browser_toolset_20260801・新規ツール）・ファイルAPI（組織あたり1TB・自動期限切れ・高レート制限）・スキルAPI（手順書を「スキル」として登録・バージョン管理）・Skills API/Files APIはMicrosoft Foundryでも提供・コンピューター/ブラウザ使用はGoogle Cloud Vertex AI対応予定（出典：Anthropic公式ブログ / Channel Insider / Enterprise DNA / Digital Applied・2026年8月19日）
 
 ## 未解説の候補トピック（今後の参考）
 
