@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-08-30</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '⚖️';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.9rem; margin-bottom: 8px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.1em; }
+  .c3-col li { margin-bottom: 4px; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .mech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .mech-item {
+    background: #f0faf5;
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 0.85rem;
+    border-top: 3px solid #1a7a5a;
+  }
+  .mech-item .micon { font-size: 1.3rem; margin-bottom: 6px; }
+  .mech-item strong { display: block; color: #0d4a35; margin-bottom: 4px; font-size: 0.88rem; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .highlight { background: #cff0df; padding: 1px 5px; border-radius: 4px; }
+  .good { color: #1a7a5a; font-weight: 600; }
+  .bad  { color: #c0392b; font-weight: 600; }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-box {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin: 14px 0;
+    font-size: 0.92rem;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  .quote-box {
+    background: #f5f0e8;
+    border-left: 4px solid #7a5abf;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    margin: 12px 0;
+    color: #444;
+    font-style: italic;
+  }
+  .quote-box .who { font-style: normal; font-weight: 700; color: #5a3a9a; margin-top: 6px; font-size: 0.78rem; }
+  .matrix {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .mx-cell {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .mx-cell .mx-head { font-weight: 700; font-size: 0.88rem; margin-bottom: 6px; }
+  .mx-cell.ok  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .mx-cell.ok  .mx-head { color: #1a6e4a; }
+  .mx-cell.ng  { background: #fbe8e6; border: 2px solid #c0392b; }
+  .mx-cell.ng  .mx-head { color: #a0291e; }
+  @media (max-width: 540px) {
+    .compare4 { grid-template-columns: 1fr; }
+    .matrix { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.7rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ヘッダー -->
+<div class="header">
+  <div class="label">健康・栄養 最新トピック ・ 2026-08-30</div>
+  <h1>体重は同じだけ減ったのに、肝臓の脂肪の減り方は違った<br>──ケト・地中海式・植物性食、3つの食事を比べたRCT</h1>
+  <div class="subtitle">米ワシントン大学セントルイス校医学部のMax C. Petersenさん・Samuel Kleinさんらのチームが、肥満・前糖尿病・脂肪肝のある成人42人を対象に、体重減少の量をそろえたうえで「ケトジェニック食・地中海式食・植物性食」の効果を比べたランダム化比較試験(RCT)を、2026年8月27日にCell Metabolism誌に発表しました。体重減少そのものの効果と、食事の中身(何を減らして何を増やすか)による違いを、今日は一緒に読み解きます。</div>
+</div>
+
+<!-- タグ -->
+<div style="margin-bottom:18px;">
+  <span class="tag">ケトジェニック食</span>
+  <span class="tag">地中海式食</span>
+  <span class="tag">脂肪肝</span>
+  <span class="tag">前糖尿病</span>
+  <span class="tag">ランダム化比較試験(RCT)</span>
+</div>
+
+<!-- 今日の疑問 -->
+<div class="card">
+  <h2>🤔 今日の疑問:体重が同じだけ減れば、どの食事でも効果は同じ?</h2>
+  <p>「ケト(糖質をほぼ抜く食事)」「地中海式(魚・野菜・オリーブオイル中心)」「植物性(脂肪を減らし炭水化物中心)」——世の中には人気のダイエット法がいくつもあります。どれも体重を減らす効果は報告されていますが、<strong>同じだけ体重が減ったとしても、肝臓の脂肪や血糖の状態への効果まで同じ</strong>なのでしょうか。</p>
+  <p>2026年8月27日、米ワシントン大学セントルイス校医学部のMax C. Petersenさん・Gordon I. Smithさん・Sarah S. Farabiさん・Samuel Kleinさん(責任著者)らのチームが、肥満・前糖尿病・脂肪肝(肝臓に脂肪がたまった状態)をあわせ持つ成人42人を3つの食事グループにランダムに割り付け、体重減少の割合をそろえたうえで、肝臓の脂肪や血糖の状態がどう変わるかを比べたランダム化比較試験(RCT)の結果をCell Metabolism誌に発表しました。</p>
+</div>
+
+<!-- 基本用語 -->
+<div class="card blue">
+  <h2>📖 まず言葉の意味を</h2>
+  <div class="def-grid">
+    <div class="def-item">
+      <div class="dterm">ケトジェニック食</div>
+      炭水化物(糖質)を極端に減らし、脂肪の割合を大きく増やす食事法。体が糖の代わりに脂肪を分解してエネルギー源にする状態を目指す。
+    </div>
+    <div class="def-item">
+      <div class="dterm">地中海式食</div>
+      魚・野菜・果物・全粒穀物・オリーブオイルを中心にした、地中海沿岸の伝統的な食事パターン。心血管疾患の予防に関する研究の蓄積が多い。
+    </div>
+    <div class="def-item">
+      <div class="dterm">植物性食(今回は低脂肪・高炭水化物)</div>
+      脂肪を大きく減らし、野菜・穀物などの炭水化物を中心にする食事法。今回の試験では3つの食事の中で最も炭水化物の割合が高いグループ。
+    </div>
+    <div class="def-item">
+      <div class="dterm">前糖尿病(prediabetes)</div>
+      血糖値が正常より高いが、糖尿病と診断される基準にはまだ達していない状態。生活習慣の改善で糖尿病への進行を防げる可能性がある。
+    </div>
+    <div class="def-item">
+      <div class="dterm">インスリン感受性</div>
+      体の細胞が血糖を下げるホルモン「インスリン」にどれだけ反応しやすいかを示す指標。感受性が高いほど、少ないインスリンで血糖をうまく処理できる。
+    </div>
+    <div class="def-item">
+      <div class="dterm">脂肪肝(肝脂肪)</div>
+      肝臓の細胞に脂肪がたまった状態。進行すると肝臓の炎症や損傷につながることがあり、肥満や前糖尿病と合併しやすい。
+    </div>
+  </div>
+</div>
+
+<!-- 数字カード -->
+<div class="num-row">
+  <div class="num-card gray-bg">
+    <div class="big">42<span class="unit">人</span></div>
+    <div class="desc">対象になった肥満・前糖尿病・脂肪肝のある成人の人数(3グループにランダムに分けたため1グループあたり十数人)</div>
+  </div>
+  <div class="num-card blue-bg">
+    <div class="big">約10<span class="unit">%</span></div>
+    <div class="desc">3グループすべてで共通してそろえた、体重減少の割合(4〜5か月間、食事は研究チームが提供)</div>
+  </div>
+  <div class="num-card orange-bg">
+    <div class="big">67<span class="unit">% vs 45%</span></div>
+    <div class="desc">肝臓の脂肪の減少率。ケト群は67%減、地中海式・植物性の両群は45%減</div>
+  </div>
+  <div class="num-card red-bg">
+    <div class="big">2〜3<span class="unit">倍</span></div>
+    <div class="desc">肝臓のインスリン感受性の改善幅が、ケト群では他の2グループより大きかった倍率</div>
+  </div>
+</div>
+
+<!-- 研究の流れ -->
+<div class="card purple">
+  <h2>🧭 どうやって調べたか(5ステップ)</h2>
+  <div class="flow">
+    <div class="flow-step purp">① 肥満・前糖尿病・<br>脂肪肝のある<br>成人42人</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step">② ケト・地中海式・<br>植物性の3群に<br>ランダムに割り付け</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step alt">③ 研究チームが食事を提供<br>週1回栄養士と面談<br>(4〜5か月)</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step">④ 体重減少が<br>約10%でそろうまで<br>継続</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step purp">⑤ 肝脂肪・血糖・<br>インスリン感受性を<br>3群で比較</div>
+  </div>
+  <p style="font-size:0.82rem; color:#555; margin-top:4px;">食事は研究チームがすべて用意し、週1回栄養士が面談してサポートするという、かなり管理された環境での試験です。自分だけで自己流に続けた場合の結果とは異なる可能性があります。</p>
+</div>
+
+<!-- 3食事比較 -->
+<div class="card orange">
+  <h2>⚖️ ケト vs 地中海式 vs 植物性、何が同じで何が違ったか</h2>
+  <div class="compare4">
+    <div class="c3-col green">
+      <h3>🥓 ケトジェニック食</h3>
+      <ul>
+        <li>体重減少:約10%(共通)</li>
+        <li>肝脂肪の減少:67%</li>
+        <li>前糖尿病から抜け出た割合:約50%</li>
+        <li>肝臓のインスリン感受性の改善が最も大きい</li>
+        <li>脂肪を減らすホルモン「グルカゴン」の増加も最大</li>
+      </ul>
+    </div>
+    <div class="c3-col blue">
+      <h3>🐟 地中海式食</h3>
+      <ul>
+        <li>体重減少:約10%(共通)</li>
+        <li>肝脂肪の減少:45%</li>
+        <li>前糖尿病から抜け出た割合:約29%</li>
+        <li>筋肉のインスリン感受性は他2群と同程度改善</li>
+      </ul>
+    </div>
+    <div class="c3-col purple">
+      <h3>🥦 植物性食(低脂肪)</h3>
+      <ul>
+        <li>体重減少:約10%(共通)</li>
+        <li>肝脂肪の減少:45%</li>
+        <li>前糖尿病から抜け出た割合:約7%</li>
+        <li>筋肉のインスリン感受性は他2群と同程度改善</li>
+      </ul>
+    </div>
+  </div>
+  <p style="font-size:0.82rem; color:#555; margin-top:8px;">筋肉のインスリン感受性(全身の血糖処理のしやすさ)は3グループともおよそ50%改善しており、これは「体重が減ったこと自体」の効果とみられます。一方、肝臓の脂肪や前糖尿病からの回復といった「肝臓まわりの指標」では、ケト群がより大きく改善したという結果です。</p>
+</div>
+
+<!-- 議論・限界 -->
+<div class="card">
+  <h2>🔬 この結果、どこまで信じてよいか</h2>
+  <p>この試験は<strong>ランダム化比較試験(RCT)</strong>であり、参加者を偶然(くじ引きのような方法)で3グループに割り振っているため、観察研究より「原因と結果」に迫りやすい設計です。さらに食事は研究チームがすべて提供し、栄養士が週1回サポートしているため、実際に指示通りの食事が食べられたかという「実行のばらつき」も比較的抑えられています。</p>
+  <p>ただし、<strong>対象はわずか42人</strong>で、3グループに分けると1グループあたり十数人という<strong>小規模な試験</strong>です。期間も4〜5か月と中期的で、対象は「肥満・前糖尿病・脂肪肝を併せ持つ人」に限られており、健康な人やすでに糖尿病がある人にそのまま当てはまるとは限りません。また、食事を研究チームが用意するという管理された環境での結果であり、外食や自炊を含む実生活で自己流にケト食を続けた場合に同じ効果が得られるとは限らない点にも注意が必要です。長期的な安全性や、心血管疾患そのものへの影響は今回の試験では確認されていません。</p>
+</div>
+
+<!-- 賛否両論 -->
+<div class="card red">
+  <h2>🗣️ 意見が分かれるところ:ケト食は本当に"おすすめ"?</h2>
+  <div class="matrix">
+    <div class="mx-cell ok">
+      <div class="mx-head">✅ 今回の結果からの見方</div>
+      肝臓の脂肪や前糖尿病からの回復という点では、ケト食が他の2つの食事より優れた効果を示した。短期〜中期的な代謝の改善を狙う場面では選択肢になりうる。
+    </div>
+    <div class="mx-cell ng">
+      <div class="mx-head">⚠️ 慎重な見方・別の視点</div>
+      ケト食は飽和脂肪酸の摂取量が増えやすく、人によってはLDLコレステロール(いわゆる悪玉コレステロール)が上がりやすいことが他の研究で知られている。長期の継続のしやすさや心血管疾患そのものへの影響については、地中海式食のほうが研究の蓄積が厚い。今回の試験自体も、著者らは「体重減少そのものが3つの食事に共通する主要な効果であり、食事の種類による差は"上乗せ"の部分」と位置づけている。
+    </div>
+  </div>
+</div>
+
+<!-- 注意点 -->
+<div class="warn">
+  <strong>⚠️ 誤解しないでほしいこと</strong>
+  <ul style="padding-left:1.4em; margin-top:8px;">
+    <li>「ケト食が一番優れている」と単純に言い切れる話ではなく、<strong>今回調べた"肝臓まわりの指標"に限れば</strong>という条件つきの結果です。</li>
+    <li>体重減少そのものが3グループ共通の一番大きな効果であり、食事の種類による違いは、そのうえに乗る"追加の差"として読む必要があります。</li>
+    <li>対象42人という小規模な試験であり、長期の安全性(心血管疾患への影響やLDLコレステロールの変化など)は今回の試験だけでは分かりません。</li>
+    <li>ケト食や大きな食事変更を始める前には、自己判断で行わず、かかりつけ医・管理栄養士にご相談ください。特に持病がある方・薬を服用中の方は注意が必要です。</li>
+  </ul>
+</div>
+
+<!-- エビデンスの整理 -->
+<div class="card">
+  <h2>🧪 今日出てきた情報の「証拠としての強さ」の目安</h2>
+  <table class="ev-table">
+    <tr><th>情報の種類</th><th>特徴</th><th>証拠としての強さ</th></tr>
+    <tr>
+      <td>体重減少の割合をそろえると、3つの食事とも筋肉のインスリン感受性が約50%改善</td>
+      <td>ランダム化比較試験(RCT、食事は研究者が提供、n=42)</td>
+      <td><span class="ev-badge ev-mid">中〜高(RCTだが小規模)</span></td>
+    </tr>
+    <tr>
+      <td>ケト食は地中海式・植物性食より肝臓の脂肪の減少が大きい(67% vs 45%)</td>
+      <td>同じRCTの中での群間比較(n=42、単一施設)</td>
+      <td><span class="ev-badge ev-mid">中〜高(RCTだが小規模・単一施設)</span></td>
+    </tr>
+    <tr>
+      <td>この結果が健康な人・別の集団・長期にもそのまま当てはまる</td>
+      <td>今回の対象(肥満・前糖尿病・脂肪肝がある人)以外では未確認</td>
+      <td><span class="ev-badge ev-low">未確認・要追加研究</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- まとめ -->
+<div class="card" style="border-left-color:#1a7a5a;">
+  <h2>✅ 今日のまとめ</h2>
+  <ul class="step-list">
+    <li>米ワシントン大学セントルイス校のPetersenさん・Kleinさんらのチームが、肥満・前糖尿病・脂肪肝のある成人42人を対象に、ケトジェニック食・地中海式食・植物性食を比べたRCTをCell Metabolism誌に発表(2026年8月27日、DOI: 10.1016/j.cmet.2026.07.020)。</li>
+    <li>体重減少の割合(約10%)をそろえたところ、筋肉のインスリン感受性はどの食事でもおよそ50%改善し、これは体重減少そのものの効果とみられる。</li>
+    <li>一方、肝臓の脂肪の減少はケト群67%・地中海式と植物性は45%、前糖尿病から抜け出た割合はケト群約50%・地中海式約29%・植物性約7%と、食事の種類によって差が見られた。</li>
+    <li>対象42人という小規模な試験であり、食事は研究チームが提供する管理された環境での結果。長期的な安全性やLDLコレステロールなど心血管リスクへの影響は今回の試験では確認されていない。</li>
+    <li>「体重減少そのものの効果」と「食事の中身による上乗せの効果」を分けて考える視点が、この結果を読むうえで重要です。</li>
+  </ul>
+</div>
+
+<!-- 免責 -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、医療アドバイスではありません。効果・必要量・リスクは個人の体質・年齢・持病・服薬によって大きく異なります。本記事は特定の食事制限やサプリメント、断食などを推奨するものではありません。ケト食を含む大きな食事の変更を検討する場合は、自己判断せず、かかりつけ医・管理栄養士・薬剤師など専門家にご相談ください。
+</div>
+
+<!-- 出典 -->
+<div class="sources">
+  <h3>📚 主な出典・参考文献</h3>
+  <ol>
+    <li>Petersen MC, Smith GI, Farabi SS, Palacios HH, Shankaran M, Hellerstein MK, Patterson BW, Klein S. "Effect of diet macronutrient content on the cardiometabolic response to weight loss: A randomized clinical trial." <em>Cell Metabolism</em>. 2026年8月27日. DOI: 10.1016/j.cmet.2026.07.020
+      <a href="https://www.cell.com/cell-metabolism/fulltext/S1550-4131(26)00293-7" target="_blank">https://www.cell.com/cell-metabolism/fulltext/S1550-4131(26)00293-7</a>(基準日:2026年8月27日)
+    </li>
+    <li>Washington University School of Medicine in St. Louis (WashU Medicine, "The Source"). "Low-carb diet delivers added liver benefits beyond weight loss."
+      <a href="https://source.washu.edu/2026/08/low-carb-diet-delivers-added-liver-benefits-beyond-weight-loss/" target="_blank">https://source.washu.edu/2026/08/low-carb-diet-delivers-added-liver-benefits-beyond-weight-loss/</a>(基準日:2026年8月27日頃)
+    </li>
+    <li>ScienceDaily. "Keto diet cut liver fat by 67% in a clinical trial."
+      <a href="https://www.sciencedaily.com/releases/2026/08/260828082327.htm" target="_blank">https://www.sciencedaily.com/releases/2026/08/260828082327.htm</a>(基準日:2026年8月28日)
+    </li>
+    <li>MedicalXpress. "Keto diet has greater health benefits than other popular weight-loss diets, according to clinical trial."
+      <a href="https://medicalxpress.com/news/2026-08-keto-diet-greater-health-benefits.html" target="_blank">https://medicalxpress.com/news/2026-08-keto-diet-greater-health-benefits.html</a>(基準日:2026年8月28日頃)
+    </li>
+  </ol>
+  <p style="margin-top:8px; font-size:0.78rem;">※ ネットワーク制限により、Cell Metabolism本文・WashU公式記事・ScienceDaily・MedicalXpressのいずれにも直接アクセスできなかったため、検索エンジンで得られる複数の独立した二次情報源(WashU医学部・ScienceDaily・MedicalXpress・その他医療専門メディア)の要約・引用文を突き合わせて数値の一致を確認したうえで作成しています。論文本文そのもの(一次資料)には未アクセスのため、正確な信頼区間(95%CI)やp値、各群の詳細な人数配分など細部の数値は今後の確認が望まれます。</p>
+</div>
+
+</div>
+</body>
+</html>
