@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-08-30</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #2a4d7a 0%, #10233f 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #2a4d7a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.blue   { border-left-color: #1e5a7a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.green  { border-left-color: #1e7a5a; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #2a4d7a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin: 14px 0;
+  }
+  .stats-row.c3 { grid-template-columns: repeat(3, 1fr); }
+  .stats-row.c2 { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 12px 6px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat.now { background: #fff3e0; box-shadow: 0 0 0 2px #c8884a inset; }
+  .stat .sl { font-size: 0.62rem; color: #888; margin-bottom: 3px; line-height: 1.4; }
+  .stat .sv { font-size: 1.05rem; font-weight: 700; color: #2a4d7a; line-height: 1.15; }
+  .stat.now .sv { color: #c8884a; }
+  .stat .su { font-size: 0.62rem; color: #666; margin-top: 2px; }
+
+  .bignum {
+    background: white;
+    border-radius: 12px;
+    padding: 18px 14px;
+    text-align: center;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.1);
+    border: 2px dashed #c8884a;
+    margin: 14px 0;
+  }
+  .bignum .bl { font-size: 0.76rem; color: #888; margin-bottom: 6px; }
+  .bignum .bv { font-size: 2.1rem; font-weight: 700; color: #c8884a; line-height: 1.1; }
+  .bignum .bs { font-size: 0.76rem; color: #666; margin-top: 6px; line-height: 1.6; }
+
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #2a4d7a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-num.now { background: #b54040; }
+  .f-num.later { background: #999; }
+  .f-num.opt { background: #c8884a; }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+  .f-arrow { color: #2a4d7a; font-size: 1.1rem; margin-left: 14px; margin-bottom: 4px; }
+
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  table.cmp {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.83rem;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.08);
+  }
+  table.cmp th, table.cmp td {
+    border: 1px solid #e4dccd;
+    padding: 9px 10px;
+    line-height: 1.55;
+    vertical-align: top;
+  }
+  table.cmp thead th { background: #2a4d7a; color: white; font-weight: 600; text-align: center; }
+  table.cmp tbody th { background: #f5efe2; color: #5a4020; text-align: left; font-weight: 600; white-space: nowrap; }
+  table.cmp td { color: #444; text-align: center; }
+  table.cmp td.hi { background: #fff3e0; font-weight: 700; color: #c8884a; }
+  .wrap-x { overflow-x: auto; }
+
+  .prompt-box {
+    background: #f0f5ff;
+    border: 2px solid #4a6aae;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 12px 0;
+    font-size: 0.84rem;
+    line-height: 1.85;
+    color: #1a2a4a;
+  }
+  .prompt-box .ph {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #4a6aae;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+  .prompt-box .fill {
+    background: #d0e0ff;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-weight: 700;
+    color: #0a2a6e;
+  }
+
+  .info {
+    background: #e8eef8;
+    border-left: 4px solid #2a4d7a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #16294a;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #7a4010;
+  }
+
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #2a4d7a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #2a4d7a; word-break: break-all; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #2a4d7a; }
+
+  .split-wrap {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 10px;
+    align-items: center;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .split-wrap { grid-template-columns: 1fr; } }
+  .split-card {
+    border-radius: 10px;
+    padding: 16px 14px;
+    text-align: center;
+    background: #fff3e0;
+    border: 2px solid #c8884a;
+  }
+  .split-card.blue { background: #e8eef8; border-color: #2a4d7a; }
+  .split-card .vl { font-size: 0.75rem; font-weight: 700; margin-bottom: 6px; color: #7a4010; }
+  .split-card.blue .vl { color: #16294a; }
+  .split-card .vv { font-size: 1.4rem; font-weight: 700; color: #c8884a; }
+  .split-card.blue .vv { color: #2a4d7a; }
+  .split-card .vs { font-size: 0.72rem; color: #777; margin-top: 4px; }
+  .split-mid { text-align: center; font-size: 1.3rem; color: #999; font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Header -->
+<div class="header">
+  <div class="meta">📅 1人法人スタート 最新トピック &nbsp;2026-08-30</div>
+  <h1>💰 日額を上げれば保険料は増えるが、いざという時の受取額も増える<br>──「中小事業主等」の特別加入、給付基礎日額の選び方を考える</h1>
+  <div class="desc">
+    <span class="htag">中小事業主等の特別加入</span>
+    <span class="htag">給付基礎日額</span>
+    <span class="htag">休業(補償)給付</span>
+    <span class="htag">厚生労働省</span>
+    <br>
+    昨日（8/29）の記事では、労災保険の特別加入の保険料が業種によって最大約6倍違うことを試算しました。では、自分で選べる「給付基礎日額」は、いくらに設定すればよいのでしょうか。今日は、いざという時にいくら受け取れるかという視点から、日額の選び方を考えてみます。
+  </div>
+</div>
+
+<!-- Section 1: おさらい -->
+<div class="card blue">
+  <div class="sec-title">🔁 おさらい：給付基礎日額は3,500円〜25,000円の16段階から自分で選ぶ</div>
+  <p>中小事業主等として労災保険に特別加入する場合、保険料や補償額のもとになる<span class="hl">「給付基礎日額」</span>は、3,500円〜25,000円の全16段階の中から、自分で任意の金額を選んで申請します（8/29記事）。給付基礎日額が高いほど毎年の保険料は上がりますが、その分、実際に休業したときの補償額も手厚くなります。</p>
+
+  <div class="stats-row c3" style="margin-top:14px;">
+    <div class="stat">
+      <div class="sl">最低額</div>
+      <div class="sv">3,500円</div>
+      <div class="su">最も保険料が安い</div>
+    </div>
+    <div class="stat">
+      <div class="sl">中間的な例</div>
+      <div class="sv">10,000円</div>
+      <div class="su">目安の1つ</div>
+    </div>
+    <div class="stat">
+      <div class="sl">最高額</div>
+      <div class="sv">25,000円</div>
+      <div class="su">最も補償が手厚い</div>
+    </div>
+  </div>
+
+  <div class="source">
+    出典：厚生労働省「特別加入制度のしおり（中小事業主等用）」（令和8年度）
+  </div>
+</div>
+
+<!-- Section 2: 給付水準 -->
+<div class="card orange">
+  <div class="sec-title">🩹 いざという時、いくら受け取れる？ ── 休業給付の水準は「日額の80%」</div>
+  <p>業務災害・通勤災害で働けなくなり休業した場合、労災保険からは休業4日目以降、次の2つの給付が支給されます。</p>
+
+  <div class="bignum">
+    <div class="bl">休業1日あたりの受取額</div>
+    <div class="bv">給付基礎日額の 80%相当</div>
+    <div class="bs">休業(補償)給付：60%相当　＋　休業特別支給金：20%相当</div>
+  </div>
+
+  <div class="warn">
+    ⚠️ 休業を始めてから最初の3日間は「待期期間」となり、特別加入者を含め労災保険からの給付はありません。給付が始まるのは4日目からです。
+  </div>
+
+  <div class="source">
+    出典：厚生労働省「休業(補償)等給付の計算方法」（<a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000154476.html" target="_blank">mhlw.go.jp/stf/seisakunitsuite/bunya/0000154476.html</a>）
+  </div>
+</div>
+
+<!-- Section 3: シミュレーション -->
+<div class="card green">
+  <div class="sec-title">🧮 日額別シミュレーション ── 保険料と受取額を並べてみる</div>
+  <p>「その他の各種事業」（労災保険率3/1000、8/29記事でIT・コンサル・士業など多くの1人社長業種が該当するとした区分）を例に、給付基礎日額ごとの年間保険料と、休業したときの受取額を比べてみます。</p>
+
+  <div class="wrap-x">
+    <table class="cmp" style="margin-top:12px;">
+      <thead>
+        <tr><th>給付基礎日額</th><th>年間保険料<br>（3/1000）</th><th>休業1日<br>あたり受取額</th><th>30日休業した<br>場合の受取総額</th></tr>
+      </thead>
+      <tbody>
+        <tr><th>3,500円</th><td>約3,833円</td><td>2,800円</td><td>84,000円</td></tr>
+        <tr><th>10,000円</th><td>約10,950円</td><td>8,000円</td><td>240,000円</td></tr>
+        <tr><th>25,000円</th><td class="hi">約27,375円</td><td class="hi">20,000円</td><td class="hi">600,000円</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="bignum">
+    <div class="bl">給付基礎日額25,000円の場合</div>
+    <div class="bv">年間保険料 約27,375円</div>
+    <div class="bs">実際に30日休業すれば受取総額60万円、90日なら180万円。<br>保険料の差額に対して、受取額の差はそれ以上に大きく開く。</div>
+  </div>
+
+  <div class="warn">
+    ⚠️ これは「休業した場合」の試算であり、保険料を払えば必ず得をするという意味ではありません。労災保険はあくまで、実際に働けなくなったときの生活を支えるための備えです。
+  </div>
+
+  <div class="source">
+    ※年間保険料＝給付基礎日額×365日×労災保険率、休業給付＝給付基礎日額×80%にもとづく試算（1円未満切り捨て）
+  </div>
+</div>
+
+<!-- Section 4: 選び方の4ステップ -->
+<div class="card">
+  <div class="sec-title">🧭 給付基礎日額を選ぶ4ステップ</div>
+
+  <div class="f-step" style="margin-top:14px;">
+    <div class="f-num">①</div>
+    <div class="f-text"><strong>1か月あたりの生活費・固定費を書き出す</strong>──働けなくなった場合に、最低限まかなう必要がある金額を把握する</div>
+  </div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step">
+    <div class="f-num">②</div>
+    <div class="f-text"><strong>役員報酬を365日で割った「1日あたりの収入」を確認する</strong>──実際の収入水準に近い日額を選ぶ、という考え方が目安の1つとされている</div>
+  </div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step">
+    <div class="f-num opt">③</div>
+    <div class="f-text"><strong>候補となる日額の年間保険料を試算する</strong>──①②をふまえ、無理なく払い続けられる金額かどうかを確認する</div>
+  </div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step">
+    <div class="f-num later">④</div>
+    <div class="f-text"><strong>労働保険事務組合に相談し、日額を決めて申請する</strong>──迷う場合は複数パターンを一緒に試算してもらう</div>
+  </div>
+</div>
+
+<!-- Section 5: 上げすぎ・下げすぎのリスク -->
+<div class="card red">
+  <div class="sec-title">⚖️ 上げすぎても、下げすぎてもリスクがある</div>
+  <p>給付基礎日額は「高ければ高いほど良い」わけでも「安ければ安いほど良い」わけでもありません。両方向のリスクを整理しておきましょう。</p>
+
+  <div class="split-wrap">
+    <div class="split-card blue">
+      <div class="vl">日額を低く抑えすぎると…</div>
+      <div class="vv">保険料は安いが</div>
+      <div class="vs">実際に休業したとき、受取額が生活費・固定費を大きく下回るおそれがある</div>
+    </div>
+    <div class="split-mid">⇄</div>
+    <div class="split-card">
+      <div class="vl">日額を高くしすぎると…</div>
+      <div class="vv">補償は手厚いが</div>
+      <div class="vs">毎年の保険料負担が重くなり、赤字の年でもキャッシュフローを圧迫するおそれがある</div>
+    </div>
+  </div>
+
+  <div class="info">
+    💡 給付基礎日額は一度決めたら変更できないわけではありません。事業の状況が変わったタイミングで、労働保険事務組合に見直しを相談することもできます。
+  </div>
+</div>
+
+<!-- Section 6: 資金繰りとの兼ね合い -->
+<div class="card orange">
+  <div class="sec-title">📅 決算資金繰りとの兼ね合い ── 保険料は「年度更新」でまとめて前払い</div>
+  <p>特別加入の保険料を含む労働保険料は、毎年6/1〜7/10の「年度更新」（7/4記事）で、1年分をまとめて概算払いする仕組みです。給付基礎日額を上げるほど、この時期にまとめて支払う金額も大きくなります。</p>
+
+  <div class="info">
+    💡 資金繰り表（7/29記事）を作るときは、年度更新の時期にこの保険料の支払いが発生することをあらかじめ組み込んでおくと、決算期の資金繰りが読みやすくなります。
+  </div>
+</div>
+
+<!-- Section 7: AI prompt -->
+<div class="card">
+  <div class="sec-title">🤖 生成AIに「日額の候補と保険料試算」を作ってもらうプロンプト例</div>
+  <p>自分の生活費や希望する補償水準を伝えて、日額の候補と年間保険料のたたき台を作ってもらいましょう。</p>
+
+  <div class="prompt-box" style="margin-top:14px;">
+    <div class="ph">🤖 プロンプト例：給付基礎日額の候補を試算する</div>
+    私は1人社長で、月々の生活費・固定費はおよそ<span class="fill">【例：25万円】</span>です。労災保険率は<span class="fill">【例：3/1000】</span>を想定しています。<br>
+    <br>
+    1. 給付基礎日額3,500円・10,000円・25,000円の3パターンについて、年間保険料と休業1日あたりの受取額（80%相当）を一覧にしてください<br>
+    2. 上記の生活費・固定費と比べて、それぞれの日額が何日分の休業をカバーできるか目安を計算してください<br>
+    3. 最終的な日額の決定・申請は労働保険事務組合に相談する旨を明記してください
+  </div>
+
+  <div class="warn">
+    ⚠️ 生成AIの試算はあくまで目安です。実際の申請・日額の決定は労働保険事務組合と相談のうえ行ってください。
+  </div>
+</div>
+
+<!-- Section 8: summary -->
+<div class="card">
+  <div class="sec-title">📝 今日のまとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">①</span>給付基礎日額は<strong>3,500円〜25,000円の16段階</strong>から自分で選ぶ。高いほど保険料は上がるが、補償も手厚くなる。</li>
+    <li><span class="n">②</span>休業した場合の受取水準は<strong>給付基礎日額の80%相当</strong>（休業(補償)給付60%＋休業特別支給金20%）。最初の3日間（待期期間）は対象外で、4日目から支給。</li>
+    <li><span class="n">③</span>日額を選ぶ目安は、<strong>生活費・固定費</strong>と<strong>役員報酬を365日で割った1日あたりの収入</strong>を基準に考える方法がある。</li>
+    <li><span class="n">④</span>日額は<strong>低すぎると生活費をカバーしきれないリスク</strong>、<strong>高すぎると保険料が資金繰りを圧迫するリスク</strong>、両方向を意識する。</li>
+    <li><span class="n">⑤</span>保険料は<strong>年度更新（毎年6/1〜7/10）</strong>でまとめて前払いするため、資金繰り表にあらかじめ組み込んでおく。</li>
+  </ul>
+</div>
+
+<!-- Disclaimer -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報提供を目的としたものであり、個別の労務・税務に関するアドバイスではありません。給付基礎日額の適切な水準、保険料率、実際の給付内容は、事業内容や個々の状況により異なります。
+  具体的なご判断にあたっては、必ず労働保険事務組合、社会保険労務士、または所轄の労働基準監督署にご確認ください。<br>
+  <strong>本記事の基準：</strong>令和8年度（2026年度）の労災保険率・給付基礎日額の仕組みにもとづく試算です。令和8年8月時点で公表されている厚生労働省の情報にもとづいて記載しています。制度・保険料率は改正されることがあるため、最新情報は厚生労働省公式サイト（<a href="https://www.mhlw.go.jp/" target="_blank">https://www.mhlw.go.jp/</a>）でご確認ください。
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>📚 <a href="index.html">バックナンバー一覧へ</a> &nbsp;&middot;&nbsp; 毎朝更新</p>
+</div>
+
+</div>
+</body>
+</html>
