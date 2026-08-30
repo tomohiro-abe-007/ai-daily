@@ -93,6 +93,7 @@
 - 2026-08-28: Slack Code（2026年8月20〜24日発表・Salesforce）・Slackに専用「コードチャンネル」を新設・Claude Code/Devin/GitHub Copilot/ChatGPT/Vercelエージェント対応・4タブ構成（会話・計画・差分・プレビュー）・チーム全員がリアルタイムでAI作業を確認・一時停止・方向変更可能・本番プッシュは人間承認必須・全プランで利用可能（公式要確認）（出典：Salesforce公式プレスリリース / Slack公式ブログ / VentureBeat / The Next Web・2026年8月）
 - 2026-08-29: Claudeエージェントツール4種正式公開（GA）（2026年8月19日・Anthropic）・コンピューター使用（computer_toolset_20260801）・ブラウザ使用（browser_toolset_20260801・新規ツール）・ファイルAPI（組織あたり1TB・自動期限切れ・高レート制限）・スキルAPI（手順書を「スキル」として登録・バージョン管理）・Skills API/Files APIはMicrosoft Foundryでも提供・コンピューター/ブラウザ使用はGoogle Cloud Vertex AI対応予定（出典：Anthropic公式ブログ / Channel Insider / Enterprise DNA / Digital Applied・2026年8月19日）
 - 2026-08-30: Jalapeño（ハラペーニョ）AIチップ初ベンチマーク結果公表（2026年8月25日・Hot Chips 2026）・SemiAnalysis InferenceXでNVIDIA Blackwell比・電力効率1.5〜1.9倍・応答遅延1.7〜3.6倍削減・対話処理2.1〜4.1倍高速・Broadcomと共同開発・設計〜完成9ヶ月・2026年末から自社データセンター導入・2027年以降本格展開・第2世代開発中・第3世代設計初期（出典：OpenAI公式 / TechCrunch / TechTimes / QZ.com・2026年8月25〜27日）
+- 2026-08-31: GoogleのA2AプロトコルがAAIF（Agentic AI Foundation・Linux Foundation管理）に正式加入（2026年8月17〜20日）・AnthropicのMCPも同財団の創設プロジェクトとして参加済み・A2A＝AIエージェント同士の通信規格・MCP＝AIとツールの接続規格・AAIF参加企業49社→250社以上・AWS/Anthropic/Google/Microsoft/OpenAI/Cloudflare/Block/Bloomberg等参加（出典：Axios / Forbes / Techzine / Techstrong.ai / AI Magazine・2026年8月17〜20日）
 
 ## 未解説の候補トピック（今後の参考）
 
