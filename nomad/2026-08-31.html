@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>デジタルノマド 最新トピック 2026-08-31</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    color: #2a2a2a;
+  }
+  .hero {
+    background: linear-gradient(135deg, #8a5a12 0%, #4a2f0a 100%);
+    color: white;
+    border-radius: 10px;
+    padding: 48px 40px;
+    text-align: center;
+    width: 100%;
+    max-width: 760px;
+    margin-bottom: 28px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .hero .label {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 0.8rem;
+    margin-bottom: 14px;
+    letter-spacing: 0.05em;
+  }
+  .hero h1 { font-size: 1.4rem; margin-bottom: 12px; line-height: 1.55; }
+  .hero .meta { opacity: 0.8; font-size: 0.88rem; line-height: 1.7; }
+  .card {
+    background: #fff9f0;
+    border-radius: 8px;
+    padding: 28px 32px;
+    width: 100%;
+    max-width: 760px;
+    margin-bottom: 20px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.08);
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #8a5a12;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px dashed #d8b878;
+  }
+  .card p { font-size: 0.93rem; line-height: 1.85; margin-bottom: 10px; }
+  .card p:last-child { margin-bottom: 0; }
+  .highlight-box {
+    background: #fbf1de;
+    border-left: 4px solid #8a5a12;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .highlight-box .hlabel { font-size: 0.75rem; color: #8a5a12; font-weight: 600; margin-bottom: 6px; display: block; }
+  .highlight-box p { font-size: 0.9rem; margin: 0; }
+  .alert-box {
+    background: #fff3cd;
+    border-left: 4px solid #c9920a;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .alert-box .alabel { font-size: 0.75rem; color: #8a6000; font-weight: 600; margin-bottom: 6px; display: block; }
+  .alert-box p { font-size: 0.9rem; margin: 0; }
+  .green-box {
+    background: #e8f5ef;
+    border-left: 4px solid #2c6e4e;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .green-box .glabel { font-size: 0.75rem; color: #2c6e4e; font-weight: 600; margin-bottom: 6px; display: block; }
+  .green-box p { font-size: 0.9rem; margin: 0; }
+  .purple-box {
+    background: #f0eafd;
+    border-left: 4px solid #6a3ea0;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .purple-box .plabel { font-size: 0.75rem; color: #6a3ea0; font-weight: 600; margin-bottom: 6px; display: block; }
+  .purple-box p { font-size: 0.9rem; margin: 0; }
+  .number-row { display: flex; gap: 14px; flex-wrap: wrap; margin: 14px 0; }
+  .number-card {
+    flex: 1; min-width: 130px;
+    background: #8a5a12; color: white;
+    border-radius: 8px; padding: 18px 14px; text-align: center;
+  }
+  .number-card .num { font-size: 1.15rem; font-weight: 700; margin-bottom: 6px; line-height: 1.25; letter-spacing: 0.02em; }
+  .number-card .desc { font-size: 0.72rem; opacity: 0.9; line-height: 1.5; }
+  .number-card.amber  { background: #c9920a; }
+  .number-card.red    { background: #c0392b; }
+  .number-card.green  { background: #2c6e4e; }
+  .number-card.purple { background: #6a3ea0; }
+  .number-card.gray   { background: #666; }
+  .number-card.navy   { background: #1e3a6e; }
+  .compare-row { display: flex; gap: 14px; flex-wrap: wrap; margin: 14px 0; }
+  .compare-card {
+    flex: 1; min-width: 200px; border-radius: 8px;
+    padding: 16px 16px; font-size: 0.88rem; line-height: 1.7;
+  }
+  .compare-card h3 { font-size: 0.88rem; margin-bottom: 8px; padding-bottom: 6px; border-bottom: 1.5px dashed; }
+  .compare-card.red    { background: #fdeaea; border: 1.5px solid #c0392b; }
+  .compare-card.red h3 { color: #922b2b; border-color: #e8a0a0; }
+  .compare-card.green  { background: #e8f5ef; border: 1.5px solid #2c6e4e; }
+  .compare-card.green h3 { color: #2c6e4e; border-color: #b2d4c4; }
+  .compare-card.amber  { background: #fff8e8; border: 1.5px solid #c9920a; }
+  .compare-card.amber h3 { color: #7a5800; border-color: #f0d080; }
+  .compare-card.navy   { background: #eaf0fb; border: 1.5px solid #1e3a6e; }
+  .compare-card.navy h3 { color: #1e3a6e; border-color: #8aaad4; }
+  .compare-card.purple { background: #f0eafd; border: 1.5px solid #6a3ea0; }
+  .compare-card.purple h3 { color: #6a3ea0; border-color: #c0a0e8; }
+  .flow-wrap { display: flex; flex-direction: column; gap: 4px; margin: 14px 0; }
+  .flow-box {
+    background: #8a5a12; color: white;
+    border-radius: 8px; padding: 14px 16px;
+    font-size: 0.88rem; line-height: 1.6;
+  }
+  .flow-box .fb-label { font-size: 0.7rem; opacity: 0.8; margin-bottom: 4px; display: block; }
+  .flow-box strong { font-size: 0.95rem; }
+  .flow-box.sub    { background: #a97a2c; }
+  .flow-box.light  { background: #fbf1de; color: #2a2a2a; border: 1.5px solid #d8b878; }
+  .flow-box.amber  { background: #c9920a; }
+  .flow-box.green  { background: #2c6e4e; }
+  .flow-box.red    { background: #c0392b; }
+  .flow-box.purple { background: #6a3ea0; }
+  .flow-box.navy   { background: #1e3a6e; }
+  .flow-box.gray   { background: #666; }
+  .arrow-down { text-align: center; font-size: 1.5rem; color: #8a5a12; margin: 4px 0; line-height: 1; }
+  .step-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 12px 0; }
+  .step-list li { display: flex; align-items: flex-start; gap: 12px; }
+  .step-num {
+    background: #8a5a12; color: white; border-radius: 50%;
+    min-width: 28px; height: 28px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.78rem; font-weight: 700; flex-shrink: 0; margin-top: 2px;
+  }
+  .step-num.amber  { background: #c9920a; }
+  .step-num.red    { background: #c0392b; }
+  .step-num.green  { background: #2c6e4e; }
+  .step-num.purple { background: #6a3ea0; }
+  .step-num.navy   { background: #1e3a6e; }
+  .step-num.gray   { background: #666; }
+  .step-list li div { font-size: 0.9rem; line-height: 1.7; }
+  .matrix-table { width: 100%; border-collapse: collapse; font-size: 0.87rem; margin: 14px 0; }
+  .matrix-table th {
+    background: #8a5a12; color: white; padding: 10px 12px;
+    text-align: left; font-weight: 600; font-size: 0.82rem;
+  }
+  .matrix-table th:first-child { border-radius: 6px 0 0 0; }
+  .matrix-table th:last-child  { border-radius: 0 6px 0 0; }
+  .matrix-table td { padding: 10px 12px; border-bottom: 1px solid #ecdcc0; vertical-align: top; line-height: 1.55; }
+  .matrix-table tr:nth-child(even) td { background: #fbf3e6; }
+  .matrix-table .ok   { color: #2c6e4e; font-weight: 700; }
+  .matrix-table .ng   { color: #c0392b; font-weight: 700; }
+  .matrix-table .warn { color: #8a6000; font-weight: 700; }
+  .matrix-table .row-warn   td { background: #fff8e8 !important; }
+  .matrix-table .row-danger td { background: #fdeaea !important; }
+  .matrix-table .row-green  td { background: #e8f5ef !important; }
+  .matrix-table .row-navy   td { background: #eaf0fb !important; }
+  .matrix-table .row-purple td { background: #f0eafd !important; }
+  .check-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 12px 0; }
+  .check-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.9rem; line-height: 1.65; }
+  .check-icon {
+    min-width: 22px; height: 22px; border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.78rem; font-weight: 700; flex-shrink: 0; margin-top: 1px;
+  }
+  .check-icon.navy   { background: #1e3a6e; color: white; }
+  .check-icon.green  { background: #2c6e4e; color: white; }
+  .check-icon.amber  { background: #c9920a; color: white; }
+  .check-icon.red    { background: #c0392b; color: white; }
+  .check-icon.purple { background: #6a3ea0; color: white; }
+  .section-icon { font-size: 1.5rem; margin-right: 8px; vertical-align: middle; }
+  .tag {
+    display: inline-block; background: #8a5a12; color: white;
+    font-size: 0.72rem; padding: 2px 8px; border-radius: 10px;
+    margin-right: 4px; vertical-align: middle;
+  }
+  .tag.amber  { background: #c9920a; }
+  .tag.red    { background: #c0392b; }
+  .tag.green  { background: #2c6e4e; }
+  .tag.purple { background: #6a3ea0; }
+  .tag.gray   { background: #888; }
+  .footer-card {
+    background: #f0ece3;
+    border: 1.5px solid #bbb;
+    border-radius: 8px;
+    padding: 20px 24px;
+    width: 100%;
+    max-width: 760px;
+    margin-bottom: 20px;
+    font-size: 0.82rem;
+    color: #555;
+    line-height: 1.8;
+  }
+  .footer-card .footer-title {
+    font-size: 0.78rem; color: #888; font-weight: 600;
+    margin-bottom: 10px; display: block;
+    text-transform: uppercase; letter-spacing: 0.08em;
+  }
+  .footnote { font-size: 0.78rem; color: #777; line-height: 1.7; margin-top: 12px; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 14px 0; }
+  @media (max-width: 560px) { .two-col { grid-template-columns: 1fr; } .compare-row { flex-direction: column; } }
+  .mini-card {
+    border-radius: 8px; padding: 14px 16px;
+    font-size: 0.85rem; line-height: 1.65;
+  }
+  .mini-card h4 { font-size: 0.87rem; margin-bottom: 8px; }
+  .mini-card.navy   { background: #eaf0fb; border: 1.5px solid #8aaad4; }
+  .mini-card.navy h4 { color: #1e3a6e; }
+  .mini-card.amber  { background: #fff8e8; border: 1.5px solid #c9920a; }
+  .mini-card.amber h4 { color: #7a5800; }
+  .mini-card.green  { background: #e8f5ef; border: 1.5px solid #2c6e4e; }
+  .mini-card.green h4 { color: #2c6e4e; }
+  .mini-card.red    { background: #fdeaea; border: 1.5px solid #c0392b; }
+  .mini-card.red h4 { color: #922b2b; }
+  .mini-card.purple { background: #f0eafd; border: 1.5px solid #6a3ea0; }
+  .mini-card.purple h4 { color: #6a3ea0; }
+  .mini-card.gray   { background: #f4f4f4; border: 1.5px solid #aaa; }
+  .mini-card.gray h4 { color: #555; }
+</style>
+</head>
+<body>
+
+<!-- ヒーロー -->
+<div class="hero">
+  <div style="margin-bottom:14px;">
+    <span class="label">💴 為替ウォッチ（速報）</span>
+  </div>
+  <h1>日米協調で円買い介入、7〜8月だけで過去最大15兆3993億円<br>「外貨で稼ぐ日本の1人法人」にとって、この円安是正の動きが何を意味するかを整理</h1>
+  <div class="meta">
+    デジタルノマド 最新トピック 2026-08-31<br>
+    情報収集日：2026年8月30日<br>
+    財務省が2026年8月28日に発表した為替介入の実績(2026年7月30日〜8月26日、月次公表として過去最大の15兆3993億円)を中心に、28年ぶりとなった日米協調介入(2026年7月31日実施)の経緯と、海外の顧客から外貨で稼ぎ、日本とスペインを行き来する1人法人オーナーにとっての実務上の意味を整理します
+  </div>
+</div>
+
+<!-- 今日のポイント -->
+<div class="card">
+  <h2><span class="section-icon">📌</span>今日のポイント（30秒まとめ）</h2>
+  <p>2026年7月下旬、1ドル＝164円に迫る「39年8か月ぶり」の円安水準まで進んだあと、日本政府・日銀と米財務省が28年ぶりに足並みをそろえて円買い介入に踏み切りました。財務省は2026年8月28日、この介入の総額を発表しました。</p>
+  <div class="number-row">
+    <div class="number-card">
+      <div class="num">15兆3993億円</div>
+      <div class="desc">2026年7月30日〜8月26日の為替介入額。月次公表としては過去最大(財務省、2026年8月28日発表)</div>
+    </div>
+    <div class="number-card red">
+      <div class="num">約164円</div>
+      <div class="desc">2026年7月23日頃に付けた円安のピーク(1ドルあたり)。1986年11月以来、約39年8か月ぶりの円安水準</div>
+    </div>
+    <div class="number-card amber">
+      <div class="num">28年ぶり</div>
+      <div class="desc">日本と米国が足並みをそろえて円買い介入を行ったのは、1998年6月(アジア通貨危機時)以来</div>
+    </div>
+    <div class="number-card navy">
+      <div class="num">159円台</div>
+      <div class="desc">2026年8月28日時点の実勢水準。介入直後の155円台からは戻しており、円安圧力は残る</div>
+    </div>
+  </div>
+  <div class="highlight-box">
+    <span class="hlabel">💡 なぜ今日この話題か</span>
+    <p>これはスペインのビザ制度そのものの話ではありません。ただし、海外の顧客から米ドル・ユーロなどの外貨で報酬を受け取り、日本の1人法人として決算・納税する人にとって、為替レートの水準は「同じ仕事量でも円建ての売上・利益がどれだけ変わるか」に直結します。今回の介入で相場が大きく動いた直近1か月は、その影響を具体的な数字で確認できる良い機会です。</p>
+  </div>
+</div>
+
+<!-- 図解：何が起きたか -->
+<div class="card">
+  <h2><span class="section-icon">🔍</span>図解：この1か月に何が起きたか</h2>
+  <div class="flow-wrap">
+    <div class="flow-box red">
+      <span class="fb-label">STEP1　円安の進行(〜2026年7月23日頃)</span>
+      米金利の高止まり・原油高・日本の財政運営への不透明感などを背景に円売りが進み、1ドル＝163.99円まで下落。1986年11月以来、約39年8か月ぶりの円安水準に接近
+    </div>
+    <div class="arrow-down">↓</div>
+    <div class="flow-box amber">
+      <span class="fb-label">STEP2　介入の実施と日米協調の表明(2026年7月30日〜8月3日)</span>
+      2026年7月30日夜、政府・日銀が円買い・ドル売り介入を実施し、相場は162円台後半から一時157円台まで急騰。7月31日には米財務省も加わり、片山さつき財務相とベセント米財務長官が8月3日、28年ぶりとなる日米協調の円買い介入を正式に表明
+    </div>
+    <div class="arrow-down">↓</div>
+    <div class="flow-box light">
+      <span class="fb-label">STEP3　米国側はユーロ売り・円買いでも協調</span>
+      複数の報道によれば、米国当局はドル売り・円買いに加え、ユーロを売って円を買う形でも協調したとされています。介入直後、相場は一時1ドル＝155円23銭まで円高が進みました
+    </div>
+    <div class="arrow-down">↓</div>
+    <div class="flow-box navy">
+      <span class="fb-label">STEP4　財務省が月次実績を発表(2026年8月28日)</span>
+      2026年7月30日〜8月26日の介入総額が15兆3993億円だったと発表。月次公表ベースでは過去最大となり、2026年の累計は27兆円超と、2024年通年の実績(約15兆円)をすでに上回った
+    </div>
+    <div class="arrow-down">↓</div>
+    <div class="flow-box gray">
+      <span class="fb-label">STEP5　現在(2026年8月28日時点)</span>
+      相場は159円台まで戻しており、円安圧力そのものが解消したわけではないと複数の市場関係者が指摘。片山財務相は「さらなる協調介入も躊躇しない」と発言しており、今後も相場変動が続く可能性がある局面
+    </div>
+  </div>
+  <p class="footnote">為替介入の総額・実施時期は財務省の発表にもとづくもので、時事通信・日本経済新聞・FNNプライムオンライン等、複数の独立した報道機関が同じ数字(15兆3993億円、2026年7月30日〜8月26日)を伝えていることを確認しました。財務省公式サイト(mof.go.jp)への本セッションでの直接アクセスはブロックされたため、報道機関経由での確認にとどまります。</p>
+</div>
+
+<!-- 整理：円安と円高、それぞれの影響 -->
+<div class="card">
+  <h2><span class="section-icon">⚖️</span>整理：「外貨で稼ぐ1人法人」にとって、円安・円高はどちらが得か</h2>
+  <p>為替の動きは良い・悪いを一概には言えず、「どちらの通貨で稼ぎ、どちらの通貨で使うか」で影響が逆になります。海外の顧客から外貨で稼ぎ、将来スペインでユーロ建ての生活費も発生しうる1人法人オーナーの場合を、単純化して整理します。</p>
+  <div class="compare-row">
+    <div class="compare-card red">
+      <h3>🔴 円安が進む局面(今回の是正前)</h3>
+      外貨建ての報酬を円に換えると、受け取る円が増えやすい(円建ての売上・利益が膨らんで見える)。一方、日本で貯めた円を新たにユーロへ両替してスペインの生活費や渡航費に充てる場合は、同じ円でも両替できるユーロが減り、割高に感じやすい
+    </div>
+    <div class="compare-card green">
+      <h3>🟢 円高方向へ戻る局面(介入が効いた場合)</h3>
+      外貨建ての報酬を円に換えると、受け取る円は減りやすい(円建ての売上・利益が目減りして見える)。一方、日本の円をユーロに両替してスペインでの生活費・渡航費に充てる場面ではむしろ有利になり得る
+    </div>
+  </div>
+  <div class="alert-box">
+    <span class="alabel">⚠ 注意点</span>
+    <p>今回の介入後も相場は159円台まで戻っており、複数の市場関係者・アナリストは「円安圧力そのものが構造的に解消したわけではない」と指摘しています。介入は相場の急激な変動を抑える効果はあっても、金利差など根本の要因を変えるものではないとされ、今後の水準を断定的に予測することはできません。</p>
+  </div>
+</div>
+
+<!-- 実務ポイント -->
+<div class="card">
+  <h2><span class="section-icon">📝</span>実務ポイント：相場が大きく動く時期に、1人法人としてできる準備</h2>
+  <ul class="step-list">
+    <li><span class="step-num navy">1</span><div><strong>外貨建ての入金を、すべて同じタイミングでまとめて円転しない運用は一般的によく紹介される考え方です。</strong>入金のたびに少しずつ両替する、あるいは一定の周期でまとめる、といったやり方を分散させることで、特定の日の相場に売上全体が左右されにくくなります。ただし、これは一般的な実務の紹介であり、特定の運用を推奨するものではありません。</div></li>
+    <li><span class="step-num amber">2</span><div><strong>Wise等のマルチカレンシー口座を使えば、外貨のまま保有し、必要なタイミングだけ円やユーロへ換える選択肢があります。</strong>スペイン滞在中の生活費をユーロのまま持っておき、日本での法人決算・納税に必要なタイミングだけ円換算を確認する、といった使い分けも可能です(2026-08-23既報のStripe・海外決済の実務とあわせて検討)。</div></li>
+    <li><span class="step-num green">3</span><div><strong>法人の帳簿上、外貨建て取引は原則としてその取引時点の為替レートで円換算して記帳します。</strong>相場変動が大きい時期は、入金時と決算時のレート差によって為替差損益が発生しやすくなるため、月次で為替の動きを大まかに把握しておくと決算時に慌てにくくなります。具体的な会計処理・税務上の扱いは税理士に確認するのが確実です。</div></li>
+    <li><span class="step-num purple">4</span><div><strong>今後も日米当局が追加の協調介入を示唆している局面です。</strong>短期的な相場変動に一喜一憂して大きな判断をするより、外貨建て収入と円建て支出(日本での生活費・税金)、将来のユーロ建て支出(スペインでの生活費)のバランスを、中長期の視点で考えておくことが実務的です。</div></li>
+  </ul>
+</div>
+
+<!-- 出典 -->
+<div class="card">
+  <h2><span class="section-icon">🔗</span>主な参照元（検索確認日：2026年8月30日）</h2>
+  <ul class="check-list">
+    <li><span class="check-icon navy">1</span><div>時事通信(Yahoo!ニュース配信)「為替介入、過去最大15兆円超 7月末〜8月、歴史的円安を抑制―財務省」(2026年8月28日付)、時事ドットコム配信の同記事。財務省発表として、2026年7月30日〜8月26日の介入額15兆3993億円・月次公表ベースで過去最大・2026年累計27兆円超を確認</div></li>
+    <li><span class="check-icon amber">2</span><div>日本経済新聞「7〜8月の円買い介入、総額15兆円 過去最大も市場なお円安圧力」(2026年8月28日前後)。FNNプライムオンライン(Yahoo!ニュース配信)「7月から8月にかけての為替介入は過去最大15兆3993億円 財務省」で同じ金額を重ねて確認</div></li>
+    <li><span class="check-icon green">3</span><div>ハフポスト日本版(Yahoo!ニュース配信)「日米、28年ぶり円買い協調介入を正式表明。片山財務相『さらなる協調介入も躊躇しない』」、日本経済新聞「片山財務相『米国と協調して円買い為替介入』」(いずれも2026年8月3日付)。1998年6月以来28年ぶりの日米協調介入である点、2026年7月31日実施・8月3日表明である点を確認</div></li>
+    <li><span class="check-icon red">4</span><div>外為どっとコム マネ育チャンネル「ドル円午前の為替予想、下値堅い 40年ぶり164円台も視野」(2026年7月28日付)、newage3.net「円安加速 1ドル164円に迫る 39年8か月ぶりの水準に」(2026年7月24日付)。1ドル＝163.99円(2026年7月23日頃)が1986年11月以来約39年8か月ぶりの水準である点を確認</div></li>
+    <li><span class="check-icon purple">5</span><div>日本経済新聞「円安阻止へ波状の介入 米当局はユーロ売り・円買いで共同歩調」。米国当局がユーロ売り・円買いでも協調したとされる点、介入直後に1ドル＝155円23銭まで円高が進んだ点を確認</div></li>
+    <li><span class="check-icon gray">6</span><div>財経新聞「8月28日のNY為替概況」(2026年8月29日付)。2026年8月28日時点でドル円が159円台で推移していたことを確認。財務省公式サイト(mof.go.jp)への本セッションでの直接アクセスはブロックされたため、いずれも報道機関経由での確認です</div></li>
+  </ul>
+  <p class="footnote">今回はデジタルノマドビザや税務上の居住地判定そのものではなく、外貨で稼ぐ1人法人オーナーに直接関わる為替のニュースを取り上げました。直近7日のスペインDNV・ベックハム法・富裕税関連の再検索では、一次資料(BOE等)にもとづく新しい制度変更のニュースは確認できず、既報テーマの延長になるものが中心だったため、今回は独立した新しいテーマとして為替介入を選定しました。</p>
+</div>
+
+<!-- フッター -->
+<div class="footer-card">
+  <span class="footer-title">⚠ 免責事項 &amp; 専門家への相談推奨</span>
+  <p>
+    <strong>【本記事の性質】</strong>本記事は、時事通信・日本経済新聞・FNNプライムオンライン等、複数の独立した報道機関が伝える財務省発表の内容にもとづく紹介であり、投資助言・為替予測ではありません。新しいルールではなく、既存の為替介入という政策手段の実施結果を報じるニュースであることを明記します。<br>
+    <strong>【数値・レートの基準時点】</strong>本記事で紹介した為替レートは2026年8月28日時点で確認できた水準(1ドル＝159円台)にもとづきます。為替は常に変動するため、実際の取引時には必ず最新のレートをご確認ください。介入総額(15兆3993億円)は2026年7月30日〜8月26日の期間を対象とした財務省の月次公表にもとづきます。<br>
+    <strong>【ビザ・在留】</strong>ビザ・在留資格に関する正式な判断は、必ず行政書士・移民弁護士へご確認ください。<br>
+    <strong>【税務・社会保険】</strong>外貨建て取引の会計処理・為替差損益の税務上の扱い・為替リスクへの具体的な対応策を含め、正式な判断は、必ず国際税務に強い税理士・専門家へご確認ください。「円安が続く」「円高になる」といった断定を行うものではありません。<br>
+    <strong>【基準時点】</strong>本記事の内容は2026年8月30日時点で確認できた情報にもとづきます。相場・制度は変更される可能性があるため、実際の内容は必ず公式情報・専門家へのご確認をお願いします。
+  </p>
+</div>
+
+</body>
+</html>
