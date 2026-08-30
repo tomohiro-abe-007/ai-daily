@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-08-31</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '🧠';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.9rem; margin-bottom: 8px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.1em; }
+  .c3-col li { margin-bottom: 4px; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  .quote-box {
+    background: #f5f0e8;
+    border-left: 4px solid #7a5abf;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    margin: 12px 0;
+    color: #444;
+    font-style: italic;
+  }
+  .quote-box .who { font-style: normal; font-weight: 700; color: #5a3a9a; margin-top: 6px; font-size: 0.78rem; }
+  .matrix {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .mx-cell {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .mx-cell .mx-head { font-weight: 700; font-size: 0.88rem; margin-bottom: 6px; }
+  .mx-cell.ok  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .mx-cell.ok  .mx-head { color: #1a6e4a; }
+  .mx-cell.ng  { background: #fbe8e6; border: 2px solid #c0392b; }
+  .mx-cell.ng  .mx-head { color: #a0291e; }
+  @media (max-width: 540px) {
+    .compare4 { grid-template-columns: 1fr; }
+    .matrix { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.7rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ヘッダー -->
+<div class="header">
+  <div class="label">健康・栄養 最新トピック ・ 2026-08-31</div>
+  <h1>ビタミンDを多く摂っていた人ほど、認知テストの点数が高かった<br>──でも、それは"証明"ではない理由</h1>
+  <div class="subtitle">米エモリー大学のZhouさん・Sudeshnaさん・Trottiさん・Bliwiseさん・Pakさん(責任著者)らのチームが、軽度認知障害(MCI)と睡眠の問題をあわせ持つ50歳以上の54人を対象に、ビタミンDサプリの摂取量と認知機能テストの点数の関連を調べた研究を、2026年8月にSleep Medicine誌に発表しました。一方、2,000IU/日のビタミンDを2〜3年投与した3,000人超のランダム化比較試験(RCT)の追加解析では、全体としては認知機能低下を防ぐ効果は確認されていません。この2つの研究を比べながら、「観察研究の関連」と「RCTでの証明」の違いを今日は読み解きます。</div>
+</div>
+
+<!-- タグ -->
+<div style="margin-bottom:18px;">
+  <span class="tag">ビタミンD</span>
+  <span class="tag">認知機能</span>
+  <span class="tag">軽度認知障害(MCI)</span>
+  <span class="tag">横断研究</span>
+  <span class="tag">ランダム化比較試験(RCT)</span>
+</div>
+
+<!-- 今日の疑問 -->
+<div class="card">
+  <h2>🤔 今日の疑問:サプリをよく飲む人のテストの点が高いのは、サプリのおかげ?</h2>
+  <p>「ビタミンDをたくさん摂っている人は、認知機能のテストの点数も高い」——こう聞くと、つい「じゃあビタミンDを摂れば頭が良くなる(認知症を防げる)」と考えたくなります。ですが、<strong>関連(相関)がある</strong>ことと、<strong>原因と結果(因果関係)</strong>があることは、科学的にはまったく別の話です。</p>
+  <p>2026年8月、米エモリー大学のZhouさん・Sudeshnaさん・Trottiさん・Bliwiseさん・Victoria Pakさん(責任著者)らのチームが、軽度認知障害(MCI、認知症の一歩手前とされる状態)と睡眠の問題をあわせ持つ50歳以上の成人54人を対象に、ビタミンDサプリの摂取量と認知機能テストの点数の関連を調べた研究を、Sleep Medicine誌に発表しました(146巻:108960、DOI: 10.1016/j.sleep.2026.108960)。今日はこの新しい研究と、同じビタミンDを使った大規模なランダム化比較試験(RCT)の結果を並べて、正しい読み方を考えます。</p>
+</div>
+
+<!-- 基本用語 -->
+<div class="card blue">
+  <h2>📖 まず言葉の意味を</h2>
+  <div class="def-grid">
+    <div class="def-item">
+      <div class="dterm">軽度認知障害(MCI)</div>
+      正常な老化と認知症の中間にあたる状態。もの忘れなどの変化はあるが、日常生活は自立してできる段階。将来、認知症に進む人もいれば、そうでない人もいる。
+    </div>
+    <div class="def-item">
+      <div class="dterm">MoCA(モントリオール認知評価)</div>
+      記憶・注意力・言語能力などをまとめて調べる、世界的によく使われる認知機能のスクリーニングテスト。点数が高いほど、その時点での認知機能が保たれていることを示す。
+    </div>
+    <div class="def-item">
+      <div class="dterm">IU(国際単位)</div>
+      ビタミンなどの量を表す単位の一つ。日本の食事摂取基準ではビタミンDの目安量は成人で1日あたり8.5μg(マイクログラム、およそ340IU)程度とされる。
+    </div>
+    <div class="def-item">
+      <div class="dterm">横断研究(cross-sectional study)</div>
+      ある一時点で、複数の人の状態(この場合はビタミンD摂取量と認知機能テストの点数)を同時に調べて関連を見る研究方法。「どちらが先に起きたか」という時間の前後関係はわからない。
+    </div>
+    <div class="def-item">
+      <div class="dterm">ランダム化比較試験(RCT)</div>
+      参加者をくじ引きのような方法でランダムに2つ以上のグループに分け、一方には介入(この場合はビタミンD)、もう一方にはプラセボ(偽薬)を与えて比較する研究方法。原因と結果の関係に最も迫りやすいとされる。
+    </div>
+    <div class="def-item">
+      <div class="dterm">交絡因子</div>
+      調べたい2つのことの両方に影響を与えてしまう、隠れた第三の要因。例えば「健康意識の高さ」が、ビタミンD摂取量と認知機能の両方に影響している可能性がある。
+    </div>
+  </div>
+</div>
+
+<!-- 数字カード -->
+<div class="num-row">
+  <div class="num-card gray-bg">
+    <div class="big">54<span class="unit">人</span></div>
+    <div class="desc">エモリー大学の研究の対象者数。MCIと睡眠の問題をあわせ持つ50歳以上の成人</div>
+  </div>
+  <div class="num-card orange-bg">
+    <div class="big">13<span class="unit">%以上</span></div>
+    <div class="desc">高用量ビタミンDを摂っていたグループのMoCAスコアが、摂っていないグループより高かった割合(他の要因を調整後)</div>
+  </div>
+  <div class="num-card blue-bg">
+    <div class="big">5,000<span class="unit">IU/日</span></div>
+    <div class="desc">「高用量」グループの基準。一般的な目安量(300〜400IU程度)よりかなり多い量</div>
+  </div>
+  <div class="num-card purple-bg">
+    <div class="big">3,424<span class="unit">人</span></div>
+    <div class="desc">対照的な結果を示した大規模RCT「VITAL試験」追加解析の対象人数。2.8年追跡しても認知機能低下への全体的な効果は確認されず</div>
+  </div>
+</div>
+
+<!-- 研究の流れ -->
+<div class="card purple">
+  <h2>🧭 エモリー大学の研究はどう行われたか(5ステップ)</h2>
+  <div class="flow">
+    <div class="flow-step purp">① MCI+睡眠の問題が<br>ある50歳以上の<br>54人を選定</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step">② 普段のビタミンD<br>サプリ摂取量を<br>アンケートで確認</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step alt">③ MoCA(認知機能<br>テスト)を実施</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step">④ 摂取量で2グループに<br>分類(5,000IU以上 <br>vs まったく摂らない)</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step purp">⑤ 年齢など他の要因を<br>統計的に調整して<br>点数を比較</div>
+  </div>
+  <p style="font-size:0.82rem; color:#555; margin-top:4px;">ビタミンDを「与えて」効果を見たのではなく、もともとの生活の中での摂取量と、その時点での認知機能テストの点数を、同時に1回だけ調べた研究です。</p>
+</div>
+
+<!-- 2つの研究の比較 -->
+<div class="card orange">
+  <h2>⚖️ 小さな観察研究 vs 大規模RCT、何が違うか</h2>
+  <div class="compare4">
+    <div class="c3-col green">
+      <h3>🔬 エモリー大学の研究(2026年)</h3>
+      <ul>
+        <li>研究デザイン:横断研究(観察研究)</li>
+        <li>対象:MCI+睡眠の問題がある人 54人</li>
+        <li>結果:高用量ビタミンD摂取者ほどMoCAスコアが13%以上高い</li>
+        <li>「原因と結果」は証明できない</li>
+      </ul>
+    </div>
+    <div class="c3-col blue">
+      <h3>🧪 VITAL試験 追加解析(2021年)</h3>
+      <ul>
+        <li>研究デザイン:ランダム化比較試験(RCT)</li>
+        <li>対象:心血管疾患・がんのない60歳以上 3,424人(電話評価)・794人(対面評価)</li>
+        <li>結果:2,000IU/日を2〜3年投与しても、全体としては認知機能低下への効果なし</li>
+        <li>黒人の参加者のサブグループのみ緩やかな関連(確認が必要な探索的結果)</li>
+      </ul>
+    </div>
+  </div>
+  <p style="font-size:0.82rem; color:#555; margin-top:8px;">同じ「ビタミンDと認知機能」というテーマでも、研究デザインと対象集団が違うと、結果の読み方はまったく変わります。エモリー大学の研究は「MCI+睡眠の問題がある人」という特定の集団だけを見た小規模な関連分析、VITAL試験は健康な高齢者を中心にした大規模なRCTです。</p>
+</div>
+
+<!-- 議論・限界 -->
+<div class="card">
+  <h2>🔬 この結果、どこまで信じてよいか</h2>
+  <p>エモリー大学の研究の責任著者Victoria Pakさんは、「睡眠障害とMCIをあわせ持つこの時期は、認知機能の変化が現れ始めていながら、脳の健康を支える機会がまだ残っている、重要な介入のタイミングかもしれない」とコメントしています。MCIと睡眠の問題を両方持つ人に絞ってビタミンD摂取量と認知機能の関連を調べた、この種としては初めての研究だとされています。</p>
+  <p>ただし、この研究は<strong>横断研究(観察研究)</strong>であり、<strong>対象はわずか54人</strong>です。ビタミンDを「摂った人」と「摂らなかった人」を比べているだけで、ビタミンDを実際に与えて変化を見たわけではありません。そのため、「ビタミンDをよく摂る人は、そもそも運動習慣や食生活など他の面でも健康的に暮らしている(交絡因子)」可能性や、逆に「認知機能が保たれている人ほど活動的で、サプリを続けやすい」という<strong>逆の因果関係</strong>の可能性を排除できません。研究者自身も、この研究だけでは高用量ビタミンDを推奨する段階にはないと述べています。</p>
+</div>
+
+<!-- 賛否両論 -->
+<div class="card red">
+  <h2>🗣️ 意見が分かれるところ:ビタミンDは認知症予防に"効く"と言えるのか?</h2>
+  <div class="matrix">
+    <div class="mx-cell ok">
+      <div class="mx-head">✅ 今回の結果からの見方</div>
+      MCIと睡眠の問題をあわせ持つ高リスクな集団では、高用量ビタミンD摂取と高い認知機能テストの点数に統計的な関連が見られた。今後、この集団に絞ったRCTを行う価値があるという「仮説を生む」研究として意味がある。
+    </div>
+    <div class="mx-cell ng">
+      <div class="mx-head">⚠️ 慎重な見方・別の視点</div>
+      同じビタミンDを使った大規模RCT「VITAL試験」の追加解析(n=3,424、Kangら, Scientific Reports 2021)では、一般の高齢者集団全体としては、2,000IU/日を2〜3年投与しても認知機能低下を防ぐ効果は確認されなかった。ビタミンDと認知症予防の関係は、これまでの複数のRCTでも一貫した効果が示されていない領域であり、今回の小規模な観察研究1件だけで結論づけるのは早い。
+    </div>
+  </div>
+</div>
+
+<!-- 注意点 -->
+<div class="warn">
+  <strong>⚠️ 誤解しないでほしいこと</strong>
+  <ul style="padding-left:1.4em; margin-top:8px;">
+    <li>「ビタミンDをたくさん摂れば認知症を防げる」ことを証明した研究ではありません。あくまで「関連が見られた」という段階です。</li>
+    <li>横断研究のため、ビタミンD摂取と認知機能のどちらが先に影響したのか(あるいは第三の要因が両方に影響しているのか)はわかりません。</li>
+    <li>5,000IU/日は一般的な目安量よりかなり多い量です。ビタミンDは脂溶性ビタミンのため摂りすぎると高カルシウム血症などのリスクがあり、自己判断で高用量サプリを始めることは勧められません。</li>
+    <li>サプリメントの追加や量の変更を考える場合は、自己判断せず、かかりつけ医・薬剤師にご相談ください。</li>
+  </ul>
+</div>
+
+<!-- エビデンスの整理 -->
+<div class="card">
+  <h2>🧪 今日出てきた情報の「証拠としての強さ」の目安</h2>
+  <table class="ev-table">
+    <tr><th>情報の種類</th><th>特徴</th><th>証拠としての強さ</th></tr>
+    <tr>
+      <td>高用量ビタミンD摂取者ほどMoCAスコアが13%以上高い(エモリー大学の研究)</td>
+      <td>横断観察研究(n=54、MCI+睡眠の問題がある集団に限定)</td>
+      <td><span class="ev-badge ev-low">低め(小規模・観察研究)</span></td>
+    </tr>
+    <tr>
+      <td>2,000IU/日のビタミンD3で高齢者全体の認知機能低下を防げる</td>
+      <td>ランダム化比較試験(VITAL試験追加解析、n=3,424、2.8年追跡)</td>
+      <td><span class="ev-badge ev-high">高い(大規模RCT)だが結果は「効果なし」</span></td>
+    </tr>
+    <tr>
+      <td>今回の関連がMCI+睡眠の問題がある人以外にも当てはまる</td>
+      <td>今回の対象(54人)以外では未確認</td>
+      <td><span class="ev-badge ev-low">未確認・要追加研究</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- まとめ -->
+<div class="card" style="border-left-color:#1a7a5a;">
+  <h2>✅ 今日のまとめ</h2>
+  <ul class="step-list">
+    <li>米エモリー大学のZhouさん・Sudeshnaさん・Trottiさん・Bliwiseさん・Pakさん(責任著者)らのチームが、MCIと睡眠の問題をあわせ持つ50歳以上の54人を対象に、ビタミンD摂取量と認知機能テストの点数の関連を調べた横断研究をSleep Medicine誌に発表(2026年8月、146巻:108960、DOI: 10.1016/j.sleep.2026.108960)。</li>
+    <li>1日5,000IU以上のビタミンDを摂っていたグループは、まったく摂っていないグループよりMoCAスコアが13%以上高かった。研究資金は米国立加齢研究所(NIA/NIH)。</li>
+    <li>一方、2,000IU/日のビタミンD3を2〜3年投与した大規模RCT「VITAL試験」の追加解析(n=3,424、Kangら, Scientific Reports 2021, DOI: 10.1038/s41598-021-02485-8)では、高齢者集団全体としては認知機能低下を防ぐ効果は確認されなかった。</li>
+    <li>横断研究で見つかった「関連」と、RCTで確かめる「効果の証明」は別のもの。研究者自身も「観察研究であり、高用量ビタミンDを推奨する段階にはない」と述べている。</li>
+    <li>「関連がある」ニュースを見たとき、それが観察研究なのかRCTなのか、対象がどんな集団なのかを確認する習慣が、精密栄養学のニュースを読み解くうえで役立ちます。</li>
+  </ul>
+</div>
+
+<!-- 免責 -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、医療アドバイスではありません。効果・必要量・リスクは個人の体質・年齢・持病・服薬によって大きく異なります。本記事は特定のサプリメントの摂取や量の変更を推奨するものではありません。サプリメントの追加や高用量摂取を検討する場合は、自己判断せず、かかりつけ医・薬剤師など専門家にご相談ください。
+</div>
+
+<!-- 出典 -->
+<div class="sources">
+  <h3>📚 主な出典・参考文献</h3>
+  <ol>
+    <li>Zhou S, Sudeshna P, Trotti LM, Bliwise D, Pak V. "Vitamin D supplement intake is associated with better cognition in persons with sleep disturbance and mild cognitive impairment." <em>Sleep Medicine</em>. 2026;146:108960. DOI: 10.1016/j.sleep.2026.108960
+      <a href="https://www.sciencedirect.com/science/article/abs/pii/S1389945726001991" target="_blank">https://www.sciencedirect.com/science/article/abs/pii/S1389945726001991</a>(基準日:2026年8月)
+    </li>
+    <li>Emory University News Center. "High-dose vitamin D may improve cognition among those at risk of dementia, Emory study finds."
+      <a href="https://news.emory.edu/stories/2026/08/high-dose-vitamin-d-may-improve-cognition-among-those-risk-dementia-emory-study" target="_blank">https://news.emory.edu/stories/2026/08/high-dose-vitamin-d-may-improve-cognition-among-those-risk-dementia-emory-study</a>(基準日:2026年8月22日頃)
+    </li>
+    <li>ScienceDaily. "This common vitamin was linked to 13% better cognitive scores."
+      <a href="https://www.sciencedaily.com/releases/2026/08/260822015138.htm" target="_blank">https://www.sciencedaily.com/releases/2026/08/260822015138.htm</a>(基準日:2026年8月22日)
+    </li>
+    <li>Kang JH, Vyas CM, Okereke OI, et al. "Effect of vitamin D on cognitive decline: results from two ancillary studies of the VITAL randomized trial." <em>Scientific Reports</em>. 2021;11:23253. DOI: 10.1038/s41598-021-02485-8
+      <a href="https://www.nature.com/articles/s41598-021-02485-8" target="_blank">https://www.nature.com/articles/s41598-021-02485-8</a>(基準日:2021年12月1日)
+    </li>
+  </ol>
+  <p style="margin-top:8px; font-size:0.78rem;">※ ネットワーク制限により、Sleep Medicine本文・エモリー大学公式記事・ScienceDaily・Nature誌のいずれにも直接アクセスできなかったため、検索エンジンで得られる複数の独立した情報源(Emory News・ScienceDaily・MedicalXpress・Newsweek・Technology Networksなど)の要約・引用文を突き合わせて、著者名・対象人数・数値の一致を確認したうえで作成しています。論文本文そのもの(一次資料)には未アクセスのため、正確な信頼区間(95%CI)やp値などの詳細は今後の確認が望まれます。</p>
+</div>
+
+</div>
+</body>
+</html>
