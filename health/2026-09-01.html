@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-09-01</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '🍳';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.9rem; margin-bottom: 8px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.1em; }
+  .c3-col li { margin-bottom: 4px; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  .quote-box {
+    background: #f5f0e8;
+    border-left: 4px solid #7a5abf;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    margin: 12px 0;
+    color: #444;
+    font-style: italic;
+  }
+  .quote-box .who { font-style: normal; font-weight: 700; color: #5a3a9a; margin-top: 6px; font-size: 0.78rem; }
+  .matrix {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .mx-cell {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .mx-cell .mx-head { font-weight: 700; font-size: 0.88rem; margin-bottom: 6px; }
+  .mx-cell.ok  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .mx-cell.ok  .mx-head { color: #1a6e4a; }
+  .mx-cell.ng  { background: #fbe8e6; border: 2px solid #c0392b; }
+  .mx-cell.ng  .mx-head { color: #a0291e; }
+  @media (max-width: 540px) {
+    .compare4 { grid-template-columns: 1fr; }
+    .matrix { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.7rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ヘッダー -->
+<div class="header">
+  <div class="label">健康・栄養 最新トピック ・ 2026-09-01</div>
+  <h1>朝ごはんを"高たんぱく"に変えただけで、血糖値の遺伝的な差が消えた</h1>
+  <div class="subtitle">英セント・メアリーズ大学トゥイッケナム校のKingさん・Mavrommatisさん・Nixonさん・Kapellouさん・Cravenさん・Grahamさん・Pilicさんらのチームが、健康な成人54人を対象に、炭水化物中心の朝食と高たんぱく朝食を1週間あけて両方試してもらうランダム化クロスオーバー試験を行い、European Journal of Clinical Nutrition誌に発表しました(2026年、DOI: 10.1038/s41430-026-01794-3)。血糖値に関わる「メラトニン受容体遺伝子(MTNR1B)」のタイプによって、炭水化物中心の朝食後の血糖の上がり方に差がありましたが、高たんぱく朝食にするとその差が消えました。今日はこの研究をもとに、精密栄養学が実際にどう役立つ可能性があるかを読み解きます。</div>
+</div>
+
+<!-- タグ -->
+<div style="margin-bottom:18px;">
+  <span class="tag">MTNR1B遺伝子</span>
+  <span class="tag">朝食と血糖値</span>
+  <span class="tag">ランダム化比較試験(RCT)</span>
+  <span class="tag">持続血糖モニター(CGM)</span>
+  <span class="tag">精密栄養学</span>
+</div>
+
+<!-- 今日の疑問 -->
+<div class="card">
+  <h2>🤔 今日の疑問:朝ごはんの"中身"で血糖の上がり方は変わるのか?</h2>
+  <p>「同じ朝ごはんを食べても、血糖値の上がり方には個人差がある」——このシリーズでも何度か触れてきたテーマですが、その個人差の一部が、生まれ持った遺伝子タイプで説明できるとしたらどうでしょうか。さらに、朝食の「中身」を変えるだけで、その遺伝的な差を打ち消せるとしたら?</p>
+  <p>2026年、英セント・メアリーズ大学トゥイッケナム校のAlexandra Kingさん、Yiannis Mavrommatisさん、Jonathan Nixonさん、Angeliki Kapellouさん、Jonathan Cravenさん、Catherine Grahamさん、Leta Pilicさんらのチームが、血糖値の調整に関わることが知られる「メラトニン受容体1B遺伝子(MTNR1B)」のタイプと、朝食の中身(炭水化物中心か、たんぱく質を増やしたものか)が、食後の血糖の上がり方にどう影響するかを調べたランダム化クロスオーバー試験をEuropean Journal of Clinical Nutrition誌に発表しました(DOI: 10.1038/s41430-026-01794-3)。</p>
+</div>
+
+<!-- 基本用語 -->
+<div class="card blue">
+  <h2>📖 まず言葉の意味を</h2>
+  <div class="def-grid">
+    <div class="def-item">
+      <div class="dterm">MTNR1B遺伝子</div>
+      メラトニン(睡眠ホルモン)を受け取る"受け皿"であるメラトニン受容体1Bを作る遺伝子。すい臓のインスリンを作る細胞にもこの受容体があり、メラトニンが多いとインスリン分泌が抑えられる仕組みに関わる。
+    </div>
+    <div class="def-item">
+      <div class="dterm">GG型・CG型・CC型(遺伝子型)</div>
+      MTNR1B遺伝子のある一箇所(rs10830963というSNP)には、C(シー)とG(ジー)の2種類の文字がある。両親からGを2つ受け継ぐとGG型(リスクが高いとされる型)、CとGを1つずつだとCG型、Cを2つだとCC型になる。
+    </div>
+    <div class="def-item">
+      <div class="dterm">持続血糖モニター(CGM)</div>
+      皮膚に小さいセンサーを貼り付け、血糖値の変化を数分おきに自動で記録する機器。採血を繰り返さなくても、食後の血糖の動きを細かく追える。
+    </div>
+    <div class="def-item">
+      <div class="dterm">iAUC(食後血糖の曲線下面積)</div>
+      食後の血糖値の推移をグラフにしたとき、空腹時の値より上がった部分の面積。食後にどれだけ・どれくらいの時間、血糖が高い状態が続いたかをまとめて表す指標。
+    </div>
+    <div class="def-item">
+      <div class="dterm">ランダム化クロスオーバー試験</div>
+      同じ参加者に、順番をくじ引きで決めて複数の条件(今回は2種類の朝食)を両方試してもらう研究方法。参加者どうしの体質の違いの影響を受けにくく、比較的少人数でも差を検出しやすい。
+    </div>
+    <div class="def-item">
+      <div class="dterm">クロノニュートリション(時間栄養学)</div>
+      「何を食べるか」だけでなく「いつ食べるか」が、体内時計やホルモンの働きを通じて代謝に影響するという考え方。今回の研究もこの分野の一例。
+    </div>
+  </div>
+</div>
+
+<!-- 数字カード -->
+<div class="num-row">
+  <div class="num-card gray-bg">
+    <div class="big">54<span class="unit">人</span></div>
+    <div class="desc">研究に参加した健康な成人の人数(18〜48歳)。全員が2種類の朝食を両方試した</div>
+  </div>
+  <div class="num-card orange-bg">
+    <div class="big">5.53<span class="unit">mmol/L</span></div>
+    <div class="desc">GG型(リスクが高いとされる型)の空腹時血糖値の平均。CC型(5.02)・CG型(5.19)より高い(p=0.008)</div>
+  </div>
+  <div class="num-card blue-bg">
+    <div class="big">120<span class="unit">分間</span></div>
+    <div class="desc">朝食後、持続血糖モニター(CGM)で血糖の変化を記録した時間</div>
+  </div>
+  <div class="num-card purple-bg">
+    <div class="big">1<span class="unit">週間</span></div>
+    <div class="desc">2種類の朝食を試す間にあけた間隔(ウォッシュアウト期間)</div>
+  </div>
+</div>
+
+<!-- 研究の流れ -->
+<div class="card purple">
+  <h2>🧭 この研究はどう行われたか(5ステップ)</h2>
+  <div class="flow">
+    <div class="flow-step purp">① 健康な成人54人の<br>MTNR1B遺伝子型を<br>調べ3グループに分類</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step">② 一晩絶食後、<br>炭水化物中心の<br>お粥朝食を摂取</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step alt">③ CGMで120分間<br>血糖の変化を記録</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step">④ 1週間後、同じ手順で<br>高たんぱく朝食<br>(同じお粥ベース)を試す</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step purp">⑤ 遺伝子型ごとに<br>iAUC(血糖上昇の<br>面積)を統計比較</div>
+  </div>
+  <p style="font-size:0.82rem; color:#555; margin-top:4px;">同じ人が2種類の朝食を両方試す「クロスオーバー」デザインのため、個人差の影響を抑えたうえで、朝食の中身と遺伝子型の組み合わせによる違いを比較できます。</p>
+</div>
+
+<!-- 比較 -->
+<div class="card orange">
+  <h2>⚖️ 炭水化物中心の朝食 vs 高たんぱく朝食、血糖の上がり方はどう違ったか</h2>
+  <div class="compare4">
+    <div class="c3-col orange">
+      <h3>🥣 炭水化物中心のお粥朝食</h3>
+      <ul>
+        <li>食後のiAUC(血糖上昇の面積)は、高たんぱく朝食のときより有意に大きい(p&lt;0.001)</li>
+        <li>特にGG型は、CC型(p=0.026)・CG型(p=0.029)と比べてiAUCが有意に大きかった</li>
+        <li>遺伝子型による血糖の上がりやすさの差が、はっきり現れた</li>
+      </ul>
+    </div>
+    <div class="c3-col green">
+      <h3>🍳 高たんぱくにした朝食</h3>
+      <ul>
+        <li>食後のiAUCが、炭水化物中心の朝食より全体として小さい(p&lt;0.001)</li>
+        <li>GG型・CG型・CC型のあいだで、食後の血糖の上がり方に統計的な差は見られなくなった</li>
+        <li>遺伝子型による差が「消えた」ように見える結果</li>
+      </ul>
+    </div>
+  </div>
+  <p style="font-size:0.82rem; color:#555; margin-top:8px;">研究チームは、メラトニンが起床後もしばらく体内に残っていて、すい臓からのインスリン分泌をある程度抑えている可能性があると考察しています。GG型はこの抑制が強く出やすいと考えられていますが、朝食のたんぱく質を増やすと、この遺伝的な差による血糖の上がりやすさの違いが目立たなくなった、という結果です。</p>
+</div>
+
+<!-- 議論・限界 -->
+<div class="card">
+  <h2>🔬 この結果、どこまで信じてよいか</h2>
+  <p>この研究の強みは、参加者が2種類の朝食を両方試す「ランダム化クロスオーバー試験」であり、単なる観察研究より、朝食の中身が血糖反応に与える影響を比較的しっかり調べられる点です。また、MTNR1Bの変異(rs10830963のG型)が空腹時血糖・2型糖尿病リスクと関連することは、2009年のNature Genetics誌に掲載された大規模な遺伝統計解析(ゲノムワイド関連解析)などですでに繰り返し確認されており、今回の研究はその土台の上に立っています。</p>
+  <p>一方で、対象はわずか54人の健康な18〜48歳の成人に限られ、3つの遺伝子型グループの正確な人数は原論文本文(ネットワーク制限のため直接アクセスできず)で確認できていません。一般に、両親からリスクの高いG型を2つ受け継ぐGG型は、人口全体の中では少数派とされ、グループごとの人数に偏りがある可能性があります。試したのは「お粥」という1種類の食品だけで、しかも単回の食後血糖という代理指標にとどまり、長期間続けた場合にHbA1cや2型糖尿病の発症そのものを減らせるかどうかは、この研究だけではわかりません。</p>
+</div>
+
+<!-- 賛否両論 -->
+<div class="card red">
+  <h2>🗣️ 意見が分かれるところ:遺伝子を調べて朝食を変える意味はあるのか?</h2>
+  <div class="matrix">
+    <div class="mx-cell ok">
+      <div class="mx-head">✅ 期待できる点</div>
+      MTNR1Bとメラトニン・インスリン分泌の関係は、10年以上前からの大規模な遺伝統計研究で繰り返し確認されている、比較的しっかりした基礎科学の上に立つ話です。今回はランダム化クロスオーバー試験という比較的質の高いデザインで、朝食にたんぱく質を足すという具体的で実行しやすい対策を示せた点に意味があります。
+    </div>
+    <div class="mx-cell ng">
+      <div class="mx-head">⚠️ 慎重な見方</div>
+      54人・単一食品・単回の食後血糖という小規模な研究であり、長期的な健康効果は未確認です。さらに、今回わかったのは「高たんぱく朝食は遺伝子型にかかわらず血糖の上がり方が穏やかになる」ということでもあり、遺伝子検査をしなくても、朝食にたんぱく質を増やすという工夫自体は多くの人に当てはまりそうな話でもあります。個人の遺伝子タイプを調べる意義がどこまであるかは、今後の大規模な検証が必要です。
+    </div>
+  </div>
+</div>
+
+<!-- 注意点 -->
+<div class="warn">
+  <strong>⚠️ 誤解しないでほしいこと</strong>
+  <ul style="padding-left:1.4em; margin-top:8px;">
+    <li>「遺伝子検査を受けないと朝食を工夫する意味がない」という結果ではありません。高たんぱく朝食で血糖の上がり方が穏やかになる傾向は、遺伝子型にかかわらず見られています。</li>
+    <li>54人・単一の食品(お粥)・単回の食後血糖を見た小規模な研究であり、長期間続けた場合の血糖コントロールや糖尿病予防効果を証明したものではありません。</li>
+    <li>すでに糖尿病の診断を受けている方、服薬中の方は、食事の内容や量を自己判断で大きく変えず、かかりつけ医・管理栄養士にご相談ください。</li>
+    <li>市販の遺伝子検査キットでMTNR1B型がわかっても、それだけで食事や治療方針を自己判断で決めるのは避けてください。</li>
+  </ul>
+</div>
+
+<!-- エビデンスの整理 -->
+<div class="card">
+  <h2>🧪 今日出てきた情報の「証拠としての強さ」の目安</h2>
+  <table class="ev-table">
+    <tr><th>情報の種類</th><th>特徴</th><th>証拠としての強さ</th></tr>
+    <tr>
+      <td>MTNR1B(G型)が空腹時血糖・2型糖尿病リスクと関連する</td>
+      <td>大規模なゲノムワイド関連解析(2009年、Nature Genetics)による確立した知見</td>
+      <td><span class="ev-badge ev-high">高い(繰り返し再現された遺伝統計)</span></td>
+    </tr>
+    <tr>
+      <td>高たんぱく朝食で食後血糖の上昇が穏やかになる</td>
+      <td>ランダム化クロスオーバー試験(n=54、健康な成人限定)</td>
+      <td><span class="ev-badge ev-mid">中程度(質の高いデザインだが小規模)</span></td>
+    </tr>
+    <tr>
+      <td>高たんぱく朝食でMTNR1B遺伝子型による血糖差が消える</td>
+      <td>同じ小規模RCTの遺伝子型別サブ解析</td>
+      <td><span class="ev-badge ev-low">低め(小規模なサブグループ解析)</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- まとめ -->
+<div class="card" style="border-left-color:#1a7a5a;">
+  <h2>✅ 今日のまとめ</h2>
+  <ul class="step-list">
+    <li>英セント・メアリーズ大学トゥイッケナム校のKing・Mavrommatis・Nixon・Kapellou・Craven・Graham・Pilicさんらのチームが、健康な成人54人を対象に、朝食の中身(炭水化物中心 vs 高たんぱく)とMTNR1B遺伝子型が食後血糖に与える影響を調べたランダム化クロスオーバー試験をEuropean Journal of Clinical Nutrition誌に発表(2026年、DOI: 10.1038/s41430-026-01794-3)。</li>
+    <li>炭水化物中心の朝食では、GG型(リスクが高いとされる型)の食後血糖の上昇がCC型・CG型より有意に大きかったが、高たんぱく朝食にするとこの遺伝子型による差は統計的に見られなくなった。</li>
+    <li>MTNR1Bとインスリン分泌・血糖の関係自体は、大規模な遺伝統計研究で繰り返し確認された比較的しっかりした基礎科学。ただし今回の朝食研究は54人・単一食品の小規模RCTであり、長期的な健康効果は未確認。</li>
+    <li>高たんぱく朝食で血糖の上がり方が穏やかになる傾向は遺伝子型にかかわらず見られており、「個人の遺伝子を知らないと意味がない」話ではない。</li>
+    <li>糖尿病の診断・服薬中の方は、食事内容の変更を自己判断せず、かかりつけ医・管理栄養士に相談することが大切。</li>
+  </ul>
+</div>
+
+<!-- 免責 -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、医療アドバイスではありません。効果・必要量・リスクは個人の体質・年齢・持病・服薬によって大きく異なります。本記事は特定の食事法や遺伝子検査の利用を推奨するものではありません。食事内容の変更や糖尿病管理を検討する場合は、自己判断せず、かかりつけ医・管理栄養士など専門家にご相談ください。
+</div>
+
+<!-- 出典 -->
+<div class="sources">
+  <h3>📚 主な出典・参考文献</h3>
+  <ol>
+    <li>King A, Mavrommatis Y, Nixon J, Kapellou A, Craven J, Graham C, Pilic L. "Interaction of melatonin receptor 1B (MTNR1B) genotype and type of breakfast (protein-enriched v carbohydrate-rich) on postprandial glucose response: a randomised crossover trial." <em>European Journal of Clinical Nutrition</em>. 2026. DOI: 10.1038/s41430-026-01794-3
+      <a href="https://www.nature.com/articles/s41430-026-01794-3" target="_blank">https://www.nature.com/articles/s41430-026-01794-3</a>(基準日:2026年7月29日オンライン公開)
+    </li>
+    <li>Research Square. プレプリント版(査読前原稿)
+      <a href="https://www.researchsquare.com/article/rs-8678875/v1" target="_blank">https://www.researchsquare.com/article/rs-8678875/v1</a>(基準日:2026年)
+    </li>
+    <li>ClinicalTrials.gov. "Interaction of MTNR1B Genotype and Type of Breakfast (Protein-enriched v Carbohydrate-rich) on Postprandial Glucose Response." NCT06821620
+      <a href="https://clinicaltrials.gov/study/NCT06821620" target="_blank">https://clinicaltrials.gov/study/NCT06821620</a>(基準日:2026年)
+    </li>
+    <li>mindbodygreen. "One Breakfast Swap May Help Offset A Common Diabetes Risk Factor."
+      <a href="https://www.mindbodygreen.com/articles/this-one-breakfast-change-may-counter-common-diabetes-risk-factor" target="_blank">https://www.mindbodygreen.com/articles/this-one-breakfast-change-may-counter-common-diabetes-risk-factor</a>(基準日:2026年8月1日)
+    </li>
+    <li>EMJ Reviews. "Protein Breakfast Offset Genetic Glucose Response Risk."
+      <a href="https://www.emjreviews.com/diabetes/news/protein-breakfast-offset-genetic-glucose-response-risk/" target="_blank">https://www.emjreviews.com/diabetes/news/protein-breakfast-offset-genetic-glucose-response-risk/</a>(基準日:2026年8月)
+    </li>
+    <li>Lyssenko V, Nagorny CLF, Erdos MR, et al. "Common variant in MTNR1B associated with increased risk of type 2 diabetes and impaired early insulin secretion." <em>Nature Genetics</em>. 2009. DOI: 10.1038/ng.288(メラトニン受容体遺伝子と血糖の関係を確立した基礎研究、基準日:2009年)
+    </li>
+  </ol>
+  <p style="margin-top:8px; font-size:0.78rem;">※ ネットワーク制限により、European Journal of Clinical Nutrition誌本文・Research Square・ClinicalTrials.gov に直接アクセスできなかったため、検索エンジンで得られる複数の独立した情報源(mindbodygreen・EMJ Reviews・NaturalNews・[your]NEWSなど)の要約・引用文を突き合わせ、著者名・対象人数・統計値(p値など)の一致を確認したうえで作成しています。論文本文そのもの(一次資料)には未アクセスのため、遺伝子型ごとの正確な人数配分や95%信頼区間などの詳細は今後の確認が望まれます。</p>
+</div>
+
+</div>
+</body>
+</html>
