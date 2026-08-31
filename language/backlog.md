@@ -2,7 +2,6 @@
 
 ## 未解説テーマ（エバーグリーン）
 
-- スペイン語の与格の重複表現（le doy el libro a él）── なぜ代名詞と名詞を両方言うのか
 - スペイン語のnosotros/vosotros命令形と再帰動詞の命令形（levántate/sentaosなど）── tú/usted命令の続編
 - スペイン語の接続法（subjuntivo）の入り口（Si yo fuera...）── 英語のwere-subjunctiveとの対応
 - アルゼンチンなどのvoseo（vos＋独自の活用）── vosotros/ustedesの続編、南米のもう一つの二人称
@@ -33,6 +32,7 @@
 - スペイン語のlo que sea / cueste lo que cueste など、lo que+接続法を使った慣用表現 ── 08-25のlo que/lo cualの発展、決まり文句としての使い方を扱う
 - スペイン語のquien単独用法（先行詞なしで「〜する人」を表す使い方）── 08-26の英語の自由関係詞whatと似た発想をスペイン語側で扱う
 - 英語のhowever（「どんなに〜でも」の譲歩用法）── 08-30で保留にしたhoweverを扱う、however+形容詞/副詞の語順(However tired you are, ...)とwhatever一家との違いを整理する
+- スペイン語のleがseに変わるルール（se lo doy、leがloやlaなど直接目的語代名詞と連続するときの変化）── 09-01の与格重複の続編、二重代名詞の並び方を整理する
 
 ## 解説済みテーマ
 
@@ -118,3 +118,4 @@
 - 2026-08-27: 英語のwhatever（「anything that」の名詞用法と「no matter what」の譲歩用法）── 08-26の関係詞whatの発展、whoever/whicheverとの仲間分けも整理
 - 2026-08-29: 英語のwhoever/whichever（「人」「限られた選択肢」を表すwhateverの仲間）── 08-27のwhateverの発展、名詞用法(anyone who/any one that)と譲歩用法(no matter who/which)を整理
 - 2026-08-30: 英語のwherever/whenever（「場所」「時」を表すwhateverの仲間）── 08-29のwhoever/whicheverの発展、名詞用法(any place/time that)と譲歩用法(no matter where/when)を整理し、what/who/which/where/whenの5語まとめ表を完成
+- 2026-09-01: スペイン語の与格の重複表現（le doy el libro a Maríaのようにleとa+人を両方言う仕組み）── 07-12のlo/la/leの続編、直接目的語との重複のクセの違いも整理
