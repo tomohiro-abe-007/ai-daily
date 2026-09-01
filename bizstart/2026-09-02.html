@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-09-02</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #2a4d7a 0%, #10233f 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #2a4d7a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.blue   { border-left-color: #1e5a7a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.green  { border-left-color: #1e7a5a; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #2a4d7a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin: 14px 0;
+  }
+  .stats-row.c3 { grid-template-columns: repeat(3, 1fr); }
+  .stats-row.c2 { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 12px 6px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat.now { background: #fff3e0; box-shadow: 0 0 0 2px #c8884a inset; }
+  .stat .sl { font-size: 0.62rem; color: #888; margin-bottom: 3px; line-height: 1.4; }
+  .stat .sv { font-size: 1.05rem; font-weight: 700; color: #2a4d7a; line-height: 1.15; }
+  .stat.now .sv { color: #c8884a; }
+  .stat .su { font-size: 0.62rem; color: #666; margin-top: 2px; }
+
+  .bignum {
+    background: white;
+    border-radius: 12px;
+    padding: 18px 14px;
+    text-align: center;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.1);
+    border: 2px dashed #c8884a;
+    margin: 14px 0;
+  }
+  .bignum .bl { font-size: 0.76rem; color: #888; margin-bottom: 6px; }
+  .bignum .bv { font-size: 1.7rem; font-weight: 700; color: #c8884a; line-height: 1.3; }
+  .bignum .bs { font-size: 0.76rem; color: #666; margin-top: 6px; line-height: 1.6; }
+
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #2a4d7a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-num.now { background: #b54040; }
+  .f-num.later { background: #999; }
+  .f-num.opt { background: #c8884a; }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+  .f-arrow { color: #2a4d7a; font-size: 1.1rem; margin-left: 14px; margin-bottom: 4px; }
+
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  table.cmp {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.83rem;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.08);
+  }
+  table.cmp th, table.cmp td {
+    border: 1px solid #e4dccd;
+    padding: 9px 10px;
+    line-height: 1.55;
+    vertical-align: top;
+  }
+  table.cmp thead th { background: #2a4d7a; color: white; font-weight: 600; text-align: center; }
+  table.cmp tbody th { background: #f5efe2; color: #5a4020; text-align: left; font-weight: 600; white-space: nowrap; }
+  table.cmp td { color: #444; text-align: left; }
+  table.cmp td.hi { background: #fff3e0; font-weight: 700; color: #c8884a; }
+  .wrap-x { overflow-x: auto; }
+
+  .prompt-box {
+    background: #f0f5ff;
+    border: 2px solid #4a6aae;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 12px 0;
+    font-size: 0.84rem;
+    line-height: 1.85;
+    color: #1a2a4a;
+  }
+  .prompt-box .ph {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #4a6aae;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+  .prompt-box .fill {
+    background: #d0e0ff;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-weight: 700;
+    color: #0a2a6e;
+  }
+
+  .info {
+    background: #e8eef8;
+    border-left: 4px solid #2a4d7a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #16294a;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #7a4010;
+  }
+
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #2a4d7a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #2a4d7a; word-break: break-all; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #2a4d7a; }
+
+  .split-wrap {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 10px;
+    align-items: center;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .split-wrap { grid-template-columns: 1fr; } }
+  .split-card {
+    border-radius: 10px;
+    padding: 16px 14px;
+    text-align: center;
+    background: #fff3e0;
+    border: 2px solid #c8884a;
+  }
+  .split-card.blue { background: #e8eef8; border-color: #2a4d7a; }
+  .split-card .vl { font-size: 0.75rem; font-weight: 700; margin-bottom: 6px; color: #7a4010; }
+  .split-card.blue .vl { color: #16294a; }
+  .split-card .vv { font-size: 1.1rem; font-weight: 700; color: #c8884a; }
+  .split-card.blue .vv { color: #2a4d7a; }
+  .split-card .vs { font-size: 0.72rem; color: #777; margin-top: 4px; }
+  .split-mid { text-align: center; font-size: 1.3rem; color: #999; font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Header -->
+<div class="header">
+  <div class="meta">📅 1人法人スタート 最新トピック &nbsp;2026-09-02</div>
+  <h1>🔓 社長が交代しても、借金の「個人保証」はそのまま残る?<br>──経営者保証コーディネーターと事業承継特別保証制度の基礎</h1>
+  <div class="desc">
+    <span class="htag">経営者保証</span>
+    <span class="htag">事業承継</span>
+    <span class="htag">資金調達</span>
+    <span class="htag">中小企業庁・金融庁</span>
+    <br>
+    今の1人社長にはまだ先の話に思えるかもしれませんが、融資を受けるとき・将来会社を誰かに引き継ぐときに必ず関わってくるのが「経営者保証」です。今日は、保証をなくす・軽くするための公的な仕組みと、2026年5月に始まったばかりの新しい相談窓口を整理します。
+  </div>
+</div>
+
+<!-- Section 1: 経営者保証とは -->
+<div class="card blue">
+  <div class="sec-title">🔒 そもそも「経営者保証」とは</div>
+  <p>会社が金融機関からお金を借りるとき、「もし会社が返せなくなったら、社長個人が代わりに返済します」という個人の保証を求められることがあります。これが<span class="hl">「経営者保証」</span>です。中小企業の融資では長く一般的な慣行でしたが、社長にとっては<span class="hlo">失敗すれば個人の財産まで失うリスク</span>になり、思い切った投資や、会社を後継者に引き継ぐことをためらわせる要因にもなってきました。</p>
+
+  <div class="info" style="margin-top:14px;">
+    📌 この状況を変えるために、2013年12月5日に全国銀行協会・日本商工会議所を事務局とする研究会が<span class="hl">「経営者保証に関するガイドライン」</span>を公表し、2014年2月1日から適用が始まりました。法律ではなく、金融機関と中小企業が自主的に守るルールという位置づけです。
+  </div>
+</div>
+
+<!-- Section 2: 事業承継の壁 -->
+<div class="card orange">
+  <div class="sec-title">🚧 事業承継のときに保証が「壁」になる理由</div>
+  <p>特に問題になりやすいのが<span class="hl">事業承継の場面</span>です。先代社長の保証を外さないまま、後継者にも新たに保証を求める、いわゆる<span class="hlo">「二重の保証」</span>が起きやすく、これが後継者候補が承継をためらう一因になっているとされています。</p>
+
+  <p style="margin-top:10px;">そこで2019年12月(令和元年)、ガイドライン研究会は<span class="hl">「事業承継時に焦点を当てた特則」</span>を策定しました。ポイントは次の3つです。</p>
+
+  <ul class="check-list" style="margin-top:12px;">
+    <li><span class="ck">✓</span>前経営者・後継者の<strong>双方から二重に保証を求めることを原則禁止</strong></li>
+    <li><span class="ck">✓</span>後継者との保証契約は事業承継の阻害要因になり得ることを踏まえ、<strong>柔軟に判断</strong>する</li>
+    <li><span class="ck">✓</span>前経営者の既存の保証契約についても、<strong>必要性をあらためて見直す</strong></li>
+  </ul>
+</div>
+
+<!-- Section 3: コーディネーター -->
+<div class="card green">
+  <div class="sec-title">🧑‍💼 経営者保証コーディネーターとは</div>
+  <p>とはいえ、「ガイドラインの要件を満たしているか」を自分だけで金融機関に説明するのは簡単ではありません。そこで各都道府県の<span class="hl">「事業承継・引継ぎ支援センター」</span>(中小企業庁の委託事業)に配置されているのが<span class="hl">経営者保証コーディネーター</span>です。相談は無料・秘密厳守で受けられます。</p>
+
+  <div class="f-step" style="margin-top:14px;">
+    <div class="f-num">①</div>
+    <div class="f-text"><strong>事業承継・引継ぎ支援センターに相談する</strong>──全国47都道府県に窓口がある</div>
+  </div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step">
+    <div class="f-num">②</div>
+    <div class="f-text"><strong>「事業承継時判断材料チェックシート」で確認を受ける</strong>──資産超過かどうか、法人と個人のお金がきちんと分かれているか等を確認</div>
+  </div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step">
+    <div class="f-num opt">③</div>
+    <div class="f-text"><strong>確認結果を金融機関・信用保証協会に提示する</strong>──保証を外す・軽くする交渉の材料になる</div>
+  </div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step">
+    <div class="f-num later">④</div>
+    <div class="f-text"><strong>信用保証協会の保証料が軽減される</strong>──後述の「事業承継特別保証制度」を使う場合</div>
+  </div>
+</div>
+
+<!-- Section 4: 事業承継特別保証制度 -->
+<div class="card">
+  <div class="sec-title">🏦 事業承継特別保証制度の基礎データ</div>
+  <p>2020年4月に始まった、信用保証協会の保証制度です。要件を満たせば<span class="hl">経営者保証なし</span>で融資の保証を受けられ、既存の個人保証付き借入の借換えにも使えます。</p>
+
+  <div class="stats-row c3" style="margin-top:14px;">
+    <div class="stat">
+      <div class="sl">制度開始</div>
+      <div class="sv">2020年4月</div>
+      <div class="su">信用保証協会の保証制度</div>
+    </div>
+    <div class="stat">
+      <div class="sl">保証限度額</div>
+      <div class="sv">2億8,000万円</div>
+      <div class="su">組合等は4億8,000万円</div>
+    </div>
+    <div class="stat">
+      <div class="sl">対象期間の目安</div>
+      <div class="sv">前後3年</div>
+      <div class="su">承継実施から3年以内/承継予定から3年以内</div>
+    </div>
+  </div>
+
+  <p style="margin-top:12px;">対象になるための主な要件は次の4つです(いずれも満たす必要があります)。</p>
+  <ul class="check-list" style="margin-top:8px;">
+    <li><span class="ck">✓</span>資産が負債を上回っている(<strong>資産超過</strong>)こと</li>
+    <li><span class="ck">✓</span><strong>EBITDA有利子負債倍率が10倍以内</strong>であること(借入が事業のもうけの何年分かを示す指標)</li>
+    <li><span class="ck">✓</span>法人の資産・経理と経営者個人の資産・経理が<strong>明確に分離</strong>されていること</li>
+    <li><span class="ck">✓</span>信用保証協会への申込時点で、<strong>返済を猶予・緩和中の借入がない</strong>こと</li>
+  </ul>
+</div>
+
+<!-- Section 5: 保証料率の比較 -->
+<div class="card">
+  <div class="sec-title">💴 コーディネーターの確認があると保証料が下がる</div>
+  <p>同じ制度でも、経営者保証コーディネーターの確認を受けているかどうかで、信用保証協会に支払う年間の保証料率が変わります。</p>
+
+  <div class="wrap-x">
+    <table class="cmp" style="margin-top:12px;">
+      <thead>
+        <tr><th style="width:34%;">区分</th><th>年間の保証料率</th></tr>
+      </thead>
+      <tbody>
+        <tr><th>コーディネーターの確認なし</th><td>0.45%〜1.90%(9段階の弾力化料率)</td></tr>
+        <tr><th>コーディネーターの確認あり</th><td class="hi">0.20%〜1.15%に軽減</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="info">
+    💡 確認を受けるだけで保証料率の上限・下限がどちらも0.25ポイントずつ下がる計算です。事業承継を考え始めたら、まず無料の事業承継・引継ぎ支援センターに相談してみる価値があります。
+  </div>
+</div>
+
+<!-- Section 6: 新しい相談窓口 -->
+<div class="card blue">
+  <div class="sec-title">📮 2026年5月に始まった新しい相談窓口</div>
+  <p>金融庁は2026年5月1日、<span class="hl">「M&amp;A・事業承継時における経営者保証情報ネットワーク」</span>を開設しました。M&amp;A・事業承継の際に経営者保証がスムーズな実施の妨げになっている、といったケースの情報を受け付ける窓口です。</p>
+
+  <div class="split-wrap" style="margin-top:14px;">
+    <div class="split-card blue">
+      <div class="vl">📧 メール</div>
+      <div class="vv">hoshou.network<br>@fsa.go.jp</div>
+      <div class="vs">相談シートに記入して送付</div>
+    </div>
+    <div class="split-mid">/</div>
+    <div class="split-card">
+      <div class="vl">📞 電話</div>
+      <div class="vv">0570-016811</div>
+      <div class="vs">平日10:00〜17:00</div>
+    </div>
+  </div>
+  <p style="margin-top:10px; font-size:0.85rem; color:#666;">例:「事業承継を予定しているが金融機関にまだ保証の相談をしておらず不安」「事業承継後も前経営者の保証が残ったまま金融機関が対応してくれない」といった相談が想定されています。</p>
+</div>
+
+<!-- Section 7: 1人社長にとっての意味 -->
+<div class="card green">
+  <div class="sec-title">🌱 今すぐ承継予定がない1人社長にとっての意味</div>
+  <p>「まだ後継者もいないし関係ない」と思うかもしれませんが、知っておく価値は2つあります。</p>
+
+  <ul class="check-list" style="margin-top:10px;">
+    <li><span class="ck">✓</span>今後、新規融資や借換えの際に<strong>「経営者保証なし」を選択肢として交渉できる</strong>ことを知っておける</li>
+    <li><span class="ck">✓</span>将来、会社を家族や従業員・第三者に引き継ぐときに、<strong>無料の公的窓口(事業承継・引継ぎ支援センター)がある</strong>ことを覚えておける</li>
+  </ul>
+
+  <div class="warn" style="margin-top:12px;">
+    🤖 生成AIとの付き合い方の一例:自社の決算書の数字(資産・負債・利益)を入力し、「事業承継特別保証制度の4要件を満たしていそうか、大まかな目安を一緒に整理して」と壁打ちの材料にすることはできます。ただし正式な判定は必ず信用保証協会・事業承継・引継ぎ支援センターに確認してください。決算書などの機密情報を入力する際は、利用するAIサービスの規約・情報の取り扱いに注意しましょう。
+  </div>
+</div>
+
+<!-- Section 8: 注意点 -->
+<div class="card red">
+  <div class="sec-title">⚠️ 利用するときの注意点</div>
+  <ul class="check-list">
+    <li><span class="ck-bad">✕</span>要件を満たしていても、<strong>必ず保証なしで融資が受けられると保証されているわけではない</strong>(最終判断は金融機関・信用保証協会)</li>
+    <li><span class="ck-bad">✕</span>事業承継特別保証制度の詳しい要件・保証料率は、<strong>取扱いの信用保証協会によって案内内容が異なる場合がある</strong>ため、必ず窓口で最新情報を確認する</li>
+    <li><span class="ck-bad">✕</span>資金繰りや承継の具体的な進め方は、税理士・中小企業診断士・事業承継・引継ぎ支援センターなど<strong>専門家に相談したうえで判断</strong>する</li>
+  </ul>
+</div>
+
+<!-- Section 9: まとめ -->
+<div class="card">
+  <div class="sec-title">📝 今日のまとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">①</span><strong>経営者保証</strong>は、会社の借入を社長個人が保証する慣行。2014年2月適用の「経営者保証に関するガイドライン」が保証を外す・軽くするための共通ルールになっている。</li>
+    <li><span class="n">②</span>2019年12月の<strong>事業承継時の特則</strong>で、前経営者・後継者への「二重の保証」を原則禁止するなど、承継時の考え方が整理された。</li>
+    <li><span class="n">③</span>都道府県の事業承継・引継ぎ支援センターにいる<strong>経営者保証コーディネーター</strong>が、無料でガイドラインの充足状況を確認してくれる。</li>
+    <li><span class="n">④</span>2020年4月開始の<strong>事業承継特別保証制度</strong>は、4要件を満たせば保証限度額2億8,000万円まで無保証で利用でき、コーディネーターの確認を受けると保証料率が0.45〜1.90%→0.20〜1.15%に軽減される。</li>
+    <li><span class="n">⑤</span>2026年5月には金融庁の新しい相談窓口「経営者保証情報ネットワーク」も始まった。今すぐ関係なくても、いざというときのために窓口の存在だけは覚えておきたい。</li>
+  </ul>
+
+  <div class="source">
+    📚 出典:金融庁「『経営者保証に関するガイドライン』の公表について」(2013年12月・fsa.go.jp) / 金融庁「M&amp;A・事業承継時における経営者保証情報ネットワーク」(2026年5月・fsa.go.jp/receipt/k_network/) / 中小企業庁「事業承継時の経営者保証解除に向けた総合的な対策」(chusho.meti.go.jp/kinyu/hosyoukaijo/) / 中小企業庁「事業承継に焦点を当てた特則」(2019年12月・chusho.meti.go.jp/kinyu/keieihosyou/) / 事業承継・引継ぎ支援センター(中小機構 shoukei.smrj.go.jp) / 各地信用保証協会「事業承継特別保証制度」案内ページ(2026年9月時点の公表内容にもとづく)
+  </div>
+</div>
+
+<!-- Disclaimer -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報提供を目的としたものであり、個別の税務・法務・金融に関するアドバイスではありません。融資や保証の可否・条件は、金融機関・信用保証協会の審査や会社の状況により異なります。
+  実際の資金調達・事業承継の判断にあたっては、税理士・中小企業診断士・金融機関・事業承継・引継ぎ支援センターなど専門家・専門窓口にご相談ください。<br>
+  <strong>本記事の基準:</strong>2026年9月時点で確認できた公表情報にもとづいています。保証料率・保証限度額などの制度内容は今後変更される可能性があるため、利用時は必ず最新の情報を各信用保証協会・事業承継・引継ぎ支援センターでご確認ください。
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>📚 <a href="index.html">バックナンバー一覧へ</a> &nbsp;&middot;&nbsp; 毎朝更新</p>
+</div>
+
+</div>
+</body>
+</html>
