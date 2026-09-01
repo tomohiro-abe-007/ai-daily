@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-09-02</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '🦠';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.9rem; margin-bottom: 8px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.1em; }
+  .c3-col li { margin-bottom: 4px; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  .quote-box {
+    background: #f5f0e8;
+    border-left: 4px solid #7a5abf;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    margin: 12px 0;
+    color: #444;
+    font-style: italic;
+  }
+  .quote-box .who { font-style: normal; font-weight: 700; color: #5a3a9a; margin-top: 6px; font-size: 0.78rem; }
+  .matrix {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .mx-cell {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .mx-cell .mx-head { font-weight: 700; font-size: 0.88rem; margin-bottom: 6px; }
+  .mx-cell.ok  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .mx-cell.ok  .mx-head { color: #1a6e4a; }
+  .mx-cell.ng  { background: #fbe8e6; border: 2px solid #c0392b; }
+  .mx-cell.ng  .mx-head { color: #a0291e; }
+  @media (max-width: 540px) {
+    .compare4 { grid-template-columns: 1fr; }
+    .matrix { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.7rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ヘッダー -->
+<div class="header">
+  <div class="label">健康・栄養 最新トピック ・ 2026-09-02</div>
+  <h1>コーヒーを飲む人の腸にだけ増える"ある1種類の菌"がいた──1万人のデータが見せた「食べ物と腸内細菌の相性」</h1>
+  <div class="subtitle">イスラエル・ワイツマン科学研究所のTomer Segevさん、Daniel Barakさん、Liron Zahaviさんら(Eran Segalさんのチーム)が、「ヒト表現型プロジェクト」の参加者10,068人を対象に、スマホアプリの食事記録と便サンプルのショットガン・メタゲノム解析を組み合わせ、どの食べ物がどの腸内細菌の種類と結びつくかを調べた大規模観察研究をNature Medicine誌に発表しました(2026年、DOI: 10.1038/s41591-026-04312-x)。今日はこの研究をもとに、「精密栄養学」の土台となる大規模データがどこまで信頼できるかを読み解きます。</div>
+</div>
+
+<!-- タグ -->
+<div style="margin-bottom:18px;">
+  <span class="tag">精密栄養学</span>
+  <span class="tag">腸内細菌叢(マイクロバイオーム)</span>
+  <span class="tag">ヒト表現型プロジェクト</span>
+  <span class="tag">超加工食品</span>
+  <span class="tag">観察研究</span>
+</div>
+
+<!-- 今日の疑問 -->
+<div class="card">
+  <h2>🤔 今日の疑問:食べ物ごとに"相性のよい"腸内細菌はあるのか?</h2>
+  <p>「同じものを食べても、腸内細菌への影響には個人差がある」——これも精密栄養学でよく語られるテーマです。でも、そもそも「この食べ物を摂る人は、この菌が多い」という関係自体、どれくらいはっきりしているのでしょうか。</p>
+  <p>2026年、イスラエル・ワイツマン科学研究所のTomer Segevさん、Daniel Barakさん、Liron Zahaviさん、Anastasia Godnevaさん、Michal Reinさん、David Krongauzさん、Adina Weinbergerさん、Eran Segalさんらのチームが、「ヒト表現型プロジェクト」という大規模な健康調査に参加した10,068人(女性5,304人・男性4,764人)を対象に、食事の内容と腸内細菌の種類の関係を、スマホアプリの食事記録と便サンプルの詳しい解析(ショットガン・メタゲノム解析)を組み合わせて調べ、Nature Medicine誌に発表しました(32巻、1884〜1894ページ、DOI: 10.1038/s41591-026-04312-x)。</p>
+</div>
+
+<!-- 基本用語 -->
+<div class="card blue">
+  <h2>📖 まず言葉の意味を</h2>
+  <div class="def-grid">
+    <div class="def-item">
+      <div class="dterm">ヒト表現型プロジェクト</div>
+      イスラエル・ワイツマン科学研究所が進める大規模な健康調査。参加者から食事・生活習慣・血液検査・腸内細菌など多角的なデータを集め、個人差の研究に役立てている。
+    </div>
+    <div class="def-item">
+      <div class="dterm">ショットガン・メタゲノム解析</div>
+      便サンプルに含まれるDNAをまるごと読み取り、どんな種類の腸内細菌がどれくらいいるかを推定する解析方法。特定の遺伝子だけを見る従来法より、菌を「種」の細かさまで区別できる。
+    </div>
+    <div class="def-item">
+      <div class="dterm">α多様性(アルファ多様性)</div>
+      1人の腸の中にどれだけ多くの種類の腸内細菌がいるかを表す指標。一般に、多様性が高いほど腸内環境が安定しやすいと考えられている。
+    </div>
+    <div class="def-item">
+      <div class="dterm">縦断研究(追跡研究)</div>
+      同じ人を時間をおいて繰り返し調べる研究方法。今回は一部の参加者について、最長4年間、食事と腸内細菌の関係が保たれるかを追跡した。
+    </div>
+    <div class="def-item">
+      <div class="dterm">シミュレーション(予測)と実際の介入</div>
+      今回の「食事を変えると腸内細菌が望ましい方向に変わる」という部分は、集めたデータをもとにコンピューター上で予測した結果であり、実際に人の食事を変えて確かめた臨床試験の結果ではない。
+    </div>
+    <div class="def-item">
+      <div class="dterm">超加工食品(UPF)</div>
+      家庭の調理ではあまり使わない添加物や、高度な工業的処理を経て作られる食品。スナック菓子・清涼飲料・インスタント食品などが典型例。
+    </div>
+  </div>
+</div>
+
+<!-- 数字カード -->
+<div class="num-row">
+  <div class="num-card gray-bg">
+    <div class="big">10,068<span class="unit">人</span></div>
+    <div class="desc">食事記録と便サンプルを提供した参加者の人数(女性5,304人・男性4,764人)</div>
+  </div>
+  <div class="num-card blue-bg">
+    <div class="big">4<span class="unit">年間</span></div>
+    <div class="desc">一部の参加者について、食事と腸内細菌の関連が時間をこえて保たれるかを追跡した期間</div>
+  </div>
+  <div class="num-card orange-bg">
+    <div class="big">82.5<span class="unit">%</span></div>
+    <div class="desc">4年間の追跡で、予測した菌の量と実際に測った菌の量が統計的に一致した菌の種類の割合</div>
+  </div>
+</div>
+
+<!-- 研究の流れ -->
+<div class="card purple">
+  <h2>🧭 この研究はどう行われたか(5ステップ)</h2>
+  <div class="flow">
+    <div class="flow-step purp">① 参加者10,068人が<br>スマホアプリで<br>日々の食事を記録</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step">② 便サンプルを提出し<br>ショットガン・メタゲ<br>ノム解析で菌を特定</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step alt">③ 「この食品を摂る人<br>ほどこの菌が多い」を<br>統計的に解析</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step">④ 一部の参加者を<br>最長4年間追跡し<br>関連の再現性を確認</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step purp">⑤ 見つかった関連から<br>個人ごとの食事変化を<br>コンピューターで予測</div>
+  </div>
+  <p style="font-size:0.82rem; color:#555; margin-top:4px;">1万人超という規模と、腸内細菌を「種」のレベルまで区別できる解析、さらに最長4年間の追跡検証を組み合わせた点が、この研究の特徴です。</p>
+</div>
+
+<!-- 比較:食べ物と菌の組み合わせ -->
+<div class="card orange">
+  <h2>🍽️ どの食べ物が、どの菌と結びついていたか(代表例)</h2>
+  <div class="compare4">
+    <div class="c3-col orange">
+      <h3>☕ コーヒー</h3>
+      <ul>
+        <li>コーヒーをよく飲む人ほど、Lawsonibacter asaccharolyticus(ローソニバクター・アサッカロリティカス)という菌が多い傾向</li>
+      </ul>
+    </div>
+    <div class="c3-col green">
+      <h3>🥛 ヨーグルト</h3>
+      <ul>
+        <li>ヨーグルトをよく食べる人ほど、発酵に使われる乳酸菌Streptococcus thermophilus(サーモフィラス菌)が多い傾向</li>
+      </ul>
+    </div>
+    <div class="c3-col blue">
+      <h3>🍼 牛乳</h3>
+      <ul>
+        <li>牛乳をよく飲む人ほど、Bifidobacterium(ビフィズス菌)の仲間が多い傾向</li>
+      </ul>
+    </div>
+  </div>
+  <p style="font-size:0.82rem; color:#555; margin-top:8px;">これらはあくまで「よく摂る人ほど、その菌が多い」という統計的な関連であり、その食品を食べれば必ずその菌が増える、と証明されたわけではありません。</p>
+</div>
+
+<!-- マトリクス:加工度と多様性 -->
+<div class="card">
+  <h2>🥗 加工度と、腸内細菌の"種類の豊かさ"の関係</h2>
+  <div class="matrix">
+    <div class="mx-cell ok">
+      <div class="mx-head">✅ 未加工・栄養豊富な食事</div>
+      野菜・果物・全粒穀物など、あまり加工されていない食品を多く摂る人ほど、腸内細菌のα多様性(菌の種類の豊かさ)が高い傾向。今回の研究の中で、多様性を高める方向にもっとも強く関連していた食事パターンだった。
+    </div>
+    <div class="mx-cell ng">
+      <div class="mx-head">⚠️ 超加工食品(UPF)</div>
+      スナック菓子・清涼飲料・インスタント食品などの超加工食品を多く摂る人ほど、腸内細菌のα多様性が低い傾向。今回の研究の中で、多様性を下げる方向にもっとも強く関連していた食事パターンだった。
+    </div>
+  </div>
+</div>
+
+<!-- 議論・限界 -->
+<div class="card">
+  <h2>🔬 この結果、どこまで信じてよいか</h2>
+  <p>この研究の強みは、参加者数が1万人超と非常に大きく、腸内細菌を「種」のレベルまで区別できるショットガン・メタゲノム解析を使い、さらに一部の参加者を最長4年間追跡して、見つかった食べ物と菌の関連が時間をこえて再現されるか(82.5%の菌種で再現)を確認している点です。単発の小規模研究に比べ、かなり手堅い作りの観察研究だといえます。</p>
+  <p>一方で、これはあくまで観察研究であり、実際に参加者の食事を変えて菌がどう変わるかを試したランダム化比較試験(RCT)ではありません。食事記録はスマホアプリでの自己申告であり、記録の誤差や思い出しバイアスの可能性があります。参加者はイスラエルの「ヒト表現型プロジェクト」に参加した人が中心で、食文化や遺伝的背景の異なる集団にそのまま当てはまるかは今回の研究だけでは確認できません。さらに、「個人に合わせた食事で心代謝の健康が改善する」という部分は、集めたデータをもとにしたコンピューター上のシミュレーション(予測)であり、実際に人の食事を変えて確かめた結果ではない点にも注意が必要です。</p>
+</div>
+
+<!-- 賛否両論 -->
+<div class="card red">
+  <h2>🗣️ 意見が分かれるところ:この規模のデータは「個人に合わせた食事」の根拠になるか?</h2>
+  <div class="matrix">
+    <div class="mx-cell ok">
+      <div class="mx-head">✅ 期待できる点</div>
+      1万人超・種レベルの解析・最長4年間の追跡検証という組み合わせは、食べ物と腸内細菌の関連を調べた観察研究としては、これまでで最も規模と再現性を重視した部類に入ります。将来、個人に合わせた食事アドバイスを作るための土台となるデータが積み上がりつつあるといえます。
+    </div>
+    <div class="mx-cell ng">
+      <div class="mx-head">⚠️ 慎重な見方</div>
+      規模が大きくても観察研究である以上、コーヒーを飲む人と飲まない人には、食事以外にも運動・睡眠・ストレスなど多くの生活習慣の違いがある可能性があり、それらが結果に影響した(交絡した)可能性は完全には排除できません。「個人に合わせた食事で健康が改善する」という部分も、まだ実際の人で試された結果ではなく、今後の介入試験での検証が必要です。
+    </div>
+  </div>
+</div>
+
+<!-- 注意点 -->
+<div class="warn">
+  <strong>⚠️ 誤解しないでほしいこと</strong>
+  <ul style="padding-left:1.4em; margin-top:8px;">
+    <li>「コーヒーやヨーグルトを摂ればその菌が増えて健康になる」と証明した研究ではありません。見つかったのはあくまで統計的な「関連」です。</li>
+    <li>「個人に合わせた食事で心代謝の健康が改善する」という部分はコンピューターによる予測(シミュレーション)であり、実際に人で試して確かめたものではありません。</li>
+    <li>特定の菌を増やす目的で、市販のプロバイオティクスサプリなどを自己判断で摂取することは勧めません。</li>
+    <li>持病がある方、服薬中の方、妊娠中の方などが食事内容を大きく変える場合は、自己判断せず、かかりつけ医・管理栄養士にご相談ください。</li>
+  </ul>
+</div>
+
+<!-- エビデンスの整理 -->
+<div class="card">
+  <h2>🧪 今日出てきた情報の「証拠としての強さ」の目安</h2>
+  <table class="ev-table">
+    <tr><th>情報の種類</th><th>特徴</th><th>証拠としての強さ</th></tr>
+    <tr>
+      <td>特定の食べ物と特定の腸内細菌の種類が結びつく(例:コーヒーとLawsonibacter asaccharolyticus)</td>
+      <td>大規模観察研究(n=10,068)、種レベルの関連解析、最長4年間の追跡で再現性を確認</td>
+      <td><span class="ev-badge ev-mid">中程度(規模と再現性は高いが観察研究)</span></td>
+    </tr>
+    <tr>
+      <td>未加工・栄養豊富な食事は多様性を高め、超加工食品は多様性を下げる方向にもっとも強く関連する</td>
+      <td>同じ大規模観察研究における統計解析</td>
+      <td><span class="ev-badge ev-mid">中程度(観察研究、生活習慣の交絡の可能性あり)</span></td>
+    </tr>
+    <tr>
+      <td>個人に合わせた食事介入で腸内細菌を変え、心代謝の健康を改善できる</td>
+      <td>実際の介入試験ではなく、コンピューターによる予測(シミュレーション)</td>
+      <td><span class="ev-badge ev-low">低い(未検証の予測モデル)</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- まとめ -->
+<div class="card" style="border-left-color:#1a7a5a;">
+  <h2>✅ 今日のまとめ</h2>
+  <ul class="step-list">
+    <li>イスラエル・ワイツマン科学研究所のSegev・Barak・Zahavi・Godneva・Rein・Krongauz・Weinberger・Segalさんらのチームが、「ヒト表現型プロジェクト」の参加者10,068人を対象に、食事記録とショットガン・メタゲノム解析を組み合わせ、食べ物と腸内細菌の関連を調べた観察研究をNature Medicine誌に発表(2026年、DOI: 10.1038/s41591-026-04312-x)。</li>
+    <li>コーヒーとLawsonibacter asaccharolyticus、ヨーグルトとStreptococcus thermophilus、牛乳とBifidobacteriumなど、食べ物ごとに結びつきの強い菌が見つかった。最長4年間の追跡でも82.5%の菌種で関連が再現された。</li>
+    <li>未加工・栄養豊富な食事は腸内細菌の多様性を高め、超加工食品は下げる方向にもっとも強く関連していた。</li>
+    <li>1万人超・種レベル解析・4年間の追跡検証という手堅い作りの観察研究だが、あくまで「関連」であり因果関係を証明したものではない。個人に合わせた食事で健康が改善するという部分はコンピューターによる予測にとどまり、実際の介入試験による検証はこれから。</li>
+    <li>特定の菌を増やす目的でのサプリ利用などは自己判断で行わず、食事内容を大きく変える場合はかかりつけ医・管理栄養士に相談することが大切。</li>
+  </ul>
+</div>
+
+<!-- 免責 -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、医療アドバイスではありません。効果・必要量・リスクは個人の体質・年齢・持病・服薬によって大きく異なります。本記事は特定の食品・サプリ・食事法の利用を推奨するものではありません。食事内容の変更を検討する場合は、自己判断せず、かかりつけ医・管理栄養士など専門家にご相談ください。
+</div>
+
+<!-- 出典 -->
+<div class="sources">
+  <h3>📚 主な出典・参考文献</h3>
+  <ol>
+    <li>Segev T, Barak D, Zahavi L, Godneva A, Rein M, Krongauz D, Weinberger A, Segal E. "Diet–microbiome associations in 10,068 individuals from the Human Phenotype Project to guide personalized nutrition." <em>Nature Medicine</em>. 2026;32:1884–1894. DOI: 10.1038/s41591-026-04312-x
+      <a href="https://www.nature.com/articles/s41591-026-04312-x" target="_blank">https://www.nature.com/articles/s41591-026-04312-x</a>(基準日:2026年3月23日オンライン公開)
+    </li>
+    <li>medRxiv. プレプリント版(査読前原稿)「Diet shapes the gut microbiome: cross-sectional and longitudinal insights from the Human Phenotype Project」
+      <a href="https://www.medrxiv.org/content/10.1101/2025.10.12.25337559v1" target="_blank">https://www.medrxiv.org/content/10.1101/2025.10.12.25337559v1</a>(基準日:2025年10月)
+    </li>
+    <li>Gut Microbiota for Health. "Species-level, food-specific associations predicted in a cohort of 10,068 people may guide personalized nutrition."
+      <a href="https://www.gutmicrobiotaforhealth.com/species-level-food-specific-associations-predicted-in-a-cohort-of-10068-people-may-guide-personalized-nutrition/" target="_blank">https://www.gutmicrobiotaforhealth.com/species-level-food-specific-associations-predicted-in-a-cohort-of-10068-people-may-guide-personalized-nutrition/</a>(基準日:2026年)
+    </li>
+    <li>Weizmann Institute of Science(Elsevier Pure 研究者ページ). "Diet–microbiome associations in 10,068 individuals from the Human Phenotype Project to guide personalized nutrition."
+      <a href="https://weizmann.elsevierpure.com/en/publications/dietmicrobiome-associations-in-10068-individuals-from-the-human-p/" target="_blank">https://weizmann.elsevierpure.com/en/publications/dietmicrobiome-associations-in-10068-individuals-from-the-human-p/</a>(基準日:2026年)
+    </li>
+  </ol>
+  <p style="margin-top:8px; font-size:0.78rem;">※ ネットワーク制限により、nature.com・medrxiv.org・pubmed.ncbi.nlm.nih.gov・researchgate.net・bugsigdb.org・cris.haifa.ac.il等に直接アクセスできなかったため、検索エンジンで得られる複数の独立した情報源の要約・引用文を突き合わせ、著者名・対象人数・DOI・統計値(82.5%など)の一致を確認したうえで作成しています。論文本文そのもの(一次資料)には未アクセスのため、統計的な信頼区間や、超加工食品・未加工食との関連の具体的な効果量などの詳細は今後の確認が望まれます。共著者リストは複数の独立情報源で表記に一部ゆれがあったため、複数ソースで一致した氏名のみを記載しています。</p>
+</div>
+
+</div>
+</body>
+</html>
