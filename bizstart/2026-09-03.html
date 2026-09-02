@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-09-03</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #2a4d7a 0%, #10233f 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #2a4d7a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.blue   { border-left-color: #1e5a7a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.green  { border-left-color: #1e7a5a; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #2a4d7a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin: 14px 0;
+  }
+  .stats-row.c3 { grid-template-columns: repeat(3, 1fr); }
+  .stats-row.c2 { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 12px 6px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat.now { background: #fff3e0; box-shadow: 0 0 0 2px #c8884a inset; }
+  .stat .sl { font-size: 0.62rem; color: #888; margin-bottom: 3px; line-height: 1.4; }
+  .stat .sv { font-size: 1.05rem; font-weight: 700; color: #2a4d7a; line-height: 1.15; }
+  .stat.now .sv { color: #c8884a; }
+  .stat .su { font-size: 0.62rem; color: #666; margin-top: 2px; }
+
+  .bignum {
+    background: white;
+    border-radius: 12px;
+    padding: 18px 14px;
+    text-align: center;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.1);
+    border: 2px dashed #c8884a;
+    margin: 14px 0;
+  }
+  .bignum .bl { font-size: 0.76rem; color: #888; margin-bottom: 6px; }
+  .bignum .bv { font-size: 1.7rem; font-weight: 700; color: #c8884a; line-height: 1.3; }
+  .bignum .bs { font-size: 0.76rem; color: #666; margin-top: 6px; line-height: 1.6; }
+
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #2a4d7a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-num.now { background: #b54040; }
+  .f-num.later { background: #999; }
+  .f-num.opt { background: #c8884a; }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+  .f-arrow { color: #2a4d7a; font-size: 1.1rem; margin-left: 14px; margin-bottom: 4px; }
+
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  table.cmp {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.83rem;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.08);
+  }
+  table.cmp th, table.cmp td {
+    border: 1px solid #e4dccd;
+    padding: 9px 10px;
+    line-height: 1.55;
+    vertical-align: top;
+  }
+  table.cmp thead th { background: #2a4d7a; color: white; font-weight: 600; text-align: center; }
+  table.cmp tbody th { background: #f5efe2; color: #5a4020; text-align: left; font-weight: 600; white-space: nowrap; }
+  table.cmp td { color: #444; text-align: left; }
+  table.cmp td.hi { background: #fff3e0; font-weight: 700; color: #c8884a; }
+  .wrap-x { overflow-x: auto; }
+
+  .info {
+    background: #e8eef8;
+    border-left: 4px solid #2a4d7a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #16294a;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #7a4010;
+  }
+
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #2a4d7a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #2a4d7a; word-break: break-all; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #2a4d7a; }
+
+  .split-wrap {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 10px;
+    align-items: center;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .split-wrap { grid-template-columns: 1fr; } }
+  .split-card {
+    border-radius: 10px;
+    padding: 16px 14px;
+    text-align: center;
+    background: #fff3e0;
+    border: 2px solid #c8884a;
+  }
+  .split-card.blue { background: #e8eef8; border-color: #2a4d7a; }
+  .split-card .vl { font-size: 0.75rem; font-weight: 700; margin-bottom: 6px; color: #7a4010; }
+  .split-card.blue .vl { color: #16294a; }
+  .split-card .vv { font-size: 1.1rem; font-weight: 700; color: #c8884a; }
+  .split-card.blue .vv { color: #2a4d7a; }
+  .split-card .vs { font-size: 0.72rem; color: #777; margin-top: 4px; }
+  .split-mid { text-align: center; font-size: 1.3rem; color: #999; font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Header -->
+<div class="header">
+  <div class="meta">📅 1人法人スタート 最新トピック &nbsp;2026-09-03</div>
+  <h1>🔄 9月の給与、天引き額が変わった?<br>──「定時決定」で標準報酬月額が切り替わる仕組み</h1>
+  <div class="desc">
+    <span class="htag">社会保険</span>
+    <span class="htag">標準報酬月額</span>
+    <span class="htag">定時決定</span>
+    <span class="htag">日本年金機構・協会けんぽ</span>
+    <br>
+    7月1日〜7月10日に提出した「算定基礎届」(7/1記事)。実はこの結果、毎年9月分の社会保険料からこっそり切り替わります。1人社長の役員報酬も対象です。今日は、いつから・どうやって金額が変わるのかを図解します。
+  </div>
+</div>
+
+<!-- Section 1: 定時決定の復習 -->
+<div class="card blue">
+  <div class="sec-title">🔁 そもそも「定時決定」とは(かんたん復習)</div>
+  <p>社会保険料(健康保険・厚生年金)は、毎月の給与そのものではなく<span class="hl">「標準報酬月額」</span>という区切りのよい等級にあてはめて計算します。この等級を年に1回、全員いっせいに決め直す手続きが<span class="hl">「定時決定」</span>で、提出する書類を<span class="hl">「算定基礎届」</span>と言います。</p>
+
+  <div class="f-step" style="margin-top:14px;">
+    <div class="f-num">①</div>
+    <div class="f-text"><strong>4月・5月・6月に支払った報酬を集計</strong>──役員報酬・給与に加え、残業代や通勤手当なども含む(賞与は除く)</div>
+  </div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step">
+    <div class="f-num">②</div>
+    <div class="f-text"><strong>7月1日〜7月10日に「算定基礎届」を提出</strong>──1人社長の会社でも、代表者自身が被保険者として対象になる</div>
+  </div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step">
+    <div class="f-num opt">③</div>
+    <div class="f-text"><strong>日本年金機構が新しい標準報酬月額を決定・通知</strong>──「標準報酬決定通知書」が事業所に届く</div>
+  </div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step">
+    <div class="f-num later">④</div>
+    <div class="f-text"><strong>新しい等級が実際に適用される</strong>──ここから先が今日のテーマ</div>
+  </div>
+</div>
+
+<!-- Section 2: いつからいつまで適用か -->
+<div class="card">
+  <div class="sec-title">📅 新しい標準報酬月額は「いつからいつまで」有効?</div>
+  <p>定時決定で決め直された標準報酬月額は、決定した<span class="hl">その年の9月から翌年8月まで</span>、まる1年間ずっと使われます。年の途中で給与が大きく変わらない限り、この期間は等級が固定されます。</p>
+
+  <div class="bignum">
+    <div class="bl">新しい標準報酬月額の適用期間</div>
+    <div class="bv">9月 〜 翌年8月</div>
+    <div class="bs">12か月間、社会保険料の計算のベースになる</div>
+  </div>
+
+  <div class="info">
+    📌 「9月分の保険料」から新しい等級で計算される、という意味です。これは9月に<u>支払われる</u>給与の話ではなく、9月<u>分</u>の保険料という点に注意してください(実際の天引きタイミングは次のセクション)。
+  </div>
+</div>
+
+<!-- Section 3: 給与天引きのタイミング -->
+<div class="card orange">
+  <div class="sec-title">💴 実際に給与から天引きされるのはいつ?</div>
+  <p>社会保険料は「その月分の保険料を、翌月に支払う給与から差し引く」という<span class="hl">翌月徴収</span>が一般的です。この方式の場合、9月分の保険料は<span class="hlo">10月に支払う給与</span>から新しい金額で天引きされることになります。</p>
+
+  <div class="split-wrap">
+    <div class="split-card blue">
+      <div class="vl">🔹 翌月徴収(多数派)</div>
+      <div class="vv">10月支払い給与から<br>新保険料を天引き</div>
+      <div class="vs">9月分の保険料を10月に控除する方式</div>
+    </div>
+    <div class="split-mid">or</div>
+    <div class="split-card">
+      <div class="vl">🔸 当月徴収</div>
+      <div class="vv">9月支払い給与から<br>新保険料を天引き</div>
+      <div class="vs">給与規程で定めている場合のみ</div>
+    </div>
+  </div>
+
+  <div class="warn">
+    ⚠️ どちらの方式かは会社の給与規程・給与計算のルールで決まっています。1人社長でも、顧問社労士や会計ソフトの設定がどちらになっているか、この時期に一度確認しておくと「急に天引き額が変わった」と慌てずに済みます。
+  </div>
+</div>
+
+<!-- Section 4: 対象外になる人 -->
+<div class="card green">
+  <div class="sec-title">🚫 定時決定の対象から外れるケース</div>
+  <p>全員が定時決定の対象になるわけではありません。次の2つに当てはまる人は、算定基礎届の対象から除外されます。</p>
+
+  <ul class="check-list" style="margin-top:10px;">
+    <li><span class="ck-bad">✕</span><strong>6月1日〜7月1日の間に新しく被保険者になった人</strong>──入ったばかりで4〜6月の報酬実績がまだ十分にないため</li>
+    <li><span class="ck-bad">✕</span><strong>7月・8月・9月のいずれかから「随時改定(月額変更届)」が行われる予定の人</strong>──給与が大きく変動して随時改定の対象になる場合は、そちらの新しい等級がそのまま優先される</li>
+  </ul>
+
+  <p style="margin-top:10px; font-size:0.85rem; color:#666;">1人社長で役員報酬を年の途中で改定していない場合は、通常どおり定時決定の対象になります。</p>
+</div>
+
+<!-- Section 5: 試算 -->
+<div class="card">
+  <div class="sec-title">🧮 標準報酬月額が上がったときの試算例</div>
+  <p>たとえば、4〜6月の報酬平均が上がり、標準報酬月額が<span class="hl">28万円→30万円</span>に切り替わったケースで、東京の協会けんぽ・令和8年度の保険料率(健康保険9.85%+子ども・子育て支援金0.23%、厚生年金18.3%)をもとに、本人負担分(労使折半後)を目安で比べてみます。</p>
+
+  <div class="stats-row c2" style="margin-top:14px;">
+    <div class="stat">
+      <div class="sl">改定前<br>標準報酬月額28万円</div>
+      <div class="sv">約39,732円</div>
+      <div class="su">健保+厚年 本人負担/月</div>
+    </div>
+    <div class="stat now">
+      <div class="sl">改定後(9月分〜)<br>標準報酬月額30万円</div>
+      <div class="sv">約42,570円</div>
+      <div class="su">健保+厚年 本人負担/月</div>
+    </div>
+  </div>
+
+  <div class="bignum">
+    <div class="bl">月あたりの本人負担の増加(目安)</div>
+    <div class="bv">+ 約2,838円</div>
+    <div class="bs">10月支払い給与(翌月徴収の場合)から反映</div>
+  </div>
+
+  <p style="font-size:0.8rem; color:#777;">※実際の保険料は等級ごとに定められた「保険料額表」で決まるため、上記は率をそのまま掛けた概算です。正確な金額は協会けんぽ・お手元の標準報酬決定通知書でご確認ください。</p>
+</div>
+
+<!-- Section 6: 1人社長への注意点 -->
+<div class="card blue">
+  <div class="sec-title">🌱 1人社長が今のうちに見ておきたいこと</div>
+  <ul class="check-list">
+    <li><span class="ck">✓</span>日本年金機構から届く<strong>「標準報酬決定通知書」</strong>で、自分の新しい標準報酬月額を確認する</li>
+    <li><span class="ck">✓</span>会社が<strong>翌月徴収か当月徴収か</strong>を確認し、資金繰り表(7/29記事)にいつから新しい保険料額を反映するか織り込む</li>
+    <li><span class="ck">✓</span>役員報酬そのものを変更したわけではないので、<strong>定期同額給与のルール(5/30記事)には影響しない</strong>点を混同しないよう注意する</li>
+  </ul>
+
+  <div class="warn" style="margin-top:12px;">
+    🤖 生成AIとの付き合い方の一例:標準報酬決定通知書に書かれた新旧の等級を入力し、「月々の保険料負担の変化を資金繰り表に反映する形でまとめて」と壁打ちの材料にすることはできます。ただし通知書や報酬額そのものは個人情報・機密情報にあたるため、入力する際は利用するAIサービスの規約・情報の取り扱いに注意しましょう。
+  </div>
+</div>
+
+<!-- Section 7: まとめ -->
+<div class="card">
+  <div class="sec-title">📝 今日のまとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">①</span>7/1〜7/10に提出した<strong>算定基礎届</strong>の結果、新しい標準報酬月額は<strong>その年の9月から翌年8月まで</strong>の1年間適用される。</li>
+    <li><span class="n">②</span>実際に給与から新しい保険料が天引きされるのは、<strong>翌月徴収なら10月支払いの給与から</strong>(当月徴収の会社は9月支払いから)。</li>
+    <li><span class="n">③</span>6/1〜7/1に資格取得した人や、7〜9月に随時改定が予定されている人は<strong>定時決定の対象から除外</strong>される。</li>
+    <li><span class="n">④</span>1人社長の役員報酬も対象。<strong>役員報酬額そのものの変更(定期同額給与)とは別の話</strong>である点を混同しないようにする。</li>
+    <li><span class="n">⑤</span>資金繰り表には、天引きタイミングのずれ(9月分→10月控除など)も織り込んでおくと慌てずに済む。</li>
+  </ul>
+
+  <div class="source">
+    📚 出典:日本年金機構「定時決定(算定基礎届)」(nenkin.go.jp/service/kounen/hokenryo/hoshu/20121017.html) / 日本年金機構「算定基礎届と月額変更届(7月・8月・9月改定分)の関係」(nenkin.go.jp/section/faq/kounen/hyoujunhoushu/hyoujyunhousyuu05.html) / 全国健康保険協会(協会けんぽ)東京支部「令和8年度保険料額表」(kyoukaikenpo.or.jp/assets/R8_13tokyo.pdf)。保険料率は令和8年度(2026年度)・東京支部の数値にもとづく試算です。
+  </div>
+</div>
+
+<!-- Disclaimer -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報提供を目的としたものであり、個別の税務・社会保険に関するアドバイスではありません。標準報酬月額の等級・保険料額・天引きタイミングは会社の給与規程や実際の報酬額により異なります。
+  実際の手続き・金額の確認にあたっては、税理士・社会保険労務士や日本年金機構・協会けんぽの窓口にご相談ください。<br>
+  <strong>本記事の基準:</strong>2026年9月(令和8年度)時点で確認できた公表情報にもとづいています。保険料率は年度により改定されるため、翌年度以降にご覧の場合は必ず最新の協会けんぽ・日本年金機構の情報をご確認ください。
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>📚 <a href="index.html">バックナンバー一覧へ</a> &nbsp;&middot;&nbsp; 毎朝更新</p>
+</div>
+
+</div>
+</body>
+</html>
