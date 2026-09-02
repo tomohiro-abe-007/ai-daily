@@ -32,7 +32,7 @@
 - スペイン語のlo que sea / cueste lo que cueste など、lo que+接続法を使った慣用表現 ── 08-25のlo que/lo cualの発展、決まり文句としての使い方を扱う
 - スペイン語のquien単独用法（先行詞なしで「〜する人」を表す使い方）── 08-26の英語の自由関係詞whatと似た発想をスペイン語側で扱う
 - スペイン語のleがseに変わるルール（se lo doy、leがloやlaなど直接目的語代名詞と連続するときの変化）── 09-01の与格重複の続編、二重代名詞の並び方を整理する
-- スペイン語のpor muy/mucho...que + 接続法（「どんなに〜でも」の譲歩表現）── 09-02の英語howeverの逆向きブリッジ、程度・様態を表す譲歩構文をスペイン語側で整理する
+- 英語のno matter how/what/who/where/whenのまとめ（09-03のスペイン語por muy/mucho...queの逆向きブリッジ）── 08-27〜09-02のwhatever一家＋09-02のhoweverと、no matter系の対応をもう一段整理する
 
 ## 解説済みテーマ
 
@@ -120,3 +120,4 @@
 - 2026-08-30: 英語のwherever/whenever（「場所」「時」を表すwhateverの仲間）── 08-29のwhoever/whicheverの発展、名詞用法(any place/time that)と譲歩用法(no matter where/when)を整理し、what/who/which/where/whenの5語まとめ表を完成
 - 2026-09-01: スペイン語の与格の重複表現（le doy el libro a Maríaのようにleとa+人を両方言う仕組み）── 07-12のlo/la/leの続編、直接目的語との重複のクセの違いも整理
 - 2026-09-02: 英語のhoweverの譲歩用法（however+形容詞/副詞で「どんなに〜でも」を表す語順）── 08-30で保留にしたhoweverを扱い、whatever一家(what/who/which/where/when+ever)の対応表にhoweverを加えて完成させた
+- 2026-09-03: スペイン語のpor muy/mucho...que + 接続法（「どんなに〜でも」の譲歩表現）── 09-02の英語howeverの逆向きブリッジ、形容詞/副詞はpor muy、動詞はpor mucho/más que、名詞は性数一致のmucho/a/os/asと使い分けを整理した
