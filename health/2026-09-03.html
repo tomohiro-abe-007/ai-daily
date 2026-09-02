@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-09-03</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '🩸';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.9rem; margin-bottom: 8px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.1em; }
+  .c3-col li { margin-bottom: 4px; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  .quote-box {
+    background: #f5f0e8;
+    border-left: 4px solid #7a5abf;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    margin: 12px 0;
+    color: #444;
+    font-style: italic;
+  }
+  .quote-box .who { font-style: normal; font-weight: 700; color: #5a3a9a; margin-top: 6px; font-size: 0.78rem; }
+  .matrix {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .mx-cell {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .mx-cell .mx-head { font-weight: 700; font-size: 0.88rem; margin-bottom: 6px; }
+  .mx-cell.ok  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .mx-cell.ok  .mx-head { color: #1a6e4a; }
+  .mx-cell.ng  { background: #fbe8e6; border: 2px solid #c0392b; }
+  .mx-cell.ng  .mx-head { color: #a0291e; }
+  @media (max-width: 540px) {
+    .compare4 { grid-template-columns: 1fr; }
+    .matrix { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.7rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ヘッダー -->
+<div class="header">
+  <div class="label">健康・栄養 最新トピック ・ 2026-09-03</div>
+  <h1>同じ「鉄」でも、必要な量は人によって3倍以上違う──"不足しやすい栄養素"の代表格を精密栄養学で読み解く</h1>
+  <div class="subtitle">今日は特定の新しい論文ではなく、精密栄養学の基礎テーマとして「鉄」を取り上げます。鉄は世界でもっとも不足しやすい栄養素のひとつですが、必要な量は性別・年齢・妊娠の有無で大きく変わり、さらに一部の人には「摂りすぎ」がむしろ危険という遺伝的な個人差もあります。米国の公的な食事摂取基準(Dietary Reference Intakes)、世界保健機関(WHO)の貧血統計、そして摂りすぎリスクに関わる大規模遺伝疫学研究をもとに、「不足」と「摂りすぎ」の両方から鉄を整理します。</div>
+</div>
+
+<!-- タグ -->
+<div style="margin-bottom:18px;">
+  <span class="tag">精密栄養学</span>
+  <span class="tag">鉄</span>
+  <span class="tag">貧血</span>
+  <span class="tag">遺伝的個人差</span>
+  <span class="tag">エビデンスの強さ</span>
+</div>
+
+<!-- 今日の疑問 -->
+<div class="card">
+  <h2>🤔 今日の疑問:「1日に必要な鉄の量」はみんな同じ?</h2>
+  <p>「鉄分不足に気をつけましょう」というアドバイスはよく聞きますが、実は1日に必要な鉄の量は、性別・年齢・妊娠しているかどうかで大きく異なります。しかも鉄は、摂れば摂るほどよいわけではなく、一部の人にとっては「摂りすぎ」がはっきりとした健康リスクになる、数少ない栄養素のひとつです。</p>
+  <p>今日は特定の1本の論文ではなく、米国の食事摂取基準(Dietary Reference Intakes、通称DRI)、世界保健機関(WHO)の貧血に関する統計、そして摂りすぎのリスクに関わる大規模な遺伝疫学研究(Allenさんらのチームによる、オーストラリアの成人31,192人を対象とした「HealthIron研究」、New England Journal of Medicine誌、2008年、DOI: 10.1056/NEJMoa073286)という、性質の異なる複数の一次情報を組み合わせて、「不足しやすい栄養素」の代表格である鉄を、精密栄養学の視点から整理します。</p>
+</div>
+
+<!-- 基本用語 -->
+<div class="card blue">
+  <h2>📖 まず言葉の意味を</h2>
+  <div class="def-grid">
+    <div class="def-item">
+      <div class="dterm">推奨量(RDA)</div>
+      ほとんどの健康な人(97〜98%)が必要量を満たせるように設定された、1日あたりの摂取目安量。
+    </div>
+    <div class="def-item">
+      <div class="dterm">耐容上限量(UL)</div>
+      通常の食事にプラスして摂り続けても、健康への悪影響がほぼ出ないと考えられる摂取量の上限。これを超えると胃腸障害などのリスクが上がる。
+    </div>
+    <div class="def-item">
+      <div class="dterm">ヘム鉄・非ヘム鉄</div>
+      肉・魚など動物性食品に含まれる鉄を「ヘム鉄」、野菜・豆・穀物など植物性食品や卵・乳製品に含まれる鉄を「非ヘム鉄」と呼ぶ。体への吸収されやすさが異なる。
+    </div>
+    <div class="def-item">
+      <div class="dterm">ホモ接合体</div>
+      両親それぞれから同じ遺伝子変異を1つずつ受け継ぎ、変異が2コピーそろっている状態。今回紹介する鉄の遺伝性疾患に関わる。
+    </div>
+    <div class="def-item">
+      <div class="dterm">浸透率(しんとうりつ)</div>
+      特定の遺伝子変異を持つ人のうち、実際にその病気の症状が出る人の割合。同じ変異を持っていても、全員が発症するとは限らない。
+    </div>
+    <div class="def-item">
+      <div class="dterm">相関と因果</div>
+      「AとBが同時に見られる」ことと「AがBを引き起こす」ことは別。今日紹介する数値の中にも、両者の区別が必要なものが含まれる。
+    </div>
+  </div>
+</div>
+
+<!-- 数字カード -->
+<div class="num-row">
+  <div class="num-card gray-bg">
+    <div class="big">8〜27<span class="unit">mg</span></div>
+    <div class="desc">1日の鉄の推奨量(RDA)。性別・年齢・妊娠の有無で最大3.4倍の差がある(米国の食事摂取基準)</div>
+  </div>
+  <div class="num-card red-bg">
+    <div class="big">45<span class="unit">mg</span></div>
+    <div class="desc">成人の耐容上限量(UL)。通常の食事に加えてこれ以上摂り続けると胃腸障害などのリスクが上がる目安</div>
+  </div>
+  <div class="num-card blue-bg">
+    <div class="big">約25<span class="unit">%</span></div>
+    <div class="desc">世界の人口のうち貧血があると推定される割合(WHOの統計。うち約半数が鉄欠乏性と推定)</div>
+  </div>
+  <div class="num-card purple-bg">
+    <div class="big">約0.44<span class="unit">%</span></div>
+    <div class="desc">米国の非ヒスパニック系白人で、鉄を体に溜め込みやすくする遺伝子変異を2コピー持つ人の割合(およそ200人に1人)</div>
+  </div>
+</div>
+
+<!-- 比較:RDAの個人差 -->
+<div class="card orange">
+  <h2>⚖️ 「1日に必要な鉄の量」は人によってこんなに違う</h2>
+  <div class="compare4">
+    <div class="c3-col blue">
+      <h3>👨 成人男性・閉経後の女性</h3>
+      <ul>
+        <li>1日あたり<strong>8mg</strong></li>
+        <li>月経による鉄の喪失がない・少ないグループ</li>
+      </ul>
+    </div>
+    <div class="c3-col orange">
+      <h3>👩 月経のある成人女性(19〜50歳)</h3>
+      <ul>
+        <li>1日あたり<strong>18mg</strong>(男性の2倍以上)</li>
+        <li>月経で毎月失われる鉄を補う必要がある</li>
+      </ul>
+    </div>
+    <div class="c3-col red">
+      <h3>🤰 妊娠中</h3>
+      <ul>
+        <li>1日あたり<strong>27mg</strong>(男性の3.4倍)</li>
+        <li>胎児の成長と血液量の増加のため必要量が急増</li>
+      </ul>
+    </div>
+    <div class="c3-col green">
+      <h3>👶 生後0〜6か月の乳児</h3>
+      <ul>
+        <li>目安量(AI)として1日あたり<strong>0.27mg</strong></li>
+        <li>母乳・育児用ミルクでまかなわれる想定</li>
+      </ul>
+    </div>
+  </div>
+  <p style="font-size:0.82rem; color:#555; margin-top:8px;">出典:米国の食事摂取基準(Dietary Reference Intakes)にもとづく数値。「鉄が不足しやすい人」は一律ではなく、ライフステージによって必要量そのものが大きく変わることがポイントです。</p>
+</div>
+
+<!-- 吸収の個人差(ステップ) -->
+<div class="card purple">
+  <h2>🍽️ 同じ「鉄○mg」でも、体への吸収されやすさが違う</h2>
+  <div class="flow">
+    <div class="flow-step purp">① 肉・魚などの<br>ヘム鉄<br>吸収率 約25%</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step">② 野菜・豆・穀物<br>などの非ヘム鉄<br>吸収率 約17%以下</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step alt">③ ビタミンCと<br>一緒に摂ると<br>非ヘム鉄の吸収が上がる</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step warn2">④ お茶・コーヒーの<br>タンニン、乳製品の<br>カルシウムは吸収を妨げる</div>
+  </div>
+  <p style="font-size:0.82rem; color:#555; margin-top:4px;">典型的な食生活では、鉄全体の摂取量のうち動物性食品由来のヘム鉄は1〜2割程度にすぎませんが、吸収率が高いため、実際に体に吸収される鉄のおよそ4割をヘム鉄が占めるという報告があります。同じ「鉄●mg」という表示でも、何と一緒に食べるかで実際に体に入る量は変わりうるという点が、精密栄養学的に重要なポイントです。</p>
+</div>
+
+<!-- 摂りすぎのリスク:遺伝的個人差 -->
+<div class="card red">
+  <h2>🧬 「摂りすぎ」が危険な人もいる──遺伝的な個人差</h2>
+  <p>鉄は、多くの人にとって「不足」が心配される栄養素ですが、一部の人にとっては逆に「体に溜まりすぎる」ことが問題になります。代表的なのが、<strong>HFE遺伝子</strong>という遺伝子に変異があるために腸からの鉄の吸収量が過剰になり、肝臓や心臓などに鉄が蓄積してしまう「遺伝性ヘモクロマトーシス」という病気です。</p>
+  <div class="matrix">
+    <div class="mx-cell ok">
+      <div class="mx-head">📊 変異を持つ人の割合</div>
+      この病気に関わる代表的な変異(C282Y)を両親から1つずつ、合計2コピー受け継いだ人(ホモ接合体)の割合は、米国の非ヒスパニック系白人で約0.44%(およそ200人に1人)と報告されています。一方、同じ米国でもアジア系では0.000039%とごくまれで、祖先の出身地域によって頻度が大きく異なります。
+    </div>
+    <div class="mx-cell ng">
+      <div class="mx-head">⚠️ 変異があっても全員が発症するわけではない</div>
+      オーストラリアの成人31,192人を対象とした大規模研究(HealthIron研究)では、C282Yホモ接合体のうち、実際に鉄過剰に関連する病気(肝障害など)が確認されたのは男性で28.4%(95%信頼区間18.8〜40.2%)、女性で1.2%(95%信頼区間0.03〜6.5%)にとどまりました。「同じ変異を持つ=必ず発症する」ではない点に注意が必要です。
+    </div>
+  </div>
+  <p style="font-size:0.82rem; color:#555; margin-top:8px;">この病気があると、通常の食事に加えて鉄サプリを自己判断で摂ることは、症状のない段階から体への鉄の蓄積を進めてしまう可能性があります。「不足しやすい栄養素だから、とりあえず多めに摂っておこう」という考え方が、必ずしも全員にとって安全とは限らない代表例です。</p>
+</div>
+
+<!-- 誰が本当に不足しやすいか -->
+<div class="card">
+  <h2>👥 実際に鉄不足のリスクが高いとされるグループ</h2>
+  <ul>
+    <li>月経のある女性(毎月の出血で鉄を失うため)</li>
+    <li>妊娠中の女性(胎児の成長・血液量増加のため必要量が急増)</li>
+    <li>乳幼児・成長期の子ども(体の急速な成長に鉄が必要)</li>
+    <li>肉・魚をほとんど食べない菜食主義者・ヴィーガン(吸収率の低い非ヘム鉄が中心になるため)</li>
+    <li>持久系スポーツを行うアスリート(発汗や足底での赤血球破壊などにより鉄の喪失が増えるとされる)</li>
+    <li>頻繁に献血をする人、消化管に出血や吸収障害(セリアック病・炎症性腸疾患など)がある人</li>
+  </ul>
+</div>
+
+<!-- 意見が分かれるところ -->
+<div class="card orange">
+  <h2>🗣️ 「不足が心配」だからといって、自己判断でサプリを摂ってよいか?</h2>
+  <div class="matrix">
+    <div class="mx-cell ok">
+      <div class="mx-head">✅ 積極的な対応が勧められる場合</div>
+      月経のある女性・妊娠中・成長期の子どもなど、鉄の必要量が明確に高いグループでは、食事内容の見直しや、必要に応じた医師の判断による鉄剤の使用が広く勧められています。血液検査でフェリチン値(体に貯蔵されている鉄の量の目安)を確認したうえで対応するのが望ましいとされます。
+    </div>
+    <div class="mx-cell ng">
+      <div class="mx-head">⚠️ 慎重であるべき理由</div>
+      鉄は耐容上限量(45mg/日)が設定されているように、摂りすぎで胃腸障害などが起こりうる栄養素です。さらにヘモクロマトーシスのように、体質によって鉄が過剰に蓄積しやすい人もいます。「不足しやすい栄養素」という一般論だけを根拠に、血液検査もせず自己判断で鉄サプリを摂り続けることには注意が必要です。
+    </div>
+  </div>
+</div>
+
+<!-- 注意点 -->
+<div class="warn">
+  <strong>⚠️ 誤解しないでほしいこと</strong>
+  <ul style="padding-left:1.4em; margin-top:8px;">
+    <li>今日紹介したRDA・UL・吸収率の数値は、あくまで一般的な目安であり、個人の必要量を保証するものではありません。</li>
+    <li>「鉄は不足しやすいから多めに摂っておこう」という考え方は、ヘモクロマトーシスなど鉄が蓄積しやすい体質の人にとっては、むしろ健康リスクを高める可能性があります。</li>
+    <li>コーヒー・お茶による鉄吸収阻害の具体的な数値(本文中の「平均39%」など)は、古い実験研究1本にもとづくものであり、食品の組み合わせや個人差によって実際の影響は変わりうる点にご注意ください。</li>
+    <li>貧血の症状(疲れやすさ・立ちくらみなど)に心当たりがある場合や、鉄サプリの利用を検討する場合は、自己判断で摂取量を増やさず、血液検査を含めてかかりつけ医にご相談ください。</li>
+  </ul>
+</div>
+
+<!-- エビデンスの整理 -->
+<div class="card">
+  <h2>🧪 今日出てきた情報の「証拠としての強さ」の目安</h2>
+  <table class="ev-table">
+    <tr><th>情報の種類</th><th>特徴</th><th>証拠としての強さ</th></tr>
+    <tr>
+      <td>鉄の推奨量(RDA)・耐容上限量(UL)が性別・年齢・妊娠で異なる</td>
+      <td>米国の公的な食事摂取基準(専門家委員会による多数の研究の統合評価)</td>
+      <td><span class="ev-badge ev-high">高い(公的機関の合意値)</span></td>
+    </tr>
+    <tr>
+      <td>ヘム鉄・非ヘム鉄で吸収率が異なる/ビタミンCが吸収を助ける</td>
+      <td>複数の代謝実験・レビューにもとづく、栄養学で広く確立した知見</td>
+      <td><span class="ev-badge ev-high">高い(繰り返し確認された基礎知見)</span></td>
+    </tr>
+    <tr>
+      <td>コーヒーが鉄吸収を平均39%妨げる(具体的な数値)</td>
+      <td>1980年代の単回摂取実験1本にもとづく数値</td>
+      <td><span class="ev-badge ev-low">低〜中程度(単一の小規模実験、追試での再確認が望ましい)</span></td>
+    </tr>
+    <tr>
+      <td>C282Yホモ接合体でも鉄過剰関連疾患を発症するのは男性28.4%・女性1.2%</td>
+      <td>大規模コホート研究(オーストラリア成人31,192人、HealthIron研究)</td>
+      <td><span class="ev-badge ev-high">高い(大規模・前向きの遺伝疫学研究)</span></td>
+    </tr>
+    <tr>
+      <td>世界の貧血有病率(約25%)・鉄欠乏性が占める割合(約半数)</td>
+      <td>WHOによる各国データを統合したサーベイランス(調査監視)統計</td>
+      <td><span class="ev-badge ev-mid">中〜高程度(推定値であり国・年により算出方法が異なる)</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- まとめ -->
+<div class="card" style="border-left-color:#1a7a5a;">
+  <h2>✅ 今日のまとめ</h2>
+  <ul class="step-list">
+    <li>鉄の1日の推奨量(RDA)は、成人男性・閉経後女性で8mg、月経のある女性で18mg、妊娠中で27mgと、性別・年齢・妊娠の有無で最大3.4倍の差がある。</li>
+    <li>肉・魚のヘム鉄は吸収率約25%、野菜・豆などの非ヘム鉄は約17%以下と吸収されやすさが異なり、ビタミンCが吸収を助け、お茶・コーヒーのタンニンやカルシウムが吸収を妨げる。</li>
+    <li>世界的にはWHOの統計で人口の約25%に貧血があると推定され、うち約半数が鉄欠乏性とされる。月経のある女性・妊娠中・成長期の子ども・菜食主義者・持久系アスリートなどが特にリスクが高いグループ。</li>
+    <li>一方、HFE遺伝子の変異(C282Y)を2コピー持つ人(米国の非ヒスパニック系白人で約0.44%)は、鉄が体に蓄積しやすい体質(遺伝性ヘモクロマトーシス)を持つ可能性があり、大規模研究では実際に病気を発症するのは男性で28.4%・女性で1.2%にとどまる一方、鉄の摂りすぎ自体には注意が必要。</li>
+    <li>「不足しやすい栄養素だから多めに摂る」という一律の対応ではなく、自分の状況(月経・妊娠・食生活・体質)を踏まえ、必要に応じて血液検査を受けたうえで専門家に相談することが、精密栄養学的にも大切。</li>
+  </ul>
+</div>
+
+<!-- 免責 -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、医療アドバイスではありません。効果・必要量・リスクは個人の体質・年齢・持病・服薬によって大きく異なります。本記事は特定のサプリメントの利用や、特定の摂取量を推奨するものではありません。貧血の症状がある場合や、鉄サプリの利用・摂取量の変更を検討する場合は、自己判断せず、かかりつけ医・管理栄養士・薬剤師など専門家にご相談ください。
+</div>
+
+<!-- 出典 -->
+<div class="sources">
+  <h3>📚 主な出典・参考文献</h3>
+  <ol>
+    <li>National Institutes of Health, Office of Dietary Supplements. "Iron: Fact Sheet for Health Professionals."(鉄の推奨量・耐容上限量に関する米国の食事摂取基準)
+      <a href="https://ods.od.gov/factsheets/Iron-HealthProfessional/" target="_blank">https://ods.od.gov/factsheets/Iron-HealthProfessional/</a>(基準日:2026年9月時点で公開されている版)
+    </li>
+    <li>National Academies of Sciences, Engineering, and Medicine. "Dietary Reference Intakes for Vitamin A, Vitamin K, Arsenic, Boron, Chromium, Copper, Iodine, Iron, Manganese, Molybdenum, Nickel, Silicon, Vanadium, and Zinc."(鉄のRDA・ULの原典となる食事摂取基準報告書)
+      <a href="https://www.ncbi.nlm.nih.gov/books/NBK222309/" target="_blank">https://www.ncbi.nlm.nih.gov/books/NBK222309/</a>
+    </li>
+    <li>World Health Organization. "Anaemia" Fact sheet.(世界の貧血有病率に関する統計)
+      <a href="https://www.who.int/news-room/fact-sheets/detail/anaemia" target="_blank">https://www.who.int/news-room/fact-sheets/detail/anaemia</a>
+    </li>
+    <li>World Health Organization. "WHO global anaemia estimates, key findings" (2025年版、15〜49歳女性の貧血有病率の推計)
+      <a href="https://iris.who.int/" target="_blank">https://iris.who.int/</a>(WHO文書リポジトリ、基準日:2025年)
+    </li>
+    <li>Allen KJ, Gurrin LC, Constantine CC, et al. "Iron-Overload-Related Disease in HFE Hereditary Hemochromatosis." <em>New England Journal of Medicine</em>. 2008;358(3):221-230. DOI: 10.1056/NEJMoa073286(オーストラリア成人31,192人のHealthIron研究、C282Yホモ接合体の浸透率)
+      <a href="https://www.nejm.org/doi/full/10.1056/NEJMoa073286" target="_blank">https://www.nejm.org/doi/full/10.1056/NEJMoa073286</a>
+    </li>
+    <li>Advances in Nutrition(米国栄養学会発行誌)掲載のレビュー論文(ヘム鉄・非ヘム鉄の吸収率、食事全体に占める割合と吸収量への寄与の違いについて)
+      <a href="https://advances.nutrition.org/article/S2161-8313(23)01338-8/fulltext" target="_blank">https://advances.nutrition.org/article/S2161-8313(23)01338-8/fulltext</a>
+    </li>
+  </ol>
+  <p style="margin-top:8px; font-size:0.78rem;">※ ネットワーク制限により、ods.od.gov・ncbi.nlm.nih.gov・who.int・iris.who.int・nejm.org・advances.nutrition.org等に本セッションから直接アクセスできなかったため、検索エンジンで得られる複数の独立した情報源の要約・引用文を突き合わせ、数値(RDA・UL・吸収率・貧血有病率・C282Y頻度・浸透率など)の一致を確認したうえで作成しています。一次資料そのものへの直接アクセスができていないため、統計値の詳細な信頼区間や算出年次については、上記リンク先で改めてご確認いただくことをお勧めします。コーヒーの鉄吸収阻害に関する「平均39%」という数値は、1983年発表とされる単一の実験研究に由来するとの検索結果が複数得られましたが、著者名など詳細情報が検索結果のみでは確認できなかったため、本文中では著者名を記載せず「1980年代の単回摂取実験」として扱っています。</p>
+</div>
+
+</div>
+</body>
+</html>
