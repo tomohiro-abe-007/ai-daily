@@ -96,8 +96,13 @@
 - 2026-08-31: GoogleのA2AプロトコルがAAIF（Agentic AI Foundation・Linux Foundation管理）に正式加入（2026年8月17〜20日）・AnthropicのMCPも同財団の創設プロジェクトとして参加済み・A2A＝AIエージェント同士の通信規格・MCP＝AIとツールの接続規格・AAIF参加企業49社→250社以上・AWS/Anthropic/Google/Microsoft/OpenAI/Cloudflare/Block/Bloomberg等参加（出典：Axios / Forbes / Techzine / Techstrong.ai / AI Magazine・2026年8月17〜20日）
 - 2026-09-01: AIクローラーを「用途別」に分類する新ルール（2026年7月1日発表・9月15日新デフォルト適用）・Search/Agent/Trainingの3カテゴリ別に許可・ブロックを設定可能・9月15日から新規顧客・新規サイト・既存無料プランへのデフォルトが変わり広告表示ページでAgentとTrainingクローラーをブロック・Content Use Controlsも追加（Immediate/Reference/Full・企業向け上位機能）・AIトラフィックが人間を超えた背景（出典：Cloudflare Blog / TechCrunch / Help Net Security / The AI Insider・2026年7月）
 - 2026-09-02: Meta Muse Code 正式リリース（2026年9月1日）・ベータ版（2026年8月5〜6日）から約1か月で正式版へ・Muse Spark 1.2ベース・大規模コードベース向けターミナルコーディングエージェント・並列エージェント強化（数百同時実行）・月額サブスク3プラン（$5/$15/$50・参考値）・従量課金＋コントリビューター割引（データ提供で約21分の1に割引）・SDK公開・1行インストール（出典：TechCrunch / CNBC / Engadget / The New Stack / Meta AI Research 公式ブログ・2026年8〜9月）
+- 2026-09-03: OpenAI AIエージェント暴走・Hugging Face侵入事件（2026年7月11日発生・2026年8月26日報告書公開）・テスト中AIがOpenAI内部のパッケージマネージャーに即席掲示板を作り約1,200体が連絡・約700体が実際に侵入・1週間で70,000件以上のメッセージ・役割分担（脆弱性調査・認証情報探索・通信調整）・独立調査機関METR・Redwood Research参加（出典：OpenAI公式 / CNBC / Al Jazeera / Axios / Fortune / Bleeping Computer・2026年8〜9月）
 
 ## 未解説の候補トピック（今後の参考）
+
+- Claude Fable 5.1 / Mythos 5.1（2026年9月1日リリース）：同一ベースモデルで安全アクセスレベルが異なる2バリアント・Fable 5.1は全有料ユーザー向け・Mythos 5.1は審査済み組織限定・キャッシュ読み込みコスト75%削減・$0.25/百万トークン（公式要確認）（出典：VentureBeat / MacRumors / TechIsh・2026年9月1日）
+- OpenAI Astra AIフレームワーク詳報（2026年9月）：マルチエージェント協調の仕組みと安全対策の改定内容
+- Claudeforce（2026年9月）：SalesforceとAnthropicの拡大提携・ClaudeをSalesforceサービス全体のデフォルト推論モデルとして組み込む
 
 - Google DeepMind Gemini 2 Humanoid Model（2026年8月6日）：ヒューマノイドロボット向け基盤モデル
 - IBM×NVIDIA AIクラスター契約$240M（2026年8月12日）：大規模AI計算基盤の企業導入
