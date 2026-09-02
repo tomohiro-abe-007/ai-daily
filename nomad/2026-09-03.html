@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>デジタルノマド 最新トピック 2026-09-03</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    color: #2a2a2a;
+  }
+  .hero {
+    background: linear-gradient(135deg, #1e3a6e 0%, #0d1f3d 100%);
+    color: white;
+    border-radius: 10px;
+    padding: 48px 40px;
+    text-align: center;
+    width: 100%;
+    max-width: 760px;
+    margin-bottom: 28px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .hero .label {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 0.8rem;
+    margin-bottom: 14px;
+    letter-spacing: 0.05em;
+  }
+  .hero h1 { font-size: 1.4rem; margin-bottom: 12px; line-height: 1.55; }
+  .hero .meta { opacity: 0.8; font-size: 0.88rem; line-height: 1.7; }
+  .card {
+    background: #fff9f0;
+    border-radius: 8px;
+    padding: 28px 32px;
+    width: 100%;
+    max-width: 760px;
+    margin-bottom: 20px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.08);
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1e3a6e;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px dashed #8aaad4;
+  }
+  .card p { font-size: 0.93rem; line-height: 1.85; margin-bottom: 10px; }
+  .card p:last-child { margin-bottom: 0; }
+  .highlight-box {
+    background: #eaf0fb;
+    border-left: 4px solid #1e3a6e;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .highlight-box .hlabel { font-size: 0.75rem; color: #1e3a6e; font-weight: 600; margin-bottom: 6px; display: block; }
+  .highlight-box p { font-size: 0.9rem; margin: 0; }
+  .alert-box {
+    background: #fff3cd;
+    border-left: 4px solid #c9920a;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .alert-box .alabel { font-size: 0.75rem; color: #8a6000; font-weight: 600; margin-bottom: 6px; display: block; }
+  .alert-box p { font-size: 0.9rem; margin: 0; }
+  .green-box {
+    background: #e8f5ef;
+    border-left: 4px solid #2c6e4e;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .green-box .glabel { font-size: 0.75rem; color: #2c6e4e; font-weight: 600; margin-bottom: 6px; display: block; }
+  .green-box p { font-size: 0.9rem; margin: 0; }
+  .number-row { display: flex; gap: 14px; flex-wrap: wrap; margin: 14px 0; }
+  .number-card {
+    flex: 1; min-width: 130px;
+    background: #1e3a6e; color: white;
+    border-radius: 8px; padding: 18px 14px; text-align: center;
+  }
+  .number-card .num { font-size: 1.15rem; font-weight: 700; margin-bottom: 6px; line-height: 1.25; letter-spacing: 0.02em; }
+  .number-card .desc { font-size: 0.72rem; opacity: 0.9; line-height: 1.5; }
+  .number-card.amber  { background: #c9920a; }
+  .number-card.red    { background: #c0392b; }
+  .number-card.green  { background: #2c6e4e; }
+  .number-card.purple { background: #6a3ea0; }
+  .number-card.gray   { background: #666; }
+  .number-card.navy   { background: #1e3a6e; }
+  .compare-row { display: flex; gap: 14px; flex-wrap: wrap; margin: 14px 0; }
+  .compare-card {
+    flex: 1; min-width: 200px; border-radius: 8px;
+    padding: 16px 16px; font-size: 0.88rem; line-height: 1.7;
+  }
+  .compare-card h3 { font-size: 0.88rem; margin-bottom: 8px; padding-bottom: 6px; border-bottom: 1.5px dashed; }
+  .compare-card.red    { background: #fdeaea; border: 1.5px solid #c0392b; }
+  .compare-card.red h3 { color: #922b2b; border-color: #e8a0a0; }
+  .compare-card.green  { background: #e8f5ef; border: 1.5px solid #2c6e4e; }
+  .compare-card.green h3 { color: #2c6e4e; border-color: #b2d4c4; }
+  .compare-card.amber  { background: #fff8e8; border: 1.5px solid #c9920a; }
+  .compare-card.amber h3 { color: #7a5800; border-color: #f0d080; }
+  .compare-card.navy   { background: #eaf0fb; border: 1.5px solid #1e3a6e; }
+  .compare-card.navy h3 { color: #1e3a6e; border-color: #8aaad4; }
+  .compare-card.purple { background: #f0eafd; border: 1.5px solid #6a3ea0; }
+  .compare-card.purple h3 { color: #6a3ea0; border-color: #c0a0e8; }
+  .flow-wrap { display: flex; flex-direction: column; gap: 4px; margin: 14px 0; }
+  .flow-box {
+    background: #1e3a6e; color: white;
+    border-radius: 8px; padding: 14px 16px;
+    font-size: 0.88rem; line-height: 1.6;
+  }
+  .flow-box .fb-label { font-size: 0.7rem; opacity: 0.8; margin-bottom: 4px; display: block; }
+  .flow-box strong { font-size: 0.95rem; }
+  .flow-box.sub    { background: #3a5a94; }
+  .flow-box.light  { background: #eaf0fb; color: #2a2a2a; border: 1.5px solid #8aaad4; }
+  .flow-box.amber  { background: #c9920a; }
+  .flow-box.green  { background: #2c6e4e; }
+  .flow-box.red    { background: #c0392b; }
+  .flow-box.purple { background: #6a3ea0; }
+  .flow-box.navy   { background: #1e3a6e; }
+  .flow-box.gray   { background: #666; }
+  .arrow-down { text-align: center; font-size: 1.5rem; color: #1e3a6e; margin: 4px 0; line-height: 1; }
+  .step-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 12px 0; }
+  .step-list li { display: flex; align-items: flex-start; gap: 12px; }
+  .step-num {
+    background: #1e3a6e; color: white; border-radius: 50%;
+    min-width: 28px; height: 28px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.78rem; font-weight: 700; flex-shrink: 0; margin-top: 2px;
+  }
+  .step-num.amber  { background: #c9920a; }
+  .step-num.red    { background: #c0392b; }
+  .step-num.green  { background: #2c6e4e; }
+  .step-num.purple { background: #6a3ea0; }
+  .step-num.navy   { background: #1e3a6e; }
+  .step-num.gray   { background: #666; }
+  .step-list li div { font-size: 0.9rem; line-height: 1.7; }
+  .matrix-table { width: 100%; border-collapse: collapse; font-size: 0.87rem; margin: 14px 0; }
+  .matrix-table th {
+    background: #1e3a6e; color: white; padding: 10px 12px;
+    text-align: left; font-weight: 600; font-size: 0.82rem;
+  }
+  .matrix-table th:first-child { border-radius: 6px 0 0 0; }
+  .matrix-table th:last-child  { border-radius: 0 6px 0 0; }
+  .matrix-table td { padding: 10px 12px; border-bottom: 1px solid #dce6f4; vertical-align: top; line-height: 1.55; }
+  .matrix-table tr:nth-child(even) td { background: #f3f7fc; }
+  .matrix-table .ok   { color: #2c6e4e; font-weight: 700; }
+  .matrix-table .ng   { color: #c0392b; font-weight: 700; }
+  .matrix-table .warn { color: #8a6000; font-weight: 700; }
+  .matrix-table .row-warn   td { background: #fff8e8 !important; }
+  .matrix-table .row-danger td { background: #fdeaea !important; }
+  .matrix-table .row-green  td { background: #e8f5ef !important; }
+  .matrix-table .row-navy   td { background: #eaf0fb !important; }
+  .check-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 12px 0; }
+  .check-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.9rem; line-height: 1.65; }
+  .check-icon {
+    min-width: 22px; height: 22px; border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.78rem; font-weight: 700; flex-shrink: 0; margin-top: 1px;
+  }
+  .check-icon.navy   { background: #1e3a6e; color: white; }
+  .check-icon.green  { background: #2c6e4e; color: white; }
+  .check-icon.amber  { background: #c9920a; color: white; }
+  .check-icon.red    { background: #c0392b; color: white; }
+  .check-icon.purple { background: #6a3ea0; color: white; }
+  .section-icon { font-size: 1.5rem; margin-right: 8px; vertical-align: middle; }
+  .tag {
+    display: inline-block; background: #1e3a6e; color: white;
+    font-size: 0.72rem; padding: 2px 8px; border-radius: 10px;
+    margin-right: 4px; vertical-align: middle;
+  }
+  .tag.amber  { background: #c9920a; }
+  .tag.red    { background: #c0392b; }
+  .tag.green  { background: #2c6e4e; }
+  .tag.purple { background: #6a3ea0; }
+  .tag.gray   { background: #888; }
+  .footer-card {
+    background: #f0ece3;
+    border: 1.5px solid #bbb;
+    border-radius: 8px;
+    padding: 20px 24px;
+    width: 100%;
+    max-width: 760px;
+    margin-bottom: 20px;
+    font-size: 0.82rem;
+    color: #555;
+    line-height: 1.8;
+  }
+  .footer-card .footer-title {
+    font-size: 0.78rem; color: #888; font-weight: 600;
+    margin-bottom: 10px; display: block;
+    text-transform: uppercase; letter-spacing: 0.08em;
+  }
+  .footnote { font-size: 0.78rem; color: #777; line-height: 1.7; margin-top: 12px; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 14px 0; }
+  @media (max-width: 560px) { .two-col { grid-template-columns: 1fr; } .compare-row { flex-direction: column; } }
+  .mini-card {
+    border-radius: 8px; padding: 14px 16px;
+    font-size: 0.85rem; line-height: 1.65;
+  }
+  .mini-card h4 { font-size: 0.87rem; margin-bottom: 8px; }
+  .mini-card.navy   { background: #eaf0fb; border: 1.5px solid #8aaad4; }
+  .mini-card.navy h4 { color: #1e3a6e; }
+  .mini-card.amber  { background: #fff8e8; border: 1.5px solid #c9920a; }
+  .mini-card.amber h4 { color: #7a5800; }
+  .mini-card.green  { background: #e8f5ef; border: 1.5px solid #2c6e4e; }
+  .mini-card.green h4 { color: #2c6e4e; }
+  .mini-card.red    { background: #fdeaea; border: 1.5px solid #c0392b; }
+  .mini-card.red h4 { color: #922b2b; }
+  .mini-card.purple { background: #f0eafd; border: 1.5px solid #6a3ea0; }
+  .mini-card.purple h4 { color: #6a3ea0; }
+  .mini-card.gray   { background: #f4f4f4; border: 1.5px solid #aaa; }
+  .mini-card.gray h4 { color: #555; }
+</style>
+</head>
+<body>
+
+<!-- ヒーロー -->
+<div class="hero">
+  <div style="margin-bottom:14px;">
+    <span class="label">🛂 ビザ×税金クロスチェック（DNV更新の「半年」と税務の「183日」）</span>
+  </div>
+  <h1>スペインDNVを更新できるくらいスペインに滞在すると、その年はスペインの税務居住者にもなっている可能性が高いです<br>「ビザを守るための半年」と「税金が決まる183日」は別のルールなのに、日数はほぼ同じ長さという話を整理します</h1>
+  <div class="meta">
+    デジタルノマド 最新トピック 2026-09-03<br>
+    情報収集日：2026年9月2日〜3日<br>
+    直近7日で「これぞ大きな新着ニュース」という一次資料つきの発表は見つからなかったため、本日はバックログ・過去日報の積み残しから、DNV(国際テレワークビザ、通称デジタルノマドビザ)の「更新するには半年以上スペインにいる必要がある」という2026年の運用の厳格化を入り口に、スペインの税務居住者になる「183日ルール」・日本側の居住者判定・日西租税条約の関係を整理します
+  </div>
+</div>
+
+<!-- 今日のポイント -->
+<div class="card">
+  <h2><span class="section-icon">📌</span>今日のポイント（30秒まとめ）</h2>
+  <p>スペインのDNV(国際テレワークビザ)は、2026年に入ってUGE-CE(Unidad de Grandes Empresas y Colectivos Estratégicos、大企業・戦略部門を担当するビザ審査部局)の運用が厳格化され、「更新のためには直近12か月のうち6か月以上スペインに実際に滞在していること」を、住民登録(エンパドロナミエント)や公共料金の請求書などの証拠で確認される、という報告が複数の移民法律事務所のブログで一致しています。ところが、スペインの税法上「その年の税務居住者になるかどうか」を決める基準もほぼ同じ長さの「183日超」です。つまり<strong>ビザを維持するために頑張ってスペインに長く滞在すると、意図しないうちに「その年のスペイン税務居住者」にもなってしまう可能性が高い</strong>、という構造になっています。しかも日本側の「非居住者」判定は単純な日数計算ではないため、日本とスペインの両方から居住者と扱われる「二重居住者」状態になるリスクもあります。</p>
+  <div class="number-row">
+    <div class="number-card">
+      <div class="num">6か月〜</div>
+      <div class="desc">DNV更新に必要とされる、直近12か月のうちのスペイン滞在日数の目安(移民法律事務所の複数ブログが報告する2026年の運用)</div>
+    </div>
+    <div class="number-card amber">
+      <div class="num">183日超</div>
+      <div class="desc">スペインの税法(所得税法＝Ley del IRPF第9条)で、その暦年のスペイン税務居住者になる基準</div>
+    </div>
+    <div class="number-card navy">
+      <div class="num">住所主義</div>
+      <div class="desc">日本の居住者・非居住者判定は日数だけでなく「生活の本拠(住所)」の総合判断(国税庁タックスアンサーNo.2875等)</div>
+    </div>
+    <div class="number-card green">
+      <div class="num">2022年1月〜</div>
+      <div class="desc">日西租税条約(2021年5月発効)が適用される課税年度。二重居住者になった場合の調整ルールがここにある</div>
+    </div>
+  </div>
+  <div class="highlight-box">
+    <span class="hlabel">💡 なぜ今日この話題か</span>
+    <p>2026-08-24日報でベックハム法と第7条p)の関係、2026-06-02日報や2026-07-24日報で183日ルールとシェイキラ事件などを扱ってきましたが、「ビザを守るために必要な滞在日数」と「税金が課される居住地の日数」が、実はほぼ同じ長さで重なり合っているという構造そのものを正面から整理したことはありませんでした。「日本とスペインを行き来しながら1人法人で稼ぐ」準備をしている方にとって、ビザの予定を立てる際にそのまま税務上の影響も一緒に考える必要があることを示す、実務上とても重要な論点です。</p>
+  </div>
+</div>
+
+<!-- 図解:なぜ半年ルールがあるのか -->
+<div class="card">
+  <h2><span class="section-icon">🧭</span>図解：DNVを「更新」するときに求められる滞在日数</h2>
+  <div class="flow-wrap">
+    <div class="flow-box navy">
+      <span class="fb-label">STEP1　初回のDNV取得</span>
+      在日スペイン領事館経由で申請すると初回は最長1年、スペイン国内で申請するルート等では最長3年など、取得ルートによって初回の有効期間は複数の情報源で数字が分かれます。この記事では初回期間そのものではなく「更新」の条件に焦点を当てます
+    </div>
+    <div class="arrow-down">↓</div>
+    <div class="flow-box sub">
+      <span class="fb-label">STEP2　更新のタイミングで見られる「直近12か月」</span>
+      更新を申請する際、UGE-CEは直近12か月のうちスペインに実際に何日いたかを確認します。複数の移民法律事務所のブログが「6か月(180日前後)を下回ると更新が認められにくい」と一致して報告しています
+    </div>
+    <div class="arrow-down">↓</div>
+    <div class="flow-box light">
+      <span class="fb-label">STEP3　証拠として見られるもの</span>
+      エンパドロナミエント(市区町村の住民登録)の継続、公共料金の請求書、賃貸契約の履歴などが、実際にスペインに住んでいたことの裏付けとして確認されると報告されています
+    </div>
+    <div class="arrow-down">↓</div>
+    <div class="flow-box amber">
+      <span class="fb-label">STEP4　2026年は運用がより厳格に</span>
+      2025年12月頃のUGE-CE組織再編以降、この確認がより厳しくなったという報告が2026年の複数のガイド記事で一致しています。ただし「新しい法律上の最低日数が設けられた」のではなく、「もともとあった継続居住の要件を、より厳しく適用するようになった」という運用面の変化だと説明する情報源もあります</div>
+    </div>
+  </div>
+  <p class="footnote">この整理は、klevvera.com・greenbacktaxservices.com・remoteworkeurope.eu等、独立した複数の移民ビザ専門メディア・法律事務所ブログの記述の一致にもとづきます。UGE-CE公式ガイドライン・BOE官報原文への直接アクセスは本セッションではブロックされ確認できておらず、「6か月」という具体的な日数を明記した政府一次資料そのものは未確認である旨を明記します。</p>
+</div>
+
+<!-- ビザの物差しと税金の物差し -->
+<div class="card">
+  <h2><span class="section-icon">⚖️</span>比較：ビザの「半年」と税金の「183日」は、別のルールです</h2>
+  <p>数字がほぼ同じ長さなので混同しがちですが、この2つは<strong>目的も、決める役所も、数え方の期間の区切り方も違う、まったく別の制度</strong>です。</p>
+  <div class="compare-row">
+    <div class="compare-card navy">
+      <h3>🛂 ビザの物差し：「6か月」</h3>
+      <strong>誰が決める：</strong>UGE-CE(移民・在留資格の審査部局)<br>
+      <strong>何のため：</strong>DNVという在留資格を更新できるかどうか<br>
+      <strong>数える期間：</strong>更新申請時点から遡った「直近12か月」（申請ごとに動く区切り）<br>
+      <strong>根拠：</strong>スペイン外国人規則・DNVの根拠法(Ley14/2013)にもとづく運用。具体的な日数を定めた条文原文は本セッションでは未確認
+    </div>
+    <div class="compare-card amber">
+      <h3>💶 税金の物差し：「183日」</h3>
+      <strong>誰が決める：</strong>Agencia Tributaria(スペイン税務当局)<br>
+      <strong>何のため：</strong>その年のスペイン所得税(IRPF)を、全世界所得に対して課すか、スペイン国内源泉所得だけに課すか<br>
+      <strong>数える期間：</strong>1月1日〜12月31日の「暦年」単位（一時的な出国は原則カウントに含める「ausencias esporádicas」という考え方あり）<br>
+      <strong>根拠：</strong>スペイン所得税法(Ley del IRPF)第9条
+    </div>
+  </div>
+  <div class="alert-box">
+    <span class="alabel">⚠ 混同しやすいポイント</span>
+    <p>ビザの「6か月」は<strong>在留資格を維持できるかどうか</strong>の話、税金の「183日」は<strong>所得にどこの国の税金がかかるか</strong>の話で、法律上まったく別物です。DNVを持っているからといって自動的に税務上非居住者になるわけではなく、逆にDNVを更新できるくらいスペインに長く滞在すれば、ほぼ確実にその年は183日を超え、スペインの税務居住者としても扱われる可能性が高くなります。</p>
+  </div>
+</div>
+
+<!-- マトリクス:二重居住者リスク -->
+<div class="card">
+  <h2><span class="section-icon">🧩</span>マトリクスで整理：4つの組み合わせと「二重居住者」リスク</h2>
+  <p>「スペインでの滞在日数(183日超か未満か)」と「日本に生活の本拠(住所)が残っているかどうか」を組み合わせると、次の4パターンに分かれます。日本の居住者判定は単純な日数ではなく総合判断のため、「183日未満でも日本の住所が残っていれば日本居住者のまま」というケースが普通にあり得る点が、海外の「日数だけ数えればいい」制度と大きく違うところです。</p>
+  <table class="matrix-table">
+    <tr>
+      <th>スペイン滞在</th>
+      <th>日本の生活の本拠</th>
+      <th>スペイン税務上</th>
+      <th>日本税務上</th>
+      <th>状態</th>
+    </tr>
+    <tr class="row-green">
+      <td>183日未満</td>
+      <td>日本に残っている</td>
+      <td class="ok">非居住者</td>
+      <td class="ok">居住者</td>
+      <td>シンプル。日本の1人法人オーナーとして日本で課税、スペインは短期滞在扱い</td>
+    </tr>
+    <tr class="row-warn">
+      <td>183日超</td>
+      <td>日本に残っている（家族・自宅・資産など）</td>
+      <td class="warn">居住者</td>
+      <td class="warn">居住者(の可能性)</td>
+      <td><strong>二重居住者の疑い。</strong>両国が「うちの居住者」と主張し得る状態で、租税条約のタイブレークルールで調整が必要</td>
+    </tr>
+    <tr class="row-navy">
+      <td>183日超</td>
+      <td>日本を引き払っている</td>
+      <td class="ok">居住者</td>
+      <td class="ok">非居住者</td>
+      <td>スペイン税務居住者としてシンプルに整理しやすい状態</td>
+    </tr>
+    <tr class="row-danger">
+      <td>変動あり（毎年パターンが違う）</td>
+      <td>行き来していて曖昧</td>
+      <td class="ng">年によって変わる</td>
+      <td class="ng">年によって変わる</td>
+      <td>もっとも判断が難しい。年ごとに専門家へ確認が必要な状態</td>
+    </tr>
+  </table>
+  <p class="footnote">「日本の生活の本拠」は、住居・職業・資産の所在・生計を一にする親族の居住状況などをもとに総合的に判定されます(所得税基本通達2-1、国税庁タックスアンサーNo.2875・No.2012)。「183日」はスペインの税務居住者判定の基準日数であり、日本側の判定基準ではない点に注意してください。</p>
+</div>
+
+<!-- 日西租税条約のタイブレーク -->
+<div class="card">
+  <h2><span class="section-icon">🤝</span>もし「二重居住者」になったら：日西租税条約のタイブレークルール</h2>
+  <p>日本とスペインの租税条約(正式名称：所得に対する租税に関する二重課税の除去並びに脱税及び租税回避の防止のための日本国とスペイン王国との間の条約、2021年5月1日発効、2022年1月1日以後開始の課税年度から適用)には、両国がともに「居住者」と主張してしまった場合の調整順序(タイブレークルール)が定められています。上のマトリクスで「二重居住者の疑い」に該当した場合は、この順番で1つの国に絞り込みます。</p>
+  <div class="flow-wrap">
+    <div class="flow-box navy">
+      <span class="fb-label">① 恒久的住居</span>
+      どちらの国に、自由に使える住居(自宅・長期の借家など)があるか
+    </div>
+    <div class="arrow-down">↓（両方にある場合）</div>
+    <div class="flow-box sub">
+      <span class="fb-label">② 重要な利害関係の中心</span>
+      家族・1人法人の実質的な経営の中心・資産・社会的なつながりが、どちらの国に強くあるか
+    </div>
+    <div class="arrow-down">↓（それでも決まらない場合）</div>
+    <div class="flow-box light">
+      <span class="fb-label">③ 常用の住居</span>
+      どちらの国により頻繁・習慣的に滞在しているか
+    </div>
+    <div class="arrow-down">↓（それでも決まらない場合）</div>
+    <div class="flow-box amber">
+      <span class="fb-label">④ 国籍</span>
+      どちらの国の国籍を持っているか
+    </div>
+    <div class="arrow-down">↓（それでも決まらない場合）</div>
+    <div class="flow-box red">
+      <span class="fb-label">⑤ 両国当局の相互協議</span>
+      日本とスペインの税務当局同士が話し合って決める、最後の手段
+    </div>
+  </div>
+  <p class="footnote">この順序はOECDモデル租税条約に共通する一般的な考え方にもとづく整理です。日西租税条約の条文そのもの(第4条相当部分)の詳細な文言までは本セッションでは確認できておらず、実際の適用は個別の事実関係によって変わります。</p>
+</div>
+
+<!-- 実務ポイント -->
+<div class="card">
+  <h2><span class="section-icon">🧳</span>実務ポイント：DNV準備中・日本とスペインを行き来する1人法人オーナー向け</h2>
+  <ul class="step-list">
+    <li><span class="step-num navy">1</span><div><strong>DNV取得後の滞在計画を立てるときは、「ビザを維持できる日数」だけでなく「税務上どちらの国の居住者になるか」も同時に考える。</strong>更新に必要な半年滞在をこなすと、多くの場合その年はスペインの税務居住者にもなります。「ビザは維持しつつ税金は日本のまま」という都合の良い前提は置かない方が安全です。</div></li>
+    <li><span class="step-num amber">2</span><div><strong>日本の住所(生活の本拠)をどのタイミングで、どの程度残す・引き払うかを意識的に決める。</strong>家族の居住地・自宅の扱い・1人法人の実質的な経営判断をどこで行っているかが、日本側の居住者判定に影響します。あいまいなまま行き来を続けると、マトリクスの「二重居住者の疑い」パターンに入りやすくなります。</div></li>
+    <li><span class="step-num green">3</span><div><strong>エンパドロナミエント(住民登録)や公共料金の請求書は、ビザの更新審査だけでなく税務上の居住地の裏付け資料にもなり得ます。</strong>スペイン滞在中は継続的に保管しておくと、ビザ・税金どちらの場面でも役立ちます。</div></li>
+    <li><span class="step-num purple">4</span><div><strong>「二重居住者になりそうか」は年によって滞在パターンが変わるたびに再確認が必要です。</strong>1年ごとの滞在計画を立てる段階で、日本・スペイン双方の制度に詳しい税理士に事前相談しておくと、租税条約のタイブレークルールに頼らずに済むシンプルな状態を保ちやすくなります。</div></li>
+  </ul>
+</div>
+
+<!-- 出典 -->
+<div class="card">
+  <h2><span class="section-icon">🔗</span>主な参照元（検索確認日：2026年9月2日〜3日）</h2>
+  <ul class="check-list">
+    <li><span class="check-icon navy">1</span><div>klevvera.com「Spain Digital Nomad Visa Renewal 2026: The Real Process」。更新時に直近12か月のうち6か月以上のスペイン滞在が確認されること、エンパドロナミエント・公共料金請求書・賃貸履歴が裏付け資料として見られることを確認</div></li>
+    <li><span class="check-icon amber">2</span><div>greenbacktaxservices.com「What Are Spain's Digital Nomad Visa Requirements and U.S. Tax Rules?」。更新には12か月のうち最低6か月のスペイン居住が必要であること、これが新しい法定最低日数ではなく既存の継続居住ルールの厳格な適用であることを確認</div></li>
+    <li><span class="check-icon green">3</span><div>remoteworkeurope.eu「Spain digital nomad visa 2026: what's changed and what you need to know」。2025年12月頃のUGE-CE組織再編以降、初回申請・更新ともに運用が厳格化しているという2026年の複数報告の傾向を確認</div></li>
+    <li><span class="check-icon red">4</span><div>外務省(mofa.go.jp)報道発表「日本国とスペイン王国との間の租税条約」。日西租税条約が2021年5月1日に発効し、2022年1月1日以後に開始する課税年度から適用されることを確認</div></li>
+    <li><span class="check-icon purple">5</span><div>国税庁タックスアンサーNo.2875「居住者と非居住者の区分」・No.2012「居住者・非居住者の判定」、および所得税基本通達2-1。日本の居住者・非居住者判定が単純な日数計算ではなく「住所(生活の本拠)」の客観的事実にもとづく総合判定であることを確認</div></li>
+    <li><span class="check-icon gray">6</span><div>UGE-CE(Unidad de Grandes Empresas y Colectivos Estratégicos)の正式名称については、複数の移民法律事務所・法律メディアの記述が一致していることを確認しましたが、スペイン包摂・社会保障・移民省(inclusion.gob.es)の公式サイト原文への直接アクセスは本セッションではブロックされ、確認できていません</div></li>
+  </ul>
+  <p class="footnote">本記事の多くは、WebSearchによる複数サイトの検索結果の要約にもとづいています。本セッションではBOE公式サイト・UGE-CE公式ガイドライン・スペイン税務当局(Agencia Tributaria)公式サイトへの直接アクセス(WebFetch)がいずれもネットワーク経由でブロックされ、原文そのものを直接読むことはできませんでした。「DNV更新に必要な滞在日数」は具体的な条文の日数として一次資料で確認できておらず、複数の独立した移民法律事務所ブログの記述の一致にもとづく整理である旨を明記します。</p>
+</div>
+
+<!-- フッター -->
+<div class="footer-card">
+  <span class="footer-title">⚠ 免責事項 &amp; 専門家への相談推奨</span>
+  <p>
+    <strong>【本記事の性質】</strong>本記事は、klevvera.com・greenbacktaxservices.com・remoteworkeurope.eu等、独立した複数のサイトの記述の一致と、外務省・国税庁の公式ページの情報を組み合わせた紹介です。DNV更新に必要な滞在日数についてはBOE官報原文・UGE-CE公式ガイドラインそのものへの直接アクセスができておらず、一次資料そのものでの確認ではない旨を明記します。<br>
+    <strong>【基準年度】</strong>本記事で紹介した制度・運用は2026年時点のものです。ビザの運用・税率・条約の適用は変更される可能性があります。<br>
+    <strong>【断定しない事項】</strong>「この滞在日数を守れば必ずビザが更新できる」「この滞在パターンなら必ず二重課税にならない」といった断定は行っていません。個々の状況によって結論は変わります。<br>
+    <strong>【ビザ・在留】</strong>ビザ・在留資格に関する正式な判断は、必ず行政書士・移民弁護士へご確認ください。<br>
+    <strong>【税務・社会保険】</strong>税務上の居住地判定・二重課税の調整・社会保険の扱いに関する正式な判断は、必ず国際税務に強い税理士へご確認ください。<br>
+    <strong>【基準時点】</strong>本記事の内容は2026年9月2日〜3日時点で確認できた情報にもとづきます。制度・運用は変更される可能性があるため、実際の内容は必ず公式情報・専門家へのご確認をお願いします。
+  </p>
+</div>
+
+</body>
+</html>
