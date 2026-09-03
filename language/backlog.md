@@ -2,7 +2,6 @@
 
 ## 未解説テーマ（エバーグリーン）
 
-- スペイン語のnosotros/vosotros命令形と再帰動詞の命令形（levántate/sentaosなど）── tú/usted命令の続編
 - スペイン語の接続法（subjuntivo）の入り口（Si yo fuera...）── 英語のwere-subjunctiveとの対応
 - アルゼンチンなどのvoseo（vos＋独自の活用）── vosotros/ustedesの続編、南米のもう一つの二人称
 - 英語の集合名詞（team/family/peopleなど）の単数・複数扱いの違い── 可算・不可算の続編、イギリス英語とアメリカ英語で扱いが変わる点も
@@ -33,6 +32,8 @@
 - スペイン語のquien単独用法（先行詞なしで「〜する人」を表す使い方）── 08-26の英語の自由関係詞whatと似た発想をスペイン語側で扱う
 - スペイン語のleがseに変わるルール（se lo doy、leがloやlaなど直接目的語代名詞と連続するときの変化）── 09-01の与格重複の続編、二重代名詞の並び方を整理する
 - 英語のno matter how/what/who/where/whenのまとめ（09-03のスペイン語por muy/mucho...queの逆向きブリッジ）── 08-27〜09-02のwhatever一家＋09-02のhoweverと、no matter系の対応をもう一段整理する
+- スペイン語のtú肯定命令の不規則形8つ（di/haz/ve/pon/sal/sé/ten/venなど）── 07-13・09-04の命令形の続編、よく使う不規則動詞をまとめて覚える
+- 英語の命令文の丁寧さの段階（Please.../Would you mind -ing?/Could you...?/Let's...）── 09-04のスペイン語nosotros/vosotros命令形の逆向きブリッジ、英語での丁寧さ調整の付け方を整理する
 
 ## 解説済みテーマ
 
@@ -121,3 +122,4 @@
 - 2026-09-01: スペイン語の与格の重複表現（le doy el libro a Maríaのようにleとa+人を両方言う仕組み）── 07-12のlo/la/leの続編、直接目的語との重複のクセの違いも整理
 - 2026-09-02: 英語のhoweverの譲歩用法（however+形容詞/副詞で「どんなに〜でも」を表す語順）── 08-30で保留にしたhoweverを扱い、whatever一家(what/who/which/where/when+ever)の対応表にhoweverを加えて完成させた
 - 2026-09-03: スペイン語のpor muy/mucho...que + 接続法（「どんなに〜でも」の譲歩表現）── 09-02の英語howeverの逆向きブリッジ、形容詞/副詞はpor muy、動詞はpor mucho/más que、名詞は性数一致のmucho/a/os/asと使い分けを整理した
+- 2026-09-04: スペイン語のnosotros/vosotros命令形と再帰動詞の命令形（levántate→levantémonos/levantaos）── 07-13のtú/usted命令の続編、nosotros=接続法+emos/amos、vosotros肯定=-r→-d、再帰動詞は-s/-dを落として代名詞を付ける規則とirseの例外を整理した
