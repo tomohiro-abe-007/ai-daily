@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-09-04</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #2a4d7a 0%, #10233f 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #2a4d7a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.blue   { border-left-color: #1e5a7a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.green  { border-left-color: #1e7a5a; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #2a4d7a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin: 14px 0;
+  }
+  .stats-row.c3 { grid-template-columns: repeat(3, 1fr); }
+  .stats-row.c2 { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 12px 6px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat.now { background: #fff3e0; box-shadow: 0 0 0 2px #c8884a inset; }
+  .stat .sl { font-size: 0.62rem; color: #888; margin-bottom: 3px; line-height: 1.4; }
+  .stat .sv { font-size: 1.05rem; font-weight: 700; color: #2a4d7a; line-height: 1.15; }
+  .stat.now .sv { color: #c8884a; }
+  .stat .su { font-size: 0.62rem; color: #666; margin-top: 2px; }
+
+  .bignum {
+    background: white;
+    border-radius: 12px;
+    padding: 18px 14px;
+    text-align: center;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.1);
+    border: 2px dashed #c8884a;
+    margin: 14px 0;
+  }
+  .bignum .bl { font-size: 0.76rem; color: #888; margin-bottom: 6px; }
+  .bignum .bv { font-size: 1.7rem; font-weight: 700; color: #c8884a; line-height: 1.3; }
+  .bignum .bs { font-size: 0.76rem; color: #666; margin-top: 6px; line-height: 1.6; }
+
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #2a4d7a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-num.now { background: #b54040; }
+  .f-num.later { background: #999; }
+  .f-num.opt { background: #c8884a; }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+  .f-arrow { color: #2a4d7a; font-size: 1.1rem; margin-left: 14px; margin-bottom: 4px; }
+
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  table.cmp {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.83rem;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.08);
+  }
+  table.cmp th, table.cmp td {
+    border: 1px solid #e4dccd;
+    padding: 9px 10px;
+    line-height: 1.55;
+    vertical-align: top;
+  }
+  table.cmp thead th { background: #2a4d7a; color: white; font-weight: 600; text-align: center; }
+  table.cmp tbody th { background: #f5efe2; color: #5a4020; text-align: left; font-weight: 600; white-space: nowrap; }
+  table.cmp td { color: #444; text-align: left; }
+  table.cmp td.hi { background: #fff3e0; font-weight: 700; color: #c8884a; }
+  .wrap-x { overflow-x: auto; }
+
+  .info {
+    background: #e8eef8;
+    border-left: 4px solid #2a4d7a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #16294a;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #7a4010;
+  }
+
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #2a4d7a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #2a4d7a; word-break: break-all; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #2a4d7a; }
+
+  .split-wrap {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 10px;
+    align-items: center;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .split-wrap { grid-template-columns: 1fr; } }
+  .split-card {
+    border-radius: 10px;
+    padding: 16px 14px;
+    text-align: center;
+    background: #fff3e0;
+    border: 2px solid #c8884a;
+  }
+  .split-card.blue { background: #e8eef8; border-color: #2a4d7a; }
+  .split-card .vl { font-size: 0.75rem; font-weight: 700; margin-bottom: 6px; color: #7a4010; }
+  .split-card.blue .vl { color: #16294a; }
+  .split-card .vv { font-size: 1.1rem; font-weight: 700; color: #c8884a; }
+  .split-card.blue .vv { color: #2a4d7a; }
+  .split-card .vs { font-size: 0.72rem; color: #777; margin-top: 4px; }
+  .split-mid { text-align: center; font-size: 1.3rem; color: #999; font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Header -->
+<div class="header">
+  <div class="meta">📅 1人法人スタート 最新トピック &nbsp;2026-09-04</div>
+  <h1>😳 退職者の最後の給与から、保険料が2か月分引かれた!?<br>──「当月徴収」と「翌月徴収」、給与ソフトはどちらで動いている?</h1>
+  <div class="desc">
+    <span class="htag">社会保険</span>
+    <span class="htag">給与計算</span>
+    <span class="htag">当月徴収・翌月徴収</span>
+    <span class="htag">日本年金機構</span>
+    <br>
+    9/3記事で「新しい保険料はいつから天引きされるか」を扱いました。実はこの天引きタイミングは会社ごとに<span class="hl">「当月徴収」</span>か<span class="hl">「翌月徴収」</span>を選ぶ仕組みになっています。今1人でも、将来人を雇ったときに知らないと戸惑う実務を、やさしく整理します。
+  </div>
+</div>
+
+<!-- Section 1: 2方式の基礎 -->
+<div class="card blue">
+  <div class="sec-title">🔀 「当月徴収」と「翌月徴収」──何が違う?</div>
+  <p>社会保険料(健康保険・厚生年金)は、毎月の給与から会社が天引き(控除)して、会社負担分とあわせて年金事務所などに納めます。このとき<span class="hl">「いつの月の分を、いつの給与から引くか」</span>には2つのやり方があり、会社が就業規則・給与規程で決めています。</p>
+
+  <div class="split-wrap" style="margin-top:14px;">
+    <div class="split-card blue">
+      <div class="vl">🔹 翌月徴収(翌月控除)</div>
+      <div class="vv">当月の給与から<br>前月分の保険料を控除</div>
+      <div class="vs">多くの会社・給与ソフトの標準設定</div>
+    </div>
+    <div class="split-mid">vs</div>
+    <div class="split-card">
+      <div class="vl">🔸 当月徴収</div>
+      <div class="vv">当月の給与から<br>当月分の保険料を控除</div>
+      <div class="vs">採用している会社は少数派</div>
+    </div>
+  </div>
+
+  <div class="info">
+    📌 例:9月に支払う給与から何月分の保険料を引くか。<br>翌月徴収なら「8月分」を、当月徴収なら「9月分」を9月給与から控除します。9/3記事の「定時決定は9月分から10月支払い給与で反映」という話も、この翌月徴収の考え方が前提でした。
+  </div>
+</div>
+
+<!-- Section 2: 入社・在職中の比較表 -->
+<div class="card">
+  <div class="sec-title">📊 いつ引かれる? 2方式の比較表</div>
+  <div class="wrap-x">
+  <table class="cmp">
+    <thead>
+      <tr><th>タイミング</th><th>翌月徴収(多数派)</th><th>当月徴収(少数派)</th></tr>
+    </thead>
+    <tbody>
+      <tr><th>入社した月の給与</th><td>保険料は<span class="hlg">まだ控除しない</span></td><td class="hi">入社月分から控除開始</td></tr>
+      <tr><th>控除が始まる給与</th><td>入社の<span class="hl">翌月</span>支払い給与から</td><td>入社した<span class="hl">当月</span>の給与から</td></tr>
+      <tr><th>在職中の毎月</th><td>常に「1か月前」の分を控除</td><td>常に「その月」の分を控除</td></tr>
+      <tr><th>退職時の最後の給与</th><td>前月分＋退職月相当分が<br><span class="hi">重なりやすい</span></td><td>通常どおり1回分で<br>済みやすい</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p style="font-size:0.8rem; color:#777;">※実際の控除回数は「資格喪失日」がどの月になるかで変わります(次のセクションで解説)。</p>
+</div>
+
+<!-- Section 3: 退職時に差が出る具体例 -->
+<div class="card orange">
+  <div class="sec-title">😳 退職時に「2か月分まとめて」に見える理由</div>
+  <p>社会保険料の資格喪失日は<span class="hl">「退職日の翌日」</span>と決まっており、保険料は<span class="hl">「資格を取得した月から、資格を喪失した月の前月まで」</span>を1か月単位で計算します(日割りはありません)。この仕組みと「翌月徴収」が重なると、退職のしかたによって最後の給与での控除回数が変わります。</p>
+
+  <div class="f-step" style="margin-top:14px;">
+    <div class="f-num now">A</div>
+    <div class="f-text"><strong>9月30日(月末)に退職した場合</strong>──資格喪失日は10月1日。9月分まで保険料が発生するため、9月支払いの最終給与で<span class="hlo">「8月分+9月分」の2か月分</span>をまとめて控除するケースが多い</div>
+  </div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step">
+    <div class="f-num opt">B</div>
+    <div class="f-text"><strong>9月15日(月の途中)に退職した場合</strong>──資格喪失日は9月16日。9月分の保険料は<span class="hlg">発生しない</span>ため、9月支払いの最終給与では「8月分」の1か月分だけで済む</div>
+  </div>
+
+  <div class="stats-row c2" style="margin-top:14px;">
+    <div class="stat now">
+      <div class="sl">A. 月末退職の場合<br>(標準報酬月額30万円)</div>
+      <div class="sv">約85,140円</div>
+      <div class="su">最終給与での本人負担(2か月分)</div>
+    </div>
+    <div class="stat">
+      <div class="sl">B. 月途中退職の場合<br>(標準報酬月額30万円)</div>
+      <div class="sv">約42,570円</div>
+      <div class="su">最終給与での本人負担(1か月分)</div>
+    </div>
+  </div>
+  <p style="font-size:0.8rem; color:#777;">※本人負担額は令和8年度・東京・協会けんぽの料率(健康保険9.85%+子ども子育て支援金0.23%、厚生年金18.3%)で試算した概算です。9/3記事の試算例と同じ標準報酬月額30万円を使っています。</p>
+
+  <div class="warn" style="margin-top:12px;">
+    ⚠️ 会社が翌月徴収で運用している場合、「最後の給与だけ手取りが大きく減った」と退職者が驚くことがよくあります。仕組みを知らないと会社側も「引きすぎでは?」と不安になりがちなので、退職者が出る前に確認しておくと安心です。
+  </div>
+</div>
+
+<!-- Section 4: 切り替え実務 -->
+<div class="card green">
+  <div class="sec-title">🔧 「当月徴収」に切り替えるときの実務ポイント</div>
+  <p>「当月徴収のほうが退職時の混乱が少ないなら切り替えたい」と考えることもあるかもしれません。切り替え自体は可能ですが、次の点に注意が必要です。</p>
+
+  <ul class="check-list" style="margin-top:10px;">
+    <li><span class="ck">✓</span><strong>就業規則・給与規程の変更が必要</strong>──控除タイミングは労働条件の一部にあたるため、変更内容を明文化する</li>
+    <li><span class="ck">✓</span><strong>従業員への周知が必須(労基法106条)</strong>──7/31記事で扱った周知義務は、控除方法の変更時にもあてはまる</li>
+    <li><span class="ck">✓</span><strong>切り替え月は「二重控除」または「控除もれ」が起きやすい</strong>──翌月徴収から当月徴収に変える月は、対象月分が重なったり抜けたりしないよう、給与ソフトの設定変更のタイミングを慎重に確認する</li>
+    <li><span class="ck">✓</span><strong>従業員がいないタイミングで見直すのが安全</strong>──1人社長で自分だけが対象のうちに、将来の運用方針を決めておくと後が楽</li>
+  </ul>
+</div>
+
+<!-- Section 5: 会計・給与ソフト選定 -->
+<div class="card blue">
+  <div class="sec-title">🧾 1人社長が会計・給与ソフトを選ぶときのチェックポイント</div>
+  <p>1人社長のうちは自分の役員報酬だけなので影響は小さいですが、将来人を雇う可能性があるなら、ソフト選びの段階で確認しておきたいポイントがあります。</p>
+
+  <ul class="check-list">
+    <li><span class="ck">✓</span>使っている(使う予定の)給与計算ソフトが<strong>「当月徴収」「翌月徴収」のどちらの設定になっているか</strong>を確認する</li>
+    <li><span class="ck">✓</span>設定を<strong>後から変更できるか</strong>、変更時に過去データとの整合性がどう扱われるかを確認する</li>
+    <li><span class="ck">✓</span>退職者が出たときに<strong>控除月数を自動判定してくれる機能があるか</strong>を確認する(手計算だとミスが起きやすい)</li>
+    <li><span class="ck">✓</span>顧問社労士・税理士がいる場合は、その事務所が普段どちらの方式を前提にサポートしているかも聞いておく</li>
+  </ul>
+
+  <div class="warn" style="margin-top:12px;">
+    🤖 生成AIとの付き合い方の一例:「当月徴収」「翌月徴収」それぞれのケースで、退職日ごとの控除月数がどう変わるかを一覧表にしてもらい、給与規程の説明文の下書きを作らせることはできます。ただし実在の従業員名・報酬額など個人情報は入力せず、条件だけを一般化して壁打ちしましょう(9/1記事の壁打ち4ステップも参考にしてください)。
+  </div>
+</div>
+
+<!-- Section 6: まとめ -->
+<div class="card">
+  <div class="sec-title">📝 今日のまとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">①</span>社会保険料の控除タイミングには<strong>「当月徴収」(その月分をその月に)</strong>と<strong>「翌月徴収」(前月分をその月に)</strong>の2方式があり、会社の給与規程で決まっている。</li>
+    <li><span class="n">②</span>多くの会社・給与ソフトは<strong>翌月徴収が標準</strong>で、9/3記事の「定時決定は10月支払い給与から反映」もこの方式が前提だった。</li>
+    <li><span class="n">③</span>資格喪失日は<strong>「退職日の翌日」</strong>と決まっており、<strong>月末退職は最終給与で2か月分</strong>、<strong>月途中退職は1か月分</strong>の控除になりやすい(翌月徴収の場合)。</li>
+    <li><span class="n">④</span>方式を切り替えるときは<strong>就業規則の変更・周知・切り替え月の二重控除防止</strong>に注意する。</li>
+    <li><span class="n">⑤</span>1人社長のうちに、会計・給与ソフトがどちらの方式かを確認しておくと、将来人を雇ったときに慌てずに済む。</li>
+  </ul>
+
+  <div class="source">
+    📚 出典:日本年金機構「退職した従業員の保険料の徴収」(nenkin.go.jp/service/kounen/hokenryo/nofu/20120330-01.html) / 日本年金機構「月の途中で入社したときや、退職したときは、厚生年金保険料はどうなりますか。」(nenkin.go.jp/section/faq/kounen/hihokensha/20140902-01.html) / 全国健康保険協会(協会けんぽ)東京支部「令和8年度保険料額表」(kyoukaikenpo.or.jp/assets/R8_13tokyo.pdf)。保険料率・試算は令和8年度(2026年度)・東京支部の数値にもとづきます。
+  </div>
+</div>
+
+<!-- Disclaimer -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報提供を目的としたものであり、個別の税務・社会保険に関するアドバイスではありません。控除方式・控除月数・保険料額は会社の給与規程や実際の入退社日により異なります。
+  実際の手続き・金額の確認にあたっては、税理士・社会保険労務士や日本年金機構・協会けんぽの窓口にご相談ください。<br>
+  <strong>本記事の基準:</strong>2026年9月(令和8年度)時点で確認できた公表情報にもとづいています。保険料率は年度により改定されるため、翌年度以降にご覧の場合は必ず最新の協会けんぽ・日本年金機構の情報をご確認ください。
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>📚 <a href="index.html">バックナンバー一覧へ</a> &nbsp;&middot;&nbsp; 毎朝更新</p>
+</div>
+
+</div>
+</body>
+</html>
