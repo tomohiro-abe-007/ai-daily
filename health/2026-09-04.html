@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-09-04</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '🦴';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.9rem; margin-bottom: 8px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.1em; }
+  .c3-col li { margin-bottom: 4px; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  .quote-box {
+    background: #f5f0e8;
+    border-left: 4px solid #7a5abf;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    margin: 12px 0;
+    color: #444;
+    font-style: italic;
+  }
+  .quote-box .who { font-style: normal; font-weight: 700; color: #5a3a9a; margin-top: 6px; font-size: 0.78rem; }
+  .matrix {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .mx-cell {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .mx-cell .mx-head { font-weight: 700; font-size: 0.88rem; margin-bottom: 6px; }
+  .mx-cell.ok  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .mx-cell.ok  .mx-head { color: #1a6e4a; }
+  .mx-cell.ng  { background: #fbe8e6; border: 2px solid #c0392b; }
+  .mx-cell.ng  .mx-head { color: #a0291e; }
+  @media (max-width: 540px) {
+    .compare4 { grid-template-columns: 1fr; }
+    .matrix { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.7rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ヘッダー -->
+<div class="header">
+  <div class="label">健康・栄養 最新トピック ・ 2026-09-04</div>
+  <h1>コーヒー1日5杯超えは骨に注意?──9,704人・10年追跡の"観察研究"を、どう読むか</h1>
+  <div class="subtitle">「コーヒーを飲みすぎると骨が弱くなる」「お茶を飲む人は骨が強い」というニュースが、2026年9月にあらためて話題になりました。もとになったのは、米国の高齢女性9,704人を10年間追跡した観察研究(2025年12月、Nutrients誌)です。ただし2023年に発表された20件・50万人超をまとめたメタ分析では「関連なし」という正反対の結論も出ています。今日は、この2つの研究を材料に、「観察研究のニュースをどう読むか」という精密栄養学・健康科学の基本スキルを解説します。</div>
+</div>
+
+<!-- タグ -->
+<div style="margin-bottom:18px;">
+  <span class="tag">観察研究の読み方</span>
+  <span class="tag">精密栄養学</span>
+  <span class="tag">骨密度</span>
+  <span class="tag">コーヒー・お茶</span>
+  <span class="tag">エビデンスの強さ</span>
+</div>
+
+<!-- 今日の疑問 -->
+<div class="card">
+  <h2>🤔 今日の疑問:コーヒー好きは骨が弱い、は本当?</h2>
+  <p>2026年9月上旬、「コーヒーを飲みすぎると骨密度が下がるかもしれない」というニュースが、複数の海外メディアで報じられました。もとになっているのは、豪フリンダース大学のRyan Yan LiuさんとEnwu Liuさんが、米国の大規模コホート研究「SOF(Study of Osteoporotic Fractures、骨粗鬆症骨折研究)」のデータを使って行った観察研究で、2025年12月にNutrients誌に発表されています(DOI: 10.3390/nu17233660、PMID: 41373951)。</p>
+  <p>ただし、この話には続きがあります。2023年に発表された、20件の研究・50万人超のデータをまとめたメタ分析では、「コーヒーもお茶も、骨密度や股関節骨折のリスクとは関連しない」という、正反対に近い結論が出ているのです(Medicina誌、DOI: 10.3390/medicina59061177)。今日は、この2つの研究を比べながら、「観察研究のニュースをどう読むか」という考え方を身につけましょう。</p>
+</div>
+
+<!-- 基本用語 -->
+<div class="card blue">
+  <h2>📖 まず言葉の意味を</h2>
+  <div class="def-grid">
+    <div class="def-item">
+      <div class="dterm">観察研究・コホート研究</div>
+      研究者が食事や生活習慣を変えさせるのではなく、人々をそのまま追跡して記録・比較する研究方法。「原因と結果」ではなく「関連(相関)」しか示せないのが弱点。
+    </div>
+    <div class="def-item">
+      <div class="dterm">骨密度(BMD)</div>
+      骨の中にどれだけミネラル(カルシウムなど)が詰まっているかを示す指標。DXA(デキサ)という機械で測定するのが一般的。
+    </div>
+    <div class="def-item">
+      <div class="dterm">交絡因子</div>
+      「本当の原因」とは別に、調べたい2つのものの両方に影響してしまう別の要因。例えば運動量やカルシウム摂取量など。
+    </div>
+    <div class="def-item">
+      <div class="dterm">交互作用(相互作用)</div>
+      ある要因の効果が、別の要因(飲酒量や体格など)によって強くなったり弱くなったりすること。「人によって効き方が違う」ことの統計的な表現。
+    </div>
+    <div class="def-item">
+      <div class="dterm">メタ分析</div>
+      複数の研究結果を数学的に統合し、より安定した(と期待される)ひとつの結論を出す手法。ただし元の研究の質や設計のばらつきに結果が左右される。
+    </div>
+    <div class="def-item">
+      <div class="dterm">p値・統計的有意</div>
+      「その差が単なる偶然で起きた可能性の低さ」を示す目安の数値。慣習的にp値が0.05未満だと「統計的に意味がありそう」と判断されることが多い。
+    </div>
+  </div>
+</div>
+
+<!-- 数字カード -->
+<div class="num-row">
+  <div class="num-card gray-bg">
+    <div class="big">9,704<span class="unit">人</span></div>
+    <div class="desc">今回の観察研究の対象者数(65歳以上の米国人女性、SOFコホート)</div>
+  </div>
+  <div class="num-card blue-bg">
+    <div class="big">10<span class="unit">年</span></div>
+    <div class="desc">コーヒー・お茶の摂取量と骨密度を、繰り返し測定して追跡した期間</div>
+  </div>
+  <div class="num-card orange-bg">
+    <div class="big">5<span class="unit">杯/日</span></div>
+    <div class="desc">これを超えると骨密度への悪影響が目立ち始めたとされる、コーヒー摂取量のめやす</div>
+  </div>
+  <div class="num-card purple-bg">
+    <div class="big">508,312<span class="unit">人</span></div>
+    <div class="desc">2023年のメタ分析が統合した、20件の研究の合計対象者数(今回の研究の約52倍)</div>
+  </div>
+</div>
+
+<!-- 何がわかったか -->
+<div class="card orange">
+  <h2>☕🍵 今回の研究で分かったこと</h2>
+  <div class="compare4">
+    <div class="c3-col orange">
+      <h3>☕ コーヒー</h3>
+      <ul>
+        <li>1日2〜3杯程度の適量では、骨密度への明確な悪影響は見られなかった</li>
+        <li>1日5杯を超えるあたりから、骨密度が低い傾向が見られた(直線的ではない関係)</li>
+        <li>お酒を多く飲む女性では、コーヒーと大腿骨頸部の骨密度の関連がより強く出た(交互作用 p=0.0147)</li>
+      </ul>
+    </div>
+    <div class="c3-col green">
+      <h3>🍵 お茶</h3>
+      <ul>
+        <li>お茶を飲む人は、飲まない人より股関節(total hip)の骨密度がわずかに高かった(平均差 約0.003g/cm²、p=0.026)</li>
+        <li>差そのものはとても小さい</li>
+        <li>体格指数(BMI)が高い女性ほど、お茶と骨密度の良い関連がより強く出た(交互作用 p=0.0175)</li>
+      </ul>
+    </div>
+  </div>
+  <p style="font-size:0.82rem; color:#555; margin-top:8px;">出典:Liu RY, Liu E. <em>Nutrients</em>. 2025;17(23):3660. DOI: 10.3390/nu17233660。年齢・喫煙・飲酒・BMIなど複数の要因を統計的に調整したうえでの結果です。</p>
+</div>
+
+<!-- どうやって調べたか -->
+<div class="card purple">
+  <h2>🔬 どうやって調べた研究?</h2>
+  <div class="flow">
+    <div class="flow-step purp">① 1980年代に始まった<br>米国の大規模コホート<br>「SOF」に参加</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step">② 65歳以上の女性<br>9,704人を対象に選定</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step alt">③ 10年間、複数回<br>コーヒー・お茶の摂取量を<br>自己申告で調査</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step warn2">④ 同じタイミングで<br>骨密度(DXA)を測定し<br>統計的に関連を分析</div>
+  </div>
+  <p style="font-size:0.82rem; color:#555; margin-top:4px;">同じ人を10年間、繰り返し測定する「反復測定」という設計のため、1回きりの調査より変化を追いやすいのが強みです。ただし、あくまで参加者をそのまま観察しただけで、「コーヒーを減らす/増やす」という実験を行ったわけではありません。</p>
+</div>
+
+<!-- 精密栄養学の視点:個人差 -->
+<div class="card">
+  <h2>🧬 精密栄養学の視点:"同じコーヒー量"でも影響は人によって違う</h2>
+  <p>この研究でとくに注目したいのが、先ほど紹介した2つの「交互作用」です。同じ量のコーヒーやお茶でも、その人の他の生活習慣や体格によって、骨への関連の出方が違っていました。</p>
+  <div class="matrix">
+    <div class="mx-cell ok">
+      <div class="mx-head">🍷 お酒をあまり飲まない人</div>
+      コーヒーと骨密度の関連は目立って強くはなかった
+    </div>
+    <div class="mx-cell ng">
+      <div class="mx-head">🍷 お酒を多く飲む人</div>
+      コーヒー摂取と大腿骨頸部の骨密度の低さの関連が、より強く見られた(交互作用 p=0.0147)
+    </div>
+  </div>
+  <div class="matrix" style="margin-top:8px;">
+    <div class="mx-cell ok">
+      <div class="mx-head">⚖️ 体格指数(BMI)が高めの人</div>
+      お茶と骨密度の良い関連が、より強く見られた(交互作用 p=0.0175)
+    </div>
+    <div class="mx-cell ng">
+      <div class="mx-head">⚖️ 標準的な体格の人</div>
+      お茶の効果は、統合すると全体でわずかにとどまった
+    </div>
+  </div>
+  <p style="font-size:0.82rem; color:#555; margin-top:8px;">「コーヒーは骨に悪い」「お茶は骨に良い」と一律に言うのではなく、「自分の飲酒量や体格によって、影響の出方は変わりうる」と考えるのが精密栄養学的な見方です。ただし交互作用の分析は、もともとの研究が目的としていた解析ではないことが多く(探索的な追加解析)、偶然のばらつきである可能性も残る点には注意が必要です。</p>
+</div>
+
+<!-- 賛否:2023年メタ分析との比較 -->
+<div class="card blue">
+  <h2>🗣️ 賛否両論:2023年の大規模メタ分析は「関連なし」</h2>
+  <div class="matrix">
+    <div class="mx-cell ok">
+      <div class="mx-head">✅ 2025年の新しい研究(今回)</div>
+      米国の女性9,704人を10年間、繰り返し測定した1つの大規模コホート。お茶で骨密度がわずかに高く、コーヒー多量摂取・飲酒との組み合わせで骨密度が低い傾向を報告。
+    </div>
+    <div class="mx-cell ng">
+      <div class="mx-head">⚠️ 2023年のメタ分析</div>
+      性質の異なる20件の研究・合計50万人超を統合。「コーヒーもお茶も、骨密度・股関節骨折リスクとは関連しない」と結論。ただし研究間のばらつき(異質性)が大きく、量と効果の関係(用量反応)を詳しく調べるには、より質の高い大規模コホート研究が必要と著者ら自身が指摘している。
+    </div>
+  </div>
+  <p style="font-size:0.82rem; color:#555; margin-top:8px;">「人数が多いメタ分析のほうが必ず正しい」わけでも、「新しい研究のほうが必ず正しい」わけでもありません。メタ分析は元になった研究の設計や測定方法がバラバラだと精度が落ち、逆に単一のコホート研究は、その集団(今回は米国の高齢女性)以外への当てはめに慎重さが必要です。賛否が分かれるテーマでは、片方だけを見て結論を出さないことが大切です。</p>
+</div>
+
+<!-- 観察研究の限界 -->
+<div class="warn">
+  <strong>⚠️ 観察研究だけでは言えないこと</strong>
+  <ul style="padding-left:1.4em; margin-top:8px;">
+    <li>コーヒー・お茶の摂取量は本人の自己申告にもとづいており、実際の量とズレがある可能性がある。</li>
+    <li>運動量、カルシウムやビタミンDの摂取、喫煙、閉経後の年数など、骨密度に影響する要因(交絡因子)を完全には調整しきれない。</li>
+    <li>「骨が弱い人ほどカフェインを控えている」といった、逆向きの因果関係が紛れ込んでいる可能性も否定できない。</li>
+    <li>飲酒量・BMIによる交互作用は、あらかじめ計画されていた主要な検証項目ではない可能性があり、独立した研究での再現が望ましい。</li>
+    <li>したがって今回の結果は「関連が見つかった」のであって、「コーヒーが骨を弱くすると証明された」わけではない。</li>
+  </ul>
+</div>
+
+<!-- エビデンスの整理 -->
+<div class="card">
+  <h2>🧪 今日出てきた情報の「証拠としての強さ」の目安</h2>
+  <table class="ev-table">
+    <tr><th>情報の種類</th><th>特徴</th><th>証拠としての強さ</th></tr>
+    <tr>
+      <td>お茶で股関節の骨密度がわずかに高い(平均差約0.003g/cm²、p=0.026)</td>
+      <td>単一の大規模コホート研究(9,704人・10年、反復測定)、観察研究</td>
+      <td><span class="ev-badge ev-mid">中程度(大規模・長期だが観察研究であり相関どまり)</span></td>
+    </tr>
+    <tr>
+      <td>コーヒー多量摂取(5杯超/日)と骨密度低下の関連</td>
+      <td>同コホートの非線形な傾向の分析</td>
+      <td><span class="ev-badge ev-low">低〜中程度(閾値の推定であり追試が必要)</span></td>
+    </tr>
+    <tr>
+      <td>飲酒量・BMIによる交互作用(人によって影響が違う)</td>
+      <td>探索的な事後分析の可能性が高い部分別解析</td>
+      <td><span class="ev-badge ev-low">低い(仮説を示す段階、独立した再現が必要)</span></td>
+    </tr>
+    <tr>
+      <td>コーヒー・お茶は骨密度・股関節骨折と関連しない</td>
+      <td>20件の研究・50万人超を統合したメタ分析(2023年)</td>
+      <td><span class="ev-badge ev-mid">中〜高程度(統合の規模は大きいが研究間のばらつきが大きい)</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- 実践への落とし込み -->
+<div class="card orange">
+  <h2>🍽️ 今日から意識できること</h2>
+  <ul class="step-list">
+    <li>コーヒーもお茶も、1日2〜3杯程度の常識的な範囲であれば、今回の研究でも骨への明確な悪影響は示されていない。</li>
+    <li>骨の健康の土台は、依然としてカルシウム・ビタミンD・たんぱく質の摂取と、体重がかかる運動(ウォーキング・筋トレなど)であり、今回の研究もそれに取って代わるものではない。</li>
+    <li>お酒を多く飲む習慣がある人は、コーヒーの摂りすぎが重なったときの影響について、過度に心配しすぎない範囲で意識してみてもよい。</li>
+    <li>「1つの研究で骨に悪い/良いと言われた」だけで食習慣を大きく変える前に、他の研究(メタ分析など)と合わせて考える習慣をつけたい。</li>
+  </ul>
+</div>
+
+<!-- まとめ -->
+<div class="card" style="border-left-color:#1a7a5a;">
+  <h2>✅ 今日のまとめ</h2>
+  <ul class="step-list">
+    <li>米国の高齢女性9,704人を10年間追跡した観察研究(2025年12月、Nutrients誌)で、お茶と股関節の骨密度のわずかな正の関連、コーヒー1日5杯超と骨密度低下の傾向が報告された。</li>
+    <li>お酒を多く飲む人ほどコーヒーの関連が強く出る、BMIが高い人ほどお茶の関連が強く出る、という「人による違い」も見つかった。</li>
+    <li>一方、2023年に20件・50万人超を統合したメタ分析では「コーヒーもお茶も骨密度・骨折リスクと関連しない」という異なる結論が出ており、賛否が分かれるテーマである。</li>
+    <li>観察研究は「関連」を示すのみで「原因と結果」の証明ではなく、自己申告データや交絡因子、逆の因果関係の可能性など、読み解く際に注意すべき点が複数ある。</li>
+    <li>1つのニュース・1つの研究だけで結論を出さず、研究デザイン・対象人数・統計的な位置づけを踏まえて読む姿勢が、精密栄養学的にも健康情報全般の読み方としても大切。</li>
+  </ul>
+</div>
+
+<!-- 免責 -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、医療アドバイスではありません。効果・必要量・リスクは個人の体質・年齢・持病・服薬によって大きく異なります。本記事は特定の飲食物の摂取量や、特定の食事制限・サプリメントを推奨するものではありません。骨密度の低下が気になる場合や、コーヒー・お茶の摂取量を大きく変えたい場合は、自己判断せず、かかりつけ医・管理栄養士・薬剤師など専門家にご相談ください。
+</div>
+
+<!-- 出典 -->
+<div class="sources">
+  <h3>📚 主な出典・参考文献</h3>
+  <ol>
+    <li>Liu RY, Liu E. "Longitudinal Association of Coffee and Tea Consumption with Bone Mineral Density in Older Women: A 10-Year Repeated-Measures Analysis in the Study of Osteoporotic Fractures." <em>Nutrients</em>. 2025;17(23):3660. DOI: 10.3390/nu17233660. PMID: 41373951.
+      <a href="https://doi.org/10.3390/nu17233660" target="_blank">https://doi.org/10.3390/nu17233660</a>(基準日:2025年12月発表)
+    </li>
+    <li>コーヒー・お茶摂取と骨密度・股関節骨折リスクに関するメタ分析(20件の研究、対象者合計50万人超)。<em>Medicina</em>. 2023;59(6):1177. DOI: 10.3390/medicina59061177. PMID: 37374383.
+      <a href="https://doi.org/10.3390/medicina59061177" target="_blank">https://doi.org/10.3390/medicina59061177</a>(基準日:2023年6月発表)
+    </li>
+    <li>ScienceDaily. "Too much coffee may weaken bones, study finds."(上記Nutrients論文の2026年9月時点での報道)
+      <a href="https://www.sciencedaily.com/releases/2026/09/260901070550.htm" target="_blank">https://www.sciencedaily.com/releases/2026/09/260901070550.htm</a>(基準日:2026年9月)
+    </li>
+  </ol>
+  <p style="margin-top:8px; font-size:0.78rem;">※ ネットワーク制限により、doi.org・mdpi.com・ncbi.nlm.nih.gov・sciencedaily.com・eurekalert.org等のサイトに本セッションから直接アクセスできなかったため、検索エンジンで得られる複数の独立した情報源(論文要旨の引用・複数の科学メディアの報道)の要約を突き合わせ、著者名・掲載誌・対象人数・統計値(p値・交互作用など)の一致を確認したうえで作成しています。一次資料そのものへの直接アクセスができていないため、正確な信頼区間や図表の詳細については、上記リンク先で改めてご確認いただくことをお勧めします。</p>
+</div>
+
+</div>
+</body>
+</html>
