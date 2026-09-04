@@ -2,7 +2,6 @@
 
 ## 未解説テーマ（エバーグリーン）
 
-- スペイン語の接続法（subjuntivo）の入り口（Si yo fuera...）── 英語のwere-subjunctiveとの対応
 - アルゼンチンなどのvoseo（vos＋独自の活用）── vosotros/ustedesの続編、南米のもう一つの二人称
 - 英語の集合名詞（team/family/peopleなど）の単数・複数扱いの違い── 可算・不可算の続編、イギリス英語とアメリカ英語で扱いが変わる点も
 - 英語圏の日付・数字・単位の書き方の違い（day/month順、Fahrenheit/Celsius、1階の数え方floor）── 07-30のイギリス英語/アメリカ英語対比の続編
@@ -34,6 +33,7 @@
 - 英語のno matter how/what/who/where/whenのまとめ（09-03のスペイン語por muy/mucho...queの逆向きブリッジ）── 08-27〜09-02のwhatever一家＋09-02のhoweverと、no matter系の対応をもう一段整理する
 - スペイン語のtú肯定命令の不規則形8つ（di/haz/ve/pon/sal/sé/ten/venなど）── 07-13・09-04の命令形の続編、よく使う不規則動詞をまとめて覚える
 - 英語の命令文の丁寧さの段階（Please.../Would you mind -ing?/Could you...?/Let's...）── 09-04のスペイン語nosotros/vosotros命令形の逆向きブリッジ、英語での丁寧さ調整の付け方を整理する
+- スペイン語の接続法過去完了（hubiera+過去分詞）と英語の過去完了仮定法（If I had known...）── 09-05のSi yo fuera...の発展、「もしあの時〜だったら」と過去の後悔・反実仮想を言う型を整理する
 
 ## 解説済みテーマ
 
@@ -123,3 +123,4 @@
 - 2026-09-02: 英語のhoweverの譲歩用法（however+形容詞/副詞で「どんなに〜でも」を表す語順）── 08-30で保留にしたhoweverを扱い、whatever一家(what/who/which/where/when+ever)の対応表にhoweverを加えて完成させた
 - 2026-09-03: スペイン語のpor muy/mucho...que + 接続法（「どんなに〜でも」の譲歩表現）── 09-02の英語howeverの逆向きブリッジ、形容詞/副詞はpor muy、動詞はpor mucho/más que、名詞は性数一致のmucho/a/os/asと使い分けを整理した
 - 2026-09-04: スペイン語のnosotros/vosotros命令形と再帰動詞の命令形（levántate→levantémonos/levantaos）── 07-13のtú/usted命令の続編、nosotros=接続法+emos/amos、vosotros肯定=-r→-d、再帰動詞は-s/-dを落として代名詞を付ける規則とirseの例外を整理した
+- 2026-09-05: スペイン語の接続法過去（imperfecto de subjuntivo）の入り口（Si yo fuera...）── 07-17の英語If I were youの続編、点過去のellos形から-eron/-aronを取って作る手順と、Si+接続法過去/条件節の型を英語のwere/wouldと対応づけて整理した
