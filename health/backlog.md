@@ -2,6 +2,14 @@
 
 今後の記事候補。使ったテーマは削除し、新しく見つけた有望テーマは追記する。
 
+## 未使用テーマ（追記：2026-09-06 検索で見つけた有望テーマ）
+
+- 09-06記事(運動スナックのメタ分析)の続報候補 ── Frontiers in Endocrinology誌のメタ分析(DOI: 10.3389/fendo.2026.1912963、代謝リスクのある成人8件・159人)は、著者名・正確な発表月日・血管機能アウトカムの詳細な数値が、ネットワーク制限(frontiersin.org・mdpi.com・dovepress.com・europepmc.org・ncbi.nlm.nih.govがブロック対象)で本文未確認。アクセスできれば著者名を含めて深掘り記事化を検討
+- アンブレラレビュー「Exercise Snacks and Acute Postprandial Glucose and Insulin Metabolism」(Metabolites誌、MDPI、URL: https://www.mdpi.com/2218-1989/16/9/635)── 「同テーマのレビューが乱立していても一次データの量が追いついていない」という指摘そのものを独立記事化できるか検討。著者名・正確なDOI・発表日が未確認、ネットワーク制限で本文未確認
+- 「Effects of Exercise Snacks on Cardiometabolic Health and Body Composition in Adults」(Wanら、Scandinavian Journal of Medicine & Science in Sports 2025、DOI: 10.1111/sms.70114)── 14件(RCT12件+非RCT2件)・483人、心代謝指標・体組成への影響を調べた別の関連メタ分析。09-06記事とは別の対象・アウトカムのため、独立記事化する場合は重複に注意
+- 「Effectiveness of moderate-to-low intensity exercise snacks on glucose and lipid metabolism in sedentary adults」(Frontiers in Physiology 2026、DOI: 10.3389/fphys.2026.1805547)── 座位中心の成人が対象、20件のランダム化クロスオーバー試験・392人、Hedges' g = −0.37(95%CI −0.53〜−0.22、P<0.01、I²=6.6%)という09-06記事より低い異質性の結果が報告されている可能性。一次論文の著者名・詳細確認ができれば「同じテーマでも研究によって異質性(ばらつき)が違う」という切り口で独立記事化を検討
+- 「Acute effects of "exercise snacks" during prolonged sitting on hemodynamics and peripheral vascular function」(3レベルメタ分析、Nutrition & Metabolism誌、DOI: 10.1186/s12986-026-01120-5)── 09-06記事で触れた血管機能への影響を専門に扱った別のメタ分析。血流依存性血管拡張反応(FMD)など血管系アウトカムに特化しており、著者名・対象試験数・具体的な数値が確認できれば「運動スナックと血管の健康」という独立記事化を検討
+
 ## 未使用テーマ（追記：2026-09-05 検索で見つけた有望テーマ）
 
 - 09-05記事(Tavares JF, Breteler MMBほか, medRxivプレプリント, DOI: 10.1101/2025.05.17.25327830)の続報候補 ── 査読誌Nature Communicationsへの正式掲載が複数の検索結果・科学ニュース経由で報じられているが、当セッションのネットワーク制限(nature.com / medrxiv.org / pubmed.ncbi.nlm.nih.gov / dzne.de / rheinland-studie.de / aging-us.com / drkumardiscovery.com / medicalxpress.com / daem.de がブロック対象)で本文・正式DOIとも未確認。査読誌版が確認できれば、正確な回帰係数・信頼区間・p値、EAT-Lancet食だけ関連が見られなかった理由の考察を含めて深掘り記事化を検討

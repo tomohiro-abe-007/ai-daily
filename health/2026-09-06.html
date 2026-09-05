@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-09-06</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '🪜';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.9rem; margin-bottom: 8px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.1em; }
+  .c3-col li { margin-bottom: 4px; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  .quote-box {
+    background: #f5f0e8;
+    border-left: 4px solid #7a5abf;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    margin: 12px 0;
+    color: #444;
+    font-style: italic;
+  }
+  .quote-box .who { font-style: normal; font-weight: 700; color: #5a3a9a; margin-top: 6px; font-size: 0.78rem; }
+  .matrix {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .mx-cell {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .mx-cell .mx-head { font-weight: 700; font-size: 0.88rem; margin-bottom: 6px; }
+  .mx-cell.ok  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .mx-cell.ok  .mx-head { color: #1a6e4a; }
+  .mx-cell.ng  { background: #fbe8e6; border: 2px solid #c0392b; }
+  .mx-cell.ng  .mx-head { color: #a0291e; }
+  @media (max-width: 540px) {
+    .compare4 { grid-template-columns: 1fr; }
+    .matrix { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.7rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ヘッダー -->
+<div class="header">
+  <div class="label">健康・栄養 最新トピック ・ 2026-09-06</div>
+  <h1>デスクワークの合間に2〜5分動くだけで、食後の血糖値の急上昇を抑えられる?──"運動スナック"のメタ分析を読み解く</h1>
+  <div class="subtitle">長時間座りっぱなしのデスクワークの合間に、階段を上ったり軽くスクワットをしたりする、ごく短い運動──通称「エクササイズ・スナック(運動スナック)」が、食後の血糖値やインスリンの急上昇を抑えるかもしれない、という研究が近年相次いで発表されています。2025年11月には肥満のある成人を対象にした17件の試験を統合したメタ分析が、2026年にはより幅広い「代謝リスクのある成人」を対象にした別のメタ分析が、それぞれ発表されました。今日はこの2つのメタ分析を比べながら、「メタ分析だから信頼できる」と単純には言えない理由も含めて読み解きます。</div>
+</div>
+
+<!-- タグ -->
+<div style="margin-bottom:18px;">
+  <span class="tag">運動と代謝</span>
+  <span class="tag">エビデンスの強さ</span>
+  <span class="tag">メタ分析の読み方</span>
+  <span class="tag">座りっぱなし対策</span>
+  <span class="tag">精密栄養学</span>
+</div>
+
+<!-- 今日の疑問 -->
+<div class="card">
+  <h2>🤔 今日の疑問:短い運動を挟むだけで、血糖値の上がり方は変わるのか?</h2>
+  <p>「座りっぱなしは体に良くない」とよく言われますが、忙しい日中にジムに行く時間を作るのは簡単ではありません。そこで近年注目されているのが「エクササイズ・スナック(exercise snacks、運動スナック)」という考え方です。1回あたり数分程度のごく短い運動を、座っている時間の合間に何度か挟み込むというものです。</p>
+  <p>中国・首都体育学院(北京)のYuanbo Changさん、Hai Wangさん、Xinbi Zhangさん、Haiyuan Liuさんのチームは、肥満のある成人を対象に、この運動スナックが食後の血糖値・インスリン濃度にどう影響するかを調べた17件の試験を統合するメタ分析を、Frontiers in Nutrition誌に発表しました(2025年11月20日、DOI: 10.3389/fnut.2025.1708301)。今日はこの研究と、2026年に発表されたもう一つの関連メタ分析を比べながら、「短い運動の効果」をどこまで信じてよいかを一緒に考えます。</p>
+</div>
+
+<!-- 基本用語 -->
+<div class="card blue">
+  <h2>📖 まず言葉の意味を</h2>
+  <div class="def-grid">
+    <div class="def-item">
+      <div class="dterm">エクササイズ・スナック(運動スナック)</div>
+      デスクワークなどで座り続けている時間を、数分程度の短い運動(歩行・軽いスクワット・階段昇降など)で定期的に中断する取り組み。まとまった運動時間を確保できなくても実践しやすいとされる。
+    </div>
+    <div class="def-item">
+      <div class="dterm">食後血糖・インスリンのiAUC</div>
+      食事のあと、血糖値やインスリン濃度が時間とともにどれだけ上下したかを、グラフの面積(曲線下面積)として数値化したもの。値が小さいほど、急上昇・急降下が少なかったことを示す。
+    </div>
+    <div class="def-item">
+      <div class="dterm">ランダム化クロスオーバー試験</div>
+      同じ参加者に、日を分けて「運動スナックあり」「なし(座りっぱなし)」の両方を試してもらい、その人自身の中で結果を比較する試験デザイン。人による体質の差を打ち消せる利点がある。
+    </div>
+    <div class="def-item">
+      <div class="dterm">SMD(標準化平均差)</div>
+      測定方法が異なる複数の研究結果を、同じものさしで比較できるように標準化した効果の大きさの指標。0に近いほど差が小さく、マイナスなら「運動スナックあり」のほうが数値が低かったことを示す。
+    </div>
+    <div class="def-item">
+      <div class="dterm">I²統計量(異質性)</div>
+      メタ分析に含まれる複数の研究の結果が、どれくらいバラバラだったかを示す指標(0〜100%)。数値が大きいほど、研究間の条件の違い(運動の種類・強度・対象者など)による結果のばらつきが大きいことを意味する。
+    </div>
+    <div class="def-item">
+      <div class="dterm">アンブレラレビュー</div>
+      個別の研究ではなく、既存の複数のシステマティック・レビューやメタ分析そのものを整理し直す、いわば「レビューのレビュー」。同じテーマのレビューが乱立していないかを確認するのに役立つ。
+    </div>
+  </div>
+</div>
+
+<!-- 数字カード -->
+<div class="num-row">
+  <div class="num-card gray-bg">
+    <div class="big">17<span class="unit">件</span></div>
+    <div class="desc">肥満のある成人を対象にした運動スナックの試験数(2025年11月、Frontiers in Nutrition誌のメタ分析)</div>
+  </div>
+  <div class="num-card blue-bg">
+    <div class="big">261<span class="unit">人</span></div>
+    <div class="desc">同メタ分析が統合した参加者の合計人数</div>
+  </div>
+  <div class="num-card orange-bg">
+    <div class="big">2〜5<span class="unit">分</span></div>
+    <div class="desc">座りっぱなしを中断する1回あたりの運動時間の目安(軽度〜中程度のウォーキングや簡単なレジスタンス運動が中心)</div>
+  </div>
+  <div class="num-card purple-bg">
+    <div class="big">76<span class="unit">%</span></div>
+    <div class="desc">グルコースiAUCの解析における研究間のばらつき(I²統計量)。数値が大きく、ばらつきが大きいことを示す</div>
+  </div>
+</div>
+
+<!-- 何がわかったか -->
+<div class="card orange">
+  <h2>🩸 今回の研究で分かったこと(肥満のある成人)</h2>
+  <div class="compare4">
+    <div class="c3-col green">
+      <h3>🍬 血糖値(グルコースiAUC)</h3>
+      <ul>
+        <li>運動スナックを挟んだ日は、座りっぱなしの日と比べて統計的に有意に低かった(SMD −0.49、95%信頼区間 −0.85〜−0.14)</li>
+        <li>ただし研究間のばらつきが大きい(I²=76%)</li>
+      </ul>
+    </div>
+    <div class="c3-col orange">
+      <h3>💉 インスリン(インスリンiAUC)</h3>
+      <ul>
+        <li>こちらも統計的に有意に低かったが、効果の大きさは血糖値より小さめだった(SMD −0.26、95%信頼区間 −0.50〜−0.03)</li>
+        <li>研究間のばらつきは中程度(I²=44%)</li>
+      </ul>
+    </div>
+  </div>
+  <p style="font-size:0.82rem; color:#555; margin-top:8px;">出典:Chang Y, Wang H, Zhang X, Liu H. <em>Frontiers in Nutrition</em>. 2025年11月20日. DOI: 10.3389/fnut.2025.1708301。おもな運動の内訳はレジスタンス運動(34.2%)・ウォーキング(22.2%)・自転車こぎ(15.4%)・立位(11.1%)・階段昇降(6.8%)などで、30分に1回のペースで挟む試験がもっとも多く見られました(64.2%)。</p>
+</div>
+
+<!-- どうやって調べたか -->
+<div class="card purple">
+  <h2>🔬 どうやって調べた研究?</h2>
+  <div class="flow">
+    <div class="flow-step purp">① 同じ参加者が<br>日を分けて2つの条件を試す<br>(ランダム化クロスオーバー)</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step">② 条件A:検査食を食べた後<br>そのまま座り続ける</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step alt">③ 条件B:同じ食事の後<br>30分おきに2〜5分の<br>軽い運動を挟む</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step warn2">④ 数時間、繰り返し採血し<br>血糖値・インスリンの<br>変化(iAUC)を比較</div>
+  </div>
+  <p style="font-size:0.82rem; color:#555; margin-top:4px;">介入(運動スナックをしてもらう)を伴うランダム化試験のため、単純な観察研究より「原因→結果」を主張しやすいデザインです。ただし、あくまで検査当日・数時間だけの急性反応を見たものであり、この習慣を何か月も続けた場合に体重やHbA1c、糖尿病の発症率がどう変わるかまで証明したわけではありません。</p>
+</div>
+
+<!-- 別のメタ分析との比較 -->
+<div class="card blue">
+  <h2>🗣️ もう一つのメタ分析では、インスリンへの効果が"有意ではなかった"</h2>
+  <p>2026年には、対象を「肥満のある成人」に限らず、より幅広い「代謝リスクのある成人」に広げた別のメタ分析が、探索的なメタ回帰分析や血管機能への影響もあわせてFrontiers in Endocrinology誌に発表されました(DOI: 10.3389/fendo.2026.1912963。ただし当セッションのネットワーク制限により、著者名と正確な発表日は本文で直接確認できていません)。</p>
+  <div class="matrix">
+    <div class="mx-cell ok">
+      <div class="mx-head">✅ 肥満のある成人(17件・261人)</div>
+      グルコースiAUC(SMD −0.49)・インスリンiAUC(SMD −0.26)ともに統計的に有意な低下
+    </div>
+    <div class="mx-cell ng">
+      <div class="mx-head">⚠️ 代謝リスクのある成人全般(8件・159人)</div>
+      グルコースiAUCは有意に低下(MD −5.69 mmol・h/L、95%信頼区間 −9.38〜−2.00、P=0.003)。しかしインスリンiAUCは統計的に有意ではなかった(MD −902.64 pmol・h/L、95%信頼区間 −1889.11〜83.82、P=0.073)</div>
+    </div>
+  </div>
+  <p style="font-size:0.82rem; color:#555; margin-top:8px;">血糖値への効果は2つのメタ分析で共通して見られましたが、インスリンへの効果は対象や試験数によって結論が変わっています。血管機能(FMDなど)への影響は、後者のメタ分析でも試験数がわずか3件(FMD2件・エンドセリン1件)しかなく、探索的な位置づけにとどまっています。</p>
+</div>
+
+<!-- 精密栄養学の視点 -->
+<div class="card">
+  <h2>🧬 精密栄養学の視点:"誰に特に効くか"は、まだよく分かっていない</h2>
+  <p>2026年のメタ分析では、「もともと代謝リスクが高い人ほど効果が大きいのか」「運動の強度が高いほど効果が大きいのか」を確かめる探索的なメタ回帰分析も行われました。しかし、ベースラインの代謝リスクの高さや運動強度によって効果がはっきり変わるという統計的に有意な関係は確認されませんでした。</p>
+  <div class="matrix">
+    <div class="mx-cell ok">
+      <div class="mx-head">🔍 調べたこと</div>
+      ベースラインの代謝リスクの高低、運動強度の違いが、血糖値・インスリンへの効果の大きさに関係するかどうか
+    </div>
+    <div class="mx-cell ng">
+      <div class="mx-head">❓ 分かったこと</div>
+      現時点のデータでは、どちらも統計的に有意な関係を確認できなかった(試験数が少なく、確かめる力=検出力が不足している可能性もある)
+    </div>
+  </div>
+  <p style="font-size:0.82rem; color:#555; margin-top:8px;">「代謝リスクが高い人ほど運動スナックが効きやすいはず」という予想は自然に思えますが、この研究の時点ではまだ裏付けられていません。精密栄養学・精密健康科学の視点で大切なのは、「個人差がありそう」という仮説と、「個人差が統計的に確認された」という事実を、きちんと分けて考えることです。</p>
+</div>
+
+<!-- 限界 -->
+<div class="warn">
+  <strong>⚠️ このメタ分析だけでは言えないこと</strong>
+  <ul style="padding-left:1.4em; margin-top:8px;">
+    <li>今回分かったのは、検査当日・数時間だけの急性の血糖値・インスリン反応であり、この習慣を数か月〜数年続けた場合に体重・HbA1c・糖尿病の発症率が実際に下がるかどうかは、このメタ分析だけでは証明されていない。</li>
+    <li>統合された試験の多くは1件あたり数人〜数十人と小規模で、運動の種類・強度・タイミング(30分おきか60分おきかなど)が試験ごとにバラバラなため、研究間のばらつき(I²)が大きい。</li>
+    <li>インスリンへの効果や血管機能への影響については、対象や試験数によって「有意」「非有意」の結論が分かれており、まだ確立した知見とは言いにくい。</li>
+    <li>対象は「肥満のある成人」「代謝リスクのある成人」であり、健康な人・高齢者・糖尿病治療中の人にそのまま当てはまるとは限らない。</li>
+    <li>同じテーマのメタ分析やレビューがここ1〜2年で複数発表されているが、あるアンブレラレビュー(MDPI「Metabolites」誌に掲載)は、レビューの数の多さに対して土台となる一次試験の量がまだ追いついておらず、小〜中程度の効果を確実に検出するには検出力が不足していると指摘している。</li>
+  </ul>
+</div>
+
+<!-- エビデンスの整理 -->
+<div class="card">
+  <h2>🧪 今日出てきた情報の「証拠としての強さ」の目安</h2>
+  <table class="ev-table">
+    <tr><th>情報の種類</th><th>特徴</th><th>証拠としての強さ</th></tr>
+    <tr>
+      <td>肥満のある成人で、運動スナックが食後血糖iAUCを下げる(SMD −0.49)</td>
+      <td>ランダム化クロスオーバー試験17件・261人のメタ分析、ただしI²=76%</td>
+      <td><span class="ev-badge ev-mid">中程度(介入試験の統合だが試験間のばらつきが大きい)</span></td>
+    </tr>
+    <tr>
+      <td>同じ集団で、インスリンiAUCも下がる(SMD −0.26)</td>
+      <td>同メタ分析、I²=44%</td>
+      <td><span class="ev-badge ev-mid">中程度(効果はより小さく不確実性も残る)</span></td>
+    </tr>
+    <tr>
+      <td>代謝リスクのある成人全般で血糖iAUCが下がる(P=0.003)</td>
+      <td>別のメタ分析(8件・159人、k=5)</td>
+      <td><span class="ev-badge ev-mid">中程度(試験数が少なく追試が必要)</span></td>
+    </tr>
+    <tr>
+      <td>同集団でインスリンiAUCが下がるかどうか(P=0.073)</td>
+      <td>同メタ分析(k=4)、統計的有意差なし</td>
+      <td><span class="ev-badge ev-low">低い(結論を出すには材料不足)</span></td>
+    </tr>
+    <tr>
+      <td>血管機能(FMDなど)への影響</td>
+      <td>試験数わずか3件の探索的解析</td>
+      <td><span class="ev-badge ev-low">低い(まだ結論を出せる段階ではない)</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- 実践 -->
+<div class="card orange">
+  <h2>🚶 今日から意識できること</h2>
+  <ul class="step-list">
+    <li>長時間座りっぱなしになりがちな人は、30分に1回程度、2〜5分ほど立ち上がって歩く・階段を使う・軽いスクワットをするなど、"運動スナック"を試してみる価値はありそう。</li>
+    <li>ただしこれは、通常の運動習慣・食事療法・必要な薬物療法の代わりになるものではない。</li>
+    <li>「メタ分析で示された」からといって、長期的な体重減少や糖尿病予防効果まで証明されたわけではない点に注意する。</li>
+    <li>糖尿病の治療中や心血管疾患のある人は、運動の内容・強度を自己判断で大きく変える前に、主治医や理学療法士に相談する。</li>
+  </ul>
+</div>
+
+<!-- まとめ -->
+<div class="card" style="border-left-color:#1a7a5a;">
+  <h2>✅ 今日のまとめ</h2>
+  <ul class="step-list">
+    <li>座りっぱなしの時間を2〜5分程度の短い運動で定期的に中断する「運動スナック」が、食後の血糖値・インスリンの急上昇を抑える可能性が、複数のメタ分析で報告されている。</li>
+    <li>肥満のある成人を対象にした17件・261人のメタ分析(2025年11月、Frontiers in Nutrition)では、血糖値・インスリンともに統計的に有意な改善が見られた。</li>
+    <li>より幅広い「代謝リスクのある成人」を対象にした別のメタ分析(2026年、Frontiers in Endocrinology、8件・159人)では、血糖値の改善は確認されたが、インスリンへの効果は統計的に有意ではなかった。</li>
+    <li>「代謝リスクの高さ」や「運動強度」による効果の違いは、探索的なメタ回帰分析では確認できておらず、"誰に特に効くか"はまだ分かっていない。</li>
+    <li>ランダム化試験を統合したメタ分析であっても、試験数の少なさ・研究間のばらつき・急性の代理指標にとどまる点など、証拠の強さには幅があり、一律に「証明された」とは言えない。</li>
+  </ul>
+</div>
+
+<!-- 免責 -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、医療アドバイスではありません。効果・必要量・リスクは個人の体質・年齢・持病・服薬によって大きく異なります。本記事は特定の運動法・食事制限・断食などを推奨するものではありません。糖尿病や心血管疾患などの持病がある場合や、運動習慣を大きく変えたい場合は、自己判断せず、かかりつけ医・管理栄養士・理学療法士など専門家にご相談ください。
+</div>
+
+<!-- 出典 -->
+<div class="sources">
+  <h3>📚 主な出典・参考文献</h3>
+  <ol>
+    <li>Chang Y, Wang H, Zhang X, Liu H. "Acute effects of exercise snacks on postprandial glucose and insulin metabolism in adults with obesity: a systematic review and meta-analysis." <em>Frontiers in Nutrition</em>. Published 2025-11-20. DOI: 10.3389/fnut.2025.1708301.
+      <a href="https://doi.org/10.3389/fnut.2025.1708301" target="_blank">https://doi.org/10.3389/fnut.2025.1708301</a>(基準日:2025年11月)
+    </li>
+    <li>"Acute effects of 'exercise snacks' on postprandial glucose and insulin responses in populations at metabolic risk: a meta-analysis with exploratory meta-regression and vascular outcomes." <em>Frontiers in Endocrinology</em>. DOI: 10.3389/fendo.2026.1912963.
+      <a href="https://doi.org/10.3389/fendo.2026.1912963" target="_blank">https://doi.org/10.3389/fendo.2026.1912963</a>(基準日:2026年。著者名・正確な発表月日は、当セッションのネットワーク制限〈frontiersin.org・mdpi.com・dovepress.com・europepmc.org・ncbi.nlm.nih.govがブロック対象〉により本文を直接確認できず、複数の検索結果の要約が一致した範囲の数値のみ記載)
+    </li>
+    <li>"Exercise Snacks and Acute Postprandial Glucose and Insulin Metabolism: An Umbrella Review and De Novo Meta-Analysis." <em>Metabolites</em>(MDPI).
+      <a href="https://www.mdpi.com/2218-1989/16/9/635" target="_blank">https://www.mdpi.com/2218-1989/16/9/635</a>(基準日:2026年。同上の理由により本文未確認、著者名・DOIも本記事では確定情報として記載していない)
+    </li>
+  </ol>
+  <p style="margin-top:8px; font-size:0.78rem;">※ ネットワーク制限により、上記3件とも一次資料(論文本文)に本セッションから直接アクセスできなかったため、検索エンジンで得られる複数の独立した要約・引用箇所を突き合わせ、数値(効果量・信頼区間・p値・I²など)が一致した範囲に限定して記載しています。最新かつ正確な数値・著者情報は、各DOI・URL先で改めてご確認いただくことをお勧めします。</p>
+</div>
+
+</div>
+</body>
+</html>
