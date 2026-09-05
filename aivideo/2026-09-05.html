@@ -1,1 +1,357 @@
-__FILE_2026_09_05__
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI動画制作 最新トピック 2026-09-05</title>
+<style>
+  :root {
+    --bg: #ece8e1;
+    --card: #faf6ec;
+    --dark: #1a3a5c;
+    --dark2: #1a5c3a;
+    --accent: #2a5c8a;
+    --accent2: #c85a00;
+    --text: #2a3540;
+    --muted: #7c8a82;
+    --border: #e0d8c8;
+    --highlight: #fff3cd;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, "Hiragino Sans", "Yu Gothic", sans-serif;
+    line-height: 1.75;
+    padding: 20px;
+  }
+  .wrap { max-width: 900px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #1a3a5c 0%, #1a5c3a 100%);
+    color: #fff;
+    border-radius: 20px;
+    padding: 44px 32px 36px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(26,58,92,.22);
+    margin-bottom: 24px;
+  }
+  .header-tag {
+    display: inline-block;
+    background: rgba(255,255,255,.18);
+    color: #e0f0e8;
+    border-radius: 20px;
+    padding: 4px 16px;
+    font-size: .82rem;
+    margin-bottom: 14px;
+    letter-spacing: .06em;
+  }
+  .header h1 { font-size: 1.5rem; letter-spacing: .03em; line-height: 1.45; margin-bottom: 10px; }
+  .header .sub { color: #c8dde8; font-size: .95rem; }
+  .header .date { color: #b0e0c0; font-size: .85rem; margin-top: 8px; }
+
+  .card {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 12px rgba(0,0,0,.07);
+    border: 1px solid var(--border);
+  }
+  .card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .point-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .point-card { background: #eef3f8; border-radius: 14px; padding: 20px 16px; text-align: center; border: 1px solid #d4e0ea; }
+  .point-icon { font-size: 2rem; margin-bottom: 8px; }
+  .point-title { font-size: .95rem; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
+  .point-desc { font-size: .83rem; color: var(--muted); line-height: 1.6; }
+
+  .bignum-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 20px; }
+  .bignum-card { background: linear-gradient(135deg, #1a3a5c, #1a5c3a); border-radius: 14px; padding: 16px 8px; text-align: center; color: #fff; }
+  .bignum { font-size: 1.05rem; font-weight: 800; color: #ffe0a0; line-height: 1.2; }
+  .bignum-label { font-size: .68rem; color: #cfe6d8; margin-top: 4px; line-height: 1.5; }
+
+  .step-list { list-style: none; }
+  .step-item { display: flex; gap: 14px; margin-bottom: 16px; align-items: flex-start; }
+  .step-num {
+    width: 34px; height: 34px;
+    background: linear-gradient(135deg, #1a3a5c, #1a5c3a);
+    color: #fff; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: .95rem; flex-shrink: 0; margin-top: 2px;
+  }
+  .step-body { flex: 1; }
+  .step-title { font-weight: 700; color: var(--dark); font-size: .95rem; }
+  .step-desc { font-size: .86rem; color: var(--muted); margin-top: 3px; line-height: 1.65; }
+
+  .tbl { width: 100%; border-collapse: collapse; font-size: .86rem; }
+  .tbl th { background: #eaf1ea; padding: 10px 10px; text-align: left; border-bottom: 2px solid #c8ddc8; color: var(--dark); font-weight: 700; }
+  .tbl td { padding: 10px 10px; border-bottom: 1px solid var(--border); vertical-align: top; color: var(--text); }
+  .tbl tr:last-child td { border-bottom: none; }
+
+  .note-box { background: var(--highlight); border-left: 4px solid #e8a000; border-radius: 8px; padding: 12px 16px; font-size: .88rem; color: #5a4000; margin-top: 14px; line-height: 1.7; }
+  .warn-box { background: #fbe6e6; border-left: 4px solid #c85a5a; border-radius: 8px; padding: 12px 16px; font-size: .88rem; color: #7a2a2a; margin-top: 14px; line-height: 1.7; }
+
+  .summary-list { font-size: .95rem; line-height: 2.2; }
+  .summary-list li { list-style: none; display: flex; align-items: flex-start; gap: 8px; }
+  .summary-list li::before { content: "✅"; flex-shrink: 0; margin-top: 2px; }
+
+  .disclaimer { background: #f0ede8; border-radius: 12px; padding: 16px 20px; font-size: .82rem; color: var(--muted); margin-top: 24px; line-height: 1.7; border: 1px solid #ddd8d0; }
+
+  footer { text-align: center; color: var(--muted); font-size: .82rem; margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border); line-height: 1.9; }
+  footer a { color: var(--accent); }
+
+  .flow-row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-top: 10px; }
+  .flow-step { flex: 1; min-width: 110px; background: #eef3f8; border: 1px solid #d4e0ea; border-radius: 10px; padding: 12px 10px; text-align: center; }
+  .flow-step.key { background: #fdeee0; border-color: #f0c8a0; }
+  .flow-step .fs-icon { font-size: 1.3rem; margin-bottom: 4px; }
+  .flow-step .fs-title { font-size: .82rem; font-weight: 700; color: var(--dark); }
+  .flow-step .fs-desc { font-size: .72rem; color: var(--muted); margin-top: 3px; line-height: 1.5; }
+  .flow-arrow { font-size: 1.3rem; color: var(--accent2); font-weight: 700; flex-shrink: 0; }
+  .flow-caption { text-align: center; font-size: .8rem; color: var(--muted); margin-top: 10px; }
+
+  .matrix-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 12px; }
+  .matrix-card { background: #fdf6e8; border: 1px solid #f0dfb0; border-radius: 12px; padding: 14px 12px; }
+  .matrix-card .mx-h { font-size: .82rem; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
+  .matrix-card .mx-b { font-size: .78rem; color: var(--muted); line-height: 1.6; }
+
+  @media (max-width: 640px) {
+    .point-grid { grid-template-columns: 1fr; }
+    .bignum-grid { grid-template-columns: repeat(2, 1fr); }
+    .matrix-grid { grid-template-columns: 1fr; }
+    .flow-row { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="header">
+  <div class="header-tag">🎬 ツール・動画生成AI実践ガイド(続報)</div>
+  <h1>セリフも効果音もBGMも1回で ── Kling「ネイティブ音声生成」の仕組み</h1>
+  <div class="sub">9/3に紹介したKling「Storyboard Narration 3.0」では軽く触れるだけだった「映像と音声を同じ生成でまとめて作る」仕組みを深掘り。会話シーンで声が人物と入れ替わらない「話者マッピング」の仕組み、音声ありにするとどれくらいコストが増えるかまでやさしく解説</div>
+  <div class="date">2026-09-05 ｜ AI動画制作 最新トピック</div>
+</div>
+
+<div class="card">
+  <div class="card-title">🎯 今日の3ポイント</div>
+  <div class="point-grid">
+    <div class="point-card">
+      <div class="point-icon">🎬</div>
+      <div class="point-title">映像と音声を同時に生成</div>
+      <div class="point-desc">「ネイティブ音声」とは、映像を作った後に音声を別で合成するのではなく、映像と音声を同じ生成の中で一緒に作ること。セリフ・環境音・効果音・BGMまでまとめて1回で作れる</div>
+    </div>
+    <div class="point-card">
+      <div class="point-icon">🗣️</div>
+      <div class="point-title">「話者マッピング」で声が混ざらない</div>
+      <div class="point-desc">複数人が話すシーンでも、画面の中の「誰」が話しているセリフなのかをAIが自動で対応づける仕組み。声と人物がズレたり入れ替わったりしにくい</div>
+    </div>
+    <div class="point-card">
+      <div class="point-icon">💳</div>
+      <div class="point-title">音声ありは消費「クレジット」増</div>
+      <div class="point-desc">クレジットとは動画生成サービスを使うたびに減っていく利用ポイントのようなもの。音声なしより音声ありのほうが、同じ秒数でも消費するクレジットが多くなる</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🔍 図解:ネイティブ音声が生まれる仕組み</div>
+  <div class="flow-row">
+    <div class="flow-step">
+      <div class="fs-icon">📝</div>
+      <div class="fs-title">①プロンプトに音を書く</div>
+      <div class="fs-desc">セリフ・環境音・BGMをどうしたいか、文章の中に書き込む</div>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step key">
+      <div class="fs-icon">🎞️</div>
+      <div class="fs-title">②映像と音声を同じ生成で作る</div>
+      <div class="fs-desc">別々の作業に分けず、1回の生成処理の中で映像と音声を同時に組み立てる</div>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step key">
+      <div class="fs-icon">🧑‍🤝‍🧑</div>
+      <div class="fs-title">③話者マッピングで人物に対応づけ</div>
+      <div class="fs-desc">画面内の誰が、どのセリフを話しているかをAIが自動で割り当てる</div>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">
+      <div class="fs-icon">✅</div>
+      <div class="fs-title">④ズレのない映像+音声が完成</div>
+      <div class="fs-desc">口の動きと声のタイミング(リップシンク)が合った状態で1本にまとまる</div>
+    </div>
+  </div>
+  <div class="flow-caption">↑ 映像と音声を「後から合わせる」のではなく「最初から一緒に作る」のがネイティブ音声のポイント</div>
+</div>
+
+<div class="card">
+  <div class="card-title">⚖️ 比較:従来のポスプロ音声合成 vs ネイティブ音声生成</div>
+  <table class="tbl">
+    <thead>
+      <tr><th>比較ポイント</th><th>従来のポスプロ(後づけ)音声合成</th><th>ネイティブ音声生成</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>作る順番</strong></td>
+        <td>映像を先に作り、そのあと別の作業でセリフ・音を合わせる</td>
+        <td>映像と音声を同じ生成処理の中で同時に作る</td>
+      </tr>
+      <tr>
+        <td><strong>リップシンクのズレ</strong></td>
+        <td>映像と音声が別レイヤーのため、口の動きと声がズレやすい</td>
+        <td>同じ生成から生まれるため、口の動きと声のズレが少ない</td>
+      </tr>
+      <tr>
+        <td><strong>複数人の会話</strong></td>
+        <td>誰のセリフかを人が手作業で割り当てる必要がある</td>
+        <td>話者マッピングで、画面内の人物とセリフを自動で対応づける</td>
+      </tr>
+      <tr>
+        <td><strong>音の種類</strong></td>
+        <td>セリフ・BGM・効果音をそれぞれ別ツールで用意することが多い</td>
+        <td>セリフ・環境音・効果音・BGM・歌声までまとめて1回で生成</td>
+      </tr>
+      <tr>
+        <td><strong>かかる手間</strong></td>
+        <td>映像生成+音声合成ツール+編集ソフトでの同期作業</td>
+        <td>プロンプトに書くだけ(その分、生成に使うクレジットは増える)</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="note-box">
+    💡 ネイティブ音声は「手間が減る」代わりに「思った通りの音にならないこともある」のがトレードオフ。狙った音に近づけたいときは、プロンプトの中でセリフを話す人物・音の種類をできるだけ具体的に書き分けるのがコツ。
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🔢 数字で見るネイティブ音声生成</div>
+  <div class="bignum-grid">
+    <div class="bignum-card">
+      <div class="bignum">6→9</div>
+      <div class="bignum-label">720p・1秒あたりの消費クレジットの目安(音声なし→ネイティブ音声ありで増える)</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">8→12</div>
+      <div class="bignum-label">1080p・1秒あたりの消費クレジットの目安(音声なし→ネイティブ音声ありで増える)</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">+2</div>
+      <div class="bignum-label">声質を指定する追加オプション「ボイスコントロール」で1秒あたりに上乗せされるクレジットの目安</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">5言語+</div>
+      <div class="bignum-label">対応言語の例(英語・中国語・日本語・韓国語・スペイン語ほか、方言やアクセントにも対応)</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">4種類</div>
+      <div class="bignum-label">同じ生成でまとめて作れる音の種類(セリフ・環境音・効果音・BGM)</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">要公式確認</div>
+      <div class="bignum-label">クレジット数・月額プラン・商用利用の条件は変わることがあるため、利用前に公式サイトで確認する</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🧩 話者マッピングとフレーミングの関係</div>
+  <div class="matrix-grid">
+    <div class="matrix-card">
+      <div class="mx-h">👥 1人だけが話すシーン</div>
+      <div class="mx-b">話者は1人なのでマッピングはシンプル。表情のアップ(クローズアップ)と組み合わせると、セリフと口の動きの一致が特に伝わりやすい</div>
+    </div>
+    <div class="matrix-card">
+      <div class="mx-h">🧑‍🤝‍🧑 2人が交互に話すシーン</div>
+      <div class="mx-b">プロンプトで「左の人物が◯◯と言い、右の人物が△△と答える」のように、位置とセリフをセットで書くと話者マッピングが安定しやすい</div>
+    </div>
+    <div class="matrix-card">
+      <div class="mx-h">👨‍👩‍👧 3人以上のグループ会話</div>
+      <div class="mx-b">人数が増えるほど声の対応づけが難しくなりやすい。まずは2人までのシーンで試し、慣れてから人数を増やすのが安全</div>
+    </div>
+    <div class="matrix-card">
+      <div class="mx-h">🎙️ 画面に映らない語り(ナレーション)</div>
+      <div class="mx-b">話者マッピングの対象外。「ナレーションとして」などと明記し、映像内の人物のセリフと混同しないよう書き分ける</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🛠️ 実践例:カフェで新作ドリンクを注文する会話シーンを一発生成</div>
+  <p style="font-size:.88rem;color:var(--muted);margin-bottom:18px;">
+    店員とお客さんの2人が会話しながら新作ドリンクを注文するシーンを、映像・セリフ・環境音・BGMまで1回の生成で作る手順です。
+  </p>
+  <ul class="step-list">
+    <li class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-title">登場人物と位置関係を決める</div>
+        <div class="step-desc">「カウンターの奥に立つ店員、手前にいるお客さん」のように、誰がどこにいるかを先に決めておく。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-title">人物ごとにセリフを書き分ける</div>
+        <div class="step-desc">「The customer on the left asks about the new drink. The staff on the right explains it with a smile.」のように、位置とセリフをセットで書く。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-title">環境音とBGMを指定する</div>
+        <div class="step-desc">「soft cafe ambience, gentle background music, the sound of a coffee machine」のように、セリフ以外の音も文章で書き添える。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <div class="step-title">使う言語・話し方をはっきり書く</div>
+        <div class="step-desc">「dialogue in natural Japanese, friendly tone」のように言語とトーンを指定すると、狙った雰囲気の声になりやすい。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">5</div>
+      <div class="step-body">
+        <div class="step-title">生成後にリップシンクと話者の対応を確認する</div>
+        <div class="step-desc">口の動きとセリフのタイミングが合っているか、声が人物と入れ替わっていないかをチェックし、ズレていれば位置関係の説明を書き直してやり直す。</div>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="card">
+  <div class="card-title">📝 今日のまとめ</div>
+  <ul class="summary-list">
+    <li><strong>ネイティブ音声</strong>は、映像を作った後に音を合わせるのではなく、映像と音声を同じ生成の中でまとめて作る仕組み</li>
+    <li>複数人が話すシーンでは<strong>話者マッピング</strong>が働き、画面の人物とセリフのズレを防ぐ</li>
+    <li>セリフだけでなく<strong>環境音・効果音・BGM</strong>まで1回の生成でまとめて作れる</li>
+    <li>音声なしより音声ありのほうが<strong>消費クレジットが増える</strong>ため、必要な場面で使い分けるのがコツ</li>
+    <li>会話シーンでは<strong>「位置関係+セリフ」をセットで書く</strong>と、狙った通りの話者マッピングになりやすい</li>
+  </ul>
+</div>
+
+<div class="disclaimer">
+  ⚠️ <strong>免責事項</strong><br>
+  本記事で紹介したAIツールの名称・機能・料金・商用利用の可否は頻繁に変わるため、実際に利用する際は必ず各ツールの公式ページ・利用規約で最新情報をご確認ください。紹介したクレジット数・手順は一般的な目安であり、実際の画面や仕様は更新により変わることがあります。
+</div>
+
+<footer>
+  AI動画制作 最新トピック ─ 2026-09-05 ｜ ツール・動画生成AI実践ガイド(続報)<br>
+  参考:Kling AI公式ブログ「Kling Video 3.0 Omni: Multi-Shot & Native Audio Guide」(kling.ai、2026年9月確認) / Kling AI公式ブログ「Kling Video 3.0 Omni Native Lip Sync & Audio Guide」(kling.ai、2026年9月確認) / Kling AI公式ブログ「Kling Video 3.0 Credit Cost Guide」(kling.ai、2026年9月確認)<br>
+  <a href="index.html" style="color:var(--accent);">← 一覧に戻る</a>
+</footer>
+
+</div>
+</body>
+</html>
