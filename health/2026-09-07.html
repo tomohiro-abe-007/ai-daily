@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-09-07</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '🦠';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.9rem; margin-bottom: 8px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.1em; }
+  .c3-col li { margin-bottom: 4px; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  .quote-box {
+    background: #f5f0e8;
+    border-left: 4px solid #7a5abf;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    margin: 12px 0;
+    color: #444;
+    font-style: italic;
+  }
+  .quote-box .who { font-style: normal; font-weight: 700; color: #5a3a9a; margin-top: 6px; font-size: 0.78rem; }
+  .matrix {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .mx-cell {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .mx-cell .mx-head { font-weight: 700; font-size: 0.88rem; margin-bottom: 6px; }
+  .mx-cell.ok  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .mx-cell.ok  .mx-head { color: #1a6e4a; }
+  .mx-cell.ng  { background: #fbe8e6; border: 2px solid #c0392b; }
+  .mx-cell.ng  .mx-head { color: #a0291e; }
+  @media (max-width: 540px) {
+    .compare4 { grid-template-columns: 1fr; }
+    .matrix { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.7rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ヘッダー -->
+<div class="header">
+  <div class="label">健康・栄養 最新トピック ・ 2026-09-07</div>
+  <h1>腸に棲む菌の"顔ぶれ"は、あなたの食事量を映す鏡だった──でも血糖値との関連は「見つからなかった」</h1>
+  <div class="subtitle">米ニューヨーク大学(NYU)のチームが、肥満・糖尿病予備群のある成人95人の腸内細菌(便サンプル)を調べたところ、除脂肪量(筋肉などの重さ)が多い人ほど腸内細菌の種類が豊富で、逆にBMIが高い人ほど種類が少ない傾向が統計的に確認されました。また、腸内の代表的な2種類の菌の比率は、糖質・脂質の摂り方と関連していた一方、血糖値に関する指標とはどの菌の量とも統計的な関連が見られませんでした。「パーソナライズ食」の効果を調べる大規模臨床試験の参加者データを使ったこの横断研究(2026年8月発表)を通じて、観察研究の読み方と精密栄養学の「今分かっていること・まだ分かっていないこと」を整理します。</div>
+</div>
+
+<!-- タグ -->
+<div style="margin-bottom:18px;">
+  <span class="tag">精密栄養学</span>
+  <span class="tag">腸内細菌</span>
+  <span class="tag">観察研究の読み方</span>
+  <span class="tag">体組成</span>
+  <span class="tag">肥満・糖尿病予備群</span>
+</div>
+
+<!-- 今日の疑問 -->
+<div class="card">
+  <h2>🤔 今日の疑問:腸内細菌を調べれば、その人の食事や体格の"個人差"が分かるのか?</h2>
+  <p>腸の中には数百種類もの細菌が棲みついており、その組み合わせ(腸内細菌叢〈そう〉)は人によって大きく異なります。もし「その人の腸内細菌を調べれば、食事の傾向や血糖コントロールの状態まで見えてくる」のなら、精密栄養学(個人差に合わせた栄養アドバイス)の強力な手がかりになりそうです。しかし、実際のデータではどこまで裏付けられているのでしょうか。</p>
+  <p>米ニューヨーク大学(NYU)グロスマン医学部のWang・Berube・Curran・Pompeii・Hu・Barua・Li・St-Jules・Schoenthaler・Segal・Bergman・Poppさんらのチームが、糖尿病予備群または軽度の2型糖尿病がある過体重・肥満の成人を対象にした大規模臨床試験「Personal Diet Study」の参加者から、食事の介入を始める前(ベースライン)の便サンプルと体のデータを使い、腸内細菌の構成と体組成・食事内容・血糖値との関連を調べた横断研究をFrontiers in Nutrition誌に発表しました(2026年8月3日、DOI: 10.3389/fnut.2026.1851439)。</p>
+</div>
+
+<!-- 基本用語 -->
+<div class="card blue">
+  <h2>📖 まず言葉の意味を</h2>
+  <div class="def-grid">
+    <div class="def-item">
+      <div class="dterm">腸内細菌叢(マイクロバイオーム)</div>
+      腸の中に棲む数百種類・数十兆個ともいわれる細菌の集団。食事内容や体質によって顔ぶれ(構成)が変わるとされる。
+    </div>
+    <div class="def-item">
+      <div class="dterm">属(ぞく)レベルの解析</div>
+      細菌の分類の単位の一つ。「Bacteroides属」のように、種よりやや大きなグループ単位で腸内細菌の量を比較する方法。
+    </div>
+    <div class="def-item">
+      <div class="dterm">アルファ多様性</div>
+      一人の腸の中に、どれだけ多くの種類の細菌がバランスよく存在するかを示す指標。数値が高いほど「顔ぶれが豊か」とされる。
+    </div>
+    <div class="def-item">
+      <div class="dterm">ベータ多様性</div>
+      人と人の間で、腸内細菌の構成パターンがどれだけ違うかを示す指標。食事など生活習慣の違いを反映しやすいとされる。
+    </div>
+    <div class="def-item">
+      <div class="dterm">Prevotella・Bacteroides</div>
+      ヒトの腸に多く見られる代表的な細菌の属。この2つの比率(P/B比)は、食物繊維の多い食事か、脂質・たんぱく質の多い食事かの傾向を映す指標として研究で使われることがある。
+    </div>
+    <div class="def-item">
+      <div class="dterm">横断研究(cross-sectional)・事後解析(post-hoc)</div>
+      横断研究はある一時点だけを測定する研究デザインで、時間の前後関係(原因と結果)は分からない。事後解析は、もともと別の目的で集められたデータを使って、あとから追加の疑問を調べる解析のこと。
+    </div>
+  </div>
+</div>
+
+<!-- 数字カード -->
+<div class="num-row">
+  <div class="num-card gray-bg">
+    <div class="big">95<span class="unit">人</span></div>
+    <div class="desc">解析されたベースライン(食事介入前)データの参加者数</div>
+  </div>
+  <div class="num-card blue-bg">
+    <div class="big">58<span class="unit">歳</span></div>
+    <div class="desc">参加者の平均年齢</div>
+  </div>
+  <div class="num-card orange-bg">
+    <div class="big">75.8<span class="unit">%</span></div>
+    <div class="desc">参加者に占める女性の割合</div>
+  </div>
+  <div class="num-card purple-bg">
+    <div class="big">34.6<span class="unit">kg/m²</span></div>
+    <div class="desc">参加者の平均BMI(肥満の範囲)</div>
+  </div>
+  <div class="num-card red-bg">
+    <div class="big">5.7<span class="unit">%</span></div>
+    <div class="desc">参加者の平均HbA1c(糖尿病予備群の基準に近い値)</div>
+  </div>
+</div>
+
+<!-- 何がわかったか -->
+<div class="card orange">
+  <h2>🔍 この研究で分かったこと</h2>
+  <div class="compare4">
+    <div class="c3-col green">
+      <h3>🏋️ 体組成と多様性</h3>
+      <ul>
+        <li>除脂肪量(筋肉などの重さ)が多い人ほど、腸内細菌のアルファ多様性(種類の豊かさ)が高い</li>
+        <li>BMIが高い人ほど、逆に多様性が低い(統計的に有意、p&lt;0.05)</li>
+      </ul>
+    </div>
+    <div class="c3-col blue">
+      <h3>🍚 食事とPrevotella/Bacteroides比</h3>
+      <ul>
+        <li>総エネルギー・糖質・炭水化物の摂取量が多い人ほど、比率が高い傾向</li>
+        <li>一価不飽和脂肪酸(オリーブオイルなどに多い脂肪酸)の摂取量が多い人ほど、比率が低い傾向</li>
+      </ul>
+    </div>
+    <div class="c3-col purple">
+      <h3>💊 その他に関連が見られた要因</h3>
+      <ul>
+        <li>性別、糖尿病治療薬メトホルミンの使用有無、BMI、たんぱく質摂取量、安静時エネルギー消費量(REE)が、特定の菌の量と関連</li>
+      </ul>
+    </div>
+    <div class="c3-col red">
+      <h3>🩸 血糖値との関連は「見つからず」</h3>
+      <ul>
+        <li>HbA1cなど血糖値に関する指標、および自己効力感(セルフエフィカシー)は、この集団ではどの菌の量とも統計的に有意な関連が見られなかった</li>
+      </ul>
+    </div>
+  </div>
+  <p style="font-size:0.82rem; color:#555; margin-top:8px;">出典:Wang C, Berube L, Curran M, Pompeii ML, Hu L, Barua S, Li H, St-Jules DE, Schoenthaler A, Segal E, Bergman M, Popp CJ. <em>Frontiers in Nutrition</em>. 2026年8月3日. DOI: 10.3389/fnut.2026.1851439。分析には、菌の量と各種変数の組み合わせごとにスピアマンの順位相関係数(ρ)を計算する手法が使われました。腸内細菌はBacteroides・Prevotella・Faecalibacteriumという3つの属が優勢だったと報告されています。</p>
+</div>
+
+<!-- どうやって調べたか -->
+<div class="card purple">
+  <h2>🔬 どうやって調べた研究?</h2>
+  <div class="flow">
+    <div class="flow-step purp">① 精密栄養学のRCT<br>「Personal Diet Study」<br>(NCT03336411、NYU)</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step">② 標準的な低脂肪食 vs<br>AIが個人の食後血糖<br>反応を予測するパーソナライズ食<br>にランダムに割り付け</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step alt">③ 今回の論文は<br>介入"前"(ベースライン)の<br>便サンプル・体組成・食事記録<br>95人分だけを使用</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step warn2">④ 属レベルの菌の量と<br>各変数の相関係数(ρ)を計算<br>(横断的な事後解析)</div>
+  </div>
+  <p style="font-size:0.82rem; color:#555; margin-top:4px;">元になった試験自体は、ランダム化比較試験(RCT)として2018年1月〜2021年3月にNYU Langone Healthで実施された「精密栄養学」の実例です(Popp CJ, St-Jules DEら, <em>Contemporary Clinical Trials</em>, 2019年, PMID: 30844471)。ただし今回の論文が使ったのは、介入前の1時点だけのデータを使った横断的な相関解析であり、「パーソナライズ食と標準食のどちらが減量に効果的か」というRCT本来の問い自体を検証したものではありません。</p>
+</div>
+
+<!-- 精密栄養学の視点 -->
+<div class="card">
+  <h2>🧬 精密栄養学の視点:菌の"顔ぶれ"は食事を映すが、血糖コントロールの見通しにはまだ直結しない</h2>
+  <p>この研究のもとになった「Personal Diet Study」は、AIが個人ごとの食後血糖反応を予測してすすめる「パーソナライズ食」と、従来型の「標準的な低脂肪食」を比べる、精密栄養学そのものを検証するRCTです。今回の論文は、その参加者の腸内細菌データを使い、「体組成や食事内容の個人差が、腸内細菌の顔ぶれに映し出されるか」を調べたものといえます。</p>
+  <div class="matrix">
+    <div class="mx-cell ok">
+      <div class="mx-head">✅ 今回わかったこと</div>
+      体組成(除脂肪量・BMI)や食事の中身(糖質・脂質の種類)が、腸内細菌の多様性や特定の菌の比率と統計的に関連していた
+    </div>
+    <div class="mx-cell ng">
+      <div class="mx-head">❓ まだわからないこと</div>
+      腸内細菌の顔ぶれから、その人の血糖コントロールの状態や今後の見通しを予測できるかどうかは、この研究では確認されていない
+    </div>
+  </div>
+  <p style="font-size:0.82rem; color:#555; margin-top:8px;">「血糖値との関連が見つからなかった」という結果は、それ自体が大切な情報です。ただし、これは「絶対に関連がない」ことを証明したのではなく、95人という規模では、小さな関連を統計的に検出する力(検出力)が足りなかった可能性も残ります。「関連が見つからない」ことと「関連がないと証明された」ことは、同じではありません。</p>
+</div>
+
+<!-- 限界 -->
+<div class="warn">
+  <strong>⚠️ この研究だけでは言えないこと</strong>
+  <ul style="padding-left:1.4em; margin-top:8px;">
+    <li>1時点だけを見た横断研究であり、菌の量の違いが先か、体組成・食習慣の違いが先かという時間的な前後関係(原因と結果)は分からない。</li>
+    <li>対象は、もともと減量試験に参加した過体重・肥満、糖尿病予備群または軽度の2型糖尿病のある成人(平均58歳・女性が4分の3)であり、健康な人・若い人・やせ型の人にそのまま当てはまるとは限らない。</li>
+    <li>解析対象は95人・単一施設(NYU)のみで、追試や、より大規模・多施設での再現が必要。</li>
+    <li>血糖値の指標との関連が「見つからなかった」ことは、本当に関連がないことを意味するとは限らず、この人数では検出力が不足していた可能性もある。</li>
+    <li>相関係数(スピアマンのρ)が示すのはあくまで「関連の強さと方向」であり、「食事が菌を変えた」といった原因と結果を証明するものではない。</li>
+    <li>論文本文にある具体的な相関係数・p値・信頼区間は、当セッションのネットワーク制限(frontiersin.org・pmc.ncbi.nlm.nih.gov・pubmed.ncbi.nlm.nih.govがブロック対象)により直接確認できておらず、検索エンジン経由で得られた複数の独立した要約が一致した範囲の内容に限定して紹介している。</li>
+  </ul>
+</div>
+
+<!-- エビデンスの整理 -->
+<div class="card">
+  <h2>🧪 今日出てきた情報の「証拠としての強さ」の目安</h2>
+  <table class="ev-table">
+    <tr><th>情報の種類</th><th>特徴</th><th>証拠としての強さ</th></tr>
+    <tr>
+      <td>除脂肪量が多いほど腸内細菌の多様性が高く、BMIが高いほど低い</td>
+      <td>横断研究の相関解析(n=95、p&lt;0.05)</td>
+      <td><span class="ev-badge ev-mid">中程度(観察研究・単一施設・小規模)</span></td>
+    </tr>
+    <tr>
+      <td>糖質・脂質の摂り方とPrevotella/Bacteroides比の関連</td>
+      <td>同上の横断研究・相関解析</td>
+      <td><span class="ev-badge ev-mid">中程度(相関のみ、追試が必要)</span></td>
+    </tr>
+    <tr>
+      <td>血糖値の指標と菌の量との関連</td>
+      <td>統計的に有意な関連は確認されず</td>
+      <td><span class="ev-badge ev-low">材料不足(検出力不足の可能性、追試が必要)</span></td>
+    </tr>
+    <tr>
+      <td>元になったRCT自体(パーソナライズ食 vs 標準食)の減量効果</td>
+      <td>別の論文で報告(今回の記事では未検証)</td>
+      <td><span class="ev-badge ev-low">今回の記事の対象外</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- 実践 -->
+<div class="card orange">
+  <h2>🍽️ 今日から意識できること</h2>
+  <ul class="step-list">
+    <li>市販の腸内細菌検査の結果だけを見て、自分の血糖コントロールの良し悪しを判断しない。今回の研究では、そこまでの関連は確認されていない。</li>
+    <li>筋肉などの除脂肪量を保つことは、腸内細菌の多様性の高さと関連しているという観察結果があるが、これだけで「筋トレをすれば腸内環境が良くなる」と証明されたわけではない。</li>
+    <li>食物繊維や脂質の種類(一価不飽和脂肪酸を含む食品など)を見直すことは、腸内細菌の構成に影響しうるとする研究が積み重なっているが、個人に合わせた具体的な指導は専門家に相談する。</li>
+    <li>糖尿病予備群・2型糖尿病がある人は、腸内細菌検査などの民間サービスに頼る前に、まず医師・管理栄養士に相談する。</li>
+  </ul>
+</div>
+
+<!-- まとめ -->
+<div class="card" style="border-left-color:#1a7a5a;">
+  <h2>✅ 今日のまとめ</h2>
+  <ul class="step-list">
+    <li>NYUの研究チームが、精密栄養学のRCT「Personal Diet Study」の参加者95人分のベースラインデータを使い、腸内細菌の構成と体組成・食事・血糖値の関連を調べた横断研究を2026年8月に発表した。</li>
+    <li>除脂肪量が多い人ほど腸内細菌の多様性が高く、BMIが高い人ほど低い(統計的に有意)ことが分かった。</li>
+    <li>総エネルギー・糖質摂取量が多い人ほどPrevotella/Bacteroidesの比率が高く、一価不飽和脂肪酸の摂取が多い人ほど低い傾向が見られた。</li>
+    <li>一方、血糖値の指標とはどの菌の量とも統計的に有意な関連が見られず、これは「証明されなかった」ことも含めて大切な情報である。</li>
+    <li>横断研究・事後解析・小規模(n=95)という性質上、因果関係の証明でも一般集団への適用でもなく、あくまで「関連」を示した段階にとどまる。</li>
+  </ul>
+</div>
+
+<!-- 免責 -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、医療アドバイスではありません。効果・必要量・リスクは個人の体質・年齢・持病・服薬によって大きく異なります。本記事は特定の食事制限・サプリ・断食・腸内細菌検査などを推奨するものではありません。糖尿病予備群や持病がある場合、食事や運動の習慣を大きく変えたい場合は、自己判断せず、かかりつけ医・管理栄養士・薬剤師など専門家にご相談ください。
+</div>
+
+<!-- 出典 -->
+<div class="sources">
+  <h3>📚 主な出典・参考文献</h3>
+  <ol>
+    <li>Wang C, Berube L, Curran M, Pompeii ML, Hu L, Barua S, Li H, St-Jules DE, Schoenthaler A, Segal E, Bergman M, Popp CJ. "Associations between the gut microbiome and diet, body composition, and glycemic profiles: a cross-sectional post-hoc analysis of the Personal Diet Study." <em>Frontiers in Nutrition</em>. Published 2026-08-03. DOI: 10.3389/fnut.2026.1851439. PMID: 42609392.
+      <a href="https://doi.org/10.3389/fnut.2026.1851439" target="_blank">https://doi.org/10.3389/fnut.2026.1851439</a>(基準日:2026年8月。当セッションのネットワーク制限〈frontiersin.org・pmc.ncbi.nlm.nih.gov・pubmed.ncbi.nlm.nih.govがブロック対象〉により論文本文への直接アクセスはできず、検索エンジン経由で得られた複数の独立した要約が一致した範囲の著者名・対象者特徴・統計手法・関連の有無に限定して記載。具体的な相関係数・p値・信頼区間は未確認)
+    </li>
+    <li>Popp CJ, St-Jules DE, Hu L, Ganguzza L, Illiano P, Curran M, Li H, Schoenthaler A, Bergman M, Schmidt AM, Segal E, Godneva A, Sevick MA. "The rationale and design of the Personal Diet Study, a randomized clinical trial evaluating a personalized approach to weight loss in individuals with pre-diabetes and early-stage type 2 diabetes." <em>Contemporary Clinical Trials</em>. 2019. PMID: 30844471. ClinicalTrials.gov Identifier: NCT03336411.
+      <a href="https://pubmed.ncbi.nlm.nih.gov/30844471/" target="_blank">https://pubmed.ncbi.nlm.nih.gov/30844471/</a>(基準日:2019年、試験実施期間2018年1月〜2021年3月・NYU Langone Health。同上の理由によりアブストラクト本文は未確認、検索エンジンの要約に基づき試験デザイン〈標準的な低脂肪食 vs AIが食後血糖反応を予測するパーソナライズ食〉の概要のみ記載)
+    </li>
+  </ol>
+  <p style="margin-top:8px; font-size:0.78rem;">※ ネットワーク制限により、上記2件とも一次資料(論文本文)に本セッションから直接アクセスできなかったため、検索エンジンで得られる複数の独立した要約・引用箇所を突き合わせ、内容が一致した範囲に限定して記載しています。最新かつ正確な数値・著者情報は、各DOI・URL先で改めてご確認いただくことをお勧めします。</p>
+</div>
+
+</div>
+</body>
+</html>

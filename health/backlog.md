@@ -2,6 +2,12 @@
 
 今後の記事候補。使ったテーマは削除し、新しく見つけた有望テーマは追記する。
 
+## 未使用テーマ（追記：2026-09-07 検索で見つけた有望テーマ）
+
+- 09-07記事(Wang, Berube, Curran, Pompeii, Hu, Barua, Li, St-Jules, Schoenthaler, Segal, Bergman, Popp, Frontiers in Nutrition 2026年8月3日, DOI: 10.3389/fnut.2026.1851439)の続報候補 ── 属レベルの菌の量と各変数の組み合わせごとの具体的なスピアマン相関係数(ρ)・p値・信頼区間、Prevotella/Bacteroides比とエネルギー・糖質・一価不飽和脂肪酸摂取量の正確な数値、性別・メトホルミン使用・BMI・たんぱく質摂取量・REEと関連した具体的な菌の属名が、論文本文で確認できれば深掘り記事化を検討。ネットワーク制限(frontiersin.org・pmc.ncbi.nlm.nih.gov・pubmed.ncbi.nlm.nih.govがブロック対象)で本文未確認
+- 元になった精密栄養学のRCT「Personal Diet Study」(NCT03336411、Popp CJら, Contemporary Clinical Trials 2019, PMID: 30844471)の主要な結果論文 ──"A randomized clinical trial comparing low-fat with precision nutrition–based diets for weight loss: impact on glycemic variability and HbA1c"(American Journal of Clinical Nutrition掲載)。AIが個人の食後血糖反応を予測する「パーソナライズ食」と「標準的な低脂肪食」で、実際に減量効果・HbA1c・血糖変動に差が出たかどうかを検証した本題の結果であり、「精密栄養学は実際に効果があるのか」を直接扱える独立テーマとして有望。一次論文本文(対象人数の詳細、群間差の統計値)の確認が必要、ネットワーク制限(sciencedirect.com・ajcn.nutrition.org対象)で未確認
+- 同じPersonal Diet Studyコホートを使った別の二次解析"Baseline Characteristics of Weight-Loss Success in a Personalized Nutrition Intervention: A Secondary Analysis"(Nutrients誌, MDPI, DOI要確認)── どんな人がパーソナライズ食で特に減量に成功しやすいかを調べた研究。精密栄養学×個人差の切り口として09-07記事の続編に使えるか検討。一次資料未確認
+
 ## 未使用テーマ（追記：2026-09-06 検索で見つけた有望テーマ）
 
 - 09-06記事(運動スナックのメタ分析)の続報候補 ── Frontiers in Endocrinology誌のメタ分析(DOI: 10.3389/fendo.2026.1912963、代謝リスクのある成人8件・159人)は、著者名・正確な発表月日・血管機能アウトカムの詳細な数値が、ネットワーク制限(frontiersin.org・mdpi.com・dovepress.com・europepmc.org・ncbi.nlm.nih.govがブロック対象)で本文未確認。アクセスできれば著者名を含めて深掘り記事化を検討
