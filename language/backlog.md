@@ -33,7 +33,8 @@
 - 英語のno matter how/what/who/where/whenのまとめ（09-03のスペイン語por muy/mucho...queの逆向きブリッジ）── 08-27〜09-02のwhatever一家＋09-02のhoweverと、no matter系の対応をもう一段整理する
 - スペイン語のtú肯定命令の不規則形8つ（di/haz/ve/pon/sal/sé/ten/venなど）── 07-13・09-04の命令形の続編、よく使う不規則動詞をまとめて覚える
 - 英語の命令文の丁寧さの段階（Please.../Would you mind -ing?/Could you...?/Let's...）── 09-04のスペイン語nosotros/vosotros命令形の逆向きブリッジ、英語での丁寧さ調整の付け方を整理する
-- スペイン語のcomo si + 接続法（まるで〜であるかのように）── 09-06のhubiera sabido/fueraの発展、比喩・見せかけを表す接続法の使い方を整理する
+- スペイン語のaunque + 接続法/直説法の使い分け（たとえ〜でも／〜だけれども）── 09-07のcomo siに続く接続法トリガーの整理、事実か仮定かで法が変わる感覚を養う
+- 英語のeven if / even thoughの使い分け ── 09-07のスペイン語aunqueの逆向きブリッジ候補、条件と譲歩の違いを整理する
 
 ## 解説済みテーマ
 
@@ -125,3 +126,4 @@
 - 2026-09-04: スペイン語のnosotros/vosotros命令形と再帰動詞の命令形（levántate→levantémonos/levantaos）── 07-13のtú/usted命令の続編、nosotros=接続法+emos/amos、vosotros肯定=-r→-d、再帰動詞は-s/-dを落として代名詞を付ける規則とirseの例外を整理した
 - 2026-09-05: スペイン語の接続法過去（imperfecto de subjuntivo）の入り口（Si yo fuera...）── 07-17の英語If I were youの続編、点過去のellos形から-eron/-aronを取って作る手順と、Si+接続法過去/条件節の型を英語のwere/wouldと対応づけて整理した
 - 2026-09-06: スペイン語の接続法過去完了（hubiera+過去分詞）と英語の過去完了仮定法（If I had known...）── 09-05のSi yo fuera...の発展、「もしあの時〜だったら」の過去の後悔・反実仮想を、Si+接続法過去完了/過去未来完了の型と英語had/would haveの対応づけで整理した
+- 2026-09-07: スペイン語のcomo si + 接続法（まるで〜であるかのように）と英語のas if/as though + 過去形/過去完了形 ── 09-05・09-06で作った接続法過去(fuera)・接続法過去完了(hubiera sabido)を「もし」から「まるで」に転用し、主節と「同時」か「それ以前」かで形を選ぶ発想を整理した
