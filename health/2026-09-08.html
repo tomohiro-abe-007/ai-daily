@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-09-08</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '🩸';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.9rem; margin-bottom: 8px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.1em; }
+  .c3-col li { margin-bottom: 4px; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  .quote-box {
+    background: #f5f0e8;
+    border-left: 4px solid #7a5abf;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    margin: 12px 0;
+    color: #444;
+    font-style: italic;
+  }
+  .quote-box .who { font-style: normal; font-weight: 700; color: #5a3a9a; margin-top: 6px; font-size: 0.78rem; }
+  .matrix {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .mx-cell {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .mx-cell .mx-head { font-weight: 700; font-size: 0.88rem; margin-bottom: 6px; }
+  .mx-cell.ok  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .mx-cell.ok  .mx-head { color: #1a6e4a; }
+  .mx-cell.ng  { background: #fbe8e6; border: 2px solid #c0392b; }
+  .mx-cell.ng  .mx-head { color: #a0291e; }
+  @media (max-width: 540px) {
+    .compare4 { grid-template-columns: 1fr; }
+    .matrix { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.7rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ヘッダー -->
+<div class="header">
+  <div class="label">健康・栄養 最新トピック ・ 2026-09-08</div>
+  <h1>同じ「疲れやすさ」でも、男性は体の疲れ、女性はやる気の低下と関連していた──1つの血液マーカーが映す個人差</h1>
+  <div class="subtitle">大阪公立大学の研究チームが、健康な成人602人分の血液データを使い、「ホモシステイン」というアミノ酸の血中濃度(ビタミンB12・葉酸が不足すると上がる指標)と、疲労・意欲との関連を男女別に調べた横断研究をNutrients誌に発表しました(2026年3月17日オンライン掲載)。ホモシステイン値が高い人ほどビタミンB12・葉酸が低い傾向は男女共通でしたが、疲労・意欲との関連の出方は男女で違っていたという報告です。ビタミン不足のサインの個人差、そして観察研究を読むときの注意点を整理します。</div>
+</div>
+
+<!-- タグ -->
+<div style="margin-bottom:18px;">
+  <span class="tag">不足しやすい栄養素</span>
+  <span class="tag">ビタミンB12・葉酸</span>
+  <span class="tag">観察研究の読み方</span>
+  <span class="tag">性差</span>
+  <span class="tag">精密栄養学</span>
+</div>
+
+<!-- 今日の疑問 -->
+<div class="card">
+  <h2>🤔 今日の疑問:「なんとなく疲れやすい」は、血液検査の数値でも見えるのか?</h2>
+  <p>ビタミンB12・葉酸(ようさん、ビタミンB9の一種)は、体内で「ホモシステイン」というアミノ酸をエネルギー代謝に必要な形へ作り変える働きに欠かせない栄養素です。これらが不足すると、変換されずに余ったホモシステインが血液中に増えるため、ホモシステインの血中濃度は「ビタミンB12・葉酸が足りているかどうか」を映す間接的な指標として使われます。</p>
+  <p>大阪公立大学大学院生活科学研究科の叶内宏明(かのうち・ひろあき)教授らの研究チームが、ビタミンB群のサプリメントを扱うアリナミン製薬と共同で、健康な日本人成人のホモシステイン値と、日常的な疲労感・意欲との関連を調べた研究をNutrients誌に発表しました(論文タイトル:"Associations of Plasma Homocysteine Reflecting Vitamin B12 and Folate Status with Fatigue-Related Outcomes in Healthy Adults"、2026年3月17日オンライン掲載、DOI: 10.3390/nu18060941)。</p>
+</div>
+
+<!-- 基本用語 -->
+<div class="card blue">
+  <h2>📖 まず言葉の意味を</h2>
+  <div class="def-grid">
+    <div class="def-item">
+      <div class="dterm">ホモシステイン</div>
+      体内で作られるアミノ酸の一種。ビタミンB12・葉酸(・ビタミンB6)の働きで代謝されるため、これらが不足すると血液中に増える。増えすぎると心血管疾患などのリスクとも関連するとされる。
+    </div>
+    <div class="def-item">
+      <div class="dterm">葉酸(ようさん)</div>
+      ビタミンB9とも呼ばれる水溶性ビタミン。緑黄色野菜や豆類に多く含まれ、細胞分裂やホモシステインの代謝に関わる。
+    </div>
+    <div class="def-item">
+      <div class="dterm">Chalder疲労尺度・VAS</div>
+      疲労感を数値化する質問票(Chalder Fatigue Scale)と、意欲や気分などを本人が線上の位置で自己評価する方法(Visual Analog Scale)。どちらも本人の自己申告にもとづく。
+    </div>
+    <div class="def-item">
+      <div class="dterm">横断研究・重回帰分析</div>
+      横断研究はある一時点だけを測定する研究デザインで、時間の前後関係(原因と結果)は分からない。重回帰分析は、複数の要因(年齢など)の影響を考慮しながら、注目したい要因(ホモシステイン値など)と結果の関連を統計的に調べる手法。
+    </div>
+  </div>
+</div>
+
+<!-- 数字カード -->
+<div class="num-row">
+  <div class="num-card gray-bg">
+    <div class="big">602<span class="unit">人</span></div>
+    <div class="desc">解析対象になった関西圏在住・18歳以上の健康な成人の人数</div>
+  </div>
+  <div class="num-card red-bg">
+    <div class="big">15<span class="unit">μmol/L〜</span></div>
+    <div class="desc">一般に「高ホモシステイン血症」とされる血中濃度の目安(検査機関により基準値は異なる)</div>
+  </div>
+  <div class="num-card blue-bg">
+    <div class="big">300<span class="unit">pg/mL〜</span></div>
+    <div class="desc">ビタミンB12の血中濃度が「正常」とされる目安の下限(検査機関により異なる)</div>
+  </div>
+  <div class="num-card orange-bg">
+    <div class="big">4<span class="unit">ng/mL〜</span></div>
+    <div class="desc">葉酸の血中濃度が「正常」とされる目安の下限(検査機関により異なる)</div>
+  </div>
+  <div class="num-card purple-bg">
+    <div class="big">約6<span class="unit">年</span></div>
+    <div class="desc">データ収集(2018〜2020年)から論文公表(2026年)までの期間の目安</div>
+  </div>
+</div>
+
+<!-- 何がわかったか -->
+<div class="card orange">
+  <h2>🔍 この研究で分かったこと</h2>
+  <div class="compare4">
+    <div class="c3-col green">
+      <h3>🙋 男女共通の傾向</h3>
+      <ul>
+        <li>血中ホモシステイン値が高い人ほど、性別を問わずビタミンB12・葉酸の血中濃度が低い傾向が確認された</li>
+      </ul>
+    </div>
+    <div class="c3-col blue">
+      <h3>♂ 男性で見られた関連</h3>
+      <ul>
+        <li>ホモシステイン値が高いほど、Chalder疲労尺度で測った身体的な疲労感が強い傾向</li>
+      </ul>
+    </div>
+    <div class="c3-col purple">
+      <h3>♀ 女性で見られた関連</h3>
+      <ul>
+        <li>ホモシステイン値が高いほど、意欲の低下や抑うつ傾向との関連が示された</li>
+      </ul>
+    </div>
+    <div class="c3-col red">
+      <h3>🌏 研究チームの位置づけ</h3>
+      <ul>
+        <li>日本人集団でこの関連を示した報告としては「世界初」と、大学側のプレスリリースは説明している</li>
+      </ul>
+    </div>
+  </div>
+  <p style="font-size:0.82rem; color:#555; margin-top:8px;">出典:Kanouchi H ら. <em>Nutrients</em>. 2026;18(6):941. DOI: 10.3390/nu18060941(2026年3月17日オンライン掲載)。男女別に重回帰分析を行った結果として、大阪公立大学のプレスリリースおよび複数の医療系ニュースサイトが上記の関連を報じている。</p>
+</div>
+
+<!-- どうやって調べたか -->
+<div class="card purple">
+  <h2>🔬 どうやって調べた研究?</h2>
+  <div class="flow">
+    <div class="flow-step purp">① 理化学研究所<br>「1万人健康計測<br>プロジェクト」<br>(2018〜2020年、関西圏)</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step">② 健康な成人602人分の<br>血液データ<br>(ホモシステイン・葉酸・<br>ビタミンB12濃度)を解析</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step alt">③ 同時期に集めた<br>疲労(Chalder尺度)・<br>意欲(VAS)の<br>自己申告データと照合</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step warn2">④ 男女別に重回帰分析<br>(2026年に論文化)</div>
+  </div>
+  <p style="font-size:0.82rem; color:#555; margin-top:4px;">もとになったデータは、健康な人を幅広く測定する目的で2018〜2020年に集められたものです。血液・質問票のデータを、今回あらためてホモシステインと疲労・意欲の関連という切り口で解析し直し、2026年に論文として発表しました。</p>
+</div>
+
+<!-- 精密栄養学の視点 -->
+<div class="card">
+  <h2>🧬 精密栄養学の視点:「疲れやすさ」の出方にも個人差があるかもしれない</h2>
+  <p>「ビタミン不足で疲れる」という話自体は目新しくありませんが、この研究のポイントは、同じ「ビタミンB12・葉酸不足のサイン(ホモシステイン高値)」でも、疲労として表れやすい人と、意欲の低下として表れやすい人がいるかもしれない、という点です。性別という分かりやすい個人差の軸で違いが見えたことは、「同じ栄養状態でも、出てくる不調のかたちは人によって違いうる」という精密栄養学の考え方の一例といえます。</p>
+  <div class="matrix">
+    <div class="mx-cell ok">
+      <div class="mx-head">✅ 今回わかったこと</div>
+      健康な成人でも、ホモシステイン値(B12・葉酸不足の指標)が高い人ほど、疲労感や意欲の低下と統計的な関連があった。関連の出方は男女で異なっていた
+    </div>
+    <div class="mx-cell ng">
+      <div class="mx-head">❓ まだわからないこと</div>
+      ホモシステイン値を下げる(=B12・葉酸を補う)ことで、実際に疲労感や意欲が改善するかどうかは、この研究(横断研究)だけでは分からない
+    </div>
+  </div>
+</div>
+
+<!-- 限界 -->
+<div class="warn">
+  <strong>⚠️ この研究だけでは言えないこと</strong>
+  <ul style="padding-left:1.4em; margin-top:8px;">
+    <li>1時点だけを見た横断研究であり、「ホモシステインが高いから疲れる」のか「疲れているから生活が乱れてホモシステインが上がる」のか、原因と結果の向きは分からない。</li>
+    <li>疲労・意欲はいずれも本人の自己申告(質問票)にもとづくもので、客観的な検査だけで測ったものではない。</li>
+    <li>対象は関西圏在住・18歳以上の健康な成人602人であり、持病がある人・高齢者・他地域の人にそのまま当てはまるとは限らない。</li>
+    <li>この研究は、ビタミンB群のサプリメント・医薬品を扱うアリナミン製薬と大阪公立大学の共同研究として実施されている。企業との共同研究であること自体が結果を誤りにするわけではないが、利益相反(サプリの必要性を示したい立場)がありうる点は割り引いて読む必要がある。</li>
+    <li>データ収集は2018〜2020年、論文公表は2026年と時間差があり、「最新の論文」ではあっても「最新のデータ」ではない。</li>
+    <li>「世界初」という表現は大学・企業側のプレスリリースによるもので、当セッションのネットワーク制限(mdpi.com・pmc.ncbi.nlm.nih.govがブロック対象)により論文本文・先行研究の網羅的な確認はできておらず、この記事では言葉の由来を明示したうえで紹介している。</li>
+    <li>具体的な相関係数・オッズ比・p値・95%信頼区間、参加者の男女内訳・平均年齢は、同じ理由で論文本文を直接確認できず、複数の独立した二次情報源が一致した範囲(関連の方向性)にとどめて紹介している。</li>
+  </ul>
+</div>
+
+<!-- エビデンスの整理 -->
+<div class="card">
+  <h2>🧪 今日出てきた情報の「証拠としての強さ」の目安</h2>
+  <table class="ev-table">
+    <tr><th>情報の種類</th><th>特徴</th><th>証拠としての強さ</th></tr>
+    <tr>
+      <td>ホモシステイン高値とビタミンB12・葉酸低値の関連(男女共通)</td>
+      <td>横断研究・重回帰分析(n=602)</td>
+      <td><span class="ev-badge ev-mid">中程度(観察研究・単一地域)</span></td>
+    </tr>
+    <tr>
+      <td>男性におけるホモシステイン値と身体的疲労の関連</td>
+      <td>同上の横断研究(自己申告の疲労尺度)</td>
+      <td><span class="ev-badge ev-mid">中程度(相関のみ、追試が必要)</span></td>
+    </tr>
+    <tr>
+      <td>女性におけるホモシステイン値と意欲低下の関連</td>
+      <td>同上の横断研究(自己申告のVAS)</td>
+      <td><span class="ev-badge ev-mid">中程度(相関のみ、追試が必要)</span></td>
+    </tr>
+    <tr>
+      <td>B12・葉酸サプリの摂取で疲労・意欲が改善するか</td>
+      <td>今回の研究では未検証(横断研究のため)</td>
+      <td><span class="ev-badge ev-low">材料不足(介入試験〈RCT〉が必要)</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- 実践 -->
+<div class="card orange">
+  <h2>🍽️ 今日から意識できること</h2>
+  <ul class="step-list">
+    <li>「なんとなく疲れる」「やる気が出ない」状態が長く続く場合、自己判断でサプリに頼る前に、まず医師に相談し、必要なら血液検査(貧血・甲状腺機能・ホモシステインなど)を検討する。</li>
+    <li>ビタミンB12は肉・魚・卵・乳製品、葉酸は緑黄色野菜・豆類・レバーなどに多く含まれる。極端な菜食や偏った食事を続けている場合は不足しやすい点に注意する。</li>
+    <li>この研究のように、サプリ・医薬品メーカーが関わる研究を見かけたら、その企業がどんな製品を扱っているかも合わせて確認する習慣をつけると、結果を読み解きやすくなる。</li>
+    <li>持病がある人・妊娠中の人・高齢者は、ビタミンB12・葉酸の必要量や適切な摂取方法が個人によって大きく異なるため、自己判断でのサプリ摂取は避け、管理栄養士・医師に相談する。</li>
+  </ul>
+</div>
+
+<!-- まとめ -->
+<div class="card" style="border-left-color:#1a7a5a;">
+  <h2>✅ 今日のまとめ</h2>
+  <ul class="step-list">
+    <li>大阪公立大学とアリナミン製薬の共同研究チームが、健康な成人602人分の血液・質問票データを使い、ホモシステイン(ビタミンB12・葉酸不足の指標)と疲労・意欲の関連を調べた横断研究をNutrients誌に発表した(2026年3月17日オンライン、DOI: 10.3390/nu18060941)。</li>
+    <li>ホモシステイン値が高い人ほどビタミンB12・葉酸が低い傾向は男女共通だったが、男性は身体的な疲労、女性は意欲の低下と関連しており、不調の出方に個人差があることを示唆する。</li>
+    <li>横断研究であり原因と結果の向きは不明、対象は関西圏の健康な成人602人、企業との共同研究という利益相反の可能性にも注意が必要。</li>
+    <li>疲れやすさ・意欲低下が長く続く場合は自己判断でサプリに頼らず、医師・管理栄養士に相談することが大切。</li>
+  </ul>
+</div>
+
+<!-- 免責 -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、医療アドバイスではありません。効果・必要量・リスクは個人の体質・年齢・持病・服薬によって大きく異なります。本記事は特定のサプリメント・食事制限・断食などを推奨するものではありません。疲労感・意欲低下が長く続く場合や、食事・サプリの摂取方法を変えたい場合は、自己判断せず、かかりつけ医・管理栄養士・薬剤師など専門家にご相談ください。
+</div>
+
+<!-- 出典 -->
+<div class="sources">
+  <h3>📚 主な出典・参考文献</h3>
+  <ol>
+    <li>Kanouchi H, et al. "Associations of Plasma Homocysteine Reflecting Vitamin B12 and Folate Status with Fatigue-Related Outcomes in Healthy Adults." <em>Nutrients</em>. 2026;18(6):941. DOI: 10.3390/nu18060941.
+      <a href="https://doi.org/10.3390/nu18060941" target="_blank">https://doi.org/10.3390/nu18060941</a>(基準日:2026年3月17日オンライン掲載。当セッションのネットワーク制限〈mdpi.com・pmc.ncbi.nlm.nih.govがブロック対象〉により論文本文への直接アクセスはできず、検索エンジン経由で得られた複数の独立した要約〈大阪公立大学プレスリリース・ScienceDaily・QLifePro等〉が一致した範囲の著者・対象者数・研究デザイン・関連の方向性に限定して記載。具体的な相関係数・p値・95%信頼区間、参加者の男女内訳・平均年齢は未確認)
+    </li>
+    <li>大阪公立大学 プレスリリース「血液検査で分かる栄養不足と疲労のつながり~健康な日本人約600人を対象に調査~」
+      <a href="https://www.omu.ac.jp/info/research_news/entry-23880.html" target="_blank">https://www.omu.ac.jp/info/research_news/entry-23880.html</a>(基準日:2026年。データ元は理化学研究所「1万人健康計測プロジェクト」〈2018〜2020年収集、関西圏在住18歳以上の健常成人602人〉、研究はアリナミン製薬との共同研究と明記されている)
+    </li>
+    <li>大塚製薬 栄養素カレッジ「ビタミンB群不足による『高ホモシステイン血症』のリスクとは」(ホモシステイン・ビタミンB12・葉酸の一般的な血中濃度の目安について)
+      <a href="https://www.otsuka.co.jp/college/laboratory/03.html" target="_blank">https://www.otsuka.co.jp/college/laboratory/03.html</a>(基準日:2026年9月時点で参照。基準値は検査機関により異なるため、あくまで一般的な目安として紹介)
+    </li>
+  </ol>
+  <p style="margin-top:8px; font-size:0.78rem;">※ ネットワーク制限により、1件目の一次資料(論文本文)に本セッションから直接アクセスできなかったため、検索エンジンで得られる複数の独立した要約・引用箇所を突き合わせ、内容が一致した範囲に限定して記載しています。最新かつ正確な数値・著者情報は、各DOI・URL先で改めてご確認いただくことをお勧めします。</p>
+</div>
+
+</div>
+</body>
+</html>
