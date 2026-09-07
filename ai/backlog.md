@@ -101,6 +101,7 @@
 - 2026-09-05: GPT-6 Astra 正式公開（2026年9月3日）・OpenAI「AGI時代の到来」を宣言・OSWorld 2.0 72.6%・FrontierMath Tier 4 97.6%・ExploitBench 100%・段階的ロールアウト・API料金$10/$50（公式要確認）（出典：The New Stack / Vellum / Artificial Analysis / DataCamp・2026年9月）
 - 2026-09-06: Claudeforce（2026年8月26日発表）・SalesforceとAnthropicの大規模戦略提携・37種の営業スキル内蔵・Salesforce in Claude Plugin・Claude in Salesforce推論モデル統合・Salesforceが2026年中に約3億ドル投資・既存株式評価額約50億ドル・オープンベータ2026年9月予定（出典：Salesforce公式プレスリリース / DigitalCommerce360 / Apex Hours / Salesforce Break・2026年8月）
 - 2026-09-07: Microsoft MAI-Transcribe-2（2026年9月3日公開）・音声認識AI・60言語対応・競合モデル比最大10倍速バッチ処理・平均WER 5.2%（FLEURS多言語ベンチマーク）・話者分離・単語レベルタイムスタンプ・騒音環境対応・キーワードバイアス・コードスイッチング・Azure AI Foundry / Azure AI Services 提供・導入価格$0.10/音声1時間（公式要確認）（出典：Microsoft Learn / opoinstall.com / ledge.ai・2026年9月）
+- 2026-09-08: Google Lyria 3.5（2026年9月4日 Gemini アプリ・API 公開）・音楽生成AI・テキストまたは画像から楽曲を自動生成・最大3分間・44.1kHzステレオ・ボーカルあり/インスト選択可・ジャンル指定対応・2026年7月29日に Google Flow Music で先行公開済み・全世界の Gemini ユーザーに無料提供・Gemini API 経由で開発者も利用可能・料金は公式要確認（出典：unite.ai / dev.to / weraveyou.com / thedailystar.net・2026年9月）
 
 ## 未解説の候補トピック（今後の参考）
 
