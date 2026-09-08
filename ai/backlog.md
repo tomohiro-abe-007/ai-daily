@@ -102,6 +102,7 @@
 - 2026-09-06: Claudeforce（2026年8月26日発表）・SalesforceとAnthropicの大規模戦略提携・37種の営業スキル内蔵・Salesforce in Claude Plugin・Claude in Salesforce推論モデル統合・Salesforceが2026年中に約3億ドル投資・既存株式評価額約50億ドル・オープンベータ2026年9月予定（出典：Salesforce公式プレスリリース / DigitalCommerce360 / Apex Hours / Salesforce Break・2026年8月）
 - 2026-09-07: Microsoft MAI-Transcribe-2（2026年9月3日公開）・音声認識AI・60言語対応・競合モデル比最大10倍速バッチ処理・平均WER 5.2%（FLEURS多言語ベンチマーク）・話者分離・単語レベルタイムスタンプ・騒音環境対応・キーワードバイアス・コードスイッチング・Azure AI Foundry / Azure AI Services 提供・導入価格$0.10/音声1時間（公式要確認）（出典：Microsoft Learn / opoinstall.com / ledge.ai・2026年9月）
 - 2026-09-08: Google Lyria 3.5（2026年9月4日 Gemini アプリ・API 公開）・音楽生成AI・テキストまたは画像から楽曲を自動生成・最大3分間・44.1kHzステレオ・ボーカルあり/インスト選択可・ジャンル指定対応・2026年7月29日に Google Flow Music で先行公開済み・全世界の Gemini ユーザーに無料提供・Gemini API 経由で開発者も利用可能・料金は公式要確認（出典：unite.ai / dev.to / weraveyou.com / thedailystar.net・2026年9月）
+- 2026-09-09: ChatGPT 広告（ChatGPT Ads）世界展開（2026年2月9日米国正式ローンチ）・無料プラン・Goプラン（18歳以上）に「Sponsored」明示の回答型広告を表示・有料プランには表示なし・5月5日に米国セルフサービス開放・8月24日に欧州31か国展開・8月31日に欧州セルフサービス開放・9月初旬にインド・中東・北アフリカ拡大・ローンチ後200日未満で年換算10億ドルARRに到達・2026年広告売上目標25億ドル（要確認）（出典：OpenAI公式ブログ / segwise.ai / jollygoodweb.com / flisko.si・2026年）
 
 ## 未解説の候補トピック（今後の参考）
 
