@@ -103,6 +103,7 @@
 - 2026-09-07: Microsoft MAI-Transcribe-2（2026年9月3日公開）・音声認識AI・60言語対応・競合モデル比最大10倍速バッチ処理・平均WER 5.2%（FLEURS多言語ベンチマーク）・話者分離・単語レベルタイムスタンプ・騒音環境対応・キーワードバイアス・コードスイッチング・Azure AI Foundry / Azure AI Services 提供・導入価格$0.10/音声1時間（公式要確認）（出典：Microsoft Learn / opoinstall.com / ledge.ai・2026年9月）
 - 2026-09-08: Google Lyria 3.5（2026年9月4日 Gemini アプリ・API 公開）・音楽生成AI・テキストまたは画像から楽曲を自動生成・最大3分間・44.1kHzステレオ・ボーカルあり/インスト選択可・ジャンル指定対応・2026年7月29日に Google Flow Music で先行公開済み・全世界の Gemini ユーザーに無料提供・Gemini API 経由で開発者も利用可能・料金は公式要確認（出典：unite.ai / dev.to / weraveyou.com / thedailystar.net・2026年9月）
 - 2026-09-09: ChatGPT 広告（ChatGPT Ads）世界展開（2026年2月9日米国正式ローンチ）・無料プラン・Goプラン（18歳以上）に「Sponsored」明示の回答型広告を表示・有料プランには表示なし・5月5日に米国セルフサービス開放・8月24日に欧州31か国展開・8月31日に欧州セルフサービス開放・9月初旬にインド・中東・北アフリカ拡大・ローンチ後200日未満で年換算10億ドルARRに到達・2026年広告売上目標25億ドル（要確認）（出典：OpenAI公式ブログ / segwise.ai / jollygoodweb.com / flisko.si・2026年）
+- 2026-09-10: XPeng IRON ヒューマノイドロボット生産ライン稼働（2026年9月8日・広州）・世界初の高度ヒューマノイドロボット自動化生産ラインとXPengが主張・コアプロセス自動化率80%超・IRON自律歩行デモ・身長178cm/体重70kg/全身76DoF/手のひら各21DoF・自社製Turing AIチップ×3基/合計2,250TOPS・物理AI基盤モデルをオンデバイスで動作・2026年末量産/2027年商業展開予定・Tesla Optimus遅延の中での発表（出典：XPeng公式 / CnEVPost / Electrek / Seoul Economic Daily / The AI Insider・2026年9月）
 
 ## 未解説の候補トピック（今後の参考）
 
