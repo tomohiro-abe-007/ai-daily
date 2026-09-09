@@ -1,2 +1,442 @@
-&lt;!DOCTYPE html&gt;
-&lt;html lang="ja"&gt;
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-09-10</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #2a4d7a 0%, #10233f 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #2a4d7a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.blue   { border-left-color: #1e5a7a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.green  { border-left-color: #1e7a5a; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #2a4d7a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin: 14px 0;
+  }
+  .stats-row.c3 { grid-template-columns: repeat(3, 1fr); }
+  .stats-row.c2 { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 12px 6px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat.now { background: #fff3e0; box-shadow: 0 0 0 2px #c8884a inset; }
+  .stat .sl { font-size: 0.62rem; color: #888; margin-bottom: 3px; line-height: 1.4; }
+  .stat .sv { font-size: 1.05rem; font-weight: 700; color: #2a4d7a; line-height: 1.15; }
+  .stat.now .sv { color: #c8884a; }
+  .stat .su { font-size: 0.62rem; color: #666; margin-top: 2px; }
+
+  .bignum {
+    background: white;
+    border-radius: 12px;
+    padding: 18px 14px;
+    text-align: center;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.1);
+    border: 2px dashed #c8884a;
+    margin: 14px 0;
+  }
+  .bignum .bl { font-size: 0.76rem; color: #888; margin-bottom: 6px; }
+  .bignum .bv { font-size: 1.7rem; font-weight: 700; color: #c8884a; line-height: 1.3; }
+  .bignum .bs { font-size: 0.76rem; color: #666; margin-top: 6px; line-height: 1.6; }
+
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #2a4d7a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-num.now { background: #b54040; }
+  .f-num.later { background: #999; }
+  .f-num.opt { background: #c8884a; }
+  .f-num.ai { background: #1e7a5a; }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+  .f-arrow { color: #2a4d7a; font-size: 1.1rem; margin-left: 14px; margin-bottom: 4px; }
+
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  table.cmp {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.83rem;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.08);
+  }
+  table.cmp th, table.cmp td {
+    border: 1px solid #e4dccd;
+    padding: 9px 10px;
+    line-height: 1.55;
+    vertical-align: top;
+  }
+  table.cmp thead th { background: #2a4d7a; color: white; font-weight: 600; text-align: center; }
+  table.cmp tbody th { background: #f5efe2; color: #5a4020; text-align: left; font-weight: 600; white-space: nowrap; }
+  table.cmp td { color: #444; text-align: center; }
+  table.cmp td.hi { background: #fff3e0; font-weight: 700; color: #c8884a; }
+  table.cmp td.hib { background: #e8eef8; font-weight: 700; color: #2a4d7a; }
+  .wrap-x { overflow-x: auto; }
+
+  .info {
+    background: #e8eef8;
+    border-left: 4px solid #2a4d7a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #16294a;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #7a4010;
+  }
+  .prompt-box {
+    background: #f4f9f6;
+    border: 1.5px dashed #1e7a5a;
+    border-radius: 8px;
+    padding: 12px 14px;
+    margin: 10px 0;
+    font-size: 0.85rem;
+    line-height: 1.75;
+    color: #1c4a38;
+  }
+  .prompt-box .pl { font-size: 0.72rem; font-weight: 700; color: #1e7a5a; margin-bottom: 4px; }
+
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #2a4d7a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #2a4d7a; word-break: break-all; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #2a4d7a; }
+
+  .icon-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 14px 0;
+  }
+  @media (max-width: 560px) { .icon-grid { grid-template-columns: repeat(2, 1fr); } }
+  .icon-card {
+    background: white;
+    border-radius: 10px;
+    padding: 12px 8px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.08);
+  }
+  .icon-card .ic { font-size: 1.4rem; margin-bottom: 4px; }
+  .icon-card .it { font-size: 0.76rem; color: #444; line-height: 1.4; }
+  .icon-card.new { box-shadow: 0 0 0 2px #1e7a5a inset; }
+  .icon-card.new .it { color: #1e7a5a; font-weight: 700; }
+
+  .gate {
+    background: white;
+    border-radius: 10px;
+    padding: 14px;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.08);
+    margin: 10px 0;
+    text-align: center;
+  }
+  .gate .gt { font-size: 0.85rem; font-weight: 700; color: #2a4d7a; margin-bottom: 4px; }
+  .gate .gd { font-size: 0.82rem; color: #555; line-height: 1.6; }
+  .gate.ok { box-shadow: 0 0 0 2px #4a9e6a inset; }
+  .gate.ng { box-shadow: 0 0 0 2px #b54040 inset; }
+  .gate.ng .gt { color: #b54040; }
+  .gate.ok .gt { color: #1e7a5a; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Header -->
+<div class="header">
+  <div class="meta">📅 1人法人スタート 最新トピック &nbsp;2026-09-10</div>
+  <h1>🪚 その「一人親方」、法人化した後も使える？<br>──労災保険「第2種(一人親方等)」と「第1種(中小事業主等)」を図解で整理</h1>
+  <div class="desc">
+    <span class="htag">労災保険</span>
+    <span class="htag">特別加入</span>
+    <span class="htag">一人親方</span>
+    <span class="htag">比較</span>
+    <br>
+    7/19・8/29・8/30の3回で「中小事業主等(第1種特別加入)」を扱いましたが、実は労災保険の特別加入には<span class="hl">「一人親方等(第2種)」というもう1つの区分</span>があります。個人事業主向けの制度だと思われがちですが、<span class="hl">法人化した代表者でも対象になる場合がある</span>一方、<span class="hl">従業員ゼロの1人社長がどちらの区分にも当てはまらない「落とし穴」</span>もあります。今日はこの2つを比較しながら整理します。
+  </div>
+</div>
+
+<!-- Section 1: 特別加入は3種類ある -->
+<div class="card blue">
+  <div class="sec-title">🔍 労災保険の特別加入、実は3種類ある</div>
+  <p>労災保険は本来「労働者」を守る制度のため、社長や個人事業主は原則対象外です。ただし特別に加入できる「特別加入制度」があり、対象者ごとに3つの区分に分かれています。</p>
+
+  <div class="stats-row c3" style="margin-top:14px;">
+    <div class="stat now">
+      <div class="sl">🏢 第1種</div>
+      <div class="sv">中小事業主等</div>
+      <div class="su">7/19・8/29・8/30で既出</div>
+    </div>
+    <div class="stat">
+      <div class="sl">🪚 第2種</div>
+      <div class="sv">一人親方等</div>
+      <div class="su">今日のテーマ</div>
+    </div>
+    <div class="stat">
+      <div class="sl">✈️ 第3種</div>
+      <div class="sv">海外派遣者</div>
+      <div class="su">海外に社員を送る場合</div>
+    </div>
+  </div>
+  <p style="margin-top:6px; font-size:0.8rem; color:#888;">※今日は1人社長に関わりの深い第1種と第2種を比較します。第3種は海外赴任者向けのため、必要になったら別の回で扱います。</p>
+</div>
+
+<!-- Section 2: 比較表 -->
+<div class="card orange">
+  <div class="sec-title">📋 第1種(中小事業主等) と 第2種(一人親方等) の違い</div>
+  <p>同じ「特別加入」でも、対象者の考え方や加入の窓口がまったく違います。まず骨組みを比較します。</p>
+
+  <div class="wrap-x">
+  <table class="cmp" style="margin-top:12px;">
+    <thead>
+      <tr>
+        <th>比較項目</th>
+        <th>第1種 中小事業主等</th>
+        <th>第2種 一人親方等</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><th>誰のための区分か</th><td>労働者を雇う中小企業の事業主・役員</td><td>特定の業種を個人(または家族)で行う人</td></tr>
+      <tr><th>従業員を雇う必要</th><td class="hib">あり(1人以上の雇用が前提)</td><td class="hi">なし(雇わずに働く人が主対象)</td></tr>
+      <tr><th>対象になる業種</th><td>業種を問わない</td><td class="hi">建設業・個人タクシー等、指定された業種のみ</td></tr>
+      <tr><th>加入の窓口</th><td>労働保険事務組合</td><td>都道府県労働局長が承認した「特別加入団体」</td></tr>
+      <tr><th>法人の代表者は対象か</th><td class="hib">対象(要件を満たせば)</td><td class="hib">対象になり得る(業種・働き方次第)</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="info" style="margin-top:12px;">
+    💡 ポイントは「個人事業主か法人か」ではなく、<strong>①業種が指定業種に当てはまるか、②従業員を雇っているかどうか</strong>で区分が分かれることです。法人化した代表者でも、指定業種で1人(または家族)だけで現場作業をしていれば、第2種の対象になり得ます。
+  </div>
+</div>
+
+<!-- Section 3: 第2種の対象業種一覧 -->
+<div class="card green">
+  <div class="sec-title">🗂️ 第2種(一人親方等)の対象業種</div>
+  <p>第2種は「自営業なら誰でも」ではなく、労働災害の起こりやすさなどを踏まえて<strong>厚生労働省が指定した業種だけ</strong>が対象です。代表的な業種は次のとおりです。</p>
+
+  <div class="icon-grid">
+    <div class="icon-card"><div class="ic">🚕</div><div class="it">個人タクシー・<br>個人貨物運送業</div></div>
+    <div class="icon-card"><div class="ic">🏗️</div><div class="it">建設業の<br>一人親方(大工・とび等)</div></div>
+    <div class="icon-card"><div class="ic">🎣</div><div class="it">漁船による<br>自営漁業</div></div>
+    <div class="icon-card"><div class="ic">🌲</div><div class="it">林業の<br>一人親方</div></div>
+    <div class="icon-card"><div class="ic">💊</div><div class="it">医薬品の<br>配置販売業</div></div>
+    <div class="icon-card"><div class="ic">♻️</div><div class="it">再生資源<br>取扱業</div></div>
+    <div class="icon-card"><div class="ic">💆</div><div class="it">あん摩マッサージ指圧師・<br>はり師・きゅう師等</div></div>
+    <div class="icon-card"><div class="ic">🦷</div><div class="it">歯科技工士</div></div>
+    <div class="icon-card new"><div class="ic">💻</div><div class="it">特定フリーランス事業<br>(2024年11月新設)</div></div>
+  </div>
+
+  <div class="info">
+    💻 一番新しいのが「特定フリーランス事業」です。2024年11月1日の制度改正で追加され、<strong>企業などから業務委託を受けて働くフリーランス(翻訳・デザイン・コンサルティング・営業など幅広い業種)</strong>が、業種を問わず特別加入の対象になりました。個人事業主から法人化した人の中には、この区分で加入した経験がある方もいるかもしれません。
+  </div>
+</div>
+
+<!-- Section 4: 1人社長が注意すべき「二重の狭き門」 -->
+<div class="card red">
+  <div class="sec-title">⚠️ 従業員ゼロの1人社長がハマりやすい「二重の狭き門」</div>
+  <p>ここが今日一番お伝えしたいポイントです。<strong>本当に自分1人だけ・従業員ゼロで法人を経営している代表者</strong>は、第1種・第2種のどちらの要件も満たせないケースがあります。3つのパターンで確認してみましょう。</p>
+
+  <div class="gate ok" style="margin-top:14px;">
+    <div class="gt">✅ パターン①: 従業員を1人以上雇っている</div>
+    <div class="gd">業種を問わず<strong>第1種(中小事業主等)</strong>の対象になり得る(7/19記事の3要件を満たせば加入可能)</div>
+  </div>
+  <div class="gate ok">
+    <div class="gt">✅ パターン②: 従業員はいないが、指定業種(建設業・個人タクシー等)を1人で行っている</div>
+    <div class="gd"><strong>第2種(一人親方等)</strong>の対象になり得る(特別加入団体を通じて加入)</div>
+  </div>
+  <div class="gate ng">
+    <div class="gt">❌ パターン③: 従業員はゼロ、かつ業種も指定業種に該当しない</div>
+    <div class="gd">第1種の要件(従業員雇用)も、第2種の要件(指定業種)も満たさず、<strong>労災保険の特別加入ができない</strong>可能性がある</div>
+  </div>
+
+  <div class="warn" style="margin-top:12px;">
+    ⚠️ 例えば、コンサルティング業やIT業などで完全に1人・従業員ゼロで法人を経営している代表者は、パターン③に当てはまりやすく、労災保険で自分自身をカバーする手段が乏しいことがあります。この場合は民間の損害保険(所得補償保険等)で自衛する、または「特定フリーランス事業」の対象になる業務委託の受け方をしているか確認するといった検討が必要です。判断に迷う場合は社会保険労務士に相談しましょう。
+  </div>
+</div>
+
+<!-- Section 5: 給付基礎日額・保険料の仕組み -->
+<div class="card">
+  <div class="sec-title">🧮 給付基礎日額と保険料の考え方は共通</div>
+  <p>加入できた後の「もしもの時いくらもらえるか」「保険料はいくらか」の計算のしくみ自体は、第1種・第2種とも共通です。</p>
+
+  <div class="bignum">
+    <div class="bl">📐 給付基礎日額</div>
+    <div class="bv">3,500円 〜 25,000円</div>
+    <div class="bs">16段階から自分で希望する日額を選ぶ(7/19記事で解説した中小事業主等と同じ仕組み)</div>
+  </div>
+
+  <div class="f-step" style="margin-top:10px;">
+    <div class="f-num">1</div>
+    <div class="f-text">自分の生活費や役員報酬を目安に<strong>給付基礎日額</strong>を選ぶ</div>
+  </div>
+  <div class="f-arrow">↓</div>
+  <div class="f-step">
+    <div class="f-num opt">2</div>
+    <div class="f-text"><strong>年間保険料 ＝ 給付基礎日額 × 365日 × 保険料率</strong>で計算</div>
+  </div>
+  <div class="f-arrow">↓</div>
+  <div class="f-step">
+    <div class="f-num ai">3</div>
+    <div class="f-text">保険料率は<strong>業種ごとに異なる</strong>(建設業の一人親方は、8/29記事で比較した中小事業主等の料率表とは別の独自の料率が設定されている)</div>
+  </div>
+
+  <div class="info" style="margin-top:12px;">
+    💡 「給付基礎日額を選んで、365日をかけて、業種別の料率をかける」という計算の型は第1種・第2種で共通です。ただし料率の水準自体は区分・業種ごとに個別に定められているため、実際に加入する際は特別加入団体や労働保険事務組合に最新の料率表を確認しましょう。
+  </div>
+</div>
+
+<!-- Section 6: まとめ -->
+<div class="card">
+  <div class="sec-title">📝 今日のまとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">①</span>労災保険の特別加入には<strong>第1種(中小事業主等)・第2種(一人親方等)・第3種(海外派遣者)</strong>の3区分がある。</li>
+    <li><span class="n">②</span>第1種は<strong>従業員を1人以上雇っていること</strong>が前提。第2種は<strong>建設業・個人タクシー等の指定業種を、従業員を雇わず(または家族のみで)行う人</strong>が対象。</li>
+    <li><span class="n">③</span>法人化した代表者でも、指定業種で1人で現場作業をしていれば<strong>第2種の対象になり得る</strong>。「個人事業主向けの制度」と決めつけないことが大切。</li>
+    <li><span class="n">④</span>2024年11月1日の改正で第2種に<strong>「特定フリーランス事業」</strong>が新設され、業種を問わず業務委託で働くフリーランスも対象になった。</li>
+    <li><span class="n">⑤</span>従業員ゼロ・指定業種にも当てはまらない1人社長は、<strong>第1種・第2種のどちらの対象にもならない</strong>ことがある。民間保険での自衛や専門家への相談も検討したい。</li>
+  </ul>
+
+  <div class="source">
+    📚 出典:厚生労働省「特別加入制度のしおり(一人親方その他の自営業者用)」(mhlw.go.jp、第2種特別加入の対象業種・加入手続き)、2024年11月1日施行のフリーランス労災保険特別加入(特定フリーランス事業)に関する厚生労働省・フリーランス協会等の公表情報。本記事は基準年度:令和8年度(2026年度)時点の制度にもとづきます。第1種(中小事業主等)の詳細は7/19・8/29・8/30記事を参照してください。
+  </div>
+</div>
+
+<!-- Disclaimer -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、税務・法務の個別アドバイスではありません。特別加入の可否は業種の実態・働き方・従業員の有無など会社ごとの状況により異なります。
+  具体的な判断や加入手続きは、社会保険労務士や特別加入団体・労働保険事務組合にご相談ください。<br>
+  <strong>本記事の基準年度:</strong>令和8年度(2026年度)。制度・要件・保険料率は年度により変更される場合があります。
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>📚 <a href="index.html">バックナンバー一覧へ</a> &nbsp;&middot;&nbsp; 毎朝更新</p>
+</div>
+
+</div>
+</body>
+</html>
