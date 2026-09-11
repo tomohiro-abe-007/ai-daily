@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-09-12</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '🦠';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.9rem; margin-bottom: 8px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.1em; }
+  .c3-col li { margin-bottom: 4px; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  .quote-box {
+    background: #f5f0e8;
+    border-left: 4px solid #7a5abf;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    margin: 12px 0;
+    color: #444;
+    font-style: italic;
+  }
+  .quote-box .who { font-style: normal; font-weight: 700; color: #5a3a9a; margin-top: 6px; font-size: 0.78rem; }
+  .matrix {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .mx-cell {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .mx-cell .mx-head { font-weight: 700; font-size: 0.88rem; margin-bottom: 6px; }
+  .mx-cell.ok  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .mx-cell.ok  .mx-head { color: #1a6e4a; }
+  .mx-cell.ng  { background: #fbe8e6; border: 2px solid #c0392b; }
+  .mx-cell.ng  .mx-head { color: #a0291e; }
+  @media (max-width: 540px) {
+    .compare4 { grid-template-columns: 1fr; }
+    .matrix { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.7rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ヘッダー -->
+<div class="header">
+  <div class="label">健康・栄養 最新トピック ・ 2026-09-12</div>
+  <h1>同じ「種」の腸内細菌でも、中身は一枚岩じゃなかった──感染症のように数十年で世界に広がる"系統"がいるという最新ゲノム研究</h1>
+  <div class="subtitle">オーストリア・ウィーン大学のMartin F. Polzさんらの国際研究チームが、腸内細菌176種のゲノム(生物の設計図となるDNA配列)を独自の計算手法で解析し、同じ「種」とされる細菌の中に、祖先を共有する377個の"系統のかたまり"(ゲノムワイド選択的スイープ・クラスター)が隠れていることを報告し、Nature誌に発表しました(DOI: 10.1038/s41586-026-10476-w)。よく適応した系統は、感染症の病原体のように数十年という短期間で世界中に広がった可能性があり、一部の系統は高齢・炎症性腸疾患・大腸がん・2型糖尿病のデータとの関連も見られたとのことです。ただしこれは人での介入試験ではなく、既存のゲノム・メタゲノムデータをコンピューターで解析した研究であり、病気との関連はあくまで相関にとどまります。やさしく解説します。</div>
+</div>
+
+<!-- タグ -->
+<div style="margin-bottom:18px;">
+  <span class="tag">腸内細菌叢</span>
+  <span class="tag">ゲノム解析・観察研究の読み方</span>
+  <span class="tag">精密栄養学</span>
+  <span class="tag">相関と因果</span>
+</div>
+
+<!-- 今日の疑問 -->
+<div class="card">
+  <h2>🤔 今日の疑問:「腸内細菌の"種"が同じ」なら、みんな同じ働きをするの?</h2>
+  <p>腸内細菌の話題では「〇〇菌が多い・少ない」という"種"のレベルで語られることがほとんどです。しかし今回紹介する研究は、「同じ種とされる細菌の中にも、実はかなり違う"系統"(共通の祖先から枝分かれしたグループ)が隠れているかもしれない」という、一段階細かい視点を投げかけています。</p>
+  <p>さらに、その系統の一部は、まるで感染症の病原体が世界に広がるように、数十年という短い時間で地球規模に広がった可能性があるという報告です。</p>
+</div>
+
+<!-- 基本用語 -->
+<div class="card blue">
+  <h2>📖 まず言葉の意味を</h2>
+  <div class="def-grid">
+    <div class="def-item">
+      <div class="dterm">ゲノム</div>
+      生物1個体・1菌がもつDNA配列全体のこと。いわば生物の"設計図"。
+    </div>
+    <div class="def-item">
+      <div class="dterm">ゲノムワイド選択的スイープ</div>
+      ある系統が偶然もった有利な性質のおかげで、同じ種の他の仲間を出し抜いて急速に数を増やし、その系統のゲノムだけが広がっていく現象。今回の研究のタイトルにある中心的な用語。
+    </div>
+    <div class="def-item">
+      <div class="dterm">系統(けいとう)</div>
+      共通の祖先から枝分かれした、進化的なまとまり。同じ「種」に分類されていても、系統が違えば性質が異なることがある。
+    </div>
+    <div class="def-item">
+      <div class="dterm">SGB(種レベルゲノムビン)</div>
+      ゲノム配列がよく似た細菌どうしをまとめて、便宜上「1つの種」とみなす分類の単位。今回の研究では176個のSGBを解析対象にした。
+    </div>
+    <div class="def-item">
+      <div class="dterm">メタゲノム解析</div>
+      腸などの環境に住む微生物すべてのDNAをまとめて読み取り、どんな菌がどれくらいいるかを調べる手法。培養が難しい菌も含めて調べられる。
+    </div>
+    <div class="def-item">
+      <div class="dterm">炎症性腸疾患(IBD)</div>
+      クローン病や潰瘍性大腸炎など、腸に慢性的な炎症が起こる病気の総称。
+    </div>
+  </div>
+</div>
+
+<!-- 数字カード -->
+<div class="num-row">
+  <div class="num-card gray-bg">
+    <div class="big">176<span class="unit">種</span></div>
+    <div class="desc">解析対象になった腸内細菌の「種」(SGB)の数</div>
+  </div>
+  <div class="num-card">
+    <div class="big">377<span class="unit">個</span></div>
+    <div class="desc">見つかった"系統のかたまり"(ゲノムワイド選択的スイープ・クラスター)の数。1つの種の中に複数見つかった例も多い</div>
+  </div>
+  <div class="num-card purple-bg">
+    <div class="big">66<span class="unit">分類群</span></div>
+    <div class="desc">このような系統の入れ替わりが見られた細菌の幅広さ(25の科にまたがる)</div>
+  </div>
+  <div class="num-card orange-bg">
+    <div class="big">数十年</div>
+    <div class="desc">一部の系統が世界中に広がったと推定される期間(分岐年代からの統計的な推定値)</div>
+  </div>
+</div>
+
+<!-- 何がわかったか -->
+<div class="card orange">
+  <h2>🔍 この研究で分かったこと</h2>
+  <div class="compare4">
+    <div class="c3-col blue">
+      <h3>🔵 これまでの見方</h3>
+      <ul>
+        <li>腸内細菌は「種」の単位で語られることが多く、同じ種なら似たような性質を持つと想定されがちだった</li>
+      </ul>
+    </div>
+    <div class="c3-col green">
+      <h3>🟢 今回の発見</h3>
+      <ul>
+        <li>同じ種の中に、祖先を共有する複数の"系統"が隠れており、腸の中の違う条件に適応してきたとみられる</li>
+      </ul>
+    </div>
+    <div class="c3-col orange">
+      <h3>🟡 広がり方の特徴</h3>
+      <ul>
+        <li>よく適応した系統は、感染症の病原体のように、数十年という短期間で世界中に広がった可能性がある</li>
+      </ul>
+    </div>
+    <div class="c3-col red">
+      <h3>🔴 病気との関連</h3>
+      <ul>
+        <li>一部の系統クラスターは、高齢(65歳超)・IBD・大腸がん・2型糖尿病のデータとの関連が見られた(相関であり原因とは限らない)</li>
+      </ul>
+    </div>
+  </div>
+  <p style="font-size:0.82rem; color:#555; margin-top:8px;">出典:Yu XA, et al. <em>Nature</em>. 2026;655:202–209. DOI: 10.1038/s41586-026-10476-w。複数の独立した科学ニュースサイトの報道・研究機関発表が一致した範囲の内容として紹介している。</p>
+</div>
+
+<!-- どうやって調べたか -->
+<div class="card purple">
+  <h2>🔬 どうやって調べた研究?</h2>
+  <div class="flow">
+    <div class="flow-step purp">① 腸内細菌176種(SGB)分の<br>培養ゲノムを収集</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step">② 独自の計算パイプライン<br>「PopCoGenomeS」で、<br>祖先を共有する系統の<br>かたまり(377個)を検出</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step alt">③ 別のメタゲノム<br>データセットでも<br>同じパターンが<br>見られるか検証</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step warn2">④ 系統クラスターの分布と、<br>年齢・病気の記録などの<br>メタデータとの関連を確認、<br>Nature誌に発表</div>
+  </div>
+  <p style="font-size:0.82rem; color:#555; margin-top:4px;">ヒトに何かを摂取させたり生活を変えてもらったりする介入試験(RCT)ではなく、すでに存在するゲノム・メタゲノムのデータベースをコンピューターで解析した研究(ゲノム疫学・計算生物学)。</p>
+</div>
+
+<!-- 精密栄養学の視点 -->
+<div class="card">
+  <h2>🧬 精密栄養学の視点:「個人差」はもっと細かい階層にもあるかもしれない</h2>
+  <p>これまで精密栄養学では、「どんな種の腸内細菌がいるか」「多様性が高いか低いか」という"種レベル"の個人差が主に語られてきました。今回の研究は、同じ種であっても中の"系統"によって性質が違いうるという、さらに一段階細かい個人差のレイヤーがある可能性を示しています。将来的には、系統レベルの違いが個別化された健康診断や治療のヒントになるかもしれませんが、現時点ではまだ基礎研究の段階です。</p>
+  <div class="matrix">
+    <div class="mx-cell ok">
+      <div class="mx-head">✅ 今回の研究でわかったこと</div>
+      同じ種とされる腸内細菌の中に複数の進化的な系統が存在し、一部は数十年という短期間で世界中に広がった痕跡がある
+    </div>
+    <div class="mx-cell ng">
+      <div class="mx-head">❓ まだわからないこと</div>
+      なぜ特定の系統が高齢者や特定の病気の人に多く見られるのか、それが原因なのか結果なのか(あるいはどちらでもないのか)は今回の解析だけでは分からない
+    </div>
+  </div>
+</div>
+
+<!-- 限界 -->
+<div class="warn">
+  <strong>⚠️ この研究だけでは言えないこと</strong>
+  <ul style="padding-left:1.4em; margin-top:8px;">
+    <li>ヒトに何かを食べさせたり生活を変えてもらったりする介入試験(RCT)ではなく、既存のゲノム・メタゲノムデータをコンピューターで解析した研究(観察・計算生物学的解析)であり、動物実験でもヒト臨床試験でもない。</li>
+    <li>高齢・IBD・大腸がん・2型糖尿病との関連は、あくまで相関関係であり、「その系統が原因で病気になる」あるいは「病気になったからその系統が増える」のどちらとも証明されていない。</li>
+    <li>解析に使われたゲノム・メタゲノムデータの提供者(対象者)が世界のどの地域・年齢層にどれだけ偏っているか(代表性)については、一次論文の詳細を確認できていない。</li>
+    <li>「数十年で世界に広がった」という推定は、実際に追跡調査をした結果ではなく、ゲノムの分岐年代を統計モデルで逆算した推定値である。</li>
+    <li>当セッションのネットワーク制限(nature.com・pmc.ncbi.nlm.nih.gov・biorxiv.org・sciencedaily.com・eurekalert.org・univie.ac.at等がブロック対象)により、論文本文に直接アクセスできず、検索エンジン経由で得られた複数の独立した科学ニュースサイト・研究機関発表の報道を突き合わせた内容に限定して紹介している。オンライン公開日についても情報源によって表記に食い違いがあり(2026年5月・7月・9月7日など)、本文で確定できていない。</li>
+  </ul>
+</div>
+
+<!-- エビデンスの整理 -->
+<div class="card">
+  <h2>🧪 今日出てきた情報の「証拠としての強さ」の目安</h2>
+  <table class="ev-table">
+    <tr><th>情報の種類</th><th>特徴</th><th>証拠としての強さ</th></tr>
+    <tr>
+      <td>腸内細菌の"種"の中に複数の進化的な系統が存在する</td>
+      <td>176種の培養ゲノム解析+メタゲノムでの検証</td>
+      <td><span class="ev-badge ev-mid">中程度(大規模ゲノム解析、計算上の統計的推定)</span></td>
+    </tr>
+    <tr>
+      <td>一部の系統は数十年で世界的に広がった可能性</td>
+      <td>分岐年代の統計モデルによる推定</td>
+      <td><span class="ev-badge ev-low">参考値(直接観察ではなくモデル推定)</span></td>
+    </tr>
+    <tr>
+      <td>特定の系統クラスターが高齢・IBD・大腸がん・2型糖尿病と関連</td>
+      <td>既存データセットのメタデータとの突き合わせ(横断的な関連解析)</td>
+      <td><span class="ev-badge ev-low">材料不足(相関のみ、因果関係は不明)</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- 実践 -->
+<div class="card orange">
+  <h2>🍽️ 今日から意識できること</h2>
+  <ul class="step-list">
+    <li>「腸内細菌の"種"が同じだから性質も同じ」と単純に考えず、専門的な研究では系統レベルの違いにも注目が集まっていると知っておく。</li>
+    <li>「腸内細菌の解析でがんや糖尿病がわかる」といった報道を見ても、現時点ではまだ相関関係の段階であり、診断や治療に使える段階ではないと理解する。</li>
+    <li>市販の腸内細菌検査の結果だけで健康状態を自己判断せず、気になる点や食生活の見直しは管理栄養士・かかりつけ医に相談する。</li>
+    <li>IBD・大腸がん・糖尿病の治療中の人は、こうした基礎研究の話題に振り回されず、通常の治療・食事指導を続ける。</li>
+  </ul>
+</div>
+
+<!-- まとめ -->
+<div class="card" style="border-left-color:#1a7a5a;">
+  <h2>✅ 今日のまとめ</h2>
+  <ul class="step-list">
+    <li>ウィーン大学のMartin F. Polzさんらの国際研究チームが、腸内細菌176種のゲノムを独自の計算手法で解析し、同じ「種」の中に祖先を共有する377個の系統のかたまり(ゲノムワイド選択的スイープ・クラスター)が存在することをNature誌に発表した(DOI: 10.1038/s41586-026-10476-w)。</li>
+    <li>よく適応した系統は、感染症の病原体のように数十年という短期間で世界中に広がった可能性があり、この現象は66分類群・25の細菌の科にまたがって見られた。</li>
+    <li>一部の系統クラスターは、高齢・炎症性腸疾患(IBD)・大腸がん・2型糖尿病のデータとの関連も見られたが、これはコンピューター上のゲノム解析による相関関係であり、原因を証明したものではない。</li>
+    <li>ヒトへの介入試験ではなく基礎的なゲノム研究の段階であり、健康・診断への応用は今後の課題。日々の健康管理は、この研究単体を根拠に変える必要はない。</li>
+  </ul>
+</div>
+
+<!-- 免責 -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、医療アドバイスではありません。効果・必要量・リスクは個人の体質・年齢・持病・服薬によって大きく異なります。本記事は特定の食事制限・サプリメント・検査などを推奨するものではありません。腸内細菌や病気について不安や持病がある場合は、自己判断せず、かかりつけ医・管理栄養士・薬剤師など専門家にご相談ください。
+</div>
+
+<!-- 出典 -->
+<div class="sources">
+  <h3>📚 主な出典・参考文献</h3>
+  <ol>
+    <li>Yu XA, Strachan CR, Herbold CW, Lang M, Gasche C, Makristathis A, Segata N, Pollak S, Tett A, Polz MF. "Genome-wide sweeps create ecological units in the human gut microbiome." <em>Nature</em>. 2026;655:202–209. DOI: 10.1038/s41586-026-10476-w.
+      <a href="https://doi.org/10.1038/s41586-026-10476-w" target="_blank">https://doi.org/10.1038/s41586-026-10476-w</a>(基準日:2026年。オンライン公開日は二次情報源により2026年5月・7月・9月7日など表記の揺れがあり、当セッションのネットワーク制限〈nature.com等がブロック対象〉により論文本文へ直接アクセスできず確定できていない。著者名・DOI・掲載巻号ページは複数の独立した情報源が一致した内容)
+    </li>
+    <li>bioRxivプレプリント版(査読前)"Genome-wide sweeps create fundamental ecological units in the human gut microbiome." DOI: 10.1101/2024.05.25.595854.
+      <a href="https://www.biorxiv.org/content/10.1101/2024.05.25.595854v1" target="_blank">https://www.biorxiv.org/content/10.1101/2024.05.25.595854v1</a>(基準日:2024年5月25日。査読前の初期投稿版。査読を経て上記Nature論文として正式掲載されたとみられる。ネットワーク制限で本文未確認)
+    </li>
+    <li>ScienceDaily. "Your gut microbiome may be more contagious than scientists thought."
+      <a href="https://www.sciencedaily.com/releases/2026/09/260906170129.htm" target="_blank">https://www.sciencedaily.com/releases/2026/09/260906170129.htm</a>(基準日:2026年9月6日。ネットワーク制限〈sciencedaily.comがブロック対象〉により本文への直接アクセスはできず、検索エンジン経由の要約による)
+    </li>
+    <li>ウィーン大学プレスリリース "Evolutionary processes shape bacterial populations in the human gut"
+      <a href="https://www.univie.ac.at/en/news/press-room/press-releases/detail/evolutionary-processes-shape-bacterial-populations-in-the-human-gut" target="_blank">https://www.univie.ac.at/en/news/press-room/press-releases/detail/evolutionary-processes-shape-bacterial-populations-in-the-human-gut</a>(研究チームの所属・研究概要の確認用。ネットワーク制限で本文未確認)
+    </li>
+  </ol>
+  <p style="margin-top:8px; font-size:0.78rem;">※ ネットワーク制限により、主要な一次資料(論文本文)に本セッションから直接アクセスできなかったため、検索エンジンで得られる複数の独立した要約・引用箇所を突き合わせ、内容が一致した範囲に限定して記載しています。最新かつ正確な数値・著者情報・公開日は、各DOI・URL先で改めてご確認いただくことをお勧めします。</p>
+</div>
+
+</div>
+</body>
+</html>
