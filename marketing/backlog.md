@@ -103,6 +103,7 @@
 - 2026-09-09：LinkedIn「Credibility Stack(信頼の積み上げ)」プレイブック入門 ── AIチャットに引用されるための考え方、GEO/AEOの実践編（公開日は2026年8月上旬〜中旬ごろと情報源により差あり、Social Media Today・LinkedIn Business公式ブログ・Optimixed・Forbes〔2026年8月24日〕等で確認、LinkedIn引用割合14.3%〔ChatGPT Search〕等はProfound社の独自調査値〔2025年11月〜2026年2月・約140万件分析〕で第三者検証なし、詳細は公式で要確認）
 - 2026-09-10：Instagram「Series」機能入門 ── 単発のリールを"シリーズ化"して見込み客との関係を育てる仕組み（TechCrunch2026年6月2日報道、Social Media Today・MediaPost・NetInfluencer・Global Dating Insights等の海外メディアも報道、一部クリエイター限定のテスト段階、一般公開時期・収益化・日本語圏対応は公式で要確認）
 - 2026-09-11：Google広告「AI Max」自動移行入門 ── ブロードマッチ・自動作成アセットが2026年9月中に無断で新方式へ切り替わることに学ぶ、"借りた場所"のルールに振り回されない土台づくり（Google Ads Developer Blog2026年8月発表、対象者へは8月5日にメール通知、Search Engine Land・ppc.land等の海外メディア報道、移行後はロールバック不可、対象範囲・対処法は公式で要確認）
+- 2026-09-12：TikTok Ads Manager「Campaign Health Status」入門 ── キャンペーンの健康状態をGood/Fair/Poorの3段階で一目表示する新機能に学ぶ、"なんとなく良さそう"をやめて数字で確認する習慣（TikTok For Business公式ブログ「Product Preview」Q3 2026・2026年7月下旬発表、アカウント全体のAccount Healthや検索広告向けHealth Moduleなど類似名称の機能と混同注意、全広告主・全地域への展開時期は公式で要確認）
 
 ## 今後追加したい有望テーマ
 
@@ -210,4 +211,5 @@
 - Instagram Edits「デスクトップ版＋AIアシスタント」入門 ── 無料動画編集アプリEditsがパソコン対応、AIが投稿の成果データを読んでコンテンツ案を提案（2026年、詳細な発表日・提供範囲は公式で要確認）
 - Instagram「Replace Audio」機能の集客活用編（実践・深掘り） ── いいね・コメントを消さずに音源だけ差し替えられる機能を使った、過去投稿の"再利用"戦略（2026年7月21日ロールアウト、基礎編は未掲載のため取り上げる場合はゼロから解説）
 - Google広告「AI Max」続報 ── 動的検索広告(DSA)は2027年2月に別日程で移行予定、事前告知の内容・移行後の成果影響を追跡（2026-09-11の基礎編に対する続報、詳細は公式で要確認）
-- TikTok「TopReach Max Reach」＆「Campaign Health Status」入門（要検討）── TopViewとTopFeedを1つにまとめた高単価の新広告枠と、キャンペーンの健康状態が3段階で見える新機能（2026年7月29日TikTok公式Q3プロダクトプレビューで発表、TopReach Max Reachは大型キャンペーン向けで予算規模が大きく個人・小規模事業者には不向きな可能性、Campaign Health Statusは規模を問わず使える診断機能のため取り上げる場合はこちらを中心に、詳細は公式で要確認）
+- TikTok「TopReach Max Reach」入門（要検討）── TopViewとTopFeedを1つにまとめた高単価の新広告枠（2026年7月下旬TikTok公式Q3プロダクトプレビューで発表、大型キャンペーン向けで予算規模が大きく個人・小規模事業者には不向きな可能性、詳細は公式で要確認。同時発表のCampaign Health Statusは2026-09-12で掲載済み）
+- TikTok Ads Manager「Pulse Custom Lineups」＆セルフサーブTopView予約入門 ── AIが選ぶ「人気上位4%のTikTok動画」の隣に広告を出せる仕組みがカナダで一般提供開始、TopViewキャンペーンも管理画面から自分で予約・管理できるように（2026年7月下旬TikTok公式Q3プロダクトプレビューで発表、米国・カナダでセルフサーブはQ3にオープンベータ、対応国・詳細は公式で要確認）
