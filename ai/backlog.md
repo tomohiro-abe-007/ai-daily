@@ -105,6 +105,7 @@
 - 2026-09-09: ChatGPT 広告（ChatGPT Ads）世界展開（2026年2月9日米国正式ローンチ）・無料プラン・Goプラン（18歳以上）に「Sponsored」明示の回答型広告を表示・有料プランには表示なし・5月5日に米国セルフサービス開放・8月24日に欧州31か国展開・8月31日に欧州セルフサービス開放・9月初旬にインド・中東・北アフリカ拡大・ローンチ後200日未満で年換算10億ドルARRに到達・2026年広告売上目標25億ドル（要確認）（出典：OpenAI公式ブログ / segwise.ai / jollygoodweb.com / flisko.si・2026年）
 - 2026-09-10: XPeng IRON ヒューマノイドロボット生産ライン稼働（2026年9月8日・広州）・世界初の高度ヒューマノイドロボット自動化生産ラインとXPengが主張・コアプロセス自動化率80%超・IRON自律歩行デモ・身長178cm/体重70kg/全身76DoF/手のひら各21DoF・自社製Turing AIチップ×3基/合計2,250TOPS・物理AI基盤モデルをオンデバイスで動作・2026年末量産/2027年商業展開予定・Tesla Optimus遅延の中での発表（出典：XPeng公式 / CnEVPost / Electrek / Seoul Economic Daily / The AI Insider・2026年9月）
 - 2026-09-11: カリフォルニア州AI独立監査義務化（AB 1405・SB 813）・ニューサム知事署名（2026年9月9日）・全米初・AI監査員登録名簿（California Government Operations Agency運営）・2029年1月1日から未登録者によるAI監査禁止・SB 813は独立検証機関（IVO）フレームワーク構築・両法で「対象AI監査」＝州法コンプライアンスに必要な内部統制・プロセスの評価と定義（出典：gov.ca.gov / QZ.com / KION Central Coast / Wiley Law / Xinhua・2026年9月9日）
+- 2026-09-12: Sakana AI Fugu Max v1.0 / Fugu Ultra v2.0（2026年9月10〜11日公開）・東京発AIスタートアップ・マルチエージェント・オーケストレーション（複数AIを指揮する AI）・ユーザーには単一モデルAPIとして見える・ICLR 2026論文「TRINITY」「Conductor」が基盤・Ultra v2：Chartography 48.3（Claude Opus 5 27.3超え・自己申告）・DeepSWE 74.3・API料金$5/$30（公式要確認）・1Mトークンコンテキスト・Max v1.0：コスト効率重視・パラメータ1行でアップグレード可（出典：Sakana AI公式ブログ / MarkTechPost・2026年9月10〜11日）
 
 ## 未解説の候補トピック（今後の参考）
 
