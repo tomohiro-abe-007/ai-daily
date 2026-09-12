@@ -2,6 +2,12 @@
 
 今後の記事候補。使ったテーマは削除し、新しく見つけた有望テーマは追記する。
 
+## 未使用テーマ（追記：2026-09-13 検索で見つけた有望テーマ）
+
+- 09-13記事(Runchey MC, Corapi, Pavlou, Cienfuegos, Lin, Ezpeleta, Gabel, Tussing-Humphreys, Oddo, Alexandria, Sanchez, Unterman, Chow, Vidmar, Reutrakul, Varady, Diabetes Care 2026, DOI: 10.2337/dc26-1093)の続報候補 ── 体重変化の正確な信頼区間・p値、CGM(持続血糖モニター)を使ったTIR(Time in Range)データ、インスリン投与量の調整方法、参加者の人種・性別・糖尿病歴の内訳が、論文本文で確認できれば深掘り記事化を検討。ネットワーク制限(diabetesjournals.org・doi.org・today.uic.edu・sciencedaily.com・medicalxpress.comがブロック対象)で本文未確認
+- 夜間の光曝露と心臓の構造変化(米チュレーン大学のLu Qi教授らのチーム、UK Biobank参加者11,071人、手首の光センサーで7日間測定後に心臓MRIで評価、European Heart Journal 2026年9月9日オンライン公開、DOI: 10.1093/eurheartj/ehag563)── 夜間の光量が多い人ほど左心室が肥厚し心臓の収縮能力がわずかに低下(左心室拡大2.4%・心壁肥厚1.5%・収縮力低下1.9%)という報告。観察研究であり因果関係は未証明、精密栄養学というより睡眠・概日リズムと循環器の関連として「睡眠と健康の科学」回に使えるか検討。一次論文へのネットワーク制限(academic.oup.com等)で本文未確認
+- ADHDと消化器症状の関連(190万人超のデータを解析した研究、2026年9月報道)── ADHDのある人は消化器の不調の頻度が高いという報告。観察研究であり、著者・掲載誌・DOI・研究デザインの詳細が検索要約からは未確認。腸内環境・精密栄養学の切り口で深掘りできるか、一次資料の確認が必要
+
 ## 未使用テーマ（追記：2026-09-12 検索で見つけた有望テーマ）
 
 - 09-12記事(Yu XA, Strachan, Herbold, Lang, Gasche, Makristathis, Segata, Pollak, Tett, Polz, Nature 2026;655:202-209, DOI: 10.1038/s41586-026-10476-w)の続報候補 ── 系統クラスターと高齢・IBD・大腸がん・2型糖尿病との関連の具体的な統計値(オッズ比・信頼区間・p値)、解析に使われたゲノム・メタゲノム提供者の地域・年齢層の内訳、正確なオンライン公開日(情報源により2026年5月・7月・9月7日と表記が食い違う)が、論文本文で確認できれば深掘り記事化を検討。ネットワーク制限(nature.com・pmc.ncbi.nlm.nih.gov・biorxiv.org・sciencedaily.com・eurekalert.org・univie.ac.atがブロック対象)で本文未確認

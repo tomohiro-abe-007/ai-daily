@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-09-13</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '⏰';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.9rem; margin-bottom: 8px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.1em; }
+  .c3-col li { margin-bottom: 4px; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  .quote-box {
+    background: #f5f0e8;
+    border-left: 4px solid #7a5abf;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    margin: 12px 0;
+    color: #444;
+    font-style: italic;
+  }
+  .quote-box .who { font-style: normal; font-weight: 700; color: #5a3a9a; margin-top: 6px; font-size: 0.78rem; }
+  .matrix {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .mx-cell {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .mx-cell .mx-head { font-weight: 700; font-size: 0.88rem; margin-bottom: 6px; }
+  .mx-cell.ok  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .mx-cell.ok  .mx-head { color: #1a6e4a; }
+  .mx-cell.ng  { background: #fbe8e6; border: 2px solid #c0392b; }
+  .mx-cell.ng  .mx-head { color: #a0291e; }
+  @media (max-width: 540px) {
+    .compare4 { grid-template-columns: 1fr; }
+    .matrix { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.7rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ヘッダー -->
+<div class="header">
+  <div class="label">健康・栄養 最新トピック ・ 2026-09-13</div>
+  <h1>食べる時間を1日8時間に絞ったら、1型糖尿病の血糖コントロールが改善──32人の小規模ランダム化比較試験が示したこと</h1>
+  <div class="subtitle">米イリノイ大学シカゴ校(UIC)のMary-Claire Runcheyさん、Krista A. Varady教授(責任著者)らの研究チームが、過体重・肥満のある1型糖尿病の成人32人を対象に、「時間制限食(TRE、1日8時間だけ食べる方法)」「25%カロリー制限」「変化なし(対照)」の3グループを6か月間比べるランダム化比較試験(RCT)をDiabetes Care誌に発表しました(DOI: 10.2337/dc26-1093、2026年9月オンライン公開)。TRE群はカロリー制限群と比べてHbA1c(過去数か月の平均血糖値を示す指標)が統計的に有意に下がり(差 −0.46ポイント、95%信頼区間 −0.80〜−0.12)、糖尿病性ケトアシドーシス(DKA)や重い低血糖・高血糖のリスクも増えませんでした。ただし32人という小規模な試験で、体重には統計的に有意な群間差が見られなかった点、1型糖尿病がある人が自己判断で食事の時間を変えるのは危険という注意点もあわせてやさしく解説します。</div>
+</div>
+
+<!-- タグ -->
+<div style="margin-bottom:18px;">
+  <span class="tag">精密栄養学</span>
+  <span class="tag">時間制限食(TRE)</span>
+  <span class="tag">1型糖尿病</span>
+  <span class="tag">RCTの読み方</span>
+</div>
+
+<!-- 今日の疑問 -->
+<div class="card">
+  <h2>🤔 今日の疑問:「食べる"時間"を短くするだけで、血糖値がよくなるの?しかも1型糖尿病の人でも安全?」</h2>
+  <p>「16時間断食」「8時間だけ食べる」といった時間制限食(TRE)は、2型糖尿病や肥満の人を対象にした研究がこれまでも多くありました。しかし1型糖尿病は、食事のタイミングを変えるとインスリンの効き方とのバランスが崩れ、低血糖・高血糖・DKAのリスクが上がるかもしれないという懸念から、あまり研究されてきませんでした。</p>
+  <p>今回紹介するのは、1型糖尿病がある人を対象に、TREの効果と安全性を正面から調べた数少ないランダム化比較試験(RCT)です。</p>
+</div>
+
+<!-- 基本用語 -->
+<div class="card blue">
+  <h2>📖 まず言葉の意味を</h2>
+  <div class="def-grid">
+    <div class="def-item">
+      <div class="dterm">1型糖尿病</div>
+      膵臓のインスリンを作る細胞が壊れてしまい、体の外からインスリンを補う治療が欠かせない糖尿病のタイプ。生活習慣が主な原因とされる2型糖尿病とは仕組みが異なる。
+    </div>
+    <div class="def-item">
+      <div class="dterm">HbA1c(ヘモグロビンエーワンシー)</div>
+      過去1〜2か月の血糖値の平均的な高さを示す血液検査の指標。数値が低いほど血糖コントロールが良いとされる。
+    </div>
+    <div class="def-item">
+      <div class="dterm">時間制限食(TRE)</div>
+      1日のうち食べてよい時間帯を一定の時間(今回は8時間)に区切り、カロリー計算はしない食事法。断続的断食の一種。
+    </div>
+    <div class="def-item">
+      <div class="dterm">糖尿病性ケトアシドーシス(DKA)</div>
+      インスリンが極端に不足したときに血液が酸性に傾く、命に関わることもある1型糖尿病の急性合併症。
+    </div>
+    <div class="def-item">
+      <div class="dterm">重症低血糖・高血糖</div>
+      血糖値が下がりすぎ、または上がりすぎて、意識障害やけいれんなど周囲の助けが必要になるレベルの状態。
+    </div>
+    <div class="def-item">
+      <div class="dterm">ランダム化比較試験(RCT)</div>
+      参加者をくじ引きのようにランダムに複数のグループへ振り分けて効果を比べる、観察研究より証拠として強いとされる研究デザイン。
+    </div>
+  </div>
+</div>
+
+<!-- 数字カード -->
+<div class="num-row">
+  <div class="num-card gray-bg">
+    <div class="big">32<span class="unit">人</span></div>
+    <div class="desc">参加した1型糖尿病がある過体重・肥満の成人の人数(米シカゴ近郊)</div>
+  </div>
+  <div class="num-card">
+    <div class="big">8<span class="unit">時間</span></div>
+    <div class="desc">TRE群が食べてよい時間帯(正午〜午後8時)。それ以外はカロリーのない飲み物のみ</div>
+  </div>
+  <div class="num-card blue-bg">
+    <div class="big">6<span class="unit">か月</span></div>
+    <div class="desc">3グループを比較した介入期間</div>
+  </div>
+  <div class="num-card orange-bg">
+    <div class="big">−0.46<span class="unit">pt</span></div>
+    <div class="desc">TRE群がカロリー制限群よりHbA1cが下がった差(95%信頼区間 −0.80〜−0.12)</div>
+  </div>
+</div>
+
+<!-- 何がわかったか -->
+<div class="card orange">
+  <h2>🔍 3つのグループ、何をして何がわかった?</h2>
+  <div class="compare4">
+    <div class="c3-col blue">
+      <h3>🔵 TRE群</h3>
+      <ul>
+        <li>食べる時間帯を正午〜午後8時の8時間に限定。カロリー計算はしない</li>
+      </ul>
+    </div>
+    <div class="c3-col green">
+      <h3>🟢 カロリー制限(CR)群</h3>
+      <ul>
+        <li>1日の摂取カロリーを25%減らす。食べる時間帯は自由</li>
+      </ul>
+    </div>
+    <div class="c3-col orange">
+      <h3>🟠 対照群</h3>
+      <ul>
+        <li>普段通りの生活を継続。食事に関する変化なし</li>
+      </ul>
+    </div>
+    <div class="c3-col purple">
+      <h3>🟣 6か月後の結果</h3>
+      <ul>
+        <li>TRE群はCR群よりHbA1cが統計的に有意に改善。DKA・重い低血糖/高血糖の増加はなし</li>
+      </ul>
+    </div>
+  </div>
+  <p style="font-size:0.82rem; color:#555; margin-top:8px;">出典:Runchey MC, et al. <em>Diabetes Care</em>. 2026. DOI: 10.2337/dc26-1093。複数の独立した医療ニュースサイトの報道が一致した範囲の内容として紹介している。</p>
+</div>
+
+<!-- どうやって調べたか -->
+<div class="card purple">
+  <h2>🔬 どうやって調べた研究?</h2>
+  <div class="flow">
+    <div class="flow-step purp">① シカゴ近郊で、過体重・肥満のある<br>1型糖尿病の成人32人を募集</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step">② くじ引き式に<br>TRE群・CR群・対照群の<br>3グループへランダムに割り付け</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step alt">③ 6か月間、それぞれの<br>方法を継続してもらう<br>(食事の中身自体は自由)</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step warn2">④ HbA1c・体重・低血糖/高血糖・<br>DKAの発生率を比較し、<br>Diabetes Care誌に発表</div>
+  </div>
+  <p style="font-size:0.82rem; color:#555; margin-top:4px;">参加者を実際にランダムに複数グループへ割り付けて6か月間追跡した、介入試験(ランダム化比較試験)。観察研究や動物実験ではない。</p>
+</div>
+
+<!-- 精密栄養学の視点 -->
+<div class="card">
+  <h2>🧬 精密栄養学の視点:「1型糖尿病だから断食は避けるべき」は本当に一律?</h2>
+  <p>1型糖尿病は、食事のタイミングを変えるとインスリンとのバランスが崩れやすいという理由から、これまで時間制限食のような食事法を積極的に試す対象にはされてきませんでした。今回の小規模な試験は、少なくともこの32人の集団ではTREが安全性の面で悪化を招かなかったことを示していますが、インスリンの種類・投与量・生活パターンは人によって大きく異なります。「1型糖尿病でもTREは安全」と一般化するのではなく、個々の状態に合わせて医療チームと相談しながら検討すべき段階です。</p>
+  <div class="matrix">
+    <div class="mx-cell ok">
+      <div class="mx-head">✅ 今回の試験でわかったこと</div>
+      TRE群はCR群よりHbA1cが統計的に有意に改善し、DKAや重い低血糖・高血糖の増加も見られなかった
+    </div>
+    <div class="mx-cell ng">
+      <div class="mx-head">❓ まだわからないこと</div>
+      なぜ体重があまり減らなくてもHbA1cが改善したのか(仕組み)、より大規模・長期・多施設での安全性、インスリン投与量の調整がどう行われたか
+    </div>
+  </div>
+</div>
+
+<!-- 限界 -->
+<div class="warn">
+  <strong>⚠️ この研究だけでは言えないこと</strong>
+  <ul style="padding-left:1.4em; margin-top:8px;">
+    <li>参加者32人という非常に小規模な試験であり、統計的な検出力(小さな差を見つける力)が限られる。</li>
+    <li>米シカゴ近郊の単一地域の参加者に限られ、人種・年齢・糖尿病歴などの詳しい内訳は論文本文で確認できていない。</li>
+    <li>体重はTRE群・CR群とも減少がみられたが、統計的に有意な群間差は確認されておらず、正確な信頼区間・p値は一次論文に直接アクセスできず確認できていない。</li>
+    <li>食事の時間帯を変える行動介入であるため、参加者にも研究者にも「どの群か」を隠す盲検化ができない研究デザインである。</li>
+    <li>対象は1型糖尿病がある成人に限られており、2型糖尿病や糖尿病のない人にそのまま当てはまるとは限らない。</li>
+    <li>当セッションのネットワーク制限(diabetesjournals.org・doi.org・today.uic.edu・sciencedaily.com・medicalxpress.com等がブロック対象)により、論文本文・大学プレスリリース本文に直接アクセスできず、検索エンジン経由で得られた複数の独立した医療ニュースサイトの報道の要約を突き合わせ、内容が一致した範囲に限定して紹介している。</li>
+  </ul>
+</div>
+
+<!-- エビデンスの整理 -->
+<div class="card">
+  <h2>🧪 今日出てきた情報の「証拠としての強さ」の目安</h2>
+  <table class="ev-table">
+    <tr><th>情報の種類</th><th>特徴</th><th>証拠としての強さ</th></tr>
+    <tr>
+      <td>TRE群はCR群よりHbA1cが統計的に有意に改善</td>
+      <td>32人・6か月間のランダム化比較試験(RCT)</td>
+      <td><span class="ev-badge ev-mid">中程度(RCTだが小規模・単施設)</span></td>
+    </tr>
+    <tr>
+      <td>TREによるDKA・重い低血糖/高血糖の増加なし</td>
+      <td>同じRCTの安全性アウトカム</td>
+      <td><span class="ev-badge ev-mid">中程度(小規模、長期の安全性は未確認)</span></td>
+    </tr>
+    <tr>
+      <td>TREが体重減少にとくに有効</td>
+      <td>群間で統計的に有意な差は確認されず</td>
+      <td><span class="ev-badge ev-low">材料不足(有意差なし)</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- 実践 -->
+<div class="card orange">
+  <h2>🍽️ 今日から意識できること</h2>
+  <ul class="step-list">
+    <li>1型糖尿病がある人は、自己判断で時間制限食や断続的断食を始めず、必ず主治医・糖尿病療養指導士に相談してから検討する。</li>
+    <li>インスリンを使っている場合、食事のタイミングを変えると低血糖・高血糖のリスクが変わりうるため、投与量の調整は医療チームと一緒に行う。</li>
+    <li>1型糖尿病のない人にも今回の結果がそのまま当てはまるわけではないことを理解する。</li>
+    <li>「小規模な試験で良い結果が出た」という段階であり、今後の大規模・長期的な追試の結果を待つ姿勢も大切にする。</li>
+  </ul>
+</div>
+
+<!-- まとめ -->
+<div class="card" style="border-left-color:#1a7a5a;">
+  <h2>✅ 今日のまとめ</h2>
+  <ul class="step-list">
+    <li>米イリノイ大学シカゴ校のMary-Claire Runcheyさん、Krista A. Varady教授らのチームが、過体重・肥満のある1型糖尿病の成人32人を対象に、TRE(8時間の時間制限食)・25%カロリー制限・対照の3群を6か月間比べるランダム化比較試験(RCT)をDiabetes Care誌に発表した(DOI: 10.2337/dc26-1093)。</li>
+    <li>TRE群はCR群よりHbA1cが統計的に有意に改善し(差−0.46ポイント、95%信頼区間 −0.80〜−0.12)、糖尿病性ケトアシドーシス(DKA)や重い低血糖・高血糖の増加もみられなかった。</li>
+    <li>一方で体重減少には統計的に有意な群間差はなく、32人という小規模な単一地域の試験である点には注意が必要。</li>
+    <li>1型糖尿病がある人が自己判断で食事のタイミングを変えることは危険を伴いうるため、専門家との相談が欠かせない。</li>
+  </ul>
+</div>
+
+<!-- 免責 -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、医療アドバイスではありません。効果・必要量・リスクは個人の体質・年齢・持病(とくに1型糖尿病などのインスリン治療が必要な病気)・服薬によって大きく異なります。本記事は特定の食事制限・断食・サプリメントなどを推奨するものではありません。糖尿病や食事療法について不安や持病がある場合は、自己判断せず、かかりつけ医・糖尿病療養指導士・管理栄養士など専門家にご相談ください。
+</div>
+
+<!-- 出典 -->
+<div class="sources">
+  <h3>📚 主な出典・参考文献</h3>
+  <ol>
+    <li>Runchey MC, Corapi S, Pavlou V, Cienfuegos S, Lin S, Ezpeleta M, Gabel K, Tussing-Humphreys L, Oddo VM, Alexandria SJ, Sanchez J, Unterman T, Chow LS, Vidmar AP, Reutrakul S, Varady KA. "Efficacy and Safety of Time-Restricted Eating in Adults With Type 1 Diabetes: A Randomized Controlled Trial." <em>Diabetes Care</em>. 2026. DOI: 10.2337/dc26-1093.
+      <a href="https://doi.org/10.2337/dc26-1093" target="_blank">https://doi.org/10.2337/dc26-1093</a>(基準日:2026年9月。当セッションのネットワーク制限〈diabetesjournals.org・doi.orgがブロック対象〉により論文本文へ直接アクセスできず、検索エンジン経由で得られた複数の独立した報道の要約が一致した範囲の内容として紹介。正確なオンライン公開日・巻号ページは未確認)
+    </li>
+    <li>UIC Today(米イリノイ大学シカゴ校ニュース). "Intermittent fasting may help Type 1 diabetics control their blood sugar levels."
+      <a href="https://today.uic.edu/intermittent-fasting-may-help-type-1-diabetics-control-their-blood-sugar-levels/" target="_blank">https://today.uic.edu/intermittent-fasting-may-help-type-1-diabetics-control-their-blood-sugar-levels/</a>(基準日:2026年9月。ネットワーク制限〈today.uic.eduがブロック対象〉により本文未確認)
+    </li>
+    <li>ScienceDaily. "Eating only 8 hours a day may help control Type 1 diabetes."
+      <a href="https://www.sciencedaily.com/releases/2026/09/260909231740.htm" target="_blank">https://www.sciencedaily.com/releases/2026/09/260909231740.htm</a>(基準日:2026年9月9日。ネットワーク制限〈sciencedaily.comがブロック対象〉により本文への直接アクセスはできず、検索エンジン経由の要約による)
+    </li>
+    <li>MedicalXpress. "Intermittent fasting may help type 1 diabetics control their blood sugar levels."
+      <a href="https://medicalxpress.com/news/2026-08-intermittent-fasting-diabetics-blood-sugar.html" target="_blank">https://medicalxpress.com/news/2026-08-intermittent-fasting-diabetics-blood-sugar.html</a>(URLの表記は2026年8月だが、内容は同じ研究に関する2026年9月上旬の一連の報道と同一とみられる。ネットワーク制限〈medicalxpress.comがブロック対象〉により本文未確認で、正確な公開日はこの記事内で確定できていない)
+    </li>
+  </ol>
+  <p style="margin-top:8px; font-size:0.78rem;">※ ネットワーク制限により、主要な一次資料(論文本文・大学プレスリリース本文)に本セッションから直接アクセスできなかったため、検索エンジンで得られる複数の独立した要約・引用箇所を突き合わせ、内容が一致した範囲に限定して記載しています。最新かつ正確な数値・著者情報・公開日は、各DOI・URL先で改めてご確認いただくことをお勧めします。</p>
+</div>
+
+</div>
+</body>
+</html>
