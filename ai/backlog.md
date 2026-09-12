@@ -106,6 +106,7 @@
 - 2026-09-10: XPeng IRON ヒューマノイドロボット生産ライン稼働（2026年9月8日・広州）・世界初の高度ヒューマノイドロボット自動化生産ラインとXPengが主張・コアプロセス自動化率80%超・IRON自律歩行デモ・身長178cm/体重70kg/全身76DoF/手のひら各21DoF・自社製Turing AIチップ×3基/合計2,250TOPS・物理AI基盤モデルをオンデバイスで動作・2026年末量産/2027年商業展開予定・Tesla Optimus遅延の中での発表（出典：XPeng公式 / CnEVPost / Electrek / Seoul Economic Daily / The AI Insider・2026年9月）
 - 2026-09-11: カリフォルニア州AI独立監査義務化（AB 1405・SB 813）・ニューサム知事署名（2026年9月9日）・全米初・AI監査員登録名簿（California Government Operations Agency運営）・2029年1月1日から未登録者によるAI監査禁止・SB 813は独立検証機関（IVO）フレームワーク構築・両法で「対象AI監査」＝州法コンプライアンスに必要な内部統制・プロセスの評価と定義（出典：gov.ca.gov / QZ.com / KION Central Coast / Wiley Law / Xinhua・2026年9月9日）
 - 2026-09-12: Sakana AI Fugu Max v1.0 / Fugu Ultra v2.0（2026年9月10〜11日公開）・東京発AIスタートアップ・マルチエージェント・オーケストレーション（複数AIを指揮する AI）・ユーザーには単一モデルAPIとして見える・ICLR 2026論文「TRINITY」「Conductor」が基盤・Ultra v2：Chartography 48.3（Claude Opus 5 27.3超え・自己申告）・DeepSWE 74.3・API料金$5/$30（公式要確認）・1Mトークンコンテキスト・Max v1.0：コスト効率重視・パラメータ1行でアップグレード可（出典：Sakana AI公式ブログ / MarkTechPost・2026年9月10〜11日）
+- 2026-09-13: Gemini 3.8 Flash / 3.8 Flash Cyber（2026年9月2日リリース）・AIエージェント向け最速フラッシュモデル・6週間で3世代連続更新（3.6→3.7→3.8）・全ベンチマークで3.7 Flash超えとGoogle発表・1Mトークンコンテキスト・最大出力65,536トークン・テキスト/画像/音声/動画のマルチモーダル・API料金$0.75/$3.75（2026年末まで、2027年1月から$1.50/$7.50）・Cyber版はFairwindプログラム審査通過の守備担当セキュリティ専門チーム限定・CBRN安全対策あり（出典：Google公式ブログ / VentureBeat / Qz.com / helpnetsecurity.com・2026年9月2〜3日）
 
 ## 未解説の候補トピック（今後の参考）
 
