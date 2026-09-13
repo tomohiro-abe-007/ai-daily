@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-09-14</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #2a4d7a 0%, #10233f 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #2a4d7a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.blue   { border-left-color: #1e5a7a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.green  { border-left-color: #1e7a5a; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #2a4d7a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin: 14px 0;
+  }
+  .stats-row.c3 { grid-template-columns: repeat(3, 1fr); }
+  .stats-row.c2 { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 12px 6px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat.now { background: #fff3e0; box-shadow: 0 0 0 2px #c8884a inset; }
+  .stat .sl { font-size: 0.62rem; color: #888; margin-bottom: 3px; line-height: 1.4; }
+  .stat .sv { font-size: 1.05rem; font-weight: 700; color: #2a4d7a; line-height: 1.15; }
+  .stat.now .sv { color: #c8884a; }
+  .stat .su { font-size: 0.62rem; color: #666; margin-top: 2px; }
+
+  .bignum {
+    background: white;
+    border-radius: 12px;
+    padding: 18px 14px;
+    text-align: center;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.1);
+    border: 2px dashed #c8884a;
+    margin: 14px 0;
+  }
+  .bignum .bl { font-size: 0.76rem; color: #888; margin-bottom: 6px; }
+  .bignum .bv { font-size: 1.7rem; font-weight: 700; color: #c8884a; line-height: 1.3; }
+  .bignum .bs { font-size: 0.76rem; color: #666; margin-top: 6px; line-height: 1.6; }
+
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #2a4d7a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-num.now { background: #b54040; }
+  .f-num.later { background: #999; }
+  .f-num.opt { background: #c8884a; }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+  .f-arrow { color: #2a4d7a; font-size: 1.1rem; margin-left: 14px; margin-bottom: 4px; }
+
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  table.cmp {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.83rem;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.08);
+  }
+  table.cmp th, table.cmp td {
+    border: 1px solid #e4dccd;
+    padding: 9px 10px;
+    line-height: 1.55;
+    vertical-align: top;
+  }
+  table.cmp thead th { background: #2a4d7a; color: white; font-weight: 600; text-align: center; }
+  table.cmp tbody th { background: #f5efe2; color: #5a4020; text-align: left; font-weight: 600; white-space: nowrap; }
+  table.cmp td { color: #444; text-align: left; }
+  table.cmp td.hi { background: #fff3e0; font-weight: 700; color: #c8884a; }
+  table.cmp td.ok { background: #eaf7ef; font-weight: 700; color: #1e7a5a; }
+  .wrap-x { overflow-x: auto; }
+
+  .info {
+    background: #e8eef8;
+    border-left: 4px solid #2a4d7a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #16294a;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #7a4010;
+  }
+
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #2a4d7a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #2a4d7a; word-break: break-all; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #2a4d7a; }
+
+  .split-wrap {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 10px;
+    align-items: center;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .split-wrap { grid-template-columns: 1fr; } }
+  .split-card {
+    border-radius: 10px;
+    padding: 16px 14px;
+    text-align: center;
+    background: #fff3e0;
+    border: 2px solid #c8884a;
+  }
+  .split-card.blue { background: #e8eef8; border-color: #2a4d7a; }
+  .split-card .vl { font-size: 0.75rem; font-weight: 700; margin-bottom: 6px; color: #7a4010; }
+  .split-card.blue .vl { color: #16294a; }
+  .split-card .vv { font-size: 1.5rem; font-weight: 700; color: #c8884a; }
+  .split-card.blue .vv { color: #2a4d7a; }
+  .split-card .vs { font-size: 0.72rem; color: #777; margin-top: 4px; }
+  .split-mid { text-align: center; font-size: 1.3rem; color: #999; font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Header -->
+<div class="header">
+  <div class="meta">📅 1人法人スタート 最新トピック &nbsp;2026-09-14</div>
+  <h1>🧮「週30時間だから大丈夫」は早合点かも<br>──社会保険の「4分の3基準」、実は月の日数も見ています</h1>
+  <div class="desc">
+    <span class="htag">社会保険</span>
+    <span class="htag">4分の3基準</span>
+    <span class="htag">短時間労働者</span>
+    <span class="htag">日本年金機構</span>
+    <br>
+    9/8記事で「パートの社会保険加入は、会社の規模を問わず『4分の3基準』で決まる」と紹介しました。このとき目安として挙げたのは<strong>「週30時間」という労働時間だけ</strong>でしたが、実はこの基準、<span class="hl">1週間の労働時間」と「1か月の労働日数」の両方</span>を見て判定します。今日はこの見落としやすいもう1つの軸を整理します。
+  </div>
+</div>
+
+<!-- Section 1: おさらい -->
+<div class="card blue">
+  <div class="sec-title">🔁 おさらい:「4分の3基準」とは</div>
+  <p>社会保険(健康保険・厚生年金)は、原則として<strong>正社員(通常の労働者)</strong>が加入するものですが、パート・アルバイトであっても、<span class="hlo">1週間の所定労働時間(あらかじめ決められた働く時間)</span>と<span class="hlo">1か月の所定労働日数(あらかじめ決められた働く日数)</span>が、同じ職場の正社員の<strong>4分の3以上</strong>あれば、正社員と同じように社会保険の加入対象(被保険者)になります。</p>
+  <p style="margin-top:8px;">この「4分の3基準」は、会社の従業員数に関係なく、<span class="hl">1人社長の小さな会社にも等しく適用される原則ルール</span>です。9/8記事で扱った「短時間労働者の4要件(週20時間以上など)」は、51人超の会社(特定適用事業所)・または任意特定適用事業所(8/9・9/13記事)だけに追加で適用される<strong>別枠のルール</strong>である点も、あわせて思い出してください。</p>
+</div>
+
+<!-- Section 2: 見落としやすい2軸 -->
+<div class="card orange">
+  <div class="sec-title">⚖️ 「4分の3」は2つの物差しで測る</div>
+  <p>4分の3基準は、次の<span class="hl">2つの条件を両方とも</span>満たして初めて成立します。どちらか一方だけでは足りません。</p>
+
+  <div class="split-wrap">
+    <div class="split-card blue">
+      <div class="vl">📅 1週間の所定労働時間</div>
+      <div class="vv">正社員の4分の3以上</div>
+      <div class="vs">例: 正社員が週40時間なら<br><strong>週30時間以上</strong>(40×3/4)</div>
+    </div>
+    <div class="split-mid">+</div>
+    <div class="split-card">
+      <div class="vl">🗓️ 1か月の所定労働日数</div>
+      <div class="vv">正社員の4分の3以上</div>
+      <div class="vs">例: 正社員が月20日なら<br><strong>月15日以上</strong>(20×3/4)</div>
+    </div>
+  </div>
+
+  <div class="info">
+    📌 「週30時間」という数字だけが独り歩きしがちですが、これは正社員が週40時間・月20日勤務の会社での一例にすぎません。正社員の所定労働時間・日数が変われば、3/4のラインも変わります。そして<strong>両方の条件を満たして初めて</strong>4分の3基準に該当します。
+  </div>
+</div>
+
+<!-- Section 3: 判定パターン表 -->
+<div class="card">
+  <div class="sec-title">📊 4パターンで見る判定結果</div>
+  <p>正社員が週40時間・月20日勤務の会社を例に、パートの働き方ごとに4分の3基準に該当するかを整理すると、次のようになります。</p>
+
+  <div class="wrap-x">
+  <table class="cmp">
+    <thead>
+      <tr><th>週の労働時間</th><th>月の労働日数</th><th>4分の3基準の判定</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>週30時間以上</td><td>月15日以上</td><td class="ok">✅ 該当 → 会社規模を問わず加入対象</td></tr>
+      <tr><td>週30時間以上</td><td>月15日<strong>未満</strong></td><td class="hi">❌ 非該当 → 4要件(該当する会社のみ)を確認</td></tr>
+      <tr><td>週30時間<strong>未満</strong></td><td>月15日以上</td><td class="hi">❌ 非該当 → 4要件(該当する会社のみ)を確認</td></tr>
+      <tr><td>週30時間未満</td><td>月15日未満</td><td class="hi">❌ 非該当 → 4要件を満たせば対象の可能性あり</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p style="margin-top:8px; font-size:0.85rem; color:#666;">※「週30時間以上だが月の出勤日数が少ないシフト」や「フルタイムに近い日数だが時短勤務」のように、<strong>どちらか一方だけ満たすケース</strong>は、4分の3基準としては非該当になる点に注意してください。</p>
+</div>
+
+<!-- Section 4: 非該当でも入れる場合がある -->
+<div class="card red">
+  <div class="sec-title">🚶 4分の3基準に非該当でも、入れる道がある</div>
+  <p>4分の3基準を満たさなかったパートでも、勤務先の会社が特定の条件を満たしていれば、<strong>別ルール(短時間労働者の4要件)</strong>で社会保険に加入できる場合があります。判定の流れを整理すると、次のようになります。</p>
+
+  <div class="f-step">
+    <div class="f-num">①</div>
+    <div class="f-text">週の所定労働時間・月の所定労働日数の<strong>両方</strong>が正社員の4分の3以上か確認する</div>
+  </div>
+  <div class="f-arrow">▼ 満たさない場合</div>
+  <div class="f-step">
+    <div class="f-num later">②</div>
+    <div class="f-text">自社が<strong>特定適用事業所(従業員51人超)</strong>、または<strong>任意特定適用事業所</strong>(8/9・9/13記事)に該当するか確認する</div>
+  </div>
+  <div class="f-arrow">▼ 該当する場合のみ</div>
+  <div class="f-step">
+    <div class="f-num opt">③</div>
+    <div class="f-text">短時間労働者の4要件(週20時間以上・月額8.8万円以上・雇用見込み2か月超・学生でない)を確認する</div>
+  </div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step">
+    <div class="f-num now">④</div>
+    <div class="f-text">4要件をすべて満たせば加入、1つでも満たさなければ<strong>社会保険の加入対象外</strong>(国民健康保険・国民年金の対象)</div>
+  </div>
+
+  <div class="warn" style="margin-top:12px;">
+    ⚠️ 特定適用事業所にも任意特定適用事業所にも該当しない1人社長の会社では、②で行き止まりになります。つまり、週20時間しか働かないパートは、4分の3基準にも4要件にも届かず、社会保険には加入できません。
+  </div>
+</div>
+
+<!-- Section 5: 2026年10月改正との関係 -->
+<div class="card blue">
+  <div class="sec-title">🔟 2026年10月改正との関係</div>
+  <p>8/2記事で扱ったとおり、2026年10月からは短時間労働者の4要件のうち<span class="hl">「月額8.8万円以上」という賃金要件が撤廃</span>されます。ただし、これは<strong>4要件(特定適用事業所・任意特定適用事業所だけに適用される別枠ルール)</strong>の話であり、今日扱った<strong>4分の3基準(会社規模を問わず適用される原則ルール)</strong>そのものは、この改正の対象ではありません。2つの基準を混同しないよう注意してください。</p>
+</div>
+
+<!-- Section 6: 1人社長が気をつけるポイント -->
+<div class="card green">
+  <div class="sec-title">🌱 1人社長が気をつけたいポイント</div>
+  <ul class="check-list">
+    <li><span class="ck">✓</span>パートの労働条件を決めるときは、<strong>週の時間だけでなく、月に何日出勤してもらうか</strong>もあわせて確認する</li>
+    <li><span class="ck">✓</span>自社に正社員がいない場合、比較対象となる「通常の労働者」は同種の業務に従事する一般的な労働者の実態を踏まえて判断されるため、迷う場合は年金事務所に確認する</li>
+    <li><span class="ck">✓</span>「週30時間」という数字だけを覚えて安心せず、<strong>自社の正社員の所定労働時間・日数から逆算</strong>してラインを確認する習慣をつける</li>
+  </ul>
+</div>
+
+<!-- Section 7: まとめ -->
+<div class="card">
+  <div class="sec-title">📝 今日のまとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">①</span>社会保険の「4分の3基準」は、会社の規模を問わず適用される原則ルール。</li>
+    <li><span class="n">②</span>判定は<strong>「週の所定労働時間」と「月の所定労働日数」の2つの物差し</strong>で、両方が正社員の4分の3以上のときに該当する。</li>
+    <li><span class="n">③</span>どちらか一方だけ満たしても、4分の3基準としては非該当になる。</li>
+    <li><span class="n">④</span>非該当でも、会社が特定適用事業所・任意特定適用事業所なら「短時間労働者の4要件」で加入できる場合がある。</li>
+    <li><span class="n">⑤</span>2026年10月の賃金要件撤廃は4要件側の改正であり、4分の3基準そのものには影響しない。</li>
+  </ul>
+
+  <div class="source">
+    📚 出典:日本年金機構「短時間労働者に対する健康保険・厚生年金保険の適用の拡大」(nenkin.go.jp/service/kounen/tekiyo/jigyosho/tanjikan.html)。2026年9月(令和8年度)時点で確認できた公表情報にもとづきます。
+  </div>
+</div>
+
+<!-- Disclaimer -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報提供を目的としたものであり、個別の社会保険に関するアドバイスではありません。社会保険への加入判定は、実際の勤務実態や会社ごとの正社員の所定労働時間・日数によって結論が変わります。
+  実際の判定にあたっては、社会保険労務士や年金事務所にご相談ください。<br>
+  <strong>本記事の基準:</strong>2026年9月(令和8年度)時点で確認できた公表情報にもとづいています。制度は改正されることがあるため、翌年度以降にご覧の場合は必ず最新の日本年金機構の情報をご確認ください。
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>📚 <a href="index.html">バックナンバー一覧へ</a> &nbsp;&middot;&nbsp; 毎朝更新</p>
+</div>
+
+</div>
+</body>
+</html>
