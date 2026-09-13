@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-09-14</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '💊';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.9rem; margin-bottom: 8px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.1em; }
+  .c3-col li { margin-bottom: 4px; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  .quote-box {
+    background: #f5f0e8;
+    border-left: 4px solid #7a5abf;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    margin: 12px 0;
+    color: #444;
+    font-style: italic;
+  }
+  .quote-box .who { font-style: normal; font-weight: 700; color: #5a3a9a; margin-top: 6px; font-size: 0.78rem; }
+  .matrix {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .mx-cell {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .mx-cell .mx-head { font-weight: 700; font-size: 0.88rem; margin-bottom: 6px; }
+  .mx-cell.ok  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .mx-cell.ok  .mx-head { color: #1a6e4a; }
+  .mx-cell.ng  { background: #fbe8e6; border: 2px solid #c0392b; }
+  .mx-cell.ng  .mx-head { color: #a0291e; }
+  @media (max-width: 540px) {
+    .compare4 { grid-template-columns: 1fr; }
+    .matrix { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.7rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ヘッダー -->
+<div class="header">
+  <div class="label">健康・栄養 最新トピック ・ 2026-09-14</div>
+  <h1>ビタミンD3を「毎日少しずつ」飲むか「週1回まとめて」飲むか──87人のRCTで、8週間後の睡眠の質に差が出た</h1>
+  <div class="subtitle">インド・MSラマイヤ医科大学のLakshmi Priya Lalithaさんらの研究チームが、ビタミンD3が不足している成人87人を「毎日6,000IU」群(42人)と「週1回60,000IU」群(45人)にランダムに分け、8週間後の睡眠の質(PSQIという質問票で測定)を比べる単盲検ランダム化比較試験(RCT)をNeurology India誌に発表しました(DOI: 10.4103/neurol-india.Neurol-India-D-26-00162、2026年8月19日オンライン公開)。8週間後のPSQI合計点は毎日群が平均8.46、週1回群が9.93で、毎日群のほうが統計的に有意に低く(点数が低いほど睡眠の質が良いとされる、P=0.024)、睡眠時間や日中の機能障害の項目でも毎日群のほうが良い結果でした。ただし2つの群は総摂取量そのものが同じではなく、単一施設・単盲検・87人という規模の試験であることにも注意が必要です。「摂り方(頻度・1回量)」がなぜ結果に関わりうるのかを、賛否両論あるビタミンD業界の議論とあわせてやさしく解説します。</div>
+</div>
+
+<!-- タグ -->
+<div style="margin-bottom:18px;">
+  <span class="tag">精密栄養学</span>
+  <span class="tag">ビタミンD</span>
+  <span class="tag">睡眠と健康の科学</span>
+  <span class="tag">サプリの摂り方</span>
+  <span class="tag">RCTの読み方</span>
+</div>
+
+<!-- 今日の疑問 -->
+<div class="card">
+  <h2>🤔 今日の疑問:「同じビタミンDサプリでも、"毎日少しずつ"と"週1回まとめて"で結果は変わる?」</h2>
+  <p>ビタミンD(骨の健康や免疫にかかわり、日光を浴びると皮膚でも作られる脂溶性ビタミン)のサプリは、「毎日1錠」タイプもあれば「週1回まとめて高用量」タイプもあり、薬局や通販でもよく見かけます。「結局、体に入る量が同じくらいなら、どちらでも同じ効果では?」と思う人も多いはずです。</p>
+  <p>今回紹介する研究は、ビタミンD3が不足している成人を対象に、「毎日少量」と「週1回まとめて」で睡眠の質に違いが出るかを、実際にくじ引き式に割り付けて比べたランダム化比較試験(RCT)です。</p>
+</div>
+
+<!-- 基本用語 -->
+<div class="card blue">
+  <h2>📖 まず言葉の意味を</h2>
+  <div class="def-grid">
+    <div class="def-item">
+      <div class="dterm">ビタミンD3(コレカルシフェロール)</div>
+      日光や一部の食品から得られる脂溶性ビタミンの一種。骨の健康・カルシウム吸収・免疫などに関わり、不足すると倦怠感や骨の問題につながるとされる。
+    </div>
+    <div class="def-item">
+      <div class="dterm">IU(国際単位)</div>
+      ビタミンなどの効力を表す単位。今回の研究では毎日6,000IU、または週1回60,000IUを摂取。
+    </div>
+    <div class="def-item">
+      <div class="dterm">PSQI(ピッツバーグ睡眠質問票)</div>
+      主観的な睡眠の質を点数化する質問票。点数が低いほど睡眠の質が良いとされる、自己申告(本人の答え)に基づく指標。
+    </div>
+    <div class="def-item">
+      <div class="dterm">単盲検(たんもうけん)</div>
+      研究に関わる人のうち一部だけが、どちらのグループかを伏せられている試験デザイン。参加者・研究者の双方が伏せられる「二重盲検」より、思い込みの影響を受けやすいとされる。
+    </div>
+    <div class="def-item">
+      <div class="dterm">ボーラス投与</div>
+      少量を頻繁に摂るのではなく、まとめて大きな量を一度に(または低頻度で)摂取する方法。週1回・月1回タイプのビタミンD3はこれにあたる。
+    </div>
+    <div class="def-item">
+      <div class="dterm">ランダム化比較試験(RCT)</div>
+      参加者をくじ引きのようにランダムに複数のグループへ振り分けて効果を比べる、観察研究より証拠として強いとされる研究デザイン。
+    </div>
+  </div>
+</div>
+
+<!-- 数字カード -->
+<div class="num-row">
+  <div class="num-card gray-bg">
+    <div class="big">87<span class="unit">人</span></div>
+    <div class="desc">参加したビタミンD3不足の成人(インド・単一施設)</div>
+  </div>
+  <div class="num-card blue-bg">
+    <div class="big">6,000<span class="unit">IU/日</span></div>
+    <div class="desc">毎日群(42人)が8週間摂取した1日あたりの量</div>
+  </div>
+  <div class="num-card orange-bg">
+    <div class="big">60,000<span class="unit">IU/週</span></div>
+    <div class="desc">週1回群(45人)が8週間摂取した1回あたりの量</div>
+  </div>
+  <div class="num-card">
+    <div class="big">8.46<span class="unit">vs 9.93</span></div>
+    <div class="desc">8週間後のPSQI合計点(毎日群 vs 週1回群、低いほど良い、P=0.024)</div>
+  </div>
+</div>
+
+<!-- 何がわかったか -->
+<div class="card orange">
+  <h2>🔍 2つのグループ、何をして何がわかった?</h2>
+  <div class="compare4">
+    <div class="c3-col blue">
+      <h3>🔵 毎日群(42人)</h3>
+      <ul>
+        <li>ビタミンD3を6,000IU、毎日8週間摂取</li>
+        <li>8週間の総摂取量は約336,000IU</li>
+      </ul>
+    </div>
+    <div class="c3-col orange">
+      <h3>🟠 週1回群(45人)</h3>
+      <ul>
+        <li>ビタミンD3を60,000IU、週1回×8週間摂取</li>
+        <li>8週間の総摂取量は約480,000IU(毎日群より多い)</li>
+      </ul>
+    </div>
+    <div class="c3-col green">
+      <h3>🟢 8週間後の結果</h3>
+      <ul>
+        <li>PSQI合計点は毎日群のほうが有意に低い(良い)。睡眠時間・日中の機能障害の項目でも毎日群が優勢</li>
+      </ul>
+    </div>
+    <div class="c3-col purple">
+      <h3>🟣 注意したい点</h3>
+      <ul>
+        <li>総摂取量が異なるため、「頻度」と「総量」どちらの影響かは切り分けられない</li>
+      </ul>
+    </div>
+  </div>
+  <p style="font-size:0.82rem; color:#555; margin-top:8px;">出典:Lalitha LP, et al. <em>Neurology India</em>. 2026 Aug 19. DOI: 10.4103/neurol-india.Neurol-India-D-26-00162。当セッションのネットワーク制限によりPubMed本文へ直接アクセスできず、検索エンジン経由で得られた要約に基づく。</p>
+</div>
+
+<!-- どうやって調べたか -->
+<div class="card purple">
+  <h2>🔬 どうやって調べた研究?</h2>
+  <div class="flow">
+    <div class="flow-step purp">① インドの単一施設(MSラマイヤ<br>医科大学)でビタミンD3が<br>不足している成人87人を募集</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step">② くじ引き式に毎日群(42人)・<br>週1回群(45人)へランダムに割付<br>(1:1を目標に割付、単盲検)</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step alt">③ 8週間、指定された用法で<br>ビタミンD3を摂取してもらう</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step warn2">④ 8週間後にPSQIで<br>睡眠の質を比較し、<br>Neurology India誌に発表</div>
+  </div>
+  <p style="font-size:0.82rem; color:#555; margin-top:4px;">参加者を実際にランダムに2グループへ割り付けて追跡した、介入試験(RCT)。観察研究や動物実験ではない。ビタミンD3不足の具体的な判定基準(血中濃度の数値など)は、検索エンジン経由の要約からは確認できていない。</p>
+</div>
+
+<!-- 精密栄養学の視点 -->
+<div class="card">
+  <h2>🧬 精密栄養学の視点:「摂り方」は栄養素の効果を左右するのか?</h2>
+  <p>「同じ栄養素を摂るなら、量さえ合っていれば摂り方(頻度・1回量)は関係ない」と思われがちですが、実はビタミンD研究の世界には、まとめて大量に摂る「ボーラス投与」の是非をめぐる専門家どうしの論争があります。2021年のMazessさんらによる総説(narrative review)は、まとめ投与だと血中濃度が急上昇・急降下しやすく、体が過剰分を分解する酵素(24-水酸化酵素)が働きやすくなって、かえって効きが悪くなる可能性を指摘しました。一方で2022年のWimalawansaさんによる反論では、最初の1回だけ多めに摂り、その後きちんと毎日の維持量を続ければ問題ないと主張されています。今回の研究はこの論争に直接決着をつけるものではありませんが、「毎日コツコツ」と「週1回まとめて」で睡眠という体感に近い指標に差が出た点は、精密栄養学が「量」だけでなく「摂取パターン」にも注目する理由のひとつを示しています。</p>
+  <div class="matrix">
+    <div class="mx-cell ok">
+      <div class="mx-head">✅ 今回の試験でわかったこと</div>
+      毎日群は週1回群よりPSQI合計点・睡眠時間・日中の機能障害が統計的に有意に改善した(8週間後、n=87)
+    </div>
+    <div class="mx-cell ng">
+      <div class="mx-head">❓ まだわからないこと</div>
+      それぞれの群で血中ビタミンD濃度が実際にどう変化したか、なぜ差が出たかの生理学的な仕組み、総摂取量をそろえた場合にも同じ差が出るか
+    </div>
+  </div>
+</div>
+
+<!-- 限界 -->
+<div class="warn">
+  <strong>⚠️ この研究だけでは言えないこと</strong>
+  <ul style="padding-left:1.4em; margin-top:8px;">
+    <li>参加者87人・単一施設というやや小規模な試験であり、他の国・人種・年齢層にそのまま当てはまるとは限らない。</li>
+    <li>単盲検であり、二重盲検(参加者・研究者の双方が伏せられる設計)ではないため、思い込みの影響を完全には排除できない。</li>
+    <li>毎日群と週1回群は総摂取量そのものが異なる(週1回群のほうが多い)ため、「頻度の違い」の効果なのか「総量の違い」の効果なのかを、この試験だけでは切り分けられない。</li>
+    <li>PSQIは本人の自己申告による主観的な質問票であり、アクチグラフィーや睡眠ポリグラフのような客観的な睡眠測定ではない。</li>
+    <li>ビタミンD3不足の具体的な判定基準や、実際に到達した血中ビタミンD濃度の数値は、検索エンジン経由の要約からは確認できていない。</li>
+    <li>当セッションのネットワーク制限(pubmed.ncbi.nlm.nih.gov・academic.oup.com・onlinelibrary.wiley.com等がブロック対象)により、論文本文に直接アクセスできず、検索エンジン経由で得られた複数の要約を突き合わせ、内容が一致した範囲に限定して紹介している。</li>
+  </ul>
+</div>
+
+<!-- エビデンスの整理 -->
+<div class="card">
+  <h2>🧪 今日出てきた情報の「証拠としての強さ」の目安</h2>
+  <table class="ev-table">
+    <tr><th>情報の種類</th><th>特徴</th><th>証拠としての強さ</th></tr>
+    <tr>
+      <td>毎日群のほうがPSQI(睡眠の質)が有意に改善</td>
+      <td>単一施設・単盲検RCT、n=87</td>
+      <td><span class="ev-badge ev-mid">中程度(RCTだが小規模・単施設・単盲検)</span></td>
+    </tr>
+    <tr>
+      <td>毎日と週1回で血中ビタミンD濃度の改善に差はない</td>
+      <td>8件のRCTを統合したメタ分析、542人(Bortolussi-Courvalら, 2024)</td>
+      <td><span class="ev-badge ev-high">比較的高い(メタ分析、ただし睡眠ではなく血中濃度が対象)</span></td>
+    </tr>
+    <tr>
+      <td>まとめ投与(ボーラス)は体内で分解されやすく非効率という説</td>
+      <td>専門家の総説(narrative review)であり、反論も存在</td>
+      <td><span class="ev-badge ev-low">材料不足(専門家間で意見が分かれる)</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- 実践 -->
+<div class="card orange">
+  <h2>🍽️ 今日から意識できること</h2>
+  <ul class="step-list">
+    <li>ビタミンDサプリを検討する場合、自己判断で量や頻度を決めず、血液検査で自分の血中濃度を確認したうえで医師・薬剤師に相談する。</li>
+    <li>「毎日 vs 週1回」のどちらが優れているかは、今回の1件の小規模試験だけでは結論づけられないと理解しておく。</li>
+    <li>睡眠の質に悩んでいる場合、ビタミンDだけに頼らず、睡眠時間・光環境・運動・カフェインなど生活習慣全体を見直すことも大切。</li>
+    <li>サプリのラベルにある「毎日タイプ」「週1回タイプ」は、それぞれ総摂取量が異なる場合があるため、量だけでなく用法もあわせて確認する。</li>
+  </ul>
+</div>
+
+<!-- まとめ -->
+<div class="card" style="border-left-color:#1a7a5a;">
+  <h2>✅ 今日のまとめ</h2>
+  <ul class="step-list">
+    <li>インド・MSラマイヤ医科大学のLakshmi Priya Lalithaさんらの研究チームが、ビタミンD3不足の成人87人を毎日群(42人・6,000IU/日)と週1回群(45人・60,000IU/週)に分け、8週間後の睡眠の質を比べる単盲検RCTをNeurology India誌に発表した(DOI: 10.4103/neurol-india.Neurol-India-D-26-00162)。</li>
+    <li>8週間後のPSQI合計点は毎日群8.46、週1回群9.93で、毎日群のほうが統計的に有意に良く(P=0.024)、睡眠時間・日中の機能障害でも毎日群が優勢だった。</li>
+    <li>ただし2群は総摂取量そのものが異なり(週1回群のほうが多い)、単一施設・単盲検・87人という規模の試験であるため、「頻度」だけの効果と言い切ることはできない。</li>
+    <li>まとめ投与(ボーラス)の是非は専門家の間でも意見が分かれており、今後、総量をそろえた大規模な追試が待たれる。</li>
+  </ul>
+</div>
+
+<!-- 免責 -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、医療アドバイスではありません。効果・必要量・リスクは個人の体質・年齢・持病・服薬によって大きく異なり、とくにビタミンDは過剰摂取により健康被害が生じることもあります。本記事は特定のサプリメントの摂取を推奨するものではありません。ビタミンDのサプリメントの利用を検討する場合は、自己判断で量や頻度を決めず、かかりつけ医・薬剤師・管理栄養士など専門家にご相談ください。
+</div>
+
+<!-- 出典 -->
+<div class="sources">
+  <h3>📚 主な出典・参考文献</h3>
+  <ol>
+    <li>Lalitha LP, Rangaiah P, Mehta A, Javali M, Acharya PT, Somanna SN. "Effect of Vitamin D3 Supplementation on Sleep Quality in Deficient Adults: A Randomized Controlled Trial." <em>Neurology India</em>. 2026 Aug 19. DOI: 10.4103/neurol-india.Neurol-India-D-26-00162. PMID: 42619227.
+      <a href="https://pubmed.ncbi.nlm.nih.gov/42619227/" target="_blank">https://pubmed.ncbi.nlm.nih.gov/42619227/</a>(基準日:2026年8月19日オンライン公開。当セッションのネットワーク制限〈pubmed.ncbi.nlm.nih.govがブロック対象〉により本文へ直接アクセスできず、検索エンジン経由の要約による。ビタミンD3不足の判定基準・詳しい統計値は未確認)
+    </li>
+    <li>臨床試験登録:Clinical Trial Registry of India, CTRI/2024/01/061970(登録日:2024年1月29日)。上記論文の元になった試験の登録情報として検索エンジン経由で確認(登録ページへの直接アクセスは未実施)。
+    </li>
+    <li>Bortolussi-Courval É, Prosty C, Lee JJ, McCarthy LM, et al. "Efficacy of weekly versus daily cholecalciferol for repleting serum vitamin D (25(OH)D) deficiency: A systematic review and meta-analysis of randomized controlled trials." <em>Basic & Clinical Pharmacology & Toxicology</em>. 2024;135(6):685-692. DOI: 10.1111/bcpt.14092. PMID: 39396907.
+      <a href="https://pubmed.ncbi.nlm.nih.gov/39396907/" target="_blank">https://pubmed.ncbi.nlm.nih.gov/39396907/</a>(基準日:2024年12月。ネットワーク制限により本文未確認、検索エンジン経由の要約による。血中濃度を対象とした研究であり、睡眠の質は評価していない)
+    </li>
+    <li>Mazess RB, Bischoff-Ferrari HA, Dawson-Hughes B. "Vitamin D: Bolus Is Bogus—A Narrative Review." <em>JBMR Plus</em>. 2021;5(12):e10567. DOI: 10.1002/jbm4.10567.
+      <a href="https://doi.org/10.1002/jbm4.10567" target="_blank">https://doi.org/10.1002/jbm4.10567</a>(基準日:2021年12月。ネットワーク制限により本文未確認、検索エンジン経由の要約による)
+    </li>
+    <li>Wimalawansa SJ. "Vitamin D: A single initial dose is not bogus if followed by an appropriate maintenance intake." <em>JBMR Plus</em>. 2022;6(3):e10606. DOI: 10.1002/jbm4.10606.(基準日:2022年3月。上記Mazessらの総説への反論として検索エンジン経由で確認、本文未確認)
+    </li>
+  </ol>
+  <p style="margin-top:8px; font-size:0.78rem;">※ ネットワーク制限により、主要な一次資料(論文本文)に本セッションから直接アクセスできなかったため、検索エンジンで得られる複数の要約・引用箇所を突き合わせ、内容が一致した範囲に限定して記載しています。最新かつ正確な数値・判定基準・血中濃度データは、各DOI・URL先で改めてご確認いただくことをお勧めします。</p>
+</div>
+
+</div>
+</body>
+</html>
