@@ -2,6 +2,13 @@
 
 今後の記事候補。使ったテーマは削除し、新しく見つけた有望テーマは追記する。
 
+## 未使用テーマ（追記：2026-09-14 検索で見つけた有望テーマ）
+
+- 09-14記事(Lalitha LP, Rangaiah, Mehta, Javali, Acharya, Somanna, Neurology India 2026年8月19日, DOI: 10.4103/neurol-india.Neurol-India-D-26-00162)の続報候補 ── ビタミンD3不足の具体的な判定基準(血中25(OH)D濃度の数値)、実際に各群が到達した血中濃度の実測値、PSQIの下位項目(睡眠時間・日中の機能障害など)の詳しい統計値、単盲検で実際に伏せられていたのが参加者か評価者かの詳細が、論文本文で確認できれば深掘り記事化を検討。ネットワーク制限(pubmed.ncbi.nlm.nih.gov等がブロック対象)で本文未確認
+- ビタミンDの「ボーラス投与(まとめ摂取)」論争そのものを独立回にする ── Mazess・Bischoff-Ferrari・Dawson-Hughesら(JBMR Plus 2021, DOI: 10.1002/jbm4.10567)の"Bolus Is Bogus"総説と、Wimalawansaさん(JBMR Plus 2022, DOI: 10.1002/jbm4.10606)による反論を軸に、「まとめて摂る vs 毎日少しずつ摂る」という摂取パターンの違いが他の栄養素(鉄・カルシウムなど)にも当てはまるかを整理する「精密栄養学×摂り方」のエバーグリーン回として深掘り可能
+- One‐Year Weight Loss Following a Remote Culinary Medicine Program(Polak R, Budd MA, Finkelstein A, Goldsmith R, Goldstein R, Gray BE, Keshet R, Tirosh A, Obesity誌 2026;34(5):1045-1055, DOI: 10.1002/oby.70193, 2026年5月発表)── 遠隔・オンラインの「料理教室+健康コーチング」介入(50人、bi-center RCT、BMI27.5〜35・25〜70歳)が、12か月で対照群より体重4.30%多く減少したという報告。小規模(n=50)だが1年間追跡した数少ない料理教育系RCTとして、「食事内容そのものより"調理スキル"を教える介入」という切り口で独立記事化を検討。ネットワーク制限(onlinelibrary.wiley.com・pmc.ncbi.nlm.nih.gov・pubmed.ncbi.nlm.nih.gov・medscape.comがブロック対象)で本文・詳しい統計値(12か月時点のp値、体脂肪量の実測値)未確認
+- 「Efficacy of weekly versus daily cholecalciferol for repleting serum vitamin D (25(OH)D) deficiency」(Bortolussi-Courval É, Prosty C, Lee JJ, McCarthy LMら, Basic & Clinical Pharmacology & Toxicology 2024;135(6):685-692, DOI: 10.1111/bcpt.14092)── 8件のRCT・542人を統合したメタ分析で、血中ビタミンD濃度の改善に毎日・週1回で有意差はなかったという報告。09-14記事(睡眠アウトカムでは毎日群が優勢)との対比で「同じ"毎日vs週1回"というテーマでも、アウトカム(血中濃度か主観症状か)によって結論が変わりうる」という独立回に発展できるか検討。一次論文本文は未確認
+
 ## 未使用テーマ（追記：2026-09-13 検索で見つけた有望テーマ）
 
 - 09-13記事(Runchey MC, Corapi, Pavlou, Cienfuegos, Lin, Ezpeleta, Gabel, Tussing-Humphreys, Oddo, Alexandria, Sanchez, Unterman, Chow, Vidmar, Reutrakul, Varady, Diabetes Care 2026, DOI: 10.2337/dc26-1093)の続報候補 ── 体重変化の正確な信頼区間・p値、CGM(持続血糖モニター)を使ったTIR(Time in Range)データ、インスリン投与量の調整方法、参加者の人種・性別・糖尿病歴の内訳が、論文本文で確認できれば深掘り記事化を検討。ネットワーク制限(diabetesjournals.org・doi.org・today.uic.edu・sciencedaily.com・medicalxpress.comがブロック対象)で本文未確認
