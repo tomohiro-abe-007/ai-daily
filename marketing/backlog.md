@@ -106,6 +106,7 @@
 - 2026-09-12：TikTok Ads Manager「Campaign Health Status」入門 ── キャンペーンの健康状態をGood/Fair/Poorの3段階で一目表示する新機能に学ぶ、"なんとなく良さそう"をやめて数字で確認する習慣（TikTok For Business公式ブログ「Product Preview」Q3 2026・2026年7月下旬発表、アカウント全体のAccount Healthや検索広告向けHealth Moduleなど類似名称の機能と混同注意、全広告主・全地域への展開時期は公式で要確認）
 
 - 2026-09-13：Google Search Console「生成AIパフォーマンスレポート」全世界展開入門 ── 自分のサイトがAI Overviews・AI Modeにどれだけ表示されているかを無料の公式ツールで確認できるようになったことに学ぶ、AEO/GEOの実践・可視化編（Google公式ブログ2026年6月3日発表・一部サイト先行公開、2026年8月31日に世界中の全サイトへ展開完了とSearch Engine Journal・Search Engine Land等が報道、表示回数〔インプレッション〕のみが分かりクリック数・検索クエリは不明という制限あり、画面上の日本語表記・提供範囲は公式で要確認）
+- 2026-09-14：Campaign Monitor「Marketing Studio」入門 ── メール作成・翻訳・SNS投稿を1画面に統合した新ワークフローに学ぶ、コンテンツの使い回し（リパーパス）の考え方（Marigold社が2026年9月9日GlobeNewswireで発表、Brand Hub/Email Workspace/Creative Lab/Translation/Social Suiteの5機能構成、翻訳は7言語ワンクリック対応、対象プラン・日本語対応状況は公式で要確認）
 
 ## 今後追加したい有望テーマ
 
@@ -215,3 +216,5 @@
 - Google広告「AI Max」続報 ── 動的検索広告(DSA)は2027年2月に別日程で移行予定、事前告知の内容・移行後の成果影響を追跡（2026-09-11の基礎編に対する続報、詳細は公式で要確認）
 - TikTok「TopReach Max Reach」入門（要検討）── TopViewとTopFeedを1つにまとめた高単価の新広告枠（2026年7月下旬TikTok公式Q3プロダクトプレビューで発表、大型キャンペーン向けで予算規模が大きく個人・小規模事業者には不向きな可能性、詳細は公式で要確認。同時発表のCampaign Health Statusは2026-09-12で掲載済み）
 - TikTok Ads Manager「Pulse Custom Lineups」＆セルフサーブTopView予約入門 ── AIが選ぶ「人気上位4%のTikTok動画」の隣に広告を出せる仕組みがカナダで一般提供開始、TopViewキャンペーンも管理画面から自分で予約・管理できるように（2026年7月下旬TikTok公式Q3プロダクトプレビューで発表、米国・カナダでセルフサーブはQ3にオープンベータ、対応国・詳細は公式で要確認）
+- LinkedIn「コメント表示順の並べ替え」新機能入門 ── 時系列ではなく、閲覧者ごとの関心・つながり・エンゲージメントで関連性の高い返信を上位表示する新仕組み（2026年9月時点でBoot Camp Digital等が報道、投稿への返信の書き方・エンゲージメント戦略への影響を深掘りできる、発表日・詳細は公式で要確認）
+- Campaign Monitor「Marketing Studio」実践編・続報 ── 2026-09-14の基礎編に対する続報。日本語対応の有無、実際の翻訳精度のレビュー、他の統合型ツール（HubSpot Marketing Studio等）との比較（詳細は公式・利用レビューで要確認）
