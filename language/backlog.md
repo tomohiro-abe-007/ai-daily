@@ -33,7 +33,8 @@
 - 英語のno matter how/what/who/where/whenのまとめ（09-03のスペイン語por muy/mucho...queの逆向きブリッジ）── 08-27〜09-02のwhatever一家＋09-02のhoweverと、no matter系の対応をもう一段整理する
 - スペイン語のtú肯定命令の不規則形8つ（di/haz/ve/pon/sal/sé/ten/venなど）── 07-13・09-04の命令形の続編、よく使う不規則動詞をまとめて覚える
 - 英語の命令文の丁寧さの段階（Please.../Would you mind -ing?/Could you...?/Let's...）── 09-04のスペイン語nosotros/vosotros命令形の逆向きブリッジ、英語での丁寧さ調整の付け方を整理する
-- 英語のdespite/in spite of + 名詞(句)とalthough/even though + 節の書き換え ── 09-11のeven though/even ifの発展、接続詞から前置詞句への言い換えパターンを整理する
+- スペイン語のa pesar de + 名詞・不定詞とaunque + 動詞の書き換え（09-14の逆向きブリッジ）── despite/in spite ofと同じ「接続詞→前置詞」の書き換えパターンをスペイン語側で整理する
+- 英語のwhile/whereasの対比用法（「〜する一方で」）── although/despiteの「譲歩」とは別の「対比」を表す接続詞、09-14の品詞整理とあわせて紛らわしい2系統を切り分ける
 
 ## 解説済みテーマ
 
@@ -128,3 +129,4 @@
 - 2026-09-07: スペイン語のcomo si + 接続法（まるで〜であるかのように）と英語のas if/as though + 過去形/過去完了形 ── 09-05・09-06で作った接続法過去(fuera)・接続法過去完了(hubiera sabido)を「もし」から「まるで」に転用し、主節と「同時」か「それ以前」かで形を選ぶ発想を整理した
 - 2026-09-09: スペイン語のaunque + 直説法/接続法の使い分け（1語で「〜だけれど」にも「たとえ〜でも」にもなる）── 事実の譲歩(直説法)と仮定・重要でない譲歩(接続法)を、話し手の気持ちで選ぶ発想を整理し、英語のeven though/even ifが2つの別単語で表す同じ区別への橋渡しを示した
 - 2026-09-11: 英語のeven though/even ifの使い分け（事実の譲歩と仮定・不確かな譲歩を2つの別単語で言い分ける）── 09-09のスペイン語aunque(直説法/接続法)の逆向きブリッジ、evenが付くと althoughより意外性・コントラストが強まるという違いも整理した
+- 2026-09-14: 英語のdespite/in spite of + 名詞(句)とalthough/even though + 節の書き換え ── 09-11の発展、接続詞グループ(although/even though=節)と前置詞グループ(despite/in spite of=名詞・動名詞)を品詞の違いで仕分け、書き換えの手順(主語が同じなら-ing形、違うならthe fact that)を整理し、スペイン語のaunque/a pesar deにも同じ区別があることを紹介した
