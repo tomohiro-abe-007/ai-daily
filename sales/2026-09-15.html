@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>インサイドセールス 最新トピック 2026-09-15</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  /* ── カバー ── */
+  .cover {
+    background: linear-gradient(135deg, #6d1b1b 0%, #a13a2c 50%, #d98a2e 100%);
+    color: white;
+    border-radius: 8px;
+    padding: 60px 40px;
+    text-align: center;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.3);
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent, transparent 28px,
+      rgba(255,255,255,0.05) 28px, rgba(255,255,255,0.05) 29px
+    );
+  }
+  .cover-emoji { font-size: 64px; display: block; margin-bottom: 16px; }
+  .cover h1 {
+    font-family: 'Klee One', sans-serif;
+    font-size: 1.9rem;
+    font-weight: 600;
+    line-height: 1.35;
+    margin-bottom: 12px;
+    position: relative;
+  }
+  .cover .subtitle { font-size: 1.05rem; opacity: 0.85; margin-bottom: 8px; position: relative; }
+  .cover .date-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 20px;
+    padding: 6px 20px;
+    font-size: 1rem;
+    margin-top: 16px;
+    position: relative;
+  }
+
+  /* ── カード共通 ── */
+  .card {
+    background: #fff9f0;
+    border-radius: 6px;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.12);
+    position: relative;
+    overflow: hidden;
+  }
+  .card-body {
+    padding: 40px 36px 28px 64px;
+    background: repeating-linear-gradient(0deg, transparent, transparent 31px, #e0d8c8 31px, #e0d8c8 32px);
+    background-color: #fff9f0;
+  }
+  .card-tab {
+    display: inline-block;
+    background: #a13a2c;
+    color: white;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 4px 16px;
+    border-radius: 0 0 6px 6px;
+    position: absolute;
+    top: 0; left: 32px;
+    letter-spacing: 0.05em;
+  }
+  .card h2 {
+    font-size: 1.22rem;
+    color: #6d1b1b;
+    margin-bottom: 16px;
+    margin-top: 4px;
+    line-height: 1.5;
+    border-left: 4px solid #c0532b;
+    padding-left: 12px;
+  }
+  p { line-height: 1.85; color: #333; font-size: 0.97rem; margin-bottom: 12px; }
+
+  /* ── 数字カード ── */
+  .num-cards { display: flex; gap: 14px; flex-wrap: wrap; margin: 20px 0; }
+  .num-card {
+    flex: 1; min-width: 170px;
+    background: #6d1b1b; color: white;
+    border-radius: 10px; padding: 20px 16px; text-align: center;
+  }
+  .num-card.orange { background: #a13a2c; }
+  .num-card.gold   { background: #b06b1a; }
+  .num-card.gray   { background: #6b6b6b; }
+  .num-card .big-num {
+    font-family: 'Caveat', cursive;
+    font-size: 1.7rem; font-weight: 700; line-height: 1.15;
+    color: #ffd8b0;
+  }
+  .num-card .num-label { font-size: 0.78rem; margin-top: 8px; opacity: 0.92; line-height: 1.6; }
+
+  /* ── ステップフロー ── */
+  .step-flow { display: flex; flex-direction: column; gap: 0; margin: 20px 0; }
+  .step-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px dotted #ddd;
+  }
+  .step-item:last-child { border-bottom: none; }
+  .step-num {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: #a13a2c;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .step-body { flex: 1; }
+  .step-title { font-size: 0.97rem; font-weight: 700; color: #6d1b1b; margin-bottom: 4px; }
+  .step-desc  { font-size: 0.85rem; color: #555; line-height: 1.7; margin: 0; }
+
+  /* ── 対比カード(2列) ── */
+  .compare-flow { display: flex; gap: 14px; flex-wrap: wrap; margin: 20px 0; align-items: stretch; }
+  .compare-col {
+    flex: 1; min-width: 220px;
+    background: #fdf2ea;
+    border: 1.5px solid #e8c8a8;
+    border-radius: 8px;
+    padding: 16px 18px;
+  }
+  .compare-col h3 { font-size: 0.95rem; color: #6d1b1b; margin-bottom: 10px; }
+  .compare-col ol { padding-left: 18px; }
+  .compare-col li { font-size: 0.83rem; color: #555; line-height: 1.9; }
+  .compare-vs {
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Caveat', cursive; font-size: 1.6rem; font-weight: 700;
+    color: #a13a2c; min-width: 30px;
+  }
+  .cause-down {
+    text-align: center;
+    font-size: 1.3rem;
+    color: #a13a2c;
+    margin: 10px 0 -2px;
+  }
+  .result-box {
+    background: #6d1b1b;
+    color: white;
+    border-radius: 8px;
+    padding: 14px 18px;
+    text-align: center;
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-top: 4px;
+  }
+
+  /* ── マトリクス表 ── */
+  .matrix-table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 0.85rem; }
+  .matrix-table th, .matrix-table td {
+    border: 1px solid #e0d0b8; padding: 10px 12px; text-align: left; vertical-align: top;
+  }
+  .matrix-table th { background: #f6e2c8; color: #6d1b1b; font-weight: 700; }
+  .matrix-table td { color: #444; line-height: 1.6; }
+  .matrix-table tr:nth-child(even) td { background: #fdf9f2; }
+  .matrix-table tr.warn td { background: #f8e6e0; }
+
+  /* ── 今日の一歩 ── */
+  .today-box {
+    background: linear-gradient(135deg, #6d1b1b, #c0532b);
+    color: white; border-radius: 8px;
+    padding: 24px 28px; margin: 16px 0; text-align: center;
+  }
+  .today-box .emoji { font-size: 2.2rem; display: block; margin-bottom: 8px; }
+  .today-box .title { font-size: 1.1rem; font-weight: 600; margin-bottom: 10px; }
+  .today-box .desc  { font-size: 0.92rem; opacity: 0.92; line-height: 1.8; text-align: left; }
+
+  /* ── 共通パーツ ── */
+  .highlight { background: #f6e2c8; border-radius: 4px; padding: 1px 6px; color: #6d1b1b; font-weight: 600; }
+  .callout {
+    border-radius: 6px; padding: 14px 16px; margin-top: 14px;
+  }
+  .callout.yellow { background: #fef9e7; border-left: 4px solid #d98a2e; }
+  .callout.green  { background: #eafaf1; border-left: 4px solid #27ae60; }
+  .callout.blue   { background: #e8f4fd; border-left: 4px solid #2980b9; }
+  .callout.wine   { background: #f6e9e4; border-left: 4px solid #a13a2c; }
+
+  /* ── 免責 ── */
+  .disclaimer {
+    background: #fff; border: 1px solid #ddd; border-radius: 6px;
+    padding: 16px 20px; font-size: 0.8rem; color: #777; line-height: 1.7;
+    width: 100%; max-width: 820px; margin-bottom: 16px;
+  }
+  .disclaimer strong { color: #555; }
+
+  /* ── 出典 ── */
+  .sources {
+    background: #fff9f0; border-radius: 6px; padding: 16px 24px;
+    width: 100%; max-width: 820px; margin-bottom: 24px;
+    font-size: 0.8rem; color: #666; line-height: 1.8;
+  }
+  .sources h3 { font-size: 0.85rem; color: #6d1b1b; margin-bottom: 8px; }
+  .sources a { color: #a13a2c; text-decoration: none; }
+  .sources a:hover { text-decoration: underline; }
+  .sources ul { padding-left: 16px; }
+
+  /* ── バックリンク ── */
+  .back-link { text-align: center; margin-bottom: 20px; font-size: 0.9rem; }
+  .back-link a { color: #a13a2c; text-decoration: none; }
+  .back-link a:hover { text-decoration: underline; }
+
+  @media (max-width: 560px) {
+    .card-body { padding: 40px 18px 24px 24px; }
+    .matrix-table { display: block; overflow-x: auto; white-space: nowrap; }
+    .compare-flow { flex-direction: column; }
+    .compare-vs { padding: 4px 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── カバー ── -->
+<div class="cover">
+  <span class="cover-emoji">📊</span>
+  <h1>同じ「平均年収$59,559」でも中身は別物<br>求人サイトの給与データの読み方</h1>
+  <div class="subtitle">インサイドセールス 最新トピック 2026-09-15</div>
+  <div class="date-badge">テレアポ・インサイドセールス 毎朝解説</div>
+</div>
+
+<!-- ── Section 01 ── -->
+<div class="card">
+  <span class="card-tab">01 今日のテーマ</span>
+  <div class="card-body">
+    <h2>🧭 前回(9/10)の続き、新しい数字が出てきた</h2>
+    <p>
+      前回は、米国のリモートSDR(在宅勤務で見込み客への最初のアプローチを担当する営業職)の年収データと、日本の未経験インサイドセールス求人の年収レンジを比べました。今日はその続編です。求人サイトZipRecruiterが公開している最新の集計(2026年9月12日時点)を見ると、また少し違う数字が出てきます。
+    </p>
+    <p>
+      ただし今日の本題は「新しい数字がいくらか」よりも、<span class="highlight">求人サイトが出す「平均年収」という数字は、どうやって作られているのか</span>を知っておくことです。仕組みを知らないまま数字だけ追いかけると、日によって変わる数字に振り回されてしまいます。
+    </p>
+  </div>
+</div>
+
+<!-- ── Section 02 ── -->
+<div class="card">
+  <span class="card-tab">02 数字で見る 最新の集計データ</span>
+  <div class="card-body">
+    <h2>💰 ZipRecruiter調べ、平均$59,559・レンジ$45,000〜$70,000(2026年9月12日時点)</h2>
+    <p>
+      米国の求人サイトZipRecruiterの「SDR/BDR Remote」求人ページでは、2026年9月12日時点で平均年収$59,559、多くの求人が$45,000〜$70,000のレンジに収まるというデータが出ています。前回紹介したTrellus.aiの調査(平均$55,018)やRemoteQuotaの調査(基本給中央値$60,000・OTE中央値$85,000)と並べると、次のようになります。
+    </p>
+    <div class="num-cards">
+      <div class="num-card">
+        <div class="big-num">$59,559</div>
+        <div class="num-label">ZipRecruiter集計<br>SDR/BDR Remote平均<br>(2026年9月12日時点)</div>
+      </div>
+      <div class="num-card orange">
+        <div class="big-num">$45,000〜70,000</div>
+        <div class="num-label">同ページのレンジ<br>(多くの求人が収まる幅)</div>
+      </div>
+      <div class="num-card gold">
+        <div class="big-num">$55,018</div>
+        <div class="num-label">前回紹介したTrellus.ai<br>調査の平均(2026年9月時点)</div>
+      </div>
+      <div class="num-card gray">
+        <div class="big-num">$60,000〜85,000</div>
+        <div class="num-label">RemoteQuota調査<br>基本給中央値〜OTE中央値</div>
+      </div>
+    </div>
+    <div class="callout yellow">
+      ⚠️ 同じ「米国リモートSDR/BDRの年収」でも、出典によって$55,000〜$85,000程度まで幅があります。どれが「正解」というより、それぞれ集計方法が違うと理解するのが大事です。
+    </div>
+  </div>
+</div>
+
+<!-- ── Section 03 ── -->
+<div class="card">
+  <span class="card-tab">03 比較 データの性質を並べてみる</span>
+  <div class="card-body">
+    <h2>🔍 「調査レポート」と「求人サイトの自動集計」は別物</h2>
+    <p>
+      ZipRecruiterのサポートページによると、同社の給与データは「実際に掲載されている求人情報」と「外部データ」をもとに、掲載中の求人を継続的にスキャンして自動計算されているとのことです。つまり<span class="highlight">毎日変動しうるリアルタイム集計</span>であり、決まった対象者にアンケートを取る「調査」とは仕組みが異なります。
+    </p>
+    <table class="matrix-table">
+      <tr>
+        <th>出典</th>
+        <th>数字の性質</th>
+        <th>更新のされ方</th>
+      </tr>
+      <tr>
+        <td>ZipRecruiter(求人ページ)</td>
+        <td>掲載中の求人情報を自動スキャンした集計</td>
+        <td>継続的・ほぼ毎日変動しうる</td>
+      </tr>
+      <tr>
+        <td>Trellus.ai / RemoteQuota</td>
+        <td>独自に集めたデータをもとにしたレポート・調査</td>
+        <td>レポート発表時点で固定、更新頻度は低め</td>
+      </tr>
+      <tr class="warn">
+        <td>doda等(日本の求人媒体)</td>
+        <td>実際に掲載されている個別求人の年収表記</td>
+        <td>求人ごとに随時掲載・終了</td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<!-- ── Section 04 ── -->
+<div class="card">
+  <span class="card-tab">04 図解 集計の仕組みの違い</span>
+  <div class="card-body">
+    <h2>⚖️ 「調査」と「リアルタイム集計」、作られ方がこう違う</h2>
+    <div class="compare-flow">
+      <div class="compare-col">
+        <h3>📋 調査レポート型</h3>
+        <ol>
+          <li>調査対象・期間を決める</li>
+          <li>回答者からデータを集める</li>
+          <li>分析してレポートにまとめる</li>
+          <li>数か月〜1年に1回、公表する</li>
+        </ol>
+      </div>
+      <div class="compare-vs">VS</div>
+      <div class="compare-col">
+        <h3>🔄 求人サイト自動集計型</h3>
+        <ol>
+          <li>掲載中の求人情報を継続スキャン</li>
+          <li>金額表記をシステムが自動計算</li>
+          <li>ページの数字をその都度更新</li>
+          <li>日々〜月単位で数字が動く</li>
+        </ol>
+      </div>
+    </div>
+    <div class="cause-down">▼</div>
+    <div class="result-box">結果:同じ「平均年収」という言葉でも、集計対象・更新頻度がまったく違うため、単純に数字の大小だけを比べて一喜一憂するのは早計</div>
+  </div>
+</div>
+
+<!-- ── Section 05 ── -->
+<div class="card">
+  <span class="card-tab">05 求職者にとっての意味</span>
+  <div class="card-body">
+    <h2>🎯 「今日見た数字」だけで判断しないほうがいい理由</h2>
+    <div class="step-flow">
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-title">求人サイトの「平均年収」は、その瞬間に掲載されている求人の顔ぶれ次第で変わる</div>
+          <p class="step-desc">高年収の求人が一時的に増減するだけでも、平均値は動きます。1日だけ見た数字を「業界の実力」と思い込まないようにしましょう。</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <div class="step-title">複数のソース・複数の時点を見比べる方が実態に近づく</div>
+          <p class="step-desc">今回のように、求人サイトの集計と独立系レポートを並べて見ることで、「だいたいこのくらいの幅に収まりそうだ」という感覚をつかめます。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Section 06 ── -->
+<div class="card">
+  <span class="card-tab">06 手順 給与データを見るときの確認法</span>
+  <div class="card-body">
+    <h2>🔎 求人サイトの「平均年収」を見るときの4ステップ</h2>
+    <div class="step-flow">
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-title">ページの中に基準日(as of ○月○日など)があるか探す</div>
+          <p class="step-desc">基準日がなければ「いつ時点のデータか分からない数字」として、参考程度にとどめましょう。</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <div class="step-title">それが「調査」なのか「掲載中求人の自動集計」なのかを確認する</div>
+          <p class="step-desc">サイトのFAQやサポートページに「How is this calculated(算出方法)」といった説明がないか探すと、性質が分かります。</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <div class="step-title">1つのソース・1つの時点だけで判断しない</div>
+          <p class="step-desc">今回のように複数のサイトの数字を並べてみると、極端に高い・低い数字に振り回されにくくなります。</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <div class="step-title">最終的には、自分が応募する求人票の金額を最優先する</div>
+          <p class="step-desc">サイト全体の平均より、実際に応募する企業の求人票に書かれている金額のほうが、自分にとってはるかに重要な情報です。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Section 07 ── -->
+<div class="card">
+  <span class="card-tab">07 今日からできる一歩</span>
+  <div class="card-body">
+    <h2>👣 今日の一歩:求人サイトの給与ページで「算出方法」を探してみる</h2>
+    <div class="today-box">
+      <span class="emoji">📝</span>
+      <div class="title">今日の一歩:doda・リクナビNEXT・求人ボックス等で自分の志望職種の「平均年収」ページを1つ開き、基準日や算出方法の説明がどこにあるか探してみる</div>
+      <div class="desc">
+        説明が見つかったら、「調査ベースか」「掲載求人の自動集計か」をメモしましょう。見つからなければ、その数字は参考程度にとどめる、という判断ができるようになります。
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 免責 ── -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事の年収・報酬額は、複数の民間求人サイト・調査会社が公表しているデータをもとにした目安であり、企業規模・地域・経験・スキル・時期・掲載中の求人の顔ぶれによって変動します。報酬・採用の結果には個人差があり、「この数字なら必ず稼げる」といった成果を保証するものではありません。紹介した求人媒体・企業の条件やページの表示内容は変わる可能性があるため、最新情報は必ず各社の公式情報でご確認ください。
+</div>
+
+<!-- ── 出典 ── -->
+<div class="sources">
+  <h3>📎 参考情報・出典</h3>
+  <ul>
+    <li><a href="https://www.ziprecruiter.com/Jobs/Sdr-Bdr-Remote" target="_blank">ZipRecruiter「Sdr Bdr Remote Jobs」(平均年収$59,559・レンジ$45,000〜$70,000。基準日:2026年9月12日)</a></li>
+    <li><a href="https://support.ziprecruiter.com/candidate/s/article/What-is-the-ZipRecruiter-Compensation-Estimate" target="_blank">ZipRecruiterサポート「What is the ZipRecruiter Compensation Estimate?」(給与データの算出方法の説明。参照日:2026年9月)</a></li>
+    <li><a href="https://www.trellus.ai/post/sdr-salary" target="_blank">Trellus.ai「SDR Salary Guide 2026」(米国リモートSDR平均$55,018。参照日:2026年9月、前回9/10記事でも紹介)</a></li>
+    <li><a href="https://www.remotequota.com/blog/sdr-salary-us-2026" target="_blank">RemoteQuota「SDR Salary US 2026」(基本給・OTE中央値。参照日:2026年9月、前回9/10記事でも紹介)</a></li>
+    <li><a href="https://doda.jp/keyword/%E3%82%A4%E3%83%B3%E3%82%B5%E3%82%A4%E3%83%89%E3%82%BB%E3%83%BC%E3%83%AB%E3%82%B9/" target="_blank">doda「インサイドセールスの転職・求人・中途採用情報」(参照日:2026年9月)</a></li>
+  </ul>
+</div>
+
+<!-- ── バックリンク ── -->
+<div class="back-link">
+  <a href="index.html">&larr; バックナンバー一覧へ</a>
+</div>
+
+</body>
+</html>
