@@ -2,6 +2,12 @@
 
 今後の記事候補。使ったテーマは削除し、新しく見つけた有望テーマは追記する。
 
+## 未使用テーマ（追記：2026-09-16 検索で見つけた有望テーマ）
+
+- 09-16記事(Gubatan JM ら, Cell Reports Medicine 2026, DOI: 10.1016/j.xcrm.2026.102703)の続報候補 ── 統計的な有意差の数値(p値・信頼区間)、参加者48人の年齢・性別・クローン病/潰瘍性大腸炎の内訳、症状(寛解率など)への実際の効果を調べた追試やプラセボ対照試験が発表されれば深掘り記事化を検討。ネットワーク制限(cell.com・newsnetwork.mayoclinic.org・eurekalert.org・medicalxpress.com・newswise.com・insideprecisionmedicine.com・sci.news・news-medical.netがブロック対象)で本文未確認、正確なオンライン公開日(3月の具体的な日付)も未確認
+- JMIRの遠隔・完全オンライン3群RCT「A Real-Life Digital Intervention for Personalized Nutrition in Adults With Overweight or Obesity」(Journal of Medical Internet Research, 2026, URL: jmir.org/2026/1/e73367)── 汎用的な栄養アドバイスと個人向け(パーソナライズ)栄養アドバイス、食品ボックスの有無を比べた試験。精密栄養学の実践例として使えるか検討。著者名・対象人数・具体的な結果(体重変化の統計値)が未確認、一次資料の確認が必要
+- 精密栄養学×腸内細菌×肥満のレビュー「Precision nutrition targeting the gut microbiota for weight management: mechanisms and applications」(Frontiers in Microbiology, 2026, DOI: 10.3389/fmicb.2026.1806152)── 一次データではなくレビューだが、精密栄養学×腸内細菌×体重管理の機序整理として使えるか検討。著者名・査読状況の一次確認が必要
+
 ## 未使用テーマ（追記：2026-09-14 検索で見つけた有望テーマ）
 
 - 09-14記事(Lalitha LP, Rangaiah, Mehta, Javali, Acharya, Somanna, Neurology India 2026年8月19日, DOI: 10.4103/neurol-india.Neurol-India-D-26-00162)の続報候補 ── ビタミンD3不足の具体的な判定基準(血中25(OH)D濃度の数値)、実際に各群が到達した血中濃度の実測値、PSQIの下位項目(睡眠時間・日中の機能障害など)の詳しい統計値、単盲検で実際に伏せられていたのが参加者か評価者かの詳細が、論文本文で確認できれば深掘り記事化を検討。ネットワーク制限(pubmed.ncbi.nlm.nih.gov等がブロック対象)で本文未確認
