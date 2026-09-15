@@ -109,6 +109,7 @@
 - 2026-09-13: Gemini 3.8 Flash / 3.8 Flash Cyber（2026年9月2日リリース）・AIエージェント向け最速フラッシュモデル・6週間で3世代連続更新（3.6→3.7→3.8）・全ベンチマークで3.7 Flash超えとGoogle発表・1Mトークンコンテキスト・最大出力65,536トークン・テキスト/画像/音声/動画のマルチモーダル・API料金$0.75/$3.75（2026年末まで、2027年1月から$1.50/$7.50）・Cyber版はFairwindプログラム審査通過の守備担当セキュリティ専門チーム限定・CBRN安全対策あり（出典：Google公式ブログ / VentureBeat / Qz.com / helpnetsecurity.com・2026年9月2〜3日）
 - 2026-09-14: Positron AI $875M調達・評価額$5B（2026年9月10日前後報道）・推論専用AIチップ「Asimov」・LPDDR5X（安価なメモリ）でHBM不要を主張・TSMC N3P製造プロセス・メモリ帯域活用率90%超と自己申告（第三者検証未実施）・テープアウト2026年末・量産2027年後半・Nvidia一強の推論チップ市場への挑戦（出典：Forkast News / HostingJournalist / TechTimes / The Investor Society・2026年9月）
 - 2026-09-15: Salesforce Agentforce 7つの名前付きAIエージェント（2026年9月11日発表）・Casey（カスタマーサービス）/Paige（IT・HR）/Carter（コマース）/Hunter（アウトバウンド営業）/Marshall（サプライチェーン）/Piper（インバウンド営業）/Fin（カスタマーエクスペリエンス）・Long-Horizon Runtime（数週間にわたって目標を追跡する新実行基盤）・Hunter はパイロット段階・2026年11月GA予定・他6名はGA済み・Agentforce+Slack累計70億件エージェント作業ユニット・Q2で32億件・Dreamforce 2026（9月15〜17日）直前発表（出典：Salesforce公式 / unite.ai / futurumgroup.com / ppc.land・2026年9月）
+- 2026-09-16: DeepSeek-V4.1-Flash（2026年9月10日リリース）・552Bパラメータ MoE・Causal Encoder Decoder アーキテクチャ・入力 8B/出力 16B アクティブ・1Mトークンコンテキスト・384K出力・ネイティブ画像入力対応・MITライセンスオープンウェイト・Terminal-Bench 2.1: 90.6%（Claude Opus 5超え）・DeepSWE v1.1: 74.2%（V4-Pro 62.7%超え）・GPQA Diamond: 90.9・API料金 $0.15/$0.60（入力/出力・オフピーク・公式要確認）・9月14日からV4-Pro APIリクエストをV4.1-Flashに転送・旧V4-Flash廃止（出典：SiliconAngle / emergent.sh / llm-stats.com・2026年9月10日）
 
 ## 未解説の候補トピック（今後の参考）
 
