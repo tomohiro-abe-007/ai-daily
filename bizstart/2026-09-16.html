@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-09-16</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #2a4d7a 0%, #10233f 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #2a4d7a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.blue   { border-left-color: #1e5a7a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.green  { border-left-color: #1e7a5a; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #2a4d7a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin: 14px 0;
+  }
+  .stats-row.c3 { grid-template-columns: repeat(3, 1fr); }
+  .stats-row.c2 { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 12px 6px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat.now { background: #fff3e0; box-shadow: 0 0 0 2px #c8884a inset; }
+  .stat .sl { font-size: 0.62rem; color: #888; margin-bottom: 3px; line-height: 1.4; }
+  .stat .sv { font-size: 1.05rem; font-weight: 700; color: #2a4d7a; line-height: 1.15; }
+  .stat.now .sv { color: #c8884a; }
+  .stat .su { font-size: 0.62rem; color: #666; margin-top: 2px; }
+
+  .bignum {
+    background: white;
+    border-radius: 12px;
+    padding: 18px 14px;
+    text-align: center;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.1);
+    border: 2px dashed #c8884a;
+    margin: 14px 0;
+  }
+  .bignum .bl { font-size: 0.76rem; color: #888; margin-bottom: 6px; }
+  .bignum .bv { font-size: 1.7rem; font-weight: 700; color: #c8884a; line-height: 1.3; }
+  .bignum .bs { font-size: 0.76rem; color: #666; margin-top: 6px; line-height: 1.6; }
+
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #2a4d7a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-num.now { background: #b54040; }
+  .f-num.later { background: #999; }
+  .f-num.opt { background: #c8884a; }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+  .f-arrow { color: #2a4d7a; font-size: 1.1rem; margin-left: 14px; margin-bottom: 4px; }
+
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  table.cmp {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.83rem;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.08);
+  }
+  table.cmp th, table.cmp td {
+    border: 1px solid #e4dccd;
+    padding: 9px 10px;
+    line-height: 1.55;
+    vertical-align: top;
+  }
+  table.cmp thead th { background: #2a4d7a; color: white; font-weight: 600; text-align: center; }
+  table.cmp tbody th { background: #f5efe2; color: #5a4020; text-align: left; font-weight: 600; white-space: nowrap; }
+  table.cmp td { color: #444; text-align: left; }
+  table.cmp td.hi { background: #fff3e0; font-weight: 700; color: #c8884a; }
+  table.cmp td.ok { background: #eaf7ef; font-weight: 700; color: #1e7a5a; }
+  table.cmp td.no { background: #fbeaea; font-weight: 700; color: #b54040; }
+  .wrap-x { overflow-x: auto; }
+
+  .info {
+    background: #e8eef8;
+    border-left: 4px solid #2a4d7a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #16294a;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #7a4010;
+  }
+
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #2a4d7a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #2a4d7a; word-break: break-all; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #2a4d7a; }
+
+  .split-wrap {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 10px;
+    align-items: center;
+    margin: 14px 0;
+  }
+  @media (max-width: 540px) { .split-wrap { grid-template-columns: 1fr; } }
+  .split-card {
+    border-radius: 10px;
+    padding: 16px 14px;
+    text-align: center;
+    background: #fff3e0;
+    border: 2px solid #c8884a;
+  }
+  .split-card.blue { background: #e8eef8; border-color: #2a4d7a; }
+  .split-card .vl { font-size: 0.75rem; font-weight: 700; margin-bottom: 6px; color: #7a4010; }
+  .split-card.blue .vl { color: #16294a; }
+  .split-card .vv { font-size: 1.5rem; font-weight: 700; color: #c8884a; }
+  .split-card.blue .vv { color: #2a4d7a; }
+  .split-card .vs { font-size: 0.72rem; color: #777; margin-top: 4px; }
+  .split-mid { text-align: center; font-size: 1.3rem; color: #999; font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Header -->
+<div class="header">
+  <div class="meta">📅 1人法人スタート 最新トピック &nbsp;2026-09-16</div>
+  <h1>🔔「お知らせ」が来たら、もうカウントダウンは始まっている<br>──特定適用事業所「該当事前のお知らせ」から「該当届」までの実務フロー</h1>
+  <div class="desc">
+    <span class="htag">社会保険</span>
+    <span class="htag">特定適用事業所該当届</span>
+    <span class="htag">該当事前のお知らせ</span>
+    <span class="htag">日本年金機構</span>
+    <br>
+    9/15記事で「特定適用事業所の51人は、直近12か月のうち6か月で51人以上になると該当する」と紹介しました。今日はその手前で届く<strong>「該当事前のお知らせ」</strong>から、事業主が出す<strong>「該当届」</strong>まで、実際に何が・いつ届き・何をすればよいのかを時系列で整理します。
+  </div>
+</div>
+
+<!-- Section 1: おさらい -->
+<div class="card blue">
+  <div class="sec-title">🔁 おさらい:該当するとどうなる会社か</div>
+  <p>特定適用事業所とは、<strong>厚生年金保険の被保険者数</strong>が直近12か月のうち6か月以上「51人以上」になると見込まれる会社のことでした(9/15記事)。該当すると、通常より加入条件がゆるい「短時間労働者の4要件」でパート・アルバイトを社会保険に加入させる義務が生じます。</p>
+  <p>この「該当」は、ある日いきなり通知が来るわけではありません。日本年金機構が人数の推移を継続的に確認しており、<span class="hl">その途中経過として先に届く書類</span>があります。</p>
+</div>
+
+<!-- Section 2: 事前のお知らせ -->
+<div class="card orange">
+  <div class="sec-title">📩「該当事前のお知らせ」とは何か</div>
+  <p>日本年金機構は、<strong>直近11か月のうち5か月で50人を超えた</strong>ことが確認できた適用事業所に対して、「特定適用事業所該当事前のお知らせ」を送付することがあります。これはまだ正式な該当決定ではなく、<span class="hlo">「このままのペースだと、まもなく特定適用事業所になる見込みです」という予告</span>にあたる書類です。</p>
+  <div class="info">
+    📌 法人番号が同じ複数の事業所(本社・支店など)がある場合、このお知らせは合算した人数をもとに、該当する法人番号のすべての適用事業所へ送付されます。
+  </div>
+</div>
+
+<!-- Section 3: 該当届の提出 -->
+<div class="card">
+  <div class="sec-title">📮「該当届」の提出は事実発生から5日以内</div>
+  <p>その後、実際に<strong>直近12か月のうち6か月で51人以上</strong>という要件が満たされると(=事実が発生すると)、事業主には届出義務が生じます。</p>
+
+  <div class="bignum">
+    <div class="bl">提出期限</div>
+    <div class="bv">事実が発生した日から 5日以内</div>
+    <div class="bs">「健康保険・厚生年金保険 特定適用事業所該当/不該当届」を、日本年金機構(年金事務所)または加入している健康保険組合に提出</div>
+  </div>
+
+  <p>提出先は、加入している保険が協会けんぽか健康保険組合かで年金事務所/健保組合のどちらに出すかが変わります。迷ったら顧問の社会保険労務士や年金事務所の窓口に確認するのが確実です。</p>
+</div>
+
+<!-- Section 4: 未提出の場合 -->
+<div class="card red">
+  <div class="sec-title">⚠️ 届出をしなかったらどうなるか</div>
+  <p>ここが今日いちばん押さえてほしいポイントです。<strong>該当届を出さなかったとしても、義務そのものが消えるわけではありません。</strong></p>
+
+  <div class="f-step">
+    <div class="f-num">①</div>
+    <div class="f-text">直近12か月のうち6か月で51人以上という要件を、日本年金機構が確認する</div>
+  </div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step">
+    <div class="f-num later">②</div>
+    <div class="f-text">事業主から該当届の提出がない場合、日本年金機構が「特定適用事業所該当通知書」を送付する</div>
+  </div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step">
+    <div class="f-num now">③</div>
+    <div class="f-text">通知書が送られた時点で、<strong>自動的に</strong>特定適用事業所として扱われる(=届出をしなくても該当は成立する)</div>
+  </div>
+
+  <div class="warn" style="margin-top:12px;">
+    ⚠️ 「出していないから、まだ大丈夫」という猶予はありません。むしろ届出をしないままでいると、パート・アルバイトの加入手続きが後手に回り、遡って保険料の精算が必要になるリスクもあります。お知らせが届いた時点で、社会保険労務士等に早めに相談するのがおすすめです。
+  </div>
+</div>
+
+<!-- Section 5: 2つの書類の違い -->
+<div class="card blue">
+  <div class="sec-title">📋 出てくる書類を整理する</div>
+  <div class="wrap-x">
+  <table class="cmp">
+    <thead>
+      <tr><th>書類名</th><th>誰が・いつ出すか</th><th>意味</th></tr>
+    </thead>
+    <tbody>
+      <tr><th>①該当事前のお知らせ</th><td>年金機構から届く(直近11か月中5か月で50人超を確認)</td><td class="hi">予告・まだ確定ではない</td></tr>
+      <tr><th>②該当届</th><td>事業主が事実発生日から5日以内に提出</td><td class="ok">事業主からの届出</td></tr>
+      <tr><th>③該当通知書</th><td>②の届出がない場合に年金機構から届く</td><td class="no">自動的に該当扱い</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p style="font-size:0.85rem; color:#666;">※どのルートを通っても、要件を満たせば最終的に特定適用事業所として扱われる点は同じです。違うのは「事業主が自分で動いたか、年金機構からの通知を待つ形になったか」です。</p>
+</div>
+
+<!-- Section 6: 不該当にしたい場合は(参考) -->
+<div class="card orange">
+  <div class="sec-title">🔄 逆に「不該当」に戻したいときは(参考)</div>
+  <p>9/15記事でも触れたとおり、要件を満たさなくなり特定適用事業所をやめる(不該当にする)場合は、該当のときとは逆に、使用される被保険者(厚生年金保険の被保険者・70歳以上被用者・短時間労働者)の<strong>4分の3以上の同意</strong>を得たうえで届出が必要です。該当は要件を満たせば自動的に成立するのに対し、不該当は事業主側からの積極的な手続きが必要という非対称な関係になっています。具体的な同意書類の取り方や提出の実務は、改めて別の回で深掘りします。</p>
+</div>
+
+<!-- Section 7: 1人社長のポイント -->
+<div class="card green">
+  <div class="sec-title">🌱 1人社長が気をつけたいポイント</div>
+  <ul class="check-list">
+    <li><span class="ck">✓</span>「該当事前のお知らせ」は最終確定ではないが、放置せず今の被保険者数の推移を確認するきっかけにする</li>
+    <li><span class="ck">✓</span>該当届の提出期限は<strong>事実発生から5日以内</strong>と短い。人数が増えてきたら早めに準備する</li>
+    <li><span class="ck">✓</span>届出を忘れても該当自体は自動的に成立するため、「出さなければ加入義務も発生しない」とは考えない</li>
+    <li><span class="ck">✓</span>提出先は協会けんぽ加入か健康保険組合加入かで変わるため、自社がどちらか把握しておく</li>
+  </ul>
+</div>
+
+<!-- Section 8: まとめ -->
+<div class="card">
+  <div class="sec-title">📝 今日のまとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">①</span>直近11か月のうち5か月で50人超が確認されると「該当事前のお知らせ」が届くことがある(予告)。</li>
+    <li><span class="n">②</span>直近12か月のうち6か月で51人以上が確定したら、事実発生日から<strong>5日以内</strong>に「該当届」を提出する。</li>
+    <li><span class="n">③</span>該当届を出さなくても、年金機構から「該当通知書」が届き<strong>自動的に</strong>該当扱いになる。</li>
+    <li><span class="n">④</span>不該当に戻すには、被保険者の<strong>4分の3以上の同意</strong>を得て事業主側から届出が必要(該当とは非対称)。</li>
+  </ul>
+
+  <div class="source">
+    📚 出典:日本年金機構「特定適用事業所該当・不該当の手続き」(nenkin.go.jp/service/kounen/tekiyo/jigyosho/tokuteitekiyou.html)。2026年9月(令和8年度)時点で確認できた公表情報にもとづきます。
+  </div>
+</div>
+
+<!-- Disclaimer -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報提供を目的としたものであり、個別の社会保険に関するアドバイスではありません。該当・不該当の判定や届出の要否は、実際の被保険者数の推移や会社の組織形態によって結論が変わります。
+  実際の手続きにあたっては、社会保険労務士や年金事務所にご相談ください。<br>
+  <strong>本記事の基準:</strong>2026年9月(令和8年度)時点で確認できた公表情報にもとづいています。制度は改正されることがあるため、翌年度以降にご覧の場合は必ず最新の日本年金機構の情報をご確認ください。
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>📚 <a href="index.html">バックナンバー一覧へ</a> &nbsp;&middot;&nbsp; 毎朝更新</p>
+</div>
+
+</div>
+</body>
+</html>
