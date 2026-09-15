@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI動画制作 最新トピック 2026-09-15</title>
+<style>
+  :root {
+    --bg: #ece8e1;
+    --card: #faf6ec;
+    --dark: #1a3a5c;
+    --dark2: #1a5c3a;
+    --accent: #2a5c8a;
+    --accent2: #c85a00;
+    --text: #2a3540;
+    --muted: #7c8a82;
+    --border: #e0d8c8;
+    --highlight: #fff3cd;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, "Hiragino Sans", "Yu Gothic", sans-serif;
+    line-height: 1.75;
+    padding: 20px;
+  }
+  .wrap { max-width: 900px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #1a3a5c 0%, #1a5c3a 100%);
+    color: #fff;
+    border-radius: 20px;
+    padding: 44px 32px 36px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(26,58,92,.22);
+    margin-bottom: 24px;
+  }
+  .header-tag {
+    display: inline-block;
+    background: rgba(255,255,255,.18);
+    color: #e0f0e8;
+    border-radius: 20px;
+    padding: 4px 16px;
+    font-size: .82rem;
+    margin-bottom: 14px;
+    letter-spacing: .06em;
+  }
+  .header h1 { font-size: 1.6rem; letter-spacing: .03em; line-height: 1.45; margin-bottom: 10px; }
+  .header .sub { color: #c8dde8; font-size: .95rem; }
+  .header .date { color: #b0e0c0; font-size: .85rem; margin-top: 8px; }
+
+  .card {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 12px rgba(0,0,0,.07);
+    border: 1px solid var(--border);
+  }
+  .card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .point-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .point-card { background: #eef3f8; border-radius: 14px; padding: 20px 16px; text-align: center; border: 1px solid #d4e0ea; }
+  .point-icon { font-size: 2rem; margin-bottom: 8px; }
+  .point-title { font-size: .95rem; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
+  .point-desc { font-size: .83rem; color: var(--muted); line-height: 1.6; }
+
+  .bignum-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 20px; }
+  .bignum-card { background: linear-gradient(135deg, #1a3a5c, #1a5c3a); border-radius: 14px; padding: 16px 8px; text-align: center; color: #fff; }
+  .bignum { font-size: 1.05rem; font-weight: 800; color: #ffe0a0; line-height: 1.2; }
+  .bignum-label { font-size: .68rem; color: #cfe6d8; margin-top: 4px; line-height: 1.5; }
+
+  .step-list { list-style: none; }
+  .step-item { display: flex; gap: 14px; margin-bottom: 16px; align-items: flex-start; }
+  .step-num {
+    width: 34px; height: 34px;
+    background: linear-gradient(135deg, #1a3a5c, #1a5c3a);
+    color: #fff; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: .95rem; flex-shrink: 0; margin-top: 2px;
+  }
+  .step-body { flex: 1; }
+  .step-title { font-weight: 700; color: var(--dark); font-size: .95rem; }
+  .step-desc { font-size: .86rem; color: var(--muted); margin-top: 3px; line-height: 1.65; }
+
+  .tbl { width: 100%; border-collapse: collapse; font-size: .86rem; }
+  .tbl th { background: #eaf1ea; padding: 10px 10px; text-align: left; border-bottom: 2px solid #c8ddc8; color: var(--dark); font-weight: 700; }
+  .tbl td { padding: 10px 10px; border-bottom: 1px solid var(--border); vertical-align: top; color: var(--text); }
+  .tbl tr:last-child td { border-bottom: none; }
+
+  .note-box { background: var(--highlight); border-left: 4px solid #e8a000; border-radius: 8px; padding: 12px 16px; font-size: .88rem; color: #5a4000; margin-top: 14px; line-height: 1.7; }
+  .warn-box { background: #fbe6e6; border-left: 4px solid #c85a5a; border-radius: 8px; padding: 12px 16px; font-size: .88rem; color: #7a2a2a; margin-top: 14px; line-height: 1.7; }
+
+  .summary-list { font-size: .95rem; line-height: 2.2; }
+  .summary-list li { list-style: none; display: flex; align-items: flex-start; gap: 8px; }
+  .summary-list li::before { content: "✅"; flex-shrink: 0; margin-top: 2px; }
+
+  .disclaimer { background: #f0ede8; border-radius: 12px; padding: 16px 20px; font-size: .82rem; color: var(--muted); margin-top: 24px; line-height: 1.7; border: 1px solid #ddd8d0; }
+
+  footer { text-align: center; color: var(--muted); font-size: .82rem; margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border); line-height: 1.9; }
+  footer a { color: var(--accent); }
+
+  .flow-row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-top: 10px; }
+  .flow-step { flex: 1; min-width: 100px; background: #eef3f8; border: 1px solid #d4e0ea; border-radius: 10px; padding: 12px 8px; text-align: center; }
+  .flow-step.key { background: #fdeee0; border-color: #f0c8a0; }
+  .flow-step .fs-icon { font-size: 1.3rem; margin-bottom: 4px; }
+  .flow-step .fs-title { font-size: .78rem; font-weight: 700; color: var(--dark); }
+  .flow-step .fs-desc { font-size: .7rem; color: var(--muted); margin-top: 3px; line-height: 1.5; }
+  .flow-arrow { font-size: 1.1rem; color: var(--accent2); font-weight: 700; flex-shrink: 0; }
+  .flow-caption { text-align: center; font-size: .8rem; color: var(--muted); margin-top: 10px; }
+
+  .frame-visual { display: flex; gap: 16px; margin-top: 14px; align-items: stretch; }
+  .frame-box { flex: 1; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+  .frame-box .fb-cap { font-size: .78rem; font-weight: 700; text-align: center; padding: 8px; color: #fff; }
+  .frame-box .fb-inner { position: relative; height: 130px; background: #dde8ee; overflow: hidden; }
+  .frame-box .fb-line {
+    position: absolute; background: rgba(26,58,92,.55);
+  }
+  .frame-box .fb-subject {
+    position: absolute; background: linear-gradient(135deg,#1a3a5c,#1a5c3a);
+    border-radius: 8px; display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem; color:#fff;
+  }
+
+  .matrix-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 16px; }
+  .matrix-cell { background: #eef3f8; border: 1px solid #d4e0ea; border-radius: 12px; padding: 14px 16px; }
+  .matrix-cell .mc-title { font-size: .85rem; font-weight: 700; color: var(--dark); margin-bottom: 4px; }
+  .matrix-cell .mc-desc { font-size: .78rem; color: var(--muted); line-height: 1.6; }
+
+  @media (max-width: 640px) {
+    .point-grid { grid-template-columns: 1fr; }
+    .bignum-grid { grid-template-columns: repeat(2, 1fr); }
+    .flow-row { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+    .frame-visual { flex-direction: column; }
+    .matrix-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="header">
+  <div class="header-tag">🌱 エバーグリーン技法回</div>
+  <h1>↗️ 斜めの線で動きを生む ── 対角線構図で躍動感を出すコツ</h1>
+  <div class="sub">6/4に紹介した「構図の基本(三分割・リーディングライン・対称構図)」、9/10の「ネガティブスペース(余白)」に続く構図シリーズ第3弾。画面の角から角へ斜めのラインを引くことで、静止した1コマでも「動いている途中」に見せる対角線構図を、やさしく解説します</div>
+  <div class="date">2026-09-15 ｜ AI動画制作 最新トピック</div>
+</div>
+
+<div class="card">
+  <div class="card-title">🎯 今日の3ポイント</div>
+  <div class="point-grid">
+    <div class="point-card">
+      <div class="point-icon">↗️</div>
+      <div class="point-title">対角線構図とは</div>
+      <div class="point-desc">画面の四隅(角)を結ぶような斜めのラインに沿って、被写体や道・階段・光などを配置する構図。水平線・垂直線より「動き」「エネルギー」「不安定さ」を感じさせる</div>
+    </div>
+    <div class="point-card">
+      <div class="point-icon">⚖️</div>
+      <div class="point-title">三分割構図との使い分け</div>
+      <div class="point-desc">6/4の三分割構図は「安定感」を出す構図。対角線構図は逆に、あえて安定を崩すことで「スピード感」「緊張感」を伝える構図。目的が違う</div>
+    </div>
+    <div class="point-card">
+      <div class="point-icon">⌨️</div>
+      <div class="point-title">AIプロンプトは"diagonal"</div>
+      <div class="point-desc">「diagonal composition」「diagonal leading line」「dynamic tilted angle」といった英語表現をプロンプトに入れるだけで、生成AIに斜めラインの構図を指定できる</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🔍 図解:対角線が「動き」を生む仕組み</div>
+  <div class="flow-row">
+    <div class="flow-step key">
+      <div class="fs-icon">📐</div>
+      <div class="fs-title">①画面に斜めのラインを作る</div>
+      <div class="fs-desc">階段・道・体の傾き・光の筋などを、角から角へ向かう斜めに配置する</div>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">
+      <div class="fs-icon">👁️</div>
+      <div class="fs-title">②視線が斜めに滑る</div>
+      <div class="fs-desc">人の目は水平・垂直より斜めのラインを追うとき、より速く・大きく動く</div>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">
+      <div class="fs-icon">⚡</div>
+      <div class="fs-title">③静止画でも"動きの途中"に見える</div>
+      <div class="fs-desc">水平・垂直の安定感が崩れるため、1コマでもバランスを取ろうとする力=動きを感じる</div>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step key">
+      <div class="fs-icon">🏃</div>
+      <div class="fs-title">④躍動感・緊張感が伝わる</div>
+      <div class="fs-desc">スポーツ・アクション・疾走感を出したいシーンにぴったりの構図になる</div>
+    </div>
+  </div>
+  <div class="flow-caption">↑ 対角線は「斜めに配置しただけ」でも、人の目のクセを利用して動きを錯覚させる構図テクニックです</div>
+</div>
+
+<div class="card">
+  <div class="card-title">🖼️ 図解:水平構図 vs 対角線構図</div>
+  <div class="frame-visual">
+    <div class="frame-box">
+      <div class="fb-cap" style="background:#3a7ab0;">水平構図(安定・落ち着き)</div>
+      <div class="fb-inner">
+        <div class="fb-line" style="left:0;top:65%;width:100%;height:3px;"></div>
+        <div class="fb-subject" style="left:38%;bottom:35%;width:24%;height:34%;">🧍</div>
+      </div>
+    </div>
+    <div class="frame-box">
+      <div class="fb-cap" style="background:#c85a00;">対角線構図(動き・エネルギー)</div>
+      <div class="fb-inner">
+        <div class="fb-line" style="left:-10%;top:100%;width:140%;height:3px;transform:rotate(-28deg);transform-origin:left bottom;"></div>
+        <div class="fb-subject" style="left:10%;bottom:8%;width:22%;height:30%;">🏃</div>
+      </div>
+    </div>
+  </div>
+  <div class="flow-caption">↑ 同じ1人の被写体でも、ラインが水平か斜めかだけで「止まって見える」か「動いて見える」かが変わります</div>
+</div>
+
+<div class="card">
+  <div class="card-title">⚖️ 比較:水平・垂直構図 vs 対角線構図</div>
+  <table class="tbl">
+    <thead>
+      <tr><th>比較ポイント</th><th>水平・垂直構図</th><th>対角線構図</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>伝わる印象</strong></td>
+        <td>安定・落ち着き・信頼感</td>
+        <td>動き・エネルギー・緊張感・不安定さ</td>
+      </tr>
+      <tr>
+        <td><strong>線の作り方</strong></td>
+        <td>地平線・壁・棚など水平/垂直な要素をそのまま使う</td>
+        <td>階段・道・傾いた体・差し込む光などを角から角へ配置する</td>
+      </tr>
+      <tr>
+        <td><strong>カメラの傾け方</strong></td>
+        <td>基本は水平を保つ(水平器を意識)</td>
+        <td>あえてカメラ自体を傾ける「ダッチアングル」を併用することも</td>
+      </tr>
+      <tr>
+        <td><strong>向いているシーン</strong></td>
+        <td>会話・インタビュー・商品説明など落ち着いた場面</td>
+        <td>スポーツ・アクション・疾走・ダンスなど勢いを見せたい場面</td>
+      </tr>
+      <tr>
+        <td><strong>AIプロンプトの書き方例</strong></td>
+        <td>"horizontal composition, level horizon, balanced and calm"</td>
+        <td>"diagonal composition, dynamic diagonal leading line, sense of motion"</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="note-box">
+    💡 対角線構図は「崩す」構図だからこそ強い。1本の動画の中で水平・垂直の落ち着いたカットと、対角線の動きのあるカットを使い分けると、テンポにメリハリが生まれる。
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🔢 数字で見る対角線構図の目安</div>
+  <div class="bignum-grid">
+    <div class="bignum-card">
+      <div class="bignum">4方向</div>
+      <div class="bignum-label">対角線は「左下→右上」「右下→左上」など画面四隅から4通り引ける</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">約30〜45度</div>
+      <div class="bignum-label">水平面に対して、動きを感じやすいとされる傾きの目安</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">2〜3本</div>
+      <div class="bignum-label">複数の対角線を交差させて「X字構図」にする場合の線の本数目安</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">交点1/3</div>
+      <div class="bignum-label">対角線と三分割構図の交点線を重ねると主役の置き場所を決めやすい</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">10〜15度</div>
+      <div class="bignum-label">ダッチアングル(カメラそのものを傾ける)を軽く効かせる場合の目安</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">2〜4秒</div>
+      <div class="bignum-label">動きの強い対角線カットを1つのショットとして見せる長さの目安</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🧩 対角線の作り方マトリクス</div>
+  <div class="matrix-grid">
+    <div class="matrix-cell">
+      <div class="mc-title">🏗️ 建築・構造物で作る</div>
+      <div class="mc-desc">階段・エスカレーター・手すり・屋根の勾配など、もともと斜めの構造物をそのまま画面の対角に沿わせる</div>
+    </div>
+    <div class="matrix-cell">
+      <div class="mc-title">🚶 人物の姿勢で作る</div>
+      <div class="mc-desc">走る・傾く・伸ばした腕や脚のラインを対角に配置する。ポーズだけで動きを演出できる</div>
+    </div>
+    <div class="matrix-cell">
+      <div class="mc-title">💡 光と影で作る</div>
+      <div class="mc-desc">窓から差し込む光の筋、影の伸び方を斜めに通す。8/22紹介の影の使い方と組み合わせやすい</div>
+    </div>
+    <div class="matrix-cell">
+      <div class="mc-title">🎥 カメラワークで作る</div>
+      <div class="mc-desc">カメラを傾けるダッチアングルや、斜め上/斜め下からのアオリ・俯瞰で被写体自体を対角に見せる</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🛠️ 実践例:カフェの新作ドリンク紹介動画に対角線構図を使う5ステップ</div>
+  <p style="font-size:.88rem;color:var(--muted);margin-bottom:18px;">
+    同じ「新作ドリンク紹介」でも、要所に対角線を1本入れるだけで、静かな紹介動画に躍動感のあるアクセントを加えられます。
+  </p>
+  <ul class="step-list">
+    <li class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-title">オープニング:階段や梁を対角線として使う</div>
+        <div class="step-desc">「wide shot, cafe interior with a wooden staircase forming a diagonal line from bottom-left to top-right, dynamic composition」のように、もとから斜めの建築要素を画面いっぱいに使う。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-title">ドリンクを注ぐカットで液体の軌道を対角線に</div>
+        <div class="step-desc">「close-up, coffee pouring in a diagonal stream from top-left to bottom-right, dynamic diagonal composition, motion emphasis」のように、注ぐ動作の軌道自体をラインとして使う。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-title">店員が運ぶカットは体の傾きで対角線を作る</div>
+        <div class="step-desc">「medium shot, barista walking briskly carrying a tray, body leaning slightly along a diagonal line, energetic mood」のように、歩く姿勢そのものを斜めのラインにする。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <div class="step-title">光の筋を対角に通してアクセントを作る</div>
+        <div class="step-desc">「medium shot, drink on the counter, strong diagonal beam of morning light crossing the frame from top-right to bottom-left」のように、光の帯を斜めに差し込ませる。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">5</div>
+      <div class="step-body">
+        <div class="step-title">エンディングは水平構図に戻して落ち着かせる</div>
+        <div class="step-desc">「wide static shot, level horizon, drink centered, calm and balanced composition」のように、最後は対角線から水平構図へ戻すと「動から静」への余韻が生まれる。</div>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="card">
+  <div class="card-title">📝 今日のまとめ</div>
+  <ul class="summary-list">
+    <li><strong>対角線構図</strong>とは、画面の角から角へ向かう斜めのラインに被写体や要素を沿わせる構図</li>
+    <li>水平・垂直構図が<strong>「安定」</strong>を伝えるのに対し、対角線構図は<strong>「動き・エネルギー・緊張感」</strong>を伝える</li>
+    <li>階段や道などの<strong>構造物</strong>、人物の<strong>姿勢</strong>、<strong>光や影</strong>、カメラを傾ける<strong>ダッチアングル</strong>など、複数の作り方がある</li>
+    <li>三分割構図の交点と対角線を<strong>組み合わせる</strong>と、主役の置き場所を決めやすい</li>
+    <li>AIプロンプトは<strong>「diagonal composition」「diagonal leading line」</strong>で斜めラインの構図を直接指定できる</li>
+  </ul>
+</div>
+
+<div class="disclaimer">
+  ⚠️ <strong>免責事項</strong><br>
+  本記事で紹介したAIツールの名称・機能・料金・商用利用の可否は頻繁に変わるため、実際に利用する際は必ず各ツールの公式ページ・利用規約で最新情報をご確認ください。紹介した手順・角度の数値は一般的な撮影・構図技法の目安であり、実際の生成結果やツールの仕様は更新により変わることがあります。
+</div>
+
+<footer>
+  AI動画制作 最新トピック ─ 2026-09-15 ｜ エバーグリーン技法回<br>
+  参考:対角線構図は写真・映画・グラフィックデザインで古くから使われてきた基礎構図技法として整理(エバーグリーン技法・6/4紹介の構図の基本〈三分割・リーディングライン・対称構図〉、9/10紹介のネガティブスペース(余白)回と関連)<br>
+  <a href="index.html" style="color:var(--accent);">← 一覧に戻る</a>
+</footer>
+
+</div>
+</body>
+</html>
