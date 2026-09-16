@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-09-17</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '🏃';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.9rem; margin-bottom: 8px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.1em; }
+  .c3-col li { margin-bottom: 4px; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  .quote-box {
+    background: #f5f0e8;
+    border-left: 4px solid #7a5abf;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    margin: 12px 0;
+    color: #444;
+    font-style: italic;
+  }
+  .quote-box .who { font-style: normal; font-weight: 700; color: #5a3a9a; margin-top: 6px; font-size: 0.78rem; }
+  .matrix {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .mx-cell {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .mx-cell .mx-head { font-weight: 700; font-size: 0.88rem; margin-bottom: 6px; }
+  .mx-cell.ok  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .mx-cell.ok  .mx-head { color: #1a6e4a; }
+  .mx-cell.ng  { background: #fbe8e6; border: 2px solid #c0392b; }
+  .mx-cell.ng  .mx-head { color: #a0291e; }
+  @media (max-width: 540px) {
+    .compare4 { grid-template-columns: 1fr; }
+    .matrix { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.7rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ヘッダー -->
+<div class="header">
+  <div class="label">健康・栄養 最新トピック ・ 2026-09-17</div>
+  <h1>運動をすると、体の中で何が起きている?──基礎代謝・脂肪燃焼・"アフターバーン"を数字で読み解く「運動と代謝の基礎」</h1>
+  <div class="subtitle">今日はいったん最新論文から離れて基礎に立ち返り、「運動と代謝」の土台を整理します。じっとしていても使われる基礎代謝、運動の強さによって変わる脂肪・糖質の使われ方(クロスオーバー概念)、運動後もしばらく続く"アフターバーン"(EPOC)、そして人によって大きく違う日常動作の消費エネルギー(NEAT)まで、代表的な運動生理学の知見を、WHOと日本の厚生労働省の公式ガイドラインとあわせてやさしく解説します。</div>
+</div>
+
+<!-- タグ -->
+<div style="margin-bottom:18px;">
+  <span class="tag">運動と代謝の基礎</span>
+  <span class="tag">エバーグリーン</span>
+  <span class="tag">精密栄養学</span>
+  <span class="tag">エビデンスの読み方</span>
+</div>
+
+<!-- 今日の疑問 -->
+<div class="card">
+  <h2>🤔 今日の疑問:「運動すると、体の中では何が起きている?」</h2>
+  <p>「有酸素運動は脂肪が燃える」「運動後もしばらくカロリーを消費し続ける」──こうした話はよく耳にしますが、体の中で実際に何が起きているのかを順を追って知る機会は意外と少ないかもしれません。</p>
+  <p>今日は最新の一本の論文を紹介する回ではなく、運動生理学の基本的な考え方を、公的機関のガイドラインや古典的な研究とあわせて整理する「エバーグリーン(基礎知識)」回です。数字とあわせて、体の仕組みをやさしく見ていきましょう。</p>
+</div>
+
+<!-- 基本用語 -->
+<div class="card blue">
+  <h2>📖 まず言葉の意味を</h2>
+  <div class="def-grid">
+    <div class="def-item">
+      <div class="dterm">基礎代謝(BMR)</div>
+      体温維持・呼吸・心臓を動かすことなど、生きているだけで消費されるエネルギー。じっとしていても、1日の消費エネルギーの大部分を占める。
+    </div>
+    <div class="def-item">
+      <div class="dterm">メッツ(METs)</div>
+      安静に座っている状態を1として、その運動が何倍のエネルギーを使うかを表す単位。普通の歩行はおよそ3メッツとされる。
+    </div>
+    <div class="def-item">
+      <div class="dterm">有酸素運動・無酸素運動</div>
+      有酸素運動は酸素を使って脂肪や糖質をエネルギーに変える運動(ウォーキング・ジョギングなど)。無酸素運動は酸素を介さない経路で素早くエネルギーを作る運動(短距離走・高強度の筋トレなど)。
+    </div>
+    <div class="def-item">
+      <div class="dterm">クロスオーバー概念</div>
+      運動の強さが上がるほど、体が主に使うエネルギー源が脂肪から糖質(グリコーゲン)へと切り替わっていく、という運動生理学の考え方。
+    </div>
+    <div class="def-item">
+      <div class="dterm">EPOC(アフターバーン)</div>
+      運動が終わった後も、体が普段より多くの酸素を消費し続ける現象。運動で乱れた体内環境をもとに戻すために使われるエネルギー。
+    </div>
+    <div class="def-item">
+      <div class="dterm">NEAT(非運動性身体活動熱産生)</div>
+      スポーツ的な運動以外の、通勤・家事・立ち仕事・貧乏ゆすりなど、日常のちょっとした動きで消費されるエネルギー。
+    </div>
+  </div>
+</div>
+
+<!-- 数字カード -->
+<div class="num-row">
+  <div class="num-card gray-bg">
+    <div class="big">60〜70<span class="unit">%</span></div>
+    <div class="desc">1日の総消費エネルギーのうち基礎代謝(じっとしていても使う分)が占める割合の目安</div>
+  </div>
+  <div class="num-card blue-bg">
+    <div class="big">150〜300<span class="unit">分/週</span></div>
+    <div class="desc">WHOが成人に推奨する中強度有酸素運動の目安(筋力トレーニングは週2回以上を別途推奨)</div>
+  </div>
+  <div class="num-card orange-bg">
+    <div class="big">週2〜3<span class="unit">日</span></div>
+    <div class="desc">日本の厚生労働省「身体活動・運動ガイド2023」が推奨する筋力トレーニングの頻度</div>
+  </div>
+  <div class="num-card red-bg">
+    <div class="big">最大2,000<span class="unit">kcal/日</span></div>
+    <div class="desc">NEAT(日常動作の消費エネルギー)にみられる個人差の幅の目安</div>
+  </div>
+</div>
+
+<!-- 何がわかっているか -->
+<div class="card orange">
+  <h2>🔍 運動をすると、体の中で何が起きる?</h2>
+  <div class="compare4">
+    <div class="c3-col blue">
+      <h3>🔵 安静にしているとき</h3>
+      <ul>
+        <li>体温維持・呼吸・心臓の拍動などに、総消費エネルギーの60〜70%ほどが使われる(基礎代謝)</li>
+      </ul>
+    </div>
+    <div class="c3-col orange">
+      <h3>🟠 軽め〜中強度の運動</h3>
+      <ul>
+        <li>使われるエネルギーのうち脂肪が占める"比率"は比較的高い</li>
+        <li>ただし運動強度が低い分、単位時間あたりの消費カロリー総量は小さい</li>
+      </ul>
+    </div>
+    <div class="c3-col green">
+      <h3>🟢 強めの運動</h3>
+      <ul>
+        <li>糖質(グリコーゲン)を使う比率が増える(クロスオーバー概念)</li>
+        <li>消費カロリーの総量自体は大きくなるため、脂肪の燃焼量(絶対量)は運動の強さと時間の組み合わせ次第で変わる</li>
+      </ul>
+    </div>
+    <div class="c3-col purple">
+      <h3>🟣 運動が終わった後</h3>
+      <ul>
+        <li>体内環境をもとに戻すため、一時的に酸素消費量が高い状態(EPOC)が続く</li>
+        <li>ただし通常強度の運動では、その量は運動中の消費エネルギーに比べて小さいとされる</li>
+      </ul>
+    </div>
+  </div>
+  <p style="font-size:0.82rem; color:#555; margin-top:8px;">出典:Brooks GA, Mercier J. <em>J Appl Physiol</em>. 1994;76(6):2253-2261(クロスオーバー概念)/ LaForgia J, Withers RT, Gore CJ. <em>J Sports Sci</em>. 2006;24(12):1247-1264(EPOCのレビュー)/ Hill JO, Wyatt HR, Peters JC. <em>Circulation</em>. 2012;126(1):126-132(基礎代謝の割合)。当セッションのネットワーク制限により各論文本文への直接アクセスはできておらず、検索エンジン経由で複数の要約・引用が一致した内容にもとづく。</p>
+</div>
+
+<!-- どうやって調べられてきたか -->
+<div class="card purple">
+  <h2>🔬 こうした数字は、どうやって調べられてきた?</h2>
+  <div class="flow">
+    <div class="flow-step purp">① 呼気ガス分析(間接熱量測定)で<br>酸素消費量・二酸化炭素排出量から<br>脂肪と糖質の使用比率を計算</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step">② 二重標識水法で<br>数週間の"ふだんの生活"での<br>総消費エネルギーを測定</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step alt">③ 加速度計や心拍計などの<br>ウェアラブル機器で<br>日常の身体活動量を推定</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step warn2">④ 年齢・性別・体格の異なる<br>大人数のデータを集めて<br>比較する研究にまとめる</div>
+  </div>
+  <p style="font-size:0.82rem; color:#555; margin-top:4px;">たとえば米デューク大学のHerman Pontzerさん・国立健康・栄養研究所(当時)の山田陽介さんらの国際研究チームは、生後8日から95歳までの幅広い年齢層を対象に、二重標識水法で測った総消費エネルギーの大規模なデータベースを解析し、体格(除脂肪量)あたりの消費エネルギーが乳児期に高く、20〜60歳の成人期ではほぼ一定に保たれ、高齢期に低下するという生涯を通じた変化のパターンをScience誌に報告しました(DOI: 10.1126/science.abe5017)。正確な対象人数は当セッションのネットワーク制限で一次資料を直接確認できておらず、ここでは研究の設計と大きな傾向のみを紹介します。</p>
+</div>
+
+<!-- 精密栄養学の視点 -->
+<div class="card">
+  <h2>🧬 精密栄養学の視点:「同じ運動でも、消費エネルギーには個人差がある」</h2>
+  <p>運動生理学の基本原則(強度によってエネルギー源の比率が変わる、運動後もエネルギー消費が続くなど)は、実験室での呼気ガス分析を中心に繰り返し確認されてきました。一方で、同じ運動をしても実際にどれだけ痩せやすいか・エネルギーを消費するかには、基礎代謝・筋肉量・NEATなどの個人差が大きく関わります。とくにNEAT(日常動作の消費エネルギー)は、同じような体格の人どうしでも1日あたり最大2,000kcal程度の差がありうると報告されており、職業や生活環境による動き方の違いが大きく影響するとされています。「運動の基本原則」と「個人差」の両方を知っておくことが、精密栄養学的な理解の第一歩です。</p>
+  <div class="matrix">
+    <div class="mx-cell ok">
+      <div class="mx-head">✅ 比較的よく確立されていること</div>
+      運動強度によって使われるエネルギー源の比率が変わること(クロスオーバー概念)、運動後も一時的にエネルギー消費が高い状態が続くこと(EPOC)、週150〜300分の有酸素運動や筋力トレーニングが健康指標の改善と関連することは、多くの研究・公的ガイドラインで支持されている
+    </div>
+    <div class="mx-cell ng">
+      <div class="mx-head">❓ 誤解されやすいこと・個人差が大きいこと</div>
+      「低強度の運動の方が脂肪がよく燃えるので痩せやすい」という解釈は、脂肪の"比率"と"総消費量"を混同した単純化。またEPOCが体重管理の主な鍵になるほど大きいかどうかは運動強度・個人差に左右され、通常強度の運動では限定的とみる専門家のレビューもある
+    </div>
+  </div>
+</div>
+
+<!-- 限界 -->
+<div class="warn">
+  <strong>⚠️ ここで紹介した内容の限界</strong>
+  <ul style="padding-left:1.4em; margin-top:8px;">
+    <li>ここで紹介した運動生理学の基本原則は、主に健康な成人を対象にした実験室でのデータにもとづくものであり、持病がある人・高齢者・妊娠中の人などにそのまま当てはまるとは限らない。</li>
+    <li>クロスオーバー概念やEPOCの研究の多くは、実験室での呼気ガス分析にもとづく生理学的な知見であり、実生活での長期的な体重変化を直接証明したものではない。</li>
+    <li>基礎代謝・NEAT・脂肪の使われやすさには、年齢・性別・筋肉量・遺伝的な要因などによる個人差が大きく、同じ運動をしても消費エネルギーや体重の変化の速さは人によって異なる。</li>
+    <li>当セッションのネットワーク制限により、紹介した各論文・公的ガイドラインの原文(pubmed.ncbi.nlm.nih.gov・mhlw.go.jp・who.int・journals.physiology.org・science.org 等がブロック対象)に直接アクセスできず、検索エンジン経由で得られた複数の要約・引用が一致した範囲に限定して紹介している。</li>
+  </ul>
+</div>
+
+<!-- エビデンスの整理 -->
+<div class="card">
+  <h2>🧪 今日出てきた情報の「証拠としての強さ」の目安</h2>
+  <table class="ev-table">
+    <tr><th>情報の種類</th><th>特徴</th><th>証拠としての強さ</th></tr>
+    <tr>
+      <td>週150〜300分の中強度有酸素運動・筋トレ週2回以上の推奨</td>
+      <td>WHO 2020年版ガイドライン。多数の系統的レビューを踏まえた国際機関の推奨</td>
+      <td><span class="ev-badge ev-high">高い(専門家パネルによる国際的な公的推奨)</span></td>
+    </tr>
+    <tr>
+      <td>運動強度によって脂肪・糖質の利用比率が変わる(クロスオーバー概念)</td>
+      <td>1990年代の古典的な運動生理学研究(実験室での呼気ガス分析)。以後の教科書で広く踏襲</td>
+      <td><span class="ev-badge ev-mid">中程度(古典的だが再現性のある基礎生理学の知見)</span></td>
+    </tr>
+    <tr>
+      <td>「低強度の運動(脂肪燃焼ゾーン)の方が痩せやすい」という一般的な解釈</td>
+      <td>脂肪の"比率"と"総消費量"を混同した単純化した解釈</td>
+      <td><span class="ev-badge ev-low">低い(生理学的事実からの拡大解釈)</span></td>
+    </tr>
+    <tr>
+      <td>EPOC(アフターバーン)が体重管理の主な鍵になるという解釈</td>
+      <td>通常強度の運動では、EPOCの量は運動中の消費エネルギーに比べて小さいとするレビューがある</td>
+      <td><span class="ev-badge ev-low">低い(過大評価されやすい)</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- 実践 -->
+<div class="card orange">
+  <h2>🍽️ 今日から意識できること</h2>
+  <ul class="step-list">
+    <li>「何を」より先に「続けられる量」を意識する。WHOも厚労省のガイドラインも、共通して「今よりも少しでも多く体を動かす」ことを基本方針にしている。</li>
+    <li>有酸素運動(週150〜300分程度の中強度が目安)と、筋力トレーニング(週2〜3日程度)を組み合わせることが、多くの公的ガイドラインで推奨されている。</li>
+    <li>「脂肪燃焼ゾーン」を狙って強度を落としすぎるより、無理なく続けられる範囲で強度を上げたほうが、総消費エネルギーは増えやすい。</li>
+    <li>基礎代謝・NEATには大きな個人差があるため、同じ運動量でも他人と同じペースで体重が変わるとは限らないと理解しておく。</li>
+    <li>持病がある方・高齢の方・妊娠中の方などは、運動の種類や強度を始める前にかかりつけ医・理学療法士などの専門家に相談する。</li>
+  </ul>
+</div>
+
+<!-- まとめ -->
+<div class="card" style="border-left-color:#1a7a5a;">
+  <h2>✅ 今日のまとめ</h2>
+  <ul class="step-list">
+    <li>1日の総消費エネルギーの60〜70%ほどは、じっとしていても使われる基礎代謝が占める(Hill JO, Wyatt HR, Peters JC, <em>Circulation</em>, 2012)。</li>
+    <li>運動の強さが上がるほど、使われるエネルギー源は脂肪から糖質へと比率が変わっていく(クロスオーバー概念、Brooks GA, Mercier J, <em>J Appl Physiol</em>, 1994)。「低強度=脂肪がよく燃えて痩せやすい」は比率と総量を混同した単純化。</li>
+    <li>運動後も一時的にエネルギー消費が高い状態(EPOC)が続くが、通常強度の運動ではその量は限定的とされる(LaForgia J, et al., <em>J Sports Sci</em>, 2006)。</li>
+    <li>日常動作の消費エネルギー(NEAT)には最大2,000kcal/日ほどの個人差がありうる(Levine JA, <em>Am J Physiol Endocrinol Metab</em>, 2004)。WHO・厚労省とも「続けられる範囲で、今より少しでも多く動く」ことを共通して推奨している。</li>
+  </ul>
+</div>
+
+<!-- 免責 -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、医療アドバイスではありません。運動の効果・適切な強度・必要量は個人の体質・年齢・持病・服薬によって大きく異なります。持病がある方・高齢の方・妊娠中の方・運動習慣のない方が新しく運動を始める場合は、自己判断で強度や量を決めず、かかりつけ医・理学療法士・管理栄養士など専門家にご相談ください。本記事は特定の運動法・食事制限・断食などを推奨するものではありません。
+</div>
+
+<!-- 出典 -->
+<div class="sources">
+  <h3>📚 主な出典・参考文献</h3>
+  <ol>
+    <li>Bull FC, et al. "World Health Organization 2020 guidelines on physical activity and sedentary behaviour." <em>British Journal of Sports Medicine</em>. 2020;54(24):1451-1462. DOI: 10.1136/bjsports-2020-102955.
+      <a href="https://doi.org/10.1136/bjsports-2020-102955" target="_blank">https://doi.org/10.1136/bjsports-2020-102955</a>(基準日:2020年12月発表。当セッションのネットワーク制限〈who.int・pubmed.ncbi.nlm.nih.gov・bjsm.bmj.comがブロック対象〉により原文へ直接アクセスできず、検索エンジン経由の複数の要約による)
+    </li>
+    <li>厚生労働省「健康づくりのための身体活動・運動ガイド2023」
+      <a href="https://www.mhlw.go.jp/content/001204942.pdf" target="_blank">https://www.mhlw.go.jp/content/001204942.pdf</a>(基準日:2024年1月公表。当セッションのネットワーク制限〈mhlw.go.jpがブロック対象〉により原文へ直接アクセスできず、検索エンジン経由の複数の要約による)
+    </li>
+    <li>Hill JO, Wyatt HR, Peters JC. "Energy Balance and Obesity." <em>Circulation</em>. 2012;126(1):126-132. DOI: 10.1161/CIRCULATIONAHA.111.087213.
+      <a href="https://doi.org/10.1161/CIRCULATIONAHA.111.087213" target="_blank">https://doi.org/10.1161/CIRCULATIONAHA.111.087213</a>(基準日:2012年7月発表。基礎代謝・身体活動・食事誘発性熱産生の内訳について引用。ネットワーク制限により原文未確認、検索エンジン経由の要約による)
+    </li>
+    <li>Brooks GA, Mercier J. "Balance of carbohydrate and lipid utilization during exercise: the 'crossover' concept." <em>Journal of Applied Physiology</em>. 1994;76(6):2253-2261. PMID: 7928844.
+      <a href="https://pubmed.ncbi.nlm.nih.gov/7928844/" target="_blank">https://pubmed.ncbi.nlm.nih.gov/7928844/</a>(基準日:1994年6月発表。ネットワーク制限により原文未確認、検索エンジン経由の要約による)
+    </li>
+    <li>LaForgia J, Withers RT, Gore CJ. "Effects of exercise intensity and duration on the excess post-exercise oxygen consumption." <em>Journal of Sports Sciences</em>. 2006;24(12):1247-1264. DOI: 10.1080/02640410600552064.
+      <a href="https://doi.org/10.1080/02640410600552064" target="_blank">https://doi.org/10.1080/02640410600552064</a>(基準日:2006年12月発表。ネットワーク制限により原文未確認、検索エンジン経由の要約による)
+    </li>
+    <li>Levine JA. "Nonexercise activity thermogenesis (NEAT): environment and biology." <em>American Journal of Physiology-Endocrinology and Metabolism</em>. 2004;286(5):E675-E685. DOI: 10.1152/ajpendo.00562.2003.
+      <a href="https://doi.org/10.1152/ajpendo.00562.2003" target="_blank">https://doi.org/10.1152/ajpendo.00562.2003</a>(基準日:2004年5月発表。NEATの個人差〈最大2,000kcal/日〉について引用。ネットワーク制限により原文未確認、検索エンジン経由の要約による)
+    </li>
+    <li>Pontzer H, Yamada Y, et al. "Daily energy expenditure through the human life course." <em>Science</em>. 2021;373(6556):808-812. DOI: 10.1126/science.abe5017.
+      <a href="https://doi.org/10.1126/science.abe5017" target="_blank">https://doi.org/10.1126/science.abe5017</a>(基準日:2021年8月発表。ネットワーク制限により原文未確認、検索エンジン経由の要約による。正確な対象人数は未確認のため本文には記載していない)
+    </li>
+  </ol>
+  <p style="margin-top:8px; font-size:0.78rem;">※ 本記事はネットワーク制限により、上記の各一次資料に本セッションから直接アクセスできなかったため、検索エンジンで得られる複数の要約・引用箇所を突き合わせ、内容が一致した範囲に限定して記載しています。最新かつ正確な数値・詳細は、各DOI・URL先で改めてご確認いただくことをお勧めします。</p>
+</div>
+
+</div>
+</body>
+</html>
