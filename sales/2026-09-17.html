@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>インサイドセールス 最新トピック 2026-09-17</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  /* ── カバー ── */
+  .cover {
+    background: linear-gradient(135deg, #6d1b1b 0%, #a13a2c 50%, #d98a2e 100%);
+    color: white;
+    border-radius: 8px;
+    padding: 60px 40px;
+    text-align: center;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.3);
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent, transparent 28px,
+      rgba(255,255,255,0.05) 28px, rgba(255,255,255,0.05) 29px
+    );
+  }
+  .cover-emoji { font-size: 64px; display: block; margin-bottom: 16px; }
+  .cover h1 {
+    font-family: 'Klee One', sans-serif;
+    font-size: 1.9rem;
+    font-weight: 600;
+    line-height: 1.35;
+    margin-bottom: 12px;
+    position: relative;
+  }
+  .cover .subtitle { font-size: 1.05rem; opacity: 0.85; margin-bottom: 8px; position: relative; }
+  .cover .date-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 20px;
+    padding: 6px 20px;
+    font-size: 1rem;
+    margin-top: 16px;
+    position: relative;
+  }
+
+  /* ── カード共通 ── */
+  .card {
+    background: #fff9f0;
+    border-radius: 6px;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.12);
+    position: relative;
+    overflow: hidden;
+  }
+  .card-body {
+    padding: 40px 36px 28px 64px;
+    background: repeating-linear-gradient(0deg, transparent, transparent 31px, #e0d8c8 31px, #e0d8c8 32px);
+    background-color: #fff9f0;
+  }
+  .card-tab {
+    display: inline-block;
+    background: #a13a2c;
+    color: white;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 4px 16px;
+    border-radius: 0 0 6px 6px;
+    position: absolute;
+    top: 0; left: 32px;
+    letter-spacing: 0.05em;
+  }
+  .card h2 {
+    font-size: 1.22rem;
+    color: #6d1b1b;
+    margin-bottom: 16px;
+    margin-top: 4px;
+    line-height: 1.5;
+    border-left: 4px solid #c0532b;
+    padding-left: 12px;
+  }
+  p { line-height: 1.85; color: #333; font-size: 0.97rem; margin-bottom: 12px; }
+
+  /* ── 数字カード ── */
+  .num-cards { display: flex; gap: 14px; flex-wrap: wrap; margin: 20px 0; }
+  .num-card {
+    flex: 1; min-width: 170px;
+    background: #6d1b1b; color: white;
+    border-radius: 10px; padding: 20px 16px; text-align: center;
+  }
+  .num-card.orange { background: #a13a2c; }
+  .num-card.gold   { background: #b06b1a; }
+  .num-card.gray   { background: #6b6b6b; }
+  .num-card .big-num {
+    font-family: 'Caveat', cursive;
+    font-size: 1.7rem; font-weight: 700; line-height: 1.15;
+    color: #ffd8b0;
+  }
+  .num-card .num-label { font-size: 0.78rem; margin-top: 8px; opacity: 0.92; line-height: 1.6; }
+
+  /* ── ステップフロー ── */
+  .step-flow { display: flex; flex-direction: column; gap: 0; margin: 20px 0; }
+  .step-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px dotted #ddd;
+  }
+  .step-item:last-child { border-bottom: none; }
+  .step-num {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: #a13a2c;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .step-body { flex: 1; }
+  .step-title { font-size: 0.97rem; font-weight: 700; color: #6d1b1b; margin-bottom: 4px; }
+  .step-desc  { font-size: 0.85rem; color: #555; line-height: 1.7; margin: 0; }
+
+  /* ── 対比カード(2列) ── */
+  .compare-flow { display: flex; gap: 14px; flex-wrap: wrap; margin: 20px 0; align-items: stretch; }
+  .compare-col {
+    flex: 1; min-width: 220px;
+    background: #fdf2ea;
+    border: 1.5px solid #e8c8a8;
+    border-radius: 8px;
+    padding: 16px 18px;
+  }
+  .compare-col h3 { font-size: 0.95rem; color: #6d1b1b; margin-bottom: 10px; }
+  .compare-col ol, .compare-col ul { padding-left: 18px; }
+  .compare-col li { font-size: 0.83rem; color: #555; line-height: 1.9; }
+  .compare-vs {
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Caveat', cursive; font-size: 1.6rem; font-weight: 700;
+    color: #a13a2c; min-width: 30px;
+  }
+  .cause-down {
+    text-align: center;
+    font-size: 1.3rem;
+    color: #a13a2c;
+    margin: 10px 0 -2px;
+  }
+  .result-box {
+    background: #6d1b1b;
+    color: white;
+    border-radius: 8px;
+    padding: 14px 18px;
+    text-align: center;
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-top: 4px;
+  }
+
+  /* ── マトリクス表 ── */
+  .matrix-table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 0.85rem; }
+  .matrix-table th, .matrix-table td {
+    border: 1px solid #e0d0b8; padding: 10px 12px; text-align: left; vertical-align: top;
+  }
+  .matrix-table th { background: #f6e2c8; color: #6d1b1b; font-weight: 700; }
+  .matrix-table td { color: #444; line-height: 1.6; }
+  .matrix-table tr:nth-child(even) td { background: #fdf9f2; }
+  .matrix-table tr.warn td { background: #f8e6e0; }
+
+  /* ── 今日の一歩 ── */
+  .today-box {
+    background: linear-gradient(135deg, #6d1b1b, #c0532b);
+    color: white; border-radius: 8px;
+    padding: 24px 28px; margin: 16px 0; text-align: center;
+  }
+  .today-box .emoji { font-size: 2.2rem; display: block; margin-bottom: 8px; }
+  .today-box .title { font-size: 1.1rem; font-weight: 600; margin-bottom: 10px; }
+  .today-box .desc  { font-size: 0.92rem; opacity: 0.92; line-height: 1.8; text-align: left; }
+
+  /* ── 共通パーツ ── */
+  .highlight { background: #f6e2c8; border-radius: 4px; padding: 1px 6px; color: #6d1b1b; font-weight: 600; }
+  .callout {
+    border-radius: 6px; padding: 14px 16px; margin-top: 14px;
+  }
+  .callout.yellow { background: #fef9e7; border-left: 4px solid #d98a2e; }
+  .callout.green  { background: #eafaf1; border-left: 4px solid #27ae60; }
+  .callout.blue   { background: #e8f4fd; border-left: 4px solid #2980b9; }
+  .callout.wine   { background: #f6e9e4; border-left: 4px solid #a13a2c; }
+
+  /* ── 免責 ── */
+  .disclaimer {
+    background: #fff; border: 1px solid #ddd; border-radius: 6px;
+    padding: 16px 20px; font-size: 0.8rem; color: #777; line-height: 1.7;
+    width: 100%; max-width: 820px; margin-bottom: 16px;
+  }
+  .disclaimer strong { color: #555; }
+
+  /* ── 出典 ── */
+  .sources {
+    background: #fff9f0; border-radius: 6px; padding: 16px 24px;
+    width: 100%; max-width: 820px; margin-bottom: 24px;
+    font-size: 0.8rem; color: #666; line-height: 1.8;
+  }
+  .sources h3 { font-size: 0.85rem; color: #6d1b1b; margin-bottom: 8px; }
+  .sources a { color: #a13a2c; text-decoration: none; }
+  .sources a:hover { text-decoration: underline; }
+  .sources ul { padding-left: 16px; }
+
+  /* ── バックリンク ── */
+  .back-link { text-align: center; margin-bottom: 20px; font-size: 0.9rem; }
+  .back-link a { color: #a13a2c; text-decoration: none; }
+  .back-link a:hover { text-decoration: underline; }
+
+  @media (max-width: 560px) {
+    .card-body { padding: 40px 18px 24px 24px; }
+    .matrix-table { display: block; overflow-x: auto; white-space: nowrap; }
+    .compare-flow { flex-direction: column; }
+    .compare-vs { padding: 4px 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── カバー ── -->
+<div class="cover">
+  <span class="cover-emoji">💰</span>
+  <h1>AI SDRは月5,000ドル、人間は年20万ドル?<br>それでも「人」が求められる場所</h1>
+  <div class="subtitle">インサイドセールス 最新トピック 2026-09-17</div>
+  <div class="date-badge">テレアポ・インサイドセールス 毎朝解説</div>
+</div>
+
+<!-- ── Section 01 ── -->
+<div class="card">
+  <span class="card-tab">01 今日のテーマ</span>
+  <div class="card-body">
+    <h2>🤔「AIの方が安い」と聞くけど、実際どのくらい違うのか</h2>
+    <p>
+      求人票や業界ニュースで「AI SDR(見込み客への最初の連絡を自動でおこなうAIツール)」という言葉を見かける機会が増えました。「AIの方が安いなら、そのうち人間のSDR(新規開拓の電話・メールを担当する営業職)は要らなくなるのでは」と不安になる人もいるはずです。
+    </p>
+    <p>
+      そこで今日は、<span class="highlight">AI SDRツールの利用料と、人間のSDRを1人雇うコストを実際の金額で比べてみます</span>。数字を並べてみると、多くの企業が「AIだけ」でも「人だけ」でもなく、両方を組み合わせる理由が見えてきます。
+    </p>
+  </div>
+</div>
+
+<!-- ── Section 02 ── -->
+<div class="card">
+  <span class="card-tab">02 数字で見る コストの差</span>
+  <div class="card-body">
+    <h2>💵 月額数百ドルのAIと、年間十万ドル超の人間</h2>
+    <p>
+      AI SDRツールを販売する複数の企業の比較記事を見ると、AI SDRの利用料はおおむね<span class="highlight">月額500〜5,000ドル程度</span>(安いプランは月30ドル程度からという記事もありました)。一方、米国で人間のSDRを1人雇う場合、基本給だけでなく社会保険・採用費・研修期間・管理コストまで含めた「フルコスト」は<span class="highlight">年間11万〜21万ドル程度</span>と紹介されています。
+    </p>
+    <div class="num-cards">
+      <div class="num-card">
+        <div class="big-num">$500〜$5,000</div>
+        <div class="num-label">AI SDRツールの<br>月額利用料の目安<br>(複数の比較記事の平均的な幅)</div>
+      </div>
+      <div class="num-card orange">
+        <div class="big-num">$110,000〜$210,000</div>
+        <div class="num-label">米国で人間のSDRを<br>1人雇う場合の年間フルコスト<br>(基本給+社会保険+採用・研修費等)</div>
+      </div>
+      <div class="num-card gold">
+        <div class="big-num">$5.81B→$17.58B</div>
+        <div class="num-label">AI SDR市場規模の予測<br>2026年→2030年<br>(年平均成長率31.9%との紹介)</div>
+      </div>
+      <div class="num-card gray">
+        <div class="big-num">約39,176件</div>
+        <div class="num-label">米国のリモート営業職<br>求人件数<br>(2026年9月上旬時点)</div>
+      </div>
+    </div>
+    <div class="callout yellow">
+      ⚠️ これらの金額は、AI SDRツールを販売する企業自身のブログ記事など、民間の比較記事から集めたものです。同じ「AI SDR月額」でも記事によって紹介する幅がかなり違うため、正確な1つの数字というより「桁のイメージ」として捉えるのが安全です。
+    </div>
+  </div>
+</div>
+
+<!-- ── Section 03 ── -->
+<div class="card">
+  <span class="card-tab">03 比較 AIと人、それぞれの持ち場</span>
+  <div class="card-body">
+    <h2>⚖️ 値段だけ見ると圧倒的にAIが安いのに、なぜ「全部AI化」しないのか</h2>
+    <p>
+      複数の比較記事に共通していたのは、「AIは安くて速いが、複雑な商談や関係構築が必要な場面では、今のところ人間の方が成果を出しやすい」という指摘です。値段だけで判断せず、業務の中身で役割を分けている企業が多いようです。
+    </p>
+    <div class="compare-flow">
+      <div class="compare-col">
+        <h3>🤖 AIが得意とされる仕事</h3>
+        <ul>
+          <li>大量の見込み客リストへの一次連絡</li>
+          <li>24時間いつでも対応できるメール・チャット返信</li>
+          <li>日程調整・データ入力などの定型作業</li>
+          <li>同じ質を保ったまま同時に多くの相手に対応</li>
+        </ul>
+      </div>
+      <div class="compare-vs">VS</div>
+      <div class="compare-col">
+        <h3>🧑‍💼 人がまだ強いとされる仕事</h3>
+        <ul>
+          <li>初対面の相手との信頼構築</li>
+          <li>複雑な商談での見極め・優先順位づけ</li>
+          <li>専門性の高い質問への臨機応変な回答</li>
+          <li>大型契約の交渉・クロージング</li>
+        </ul>
+      </div>
+    </div>
+    <div class="cause-down">▼</div>
+    <div class="result-box">結果:多くの企業が「AIか人か」の二択ではなく、AIと人を組み合わせる「併用型」を選んでいる、というのが複数の比較記事に共通する見方</div>
+  </div>
+</div>
+
+<!-- ── Section 04 ── -->
+<div class="card">
+  <span class="card-tab">04 図解 業務ごとの役割分担イメージ</span>
+  <div class="card-body">
+    <h2>🗂️ 「なくなる仕事」ではなく「中身が変わる仕事」として見る</h2>
+    <p>
+      業務を工程ごとに分けてみると、AIが担いやすい部分と、人が担いやすい部分がはっきり分かれます。求人票を見るときも、この工程のどこを任されるポジションなのかを意識すると、自分に合う求人かどうか判断しやすくなります。
+    </p>
+    <table class="matrix-table">
+      <tr>
+        <th>営業の工程</th>
+        <th>AI SDRが担いやすい部分</th>
+        <th>人が担いやすい部分</th>
+      </tr>
+      <tr>
+        <td>見込み客リストの作成</td>
+        <td>条件に合う企業・担当者の抽出</td>
+        <td>リストの優先順位づけ・戦略設計</td>
+      </tr>
+      <tr>
+        <td>最初の連絡(架電・メール)</td>
+        <td>大量送信・一次的な反応の収集</td>
+        <td>反応が良かった相手への深掘り</td>
+      </tr>
+      <tr>
+        <td>ヒアリング・商談化判定</td>
+        <td>基本情報の確認・振り分け</td>
+        <td>本音・課題の掘り下げ、信頼構築</td>
+      </tr>
+      <tr class="warn">
+        <td>大型商談の交渉・クロージング</td>
+        <td>資料準備・スケジュール調整</td>
+        <td>条件交渉・最終的な意思決定支援</td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<!-- ── Section 05 ── -->
+<div class="card">
+  <span class="card-tab">05 求職者にとっての意味</span>
+  <div class="card-body">
+    <h2>🎯 「AIより安い人材」ではなく「AIと組める人材」を目指す</h2>
+    <div class="step-flow">
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-title">単純な架電・送信の速さだけでは、AIと同じ土俵で比較されやすい</div>
+          <p class="step-desc">定型的な一次連絡だけを担う求人は、今後AIツールとの役割の奪い合いになりやすい部分です。</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <div class="step-title">「ヒアリング」「見極め」「関係構築」の経験を言語化しておく</div>
+          <p class="step-desc">複雑な商談での判断や、相手の本音を引き出した経験は、AIが代替しにくい強みとして面接で伝えやすい材料になります。</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <div class="step-title">求人票の「AIツールとの協働」の書かれ方を確認する</div>
+          <p class="step-desc">AIが一次対応を担い、人は商談化以降を担当する、といった役割分担が明記されている求人は、併用型を前提にした職場である可能性が高いです。</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <div class="step-title">数字の幅は情報源によって違うことを前提に、相場感として使う</div>
+          <p class="step-desc">「AIの方が◯倍安い」という数字だけで一喜一憂せず、自分が担当する工程がどこなのかを基準に判断しましょう。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Section 06 ── -->
+<div class="card">
+  <span class="card-tab">06 今日からできる一歩</span>
+  <div class="card-body">
+    <h2>👣 今日の一歩:気になる求人票で「AIと人の役割分担」を探してみる</h2>
+    <div class="today-box">
+      <span class="emoji">📝</span>
+      <div class="title">今日の一歩:応募を検討している(または気になっている)インサイドセールス求人を1つ選び、求人票や企業サイトに「AIツール名」「AIとの協働」についての記載がないか探してみる</div>
+      <div class="desc">
+        記載があれば、どの工程をAIが担い、どこからが人の仕事とされているかをメモしましょう。記載がなければ、面接で「御社ではAIツールと営業担当者の役割をどう分けていますか」と質問してみるのも、職場の方向性を知る手がかりになります。
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 免責 ── -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事で紹介したコスト・市場規模・求人件数などの数字は、AI SDRツールを提供する企業自身のブログ記事や求人サイトなど、複数の民間情報源をもとにしたものであり、出典によって金額や集計方法に幅があります。「AIが人間のSDRを置き換える/置き換えない」を断定するものではありません。報酬・採用の結果には個人差があり、市場・時期・スキルによって変わります。紹介したツール・企業・求人サイトの条件は変わる可能性があるため、最新情報は必ず各社・各サイトの公式情報でご確認ください。
+</div>
+
+<!-- ── 出典 ── -->
+<div class="sources">
+  <h3>📎 参考情報・出典</h3>
+  <ul>
+    <li><a href="https://instantly.ai/blog/ai-sdr-vs-human-sdr-comparison/" target="_blank">Instantly.ai「AI SDR vs Human SDR: 2026 Cost and Performance Guide」(AI SDRと人間SDRのコスト比較記事の一つ。参照日:2026年9月、ページへの直接アクセスは制限あり)</a></li>
+    <li><a href="https://www.artisan.co/blog/how-much-does-an-ai-sdr-cost-pricing-compared-to-human-sdrs" target="_blank">Artisan「How much does an AI SDR cost? AI vs human pricing 2026」(AI SDRツール提供企業自身による価格比較記事。参照日:2026年9月、ページへの直接アクセスは制限あり)</a></li>
+    <li><a href="https://salesmotion.io/blog/ai-sdrs-vs-human-sdrs" target="_blank">Salesmotion「AI SDRs vs Human SDRs: The Real ROI Comparison for 2026」(AIと人間の役割分担・ROI比較記事。参照日:2026年9月、ページへの直接アクセスは制限あり)</a></li>
+    <li><a href="https://r-sun.ai/insights/ai-driven-b2b-sales-2026" target="_blank">R-Sun「AI-Driven B2B Sales 2026: Benchmarks, Trends & ROI」(AI SDR市場規模予測(2026年$5.81B→2030年$17.58B、CAGR31.9%)の紹介元。参照日:2026年9月、ページへの直接アクセスは制限あり)</a></li>
+    <li><a href="https://www.indeed.com/q-remote-sales-jobs.html" target="_blank">Indeed「Flexible Remote Sales Jobs」検索結果ページ(米国のリモート営業求人件数の目安。参照日:2026年9月、件数は検索時点で変動)</a></li>
+  </ul>
+</div>
+
+<!-- ── バックリンク ── -->
+<div class="back-link">
+  <a href="index.html">&larr; バックナンバー一覧へ</a>
+</div>
+
+</body>
+</html>
