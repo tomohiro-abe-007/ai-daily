@@ -6,7 +6,7 @@
 - 英語の集合名詞（team/family/peopleなど）の単数・複数扱いの違い── 可算・不可算の続編、イギリス英語とアメリカ英語で扱いが変わる点も
 - 英語圏の日付・数字・単位の書き方の違い（day/month順、Fahrenheit/Celsius、1階の数え方floor）── 07-30のイギリス英語/アメリカ英語対比の続編
 - 英語の動詞語尾(-ate, -ize)とスペイン語の-ar動詞の対応── コグネイトの続編、動詞版の語尾変換パターン
-- スペイン語の絶対最上級 -ísimo の発展（副詞への応用・muy との使い分け）── 最上級の続編
+- スペイン語の絶対最上級 -ísimo の発展(副詞への応用・muy との使い分け)── 最上級の続編
 - 英語のelder/eldest（家族の年上を表す特殊な比較級・最上級）── 07-26で扱ったmayor/menor対比の発展
 - 英語のwhom（目的格の関係代名詞）とその省略傾向── 非制限用法でwhoの代わりに使われる場面の整理
 - スペイン語のcuyo（所有の関係詞「〜の」）── 英語のwhoseに対応、07-29のque/quienの発展
@@ -33,8 +33,8 @@
 - 英語のno matter how/what/who/where/whenのまとめ（09-03のスペイン語por muy/mucho...queの逆向きブリッジ）── 08-27〜09-02のwhatever一家＋09-02のhoweverと、no matter系の対応をもう一段整理する
 - スペイン語のtú肯定命令の不規則形8つ（di/haz/ve/pon/sal/sé/ten/venなど）── 07-13・09-04の命令形の続編、よく使う不規則動詞をまとめて覚える
 - 英語の命令文の丁寧さの段階（Please.../Would you mind -ing?/Could you...?/Let's...）── 09-04のスペイン語nosotros/vosotros命令形の逆向きブリッジ、英語での丁寧さ調整の付け方を整理する
-- 英語のwhile/whereasの対比用法（「〜する一方で」）── although/despiteの「譲歩」とは別の「対比」を表す接続詞、09-14・09-16の品詞整理とあわせて紛らわしい2系統を切り分ける
-- スペイン語のpor otro lado / en cambio（対比を表すつなぎ言葉）── 英語のwhile/whereasのスペイン語版、09-16のa pesar de/aunqueの次に読みたい「対比」表現の整理
+- スペイン語のpor otro lado / en cambio（対比を表すつなぎ言葉）── 英語のwhile/whereasのスペイン語版、09-17のwhile/whereas対比用法の次に読みたい「対比」表現の整理
+- スペイン語のmientras (que) の3つの顔（時間「〜する間」・対比「一方で」・条件「〜する限り」）── 09-17の英語while/whereasの逆向きブリッジ、1語で複数の意味を持つmientrasを英語側の複数の語(while/as long as)と対応づけて整理する
 
 ## 解説済みテーマ
 
@@ -131,3 +131,4 @@
 - 2026-09-11: 英語のeven though/even ifの使い分け（事実の譲歩と仮定・不確かな譲歩を2つの別単語で言い分ける）── 09-09のスペイン語aunque(直説法/接続法)の逆向きブリッジ、evenが付くと althoughより意外性・コントラストが強まるという違いも整理した
 - 2026-09-14: 英語のdespite/in spite of + 名詞(句)とalthough/even though + 節の書き換え ── 09-11の発展、接続詞グループ(although/even though=節)と前置詞グループ(despite/in spite of=名詞・動名詞)を品詞の違いで仕分け、書き換えの手順(主語が同じなら-ing形、違うならthe fact that)を整理し、スペイン語のaunque/a pesar deにも同じ区別があることを紹介した
 - 2026-09-16: スペイン語のa pesar de + 名詞・不定詞とaunque + 動詞の書き換え ── 09-14の英語版の逆向きブリッジ、接続詞グループ(aunque=動詞)と前置詞グループ(a pesar de=名詞・不定詞)を品詞で仕分け、書き換えの手順(主語が同じなら不定詞、違うならa pesar de que)を整理し、pese aとの文体差、英語despite/in spite ofとの対応表も示した
+- 2026-09-17: 英語のwhile/whereasの対比用法（「一方で」)とalthoughの譲歩用法の切り分け ── 09-14・09-16で扱った「品詞(接続詞/前置詞)」の軸とは別の「意味(対比/譲歩)」の軸を導入し、although置換テストでwhile(対比/譲歩の2用法)とwhereas(対比専用)を見分ける方法、カンマの有無で時間用法のwhileと区別する方法を整理した
