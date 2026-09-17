@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-09-18</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '💊';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.9rem; margin-bottom: 8px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.1em; }
+  .c3-col li { margin-bottom: 4px; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  .quote-box {
+    background: #f5f0e8;
+    border-left: 4px solid #7a5abf;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    margin: 12px 0;
+    color: #444;
+    font-style: italic;
+  }
+  .quote-box .who { font-style: normal; font-weight: 700; color: #5a3a9a; margin-top: 6px; font-size: 0.78rem; }
+  .matrix {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .mx-cell {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .mx-cell .mx-head { font-weight: 700; font-size: 0.88rem; margin-bottom: 6px; }
+  .mx-cell.ok  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .mx-cell.ok  .mx-head { color: #1a6e4a; }
+  .mx-cell.ng  { background: #fbe8e6; border: 2px solid #c0392b; }
+  .mx-cell.ng  .mx-head { color: #a0291e; }
+  @media (max-width: 540px) {
+    .compare4 { grid-template-columns: 1fr; }
+    .matrix { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.7rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ヘッダー -->
+<div class="header">
+  <div class="label">健康・栄養 最新トピック ・ 2026-09-18</div>
+  <h1>マルチビタミンを毎日飲むと、死亡リスクは下がるのか?──39万人・最長27年追跡のコホート研究が示したこと</h1>
+  <div class="subtitle">今日は「サプリの効果を冷静に見る」エバーグリーン回。米国立がん研究所(NCI)などが2024年に発表した大規模コホート研究と、米国予防医学専門委員会(USPSTF)の公式見解をもとに、「健康な人がマルチビタミンを飲むと長生きできるのか」を、観察研究の読み方とあわせてやさしく整理します。</div>
+</div>
+
+<!-- タグ -->
+<div style="margin-bottom:18px;">
+  <span class="tag">サプリの効果を冷静に見る</span>
+  <span class="tag">エバーグリーン</span>
+  <span class="tag">観察研究の読み方</span>
+  <span class="tag">精密栄養学</span>
+</div>
+
+<!-- 今日の疑問 -->
+<div class="card">
+  <h2>🤔 今日の疑問:「念のため」のマルチビタミンは、本当に体を守っている?</h2>
+  <p>「とりあえず健康のためにマルチビタミンを飲んでいる」という人は少なくありません。米国では成人の3人に1人以上がなんらかのサプリメントを日常的に利用しているとされ、日本でも同様の習慣は珍しくありません。</p>
+  <p>今日は最新の一本の速報ではなく、この分野でもっとも規模が大きく、もっとも引用されている研究のひとつを扱う「エバーグリーン(基礎知識)」回です。「健康な人が毎日マルチビタミンを飲み続けると、死亡リスクは下がるのか」という素朴な疑問に、大規模な追跡データがどう答えたのかを見ていきます。</p>
+</div>
+
+<!-- 基本用語 -->
+<div class="card blue">
+  <h2>📖 まず言葉の意味を</h2>
+  <div class="def-grid">
+    <div class="def-item">
+      <div class="dterm">マルチビタミン</div>
+      複数のビタミン・ミネラルを組み合わせたサプリメント。医薬品ではなく食品(栄養補助食品)に分類される。
+    </div>
+    <div class="def-item">
+      <div class="dterm">前向きコホート研究</div>
+      ある時点で健康な人たちの生活習慣を記録し、その後何年〜何十年も追跡して病気や死亡との関連を調べる観察研究の一種。
+    </div>
+    <div class="def-item">
+      <div class="dterm">ハザード比(HR)</div>
+      ある集団が別の集団と比べて、ある出来事(ここでは死亡)が起きる速さ・確率をどれだけ表すかの指標。1より大きいとリスクが高い方向、1より小さいと低い方向を示す。
+    </div>
+    <div class="def-item">
+      <div class="dterm">健康な使用者バイアス</div>
+      サプリを飲む人はもともと運動・食事など他の健康習慣も良い傾向があり、サプリ単独の効果なのか生活習慣全体の効果なのか区別しにくくなる、観察研究特有のゆがみ。
+    </div>
+    <div class="def-item">
+      <div class="dterm">逆の因果関係</div>
+      「サプリが体を悪くした」のではなく、「体調が悪くなり始めた人がサプリを飲み始めた」結果として、見かけ上サプリ利用と病気が関連して見えてしまう現象。
+    </div>
+    <div class="def-item">
+      <div class="dterm">USPSTF</div>
+      米国予防医学専門委員会。独立した専門家パネルが、予防医療についてエビデンスにもとづく推奨をまとめる公的な組織。
+    </div>
+  </div>
+</div>
+
+<!-- 数字カード -->
+<div class="num-row">
+  <div class="num-card gray-bg">
+    <div class="big">390,124<span class="unit">人</span></div>
+    <div class="desc">米国の3つの前向きコホート研究をあわせた解析対象の人数(健康な成人)</div>
+  </div>
+  <div class="num-card blue-bg">
+    <div class="big">最長27<span class="unit">年</span></div>
+    <div class="desc">追跡期間。期間中に164,762人が死亡</div>
+  </div>
+  <div class="num-card orange-bg">
+    <div class="big">1.04<span class="unit">倍</span></div>
+    <div class="desc">追跡初期(2〜3年)のマルチビタミン利用者の死亡ハザード比(95%CI 1.02〜1.07、統計的に有意)</div>
+  </div>
+  <div class="num-card red-bg">
+    <div class="big">0<span class="unit">件</span></div>
+    <div class="desc">全死因・がん・心疾患・脳血管疾患のいずれでも、統計的に有意な死亡リスクの「低下」は確認されなかった</div>
+  </div>
+</div>
+
+<!-- 何がわかったか -->
+<div class="card orange">
+  <h2>🔍 この研究で、何が「わかった」?何が「わからなかった」?</h2>
+  <div class="compare4">
+    <div class="c3-col green">
+      <h3>🟢 調べたこと</h3>
+      <ul>
+        <li>米国立がん研究所(NCI)のLoftfieldさんらのチームが、NIH-AARP・PLCO・VITALという3つの大規模前向きコホートを統合し、健康な成人390,124人を対象にマルチビタミンの利用と全死因死亡・がん死亡・心疾患死亡・脳血管疾患死亡の関連を調べた</li>
+      </ul>
+    </div>
+    <div class="c3-col orange">
+      <h3>🟠 わかったこと</h3>
+      <ul>
+        <li>追跡期間を通じて全体で見ると、マルチビタミン利用者と非利用者で死亡リスクに統計的に有意な差はなかった</li>
+        <li>追跡開始から2〜3年目までの期間に限ると、利用者の死亡リスクがわずかに高い(HR 1.04)という関連が見られた</li>
+      </ul>
+    </div>
+    <div class="c3-col red">
+      <h3>🔴 わからなかったこと・言えないこと</h3>
+      <ul>
+        <li>「マルチビタミンが死亡リスクを上げた」と証明されたわけではない(観察研究のため因果関係は不明)</li>
+        <li>栄養不足がある人・特定の集団での効果まで否定するものではない</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- どうやって調べられたか -->
+<div class="card purple">
+  <h2>🔬 この結果は、どうやって導かれた?</h2>
+  <div class="flow">
+    <div class="flow-step purp">① 1993〜2001年に<br>3つのコホートで<br>マルチビタミン利用状況を調査</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step">② 1998〜2004年に<br>追跡調査でも<br>利用状況を再確認</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step alt">③ 最長27年間、<br>国の死亡登録データと<br>照合して追跡</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step warn2">④ 年齢・喫煙・BMI・<br>食事の質などで統計的に調整し<br>利用者と非利用者を比較</div>
+  </div>
+  <p style="font-size:0.82rem; color:#555; margin-top:4px;">米国立がん研究所(NCI)のErikka Loftfieldさんらのチームが、<em>JAMA Network Open</em>誌に発表(2024年6月26日、DOI: 10.1001/jamanetworkopen.2024.18729)。観察研究としては非常に大規模かつ長期間の追跡データにもとづく点が特徴。</p>
+</div>
+
+<!-- 精密栄養学の視点 -->
+<div class="card">
+  <h2>🧬 精密栄養学の視点:「不足を防ぐ」ことと「健康な人に予防効果がある」ことは別の話</h2>
+  <p>サプリメントの世界には、大きく分けて2つの異なる問いがあります。ひとつは「栄養が不足している人に補うと改善するか」、もうひとつは「すでに栄養状態が足りている健康な人が、さらに上乗せすると病気や死亡を防げるか」です。今回のマルチビタミン研究や、米国予防医学専門委員会(USPSTF)が2022年にまとめた系統的レビュー(<em>JAMA</em>誌、DOI: 10.1001/jama.2022.8970)は、いずれも後者、つまり「健康な成人への予防効果」を対象にしています。前者の問い(不足している人への効果)には、この研究は答えていません。</p>
+  <div class="matrix">
+    <div class="mx-cell ok">
+      <div class="mx-head">✅ 比較的よく確立されていること</div>
+      健康な地域在住成人を対象にした大規模研究では、一般的なマルチビタミンが全死因死亡を明確に減らすという証拠は今のところ確認されていない(USPSTFは「効果を判断するには証拠不十分」と結論)
+    </div>
+    <div class="mx-cell ng">
+      <div class="mx-head">❓ 誤解されやすいこと・注意が必要なこと</div>
+      「効果がはっきりしない」ことは「害がある」こととは違う。一方でβカロテン単体の高用量サプリは、喫煙者を対象にしたランダム化比較試験(RCT)で肺がんリスクを上げたという結果もあり、USPSTFはβカロテン・ビタミンEの単独サプリについては明確に「推奨しない」としている
+    </div>
+  </div>
+</div>
+
+<!-- βカロテンの教訓 -->
+<div class="card blue">
+  <h2>📉 「野菜の成分だから安全」とは限らない:βカロテンの教訓</h2>
+  <p>野菜や果物をよく食べる人はがんが少ない、という観察研究の関連をもとに、フィンランドの喫煙男性29,133人を対象にしたATBC試験(<em>New England Journal of Medicine</em>、1994年)と、米国の喫煙者・アスベスト曝露者18,314人を対象にしたCARET試験(同誌、1996年、安全性を理由に早期中止)では、βカロテンのサプリを与えたグループの方が、それぞれ肺がんリスクが18%・28%高いという、予想とは逆の結果になりました。その後のコクランのメタ分析(78件・296,707人)でも、βカロテン・ビタミンA・ビタミンEの一部の抗酸化サプリで死亡リスクが上がる方向の関連が示されています。「食品に含まれる成分だから、サプリで濃縮しても同じように体によい」とは限らない、という代表的な事例です。</p>
+</div>
+
+<!-- 限界 -->
+<div class="warn">
+  <strong>⚠️ ここで紹介した内容の限界</strong>
+  <ul style="padding-left:1.4em; margin-top:8px;">
+    <li>Loftfieldさんらの研究は前向きコホート研究(観察研究)であり、ランダム化比較試験(RCT)ではないため、因果関係を証明したものではない。マルチビタミン利用者ともともと健康状態や生活習慣が違う可能性(健康な使用者バイアス、逆の因果関係)を完全には排除できない。</li>
+    <li>対象は主に米国の中高年〜高齢の成人であり、栄養不足のある人・妊娠中の人・特定の疾患がある人・若い世代・日本人など他の集団にそのまま当てはまるとは限らない。</li>
+    <li>「マルチビタミン全般」への結論であり、個別の単一栄養素サプリ(鉄・ビタミンD・カルシウムなど)や、欠乏症がある人への効果を否定するものではない。</li>
+    <li>当セッションのネットワーク制限により、各論文原文(jamanetwork.com・pubmed.ncbi.nlm.nih.gov・cochranelibrary.com・uspreventiveservicestaskforce.org等の一部がブロック対象)に直接アクセスできず、検索エンジン経由で得られた複数の要約・引用が一致した範囲に限定して紹介している。</li>
+  </ul>
+</div>
+
+<!-- エビデンスの整理 -->
+<div class="card">
+  <h2>🧪 今日出てきた情報の「証拠としての強さ」の目安</h2>
+  <table class="ev-table">
+    <tr><th>情報の種類</th><th>特徴</th><th>証拠としての強さ</th></tr>
+    <tr>
+      <td>マルチビタミン利用と死亡リスクに明確な関連なし(Loftfieldら, 2024)</td>
+      <td>3コホート統合・n=390,124・最長27年追跡の大規模観察研究</td>
+      <td><span class="ev-badge ev-mid">中程度(大規模だが観察研究、交絡因子の可能性あり)</span></td>
+    </tr>
+    <tr>
+      <td>マルチビタミン等の予防効果は「証拠不十分」(USPSTF, 2022)</td>
+      <td>独立専門家パネルによる既存RCT・観察研究の系統的レビュー</td>
+      <td><span class="ev-badge ev-high">高い(専門家パネルによる系統的レビュー)</span></td>
+    </tr>
+    <tr>
+      <td>喫煙者へのβカロテン単体サプリは肺がんリスクを上げる(ATBC・CARET試験)</td>
+      <td>大規模ランダム化比較試験(RCT)。ただし対象は喫煙者・アスベスト曝露者に限定</td>
+      <td><span class="ev-badge ev-high">高い(RCTだが対象集団が限定的)</span></td>
+    </tr>
+    <tr>
+      <td>「マルチビタミンは害がある」という一般化した解釈</td>
+      <td>今回の研究は「明確な予防効果が見られなかった」ことを示すもので、「害がある」とまでは示していない</td>
+      <td><span class="ev-badge ev-low">低い(過大な拡大解釈)</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- 実践 -->
+<div class="card orange">
+  <h2>🍽️ 今日から意識できること</h2>
+  <ul class="step-list">
+    <li>まずは食事から必要な栄養を摂ることを基本とし、「なんとなく健康によさそう」という理由だけで漫然とマルチビタミンを摂り続ける前に、自分に本当に不足している栄養素があるか確認する。</li>
+    <li>鉄・葉酸・ビタミンDなど、特定の欠乏症や特定のライフステージ(妊娠中など)では、サプリが明確に有用な場合がある。「マルチビタミン全般の話」と「個別の栄養素の話」を混同しない。</li>
+    <li>喫煙する人は、βカロテンを単体で高用量摂るサプリメントは避ける(RCTで肺がんリスク増加が確認されている)。</li>
+    <li>「効果がはっきりしない」という結果は、「絶対に無意味」という意味ではなく、「今のところ確実な予防効果は証明されていない」という意味だと理解しておく。</li>
+    <li>サプリを新しく始める・やめる、量を変える判断は、自己判断ではなくかかりつけ医・薬剤師・管理栄養士に相談する。</li>
+  </ul>
+</div>
+
+<!-- まとめ -->
+<div class="card" style="border-left-color:#1a7a5a;">
+  <h2>✅ 今日のまとめ</h2>
+  <ul class="step-list">
+    <li>米国立がん研究所(NCI)のLoftfieldさんらが39万人超・最長27年追跡のコホート研究で、健康な成人のマルチビタミン利用と全死因死亡に明確な関連は見られなかったと報告(<em>JAMA Network Open</em>, 2024, DOI: 10.1001/jamanetworkopen.2024.18729)。</li>
+    <li>米国予防医学専門委員会(USPSTF)も、健康な成人でのマルチビタミン・単一栄養素サプリの予防効果は「証拠不十分」と結論する一方、βカロテン・ビタミンE単体サプリは「推奨しない」と明言(<em>JAMA</em>, 2022, DOI: 10.1001/jama.2022.8970)。</li>
+    <li>喫煙者へのβカロテンサプリが逆に肺がんリスクを上げたATBC・CARET試験は、「野菜の成分だから安全」とは限らないことを示す代表例。</li>
+    <li>観察研究にはつきものの「健康な使用者バイアス」「逆の因果関係」を踏まえ、「効果不明」と「害がある」を混同しないことが、サプリのニュースを冷静に読むコツ。</li>
+  </ul>
+</div>
+
+<!-- 免責 -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、医療アドバイスではありません。サプリメントの効果・必要性・リスクは個人の体質・年齢・持病・服薬・栄養状態によって大きく異なります。特定の栄養素の不足が疑われる場合や、新しくサプリメントを始める・やめる場合は、自己判断をせず、かかりつけ医・薬剤師・管理栄養士など専門家にご相談ください。本記事は特定のサプリメントの使用・中止を推奨するものではありません。
+</div>
+
+<!-- 出典 -->
+<div class="sources">
+  <h3>📚 主な出典・参考文献</h3>
+  <ol>
+    <li>Loftfield E, Katki HA, O'Connell CP, et al. "Multivitamin Use and Mortality Risk in 3 Prospective US Cohorts." <em>JAMA Network Open</em>. 2024;7(6):e2418729. DOI: 10.1001/jamanetworkopen.2024.18729.
+      <a href="https://doi.org/10.1001/jamanetworkopen.2024.18729" target="_blank">https://doi.org/10.1001/jamanetworkopen.2024.18729</a>(基準日:2024年6月26日発表。当セッションのネットワーク制限〈jamanetwork.com・pubmed.ncbi.nlm.nih.govがブロック対象〉により原文へ直接アクセスできず、検索エンジン経由の複数の要約による)
+    </li>
+    <li>US Preventive Services Task Force. "Vitamin, Mineral, and Multivitamin Supplementation to Prevent Cardiovascular Disease and Cancer: US Preventive Services Task Force Recommendation Statement." <em>JAMA</em>. 2022;327(23):2326-2333. DOI: 10.1001/jama.2022.8970.
+      <a href="https://doi.org/10.1001/jama.2022.8970" target="_blank">https://doi.org/10.1001/jama.2022.8970</a>(基準日:2022年6月21日発表。ネットワーク制限により原文未確認、検索エンジン経由の要約による)
+    </li>
+    <li>The Alpha-Tocopherol, Beta Carotene Cancer Prevention Study Group. "The Effect of Vitamin E and Beta Carotene on the Incidence of Lung Cancer and Other Cancers in Male Smokers." <em>New England Journal of Medicine</em>. 1994;330(15):1029-1035.
+      <a href="https://doi.org/10.1056/NEJM199404143301501" target="_blank">https://doi.org/10.1056/NEJM199404143301501</a>(基準日:1994年4月発表。ネットワーク制限により原文未確認、検索エンジン経由の要約による)
+    </li>
+    <li>Omenn GS, Goodman GE, Thornquist MD, et al. "Effects of a Combination of Beta Carotene and Vitamin A on Lung Cancer and Cardiovascular Disease." <em>New England Journal of Medicine</em>. 1996;334(18):1150-1155.
+      <a href="https://doi.org/10.1056/NEJM199605023341802" target="_blank">https://doi.org/10.1056/NEJM199605023341802</a>(基準日:1996年5月発表。ネットワーク制限により原文未確認、検索エンジン経由の要約による)
+    </li>
+    <li>Bjelakovic G, Nikolova D, Gluud LL, Simonetti RG, Gluud C. "Antioxidant supplements for prevention of mortality in healthy participants and patients with various diseases." <em>Cochrane Database of Systematic Reviews</em>. 2012;(3):CD007176. DOI: 10.1002/14651858.CD007176.pub2.
+      <a href="https://doi.org/10.1002/14651858.CD007176.pub2" target="_blank">https://doi.org/10.1002/14651858.CD007176.pub2</a>(基準日:2012年3月発表。78件・296,707人を統合したメタ分析。ネットワーク制限により原文未確認、検索エンジン経由の要約による)
+    </li>
+  </ol>
+  <p style="margin-top:8px; font-size:0.78rem;">※ 本記事はネットワーク制限により、上記の各一次資料に本セッションから直接アクセスできなかったため、検索エンジンで得られる複数の要約・引用箇所を突き合わせ、内容が一致した範囲に限定して記載しています。最新かつ正確な数値・詳細は、各DOI・URL先で改めてご確認いただくことをお勧めします。</p>
+</div>
+
+</div>
+</body>
+</html>
