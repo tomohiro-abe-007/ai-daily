@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>インサイドセールス 最新トピック 2026-09-18</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  /* ── カバー ── */
+  .cover {
+    background: linear-gradient(135deg, #6d1b1b 0%, #a13a2c 50%, #d98a2e 100%);
+    color: white;
+    border-radius: 8px;
+    padding: 60px 40px;
+    text-align: center;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.3);
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent, transparent 28px,
+      rgba(255,255,255,0.05) 28px, rgba(255,255,255,0.05) 29px
+    );
+  }
+  .cover-emoji { font-size: 64px; display: block; margin-bottom: 16px; }
+  .cover h1 {
+    font-family: 'Klee One', sans-serif;
+    font-size: 1.9rem;
+    font-weight: 600;
+    line-height: 1.35;
+    margin-bottom: 12px;
+    position: relative;
+  }
+  .cover .subtitle { font-size: 1.05rem; opacity: 0.85; margin-bottom: 8px; position: relative; }
+  .cover .date-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 20px;
+    padding: 6px 20px;
+    font-size: 1rem;
+    margin-top: 16px;
+    position: relative;
+  }
+
+  /* ── カード共通 ── */
+  .card {
+    background: #fff9f0;
+    border-radius: 6px;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.12);
+    position: relative;
+    overflow: hidden;
+  }
+  .card-body {
+    padding: 40px 36px 28px 64px;
+    background: repeating-linear-gradient(0deg, transparent, transparent 31px, #e0d8c8 31px, #e0d8c8 32px);
+    background-color: #fff9f0;
+  }
+  .card-tab {
+    display: inline-block;
+    background: #a13a2c;
+    color: white;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 4px 16px;
+    border-radius: 0 0 6px 6px;
+    position: absolute;
+    top: 0; left: 32px;
+    letter-spacing: 0.05em;
+  }
+  .card h2 {
+    font-size: 1.22rem;
+    color: #6d1b1b;
+    margin-bottom: 16px;
+    margin-top: 4px;
+    line-height: 1.5;
+    border-left: 4px solid #c0532b;
+    padding-left: 12px;
+  }
+  p { line-height: 1.85; color: #333; font-size: 0.97rem; margin-bottom: 12px; }
+
+  /* ── 数字カード ── */
+  .num-cards { display: flex; gap: 14px; flex-wrap: wrap; margin: 20px 0; }
+  .num-card {
+    flex: 1; min-width: 170px;
+    background: #6d1b1b; color: white;
+    border-radius: 10px; padding: 20px 16px; text-align: center;
+  }
+  .num-card.orange { background: #a13a2c; }
+  .num-card.gold   { background: #b06b1a; }
+  .num-card.gray   { background: #6b6b6b; }
+  .num-card .big-num {
+    font-family: 'Caveat', cursive;
+    font-size: 1.7rem; font-weight: 700; line-height: 1.15;
+    color: #ffd8b0;
+  }
+  .num-card .num-label { font-size: 0.78rem; margin-top: 8px; opacity: 0.92; line-height: 1.6; }
+
+  /* ── ステップフロー ── */
+  .step-flow { display: flex; flex-direction: column; gap: 0; margin: 20px 0; }
+  .step-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px dotted #ddd;
+  }
+  .step-item:last-child { border-bottom: none; }
+  .step-num {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: #a13a2c;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .step-body { flex: 1; }
+  .step-title { font-size: 0.97rem; font-weight: 700; color: #6d1b1b; margin-bottom: 4px; }
+  .step-desc  { font-size: 0.85rem; color: #555; line-height: 1.7; margin: 0; }
+
+  /* ── 対比カード(2列) ── */
+  .compare-flow { display: flex; gap: 14px; flex-wrap: wrap; margin: 20px 0; align-items: stretch; }
+  .compare-col {
+    flex: 1; min-width: 220px;
+    background: #fdf2ea;
+    border: 1.5px solid #e8c8a8;
+    border-radius: 8px;
+    padding: 16px 18px;
+  }
+  .compare-col h3 { font-size: 0.95rem; color: #6d1b1b; margin-bottom: 10px; }
+  .compare-col ol, .compare-col ul { padding-left: 18px; }
+  .compare-col li { font-size: 0.83rem; color: #555; line-height: 1.9; }
+  .compare-vs {
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Caveat', cursive; font-size: 1.6rem; font-weight: 700;
+    color: #a13a2c; min-width: 30px;
+  }
+  .cause-down {
+    text-align: center;
+    font-size: 1.3rem;
+    color: #a13a2c;
+    margin: 10px 0 -2px;
+  }
+  .result-box {
+    background: #6d1b1b;
+    color: white;
+    border-radius: 8px;
+    padding: 14px 18px;
+    text-align: center;
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-top: 4px;
+  }
+
+  /* ── マトリクス表 ── */
+  .matrix-table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 0.85rem; }
+  .matrix-table th, .matrix-table td {
+    border: 1px solid #e0d0b8; padding: 10px 12px; text-align: left; vertical-align: top;
+  }
+  .matrix-table th { background: #f6e2c8; color: #6d1b1b; font-weight: 700; }
+  .matrix-table td { color: #444; line-height: 1.6; }
+  .matrix-table tr:nth-child(even) td { background: #fdf9f2; }
+  .matrix-table tr.warn td { background: #f8e6e0; }
+
+  /* ── 今日の一歩 ── */
+  .today-box {
+    background: linear-gradient(135deg, #6d1b1b, #c0532b);
+    color: white; border-radius: 8px;
+    padding: 24px 28px; margin: 16px 0; text-align: center;
+  }
+  .today-box .emoji { font-size: 2.2rem; display: block; margin-bottom: 8px; }
+  .today-box .title { font-size: 1.1rem; font-weight: 600; margin-bottom: 10px; }
+  .today-box .desc  { font-size: 0.92rem; opacity: 0.92; line-height: 1.8; text-align: left; }
+
+  /* ── 共通パーツ ── */
+  .highlight { background: #f6e2c8; border-radius: 4px; padding: 1px 6px; color: #6d1b1b; font-weight: 600; }
+  .callout {
+    border-radius: 6px; padding: 14px 16px; margin-top: 14px;
+  }
+  .callout.yellow { background: #fef9e7; border-left: 4px solid #d98a2e; }
+  .callout.green  { background: #eafaf1; border-left: 4px solid #27ae60; }
+  .callout.blue   { background: #e8f4fd; border-left: 4px solid #2980b9; }
+  .callout.wine   { background: #f6e9e4; border-left: 4px solid #a13a2c; }
+
+  /* ── 免責 ── */
+  .disclaimer {
+    background: #fff; border: 1px solid #ddd; border-radius: 6px;
+    padding: 16px 20px; font-size: 0.8rem; color: #777; line-height: 1.7;
+    width: 100%; max-width: 820px; margin-bottom: 16px;
+  }
+  .disclaimer strong { color: #555; }
+
+  /* ── 出典 ── */
+  .sources {
+    background: #fff9f0; border-radius: 6px; padding: 16px 24px;
+    width: 100%; max-width: 820px; margin-bottom: 24px;
+    font-size: 0.8rem; color: #666; line-height: 1.8;
+  }
+  .sources h3 { font-size: 0.85rem; color: #6d1b1b; margin-bottom: 8px; }
+  .sources a { color: #a13a2c; text-decoration: none; }
+  .sources a:hover { text-decoration: underline; }
+  .sources ul { padding-left: 16px; }
+
+  /* ── バックリンク ── */
+  .back-link { text-align: center; margin-bottom: 20px; font-size: 0.9rem; }
+  .back-link a { color: #a13a2c; text-decoration: none; }
+  .back-link a:hover { text-decoration: underline; }
+
+  @media (max-width: 560px) {
+    .card-body { padding: 40px 18px 24px 24px; }
+    .matrix-table { display: block; overflow-x: auto; white-space: nowrap; }
+    .compare-flow { flex-direction: column; }
+    .compare-vs { padding: 4px 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── カバー ── -->
+<div class="cover">
+  <span class="cover-emoji">🧾</span>
+  <h1>同じ「AI SDR」なのに月額$280〜$5,000?<br>料金プランの「中身」を見る4つのチェックポイント</h1>
+  <div class="subtitle">インサイドセールス 最新トピック 2026-09-18</div>
+  <div class="date-badge">テレアポ・インサイドセールス 毎朝解説</div>
+</div>
+
+<!-- ── Section 01 ── -->
+<div class="card">
+  <span class="card-tab">01 前回からのアップデート</span>
+  <div class="card-body">
+    <h2>🤔 昨日「AI SDRは月$500〜$5,000」と紹介したけれど…</h2>
+    <p>
+      昨日は、AI SDR(見込み客への最初の連絡を自動でおこなうAIツール)の利用料が<span class="highlight">月額500〜5,000ドル程度</span>という比較記事を紹介しました。ただし複数の比較記事を読み比べると、実は<span class="highlight">同じツールでも紹介される金額が記事によって数倍違う</span>ことがあります。
+    </p>
+    <p>
+      今日はその理由を掘り下げます。「なぜ価格に幅が出るのか」が分かると、求人票や企業サイトで見かけるツール名から、その会社の営業組織の規模感を推測するヒントにもなります。
+    </p>
+  </div>
+</div>
+
+<!-- ── Section 02 ── -->
+<div class="card">
+  <span class="card-tab">02 数字で見る 価格の幅</span>
+  <div class="card-body">
+    <h2>💰 「見積もり制」のツールほど、紹介される金額の幅が広い</h2>
+    <p>
+      AI SDRツールの一つ「Artisan」は、比較記事によって<span class="highlight">月額$280〜$5,000</span>と、じつに18倍近い幅で紹介されています。一方、価格表を公開している「AiSDR」は、エントリープランが<span class="highlight">月額$250(月200件の連絡先まで)</span>と明確です。
+    </p>
+    <div class="num-cards">
+      <div class="num-card">
+        <div class="big-num">$250〜$2,500</div>
+        <div class="num-label">AiSDR(公開価格制)<br>3段階のプラン<br>連絡先数・メッセージ量で課金</div>
+      </div>
+      <div class="num-card orange">
+        <div class="big-num">$280〜$5,000</div>
+        <div class="num-label">Artisan(見積もり制)<br>比較記事による紹介額の幅<br>案件ごとの個別見積もり</div>
+      </div>
+      <div class="num-card gold">
+        <div class="big-num">$36,000/年〜</div>
+        <div class="num-label">11x「Growth」公式価格<br>第三者記事では月$5,000前後・<br>12ヶ月契約という紹介も</div>
+      </div>
+      <div class="num-card gray">
+        <div class="big-num">$50,000〜$60,000</div>
+        <div class="num-label">11x・Artisan級ツールの<br>初年度実質コスト目安<br>(導入費・運用工数込み)</div>
+      </div>
+    </div>
+    <div class="callout yellow">
+      ⚠️ これらの金額は、AI SDRツールを提供する企業自身のブログや第三者の比較記事から集めたものです。同じツール名でも記事ごとに紹介する金額の幅・前提条件が異なるため、「正確な相場」ではなく「桁のイメージ」として捉えてください。
+    </div>
+  </div>
+</div>
+
+<!-- ── Section 03 ── -->
+<div class="card">
+  <span class="card-tab">03 比較 公開価格制 vs 見積もり制</span>
+  <div class="card-body">
+    <h2>⚖️ 価格が「見える」ツールと「聞かないと分からない」ツール</h2>
+    <p>
+      価格の幅が生まれる一番の理由は、価格表を公開しているかどうかです。公開価格制のツールは誰が見ても同じ数字ですが、見積もり制のツールは営業担当との交渉次第で金額が変わるため、比較記事によって紹介される数字がバラつきます。
+    </p>
+    <div class="compare-flow">
+      <div class="compare-col">
+        <h3>📋 公開価格制(例:AiSDR)</h3>
+        <ul>
+          <li>Webサイトに3〜4段階の価格表を掲載</li>
+          <li>連絡先数・メッセージ送信量など、使った分だけ課金</li>
+          <li>席数(利用する社員の人数)は無制限のプランが多い</li>
+          <li>四半期払いなど、支払いサイクルも明記</li>
+        </ul>
+      </div>
+      <div class="compare-vs">VS</div>
+      <div class="compare-col">
+        <h3>📞 見積もり制(例:Artisan・11x)</h3>
+        <ul>
+          <li>Webサイトには「お問い合わせください」のみ</li>
+          <li>企業の規模・利用範囲に応じて個別見積もり</li>
+          <li>12ヶ月契約など長期契約が前提になりやすい</li>
+          <li>初期導入費(オンボーディング費用)が別途かかることも</li>
+        </ul>
+      </div>
+    </div>
+    <div class="cause-down">▼</div>
+    <div class="result-box">結果:見積もり制のツールほど、企業ごとの予算・規模によって支払う金額の差が大きく、比較記事の数字も割れやすい</div>
+  </div>
+</div>
+
+<!-- ── Section 04 ── -->
+<div class="card">
+  <span class="card-tab">04 図解 主要ツールの価格の仕組み</span>
+  <div class="card-body">
+    <h2>🗂️ 「月額いくら」だけでなく「何に対しての金額か」を見る</h2>
+    <p>
+      価格方式だけでなく、何を基準に課金しているか(コンタクト数・メッセージ量・席数など)もツールによって違います。求人票で名前が挙がったツールを見るときは、この2つを合わせて確認すると実態がつかみやすくなります。
+    </p>
+    <table class="matrix-table">
+      <tr>
+        <th>ツール</th>
+        <th>価格方式</th>
+        <th>課金の基準・契約の目安</th>
+      </tr>
+      <tr>
+        <td>AiSDR</td>
+        <td>公開価格(3プラン)</td>
+        <td>連絡先数・AIメッセージ量で段階課金、席数は無制限、四半期払い</td>
+      </tr>
+      <tr>
+        <td>Artisan</td>
+        <td>見積もり制</td>
+        <td>案件ごとの個別見積もり、記事により月$280〜$5,000と紹介額に幅</td>
+      </tr>
+      <tr class="warn">
+        <td>11x</td>
+        <td>見積もり制+長期契約</td>
+        <td>公式「Growth」は年$36,000〜、第三者記事では12ヶ月契約・導入費込みで初年度$50,000〜$60,000という試算も</td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<!-- ── Section 05 ── -->
+<div class="card">
+  <span class="card-tab">05 求職者にとっての意味</span>
+  <div class="card-body">
+    <h2>🎯 ツール名から「会社の営業体制の規模感」を読み取る</h2>
+    <div class="step-flow">
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-title">求人票・企業サイトでツール名を探す</div>
+          <p class="step-desc">「使用ツール」欄やブログ記事で、AI SDRツール名(AiSDR・Artisan・11xなど)が挙がっていないか確認しましょう。</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <div class="step-title">公開価格制か見積もり制かを調べる</div>
+          <p class="step-desc">見積もり制のツールを導入している会社は、ある程度まとまった営業予算・専任の運用担当がいる可能性が高いと考えられます。</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <div class="step-title">月額だけでなく「年間の実質コスト」で考える癖をつける</div>
+          <p class="step-desc">見積もり制のツールは導入費・長期契約が加わり、月額表示の何倍にもなることがあります。面接で聞く場合も「月額」より「年間でどのくらいの体制か」を意識すると実態が見えやすくなります。</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <div class="step-title">数字の食い違いに振り回されない</div>
+          <p class="step-desc">同じツールでも記事によって紹介額が数倍違うことがある、という前提を持っておけば、「AIはこんなに安い/高い」という一つの記事だけで判断せずに済みます。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Section 06 ── -->
+<div class="card">
+  <span class="card-tab">06 今日からできる一歩</span>
+  <div class="card-body">
+    <h2>👣 今日の一歩:気になる求人票からツール名を1つ探して、価格方式を調べてみる</h2>
+    <div class="today-box">
+      <span class="emoji">📝</span>
+      <div class="title">今日の一歩:応募を検討している(または気になっている)インサイドセールス関連の求人票・企業サイトを1つ選び、記載されているAI SDRツール名を探してみる</div>
+      <div class="desc">
+        ツール名が見つかったら、そのツールの公式サイトで「価格表が公開されているか」「見積もり制か」を調べてみましょう。見積もり制であれば、企業規模や契約条件によって費用感がどう変わりそうか、自分なりに推測してメモしておくと、面接で営業体制について質問する際の材料になります。
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 免責 ── -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事で紹介した価格・料金プランの数字は、AI SDRツールを提供する企業自身のブログ記事や第三者の比較記事など、複数の民間情報源をもとにしたものであり、出典によって金額や前提条件に幅があります。特に見積もり制のツールは、企業の規模・契約条件によって実際の金額が大きく変わるため、正確な料金は必ず各社の公式サイト・営業担当への問い合わせでご確認ください。報酬・採用の結果には個人差があり、市場・時期・スキルによって変わります。紹介したツール・企業の条件は変わる可能性があるため、最新情報は必ず公式情報でご確認ください。
+</div>
+
+<!-- ── 出典 ── -->
+<div class="sources">
+  <h3>📎 参考情報・出典</h3>
+  <ul>
+    <li><a href="https://www.artisan.co/blog/how-much-does-an-ai-sdr-cost-pricing-compared-to-human-sdrs" target="_blank">Artisan「How much does an AI SDR cost? AI vs human pricing 2026」(Artisan公式ブログによる価格比較記事。参照日:2026年9月)</a></li>
+    <li><a href="https://www.cleanlist.ai/blog/2026-07-23-ai-sdr-pricing-statistics" target="_blank">Cleanlist「AI SDR Pricing Index 2026: What 5 Platforms Actually Cost」(2026年7月23日公開の価格比較記事。参照日:2026年9月)</a></li>
+    <li><a href="https://altitudebiz.dev/notes/ai-sdr-pricing-index" target="_blank">Altitude「AI SDR Pricing Index 2026: what 11x, Artisan, AiSDR and others actually cost」(第三者による価格比較記事。参照日:2026年9月)</a></li>
+    <li><a href="https://www.devcommx.com/blogs/artisan-vs-11x-vs-aisdr" target="_blank">devcommx「Artisan vs 11x vs AiSDR (2026): AI SDR Compared」(ツール別の価格・機能比較記事。参照日:2026年9月)</a></li>
+  </ul>
+</div>
+
+<!-- ── バックリンク ── -->
+<div class="back-link">
+  <a href="index.html">&larr; バックナンバー一覧へ</a>
+</div>
+
+</body>
+</html>
