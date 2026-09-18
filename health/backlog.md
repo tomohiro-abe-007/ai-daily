@@ -2,6 +2,13 @@
 
 今後の記事候補。使ったテーマは削除し、新しく見つけた有望テーマは追記する。
 
+## 未使用テーマ（追記：2026-09-19 検索で見つけた有望テーマ）
+
+- 09-19記事(Hunter AK, Adair, Horgan, Jordan, Stadler, Bohannan, Scientific Reports 2026, DOI: 10.1038/s41598-026-46663-y)の続報候補 ── より大人数・より長期間(数か月〜数年)・より極端な高たんぱく食(総エネルギーの35%以上など)で腸内細菌への影響を調べた追試が発表されれば深掘り記事化を検討。統計的な検出力・信頼区間、SCFAの具体的な数値、参加者の食事タイプ(動物性/植物性たんぱく質の比率)の詳細が、論文本文で確認できればさらに深掘り可能。ネットワーク制限(nature.com・pubmed.ncbi.nlm.nih.gov・pmc.ncbi.nlm.nih.govがブロック対象)で本文未確認
+- 「Influence of dietary protein and fiber intake interactions on the human gut microbiota composition and function」(たんぱく質×食物繊維の相互作用についての系統的レビュー・ネットワークメタ分析)── 09-19記事で扱った「たんぱく質の量」だけでなく、食物繊維との組み合わせ(同時に摂るとどう変わるか)を扱ったレビュー。腸内細菌×食物繊維の切り口で深掘りできるか検討。著者・掲載誌・DOI・査読状況の一次確認が必要、ネットワーク制限で未確認
+- NUTRITION 2026学会発表:腸内細菌をターゲットにしたサプリメントが、ヒトの腸を模した検証済みex vivoモデルで、活性型ビタミンB3・SCFA・トリプトファンの産生を増やしたとする複数の前臨床研究 ── ex vivo(体外の模擬環境)実験であり、ヒトでの直接効果は未証明。学会発表段階で査読誌掲載は未確認。「サプリの効果を冷静に見る」回、または精密栄養学×腸内細菌の切り口で深掘りできるか検討、一次資料の確認が必要
+- 「Do Precision and Personalised Nutrition Interventions Improve Risk Factors in Adults with Prediabetes or Metabolic Syndrome? A Systematic Review of Randomised Controlled Trials」── 前糖尿病・メタボリックシンドロームのある成人を対象に、精密栄養学的介入と危険因子の改善を調べたRCT7件(n=873)を統合した系統的レビュー。精密栄養学は実際に効果があるのかを直接扱える独立テーマとして有望。著者名・掲載誌・発表年月・DOI・具体的な統計値の一次確認が必要、ネットワーク制限で未確認
+
 ## 未使用テーマ（追記：2026-09-17 検索で見つけた有望テーマ）
 
 - 大阪大学大学院歯学研究科(平松里彩さん・池邉一典教授ら)の「咀嚼力(噛む力)と運動能力の関連」研究 ── 大阪市内の小学4年生1,225人を対象にした横断研究で、咀嚼能力が高い児童ほど反復横跳び・シャトルラン・50m走などの体力テストの成績が良い傾向を報告(Journal of Dentistry, J Dent. 2026 Nov:174:106867, 2026年7月6日オンライン公開, 論文名「Association between masticatory performance and physical fitness in Japanese elementary schoolchildren: The Osaka MELON Study」)。前段の関連研究として同グループの「咀嚼能力が低い子供は肥満になりやすい」(2025年3月31日発表)もあり、「噛む力」を精密栄養学・小児の健康科学の切り口で深掘り記事化できるか検討。ネットワーク制限(dent.osaka-u.ac.jp等がブロック対象)で一次資料(プレスリリース本文・正確なDOI)未確認、正確な著者フルネーム・統計値(相関係数・オッズ比)の確認が必要

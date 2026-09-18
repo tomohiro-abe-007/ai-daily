@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-09-19</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '🦠';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.9rem; margin-bottom: 8px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.1em; }
+  .c3-col li { margin-bottom: 4px; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  .quote-box {
+    background: #f5f0e8;
+    border-left: 4px solid #7a5abf;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    margin: 12px 0;
+    color: #444;
+    font-style: italic;
+  }
+  .quote-box .who { font-style: normal; font-weight: 700; color: #5a3a9a; margin-top: 6px; font-size: 0.78rem; }
+  .matrix {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .mx-cell {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .mx-cell .mx-head { font-weight: 700; font-size: 0.88rem; margin-bottom: 6px; }
+  .mx-cell.ok  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .mx-cell.ok  .mx-head { color: #1a6e4a; }
+  .mx-cell.ng  { background: #fbe8e6; border: 2px solid #c0392b; }
+  .mx-cell.ng  .mx-head { color: #a0291e; }
+  @media (max-width: 540px) {
+    .compare4 { grid-template-columns: 1fr; }
+    .matrix { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.7rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ヘッダー -->
+<div class="header">
+  <div class="label">健康・栄養 最新トピック ・ 2026-09-19</div>
+  <h1>たんぱく質を10%から25%に増やしても、腸の中の"住人"はほとんど変わらなかった──10人・7日間の交差試験が示したこと</h1>
+  <div class="subtitle">今日は「たんぱく質の必要量の考え方」×「腸内細菌と食物繊維」のエバーグリーン回。米オレゴン健康科学大学のHunterさんらが2026年4月に発表した、小規模だが厳密に管理された交差試験(クロスオーバー試験)をもとに、「たんぱく質を多く摂ると腸内細菌が悪くなる」という話を、研究の規模・デザインから丁寧に読み解きます。</div>
+</div>
+
+<!-- タグ -->
+<div style="margin-bottom:18px;">
+  <span class="tag">たんぱく質の必要量の考え方</span>
+  <span class="tag">腸内細菌と食物繊維</span>
+  <span class="tag">エビデンスの強さ</span>
+  <span class="tag">精密栄養学</span>
+</div>
+
+<!-- 今日の疑問 -->
+<div class="card">
+  <h2>🤔 今日の疑問:「たんぱく質を増やすと腸が荒れる」って本当?</h2>
+  <p>プロテインブームの一方で、「たんぱく質を摂りすぎると腸内細菌のバランスが崩れる」という話もよく聞きます。腸内細菌は、消化されずに腸まで届いた食物繊維やたんぱく質をエサにして増える・活動するため、食事の内容が変われば腸内細菌の"顔ぶれ"も変わりうる、という理屈自体は理解しやすいものです。</p>
+  <p>では、実際に「たんぱく質の割合を増やす」というピンポイントな変化だけで、腸内細菌はどれくらい変わるのでしょうか。今日は、それを厳密な実験デザインで直接調べた、2026年4月発表の小規模研究を読み解きます。</p>
+</div>
+
+<!-- 基本用語 -->
+<div class="card blue">
+  <h2>📖 まず言葉の意味を</h2>
+  <div class="def-grid">
+    <div class="def-item">
+      <div class="dterm">クロスオーバー(交差)試験</div>
+      同じ参加者に、順番を変えて複数の条件(今回は低たんぱく食・高たんぱく食)を試してもらい比較する試験デザイン。人による体質の違いの影響を減らせる。
+    </div>
+    <div class="def-item">
+      <div class="dterm">腸内細菌の多様性</div>
+      腸の中にどれだけ多くの種類の菌が、どんなバランスでいるかを示す指標。多様性が高いほど良いとされることが多い。
+    </div>
+    <div class="def-item">
+      <div class="dterm">ディスバイオシス</div>
+      腸内細菌の種類やバランスが、健康な状態から崩れていること。
+    </div>
+    <div class="def-item">
+      <div class="dterm">SCFA(短鎖脂肪酸)</div>
+      腸内細菌が食物繊維などを発酵させてつくる、酢酸・プロピオン酸・酪酸などの物質。腸の細胞のエネルギー源になるなど、健康に関わるとされる。
+    </div>
+    <div class="def-item">
+      <div class="dterm">ランダム化(順序のランダム割り付け)</div>
+      どちらの食事を先に試すかを、参加者ごとにくじ引きのようにランダムに決めること。試す順番による影響を減らせる。
+    </div>
+    <div class="def-item">
+      <div class="dterm">RDA(推奨量)</div>
+      その集団のほぼ全員(97〜98%)の必要量を満たすと推定される、栄養素の摂取量の目安。
+    </div>
+  </div>
+</div>
+
+<!-- 数字カード -->
+<div class="num-row">
+  <div class="num-card gray-bg">
+    <div class="big">10<span class="unit">人</span></div>
+    <div class="desc">参加した健康な成人の人数(男性4人・女性6人、22〜34歳)</div>
+  </div>
+  <div class="num-card orange-bg">
+    <div class="big">10→25<span class="unit">%</span></div>
+    <div class="desc">総エネルギーに占めるたんぱく質の割合を、2.5倍に増やして比較</div>
+  </div>
+  <div class="num-card blue-bg">
+    <div class="big">7<span class="unit">日間</span></div>
+    <div class="desc">各食事条件を試した期間(前後に3日間のならし食、ウォッシュアウトをはさんで条件を交差)</div>
+  </div>
+  <div class="num-card red-bg">
+    <div class="big">0<span class="unit">件</span></div>
+    <div class="desc">腸内細菌の多様性・ディスバイオシス指数・SCFA濃度のいずれにも、統計的に有意な差は見られなかった</div>
+  </div>
+</div>
+
+<!-- 何がわかったか -->
+<div class="card orange">
+  <h2>🔍 この研究で、何が「わかった」?何が「わからなかった」?</h2>
+  <div class="compare4">
+    <div class="c3-col green">
+      <h3>🟢 調べたこと</h3>
+      <ul>
+        <li>米オレゴン健康科学大学(OHSU)のHunter, Adair, Horgan, Jordan, Stadler, Bohannanさんらが、健康な成人10人を対象に、他の食事内容(総カロリーなど)はそろえたまま、総エネルギーの10%または25%をたんぱく質にする食事を7日間ずつ、ランダムな順序の交差方式で試してもらい、便の腸内細菌叢を比較した</li>
+      </ul>
+    </div>
+    <div class="c3-col orange">
+      <h3>🟠 わかったこと</h3>
+      <ul>
+        <li>たんぱく質の割合を10%→25%に増やしても、腸内細菌の多様性・ディスバイオシス指数・SCFA濃度に統計的に有意な差はなかった</li>
+        <li>個人差(誰の腸内細菌か)の方が、たんぱく質の割合の違いよりずっと大きく影響していた</li>
+        <li>高たんぱく食の後は、その前と比べてBMIがわずかに低かった(前後比較、p&lt;0.01)</li>
+      </ul>
+    </div>
+    <div class="c3-col red">
+      <h3>🔴 わからなかったこと・言えないこと</h3>
+      <ul>
+        <li>「たんぱく質を増やしても腸内細菌は絶対に変わらない」と証明されたわけではない(参加者10人という規模では、小さな差を検出できない可能性がある)</li>
+        <li>もっと極端な高たんぱく食(例:総エネルギーの35%以上)や、数か月〜数年の長期間続けた場合にどうなるかはわからない</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- どうやって調べられたか -->
+<div class="card purple">
+  <h2>🔬 この結果は、どうやって導かれた?</h2>
+  <div class="flow">
+    <div class="flow-step purp">① 3日間の<br>"ならし食"<br>(たんぱく質18%)</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step">② ランダムな順序で<br>たんぱく質10%または<br>25%の食事を7日間</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step alt">③ 便を採取し<br>腸内細菌叢・SCFAを<br>解析</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step warn2">④ ウォッシュアウト後<br>もう一方の食事を7日間<br>試して比較</div>
+  </div>
+  <p style="font-size:0.82rem; color:#555; margin-top:4px;">オレゴン健康科学大学(OHSU)のAnna K Hunterさんらのチームが<em>Scientific Reports</em>誌に発表(2026年4月9日オンライン公開、DOI: 10.1038/s41598-026-46663-y)。食事は同大学のBionutrition Unit(臨床・トランスレーショナル研究センター)が用意し、たんぱく質量以外の食事内容をできるだけそろえた、厳密に管理された条件下での比較という点が特徴。</p>
+</div>
+
+<!-- 精密栄養学の視点 -->
+<div class="card">
+  <h2>🧬 精密栄養学の視点:「量を変える」ことと「食事の種類を変える」ことは別の話</h2>
+  <p>実は2014年に、腸内細菌が食事によってどれくらい・どのくらい速く変わるかを調べた、もっと極端な実験があります。ハーバード大学のDavid Lらのチームが、参加者10人に「完全に動物性食品だけの食事」と「完全に植物性食品だけの食事」をそれぞれ5日間試してもらったところ、腸内細菌の"顔ぶれ"はわずか1〜2日で大きく変わったと報告されました(<em>Nature</em>, 2014, DOI: 10.1038/nature12820)。</p>
+  <div class="matrix">
+    <div class="mx-cell ok">
+      <div class="mx-head">✅ 比較的よく確立されていること</div>
+      食品の種類そのものを極端に変える(動物性食品だけ vs 植物性食品だけ)と、腸内細菌は短期間で大きく変わりうる(David L, et al., 2014、ただしこちらもn=10の小規模研究)
+    </div>
+    <div class="mx-cell ng">
+      <div class="mx-head">❓ 誤解されやすいこと・注意が必要なこと</div>
+      「食品の種類はそろえたまま、たんぱく質の割合だけを10%→25%に増やす」という中程度の"量の変化"は、今回の2026年の研究のように、必ずしも腸内細菌を大きく変えるとは限らない。両者を混同して「高たんぱく=腸に悪い」と単純化するのは拡大解釈になりうる
+    </div>
+  </div>
+</div>
+
+<!-- たんぱく質必要量の基礎 -->
+<div class="card blue">
+  <h2>📏 そもそも「たんぱく質の必要量」はどう決まっている?</h2>
+  <p>米国・カナダの食事摂取基準(Dietary Reference Intakes)では、健康な成人のたんぱく質推奨量(RDA)は体重1kgあたり0.8g/日とされています(体重60kgの人なら約48g/日が目安)。これは窒素バランス法という手法にもとづき、健康な集団のほぼ全員(97〜98%)の必要量を満たすと推定される量であり、"これだけ摂れば最適"という理想量ではなく、"不足を防ぐための下限に近い目安"という位置づけです(Institute of Medicine, 2005)。実際に必要な量は、体格・運動量・年齢・妊娠・病気の有無などによって個人差が大きいとされ、これも精密栄養学が扱うテーマのひとつです。</p>
+</div>
+
+<!-- 限界 -->
+<div class="warn">
+  <strong>⚠️ ここで紹介した内容の限界</strong>
+  <ul style="padding-left:1.4em; margin-top:8px;">
+    <li>Hunterさんらの研究は参加者10人という非常に小規模な試験であり、「統計的に有意な差がなかった」ことは「差が絶対にない」ことを証明したものではない(小さな差を検出する力〈検出力〉が不足している可能性がある)。</li>
+    <li>対象は22〜34歳の健康な成人のみで、高齢者・肥満のある人・腎疾患など持病がある人にそのまま当てはまるとは限らない(慢性腎臓病などでは、逆にたんぱく質の制限が必要になる場合もある)。</li>
+    <li>食事期間は7日間のみで、数か月〜数年単位で高たんぱく食を続けた場合の腸内細菌への影響はこの研究からはわからない。</li>
+    <li>当セッションのネットワーク制限により、各論文原文(nature.com・pubmed.ncbi.nlm.nih.gov・pmc.ncbi.nlm.nih.gov等がブロック対象)に直接アクセスできず、検索エンジン経由で得られた複数の要約・引用が一致した範囲に限定して紹介している。</li>
+  </ul>
+</div>
+
+<!-- エビデンスの整理 -->
+<div class="card">
+  <h2>🧪 今日出てきた情報の「証拠としての強さ」の目安</h2>
+  <table class="ev-table">
+    <tr><th>情報の種類</th><th>特徴</th><th>証拠としての強さ</th></tr>
+    <tr>
+      <td>たんぱく質10%→25%で腸内細菌に有意差なし(Hunterら, 2026)</td>
+      <td>ランダムな順序のクロスオーバー試験・n=10・各7日間</td>
+      <td><span class="ev-badge ev-low">低〜中程度(RCTデザインだが極めて小規模・短期間)</span></td>
+    </tr>
+    <tr>
+      <td>動物性 vs 植物性の極端な食事変更が腸内細菌を急速に変える(David Lら, 2014)</td>
+      <td>ランダム化クロスオーバー試験・n=10・各5日間</td>
+      <td><span class="ev-badge ev-low">低〜中程度(小規模だが広く引用される基礎研究)</span></td>
+    </tr>
+    <tr>
+      <td>たんぱく質RDA 0.8g/kg/日(Institute of Medicine, 2005)</td>
+      <td>窒素バランス法にもとづく専門家委員会の食事摂取基準</td>
+      <td><span class="ev-badge ev-high">高い(公的な食事摂取基準として広く採用)</span></td>
+    </tr>
+    <tr>
+      <td>「高たんぱく食は腸に悪い」という一般化した解釈</td>
+      <td>今回の研究はあくまで中程度の増加・短期間・小規模での話</td>
+      <td><span class="ev-badge ev-low">低い(過大な拡大解釈)</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- 実践 -->
+<div class="card orange">
+  <h2>🍽️ 今日から意識できること</h2>
+  <ul class="step-list">
+    <li>たんぱく質の割合を少し増やす程度(例:食事全体の10%→25%程度)であれば、それだけで腸内細菌が大きく乱れると過度に心配しなくてよい、という一つの根拠にはなる。</li>
+    <li>ただし今回の研究は健康な成人・短期間・小規模の話。腎疾患など持病がある人は、たんぱく質量を大きく変える前にかかりつけ医・管理栄養士に相談する。</li>
+    <li>腸内細菌への影響を考えるなら、たんぱく質の「量」だけでなく、食品の種類(加工肉が多いか、魚・豆・野菜も一緒に摂れているか)や食物繊維の量も合わせて考える。</li>
+    <li>自分に必要なたんぱく質量は体重・年齢・運動量・持病によって変わるため、「1日◯gが正解」という一般論だけで決めず、必要なら専門家に相談する。</li>
+  </ul>
+</div>
+
+<!-- まとめ -->
+<div class="card" style="border-left-color:#1a7a5a;">
+  <h2>✅ 今日のまとめ</h2>
+  <ul class="step-list">
+    <li>米オレゴン健康科学大学のHunterさんらが、健康な成人10人を対象に、たんぱく質の割合を10%→25%に変える厳密な交差試験を行い、腸内細菌の多様性・SCFA濃度に統計的に有意な差は見られなかったと報告(<em>Scientific Reports</em>, 2026年4月9日オンライン公開, DOI: 10.1038/s41598-026-46663-y)。</li>
+    <li>一方、食品の種類そのものを大きく変える(動物性食品だけ vs 植物性食品だけ)と、腸内細菌は1〜2日で大きく変わることが2014年の研究で知られている(David L, et al., <em>Nature</em>, DOI: 10.1038/nature12820)。</li>
+    <li>「たんぱく質の量を増やす」ことと「食事の種類そのものを変える」ことは、腸内細菌への影響の大きさが違う可能性がある。</li>
+    <li>いずれもn=10という小規模な研究であり、「差がなかった」「差があった」という結果を、どちらも過度に一般化しないことが大切。</li>
+  </ul>
+</div>
+
+<!-- 免責 -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、医療アドバイスではありません。たんぱく質の必要量・腸内細菌への影響は個人の体質・年齢・持病(特に腎疾患)・運動量・服薬によって大きく異なります。食事内容やたんぱく質摂取量を大きく変える場合は、自己判断をせず、かかりつけ医・薬剤師・管理栄養士など専門家にご相談ください。本記事は特定の食事法・サプリの実践を推奨するものではありません。
+</div>
+
+<!-- 出典 -->
+<div class="sources">
+  <h3>📚 主な出典・参考文献</h3>
+  <ol>
+    <li>Hunter AK, Adair K, Horgan A, Jordan J, Stadler DD, Bohannan BJM. "Impact of dietary protein quantity on the non-dysbiotic human microbiome: a controlled feeding study." <em>Scientific Reports</em>. 2026. DOI: 10.1038/s41598-026-46663-y.
+      <a href="https://doi.org/10.1038/s41598-026-46663-y" target="_blank">https://doi.org/10.1038/s41598-026-46663-y</a>(基準日:2026年4月9日オンライン公開。当セッションのネットワーク制限〈nature.com・pubmed.ncbi.nlm.nih.gov・pmc.ncbi.nlm.nih.govがブロック対象〉により原文へ直接アクセスできず、検索エンジン経由の複数の要約による)
+    </li>
+    <li>David LA, Maurice CF, Carmody RN, et al. "Diet rapidly and reproducibly alters the human gut microbiome." <em>Nature</em>. 2014;505(7484):559-563. DOI: 10.1038/nature12820.
+      <a href="https://doi.org/10.1038/nature12820" target="_blank">https://doi.org/10.1038/nature12820</a>(基準日:2014年1月発表。ネットワーク制限により原文未確認、検索エンジン経由の要約による)
+    </li>
+    <li>Institute of Medicine (US) Panel on Macronutrients. "Dietary Reference Intakes for Energy, Carbohydrate, Fiber, Fat, Fatty Acids, Cholesterol, Protein, and Amino Acids." National Academies Press. 2005. NCBI Bookshelf ID: NBK234922.
+      <a href="https://www.ncbi.nlm.nih.gov/books/NBK234922/" target="_blank">https://www.ncbi.nlm.nih.gov/books/NBK234922/</a>(基準日:2005年発表。ネットワーク制限によりNCBI Bookshelf原文未確認、検索エンジン経由の要約による)
+    </li>
+  </ol>
+  <p style="margin-top:8px; font-size:0.78rem;">※ 本記事はネットワーク制限により、上記の各一次資料に本セッションから直接アクセスできなかったため、検索エンジンで得られる複数の要約・引用箇所を突き合わせ、内容が一致した範囲に限定して記載しています。最新かつ正確な数値・詳細は、各DOI・URL先で改めてご確認いただくことをお勧めします。</p>
+</div>
+
+</div>
+</body>
+</html>
