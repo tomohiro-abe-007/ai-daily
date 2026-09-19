@@ -35,7 +35,8 @@
 - 英語の命令文の丁寧さの段階（Please.../Would you mind -ing?/Could you...?/Let's...）── 09-04のスペイン語nosotros/vosotros命令形の逆向きブリッジ、英語での丁寧さ調整の付け方を整理する
 - スペイン語のpor otro lado / en cambio（対比を表すつなぎ言葉）── 英語のwhile/whereasのスペイン語版、09-17のwhile/whereas対比用法の次に読みたい「対比」表現の整理
 - スペイン語のconjunciones temporales(cuando/en cuanto/tan pronto como)が接続法を取る条件── 09-18のmientras(接続法で条件・未来を表す)の発展、他の時間接続詞にも同じ「未来はいつも接続法」ルールが働くことを整理する
-- スペイン語のsiempre que / con tal de que / a condición de que の丁寧度の違い(09-19の英語as long as/provided that/on condition thatの逆向きブリッジ)── 同じ「条件」でも口語的なcon tal de queとフォーマルなa condición de queの使い分けを、例文つきで整理する
+- スペイン語の「siempre y cuando」(条件を最も強く言う言い方)── 09-20のsiempre que/con tal de que/a condición de queの発展、フォーマルな文章で最もよく使われるという条件接続詞をもう1段整理する
+- 英語のas far as(範囲を限定する「〜する限りでは」)とas long as(条件の「〜する限り」)の混同しやすい2つのas 〜 as── 09-19の発展、意味が違う2つの表現を切り分ける
 
 ## 解説済みテーマ
 
@@ -135,3 +136,4 @@
 - 2026-09-17: 英語のwhile/whereasの対比用法（「一方で」)とalthoughの譲歩用法の切り分け ── 09-14・09-16で扱った「品詞(接続詞/前置詞)」の軸とは別の「意味(対比/譲歩)」の軸を導入し、although置換テストでwhile(対比/譲歩の2用法)とwhereas(対比専用)を見分ける方法、カンマの有無で時間用法のwhileと区別する方法を整理した
 - 2026-09-18: スペイン語のmientras (que) の3つの顔（時間「〜する間」・対比「一方で」・条件「〜する限り」）── 09-17の英語while/whereasの逆向きブリッジ、直説法か接続法か・queの有無で意味が切り替わる仕組みを整理し、時間=mientras+直説法、対比=mientras que+直説法、条件=mientras+接続法という3パターンを英語のwhile/whereas/as long asと対応づけた
 - 2026-09-19: 英語のas long as / provided (that) / on condition that の使い分け（条件を表す表現の丁寧度・フォーマル度の違い）── 09-18のスペイン語mientras(接続法・条件用法)の逆向きブリッジ、カジュアル(as long as)→フォーマルな書き言葉(provided that)→最もフォーマル(on condition that)の丁寧度の階段を整理し、スペイン語のsiempre que/con tal de que/a condición de queとも対応づけた
+- 2026-09-20: スペイン語のsiempre que / con tal de que / a condición de que の使い分け（条件を表す接続法表現の丁寧度・ニュアンスの違い）── 09-19の英語as long as/provided that/on condition thatの逆向きブリッジ、中立的な一般ルール(siempre que)・譲歩や取引のニュアンス(con tal de que)・契約書向けの最もフォーマルな言い方(a condición de que)という3段階を整理し、丁寧度だけでなく「気持ちの入り方」も英語とはズレる点を紹介した
