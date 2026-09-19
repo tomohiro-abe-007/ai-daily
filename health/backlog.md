@@ -2,6 +2,14 @@
 
 今後の記事候補。使ったテーマは削除し、新しく見つけた有望テーマは追記する。
 
+## 未使用テーマ（追記：2026-09-20 検索で見つけた有望テーマ）
+
+- 09-20記事(Shkolnik M, Sapir G, Shilo S, Talmor-Barkan Y, Rossman H, Segal E, Nature Health 2026, DOI: 10.1038/s44360-026-00182-2)の続報候補 ── 対象コホートの正確な参加者数・年齢層・国・募集方法(検索結果からはワイツマン科学研究所が主導する大規模デジタル健康コホートのデータを使った可能性が示唆されるが未確定)、統計的な信頼区間・p値、先行公開されたmedRxivプレプリント(DOI: 10.64898/2026.02.17.26346471, 2026年2月17日公開)との内容の異同が、論文本文で確認できれば深掘り記事化を検討。ネットワーク制限(nature.com・medrxiv.org・weizmann.ac.ilがブロック対象)で本文未確認
+- ワイツマン科学研究所の大規模長期コホート「Human Phenotype Project(HPP)」そのものを扱う独立回 ── ゲノム・腸内細菌叢・持続血糖モニター・画像診断・生活習慣データを17の body systems にわたって25年間追跡する計画で、2025年時点で28,000人超が参加という報告あり。「大規模コホート研究はどうデザインされるか」というエビデンスの読み方の切り口で深掘りできるか検討。一次資料(公式サイト・出版物)の確認が必要、ネットワーク制限(weizmann.ac.il等)で未確認
+- NIH「Nutrition for Precision Health, powered by All of Us」プログラム ── 10,000人超を対象に、個人の食事への反応を予測するアルゴリズム開発を目指す米国立衛生研究所の大規模プログラム。精密栄養学の研究基盤そのものを紹介するエバーグリーン回として有望。一次資料(nih.gov)の確認が必要
+- Cornell大学「Precision Nutrition New York Study」── 食物繊維の摂り方(eating pattern)を最適化し肥満・代謝疾患を防ぐことを目的にした精密栄養学研究(clinicaltrials.gov記載)。試験の詳細(対象人数・介入内容・結果)が確認できれば独立記事化を検討
+- 「Precision nutrition for the prevention and management of inflammatory bowel disease」(Nature Reviews Gastroenterology & Hepatology, DOI: 10.1038/s41575-026-01213-9)── 精密栄養学×IBDのレビュー論文。レビューのみでは「二次情報だけ」になるため、引用されている一次RCT・コホート研究を特定できれば、それらを主役にした記事として深掘りを検討
+
 ## 未使用テーマ（追記：2026-09-19 検索で見つけた有望テーマ）
 
 - 09-19記事(Hunter AK, Adair, Horgan, Jordan, Stadler, Bohannan, Scientific Reports 2026, DOI: 10.1038/s41598-026-46663-y)の続報候補 ── より大人数・より長期間(数か月〜数年)・より極端な高たんぱく食(総エネルギーの35%以上など)で腸内細菌への影響を調べた追試が発表されれば深掘り記事化を検討。統計的な検出力・信頼区間、SCFAの具体的な数値、参加者の食事タイプ(動物性/植物性たんぱく質の比率)の詳細が、論文本文で確認できればさらに深掘り可能。ネットワーク制限(nature.com・pubmed.ncbi.nlm.nih.gov・pmc.ncbi.nlm.nih.govがブロック対象)で本文未確認
