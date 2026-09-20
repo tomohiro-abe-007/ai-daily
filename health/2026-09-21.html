@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-09-21</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '🐄';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.9rem; margin-bottom: 8px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.1em; }
+  .c3-col li { margin-bottom: 4px; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  .quote-box {
+    background: #f5f0e8;
+    border-left: 4px solid #7a5abf;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    margin: 12px 0;
+    color: #444;
+    font-style: italic;
+  }
+  .quote-box .who { font-style: normal; font-weight: 700; color: #5a3a9a; margin-top: 6px; font-size: 0.78rem; }
+  .matrix {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .mx-cell {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .mx-cell .mx-head { font-weight: 700; font-size: 0.88rem; margin-bottom: 6px; }
+  .mx-cell.ok  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .mx-cell.ok  .mx-head { color: #1a6e4a; }
+  .mx-cell.ng  { background: #fbe8e6; border: 2px solid #c0392b; }
+  .mx-cell.ng  .mx-head { color: #a0291e; }
+  @media (max-width: 540px) {
+    .compare4 { grid-template-columns: 1fr; }
+    .matrix { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.7rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ヘッダー -->
+<div class="header">
+  <div class="label">健康・栄養 最新トピック ・ 2026-09-21</div>
+  <h1>牛や羊の腸内細菌がつくる脂肪酸が、肝臓の"スイッチ"を直接動かしていた──マウス実験で見えた血糖・脂肪肝との関わり</h1>
+  <div class="subtitle">今日は「腸内環境」×「精密栄養学」の最新研究回。ドイツ・コンスタンツ大学のチームが、反すう動物(牛・羊など)の腸内細菌がつくる脂肪酸「バクセン酸」が、肝臓などにあるLRH-1という受容体を直接動かす物質であることを見つけ、EMBO Molecular Medicine誌(2026年)に発表しました。マウスでは血糖・脂肪肝の改善につながったと報告されていますが、あくまで動物実験の基礎研究段階です。</div>
+</div>
+
+<!-- タグ -->
+<div style="margin-bottom:18px;">
+  <span class="tag">腸内環境</span>
+  <span class="tag">精密栄養学</span>
+  <span class="tag">エビデンスの強さ(動物実験)</span>
+  <span class="tag">トランス脂肪酸</span>
+</div>
+
+<!-- 今日の疑問 -->
+<div class="card">
+  <h2>🤔 今日の疑問:"腸内細菌"と"肝臓の血糖コントロール"はどうつながる?</h2>
+  <p>腸内細菌が食物繊維を発酵させてSCFA(短鎖脂肪酸)を作る、という話はこの連載でも何度か紹介してきました。今回の研究が注目したのは、もう少し変わった経路です。牛や羊など反すう動物の胃腸にいる細菌は、エサの成分を発酵させる過程で「バクセン酸」という脂肪酸を作り出します。これが肉や乳製品を通じて体に入ったとき、肝臓など全身の代謝に関わる「LRH-1(NR5A2)」という受容体のスイッチを直接動かしている可能性がある、という報告です。</p>
+  <p>今日は、この基礎研究が「何を見つけたのか」「ヒトの食生活にすぐ当てはまる話なのか」を、丁寧に切り分けて読み解きます。</p>
+</div>
+
+<!-- 基本用語 -->
+<div class="card blue">
+  <h2>📖 まず言葉の意味を</h2>
+  <div class="def-grid">
+    <div class="def-item">
+      <div class="dterm">受容体とリガンド</div>
+      受容体は細胞の中や表面にある、スイッチのようなたんぱく質。そこにぴったりはまって働きを変える物質を「リガンド」と呼ぶ。受容体が"鍵穴"、リガンドが"鍵"に例えられる。
+    </div>
+    <div class="def-item">
+      <div class="dterm">LRH-1(NR5A2)</div>
+      肝臓や膵臓などの細胞の中にある転写因子(遺伝子の働きを調整するたんぱく質)。糖・脂質の代謝に関わるとされる。
+    </div>
+    <div class="def-item">
+      <div class="dterm">バクセン酸</div>
+      牛・羊など反すう動物の胃腸にいる細菌が、エサの脂肪酸を発酵させる過程で作る脂肪酸。肉や乳製品にも含まれる、天然のトランス脂肪酸の代表例。
+    </div>
+    <div class="def-item">
+      <div class="dterm">トランス脂肪酸</div>
+      脂肪酸の構造による分類の一つ。マーガリンなど工業的に作られるものと、反すう動物の腸内細菌が天然に作るものがある。
+    </div>
+    <div class="def-item">
+      <div class="dterm">高脂肪食誘導マウス</div>
+      脂肪の多いエサを与え続けることで、人の肥満・2型糖尿病に近い状態にした実験用マウス。動物実験でよく使われるモデル。
+    </div>
+    <div class="def-item">
+      <div class="dterm">脂肪肝(MASLD)</div>
+      肝臓に脂肪がたまりすぎた状態。飲酒が原因でなくても、肥満や糖尿病を背景に起こることがある(代謝機能障害関連脂肪性肝疾患)。
+    </div>
+  </div>
+</div>
+
+<!-- 数字カード -->
+<div class="num-row">
+  <div class="num-card gray-bg">
+    <div class="big">初</div>
+    <div class="desc">腸内細菌が作る物質がLRH-1を直接活性化するリガンドと報告されたのは、今回が初めてとされる</div>
+  </div>
+  <div class="num-card orange-bg">
+    <div class="big">2026<span class="unit">年</span></div>
+    <div class="desc">ドイツ・コンスタンツ大学のチームがEMBO Molecular Medicine誌に発表</div>
+  </div>
+  <div class="num-card blue-bg">
+    <div class="big">マウス</div>
+    <div class="desc">効果が確認されたのは、高脂肪食で肥満・高血糖にしたマウスでの実験(ヒトでの検証はまだ)</div>
+  </div>
+  <div class="num-card red-bg">
+    <div class="big">約45<span class="unit">%</span></div>
+    <div class="desc">反すう動物由来の天然トランス脂肪酸に占めるバクセン酸の割合の目安(工業由来のものとは組成比が異なるとされる)</div>
+  </div>
+</div>
+
+<!-- 何がわかったか -->
+<div class="card orange">
+  <h2>🔍 この研究で、何が「わかった」?何が「わからなかった」?</h2>
+  <div class="compare4">
+    <div class="c3-col green">
+      <h3>🟢 調べたこと</h3>
+      <ul>
+        <li>独・コンスタンツ大学のAnna Pia Plazzoさん、Thomas Brunner教授(責任著者)らのチームが、腸内の細菌がLRH-1に結合する物質を作るかどうかを探索し、バクセン酸を候補として同定。結合実験でLRH-1の天然リガンドであることを確認したうえで、高脂肪食で肥満・高血糖にしたマウスにバクセン酸を投与した</li>
+      </ul>
+    </div>
+    <div class="c3-col orange">
+      <h3>🟠 わかったこと</h3>
+      <ul>
+        <li>バクセン酸がLRH-1の受容体部分に直接結合し、遺伝子の働きを変化させる(転写活性化する)ことが確認された</li>
+        <li>高脂肪食で肥満・高血糖にしたマウスにバクセン酸を投与すると、血糖コントロールが改善し、脂肪肝の指標も改善する方向の変化がみられたと報告されている</li>
+      </ul>
+    </div>
+    <div class="c3-col red">
+      <h3>🔴 わからなかったこと・言えないこと</h3>
+      <ul>
+        <li>ヒトでも同じ効果があるかは、まだ確認されていない(今回の効果はマウスでの結果)</li>
+        <li>肉・乳製品を多く食べてバクセン酸の摂取量を増やせば同じ効果が出るのか、必要な量・安全性・長期摂取の影響は未検証</li>
+        <li>「バクセン酸は体に良い」と単純化してよいかは別問題(下の欄を参照)</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- どうやって調べられたか -->
+<div class="card purple">
+  <h2>🔬 この結果は、どうやって導かれた?</h2>
+  <div class="flow">
+    <div class="flow-step purp">① 腸内細菌がLRH-1に<br>結合する物質を<br>作るか探索</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step">② バクセン酸を<br>LRH-1の天然リガンド<br>として結合実験で同定</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step alt">③ 高脂肪食で肥満・<br>高血糖にしたマウスに<br>バクセン酸を投与</div>
+    <div class="flow-arrow">➡</div>
+    <div class="flow-step warn2">④ 血糖値・脂肪肝の<br>指標を測定して<br>比較</div>
+  </div>
+  <p style="font-size:0.82rem; color:#555; margin-top:4px;">コンスタンツ大学のAnna Pia Plazzoさん、Thomas Brunner教授(責任著者)らのチームが<em>EMBO Molecular Medicine</em>誌に発表(2026年、DOI: 10.1038/s44321-026-00516-3)。バクセン酸はヒトの体内では作られず、反すう動物の腸内細菌による発酵でのみ生じ、肉・乳製品を通じて摂取されるという成り立ちの違いも、この研究の出発点になっている。</p>
+</div>
+
+<!-- 精密栄養学の視点・バランス -->
+<div class="card">
+  <h2>🧬 「天然のトランス脂肪酸だから体に良い」と言えるのか?</h2>
+  <p>ここで気をつけたいのは、バクセン酸が分類上「トランス脂肪酸」の一種だという点です。トランス脂肪酸というと、マーガリンなど工業的に作られるものが心血管疾患リスクを上げるとして問題視されてきた経緯があり、世界保健機関(WHO)は工業由来のトランス脂肪酸を食品から排除する「REPLACE」という政策パッケージを進めています。一方で、バクセン酸のように反すう動物の腸内細菌が天然に作るトランス脂肪酸についても、WHOのファクトシートでは、工業由来のものと同様に心血管疾患リスクの観点から摂取を抑える対象として扱われています。</p>
+  <div class="matrix">
+    <div class="mx-cell ok">
+      <div class="mx-head">✅ 比較的よく確立されていること</div>
+      バクセン酸は反すう動物の腸内細菌が作る天然のトランス脂肪酸の代表例で、牛肉・羊肉・乳製品に含まれる。今回、LRH-1という受容体に直接結合するリガンドとして働くことが、細胞・マウスレベルの実験で示された。
+    </div>
+    <div class="mx-cell ng">
+      <div class="mx-head">❓ 誤解されやすいこと・注意が必要なこと</div>
+      WHOは天然・工業由来を問わずトランス脂肪酸の摂取を心血管疾患リスクの観点から抑える立場を示している。今回のマウスでの代謝改善効果だけを理由に「バクセン酸(や、それを含む肉・乳製品)は体に良い」と一般化し、心血管リスクへの懸念と相殺してよいわけではない。
+    </div>
+  </div>
+</div>
+
+<!-- 限界 -->
+<div class="warn">
+  <strong>⚠️ ここで紹介した内容の限界</strong>
+  <ul style="padding-left:1.4em; margin-top:8px;">
+    <li>今回の血糖・脂肪肝への効果は、すべて高脂肪食で肥満・高血糖にしたマウスでの結果であり、ヒトを対象にした臨床試験はまだ報告されていない。</li>
+    <li>マウスに投与した具体的な用量、安全性データ、長期摂取した場合の影響は、今回の報道・検索で確認できた範囲では明らかになっていない。</li>
+    <li>「天然のトランス脂肪酸」とされるバクセン酸だが、WHOなど公的機関は心血管疾患リスクの観点から依然として注意を促しており、今回の代謝への良い影響の報告と単純に相殺されるものではない。</li>
+    <li>当セッションのネットワーク制限により、論文原文(embopress.org・link.springer.com等)に直接アクセスできず、大学のプレスリリースを転載した複数の科学ニュースサイト(Newswise、EurekAlert!、medicalxpress.comなど)の記述が一致する範囲に限定して紹介している。血糖値・脂肪肝マーカーの具体的な変化量や統計的有意差の数値は論文原文で確認できておらず、本記事には記載していない。</li>
+  </ul>
+</div>
+
+<!-- エビデンスの整理 -->
+<div class="card">
+  <h2>🧪 今日出てきた情報の「証拠としての強さ」の目安</h2>
+  <table class="ev-table">
+    <tr><th>情報の種類</th><th>特徴</th><th>証拠としての強さ</th></tr>
+    <tr>
+      <td>バクセン酸がLRH-1の天然リガンドであり、マウスで血糖・脂肪肝の改善と関連(Plazzo, Filz, Prothiwaら, 2026)</td>
+      <td>基礎研究・動物実験(マウス)・査読誌発表</td>
+      <td><span class="ev-badge ev-low">低い(ヒトでの効果は未証明、メカニズム解明段階)</span></td>
+    </tr>
+    <tr>
+      <td>天然由来のトランス脂肪酸も心血管疾患リスクに注意が必要というWHOの立場</td>
+      <td>国際的な公的機関の公式見解</td>
+      <td><span class="ev-badge ev-high">高い(広く採用されている公衆衛生上の立場)</span></td>
+    </tr>
+    <tr>
+      <td>「バクセン酸(や肉・乳製品)を摂れば血糖・脂肪肝に良い」という解釈</td>
+      <td>今回はマウスでの基礎研究にとどまる</td>
+      <td><span class="ev-badge ev-low">低い(過大な拡大解釈)</span></td>
+    </tr>
+  </table>
+</div>
+
+<!-- 実践 -->
+<div class="card orange">
+  <h2>🍽️ 今日から意識できること</h2>
+  <ul class="step-list">
+    <li>今回の発見は「腸内細菌が作る物質が全身の代謝に影響しうる」という新しいメカニズムの一例として興味深いが、今日から「バクセン酸を摂ろう」と行動を変える段階の話ではない。</li>
+    <li>牛肉・羊肉・乳製品には天然のトランス脂肪酸(バクセン酸など)が含まれる一方、飽和脂肪酸も多く、摂りすぎは心血管疾患リスクに関わるとされる。今回の一つの基礎研究だけを理由に、肉・乳製品の摂取量を大きく増やすことは勧められない。</li>
+    <li>脂肪肝や血糖コントロールが気になる場合は、すでに効果が確認されている基本(体重管理、飽和脂肪酸を控えめにする、食物繊維を摂る、運動するなど)を優先し、新しい発見が実際の食事アドバイスになるのはこれからの研究を待つ。</li>
+  </ul>
+</div>
+
+<!-- まとめ -->
+<div class="card" style="border-left-color:#1a7a5a;">
+  <h2>✅ 今日のまとめ</h2>
+  <ul class="step-list">
+    <li>独・コンスタンツ大学のAnna Pia PlazzoさんとThomas Brunner教授(責任著者)らのチームが、反すう動物の腸内細菌が作る脂肪酸「バクセン酸」が、肝臓などにあるLRH-1(NR5A2)という受容体の天然リガンドであることを発見し、<em>EMBO Molecular Medicine</em>誌に発表(2026年、DOI: 10.1038/s44321-026-00516-3)。</li>
+    <li>高脂肪食で肥満・高血糖にしたマウスにバクセン酸を投与すると、血糖コントロールが改善し、脂肪肝の指標も改善する方向の変化がみられたと報告されている。</li>
+    <li>ただし今回の効果はすべてマウスでの結果で、ヒトでの効果・安全性はまだ確認されていない基礎研究の段階。</li>
+    <li>バクセン酸は反すう動物由来の天然のトランス脂肪酸でもあり、WHOはこうした天然由来のトランス脂肪酸についても心血管疾患リスクの観点から注意を促している。「腸内細菌の代謝物が全身に影響する」という新しい発見と、「トランス脂肪酸は摂りすぎに注意」という既存の知見は、切り分けて理解する必要がある。</li>
+  </ul>
+</div>
+
+<!-- 免責 -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、医療アドバイスではありません。効果・必要量・リスクは個人の体質・年齢・持病・服薬によって大きく異なります。食事内容を大きく変える場合は、自己判断をせず、かかりつけ医・薬剤師・管理栄養士など専門家にご相談ください。本記事は特定の食事制限・サプリ・食品の摂取を推奨するものではありません。
+</div>
+
+<!-- 出典 -->
+<div class="sources">
+  <h3>📚 主な出典・参考文献</h3>
+  <ol>
+    <li>Plazzo AP, Filz V, Prothiwa M, et al. "Microbiome-host communication via vaccenic acid modulates LRH-1/NR5A2 activity and ameliorates metabolic liver disease." <em>EMBO Molecular Medicine</em>. 2026. DOI: 10.1038/s44321-026-00516-3.
+      <a href="https://doi.org/10.1038/s44321-026-00516-3" target="_blank">https://doi.org/10.1038/s44321-026-00516-3</a>(基準日:2026年9月、大学プレスリリース経由の報道。当セッションのネットワーク制限〈embopress.org・link.springer.com等がブロック対象〉により論文原文未確認、Newswise・EurekAlert!等の複数の科学ニュースサイトの記述が一致する範囲で記載)
+    </li>
+    <li>University of Konstanz(Thomas Brunner研究室)プレスリリース "A tiny bacterium with a huge impact" 経由報道, EurekAlert!, 2026年9月.
+      <a href="https://www.eurekalert.org/news-releases/1144407" target="_blank">https://www.eurekalert.org/news-releases/1144407</a>(ネットワーク制限により原文アクセス未確認、検索エンジン経由の要約による)
+    </li>
+    <li>World Health Organization. "Trans fat" Fact sheet.
+      <a href="https://www.who.int/news-room/fact-sheets/detail/trans-fat" target="_blank">https://www.who.int/news-room/fact-sheets/detail/trans-fat</a>(工業由来・天然由来を問わずトランス脂肪酸の摂取抑制を推奨する記載を参照。ネットワーク制限により原文直接アクセス未確認、検索エンジン経由の要約による)
+    </li>
+    <li>米疾病予防管理センター(CDC)関連資料 "Bioactive Trans-Fatty Acids"(2026年6月).
+      <a href="https://www.cdc.gov/nutrition-report/media/pdfs/2026/06/Bioactive-Trans-Fatty-Acids-508.pdf" target="_blank">https://www.cdc.gov/nutrition-report/media/pdfs/2026/06/Bioactive-Trans-Fatty-Acids-508.pdf</a>(天然由来トランス脂肪酸の組成比に関する記述の参考として引用。ネットワーク制限により原文直接アクセス未確認)
+    </li>
+  </ol>
+  <p style="margin-top:8px; font-size:0.78rem;">※ 本記事はネットワーク制限により、上記の各一次資料に本セッションから直接アクセスできなかったため、検索エンジンで得られる複数の要約・引用箇所を突き合わせ、内容が一致した範囲に限定して記載しています。最新かつ正確な数値・詳細は、各DOI・URL先で改めてご確認いただくことをお勧めします。</p>
+</div>
+
+</div>
+</body>
+</html>
