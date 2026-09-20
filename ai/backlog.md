@@ -114,6 +114,7 @@
 - 2026-09-17: 上海人工知能研究所 InternLM チーム「Atria Dawn Preview」（2026年9月11〜15日公開）・744BパラメータMoE・256Kトークンコンテキスト・MITライセンスオープンウェイト・Hugging Face（internlm/Atria-Dawn-Preview）・長期科学研究タスク向けエージェントAI・16ベンチマーク中5項目でトップスコア（自己申告・第三者未検証）・AutomationBench 53.8・BrowseComp 92.5・DeepSearchQA 96.0・BFCL v4 77.0・CyberGym 86.5・「先にGitHub→3日後に論文」という逆順の異例リリース（出典：AI Weekly / Pandaily / Yahoo Finance / LLM Stats・2026年9月）
 - 2026-09-19: Meta Muse macOS スタンドアロンアプリ（2026年9月17日公開・米国のみ）：AI パーソナルエージェント・Computer Use でファイル整理/フォーム入力/メッセージ・カレンダー参照・Muse Secure VM（専用仮想環境）・クロスデバイス対応（iOS/Android/Web は9月8日公開済み）（出典：TechCrunch / 9to5Mac / Unite.AI・2026年9月17〜18日）
 - 2026-09-18: ChatGPT Images 2.5（2026年9月8日リリース）・手描きスケッチをAI画像に変換する「Sketch機能」新搭載・生成速度最大50%向上（Images 2.0比）・参照写真の被写体保持向上・複数回の指示でも一貫した編集・実世界情報の描画精度向上・APIモデル2種（Flare：速度優先 / Sunburst：精細度優先）・ChatGPT/ChatGPT Work/Codexで利用可能・料金は公式要確認（出典：OpenAI公式 / Unite.AI / Winbuzzer / Pexo・2026年9月）
+- 2026-09-21: Naive AI（ネイブ AI）$400M調達・評価額$1.42B・創業7ヶ月でユニコーン入り（2026年9月18日発表）・清華大学准教授・戴集峰氏が2026年2月創業・テンセント/IDGキャピタル/紅杉中国等が出資・100名未満・事前学習スキップ・中間学習＋事後学習＋RL特化・中国製オープンウェイトモデルをベースに活用・初モデル「Naive」を2026年9月中にオープンウェイト公開予定（出典：CryptoBriefing / GuruFocus / Digital Today / KuCoin・2026年9月18日）
 
 ## 未解説の候補トピック（今後の参考）
 
