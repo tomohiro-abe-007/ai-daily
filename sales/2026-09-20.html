@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>インサイドセールス 最新トピック 2026-09-20</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  /* ── カバー ── */
+  .cover {
+    background: linear-gradient(135deg, #6d1b1b 0%, #a13a2c 50%, #d98a2e 100%);
+    color: white;
+    border-radius: 8px;
+    padding: 60px 40px;
+    text-align: center;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.3);
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent, transparent 28px,
+      rgba(255,255,255,0.05) 28px, rgba(255,255,255,0.05) 29px
+    );
+  }
+  .cover-emoji { font-size: 64px; display: block; margin-bottom: 16px; }
+  .cover h1 {
+    font-family: 'Klee One', sans-serif;
+    font-size: 1.9rem;
+    font-weight: 600;
+    line-height: 1.35;
+    margin-bottom: 12px;
+    position: relative;
+  }
+  .cover .subtitle { font-size: 1.05rem; opacity: 0.85; margin-bottom: 8px; position: relative; }
+  .cover .date-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 20px;
+    padding: 6px 20px;
+    font-size: 1rem;
+    margin-top: 16px;
+    position: relative;
+  }
+
+  /* ── カード共通 ── */
+  .card {
+    background: #fff9f0;
+    border-radius: 6px;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.12);
+    position: relative;
+    overflow: hidden;
+  }
+  .card-body {
+    padding: 40px 36px 28px 64px;
+    background: repeating-linear-gradient(0deg, transparent, transparent 31px, #e0d8c8 31px, #e0d8c8 32px);
+    background-color: #fff9f0;
+  }
+  .card-tab {
+    display: inline-block;
+    background: #a13a2c;
+    color: white;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 4px 16px;
+    border-radius: 0 0 6px 6px;
+    position: absolute;
+    top: 0; left: 32px;
+    letter-spacing: 0.05em;
+  }
+  .card h2 {
+    font-size: 1.22rem;
+    color: #6d1b1b;
+    margin-bottom: 16px;
+    margin-top: 4px;
+    line-height: 1.5;
+    border-left: 4px solid #c0532b;
+    padding-left: 12px;
+  }
+  p { line-height: 1.85; color: #333; font-size: 0.97rem; margin-bottom: 12px; }
+
+  /* ── 数字カード ── */
+  .num-cards { display: flex; gap: 14px; flex-wrap: wrap; margin: 20px 0; }
+  .num-card {
+    flex: 1; min-width: 170px;
+    background: #6d1b1b; color: white;
+    border-radius: 10px; padding: 20px 16px; text-align: center;
+  }
+  .num-card.orange { background: #a13a2c; }
+  .num-card.gold   { background: #b06b1a; }
+  .num-card.gray   { background: #6b6b6b; }
+  .num-card .big-num {
+    font-family: 'Caveat', cursive;
+    font-size: 1.7rem; font-weight: 700; line-height: 1.15;
+    color: #ffd8b0;
+  }
+  .num-card .num-label { font-size: 0.78rem; margin-top: 8px; opacity: 0.92; line-height: 1.6; }
+
+  /* ── ステップフロー ── */
+  .step-flow { display: flex; flex-direction: column; gap: 0; margin: 20px 0; }
+  .step-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px dotted #ddd;
+  }
+  .step-item:last-child { border-bottom: none; }
+  .step-num {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: #a13a2c;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .step-body { flex: 1; }
+  .step-title { font-size: 0.97rem; font-weight: 700; color: #6d1b1b; margin-bottom: 4px; }
+  .step-desc  { font-size: 0.85rem; color: #555; line-height: 1.7; margin: 0; }
+
+  /* ── 対比カード(3列) ── */
+  .compare-flow { display: flex; gap: 14px; flex-wrap: wrap; margin: 20px 0; align-items: stretch; }
+  .compare-col {
+    flex: 1; min-width: 200px;
+    background: #fdf2ea;
+    border: 1.5px solid #e8c8a8;
+    border-radius: 8px;
+    padding: 16px 18px;
+  }
+  .compare-col.highlight-col { background: #f6e2c8; border-color: #d98a2e; }
+  .compare-col h3 { font-size: 0.93rem; color: #6d1b1b; margin-bottom: 10px; }
+  .compare-col ol, .compare-col ul { padding-left: 18px; }
+  .compare-col li { font-size: 0.82rem; color: #555; line-height: 1.85; }
+  .cause-down {
+    text-align: center;
+    font-size: 1.3rem;
+    color: #a13a2c;
+    margin: 10px 0 -2px;
+  }
+  .result-box {
+    background: #6d1b1b;
+    color: white;
+    border-radius: 8px;
+    padding: 14px 18px;
+    text-align: center;
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-top: 4px;
+  }
+
+  /* ── マトリクス表 ── */
+  .matrix-table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 0.85rem; }
+  .matrix-table th, .matrix-table td {
+    border: 1px solid #e0d0b8; padding: 10px 12px; text-align: left; vertical-align: top;
+  }
+  .matrix-table th { background: #f6e2c8; color: #6d1b1b; font-weight: 700; }
+  .matrix-table td { color: #444; line-height: 1.6; }
+  .matrix-table tr:nth-child(even) td { background: #fdf9f2; }
+  .matrix-table tr.warn td { background: #f8e6e0; }
+
+  /* ── 今日の一歩 ── */
+  .today-box {
+    background: linear-gradient(135deg, #6d1b1b, #c0532b);
+    color: white; border-radius: 8px;
+    padding: 24px 28px; margin: 16px 0; text-align: center;
+  }
+  .today-box .emoji { font-size: 2.2rem; display: block; margin-bottom: 8px; }
+  .today-box .title { font-size: 1.1rem; font-weight: 600; margin-bottom: 10px; }
+  .today-box .desc  { font-size: 0.92rem; opacity: 0.92; line-height: 1.8; text-align: left; }
+
+  /* ── 共通パーツ ── */
+  .highlight { background: #f6e2c8; border-radius: 4px; padding: 1px 6px; color: #6d1b1b; font-weight: 600; }
+  .callout {
+    border-radius: 6px; padding: 14px 16px; margin-top: 14px;
+  }
+  .callout.yellow { background: #fef9e7; border-left: 4px solid #d98a2e; }
+  .callout.green  { background: #eafaf1; border-left: 4px solid #27ae60; }
+  .callout.blue   { background: #e8f4fd; border-left: 4px solid #2980b9; }
+  .callout.wine   { background: #f6e9e4; border-left: 4px solid #a13a2c; }
+
+  /* ── 免責 ── */
+  .disclaimer {
+    background: #fff; border: 1px solid #ddd; border-radius: 6px;
+    padding: 16px 20px; font-size: 0.8rem; color: #777; line-height: 1.7;
+    width: 100%; max-width: 820px; margin-bottom: 16px;
+  }
+  .disclaimer strong { color: #555; }
+
+  /* ── 出典 ── */
+  .sources {
+    background: #fff9f0; border-radius: 6px; padding: 16px 24px;
+    width: 100%; max-width: 820px; margin-bottom: 24px;
+    font-size: 0.8rem; color: #666; line-height: 1.8;
+  }
+  .sources h3 { font-size: 0.85rem; color: #6d1b1b; margin-bottom: 8px; }
+  .sources a { color: #a13a2c; text-decoration: none; }
+  .sources a:hover { text-decoration: underline; }
+  .sources ul { padding-left: 16px; }
+
+  /* ── バックリンク ── */
+  .back-link { text-align: center; margin-bottom: 20px; font-size: 0.9rem; }
+  .back-link a { color: #a13a2c; text-decoration: none; }
+  .back-link a:hover { text-decoration: underline; }
+
+  @media (max-width: 560px) {
+    .card-body { padding: 40px 18px 24px 24px; }
+    .matrix-table { display: block; overflow-x: auto; white-space: nowrap; }
+    .compare-flow { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── カバー ── -->
+<div class="cover">
+  <span class="cover-emoji">🛡️</span>
+  <h1>「型どおりの仕事」はAIに、「その場の判断」は人に<br>BDR/SDRで生き残る仕事の見分け方</h1>
+  <div class="subtitle">インサイドセールス 最新トピック 2026-09-20</div>
+  <div class="date-badge">テレアポ・インサイドセールス 毎朝解説</div>
+</div>
+
+<!-- ── Section 01 ── -->
+<div class="card">
+  <span class="card-tab">01 前回までのアップデート</span>
+  <div class="card-body">
+    <h2>🤔 ここ数日は「AI SDRの値段」の話をしてきました</h2>
+    <p>
+      この1週間は、AI SDR(見込み客への連絡を自動化するAIツール)の料金モデルや、人間のSDR(新規のお客様候補に最初に声をかける営業職)との費用比較を紹介してきました。今日は少し視点を変えて、<span class="highlight">「AIに置き換わりやすい仕事」と「人にしか任せられない仕事」の境界線</span>を、海外の調査・分析記事から整理します。
+    </p>
+    <p>
+      これは、これから求人を探す人にとって「どんなスキルを伸ばせば長く必要とされるか」を考えるヒントになります。
+    </p>
+  </div>
+</div>
+
+<!-- ── Section 02 ── -->
+<div class="card">
+  <span class="card-tab">02 数字で見る 縮小するSDRチームの実態</span>
+  <div class="card-body">
+    <h2>📊 「減っている」のは事実、でも中身は単純な話ではない</h2>
+    <p>
+      以前(2026年9月2日)にも紹介したEmergence Capitalの調査データを背景に、2026年に入ってから発表された別の分析記事(Landbase)が、SDR/BDRチームの人数と、1人あたりのコストを具体的な数字で示しています。
+    </p>
+    <div class="num-cards">
+      <div class="num-card">
+        <div class="big-num">36%</div>
+        <div class="num-label">2025年にSDR/BDR人員を<br>縮小した米国B2B企業の割合<br>(560社以上が対象)</div>
+      </div>
+      <div class="num-card orange">
+        <div class="big-num">$139,000〜<br>$150,000/年</div>
+        <div class="num-label">SDR1人を「フルロード」で<br>雇う年間コストの目安<br>(基本給+変動報酬+福利厚生+ツール+管理工数)</div>
+      </div>
+      <div class="num-card gold">
+        <div class="big-num">3つ</div>
+        <div class="num-label">今の記事が「自動化が進む」と<br>名指ししている仕事の分類<br>(下のSection 03で紹介)</div>
+      </div>
+    </div>
+    <div class="callout yellow">
+      ⚠️ 「36%」の縮小は、そのほとんどが解雇ではなく<span class="highlight">自然減(アトリション。辞めた人の代わりを採用せず、そのままチーム人数が減っていくこと)</span>によるものだと、複数の記事が説明しています。
+    </div>
+  </div>
+</div>
+
+<!-- ── Section 03 ── -->
+<div class="card">
+  <span class="card-tab">03 比較 自動化される仕事・安全な仕事</span>
+  <div class="card-body">
+    <h2>⚖️ 境界線は「決まった手順があるか」どうか</h2>
+    <p>
+      Landbaseの分析記事(2026年4月8日公開)は、SDR/BDRの仕事を「自動化が進む仕事」と「複雑な営業として今後も必要とされる仕事」の2つに整理しています。
+    </p>
+    <div class="compare-flow">
+      <div class="compare-col">
+        <h3>🤖 自動化されやすい仕事</h3>
+        <ul>
+          <li>決まった順序で一斉送信する「型どおり」の連絡</li>
+          <li>台本(テンプレート)どおりの一次架電・一次メール</li>
+          <li>企業名・担当者名など基礎的な下調べ(リサーチ)</li>
+        </ul>
+      </div>
+      <div class="compare-col highlight-col">
+        <h3>🧑‍💼 人にしか任せられない仕事</h3>
+        <ul>
+          <li>関係者が多く複雑な「エンタープライズ営業」(大企業向け営業)</li>
+          <li>相手の課題を一緒に整理する「コンサルティブ営業」</li>
+          <li>初対面での信頼づくり、会話の「間(沈黙)」への対応</li>
+        </ul>
+      </div>
+    </div>
+    <div class="cause-down">▼</div>
+    <div class="result-box">共通する境界線:「決まった手順どおりに進むか」か、「その場その場の判断が必要か」</div>
+  </div>
+</div>
+
+<!-- ── Section 04 ── -->
+<div class="card">
+  <span class="card-tab">04 図解 AIが得意なこと・苦手なこと</span>
+  <div class="card-body">
+    <h2>🧩 Bain Capital Venturesが挙げる「AIにできないこと」</h2>
+    <p>
+      ベンチャーキャピタルのBain Capital Venturesは、2026年1月に公開した記事で「AIは案件の振り分け・情報付加(エンリッチメント。連絡先や企業情報にAIが自動で情報を追加すること)・日程調整はできるが、関係づくりはできない」と整理しています。
+    </p>
+    <table class="matrix-table">
+      <tr><th>AIが得意なこと</th><th>人にしかできないとされること</th></tr>
+      <tr><td>案件の振り分け(ルーティング)</td><td>初対面の相手との関係づくりのきっかけ作り</td></tr>
+      <tr><td>企業・連絡先情報への情報付加(エンリッチメント)</td><td>会話の「間」や沈黙への対応</td></tr>
+      <tr><td>日程調整</td><td>相手の反応を見ながらの言い回しの微調整</td></tr>
+      <tr class="warn"><td colspan="2">実例:ある企業のAI自動発信システムが、既存顧客を新規見込み客と誤認識し、社長名義で「初めてのご連絡」のようなメールを送ってしまった、という失敗例が同記事で紹介されています</td></tr>
+    </table>
+    <div class="callout wine">
+      🔎 このエピソードは、人間の確認なしにAIだけで発信を進めると、相手との関係を壊しかねないリスクがあることを示す一例として記事内で紹介されています。実際の対応件数や被害規模までは、記事内では明らかにされていません。
+    </div>
+  </div>
+</div>
+
+<!-- ── Section 05 ── -->
+<div class="card">
+  <span class="card-tab">05 求職者にとっての意味</span>
+  <div class="card-body">
+    <h2>🎯 「型どおりの発信力」より「その場の判断力」を育てる</h2>
+    <p>
+      これから求人を探す人にとって大事なのは、「AIに仕事を奪われるかどうか」を心配することより、「自分がどちらのタイプの仕事を担当しているか」を意識することです。
+    </p>
+    <div class="step-flow">
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-title">求人票の仕事内容を「型があるか」「その場対応が必要か」で分けて読む</div>
+          <p class="step-desc">「一斉送信」「リスト架電」中心の求人と、「エンタープライズ」「コンサルティブセールス」といった言葉が出てくる求人では、求められる力が違います。</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <div class="step-title">AIツールを「使われる側」でなく「使いこなす側」として学ぶ</div>
+          <p class="step-desc">エンリッチメントや日程調整はAIに任せ、そこで浮いた時間を商談準備や関係づくりに使えるかどうかが、これからの評価ポイントになります。</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <div class="step-title">「間」や沈黙への対応を練習する</div>
+          <p class="step-desc">台本どおりの受け答えだけでなく、相手が黙ったとき・想定外の返答をしたときにどう反応するかは、ロールプレイ(一人二役の練習)で鍛えられます。</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <div class="step-title">未経験のうちから「複雑な商材」への興味を持っておく</div>
+          <p class="step-desc">単純な商材の型どおり営業より、仕組みや業界知識の説明が必要な商材のほうが、AIに代替されにくい経験になりやすいとされています。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Section 06 ── -->
+<div class="card">
+  <span class="card-tab">06 今日からできる一歩</span>
+  <div class="card-body">
+    <h2>👣 今日の一歩:気になる求人を1つ選んで、仕事内容を「型」と「判断」に色分けする</h2>
+    <div class="today-box">
+      <span class="emoji">📝</span>
+      <div class="title">今日の一歩:興味のある求人票を1つ選び、書かれている業務内容を「決まった手順で進む仕事」と「その場の判断が必要な仕事」の2つに色分けしてメモする</div>
+      <div class="desc">
+        「判断が必要な仕事」の割合が多い求人ほど、AIに置き換わりにくく、長く必要とされやすい仕事だと考えられます。面接で「AIツールと自分の役割分担をどう考えているか」を聞かれたときの準備にもなります。
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 免責 ── -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事で紹介した数字・分析は、Bain Capital Ventures・Landbase・SaaStr(Emergence Capital調査を引用)などの記事に基づくものであり、各社の見解・推計を含みます。定義や調査時期が異なるため、単純比較はできない点にご注意ください。報酬・採用の結果には個人差があり、市場・時期・スキルによって変わります。紹介した企業・調査・数字の内容は変わる可能性があるため、最新情報は必ず各社の公式情報でご確認ください。
+</div>
+
+<!-- ── 出典 ── -->
+<div class="sources">
+  <h3>📎 参考情報・出典</h3>
+  <ul>
+    <li><a href="https://baincapitalventures.com/insight/the-case-for-humans-in-sales-why-bdrs-still-win-in-the-age-of-ai/" target="_blank">Bain Capital Ventures「Humans in Sales: Why BDRs Still Win in the Age of AI」(2026年1月29日公開。参照日:2026年9月)</a></li>
+    <li><a href="https://www.landbase.com/blog/death-of-bdr-role-ai-agents-sdr-hiring-2026" target="_blank">Landbase「The Death of the BDR Role? How AI Agents Are Changing SDR Hiring in 2026」(2026年4月8日公開。参照日:2026年9月)</a></li>
+    <li><a href="https://www.saastr.com/the-great-sdr-downsizing-36-of-b2b-companies-cut-sales-development-teams-in-2025/" target="_blank">SaaStr「The Great SDR Downsizing: 36% of B2B Companies Cut Sales Development Teams in 2025」(2025年6月22日公開。Emergence Capital「Beyond Benchmarks」調査・560社以上のB2Bソフトウェア企業対象、2025年4月実施データに基づく。参照日:2026年9月)</a></li>
+  </ul>
+</div>
+
+<!-- ── バックリンク ── -->
+<div class="back-link">
+  <a href="index.html">&larr; バックナンバー一覧へ</a>
+</div>
+
+</body>
+</html>
