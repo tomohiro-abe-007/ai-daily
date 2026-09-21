@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-09-22</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #2a4d7a 0%, #10233f 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #2a4d7a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.blue   { border-left-color: #1e5a7a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.green  { border-left-color: #1e7a5a; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #2a4d7a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin: 14px 0;
+  }
+  .stats-row.c3 { grid-template-columns: repeat(3, 1fr); }
+  .stats-row.c2 { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 12px 6px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat.now { background: #fff3e0; box-shadow: 0 0 0 2px #c8884a inset; }
+  .stat .sl { font-size: 0.62rem; color: #888; margin-bottom: 3px; line-height: 1.4; }
+  .stat .sv { font-size: 1.05rem; font-weight: 700; color: #2a4d7a; line-height: 1.15; }
+  .stat.now .sv { color: #c8884a; }
+  .stat .su { font-size: 0.62rem; color: #666; margin-top: 2px; }
+
+  .bignum {
+    background: white;
+    border-radius: 12px;
+    padding: 18px 14px;
+    text-align: center;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.1);
+    border: 2px dashed #c8884a;
+    margin: 14px 0;
+  }
+  .bignum .bl { font-size: 0.76rem; color: #888; margin-bottom: 6px; }
+  .bignum .bv { font-size: 1.7rem; font-weight: 700; color: #c8884a; line-height: 1.3; }
+  .bignum .bs { font-size: 0.76rem; color: #666; margin-top: 6px; line-height: 1.6; }
+
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #2a4d7a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-num.now { background: #b54040; }
+  .f-num.later { background: #999; }
+  .f-num.opt { background: #c8884a; }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+  .f-arrow { color: #2a4d7a; font-size: 1.1rem; margin-left: 14px; margin-bottom: 4px; }
+
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  table.cmp {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.83rem;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.08);
+  }
+  table.cmp th, table.cmp td {
+    border: 1px solid #e4dccd;
+    padding: 9px 10px;
+    line-height: 1.55;
+    vertical-align: top;
+  }
+  table.cmp thead th { background: #2a4d7a; color: white; font-weight: 600; text-align: center; }
+  table.cmp tbody th { background: #f5efe2; color: #5a4020; text-align: left; font-weight: 600; white-space: nowrap; }
+  table.cmp td { color: #444; text-align: left; }
+  table.cmp td.hi { background: #fff3e0; font-weight: 700; color: #c8884a; }
+  .wrap-x { overflow-x: auto; }
+
+  .info {
+    background: #e8eef8;
+    border-left: 4px solid #2a4d7a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #16294a;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #7a4010;
+  }
+
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #2a4d7a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #2a4d7a; word-break: break-all; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #2a4d7a; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Header -->
+<div class="header">
+  <div class="meta">📅 1人法人スタート 最新トピック &nbsp;2026-09-22</div>
+  <h1>💴 資本金1,000万円、こえてますか?<br>──2割特例が最初から使えない新設法人の消費税実務</h1>
+  <div class="desc">
+    <span class="htag">消費税</span>
+    <span class="htag">資本金1000万円</span>
+    <span class="htag">新設法人</span>
+    <span class="htag">高額特定資産</span>
+    <span class="htag">インボイス</span>
+    <br>
+    9/17記事では「2割特例」が使えなくなる対象外要件に軽くふれました。今日はその中でも代表的な<span class="hl">「資本金1,000万円以上の新設法人」と「高額特定資産を取得した事業者」</span>を深掘りします。実はこの2つ、2割特例どころか<span class="hlo">そもそも設立1期目から消費税の課税事業者</span>になる仕組みです。該当するかどうかを図解で確認しましょう。
+  </div>
+</div>
+
+<!-- Section 1: そもそもの原則 -->
+<div class="card blue">
+  <div class="sec-title">🌱 おさらい:新設法人は原則、最初の2年は免税</div>
+  <p>消費税には「基準期間(原則2期前)の課税売上高が1,000万円以下なら納税義務を免除する」というルールがあります。設立したばかりの1人法人には基準期間そのものが存在しないため、<span class="hl">原則として設立1期目・2期目は免税事業者</span>としてスタートできます(6/3記事「新設法人の2年免税ルール」)。</p>
+  <p style="margin-top:8px;">ところが、この「原則」には資本金の額によって最初から外れてしまう例外があります。今日はそこを整理します。</p>
+</div>
+
+<!-- Section 2: 資本金1000万円の分岐点 -->
+<div class="card orange">
+  <div class="sec-title">💰 分かれ道は「資本金1,000万円」</div>
+  <p>会社設立時に法務局へ登記する<strong>資本金(または出資金)の額</strong>が、消費税の出発点を大きく左右します。</p>
+
+  <div class="wrap-x">
+  <table class="cmp">
+    <thead>
+      <tr><th></th><th>資本金1,000万円未満</th><th>資本金1,000万円以上</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>設立1期目</th>
+        <td>原則、免税事業者</td>
+        <td class="hi">「新設法人」の特例により<br>最初から課税事業者</td>
+      </tr>
+      <tr>
+        <th>設立2期目</th>
+        <td>特定期間の判定で<br>免税継続の可能性あり</td>
+        <td class="hi">2期目も引き続き<br>課税事業者</td>
+      </tr>
+      <tr>
+        <th>2割特例</th>
+        <td>使える場合が多い</td>
+        <td class="hi">対象外</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="warn">
+    ⚠️ この「新設法人の特例」(消費税法12条の2)は、資本金1,000万円以上の会社が「わざと免税事業者になって消費税をもらい得する」ことを防ぐための規定です。設立時の資本金額を決める段階で、この分岐点を知っておくことが大切です。
+  </div>
+</div>
+
+<!-- Section 3: 特定期間の判定(1000万円未満の会社の2期目) -->
+<div class="card">
+  <div class="sec-title">🔍 資本金1,000万円未満でも、2期目に課税事業者になることがある</div>
+  <p>資本金1,000万円未満でスタートしても油断はできません。設立1期目の<strong>前半6か月(特定期間)</strong>の実績によって、2期目から課税事業者になるルール(消費税法9条2項)があります。</p>
+
+  <div class="f-step" style="margin-top:14px;">
+    <div class="f-num">1</div>
+    <div class="f-text"><strong>設立1期目の最初の6か月</strong>(特定期間)の実績を見る</div>
+  </div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step">
+    <div class="f-num opt">2</div>
+    <div class="f-text">その6か月の<strong>課税売上高</strong>と<strong>給与等支払額</strong>を、それぞれ集計する</div>
+  </div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step">
+    <div class="f-num now">3</div>
+    <div class="f-text"><strong>両方とも1,000万円を超えていたら</strong>、2期目は課税事業者(片方だけなら免税継続可)</div>
+  </div>
+
+  <p style="margin-top:10px;">1人社長の会社は役員報酬以外に給与を払っていないケースも多く、実務上この特例に該当しにくい面はありますが、事業が軌道に乗って売上が伸びた年は要チェックです。</p>
+</div>
+
+<!-- Section 4: 高額特定資産の3年縛り -->
+<div class="card red">
+  <div class="sec-title">🏢 高額な設備投資をすると「3年縛り」がかかる</div>
+  <p>もうひとつの落とし穴が「高額特定資産」です。棚卸資産や固定資産を<strong>1回の取引で税抜1,000万円以上</strong>購入・建設すると、その後しばらく消費税の選択の自由が制限されます(消費税法12条の4)。</p>
+
+  <div class="bignum">
+    <div class="bl">🔒 高額特定資産を取得した場合の制限期間</div>
+    <div class="bv">3年間</div>
+    <div class="bs">取得した課税期間の<strong>翌課税期間</strong>から<strong>3年を経過する日の属する課税期間</strong>まで、<br>免税事業者にも簡易課税にも戻れず<span class="hlo">一般課税(本則課税)の申告が強制</span>される</div>
+  </div>
+
+  <p>設備投資で消費税の還付を受けたあと、すぐ免税事業者や簡易課税に切り替えて「もらい得」するスキームを防ぐための規定です。開業初期に店舗の内装や高額な機材をまとめて購入する1人社長は、この3年縛りに入っていないか確認しましょう。</p>
+</div>
+
+<!-- Section 5: 課税事業者スタートの3ステップ -->
+<div class="card green">
+  <div class="sec-title">🙋 「課税事業者スタート」が決まったらやるべき3ステップ</div>
+  <p>資本金1,000万円以上などで最初から課税事業者になる場合、2割特例という「助走期間」なしに本格的な消費税実務が始まります。落ち着いて次の3つを準備しましょう。</p>
+
+  <ul class="check-list" style="margin-top:12px;">
+    <li><span class="ck">①</span><strong>簡易課税を使うか、本則課税でいくかを早めに決める。</strong>基準期間がない設立1期目・2期目でも「消費税簡易課税制度選択届出書」を事業年度終了日までに提出すれば適用できる新設法人の特例がある(8/15記事「簡易課税制度の基礎」)</li>
+    <li><span class="ck">②</span><strong>適格請求書発行事業者(インボイス発行事業者)の登録を検討する。</strong>課税事業者は免税事業者と違い、登録しても新たなデメリットはほぼないため、取引先のために登録しておくと安心</li>
+    <li><span class="ck">③</span><strong>日々の取引を「課税・非課税・不課税」に区分して記帳する。</strong>免税事業者と違い、簡易課税でも業種区分(第一種〜第六種)ごとの売上集計が必須になるため、記帳の型を最初から整える(6/5記事「記帳と会計ソフトの始め方」の関連トピック)</li>
+  </ul>
+
+  <div class="info">
+    💡 2割特例(9/17記事)はあくまで「経過措置」で、対象になれた事業者だけの限定的な救済策です。資本金1,000万円以上で会社をスタートする場合は、最初から本則課税・簡易課税どちらでいくかという「大人の消費税対応」を考える必要がある、と捉えておきましょう。
+  </div>
+</div>
+
+<!-- Section 6: まとめ -->
+<div class="card">
+  <div class="sec-title">📝 今日のまとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">①</span>資本金<strong>1,000万円以上</strong>の新設法人は、基準期間の有無を問わず<strong>設立1期目から課税事業者</strong>になる(消費税法12条の2)。2割特例も対象外。</li>
+    <li><span class="n">②</span>資本金1,000万円未満でも、設立1期目の前半6か月(特定期間)の<strong>課税売上高・給与等支払額がともに1,000万円超</strong>だと2期目から課税事業者になる(同法9条2項)。</li>
+    <li><span class="n">③</span>税抜<strong>1,000万円以上の「高額特定資産」</strong>を取得すると、取得後<strong>3年間</strong>は免税・簡易課税を選べず一般課税が強制される(同法12条の4)。</li>
+    <li><span class="n">④</span>最初から課税事業者になる場合は、<strong>簡易課税か本則課税かの選択・インボイス登録・区分経理</strong>の3つを早めに準備する。</li>
+    <li><span class="n">⑤</span>迷ったら自己判断せず、税理士に相談してから届出書を出す。届出書は原則<strong>やり直しがきかない</strong>点に注意。</li>
+  </ul>
+
+  <div class="source">
+    📚 出典:国税庁タックスアンサー No.6531「新規開業又は法人の新規設立のとき」、No.6503「基準期間がない法人の納税義務の免除の特例」(消費税法12条の2・9条2項)、No.6502「高額特定資産を取得した場合等の納税義務の免除等の特例」(同法12条の4)、国税庁法令解釈通達(nta.go.jp/taxes/shiraberu/taxanswer/shohi/、nta.go.jp/law/shitsugi/shohi/)。基準年度:令和8年度(2026年度)時点の公表情報にもとづきます。個別の資本金額・取得資産が要件に当てはまるかは、必ず国税庁の一次情報または税理士で確認してください。
+  </div>
+</div>
+
+<!-- Disclaimer -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、税務・法務の個別アドバイスではありません。消費税の課税事業者・免税事業者の判定、簡易課税・本則課税の選択は、会社の資本金・事業内容・取引実態により結論が変わります。
+  具体的な判断が必要な場合は、税理士や国税庁の相談窓口にご相談ください。<br>
+  <strong>本記事の基準年度:</strong>令和8年度(2026年度)。制度・法令は改正される場合があります。
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>📚 <a href="index.html">バックナンバー一覧へ</a> &nbsp;&middot;&nbsp; 毎朝更新</p>
+</div>
+
+</div>
+</body>
+</html>
