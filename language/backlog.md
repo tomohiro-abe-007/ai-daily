@@ -2,7 +2,6 @@
 
 ## 未解説テーマ（エバーグリーン）
 
-- アルゼンチンなどのvoseo（vos＋独自の活用）── vosotros/ustedesの続編、南米のもう一つの二人称
 - 英語の集合名詞（team/family/peopleなど）の単数・複数扱いの違い── 可算・不可算の続編、イギリス英語とアメリカ英語で扱いが変わる点も
 - 英語圏の日付・数字・単位の書き方の違い（day/month順、Fahrenheit/Celsius、1階の数え方floor）── 07-30のイギリス英語/アメリカ英語対比の続編
 - 英語の動詞語尾(-ate, -ize)とスペイン語の-ar動詞の対応── コグネイトの続編、動詞版の語尾変換パターン
@@ -37,6 +36,9 @@
 - スペイン語のconjunciones temporales(cuando/en cuanto/tan pronto como)が接続法を取る条件── 09-18のmientras(接続法で条件・未来を表す)の発展、他の時間接続詞にも同じ「未来はいつも接続法」ルールが働くことを整理する
 - スペイン語の「siempre y cuando」(条件を最も強く言う言い方)── 09-20のsiempre que/con tal de que/a condición de queの発展、フォーマルな文章で最もよく使われるという条件接続詞をもう1段整理する
 - 英語のas far as(範囲を限定する「〜する限りでは」)とas long as(条件の「〜する限り」)の混同しやすい2つのas 〜 as── 09-19の発展、意味が違う2つの表現を切り分ける
+- vosの否定命令形・接続法(vos自体は通常のtú形と同じになる仕組み)── 09-21のvos肯定命令の続編、肯定と否定で形の由来が変わる点を整理
+- vos sos(serの不規則vos活用)など、vosの数少ない不規則動詞のまとめ── 09-21の規則パターンの例外編
+- グアテマラ・ホンジュラスなどusted/tú/vosの3段階敬称を使い分ける国の実例── 09-21で触れた中米の3段階敬称をもう1段掘り下げる
 
 ## 解説済みテーマ
 
@@ -137,3 +139,4 @@
 - 2026-09-18: スペイン語のmientras (que) の3つの顔（時間「〜する間」・対比「一方で」・条件「〜する限り」）── 09-17の英語while/whereasの逆向きブリッジ、直説法か接続法か・queの有無で意味が切り替わる仕組みを整理し、時間=mientras+直説法、対比=mientras que+直説法、条件=mientras+接続法という3パターンを英語のwhile/whereas/as long asと対応づけた
 - 2026-09-19: 英語のas long as / provided (that) / on condition that の使い分け（条件を表す表現の丁寧度・フォーマル度の違い）── 09-18のスペイン語mientras(接続法・条件用法)の逆向きブリッジ、カジュアル(as long as)→フォーマルな書き言葉(provided that)→最もフォーマル(on condition that)の丁寧度の階段を整理し、スペイン語のsiempre que/con tal de que/a condición de queとも対応づけた
 - 2026-09-20: スペイン語のsiempre que / con tal de que / a condición de que の使い分け（条件を表す接続法表現の丁寧度・ニュアンスの違い）── 09-19の英語as long as/provided that/on condition thatの逆向きブリッジ、中立的な一般ルール(siempre que)・譲歩や取引のニュアンス(con tal de que)・契約書向けの最もフォーマルな言い方(a condición de que)という3段階を整理し、丁寧度だけでなく「気持ちの入り方」も英語とはズレる点を紹介した
+- 2026-09-21: アルゼンチンなどのvoseo（vos＋独自の活用）── 09-04のvosotros命令形の続編、tú/vosotros/ustedesに続く「もう一つのあなた」vosの現在形(不定詞の-rを-sに変えてアクセント)・命令形(不定詞の-rを取ってアクセント)の作り方と、voseoが使われる国・地域(アルゼンチン・ウルグアイ・パラグアイ、中米の一部は3段階敬称)を整理した
