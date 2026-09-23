@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>インサイドセールス 最新トピック 2026-09-24</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  /* ── カバー ── */
+  .cover {
+    background: linear-gradient(135deg, #6d1b1b 0%, #a13a2c 50%, #d98a2e 100%);
+    color: white;
+    border-radius: 8px;
+    padding: 60px 40px;
+    text-align: center;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.3);
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent, transparent 28px,
+      rgba(255,255,255,0.05) 28px, rgba(255,255,255,0.05) 29px
+    );
+  }
+  .cover-emoji { font-size: 64px; display: block; margin-bottom: 16px; }
+  .cover h1 {
+    font-family: 'Klee One', sans-serif;
+    font-size: 1.9rem;
+    font-weight: 600;
+    line-height: 1.35;
+    margin-bottom: 12px;
+    position: relative;
+  }
+  .cover .subtitle { font-size: 1.05rem; opacity: 0.85; margin-bottom: 8px; position: relative; }
+  .cover .date-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 20px;
+    padding: 6px 20px;
+    font-size: 1rem;
+    margin-top: 16px;
+    position: relative;
+  }
+
+  /* ── カード共通 ── */
+  .card {
+    background: #fff9f0;
+    border-radius: 6px;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.12);
+    position: relative;
+    overflow: hidden;
+  }
+  .card-body {
+    padding: 40px 36px 28px 64px;
+    background: repeating-linear-gradient(0deg, transparent, transparent 31px, #e0d8c8 31px, #e0d8c8 32px);
+    background-color: #fff9f0;
+  }
+  .card-tab {
+    display: inline-block;
+    background: #a13a2c;
+    color: white;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 4px 16px;
+    border-radius: 0 0 6px 6px;
+    position: absolute;
+    top: 0; left: 32px;
+    letter-spacing: 0.05em;
+  }
+  .card h2 {
+    font-size: 1.22rem;
+    color: #6d1b1b;
+    margin-bottom: 16px;
+    margin-top: 4px;
+    line-height: 1.5;
+    border-left: 4px solid #c0532b;
+    padding-left: 12px;
+  }
+  p { line-height: 1.85; color: #333; font-size: 0.97rem; margin-bottom: 12px; }
+
+  /* ── 数字カード ── */
+  .num-cards { display: flex; gap: 14px; flex-wrap: wrap; margin: 20px 0; }
+  .num-card {
+    flex: 1; min-width: 170px;
+    background: #6d1b1b; color: white;
+    border-radius: 10px; padding: 20px 16px; text-align: center;
+  }
+  .num-card.orange { background: #a13a2c; }
+  .num-card.gold   { background: #b06b1a; }
+  .num-card.gray   { background: #6b6b6b; }
+  .num-card .big-num {
+    font-family: 'Caveat', cursive;
+    font-size: 1.7rem; font-weight: 700; line-height: 1.15;
+    color: #ffd8b0;
+  }
+  .num-card .num-label { font-size: 0.78rem; margin-top: 8px; opacity: 0.92; line-height: 1.6; }
+
+  /* ── ステップフロー ── */
+  .step-flow { display: flex; flex-direction: column; gap: 0; margin: 20px 0; }
+  .step-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px dotted #ddd;
+  }
+  .step-item:last-child { border-bottom: none; }
+  .step-num {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: #a13a2c;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .step-body { flex: 1; }
+  .step-title { font-size: 0.97rem; font-weight: 700; color: #6d1b1b; margin-bottom: 4px; }
+  .step-desc  { font-size: 0.85rem; color: #555; line-height: 1.7; margin: 0; }
+
+  /* ── 対比カード(3列) ── */
+  .compare-flow { display: flex; gap: 14px; flex-wrap: wrap; margin: 20px 0; align-items: stretch; }
+  .compare-col {
+    flex: 1; min-width: 200px;
+    background: #fdf2ea;
+    border: 1.5px solid #e8c8a8;
+    border-radius: 8px;
+    padding: 16px 18px;
+  }
+  .compare-col.highlight-col { background: #f6e2c8; border-color: #d98a2e; }
+  .compare-col h3 { font-size: 0.93rem; color: #6d1b1b; margin-bottom: 10px; }
+  .compare-col ol, .compare-col ul { padding-left: 18px; }
+  .compare-col li { font-size: 0.82rem; color: #555; line-height: 1.85; }
+  .cause-down {
+    text-align: center;
+    font-size: 1.3rem;
+    color: #a13a2c;
+    margin: 10px 0 -2px;
+  }
+  .result-box {
+    background: #6d1b1b;
+    color: white;
+    border-radius: 8px;
+    padding: 14px 18px;
+    text-align: center;
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-top: 4px;
+  }
+
+  /* ── マトリクス表 ── */
+  .matrix-table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 0.85rem; }
+  .matrix-table th, .matrix-table td {
+    border: 1px solid #e0d0b8; padding: 10px 12px; text-align: left; vertical-align: top;
+  }
+  .matrix-table th { background: #f6e2c8; color: #6d1b1b; font-weight: 700; }
+  .matrix-table td { color: #444; line-height: 1.6; }
+  .matrix-table tr:nth-child(even) td { background: #fdf9f2; }
+  .matrix-table tr.warn td { background: #f8e6e0; }
+
+  /* ── 今日の一歩 ── */
+  .today-box {
+    background: linear-gradient(135deg, #6d1b1b, #c0532b);
+    color: white; border-radius: 8px;
+    padding: 24px 28px; margin: 16px 0; text-align: center;
+  }
+  .today-box .emoji { font-size: 2.2rem; display: block; margin-bottom: 8px; }
+  .today-box .title { font-size: 1.1rem; font-weight: 600; margin-bottom: 10px; }
+  .today-box .desc  { font-size: 0.92rem; opacity: 0.92; line-height: 1.8; text-align: left; }
+
+  /* ── 共通パーツ ── */
+  .highlight { background: #f6e2c8; border-radius: 4px; padding: 1px 6px; color: #6d1b1b; font-weight: 600; }
+  .callout {
+    border-radius: 6px; padding: 14px 16px; margin-top: 14px;
+  }
+  .callout.yellow { background: #fef9e7; border-left: 4px solid #d98a2e; }
+  .callout.green  { background: #eafaf1; border-left: 4px solid #27ae60; }
+  .callout.blue   { background: #e8f4fd; border-left: 4px solid #2980b9; }
+  .callout.wine   { background: #f6e9e4; border-left: 4px solid #a13a2c; }
+
+  /* ── 免責 ── */
+  .disclaimer {
+    background: #fff; border: 1px solid #ddd; border-radius: 6px;
+    padding: 16px 20px; font-size: 0.8rem; color: #777; line-height: 1.7;
+    width: 100%; max-width: 820px; margin-bottom: 16px;
+  }
+  .disclaimer strong { color: #555; }
+
+  /* ── 出典 ── */
+  .sources {
+    background: #fff9f0; border-radius: 6px; padding: 16px 24px;
+    width: 100%; max-width: 820px; margin-bottom: 24px;
+    font-size: 0.8rem; color: #666; line-height: 1.8;
+  }
+  .sources h3 { font-size: 0.85rem; color: #6d1b1b; margin-bottom: 8px; }
+  .sources a { color: #a13a2c; text-decoration: none; }
+  .sources a:hover { text-decoration: underline; }
+  .sources ul { padding-left: 16px; }
+
+  /* ── バックリンク ── */
+  .back-link { text-align: center; margin-bottom: 20px; font-size: 0.9rem; }
+  .back-link a { color: #a13a2c; text-decoration: none; }
+  .back-link a:hover { text-decoration: underline; }
+
+  @media (max-width: 560px) {
+    .card-body { padding: 40px 18px 24px 24px; }
+    .matrix-table { display: block; overflow-x: auto; white-space: nowrap; }
+    .compare-flow { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── カバー ── -->
+<div class="cover">
+  <span class="cover-emoji">🔒</span>
+  <h1>「便利ツール」が使えなくなった日<br>大手ビジネスSNSの自動化規制から学ぶ、営業ツール選びの注意点</h1>
+  <div class="subtitle">インサイドセールス 最新トピック 2026-09-24</div>
+  <div class="date-badge">テレアポ・インサイドセールス 毎朝解説</div>
+</div>
+
+<!-- ── Section 01 ── -->
+<div class="card">
+  <span class="card-tab">01 今日のテーマ</span>
+  <div class="card-body">
+    <h2>🤔 AI SDRツールの話の続きは「機能」ではなく「リスク」</h2>
+    <p>
+      ここ最近は、AI SDR(見込み客への一次アプローチをAIが代行するツール)の料金モデルや、人とAIの役割分担について取り上げてきました。今日は少し角度を変えて、<span class="highlight">営業ツールそのものが、ある日突然使えなくなるリスク</span>について解説します。
+    </p>
+    <p>
+      主な舞台は、営業職の多くが日常的に使っているビジネス特化型SNS(以下「大手ビジネスSNS」)です。ここに接続して自動で作業をしてくれる「自動化ツール」に対して、運営会社が繰り返し厳しい措置を取ってきました。テレアポ・インサイドセールスの仕事を探す人にとっても、応募先企業や自分自身が使うツールを選ぶうえで知っておきたい話です。
+    </p>
+  </div>
+</div>
+
+<!-- ── Section 02 ── -->
+<div class="card">
+  <span class="card-tab">02 数字で見る これまでに起きたこと</span>
+  <div class="card-body">
+    <h2>📊 有名な営業支援ツールが、相次いで「使えなく」なってきた</h2>
+    <p>
+      大手ビジネスSNSは、自社の利用規約(ユーザー間の約束事)で、第三者の自動化ソフト・クローラー(自動でデータを集めるプログラム)・ブラウザ拡張機能の利用を明確に禁止しています。この規約を根拠に、実際に有名なツールへの措置が続いています。
+    </p>
+    <div class="num-cards">
+      <div class="num-card">
+        <div class="big-num">2025年3月6日</div>
+        <div class="num-label">営業向けデータツール大手2社が、<br>同じタイミングで<br>大手ビジネスSNS上から消えた日</div>
+      </div>
+      <div class="num-card orange">
+        <div class="big-num">2026年3月</div>
+        <div class="num-label">自動化ツールの公式ページ<br>(フォロワー約16,400人)が<br>削除されたと報じられた月</div>
+      </div>
+      <div class="num-card gold">
+        <div class="big-num">23%</div>
+        <div class="num-label">ある業界ブログの実測テスト<br>(50アカウント)で、90日以内に<br>制限を受けたアカウントの割合</div>
+      </div>
+    </div>
+    <div class="callout yellow">
+      ⚠️ 「23%」は大手ビジネスSNSが公式に発表した数字ではなく、業界ブログが独自に行った小規模なテスト結果です。ツール利用者全体に当てはまる正式な統計ではない点に注意してください。
+    </div>
+  </div>
+</div>
+
+<!-- ── Section 03 ── -->
+<div class="card">
+  <span class="card-tab">03 比較 「アカウント停止」と「ブランド剥奪」の違い</span>
+  <div class="card-body">
+    <h2>⚖️ ひとくちに「BAN(利用禁止)」と言っても中身は違う</h2>
+    <p>
+      2025年と2026年の2つの事例は、どちらも「大手ビジネスSNSが自動化ツールを取り締まった」というニュースですが、実際に起きたことのレベルは異なります。求人票やニュースで「〇〇ツールがBANされた」と見かけたときは、どちらのタイプかを見分けることが大切です。
+    </p>
+    <div class="compare-flow">
+      <div class="compare-col">
+        <h3>📉 2025年3月の措置(データ収集ツール2社)</h3>
+        <ul>
+          <li>プロフィール情報を自動で大量収集する「スクレイピング」機能が違反と判断された</li>
+          <li>検索結果への連携表示や拡張機能の動作が、実質的に使えなくなった</li>
+          <li>各社はその後、ブランド名からLinkedIn連携の訴求を外すなど対応</li>
+        </ul>
+      </div>
+      <div class="compare-col highlight-col">
+        <h3>🚫 2026年3月の措置(自動化ツール1社)</h3>
+        <ul>
+          <li>会社の公式ページと創業者個人のプロフィールが削除・制限された</li>
+          <li>一方で、個々の利用者のアカウントやツール自体はその後も動き続けたと報じられている</li>
+          <li>いわば「会社としての発信力」を止める措置で、利用者全員が即アウトになったわけではない</li>
+        </ul>
+      </div>
+    </div>
+    <div class="cause-down">▼</div>
+    <div class="result-box">「ツールが使えなくなる」にも段階があり、状況は変わり続けている</div>
+  </div>
+</div>
+
+<!-- ── Section 04 ── -->
+<div class="card">
+  <span class="card-tab">04 図解 なぜ「自動化」だと見抜かれるのか</span>
+  <div class="card-body">
+    <h2>🔍 見られているのは「件数」より「動き方のクセ」</h2>
+    <p>
+      大手ビジネスSNSの公式ヘルプページでは、こうしたツールを使うと「予告なくアカウントが制限されたり、ツール自体が動かなくなったりするリスクがある」と明記されています。業界ブログの解説を総合すると、判定の仕組みはおおよそ次の流れです。
+    </p>
+    <div class="step-flow">
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-title">クラウド型のインフラから接続する</div>
+          <p class="step-desc">複数アカウントをまとめて動かす自動化ツールは、データセンターのIPアドレスから接続することが多く、個人の通常利用と異なる痕跡が残ります。</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <div class="step-title">同じような時間帯・間隔で大量に動く</div>
+          <p class="step-desc">接続申請やメッセージ送信が、機械的に一定のリズムで発生すると、人間の操作パターンとの違いが目立ちます。</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <div class="step-title">無視される招待の比率が高くなる</div>
+          <p class="step-desc">反応が薄い相手にも構わず送り続けると、「承認されない招待」の割合が上がり、これも自動化の兆候として扱われます。</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <div class="step-title">「人間らしくない行動パターン」と判定される</div>
+          <p class="step-desc">単発の行為ではなく、これらの組み合わせで判定されるため、「1日〇件までなら絶対安全」という単純な話ではありません。</p>
+        </div>
+      </div>
+    </div>
+    <table class="matrix-table">
+      <tr><th>アカウントの種類</th><th>1日あたりのメッセージ数の目安</th></tr>
+      <tr><td>無料アカウント</td><td>50件程度まで</td></tr>
+      <tr><td>Premiumアカウント</td><td>75件程度まで</td></tr>
+      <tr><td>Sales Navigator(営業向け有料プラン)</td><td>250件程度まで</td></tr>
+      <tr><td>Recruiter(採用担当者向け有料プラン)</td><td>300件程度まで</td></tr>
+    </table>
+    <div class="callout blue">
+      📌 この表の数字は大手ビジネスSNSが公式に公開している上限ではなく、複数のツール解説記事が「安全圏の目安」として挙げている数字です。実際の判定基準は非公開で、時期によって変わる可能性があります。
+    </div>
+  </div>
+</div>
+
+<!-- ── Section 05 ── -->
+<div class="card">
+  <span class="card-tab">05 求職者にとっての意味</span>
+  <div class="card-body">
+    <h2>🎯 「ツール名」より「使い方」を面接で確認しよう</h2>
+    <p>
+      テレアポ・インサイドセールスの仕事の多くは、大手ビジネスSNSでの見込み客探し(リサーチ)や一次アプローチを日常的に行います。応募先企業のツール選びは、あなた自身のアカウントの安全にも関わってきます。次の4ステップで確認してみましょう。
+    </p>
+    <div class="step-flow">
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-title">面接で「営業支援に何のツールを使っているか」を聞いてみる</div>
+          <p class="step-desc">ツール名だけでなく、「公式の有料プランを使っているか」「外部の非公式な自動化ツールに頼っているか」も合わせて確認すると、その会社のリスク管理の姿勢が見えてきます。</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <div class="step-title">求人票の「〇〇ツール経験者歓迎」を鵜呑みにしない</div>
+          <p class="step-desc">ツールの規制状況は数ヶ月単位で変わります。応募前に、そのツール名を検索して最近のニュースがないか確認する習慣をつけましょう。</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <div class="step-title">自分がフリーランス・副業で使う場合は公式プランを優先する</div>
+          <p class="step-desc">個人で仕事を探す場合、アカウント停止は収入に直結するリスクです。非公式の自動化ツールを使うときは、規約違反のリスクを理解した上で判断しましょう。</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <div class="step-title">「手動でもできる基本の動き方」を身につけておく</div>
+          <p class="step-desc">ツールが急に使えなくなっても仕事を続けられるよう、手作業でのリスト作成・メッセージ送信の基本を知っておくと、環境の変化に強くなります。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Section 06 ── -->
+<div class="card">
+  <span class="card-tab">06 今日からできる一歩</span>
+  <div class="card-body">
+    <h2>👣 今日の一歩:自分のアカウントの「今週の発信数」を数えてみる</h2>
+    <div class="today-box">
+      <span class="emoji">📝</span>
+      <div class="title">今日の一歩:自分の大手ビジネスSNSアカウントで、今週送った接続申請・メッセージの数をざっくり数えてみる、または応募・面談中の企業に「営業ツールは何を使っていますか」と1つ質問してみる</div>
+      <div class="desc">
+        数がかなり多い・機械的に一定ペースになっている場合は要注意のサインです。今後の求人探しでも「ツールへの依存度」を見る目が一つ増えます。
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 免責 ── -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事で紹介した数字・事例は、LinkedIn公式ヘルプセンター、MarTech、CDP Institute、および複数の業界ブログの記事・分析に基づくものであり、各サイトの見解・推計を含みます。ツールの規制状況や安全圏の目安は変わる可能性が高いため、最新情報は必ず各サービスの公式情報でご確認ください。報酬・採用の結果には個人差があり、市場・時期・スキルによって変わります。紹介した求人媒体・企業・ツールの条件は変わるため、応募・利用前に必ず公式情報をご確認ください。
+</div>
+
+<!-- ── 出典 ── -->
+<div class="sources">
+  <h3>📎 参考情報・出典</h3>
+  <ul>
+    <li><a href="https://www.linkedin.com/help/linkedin/answer/a1341387" target="_blank">LinkedIn Help「Prohibited software and extensions」(公式ヘルプページ。参照日:2026年9月)</a></li>
+    <li><a href="https://martech.org/a-pair-of-lead-gen-providers-have-disappeared-from-linkedin/" target="_blank">MarTech「Are more lead gen providers disappearing from LinkedIn?」(2025年3月公開。参照日:2026年9月)</a></li>
+    <li><a href="https://www.cdpinstitute.org/news/two-lead-gen-providers-vanish-from-linkedin/" target="_blank">CDP Institute「Two Lead Gen Providers Vanish From LinkedIn」(2025年3月公開。参照日:2026年9月)</a></li>
+    <li><a href="https://www.heyreach.io/blog/heyreach-ban" target="_blank">HeyReach公式ブログ「LinkedIn deleted HeyReach company page. Here's what it didn't delete.」(2026年3月公開。参照日:2026年9月)</a></li>
+    <li><a href="https://marketingexpertshub.com/marketing/linkedin-banned-heyreach-io/" target="_blank">Marketing Experts Hub「LinkedIn Banned HeyReach.io」(2026年公開。参照日:2026年9月)</a></li>
+    <li><a href="https://northlight.ai/blog/what-happens-when-linkedin-bans-your-tool" target="_blank">Northlight「What Happens When LinkedIn Bans Your Automation Tool?」(2026年公開。参照日:2026年9月)</a></li>
+  </ul>
+</div>
+
+<!-- ── バックリンク ── -->
+<div class="back-link">
+  <a href="index.html">&larr; バックナンバー一覧へ</a>
+</div>
+
+</body>
+</html>
