@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-09-24</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '🌾';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.9rem; margin-bottom: 8px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.1em; }
+  .c3-col li { margin-bottom: 4px; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  .quote-box {
+    background: #f5f0e8;
+    border-left: 4px solid #7a5abf;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    margin: 12px 0;
+    color: #444;
+    font-style: italic;
+  }
+  .quote-box .who { font-style: normal; font-weight: 700; color: #5a3a9a; margin-top: 6px; font-size: 0.78rem; }
+  .matrix {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .mx-cell {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .mx-cell .mx-head { font-weight: 700; font-size: 0.88rem; margin-bottom: 6px; }
+  .mx-cell.ok  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .mx-cell.ok  .mx-head { color: #1a6e4a; }
+  .mx-cell.ng  { background: #fbe8e6; border: 2px solid #c0392b; }
+  .mx-cell.ng  .mx-head { color: #a0291e; }
+  .dose-bar-wrap { margin: 18px 0 8px; }
+  .dose-bar {
+    display: flex;
+    align-items: flex-end;
+    gap: 6px;
+    height: 110px;
+    padding: 0 4px;
+  }
+  .dose-seg {
+    flex: 1;
+    border-radius: 6px 6px 0 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding-top: 6px;
+  }
+  .dose-seg.d1 { height: 32%; background: linear-gradient(180deg,#cfd8dc,#9aa5a9); }
+  .dose-seg.d2 { height: 58%; background: linear-gradient(180deg,#8fd0b0,#3f9c72); }
+  .dose-seg.d3 { height: 100%; background: linear-gradient(180deg,#2aaa7a,#0d5c3e); }
+  .dose-seg.d4 { height: 45%; background: linear-gradient(180deg,#f0c060,#c08a20); }
+  .dose-labels {
+    display: flex;
+    gap: 6px;
+    padding: 0 4px;
+    margin-top: 6px;
+  }
+  .dose-labels div { flex: 1; text-align: center; font-size: 0.72rem; color: #555; line-height: 1.35; }
+  @media (max-width: 540px) {
+    .compare4 { grid-template-columns: 1fr; }
+    .matrix { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.7rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ヘッダー -->
+<div class="header">
+  <div class="label">健康・栄養 最新トピック ・ 2026-09-24</div>
+  <h1>全粒穀物は「食べれば食べるほど」ではなかった── 87件のランダム化比較試験が見つけた、心臓の危険因子が下がる「ちょうどいい量」</h1>
+  <div class="subtitle">玄米・オートミール・全粒粉パンなどの「全粒穀物」は体によいとよく言われますが、具体的に1日どれくらい食べれば効果があるのかは、あまり知られていません。2026年9月に発表されたランダム化比較試験(RCT)87件・参加者6,529人分を統合した用量反応メタ分析が、「これくらいの量から効果がはっきりする」という目安を示しました。ただし試験期間は平均8週間程度と短く、見ているのは血圧やコレステロールなどの「危険因子」であって、心筋梗塞そのものを減らしたと直接示したわけではない点も一緒に整理します。</div>
+</div>
+
+<!-- タグ -->
+<div style="margin-bottom:18px;">
+  <span class="tag">精密栄養学</span>
+  <span class="tag">エビデンスの強さ</span>
+  <span class="tag">全粒穀物</span>
+  <span class="tag">用量反応</span>
+</div>
+
+<!-- 今日の疑問 -->
+<div class="card">
+  <h2>🤔 今日の疑問:「全粒穀物はいい」は分かった、でも「どれだけ」?</h2>
+  <p>玄米・オートミール・全粒粉パンなど、外側の皮(ふすま)や胚芽を取り除かずに残した「全粒穀物」は、精製された白米や白いパンに比べて食物繊維・ビタミンB群・ミネラルが多く残っています。これまでも「全粒穀物を多く食べる人は心臓病になりにくい」という研究は数多くありましたが、その多くは生活習慣をまとめて何年も追跡する「観察研究」で、"どれだけ食べればどれだけ効果があるか"という具体的な量までは分かりにくいものでした。</p>
+  <p>2026年9月15日、European Heart Journal誌に、イラン・タブリーズ医科大学のSina Naghshiさん、Helda Tutunchiさんや、Dagfinn Auneさんらの研究チームが、世界中のランダム化比較試験(RCT)87件・参加者合計6,529人分を統合し、全粒穀物の摂取量を実際に変えた実験データから「用量反応」を調べたメタ分析を発表しました。今日はこの研究をもとに、「量」の視点から全粒穀物のエビデンスを読み解きます。</p>
+</div>
+
+<!-- 基本用語 -->
+<div class="card blue">
+  <h2>📖 まず言葉の意味を</h2>
+  <div class="def-grid">
+    <div class="def-item">
+      <div class="dterm">全粒穀物</div>
+      玄米・オートミール・全粒粉(小麦をまるごと挽いた粉)など、精米・製粉の際に外側の皮(ふすま)や胚芽を除いていない穀物。食物繊維やビタミンB群、ミネラルが精製穀物より多く残る。
+    </div>
+    <div class="def-item">
+      <div class="dterm">ランダム化比較試験(RCT)</div>
+      参加者をくじ引きのようにランダムに複数のグループに分け、条件(今回は全粒穀物の量)を変えて比較する研究。生活習慣を後から記録する観察研究より、原因と結果の関係(因果)を確かめる力が強いとされる。
+    </div>
+    <div class="def-item">
+      <div class="dterm">用量反応メタ分析</div>
+      複数の研究データを、摂取量(用量)ごとに効果がどう変わるかを見えるようにまとめて統合する解析方法。「少し食べる」「たくさん食べる」で効果に差があるかを調べられる。
+    </div>
+    <div class="def-item">
+      <div class="dterm">GRADE評価(証拠の確からしさ)</div>
+      研究全体の結果をどれくらい信頼できるかを「高い・中程度・低い」などで格付けする国際的な基準。研究デザインの質・一貫性・参加者数などから総合的に判定される。
+    </div>
+    <div class="def-item">
+      <div class="dterm">代理指標(サロゲートマーカー)</div>
+      体重・血圧・コレステロール値など、病気そのものではなく病気のリスクに関連する測定値。今回の研究が見ているのはこの代理指標の変化で、心筋梗塞・脳卒中そのものの発生数を追跡したものではない。
+    </div>
+    <div class="def-item">
+      <div class="dterm">観察研究(コホート研究)</div>
+      人々の生活習慣や食事内容を記録し、その後の病気の発生を何年も追跡する研究。関連(相関)は示せるが、それだけでは因果の証明にはならない。全粒穀物の従来の研究の多くはこちらの手法。
+    </div>
+  </div>
+</div>
+
+<!-- 数字カード -->
+<div class="num-row">
+  <div class="num-card">
+    <div class="big">87<span class="unit">件</span></div>
+    <div class="desc">統合されたランダム化比較試験(RCT)の数</div>
+  </div>
+  <div class="num-card blue-bg">
+    <div class="big">6,529<span class="unit">人</span></div>
+    <div class="desc">参加者の合計人数</div>
+  </div>
+  <div class="num-card orange-bg">
+    <div class="big">48<span class="unit">g/日</span></div>
+    <div class="desc">用量反応解析で使われた「増加の単位」(全粒穀物・乾燥重量換算)</div>
+  </div>
+  <div class="num-card purple-bg">
+    <div class="big">60〜100<span class="unit">g/日</span></div>
+    <div class="desc">多くの指標で効果が最も大きかった摂取量の目安(お皿にしておよそ4〜6皿分)</div>
+  </div>
+  <div class="num-card gray-bg">
+    <div class="big">約8<span class="unit">週間</span></div>
+    <div class="desc">統合された試験の平均的な介入期間(短期間という限界)</div>
+  </div>
+</div>
+
+<!-- 用量反応の図解 -->
+<div class="card purple">
+  <h2>📊 「量」で見ると、効果はどう変わる?</h2>
+  <div class="dose-bar-wrap">
+    <div class="dose-bar">
+      <div class="dose-seg d1">少量</div>
+      <div class="dose-seg d2">2〜4皿</div>
+      <div class="dose-seg d3">4〜6皿</div>
+      <div class="dose-seg d4">140g超</div>
+    </div>
+    <div class="dose-labels">
+      <div>ほとんど食べない<br>効果は限定的</div>
+      <div>現行の目安の一例(米国の食事ガイドライン)<br>いくらか改善</div>
+      <div>60〜100g/日<br>多くの指標で改善が最大</div>
+      <div>データが少なく<br>効果は不明</div>
+    </div>
+  </div>
+  <p style="font-size:0.85rem; color:#555; margin-top:12px;">今回の解析では、全粒穀物の摂取量が乾燥重量で48g/日増えるごとに、体重・コレステロール・血圧・血糖・炎症などの複数の指標が改善する関連が見られ、その効果は摂取量が多いほど大きくなる「用量反応」の関係にありました。ただし際限なく増え続けるわけではなく、多くの指標でおおむね60〜100g/日(お皿でおよそ4〜6皿分)あたりで改善の大きさが頭打ちになる「ちょうどいい量」が見えてきたと報告されています。140g/日を超える摂取を調べた試験は少なく、そこでの効果はまだよく分かっていません。</p>
+</div>
+
+<!-- 現行ガイドラインとの比較 -->
+<div class="card orange">
+  <h2>🍚 今の目安と、今回の「効果が最大の量」を比べると</h2>
+  <div class="compare4">
+    <div class="c3-col blue">
+      <h3>📋 現行ガイドラインの一例</h3>
+      <ul>
+        <li>米国の食事ガイドラインは全粒穀物1日2〜4皿分を目安としている</li>
+        <li>日本では「主食は精製度の低い穀類を選ぶとよい」といった一般的な表現にとどまり、具体的なグラム数の目安は広く定着していない</li>
+      </ul>
+    </div>
+    <div class="c3-col green">
+      <h3>🎯 今回の研究が示した「効果が大きい量」</h3>
+      <ul>
+        <li>60〜100g/日(乾燥重量換算、お皿でおよそ4〜6皿分)</li>
+        <li>現行の目安より多めで、著者らは「現在の一部のガイドラインより高い摂取量が最適かもしれない」と述べている</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- GRADE evidence table -->
+<div class="card">
+  <h2>🧪 どの指標が、どれくらい確かな証拠で改善した?</h2>
+  <table class="ev-table">
+    <tr><th>改善が見られた指標</th><th>証拠の確からしさ(GRADE)</th></tr>
+    <tr>
+      <td>体重・ウエスト周囲径・総コレステロール・炎症マーカー(IL-6)</td>
+      <td><span class="ev-badge ev-high">高い</span></td>
+    </tr>
+    <tr>
+      <td>LDLコレステロール・中性脂肪・収縮期血圧・空腹時血糖・インスリン抵抗性(HOMA-IR)</td>
+      <td><span class="ev-badge ev-mid">中程度</span></td>
+    </tr>
+  </table>
+  <p style="font-size:0.85rem; color:#555;">GRADE評価は、研究デザインの質・結果の一貫性・参加者数などをもとに、その証拠全体をどれくらい信頼できるかを国際的な基準で格付けするものです。今回は「高い」「中程度」という比較的しっかりした区分の指標が並んでいますが、これはあくまで血液検査などの数値(代理指標)についての確からしさであり、「心筋梗塞や脳卒中そのものが減る」ことを直接・高い確からしさで証明したという意味ではない点に注意が必要です。</p>
+</div>
+
+<!-- 賛否・両論 -->
+<div class="card blue">
+  <h2>⚖️ 分かったこと・まだ分からないことを整理すると</h2>
+  <div class="matrix">
+    <div class="mx-cell ok">
+      <div class="mx-head">✅ 比較的しっかり示された点</div>
+      RCT87件・6,529人という、これまでの全粒穀物のRCTを網羅的に集めた規模の大きい用量反応メタ分析で、摂取量を増やすほど体重・血圧・コレステロール・血糖・炎症マーカーなど複数の心血管代謝の危険因子が改善する関連が見られ、その効果は60〜100g/日あたりでおおむね最大になる。
+    </div>
+    <div class="mx-cell ng">
+      <div class="mx-head">❓ まだ分からない・意見が分かれる点</div>
+      統合された試験の平均期間は約8週間と短く、この改善が数年単位で続くかは不明。試験ごとに全粒穀物の種類・量・対象者・比較食が異なるばらつき(異質性)が大きく、市販の全粒穀物食品に含まれる塩分量の違いが血圧の結果を乱している可能性も指摘されている。何より、測定されたのは危険因子であって、実際に心筋梗塞や脳卒中が減ったという長期の追跡結果ではない。
+    </div>
+  </div>
+</div>
+
+<!-- 超加工食品への注意(編集後記の指摘) -->
+<div class="warn">
+  <strong>⚠️ 「全粒粉入り」の表示だけで安心しない</strong>
+  <ul style="padding-left:1.4em; margin-top:8px;">
+    <li>この研究に添えられた編集後記(Kyrøさんらによる解説記事、同じくEuropean Heart Journal誌2026年)は、「精製度の低い全粒穀物の主食を、手に取りやすく・買いやすく・食文化に合う形で広める」ことと、「全粒粉を少し加えただけの、高度に加工された(超加工)食品への"すり替わり"を避けること」の両方が今後の課題だと指摘しています。</li>
+    <li>パッケージに「全粒粉使用」「全粒穀物◯%」と書かれていても、砂糖・塩・添加物が多い加工食品である場合もあり、玄米やオートミールなど精製度の低い形そのままの食品とは、体への効果が同じとは限りません。</li>
+  </ul>
+</div>
+
+<!-- 実践 -->
+<div class="card orange">
+  <h2>🍽️ 今日から意識できること</h2>
+  <ul class="step-list">
+    <li>白米・白いパンの一部を、玄米・オートミール・全粒粉パンなど精製度の低い穀物に置き換えることから始める。今回の研究の目安である60〜100g/日(乾燥重量、お皿でおよそ4〜6皿分)は、急に目指すのではなく、今の食事から少しずつ増やす方向で考える。</li>
+    <li>「全粒粉使用」「全粒穀物◯%」といった表示だけで判断せず、原材料表示や食物繊維量・砂糖量も確認し、なるべく精製度の低い形に近い食品を選ぶ。</li>
+    <li>この研究は数週間〜数か月の血液検査の数値をもとにしたもので、糖尿病・高血圧・腎臓病などで食事制限や服薬をしている場合は、穀物の摂取量を大きく変える前にかかりつけ医・管理栄養士に相談する。</li>
+  </ul>
+</div>
+
+<!-- まとめ -->
+<div class="card" style="border-left-color:#1a7a5a;">
+  <h2>✅ 今日のまとめ</h2>
+  <ul class="step-list">
+    <li>2026年9月、イラン・タブリーズ医科大学のNaghshiさん、Tutunchiさんらの国際チームが、全粒穀物摂取に関するRCT87件・参加者6,529人分を統合した用量反応メタ分析をEuropean Heart Journal誌に発表した。</li>
+    <li>全粒穀物の摂取量が48g/日増えるごとに体重・コレステロール・血圧・血糖・炎症マーカーなどの心血管代謝の危険因子が改善する関連が見られ、多くの指標で60〜100g/日(お皿で約4〜6皿分)あたりが最も効果の大きい目安だった。米国の現行ガイドライン(2〜4皿/日)より多めの数字。</li>
+    <li>体重・ウエスト周囲径・総コレステロール・IL-6は「高い」確からしさ、LDLコレステロール・中性脂肪・収縮期血圧・血糖・インスリン抵抗性は「中程度」の確からしさの証拠だった一方、試験期間は平均約8週間と短く、心筋梗塞そのものが減ったことを直接示したわけではない。</li>
+    <li>「全粒粉入り」の表示だけに頼らず、精製度の低い穀物そのものの形を選ぶことと、量を少しずつ増やしていくことが、今回の研究からの実践的なヒントといえる。</li>
+  </ul>
+</div>
+
+<!-- 免責 -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、医療アドバイスではありません。効果・必要量・リスクは個人の体質・年齢・持病・服薬によって大きく異なります。食事内容を大きく変える場合は、自己判断をせず、かかりつけ医・薬剤師・管理栄養士など専門家にご相談ください。本記事は特定の食品の摂取量や食事制限を推奨するものではありません。
+</div>
+
+<!-- 出典 -->
+<div class="sources">
+  <h3>📚 主な出典・参考文献</h3>
+  <ol>
+    <li>Naghshi S, Kiani S, Ostadrahimi A, Jayedi A, Mobasseri M, Arefhosseini S, Tutunchi H, Aune D. "Whole-grain consumption and cardiometabolic risk: a meta-analysis of randomized trials." <em>European Heart Journal</em>. 2026;ehag519. DOI: 10.1093/eurheartj/ehag519(2026年9月15日オンライン公開).
+      <a href="https://academic.oup.com/eurheartj/advance-article/doi/10.1093/eurheartj/ehag519/8787855" target="_blank">https://academic.oup.com/eurheartj/advance-article/doi/10.1093/eurheartj/ehag519/8787855</a>(基準日:2026年9月。当セッションのネットワーク制限により academic.oup.com への直接アクセスはできず、検索エンジン経由の複数の要約・プレスリリースが一致する範囲で記載)
+    </li>
+    <li>Kyrø C, et al. "Whole grains and cardiometabolic health: strong evidence, new questions in an ultra-processed world"(編集後記). <em>European Heart Journal</em>. 2026. DOI: 10.1093/eurheartj/ehag724.
+      <a href="https://doi.org/10.1093/eurheartj/ehag724" target="_blank">https://doi.org/10.1093/eurheartj/ehag724</a>(基準日:2026年9月、検索エンジン経由の要約による)
+    </li>
+    <li>European Society of Cardiology. "Four to six servings of wholegrain per day lowers risk factors for heart disease"(プレスリリース、2026年9月).
+      <a href="https://www.escardio.org/news/press/press-releases/four-to-six-servings-of-wholegrain-per-day-lowers-risk-factors-for-heart-disease/" target="_blank">https://www.escardio.org/news/press/press-releases/four-to-six-servings-of-wholegrain-per-day-lowers-risk-factors-for-heart-disease/</a>(基準日:2026年9月。ネットワーク制限〈escardio.org〉により本文未確認、検索エンジン経由の要約による)
+    </li>
+    <li>EurekAlert!(European Society of Cardiologyのプレスリリース配信). "Four to six servings of wholegrain per day lowers risk factors for heart disease".
+      <a href="https://www.eurekalert.org/news-releases/1143229" target="_blank">https://www.eurekalert.org/news-releases/1143229</a>(基準日:2026年9月。ネットワーク制限〈eurekalert.org〉により本文未確認、検索エンジン経由の要約による)
+    </li>
+    <li>ScienceDaily. "Scientists find the whole grain 'sweet spot' for better heart health"(2026年9月15日).
+      <a href="https://www.sciencedaily.com/releases/2026/09/260915232126.htm" target="_blank">https://www.sciencedaily.com/releases/2026/09/260915232126.htm</a>(基準日:2026年9月。ネットワーク制限〈sciencedaily.com〉により本文未確認、検索エンジン経由の要約による)
+    </li>
+  </ol>
+  <p style="margin-top:8px; font-size:0.78rem;">※ 本記事はネットワーク制限により、上記の各一次資料に本セッションから直接アクセスできなかったため、検索エンジンで得られる複数の要約・引用箇所を突き合わせ、内容が一致した範囲に限定して記載しています。最新かつ正確な数値・詳細は、各DOI・URL先で改めてご確認いただくことをお勧めします。</p>
+</div>
+
+</div>
+</body>
+</html>
