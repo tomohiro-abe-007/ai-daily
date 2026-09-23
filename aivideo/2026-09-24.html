@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI動画制作 最新トピック 2026-09-24</title>
+<style>
+  :root {
+    --bg: #ece8e1;
+    --card: #faf6ec;
+    --dark: #1a3a5c;
+    --dark2: #1a5c3a;
+    --accent: #2a5c8a;
+    --accent2: #c85a00;
+    --text: #2a3540;
+    --muted: #7c8a82;
+    --border: #e0d8c8;
+    --highlight: #fff3cd;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, "Hiragino Sans", "Yu Gothic", sans-serif;
+    line-height: 1.75;
+    padding: 20px;
+  }
+  .wrap { max-width: 900px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #1a3a5c 0%, #1a5c3a 100%);
+    color: #fff;
+    border-radius: 20px;
+    padding: 44px 32px 36px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(26,58,92,.22);
+    margin-bottom: 24px;
+  }
+  .header-tag {
+    display: inline-block;
+    background: rgba(255,255,255,.18);
+    color: #e0f0e8;
+    border-radius: 20px;
+    padding: 4px 16px;
+    font-size: .82rem;
+    margin-bottom: 14px;
+    letter-spacing: .06em;
+  }
+  .header h1 { font-size: 1.5rem; letter-spacing: .03em; line-height: 1.45; margin-bottom: 10px; }
+  .header .sub { color: #c8dde8; font-size: .95rem; }
+  .header .date { color: #b0e0c0; font-size: .85rem; margin-top: 8px; }
+
+  .card {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 12px rgba(0,0,0,.07);
+    border: 1px solid var(--border);
+  }
+  .card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .point-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .point-card { background: #eef3f8; border-radius: 14px; padding: 20px 16px; text-align: center; border: 1px solid #d4e0ea; }
+  .point-icon { font-size: 2rem; margin-bottom: 8px; }
+  .point-title { font-size: .95rem; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
+  .point-desc { font-size: .83rem; color: var(--muted); line-height: 1.6; }
+
+  .bignum-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 20px; }
+  .bignum-card { background: linear-gradient(135deg, #1a3a5c, #1a5c3a); border-radius: 14px; padding: 16px 8px; text-align: center; color: #fff; }
+  .bignum { font-size: 1.05rem; font-weight: 800; color: #ffe0a0; line-height: 1.2; }
+  .bignum-label { font-size: .68rem; color: #cfe6d8; margin-top: 4px; line-height: 1.5; }
+
+  .step-list { list-style: none; }
+  .step-item { display: flex; gap: 14px; margin-bottom: 16px; align-items: flex-start; }
+  .step-num {
+    width: 34px; height: 34px;
+    background: linear-gradient(135deg, #1a3a5c, #1a5c3a);
+    color: #fff; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: .95rem; flex-shrink: 0; margin-top: 2px;
+  }
+  .step-body { flex: 1; }
+  .step-title { font-weight: 700; color: var(--dark); font-size: .95rem; }
+  .step-desc { font-size: .86rem; color: var(--muted); margin-top: 3px; line-height: 1.65; }
+
+  .tbl { width: 100%; border-collapse: collapse; font-size: .86rem; }
+  .tbl th { background: #eaf1ea; padding: 10px 10px; text-align: left; border-bottom: 2px solid #c8ddc8; color: var(--dark); font-weight: 700; }
+  .tbl td { padding: 10px 10px; border-bottom: 1px solid var(--border); vertical-align: top; color: var(--text); }
+  .tbl tr:last-child td { border-bottom: none; }
+
+  .note-box { background: var(--highlight); border-left: 4px solid #e8a000; border-radius: 8px; padding: 12px 16px; font-size: .88rem; color: #5a4000; margin-top: 14px; line-height: 1.7; }
+  .warn-box { background: #fbe6e6; border-left: 4px solid #c85a5a; border-radius: 8px; padding: 12px 16px; font-size: .88rem; color: #7a2a2a; margin-top: 14px; line-height: 1.7; }
+
+  .summary-list { font-size: .95rem; line-height: 2.2; }
+  .summary-list li { list-style: none; display: flex; align-items: flex-start; gap: 8px; }
+  .summary-list li::before { content: "✅"; flex-shrink: 0; margin-top: 2px; }
+
+  .disclaimer { background: #f0ede8; border-radius: 12px; padding: 16px 20px; font-size: .82rem; color: var(--muted); margin-top: 24px; line-height: 1.7; border: 1px solid #ddd8d0; }
+
+  footer { text-align: center; color: var(--muted); font-size: .82rem; margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border); line-height: 1.9; }
+  footer a { color: var(--accent); }
+
+  .flow-row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-top: 10px; }
+  .flow-step { flex: 1; min-width: 110px; background: #eef3f8; border: 1px solid #d4e0ea; border-radius: 10px; padding: 12px 10px; text-align: center; }
+  .flow-step.key { background: #fdeee0; border-color: #f0c8a0; }
+  .flow-step .fs-icon { font-size: 1.3rem; margin-bottom: 4px; }
+  .flow-step .fs-title { font-size: .8rem; font-weight: 700; color: var(--dark); }
+  .flow-step .fs-desc { font-size: .7rem; color: var(--muted); margin-top: 3px; line-height: 1.5; }
+  .flow-arrow { font-size: 1.2rem; color: var(--accent2); font-weight: 700; flex-shrink: 0; }
+  .flow-caption { text-align: center; font-size: .8rem; color: var(--muted); margin-top: 10px; }
+
+  .frame-visual { display: flex; gap: 16px; margin-top: 14px; align-items: stretch; }
+  .frame-box { flex: 1; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+  .frame-box .fb-cap { font-size: .78rem; font-weight: 700; text-align: center; padding: 8px; color: #fff; }
+  .frame-box .fb-inner { position: relative; height: 120px; background: #dde8ee; overflow: hidden; display: flex; align-items: center; justify-content: center; font-size: 2rem; }
+
+  .matrix-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 12px; }
+  .matrix-card { background: #fdf6e8; border: 1px solid #f0dfb0; border-radius: 12px; padding: 14px 12px; }
+  .matrix-card .mx-h { font-size: .82rem; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
+  .matrix-card .mx-b { font-size: .78rem; color: var(--muted); line-height: 1.6; }
+
+  .tag-chip { display: inline-block; background: #1a3a5c; color: #ffe0a0; font-family: monospace; font-size: .82rem; padding: 2px 8px; border-radius: 6px; }
+
+  @media (max-width: 640px) {
+    .point-grid { grid-template-columns: 1fr; }
+    .bignum-grid { grid-template-columns: repeat(2, 1fr); }
+    .matrix-grid { grid-template-columns: 1fr; }
+    .flow-row { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+    .frame-visual { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="header">
+  <div class="header-tag">🎬 ツール・動画生成AI実践ガイド回・続報</div>
+  <h1>🎯 始まりと終わりの絵で動きを操る ── Gemini Omni 1.1 Flash「キーフレーム指定」実践ガイド</h1>
+  <div class="sub">9/21に紹介した「シーン拡張」機能に続き、Googleの動画生成AI「Gemini Omni 1.1 Flash」のもう一つの目玉機能<strong>キーフレーム指定(始点・終点フレーム指定)</strong>を深掘り。<span class="tag-chip">&lt;FIRST_FRAME&gt;</span>・<span class="tag-chip">&lt;LAST_FRAME&gt;</span>というタグで「始まりの絵」「終わりの絵」を指定するだけで、間のなめらかな動きをAIに任せられる仕組みを、公式のプロンプトガイド公開情報をもとにやさしく解説します</div>
+  <div class="date">2026-09-24 ｜ AI動画制作 最新トピック</div>
+</div>
+
+<div class="card">
+  <div class="card-title">🎯 今日の3ポイント</div>
+  <div class="point-grid">
+    <div class="point-card">
+      <div class="point-icon">🏷️</div>
+      <div class="point-title">タグで役割をはっきり伝える</div>
+      <div class="point-desc">2枚の画像をアップロードするとき、<span class="tag-chip">&lt;FIRST_FRAME&gt;</span>(始まりの絵)・<span class="tag-chip">&lt;LAST_FRAME&gt;</span>(終わりの絵)というタグを付けて役割を明示すると、AIが迷わず「どちらが始まりでどちらが終わりか」を認識してくれる</div>
+    </div>
+    <div class="point-card">
+      <div class="point-icon">🔁</div>
+      <div class="point-title">同じ絵を指定すればループ動画に</div>
+      <div class="point-desc">始点と終点にまったく同じ画像を指定するだけで、最後がすっと元の状態に戻る「完全ループ動画」が作れる。SNS用の自動再生コンテンツと相性がいい</div>
+    </div>
+    <div class="point-card">
+      <div class="point-icon">📦</div>
+      <div class="point-title">状態の変化を"着地点"で固定できる</div>
+      <div class="point-desc">「閉じたパッケージ」→「陳列された完成形」のように始点・終点で状態の変化を指定すれば、文章だけでは伝えにくい変化の過程をAIが自動で埋めてくれる</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🔍 図解:キーフレーム指定で動画ができるまで</div>
+  <div class="flow-row">
+    <div class="flow-step">
+      <div class="fs-icon">🖼️</div>
+      <div class="fs-title">①始まりの絵を用意</div>
+      <div class="fs-desc">動画の最初のコマにしたい画像を1枚用意する</div>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">
+      <div class="fs-icon">🖼️</div>
+      <div class="fs-title">②終わりの絵を用意</div>
+      <div class="fs-desc">動画の最後のコマにしたい画像をもう1枚用意する(①と同じでもOK)</div>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step key">
+      <div class="fs-icon">🏷️</div>
+      <div class="fs-title">③タグを付けてアップロード</div>
+      <div class="fs-desc"><span class="tag-chip">&lt;FIRST_FRAME&gt;</span><span class="tag-chip">&lt;LAST_FRAME&gt;</span>タグで役割を明示的に指定する</div>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step key">
+      <div class="fs-icon">🧠</div>
+      <div class="fs-title">④間の動きをAIが予測</div>
+      <div class="fs-desc">2枚の絵が「決め手」になり、その間をどう動けば自然かをAIが計算して埋める</div>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">
+      <div class="fs-icon">🎞️</div>
+      <div class="fs-title">⑤狙い通りの動画が完成</div>
+      <div class="fs-desc">始点・終点がピタッと決まった、なめらかな動画・ループ動画が出来上がる</div>
+    </div>
+  </div>
+  <div class="flow-caption">↑ ポイントは「2枚の画像が結果の大部分を決める」ということ。始点・終点さえきちんと選べば、間の動きの指示は最小限で済みます</div>
+</div>
+
+<div class="card">
+  <div class="card-title">🖼️ 図解:タグなし(推測)とタグあり(明示指定)の違い</div>
+  <div class="frame-visual">
+    <div class="frame-box">
+      <div class="fb-cap" style="background:#c85a00;">タグなし ── 文脈から推測</div>
+      <div class="fb-inner">🤔🖼️🖼️</div>
+    </div>
+    <div class="frame-box">
+      <div class="fb-cap" style="background:#3a7ab0;">タグあり ── 役割を明示</div>
+      <div class="fb-inner">🏷️🖼️→🖼️🏷️</div>
+    </div>
+  </div>
+  <div class="flow-caption">↑ 画像が1枚だけならタグなしでも困らないが、2枚以上を渡すときはタグで役割を明示したほうが「取り違え」が起きにくい</div>
+</div>
+
+<div class="card">
+  <div class="card-title">⚖️ 比較:タグなし(自動推測) vs タグあり(明示指定)</div>
+  <table class="tbl">
+    <thead>
+      <tr><th>比較ポイント</th><th>タグなし</th><th>タグあり(&lt;FIRST_FRAME&gt;/&lt;LAST_FRAME&gt;)</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>役割の伝わり方</strong></td>
+        <td>プロンプトの文脈からAIが推測(単純な場合のみ機能)</td>
+        <td>タグで明示的に指定、取り違えが起きにくい</td>
+      </tr>
+      <tr>
+        <td><strong>向いている場面</strong></td>
+        <td>画像1枚からの通常のImage-to-Video</td>
+        <td>2枚の画像で始点・終点を厳密にコントロールしたいとき</td>
+      </tr>
+      <tr>
+        <td><strong>代表的な用途</strong></td>
+        <td>1枚の写真に動きを付けるだけの単純な生成</td>
+        <td>完全ループ動画・商品のビフォーアフター・狙った構図で終わるカメラワーク</td>
+      </tr>
+      <tr>
+        <td><strong>失敗しやすさ</strong></td>
+        <td>画像が複数あると役割を取り違えることがある</td>
+        <td>タグ指定でほぼ確実に狙い通りの割り当てになる</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="note-box">
+    💡 始点と終点にまったく同じ画像を指定すると、途中で自由に動いたあと最後にきっちり元の状態へ戻る「完全ループ動画」になる。ハンギングモビールが揺れてまた元の位置に戻る、といった例が公式のプロンプトガイドで紹介されている。
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🔢 数字で見るGemini Omni 1.1 Flash キーフレーム指定</div>
+  <div class="bignum-grid">
+    <div class="bignum-card">
+      <div class="bignum">2枚</div>
+      <div class="bignum-label">キーフレーム指定に使う画像の枚数(始点+終点)。同じ画像ならループになる</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">$0.03/秒</div>
+      <div class="bignum-label">360p下書きモードの料金目安(要公式確認・情報源:複数の第三者API解説記事)</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">$0.10/秒</div>
+      <div class="bignum-label">720pの料金目安(要公式確認)</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">$0.15〜0.30/秒</div>
+      <div class="bignum-label">1080p・4Kの料金目安。この2解像度はネイティブ生成ではなく「アップスケール」出力(要公式確認)</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">無料枠なし</div>
+      <div class="bignum-label">API利用は1トークン目から課金される仕組みと報告されている(要公式確認)</div>
+    </div>
+    <div class="bignum-card">
+      <div class="bignum">2026年9月</div>
+      <div class="bignum-label">Google公式のキーフレーム用プロンプトガイドが公開されたと確認できた時期</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🧩 キーフレーム指定の使いどころマトリクス</div>
+  <div class="matrix-grid">
+    <div class="matrix-card">
+      <div class="mx-h">🔁 完全ループ動画</div>
+      <div class="mx-b">始点=終点に同じ画像を指定して、SNSで自動再生しても違和感のないループ動画を作る</div>
+    </div>
+    <div class="matrix-card">
+      <div class="mx-h">📦 商品のビフォーアフター</div>
+      <div class="mx-b">「閉じたパッケージ」→「開封後に陳列された状態」のように、状態の変化を始点・終点で指定する</div>
+    </div>
+    <div class="matrix-card">
+      <div class="mx-h">🎥 狙った構図で終わるカメラワーク</div>
+      <div class="mx-b">ズームや周回など文章だけでは伝えにくいカメラの動きも、終点の絵を決めておけば着地点がブレない</div>
+    </div>
+    <div class="matrix-card">
+      <div class="mx-h">🧩 手持ち写真同士の"つなぎ"</div>
+      <div class="mx-b">すでにある2枚の写真をそのまま始点・終点にして、間の動きだけをAIに作らせる</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">🛠️ 実践例:カフェの新作ドリンク紹介動画にキーフレーム指定を使う5ステップ</div>
+  <p style="font-size:.88rem;color:var(--muted);margin-bottom:18px;">
+    「注ぐ前」→「完成した瞬間」を2枚の写真だけでつなげる5ステップです。
+  </p>
+  <ul class="step-list">
+    <li class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-title">始点の写真を用意する</div>
+        <div class="step-desc">グラスが空の状態のカウンター写真を1枚撮影・または生成する。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-title">終点の写真を用意する</div>
+        <div class="step-desc">ドリンクが注ぎ終わり、完成した状態のカウンター写真を1枚用意する。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-title">&lt;FIRST_FRAME&gt;/&lt;LAST_FRAME&gt;タグを付けてアップロード</div>
+        <div class="step-desc">2枚の画像にタグを付け、「ドリンクが注がれていく様子」とだけプロンプトで補足する。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <div class="step-title">360p下書きモードで動きを確認する</div>
+        <div class="step-desc">注ぎ方が不自然でないか、色や質感が始点・終点と矛盾していないかを安く速く確認する。</div>
+      </div>
+    </li>
+    <li class="step-item">
+      <div class="step-num">5</div>
+      <div class="step-body">
+        <div class="step-title">OKなら1080p以上で本番生成し、公式で利用条件を確認する</div>
+        <div class="step-desc">下書きで固まった内容を高画質モードで仕上げる。投稿前に最新の料金・商用利用条件を公式ページで確認する。</div>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="card">
+  <div class="card-title">📝 今日のまとめ</div>
+  <ul class="summary-list">
+    <li>9/21に紹介した<strong>シーン拡張</strong>に続き、Gemini Omni 1.1 Flashのもう一つの目玉<strong>キーフレーム指定</strong>を解説</li>
+    <li><span class="tag-chip">&lt;FIRST_FRAME&gt;</span><span class="tag-chip">&lt;LAST_FRAME&gt;</span>タグで「始まりの絵」「終わりの絵」の役割を明示できる</li>
+    <li>始点と終点に<strong>同じ画像</strong>を指定すれば、自然に元へ戻る<strong>完全ループ動画</strong>が作れる</li>
+    <li>商品の<strong>ビフォーアフター</strong>やカメラワークの<strong>着地点固定</strong>など、文章だけでは伝えにくい表現に強い</li>
+    <li>料金は解像度で変わり、1080p・4Kは<strong>アップスケール出力</strong>という点にも注意(要公式確認)</li>
+    <li>料金・対応プラン・商用利用条件は変わりやすいため、<strong>必ず公式ページで最新情報を確認</strong>する</li>
+  </ul>
+</div>
+
+<div class="disclaimer">
+  ⚠️ <strong>免責事項</strong><br>
+  本記事で紹介したAIツールの名称・機能・料金・商用利用の可否は頻繁に変わるため、実際に利用する際は必ず各ツールの公式ページ・利用規約で最新情報をご確認ください。本記事の内容は執筆時点で確認できた情報に基づく参考情報であり、実際の仕様は更新により変わることがあります。
+</div>
+
+<footer>
+  AI動画制作 最新トピック ─ 2026-09-24 ｜ ツール・動画生成AI実践ガイド回・続報(9/21のシーン拡張ガイドの続き)<br>
+  参考:Philipp Schmid(Google DeepMind)によるGemini Omni 1.1 Flashプロンプトガイド紹介ポスト(x.com/_philschmid、2026年9月確認) / fal.ai「How To Use Gemini Omni Flash 1.1: Prompts & Workflows」(fal.ai、2026年9月確認) / Runware Docs「Prompting — Gemini Omni Flash 1.1 API」(runware.ai、2026年9月確認) / eesel AI「Gemini Omni 1.1 Flash pricing: full API cost breakdown」(eesel.ai、2026年9月確認) / apidog「Gemini Omni 1.1 Flash pricing」(apidog.com、2026年9月確認)。料金・提供プランは複数情報源で数値の幅があるため公式(ai.google.dev)で要確認<br>
+  <a href="index.html" style="color:var(--accent);">← 一覧に戻る</a>
+</footer>
+
+</div>
+</body>
+</html>
