@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-09-25</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '🍚';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.9rem; margin-bottom: 8px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.1em; }
+  .c3-col li { margin-bottom: 4px; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  .quote-box {
+    background: #f5f0e8;
+    border-left: 4px solid #7a5abf;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    margin: 12px 0;
+    color: #444;
+    font-style: italic;
+  }
+  .quote-box .who { font-style: normal; font-weight: 700; color: #5a3a9a; margin-top: 6px; font-size: 0.78rem; }
+  .matrix {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .mx-cell {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .mx-cell .mx-head { font-weight: 700; font-size: 0.88rem; margin-bottom: 6px; }
+  .mx-cell.ok  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .mx-cell.ok  .mx-head { color: #1a6e4a; }
+  .mx-cell.ng  { background: #fbe8e6; border: 2px solid #c0392b; }
+  .mx-cell.ng  .mx-head { color: #a0291e; }
+  .subtype-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .subtype-card {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.84rem;
+  }
+  .subtype-card .st-head { font-weight: 700; font-size: 0.92rem; margin-bottom: 8px; }
+  .subtype-card .st-bar {
+    height: 10px;
+    border-radius: 5px;
+    background: #eee;
+    overflow: hidden;
+    margin: 6px 0 4px;
+  }
+  .subtype-card .st-bar-fill { height: 100%; }
+  .subtype-card.st-green { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .subtype-card.st-green .st-head { color: #1a6e4a; }
+  .subtype-card.st-orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .subtype-card.st-orange .st-head { color: #b85e10; }
+  .subtype-card.st-red { background: #fbe8e6; border: 2px solid #c0392b; }
+  .subtype-card.st-red .st-head { color: #a0291e; }
+  @media (max-width: 540px) {
+    .compare4 { grid-template-columns: 1fr; }
+    .matrix { grid-template-columns: 1fr; }
+    .subtype-grid { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.7rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ヘッダー -->
+<div class="header">
+  <div class="label">健康・栄養 最新トピック ・ 2026-09-25</div>
+  <h1>2型糖尿病は「ひとつ」じゃない── 同じ診断でも、食べ方の傾向が違う"かくれタイプ"が見えてきた</h1>
+  <div class="subtitle">「2型糖尿病」とひとくくりに言っても、実は人によって体の中で起きていることは同じではありません。2026年、シンガポールの研究チームが、2型糖尿病のある人1,007人を「タイプ」で分けたうえで、それぞれのタイプがどんな食事パターンを好む傾向にあるかを調べた研究を発表しました。ただしこれは"ある一時点"を切り取った横断研究で、「タイプが先か、食事が先か」までは分からない点も一緒に整理します。</div>
+</div>
+
+<!-- タグ -->
+<div style="margin-bottom:18px;">
+  <span class="tag">精密栄養学</span>
+  <span class="tag">2型糖尿病</span>
+  <span class="tag">食事パターン</span>
+  <span class="tag">個人差</span>
+</div>
+
+<!-- 今日の疑問 -->
+<div class="card">
+  <h2>🤔 今日の疑問:「糖尿病の食事指導」はみんな同じでいいの?</h2>
+  <p>2型糖尿病と診断されると、多くの場合「糖質を控えめに」「野菜から先に食べる」といった、比較的共通した食事アドバイスを受けます。しかし近年の研究では、同じ「2型糖尿病」という診断名の中にも、太り気味で発症する人、年齢とともに発症する人、体はインスリンを出せているのに効きにくくなっている人など、体の中の状態が大きく異なるいくつかの「タイプ」が存在することが分かってきました。</p>
+  <p>2026年4月22日、シンガポール・Khoo Teck Puat病院のMei Chung Mohさん、Tsz Kiu Kwanさんらの研究チームが、多民族の東南アジア人成人からなる「SMART2Dコホート」に参加する2型糖尿病患者1,007人を対象に、体の状態でタイプ分けしたグループごとに、ふだんの食事パターンがどう違うかを調べた研究をEuropean Journal of Clinical Nutrition誌に発表しました。今日はこの研究を入り口に、「精密栄養学(個人差に合わせた栄養)」の考え方を具体的に見ていきます。</p>
+</div>
+
+<!-- 基本用語 -->
+<div class="card blue">
+  <h2>📖 まず言葉の意味を</h2>
+  <div class="def-grid">
+    <div class="def-item">
+      <div class="dterm">精密栄養学</div>
+      年齢・体質・遺伝・腸内細菌・持病などの個人差を踏まえて、一人ひとりに合った栄養・食事のあり方を考える学問分野。「みんなに同じ食事法」ではなく「この人にはこの食事法」を目指す。
+    </div>
+    <div class="def-item">
+      <div class="dterm">2型糖尿病のクラスター分類</div>
+      2018年にスウェーデンの研究チーム(Ahlqvistさんら)が提案した考え方で、血糖値や体格、インスリンの出方・効き方などのデータをもとに、成人の糖尿病を統計的にいくつかのグループ(クラスター)に分ける手法。今回の研究のタイプ分けの土台になっている。
+    </div>
+    <div class="def-item">
+      <div class="dterm">インスリン抵抗性</div>
+      すい臓から出るインスリン(血糖値を下げるホルモン)が、体の細胞に効きにくくなっている状態。同じ量のインスリンでも血糖値が下がりにくくなる。
+    </div>
+    <div class="def-item">
+      <div class="dterm">横断研究</div>
+      ある一時点で、対象者の状態(この場合はタイプと食事内容)を同時に調べて関連を見る研究デザイン。「どちらが先で、どちらが結果か」という前後関係(因果)までは分からない。
+    </div>
+    <div class="def-item">
+      <div class="dterm">因子分析(食事パターン解析)</div>
+      多数の食品の摂取量データから、統計的に「一緒に多く食べられがちな食品の組み合わせ」を見つけ出し、いくつかの「パターン」としてまとめる手法。
+    </div>
+    <div class="def-item">
+      <div class="dterm">相関と因果</div>
+      「AとBが同時に見られる(相関)」ことと、「AがBを引き起こす(因果)」ことは別物。今回のようなある一時点のデータだけでは、相関は示せても因果までは証明できない。
+    </div>
+  </div>
+</div>
+
+<!-- 背景:クラスター分類 -->
+<div class="card orange">
+  <h2>🧩 そもそも「糖尿病のタイプ分け」とは</h2>
+  <p>2018年、スウェーデン・ルンド大学のEmma Ahlqvistさんらの研究チームが、成人になってから発症した糖尿病の患者を、血糖値・体格(BMI)・インスリンの出方や効き方などの臨床データをもとに統計的に分類したところ、性質の異なる5つのグループに分かれることを報告しました(<em>The Lancet Diabetes & Endocrinology</em>誌、2018年)。このうち2型糖尿病に relevantな主な3タイプは次のようなイメージです。</p>
+  <div class="subtype-grid">
+    <div class="subtype-card st-green">
+      <div class="st-head">🌱 MARD(軽度・加齢関連)</div>
+      年齢が高めで発症し、体格(BMI)は比較的低め。インスリンの出方・効き方への影響は比較的穏やかなタイプ。
+    </div>
+    <div class="subtype-card st-orange">
+      <div class="st-head">⚖️ MOD(軽度・肥満関連)</div>
+      体格(BMI)が高めであることが特徴的なタイプ。肥満に伴ってインスリンが効きにくくなる傾向がある。
+    </div>
+    <div class="subtype-card st-red">
+      <div class="st-head">🔥 SIRD(重度・インスリン抵抗性)</div>
+      インスリン抵抗性(インスリンの効きにくさ)が特に強いタイプ。</div>
+  </div>
+  <p style="font-size:0.85rem; color:#555;">今回のSMART2D研究では、これらの土台をもとに、対象集団(全員が2型糖尿病)向けに調整した「MARD-II(軽度・加齢関連、インスリン分泌がやや不足)」「MOD(軽度・肥満関連)」「SIRD-RII(重度・インスリン抵抗性、相対的にインスリン分泌も不足)」という3つのタイプに、各患者を最も近いグループへ割り当てる統計手法(ニアレスト・セントロイド法)で分類しています。</p>
+</div>
+
+<!-- 数字カード -->
+<div class="num-row">
+  <div class="num-card">
+    <div class="big">1,007<span class="unit">人</span></div>
+    <div class="desc">対象になった2型糖尿病患者の人数(平均61±11歳、男性52.7%)</div>
+  </div>
+  <div class="num-card blue-bg">
+    <div class="big">125<span class="unit">項目</span></div>
+    <div class="desc">食事の聞き取りに使われた食物摂取頻度調査票(FFQ)の質問項目数</div>
+  </div>
+  <div class="num-card orange-bg">
+    <div class="big">46<span class="unit">食品群</span></div>
+    <div class="desc">因子分析にかけられた食品グループの数</div>
+  </div>
+  <div class="num-card purple-bg">
+    <div class="big">3<span class="unit">パターン</span></div>
+    <div class="desc">抽出された食事パターンの数(肉・ファストフード系/砂糖入り食品・飲料系/植物性・乳製品系)</div>
+  </div>
+  <div class="num-card gray-bg">
+    <div class="big">P&lt;0.001</div>
+    <div class="desc">MARD-IIと比べたMOD・SIRD-RIIの食事パターンの違いの統計的有意水準</div>
+  </div>
+</div>
+
+<!-- タイプ別の食事パターン図解 -->
+<div class="card purple">
+  <h2>🍽️ タイプによって、好まれる食事パターンが違っていた</h2>
+  <div class="subtype-grid">
+    <div class="subtype-card st-green">
+      <div class="st-head">🌱 MARD-II</div>
+      「植物性・乳製品」パターンが最も多く<b>40.0%</b>を占めた
+      <div class="st-bar"><div class="st-bar-fill" style="width:40%; background:#1a7a5a;"></div></div>
+    </div>
+    <div class="subtype-card st-orange">
+      <div class="st-head">⚖️ MOD</div>
+      「砂糖入り食品・飲料」パターンが最多で約<b>38%</b>、次いで「肉・ファストフード」約<b>31%</b>
+      <div class="st-bar"><div class="st-bar-fill" style="width:38%; background:#e07b2a;"></div></div>
+    </div>
+    <div class="subtype-card st-red">
+      <div class="st-head">🔥 SIRD-RII</div>
+      MODと同様に「砂糖入り食品・飲料」約<b>38%</b>、「肉・ファストフード」約<b>31%</b>が優勢
+      <div class="st-bar"><div class="st-bar-fill" style="width:38%; background:#c0392b;"></div></div>
+    </div>
+  </div>
+  <p style="font-size:0.85rem; color:#555; margin-top:6px;">MARD-IIタイプと比べると、MOD・SIRD-RIIタイプは「肉・ファストフード・外食」パターンとより強く結びつき、「植物性・乳製品」パターンとは逆に結びつきが弱いという関連が、統計的にはっきり(いずれもP&lt;0.001)見られました。また、これらの食事パターンと、糖尿病に伴う合併症(併存疾患)との関連も、タイプによって違いが見られたと報告されています。</p>
+</div>
+
+<!-- 賛否・限界 -->
+<div class="card blue">
+  <h2>⚖️ 分かったこと・まだ分からないことを整理すると</h2>
+  <div class="matrix">
+    <div class="mx-cell ok">
+      <div class="mx-head">✅ 比較的しっかり示された点</div>
+      1,007人という規模で、糖尿病のタイプごとに食事パターンの傾向差(統計的に有意)がはっきり見られたこと。「2型糖尿病」と診断名は同じでも、実際の食生活の"かたより"はタイプによって違いうるという、精密栄養学の考え方を具体的な数字で示した点。
+    </div>
+    <div class="mx-cell ng">
+      <div class="mx-head">❓ まだ分からない・意見が分かれる点</div>
+      横断研究のため、「そのタイプになったから今の食事になったのか」「その食事を続けてきたからそのタイプになったのか」の前後関係(因果)は分からない。対象はシンガポールの多民族集団に限られ、他の国・人種にそのまま当てはまるとは限らない。さらに、こうした「タイプ分け」そのものについても、2026年7月にDiabetologia誌で発表されたレビュー(Mori、Herder、Cardosoさんら)が、タイプの境界を統計的にどこまで明確に線引きできるか(分類の確からしさが低い場合がある)、実際の治療方針や予後予測にどこまで役立つかの証拠がまだ限られていると指摘しており、専門家の間でも評価が分かれている。
+    </div>
+  </div>
+</div>
+
+<!-- 実践 -->
+<div class="card orange">
+  <h2>🩺 今日から意識できること</h2>
+  <ul class="step-list">
+    <li>自分が「どのタイプ」かは、今回のような研究で使われた詳しいデータ(インスリンの検査値や体格など)をもとに専門的に判定されるもので、自己判断はできない。気になる場合は、かかりつけ医に相談する。</li>
+    <li>今回の結果は「同じ糖尿病でも人によって食事の傾向・必要なアドバイスが違いうる」という一般的な気づきとして受け止め、「糖尿病の人はみんな同じ食事をすべき」と決めつけずに、自分の状態に合わせた食事を管理栄養士など専門家と一緒に考える材料にする。</li>
+    <li>糖尿病の治療・食事療法は自己判断で変更せず、必ずかかりつけ医・管理栄養士の指導のもとで行う。</li>
+  </ul>
+</div>
+
+<!-- まとめ -->
+<div class="card" style="border-left-color:#1a7a5a;">
+  <h2>✅ 今日のまとめ</h2>
+  <ul class="step-list">
+    <li>2026年4月、シンガポール・Khoo Teck Puat病院のMei Chung Mohさん、Tsz Kiu Kwanさんらのチームが、多民族東南アジア人の2型糖尿病患者1,007人を対象にした横断研究をEuropean Journal of Clinical Nutrition誌に発表した。</li>
+    <li>2018年にAhlqvistさんらが提案した「糖尿病のタイプ分け(クラスター分類)」の考え方を土台に、対象者をMARD-II(軽度・加齢関連)・MOD(軽度・肥満関連)・SIRD-RII(重度・インスリン抵抗性)の3タイプに分類し、46食品群の因子分析から抽出した3つの食事パターンとの関連を調べた。</li>
+    <li>MARD-IIタイプは「植物性・乳製品」パターンが40.0%と最多だったのに対し、MOD・SIRD-RIIタイプは「砂糖入り食品・飲料」(約38%)、「肉・ファストフード・外食」(約31%)パターンがより優勢で、MARD-IIとの違いは統計的に明確(P&lt;0.001)だった。</li>
+    <li>ただし横断研究のため因果関係は不明で、対象はシンガポールの集団に限られる。また「糖尿病のタイプ分け」自体、統計的な分類の確からしさや臨床での実用性についてまだ専門家の間で議論が続いている発展途上のテーマであることも押さえておきたい。</li>
+  </ul>
+</div>
+
+<!-- 免責 -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、医療アドバイスではありません。効果・必要量・リスクは個人の体質・年齢・持病・服薬によって大きく異なります。糖尿病の診断・食事療法・治療方針については自己判断をせず、かかりつけ医・薬剤師・管理栄養士など専門家にご相談ください。本記事は特定の食事法やサプリメント、断食などを推奨するものではありません。
+</div>
+
+<!-- 出典 -->
+<div class="sources">
+  <h3>📚 主な出典・参考文献</h3>
+  <ol>
+    <li>Moh MC, Kwan TK, Lai JS, et al. "Distinct dietary patterns across type 2 diabetes subtypes: Insights from the SMART2D cohort." <em>European Journal of Clinical Nutrition</em>. 2026;80(8):791-798. DOI: 10.1038/s41430-026-01753-y(2026年4月22日オンライン公開)。
+      <a href="https://doi.org/10.1038/s41430-026-01753-y" target="_blank">https://doi.org/10.1038/s41430-026-01753-y</a>(基準日:2026年9月。当セッションのネットワーク制限により nature.com・pubmed.ncbi.nlm.nih.gov への直接アクセスはできず、検索エンジン経由で得られた要約〈対象人数・年齢・性別内訳、食品群数・食事パターン数・パターン別の割合・統計的有意水準を含む〉が一致する範囲で記載)
+    </li>
+    <li>"From dietary-pattern discovery to precision nutrition equity in type 2 diabetes"(同誌併載の解説記事). <em>European Journal of Clinical Nutrition</em>. 2026. DOI: 10.1038/s41430-026-01771-w。
+      <a href="https://doi.org/10.1038/s41430-026-01771-w" target="_blank">https://doi.org/10.1038/s41430-026-01771-w</a>(基準日:2026年9月、ネットワーク制限〈nature.com〉で本文未確認)
+    </li>
+    <li>Ahlqvist E, Storm P, Käräjämäki A, et al. "Novel subgroups of adult-onset diabetes and their association with outcomes: a data-driven cluster analysis of six variables." <em>The Lancet Diabetes & Endocrinology</em>. 2018;6(5):361-369. DOI: 10.1016/S2213-8587(18)30051-2。
+      <a href="https://doi.org/10.1016/S2213-8587(18)30051-2" target="_blank">https://doi.org/10.1016/S2213-8587(18)30051-2</a>(基準日:2026年9月。糖尿病のクラスター分類の基礎知識として引用、ネットワーク制限〈thelancet.com〉で本文未確認、検索エンジン経由の要約による)
+    </li>
+    <li>Mori Y, Herder C, Cardoso S, et al. "Type 2 diabetes subtypes for precision medicine: methodological challenges and alternative prediction-based approaches." <em>Diabetologia</em>. 2026年7月. DOI: 10.1007/s00125-026-06802-6。
+      <a href="https://doi.org/10.1007/s00125-026-06802-6" target="_blank">https://doi.org/10.1007/s00125-026-06802-6</a>(基準日:2026年9月。糖尿病サブタイプ分類そのものへの批判的レビューとして引用、ネットワーク制限〈link.springer.com・pmc.ncbi.nlm.nih.gov〉で本文未確認、検索エンジン経由の要約による)
+    </li>
+  </ol>
+  <p style="margin-top:8px; font-size:0.78rem;">※ 本記事はネットワーク制限により、上記の各一次資料に本セッションから直接アクセスできなかったため、検索エンジンで得られる複数の要約・引用箇所を突き合わせ、内容が一致した範囲に限定して記載しています。最新かつ正確な数値・詳細は、各DOI先で改めてご確認いただくことをお勧めします。</p>
+</div>
+
+</div>
+</body>
+</html>
