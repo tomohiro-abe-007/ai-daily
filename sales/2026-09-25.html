@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>インサイドセールス 最新トピック 2026-09-25</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  /* ── カバー ── */
+  .cover {
+    background: linear-gradient(135deg, #6d1b1b 0%, #a13a2c 50%, #d98a2e 100%);
+    color: white;
+    border-radius: 8px;
+    padding: 60px 40px;
+    text-align: center;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.3);
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent, transparent 28px,
+      rgba(255,255,255,0.05) 28px, rgba(255,255,255,0.05) 29px
+    );
+  }
+  .cover-emoji { font-size: 64px; display: block; margin-bottom: 16px; }
+  .cover h1 {
+    font-family: 'Klee One', sans-serif;
+    font-size: 1.9rem;
+    font-weight: 600;
+    line-height: 1.35;
+    margin-bottom: 12px;
+    position: relative;
+  }
+  .cover .subtitle { font-size: 1.05rem; opacity: 0.85; margin-bottom: 8px; position: relative; }
+  .cover .date-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 20px;
+    padding: 6px 20px;
+    font-size: 1rem;
+    margin-top: 16px;
+    position: relative;
+  }
+
+  /* ── カード共通 ── */
+  .card {
+    background: #fff9f0;
+    border-radius: 6px;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.12);
+    position: relative;
+    overflow: hidden;
+  }
+  .card-body {
+    padding: 40px 36px 28px 64px;
+    background: repeating-linear-gradient(0deg, transparent, transparent 31px, #e0d8c8 31px, #e0d8c8 32px);
+    background-color: #fff9f0;
+  }
+  .card-tab {
+    display: inline-block;
+    background: #a13a2c;
+    color: white;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 4px 16px;
+    border-radius: 0 0 6px 6px;
+    position: absolute;
+    top: 0; left: 32px;
+    letter-spacing: 0.05em;
+  }
+  .card h2 {
+    font-size: 1.22rem;
+    color: #6d1b1b;
+    margin-bottom: 16px;
+    margin-top: 4px;
+    line-height: 1.5;
+    border-left: 4px solid #c0532b;
+    padding-left: 12px;
+  }
+  p { line-height: 1.85; color: #333; font-size: 0.97rem; margin-bottom: 12px; }
+
+  /* ── 数字カード ── */
+  .num-cards { display: flex; gap: 14px; flex-wrap: wrap; margin: 20px 0; }
+  .num-card {
+    flex: 1; min-width: 170px;
+    background: #6d1b1b; color: white;
+    border-radius: 10px; padding: 20px 16px; text-align: center;
+  }
+  .num-card.orange { background: #a13a2c; }
+  .num-card.gold   { background: #b06b1a; }
+  .num-card.gray   { background: #6b6b6b; }
+  .num-card .big-num {
+    font-family: 'Caveat', cursive;
+    font-size: 1.7rem; font-weight: 700; line-height: 1.15;
+    color: #ffd8b0;
+  }
+  .num-card .num-label { font-size: 0.78rem; margin-top: 8px; opacity: 0.92; line-height: 1.6; }
+
+  /* ── ステップフロー ── */
+  .step-flow { display: flex; flex-direction: column; gap: 0; margin: 20px 0; }
+  .step-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px dotted #ddd;
+  }
+  .step-item:last-child { border-bottom: none; }
+  .step-num {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: #a13a2c;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .step-body { flex: 1; }
+  .step-title { font-size: 0.97rem; font-weight: 700; color: #6d1b1b; margin-bottom: 4px; }
+  .step-desc  { font-size: 0.85rem; color: #555; line-height: 1.7; margin: 0; }
+
+  /* ── 対比カード(2〜3列) ── */
+  .compare-flow { display: flex; gap: 14px; flex-wrap: wrap; margin: 20px 0; align-items: stretch; }
+  .compare-col {
+    flex: 1; min-width: 200px;
+    background: #fdf2ea;
+    border: 1.5px solid #e8c8a8;
+    border-radius: 8px;
+    padding: 16px 18px;
+  }
+  .compare-col.highlight-col { background: #f6e2c8; border-color: #d98a2e; }
+  .compare-col h3 { font-size: 0.93rem; color: #6d1b1b; margin-bottom: 10px; }
+  .compare-col ol, .compare-col ul { padding-left: 18px; }
+  .compare-col li { font-size: 0.82rem; color: #555; line-height: 1.85; }
+  .cause-down {
+    text-align: center;
+    font-size: 1.3rem;
+    color: #a13a2c;
+    margin: 10px 0 -2px;
+  }
+  .result-box {
+    background: #6d1b1b;
+    color: white;
+    border-radius: 8px;
+    padding: 14px 18px;
+    text-align: center;
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-top: 4px;
+  }
+
+  /* ── マトリクス表 ── */
+  .matrix-table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 0.85rem; }
+  .matrix-table th, .matrix-table td {
+    border: 1px solid #e0d0b8; padding: 10px 12px; text-align: left; vertical-align: top;
+  }
+  .matrix-table th { background: #f6e2c8; color: #6d1b1b; font-weight: 700; }
+  .matrix-table td { color: #444; line-height: 1.6; }
+  .matrix-table tr:nth-child(even) td { background: #fdf9f2; }
+  .matrix-table tr.warn td { background: #f8e6e0; }
+
+  /* ── 今日の一歩 ── */
+  .today-box {
+    background: linear-gradient(135deg, #6d1b1b, #c0532b);
+    color: white; border-radius: 8px;
+    padding: 24px 28px; margin: 16px 0; text-align: center;
+  }
+  .today-box .emoji { font-size: 2.2rem; display: block; margin-bottom: 8px; }
+  .today-box .title { font-size: 1.1rem; font-weight: 600; margin-bottom: 10px; }
+  .today-box .desc  { font-size: 0.92rem; opacity: 0.92; line-height: 1.8; text-align: left; }
+
+  /* ── 共通パーツ ── */
+  .highlight { background: #f6e2c8; border-radius: 4px; padding: 1px 6px; color: #6d1b1b; font-weight: 600; }
+  .callout {
+    border-radius: 6px; padding: 14px 16px; margin-top: 14px;
+  }
+  .callout.yellow { background: #fef9e7; border-left: 4px solid #d98a2e; }
+  .callout.green  { background: #eafaf1; border-left: 4px solid #27ae60; }
+  .callout.blue   { background: #e8f4fd; border-left: 4px solid #2980b9; }
+  .callout.wine   { background: #f6e9e4; border-left: 4px solid #a13a2c; }
+
+  /* ── 免責 ── */
+  .disclaimer {
+    background: #fff; border: 1px solid #ddd; border-radius: 6px;
+    padding: 16px 20px; font-size: 0.8rem; color: #777; line-height: 1.7;
+    width: 100%; max-width: 820px; margin-bottom: 16px;
+  }
+  .disclaimer strong { color: #555; }
+
+  /* ── 出典 ── */
+  .sources {
+    background: #fff9f0; border-radius: 6px; padding: 16px 24px;
+    width: 100%; max-width: 820px; margin-bottom: 24px;
+    font-size: 0.8rem; color: #666; line-height: 1.8;
+  }
+  .sources h3 { font-size: 0.85rem; color: #6d1b1b; margin-bottom: 8px; }
+  .sources a { color: #a13a2c; text-decoration: none; }
+  .sources a:hover { text-decoration: underline; }
+  .sources ul { padding-left: 16px; }
+
+  /* ── バックリンク ── */
+  .back-link { text-align: center; margin-bottom: 20px; font-size: 0.9rem; }
+  .back-link a { color: #a13a2c; text-decoration: none; }
+  .back-link a:hover { text-decoration: underline; }
+
+  @media (max-width: 560px) {
+    .card-body { padding: 40px 18px 24px 24px; }
+    .matrix-table { display: block; overflow-x: auto; white-space: nowrap; }
+    .compare-flow { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── カバー ── -->
+<div class="cover">
+  <span class="cover-emoji">🎓</span>
+  <h1>未経験からの「今からできる準備」第一歩<br>無料の「インバウンドセールス認定」の中身を解説</h1>
+  <div class="subtitle">インサイドセールス 最新トピック 2026-09-25</div>
+  <div class="date-badge">テレアポ・インサイドセールス 毎朝解説</div>
+</div>
+
+<!-- ── Section 01 ── -->
+<div class="card">
+  <span class="card-tab">01 今日のテーマ</span>
+  <div class="card-body">
+    <h2>🤔 「準備の中身」を、実際に手を動かせるところまで具体化する</h2>
+    <p>
+      前回(2026-09-23)は、未経験・浅い経験の人が「プロセスを設計・改善できる人材」として評価されるための準備として、無料学習サービスの活用を紹介しました。今日はその続編として、代表例の1つである<span class="highlight">HubSpot Academy(ハブスポット・アカデミー)の「インバウンドセールス認定」コース</span>を、実際に何を学び、どう試験を受けるのかまで具体的に見ていきます。
+    </p>
+    <p>
+      HubSpot Academyは、営業支援ソフトを提供する米HubSpot社が運営する無料のオンライン学習サービス(講座・認定資格)です。「インバウンドセールス」とは、広告や売り込みで押すのではなく、すでに興味を持っている見込み客に寄り添って提案する営業の考え方を指します。テレアポ中心の仕事とは前提が異なる部分もありますが、営業の基礎用語や商談の型を体系的に学べる無料教材として、未経験者の自己学習によく使われています。
+    </p>
+  </div>
+</div>
+
+<!-- ── Section 02 ── -->
+<div class="card">
+  <span class="card-tab">02 数字で見る コース・試験の中身</span>
+  <div class="card-body">
+    <h2>📊 「無料」「5レッスン」「約2時間」で受けられる認定資格</h2>
+    <div class="num-cards">
+      <div class="num-card">
+        <div class="big-num">0円</div>
+        <div class="num-label">受講料・受験料とも無料<br>(HubSpotアカウント登録も無料)</div>
+      </div>
+      <div class="num-card orange">
+        <div class="big-num">5レッスン</div>
+        <div class="num-label">1レッスンあたり<br>15〜30分程度、動画合計は<br>約2時間</div>
+      </div>
+      <div class="num-card gold">
+        <div class="big-num">60問</div>
+        <div class="num-label">修了試験の出題数<br>(選択式)</div>
+      </div>
+      <div class="num-card gray">
+        <div class="big-num">45問正解</div>
+        <div class="num-label">合格ラインの目安<br>(60問中45問=75%以上)</div>
+      </div>
+    </div>
+    <div class="callout yellow">
+      ⚠️ 試験には制限時間3時間が設けられており、不合格の場合は次の受験まで12時間の待機時間が必要という情報があります(HubSpot Community投稿より)。出題内容や合格基準は改定される可能性があるため、受講前に必ず公式ページで最新情報を確認してください。
+    </div>
+  </div>
+</div>
+
+<!-- ── Section 03 ── -->
+<div class="card">
+  <span class="card-tab">03 図解 5つのレッスンで何を学ぶか</span>
+  <div class="card-body">
+    <h2>📚 「見つける→つながる→深掘りする→提案する」の4段階</h2>
+    <p>
+      コースは、導入の1レッスンと、インバウンドセールスの4つの段階(フェーズ)にそれぞれ対応する4レッスンの、合計5レッスンで構成されています。
+    </p>
+    <div class="step-flow">
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-title">Inbound Sales Fundamentals(導入)</div>
+          <p class="step-desc">なぜ「押し売り型」ではなく「インバウンド型」の営業戦略が必要なのか、考え方の全体像を学ぶ。</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <div class="step-title">Identify(見つける)フェーズ</div>
+          <p class="step-desc">「今すぐ客(アクティブな買い手)」と「まだ検討段階の客(パッシブな買い手)」を見分け、優先してアプローチすべき相手を絞り込む考え方を学ぶ。</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <div class="step-title">Connect(つながる)フェーズ</div>
+          <p class="step-desc">状況に応じた最初の連絡の取り方や、複数回に分けてアプローチする「アウトリーチ・シーケンス」の組み立て方のコツを学ぶ。</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <div class="step-title">Explore(深掘りする)フェーズ</div>
+          <p class="step-desc">相手の課題・目標・導入時期などをヒアリングし、自社の商品が本当に合っているかを見極める「質問の型(フレームワーク)」を学ぶ。</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">5</div>
+        <div class="step-body">
+          <div class="step-title">Advise(提案する)フェーズ</div>
+          <p class="step-desc">ヒアリングした内容をもとに、相手専用の提案(パーソナライズされたプレゼンテーション)を作る方法を学ぶ。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Section 04 ── -->
+<div class="card">
+  <span class="card-tab">04 学習法 5日間で合格を目指す進め方</span>
+  <div class="card-body">
+    <h2>🗓️ HubSpot公式ガイドが勧める「1日1レッスン」ペース</h2>
+    <p>
+      HubSpot Japanの公式ブログでは、1日にレッスン1本ずつ取り組み、5日間で合格を目指す学習ガイドを公開しています。仕事や求職活動と並行しながらでも、すきま時間で進めやすいペース配分です。
+    </p>
+    <table class="matrix-table">
+      <tr><th>日程</th><th>取り組む内容</th></tr>
+      <tr><td>1日目</td><td>Inbound Sales Fundamentals(導入)のレッスンを視聴</td></tr>
+      <tr><td>2日目</td><td>Identify(見つける)フェーズのレッスンを視聴</td></tr>
+      <tr><td>3日目</td><td>Connect(つながる)フェーズのレッスンを視聴</td></tr>
+      <tr><td>4日目</td><td>Explore(深掘りする)フェーズのレッスンを視聴</td></tr>
+      <tr><td>5日目</td><td>Advise(提案する)フェーズを視聴 → 60問の修了試験に挑戦</td></tr>
+    </table>
+    <div class="callout blue">
+      📌 各レッスンには視聴後の理解度クイズが用意されています。クイズで内容を確認してから次のレッスンに進むと、最後の修了試験対策にもなります。
+    </div>
+  </div>
+</div>
+
+<!-- ── Section 05 ── -->
+<div class="card">
+  <span class="card-tab">05 求職者にとっての意味</span>
+  <div class="card-body">
+    <h2>🎯 「資格そのもの」より「準備した過程」を語れるようにする</h2>
+    <p>
+      前回の記事でも触れたとおり、採用側が見ているのは資格の有無だけではなく、そこにかけた熱意や考え方です。この認定コースをどう位置づけて使うかを整理しておきましょう。
+    </p>
+    <div class="compare-flow">
+      <div class="compare-col">
+        <h3>✅ この認定でできるようになること</h3>
+        <ul>
+          <li>営業の基礎用語(見込み客、商談化、ヒアリングの型など)を体系的に理解できる</li>
+          <li>「なぜその行動をするのか」を自分の言葉で説明する練習になる</li>
+          <li>職務経歴書・面接で「未経験だが独学で準備した」根拠として提示できる</li>
+        </ul>
+      </div>
+      <div class="compare-col highlight-col">
+        <h3>⚠️ この認定が保証しないこと</h3>
+        <ul>
+          <li>内容は英語圏インバウンド営業の考え方が中心で、日本のテレアポ実務(架電の型など)と完全には一致しない</li>
+          <li>資格を取得しただけで、内定や採用を約束するものではない</li>
+          <li>実際の架電・商談で成果を出せるかは、現場経験を積んで初めてわかる部分が大きい</li>
+        </ul>
+      </div>
+    </div>
+    <div class="step-flow">
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-title">まず1レッスンだけ見て、自分に合うか確かめる</div>
+          <p class="step-desc">無料なので、途中でやめても損はしません。まず1本目を見て、内容が自分の目指す職種と合っているか確認しましょう。</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <div class="step-title">学んだ内容を「自分の言葉」でメモに残す</div>
+          <p class="step-desc">動画を見ただけで終わらせず、「なぜこのフェーズが必要なのか」を一言でメモしておくと、面接で話せる材料になります。</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <div class="step-title">修了証(バッジ)のリンクをプロフィールに載せる</div>
+          <p class="step-desc">合格すると発行される修了証は、LinkedInなどのプロフィールに掲載できる形式で提供されます。応募書類の一行にもなります。</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <div class="step-title">「取っただけ」で終わらせず、模擬KPI表など次の準備につなげる</div>
+          <p class="step-desc">前回紹介した模擬KPI表の作成など、他の準備と組み合わせることで「学んだことを実践に落とし込もうとしている」姿勢が伝わります。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Section 06 ── -->
+<div class="card">
+  <span class="card-tab">06 今日からできる一歩</span>
+  <div class="card-body">
+    <h2>👣 今日の一歩:HubSpot Academyの無料アカウントを作り、1本目のレッスンだけ見る</h2>
+    <div class="today-box">
+      <span class="emoji">📝</span>
+      <div class="title">今日の一歩:academy.hubspot.jp でHubSpot Academyの無料アカウントを作成し、「インバウンドセールス認定コース」の1本目(Inbound Sales Fundamentals、15〜30分)だけ視聴してみる</div>
+      <div class="desc">
+        全5レッスンを一気に終わらせる必要はありません。まず1本見て「自分に合うか」「今の目指す仕事と関係がありそうか」を確認するだけでも、今日の一歩として十分です。続けられそうなら、次回以降を1日1本ずつ進めてみましょう。
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 免責 ── -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事で紹介したコース内容・試験形式・合格ラインは、HubSpot Academy公式ページおよびHubSpot公式ブログ、HubSpot Communityの投稿に基づくものです。コースの内容・所要時間・試験の出題数や合格基準は今後改定される可能性があるため、受講・受験の際は必ず公式ページで最新情報をご確認ください。資格の取得は採用・内定を保証するものではなく、報酬・採用の結果には個人差があり、市場・時期・スキルによって変わります。紹介した求人媒体・企業・ツールの条件は変わるため、応募・利用前に必ず公式情報をご確認ください。
+</div>
+
+<!-- ── 出典 ── -->
+<div class="sources">
+  <h3>📎 参考情報・出典</h3>
+  <ul>
+    <li><a href="https://academy.hubspot.com/courses/inbound-sales" target="_blank">HubSpot Academy「Inbound Sales Certification Course」(英語版公式コースページ。参照日:2026年9月)</a></li>
+    <li><a href="https://academy.hubspot.jp/courses/inbound-sales" target="_blank">HubSpot Academy「インバウンドセールス認定コースへようこそ！」(日本語版公式コースページ。参照日:2026年9月)</a></li>
+    <li><a href="https://academy.hubspot.jp/certification-support/inbound-sales" target="_blank">ハブスポットアカデミー「インバウンドセールス認定コースに関するFAQ」(公式サポートページ。参照日:2026年9月)</a></li>
+    <li><a href="https://blog.hubspot.jp/marketing/inbound-sales-certification-exam_5days" target="_blank">HubSpot Japan公式ブログ「5日間でインバウンドセールス認定コースに合格するための無料ガイド」(参照日:2026年9月)</a></li>
+    <li><a href="https://community.hubspot.com/t5/HubSpot-Academy-Support/Inbound-sales-certification-exam/m-p/367367" target="_blank">HubSpot Community「Inbound sales certification exam」(試験の制限時間・再受験の待機時間に関する投稿。参照日:2026年9月)</a></li>
+  </ul>
+</div>
+
+<!-- ── バックリンク ── -->
+<div class="back-link">
+  <a href="index.html">&larr; バックナンバー一覧へ</a>
+</div>
+
+</body>
+</html>
