@@ -2,6 +2,7 @@
 
 ## 解説済みトピック（重複を避けるための記録）
 
+- 2026-09-25: Claude Opus 5.5（2026年9月22日リリース）・Opus 5 比コスト約40%削減・出力速度30%以上向上・API料金$4/$20（公式要確認）・キャッシュ読み込み$0.20/MTok（60%削減）・1Mトークンコンテキスト・128K出力・常時オン適応的思考・AWS/Google Cloud/Azure で同日提供・外部安全評価（Frontier Design・METR）・Sonnet 5.5/Haiku 5.5 近日予告（出典：Anthropic公式 / Forkast News / emergent.sh・2026年9月22日）
 - 2026-09-24: YouTube「Made on YouTube 2026」AI クリエイターツール発表（2026年9月23日）・Ask Studio（AI フィードバック・サムネイル提案・過去動画自動見直し）・Gemini 搭載会話型編集ツール・動的サムネイル・A/B テスト最大3パターン・ライブ自動吹き替えパイロット（2027年初頭予定）・クリエイター声＋顔の両方の AI なりすまし検出・AI コメントモデレーション試験中・2026年8月に毎日数十万チャンネルが利用（出典：YouTube 公式ブログ / TechCrunch / Tubefilter・2026年9月23日）
 - 2026-09-23: Grok 4.7（2026年9月21日リリース）・2.1兆パラメータ（前版 1.5兆 から約40%増）・CursorBench 4.0: 46.3%（Grok 4.6 の 40.4% から向上）・DeepSWE v1.1: 71.0%（高努力設定）・SpaceX の Starlink 衛星テレメトリ・製造記録・エンジニアリング障害ログを学習データに追加・料金は公式要確認（出典：Decrypt / Yahoo Tech / llm-stats.com・2026年9月21日）
 - 2026-09-20: Anthropic R&D Automation Index 初公開（2026年9月17日）・Claude が Anthropic 自社 R&D の 26% をリード（2026年8月時点）・2月は1%未満から7ヶ月で急増・AL（Automation Level）スケール AL3・社内3万体エージェント稼働・月間10億回超の判断・0.002%ブロック（オンラインモニター）（出典：Unite.AI / QZ / BetaNews / Digital Today・2026年9月17〜18日）
