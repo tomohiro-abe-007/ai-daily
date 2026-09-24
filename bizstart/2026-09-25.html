@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-09-25</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #2a4d7a 0%, #10233f 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #2a4d7a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.blue   { border-left-color: #1e5a7a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.green  { border-left-color: #1e7a5a; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #2a4d7a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin: 14px 0;
+  }
+  .stats-row.c3 { grid-template-columns: repeat(3, 1fr); }
+  .stats-row.c2 { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 12px 6px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat.now { background: #fff3e0; box-shadow: 0 0 0 2px #c8884a inset; }
+  .stat .sl { font-size: 0.62rem; color: #888; margin-bottom: 3px; line-height: 1.4; }
+  .stat .sv { font-size: 1.05rem; font-weight: 700; color: #2a4d7a; line-height: 1.15; }
+  .stat.now .sv { color: #c8884a; }
+  .stat .su { font-size: 0.62rem; color: #666; margin-top: 2px; }
+
+  .bignum {
+    background: white;
+    border-radius: 12px;
+    padding: 18px 14px;
+    text-align: center;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.1);
+    border: 2px dashed #c8884a;
+    margin: 14px 0;
+  }
+  .bignum .bl { font-size: 0.76rem; color: #888; margin-bottom: 6px; }
+  .bignum .bv { font-size: 1.7rem; font-weight: 700; color: #c8884a; line-height: 1.3; }
+  .bignum .bs { font-size: 0.76rem; color: #666; margin-top: 6px; line-height: 1.6; }
+
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #2a4d7a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-num.now { background: #b54040; }
+  .f-num.later { background: #999; }
+  .f-num.opt { background: #c8884a; }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+  .f-arrow { color: #2a4d7a; font-size: 1.1rem; margin-left: 14px; margin-bottom: 4px; }
+
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  table.cmp {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.83rem;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.08);
+  }
+  table.cmp th, table.cmp td {
+    border: 1px solid #e4dccd;
+    padding: 9px 10px;
+    line-height: 1.55;
+    vertical-align: top;
+  }
+  table.cmp thead th { background: #2a4d7a; color: white; font-weight: 600; text-align: center; }
+  table.cmp tbody th { background: #f5efe2; color: #5a4020; text-align: left; font-weight: 600; white-space: nowrap; }
+  table.cmp td { color: #444; text-align: left; }
+  table.cmp td.hi { background: #fff3e0; font-weight: 700; color: #c8884a; }
+  .wrap-x { overflow-x: auto; }
+
+  .info {
+    background: #e8eef8;
+    border-left: 4px solid #2a4d7a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #16294a;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #7a4010;
+  }
+
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #2a4d7a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #2a4d7a; word-break: break-all; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #2a4d7a; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Header -->
+<div class="header">
+  <div class="meta">📅 1人法人スタート 最新トピック &nbsp;2026-09-25</div>
+  <h1>🧮 従業員を1人雇った日から始まる、もう1つの「毎年手続き」<br>──労働保険料「年度更新」の基礎</h1>
+  <div class="desc">
+    <span class="htag">労働保険</span>
+    <span class="htag">労災保険</span>
+    <span class="htag">雇用保険</span>
+    <span class="htag">年度更新</span>
+    <span class="htag">基礎</span>
+    <br>
+    7/4記事では「労働保険(労災保険・雇用保険)に入る手続き」を紹介しました。今日はその続きとして、<span class="hl">入った後、毎年6月〜7月にやってくる「年度更新」という手続き</span>を解説します。社会保険(健康保険・厚生年金)の算定基礎届(7/1記事)とよく似た時期に来るので、混同しないよう整理します。
+  </div>
+</div>
+
+<!-- Section 1 -->
+<div class="card blue">
+  <div class="sec-title">🏗 労働保険とは何か──代表者1人だけなら関係ない</div>
+  <p>労働保険とは、<strong>労災保険(業務中や通勤中のケガ・病気を補償する制度)</strong>と<strong>雇用保険(失業したときの給付などを行う制度)</strong>をあわせた呼び方です。会社が代表者1人だけのうちは、原則として加入義務はありません。労働保険は「労働者(従業員)を雇っている」会社にだけ発生する制度だからです。</p>
+
+  <div class="stats-row c2" style="margin-top:14px;">
+    <div class="stat">
+      <div class="sl">労災保険</div>
+      <div class="sv">業務上のケガ・病気</div>
+      <div class="su">雇用形態を問わず、雇った瞬間から全員対象</div>
+    </div>
+    <div class="stat">
+      <div class="sl">雇用保険</div>
+      <div class="sv">失業時の給付等</div>
+      <div class="su">週20時間以上・31日以上の雇用見込みなど要件あり</div>
+    </div>
+  </div>
+
+  <p style="margin-top:12px;">代表取締役など「役員」は、原則としてこの労働保険の対象外です(社長がケガをしたときの備えは、7/19記事で紹介した中小事業主等の労災保険特別加入という別の制度になります)。つまり<span class="hlo">今日の話は「初めて従業員を雇った」1人社長にとって、来年以降ずっとついて回る手続き</span>ということです。</p>
+</div>
+
+<!-- Section 2 -->
+<div class="card orange">
+  <div class="sec-title">🔁 「年度更新」とは──見積もりと実績を毎年つなげる仕組み</div>
+  <p>労働保険料は、会社が従業員に支払った<strong>賃金総額(給与+賞与などの合計額)</strong>に保険料率をかけて計算します。ただし今年度の賃金総額は、年度が終わるまで確定しません。そこで次の2つを、<strong>毎年同じタイミングで1枚の申告書にまとめて</strong>行う仕組みが「年度更新」です。</p>
+
+  <div class="f-step" style="margin-top:14px;">
+    <div class="f-num">1</div>
+    <div class="f-text"><strong>前年度分の精算</strong>──前年度(4月〜翌3月)に実際に支払った賃金総額をもとに「確定保険料」を計算し、前年に納めた概算額との差額を精算する</div>
+  </div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step">
+    <div class="f-num opt">2</div>
+    <div class="f-text"><strong>今年度分の見積もり申告</strong>──今年度(4月〜翌3月)に支払う予定の賃金総額を見積もり、「概算保険料」として先に申告・納付する</div>
+  </div>
+
+  <div class="bignum">
+    <div class="bl">📅 令和8年度(2026年度)の申告・納付期間</div>
+    <div class="bv">6月1日(月) 〜 7月10日(金)</div>
+    <div class="bs">この間に、都道府県労働局・労働基準監督署への提出(郵送)、または電子申請(e-Gov)で申告する</div>
+  </div>
+</div>
+
+<!-- Section 3 -->
+<div class="card green">
+  <div class="sec-title">💴 保険料はどう計算する?──ざっくり試算</div>
+  <p>保険料額は<strong>「賃金総額 × 保険料率」</strong>で計算します。保険料率は業種によって異なる<strong>労災保険料率</strong>と、全国一律の<strong>雇用保険料率</strong>を足したものです。仮に年間賃金総額500万円・その他各種事業(労災保険料率3/1000、8/29記事で紹介した業種別料率の一例)のケースで試算すると、次のようになります。</p>
+
+  <div class="stats-row c3" style="margin-top:14px;">
+    <div class="stat">
+      <div class="sl">労災保険料</div>
+      <div class="sv">15,000円</div>
+      <div class="su">500万円×3/1000(その他各種事業・令和8年度)</div>
+    </div>
+    <div class="stat">
+      <div class="sl">雇用保険料</div>
+      <div class="sv">77,500円</div>
+      <div class="su">500万円×15.5/1000(一般の事業・令和8年度)</div>
+    </div>
+    <div class="stat now">
+      <div class="sl">労働保険料 合計</div>
+      <div class="sv">92,500円</div>
+      <div class="su">年間の概算保険料イメージ</div>
+    </div>
+  </div>
+
+  <p style="margin-top:12px;">雇用保険料15.5/1000のうち、従業員負担は6/1000・会社負担は9.5/1000です(会社負担分には雇用保険二事業の分も含まれます)。労災保険料は全額が会社負担で、従業員の給与から天引きはしません。<span class="hlo">実際の賃金総額とかけ離れた見積もりをすると、翌年度の精算額が大きくなる</span>ので、できるだけ実態に近い金額で見積もることが大切です。</p>
+</div>
+
+<!-- Section 4 -->
+<div class="card">
+  <div class="sec-title">💳 一括納付 or 延納(3回分割)</div>
+  <p>労働保険料は原則<strong>一括納付</strong>ですが、概算保険料が<strong>40万円以上</strong>(労災保険と雇用保険を別々に申告する「二元適用事業」(建設業・農林水産業など)の場合は、労災保険・雇用保険のいずれか一方が20万円以上)であれば、<strong>延納(3回分割)</strong>を選べます。</p>
+
+  <div class="wrap-x">
+  <table class="cmp" style="margin-top:12px;">
+    <thead>
+      <tr><th>期別</th><th>対象期間</th><th>納期限</th></tr>
+    </thead>
+    <tbody>
+      <tr><th>第1期(全期)</th><td>4月1日〜7月31日分</td><td class="hi">7月10日</td></tr>
+      <tr><th>第2期</th><td>8月1日〜11月30日分</td><td>10月31日</td></tr>
+      <tr><th>第3期</th><td>12月1日〜翌3月31日分</td><td>翌年1月31日</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="info">
+    💡 延納するかどうかは任意です。資金繰りに余裕があれば一括納付、支払いを平準化したい場合は延納を選ぶ、という考え方で決めて構いません。
+  </div>
+</div>
+
+<!-- Section 5: 算定基礎届との違い -->
+<div class="card red">
+  <div class="sec-title">⚖️ 社会保険の「算定基礎届」との違い</div>
+  <p>労働保険の年度更新は、社会保険(健康保険・厚生年金)の<strong>算定基礎届</strong>(7/1記事)と提出時期が重なる(どちらも7月上旬が締切)ため混同しがちですが、別の制度です。</p>
+
+  <div class="wrap-x">
+  <table class="cmp" style="margin-top:12px;">
+    <thead>
+      <tr><th></th><th>労働保険 年度更新</th><th>社会保険 算定基礎届</th></tr>
+    </thead>
+    <tbody>
+      <tr><th>対象の保険</th><td>労災保険・雇用保険</td><td>健康保険・厚生年金</td></tr>
+      <tr><th>提出先</th><td>労働局・労働基準監督署</td><td>年金事務所(日本年金機構)</td></tr>
+      <tr><th>計算のもと</th><td>1年間の賃金<strong>総額</strong>(実績+見積もり)</td><td>4〜6月の報酬の<strong>平均額</strong>(標準報酬月額)</td></tr>
+      <tr><th>提出期間</th><td>6月1日〜7月10日</td><td>7月1日〜7月10日</td></tr>
+      <tr><th>反映時期</th><td>その年度(4月〜翌3月)</td><td>その年の9月〜翌年8月</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <ul class="check-list" style="margin-top:12px;">
+    <li><span class="ck-bad">✕</span>どちらか一方だけ提出すればよい、というものではない。従業員がいれば両方とも別々に必要</li>
+    <li><span class="ck-bad">✕</span>代表者(役員)本人の報酬は、算定基礎届の対象にはなるが、労働保険の賃金総額には原則含めない</li>
+  </ul>
+</div>
+
+<!-- Section 6: まとめ -->
+<div class="card">
+  <div class="sec-title">📝 今日のまとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">①</span>労働保険(労災保険・雇用保険)は、<strong>従業員を1人でも雇った時点</strong>で加入義務が生じる。代表者1人だけの会社は原則対象外。</li>
+    <li><span class="n">②</span>年度更新は、<strong>前年度分の確定精算</strong>と<strong>今年度分の概算申告</strong>を同時に行う手続きで、令和8年度は<strong>6月1日〜7月10日</strong>が申告・納付期間。</li>
+    <li><span class="n">③</span>保険料は<strong>賃金総額×保険料率</strong>で計算。概算保険料が40万円以上(二元適用事業は一方が20万円以上)なら、7/10・10/31・翌1/31の3回に分けて納める延納も選べる。</li>
+    <li><span class="n">④</span>時期が重なる<strong>社会保険の算定基礎届とは別制度</strong>。提出先・計算方法・反映時期がそれぞれ異なるため、両方を別々に準備する。</li>
+    <li><span class="n">⑤</span>見積もりと実績の差が大きいほど翌年度の精算額も大きくなるため、実態に近い賃金総額で申告するのが安全。</li>
+  </ul>
+
+  <div class="source">
+    📚 出典:厚生労働省 労働保険の年度更新に関する案内(令和8年度・申告期間6月1日〜7月10日)、令和8年度雇用保険料率(一般の事業15.5/1000、労働者負担6/1000・事業主負担9.5/1000)、延納(3回分割)の要件(概算保険料40万円以上、二元適用事業は労災保険・雇用保険いずれか一方が20万円以上)・納期限(第1期7月10日・第2期10月31日・第3期翌年1月31日)。労災保険料率は業種ごとに定められ、令和8年度は令和7年度から変更がない旨が公表されています(具体的な業種別料率は8/29記事を参照)。基準年度:令和8年度(2026年度)。
+  </div>
+</div>
+
+<!-- Disclaimer -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、税務・法務・労務の個別アドバイスではありません。実際の保険料額・提出要否は、会社の従業員数・雇用形態・賃金総額などにより異なります。
+  具体的な手続きや金額の判断が必要な場合は、社会保険労務士や管轄の労働局・労働基準監督署にご確認ください。<br>
+  <strong>本記事の基準年度:</strong>令和8年度(2026年度)。制度・料率は年度により変更される場合があります。
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p>📚 <a href="index.html">バックナンバー一覧へ</a> &nbsp;&middot;&nbsp; 毎朝更新</p>
+</div>
+
+</div>
+</body>
+</html>
