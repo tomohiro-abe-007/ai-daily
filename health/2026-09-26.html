@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-09-26</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '🐟';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.9rem; margin-bottom: 8px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.1em; }
+  .c3-col li { margin-bottom: 4px; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  .quote-box {
+    background: #f5f0e8;
+    border-left: 4px solid #7a5abf;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    margin: 12px 0;
+    color: #444;
+    font-style: italic;
+  }
+  .quote-box .who { font-style: normal; font-weight: 700; color: #5a3a9a; margin-top: 6px; font-size: 0.78rem; }
+  .matrix {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .mx-cell {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .mx-cell .mx-head { font-weight: 700; font-size: 0.88rem; margin-bottom: 6px; }
+  .mx-cell.ok  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .mx-cell.ok  .mx-head { color: #1a6e4a; }
+  .mx-cell.ng  { background: #fbe8e6; border: 2px solid #c0392b; }
+  .mx-cell.ng  .mx-head { color: #a0291e; }
+  .subtype-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .subtype-card {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.84rem;
+  }
+  .subtype-card .st-head { font-weight: 700; font-size: 0.92rem; margin-bottom: 8px; }
+  .subtype-card .st-bar {
+    height: 10px;
+    border-radius: 5px;
+    background: #eee;
+    overflow: hidden;
+    margin: 6px 0 4px;
+  }
+  .subtype-card .st-bar-fill { height: 100%; }
+  .subtype-card.st-green { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .subtype-card.st-green .st-head { color: #1a6e4a; }
+  .subtype-card.st-orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .subtype-card.st-orange .st-head { color: #b85e10; }
+  .subtype-card.st-red { background: #fbe8e6; border: 2px solid #c0392b; }
+  .subtype-card.st-red .st-head { color: #a0291e; }
+  @media (max-width: 540px) {
+    .compare4 { grid-template-columns: 1fr; }
+    .matrix { grid-template-columns: 1fr; }
+    .subtype-grid { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.7rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ヘッダー -->
+<div class="header">
+  <div class="label">健康・栄養 最新トピック ・ 2026-09-26</div>
+  <h1>血液の中の「オメガ3」が多い人ほど、65歳未満で認知症になるリスクが低かった──21万人・平均8.3年追跡の大規模研究</h1>
+  <div class="subtitle">魚の油に多い「オメガ3脂肪酸」は健康に良いとよく言われますが、証拠の中身は種類によって様々です。2026年、英国UK Biobankのデータを使った21万人超の追跡研究が、血液中のオメガ3濃度と「65歳より前に発症する認知症(若年性認知症)」の関連を調べました。ただしこれは観察研究(相関を見る研究)で、「サプリを飲めば予防できる」ことまでは示していません。実際、オメガ3サプリを使ったランダム化比較試験(RCT)を集めた大規模な解析では、一般の高齢者の認知機能低下を防ぐ効果ははっきりしないという、一見矛盾するような結果も出ています。今日はこの2つの研究を並べて、「血液検査の値」と「サプリを飲む効果」がなぜ話が変わってくるのかを見ていきます。</div>
+</div>
+
+<!-- タグ -->
+<div style="margin-bottom:18px;">
+  <span class="tag">精密栄養学</span>
+  <span class="tag">オメガ3脂肪酸</span>
+  <span class="tag">認知症</span>
+  <span class="tag">エビデンスの読み方</span>
+</div>
+
+<!-- 今日の疑問 -->
+<div class="card">
+  <h2>🤔 今日の疑問:「血液中の値が高いこと」と「サプリを飲むこと」は同じ意味?</h2>
+  <p>「オメガ3脂肪酸(魚の油に多く含まれる、体に良いとされる脂肪の一種)を摂ると脳や心臓に良い」という話は、健康情報としてよく耳にします。実際、血液を採ってオメガ3の濃度を測ると、濃度が高い人ほど様々な病気のリスクが低いという報告が数多くあります。</p>
+  <p>2026年1月、米Fatty Acid Research InstituteのAleix Sala-Vilaさんらの研究チームが、英国の大規模健康データベース「UK Biobank」に参加した40〜64歳の成人217,122人を平均8.3年間追跡し、血液中のオメガ3濃度と、65歳になる前に発症する「若年性認知症(早期発症型認知症)」との関連を調べた研究を<em>Clinical Nutrition</em>誌に発表しました。今日はこの研究を入り口に、「血液中の値の高さ」と「サプリを飲んで補うこと」が必ずしも同じ意味にならない理由を、精密栄養学・エビデンスの読み方の視点から整理します。</p>
+</div>
+
+<!-- 基本用語 -->
+<div class="card blue">
+  <h2>📖 まず言葉の意味を</h2>
+  <div class="def-grid">
+    <div class="def-item">
+      <div class="dterm">オメガ3脂肪酸</div>
+      青魚などに多く含まれる脂肪の一種。EPA・DHAという2つの成分がよく知られ、体内では作れないため食事から摂る必要がある「必須脂肪酸」に分類される。
+    </div>
+    <div class="def-item">
+      <div class="dterm">若年性認知症(早期発症型認知症)</div>
+      一般的な高齢者の認知症(多くは65歳以降に発症)とは区別して、65歳になる前に発症する認知症を指す言葉。原因や進行のしかたが高齢発症の場合と異なる可能性が指摘されている。
+    </div>
+    <div class="def-item">
+      <div class="dterm">前向きコホート研究</div>
+      病気になっていない時点で集団を集め、血液などのデータを取ったうえで、その後何年も追跡して「誰が病気になったか」を見る観察研究のデザイン。介入(治療や薬)は行わない。
+    </div>
+    <div class="def-item">
+      <div class="dterm">APOE-ε4</div>
+      アルツハイマー病を含む認知症のリスクを高めることが知られている遺伝子のタイプ(型)の一つ。今回の研究では、この遺伝子の影響を統計的に取り除いたうえでも、オメガ3との関連が見られたと報告されている。
+    </div>
+    <div class="def-item">
+      <div class="dterm">ランダム化比較試験(RCT)</div>
+      参加者をくじ引きのようにランダムに「介入を受ける群」と「受けない群(対照群)」に分け、実際に何かを摂取してもらって効果を比べる試験デザイン。観察研究より「原因と結果」を確かめる力が強いとされる。
+    </div>
+    <div class="def-item">
+      <div class="dterm">相関と因果</div>
+      「血中オメガ3濃度が高い人ほど発症が少ない(相関)」ことと、「オメガ3を摂れば発症が減る(因果)」ことは別物。血中濃度は魚をよく食べる生活習慣や体質・代謝の違いも反映している可能性がある。
+    </div>
+  </div>
+</div>
+
+<!-- 数字カード -->
+<div class="num-row">
+  <div class="num-card">
+    <div class="big">217,122<span class="unit">人</span></div>
+    <div class="desc">UK Biobankに参加した40〜64歳の対象者数</div>
+  </div>
+  <div class="num-card blue-bg">
+    <div class="big">8.3<span class="unit">年</span></div>
+    <div class="desc">平均追跡期間</div>
+  </div>
+  <div class="num-card orange-bg">
+    <div class="big">325<span class="unit">例</span></div>
+    <div class="desc">追跡期間中に確認された若年性認知症の発症件数</div>
+  </div>
+  <div class="num-card purple-bg">
+    <div class="big">35〜40<span class="unit">%</span></div>
+    <div class="desc">血中オメガ3濃度が最も高いグループの、最も低いグループと比べたリスクの低さ(APOE-ε4等で調整後)</div>
+  </div>
+  <div class="num-card gray-bg">
+    <div class="big">49,757<span class="unit">人</span></div>
+    <div class="desc">対照的な結果を示した、オメガ3サプリのRCT38件を統合した大規模メタ分析の対象者数</div>
+  </div>
+</div>
+
+<!-- 観察研究の中身 -->
+<div class="card purple">
+  <h2>🔬 分かったことを図にすると</h2>
+  <div class="flow">
+    <div class="flow-step">血液検査でオメガ3濃度を測定</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">最大8.3年間、認知症の発症を追跡</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step alt">濃度が高い上位グループほど<br>若年性認知症が35〜40%少なかった</div>
+  </div>
+  <p style="font-size:0.85rem; color:#555;">研究チームは、総オメガ3量だけでなく、DHA(魚油に多い代表的な成分)と、それ以外のオメガ3成分(non-DHAオメガ3)を分けても分析しており、報道されている範囲では、DHA単独よりもオメガ3全体、特にDHA以外の成分の関連の方がやや強かったと報告されています。研究チームの代表であるSala-Vilaさんは「客観的に測定されたオメガ3の状態が、65歳未満で診断される認知症のリスクの低さと関連することを示した、初めての大規模研究」だとコメントしています。</p>
+</div>
+
+<!-- 賛否・限界:観察研究 vs RCT -->
+<div class="card blue">
+  <h2>⚖️ 「血液の値」の研究と「サプリを飲む」研究、結果が食い違う理由</h2>
+  <div class="matrix">
+    <div class="mx-cell ok">
+      <div class="mx-head">✅ 今回の観察研究で分かったこと</div>
+      血液中のオメガ3濃度が高い人ほど、遺伝的リスク(APOE-ε4)や生活習慣・心血管代謝の状態で調整したあとも、若年性認知症の発症が少ないという「相関」が、21万人規模のデータではっきり見られた。
+    </div>
+    <div class="mx-cell ng">
+      <div class="mx-head">❓ まだ証明されていないこと</div>
+      横断研究ではなく追跡研究(前向きコホート)ではあるものの、あくまで観察研究であるため、「オメガ3を摂ったから発症が減った」という因果関係までは証明できない。魚をよく食べる人は他の生活習慣(運動・喫煙・社会経済状況など)も異なる可能性があり、まだ症状の出ていない早期の脳の変化が先に食欲や代謝に影響し、結果として血中濃度が下がった(逆の因果関係)可能性も否定しきれない。
+    </div>
+  </div>
+  <p style="font-size:0.85rem; color:#555; margin-top:10px;">実際、Brainard JSさんらが2020年に<em>Journal of the American Medical Directors Association</em>誌に発表した、オメガ3サプリのRCT38件・のべ49,757人を統合した系統的レビュー・メタ分析では、健康な高齢者を対象にオメガ3を「摂取してもらう」介入をしても、認知機能の低下を防ぐ効果ははっきりしなかったと報告されています。「血液の値が高い人ほど良い」ことと「サプリを追加すれば同じ効果が出る」ことは、必ずしもイコールではない、という点がこの分野の一貫した悩みどころです。</p>
+</div>
+
+<!-- 実践 -->
+<div class="card orange">
+  <h2>🩺 今日から意識できること</h2>
+  <ul class="step-list">
+    <li>「血中濃度が高いほど良い」という観察研究の結果だけを根拠に、高用量のオメガ3サプリメントを自己判断で始めるのは避ける。今回の研究は食事由来・体内での代謝を含めた「結果としての血中濃度」を見たものであり、サプリで濃度を上げることが同じ効果を持つとは限らない。</li>
+    <li>魚(特に青魚)を無理のない範囲で食事に取り入れることは、一般的な栄養バランスの観点からは支持されている習慣であり、極端な制限や大量摂取を目指す必要はない。</li>
+    <li>もの忘れや認知機能の変化が気になる場合、サプリメントに頼る前に、かかりつけ医に相談し必要な検査を受ける。</li>
+  </ul>
+</div>
+
+<!-- まとめ -->
+<div class="card" style="border-left-color:#1a7a5a;">
+  <h2>✅ 今日のまとめ</h2>
+  <ul class="step-list">
+    <li>2026年1月、Sala-Vilaさんらのチームが、UK Biobankに参加した40〜64歳の成人217,122人を平均8.3年追跡した観察研究を<em>Clinical Nutrition</em>誌に発表。血中オメガ3濃度が最も高いグループは、最も低いグループと比べ、若年性認知症(325例)のリスクが35〜40%程度低いという関連(遺伝的リスクAPOE-ε4等で調整後)が見られた。</li>
+    <li>これは大規模な前向きコホート研究(観察研究)であり、「原因と結果」を証明する力は、ランダム化比較試験(RCT)より弱い。魚をよく食べる生活習慣や体質の違いといった交絡、逆の因果関係(発症前の変化が食習慣に先に影響した可能性)は否定できない。</li>
+    <li>一方、オメガ3サプリを実際に摂取してもらうRCT38件・約5万人を統合した2020年のメタ分析では、健康な高齢者の認知機能低下を防ぐ効果ははっきりしないと報告されている。「血液の値の高さと病気の少なさの相関」と「サプリで補う効果」は、必ずしも同じ結論にならない好例といえる。</li>
+    <li>今回の研究は「65歳未満で発症する認知症」という比較的まれなアウトカムを対象にしており、一般的な高齢者の認知症全体にそのまま当てはめられるものではない点にも注意したい。</li>
+  </ul>
+</div>
+
+<!-- 免責 -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、医療アドバイスではありません。効果・必要量・リスクは個人の体質・年齢・持病・服薬によって大きく異なります。もの忘れなど認知機能の変化が気になる場合や、サプリメントの利用を検討する場合は、自己判断をせず、かかりつけ医・薬剤師・管理栄養士など専門家にご相談ください。本記事は特定の食事法やサプリメント、断食などを推奨するものではありません。
+</div>
+
+<!-- 出典 -->
+<div class="sources">
+  <h3>📚 主な出典・参考文献</h3>
+  <ol>
+    <li>Sala-Vila A, Tintle NL, Westra J, Harris WS. "Blood omega-3 is inversely related to risk of early-onset dementia." <em>Clinical Nutrition</em>. 2026. DOI: 10.1016/j.clnu.2025.106559(PMID: 41506004、2026年1月オンライン公開)。
+      <a href="https://doi.org/10.1016/j.clnu.2025.106559" target="_blank">https://doi.org/10.1016/j.clnu.2025.106559</a>(基準日:2026年9月。当セッションのネットワーク制限により clinicalnutritionjournal.com・sciencedirect.com・pubmed.ncbi.nlm.nih.gov への直接アクセスはできず、検索エンジン経由で得られた複数の要約〈対象人数・年齢層・追跡期間・症例数・リスク低下率・調整因子を含む〉が独立に一致する範囲で記載)
+    </li>
+    <li>Brainard JS, Jimoh OF, Deane KHO, et al. "Omega-3, Omega-6, and Polyunsaturated Fat for Cognition: Systematic Review and Meta-analysis of Randomized Trials." <em>Journal of the American Medical Directors Association</em>. 2020;21(10):1439-1450.e21. PMID: 32305302。
+      <a href="https://pubmed.ncbi.nlm.nih.gov/32305302/" target="_blank">https://pubmed.ncbi.nlm.nih.gov/32305302/</a>(基準日:2026年9月。オメガ3サプリのRCTを統合したメタ分析として、対照的な視点を紹介する目的で引用、ネットワーク制限〈pubmed.ncbi.nlm.nih.gov・jamda.com〉で本文未確認、検索エンジン経由の要約による)
+    </li>
+  </ol>
+  <p style="margin-top:8px; font-size:0.78rem;">※ 本記事はネットワーク制限により、上記の各一次資料に本セッションから直接アクセスできなかったため、検索エンジンで得られる複数の独立した要約・引用箇所を突き合わせ、内容が一致した範囲に限定して記載しています。最新かつ正確な数値・詳細は、各DOI先で改めてご確認いただくことをお勧めします。</p>
+</div>
+
+</div>
+</body>
+</html>
