@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>インサイドセールス 最新トピック 2026-09-27</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  /* ── カバー ── */
+  .cover {
+    background: linear-gradient(135deg, #6d1b1b 0%, #a13a2c 50%, #d98a2e 100%);
+    color: white;
+    border-radius: 8px;
+    padding: 60px 40px;
+    text-align: center;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.3);
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent, transparent 28px,
+      rgba(255,255,255,0.05) 28px, rgba(255,255,255,0.05) 29px
+    );
+  }
+  .cover-emoji { font-size: 64px; display: block; margin-bottom: 16px; }
+  .cover h1 {
+    font-family: 'Klee One', sans-serif;
+    font-size: 1.9rem;
+    font-weight: 600;
+    line-height: 1.35;
+    margin-bottom: 12px;
+    position: relative;
+  }
+  .cover .subtitle { font-size: 1.05rem; opacity: 0.85; margin-bottom: 8px; position: relative; }
+  .cover .date-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 20px;
+    padding: 6px 20px;
+    font-size: 1rem;
+    margin-top: 16px;
+    position: relative;
+  }
+
+  /* ── カード共通 ── */
+  .card {
+    background: #fff9f0;
+    border-radius: 6px;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.12);
+    position: relative;
+    overflow: hidden;
+  }
+  .card-body {
+    padding: 40px 36px 28px 64px;
+    background: repeating-linear-gradient(0deg, transparent, transparent 31px, #e0d8c8 31px, #e0d8c8 32px);
+    background-color: #fff9f0;
+  }
+  .card-tab {
+    display: inline-block;
+    background: #a13a2c;
+    color: white;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 4px 16px;
+    border-radius: 0 0 6px 6px;
+    position: absolute;
+    top: 0; left: 32px;
+    letter-spacing: 0.05em;
+  }
+  .card h2 {
+    font-size: 1.22rem;
+    color: #6d1b1b;
+    margin-bottom: 16px;
+    margin-top: 4px;
+    line-height: 1.5;
+    border-left: 4px solid #c0532b;
+    padding-left: 12px;
+  }
+  p { line-height: 1.85; color: #333; font-size: 0.97rem; margin-bottom: 12px; }
+
+  /* ── 数字カード ── */
+  .num-cards { display: flex; gap: 14px; flex-wrap: wrap; margin: 20px 0; }
+  .num-card {
+    flex: 1; min-width: 170px;
+    background: #6d1b1b; color: white;
+    border-radius: 10px; padding: 20px 16px; text-align: center;
+  }
+  .num-card.orange { background: #a13a2c; }
+  .num-card.gold   { background: #b06b1a; }
+  .num-card.gray   { background: #6b6b6b; }
+  .num-card .big-num {
+    font-family: 'Caveat', cursive;
+    font-size: 1.7rem; font-weight: 700; line-height: 1.15;
+    color: #ffd8b0;
+  }
+  .num-card .num-label { font-size: 0.78rem; margin-top: 8px; opacity: 0.92; line-height: 1.6; }
+
+  /* ── ステップフロー ── */
+  .step-flow { display: flex; flex-direction: column; gap: 0; margin: 20px 0; }
+  .step-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px dotted #ddd;
+  }
+  .step-item:last-child { border-bottom: none; }
+  .step-num {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: #a13a2c;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .step-body { flex: 1; }
+  .step-title { font-size: 0.97rem; font-weight: 700; color: #6d1b1b; margin-bottom: 4px; }
+  .step-desc  { font-size: 0.85rem; color: #555; line-height: 1.7; margin: 0; }
+
+  /* ── 対比カード(2〜3列) ── */
+  .compare-flow { display: flex; gap: 14px; flex-wrap: wrap; margin: 20px 0; align-items: stretch; }
+  .compare-col {
+    flex: 1; min-width: 200px;
+    background: #fdf2ea;
+    border: 1.5px solid #e8c8a8;
+    border-radius: 8px;
+    padding: 16px 18px;
+  }
+  .compare-col.highlight-col { background: #f6e2c8; border-color: #d98a2e; }
+  .compare-col h3 { font-size: 0.93rem; color: #6d1b1b; margin-bottom: 10px; }
+  .compare-col ol, .compare-col ul { padding-left: 18px; }
+  .compare-col li { font-size: 0.82rem; color: #555; line-height: 1.85; }
+  .cause-down {
+    text-align: center;
+    font-size: 1.3rem;
+    color: #a13a2c;
+    margin: 10px 0 -2px;
+  }
+  .result-box {
+    background: #6d1b1b;
+    color: white;
+    border-radius: 8px;
+    padding: 14px 18px;
+    text-align: center;
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-top: 4px;
+  }
+
+  /* ── マトリクス表 ── */
+  .matrix-table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 0.85rem; }
+  .matrix-table th, .matrix-table td {
+    border: 1px solid #e0d0b8; padding: 10px 12px; text-align: left; vertical-align: top;
+  }
+  .matrix-table th { background: #f6e2c8; color: #6d1b1b; font-weight: 700; }
+  .matrix-table td { color: #444; line-height: 1.6; }
+  .matrix-table tr:nth-child(even) td { background: #fdf9f2; }
+  .matrix-table tr.warn td { background: #f8e6e0; }
+
+  /* ── 今日の一歩 ── */
+  .today-box {
+    background: linear-gradient(135deg, #6d1b1b, #c0532b);
+    color: white; border-radius: 8px;
+    padding: 24px 28px; margin: 16px 0; text-align: center;
+  }
+  .today-box .emoji { font-size: 2.2rem; display: block; margin-bottom: 8px; }
+  .today-box .title { font-size: 1.1rem; font-weight: 600; margin-bottom: 10px; }
+  .today-box .desc  { font-size: 0.92rem; opacity: 0.92; line-height: 1.8; text-align: left; }
+
+  /* ── 共通パーツ ── */
+  .highlight { background: #f6e2c8; border-radius: 4px; padding: 1px 6px; color: #6d1b1b; font-weight: 600; }
+  .callout {
+    border-radius: 6px; padding: 14px 16px; margin-top: 14px;
+  }
+  .callout.yellow { background: #fef9e7; border-left: 4px solid #d98a2e; }
+  .callout.green  { background: #eafaf1; border-left: 4px solid #27ae60; }
+  .callout.blue   { background: #e8f4fd; border-left: 4px solid #2980b9; }
+  .callout.wine   { background: #f6e9e4; border-left: 4px solid #a13a2c; }
+
+  /* ── 免責 ── */
+  .disclaimer {
+    background: #fff; border: 1px solid #ddd; border-radius: 6px;
+    padding: 16px 20px; font-size: 0.8rem; color: #777; line-height: 1.7;
+    width: 100%; max-width: 820px; margin-bottom: 16px;
+  }
+  .disclaimer strong { color: #555; }
+
+  /* ── 出典 ── */
+  .sources {
+    background: #fff9f0; border-radius: 6px; padding: 16px 24px;
+    width: 100%; max-width: 820px; margin-bottom: 24px;
+    font-size: 0.8rem; color: #666; line-height: 1.8;
+  }
+  .sources h3 { font-size: 0.85rem; color: #6d1b1b; margin-bottom: 8px; }
+  .sources a { color: #a13a2c; text-decoration: none; }
+  .sources a:hover { text-decoration: underline; }
+  .sources ul { padding-left: 16px; }
+
+  /* ── バックリンク ── */
+  .back-link { text-align: center; margin-bottom: 20px; font-size: 0.9rem; }
+  .back-link a { color: #a13a2c; text-decoration: none; }
+  .back-link a:hover { text-decoration: underline; }
+
+  @media (max-width: 560px) {
+    .card-body { padding: 40px 18px 24px 24px; }
+    .matrix-table { display: block; overflow-x: auto; white-space: nowrap; }
+    .compare-flow { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── カバー ── -->
+<div class="cover">
+  <span class="cover-emoji">💴</span>
+  <h1>「$90」も「$180」も正しかった<br>料金表の"読み方"を公式サイトで確認する</h1>
+  <div class="subtitle">インサイドセールス 最新トピック 2026-09-27</div>
+  <div class="date-badge">テレアポ・インサイドセールス 毎朝解説</div>
+</div>
+
+<!-- ── Section 01 ── -->
+<div class="card">
+  <span class="card-tab">01 今日のテーマ</span>
+  <div class="card-body">
+    <h2>🤔 前回、宿題として残した「料金の幅」</h2>
+    <p>
+      前回(2026-09-26)、LinkedInの公式検索ツール「Sales Navigator」を取り上げ、Coreプランはおおよそ月$90〜$120、Advancedプランはおおよそ月$140〜$180と、<span class="highlight">紹介する記事によって金額に幅がある</span>ことをお伝えしました。契約前には公式サイトで確認しましょう、というのが前回の締めでした。
+    </p>
+    <p>
+      そこで今日は、実際にLinkedIn公式の料金比較ページ(Compare Pricing and Plans)の情報を軸に、<span class="highlight">なぜ記事ごとに数字が違って見えるのか</span>を確認します。結論を先に言うと、「$90」も「$180」もどちらも間違いではなく、<span class="highlight">見ている条件(月払いか年払いか)が違う</span>だけでした。
+    </p>
+  </div>
+</div>
+
+<!-- ── Section 02 ── -->
+<div class="card">
+  <span class="card-tab">02 数字で見る 4つの価格</span>
+  <div class="card-body">
+    <h2>📊 同じプランでも「払い方」で数字が変わる</h2>
+    <p>
+      LinkedIn公式ページと複数の外部比較記事を照らし合わせると、Core・Advancedそれぞれに「月払い」と「年払い(1年分を一括払い)」の2つの数字があることが分かりました。
+    </p>
+    <div class="num-cards">
+      <div class="num-card">
+        <div class="big-num">$119.99</div>
+        <div class="num-label">Core・月払い<br>(1ヶ月ごとの契約)</div>
+      </div>
+      <div class="num-card orange">
+        <div class="big-num">$89.99</div>
+        <div class="num-label">Core・年払い換算<br>(年額$1,079.88÷12、約25%お得)</div>
+      </div>
+      <div class="num-card gold">
+        <div class="big-num">$159.99</div>
+        <div class="num-label">Advanced・月払い<br>(1ヶ月ごとの契約)</div>
+      </div>
+      <div class="num-card gray">
+        <div class="big-num">$149.99</div>
+        <div class="num-label">Advanced・年払い換算<br>(年額$1,799.88÷12、約6%お得)</div>
+      </div>
+    </div>
+    <div class="callout yellow">
+      ⚠️ 前回引用した「$90〜$120」はCoreの月払い〜年払い換算の範囲、「$140〜$180」はAdvancedの範囲でした。つまり2つのプランの数字が混ざって紹介されていたために、全体としては「$90〜$180」という広い幅に見えていた、ということです。
+    </div>
+  </div>
+</div>
+
+<!-- ── Section 03 ── -->
+<div class="card">
+  <span class="card-tab">03 図解 幅が生まれる2つの軸</span>
+  <div class="card-body">
+    <h2>🧭 「プラン」と「払い方」、2つの軸で価格が決まる</h2>
+    <p>
+      料金の幅を整理すると、実は「プランの種類」と「支払いサイクル」という2つの軸の組み合わせで説明できます。
+    </p>
+    <table class="matrix-table">
+      <tr><th></th><th>月払い(いつでも解約可)</th><th>年払い(1年分を先払い)</th></tr>
+      <tr>
+        <td><strong>Core</strong><br><span style="font-size:0.78rem;color:#888;">個人・フリーランス向け</span></td>
+        <td>$119.99/月</td>
+        <td>$1,079.88/年<br>(月あたり$89.99相当)</td>
+      </tr>
+      <tr>
+        <td><strong>Advanced</strong><br><span style="font-size:0.78rem;color:#888;">チーム利用向け</span></td>
+        <td>$159.99/月</td>
+        <td>$1,799.88/年<br>(月あたり$149.99相当)</td>
+      </tr>
+      <tr class="warn">
+        <td><strong>Advanced Plus</strong><br><span style="font-size:0.78rem;color:#888;">大企業向け</span></td>
+        <td colspan="2">個別見積もり。目安は$1,600/席/年〜、大規模契約では年$11,750〜$26,500以上という報告もある</td>
+      </tr>
+    </table>
+    <div class="callout blue">
+      📌 地域によって表示価格・通貨も変わります(例:英国は£、EUは€、豪州はAU$)。日本向けの固定日本円価格は公式ページ上には表示されておらず、実際の金額は登録画面まで進んで自分の地域設定で確認する必要があります。
+    </div>
+  </div>
+</div>
+
+<!-- ── Section 04 ── -->
+<div class="card">
+  <span class="card-tab">04 比較 月払い vs 年払い</span>
+  <div class="card-body">
+    <h2>⚖️ 「単価が安い」と「総額が安い」は同じではない</h2>
+    <p>
+      年払いは1ヶ月あたりの単価が下がりますが、そのぶん<span class="highlight">1年分をまとめて先払い</span>する契約です。求職活動や短期の案件で使う場合、必要な期間によって損得が変わります。
+    </p>
+    <div class="compare-flow">
+      <div class="compare-col">
+        <h3>📅 月払いが向く場合</h3>
+        <ul>
+          <li>数ヶ月だけ集中して使う(短期の求職活動・案件の見込み客探しなど)</li>
+          <li>いつ解約するか未定・様子を見たい</li>
+          <li>単価は高いが、使った月数分しか払わない</li>
+        </ul>
+      </div>
+      <div class="compare-col highlight-col">
+        <h3>📆 年払いが向く場合</h3>
+        <ul>
+          <li>1年以上、継続して使う見込みがある</li>
+          <li>会社が契約し、チームで使い続ける</li>
+          <li>単価は下がるが、1年分をまとめて先払いする必要がある</li>
+        </ul>
+      </div>
+    </div>
+    <div class="callout wine">
+      💡 例えば3ヶ月だけ使うなら、月払いは$119.99×3=$359.97。年払いは1年分$1,079.88を先に払う必要があるため、短期利用では月払いのほうが総額を抑えられます。「年払いなら$89.99」という見出しだけで判断しないよう注意しましょう。
+    </div>
+  </div>
+</div>
+
+<!-- ── Section 05 ── -->
+<div class="card">
+  <span class="card-tab">05 求職者・フリーランス営業にとっての意味</span>
+  <div class="card-body">
+    <h2>🎯 料金表を見るときに確認したい4ステップ</h2>
+    <div class="step-flow">
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-title">「$90から」という見出しに反応しすぎない</div>
+          <p class="step-desc">最安値は「Core・年払い・月あたり換算」の数字であることが多く、実際に手元から出ていく金額(月払いの単価、または年払いの一括金額)とは別だと意識しておきましょう。</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <div class="step-title">自分の利用期間を先に決める</div>
+          <p class="step-desc">「今後どれくらいの期間、継続して使いそうか」を先に見積もってから、月払い・年払いのどちらが総額で得かを比較しましょう。</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <div class="step-title">自分の地域での実際の表示価格を確認する</div>
+          <p class="step-desc">日本向けの固定価格は公式ページ上に一覧表示されていません。無料トライアルの登録画面まで進めば、自分の地域・支払い方法での実際の表示金額(通貨含む)が確認できます。</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <div class="step-title">入社後は「会社支給かどうか」を先に聞く</div>
+          <p class="step-desc">インサイドセールス・SDR職でSales Navigatorを使う場合、会社がライセンスを支給するケースが一般的です。自腹で契約する前に、面接や入社時に確認しておくと無駄な出費を避けられます。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Section 06 ── -->
+<div class="card">
+  <span class="card-tab">06 今日からできる一歩</span>
+  <div class="card-body">
+    <h2>👣 今日の一歩:公式ページで自分の地域の実際の価格を見てみる</h2>
+    <div class="today-box">
+      <span class="emoji">🔎</span>
+      <div class="title">今日の一歩:LinkedIn公式の「Compare Pricing and Plans」ページを開き、無料トライアルの登録画面まで進んで、自分の地域で実際に表示される金額・通貨・支払いサイクルを確認する(契約は不要)</div>
+      <div class="desc">
+        外部記事の「$90〜$180」という幅に振り回されず、自分が実際に払うことになる金額を公式情報で確認するだけでも、「情報の出典を確認する」という営業に必須の習慣が身につきます。
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 免責 ── -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事で紹介した料金は、LinkedIn公式ページおよび複数の外部記事に基づく2026年9月時点の目安であり、プラン内容・料金・提供地域・キャンペーン内容は今後変更される可能性があります。契約前には必ずLinkedIn公式サイトで最新の金額・通貨・支払い条件をご確認ください。報酬・案件獲得の結果には個人差があり、市場・時期・スキルによって変わります。紹介した求人媒体・企業・ツールの条件は変わるため、利用・応募前に必ず公式情報をご確認ください。
+</div>
+
+<!-- ── 出典 ── -->
+<div class="sources">
+  <h3>📎 参考情報・出典</h3>
+  <ul>
+    <li><a href="https://business.linkedin.com/sell/sales-navigator/compare-plans" target="_blank">LinkedIn Sales Navigator公式「Compare Pricing and Plans」(公式プラン比較ページ。参照日:2026年9月)</a></li>
+    <li><a href="https://www.findymail.com/blog/linkedin-sales-navigator-pricing/" target="_blank">Findymail「Your Guide to LinkedIn Sales Navigator Pricing [2026]」(料金の外部比較記事。参照日:2026年9月)</a></li>
+    <li><a href="https://salesmotion.io/blog/linkedin-sales-navigator-pricing" target="_blank">Salesmotion「LinkedIn Sales Navigator Pricing 2026: Plans & Real Costs」(料金の外部比較記事。参照日:2026年9月)</a></li>
+    <li><a href="https://www.cleanlist.ai/blog/2026-05-08-linkedin-sales-navigator-pricing-guide" target="_blank">Cleanlist.ai「[2026] Sales Navigator Pricing: $99–$1,600+ Tiers」(Advanced Plusの目安を含む比較記事、2026年5月公開。参照日:2026年9月)</a></li>
+    <li><a href="https://evaboot.com/blog/how-much-does-linkedin-sales-navigator-cost" target="_blank">Evaboot「LinkedIn Sales Navigator Cost: 2026 Pricing Guide」(月払い・年払いの内訳を含む比較記事。参照日:2026年9月)</a></li>
+  </ul>
+</div>
+
+<!-- ── バックリンク ── -->
+<div class="back-link">
+  <a href="index.html">&larr; バックナンバー一覧へ</a>
+</div>
+
+</body>
+</html>

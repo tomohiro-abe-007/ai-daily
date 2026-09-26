@@ -100,6 +100,7 @@
 - 大手ビジネスSNS(LinkedIn)が営業支援ツールを取り締まってきた経緯の整理:2025年3月6日にApollo.io・Seamless.aiが同時にLinkedIn上から消えた事例(MarTech・CDP Institute報道)、2026年3月に自動化ツールHeyReachの公式ページ(フォロワー約16,400人)が削除された事例(HeyReach公式ブログ・業界ブログ報道)を紹介し、「アカウント停止」と「会社ページ・幹部プロフィールの削除(ブランド剥奪)」の違い、大手ビジネスSNSの公式ヘルプが明記する禁止事項、行動パターンによる自動化の見抜き方を図解、求職者が面接でツールの使い方を確認する4ステップ(LinkedIn Help・MarTech・CDP Institute・HeyReach公式・業界ブログ 2025〜2026年データに基づく)(2026-09-24)
 - 未経験準備続編:HubSpot Academyの「インバウンドセールス認定」コースの具体的な中身(5レッスン・約2時間、Identify/Connect/Explore/Adviseの4フェーズ、修了試験60問中45問正解=75%で合格、制限時間3時間・再受験まで12時間待機)を解説し、HubSpot Japan公式の「5日間で合格ガイド」の進め方、資格が保証すること/しないことの整理、まず1レッスンだけ視聴する一歩を紹介(HubSpot Academy公式・HubSpot Japan公式ブログ・HubSpot Community 2026年9月データに基づく)(2026-09-25)
 - LinkedIn自動化ツール規制続編:公式の有料検索ツール「LinkedIn Sales Navigator」の紹介:無料アカウントとの検索件数の違い(無料1,000件/Sales Navigator 2,500件)、InMail付与数、Core・Advanced・Advanced Plusの3プランの料金目安(情報源により$90〜$180程度と幅あり)、求職中は無料アカウントで十分なこと・入社後は会社支給が一般的なこと・フリーランスは投資対効果で判断すべきことを整理(自動化ツール規制・LinkedIn公式ツール続編、LinkedIn公式ヘルプ・公式プラン比較ページ、Woodpecker・Cleanlist.ai・Emooove 2026年データに基づく)(2026-09-26)
+- Sales Navigator続編:料金の幅($90〜$180)はCore/Advancedという「プランの違い」と月払い/年払いという「支払いサイクルの違い」の2軸が混ざって生じていたことを、公式のCompare Pricing and Plansページと複数の外部比較記事を突き合わせて裏取り:Core月払い$119.99/年払い換算$89.99(年$1,079.88、25%お得)、Advanced月払い$159.99/年払い換算$149.99(年$1,799.88、6%お得)、Advanced Plusは個別見積もり($1,600/席/年〜、大型契約で年$11,750〜$26,500以上の報告も)という内訳、日本向けの固定日本円価格は公式ページに一覧表示されず登録画面まで進む必要があること、短期利用なら年払いより月払いの方が総額で得な場合がある点を整理(Sales Navigator続編、LinkedIn公式Compare Pricing and Plansページ・Findymail・Salesmotion・Cleanlist.ai・Evaboot 2026年9月データに基づく)(2026-09-27)
 
 ## 未使用テーマ(エバーグリーン)
 (なし)
@@ -180,6 +181,7 @@
 - 未経験準備続編:saleszine.jpが紹介する「異業種からの転職成功者」の具体的な業界(製造・金融・不動産・ホテル・アパレル・ブライダル等)ごとに、どんな経験がインサイドセールスのどんなスキルに読み替えられるかの対応表を作る(未経験準備続編、要一次ソース裏取り)
 - LinkedIn自動化ツール規制続編:HeyReach社ページ削除(2026年3月)後、実際にどのツールが新たに規制対象になったか、業界の最新動向を追跡する(自動化ツール規制続編、要一次ソース裏取り)
 - LinkedIn自動化ツール規制続編:規制後にApollo.io・Seamless.aiがどのような代替戦略(LinkedIn以外のデータソース開拓等)を取ったか、その後の事業の変化を調査する(自動化ツール規制続編、要一次ソース裏取り)
-- Sales Navigator続編:料金が情報源(Woodpecker・Cleanlist.ai等)によって$90〜$180と幅がある理由を、LinkedIn公式のCompare Pricing and Plansページに直接アクセスして正確な最新価格・日本円表示の有無を裏取りする(Sales Navigator続編、要一次ソース裏取り)
 - Sales Navigator続編:「商業使用制限」に実際に引っかかった利用者の体験談(何件検索した時点で制限がかかったか)を口コミ・ブログから調査し、無料アカウントで安全に使える検索頻度の目安を整理する(Sales Navigator続編、要一次ソース裏取り)
 - Sales Navigator続編:TeamLink・CRM連携などAdvancedプラン以上の機能が、実際の求人票で「歓迎スキル」として書かれている例があるか調査する(Sales Navigator続編、要一次ソース裏取り)
+- 料金の読み方続編:月払い・年払いの選び方をさらに深掘り:「3ヶ月だけ使うなら月払いが得」という考え方を他の営業ツール(Apollo.io・Sales Navigator以外のCRM等)にも当てはめて比較する(料金表の読み方続編)
+- 料金の読み方続編:LinkedIn Premium(Career・Business)など他のLinkedIn有料プランでも同様に「月払い/年払いの混在」で紹介記事の金額が割れていないか確認する(Sales Navigator続編)
