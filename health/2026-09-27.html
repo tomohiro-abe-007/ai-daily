@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-09-27</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '💊';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.9rem; margin-bottom: 8px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.1em; }
+  .c3-col li { margin-bottom: 4px; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  .quote-box {
+    background: #f5f0e8;
+    border-left: 4px solid #7a5abf;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    margin: 12px 0;
+    color: #444;
+    font-style: italic;
+  }
+  .quote-box .who { font-style: normal; font-weight: 700; color: #5a3a9a; margin-top: 6px; font-size: 0.78rem; }
+  .matrix {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .mx-cell {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .mx-cell .mx-head { font-weight: 700; font-size: 0.88rem; margin-bottom: 6px; }
+  .mx-cell.ok  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .mx-cell.ok  .mx-head { color: #1a6e4a; }
+  .mx-cell.ng  { background: #fbe8e6; border: 2px solid #c0392b; }
+  .mx-cell.ng  .mx-head { color: #a0291e; }
+  .subtype-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .subtype-card {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.84rem;
+  }
+  .subtype-card .st-head { font-weight: 700; font-size: 0.92rem; margin-bottom: 8px; }
+  .subtype-card .st-bar {
+    height: 10px;
+    border-radius: 5px;
+    background: #eee;
+    overflow: hidden;
+    margin: 6px 0 4px;
+  }
+  .subtype-card .st-bar-fill { height: 100%; }
+  .subtype-card.st-green { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .subtype-card.st-green .st-head { color: #1a6e4a; }
+  .subtype-card.st-orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .subtype-card.st-orange .st-head { color: #b85e10; }
+  .subtype-card.st-red { background: #fbe8e6; border: 2px solid #c0392b; }
+  .subtype-card.st-red .st-head { color: #a0291e; }
+  @media (max-width: 540px) {
+    .compare4 { grid-template-columns: 1fr; }
+    .matrix { grid-template-columns: 1fr; }
+    .subtype-grid { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.7rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ヘッダー -->
+<div class="header">
+  <div class="label">健康・栄養 最新トピック ・ 2026-09-27</div>
+  <h1>食物繊維は気分と"良いコレステロール"に効果あり、プロバイオティクスの効果は統計の「ふるい」で消えた──56人・8週間の二重盲検RCTが教える、サプリの読み方</h1>
+  <div class="subtitle">「食物繊維サプリ」「プロバイオティクス(腸に良い菌)サプリ」は、腸内環境や体重管理の話題でよく登場します。2026年6月、肥満のある成人56人を対象にしたランダム化比較試験(RCT)が、食物繊維・プロバイオティクス・その併用の効果を8週間比べました。結果は「片方は効果あり、もう片方は"統計のふるい"にかけたら消えた」という、サプリの効果を読むときにとても参考になる形になりました。今日はこの1本の試験を入り口に、「小さなRCTの結果」をどう読めばいいかを一緒に見ていきます。</div>
+</div>
+
+<!-- タグ -->
+<div style="margin-bottom:18px;">
+  <span class="tag">サプリの効果を冷静に見る</span>
+  <span class="tag">食物繊維</span>
+  <span class="tag">プロバイオティクス</span>
+  <span class="tag">エビデンスの読み方</span>
+</div>
+
+<!-- 今日の疑問 -->
+<div class="card">
+  <h2>🤔 今日の疑問:「効果があった」サプリは、本当に効果があったのか?</h2>
+  <p>ドラッグストアやネット通販では、「腸内環境を整える」「代謝をサポートする」といった言葉で、食物繊維やプロバイオティクスのサプリメントがよく紹介されています。では、実際に人を対象にした試験で比べると、どのくらいの効果が確認できるのでしょうか。</p>
+  <p>2026年6月、Wang Jさんら台湾・中国の研究チームが、肥満のある成人56人を対象にした二重盲検・プラセボ対照のランダム化比較試験(RCT)を<em>Nutrients</em>誌に発表しました。プラセボ・食物繊維・プロバイオティクス・両方の併用という4つのグループに分け、8週間後の代謝の指標(メタボリックシンドロームに関連する数値)・気分・睡眠の質を比較したものです。今日はこの試験を通じて、「見た目は効果があったサプリ」が、統計的に厳しく確認するとどう見えるかを整理します。</p>
+</div>
+
+<!-- 基本用語 -->
+<div class="card blue">
+  <h2>📖 まず言葉の意味を</h2>
+  <div class="def-grid">
+    <div class="def-item">
+      <div class="dterm">プロバイオティクス</div>
+      腸内で体に良い働きをすることが期待される、生きた微生物(乳酸菌やビフィズス菌など)を含む食品やサプリメントのこと。
+    </div>
+    <div class="def-item">
+      <div class="dterm">食物繊維サプリ</div>
+      消化されずに大腸まで届く炭水化物の一種を、粉末やカプセルなどの形で補うもの。腸内細菌のエサになる「プレバイオティクス」としての働きも期待される。
+    </div>
+    <div class="def-item">
+      <div class="dterm">2×2要因デザイン</div>
+      2種類の介入(今回は食物繊維とプロバイオティクス)を「あり・なし」で組み合わせ、単体の効果と、両方を組み合わせたときの追加効果を同時に調べられる試験のデザイン。
+    </div>
+    <div class="def-item">
+      <div class="dterm">二重盲検・プラセボ対照試験</div>
+      参加者も、結果を評価する研究者も、「誰が本物(有効成分入り)を摂っていて、誰が見た目だけ同じ偽薬(プラセボ)を摂っているか」分からないようにする試験デザイン。思い込みによる効果("摂ったから効いたはず"という心理)の影響を減らせる。
+    </div>
+    <div class="def-item">
+      <div class="dterm">多重比較・多重検定補正(FDR補正)</div>
+      1つの試験でたくさんの指標(血圧・血糖・コレステロール・気分・睡眠など)を同時に比べると、本当は差がなくても「たまたま統計的に有意」に見える結果が出やすくなる。これを防ぐために行う統計的な補正の一つ。補正をかけると、補正前は「有意」だった結果が「有意ではない」に変わることがある。
+    </div>
+    <div class="def-item">
+      <div class="dterm">POMS・PSQI</div>
+      POMS(Profile of Mood States)は気分の状態を、PSQI(Pittsburgh Sleep Quality Index)は睡眠の質を、それぞれ本人の回答から数値化する、心理学・睡眠医学で広く使われる質問紙(アンケート形式の測定法)。
+    </div>
+  </div>
+</div>
+
+<!-- 数字カード -->
+<div class="num-row">
+  <div class="num-card">
+    <div class="big">56<span class="unit">人</span></div>
+    <div class="desc">ランダムに割り当てられた、肥満のある成人の参加者数</div>
+  </div>
+  <div class="num-card blue-bg">
+    <div class="big">55<span class="unit">人</span></div>
+    <div class="desc">最終的な解析対象(intention-to-treat解析)</div>
+  </div>
+  <div class="num-card orange-bg">
+    <div class="big">4<span class="unit">群</span></div>
+    <div class="desc">プラセボ/食物繊維/プロバイオティクス/併用の2×2要因デザイン</div>
+  </div>
+  <div class="num-card purple-bg">
+    <div class="big">8<span class="unit">週間</span></div>
+    <div class="desc">介入(摂取)の継続期間</div>
+  </div>
+</div>
+
+<!-- 試験の流れ -->
+<div class="card purple">
+  <h2>🔬 試験の流れを図にすると</h2>
+  <div class="flow">
+    <div class="flow-step">肥満のある成人56人を<br>4群にランダム割り当て</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">8週間、二重盲検で<br>プラセボ/食物繊維/<br>プロバイオティクス/併用を摂取</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step alt">HDLコレステロールなど代謝指標・<br>気分(POMS)・睡眠(PSQI)を比較</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step warn2">多重検定補正をかけると、<br>一部の「有意差」が消えた</div>
+  </div>
+</div>
+
+<!-- 4群比較表 -->
+<div class="card blue">
+  <h2>📊 4つのグループ、結果はどう違った?</h2>
+  <table class="ev-table">
+    <tr><th>グループ</th><th>HDLコレステロール</th><th>気分(POMS)</th><th>睡眠(PSQI)</th></tr>
+    <tr><td>プラセボ</td><td>明確な変化なし</td><td>明確な変化なし</td><td>明確な変化なし</td></tr>
+    <tr><td>食物繊維</td><td>好ましい方向に改善</td><td>好ましい方向に改善</td><td>群内の前後比較でのみ改善傾向</td></tr>
+    <tr><td>プロバイオティクス</td><td>改善傾向 → 補正後は非有意</td><td>明確な効果みられず</td><td>群内の前後比較でのみ改善傾向</td></tr>
+    <tr><td>併用(両方)</td><td>単体を上回る追加効果なし</td><td>単体を上回る追加効果なし</td><td>単体を上回る追加効果なし</td></tr>
+  </table>
+  <p style="font-size:0.82rem; color:#555;">※「群内の前後比較でのみ改善傾向」というのは、そのグループだけを見て「摂取前と後」を比べると改善が見られたものの、他のグループ(特にプラセボ群)と正式に比べる統計(要因分散分析)では、差として裏付けられなかったという意味です。「なんとなく良くなった気がする」を、統計的にきちんと確認するとどうなるかの好例といえます。</p>
+</div>
+
+<!-- 評価:エビデンスの強さ -->
+<div class="card orange">
+  <h2>⚖️ この結果、どこまで信じてよい?</h2>
+  <div class="matrix">
+    <div class="mx-cell ok">
+      <div class="mx-head">✅ 比較的しっかりした点</div>
+      ランダム化・二重盲検・プラセボ対照という、人を対象にした試験の中でも信頼性の高い設計(RCT)。2×2要因デザインのため、食物繊維とプロバイオティクスそれぞれの単体効果と、併用したときの"上乗せ"効果を分けて見られる。
+    </div>
+    <div class="mx-cell ng">
+      <div class="mx-head">❓ 慎重に読みたい点</div>
+      参加者はわずか56人(4群に分けると1群あたり十数人程度)と小規模で、期間も8週間と短い。単独の試験であり、まだ他の研究チームによる追試(再現)は確認できていない。プロバイオティクス単体の「効果ありそうに見えた」結果は、多重検定補正後には統計的な有意性を失っている。</div>
+  </div>
+  <p style="font-size:0.85rem; color:#555; margin-top:10px;">この試験の結果を報じた業界メディア(NutraIngredients、2026年6月16日)は、「(併用で上乗せ効果が出なかったのは)選んだプレバイオティクス〈食物繊維〉と、使ったプロバイオティクスの菌株がたまたま合わなかったからかもしれない」という研究チームの考察を紹介しています。ただし、これは今回の1試験に基づく解釈であり、「相性の良い組み合わせなら効果が出る」ことを証明したものではない点には注意が必要です。</p>
+</div>
+
+<!-- なぜ多重検定補正が大事か -->
+<div class="card">
+  <h2>🧮 なぜ「補正すると消える」結果が出るのか</h2>
+  <ul class="step-list">
+    <li>1つの試験で「代謝指標(HDL・LDL・血糖・血圧など)」「気分」「睡眠」のように、たくさんの項目を同時に比べると、それぞれの項目で「本当は差がないのに、たまたま統計的に有意に見える」確率が積み重なっていく。</li>
+    <li>例えば20個の指標を比べると、本当は何の効果もなくても、確率的に1個くらいは「たまたま有意」に見えてしまうことがある(これは統計学の基本的な性質)。</li>
+    <li>そこで研究者は、FDR補正のような手法を使って、「本当に意味のある差」と「たまたま出た差」をふるい分ける。今回のプロバイオティクス群のHDLコレステロールの結果は、このふるいにかけたところで有意性を失った。</li>
+    <li>ニュースやSNSで「〇〇サプリで△△が改善!」という見出しを見たときは、それが補正前の"見た目の差"なのか、補正後も残った"確からしい差"なのかを意識すると、読み方がぐっと変わる。</li>
+  </ul>
+</div>
+
+<!-- 実践 -->
+<div class="card orange">
+  <h2>🩺 今日から意識できること</h2>
+  <ul class="step-list">
+    <li>「RCTで効果あり」という見出しだけで判断せず、参加人数(今回は56人)・試験期間(8週間)・単独の試験か複数の試験で再現されているかを確認する習慣をつける。</li>
+    <li>複数の効果を同時にうたうサプリ(「腸内環境も気分も睡眠も」など)を見たときは、「その中のどれが、きちんとした統計処理をしても残る効果なのか」を考えてみる。</li>
+    <li>食物繊維は野菜・海藻・豆類・全粒穀物など食品からも摂れる。サプリメントに頼る前に、まず食事内容を見直すことも選択肢の一つとして検討する。</li>
+    <li>プロバイオティクスや食物繊維サプリの利用を考える場合、体質や持病(特に消化器の疾患がある場合)によって合う・合わないがあるため、自己判断で始める前にかかりつけ医や管理栄養士に相談する。</li>
+  </ul>
+</div>
+
+<!-- まとめ -->
+<div class="card" style="border-left-color:#1a7a5a;">
+  <h2>✅ 今日のまとめ</h2>
+  <ul class="step-list">
+    <li>2026年6月、Wang Jさんらの研究チームが、肥満のある成人56人(解析対象55人)を対象にした二重盲検・プラセボ対照の2×2要因RCTを<em>Nutrients</em>誌に発表。プラセボ・食物繊維・プロバイオティクス・併用の4群を8週間比較した。</li>
+    <li>食物繊維群では、HDLコレステロールと気分の指標に好ましい変化が見られた。一方、プロバイオティクス群で見られたHDLコレステロールへの効果は、多重検定補正(FDR補正)をかけると統計的な有意性を失い、併用群も単体群を上回る追加効果は見られなかった。</li>
+    <li>睡眠の質の改善は、いずれのサプリ群でも「その群だけの前後比較」でのみ見られ、グループ同士を正式に比べる統計では裏付けられなかった。</li>
+    <li>これは人を対象にしたランダム化比較試験(RCTとしては比較的信頼性の高い設計)だが、参加人数56人・8週間という小規模・短期間の単独試験であり、追試による再現もまだ確認できていない。「効果があるように見える」結果と「統計的に確からしい」結果を分けて読む練習として、多重検定補正の考え方が役立つ好例といえる。</li>
+  </ul>
+</div>
+
+<!-- 免責 -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、医療アドバイスではありません。効果・必要量・リスクは個人の体質・年齢・持病・服薬によって大きく異なります。食物繊維サプリやプロバイオティクスの利用を検討する場合、特に消化器疾患など持病のある方は、自己判断をせず、かかりつけ医・薬剤師・管理栄養士など専門家にご相談ください。本記事は特定のサプリメントや食事法、断食などを推奨するものではありません。
+</div>
+
+<!-- 出典 -->
+<div class="sources">
+  <h3>📚 主な出典・参考文献</h3>
+  <ol>
+    <li>Wang J, Ma F, Wang P-F, Hung C-H, Wu K-T, Liao L-A, Guo J-Y, Hou C-W. "Effects of Probiotic and Dietary Fiber Supplementation on Metabolic Syndrome-Related Features, Mood, and Sleep in Adults with Obesity." <em>Nutrients</em>. 2026;18(12):1851. DOI: 10.3390/nu18121851(PMID: 42356238、2026年6月9日オンライン公開)。
+      <a href="https://doi.org/10.3390/nu18121851" target="_blank">https://doi.org/10.3390/nu18121851</a>(基準日:2026年9月。当セッションのネットワーク制限により mdpi.com・pmc.ncbi.nlm.nih.gov・pubmed.ncbi.nlm.nih.gov への直接アクセスはできず、検索エンジン経由で得られた複数の要約〈研究デザイン・対象人数・群構成・介入期間・評価項目・FDR補正に関する記述を含む〉が独立に一致する範囲で記載。具体的なHDLコレステロールの変化量〈mg/dL〉・95%信頼区間・補正前後のp値、POMS・PSQIの下位尺度ごとの詳しい数値、参加者の年齢・性別・BMI内訳、使用した食物繊維の種類・プロバイオティクス菌株名は論文本文でしか確認できておらず未確認)
+    </li>
+    <li>NutraIngredients. "Study highlights variable synbiotic relationship of prebiotics and probiotics." 2026年6月16日。
+      <a href="https://www.nutraingredients.com/Article/2026/06/16/study-highlights-variable-synbiotic-relationship-of-prebiotics-and-probiotics/" target="_blank">https://www.nutraingredients.com/Article/2026/06/16/study-highlights-variable-synbiotic-relationship-of-prebiotics-and-probiotics/</a>(基準日:2026年9月。上記1の一次論文を報じた業界メディアの記事。研究チームの考察〈プレバイオティクスとプロバイオティクス菌株の相性〉の引用元として、二次情報の位置づけで参照)
+    </li>
+  </ol>
+  <p style="margin-top:8px; font-size:0.78rem;">※ 本記事はネットワーク制限により、上記1の一次資料に本セッションから直接アクセスできなかったため、検索エンジンで得られる複数の独立した要約を突き合わせ、内容が一致した範囲に限定して記載しています。具体的な統計値(信頼区間・p値など)は含めず、確認できた範囲(研究デザイン・対象人数・介入内容・統計的な結論の方向性)にとどめました。最新かつ正確な数値は、上記DOI先で改めてご確認いただくことをお勧めします。</p>
+</div>
+
+</div>
+</body>
+</html>
