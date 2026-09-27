@@ -2,6 +2,7 @@
 
 ## 解説済みトピック（重複を避けるための記録）
 
+- 2026-09-28: Ando エージェントネイティブメッセージング正式公開（2026年9月24日）・$20M シード調達（Accel/Index Ventures/Emergence Capital/Contrary Capital）・AI エージェントが人間メンバーと同じ権限・受信箱を持ちチャンネル/スレッド/ライブ会話に参加・Claude/Codex/Grok Build/Devin など主要 AI に対応・ソフトウェア/不動産/金融で15か国の顧客・2〜40人チーム向け・大規模展開は2026年末予定・料金は公式要確認（出典：TechCrunch / GlobeNewswire・2026年9月24日）
 - 2026-09-27: Gemini 3.8 Live / Gemini 3.8 Live Extended Thinking（2026年9月15日発表）・97か国語対応リアルタイム音声AIモデル・標準版とExtended Thinking版の2種類・ライブ視覚入力・ツール呼び出ししながら音声ストリーミング・Live Avatar GA（Gemini Enterprise）・料金$0.05/$0.12（公式要確認）（出典：Google公式ブログ / Unite.AI / TechTarget・2026年9月15日）
 - 2026-09-26: GPT-6 Sol・Luna（2026年9月22日リリース）・API料金Sol $2/$10・Luna $0.10/$0.50（100万トークンあたり・公式要確認）・GPT-5.6比50%値下げ・永続的価格・Solの事実エラー前世代比半減・不正指示従い率52%→11%・DeepSWE v1.1: Sol 68.8%・Luna 66.6%・OSWorld 2.0ではSol 60.5%（前世代65.7%から後退）・Luna は無料プランのChatGPTデスクトップアプリで利用可・GitHub Copilotでも同日対応（出典：TechCrunch / VentureBeat / MacRumors / 9to5Mac / Digital Applied・2026年9月22日）
 - 2026-09-25: Claude Opus 5.5（2026年9月22日リリース）・Opus 5 比コスト約40%削減・出力速度30%以上向上・API料金$4/$20（公式要確認）・キャッシュ読み込み$0.20/MTok（60%削減）・1Mトークンコンテキスト・128K出力・常時オン適応的思考・AWS/Google Cloud/Azure で同日提供・外部安全評価（Frontier Design・METR）・Sonnet 5.5/Haiku 5.5 近日予告（出典：Anthropic公式 / Forkast News / emergent.sh・2026年9月22日）
