@@ -101,6 +101,7 @@
 - 未経験準備続編:HubSpot Academyの「インバウンドセールス認定」コースの具体的な中身(5レッスン・約2時間、Identify/Connect/Explore/Adviseの4フェーズ、修了試験60問中45問正解=75%で合格、制限時間3時間・再受験まで12時間待機)を解説し、HubSpot Japan公式の「5日間で合格ガイド」の進め方、資格が保証すること/しないことの整理、まず1レッスンだけ視聴する一歩を紹介(HubSpot Academy公式・HubSpot Japan公式ブログ・HubSpot Community 2026年9月データに基づく)(2026-09-25)
 - LinkedIn自動化ツール規制続編:公式の有料検索ツール「LinkedIn Sales Navigator」の紹介:無料アカウントとの検索件数の違い(無料1,000件/Sales Navigator 2,500件)、InMail付与数、Core・Advanced・Advanced Plusの3プランの料金目安(情報源により$90〜$180程度と幅あり)、求職中は無料アカウントで十分なこと・入社後は会社支給が一般的なこと・フリーランスは投資対効果で判断すべきことを整理(自動化ツール規制・LinkedIn公式ツール続編、LinkedIn公式ヘルプ・公式プラン比較ページ、Woodpecker・Cleanlist.ai・Emooove 2026年データに基づく)(2026-09-26)
 - Sales Navigator続編:料金の幅($90〜$180)はCore/Advancedという「プランの違い」と月払い/年払いという「支払いサイクルの違い」の2軸が混ざって生じていたことを、公式のCompare Pricing and Plansページと複数の外部比較記事を突き合わせて裏取り:Core月払い$119.99/年払い換算$89.99(年$1,079.88、25%お得)、Advanced月払い$159.99/年払い換算$149.99(年$1,799.88、6%お得)、Advanced Plusは個別見積もり($1,600/席/年〜、大型契約で年$11,750〜$26,500以上の報告も)という内訳、日本向けの固定日本円価格は公式ページに一覧表示されず登録画面まで進む必要があること、短期利用なら年払いより月払いの方が総額で得な場合がある点を整理(Sales Navigator続編、LinkedIn公式Compare Pricing and Plansページ・Findymail・Salesmotion・Cleanlist.ai・Evaboot 2026年9月データに基づく)(2026-09-27)
+- 未経験準備続編:HubSpot Academyの無料認定と対比する形で、もう一つの大手CRMの公式資格「Salesforce Certified Administrator」を紹介:初回受験料$200/再受験$100(税別、日本円目安¥30,000・¥15,000)、105分・60問・合格ライン65%という試験形式、学習サービスTrailhead自体は無料であること、2025年7月にSalesforce認定資格がTrailhead Academyへ統合されPearson VUE経由の受験に変わった経緯、無料の学習と有料の試験を分けて考える4ステップ(Salesforce Help公式・Salesforce Ben・toBeマーケティング・Clientell 2025〜2026年データに基づく)(2026-09-28)
 
 ## 未使用テーマ(エバーグリーン)
 (なし)
@@ -185,3 +186,7 @@
 - Sales Navigator続編:TeamLink・CRM連携などAdvancedプラン以上の機能が、実際の求人票で「歓迎スキル」として書かれている例があるか調査する(Sales Navigator続編、要一次ソース裏取り)
 - 料金の読み方続編:月払い・年払いの選び方をさらに深掘り:「3ヶ月だけ使うなら月払いが得」という考え方を他の営業ツール(Apollo.io・Sales Navigator以外のCRM等)にも当てはめて比較する(料金表の読み方続編)
 - 料金の読み方続編:LinkedIn Premium(Career・Business)など他のLinkedIn有料プランでも同様に「月払い/年払いの混在」で紹介記事の金額が割れていないか確認する(Sales Navigator続編)
+- Salesforce資格続編:求人サイトを実際に検索し、「Salesforce」と「HubSpot」のどちらの経験・資格を歓迎する求人が日本国内・海外リモートでそれぞれどれくらいあるか調査する(CRM資格比較続編、要一次ソース裏取り)
+- Salesforce資格続編:未経験からの「90日プラン」(Trailhead基礎4週間→ポートフォリオ制作4週間→受験4週間)を、テレアポ・インサイドセールス志望者向けにどう応用できるか具体的に整理する(CRM資格比較続編、Clientell記事の続き。要一次ソース裏取り)
+- Salesforce資格続編:2025年7月のTrailhead Academy統合・Pearson VUE移行から1年以上経った現在、実際の受験者の体験談(申し込みの分かりやすさ・トラブルの有無)を口コミ・ブログから調査する(CRM資格比較続編、要一次ソース裏取り)
+- Salesforce資格続編:Salesforce Certified Administrator以外の入門向け資格(Salesforce Certified Associate等)との難易度・費用の違いを整理し、未経験者にどちらが向くか比較する(CRM資格比較続編、要一次ソース裏取り)
