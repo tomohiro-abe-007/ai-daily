@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-09-28</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '⏳';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.35rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.9rem; margin-bottom: 8px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.1em; }
+  .c3-col li { margin-bottom: 4px; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  .quote-box {
+    background: #f5f0e8;
+    border-left: 4px solid #7a5abf;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    margin: 12px 0;
+    color: #444;
+    font-style: italic;
+  }
+  .quote-box .who { font-style: normal; font-weight: 700; color: #5a3a9a; margin-top: 6px; font-size: 0.78rem; }
+  .matrix {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .mx-cell {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .mx-cell .mx-head { font-weight: 700; font-size: 0.88rem; margin-bottom: 6px; }
+  .mx-cell.ok  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .mx-cell.ok  .mx-head { color: #1a6e4a; }
+  .mx-cell.ng  { background: #fbe8e6; border: 2px solid #c0392b; }
+  .mx-cell.ng  .mx-head { color: #a0291e; }
+  .subtype-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .subtype-card {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.84rem;
+  }
+  .subtype-card .st-head { font-weight: 700; font-size: 0.92rem; margin-bottom: 8px; }
+  .subtype-card .st-bar {
+    height: 10px;
+    border-radius: 5px;
+    background: #eee;
+    overflow: hidden;
+    margin: 6px 0 4px;
+  }
+  .subtype-card .st-bar-fill { height: 100%; }
+  .subtype-card.st-green { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .subtype-card.st-green .st-head { color: #1a6e4a; }
+  .subtype-card.st-orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .subtype-card.st-orange .st-head { color: #b85e10; }
+  .subtype-card.st-red { background: #fbe8e6; border: 2px solid #c0392b; }
+  .subtype-card.st-red .st-head { color: #a0291e; }
+  @media (max-width: 540px) {
+    .compare4 { grid-template-columns: 1fr; }
+    .matrix { grid-template-columns: 1fr; }
+    .subtype-grid { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.7rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ヘッダー -->
+<div class="header">
+  <div class="label">健康・栄養 最新トピック ・ 2026-09-28</div>
+  <h1>食事を変えたら"体の実年齢"が4週間で若返った? 104人のRCTが見せた、脂質と糖質のバランスの力</h1>
+  <div class="subtitle">「体内年齢」「バイオロジカルエイジ」という言葉を見たことがあるかもしれません。2026年、オーストラリアの研究チームが、65〜75歳の104人を4つの食事グループに分けて4週間だけ食事を変えるランダム化比較試験(RCT)を行い、血液の状態から計算した"生物学的な年齢の目安"が一部のグループで下がったと報告しました。ただし「若返った」と言い切るにはまだ早い理由があります。今日はこの1本の試験を入り口に、栄養バランスと老化マーカーの関係、そして研究結果をどこまで信じてよいかを一緒に見ていきます。</div>
+</div>
+
+<!-- タグ -->
+<div style="margin-bottom:18px;">
+  <span class="tag">栄養・代謝の基礎</span>
+  <span class="tag">たんぱく質・脂質・糖質バランス</span>
+  <span class="tag">エビデンスの読み方</span>
+  <span class="tag">老化と栄養</span>
+</div>
+
+<!-- 今日の疑問 -->
+<div class="card">
+  <h2>🤔 今日の疑問:食事を4週間変えるだけで、体は"若返る"のか?</h2>
+  <p>「アンチエイジング」という言葉はよく聞きますが、科学的にはどう調べるのでしょうか。オーストラリア・シドニー大学のCaitlin J. Andrewsさんらのチームが、65〜75歳の健康な高齢者104人を対象に、たんぱく質・脂質・糖質の割合が異なる4種類の食事を4週間続けてもらうランダム化比較試験(RCT、参加者をくじ引きのようにランダムに複数のグループへ振り分けて比べる、信頼性が高いとされる試験デザイン)を行い、Aging Cell誌に発表しました(2026年4月27日オンライン公開)。血液検査などの数値から算出した「生物学的年齢」の変化を比べたところ、食事の種類によって結果に差が見られたのです。</p>
+</div>
+
+<!-- 基本用語 -->
+<div class="card blue">
+  <h2>📖 まず言葉の意味を</h2>
+  <div class="def-grid">
+    <div class="def-item">
+      <div class="dterm">生物学的年齢(バイオロジカルエイジ)</div>
+      生まれてからの年数(実年齢)ではなく、血圧・コレステロール・血糖など体の状態を示す複数の数値(バイオマーカー)から統計的に計算した「体の老化の進み具合」の目安。
+    </div>
+    <div class="def-item">
+      <div class="dterm">クレメラ・ドーバル法(KDM)</div>
+      今回の研究で生物学的年齢を計算した手法の名前。大規模な人口調査(米国の健康調査NHANES)のデータを基準にして、血圧・コレステロール・血糖など複数のバイオマーカーから年齢を推定する統計的な方法。
+    </div>
+    <div class="def-item">
+      <div class="dterm">δAge(デルタエイジ)</div>
+      「KDM法で計算した生物学的年齢」から「実際の年齢(実年齢)」を引いた差。マイナスであるほど「実年齢より体が若い」と推定されることを意味する。
+    </div>
+    <div class="def-item">
+      <div class="dterm">2×2要因デザイン</div>
+      2種類の条件(今回は「脂質と糖質のどちらが多いか」と「たんぱく質が動物性か植物性中心か」)を「あり・なし」で組み合わせ、4つのグループを同時に比べられる試験のデザイン。
+    </div>
+    <div class="def-item">
+      <div class="dterm">オムニボア/セミベジタリアン</div>
+      オムニボアは動物性・植物性のたんぱく質を半分ずつ摂る食事、セミベジタリアンはたんぱく質の70%を植物性(豆・穀物など)から摂る食事。今回の試験ではどちらも「完全に肉を断つ」わけではない。
+    </div>
+    <div class="def-item">
+      <div class="dterm">ランダム化比較試験(RCT)</div>
+      参加者をランダム(くじ引きのように無作為)に複数のグループへ振り分けて比較する試験デザイン。「たまたま健康意識の高い人が多かった」などの偏りが起きにくく、観察研究より因果関係に近づきやすいとされる。
+    </div>
+  </div>
+</div>
+
+<!-- 数字カード -->
+<div class="num-row">
+  <div class="num-card">
+    <div class="big">104<span class="unit">人</span></div>
+    <div class="desc">ランダムに4群へ割り当てられた参加者数</div>
+  </div>
+  <div class="num-card blue-bg">
+    <div class="big">65〜75<span class="unit">歳</span></div>
+    <div class="desc">参加者の年齢層</div>
+  </div>
+  <div class="num-card orange-bg">
+    <div class="big">4<span class="unit">群</span></div>
+    <div class="desc">2×2要因デザインによる食事グループ数</div>
+  </div>
+  <div class="num-card purple-bg">
+    <div class="big">4<span class="unit">週間</span></div>
+    <div class="desc">食事介入の期間</div>
+  </div>
+</div>
+
+<!-- 試験の流れ -->
+<div class="card purple">
+  <h2>🔬 試験の流れを図にすると</h2>
+  <div class="flow">
+    <div class="flow-step">65〜75歳の104人を<br>4つの食事群へ<br>ランダムに割り当て</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">4週間、指定された<br>脂質・糖質・たんぱく質<br>源の割合の食事を継続</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step alt">血液検査などの数値から<br>KDM法で生物学的年齢<br>(δAge)を算出</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step purp">食事前と比べて<br>δAgeがどう変化したか<br>4群で比較</div>
+  </div>
+</div>
+
+<!-- 4群比較表 -->
+<div class="card blue">
+  <h2>📊 4つの食事グループ、結果はどう違った?</h2>
+  <table class="ev-table">
+    <tr><th>グループ</th><th>たんぱく質の源</th><th>脂質・糖質の傾向</th><th>δAge(生物学的年齢)の変化</th></tr>
+    <tr><td>OHF(オムニボア高脂肪)</td><td>動物性50%・植物性50%</td><td>高脂肪・低糖質</td><td>目立った変化なし(比較の基準群)</td></tr>
+    <tr><td>OHC(オムニボア高糖質)</td><td>動物性50%・植物性50%</td><td>脂質28〜29%・糖質53%</td><td>OHF群と比べて統計的に有意に低下(最も強い証拠)</td></tr>
+    <tr><td>VHF(セミベジタリアン高脂肪)</td><td>植物性70%・動物性30%</td><td>高脂肪・低糖質</td><td>OHF群と比べて低下する傾向(有意性は一様でない)</td></tr>
+    <tr><td>VHC(セミベジタリアン高糖質)</td><td>植物性70%・動物性30%</td><td>低脂肪・高糖質</td><td>OHF群と比べて低下する傾向(有意性は一様でない)</td></tr>
+  </table>
+  <p style="font-size:0.82rem; color:#555;">※ どの群もたんぱく質はエネルギー全体の14%で統一されており、違いは「脂質と糖質の比率」「たんぱく質を動物性・植物性のどちらから多く摂るか」の2点だけ。もっとも変化前の食生活に近かったOHF(高脂肪)群では目立った変化がなく、脂質を減らして糖質を増やしたOHC群でもっとも一貫した低下が見られました。VHF・VHCの脂質・糖質の具体的な割合や、コレステロール・インスリン・血圧など個々のバイオマーカーの数値変化は、当セッションのネットワーク制限により論文本文で確認できていません。</p>
+</div>
+
+<!-- 評価:エビデンスの強さ -->
+<div class="card orange">
+  <h2>⚖️ この結果、どこまで信じてよい?</h2>
+  <span class="ev-badge ev-high">研究デザイン:ランダム化比較試験(RCT)</span>
+  <div class="matrix">
+    <div class="mx-cell ok">
+      <div class="mx-head">✅ 比較的しっかりした点</div>
+      観察研究ではなくRCTであり、参加者をランダムに4群へ振り分けているため、「もともと健康意識の高い人が偏って集まった」といった交絡が起きにくい。2×2要因デザインなので、「脂質・糖質の比率」と「たんぱく質の源」という2つの要因を分けて検討できる。
+    </div>
+    <div class="mx-cell ng">
+      <div class="mx-head">❓ 慎重に読みたい点</div>
+      参加者は104人で4群に分けると1群あたり26人程度と小規模。介入期間もわずか4週間と短い。測定されたのは「病気になったか・寿命が延びたか」ではなく、血液の数値から統計的に推定した"代理指標"(δAge)にとどまる。単一の研究チームによる1試験であり、他チームによる追試(再現)はまだない。
+    </div>
+  </div>
+  <p style="font-size:0.85rem; color:#555; margin-top:10px;">研究チーム自身も「この変化が長期的に病気のリスクを下げるかどうか、他の年齢層でも同じ効果があるかどうかを確かめるには、より大規模で長期の研究が必要」と述べていると複数の報道で伝えられています。「4週間で老化が逆転した」という見出しだけを切り取らず、"何を測った結果なのか"まで見ることが大切です。</p>
+</div>
+
+<!-- なぜ注目すべきか -->
+<div class="card">
+  <h2>🧪 なぜ、たんぱく質の量より"脂質と糖質の比率"に注目が集まるのか</h2>
+  <ul class="step-list">
+    <li>4グループとも、たんぱく質の摂取量そのものはエネルギー比14%で揃えられていた。つまり「たんぱく質を増やす・減らす」ではなく、「余った分のエネルギーを脂質と糖質のどちらから多く摂るか」だけを変えた試験だった。</li>
+    <li>もっとも一貫した変化が見られたのは、脂質を減らして糖質(炭水化物)を増やしたOHC群。一方、参加者のもとの食生活に近かった高脂肪群(OHF)では目立った変化が見られなかった。</li>
+    <li>生物学的年齢の計算に使われたKDM法は、血圧・コレステロール・血糖など複数のバイオマーカーを組み合わせた指標であり、特定の1つの数値だけで「老化が進んだ・遅れた」と判断しているわけではない。</li>
+    <li>ただし、これは「糖質を増やせば誰でも若返る」という単純な話ではない。今回の対象は健康な高齢者104人に限られ、糖尿病など血糖コントロールに注意が必要な人にそのまま当てはまるとは限らない。</li>
+  </ul>
+</div>
+
+<!-- 実践 -->
+<div class="card orange">
+  <h2>🩺 今日から意識できること</h2>
+  <ul class="step-list">
+    <li>「〇〇を食べれば老化が逆転する」という見出しを見たら、測定されたのが実際の病気・寿命なのか、それとも血液検査などから推定した"代理指標"なのかを確認する習慣をつける。</li>
+    <li>今回の研究は104人・4週間という小規模・短期間の1試験にすぎない。同じ結果が別の集団や、より長い期間でも再現されるかは今後の研究を待つ必要がある。</li>
+    <li>脂質・糖質・たんぱく質のバランスを大きく変える食事法(高脂肪・低糖質食など)を始める前には、血糖値や脂質異常症など持病の有無によって向き・不向きが大きく変わるため、自己判断ではなくかかりつけ医・管理栄養士に相談する。</li>
+    <li>「体に良い食事」は年齢・持病・体質によって最適な形が変わりうる、という精密栄養学の視点を持ちながら、極端な食事制限には踏み込まないことが大切。</li>
+  </ul>
+</div>
+
+<!-- まとめ -->
+<div class="card" style="border-left-color:#1a7a5a;">
+  <h2>✅ 今日のまとめ</h2>
+  <ul class="step-list">
+    <li>シドニー大学のCaitlin J. Andrewsさんらのチームが、65〜75歳の健康な高齢者104人を対象に、脂質・糖質の比率とたんぱく質の源(動物性/植物性)を組み合わせた4種類の食事を4週間比べる2×2要因のランダム化比較試験(RCT)をAging Cell誌に発表(2026年4月27日オンライン公開、DOI: 10.1111/acel.70507)。</li>
+    <li>血液の数値からKDM法で算出した生物学的年齢(δAge)は、脂質を減らし糖質を増やしたグループ(OHC)でもっとも一貫して低下し、もとの食生活に近い高脂肪グループ(OHF)では目立った変化がなかった。</li>
+    <li>これはランダム化比較試験という比較的信頼性の高い設計だが、参加人数104人(1群26人程度)・期間4週間という小規模・短期間の単独試験であり、測定されたのは病気や寿命そのものではなく血液検査から推定した代理指標である点には注意が必要。</li>
+    <li>研究チーム自身も、長期的な健康への影響や他の年齢層での再現性については、まだ結論を出せる段階ではないとしている。</li>
+  </ul>
+</div>
+
+<!-- 免責 -->
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、医療アドバイスではありません。効果・必要量・リスクは個人の体質・年齢・持病・服薬によって大きく異なります。脂質・糖質・たんぱく質のバランスを大きく変える食事法を検討する場合、特に糖尿病・脂質異常症などの持病がある方は、自己判断をせず、かかりつけ医・薬剤師・管理栄養士など専門家にご相談ください。本記事は特定の食事制限・サプリメント・断食などを推奨するものではありません。
+</div>
+
+<!-- 出典 -->
+<div class="sources">
+  <h3>📚 主な出典・参考文献</h3>
+  <ol>
+    <li>Andrews CJ, Ribeiro RV, Gosby A, Le Couteur DG, Raubenheimer D, Tan J, Simpson SJ, Senior AM. "Short-Term Dietary Intervention Alters Physiological Profiles Relevant to Ageing." <em>Aging Cell</em>. 2026;25(5). DOI: 10.1111/acel.70507(2026年4月27日オンライン公開、PMID: 42037549、シドニー大学Charles Perkins Centre「Nutrition for Healthy Living」研究)。
+      <a href="https://doi.org/10.1111/acel.70507" target="_blank">https://doi.org/10.1111/acel.70507</a>(基準日:2026年9月。当セッションのネットワーク制限により onlinelibrary.wiley.com・pubmed.ncbi.nlm.nih.gov・pmc.ncbi.nlm.nih.gov への直接アクセスはできず、検索エンジン経由で得られた複数の要約〈研究デザイン・対象人数・年齢層・4群の構成・KDM法とδAgeという評価指標・OHF群を基準にした群間比較の方向性に関する記述〉が独立に一致する範囲で記載。VHF・VHC群の脂質・糖質の正確な割合、コレステロール・インスリン・血圧など個々のバイオマーカーの具体的な変化量・95%信頼区間・p値、研究者の直接引用コメントの原文は論文本文でしか確認できておらず未確認)
+    </li>
+    <li>The University of Sydney. "Dietary changes in older people can improve 'biological age'." 2026年5月12日発表。
+      <a href="https://www.sydney.edu.au/news-opinion/news/2026/05/12/dietary-changes-in-older-people-can-improve--biological-age-.html" target="_blank">https://www.sydney.edu.au/news-opinion/news/2026/05/12/dietary-changes-in-older-people-can-improve--biological-age-.html</a>(基準日:2026年9月。上記1の一次論文についての大学公式プレスリリース。研究チームの見解の引用元として、当セッションからは直接アクセスできず検索エンジン経由の要約で参照)
+    </li>
+  </ol>
+  <p style="margin-top:8px; font-size:0.78rem;">※ 本記事はネットワーク制限により、上記の一次資料・大学プレスリリースに本セッションから直接アクセスできなかったため、検索エンジンで得られる複数の独立した要約を突き合わせ、内容が一致した範囲に限定して記載しています。具体的な統計値(信頼区間・p値など)や研究者コメントの原文引用は含めず、確認できた範囲(研究デザイン・対象人数・年齢層・4群の構成・評価指標・群間比較の方向性)にとどめました。最新かつ正確な数値は、上記DOI先で改めてご確認いただくことをお勧めします。</p>
+</div>
+
+</div>
+</body>
+</html>
