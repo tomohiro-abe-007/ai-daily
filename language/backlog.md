@@ -39,7 +39,7 @@
 - vos sos(serの不規則vos活用)など、vosの数少ない不規則動詞のまとめ── 09-21の規則パターンの例外編
 - グアテマラ・ホンジュラスなどusted/tú/vosの3段階敬称を使い分ける国の実例── 09-21で触れた中米の3段階敬称をもう1段掘り下げる
 - スペイン語のverbos pronominales(caerse/morirseなど、再帰形と非再帰形の両方が使える動詞)── 09-26のlevantarse型(常に再帰)との違い、意味やニュアンスがどう変わるかを整理する
-- スペイン語のquedarse/irse/dormirseなど「動詞+seで完了・変化のニュアンスが加わる」タイプの整理── 09-27のdivertir/divertirse(他動詞→再帰で意味が変わる)の発展、意味が変わるパターンをもっと広く見る
+- スペイン語のcomer/comerse・beber/beberseなど「対象を完全に食べきる・飲みきる」se aspectual(アスペクトのse)── 09-28のir/dormir/quedarの発展、対象語(目的語)がある動詞に付くタイプのse aspectualを扱う
 
 ## 解説済みテーマ
 
@@ -146,3 +146,4 @@
 - 2026-09-26: 英語の再帰代名詞(myself/yourself/themselvesなど)とスペイン語の再帰動詞(levantarseなど)の対応 ── 09-25で総整理した再帰命令の発展、英語は動詞+代名詞の「足し算」・スペイン語は不定詞自体がseを含む専用語彙という仕組みの違いを対比し、despertarseのように英語ではmyselfを付けない訳になる落とし穴も整理した
 - 2026-09-27: 英語の「再帰代名詞が必須の動詞」の仕分け(pride oneself on/avail oneself of/perjure oneselfなど「常に再帰」のグループと、enjoy oneself/behave oneselfなど「意味によって再帰になる」グループ) ── 09-26のつまずきポイント③の発展、oneselfを外すと文が成立しない専用動詞と、oneselfの有無で意味が切り替わる動詞を仕分け、スペイン語のdivertir(他動詞)→divertirse(再帰で意味が変わる)との対応も紹介した
 - 2026-09-25: 再帰動詞の命令文における代名詞位置の総復習（tú/usted/vos/nosotros/vosotrosの5人称で、肯定命令は代名詞がうしろにくっつき・否定命令は前に離れる対比をクイズ形式で総整理）── 09-13の再帰動詞・09-23のvos否定命令・09-24のアクセント変化を踏まえ、5人称すべての肯定形・否定形を一覧化し、vosの否定命令だけtú形に合流する点も再確認した
+- 2026-09-28: スペイン語のir/dormir/quedarにseを足すと意味が変わる3ペア（ir→irse「行く→立ち去る」、dormir→dormirse「眠る→眠りに落ちる」、quedar→quedarse「残る・待ち合わせる→とどまる」）── 09-27のdivertir/divertirseの発展、意味の主体が変わるパターンとは別の「完了・変化の瞬間を示すse aspectual」を扱い、英語は単語ごと言い換える(go/leave, sleep/fall asleep, stay)がスペイン語は語根+seで対応する点を整理した
