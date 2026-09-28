@@ -2,6 +2,11 @@
 
 今後の記事候補。使ったテーマは削除し、新しく見つけた有望テーマは追記する。
 
+## 未使用テーマ(追記:2026-09-29 検索で見つけた有望テーマ)
+
+- 09-29記事(睡眠延長×遊離糖類、Al Khatib HK et al., Am J Clin Nutr 2018;107(1):43-53)の続報候補 ── 睡眠を延ばす介入の大規模・長期RCTや、睡眠改善CBT-Iによる食の好みの変化を調べたRCT(Appetite 2025、ScienceDirect S0195666325001758)の中身は未確認。結果・人数・統計値を一次確認できれば深掘り記事化を検討。ネットワーク制限(pmc.ncbi.nlm.nih.gov等)で本文未確認
+- Lancet Diabetes Endocrinol 2026論説「Sleep your way to better metabolic health」(PMID 41833290)で触れられている、小児期の睡眠と代謝病予防の根拠 ── 論説の引用元研究を確認できれば別記事化を検討
+
 ## 未使用テーマ(追記:2026-09-28 検索で見つけた有望テーマ)
 
 - 09-28記事(Andrews CJ, Ribeiro RV, Gosby A, Le Couteur DG, Raubenheimer D, Tan J, Simpson SJ, Senior AM, Aging Cell 2026;25(5), DOI: 10.1111/acel.70507)の続報候補 ── VHF・VHC群の脂質・糖質の正確な割合、コレステロール・インスリン・血圧など個々のバイオマーカーの具体的な変化量・95%信頼区間・p値、研究チームの直接引用コメントの原文、より大規模・長期の追試や他の年齢層での再現研究が発表されれば深掘り記事化を検討。ネットワーク制限(onlinelibrary.wiley.com・pubmed.ncbi.nlm.nih.gov・pmc.ncbi.nlm.nih.gov・sydney.edu.auがブロック対象)で本文・大学プレスリリース原文未確認

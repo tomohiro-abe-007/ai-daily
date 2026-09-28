@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-09-29</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '🌙';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.35rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.9rem; margin-bottom: 8px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.1em; }
+  .c3-col li { margin-bottom: 4px; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  .quote-box {
+    background: #f5f0e8;
+    border-left: 4px solid #7a5abf;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    margin: 12px 0;
+    color: #444;
+    font-style: italic;
+  }
+  .quote-box .who { font-style: normal; font-weight: 700; color: #5a3a9a; margin-top: 6px; font-size: 0.78rem; }
+  .matrix {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .mx-cell {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .mx-cell .mx-head { font-weight: 700; font-size: 0.88rem; margin-bottom: 6px; }
+  .mx-cell.ok  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .mx-cell.ok  .mx-head { color: #1a6e4a; }
+  .mx-cell.ng  { background: #fbe8e6; border: 2px solid #c0392b; }
+  .mx-cell.ng  .mx-head { color: #a0291e; }
+  .subtype-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .subtype-card {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.84rem;
+  }
+  .subtype-card .st-head { font-weight: 700; font-size: 0.92rem; margin-bottom: 8px; }
+  .subtype-card .st-bar {
+    height: 10px;
+    border-radius: 5px;
+    background: #eee;
+    overflow: hidden;
+    margin: 6px 0 4px;
+  }
+  .subtype-card .st-bar-fill { height: 100%; }
+  .subtype-card.st-green { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .subtype-card.st-green .st-head { color: #1a6e4a; }
+  .subtype-card.st-orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .subtype-card.st-orange .st-head { color: #b85e10; }
+  .subtype-card.st-red { background: #fbe8e6; border: 2px solid #c0392b; }
+  .subtype-card.st-red .st-head { color: #a0291e; }
+  @media (max-width: 540px) {
+    .compare4 { grid-template-columns: 1fr; }
+    .matrix { grid-template-columns: 1fr; }
+    .subtype-grid { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.7rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="header">
+  <div class="label">健康・栄養 最新トピック ・ 2026-09-29</div>
+  <h1>睡眠をたった21分のばしたら、砂糖の摂取が減った? ──42人・4週間の小さなRCTと、2026年の論説から読む「睡眠と食欲」</h1>
+  <div class="subtitle">「寝不足だと甘いものが欲しくなる」は本当なのか。英国キングス・カレッジ・ロンドンのチームが、眠りが短めの健康な成人42人を「睡眠をのばす群」と「そのまま群」に分けて4週間比べた小規模ランダム化比較試験(RCT)を手がかりに、この話をどこまで信じてよいかを一緒に考えます。</div>
+</div>
+
+<div style="margin-bottom:18px;">
+  <span class="tag">睡眠と健康</span>
+  <span class="tag">食欲・糖質</span>
+  <span class="tag">エビデンスの読み方</span>
+  <span class="tag">パイロット試験</span>
+</div>
+
+<div class="card">
+  <h2>🤔 今日の疑問:眠る時間を少しのばすだけで、食べ方まで変わるのか?</h2>
+  <p>睡眠不足だと食欲が乱れる、という話はよく聞きます。では逆に「睡眠を少し増やす」と、食事の内容は変わるのでしょうか。2018年にAl Khatibさんらが、この問いを実際に人でテストした試験を発表しました。なお、研究としては約8年前のものですが、2026年にはLancet Diabetes &amp; Endocrinology誌が「睡眠を代謝の健康の柱に」と訴える論説を出しており(後述)、いま改めて読み直す価値のあるテーマです。</p>
+</div>
+
+<div class="card blue">
+  <h2>📖 まず言葉の意味を</h2>
+  <div class="def-grid">
+    <div class="def-item"><div class="dterm">睡眠延長(スリープ・エクステンション)</div>普段より意図的に眠る時間を長くする取り組み。今回は睡眠衛生(寝る前の習慣や環境を整えること)の個別相談で促した。</div>
+    <div class="def-item"><div class="dterm">遊離糖類(フリーシュガー)</div>ジュース・お菓子・砂糖・はちみつなど、食品に加えられたり液体に溶け出したりしている糖。果物や野菜にもとから含まれる糖とは区別される。</div>
+    <div class="def-item"><div class="dterm">パイロット試験</div>本格的な大規模試験の前に、「そもそもこのやり方が実行できるか(実行可能性)」を小人数で確かめる予備的な試験。効果の証明が目的ではない。</div>
+    <div class="def-item"><div class="dterm">ランダム化比較試験(RCT)</div>参加者をくじ引きのようにグループ分けして比べる試験。偏りが起きにくく、観察研究より因果関係に近づきやすい。</div>
+  </div>
+</div>
+
+<div class="num-row">
+  <div class="num-card"><div class="big">42<span class="unit">人</span></div><div class="desc">18〜64歳の健康な成人(普段の睡眠が5時間以上7時間未満)</div></div>
+  <div class="num-card blue-bg"><div class="big">4<span class="unit">週間</span></div><div class="desc">介入期間(各群21人)</div></div>
+  <div class="num-card orange-bg"><div class="big">+21<span class="unit">分</span></div><div class="desc">睡眠時間の増加(対照群との差)</div></div>
+  <div class="num-card purple-bg"><div class="big">−9.6<span class="unit">g</span></div><div class="desc">遊離糖類の摂取量の変化(対照群は+0.7g、P=0.042)</div></div>
+</div>
+
+<div class="card purple">
+  <h2>🔬 試験の流れを図にすると</h2>
+  <div class="flow">
+    <div class="flow-step">眠りが短めの<br>健康な成人42人を<br>ランダムに2群へ</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">睡眠延長群(21人)<br>睡眠衛生の<br>個別相談を受ける</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step alt">4週間<br>ふだんの生活で実践</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step purp">睡眠と<br>食事内容を比較<br>(対照群は現状維持)</div>
+  </div>
+</div>
+
+<div class="card orange">
+  <h2>📊 結果:何がどれだけ変わったか</h2>
+  <table class="ev-table">
+    <tr><th>項目</th><th>睡眠延長群 vs 対照群</th></tr>
+    <tr><td>ベッドにいる時間</td><td>約55分 増加</td></tr>
+    <tr><td>睡眠期間(寝ついてから起きるまで)</td><td>約47分 増加</td></tr>
+    <tr><td>実際の睡眠時間</td><td>約21分 増加</td></tr>
+    <tr><td>遊離糖類の摂取量</td><td>−9.6g(対照群 +0.7g、P=0.042)</td></tr>
+  </table>
+  <p>つまり、ベッドにいる時間は約55分のびても、実際に眠れた時間の増加は約21分でした。「少しの睡眠の違いでも、食事の内容の違いと結びついて見えた」というのが、この試験が示したことです。</p>
+</div>
+
+<div class="card red">
+  <h2>⚠️ どこまで信じてよい? エビデンスの強さ</h2>
+  <table class="ev-table">
+    <tr><th>ポイント</th><th>評価</th></tr>
+    <tr><td>研究デザイン</td><td><span class="ev-badge ev-mid">RCT(ただしパイロット)</span></td></tr>
+    <tr><td>人数</td><td><span class="ev-badge ev-low">42人(1群21人)と小規模</span></td></tr>
+    <tr><td>期間</td><td><span class="ev-badge ev-low">4週間と短期</span></td></tr>
+    <tr><td>対象</td><td><span class="ev-badge ev-mid">睡眠が短めの健康な成人のみ</span></td></tr>
+    <tr><td>統計</td><td><span class="ev-badge ev-mid">P=0.042とぎりぎり(調べた項目が多いと偶然の可能性も上がる)</span></td></tr>
+  </table>
+  <div class="warn">
+    <strong>読み方の注意:</strong>この試験の主な目的は「睡眠をのばす指導が実行できるか」の確認で、砂糖が減るかどうかは「可能性を探る」位置づけでした。9.6gは角砂糖3個ほどに相当し、体重や病気の予防にどれだけ意味があるかはこの試験からは分かりません。また、結果を1本の小さな試験から一般化すべきではなく、この結果を再現した大規模試験は、本記事の作成時点で確認できていません。原論文には後日訂正(コリジェンダム)も出ています。
+  </div>
+</div>
+
+<div class="card">
+  <h2>🧭 睡眠と食欲は、どうつながっていると考えられている?</h2>
+  <div class="matrix">
+    <div class="mx-cell ng"><div class="mx-head">😪 睡眠が足りないとき</div>Lancet Diabetes &amp; Endocrinology誌の論説(2026年)は、睡眠不足が食欲や満腹感に関わるホルモンを乱し、エネルギー密度の高い食べ物への欲求を強めうると解説しています。</div>
+    <div class="mx-cell ok"><div class="mx-head">😴 睡眠が足りたとき</div>今回のような小規模試験では、睡眠を少しのばした群で甘いものの摂取が減る傾向が見られました。ただし「仕組み」までは、この試験だけでは証明されていません。</div>
+  </div>
+  <p>同じ論説は、睡眠を「ぜいたく」ではなく生物学的に欠かせないものと位置づけ、特に子どもの代謝病の予防を含む公衆衛生政策に睡眠を含める機会があると述べています。ただしこれは論説(意見・解説)であり、新しい試験データではありません。</p>
+</div>
+
+<div class="card blue">
+  <h2>💡 今日のまとめ(個人が持ち帰れること)</h2>
+  <ol class="step-list">
+    <li><span>「睡眠を少しのばしたら甘いものが減った」という報告はあるが、42人・4週間のパイロット試験1本で、効果が確定したわけではない。</span></li>
+    <li><span>実際の睡眠の増加は約21分。「ベッドにいる時間」と「眠れた時間」は別物。</span></li>
+    <li><span>睡眠と食欲の関係は有望な研究分野だが、砂糖を減らす目的で睡眠を変える、といった使い方を勧める根拠はまだ弱い。</span></li>
+    <li><span>睡眠の悩みが強いときや、糖尿病などの持病があるときは、自己判断せず医師などに相談を。</span></li>
+  </ol>
+</div>
+
+<div class="sources">
+  <h3>📚 主な出典・参考文献</h3>
+  <ol>
+    <li>Al Khatib HK, et al. "Sleep extension is a feasible lifestyle intervention in free-living adults who are habitually short sleepers: a potential strategy for decreasing intake of free sugars? A randomized controlled pilot study." <em>Am J Clin Nutr</em>. 2018;107(1):43-53.
+      <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5972593/" target="_blank">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5972593/</a>(基準日:2026年9月。検索結果の要約で人数・数値を確認。本文へは本セッションのネットワーク制限で直接アクセスできていません)
+    </li>
+    <li>同論文の訂正(Corrigendum). PubMed.
+      <a href="https://pubmed.ncbi.nlm.nih.gov/29635508/" target="_blank">https://pubmed.ncbi.nlm.nih.gov/29635508/</a>(基準日:2026年9月。訂正内容の詳細は未確認)
+    </li>
+    <li>"Sleep your way to better metabolic health." <em>Lancet Diabetes Endocrinol</em>. 2026(オンライン公開:2026年3月12日、誌面:2026年4月)。論説。
+      <a href="https://pubmed.ncbi.nlm.nih.gov/41833290/" target="_blank">https://pubmed.ncbi.nlm.nih.gov/41833290/</a>(基準日:2026年9月)
+    </li>
+    <li>HealthDay. "Sleep Extension Can Lead to Reduced Free Sugar Intake."(二次報道・補足のみ)
+      <a href="https://consumer.healthday.com/internal-medicine-21/food-and-nutrition-news-316/sleep-extension-can-lead-to-reduced-free-sugar-intake-730165.html" target="_blank">HealthDay</a>(基準日:2026年9月)
+    </li>
+  </ol>
+</div>
+
+<div class="disclaimer">
+  ⚠️ 本記事は一般的な情報であり、医療アドバイスではありません。効果・必要量・リスクは、個人の体質・年齢・持病・服薬によって大きく変わります。睡眠や食事を大きく変える前に、かかりつけ医・管理栄養士・薬剤師などの専門家にご相談ください。特定の食事制限・サプリメント・断食などを安易に始めることはお勧めしません。
+</div>
+
+</div>
+</body>
+</html>
