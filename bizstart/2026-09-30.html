@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-09-30</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #2a4d7a 0%, #10233f 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #2a4d7a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.blue   { border-left-color: #1e5a7a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.green  { border-left-color: #1e7a5a; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #2a4d7a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin: 14px 0;
+  }
+  .stats-row.c3 { grid-template-columns: repeat(3, 1fr); }
+  .stats-row.c2 { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 12px 6px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat.now { background: #fff3e0; box-shadow: 0 0 0 2px #c8884a inset; }
+  .stat .sl { font-size: 0.62rem; color: #888; margin-bottom: 3px; line-height: 1.4; }
+  .stat .sv { font-size: 1.05rem; font-weight: 700; color: #2a4d7a; line-height: 1.15; }
+  .stat.now .sv { color: #c8884a; }
+  .stat .su { font-size: 0.62rem; color: #666; margin-top: 2px; }
+
+  .bignum {
+    background: white;
+    border-radius: 12px;
+    padding: 18px 14px;
+    text-align: center;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.1);
+    border: 2px dashed #c8884a;
+    margin: 14px 0;
+  }
+  .bignum .bl { font-size: 0.76rem; color: #888; margin-bottom: 6px; }
+  .bignum .bv { font-size: 1.7rem; font-weight: 700; color: #c8884a; line-height: 1.3; }
+  .bignum .bs { font-size: 0.76rem; color: #666; margin-top: 6px; line-height: 1.6; }
+
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #2a4d7a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-num.now { background: #b54040; }
+  .f-num.later { background: #999; }
+  .f-num.opt { background: #c8884a; }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+  .f-arrow { color: #2a4d7a; font-size: 1.1rem; margin-left: 14px; margin-bottom: 4px; }
+
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  table.cmp {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.83rem;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.08);
+  }
+  table.cmp th, table.cmp td {
+    border: 1px solid #e4dccd;
+    padding: 9px 10px;
+    line-height: 1.55;
+    vertical-align: top;
+  }
+  table.cmp thead th { background: #2a4d7a; color: white; font-weight: 600; text-align: center; }
+  table.cmp tbody th { background: #f5efe2; color: #5a4020; text-align: left; font-weight: 600; white-space: nowrap; }
+  table.cmp td { color: #444; text-align: left; }
+  table.cmp td.hi { background: #fff3e0; font-weight: 700; color: #c8884a; }
+  .wrap-x { overflow-x: auto; }
+
+  .prompt-box {
+    background: #f0f5ff;
+    border: 2px solid #4a6aae;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 12px 0;
+    font-size: 0.84rem;
+    line-height: 1.85;
+    color: #1a2a4a;
+  }
+  .prompt-box .ph {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #4a6aae;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+  .prompt-box .fill {
+    background: #d0e0ff;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-weight: 700;
+    color: #0a2a6e;
+  }
+
+  .info {
+    background: #e8eef8;
+    border-left: 4px solid #2a4d7a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #16294a;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #7a4010;
+  }
+
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #2a4d7a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #2a4d7a; word-break: break-all; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #2a4d7a; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+  <div class="meta">📅 1人法人スタート 最新トピック &nbsp;2026-09-30</div>
+  <h1>🧮 軽減税率15%の期限と、<br>「会社の税金ぜんぶ」でどれくらいか</h1>
+  <div class="desc">
+    <span class="htag">法人税</span>
+    <span class="htag">軽減税率</span>
+    <span class="htag">実効税率</span>
+    <span class="htag">令和8年度</span>
+    <br>
+    9/29記事では法人税だけの概算を見ました。今日はその続き。<span class="hl">軽減税率15%はいつまでの制度か</span>、そして法人税のほかに<span class="hl">地方の税金も足すと、もうけのどれくらいが税金になるのか</span>を、ざっくり図で確認します。
+  </div>
+</div>
+
+<div class="card blue">
+  <div class="sec-title">⏳ ① 軽減税率15%の「期限」</div>
+  <p>資本金1億円以下の中小法人は、年800万円以下の所得の部分に軽い税率(15%)がかかります。これは「期限つきの特例」で、令和7年度の税制改正で<strong>2年間延長</strong>されました。</p>
+  <div class="stats-row c3">
+    <div class="stat"><div class="sl">軽減税率</div><div class="sv">15%</div><div class="su">年800万円以下の所得</div></div>
+    <div class="stat now"><div class="sl">適用期限</div><div class="sv">令和9年3月31日</div><div class="su">までに開始する事業年度</div></div>
+    <div class="stat"><div class="sl">大きな会社は</div><div class="sv">17%</div><div class="su">所得10億円超の年度</div></div>
+  </div>
+  <div class="info">💡 「期限」は<strong>決算日ではなく、事業年度が始まる日</strong>で見ます。たとえば令和9年3月31日までに始まる年度なら対象、というイメージです。</div>
+  <div class="warn">⚠️ 令和9年4月以降に始まる年度については、今後の税制改正で決まります。今日時点で私が確認できたのは上記の内容までです。来年度の改正大綱(例年12月ごろ)が出たら、必ず最新情報を確認しましょう。</div>
+  <div class="source">📚 出典:中小企業庁「法人税率の軽減」<a href="https://www.chusho.meti.go.jp/zaimu/zeisei/tokurei/houjin_keigen.html">https://www.chusho.meti.go.jp/zaimu/zeisei/tokurei/houjin_keigen.html</a>(基準:令和7年度改正後・令和8年度時点)</div>
+</div>
+
+<div class="card orange">
+  <div class="sec-title">🧩 ② 会社にかかる税金は「4つ」が重なる</div>
+  <p>「法人税15%」だけを見ると安く感じますが、実際は<strong>国の税金と地方の税金が重なって</strong>かかります。</p>
+  <div class="wrap-x"><table class="cmp">
+    <thead><tr><th>税金</th><th>だれの税金?</th><th>もとになるもの</th></tr></thead>
+    <tbody>
+      <tr><th>法人税</th><td>国</td><td>会社の所得(もうけ)</td></tr>
+      <tr><th>地方法人税</th><td>国(地方に配分)</td><td>法人税の額</td></tr>
+      <tr><th>法人住民税<br>(法人税割+均等割)</th><td>都道府県・市区町村</td><td>法人税の額+赤字でも定額</td></tr>
+      <tr><th>法人事業税</th><td>都道府県</td><td>会社の所得(3段階の税率)</td></tr>
+    </tbody>
+  </table></div>
+  <p>それぞれの基礎は、法人住民税(7/24記事)・法人事業税(7/25記事)・法人税(9/29記事)で扱っています。</p>
+</div>
+
+<div class="card green">
+  <div class="sec-title">📊 ③ ざっくり試算:所得800万円の場合</div>
+  <p>次の<strong>単純化した前提</strong>で足し算してみます。(あくまで理解のための目安で、実際の金額ではありません)</p>
+  <ul class="check-list">
+    <li><span class="ck">✓</span>所得は800万円、全部が15%の対象</li>
+    <li><span class="ck">✓</span>地方法人税=法人税額の10.3%、法人住民税の法人税割=法人税額の7%(標準的な税率の想定)</li>
+    <li><span class="ck">✓</span>事業税は所得割の標準税率(400万円以下3.5%・400万円超800万円以下5.3%)、特別法人事業税は事業税額の37%の想定</li>
+    <li><span class="ck-bad">✗</span>均等割(赤字でもかかる定額)・自治体ごとの違い・税額控除・事業税の損金算入は含めない</li>
+  </ul>
+  <div class="wrap-x"><table class="cmp">
+    <thead><tr><th>税金</th><th>計算</th><th>目安額</th></tr></thead>
+    <tbody>
+      <tr><th>法人税</th><td>800万円 × 15%</td><td>120万円</td></tr>
+      <tr><th>地方法人税</th><td>120万円 × 10.3%</td><td>約12.4万円</td></tr>
+      <tr><th>法人住民税(法人税割)</th><td>120万円 × 7%</td><td>約8.4万円</td></tr>
+      <tr><th>法人事業税</th><td>400万円×3.5% + 400万円×5.3%</td><td>35.2万円</td></tr>
+      <tr><th>特別法人事業税</th><td>35.2万円 × 37%</td><td>約13.0万円</td></tr>
+    </tbody>
+  </table></div>
+  <div class="bignum">
+    <div class="bl">🧮 合計の目安(均等割を除く)</div>
+    <div class="bv">約189万円 ≒ 所得の約23.6%</div>
+    <div class="bs">「法人税15%」のほかに、地方の税金が約8.6ポイント分上乗せされるイメージです</div>
+  </div>
+  <div class="warn">⚠️ 上の税率の数字は、この記事の作成環境では国税庁・地方自治体の公式ページを直接開けず、一般的な標準税率にもとづいて置いた想定値です。実際の税率は自治体(東京23区など)や資本金・事業年度によって異なります。<strong>必ず国税庁・お住まいの都道府県の最新情報か、税理士の試算で確認してください。</strong></div>
+</div>
+
+<div class="card red">
+  <div class="sec-title">🪜 ④ 1人社長が今日からできる3ステップ</div>
+  <div class="f-step"><div class="f-num">1</div><div class="f-text"><strong>自社の事業年度の開始日を確認</strong>──軽減税率の期限(令和9年3月31日)に関係します</div></div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step"><div class="f-num opt">2</div><div class="f-text"><strong>予想所得から税金の総額をざっくり見積もる</strong>──資金繰りの「税金を払う分のお金」を先に確保</div></div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step"><div class="f-num now">3</div><div class="f-text"><strong>決算前に税理士へ正確な試算を依頼</strong>──役員報酬の水準とセットで検討</div></div>
+  <div class="info">🤖 生成AIに「所得800万円のとき、法人税・住民税・事業税の関係を中学生向けに説明して」と頼むと理解が進みます。ただし税率の数字は必ず公的情報で確かめましょう。</div>
+</div>
+
+<div class="card">
+  <div class="sec-title">📝 今日のまとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">①</span>軽減税率15%(年800万円以下)は、<strong>令和9年3月31日までに開始する事業年度</strong>が対象(令和7年度改正で2年延長)。</li>
+    <li><span class="n">②</span>会社の税金は<strong>法人税・地方法人税・法人住民税・法人事業税</strong>が重なる。</li>
+    <li><span class="n">③</span>標準的な想定の試算では、所得800万円で合計は<strong>所得の約2割強</strong>(約23.6%)。</li>
+    <li><span class="n">④</span>令和9年4月以降の扱いは今後の改正しだい。年末の税制改正大綱をチェック。</li>
+  </ul>
+</div>
+
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、税務・法務の個別アドバイスではありません。会社の状況(資本金・所在地・事業年度など)により結論は変わります。
+  具体的な判断は、税理士・社会保険労務士・司法書士などの専門家にご相談ください。<br>
+  <strong>本記事の基準年度:</strong>令和8年度(2026年度)。制度・税率・金額は改正される場合があります。
+</div>
+
+<div class="footer">
+  <p>📚 <a href="index.html">バックナンバー一覧へ</a> &nbsp;&middot;&nbsp; 毎朝更新</p>
+</div>
+
+</div>
+</body>
+</html>
