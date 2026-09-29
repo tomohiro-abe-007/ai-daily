@@ -2,6 +2,11 @@
 
 今後の記事候補。使ったテーマは削除し、新しく見つけた有望テーマは追記する。
 
+## 未使用テーマ(追記:2026-09-30 検索で見つけた有望テーマ)
+
+- 09-30記事(TREAD試験、Wilkinson MJ et al., Obesity 2026;34(7):1395-1408, DOI: 10.1002/oby.70228)の続報候補 ── 脂肪組織RNA-seqの具体的な結果、血圧・血糖・除脂肪量などの副次評価、資金源・利益相反が本文で確認できれば深掘り記事化を検討。Liuら(NEJM 2022)の数値の再確認も必要。ネットワーク制限(wiley.com・pubmed・pmc)で本文未確認
+- Ann Intern Med 2024「Time-Restricted Eating in Adults With Metabolic Syndrome: A Randomized Controlled Trial」(https://www.acpjournals.org/doi/abs/10.7326/M24-0859)── 代謝症候群の成人でのTRE試験。人数・結果は未確認、確認できれば「TRE比較」回として検討
+
 ## 未使用テーマ(追記:2026-09-29 検索で見つけた有望テーマ)
 
 - 09-29記事(睡眠延長×遊離糖類、Al Khatib HK et al., Am J Clin Nutr 2018;107(1):43-53)の続報候補 ── 睡眠を延ばす介入の大規模・長期RCTや、睡眠改善CBT-Iによる食の好みの変化を調べたRCT(Appetite 2025、ScienceDirect S0195666325001758)の中身は未確認。結果・人数・統計値を一次確認できれば深掘り記事化を検討。ネットワーク制限(pmc.ncbi.nlm.nih.gov等)で本文未確認

@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-09-30</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '⏰';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.35rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.9rem; margin-bottom: 8px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.1em; }
+  .c3-col li { margin-bottom: 4px; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  .quote-box {
+    background: #f5f0e8;
+    border-left: 4px solid #7a5abf;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    margin: 12px 0;
+    color: #444;
+    font-style: italic;
+  }
+  .quote-box .who { font-style: normal; font-weight: 700; color: #5a3a9a; margin-top: 6px; font-size: 0.78rem; }
+  .matrix {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .mx-cell {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .mx-cell .mx-head { font-weight: 700; font-size: 0.88rem; margin-bottom: 6px; }
+  .mx-cell.ok  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .mx-cell.ok  .mx-head { color: #1a6e4a; }
+  .mx-cell.ng  { background: #fbe8e6; border: 2px solid #c0392b; }
+  .mx-cell.ng  .mx-head { color: #a0291e; }
+  .subtype-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .subtype-card {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.84rem;
+  }
+  .subtype-card .st-head { font-weight: 700; font-size: 0.92rem; margin-bottom: 8px; }
+  .subtype-card .st-bar {
+    height: 10px;
+    border-radius: 5px;
+    background: #eee;
+    overflow: hidden;
+    margin: 6px 0 4px;
+  }
+  .subtype-card .st-bar-fill { height: 100%; }
+  .subtype-card.st-green { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .subtype-card.st-green .st-head { color: #1a6e4a; }
+  .subtype-card.st-orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .subtype-card.st-orange .st-head { color: #b85e10; }
+  .subtype-card.st-red { background: #fbe8e6; border: 2px solid #c0392b; }
+  .subtype-card.st-red .st-head { color: #a0291e; }
+  @media (max-width: 540px) {
+    .compare4 { grid-template-columns: 1fr; }
+    .matrix { grid-template-columns: 1fr; }
+    .subtype-grid { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.7rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="header">
+  <div class="label">健康・栄養 最新トピック ・ 2026-09-30</div>
+  <h1>食べる時間を「10時間」に絞ると、12週間で体重が約3kg多く減った? ──52人の小さなRCTと、「効果なし」とした過去の大きな試験を読み比べる</h1>
+  <div class="subtitle">「いつ食べるか」で体重は変わるのか。米国で行われた肥満のある成人61人(完了52人)のランダム化比較試験「TREAD」(Obesity誌 2026年)を手がかりに、時間制限食(TRE)の話をどこまで信じてよいかを考えます。</div>
+</div>
+
+<div style="margin-bottom:18px;">
+  <span class="tag">時間制限食</span>
+  <span class="tag">体重・代謝</span>
+  <span class="tag">エビデンスの読み方</span>
+  <span class="tag">賛否が分かれる話題</span>
+</div>
+
+<div class="card">
+  <h2>🤔 今日の疑問:食べる量を変えなくても、食べる「時間帯」を絞るだけで体重は減る?</h2>
+  <p>朝から夜遅くまでだらだら食べる人が、食べてよい時間を1日10時間に絞る。これが「時間制限食(TRE)」です。断食のように長く食べない日を作るわけではありませんが、結果として食べる量が減る人も多く、効果の中身(時間帯そのものか、量の減少か)は研究者の間でも議論があります。</p>
+</div>
+
+<div class="card blue">
+  <h2>📖 まず言葉の意味を</h2>
+  <div class="def-grid">
+    <div class="def-item"><div class="dterm">時間制限食(TRE)</div>食べてよい時間を1日のうち一定の枠(例:10時間)に決める方法。何を食べるかより「いつ食べるか」に注目する。</div>
+    <div class="def-item"><div class="dterm">標準的なケア(SOC)</div>対照群に行う、通常の食事・生活指導。今回はTREなしの標準的な指導。</div>
+    <div class="def-item"><div class="dterm">皮下脂肪組織</div>皮膚の下にある脂肪。今回はおなかの皮下脂肪を採取し、遺伝子の働き(RNA-seq)を一部の参加者で探索的に調べた。</div>
+    <div class="def-item"><div class="dterm">95%信頼区間</div>「本当の値はおそらくこの範囲」を示す幅。幅が狭いほど推定が安定している。</div>
+  </div>
+</div>
+
+<div class="num-row">
+  <div class="num-card"><div class="big">61<span class="unit">人</span></div><div class="desc">無作為に分けた人数(完了は52人:TRE 26人・SOC 26人)</div></div>
+  <div class="num-card blue-bg"><div class="big">12<span class="unit">週間</span></div><div class="desc">介入期間(1日10時間の食事枠 vs 標準ケア)</div></div>
+  <div class="num-card orange-bg"><div class="big">−4.59<span class="unit">kg</span></div><div class="desc">TRE群の体重変化(−4.6%、95%CI −5.51〜−3.67)</div></div>
+  <div class="num-card purple-bg"><div class="big">−2.91<span class="unit">kg</span></div><div class="desc">SOC群(−1.68kg)との群間差(p&lt;0.001)</div></div>
+</div>
+
+<div class="card purple">
+  <h2>🔬 試験の流れを図にすると</h2>
+  <div class="flow">
+    <div class="flow-step">BMI 30〜50、糖尿病なし、<br>普段の食事時間が<br>14時間以上の成人</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">1:1で無作為に<br>2群へ</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step alt">TRE群:10時間枠<br>SOC群:通常の指導</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step purp">12週後に体重<br>(主要評価項目)を比較</div>
+  </div>
+  <p>参加者の平均は年齢55±12.1歳、58%が女性、BMI 35.5±4.8。主要評価項目は体重の変化で、脂肪組織のRNA-seqは一部の参加者での探索的な解析です。</p>
+</div>
+
+<div class="card orange">
+  <h2>⚖️ 対比:今回の試験 vs 過去の大きな試験</h2>
+  <div class="compare4">
+    <div class="c3-col green">
+      <h3>✅ TREAD(2026年)</h3>
+      <ul>
+        <li>肥満のある成人、完了52人</li>
+        <li>12週間</li>
+        <li>10時間TRE vs 標準ケア</li>
+        <li>体重は群間で約2.9kg差</li>
+      </ul>
+    </div>
+    <div class="c3-col red">
+      <h3>❓ Liuら(2022年)</h3>
+      <ul>
+        <li>中国の肥満のある成人139人</li>
+        <li>12か月</li>
+        <li>どちらも摂取カロリーを制限。そこに時間制限を足す群と足さない群を比較</li>
+        <li>体重減少に追加の差は見られなかったと報告</li>
+      </ul>
+    </div>
+  </div>
+  <p>この2つは「比べているもの」が違います。TREADは「TREと標準指導」、Liuらは「カロリー制限にTREを足すかどうか」です。だから一方が正しく他方が誤り、とは言えず、TREの効果は「カロリー制限を伴うと差が消えるのでは」という見方も残ります。</p>
+</div>
+
+<div class="card red">
+  <h2>⚠️ どこまで信じてよい? エビデンスの強さ</h2>
+  <table class="ev-table">
+    <tr><th>ポイント</th><th>評価</th></tr>
+    <tr><td>研究デザイン</td><td><span class="ev-badge ev-mid">単一施設のRCT</span></td></tr>
+    <tr><td>人数</td><td><span class="ev-badge ev-low">完了52人と小規模</span></td></tr>
+    <tr><td>期間</td><td><span class="ev-badge ev-low">12週間と短期。長期の維持は不明</span></td></tr>
+    <tr><td>対象</td><td><span class="ev-badge ev-mid">肥満(BMI 30〜50)・糖尿病なしの成人</span></td></tr>
+    <tr><td>脂肪組織の遺伝子解析</td><td><span class="ev-badge ev-low">一部の参加者での探索的解析</span></td></tr>
+  </table>
+  <div class="warn">
+    <strong>読み方の注意:</strong>対照群は「通常のケア」で、食事の量をそろえた比較ではありません。そのため、体重の差が「時間帯の効果」なのか「結果として食べる量が減ったから」なのかは、この結果だけでは切り分けられません。また、体重が減ったことと、心臓病や糖尿病が実際に減ることは別の話です。1つの小さな試験から、誰にでも効くとは言えません。
+  </div>
+</div>
+
+<div class="card">
+  <h2>🧭 精密栄養学の視点:「向いている人」と「向いていない人」</h2>
+  <div class="matrix">
+    <div class="mx-cell ok"><div class="mx-head">🙂 合うかもしれない人</div>もともと夜遅くまでだらだら食べがちで、食事の枠を決めるとルールが分かりやすくなり、結果として食べすぎが減る人。</div>
+    <div class="mx-cell ng"><div class="mx-head">🙅 慎重になるべき人</div>糖尿病などで血糖を下げる薬を使っている人、妊娠中・授乳中の人、高齢の人、摂食障害の経験がある人など。食事時間を変えると体調や薬の効き方に影響しうるため、必ず主治医に相談を。</div>
+  </div>
+</div>
+
+<div class="card blue">
+  <h2>💡 今日のまとめ</h2>
+  <ol class="step-list">
+    <li><span>10時間TREは、12週間・完了52人のRCTで、標準ケアより体重が約2.9kg多く減った。</span></li>
+    <li><span>ただし小規模・短期で、「時間帯の効果」か「食べる量の減少」かは区別できていない。</span></li>
+    <li><span>カロリー制限と組み合わせても追加の効果はなかったとする過去の大きな試験もあり、賛否が分かれている。</span></li>
+    <li><span>始めるかどうかは、持病・服薬・生活リズムによる。自己判断せず専門家へ。</span></li>
+  </ol>
+</div>
+
+<div class="sources">
+  <h3>📚 主な出典・参考文献</h3>
+  <ol>
+    <li>Wilkinson MJ, et al. "Time-Restricted Eating Promotes Weight Loss and Favorable Changes in Adipose in Obesity: The TREAD Randomized Control Trial." <em>Obesity</em>. 2026;34(7):1395-1408.
+      <a href="https://onlinelibrary.wiley.com/doi/10.1002/oby.70228" target="_blank">https://onlinelibrary.wiley.com/doi/10.1002/oby.70228</a> / <a href="https://pubmed.ncbi.nlm.nih.gov/42229885/" target="_blank">PubMed</a>(基準日:2026年9月。人数・体重の数値は検索結果に表示された要旨で確認。本文へは本セッションのネットワーク制限で直接アクセスできておらず、脂肪組織の詳細結果や資金源は未確認です)
+    </li>
+    <li>Liu D, et al. "Calorie Restriction with or without Time-Restricted Eating in Weight Loss." <em>N Engl J Med</em>. 2022;386:1495-1504.
+      <a href="https://www.nejm.org/doi/full/10.1056/NEJMoa2114833" target="_blank">https://www.nejm.org/doi/full/10.1056/NEJMoa2114833</a>(基準日:2026年9月。人数と結論は筆者の既存知識に基づく記載で、本セッションでは本文を再確認できていません)
+    </li>
+    <li>試験登録:"Effect of Time-restricted Eating on Catecholamine-sensitivity of Adipose Tissue in Obese Adults." ClinicalTrials.gov.
+      <a href="https://clinicaltrials.gov/study/NCT04916730" target="_blank">https://clinicaltrials.gov/study/NCT04916730</a>(基準日:2026年9月。TREADに対応する登録と思われますが、対応関係は検索結果の題名からの推測です)
+    </li>
+  </ol>
+</div>
+
+<div class="disclaimer">
+  ⚠️ 本記事は一般的な情報であり、医療アドバイスではありません。効果・必要量・リスクは、個人の体質・年齢・持病・服薬によって大きく変わります。食事の時間帯や量を大きく変える前に、かかりつけ医・管理栄養士・薬剤師などの専門家にご相談ください。特定の食事制限・サプリメント・断食などを安易に始めることはお勧めしません。
+</div>
+
+</div>
+</body>
+</html>
