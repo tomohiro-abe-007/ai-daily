@@ -2,6 +2,7 @@
 
 ## 解説済みトピック（重複を避けるための記録）
 
+- 2026-10-01: OpenAI DevDay 2026（2026年9月29日）・Dots（ドッツ）常時稼働型 AI エージェント発表・GPT-6 Astra 搭載・4,000 以上のアプリ接続・メール/電話/スケジュール管理を自律実行・サブ Dot への委任機能・ChatGPT Pro/Business Premium/Enterprise から提供・GPT-6.1 Sol も同時発表（API $2/$10・Astra の 1/5 料金・公式要確認）（出典：TechCrunch / 9to5Google / Business Standard / CNBC・2026年9月29日）
 - 2026-09-30: Kling 4.0（2026年9月27日発表）・クワイショウAI子会社・最長30秒・最大4K・10キーフレーム・15点マルチモーダル参考入力・ステレオ音声・10-bit HDR・Kling 4.0 Flash（720p高速）先行提供2026年9月28日・フルモデル2026年10月予定・競合バイトダンス Seedance・香港IPO準備報道（出典：Bloomberg / Pandaily・2026年9月27〜28日）
 - 2026-09-29: Xiaomi MiMo-V2.6 シリーズ（2026年9月22日公開）・Pro（1.02兆パラメータMoE・42Bアクティブ）・Flash（309B・15Bアクティブ）・Pro-UltraSpeed（最大20倍高速）・9B蒸留版・全方位マルチモーダル（テキスト/画像/動画/音声）・1Mトークンコンテキスト・Agentic RL（約75万トラジェクトリ・6日未満）・MITライセンス・HuggingFace公開・Artificial Analysis インテリジェンス・インデックス46点（オープンウェイト首位・2026年9月22日時点）・API料金は公式要確認（出典：SiliconANGLE / Unite.AI / XenoSpectrum / TestingCatalog / CellCog・2026年9月22日）
 - 2026-09-28: Ando エージェントネイティブメッセージング正式公開（2026年9月24日）・$20M シード調達（Accel/Index Ventures/Emergence Capital/Contrary Capital）・AI エージェントが人間メンバーと同じ権限・受信箱を持ちチャンネル/スレッド/ライブ会話に参加・Claude/Codex/Grok Build/Devin など主要 AI に対応・ソフトウェア/不動産/金融で15か国の顧客・2〜40人チーム向け・大規模展開は2026年末予定・料金は公式要確認（出典：TechCrunch / GlobeNewswire・2026年9月24日）
