@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-10-01</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '☕';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.35rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.9rem; margin-bottom: 8px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.1em; }
+  .c3-col li { margin-bottom: 4px; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  .quote-box {
+    background: #f5f0e8;
+    border-left: 4px solid #7a5abf;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    margin: 12px 0;
+    color: #444;
+    font-style: italic;
+  }
+  .quote-box .who { font-style: normal; font-weight: 700; color: #5a3a9a; margin-top: 6px; font-size: 0.78rem; }
+  .matrix {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .mx-cell {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .mx-cell .mx-head { font-weight: 700; font-size: 0.88rem; margin-bottom: 6px; }
+  .mx-cell.ok  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .mx-cell.ok  .mx-head { color: #1a6e4a; }
+  .mx-cell.ng  { background: #fbe8e6; border: 2px solid #c0392b; }
+  .mx-cell.ng  .mx-head { color: #a0291e; }
+  .subtype-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .subtype-card {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.84rem;
+  }
+  .subtype-card .st-head { font-weight: 700; font-size: 0.92rem; margin-bottom: 8px; }
+  .subtype-card .st-bar {
+    height: 10px;
+    border-radius: 5px;
+    background: #eee;
+    overflow: hidden;
+    margin: 6px 0 4px;
+  }
+  .subtype-card .st-bar-fill { height: 100%; }
+  .subtype-card.st-green { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .subtype-card.st-green .st-head { color: #1a6e4a; }
+  .subtype-card.st-orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .subtype-card.st-orange .st-head { color: #b85e10; }
+  .subtype-card.st-red { background: #fbe8e6; border: 2px solid #c0392b; }
+  .subtype-card.st-red .st-head { color: #a0291e; }
+  @media (max-width: 540px) {
+    .compare4 { grid-template-columns: 1fr; }
+    .matrix { grid-template-columns: 1fr; }
+    .subtype-grid { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.7rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="header">
+  <div class="label">健康・栄養 最新トピック ・ 2026-10-01</div>
+  <h1>心房細動の人はコーヒーをやめるべき? ──200人のRCT「DECAF」が、常識に待ったをかけた</h1>
+  <div class="subtitle">「不整脈が出る人は、コーヒーを控えなさい」。長く言われてきたこの助言を、ランダム化比較試験で確かめた研究(JAMA 2026年1月27日号)を、どこまで信じてよいかも含めて読み解きます。</div>
+</div>
+
+<div style="margin-bottom:18px;">
+  <span class="tag">コーヒー</span>
+  <span class="tag">不整脈</span>
+  <span class="tag">エビデンスの読み方</span>
+  <span class="tag">賛否が分かれる話題</span>
+</div>
+
+<div class="card">
+  <h2>🤔 今日の疑問:コーヒーは不整脈の"引き金"なのか、それとも守ってくれるのか?</h2>
+  <p>心房細動(しんぼうさいどう)とは、心臓の上の部屋(心房)が不規則に震え、脈がバラバラになる不整脈です。カフェインでドキドキするイメージから、「コーヒーは控えて」と指導されることがよくありました。でも、それを直接くらべて確かめた試験は、ほとんどありませんでした。</p>
+</div>
+
+<div class="card blue">
+  <h2>📖 まず言葉の意味を</h2>
+  <div class="def-grid">
+    <div class="def-item"><div class="dterm">心房細動(AF)</div>心臓の上の部屋が不規則に震える不整脈。脳梗塞の原因になることもある。</div>
+    <div class="def-item"><div class="dterm">電気的除細動</div>電気ショックで乱れた心臓のリズムを正常に戻す治療。今回の試験の参加者は、この治療を受ける予定の人たち。</div>
+    <div class="def-item"><div class="dterm">ランダム化比較試験(RCT)</div>くじ引きのように参加者を2つのグループに分けて比べる方法。グループ間の"もともとの違い"が偏りにくい。</div>
+    <div class="def-item"><div class="dterm">ハザード比(HR)</div>「ある出来事が起きる速さ・起きやすさ」の比。1より小さいほど、起きにくい。</div>
+  </div>
+</div>
+
+<div class="num-row">
+  <div class="num-card"><div class="big">200<span class="unit">人</span></div><div class="desc">持続性の心房細動・心房粗動で除細動を受ける予定の人(各群100人)</div></div>
+  <div class="num-card blue-bg"><div class="big">6<span class="unit">か月</span></div><div class="desc">追跡期間(または不整脈が再発するまで)</div></div>
+  <div class="num-card orange-bg"><div class="big">47<span class="unit">%</span></div><div class="desc">コーヒー群で不整脈が再発した割合</div></div>
+  <div class="num-card red-bg"><div class="big">64<span class="unit">%</span></div><div class="desc">コーヒー・カフェイン完全禁止群での再発割合</div></div>
+  <div class="num-card purple-bg"><div class="big">0.61</div><div class="desc">ハザード比(95%CI 0.42〜0.89、p=0.01)。再発の危険が約39%低い</div></div>
+</div>
+
+<div class="card purple">
+  <h2>🔬 試験の流れを図にすると</h2>
+  <div class="flow">
+    <div class="flow-step">心房細動・心房粗動で<br>電気的除細動を<br>受ける成人200人</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">除細動が成功したら<br>1:1で無作為に<br>2群へ</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step alt">コーヒー群:1日1杯以上<br>禁止群:コーヒー・カフェイン<br>製品をすべてやめる</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step purp">6か月間に医療機関で<br>確認された再発を比較</div>
+  </div>
+  <p>参加者は米国・オーストラリア・カナダの5つの大きな病院から。平均年齢69歳、71%が男性、約80%が白人でした。試験は研究者主導で、米国立衛生研究所(NIH)の助成を受けています。</p>
+</div>
+
+<div class="card orange">
+  <h2>⚖️ 対比:これまでの常識 vs 今回の結果</h2>
+  <div class="compare4">
+    <div class="c3-col red">
+      <h3>❓ これまでの助言</h3>
+      <ul>
+        <li>「カフェインは不整脈を誘発しそう」</li>
+        <li>指導として控えるよう言われることが多い</li>
+        <li>ただし、やめると再発が減るかを直接比べた試験は乏しかった</li>
+      </ul>
+    </div>
+    <div class="c3-col green">
+      <h3>✅ DECAF試験(2026年)</h3>
+      <ul>
+        <li>コーヒーを飲み続ける群のほうが再発が少なかった</li>
+        <li>再発 47% vs 64%</li>
+        <li>「コーヒーを飲んでも悪化しない」だけでなく、むしろ低かった</li>
+      </ul>
+    </div>
+  </div>
+  <p>ただし、この結果は「コーヒーを飲めば不整脈を防げる」という意味ではありません。理由は下の「読み方の注意」で説明します。</p>
+</div>
+
+<div class="card red">
+  <h2>⚠️ どこまで信じてよい? エビデンスの強さ</h2>
+  <table class="ev-table">
+    <tr><th>ポイント</th><th>評価</th></tr>
+    <tr><td>研究デザイン</td><td><span class="ev-badge ev-high">多施設のランダム化比較試験(因果に近づける)</span></td></tr>
+    <tr><td>人数</td><td><span class="ev-badge ev-mid">200人。偶然の可能性も残る規模</span></td></tr>
+    <tr><td>盲検化</td><td><span class="ev-badge ev-low">なし(オープンラベル)。飲んでいるかは本人にも分かる</span></td></tr>
+    <tr><td>評価項目</td><td><span class="ev-badge ev-mid">臨床的に確認された再発。検出方法・頻度は統一されていない</span></td></tr>
+    <tr><td>コーヒー量の把握</td><td><span class="ev-badge ev-low">自己申告が中心</span></td></tr>
+    <tr><td>対象</td><td><span class="ev-badge ev-mid">持続性心房細動で除細動を受ける人。健康な人や他の不整脈には当てはまらない</span></td></tr>
+  </table>
+  <div class="warn">
+    <strong>読み方の注意:</strong>(1) 対象は「すでに心房細動があり、電気治療を受けた人」です。健康な人が飲めば不整脈を予防できる、という根拠ではありません。(2) 禁止群は「すべてのカフェインをやめる」という、やや厳しい条件でした。(3) 約2,000人にスクリーニングしたうち、参加に同意したのは一部だけです。もし「コーヒーを飲むと発作が出る」と感じている人がいたとしても、そうした人は参加しにくく、試験に十分含まれていない可能性があります。(4) 結論は、コーヒーをすすめる根拠ではなく「全員に禁止を求める根拠は弱くなった」というのが妥当です。
+  </div>
+</div>
+
+<div class="card">
+  <h2>🧭 精密栄養学の視点:カフェインへの反応は人それぞれ</h2>
+  <div class="matrix">
+    <div class="mx-cell ok"><div class="mx-head">🙂 考えてよいかもしれない人</div>コーヒーをふだん飲んでいて、飲んでも動悸などの自覚症状がなく、主治医から特に制限されていない人。「全員がやめる必要はないかも」という視点が持てる。</div>
+    <div class="mx-cell ng"><div class="mx-head">🙅 慎重になるべき人</div>飲むたびに動悸や不整脈の症状が出る人、妊娠中の人、高血圧・不眠・不安が強い人、治療中の人。カフェインの代謝には遺伝や薬の影響で個人差が大きく、症状があるなら自己判断せず主治医に相談を。</div>
+  </div>
+</div>
+
+<div class="card blue">
+  <h2>💡 今日のまとめ</h2>
+  <ol class="step-list">
+    <li><span>心房細動の除細動後の人200人を6か月追跡したRCTで、コーヒーを飲み続けた群のほうが再発は少なかった(47% vs 64%、HR 0.61)。</span></li>
+    <li><span>ただし非盲検・小規模で、対象も限られる。「飲めば予防できる」とは言えない。</span></li>
+    <li><span>「全員にコーヒー禁止」という従来の助言には、根拠が弱かったかもしれない、という見直しの材料になった。</span></li>
+    <li><span>自分に合うかは、症状・持病・服薬による。増やす前にもやめる前にも、主治医へ。</span></li>
+  </ol>
+</div>
+
+<div class="sources">
+  <h3>📚 主な出典・参考文献</h3>
+  <ol>
+    <li>Marcus GM, et al. "Caffeinated Coffee Consumption or Abstinence to Reduce Atrial Fibrillation: The DECAF Randomized Clinical Trial." <em>JAMA</em>. 2026年1月27日公開(査読論文)。
+      <a href="https://jamanetwork.com/journals/jama/fullarticle/2841253" target="_blank">https://jamanetwork.com/journals/jama/fullarticle/2841253</a> / <a href="https://pubmed.ncbi.nlm.nih.gov/41206802/" target="_blank">PubMed</a>(基準日:2026年10月。人数・再発率・ハザード比・限界は検索結果に表示された要旨・報道で確認。本文へは本セッションのネットワーク制限で直接アクセスできていません。筆頭著者名は検索結果に基づく記載です)
+    </li>
+    <li>UCSF "Drink Up: Coffee Is Safe for People with A-Fib"(2025年11月のAHA学会発表時の大学広報)。
+      <a href="https://www.ucsf.edu/news/2025/11/431036/coffee-safe-for-a-fib" target="_blank">https://www.ucsf.edu/news/2025/11/431036/coffee-safe-for-a-fib</a>(基準日:2026年10月。本文は未確認。学会発表時の広報で、査読論文とは別)
+    </li>
+    <li>"DECAF trial: coffee, caffeine, and atrial fibrillation." <em>Cardiovascular Research</em>. 2026;122(12):1543.
+      <a href="https://academic.oup.com/cardiovascres/article/122/12/1543/8752403" target="_blank">https://academic.oup.com/cardiovascres/article/122/12/1543/8752403</a>(基準日:2026年10月。本文は未確認。論題のみ検索結果で確認)
+    </li>
+    <li>試験登録:ClinicalTrials.gov NCT05121519 "Does Eliminating Coffee Avoid Fibrillation?"。
+      <a href="https://clinicaltrials.gov/study/NCT05121519" target="_blank">https://clinicaltrials.gov/study/NCT05121519</a>(基準日:2026年10月。本文は未確認)
+    </li>
+  </ol>
+</div>
+
+<div class="disclaimer">
+  ⚠️ 本記事は一般的な情報であり、医療アドバイスではありません。効果・必要量・リスクは、個人の体質・年齢・持病・服薬によって大きく変わります。カフェインやコーヒーの量を大きく変える前に、かかりつけ医・管理栄養士・薬剤師などの専門家にご相談ください。特定の食事制限・サプリメント・断食などを安易に始めることはお勧めしません。
+</div>
+
+</div>
+</body>
+</html>
