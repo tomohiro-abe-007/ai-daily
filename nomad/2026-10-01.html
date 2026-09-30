@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>デジタルノマド 最新トピック 2026-10-01</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    color: #2a2a2a;
+  }
+  .hero {
+    background: linear-gradient(135deg, #1e3a6e 0%, #0d1f3d 100%);
+    color: white;
+    border-radius: 10px;
+    padding: 48px 40px;
+    text-align: center;
+    width: 100%;
+    max-width: 760px;
+    margin-bottom: 28px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .hero .label {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 0.8rem;
+    margin-bottom: 14px;
+    letter-spacing: 0.05em;
+  }
+  .hero h1 { font-size: 1.4rem; margin-bottom: 12px; line-height: 1.55; }
+  .hero .meta { opacity: 0.8; font-size: 0.88rem; line-height: 1.7; }
+  .card {
+    background: #fff9f0;
+    border-radius: 8px;
+    padding: 28px 32px;
+    width: 100%;
+    max-width: 760px;
+    margin-bottom: 20px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.08);
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1e3a6e;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px dashed #8aaad4;
+  }
+  .card p { font-size: 0.93rem; line-height: 1.85; margin-bottom: 10px; }
+  .card p:last-child { margin-bottom: 0; }
+  .highlight-box {
+    background: #eaf0fb;
+    border-left: 4px solid #1e3a6e;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .highlight-box .hlabel { font-size: 0.75rem; color: #1e3a6e; font-weight: 600; margin-bottom: 6px; display: block; }
+  .highlight-box p { font-size: 0.9rem; margin: 0; }
+  .alert-box {
+    background: #fff3cd;
+    border-left: 4px solid #c9920a;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .alert-box .alabel { font-size: 0.75rem; color: #8a6000; font-weight: 600; margin-bottom: 6px; display: block; }
+  .alert-box p { font-size: 0.9rem; margin: 0; }
+  .green-box {
+    background: #e8f5ef;
+    border-left: 4px solid #2c6e4e;
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .green-box .glabel { font-size: 0.75rem; color: #2c6e4e; font-weight: 600; margin-bottom: 6px; display: block; }
+  .green-box p { font-size: 0.9rem; margin: 0; }
+  .number-row { display: flex; gap: 14px; flex-wrap: wrap; margin: 14px 0; }
+  .number-card {
+    flex: 1; min-width: 130px;
+    background: #1e3a6e; color: white;
+    border-radius: 8px; padding: 18px 14px; text-align: center;
+  }
+  .number-card .num { font-size: 1.15rem; font-weight: 700; margin-bottom: 6px; line-height: 1.25; letter-spacing: 0.02em; }
+  .number-card .desc { font-size: 0.72rem; opacity: 0.9; line-height: 1.5; }
+  .number-card.amber  { background: #c9920a; }
+  .number-card.red    { background: #c0392b; }
+  .number-card.green  { background: #2c6e4e; }
+  .number-card.purple { background: #6a3ea0; }
+  .number-card.gray   { background: #666; }
+  .number-card.navy   { background: #1e3a6e; }
+  .compare-row { display: flex; gap: 14px; flex-wrap: wrap; margin: 14px 0; }
+  .compare-card {
+    flex: 1; min-width: 200px; border-radius: 8px;
+    padding: 16px 16px; font-size: 0.88rem; line-height: 1.7;
+  }
+  .compare-card h3 { font-size: 0.88rem; margin-bottom: 8px; padding-bottom: 6px; border-bottom: 1.5px dashed; }
+  .compare-card.red    { background: #fdeaea; border: 1.5px solid #c0392b; }
+  .compare-card.red h3 { color: #922b2b; border-color: #e8a0a0; }
+  .compare-card.green  { background: #e8f5ef; border: 1.5px solid #2c6e4e; }
+  .compare-card.green h3 { color: #2c6e4e; border-color: #b2d4c4; }
+  .compare-card.amber  { background: #fff8e8; border: 1.5px solid #c9920a; }
+  .compare-card.amber h3 { color: #7a5800; border-color: #f0d080; }
+  .compare-card.navy   { background: #eaf0fb; border: 1.5px solid #1e3a6e; }
+  .compare-card.navy h3 { color: #1e3a6e; border-color: #8aaad4; }
+  .compare-card.purple { background: #f0eafd; border: 1.5px solid #6a3ea0; }
+  .compare-card.purple h3 { color: #6a3ea0; border-color: #c0a0e8; }
+  .flow-wrap { display: flex; flex-direction: column; gap: 4px; margin: 14px 0; }
+  .flow-box {
+    background: #1e3a6e; color: white;
+    border-radius: 8px; padding: 14px 16px;
+    font-size: 0.88rem; line-height: 1.6;
+  }
+  .flow-box .fb-label { font-size: 0.7rem; opacity: 0.8; margin-bottom: 4px; display: block; }
+  .flow-box strong { font-size: 0.95rem; }
+  .flow-box.sub    { background: #3a5a94; }
+  .flow-box.light  { background: #eaf0fb; color: #2a2a2a; border: 1.5px solid #8aaad4; }
+  .flow-box.amber  { background: #c9920a; }
+  .flow-box.green  { background: #2c6e4e; }
+  .flow-box.red    { background: #c0392b; }
+  .flow-box.purple { background: #6a3ea0; }
+  .flow-box.navy   { background: #1e3a6e; }
+  .flow-box.gray   { background: #666; }
+  .arrow-down { text-align: center; font-size: 1.5rem; color: #1e3a6e; margin: 4px 0; line-height: 1; }
+  .step-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 12px 0; }
+  .step-list li { display: flex; align-items: flex-start; gap: 12px; }
+  .step-num {
+    background: #1e3a6e; color: white; border-radius: 50%;
+    min-width: 28px; height: 28px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.78rem; font-weight: 700; flex-shrink: 0; margin-top: 2px;
+  }
+  .step-num.amber  { background: #c9920a; }
+  .step-num.red    { background: #c0392b; }
+  .step-num.green  { background: #2c6e4e; }
+  .step-num.purple { background: #6a3ea0; }
+  .step-num.navy   { background: #1e3a6e; }
+  .step-num.gray   { background: #666; }
+  .step-list li div { font-size: 0.9rem; line-height: 1.7; }
+  .matrix-table { width: 100%; border-collapse: collapse; font-size: 0.87rem; margin: 14px 0; }
+  .matrix-table th {
+    background: #1e3a6e; color: white; padding: 10px 12px;
+    text-align: left; font-weight: 600; font-size: 0.82rem;
+  }
+  .matrix-table th:first-child { border-radius: 6px 0 0 0; }
+  .matrix-table th:last-child  { border-radius: 0 6px 0 0; }
+  .matrix-table td { padding: 10px 12px; border-bottom: 1px solid #dce6f4; vertical-align: top; line-height: 1.55; }
+  .matrix-table tr:nth-child(even) td { background: #f3f7fc; }
+  .matrix-table .ok   { color: #2c6e4e; font-weight: 700; }
+  .matrix-table .ng   { color: #c0392b; font-weight: 700; }
+  .matrix-table .warn { color: #8a6000; font-weight: 700; }
+  .matrix-table .row-warn   td { background: #fff8e8 !important; }
+  .matrix-table .row-danger td { background: #fdeaea !important; }
+  .matrix-table .row-green  td { background: #e8f5ef !important; }
+  .matrix-table .row-navy   td { background: #eaf0fb !important; }
+  .check-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 12px 0; }
+  .check-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.9rem; line-height: 1.65; }
+  .check-icon {
+    min-width: 22px; height: 22px; border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.78rem; font-weight: 700; flex-shrink: 0; margin-top: 1px;
+  }
+  .check-icon.navy   { background: #1e3a6e; color: white; }
+  .check-icon.green  { background: #2c6e4e; color: white; }
+  .check-icon.amber  { background: #c9920a; color: white; }
+  .check-icon.red    { background: #c0392b; color: white; }
+  .check-icon.purple { background: #6a3ea0; color: white; }
+  .section-icon { font-size: 1.5rem; margin-right: 8px; vertical-align: middle; }
+  .tag {
+    display: inline-block; background: #1e3a6e; color: white;
+    font-size: 0.72rem; padding: 2px 8px; border-radius: 10px;
+    margin-right: 4px; vertical-align: middle;
+  }
+  .tag.amber  { background: #c9920a; }
+  .tag.red    { background: #c0392b; }
+  .tag.green  { background: #2c6e4e; }
+  .tag.purple { background: #6a3ea0; }
+  .tag.gray   { background: #888; }
+  .footer-card {
+    background: #f0ece3;
+    border: 1.5px solid #bbb;
+    border-radius: 8px;
+    padding: 20px 24px;
+    width: 100%;
+    max-width: 760px;
+    margin-bottom: 20px;
+    font-size: 0.82rem;
+    color: #555;
+    line-height: 1.8;
+  }
+  .footer-card .footer-title {
+    font-size: 0.78rem; color: #888; font-weight: 600;
+    margin-bottom: 10px; display: block;
+    text-transform: uppercase; letter-spacing: 0.08em;
+  }
+  .footnote { font-size: 0.78rem; color: #777; line-height: 1.7; margin-top: 12px; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 14px 0; }
+  @media (max-width: 560px) { .two-col { grid-template-columns: 1fr; } .compare-row { flex-direction: column; } }
+  .mini-card {
+    border-radius: 8px; padding: 14px 16px;
+    font-size: 0.85rem; line-height: 1.65;
+  }
+  .mini-card h4 { font-size: 0.87rem; margin-bottom: 8px; }
+  .mini-card.navy   { background: #eaf0fb; border: 1.5px solid #8aaad4; }
+  .mini-card.navy h4 { color: #1e3a6e; }
+  .mini-card.amber  { background: #fff8e8; border: 1.5px solid #c9920a; }
+  .mini-card.amber h4 { color: #7a5800; }
+  .mini-card.green  { background: #e8f5ef; border: 1.5px solid #2c6e4e; }
+  .mini-card.green h4 { color: #2c6e4e; }
+  .mini-card.red    { background: #fdeaea; border: 1.5px solid #c0392b; }
+  .mini-card.red h4 { color: #922b2b; }
+  .mini-card.purple { background: #f0eafd; border: 1.5px solid #6a3ea0; }
+  .mini-card.purple h4 { color: #6a3ea0; }
+  .mini-card.gray   { background: #f4f4f4; border: 1.5px solid #aaa; }
+  .mini-card.gray h4 { color: #555; }
+  .rank-row { display: flex; gap: 10px; flex-wrap: wrap; margin: 14px 0; }
+  .rank-chip {
+    flex: 1; min-width: 90px; text-align: center;
+    background: #eaf0fb; border: 1.5px solid #8aaad4; border-radius: 8px;
+    padding: 10px 8px; font-size: 0.82rem;
+  }
+  .rank-chip.first { background: #1e3a6e; color: white; border-color: #1e3a6e; }
+  .rank-chip .rnum { font-size: 1.1rem; font-weight: 700; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div style="margin-bottom:14px;"><span class="label">📚 バックログから選定(直近7日に確定した新着なし)</span></div>
+  <h1>スペインの「大口資産の税金」の申告書(Modelo 718)が6月に改正されました<br>スペインに住んでいない人も「上限60%ルール」を使えるようになりました</h1>
+  <div class="meta">
+    デジタルノマド 最新トピック 2026-10-01<br>
+    情報収集日：2026年10月1日(制度は2025年分申告・2026年度の運用)<br>
+    ※改正の公布は2026年6月29日で、直近7日の出来事ではありません。直近7日に新しい確定情報が見つからなかったため、バックログの未解説テーマとして解説します。
+  </div>
+</div>
+
+<div class="card">
+  <h2><span class="section-icon">📌</span>今日のポイント(30秒まとめ)</h2>
+  <p>スペインには、純資産(持っているもの−借金)がとても大きい人だけにかかる「大口資産の連帯税(Impuesto Temporal de Solidaridad de las Grandes Fortunas、略してITSGF)」があります。その申告書が「Modelo 718」です。2026年6月、この申告書のルールが変わりました。</p>
+  <div class="number-row">
+    <div class="number-card navy"><div class="num">€300万</div><div class="desc">純資産がこれを超える人が対象(2025年分)</div></div>
+    <div class="number-card amber"><div class="num">€70万</div><div class="desc">最低限の非課税枠(住民・非住民とも)</div></div>
+    <div class="number-card red"><div class="num">60%</div><div class="desc">所得税・財産税などとの合計が課税ベースの60%を超えないようにする「上限」</div></div>
+    <div class="number-card green"><div class="num">2026/6/29</div><div class="desc">BOE(スペイン官報)掲載日。命令の日付は6/26</div></div>
+  </div>
+  <div class="highlight-box">
+    <span class="hlabel">💡 何が変わった？</span>
+    <p>これまで「60%上限」は、スペインの居住者(人的義務で課税される人)にだけ明記されていました。今回の改正で、スペインにある資産だけで課税される人(実物義務=主に非居住者)も、同じ上限を使えるように申告書が直されました。</p>
+  </div>
+</div>
+
+<div class="card">
+  <h2><span class="section-icon">🔀</span>図解：だれの話？ 居住者と非居住者の違い</h2>
+  <div class="compare-row">
+    <div class="compare-card navy">
+      <h3>🏠 スペインの居住者</h3>
+      世界中の資産が対象(人的義務)。60%上限はもともと明記されていた。
+    </div>
+    <div class="compare-card amber">
+      <h3>✈️ スペインの非居住者</h3>
+      スペイン国内にある資産が対象(実物義務)。<strong>今回から申告書でも60%上限を使えるようになった</strong>。
+    </div>
+  </div>
+  <p class="footnote">改正の理由は、最高裁判所と経済行政不服審判所(TEAC)の判断に合わせるためと、税務当局(AEAT)の案内や法律メディアは伝えています。</p>
+</div>
+
+<div class="card">
+  <h2><span class="section-icon">🧮</span>図解：「60%上限」のイメージ</h2>
+  <div class="flow-wrap">
+    <div class="flow-box navy"><span class="fb-label">STEP 1</span>スペインの所得税(IRPF)＋財産税(Patrimonio)＋この連帯税(ITSGF)を合計する</div>
+    <div class="arrow-down">↓</div>
+    <div class="flow-box amber"><span class="fb-label">STEP 2</span>合計が「課税ベース(所得)」の60%を超えていないか確認する</div>
+    <div class="arrow-down">↓</div>
+    <div class="flow-box green"><span class="fb-label">STEP 3</span>超えている場合は、上限に収まるよう税額が調整される(細かい計算方法は専門家に確認)</div>
+  </div>
+  <div class="alert-box">
+    <span class="alabel">⚠️ 注意</span>
+    <p>非居住者の場合に「課税ベース」をどう数えるか、個別の計算例は今回確認できていません。実際の数字は必ず専門家にご確認ください。</p>
+  </div>
+</div>
+
+<div class="card">
+  <h2><span class="section-icon">👤</span>1人法人の代表者にとっては？</h2>
+  <ul class="check-list">
+    <li><span class="check-icon navy">1</span><div>純資産が€300万を超える人だけの話なので、<strong>多くの方には当てはまりません</strong>。「そもそも自分は対象外か」を知るための基礎知識として読んでください。</div></li>
+    <li><span class="check-icon amber">2</span><div>日本にいる間に、スペインの不動産や資産を持つ場合は「非居住者(実物義務)」の扱いになり得ます。この改正は、そうした立場の人にかかわります。</div></li>
+    <li><span class="check-icon green">3</span><div>スペインの居住者になった場合は、人的義務の扱いになり、世界中の資産が対象になり得ます。居住地の判断(183日ルールなど)は税理士に確認が必要です。</div></li>
+  </ul>
+</div>
+
+<div class="card">
+  <h2><span class="section-icon">📝</span>今回確認できなかったこと</h2>
+  <ul class="check-list">
+    <li><span class="check-icon gray">1</span><div>BOE(官報)・AEAT(税務当局)の公式サイトへの直接アクセス(本環境でブロック)。内容は検索結果の要約と複数サイトの一致にもとづきます。</div></li>
+    <li><span class="check-icon gray">2</span><div>2025年分の申告期限の具体的な終了日(「期間は2026年7月1日から始まる」とする報道までは確認)。</div></li>
+    <li><span class="check-icon gray">3</span><div>非居住者が上限を適用する際の具体的な計算例と、財産税の自治州ごとの扱い。</div></li>
+    <li><span class="check-icon gray">4</span><div>この税が2026年分以降も続くかどうか。</div></li>
+  </ul>
+</div>
+
+<div class="card">
+  <h2><span class="section-icon">🔗</span>主な参照元(確認日:2026年10月1日)</h2>
+  <ul class="check-list">
+    <li><span class="check-icon navy">1</span><div>BOE(官報)Orden HAC/652/2026:<a href="https://www.boe.es/eli/es/o/2026/06/26/hac652/dof/spa/pdf">boe.es</a>(検索結果で確認、本文は未閲覧。基準日:2026年6月)</div></li>
+    <li><span class="check-icon navy">2</span><div>AEATニュース(2026年6月29日掲載):<a href="https://sede.agenciatributaria.gob.es/Sede/todas-noticias/2026/junio/29/modificacion-impuesto-temporal-solidaridad-grandes-fortunas.html">sede.agenciatributaria.gob.es</a></div></li>
+    <li><span class="check-icon amber">3</span><div>解説:<a href="https://www.iberley.es/noticias/se-modifica-modelo-718-impuesto-temporal-solidaridad-las-grandes-fortunas-36660">iberley.es</a> / <a href="https://www.fiscal-impuestos.com/modelo-718-impuesto-temporal-solidaridad-grandes-fortunas-obligacion-real-limite-cuota-integra">fiscal-impuestos.com</a>(いずれも2026年6〜7月ごろ)</div></li>
+    <li><span class="check-icon amber">4</span><div>金額の基準(€300万・€70万):<a href="https://sede.agenciatributaria.gob.es/Sede/declaraciones-informativas-otros-impuestos-tasas/impuesto-temporal-solidaridad-grandes-fortunas/que-grava-impuesto-temporal-solidaridad-fortunas.html">AEAT</a> / <a href="https://es.andersen.com/impuesto-temporal-de-solidaridad-a-las-grandes-fortunas-isgf/">andersen.com</a>(2025年分)</div></li>
+  </ul>
+  <div class="green-box">
+    <span class="glabel">✅ ハルシネーションチェック</span>
+    <p>「命令の日付(6/26)」と「官報掲載日(6/29)」は別の日付なので区別しました。施行日(公布の翌日とされる)と「2025年分から適用」は複数ソースの一致にもとづきますが、条文原文は未確認です。検索結果にあった「€370万から課税」という書き方は、他で裏付けが取れず誤解を生むため不採用としました。</p>
+  </div>
+</div>
+
+<div class="footer-card">
+  <span class="footer-title">⚠ 免責事項 &amp; 専門家への相談推奨</span>
+  <p>
+    <strong>【基準時点】</strong>内容は2026年10月1日時点で検索により確認できた情報(2025年分申告・2026年度の運用)にもとづきます。金額・料率・期間は変わる可能性があります。為替レートには触れていません。<br>
+    <strong>【断定しない事項】</strong>「課税されない」「必ず有利になる」といった断定はしていません。一般的な情報の紹介です。<br>
+    <strong>【ビザ・在留】</strong>ビザ・在留に関する正式な判断は、必ず行政書士・移民弁護士へご確認ください。<br>
+    <strong>【税務・社会保険】</strong>税務・社会保険に関する正式な判断は、必ず国際税務に強い税理士へご確認ください。
+  </p>
+</div>
+
+</body>
+</html>
