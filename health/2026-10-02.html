@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-10-02</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '💪';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.35rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.9rem; margin-bottom: 8px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.1em; }
+  .c3-col li { margin-bottom: 4px; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  .quote-box {
+    background: #f5f0e8;
+    border-left: 4px solid #7a5abf;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    margin: 12px 0;
+    color: #444;
+    font-style: italic;
+  }
+  .quote-box .who { font-style: normal; font-weight: 700; color: #5a3a9a; margin-top: 6px; font-size: 0.78rem; }
+  .matrix {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .mx-cell {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .mx-cell .mx-head { font-weight: 700; font-size: 0.88rem; margin-bottom: 6px; }
+  .mx-cell.ok  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .mx-cell.ok  .mx-head { color: #1a6e4a; }
+  .mx-cell.ng  { background: #fbe8e6; border: 2px solid #c0392b; }
+  .mx-cell.ng  .mx-head { color: #a0291e; }
+  .subtype-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .subtype-card {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.84rem;
+  }
+  .subtype-card .st-head { font-weight: 700; font-size: 0.92rem; margin-bottom: 8px; }
+  .subtype-card .st-bar {
+    height: 10px;
+    border-radius: 5px;
+    background: #eee;
+    overflow: hidden;
+    margin: 6px 0 4px;
+  }
+  .subtype-card .st-bar-fill { height: 100%; }
+  .subtype-card.st-green { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .subtype-card.st-green .st-head { color: #1a6e4a; }
+  .subtype-card.st-orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .subtype-card.st-orange .st-head { color: #b85e10; }
+  .subtype-card.st-red { background: #fbe8e6; border: 2px solid #c0392b; }
+  .subtype-card.st-red .st-head { color: #a0291e; }
+  @media (max-width: 540px) {
+    .compare4 { grid-template-columns: 1fr; }
+    .matrix { grid-template-columns: 1fr; }
+    .subtype-grid { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.7rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="header">
+  <div class="label">健康・栄養 最新トピック ・ 2026-10-02</div>
+  <h1>クレアチンは、運動しなくても筋肉に効く? ──45〜65歳64人の12週間RCTを読み解く</h1>
+  <div class="subtitle">「筋トレをする人のサプリ」というイメージが強いクレアチン。運動をしない中高年でも変化があったという2026年の研究を、どこまで信じてよいかも含めて、やさしく見ていきます。</div>
+</div>
+
+<div style="margin-bottom:18px;">
+  <span class="tag">クレアチン</span>
+  <span class="tag">筋肉</span>
+  <span class="tag">サプリ</span>
+  <span class="tag">エビデンスの読み方</span>
+</div>
+
+<div class="card">
+  <h2>🤔 今日の疑問:運動しなくても、クレアチンだけで筋肉は保てる?</h2>
+  <p>クレアチンは、筋肉がすばやく力を出すときのエネルギー源づくりを助ける物質で、肉や魚にも含まれ、体内でもつくられます。サプリとしては筋トレ向けで有名ですが、「運動しない人にも意味があるのか」は、まだ十分に確かめられていません。そこに一つの答えの手がかりを出したのが、米国テキサスA&M大学のチームを中心とした今回の研究です。</p>
+</div>
+
+<div class="card blue">
+  <h2>📖 まず言葉の意味を</h2>
+  <div class="def-grid">
+    <div class="def-item"><div class="dterm">クレアチン一水和物</div>サプリでもっとも研究が多いクレアチンの形。筋肉にエネルギーをすばやく供給する働きに関わる。</div>
+    <div class="def-item"><div class="dterm">除脂肪(リーン)組織</div>体から脂肪を除いた部分。筋肉・内臓・骨・水分などを含むので、「筋肉だけが増えた」とは限らない。</div>
+    <div class="def-item"><div class="dterm">プラセボ</div>見た目は同じだが中身は効果のない偽のサプリ。思い込みの影響を減らすために使う。</div>
+    <div class="def-item"><div class="dterm">1RM</div>1回だけ持ち上げられる最大の重さ。筋力の指標。</div>
+  </div>
+</div>
+
+<div class="num-row">
+  <div class="num-card"><div class="big">64<span class="unit">人</span></div><div class="desc">12週間を完走した健康な成人(45〜65歳、平均約54歳、女性40人・男性24人)</div></div>
+  <div class="num-card blue-bg"><div class="big">10<span class="unit">g/日</span></div><div class="desc">クレアチン一水和物の1日量(プラセボと比較)</div></div>
+  <div class="num-card orange-bg"><div class="big">+1.1<span class="unit">kg</span></div><div class="desc">運動なし+クレアチン群の除脂肪組織の変化(報道・要旨ベース)</div></div>
+  <div class="num-card gray-bg"><div class="big">−0.16<span class="unit">kg</span></div><div class="desc">運動なし+プラセボ群の変化</div></div>
+</div>
+
+<div class="card purple">
+  <h2>🔬 試験の流れを図にすると</h2>
+  <div class="flow">
+    <div class="flow-step">健康な<br>45〜65歳の成人</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step alt">本人が選ぶ<br>「運動+食事指導」か<br>「運動なし」</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step purp">それぞれの中で<br>くじ引きで<br>クレアチン/プラセボ</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">12週間後に<br>体組成・筋力・<br>記憶などを測定</div>
+  </div>
+  <p>ポイントは、「運動する/しない」は本人が選び、くじ引きで分けたのは「クレアチンかプラセボか」だけという点です。二重盲検(参加者も研究者も中身を知らない)で行われました。</p>
+</div>
+
+<div class="card orange">
+  <h2>⚖️ 対比:運動なし vs 運動あり(報告されている内容)</h2>
+  <div class="compare4">
+    <div class="c3-col blue">
+      <h3>🛋️ 運動なし</h3>
+      <ul>
+        <li>クレアチンで除脂肪組織が増加(+1.1kg、プラセボは−0.16kg)</li>
+        <li>ベンチプレス・レッグプレスの筋力が向上</li>
+        <li>筋持久力、一部の血中脂質・HbA1c、記憶などの指標にも好ましい変化と報告</li>
+      </ul>
+    </div>
+    <div class="c3-col green">
+      <h3>🏋️ 運動+食事指導</h3>
+      <ul>
+        <li>クレアチンで除脂肪組織が増加</li>
+        <li>体脂肪率がより大きく低下</li>
+        <li>筋力・持久力・一部の記憶の指標も向上</li>
+        <li>有酸素の体力(持久的な運動能力)は改善せず</li>
+      </ul>
+    </div>
+  </div>
+  <p>運動をしたほうが、効果の幅は広い傾向でした。クレアチンは「運動の代わり」ではなく、「上乗せ」と考えるのが自然です。</p>
+</div>
+
+<div class="card red">
+  <h2>⚠️ どこまで信じてよい? エビデンスの強さ</h2>
+  <table class="ev-table">
+    <tr><th>ポイント</th><th>評価</th></tr>
+    <tr><td>研究デザイン</td><td><span class="ev-badge ev-mid">二重盲検プラセボ対照だが、「運動する/しない」は自己選択(完全なRCTではない部分がある)</span></td></tr>
+    <tr><td>人数</td><td><span class="ev-badge ev-low">完走64人を複数の群に分けるため、1群は少人数</span></td></tr>
+    <tr><td>期間</td><td><span class="ev-badge ev-low">12週間。長期の安全性・効果は不明</span></td></tr>
+    <tr><td>測定の指標</td><td><span class="ev-badge ev-mid">除脂肪組織は筋肉そのものではない。記憶などは「一部の指標」のみ</span></td></tr>
+    <tr><td>多くの項目の比較</td><td><span class="ev-badge ev-mid">項目が多いと、偶然に「効いた」ように見える項目が出やすい</span></td></tr>
+  </table>
+  <div class="warn">
+    <strong>読み方の注意:</strong>(1) 小規模・短期の1つの試験で、「効果が確定した」とは言えません。(2) 除脂肪組織の増加には、筋肉の水分が増えた分も含まれる可能性があります(クレアチンは筋肉に水分を引き込むことが知られています)。(3) この記事で数値を確認できたのは検索結果に出た要旨・報道ベースで、群ごとの人数・統計値・資金源・利益相反は本文を確認できていません。(4) 腎臓に持病のある人などでは、クレアチンの摂取に注意が必要とされています。一方で、健康な成人での短期の安全性は多くの研究で報告されており、見解は「有益」と「根拠はまだ限定的」に分かれます。
+  </div>
+</div>
+
+<div class="card">
+  <h2>🧭 精密栄養学の視点:誰に合うかは人それぞれ</h2>
+  <div class="matrix">
+    <div class="mx-cell ok"><div class="mx-head">🙂 関心を持ってよいかもしれない人</div>食事から肉・魚をあまりとらない人、加齢で筋力が落ちてきたと感じる人など。ただし、まず食事・運動・睡眠の見直しが基本で、サプリはその上乗せ。</div>
+    <div class="mx-cell ng"><div class="mx-head">🙅 慎重になるべき人</div>腎臓に病気がある人、持病で薬を飲んでいる人、妊娠・授乳中の人。サプリの品質も製品ごとに差があるため、始める前に主治医や薬剤師に相談を。</div>
+  </div>
+</div>
+
+<div class="card blue">
+  <h2>💡 今日のまとめ</h2>
+  <ol class="step-list">
+    <li><span>45〜65歳の健康な成人64人(12週間、1日10g)の試験で、運動をしない人でもクレアチン群で除脂肪組織と筋力が高まったと報告された。</span></li>
+    <li><span>ただし小規模・短期で、「運動する/しない」は自己選択。筋肉そのものが増えたとは限らない。</span></li>
+    <li><span>運動を組み合わせたほうが効果の幅は広い傾向。サプリは運動の代わりにはならない。</span></li>
+    <li><span>自分に合うかは、持病・服薬・食事内容による。始める前に専門家へ。</span></li>
+  </ol>
+</div>
+
+<div class="sources">
+  <h3>📚 主な出典・参考文献</h3>
+  <ol>
+    <li>Chun J, Liu Y, Kibler GL, Lee H, Babakhani K, Rhoades N, et al. "Effects of creatine supplementation with and without exercise and diet intervention on body composition, cognitive function, and markers of health in middle-aged and older adults." <em>J Int Soc Sports Nutr</em>. 2026;23(Suppl 1):2716273. DOI: 10.1080/15502783.2026.2716273(査読論文)。
+      <a href="https://www.tandfonline.com/doi/full/10.1080/15502783.2026.2716273" target="_blank">論文ページ</a> / <a href="https://pubmed.ncbi.nlm.nih.gov/42578920/" target="_blank">PubMed</a>(基準日:2026年10月。書誌情報と結論の要旨は検索結果で確認。本文・群ごとの人数・統計値・資金源は、本セッションのネットワーク制限で未確認。除脂肪組織の増減値は報道による。筆頭以外の共著者は省略)
+    </li>
+    <li>ScienceDaily "Creatine may build muscle even without exercise, researchers find"(2026年9月28日付の報道)。
+      <a href="https://www.sciencedaily.com/releases/2026/09/260928100547.htm" target="_blank">https://www.sciencedaily.com/releases/2026/09/260928100547.htm</a>(基準日:2026年10月。本文は未確認の二次情報で、論文の補足としてのみ使用)
+    </li>
+  </ol>
+</div>
+
+<div class="disclaimer">
+  ⚠️ 本記事は一般的な情報であり、医療アドバイスではありません。効果・必要量・リスクは、個人の体質・年齢・持病・服薬によって大きく変わります。サプリメントを始める前に、かかりつけ医・管理栄養士・薬剤師などの専門家にご相談ください。特定の食事制限・サプリメント・断食などを安易に始めることはお勧めしません。
+</div>
+
+</div>
+</body>
+</html>
