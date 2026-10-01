@@ -39,7 +39,7 @@
 - グアテマラ・ホンジュラスなどusted/tú/vosの3段階敬称を使い分ける国の実例── 09-21で触れた中米の3段階敬称をもう1段掘り下げる
 - スペイン語のverbos pronominales(caerse/morirseなど、再帰形と非再帰形の両方が使える動詞)── 09-26のlevantarse型(常に再帰)との違い、意味やニュアンスがどう変わるかを整理する
 - スペイン語のse aspectualの限界(saberse/conocerse/tomarseなど、知識・所有系の動詞に付くse)── 09-29の発展、「全部知っている」のニュアンスを整理する
-- スペイン語の金額の言い方(con/y、céntimos、redondeo、お釣りのやりとり)── 10-01の続編、レジでの会話フレーズ
+- スペイン語のレストランでの注文・お会計(la cuenta, menú del día, propinaの習慣)── 10-02のレジ会話の続編
 
 ## 解説済みテーマ
 
@@ -151,3 +151,4 @@
 - 2026-09-29: スペイン語のcomer/comerse・beber/beberse・leer/leerse(目的語のある動詞に付くse aspectual、「食べきる・飲みきる・読みきる」)── 09-28の発展、英語のeat up/drink upのupとの対応も整理した
 - 2026-09-30: 英語圏の日付・階数・温度の書き方の違い(米式/英式、スペインとの比較)
 - 2026-10-01: スペイン語の数字の表記(小数点コンマ・千の位ピリオド/スペース)と価格の読み方(tres euros con cincuenta)── 09-30の続編
+- 2026-10-02: スペイン語のレジ会話(¿Cuánto es?/Son〜euros/en efectivo/con tarjeta/el cambio)── 10-01の続編、英語のレジ会話との対応も整理
