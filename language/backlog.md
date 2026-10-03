@@ -40,7 +40,7 @@
 - スペイン語のverbos pronominales(caerse/morirseなど、再帰形と非再帰形の両方が使える動詞)── 09-26のlevantarse型(常に再帰)との違い、意味やニュアンスがどう変わるかを整理する
 - スペイン語のse aspectualの限界(saberse/conocerse/tomarseなど、知識・所有系の動詞に付くse)── 09-29の発展、「全部知っている」のニュアンスを整理する
 
-- スペイン語のレストランでの食べ物・飲み物の単語(tapas/ración/caña/agua sin gasなど)── 10-03の続編、バルでの頼み方
+- スペイン語の¿Me pones...?と¿Me das...?/Quisiera...の丁寧度の違い── 10-04の続編、依頼表現のくだけ具合を整理
 
 ## 解説済みテーマ
 
@@ -154,3 +154,4 @@
 - 2026-10-01: スペイン語の数字の表記(小数点コンマ・千の位ピリオド/スペース)と価格の読み方(tres euros con cincuenta)── 09-30の続編
 - 2026-10-02: スペイン語のレジ会話(¿Cuánto es?/Son〜euros/en efectivo/con tarjeta/el cambio)── 10-01の続編、英語のレジ会話との対応も整理
 - 2026-10-03: スペイン語のレストラン会話(Quisiera.../menú del día/La cuenta, por favor/チップの習慣)── 10-02のレジ会話の続編、英語のレストラン表現との対応も整理
+- 2026-10-04: スペイン語のバル会話(caña/agua sin gas/tapa・media ración・ración/¿Me pones...?)── 10-03の続編、英語のCan I have...?との対応も整理
