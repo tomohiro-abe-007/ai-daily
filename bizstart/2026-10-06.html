@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-10-06</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #2a4d7a 0%, #10233f 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #2a4d7a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.blue   { border-left-color: #1e5a7a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.green  { border-left-color: #1e7a5a; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #2a4d7a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin: 14px 0;
+  }
+  .stats-row.c3 { grid-template-columns: repeat(3, 1fr); }
+  .stats-row.c2 { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 12px 6px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat.now { background: #fff3e0; box-shadow: 0 0 0 2px #c8884a inset; }
+  .stat .sl { font-size: 0.62rem; color: #888; margin-bottom: 3px; line-height: 1.4; }
+  .stat .sv { font-size: 1.05rem; font-weight: 700; color: #2a4d7a; line-height: 1.15; }
+  .stat.now .sv { color: #c8884a; }
+  .stat .su { font-size: 0.62rem; color: #666; margin-top: 2px; }
+
+  .bignum {
+    background: white;
+    border-radius: 12px;
+    padding: 18px 14px;
+    text-align: center;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.1);
+    border: 2px dashed #c8884a;
+    margin: 14px 0;
+  }
+  .bignum .bl { font-size: 0.76rem; color: #888; margin-bottom: 6px; }
+  .bignum .bv { font-size: 1.7rem; font-weight: 700; color: #c8884a; line-height: 1.3; }
+  .bignum .bs { font-size: 0.76rem; color: #666; margin-top: 6px; line-height: 1.6; }
+
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #2a4d7a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-num.now { background: #b54040; }
+  .f-num.later { background: #999; }
+  .f-num.opt { background: #c8884a; }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+  .f-arrow { color: #2a4d7a; font-size: 1.1rem; margin-left: 14px; margin-bottom: 4px; }
+
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  table.cmp {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.83rem;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.08);
+  }
+  table.cmp th, table.cmp td {
+    border: 1px solid #e4dccd;
+    padding: 9px 10px;
+    line-height: 1.55;
+    vertical-align: top;
+  }
+  table.cmp thead th { background: #2a4d7a; color: white; font-weight: 600; text-align: center; }
+  table.cmp tbody th { background: #f5efe2; color: #5a4020; text-align: left; font-weight: 600; white-space: nowrap; }
+  table.cmp td { color: #444; text-align: left; }
+  table.cmp td.hi { background: #fff3e0; font-weight: 700; color: #c8884a; }
+  .wrap-x { overflow-x: auto; }
+
+  .prompt-box {
+    background: #f0f5ff;
+    border: 2px solid #4a6aae;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 12px 0;
+    font-size: 0.84rem;
+    line-height: 1.85;
+    color: #1a2a4a;
+  }
+  .prompt-box .ph {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #4a6aae;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+  .prompt-box .fill {
+    background: #d0e0ff;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-weight: 700;
+    color: #0a2a6e;
+  }
+
+  .info {
+    background: #e8eef8;
+    border-left: 4px solid #2a4d7a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #16294a;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #7a4010;
+  }
+
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #2a4d7a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #2a4d7a; word-break: break-all; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #2a4d7a; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+  <div class="meta">📅 1人法人スタート 最新トピック &nbsp;2026-10-06</div>
+  <h1>🎤 融資面談の練習相手は生成AI──<br>「面談官役」で本番前に10回リハーサル</h1>
+  <div class="desc">
+    <span class="htag">資金調達</span><span class="htag">生成AI</span><span class="htag">創業計画書</span><span class="htag">面談対策</span><br>
+    7/16の「1人法人の資金調達入門」の実践編です。融資の相談では、<span class="hl">創業計画書（事業の内容と数字をまとめた書類）</span>をもとに、担当者から質問を受けます。その<span class="hl">予行演習（リハーサル）</span>を、生成AIにお願いする方法を紹介します。
+  </div>
+</div>
+
+<div class="card blue">
+  <div class="sec-title">🎯 ① なぜ「声に出して練習」が効くのか</div>
+  <p>面談では「なぜその事業？」「売上の根拠は？」「返せなくなったら？」のように、数字の<span class="hl">つじつま（整合性）</span>や<span class="hl">返済の見通し</span>が聞かれやすいと言われます。頭の中ではわかっていても、いざ聞かれると答えに詰まりがちです。AIは何度でも、夜中でも、嫌な顔をせず相手になってくれます。</p>
+  <div class="stats-row c3">
+    <div class="stat"><div class="sl">AIに頼める役</div><div class="sv">面談官</div><div class="su">質問を投げてもらう</div></div>
+    <div class="stat"><div class="sl">練習の目安</div><div class="sv">5〜10回</div><div class="su">質問を変えて繰り返す</div></div>
+    <div class="stat now"><div class="sl">かかる費用</div><div class="sv">0円〜</div><div class="su">無料プランでも可</div></div>
+  </div>
+  <div class="source">📚 参考（制度の基礎・限度額など）：7/16記事。公式の確認先：日本政策金融公庫 新規開業・スタートアップ支援資金 <a href="https://www.jfc.go.jp/n/finance/search/01_sinkikaigyou_m.html">https://www.jfc.go.jp/n/finance/search/01_sinkikaigyou_m.html</a>（今回は公式サイトに接続できず、内容の再確認はできていません。金額や条件は必ず公式で最新を確認してください）</div>
+</div>
+
+<div class="card orange">
+  <div class="sec-title">🪜 ② 練習の4ステップ</div>
+  <div class="f-step"><div class="f-num">1</div><div class="f-text"><strong>計画を文章にする</strong>　事業の内容・お客さん・売上の見込み・必要なお金・自己資金を、箇条書きで書き出します。</div></div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step"><div class="f-num opt">2</div><div class="f-text"><strong>AIを「面談官役」にする</strong>　下の質問例をコピーして、金融機関の担当者になりきってもらいます。</div></div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step"><div class="f-num now">3</div><div class="f-text"><strong>1問ずつ答える</strong>　声に出して考えてから入力。答えのあとに、AIから「弱いところ」を指摘してもらいます。</div></div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step"><div class="f-num later">4</div><div class="f-text"><strong>答えをメモにまとめる</strong>　うまく答えられた回答を1枚にして、本番の前に読み返します。</div></div>
+</div>
+
+<div class="card">
+  <div class="sec-title">🤖 ③ そのまま使えるプロンプト</div>
+  <div class="prompt-box">
+    <div class="ph">💬 AIへの質問例（面談官役）</div>
+    あなたは創業融資を担当する金融機関の面談官役です。私は1人で会社を始める経営者で、事業は<span class="fill">◯◯◯</span>、お客さんは<span class="fill">◯◯◯</span>、月の売上見込みは<span class="fill">◯◯万円</span>、必要資金は<span class="fill">◯◯万円</span>、自己資金は<span class="fill">◯◯万円</span>です。<br>
+    <strong>1回に質問は1つだけ</strong>、少し意地悪な質問も混ぜて、私が答えるたびに「良かった点」と「弱い点」を一言でコメントしてください。10問したら総評をください。
+  </div>
+  <div class="info">💡 総評のあとに「面談で聞かれそうなのに、私がまだ答えられていない質問を5つ挙げて」と頼むと、抜け漏れの発見に役立ちます。</div>
+</div>
+
+<div class="card green">
+  <div class="sec-title">🔍 ④ 面談官役AIに聞いてもらいたい質問カテゴリ</div>
+  <div class="wrap-x"><table class="cmp">
+    <thead><tr><th>カテゴリ</th><th>聞かれやすい内容の例</th><th>準備のコツ</th></tr></thead>
+    <tbody>
+      <tr><th>🧑‍💼 経歴・動機</th><td>なぜこの事業？これまでの経験は？</td><td>経験と事業のつながりを1分で話せるように</td></tr>
+      <tr><th>📈 売上の根拠</th><td>お客さんは何人？単価は？なぜその数字？</td><td>「客数×単価×回数」に分解して説明</td></tr>
+      <tr><th>💴 お金の使い道</th><td>何にいくら？自己資金はいくら？</td><td>見積書や相場と照らして金額をそろえる</td></tr>
+      <tr><th>🔁 返済の見通し</th><td>売上が思ったより低かったらどうする？</td><td>「悪い場合」の数字も1パターン用意</td></tr>
+    </tbody>
+  </table></div>
+</div>
+
+<div class="card red">
+  <div class="sec-title">⚠️ ⑤ 使うときの注意</div>
+  <ul class="check-list">
+    <li><span class="ck-bad">！</span><span>AIの「合格です」「通ります」を信じない。AIは審査をしません。<strong>融資の可否は金融機関が決めます</strong>。</span></li>
+    <li><span class="ck-bad">！</span><span>マイナンバー・口座番号・取引先名などの個人情報、機密情報は入力しない。</span></li>
+    <li><span class="ck-bad">！</span><span>数字を「盛る」練習はしない。計画書と面談の内容がずれると、信頼を失います。</span></li>
+    <li><span class="ck">✔</span><span>練習の目的は「正直な事実を、わかりやすく話せるようにする」こと。</span></li>
+  </ul>
+</div>
+
+<div class="card">
+  <div class="sec-title">📝 今日のまとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">①</span>生成AIを<strong>「面談官役」</strong>にすると、一人でも何度でも面談の予行演習ができる。</li>
+    <li><span class="n">②</span>計画を<strong>文章にして、1問ずつ答え、弱い点を直す</strong>の4ステップで回す。</li>
+    <li><span class="n">③</span>AIに<strong>審査はできない</strong>。数字と条件は公庫の公式資料で確認し、迷ったら専門家へ。</li>
+  </ul>
+</div>
+
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、税務・法務の個別アドバイスではありません。会社の状況により結論は変わります。
+  具体的な判断は、税理士・社会保険労務士・司法書士などの専門家にご相談ください。<br>
+  <strong>本記事の基準年度:</strong>2026年（令和8年）時点。制度・税率・金額・融資条件は改正・変更される場合があります。融資の可否を保証するものではありません。
+</div>
+
+<div class="footer">
+  <p>📚 <a href="index.html">バックナンバー一覧へ</a> &nbsp;&middot;&nbsp; 毎朝更新</p>
+</div>
+
+</div>
+</body>
+</html>
