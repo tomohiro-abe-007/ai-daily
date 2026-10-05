@@ -2,6 +2,11 @@
 
 今後の記事候補。使ったテーマは削除し、新しく見つけた有望テーマは追記する。
 
+## 未使用テーマ(追記:2026-10-06 検索で見つけた有望テーマ)
+
+- 10-06記事(Personal Diet Study、JAMA Netw Open 2022;PMC9520362 / Am J Clin Nutr 2023)の続報候補 ── 著者名・資金源・利益相反、204人と156人の解析人数の違いの理由、HbA1cの具体的数値、個別化栄養のシステマティックレビュー(PubMed 40821750)の本文確認。ネットワーク制限(pubmed・pmc・sciencedirect)で本文未確認
+- 精密栄養学の「予測モデルの精度」を扱う回 ── AJCN 2024 "How good are we at predicting the individual response to personalized diets?"(https://ajcn.nutrition.org/article/S0002-9165(24)00457-X/fulltext)。個別反応を予測できる精度の限界。内容未確認
+
 ## 未使用テーマ(追記:2026-10-05 検索で見つけた有望テーマ)
 
 - 10-05記事(マグネシウムとインスリン抵抗性、BMC Nutrition 2026、PubMed 42426860)の続報候補 ── 著者・各試験の用量/期間/質評価、Hypertension 2025のマグネシウムと血圧のメタ分析(https://pubmed.ncbi.nlm.nih.gov/41000008/)の数値、日本の食事摂取基準の値。ネットワーク制限(ods.od.nih.gov・springer)で本文未確認
@@ -154,7 +159,6 @@
 ## 未使用テーマ（追記：2026-09-07 検索で見つけた有望テーマ）
 
 - 09-07記事(Wang, Berube, Curran, Pompeii, Hu, Barua, Li, St-Jules, Schoenthaler, Segal, Bergman, Popp, Frontiers in Nutrition 2026年8月3日, DOI: 10.3389/fnut.2026.1851439)の続報候補 ── 属レベルの菌の量と各変数の組み合わせごとの具体的なスピアマン相関係数(ρ)・p値・信頼区間、Prevotella/Bacteroides比とエネルギー・糖質・一価不飽和脂肪酸摂取量の正確な数値、性別・メトホルミン使用・BMI・たんぱく質摂取量・REEと関連した具体的な菌の属名が、論文本文で確認できれば深掘り記事化を検討。ネットワーク制限(frontiersin.org・pmc.ncbi.nlm.nih.gov・pubmed.ncbi.nlm.nih.govがブロック対象)で本文未確認
-- 元になった精密栄養学のRCT「Personal Diet Study」(NCT03336411、Popp CJら, Contemporary Clinical Trials 2019, PMID: 30844471)の主要な結果論文 ──"A randomized clinical trial comparing low-fat with precision nutrition–based diets for weight loss: impact on glycemic variability and HbA1c"(American Journal of Clinical Nutrition掲載)。AIが個人の食後血糖反応を予測する「パーソナライズ食」と「標準的な低脂肪食」で、実際に減量効果・HbA1c・血糖変動に差が出たかどうかを検証した本題の結果であり、「精密栄養学は実際に効果があるのか」を直接扱える独立テーマとして有望。一次論文本文(対象人数の詳細、群間差の統計値)の確認が必要、ネットワーク制限(sciencedirect.com・ajcn.nutrition.org対象)で未確認
 - 同じPersonal Diet Studyコホートを使った別の二次解析"Baseline Characteristics of Weight-Loss Success in a Personalized Nutrition Intervention: A Secondary Analysis"(Nutrients誌, MDPI, DOI要確認)── どんな人がパーソナライズ食で特に減量に成功しやすいかを調べた研究。精密栄養学×個人差の切り口として09-07記事の続編に使えるか検討。一次資料未確認
 
 ## 未使用テーマ（追記：2026-09-06 検索で見つけた有望テーマ）
