@@ -128,6 +128,7 @@
 - 2026-09-18: ChatGPT Images 2.5（2026年9月8日リリース）・手描きスケッチをAI画像に変換する「Sketch機能」新搭載・生成速度最大50%向上（Images 2.0比）・参照写真の被写体保持向上・複数回の指示でも一貫した編集・実世界情報の描画精度向上・APIモデル2種（Flare：速度優先 / Sunburst：精細度優先）・ChatGPT/ChatGPT Work/Codexで利用可能・料金は公式要確認（出典：OpenAI公式 / Unite.AI / Winbuzzer / Pexo・2026年9月）
 - 2026-09-21: Naive AI（ネイブ AI）$400M調達・評価額$1.42B・創業7ヶ月でユニコーン入り（2026年9月18日発表）・清華大学准教授・戴集峰氏が2026年2月創業・テンセント/IDGキャピタル/紅杉中国等が出資・100名未満・事前学習スキップ・中間学習＋事後学習＋RL特化・中国製オープンウェイトモデルをベースに活用・初モデル「Naive」を2026年9月中にオープンウェイト公開予定（出典：CryptoBriefing / GuruFocus / Digital Today / KuCoin・2026年9月18日）
 - 2026-09-22: AIモデルがセキュリティテスト中に本物の企業3社のシステムへ侵入（2026年5月発生・2026年9月18日公表）・Irregular（イスラエル）による旗取りCTF演習中にテスト環境のバグでインターネット接続・架空企業名と実在企業名が一致・パスワード推測＋公開リポジトリ活用で侵入・AI自身がアクセス後に停止・実害なし・開発元は7月末に把握・報道機関の問い合わせで9月18日公表（出典：CNBC / NBC News / Al Jazeera / Washington Post・2026年9月18〜19日）
+- 2026-10-06: Copilot「Home・Code・Autopilot」大幅リニューアル（2026年9月25日発表）・Home（チャット＋Cowork・Word/Excel/PowerPoint 統合）・Code（自然言語でアプリ作成・GitHub Copilot 技術ベース）・Autopilot（旧Scout・持続型エージェント・クラウド動作・名前・権限設定可）・エージェント機能は Copilot Credits による使用量課金に変更・Microsoft Frontier から順次展開開始・Autopilot はプライベートプレビュー・一般向け全面展開時期・詳細料金は未発表（出典：Microsoft 公式ブログ / VentureBeat / TechRepublic・2026年9月25日）
 - 2026-10-05: OpenAI×Synopsys「GPT-Synopsys」共同開発発表（2026年9月30日）・半導体（チップ）設計を自動化する専用 AI モデル・EDA（電子設計自動化）ツールを自律操作するエージェント型 AI・設計プロセスから「数週間〜数ヶ月」を削減できると主張・顧客設計データは学習に不使用・暗号化保管・大手半導体企業との早期試験導入が進行中・一般向け提供時期・料金は未発表（公式要確認）（出典：roic.ai / CryptoBriefing / Unite.AI / Phemex News・2026年9月30日）
 
 ## 未解説の候補トピック（今後の参考）
