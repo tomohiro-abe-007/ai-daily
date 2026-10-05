@@ -39,8 +39,8 @@
 - スペイン語のverbos pronominales(caerse/morirseなど、再帰形と非再帰形の両方が使える動詞)── 09-26のlevantarse型(常に再帰)との違い、意味やニュアンスがどう変わるかを整理する
 - スペイン語のse aspectualの限界(saberse/conocerse/tomarseなど、知識・所有系の動詞に付くse)── 09-29の発展、「全部知っている」のニュアンスを整理する
 
+- スペイン語のquerer(Quiero/Quisiera)と¿Me pones...?の使い分け(地域差)── 10-06で触れたQuieroの強さの感覚を掘り下げる
 - スペイン語の¿Me pones...?と¿Me das...?/Quisiera...の丁寧度の違い── 10-04の続編、依頼表現のくだけ具合を整理
-- 英語のI'd like / Could I have / I want の違い（注文・要望での「欲しい」の言い方）── 10-05の依頼表現の続編
 
 ## 解説済みテーマ
 
@@ -156,3 +156,4 @@
 - 2026-10-03: スペイン語のレストラン会話(Quisiera.../menú del día/La cuenta, por favor/チップの習慣)── 10-02のレジ会話の続編、英語のレストラン表現との対応も整理
 - 2026-10-04: スペイン語のバル会話(caña/agua sin gas/tapa・media ración・ración/¿Me pones...?)── 10-03の続編、英語のCan I have...?との対応も整理
 - 2026-10-05: 英語の依頼表現の丁寧さ4段階(命令形/Can you/Could you/I was wondering if)── 10-04のスペイン語¿Me pones...?の続編、スペイン語Quisiera...との対応も整理
+- 2026-10-06: 英語の「欲しい」の言い方(I want/I'd like/I'll have/Could I have)── 10-05の依頼表現の続編、スペイン語Quiero→Quisieraとの対応も整理
