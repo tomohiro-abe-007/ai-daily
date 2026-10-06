@@ -20,7 +20,6 @@
 - スペイン語の増大辞(aumentativo) -ón/-azo の使い方（hombrón, cochazoなど）── 08-14の指小辞-ito/-itaの反対語、「大きい・強調・時には皮肉」を表す語尾変化
 - 英語の-ish(強調・おおよそを表す接尾辞: greenish, fortyish, tallish)── 08-15の-y/-let(小さい・親しみ)とは別系統の「あいまいさ・程度」を足す接尾辞、日常会話でよく使われる
 - スペイン語のestar de vs. ser de(出身・所属を表す表現の違い)── ser用法の応用、生活シーンで自己紹介の幅を広げる
-- 英語のused to / would(過去の習慣を表す言い方の違い)── 過去形の入り口(06-24)の発展、「昔は〜したものだ」の言い方
 - スペイン語の間接疑問文(No sé qué hora es.のような疑問詞+平叙語順)── 08-21のse構文の後に読みたい、疑問文の語順が変わる感覚を整理
 - 英語のDoes that make sense?/Are you following?などフォーマルな理解確認フレーズ── 08-22のyou know?/get it?/see?のフォーマル版、ビジネス英語で使える丁寧な確認表現を整理
 - スペイン語のfiller word(este, o sea, bueno)の使い方── 08-22の英語you know?のように、意味が薄れて間つなぎ化した表現の整理、08-16のvale/claro/pues/o seaの発展
@@ -41,6 +40,9 @@
 
 - スペイン語のquerer(Quiero/Quisiera)と¿Me pones...?の使い分け(地域差)── 10-06で触れたQuieroの強さの感覚を掘り下げる
 - スペイン語の¿Me pones...?と¿Me das...?/Quisiera...の丁寧度の違い── 10-04の続編、依頼表現のくだけ具合を整理
+
+- 英語のbe used to / get used to(「〜に慣れている」)── 10-07のused toとの混同ポイント
+- スペイン語の線過去(imperfecto)の活用(-aba/-ía)と点過去との使い分け── 10-07の続編
 
 ## 解説済みテーマ
 
@@ -157,3 +159,4 @@
 - 2026-10-04: スペイン語のバル会話(caña/agua sin gas/tapa・media ración・ración/¿Me pones...?)── 10-03の続編、英語のCan I have...?との対応も整理
 - 2026-10-05: 英語の依頼表現の丁寧さ4段階(命令形/Can you/Could you/I was wondering if)── 10-04のスペイン語¿Me pones...?の続編、スペイン語Quisiera...との対応も整理
 - 2026-10-06: 英語の「欲しい」の言い方(I want/I'd like/I'll have/Could I have)── 10-05の依頼表現の続編、スペイン語Quiero→Quisieraとの対応も整理
+- 2026-10-07: 英語のused to / would(過去の習慣、状態はused toのみ)── スペイン語の線過去との対応も整理
