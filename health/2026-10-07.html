@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-10-07</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '☀️';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.35rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.9rem; margin-bottom: 8px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.1em; }
+  .c3-col li { margin-bottom: 4px; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  .quote-box {
+    background: #f5f0e8;
+    border-left: 4px solid #7a5abf;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    margin: 12px 0;
+    color: #444;
+    font-style: italic;
+  }
+  .quote-box .who { font-style: normal; font-weight: 700; color: #5a3a9a; margin-top: 6px; font-size: 0.78rem; }
+  .matrix {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .mx-cell {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .mx-cell .mx-head { font-weight: 700; font-size: 0.88rem; margin-bottom: 6px; }
+  .mx-cell.ok  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .mx-cell.ok  .mx-head { color: #1a6e4a; }
+  .mx-cell.ng  { background: #fbe8e6; border: 2px solid #c0392b; }
+  .mx-cell.ng  .mx-head { color: #a0291e; }
+  .subtype-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .subtype-card {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.84rem;
+  }
+  .subtype-card .st-head { font-weight: 700; font-size: 0.92rem; margin-bottom: 8px; }
+  .subtype-card .st-bar {
+    height: 10px;
+    border-radius: 5px;
+    background: #eee;
+    overflow: hidden;
+    margin: 6px 0 4px;
+  }
+  .subtype-card .st-bar-fill { height: 100%; }
+  .subtype-card.st-green { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .subtype-card.st-green .st-head { color: #1a6e4a; }
+  .subtype-card.st-orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .subtype-card.st-orange .st-head { color: #b85e10; }
+  .subtype-card.st-red { background: #fbe8e6; border: 2px solid #c0392b; }
+  .subtype-card.st-red .st-head { color: #a0291e; }
+  @media (max-width: 540px) {
+    .compare4 { grid-template-columns: 1fr; }
+    .matrix { grid-template-columns: 1fr; }
+    .subtype-grid { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.7rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="header">
+  <div class="label">健康・栄養 最新トピック ・ 2026-10-07</div>
+  <h1>「たんぱく質と食物繊維をとる人は長く眠れる」は本当? ──スマホアプリ4,825人のデータを読み解く</h1>
+  <div class="subtitle">睡眠アプリと食事記録アプリの記録を組み合わせた大規模な観察研究。「長く眠れた」のは食事のおかげなのか、それとも別の理由なのか──ニュースの読み方を整理します。</div>
+</div>
+
+<div style="margin-bottom:18px;">
+  <span class="tag">睡眠</span>
+  <span class="tag">たんぱく質・食物繊維</span>
+  <span class="tag">観察研究</span>
+  <span class="tag">エビデンスの読み方</span>
+</div>
+
+<div class="card">
+  <h2>🤔 今日の疑問:食事で睡眠は変わる?</h2>
+  <p>「夜によく眠るために何を食べればいい?」は人気の疑問です。筑波大学などのチームは、スマホの<strong>睡眠アプリ</strong>と<strong>食事記録アプリ</strong>のデータをつなげて、食べ方と眠りの関係を調べました。ただし、これは「関係があった」ことを示す研究で、「食べれば眠れる」と証明したものではありません。</p>
+</div>
+
+<div class="card blue">
+  <h2>📖 まず言葉の意味を</h2>
+  <div class="def-grid">
+    <div class="def-item"><div class="dterm">横断研究</div>ある時点(期間)のデータをまとめて見て、関係があるかを調べる研究。「どちらが先か」は分からない。</div>
+    <div class="def-item"><div class="dterm">観察研究</div>研究者が介入せず、普段の生活をそのまま記録して調べる研究。相関は分かるが因果は言いにくい。</div>
+    <div class="def-item"><div class="dterm">総睡眠時間(TST)</div>実際に眠っていた時間の合計。</div>
+    <div class="def-item"><div class="dterm">入眠潜時</div>布団に入ってから眠りにつくまでの時間。</div>
+    <div class="def-item"><div class="dterm">交絡(こうらく)</div>食事と睡眠の両方に影響する「第三の要因」(例:生活リズム、仕事)。関係を見かけ上つくることがある。</div>
+  </div>
+</div>
+
+<div class="card purple">
+  <h2>🔬 どんな研究だった?</h2>
+  <p>研究は<em>Journal of Medical Internet Research</em>(2025年、27巻、e64749)に掲載されました。<strong>Pokémon Sleep</strong>(スマホの加速度センサーで睡眠を推定)と<strong>あすけん</strong>(食事記録)を<strong>7日以上</strong>使った<strong>4,825人</strong>のデータを分析しています。</p>
+  <div class="flow">
+    <div class="flow-step">① 食事アプリで<br>栄養素を記録</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step alt">② 睡眠アプリで<br>眠りを推定</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step purp">③ 年齢・性別・BMIを<br>考慮して回帰分析</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step warn2">④ 摂取量を4段階に分けて<br>睡眠と比べる</div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>📊 結果は?</h2>
+  <div class="num-row">
+    <div class="num-card blue-bg"><div class="big">4,825<span class="unit">人</span></div><div class="desc">解析対象(アプリ利用7日以上)</div></div>
+    <div class="num-card"><div class="big">+0.18<span class="unit">時間</span></div><div class="desc">たんぱく質が最も多い群(第4四分位)の総睡眠時間の差(95%信頼区間 0.09〜0.27)。約11分</div></div>
+    <div class="num-card orange-bg"><div class="big">+0.17<span class="unit">時間</span></div><div class="desc">第3四分位の差(95%信頼区間 0.09〜0.26)。約10分</div></div>
+  </div>
+  <p>報道・大学発表によると、<strong>食物繊維</strong>が多い人は総睡眠時間が長く、寝つきまでの時間や、いったん眠ったあとの目覚めが短い傾向も報告されています。一方、<strong>エネルギー・脂質・ナトリウム(塩分)</strong>が多い人は睡眠時間が短い傾向があったとされます(食物繊維などの個別の数値は、本文を直接確認できていません)。</p>
+  <div class="matrix">
+    <div class="mx-cell ok"><div class="mx-head">✅ 分かったこと</div>アプリを使う約4,800人では、たんぱく質・食物繊維が多い人ほど睡眠の指標が良い「関連」があった。</div>
+    <div class="mx-cell ng"><div class="mx-head">❓ 言い切れないこと</div>食べたから眠れたのか(因果)は不明。差は約10分と小さく、個人の睡眠が確実に変わるとは言えない。</div>
+  </div>
+</div>
+
+<div class="card orange">
+  <h2>⚖️ 反対側の見方・注意点</h2>
+  <div class="compare4">
+    <div class="c3-col green"><h3>🌱 評価できる点</h3><ul><li>実生活のデータで人数が多い</li><li>睡眠を主観でなく機器で測っている</li><li>年齢・性別・BMIは調整済み</li></ul></div>
+    <div class="c3-col red"><h3>🚧 慎重に見たい点</h3><ul><li>逆の因果:よく眠れる人は食生活も整っているのかもしれない</li><li>交絡:運動や仕事、健康意識の高さなど未調整の要因</li><li>アプリ利用者に偏り(特定の人たち)</li><li>スマホによる睡眠推定は、専用の検査より精度が低い</li></ul></div>
+  </div>
+  <p>著者らも、食事の介入で睡眠が改善するかは<strong>今後の前向き研究(追跡・介入)が必要</strong>としています。</p>
+</div>
+
+<div class="card red">
+  <h2>⚠️ どこまで信じてよい? エビデンスの強さ</h2>
+  <table class="ev-table">
+    <tr><th>ポイント</th><th>評価</th></tr>
+    <tr><td>研究の種類</td><td><span class="ev-badge ev-low">横断的な観察研究。相関は示せるが因果は示せない</span></td></tr>
+    <tr><td>人数・対象</td><td><span class="ev-badge ev-mid">4,825人と多いが、特定アプリの利用者。一般の人全体とは限らない</span></td></tr>
+    <tr><td>効果の大きさ</td><td><span class="ev-badge ev-mid">たんぱく質で約10分の差。小さい</span></td></tr>
+    <tr><td>「食べれば眠れる」という断定</td><td><span class="ev-badge ev-low">言い過ぎ。「関連があった」が正確</span></td></tr>
+  </table>
+  <div class="warn">
+    <strong>読み方の注意:</strong>論文・大学サイトの本文はネットワーク制限で直接開けず、検索結果に表示された要旨・要約で確認できた内容のみ掲載しています。食物繊維など一部の数値は未確認のため記載していません。資金源・利益相反も未確認です。
+  </div>
+</div>
+
+<div class="card">
+  <h2>🧬 精密栄養学の視点</h2>
+  <p>睡眠と食事の関係は人によって違うはずです。この研究は「集団の平均的な傾向」を見たもので、<strong>あなたに当てはまるか</strong>は別の問いです。個人差を調べるには、同じ人が食事を変えて睡眠がどう変わるかを比べる試験が必要になります。</p>
+</div>
+
+<div class="card blue">
+  <h2>💡 今日のまとめ</h2>
+  <ol class="step-list">
+    <li><span>約4,800人のアプリデータで、たんぱく質・食物繊維が多い人は睡眠が長め・寝つきが良い傾向があった(観察研究)。</span></li>
+    <li><span>たんぱく質が多い群の睡眠は約10分長い程度。差は小さい。</span></li>
+    <li><span>「食事が原因」とは言えない。生活リズムなど別の要因の可能性が残る。</span></li>
+    <li><span>睡眠の悩みが続くときは、自己判断で食事やサプリを変えず、医師や専門家に相談を。</span></li>
+  </ol>
+</div>
+
+<div class="sources">
+  <h3>📚 主な出典・参考文献</h3>
+  <ol>
+    <li>"Relationship Among Macronutrients, Dietary Components, and Objective Sleep Variables Measured by Smartphone Applications: A Real-World Cross-Sectional Study." <em>J Med Internet Res</em> 2025;27:e64749(2025年1月30日掲載)。
+      <a href="https://www.jmir.org/2025/1/e64749" target="_blank">JMIR</a>(基準日:2025年1月。本文未確認、検索結果の要旨ベース)</li>
+    <li>筑波大学 研究ニュース "Relationship Between Sleep and Nutrition with App Data: A Large-scale Study"。
+      <a href="https://www.tsukuba.ac.jp/en/research-news/20250203140000.html" target="_blank">tsukuba.ac.jp</a>(基準日:2025年2月。本文未確認、検索結果の要約ベース)</li>
+    <li>プレプリント版(medRxiv, 2024年7月)。
+      <a href="https://www.medrxiv.org/content/10.1101/2024.07.25.24311028v1" target="_blank">medRxiv</a>(基準日:2024年7月。未査読版、本文未確認)</li>
+  </ol>
+</div>
+
+<div class="disclaimer">
+  ⚠️ 本記事は一般的な情報であり、医療アドバイスではありません。効果・必要量・リスクは、個人の体質・年齢・持病・服薬によって大きく変わります。睡眠や食事の変更は、かかりつけ医・管理栄養士・薬剤師などの専門家にご相談ください。特定の食事制限・サプリメント・断食などは、安易に始めないでください。
+</div>
+
+</div>
+</body>
+</html>
