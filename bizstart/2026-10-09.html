@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-10-09</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #2a4d7a 0%, #10233f 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #2a4d7a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.blue   { border-left-color: #1e5a7a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.green  { border-left-color: #1e7a5a; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #2a4d7a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin: 14px 0;
+  }
+  .stats-row.c3 { grid-template-columns: repeat(3, 1fr); }
+  .stats-row.c2 { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 12px 6px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat.now { background: #fff3e0; box-shadow: 0 0 0 2px #c8884a inset; }
+  .stat .sl { font-size: 0.62rem; color: #888; margin-bottom: 3px; line-height: 1.4; }
+  .stat .sv { font-size: 1.05rem; font-weight: 700; color: #2a4d7a; line-height: 1.15; }
+  .stat.now .sv { color: #c8884a; }
+  .stat .su { font-size: 0.62rem; color: #666; margin-top: 2px; }
+
+  .bignum {
+    background: white;
+    border-radius: 12px;
+    padding: 18px 14px;
+    text-align: center;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.1);
+    border: 2px dashed #c8884a;
+    margin: 14px 0;
+  }
+  .bignum .bl { font-size: 0.76rem; color: #888; margin-bottom: 6px; }
+  .bignum .bv { font-size: 1.7rem; font-weight: 700; color: #c8884a; line-height: 1.3; }
+  .bignum .bs { font-size: 0.76rem; color: #666; margin-top: 6px; line-height: 1.6; }
+
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #2a4d7a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-num.now { background: #b54040; }
+  .f-num.later { background: #999; }
+  .f-num.opt { background: #c8884a; }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+  .f-arrow { color: #2a4d7a; font-size: 1.1rem; margin-left: 14px; margin-bottom: 4px; }
+
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  table.cmp {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.83rem;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.08);
+  }
+  table.cmp th, table.cmp td {
+    border: 1px solid #e4dccd;
+    padding: 9px 10px;
+    line-height: 1.55;
+    vertical-align: top;
+  }
+  table.cmp thead th { background: #2a4d7a; color: white; font-weight: 600; text-align: center; }
+  table.cmp tbody th { background: #f5efe2; color: #5a4020; text-align: left; font-weight: 600; white-space: nowrap; }
+  table.cmp td { color: #444; text-align: left; }
+  table.cmp td.hi { background: #fff3e0; font-weight: 700; color: #c8884a; }
+  .wrap-x { overflow-x: auto; }
+
+  .prompt-box {
+    background: #f0f5ff;
+    border: 2px solid #4a6aae;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 12px 0;
+    font-size: 0.84rem;
+    line-height: 1.85;
+    color: #1a2a4a;
+  }
+  .prompt-box .ph {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #4a6aae;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+  .prompt-box .fill {
+    background: #d0e0ff;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-weight: 700;
+    color: #0a2a6e;
+  }
+
+  .info {
+    background: #e8eef8;
+    border-left: 4px solid #2a4d7a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #16294a;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #7a4010;
+  }
+
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #2a4d7a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #2a4d7a; word-break: break-all; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #2a4d7a; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+  <div class="meta">📅 1人法人スタート 最新トピック &nbsp;2026-10-09</div>
+  <h1>📒 自分にしかできない仕事、頭の中だけにしまっていませんか？──<br>生成AIで「業務マニュアル」を作る</h1>
+  <div class="desc">
+    <span class="htag">生成AI</span><span class="htag">業務の仕組み化</span><span class="htag">マインド</span><br>
+    1人社長は「全部自分の頭の中」で仕事を回しがち。でも、病気や繁忙期に止まると会社も止まります。今日は、生成AIで<span class="hl">マニュアル（手順書）</span>を作り、<span class="hl">仕組み化（誰がやっても同じ結果になる形にすること）</span>する方法です。
+  </div>
+</div>
+
+<div class="card blue">
+  <div class="sec-title">🎯 ① なぜ1人でもマニュアルが要るの？</div>
+  <div class="stats-row c3">
+    <div class="stat"><div class="sl">未来の自分</div><div class="sv">忘れる</div><div class="su">年1回の作業は特に</div></div>
+    <div class="stat"><div class="sl">外注・アルバイト</div><div class="sv">頼める</div><div class="su">手順書があれば説明が楽</div></div>
+    <div class="stat now"><div class="sl">自分が休む日</div><div class="sv">止まらない</div><div class="su">最低限の運営が続く</div></div>
+  </div>
+  <p>特に<span class="hlo">月1回・年1回しかやらない作業</span>（請求書の発行、経費の締め、各種届出の確認など）は、次にやるとき必ず忘れます。未来の自分への「引き継ぎ書」だと考えましょう。</p>
+</div>
+
+<div class="card orange">
+  <div class="sec-title">🪜 ② 作り方の4ステップ</div>
+  <div class="f-step"><div class="f-num">1</div><div class="f-text"><strong>作業をしながら声や箇条書きでメモ</strong>　きれいに書かず、やった順に「開く→入力→確認」と残します。</div></div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step"><div class="f-num opt">2</div><div class="f-text"><strong>AIに「手順書」に整えてもらう</strong>　番号付きの手順、確認ポイント、困ったときの対処に整理させます。</div></div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step"><div class="f-num now">3</div><div class="f-text"><strong>実際にその手順どおりにやってみる</strong>　抜けや、AIが勝手に足した手順がないか確かめます。</div></div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step"><div class="f-num later">4</div><div class="f-text"><strong>保管場所と更新日を決める</strong>　1か所にまとめ、やり方が変わったら直します。</div></div>
+</div>
+
+<div class="card">
+  <div class="sec-title">🤖 ③ そのまま使えるプロンプト</div>
+  <div class="prompt-box">
+    <div class="ph">💬 AIへの質問例（手順書づくり）</div>
+    以下は私が作業しながら書いたメモです。初めてやる人でも迷わない「手順書」に整えてください。<br>
+    ・作業名：<span class="fill">◯◯◯（例：月末の請求書発行）</span><br>
+    ・メモ：<span class="fill">（箇条書きで貼り付け）</span><br>
+    ・出力形式：<span class="fill">①目的 ②必要なもの ③番号付き手順 ④間違えやすい点 ⑤終わったかの確認リスト</span><br>
+    ・ルール：<span class="fill">メモにない手順や数字は追加せず、不明な点は【要確認】と書く</span>
+  </div>
+  <div class="info">💡 「メモにない内容は足さない」と指示するのがコツ。AIがそれらしい手順を作ってしまうのを防げます。</div>
+</div>
+
+<div class="card">
+  <div class="sec-title">🗂️ ④ 最初に手順書にしたい仕事の選び方</div>
+  <div class="wrap-x"><table class="cmp">
+    <thead><tr><th>仕事のタイプ</th><th>手順書の優先度</th><th>例</th></tr></thead>
+    <tbody>
+      <tr><th>🔁 毎月くり返す</th><td class="hi">高い</td><td>請求書の発行、領収書の整理、入金の確認</td></tr>
+      <tr><th>📆 年に数回だけ</th><td class="hi">高い（忘れやすい）</td><td>決算前の準備、書類の保管場所の確認</td></tr>
+      <tr><th>🎨 毎回ちがう創作</th><td>低い</td><td>企画づくり（型より素材集めが大事）</td></tr>
+    </tbody>
+  </table></div>
+</div>
+
+<div class="card red">
+  <div class="sec-title">⚠️ ⑤ 守りたいルール</div>
+  <ul class="check-list">
+    <li><span class="ck-bad">！</span><span><strong>パスワードやマイナンバー、口座番号</strong>は手順書に書かない・AIにも貼らない。保管場所だけを書きます。</span></li>
+    <li><span class="ck-bad">！</span><span>税務・社会保険・法律に関わる手順は、AIの文面をそのまま信じず、<strong>公式の案内や専門家</strong>で確認する。</span></li>
+    <li><span class="ck">✔</span><span>お客さんの名前や内部情報は「A社」などに置き換えて入力する。</span></li>
+  </ul>
+</div>
+
+<div class="card green">
+  <div class="sec-title">🧠 ⑥ マインド：「自分がいないと回らない」は強みであり弱み</div>
+  <p>手順書づくりは、仕事を<span class="hlg">「やる」から「見直す」</span>へ変える時間でもあります。書き出すと、やめてよい作業や自動化できる作業が見えてきます。1日1つ、10分だけで十分です。</p>
+</div>
+
+<div class="card">
+  <div class="sec-title">📝 今日のまとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">①</span>月1回・年1回の作業ほど、<strong>未来の自分のため</strong>に手順書にする。</li>
+    <li><span class="n">②</span>作業メモをAIに渡し、<strong>「メモにない内容は足さない」</strong>と指示して整える。</li>
+    <li><span class="n">③</span>実際にその手順で試し、<strong>機密情報は書かず</strong>保管場所と更新日を決める。</li>
+  </ul>
+  <div class="source">📚 ※今回は生成AIの使い方が中心のテーマで、税率・金額などの制度の数値は扱っていません。入力データの扱いは、各AIサービスの公式の利用規約・設定ページで最新の内容をご確認ください。<br>（本日の作成時は、国税庁などの公的サイトへ接続できなかったため、制度の数値を含むテーマは見送りました。）</div>
+</div>
+
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、税務・法務の個別アドバイスではありません。会社の状況により結論は変わります。
+  具体的な判断は、税理士・社会保険労務士・司法書士などの専門家にご相談ください。<br>
+  <strong>本記事の基準年度:</strong>2026年（令和8年）時点。制度・税率・金額は改正・変更される場合があります。AIサービスの仕様・規約も変更されることがあります。
+</div>
+
+<div class="footer">
+  <p>📚 <a href="index.html">バックナンバー一覧へ</a> &nbsp;&middot;&nbsp; 毎朝更新</p>
+</div>
+
+</div>
+</body>
+</html>
