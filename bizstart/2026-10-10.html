@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-10-10</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #2a4d7a 0%, #10233f 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #2a4d7a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.blue   { border-left-color: #1e5a7a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.green  { border-left-color: #1e7a5a; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #2a4d7a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin: 14px 0;
+  }
+  .stats-row.c3 { grid-template-columns: repeat(3, 1fr); }
+  .stats-row.c2 { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 12px 6px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat.now { background: #fff3e0; box-shadow: 0 0 0 2px #c8884a inset; }
+  .stat .sl { font-size: 0.62rem; color: #888; margin-bottom: 3px; line-height: 1.4; }
+  .stat .sv { font-size: 1.05rem; font-weight: 700; color: #2a4d7a; line-height: 1.15; }
+  .stat.now .sv { color: #c8884a; }
+  .stat .su { font-size: 0.62rem; color: #666; margin-top: 2px; }
+
+  .bignum {
+    background: white;
+    border-radius: 12px;
+    padding: 18px 14px;
+    text-align: center;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.1);
+    border: 2px dashed #c8884a;
+    margin: 14px 0;
+  }
+  .bignum .bl { font-size: 0.76rem; color: #888; margin-bottom: 6px; }
+  .bignum .bv { font-size: 1.7rem; font-weight: 700; color: #c8884a; line-height: 1.3; }
+  .bignum .bs { font-size: 0.76rem; color: #666; margin-top: 6px; line-height: 1.6; }
+
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #2a4d7a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-num.now { background: #b54040; }
+  .f-num.later { background: #999; }
+  .f-num.opt { background: #c8884a; }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+  .f-arrow { color: #2a4d7a; font-size: 1.1rem; margin-left: 14px; margin-bottom: 4px; }
+
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  table.cmp {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.83rem;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.08);
+  }
+  table.cmp th, table.cmp td {
+    border: 1px solid #e4dccd;
+    padding: 9px 10px;
+    line-height: 1.55;
+    vertical-align: top;
+  }
+  table.cmp thead th { background: #2a4d7a; color: white; font-weight: 600; text-align: center; }
+  table.cmp tbody th { background: #f5efe2; color: #5a4020; text-align: left; font-weight: 600; white-space: nowrap; }
+  table.cmp td { color: #444; text-align: left; }
+  table.cmp td.hi { background: #fff3e0; font-weight: 700; color: #c8884a; }
+  .wrap-x { overflow-x: auto; }
+
+  .prompt-box {
+    background: #f0f5ff;
+    border: 2px solid #4a6aae;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 12px 0;
+    font-size: 0.84rem;
+    line-height: 1.85;
+    color: #1a2a4a;
+  }
+  .prompt-box .ph {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #4a6aae;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+  .prompt-box .fill {
+    background: #d0e0ff;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-weight: 700;
+    color: #0a2a6e;
+  }
+
+  .info {
+    background: #e8eef8;
+    border-left: 4px solid #2a4d7a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #16294a;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #7a4010;
+  }
+
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #2a4d7a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #2a4d7a; word-break: break-all; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #2a4d7a; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+  <div class="meta">📅 1人法人スタート 最新トピック &nbsp;2026-10-10</div>
+  <h1>🗓️ 源泉所得税、毎月10日の納付が面倒…── 「納期の特例」で年2回にまとめる</h1>
+  <div class="desc">
+    <span class="htag">源泉所得税</span><span class="htag">納期の特例</span><span class="htag">経理・スケジュール</span><br>
+    役員報酬を払うと、会社は<span class="hl">源泉所得税（給与から天引きして、本人に代わって国に納めるお金）</span>を納める役目を負います。小さな会社は申請すれば、納付を<span class="hl">年2回</span>にまとめられます。次の期限は<span class="hl">2027年1月20日</span>です。
+  </div>
+</div>
+
+<div class="card blue">
+  <div class="sec-title">📆 ① 納付回数と期限のちがい</div>
+  <div class="stats-row c3">
+    <div class="stat"><div class="sl">原則</div><div class="sv">毎月</div><div class="su">翌月10日まで</div></div>
+    <div class="stat now"><div class="sl">納期の特例 前半</div><div class="sv">7月10日</div><div class="su">1〜6月分</div></div>
+    <div class="stat now"><div class="sl">納期の特例 後半</div><div class="sv">1月20日</div><div class="su">7〜12月分</div></div>
+  </div>
+  <p>原則は「翌月10日」ですが、特例を受けると<span class="hlo">1〜6月分を7月10日、7〜12月分を翌年1月20日</span>にまとめて納めます。年12回が年2回になります。</p>
+  <div class="source">📚 出典：<a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/gensen/2505.htm">国税庁 No.2505 源泉所得税及び復興特別所得税の納付期限と納期の特例</a>（基準：2026年10月時点で確認）</div>
+</div>
+
+<div class="card orange">
+  <div class="sec-title">✅ ② 使える会社の条件</div>
+  <div class="bignum">
+    <div class="bl">給与を受け取る人が「常時」</div>
+    <div class="bv">10人未満</div>
+    <div class="bs">1人社長（役員1人だけ）の会社なら、ふつうは条件を満たします</div>
+  </div>
+  <ul class="check-list">
+    <li><span class="ck">✔</span><span>「常時10人未満」は、平常の状態で10人未満かどうかで判定します。</span></li>
+    <li><span class="ck">✔</span><span>特例の対象は、給与・退職金の源泉所得税と、税理士・弁護士・司法書士などへの報酬の源泉所得税に限られます。</span></li>
+    <li><span class="ck-bad">！</span><span>人を増やして10人以上が常態になったら、「要件に該当しなくなったことの届出書」の提出が必要です。</span></li>
+  </ul>
+  <div class="source">📚 出典：<a href="https://www.nta.go.jp/taxes/tetsuzuki/shinsei/annai/gensen/annai/1648_14.htm">国税庁 A2-8 源泉所得税の納期の特例の承認に関する申請</a>、<a href="https://www.nta.go.jp/law/shitsugi/gensen/01/09.htm">国税庁 常時10人未満であるかどうかの判定</a></div>
+</div>
+
+<div class="card">
+  <div class="sec-title">🪜 ③ 申請の流れ</div>
+  <div class="f-step"><div class="f-num">1</div><div class="f-text"><strong>申請書を用意</strong>　「源泉所得税の納期の特例の承認に関する申請書」。e-Taxでも書面でも提出できます。</div></div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step"><div class="f-num opt">2</div><div class="f-text"><strong>税務署へ提出</strong>　提出先は、給与を払う事務所の所在地を担当する税務署です。</div></div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step"><div class="f-num now">3</div><div class="f-text"><strong>承認（または却下）を待つ</strong>　提出月の翌月末までに通知がなければ、承認されたものとみなされます。</div></div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step"><div class="f-num later">4</div><div class="f-text"><strong>適用開始のタイミングを確認</strong>　国税庁の説明に「翌月支払分から」と「翌々月納付分から」の2通りの書き方があり、実務では所轄の税務署への確認が確実です。</div></div>
+</div>
+
+<div class="card green">
+  <div class="sec-title">💡 ④ 1人社長の使いどころ</div>
+  <div class="wrap-x"><table class="cmp">
+    <thead><tr><th></th><th>原則（毎月）</th><th>納期の特例</th></tr></thead>
+    <tbody>
+      <tr><th>納付回数</th><td>年12回</td><td class="hi">年2回</td></tr>
+      <tr><th>手間</th><td>毎月の納付を忘れずに</td><td>2回だけ。ただし忘れると痛い</td></tr>
+      <tr><th>資金繰り</th><td>毎月少しずつ</td><td>まとまった額を別に取っておく必要</td></tr>
+    </tbody>
+  </table></div>
+  <div class="warn">⚠️ 一度に払う金額が大きくなるので、<strong>天引きした分は別口座や別メモで毎月取り分けておく</strong>と安心です。期限が近づいたら、税額を会計ソフトの預り金（源泉所得税）残高で確認しましょう。</div>
+  <p>🧠 マインド：手間が減る代わりに「忘れたときの影響」が大きい制度です。<span class="hlg">カレンダーに7月・1月の予定を先に入れる</span>ところまでがセットです。</p>
+</div>
+
+<div class="card">
+  <div class="sec-title">📝 今日のまとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">①</span>給与を受け取る人が常時10人未満なら、申請で源泉所得税を<strong>年2回（7月10日・1月20日）</strong>にまとめられる。</li>
+    <li><span class="n">②</span>申請書は税務署に出す。<strong>適用開始のタイミングは税務署に確認</strong>。</li>
+    <li><span class="n">③</span>次の期限は<strong>2027年1月20日</strong>。天引き分は毎月取り分けておく。</li>
+  </ul>
+  <div class="source">📚 参考：<a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/gensen/2505.htm">国税庁 No.2505</a> ／ <a href="https://www.nta.go.jp/taxes/tetsuzuki/shinsei/annai/gensen/annai/1648_14.htm">国税庁 A2-8</a>（いずれも2026年10月時点で確認）</div>
+</div>
+
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、税務・法務の個別アドバイスではありません。会社の状況により結論は変わります。
+  具体的な判断は、税理士・社会保険労務士・司法書士などの専門家にご相談ください。<br>
+  <strong>本記事の基準年度:</strong>2026年（令和8年）10月時点。制度・税率・金額は改正・変更される場合があります。
+</div>
+
+<div class="footer">
+  <p>📚 <a href="index.html">バックナンバー一覧へ</a> &nbsp;&middot;&nbsp; 毎朝更新</p>
+</div>
+
+</div>
+</body>
+</html>
