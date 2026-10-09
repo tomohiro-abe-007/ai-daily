@@ -11,6 +11,7 @@
 
 ## 使用済みテーマ
 
+- 2026-10-10：お客様の質問をコンテンツにする（エバーグリーン・基礎編、数値出典なし。新機能ニュースは確認できず）
 - 2026-10-09：Google広告「AIキャンペーン ローカライズ」(ベータ)入門 ── 翻訳の後に人が確認する信頼（2026年10月5日報道、Search Engine Roundtable・Optimixedの検索要約で確認、本文は未閲覧、公式で要確認）
 - 2026-10-08：Google広告「自動プロモーション」入門 ── ページの特典表示を整える（2026年9月の報道、Search Engine Roundtable・Relevant Audience・PPC News Feed等の検索要約で確認、本文は未閲覧、公式で要確認）
 - 2026-10-07：Google「How this ad was made」AI広告ラベル入門 ── AI使用を正直に伝えて信頼を守る（2026年7月提供開始と報道、The Next Web・PPC Land・PinMeto等の検索要約で確認、本文は未閲覧、公式で要確認）
