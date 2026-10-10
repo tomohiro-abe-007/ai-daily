@@ -41,7 +41,7 @@
 - スペイン語のquerer(Quiero/Quisiera)と¿Me pones...?の使い分け(地域差)── 10-06で触れたQuieroの強さの感覚を掘り下げる
 - スペイン語の¿Me pones...?と¿Me das...?/Quisiera...の丁寧度の違い── 10-04の続編、依頼表現のくだけ具合を整理
 
-- スペイン語のponerse/volverse/hacerse/quedarse(「〜になる」の使い分け)── 10-10のget + 形容詞の続編
+- スペイン語のllegar a ser / convertirse en(時間をかけて・大きく変わる「〜になる」)── 10-11の4兄弟の続編
 - スペイン語の線過去と点過去を1つの物語で併用する練習(背景+出来事の組み立て)── 10-08の続編
 
 ## 解説済みテーマ
@@ -163,3 +163,4 @@
 - 2026-10-08: スペイン語の線過去(-aba/-ía、ser/ir/verの不規則)と点過去の使い分け── 10-07のused toの続編
 - 2026-10-09: 英語のbe used to / get used to(「慣れている」「慣れてくる」)── 10-07のused toとの違い、スペイン語estar acostumbrado a / acostumbrarse aとの対応も整理
 - 2026-10-10: 英語のget + 形容詞/過去分詞(「〜になる」のget)── 10-09のget used toの発展、スペイン語ponerse/casarse/perderseとの対応も整理
+- 2026-10-11: スペイン語の「〜になる」4兄弟(ponerse/volverse/hacerse/quedarse)── 10-10のget + 形容詞の続編、一時的/意志/長続き/失うで使い分け
