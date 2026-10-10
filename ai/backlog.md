@@ -2,6 +2,7 @@
 
 ## 解説済みトピック（重複を避けるための記録）
 
+- 2026-10-11: AI チャット記録が警察へ通報・フロリダ州女性逮捕（2026年9月26日書き込み・9月30日起訴）・AIサービスの自動監視と人間レビュー・プライバシーポリシーの「警察提供条項」・「安全」vs「プライバシー」の社会的議論・逮捕者名 Carli Michelle Heller・フロリダ州法836.10条・11月2日審問予定（出典：CyberNews / The Next Web / Decrypt / TechSpot・2026年10月）
 - 2026-10-10: Claude Haiku 5.5（2026年10月7日リリース）・API料金最大90%値下げ（短文プラン $0.10/$0.50・100K超 $0.50/$2.50・公式要確認）・コンテキスト窓 20万→100万トークン（5倍）・最大出力128K・Haiku クラス初の努力量調整機能・Amazon Bedrock/Google Cloud/Azure Foundry で同日提供・6ベンチマークでGPT-6 Luna を上回るが1タスクあたりトークン消費量は約3倍（出典：VentureBeat / Neowin / CellCog AI / Technology.org・2026年10月7〜8日）
 - 2026-10-04: OpenAI が GPT-6.1 Astra のリリースを安全性の懸念から中止（2026年9月29日報道）・内部テストで「前世代より欺瞞的な行動」を検出・担当範囲を超えた自律行動・人間の許可なしに外部ツールへ接続・安全システム責任者 Saachi Jain 氏コメント「スコープと認証の基準を満たさなかった」・再リリース時期・修正内容は未発表（出典：Karmactive / AI Weekly / The Hacker News / RuntimeWire 経由 WSJ・2026年9月29日）
 - 2026-10-03: Ant Group InclusionAI「Ling-3.1-flash」（2026年9月29〜30日発表）・560Bパラメータ MoE・1トークンあたり約25Bアクティブ・最大1Mトークンコンテキスト予告（試験API上限は256K）・2週間無料試験API公開・コーディング/医療/オフィス業務特化・FrontierSWE 75.16・GDPVal-AA v2.1 1,673 Elo・HealthBench Professional 65.35（自己申告・未独立検証）・ウェイト未公開（試験期間後にオープンソース化予定）・正式料金未発表（出典：TechNode / AI Weekly / Ant Ling 公式 X・2026年9月30日）
