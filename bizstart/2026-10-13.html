@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-10-13</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #2a4d7a 0%, #10233f 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #2a4d7a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.blue   { border-left-color: #1e5a7a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.green  { border-left-color: #1e7a5a; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #2a4d7a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin: 14px 0;
+  }
+  .stats-row.c3 { grid-template-columns: repeat(3, 1fr); }
+  .stats-row.c2 { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 12px 6px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat.now { background: #fff3e0; box-shadow: 0 0 0 2px #c8884a inset; }
+  .stat .sl { font-size: 0.62rem; color: #888; margin-bottom: 3px; line-height: 1.4; }
+  .stat .sv { font-size: 1.05rem; font-weight: 700; color: #2a4d7a; line-height: 1.15; }
+  .stat.now .sv { color: #c8884a; }
+  .stat .su { font-size: 0.62rem; color: #666; margin-top: 2px; }
+
+  .bignum {
+    background: white;
+    border-radius: 12px;
+    padding: 18px 14px;
+    text-align: center;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.1);
+    border: 2px dashed #c8884a;
+    margin: 14px 0;
+  }
+  .bignum .bl { font-size: 0.76rem; color: #888; margin-bottom: 6px; }
+  .bignum .bv { font-size: 1.7rem; font-weight: 700; color: #c8884a; line-height: 1.3; }
+  .bignum .bs { font-size: 0.76rem; color: #666; margin-top: 6px; line-height: 1.6; }
+
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #2a4d7a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-num.now { background: #b54040; }
+  .f-num.later { background: #999; }
+  .f-num.opt { background: #c8884a; }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+  .f-arrow { color: #2a4d7a; font-size: 1.1rem; margin-left: 14px; margin-bottom: 4px; }
+
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  table.cmp {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.83rem;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.08);
+  }
+  table.cmp th, table.cmp td {
+    border: 1px solid #e4dccd;
+    padding: 9px 10px;
+    line-height: 1.55;
+    vertical-align: top;
+  }
+  table.cmp thead th { background: #2a4d7a; color: white; font-weight: 600; text-align: center; }
+  table.cmp tbody th { background: #f5efe2; color: #5a4020; text-align: left; font-weight: 600; white-space: nowrap; }
+  table.cmp td { color: #444; text-align: left; }
+  table.cmp td.hi { background: #fff3e0; font-weight: 700; color: #c8884a; }
+  .wrap-x { overflow-x: auto; }
+
+  .prompt-box {
+    background: #f0f5ff;
+    border: 2px solid #4a6aae;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 12px 0;
+    font-size: 0.84rem;
+    line-height: 1.85;
+    color: #1a2a4a;
+  }
+  .prompt-box .ph {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #4a6aae;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+  .prompt-box .fill {
+    background: #d0e0ff;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-weight: 700;
+    color: #0a2a6e;
+  }
+
+  .info {
+    background: #e8eef8;
+    border-left: 4px solid #2a4d7a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #16294a;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #7a4010;
+  }
+
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #2a4d7a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #2a4d7a; word-break: break-all; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #2a4d7a; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+  <div class="meta">📅 1人法人スタート 最新トピック &nbsp;2026-10-13</div>
+  <h1>🧭 1人社長の「相談先マップ」── 困ったとき、誰に何を聞く？</h1>
+  <div class="desc">
+    <span class="htag">マインド</span><span class="htag">相談先</span><span class="htag">よろず支援拠点</span><br>
+    1人社長は、判断も作業も全部ひとり。だからこそ<span class="hl">「悩みの種類ごとに、相談する人を先に決めておく」</span>と、迷う時間がぐっと減ります。
+  </div>
+</div>
+
+<div class="card blue">
+  <div class="sec-title">🔑 ① 一番大事な考え方</div>
+  <div class="bignum">
+    <div class="bl">1人で抱えず、</div>
+    <div class="bv">悩み → 相談先 を先に決める</div>
+    <div class="bs">「全部自分で調べる」より「聞くべき人に早く聞く」ほうが、時間もお金も守れることが多いです。</div>
+  </div>
+  <p>相談先を「専門家（有料）」と「公的な無料窓口」の2種類に分けて持っておくのがコツです。</p>
+</div>
+
+<div class="card orange">
+  <div class="sec-title">🗺 ② 悩み別・相談先マップ（目安）</div>
+  <div class="wrap-x"><table class="cmp">
+    <thead><tr><th>悩み</th><th>主な相談先</th><th>一言メモ</th></tr></thead>
+    <tbody>
+      <tr><th>🧾 税金・決算・申告</th><td>税理士、税務署</td><td>節税や申告の個別判断は税理士へ</td></tr>
+      <tr><th>🏥 社会保険・労働保険・給与</th><td>社会保険労務士、年金事務所</td><td>手続きの書類は窓口でも確認できる</td></tr>
+      <tr><th>📜 登記・会社の変更</th><td>司法書士、法務局</td><td>役員変更・本店移転などの登記</td></tr>
+      <tr><th>📈 売上・集客・経営の悩み</th><td>よろず支援拠点、商工会・商工会議所</td><td>公的な無料窓口から始めやすい</td></tr>
+      <tr><th>💴 資金調達</th><td>金融機関、日本政策金融公庫、信用保証協会</td><td>数字を整理してから相談する</td></tr>
+    </tbody>
+  </table></div>
+  <div class="source">📚 出典：<a href="https://yorozu.smrj.go.jp/">よろず支援拠点 全国本部（中小機構）</a>、<a href="https://www.chusho.meti.go.jp/">中小企業庁</a>（基準：2026年10月時点の公開情報）</div>
+</div>
+
+<div class="card green">
+  <div class="sec-title">🆓 ③ 無料で使える入口「よろず支援拠点」</div>
+  <p>国（中小企業庁）の事業として、<span class="hlg">各都道府県に設置された無料の経営相談所</span>です。複数の公的資料で「何度でも無料」と案内されています。</p>
+  <div class="stats-row c3">
+    <div class="stat now"><div class="sl">設置場所</div><div class="sv">47</div><div class="su">都道府県ごと</div></div>
+    <div class="stat"><div class="sl">相談料</div><div class="sv">無料</div><div class="su">回数を問わず</div></div>
+    <div class="stat"><div class="sl">対象</div><div class="sv">創業前も</div><div class="su">中小・小規模事業者</div></div>
+  </div>
+  <div class="source">📚 出典：<a href="https://yorozu.smrj.go.jp/">よろず支援拠点（公式）</a>、<a href="https://www.chusho.meti.go.jp/koukai/kenkyukai/yorozu/001/004.pdf">中小企業庁 資料</a>（基準：2026年10月時点。公式サイトには当日アクセスできず、検索で確認できた公的資料にもとづく）</div>
+</div>
+
+<div class="card red">
+  <div class="sec-title">🪜 ④ 相談を上手にする4ステップ</div>
+  <div class="f-step"><div class="f-num">1</div><div class="f-text"><b>悩みを一文にする</b>（例：「来月の資金が足りるか不安」）</div></div>
+  <div class="f-arrow">⬇</div>
+  <div class="f-step"><div class="f-num">2</div><div class="f-text"><b>資料を用意する</b>（試算表・通帳・契約書など）</div></div>
+  <div class="f-arrow">⬇</div>
+  <div class="f-step"><div class="f-num">3</div><div class="f-text"><b>聞きたいことを3つまでに絞る</b></div></div>
+  <div class="f-arrow">⬇</div>
+  <div class="f-step"><div class="f-num now">4</div><div class="f-text"><b>答えをメモして、次にやることを決める</b></div></div>
+</div>
+
+<div class="card">
+  <div class="sec-title">🤖 ⑤ 生成AIは「相談の前の整理役」に</div>
+  <p>生成AIは、専門家に会う<b>前</b>の準備に向いています。悩みを整理し、質問リストを作ってもらいましょう。ただし税率や制度の最終判断は、AIの答えを鵜呑みにせず専門家・公的窓口で確認してください。</p>
+  <div class="prompt-box">
+    <div class="ph">💬 コピペ用プロンプト例</div>
+    私は<span class="fill">業種</span>の1人社長です。今の悩みは<span class="fill">悩みの内容</span>です。税理士に相談する前に、①整理すべき事実 ②用意すべき資料 ③聞くべき質問を5つ、中学生にもわかる言葉で挙げてください。
+  </div>
+  <div class="warn">⚠ 会社の秘密情報（取引先名・個人情報）は入力しない、または伏せ字にしましょう。</div>
+</div>
+
+<div class="card">
+  <div class="sec-title">✅ ⑥ 今日のまとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">1</span><span>悩みの種類ごとに「相談先」を先に決めておく</span></li>
+    <li><span class="n">2</span><span>経営の悩みは、無料のよろず支援拠点が入口になる</span></li>
+    <li><span class="n">3</span><span>相談前に「悩みを一文」「資料」「質問3つ」を準備する</span></li>
+    <li><span class="n">4</span><span>生成AIは整理役。最終判断は専門家・公的窓口で</span></li>
+  </ul>
+</div>
+
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、税務・法務の個別アドバイスではありません。会社の状況により結論は変わります。
+  具体的な判断は、税理士・社会保険労務士・司法書士などの専門家にご相談ください。<br>
+  <strong>本記事の基準年度:</strong>2026年10月時点の公開情報。窓口の内容・費用・制度は変更される場合があるため、最新情報は各公式サイトでご確認ください。
+</div>
+
+<div class="footer">
+  <p>📚 <a href="index.html">バックナンバー一覧へ</a> &nbsp;&middot;&nbsp; 毎朝更新</p>
+</div>
+
+</div>
+</body>
+</html>
