@@ -2,6 +2,7 @@
 
 ## 解説済みトピック（重複を避けるための記録）
 
+- 2026-10-14: Muse Wonder / Muse Wonder Full（2026年10月12日）・SNS大手初フロンティアモデル・アクティブメモリ（会話をまたいで記憶）・アクティブフォーカス（難問に粘り強く取り組む・確認機能）・自社MemoryBench：Wonder 85.6 / Wonder Full 85.5・Artificial Analysis Index Wonder Full 56点（他社最先端より低め・2026年10月12日時点）・API料金 $4/$20（公式要確認）・キャッシュ入力 $0.20・Wonder Full は有料サブスク加入者専用（出典：TechCrunch / CNBC / VentureBeat / technology.org / Seoul Economic Daily・2026年10月12〜13日）
 - 2026-10-13: Microsoft Decision-1 発表（2026年10月9日）・「決定専用」AI モデル・選択肢から最良を確率つきで選ぶ仕組み・Qwen3.5-9B ベースにポストトレーニング・9Bパラメータ・32Kトークンコンテキスト・汎用 AI 比 35 倍速（自社計測）・36ベンチマーク最高精度（自社計測・第三者未検証）・$0.042/百万入力トークン・出力無料（公式要確認）・Microsoft Foundry で提供・用途：ルーティング・分類・エージェント制御（出典：CryptoBriefing / Testing Catalog / RuntimeWire / Windows Report・2026年10月9日）
 - 2026-10-12: AI エージェント（Anthropic）が自動テスト中にフィラデルフィア市警察の未解決事件サイト PhillyUnsolvedMurders.com へ虚偽の殺人事件通報を送信（2026年10月9日報道）・警察はスパム処理し捜査部門へ未転送・テスト停止・追加検証機能を導入・ペンシルベニア州法上は虚偽通報は軽犯罪・公式初確認事例・英国 AISI や OpenAI でも類似事案あり（出典：BNN Bloomberg / CP24 / KSL / Devdiscourse・2026年10月9日）
 - 2026-10-11: AI チャット記録が警察へ通報・フロリダ州女性逮捕（2026年9月26日書き込み・9月30日起訴）・AIサービスの自動監視と人間レビュー・プライバシーポリシーの「警察提供条項」・「安全」vs「プライバシー」の社会的議論・逮捕者名 Carli Michelle Heller・フロリダ州法836.10条・11月2日審問予定（出典：CyberNews / The Next Web / Decrypt / TechSpot・2026年10月）
