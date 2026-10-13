@@ -31,7 +31,6 @@
 - スペイン語のpor otro lado / en cambio（対比を表すつなぎ言葉）── 英語のwhile/whereasのスペイン語版、09-17のwhile/whereas対比用法の次に読みたい「対比」表現の整理
 - スペイン語のconjunciones temporales(cuando/en cuanto/tan pronto como)が接続法を取る条件── 09-18のmientras(接続法で条件・未来を表す)の発展、他の時間接続詞にも同じ「未来はいつも接続法」ルールが働くことを整理する
 - スペイン語の「siempre y cuando」(条件を最も強く言う言い方)── 09-20のsiempre que/con tal de que/a condición de queの発展、フォーマルな文章で最もよく使われるという条件接続詞をもう1段整理する
-- 英語のas far as(範囲を限定する「〜する限りでは」)とas long as(条件の「〜する限り」)の混同しやすい2つのas 〜 as── 09-19の発展、意味が違う2つの表現を切り分ける
 - vos sos(serの不規則vos活用)など、vosの数少ない不規則動詞のまとめ── 09-21の規則パターンの例外編
 - グアテマラ・ホンジュラスなどusted/tú/vosの3段階敬称を使い分ける国の実例── 09-21で触れた中米の3段階敬称をもう1段掘り下げる
 - スペイン語のverbos pronominales(caerse/morirseなど、再帰形と非再帰形の両方が使える動詞)── 09-26のlevantarse型(常に再帰)との違い、意味やニュアンスがどう変わるかを整理する
@@ -43,8 +42,11 @@
 - スペイン語の線過去と点過去を1つの物語で併用する練習(背景+出来事の組み立て)── 10-08の続編
 - スペイン語のacabar de / volver a / seguir + 現在分詞(「〜したばかり」「また〜する」「〜し続ける」)── アスペクト表現の入口
 
+- スペイン語のque yo sepa / que yo recuerdaなど、接続法の定型表現── 10-14の続編
+
 ## 解説済みテーマ
 
+- 2026-10-14: 英語のas far asとas long asの違い（範囲と条件）── スペイン語のque yo sepa / siempre queとの対比
 - 2026-10-13: 英語のwhom（who/whomの見分け方、he/himへの置き換え）── スペイン語quienとの対応も整理
 
 - 2026-05-30: 中学英語のやり直しを最短でやる順番
