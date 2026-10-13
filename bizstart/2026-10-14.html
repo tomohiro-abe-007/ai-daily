@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-10-14</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #2a4d7a 0%, #10233f 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #2a4d7a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.blue   { border-left-color: #1e5a7a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.green  { border-left-color: #1e7a5a; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #2a4d7a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin: 14px 0;
+  }
+  .stats-row.c3 { grid-template-columns: repeat(3, 1fr); }
+  .stats-row.c2 { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 12px 6px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat.now { background: #fff3e0; box-shadow: 0 0 0 2px #c8884a inset; }
+  .stat .sl { font-size: 0.62rem; color: #888; margin-bottom: 3px; line-height: 1.4; }
+  .stat .sv { font-size: 1.05rem; font-weight: 700; color: #2a4d7a; line-height: 1.15; }
+  .stat.now .sv { color: #c8884a; }
+  .stat .su { font-size: 0.62rem; color: #666; margin-top: 2px; }
+
+  .bignum {
+    background: white;
+    border-radius: 12px;
+    padding: 18px 14px;
+    text-align: center;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.1);
+    border: 2px dashed #c8884a;
+    margin: 14px 0;
+  }
+  .bignum .bl { font-size: 0.76rem; color: #888; margin-bottom: 6px; }
+  .bignum .bv { font-size: 1.7rem; font-weight: 700; color: #c8884a; line-height: 1.3; }
+  .bignum .bs { font-size: 0.76rem; color: #666; margin-top: 6px; line-height: 1.6; }
+
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #2a4d7a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-num.now { background: #b54040; }
+  .f-num.later { background: #999; }
+  .f-num.opt { background: #c8884a; }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+  .f-arrow { color: #2a4d7a; font-size: 1.1rem; margin-left: 14px; margin-bottom: 4px; }
+
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  table.cmp {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.83rem;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.08);
+  }
+  table.cmp th, table.cmp td {
+    border: 1px solid #e4dccd;
+    padding: 9px 10px;
+    line-height: 1.55;
+    vertical-align: top;
+  }
+  table.cmp thead th { background: #2a4d7a; color: white; font-weight: 600; text-align: center; }
+  table.cmp tbody th { background: #f5efe2; color: #5a4020; text-align: left; font-weight: 600; white-space: nowrap; }
+  table.cmp td { color: #444; text-align: left; }
+  table.cmp td.hi { background: #fff3e0; font-weight: 700; color: #c8884a; }
+  .wrap-x { overflow-x: auto; }
+
+  .prompt-box {
+    background: #f0f5ff;
+    border: 2px solid #4a6aae;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 12px 0;
+    font-size: 0.84rem;
+    line-height: 1.85;
+    color: #1a2a4a;
+  }
+  .prompt-box .ph {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #4a6aae;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+  .prompt-box .fill {
+    background: #d0e0ff;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-weight: 700;
+    color: #0a2a6e;
+  }
+
+  .info {
+    background: #e8eef8;
+    border-left: 4px solid #2a4d7a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #16294a;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #7a4010;
+  }
+
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #2a4d7a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #2a4d7a; word-break: break-all; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #2a4d7a; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+  <div class="meta">📅 1人法人スタート 最新トピック &nbsp;2026-10-14</div>
+  <h1>🐷 初めて従業員を雇ったら考えたい「中退共」── 10月は加入促進強化月間</h1>
+  <div class="desc">
+    <span class="htag">退職金</span><span class="htag">中退共</span><span class="htag">従業員を雇う前に</span><br>
+    中退共(中小企業退職金共済)は、<span class="hl">会社が掛金を積み立て、従業員の退職時に機構から退職金が直接支払われる</span>国の制度です。令和8年(2026年)10月は「加入促進強化月間」です。
+  </div>
+</div>
+
+<div class="card blue">
+  <div class="sec-title">📣 ① 今月のニュース：加入促進強化月間</div>
+  <div class="stats-row c3">
+    <div class="stat now"><div class="sl">強化月間</div><div class="sv">10/1〜10/31</div><div class="su">令和8年</div></div>
+    <div class="stat"><div class="sl">掛金月額</div><div class="sv">5,000〜30,000円</div><div class="su">事業主が選ぶ</div></div>
+    <div class="stat"><div class="sl">掛金の経費</div><div class="sv">全額</div><div class="su">損金(経費)扱い</div></div>
+  </div>
+  <p>強化月間は、勤労者退職金共済機構が主催し、厚生労働省が後援しています。「今すぐ入らなきゃ」という意味ではなく、制度を知るよい機会、という位置づけです。</p>
+  <div class="source">📚 出典：<a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000113598.html">厚生労働省 中小企業退職金共済制度</a>、<a href="https://www.kaiketsu-j.com/?p=24196">令和8年度の実施要綱の紹介記事(二次情報)</a>(基準：令和8年度＝2026年10月時点。機構・厚労省サイトには当日アクセスできず、検索で確認できた内容にもとづく)</div>
+</div>
+
+<div class="card orange">
+  <div class="sec-title">🙋 ② 1人社長は入れるの？</div>
+  <div class="warn">⚠ 法人の<b>役員は原則として加入できません</b>。従業員のための制度なので、<b>代表者ひとりの会社では、社長本人の退職金づくりには使えません</b>。(使用人としての賃金も受ける「使用人兼務役員」などは加入できる、と案内されています。実態の判断は専門家へ)</div>
+  <div class="wrap-x"><table class="cmp">
+    <thead><tr><th></th><th>中退共</th><th>小規模企業共済</th></tr></thead>
+    <tbody>
+      <tr><th>🎯 誰のため？</th><td>従業員の退職金</td><td>社長(役員)自身の退職金</td></tr>
+      <tr><th>💴 掛金を払う人</th><td>会社(事業主)</td><td>社長個人</td></tr>
+      <tr><th>🕒 使う場面</th><td>初めて人を雇ったとき</td><td>今すぐ、社長ひとりでも</td></tr>
+    </tbody>
+  </table></div>
+  <p>小規模企業共済は<a href="2026-06-20.html">6/20の記事</a>で解説しています。</p>
+</div>
+
+<div class="card green">
+  <div class="sec-title">🔄 ③ しくみのながれ</div>
+  <div class="f-step"><div class="f-num">1</div><div class="f-text"><b>会社が機構と契約</b>し、従業員ごとに掛金月額を選ぶ</div></div>
+  <div class="f-arrow">⬇</div>
+  <div class="f-step"><div class="f-num">2</div><div class="f-text"><b>毎月、会社が掛金を納める</b>(全額会社負担・税務上は全額損金)</div></div>
+  <div class="f-arrow">⬇</div>
+  <div class="f-step"><div class="f-num now">3</div><div class="f-text"><b>従業員が退職</b>すると、機構から本人へ退職金が直接支払われる</div></div>
+  <div class="source">📚 出典：<a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000113598.html">厚生労働省</a>(基準：2026年10月時点)</div>
+</div>
+
+<div class="card red">
+  <div class="sec-title">🎁 ④ 国の助成(初めて加入するとき)</div>
+  <div class="stats-row c2">
+    <div class="stat now"><div class="sl">新規加入の助成</div><div class="sv">掛金の1/2</div><div class="su">1人あたり月5,000円まで<br>加入4か月目から1年間</div></div>
+    <div class="stat"><div class="sl">掛金を増額したとき</div><div class="sv">増額分の1/3</div><div class="su">増額前が18,000円以下<br>増額月から1年間</div></div>
+  </div>
+  <ul class="check-list">
+    <li><span class="ck">✔</span><span>新規加入助成は「初めて加入する中小事業主」が対象。業種ごとの資本金・従業員数の基準があります。</span></li>
+    <li><span class="ck-bad">！</span><span>金額や条件は変わることがあります。申込前に必ず公式の最新情報を確認してください。</span></li>
+  </ul>
+  <div class="source">📚 出典：<a href="https://www.mhlw.go.jp/www2/topics/seido/rousei/chutaikyo/chutaikyo_02.htm">厚生労働省 新規加入掛金助成及び掛金月額変更掛金助成</a>(基準：2026年10月時点の検索結果で確認)</div>
+</div>
+
+<div class="card">
+  <div class="sec-title">🤖 ⑤ 生成AIで「入る前の整理」をする</div>
+  <p>人を雇う前に、AIで「いくら・いつから・誰が対象か」を整理しておくと、税理士や社労士への相談がスムーズです。</p>
+  <div class="prompt-box">
+    <div class="ph">💬 コピペ用プロンプト例</div>
+    私は<span class="fill">業種</span>の1人社長で、<span class="fill">時期</span>に初めて従業員を1人雇う予定です。退職金の準備として中退共を検討しています。①事前に確認すべき項目 ②専門家への質問を5つ、中学生にもわかる言葉で挙げてください。金額や制度の最終確認は公式情報で行います。
+  </div>
+  <div class="warn">⚠ AIの答えは鵜呑みにせず、掛金・助成の金額は機構・厚生労働省の公式情報で確認しましょう。</div>
+</div>
+
+<div class="card">
+  <div class="sec-title">✅ ⑥ 今日のまとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">1</span><span>中退共は「従業員の退職金」を会社が積み立てる国の制度</span></li>
+    <li><span class="n">2</span><span>役員は原則対象外。社長自身の備えは小規模企業共済などを検討</span></li>
+    <li><span class="n">3</span><span>初めて加入すると、掛金の一部を国が助成(上限あり・期間あり)</span></li>
+    <li><span class="n">4</span><span>導入は「人を雇うとき」に。判断は税理士・社労士へ</span></li>
+  </ul>
+</div>
+
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、税務・法務の個別アドバイスではありません。会社の状況により結論は変わります。
+  具体的な判断は、税理士・社会保険労務士・司法書士などの専門家にご相談ください。<br>
+  <strong>本記事の基準年度:</strong>令和8年度(2026年10月時点)の公開情報。掛金・助成の金額や条件は変更される場合があるため、最新情報は勤労者退職金共済機構・厚生労働省の公式サイトでご確認ください。
+</div>
+
+<div class="footer">
+  <p>📚 <a href="index.html">バックナンバー一覧へ</a> &nbsp;&middot;&nbsp; 毎朝更新</p>
+</div>
+
+</div>
+</body>
+</html>
