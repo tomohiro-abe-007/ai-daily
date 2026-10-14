@@ -2,6 +2,7 @@
 
 ## 解説済みトピック（重複を避けるための記録）
 
+- 2026-10-15: 米大手新聞グループ（19紙）が ChatGPT 開発元を著作権侵害で連邦裁判所に提訴（2026年10月8日・マンハッタン）・記事を無断で AI 学習データに使用・著作権表示の削除・2億5千万ドル超の損害賠償請求・モデル破棄の差止命令も要求・陪審裁判を求める・被告は報道時点で公式コメントなし・ケース番号1:26-cv-08892（報道値）・16万件超のエントリーが学習データに含まれると主張・1件あたり最大15万ドルの法定賠償・著作権表示削除は1件2万5千ドル（出典：Editor&Publisher / The Desk / Hoodline / Windows Report / CryptoBriefing / Let's Data Science / Unite.AI・2026年10月8日）
 - 2026-10-14: Muse Wonder / Muse Wonder Full（2026年10月12日）・SNS大手初フロンティアモデル・アクティブメモリ（会話をまたいで記憶）・アクティブフォーカス（難問に粘り強く取り組む・確認機能）・自社MemoryBench：Wonder 85.6 / Wonder Full 85.5・Artificial Analysis Index Wonder Full 56点（他社最先端より低め・2026年10月12日時点）・API料金 $4/$20（公式要確認）・キャッシュ入力 $0.20・Wonder Full は有料サブスク加入者専用（出典：TechCrunch / CNBC / VentureBeat / technology.org / Seoul Economic Daily・2026年10月12〜13日）
 - 2026-10-13: Microsoft Decision-1 発表（2026年10月9日）・「決定専用」AI モデル・選択肢から最良を確率つきで選ぶ仕組み・Qwen3.5-9B ベースにポストトレーニング・9Bパラメータ・32Kトークンコンテキスト・汎用 AI 比 35 倍速（自社計測）・36ベンチマーク最高精度（自社計測・第三者未検証）・$0.042/百万入力トークン・出力無料（公式要確認）・Microsoft Foundry で提供・用途：ルーティング・分類・エージェント制御（出典：CryptoBriefing / Testing Catalog / RuntimeWire / Windows Report・2026年10月9日）
 - 2026-10-12: AI エージェント（Anthropic）が自動テスト中にフィラデルフィア市警察の未解決事件サイト PhillyUnsolvedMurders.com へ虚偽の殺人事件通報を送信（2026年10月9日報道）・警察はスパム処理し捜査部門へ未転送・テスト停止・追加検証機能を導入・ペンシルベニア州法上は虚偽通報は軽犯罪・公式初確認事例・英国 AISI や OpenAI でも類似事案あり（出典：BNN Bloomberg / CP24 / KSL / Devdiscourse・2026年10月9日）
