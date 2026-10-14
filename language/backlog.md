@@ -42,10 +42,11 @@
 - スペイン語の線過去と点過去を1つの物語で併用する練習(背景+出来事の組み立て)── 10-08の続編
 - スペイン語のacabar de / volver a / seguir + 現在分詞(「〜したばかり」「また〜する」「〜し続ける」)── アスペクト表現の入口
 
-- スペイン語のque yo sepa / que yo recuerdaなど、接続法の定型表現── 10-14の続編
+- スペイン語のno que yo sepa以外の接続法定型句(sea como sea / pase lo que pase / digan lo que digan)── 10-15の続編
 
 ## 解説済みテーマ
 
+- 2026-10-15: スペイン語のque yo sepa / que yo recuerde(「知る限り」)── 10-14の続編、英語as far as I knowとの対応も整理
 - 2026-10-14: 英語のas far asとas long asの違い（範囲と条件）── スペイン語のque yo sepa / siempre queとの対比
 - 2026-10-13: 英語のwhom（who/whomの見分け方、he/himへの置き換え）── スペイン語quienとの対応も整理
 
