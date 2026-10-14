@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-10-15</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #2a4d7a 0%, #10233f 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #2a4d7a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.blue   { border-left-color: #1e5a7a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.green  { border-left-color: #1e7a5a; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #2a4d7a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin: 14px 0;
+  }
+  .stats-row.c3 { grid-template-columns: repeat(3, 1fr); }
+  .stats-row.c2 { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 12px 6px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat.now { background: #fff3e0; box-shadow: 0 0 0 2px #c8884a inset; }
+  .stat .sl { font-size: 0.62rem; color: #888; margin-bottom: 3px; line-height: 1.4; }
+  .stat .sv { font-size: 1.05rem; font-weight: 700; color: #2a4d7a; line-height: 1.15; }
+  .stat.now .sv { color: #c8884a; }
+  .stat .su { font-size: 0.62rem; color: #666; margin-top: 2px; }
+
+  .bignum {
+    background: white;
+    border-radius: 12px;
+    padding: 18px 14px;
+    text-align: center;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.1);
+    border: 2px dashed #c8884a;
+    margin: 14px 0;
+  }
+  .bignum .bl { font-size: 0.76rem; color: #888; margin-bottom: 6px; }
+  .bignum .bv { font-size: 1.7rem; font-weight: 700; color: #c8884a; line-height: 1.3; }
+  .bignum .bs { font-size: 0.76rem; color: #666; margin-top: 6px; line-height: 1.6; }
+
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #2a4d7a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-num.now { background: #b54040; }
+  .f-num.later { background: #999; }
+  .f-num.opt { background: #c8884a; }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+  .f-arrow { color: #2a4d7a; font-size: 1.1rem; margin-left: 14px; margin-bottom: 4px; }
+
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  table.cmp {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.83rem;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.08);
+  }
+  table.cmp th, table.cmp td {
+    border: 1px solid #e4dccd;
+    padding: 9px 10px;
+    line-height: 1.55;
+    vertical-align: top;
+  }
+  table.cmp thead th { background: #2a4d7a; color: white; font-weight: 600; text-align: center; }
+  table.cmp tbody th { background: #f5efe2; color: #5a4020; text-align: left; font-weight: 600; white-space: nowrap; }
+  table.cmp td { color: #444; text-align: left; }
+  table.cmp td.hi { background: #fff3e0; font-weight: 700; color: #c8884a; }
+  .wrap-x { overflow-x: auto; }
+
+  .prompt-box {
+    background: #f0f5ff;
+    border: 2px solid #4a6aae;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 12px 0;
+    font-size: 0.84rem;
+    line-height: 1.85;
+    color: #1a2a4a;
+  }
+  .prompt-box .ph {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #4a6aae;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+  .prompt-box .fill {
+    background: #d0e0ff;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-weight: 700;
+    color: #0a2a6e;
+  }
+
+  .info {
+    background: #e8eef8;
+    border-left: 4px solid #2a4d7a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #16294a;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #7a4010;
+  }
+
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #2a4d7a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #2a4d7a; word-break: break-all; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #2a4d7a; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+  <div class="meta">📅 1人法人スタート 最新トピック &nbsp;2026-10-15</div>
+  <h1>🧮 10月に始まった「保険料調整制度」── パートの社会保険料、3年かけて段階的に</h1>
+  <div class="desc">
+    <span class="htag">社会保険</span><span class="htag">保険料調整制度</span><span class="htag">前回(8/17)からのアップデート</span><br>
+    2026年10月1日にスタートした制度です。短時間で働く人が新しく社会保険に入るとき、<span class="hl">本人の保険料の負担を最大3年間やわらげる</span>しくみ。事業主(会社)が申し出ると使えます。
+  </div>
+</div>
+
+<div class="card blue">
+  <div class="sec-title">📣 ① 今月のニュース：制度が始まりました</div>
+  <div class="stats-row c3">
+    <div class="stat now"><div class="sl">開始日</div><div class="sv">2026/10/1</div><div class="su">令和8年</div></div>
+    <div class="stat"><div class="sl">軽減される期間</div><div class="sv">通算3年</div><div class="su">申出をした月から</div></div>
+    <div class="stat"><div class="sl">対象の人</div><div class="sv">12.6万円以下</div><div class="su">標準報酬月額</div></div>
+  </div>
+  <p>「標準報酬月額」とは、保険料を計算するために月給を区切りのよい金額に当てはめた数字のことです。この制度は、<b>会社が一時的に保険料を多めに払い、あとで戻ってくる</b>形で、働く人の負担を軽くします。</p>
+  <div class="source">📚 出典：<a href="https://www.nenkin.go.jp/tokusetsu/hokenryochosei.html">日本年金機構 保険料調整制度のご案内</a>、<a href="https://www.nenkin.go.jp/service/kounen/hokenryo/hokenryochosei/gaiyo.html">同 保険料調整制度とは</a>(基準：令和8年10月時点。政府サイトへ当日直接アクセスできず、検索で確認できた記載にもとづく)</div>
+</div>
+
+<div class="card orange">
+  <div class="sec-title">🏢 ② 使える会社・使える人</div>
+  <div class="wrap-x"><table class="cmp">
+    <thead><tr><th></th><th>内容</th></tr></thead>
+    <tbody>
+      <tr><th>🏢 対象の会社</th><td>令和8年10月1日〜令和17年9月30日に<b>任意特定適用事業所</b>になった会社。令和9年(2027年)10月以降の適用拡大で特定適用事業所になった会社も対象に加わる</td></tr>
+      <tr><th>🙋 対象の人</th><td>短時間労働者として社会保険に加入し、<b>標準報酬月額が12.6万円以下</b>の人</td></tr>
+      <tr><th>📝 手続き</th><td>事業主が「保険料調整(開始)申出書」を提出。<b>会社単位で、対象者の一部だけを選ぶことはできない</b></td></tr>
+    </tbody>
+  </table></div>
+  <div class="info">💡 「任意特定適用事業所」とは、従業員が少なくても、労使の合意で短時間労働者も社会保険に入れると決めた会社のこと。8/9の記事で解説しています。</div>
+  <div class="warn">⚠ 対象は<b>短時間労働者</b>です。社長ご自身(役員)の保険料が軽くなる制度ではありません。1人社長が使う場面は、パートさんを雇い、任意特定適用を選んだときなどに限られます。</div>
+  <div class="source">📚 出典：<a href="https://www.nenkin.go.jp/service/kounen/hokenryo/hokenryochosei/hihokensha.html">日本年金機構 対象となる被保険者</a>、<a href="https://www.nenkin.go.jp/service/kounen/hokenryo/hokenryochosei/kaishi.html">同 開始申出の手続き</a>(基準：令和8年10月時点)</div>
+</div>
+
+<div class="card green">
+  <div class="sec-title">📉 ③ 本人の負担はこう変わる(標準報酬月額88,000円以下の例)</div>
+  <div class="stats-row c3">
+    <div class="stat now"><div class="sl">1〜2年目</div><div class="sv">軽減25%</div><div class="su">本人負担2,200円</div></div>
+    <div class="stat"><div class="sl">3年目</div><div class="sv">軽減12.5%</div><div class="su">本人負担3,300円</div></div>
+    <div class="stat"><div class="sl">4年目〜</div><div class="sv">軽減なし</div><div class="su">本人負担4,400円</div></div>
+  </div>
+  <div class="info">📐 計算式：<b>保険料軽減額 = 標準報酬月額 × 保険料率 × 保険料軽減割合</b>。上の金額は、機構が示す例(保険料の全額を8,800円とした簡略な例)をもとに、月あたりで試算した目安です。実際の保険料率は協会けんぽ等で確認してください。</div>
+  <ul class="check-list">
+    <li><span class="ck">✔</span><span>機構の表で確認できたのは<b>88,000円以下</b>の行です。それより上の等級の割合は、必ず機構の計算方法ページの表で確認を。</span></li>
+    <li><span class="ck-bad">！</span><span>賞与にかかる保険料、介護保険料、子ども・子育て支援金は<b>この制度の対象外</b>です。</span></li>
+  </ul>
+  <div class="source">📚 出典：<a href="https://www.nenkin.go.jp/service/kounen/hokenryo/hokenryochosei/keisan.html">日本年金機構 保険料調整制度を利用した場合の保険料額の計算方法</a>(基準：令和8年10月時点。通常は労使折半=本人4,400円という前提の試算)</div>
+</div>
+
+<div class="card red">
+  <div class="sec-title">🔄 ④ 会社の払う額は増えない？ お金の流れ</div>
+  <div class="f-step"><div class="f-num">1</div><div class="f-text">毎月の納付時、会社が<b>軽減分を一時的に追加で負担</b>して納める</div></div>
+  <div class="f-arrow">⬇</div>
+  <div class="f-step"><div class="f-num">2</div><div class="f-text">追加で負担した分が<b>還付</b>される(<b>3か月後の保険料額から差し引き</b>)</div></div>
+  <div class="f-arrow">⬇</div>
+  <div class="f-step"><div class="f-num now">3</div><div class="f-text">最終的に会社が納める額は<b>増えない</b>しくみ(将来の年金額にも影響しないと案内されています)</div></div>
+  <div class="warn">⚠ <b>納付期限までに納めなかった月</b>の追加負担分は還付されません。一時的に資金が出ていくので、資金繰りにも気を配りましょう。</div>
+  <div class="source">📚 出典：<a href="https://www.nenkin.go.jp/service/kounen/hokenryo/hokenryochosei/gaiyo.html">日本年金機構 保険料調整制度とは</a>(基準：令和8年10月時点)</div>
+</div>
+
+<div class="card">
+  <div class="sec-title">⏰ ⑤ 申出の注意点</div>
+  <ul class="check-list">
+    <li><span class="ck-bad">！</span><span>利用開始月は<b>申出書を受け付けた月</b>。さかのぼって使うことはできません。</span></li>
+    <li><span class="ck-bad">！</span><span>申出期限は、特定適用事業所になった日から<b>2年を経過した日が属する月の前月まで</b>。</span></li>
+    <li><span class="ck">✔</span><span>制度の全体像は<a href="2026-08-17.html">8/17の記事</a>、任意特定適用は<a href="2026-08-09.html">8/9の記事</a>も参照。</span></li>
+  </ul>
+  <div class="source">📚 出典：<a href="https://www.nenkin.go.jp/service/kounen/hokenryo/hokenryochosei/kaishi.html">日本年金機構 開始申出の手続き</a>(基準：令和8年10月時点)</div>
+</div>
+
+<div class="card blue">
+  <div class="sec-title">🤖 ⑥ 生成AIで「わが社の場合」を整理する</div>
+  <div class="prompt-box">
+    <div class="ph">💬 コピペ用プロンプト例</div>
+    私は1人社長の会社です。<span class="fill">週○時間・月給○円</span>のパート1人を雇う予定です。社会保険の「保険料調整制度」を使えるか確認するため、①自分で確認すべき条件 ②日本年金機構の窓口や社労士に聞くべき質問を5つ、中学生にもわかる言葉で挙げてください。金額の計算は公式の表で自分で確認します。
+  </div>
+  <div class="warn">⚠ AIの答えは鵜呑みにせず、割合や期限は日本年金機構の公式ページで確認しましょう。</div>
+</div>
+
+<div class="card">
+  <div class="sec-title">✅ ⑦ 今日のまとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">1</span><span>保険料調整制度は2026年10月1日にスタート。本人の保険料を通算3年、段階的に軽くする</span></li>
+    <li><span class="n">2</span><span>対象は標準報酬月額12.6万円以下の短時間労働者。社長本人の保険料は対象外</span></li>
+    <li><span class="n">3</span><span>会社は一時的に多く払うが、3か月後の保険料から差し引かれ、最終負担は増えない</span></li>
+    <li><span class="n">4</span><span>申出は会社から。さかのぼれず期限もあるので、導入前に社労士・年金事務所へ</span></li>
+  </ul>
+</div>
+
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、税務・法務の個別アドバイスではありません。会社の状況により結論は変わります。
+  具体的な判断は、税理士・社会保険労務士・司法書士などの専門家にご相談ください。<br>
+  <strong>本記事の基準年度:</strong>令和8年度(2026年10月時点)の公開情報。割合・期限・対象は変更される場合があるため、最新情報は日本年金機構の公式サイトでご確認ください。
+</div>
+
+<div class="footer">
+  <p>📚 <a href="index.html">バックナンバー一覧へ</a> &nbsp;&middot;&nbsp; 毎朝更新</p>
+</div>
+
+</div>
+</body>
+</html>
