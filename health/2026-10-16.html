@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-10-16</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '☀️';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.35rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.9rem; margin-bottom: 8px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.1em; }
+  .c3-col li { margin-bottom: 4px; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  .quote-box {
+    background: #f5f0e8;
+    border-left: 4px solid #7a5abf;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    margin: 12px 0;
+    color: #444;
+    font-style: italic;
+  }
+  .quote-box .who { font-style: normal; font-weight: 700; color: #5a3a9a; margin-top: 6px; font-size: 0.78rem; }
+  .matrix {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .mx-cell {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .mx-cell .mx-head { font-weight: 700; font-size: 0.88rem; margin-bottom: 6px; }
+  .mx-cell.ok  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .mx-cell.ok  .mx-head { color: #1a6e4a; }
+  .mx-cell.ng  { background: #fbe8e6; border: 2px solid #c0392b; }
+  .mx-cell.ng  .mx-head { color: #a0291e; }
+  .subtype-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .subtype-card {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.84rem;
+  }
+  .subtype-card .st-head { font-weight: 700; font-size: 0.92rem; margin-bottom: 8px; }
+  .subtype-card .st-bar {
+    height: 10px;
+    border-radius: 5px;
+    background: #eee;
+    overflow: hidden;
+    margin: 6px 0 4px;
+  }
+  .subtype-card .st-bar-fill { height: 100%; }
+  .subtype-card.st-green { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .subtype-card.st-green .st-head { color: #1a6e4a; }
+  .subtype-card.st-orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .subtype-card.st-orange .st-head { color: #b85e10; }
+  .subtype-card.st-red { background: #fbe8e6; border: 2px solid #c0392b; }
+  .subtype-card.st-red .st-head { color: #a0291e; }
+  @media (max-width: 540px) {
+    .compare4 { grid-template-columns: 1fr; }
+    .matrix { grid-template-columns: 1fr; }
+    .subtype-grid { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.7rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+  .bar{height:22px;border-radius:6px;margin:4px 0 2px;color:#fff;font-size:.78rem;padding:0 8px;line-height:22px;white-space:nowrap}
+</style>
+</head>
+<body>
+<div class="page">
+<div class="header">
+<div class="label">Health &amp; Nutrition Note</div>
+<h1>健康・栄養 最新トピック 2026-10-16<br>ダイエット飲料は、水と同じくらい減量の邪魔にならない?</h1>
+<div class="subtitle">🥤💧 「人工甘味料の飲み物は太る?」という疑問に、2年間のランダム化比較試験(SWITCH試験)が出した答えと、その読み方を整理します。</div>
+</div>
+
+<div class="card">
+<h2>🔍 今日のポイント</h2>
+<p>肥満・過体重の成人493人を、減量プログラムの中で「水を飲む」グループと「人工甘味料入りの飲み物を飲む」グループにくじ引きで分けて2年間追った試験が、英国の栄養学誌に報告されました。<strong>2年後の体重減少は、2つのグループで統計的に差がありませんでした</strong>(報道で確認できた数字は下のとおり)。ただし、途中でやめた人が多く、業界団体の資金提供もあるため、「ダイエット飲料は安心」と言い切れる結果ではありません。</p>
+<div class="num-row">
+<div class="num-card"><span class="big">493</span><span class="unit">人</span><div class="desc">くじ引きで分けた成人(過体重・肥満)</div></div>
+<div class="num-card blue-bg"><span class="big">2</span><span class="unit">年</span><div class="desc">追跡期間(104週)</div></div>
+<div class="num-card orange-bg"><span class="big">4.8 vs 3.7</span><span class="unit">kg</span><div class="desc">2年後の平均減少(甘味料飲料 vs 水)。差は統計的に有意でない</div></div>
+<div class="num-card red-bg"><span class="big">220</span><span class="unit">人</span><div class="desc">2年後の測定まで残った人(493人中)</div></div>
+</div>
+</div>
+
+<div class="card blue">
+<h2>📖 まず言葉の意味を</h2>
+<div class="def-grid">
+<div class="def-item"><div class="dterm">非栄養甘味料(人工甘味料など)</div>エネルギー(カロリー)がほぼ無いか、とても少ない甘味料。アスパルテーム、アセスルファムK、スクラロースなど。</div>
+<div class="def-item"><div class="dterm">ランダム化比較試験(RCT)</div>参加者をくじ引きで分けて結果を比べる試験。「原因と結果」を調べるのに強い方法。</div>
+<div class="def-item"><div class="dterm">同等性(差がない)</div>「差が見つからなかった」ことと「同じだと証明した」ことは別。人数や脱落で結論の強さが変わる。</div>
+<div class="def-item"><div class="dterm">脱落</div>途中で参加をやめて測定できなくなること。多いと結果が偏って見えることがある。</div>
+</div>
+</div>
+
+<div class="card orange">
+<h2>🔄 試験のしくみ(SWITCH試験)</h2>
+<div class="flow">
+<div class="flow-step">① 過体重・肥満の<br>成人493人</div>
+<div class="flow-arrow">→</div>
+<div class="flow-step alt">② くじ引きで<br>2グループに</div>
+<div class="flow-arrow">→</div>
+<div class="flow-step purp">③ 水 / 甘味料入り飲料<br>+ 減量プログラム</div>
+<div class="flow-arrow">→</div>
+<div class="flow-step">④ 2年後に<br>体重などを比較</div>
+</div>
+<p style="font-size:.84rem">減量プログラムは、最初の12週は毎週、その後は月1回のグループ面談という内容と報じられています。飲み物以外の指導は両グループ共通です。</p>
+</div>
+
+<div class="card">
+<h2>⚖️ 2年後の結果(報道ベース)</h2>
+<p style="font-size:.82rem;color:#666">※原著論文は開けず、大学発表と複数の報道で数字を確認しました。報道間で単位や数字の書き方が揺れる部分があるため、傾向を見る目安にしてください。</p>
+<div class="bar" style="width:100%;background:#1a7a5a">甘味料入り飲料グループ 平均 約4.8 kg 減</div>
+<div class="bar" style="width:77%;background:#1a5e8a">水グループ 平均 約3.7 kg 減</div>
+<div class="warn"><strong>💡 ここが大事:</strong>見た目は甘味料グループの方が大きく減っていますが、報道では「統計的に有意な差ではない」とされています。2年後まで残った人(約220人)だけの比較である点にも注意が必要です。腰回りや代謝の指標も、両グループで改善したと報じられています。</div>
+</div>
+
+<div class="card purple">
+<h2>🆚 この試験が答えたこと/答えていないこと</h2>
+<div class="matrix">
+<div class="mx-cell ok"><div class="mx-head">✅ 言えそうなこと</div>減量プログラムの最中なら、砂糖入りではなく水か甘味料入り飲料を選ぶ、という置き換えは、2年間の体重面では大きな差が出なかった。</div>
+<div class="mx-cell ng"><div class="mx-head">❌ 言えないこと</div>「人工甘味料は健康に害がない」「長期の腸内環境や記憶力への影響がない」。この試験は体重と一部の代謝指標が中心。</div>
+</div>
+</div>
+
+<div class="card">
+<h2>🧪 エビデンスの強さ</h2>
+<table class="ev-table">
+<tr><th>研究</th><th>種類・人数</th><th>確からしさ</th></tr>
+<tr><td>SWITCH試験(英国・British Journal of Nutrition)</td><td>RCT・493人(過体重/肥満)・2年・2年後の測定は約220人・単一施設</td><td><span class="ev-badge ev-mid">体重については比較的しっかり。ただし脱落多め</span></td></tr>
+<tr><td>「長期に安全」という主張</td><td>この試験の範囲外</td><td><span class="ev-badge ev-low">示せていない</span></td></tr>
+</table>
+</div>
+
+<div class="card red">
+<h2>⚠️ 読むときの注意</h2>
+<ul>
+<li><strong>資金源:</strong>米国飲料協会(業界団体)の資金提供と報じられています。研究チームは解析と報告を独立して行ったと述べていますが、結果は他の独立した研究でも確かめたいところです。</li>
+<li><strong>脱落が多い:</strong>493人中、2年後の測定は約220人。残った人が特に続けやすい人だった可能性があります。</li>
+<li><strong>反対側の見解:</strong>WHOは2023年に、観察研究の不確かさを理由に、体重管理目的で非糖類甘味料に頼ることを勧めない方針を示しています(今回のような試験と見解が分かれる点です)。1年時点の解析では結果の見え方が違ったとも報じられており、「差なし」を断定的に受け取らないでください。</li>
+<li>減量プログラム参加者が対象です。ふだん何気なく飲む人に当てはまるとは限りません。</li>
+</ul>
+</div>
+
+<div class="card purple">
+<h2>📝 まとめ</h2>
+<ol class="step-list">
+<li>過体重・肥満の成人493人を2年追ったRCTで、甘味料入り飲料と水の体重減少に有意な差は報告されなかった。</li>
+<li>ただし脱落が多く、業界資金で、単一施設の試験。</li>
+<li>体重以外の長期の影響(腸内環境・認知など)は別の研究で見る必要がある。</li>
+<li>飲み物の選び方は、体質・持病・好みで変わる。気になる人は管理栄養士や医師に相談を。</li>
+</ol>
+</div>
+
+<div class="sources">
+<h3>📚 出典(基準日:2026年10月)</h3>
+<ul>
+<li>SWITCH試験(University of Liverpool・University of Leeds、British Journal of Nutrition)の報道: <a href="https://www.sciencedaily.com/releases/2026/10/261002080017.htm">ScienceDaily(2026年10月)</a>、<a href="https://www.news-medical.net/news/20260929/University-of-Liverpool-study-tracks-long-term-impact-of-non-nutritive-sweetened-soft-drinks.aspx">News-Medical(2026年9月29日)</a>(いずれも二次情報)</li>
+<li>同試験の52週時点に関する大学発表: <a href="https://news.liverpool.ac.uk/2023/10/16/sweetened-drinks-vs-water-university-researchers-investigate/">University of Liverpool(2023年10月)</a></li>
+</ul>
+<p style="margin-top:8px">※ネットワーク制限のため原著論文(PubMed等)には到達できず、検索結果の要約と報道に基づきます。体重の具体値や一部の記述は、原著での確認ができていません。</p>
+</div>
+
+<div class="disclaimer">
+本記事は一般的な情報であり、医療アドバイスではありません。効果・必要量・リスクは個人の体質・年齢・持病・服薬で大きく変わります。実践の前に、かかりつけ医・管理栄養士・薬剤師など専門家にご相談ください。特定の食事制限・サプリ・断食などを安易に始めないでください。
+</div>
+</div>
+</body>
+</html>
