@@ -40,14 +40,16 @@
 - スペイン語の¿Me pones...?と¿Me das...?/Quisiera...の丁寧度の違い── 10-04の続編、依頼表現のくだけ具合を整理
 
 - スペイン語の線過去と点過去を1つの物語で併用する練習(背景+出来事の組み立て)── 10-08の続編
-- スペイン語のacabar de / volver a / seguir + 現在分詞(「〜したばかり」「また〜する」「〜し続ける」)── アスペクト表現の入口
 
 
 - スペイン語の過去形のダブル接続法(pasara lo que pasara、fuera como fuera)── 10-16の発展
 - 英語のcome what may / be that as it may など文語的な譲歩表現── 10-16の英語版
 
+- スペイン語のllevar + 現在分詞 / ir + 現在分詞 / empezar a(経過・進行を表すほかの perífrasis)── 10-17の続編
+
 ## 解説済みテーマ
 
+- 2026-10-17: スペイン語のacabar de / volver a / seguir + 現在分詞(「〜したばかり」「また〜する」「〜し続ける」)── アスペクト表現の入口
 - 2026-10-16: スペイン語のpase lo que pase / digan lo que digan / sea como sea(同じ接続法動詞を2回くり返す「何があっても」)── 10-15の続編、英語whatever/whoeverとの対応も整理
 - 2026-10-15: スペイン語のque yo sepa / que yo recuerde(「知る限り」)── 10-14の続編、英語as far as I knowとの対応も整理
 - 2026-10-14: 英語のas far asとas long asの違い（範囲と条件）── スペイン語のque yo sepa / siempre queとの対比
