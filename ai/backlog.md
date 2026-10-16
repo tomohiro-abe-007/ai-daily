@@ -2,6 +2,7 @@
 
 ## 解説済みトピック（重複を避けるための記録）
 
+- 2026-10-17: Grok Voice 3.0（2026年10月14日リリース）・xAI（SpaceXAI）・Speech-to-Speech音声AIモデル・応答遅延1秒未満・Artificial Analysis Speech-to-Speech Index 86.9点（1位・2026年10月14日時点）・関数呼び出し対応・多言語対応・Voice Agent API経由で提供・電気自動車車内・衛星通信サービスサポートセンターでの運用を報告（xAI発表値・第三者未検証）・LiveKit提携・料金$0.08/分前後（情報源により差異あり・公式要確認）（出典：Testing Catalog / LLM Gateway / ToolNavs / LiveKit Blog・2026年10月）
 - 2026-10-16: Qwen-Image-2.1-Turbo（2026年10月9日公開）・アリババ通義千問チーム・7Bパラメータ・ノイズ除去ステップ約40→8（約80%削減）・テキスト→画像・画像編集・透明RGBA出力・最大2K解像度（要確認）・Hugging Faceでウェイト公開・Qwen Research License（商用制限あり）・アリババクラウドPAI-EAS経由のAPI利用も可・サードパーティ集計API料金$0.016/枚〜（公式要確認）（出典：mer.vin / ToolNavs / ComfyUI Wiki / OrcaRouter / LLM Gateway・2026年10月）
 - 2026-10-15: 米大手新聞グループ（19紙）が ChatGPT 開発元を著作権侵害で連邦裁判所に提訴（2026年10月8日・マンハッタン）・記事を無断で AI 学習データに使用・著作権表示の削除・2億5千万ドル超の損害賠償請求・モデル破棄の差止命令も要求・陪審裁判を求める・被告は報道時点で公式コメントなし・ケース番号1:26-cv-08892（報道値）・16万件超のエントリーが学習データに含まれると主張・1件あたり最大15万ドルの法定賠償・著作権表示削除は1件2万5千ドル（出典：Editor&Publisher / The Desk / Hoodline / Windows Report / CryptoBriefing / Let's Data Science / Unite.AI・2026年10月8日）
 - 2026-10-14: Muse Wonder / Muse Wonder Full（2026年10月12日）・SNS大手初フロンティアモデル・アクティブメモリ（会話をまたいで記憶）・アクティブフォーカス（難問に粘り強く取り組む・確認機能）・自社MemoryBench：Wonder 85.6 / Wonder Full 85.5・Artificial Analysis Index Wonder Full 56点（他社最先端より低め・2026年10月12日時点）・API料金 $4/$20（公式要確認）・キャッシュ入力 $0.20・Wonder Full は有料サブスク加入者専用（出典：TechCrunch / CNBC / VentureBeat / technology.org / Seoul Economic Daily・2026年10月12〜13日）
