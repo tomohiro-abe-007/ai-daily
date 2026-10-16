@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-10-17</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '☀️';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.35rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.9rem; margin-bottom: 8px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.1em; }
+  .c3-col li { margin-bottom: 4px; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  .quote-box {
+    background: #f5f0e8;
+    border-left: 4px solid #7a5abf;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    margin: 12px 0;
+    color: #444;
+    font-style: italic;
+  }
+  .quote-box .who { font-style: normal; font-weight: 700; color: #5a3a9a; margin-top: 6px; font-size: 0.78rem; }
+  .matrix {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .mx-cell {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .mx-cell .mx-head { font-weight: 700; font-size: 0.88rem; margin-bottom: 6px; }
+  .mx-cell.ok  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .mx-cell.ok  .mx-head { color: #1a6e4a; }
+  .mx-cell.ng  { background: #fbe8e6; border: 2px solid #c0392b; }
+  .mx-cell.ng  .mx-head { color: #a0291e; }
+  .subtype-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .subtype-card {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.84rem;
+  }
+  .subtype-card .st-head { font-weight: 700; font-size: 0.92rem; margin-bottom: 8px; }
+  .subtype-card .st-bar {
+    height: 10px;
+    border-radius: 5px;
+    background: #eee;
+    overflow: hidden;
+    margin: 6px 0 4px;
+  }
+  .subtype-card .st-bar-fill { height: 100%; }
+  .subtype-card.st-green { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .subtype-card.st-green .st-head { color: #1a6e4a; }
+  .subtype-card.st-orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .subtype-card.st-orange .st-head { color: #b85e10; }
+  .subtype-card.st-red { background: #fbe8e6; border: 2px solid #c0392b; }
+  .subtype-card.st-red .st-head { color: #a0291e; }
+  @media (max-width: 540px) {
+    .compare4 { grid-template-columns: 1fr; }
+    .matrix { grid-template-columns: 1fr; }
+    .subtype-grid { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.7rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+  .bar{height:22px;border-radius:6px;margin:4px 0 2px;color:#fff;font-size:.78rem;padding:0 8px;line-height:22px;white-space:nowrap}
+</style>
+</head>
+<body>
+<div class="page">
+<div class="header">
+<div class="label">Health &amp; Nutrition Note</div>
+<h1>健康・栄養 最新トピック 2026-10-17<br>血糖値の「GI」と「GL」ってなに? 食べ物の"速さ"と"量"を分けて考える</h1>
+<div class="subtitle">🍚📈 「GIが低い食べ物がいい」とよく聞きますが、もう1つのものさし「GL」とあわせて、基本の考え方と研究の読み方を整理します。</div>
+</div>
+
+<div class="card">
+<h2>🔍 今日のポイント</h2>
+<p>食べ物で血糖値(血液中のブドウ糖の濃さ)が上がる「速さ」がGI、「速さ×炭水化物の量」がGLです。2019年のメタ分析(複数の研究をまとめた分析)では、GI・GLが高い食事の人ほど、のちに2型糖尿病や冠動脈疾患になる人が多い傾向が報告されました。ただし観察研究なので、「原因」と断定はできません。</p>
+<div class="num-row">
+<div class="num-card"><span class="big">1.27</span><span class="unit">倍</span><div class="desc">GIが10高いごとの2型糖尿病リスク(95%信頼区間 1.15〜1.40)</div></div>
+<div class="num-card blue-bg"><span class="big">1.26</span><span class="unit">倍</span><div class="desc">GLが1日80g高いごとの2型糖尿病リスク(1.15〜1.37)</div></div>
+<div class="num-card orange-bg"><span class="big">1.24</span><span class="unit">倍</span><div class="desc">GIが10高いごとの冠動脈疾患リスク(1.12〜1.38)</div></div>
+<div class="num-card red-bg"><span class="big">1.44</span><span class="unit">倍</span><div class="desc">GLが1日65g高いごとの冠動脈疾患リスク(1.25〜1.65)</div></div>
+</div>
+</div>
+
+<div class="card blue">
+<h2>📖 まず言葉の意味を</h2>
+<div class="def-grid">
+<div class="def-item"><div class="dterm">GI(グリセミック・インデックス)</div>同じ量の炭水化物を食べたとき、血糖値がどれだけ速く・高く上がるかを、基準の食品と比べた「速さの指数」。</div>
+<div class="def-item"><div class="dterm">GL(グリセミック・ロード)</div>GI × 食べた炭水化物の量(g)÷ 100 で求める「負荷」。速さに"量"を掛け合わせたもの。</div>
+<div class="def-item"><div class="dterm">コホート研究</div>たくさんの人を長く追いかけ、食べ方と病気の関係を調べる観察研究。くじ引きで分けないため、原因の証明には弱い。</div>
+<div class="def-item"><div class="dterm">相対リスク(RR)</div>1.27なら「リスクが1.27倍」。1より大きいほど病気になる人が多い傾向。信頼区間が1をまたがなければ、偶然とは言いにくい。</div>
+</div>
+</div>
+
+<div class="card orange">
+<h2>🔄 GLの考え方(計算例)</h2>
+<div class="flow">
+<div class="flow-step">① 食品のGI<br>(例:70)</div>
+<div class="flow-arrow">×</div>
+<div class="flow-step alt">② 食べる炭水化物の量<br>(例:20g)</div>
+<div class="flow-arrow">÷100→</div>
+<div class="flow-step purp">③ GL = 14</div>
+</div>
+<p style="font-size:.84rem">※数字は説明用の仮の例です。同じGI70でも、炭水化物が10gしか含まれない量ならGLは7。「速さ」が同じでも「量」が少なければ、血糖への負荷は小さくなります。</p>
+</div>
+
+<div class="card purple">
+<h2>🆚 GIとGLのちがい</h2>
+<div class="matrix">
+<div class="mx-cell ok"><div class="mx-head">⚡ GI = 速さ</div>食品ごとの性質。量は考えない。「この食品は血糖が上がりやすいか」の目安。</div>
+<div class="mx-cell ng"><div class="mx-head">🍽️ GL = 速さ × 量</div>実際に食べる量を反映。1食・1日の「血糖への負荷」を見たいときの目安。</div>
+</div>
+</div>
+
+<div class="card">
+<h2>📊 研究のまとめ方(2019年のメタ分析)</h2>
+<p>Livesey らは、健康な成人を追った前向きコホート研究を集めて、GI・GLの高さと病気の関係を量に応じて計算しました(用量反応メタ分析)。2型糖尿病の論文(Nutrients 2019)と冠動脈疾患の論文(Mayo Clinic Proceedings: Innovations, Quality & Outcomes 2019)があります。冠動脈疾患の解析は、GLで11件、GIで10件の研究が対象と報告されています。</p>
+<div class="bar" style="width:100%;background:#c0392b">冠動脈疾患:GL(1日65g増)→ 1.44倍</div>
+<div class="bar" style="width:86%;background:#1a7a5a">2型糖尿病:GI(10増)→ 1.27倍</div>
+<div class="bar" style="width:84%;background:#1a5e8a">2型糖尿病:GL(80g増)→ 1.26倍</div>
+<div class="bar" style="width:78%;background:#e67e22">冠動脈疾患:GI(10増)→ 1.24倍</div>
+<p style="font-size:.8rem;color:#666;margin-top:6px">※棒の長さは1.0を起点とした相対リスクの大小を示す簡易表示です。</p>
+</div>
+
+<div class="card">
+<h2>🧪 エビデンスの強さ</h2>
+<table class="ev-table">
+<tr><th>研究</th><th>種類・対象</th><th>確からしさ</th></tr>
+<tr><td>Livesey ら 2019(2型糖尿病)</td><td>前向きコホート研究のメタ分析(観察研究)。健康な成人が対象。研究数・総人数は今回未確認</td><td><span class="ev-badge ev-mid">関連は一貫。因果は断定できない</span></td></tr>
+<tr><td>Livesey ら 2019(冠動脈疾患)</td><td>同上。GL 11件、GI 10件の研究</td><td><span class="ev-badge ev-mid">関連は一貫。因果は断定できない</span></td></tr>
+<tr><td>「低GI食に変えれば病気が減る」</td><td>この分析だけでは示せない(くじ引きの長期試験が別に必要)</td><td><span class="ev-badge ev-low">未確認</span></td></tr>
+</table>
+</div>
+
+<div class="card red">
+<h2>⚠️ 読むときの注意</h2>
+<ul>
+<li><strong>相関と因果:</strong>高GIの食事の人は、精製された穀物が多く食物繊維が少ない、運動が少ない、などほかの違いもある可能性があります。統計で調整しても、すべては取り除けません。</li>
+<li><strong>反対側の見方:</strong>GIは食品単体で測った値で、実際の食事は組み合わせ(おかず・脂質・食物繊維)や調理で血糖の上がり方が変わります。また、同じ食べ物でも人によって血糖反応が違うため、「数字だけで選ぶ」より個人差を見る視点(精密栄養学)も大切だと考えられています。</li>
+<li><strong>GIが低い=健康的とは限らない:</strong>GIが低くても、脂質や飽和脂肪酸が多い食品はあります。GIだけで食品の良し悪しは決まりません。</li>
+<li><strong>今回の確認範囲:</strong>原著論文の本文までは確認できず、要旨と抄録に基づいています。総人数や資金源・利益相反は未確認です。</li>
+</ul>
+</div>
+
+<div class="card purple">
+<h2>📝 まとめ</h2>
+<ol class="step-list">
+<li>GIは血糖の上がる「速さ」、GLは速さに食べる「量」を掛けた負荷。</li>
+<li>2019年のメタ分析(観察研究)では、高GI・高GLの食事と2型糖尿病・冠動脈疾患の増加が関連していた。</li>
+<li>関連は一貫していても、原因とは言い切れず、食事全体や個人差も見る必要がある。</li>
+<li>血糖値が気になる人や持病・服薬のある人は、自己判断せず医師や管理栄養士に相談を。</li>
+</ol>
+</div>
+
+<div class="sources">
+<h3>📚 出典(基準日:2026年10月)</h3>
+<ul>
+<li>Livesey G ら, 2型糖尿病とGI・GLの用量反応メタ分析, Nutrients 2019年6月: <a href="https://pubmed.ncbi.nlm.nih.gov/31195724/">PubMed 31195724</a>、<a href="https://www.mdpi.com/2072-6643/11/6/1280">MDPI</a></li>
+<li>Livesey G ら, 冠動脈疾患とGI・GLの用量反応メタ分析, Mayo Clinic Proceedings: Innovations, Quality &amp; Outcomes 2019年3月: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6443299">PMC6443299</a>、<a href="https://doaj.org/article/66a4acca72ef4291a3f980411728d377">DOAJ</a></li>
+</ul>
+<p style="margin-top:8px">※GL の計算式(GI×炭水化物量÷100)は一般的な定義です。数値は検索結果に表示された抄録に基づき、原著本文での再確認はできていません。</p>
+</div>
+
+<div class="disclaimer">
+本記事は一般的な情報であり、医療アドバイスではありません。効果・必要量・リスクは個人の体質・年齢・持病・服薬で大きく変わります。実践の前に、かかりつけ医・管理栄養士・薬剤師などの専門家にご相談ください。特定の食事制限・サプリ・断食などを安易に始めないでください。
+</div>
+</div>
+</body>
+</html>
