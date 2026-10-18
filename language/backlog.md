@@ -19,7 +19,6 @@
 - スペイン語の増大辞(aumentativo) -ón/-azo の使い方（hombrón, cochazoなど）── 08-14の指小辞-ito/-itaの反対語、「大きい・強調・時には皮肉」を表す語尾変化
 - 英語の-ish(強調・おおよそを表す接尾辞: greenish, fortyish, tallish)── 08-15の-y/-let(小さい・親しみ)とは別系統の「あいまいさ・程度」を足す接尾辞、日常会話でよく使われる
 - スペイン語のestar de vs. ser de(出身・所属を表す表現の違い)── ser用法の応用、生活シーンで自己紹介の幅を広げる
-- スペイン語の間接疑問文(No sé qué hora es.のような疑問詞+平叙語順)── 08-21のse構文の後に読みたい、疑問文の語順が変わる感覚を整理
 - 英語のDoes that make sense?/Are you following?などフォーマルな理解確認フレーズ── 08-22のyou know?/get it?/see?のフォーマル版、ビジネス英語で使える丁寧な確認表現を整理
 - スペイン語のfiller word(este, o sea, bueno)の使い方── 08-22の英語you know?のように、意味が薄れて間つなぎ化した表現の整理、08-16のvale/claro/pues/o seaの発展
 - スペイン語のlo que sea / cueste lo que cueste など、lo que+接続法を使った慣用表現 ── 08-25のlo que/lo cualの発展、決まり文句としての使い方を扱う
@@ -175,3 +174,5 @@
 - 2026-10-10: 英語のget + 形容詞/過去分詞(「〜になる」のget)── 10-09のget used toの発展、スペイン語ponerse/casarse/perderseとの対応も整理
 - 2026-10-11: スペイン語の「〜になる」4兄弟(ponerse/volverse/hacerse/quedarse)── 10-10のget + 形容詞の続編、一時的/意志/長続き/失うで使い分け
 - 2026-10-12: スペイン語のconvertirse en / llegar a ser / transformarse en(大きな「〜になる」)── 10-11の4兄弟の続編
+
+- 2026-10-19: スペイン語の間接疑問文(No sé qué hora es. / si)── 08-21のse構文の続編
