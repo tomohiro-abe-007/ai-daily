@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>インサイドセールス 最新トピック 2026-10-20</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  /* ── カバー ── */
+  .cover {
+    background: linear-gradient(135deg, #6d1b1b 0%, #a13a2c 50%, #d98a2e 100%);
+    color: white;
+    border-radius: 8px;
+    padding: 60px 40px;
+    text-align: center;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.3);
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent, transparent 28px,
+      rgba(255,255,255,0.05) 28px, rgba(255,255,255,0.05) 29px
+    );
+  }
+  .cover-emoji { font-size: 64px; display: block; margin-bottom: 16px; }
+  .cover h1 {
+    font-family: 'Klee One', sans-serif;
+    font-size: 1.9rem;
+    font-weight: 600;
+    line-height: 1.35;
+    margin-bottom: 12px;
+    position: relative;
+  }
+  .cover .subtitle { font-size: 1.05rem; opacity: 0.85; margin-bottom: 8px; position: relative; }
+  .cover .date-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 20px;
+    padding: 6px 20px;
+    font-size: 1rem;
+    margin-top: 16px;
+    position: relative;
+  }
+
+  /* ── カード共通 ── */
+  .card {
+    background: #fff9f0;
+    border-radius: 6px;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.12);
+    position: relative;
+    overflow: hidden;
+  }
+  .card-body {
+    padding: 40px 36px 28px 64px;
+    background: repeating-linear-gradient(0deg, transparent, transparent 31px, #e0d8c8 31px, #e0d8c8 32px);
+    background-color: #fff9f0;
+  }
+  .card-tab {
+    display: inline-block;
+    background: #a13a2c;
+    color: white;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 4px 16px;
+    border-radius: 0 0 6px 6px;
+    position: absolute;
+    top: 0; left: 32px;
+    letter-spacing: 0.05em;
+  }
+  .card h2 {
+    font-size: 1.22rem;
+    color: #6d1b1b;
+    margin-bottom: 16px;
+    margin-top: 4px;
+    line-height: 1.5;
+    border-left: 4px solid #c0532b;
+    padding-left: 12px;
+  }
+  p { line-height: 1.85; color: #333; font-size: 0.97rem; margin-bottom: 12px; }
+
+  /* ── 数字カード ── */
+  .num-cards { display: flex; gap: 14px; flex-wrap: wrap; margin: 20px 0; }
+  .num-card {
+    flex: 1; min-width: 170px;
+    background: #6d1b1b; color: white;
+    border-radius: 10px; padding: 20px 16px; text-align: center;
+  }
+  .num-card.orange { background: #a13a2c; }
+  .num-card.gold   { background: #b06b1a; }
+  .num-card.gray   { background: #6b6b6b; }
+  .num-card .big-num {
+    font-family: 'Caveat', cursive;
+    font-size: 1.7rem; font-weight: 700; line-height: 1.15;
+    color: #ffd8b0;
+  }
+  .num-card .num-label { font-size: 0.78rem; margin-top: 8px; opacity: 0.92; line-height: 1.6; }
+
+  /* ── ステップフロー ── */
+  .step-flow { display: flex; flex-direction: column; gap: 0; margin: 20px 0; }
+  .step-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px dotted #ddd;
+  }
+  .step-item:last-child { border-bottom: none; }
+  .step-num {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: #a13a2c;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .step-body { flex: 1; }
+  .step-title { font-size: 0.97rem; font-weight: 700; color: #6d1b1b; margin-bottom: 4px; }
+  .step-desc  { font-size: 0.85rem; color: #555; line-height: 1.7; margin: 0; }
+
+  /* ── 対比カード(2〜3列) ── */
+  .compare-flow { display: flex; gap: 14px; flex-wrap: wrap; margin: 20px 0; align-items: stretch; }
+  .compare-col {
+    flex: 1; min-width: 200px;
+    background: #fdf2ea;
+    border: 1.5px solid #e8c8a8;
+    border-radius: 8px;
+    padding: 16px 18px;
+  }
+  .compare-col.highlight-col { background: #f6e2c8; border-color: #d98a2e; }
+  .compare-col h3 { font-size: 0.93rem; color: #6d1b1b; margin-bottom: 10px; }
+  .compare-col ol, .compare-col ul { padding-left: 18px; }
+  .compare-col li { font-size: 0.82rem; color: #555; line-height: 1.85; }
+  .cause-down {
+    text-align: center;
+    font-size: 1.3rem;
+    color: #a13a2c;
+    margin: 10px 0 -2px;
+  }
+  .result-box {
+    background: #6d1b1b;
+    color: white;
+    border-radius: 8px;
+    padding: 14px 18px;
+    text-align: center;
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-top: 4px;
+  }
+
+  /* ── マトリクス表 ── */
+  .matrix-table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 0.85rem; }
+  .matrix-table th, .matrix-table td {
+    border: 1px solid #e0d0b8; padding: 10px 12px; text-align: left; vertical-align: top;
+  }
+  .matrix-table th { background: #f6e2c8; color: #6d1b1b; font-weight: 700; }
+  .matrix-table td { color: #444; line-height: 1.6; }
+  .matrix-table tr:nth-child(even) td { background: #fdf9f2; }
+  .matrix-table tr.warn td { background: #f8e6e0; }
+
+  /* ── 今日の一歩 ── */
+  .today-box {
+    background: linear-gradient(135deg, #6d1b1b, #c0532b);
+    color: white; border-radius: 8px;
+    padding: 24px 28px; margin: 16px 0; text-align: center;
+  }
+  .today-box .emoji { font-size: 2.2rem; display: block; margin-bottom: 8px; }
+  .today-box .title { font-size: 1.1rem; font-weight: 600; margin-bottom: 10px; }
+  .today-box .desc  { font-size: 0.92rem; opacity: 0.92; line-height: 1.8; text-align: left; }
+
+  /* ── 共通パーツ ── */
+  .highlight { background: #f6e2c8; border-radius: 4px; padding: 1px 6px; color: #6d1b1b; font-weight: 600; }
+  .callout {
+    border-radius: 6px; padding: 14px 16px; margin-top: 14px;
+  }
+  .callout.yellow { background: #fef9e7; border-left: 4px solid #d98a2e; }
+  .callout.green  { background: #eafaf1; border-left: 4px solid #27ae60; }
+  .callout.blue   { background: #e8f4fd; border-left: 4px solid #2980b9; }
+  .callout.wine   { background: #f6e9e4; border-left: 4px solid #a13a2c; }
+
+  /* ── 免責 ── */
+  .disclaimer {
+    background: #fff; border: 1px solid #ddd; border-radius: 6px;
+    padding: 16px 20px; font-size: 0.8rem; color: #777; line-height: 1.7;
+    width: 100%; max-width: 820px; margin-bottom: 16px;
+  }
+  .disclaimer strong { color: #555; }
+
+  /* ── 出典 ── */
+  .sources {
+    background: #fff9f0; border-radius: 6px; padding: 16px 24px;
+    width: 100%; max-width: 820px; margin-bottom: 24px;
+    font-size: 0.8rem; color: #666; line-height: 1.8;
+  }
+  .sources h3 { font-size: 0.85rem; color: #6d1b1b; margin-bottom: 8px; }
+  .sources a { color: #a13a2c; text-decoration: none; }
+  .sources a:hover { text-decoration: underline; }
+  .sources ul { padding-left: 16px; }
+
+  /* ── バックリンク ── */
+  .back-link { text-align: center; margin-bottom: 20px; font-size: 0.9rem; }
+  .back-link a { color: #a13a2c; text-decoration: none; }
+  .back-link a:hover { text-decoration: underline; }
+
+  .bars { margin: 18px 0; }
+  .bar-row { display: flex; align-items: center; gap: 10px; margin: 8px 0; font-size: 0.85rem; color: #444; }
+  .bar-row .lbl { width: 78px; flex-shrink: 0; }
+  .bar-track { flex: 1; background: #f0e6d6; border-radius: 6px; height: 22px; overflow: hidden; }
+  .bar-fill { background: #a13a2c; height: 100%; border-radius: 6px; }
+  .bar-fill.top { background: #b06b1a; }
+  .bar-row .val { width: 120px; flex-shrink: 0; font-size: 0.8rem; }
+  @media (max-width: 560px) {
+    .card-body { padding: 40px 18px 24px 24px; }
+    .matrix-table { display: block; overflow-x: auto; white-space: nowrap; }
+    .compare-flow { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <span class="cover-emoji">🏠</span>
+  <h1>在宅テレアポの<br>「経費」ってどこまで?</h1>
+  <div class="subtitle">インサイドセールス 最新トピック 2026-10-20</div>
+  <div class="date-badge">テレアポ・インサイドセールス 毎朝解説</div>
+</div>
+
+<div class="card">
+  <span class="card-tab">01 今日のテーマ</span>
+  <div class="card-body">
+    <h2>🤔 家賃やネット代は経費になる?</h2>
+    <p>業務委託(会社に雇われず、仕事ごとに契約して働く形)で在宅テレアポをすると、自宅の<span class="highlight">家賃・電気代・ネット代</span>が仕事にも使われます。このように「生活」と「仕事」が混ざった支出を<span class="highlight">家事関連費</span>と呼びます。</p>
+    <p>混ざった支出のうち、仕事に使った分だけを経費にする計算が<span class="highlight">家事按分</span>(かじあんぶん:割合で分けること)です。</p>
+    <div class="compare-flow">
+      <div class="compare-col highlight-col">
+        <h3>✅ 経費にしやすい考え方</h3>
+        <ul><li>仕事に使った部分を、<strong>面積・時間</strong>など客観的な基準で割合にする</li><li>根拠を説明できる</li></ul>
+      </div>
+      <div class="compare-col">
+        <h3>❌ 否認されやすい考え方</h3>
+        <ul><li>根拠なく「家賃の90%」などと決める</li><li>生活費をそのまま計上する</li></ul>
+      </div>
+    </div>
+    <div class="callout yellow">一律に「家賃の何%まで」という決まりはなく、合理的な基準と説明できる根拠が大切、と解説されています(freee解説、2026年10月参照)。</div>
+  </div>
+</div>
+
+<div class="card">
+  <span class="card-tab">02 流れで見る</span>
+  <div class="card-body">
+    <h2>🔁 按分のやり方 4ステップ</h2>
+    <div class="step-flow">
+      <div class="step-item"><div class="step-num">1</div><div class="step-body"><div class="step-title">📝 対象の支出を書き出す</div><p class="step-desc">家賃、電気代、ネット回線、スマホ代など。</p></div></div>
+      <div class="cause-down">⬇️</div>
+      <div class="step-item"><div class="step-num">2</div><div class="step-body"><div class="step-title">📏 基準を決める</div><p class="step-desc">家賃・電気代は「仕事部屋の面積」や「仕事の時間」、ネット代は「使用時間」など。</p></div></div>
+      <div class="cause-down">⬇️</div>
+      <div class="step-item"><div class="step-num">3</div><div class="step-body"><div class="step-title">🧮 割合をかけ算する</div><p class="step-desc">支払額 × 仕事の割合 = 経費にする金額。</p></div></div>
+      <div class="cause-down">⬇️</div>
+      <div class="step-item"><div class="step-num">4</div><div class="step-body"><div class="step-title">🗂️ 根拠をメモして保存</div><p class="step-desc">間取り図、計算メモ、領収書などを残します。</p></div></div>
+    </div>
+    <div class="result-box">「基準→計算→記録」で説明できる状態にする</div>
+  </div>
+</div>
+
+<div class="card">
+  <span class="card-tab">03 計算例</span>
+  <div class="card-body">
+    <h2>🧮 たとえばこんな計算(あくまで架空の例)</h2>
+    <div class="num-cards">
+      <div class="num-card"><div class="big-num">80,000円</div><div class="num-label">家賃(月・仮の数字)</div></div>
+      <div class="num-card orange"><div class="big-num">6÷40=15%</div><div class="num-label">仕事部屋6㎡ ÷ 部屋全体40㎡</div></div>
+      <div class="num-card gold"><div class="big-num">12,000円</div><div class="num-label">経費にできる目安<br>(80,000×15%)</div></div>
+    </div>
+    <table class="matrix-table">
+      <tr><th>支出</th><th>考えやすい基準</th><th>注意点</th></tr>
+      <tr><td>🏠 家賃</td><td>仕事に使う部屋の面積</td><td>仕事専用の空間かを説明できると◎</td></tr>
+      <tr><td>💡 電気代</td><td>面積や使用時間</td><td>家族で使う分は除く</td></tr>
+      <tr><td>🌐 ネット代</td><td>仕事に使う時間</td><td>動画視聴など私用が多ければ割合を下げる</td></tr>
+      <tr class="warn"><td>⚠️ 割合の根拠なし</td><td>なし</td><td>追加の税金が生じるおそれ(解説記事の指摘)</td></tr>
+    </table>
+    <div class="callout wine">数字は説明用の仮の例です。実際の割合や、税金の取り扱いは人によって異なります。</div>
+  </div>
+</div>
+
+<div class="card">
+  <span class="card-tab">04 求職者として</span>
+  <div class="card-body">
+    <h2>🪜 応募前に確認する3つのこと</h2>
+    <div class="step-flow">
+      <div class="step-item"><div class="step-num">1</div><div class="step-body"><div class="step-title">💻 会社が貸してくれるものは?</div><p class="step-desc">PC・ヘッドセット・通信費を会社が負担するか、自分持ちかを確認します。</p></div></div>
+      <div class="step-item"><div class="step-num">2</div><div class="step-body"><div class="step-title">📄 契約は雇用か業務委託か?</div><p class="step-desc">業務委託なら経費は自分で管理します(雇用なら会社が処理)。</p></div></div>
+      <div class="step-item"><div class="step-num">3</div><div class="step-body"><div class="step-title">💴 報酬から経費を引いて考える</div><p class="step-desc">時給や報酬の額面だけでなく、自己負担の経費も含めて手取りを見ます。</p></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <span class="card-tab">05 今日の一歩</span>
+  <div class="card-body">
+    <div class="today-box">
+      <span class="emoji">✍️</span>
+      <div class="title">今日からできる一歩:「仕事部屋の面積」を測ってメモする</div>
+      <div class="desc">① 仕事をする場所(机まわり)の広さを測る<br>② 家全体の広さを間取り図で確認する<br>③ 「仕事の面積 ÷ 全体の面積」を電卓で計算してメモする</div>
+    </div>
+    <div class="callout green">まだ仕事を始めていなくても、記録の習慣は早めに作っておくと安心です。</div>
+  </div>
+</div>
+
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  報酬・採用の結果には個人差があり、市場・時期・スキルによって変わります。本記事は一般的な説明であり、税務の個別の助言ではありません。国税庁の一次資料は今回直接確認できていません。紹介した求人媒体・企業・ツールの条件や税制の運用は変わるため、最新情報は国税庁など公式、または税理士・税務署でご確認ください。
+</div>
+
+<div class="sources">
+  <h3>📎 参考情報・出典(参照日:2026年10月)</h3>
+  <ul>
+    <li><a href="https://www.freee.co.jp/kb/kb-kakuteishinkoku/apportionment_of_housework" target="_blank">freee:家事按分の解説(民間解説)</a></li>
+    <li><a href="https://ayusawa-partners.jp/column/keiji-kanrenhi-anbun" target="_blank">鮎澤パートナーズ:家事関連費・家事按分(税理士事務所コラム)</a></li>
+    <li><a href="https://squareup.com/jp/ja/townsquare/proportional-division-system" target="_blank">Square:按分制度の解説(民間解説)</a></li>
+  </ul>
+</div>
+
+<div class="back-link">
+  <a href="index.html">&larr; バックナンバー一覧へ</a>
+</div>
+
+</body>
+</html>
