@@ -2,6 +2,7 @@
 
 ## 解説済みトピック（重複を避けるための記録）
 
+- 2026-10-21: John Jumper（ジョン・ジャンパー）がタンパク質予測AI主任研究者・2024年ノーベル化学賞共同受賞者・大手テクノロジー企業AI研究部門VP（約9年間）から生成AIスタートアップへ移籍（2026年6月発表）・2億種以上のタンパク質構造を予測したAIシステムを開発・新役職・研究テーマは2026年6月時点で未発表（出典：Bloomberg Government / RuntimeWire / FourWeekMBA・2026年6月）
 - 2026-10-20: Nemotron 3.5 Super VL（2026年10月15日公開）・半導体大手AI研究部門・総パラメータ120B MoE（1処理あたり12Bアクティブ）・テキスト・画像・文書・動画のマルチモーダル対応・オープンソース公開・同サイズクラスのオープンモデル比エージェントスループット最大5倍（自社計測）・Hermes Bench 63.44%（前モデル56.33%比向上・自社発表値）・LangChain Evals 87.05%（自社発表値）・CharXiv 80.8%（Python補助で84%・自社発表値）・Artificial Analysis Intelligence Index 26.5点（第三者集計）・vLLMでDay-0サポート・パートナー企業がコスト1/40・遅延1/10を報告（各社自己申告・第三者未検証）・商用利用条件は公式要確認（出典：開発元公式ブログ / Let's Data Science / vLLM公式ブログ / Eigent.ai / Alpha Signal・2026年10月15日）
 - 2026-10-19: Grok Voice 3.0（2026年10月14日リリース）・xAI（SpaceXAI）・Speech-to-Speech音声AIモデル・応答遅延1秒未満・Artificial Analysis Speech-to-Speech Index 86.9点（1位・2026年10月14日時点）・関数呼び出し対応・多言語対応・Voice Agent API経由で提供・電気自動車車内・衛星通信サービスサポートセンターでの運用を報告（xAI発表値・第三者未検証）・LiveKit提携・料金$0.08/分前後（情報源により差異あり・公式要確認）（出典：Testing Catalog / LLM Gateway / ToolNavs / LiveKit Blog・2026年10月）
 - 2026-10-18: Qwen-Image-2.1-Turbo（2026年10月9日公開）・アリババ通義千問チーム・7Bパラメータ・ノイズ除去ステップ約40→8（約80%削減）・テキスト→画像・画像編集・透明RGBA出力・最大2K解像度（要確認）・Hugging Faceでウェイト公開・Qwen Research License（商用制限あり）・アリババクラウドPAI-EAS経由のAPI利用も可・サードパーティ集計API料金$0.016/枚〜（公式要確認）（出典：mer.vin / ToolNavs / ComfyUI Wiki / OrcaRouter / LLM Gateway・2026年10月）
@@ -158,7 +159,7 @@
 - 日本のAI活用事例：製造業・金融・官公庁での実装事例
 - マルチエージェント（複数AIの協調）：2026年のエージェントフレームワーク比較
 - AI音声・TTS最新事情：各社音声モデルの比較と活用例
-- John Jumper（AlphaFold 2・2024年ノーベル化学賞共同受賞者）がGoogle DeepMind→Anthropicへ移籍（2026年6月24日報道）
+- ~~John Jumper（AlphaFold 2・2024年ノーベル化学賞共同受賞者）がGoogle DeepMind→Anthropicへ移籍（2026年6月24日報道）~~ ← 2026-10-21 解説済み
 - Anthropic Claude Cowork モバイル展開（2026年7月7〜9日発表）・iOS/Android対応・バックグラウンド実行・スマホから進捗確認・タスク許可通知・Max プランからベータ展開・Cowork使用量制限を8月5日まで2倍に延長（出典：9to5Mac / Dataconomy / Engadget・2026年7月7〜9日）
 - Apple Foundation Models 3（AFM 3）詳報（WWDC 2026・2026年6月発表）・5モデル体制（AFM 3 Core / AFM 3 Core Advanced 20B / AFM 3 Cloud / AFM 3 Cloud Image / AFM 3 Cloud Pro）・Google Cloud NVIDIA GB300に Private Cloud Compute を拡張・Gemini蒸留を使用するがGeminiモデルそのものは不使用（出典：Apple ML Research / 9to5Mac / MacStories・2026年6月）
 - Google Dataland AIアートミュージアム（2026年6月20日ロサンゼルス開館・Geminiがリアルタイムインタラクティブアートを生成）
