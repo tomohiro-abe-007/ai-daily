@@ -44,10 +44,10 @@
 - スペイン語の過去形のダブル接続法(pasara lo que pasara、fuera como fuera)── 10-16の発展
 - 英語のcome what may / be that as it may など文語的な譲歩表現── 10-16の英語版
 
-- スペイン語のacabar de と terminar de の違い(「したばかり」vs「し終える」)── 10-17・10-20の整理編
 
 ## 解説済みテーマ
 
+- 2026-10-21: スペイン語のacabar de と terminar de の違い(「したばかり」vs「し終える」)── 10-17・10-20の整理編
 - 2026-10-20: スペイン語のdejar de / terminar de / ponerse a(やめる・し終える・し始める)── 10-18の続編、英語stop/finish -ingとの対比
 - 2026-10-18: スペイン語のllevar + 現在分詞 / ir + 現在分詞 / empezar a(経過・進行・開始の perífrasis)── 10-17の続編、英語have been -ingとの対応も整理
 - 2026-10-17: スペイン語のacabar de / volver a / seguir + 現在分詞(「〜したばかり」「また〜する」「〜し続ける」)── アスペクト表現の入口
