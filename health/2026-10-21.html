@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-10-21</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '🌱';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.35rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.9rem; margin-bottom: 8px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.1em; }
+  .c3-col li { margin-bottom: 4px; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  .quote-box {
+    background: #f5f0e8;
+    border-left: 4px solid #7a5abf;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    margin: 12px 0;
+    color: #444;
+    font-style: italic;
+  }
+  .quote-box .who { font-style: normal; font-weight: 700; color: #5a3a9a; margin-top: 6px; font-size: 0.78rem; }
+  .matrix {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .mx-cell {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .mx-cell .mx-head { font-weight: 700; font-size: 0.88rem; margin-bottom: 6px; }
+  .mx-cell.ok  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .mx-cell.ok  .mx-head { color: #1a6e4a; }
+  .mx-cell.ng  { background: #fbe8e6; border: 2px solid #c0392b; }
+  .mx-cell.ng  .mx-head { color: #a0291e; }
+  .subtype-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .subtype-card {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.84rem;
+  }
+  .subtype-card .st-head { font-weight: 700; font-size: 0.92rem; margin-bottom: 8px; }
+  .subtype-card .st-bar {
+    height: 10px;
+    border-radius: 5px;
+    background: #eee;
+    overflow: hidden;
+    margin: 6px 0 4px;
+  }
+  .subtype-card .st-bar-fill { height: 100%; }
+  .subtype-card.st-green { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .subtype-card.st-green .st-head { color: #1a6e4a; }
+  .subtype-card.st-orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .subtype-card.st-orange .st-head { color: #b85e10; }
+  .subtype-card.st-red { background: #fbe8e6; border: 2px solid #c0392b; }
+  .subtype-card.st-red .st-head { color: #a0291e; }
+  @media (max-width: 540px) {
+    .compare4 { grid-template-columns: 1fr; }
+    .matrix { grid-template-columns: 1fr; }
+    .subtype-grid { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.7rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+  .bar{height:22px;border-radius:6px;margin:4px 0 2px;color:#fff;font-size:.78rem;padding:0 8px;line-height:22px;white-space:nowrap}
+</style>
+</head>
+<body>
+<div class="page">
+<div class="header">
+<div class="label">Health &amp; Nutrition Note</div>
+<h1>健康・栄養 最新トピック 2026-10-21<br>「〇〇を摂る人は健康」は本当? 観察研究のニュースの読み方</h1>
+<div class="subtitle">🔎 「相関」と「因果」はちがう。観察研究とランダム化比較試験(RCT)の結果が食い違った有名な例で、ニュースの読み方を学びます(エバーグリーンの基礎回)。</div>
+</div>
+
+<div class="card">
+<h2>🔍 今日のポイント</h2>
+<p>「〇〇をとっている人は病気が少ない」というニュースの多くは<strong>観察研究</strong>(人々を普段の生活のまま追いかけて比べる研究)です。ここで見つかるのは<strong>相関(いっしょに起こる関係)</strong>で、「〇〇が原因で良くなった」という<strong>因果</strong>までは言えません。</p>
+<p>有名な例が、更年期後の女性のホルモン療法です。観察研究では心臓病が約4割少なく見えたのに、のちのRCTでは逆の方向の結果が出ました。</p>
+<div class="num-row">
+<div class="num-card blue-bg"><span class="big">0.56</span><div class="desc">観察研究(看護師健康調査 1991)での冠動脈疾患の相対リスク(現在使用者)</div></div>
+<div class="num-card red-bg"><span class="big">1.29</span><div class="desc">RCT(WHI 2002)での冠動脈疾患のハザード比(信頼区間1.02〜1.63)</div></div>
+<div class="num-card"><span class="big">16,608</span><span class="unit">人</span><div class="desc">WHIの対象:50〜79歳の閉経後女性</div></div>
+</div>
+</div>
+
+<div class="card blue">
+<h2>📖 まず言葉の意味を</h2>
+<div class="def-grid">
+<div class="def-item"><div class="dterm">観察研究</div>研究者は何も割り当てず、もともとの生活習慣と結果を比べる研究。</div>
+<div class="def-item"><div class="dterm">RCT(ランダム化比較試験)</div>くじ引きでグループ分けして比べる試験。グループの違いが「くじ」だけになるので因果を調べやすい。</div>
+<div class="def-item"><div class="dterm">相対リスク・ハザード比</div>1より小さければ「少ない」、大きければ「多い」。1が「差なし」。</div>
+<div class="def-item"><div class="dterm">交絡(こうらく)</div>結果に関係する別の要因が混ざって、見かけの関係を作ってしまうこと。</div>
+</div>
+</div>
+
+<div class="card orange">
+<h2>⚖️ 同じ問いに、ちがう答え</h2>
+<div class="compare4">
+<div class="c3-col blue"><h3>🔭 観察研究</h3><ul><li>看護師健康調査(Nurses' Health Study)</li><li>1991年、現在使用者の冠動脈疾患:相対リスク0.56(0.40〜0.80)</li><li>「ホルモン療法は心臓を守りそう」</li></ul></div>
+<div class="c3-col red"><h3>🎲 RCT</h3><ul><li>WHI(エストロゲン+プロゲスチン vs プラセボ)</li><li>平均5.2年で早期中止</li><li>冠動脈疾患 1.29(1.02〜1.63)、乳がん 1.26(1.00〜1.59)</li><li>「心臓を守る」とは言えない</li></ul></div>
+</div>
+<p style="font-size:.84rem">※対象の年齢・使い始める時期・薬の種類が研究で違うため、単純には比べられません。「どちらが間違い」と決めつけず、食い違いの理由を考えるのが大切です。</p>
+</div>
+
+<div class="card">
+<h2>🧭 なぜ食い違う? 考えられる理由</h2>
+<div class="flow">
+<div class="flow-step">① 使う人は<br>もともと健康的?</div>
+<div class="flow-arrow">→</div>
+<div class="flow-step alt">② 生活習慣・収入など<br>別の差が混ざる(交絡)</div>
+<div class="flow-arrow">→</div>
+<div class="flow-step warn2">③ 薬の効果に見える<br>(実は別の差)</div>
+</div>
+<p style="font-size:.85rem">これは理由の「仮説」の一つです。ほかに、使い始める年齢・時期の違いなども議論されています(今回、一次資料での詳細確認はできていません)。</p>
+</div>
+
+<div class="card purple">
+<h2>✅ ニュースを見たときの4ステップ</h2>
+<ol class="step-list">
+<li>研究の種類を探す:観察研究か、RCTか(動物実験や小規模研究でないか)。</li>
+<li>「関連」か「効果」か:「関係がある」を「効く」と読み替えない。</li>
+<li>別の説明がないか:運動・収入・ほかの食習慣など、混ざりそうな要因を考える。</li>
+<li>人数・対象・追跡期間:自分と似た人たちの話か確認する。</li>
+</ol>
+</div>
+
+<div class="card red">
+<h2>⚠️ 注意:観察研究は「役立たず」ではない</h2>
+<div class="matrix">
+<div class="mx-cell ok"><div class="mx-head">👍 得意なこと</div>仮説を見つける、RCTがやりにくい長期・まれな影響を調べる。</div>
+<div class="mx-cell ng"><div class="mx-head">👎 苦手なこと</div>因果の証明。交絡をすべて取り除くのは難しい。</div>
+</div>
+<div class="warn"><strong>一般化しすぎない:</strong> ホルモン療法の例は、1つの薬での出来事です。「観察研究はいつも間違う」という意味ではありません。</div>
+</div>
+
+<div class="sources">
+<h3>📚 出典(基準日:2026年10月)</h3>
+<ul>
+<li>Rossouw JE ら, Writing Group for the WHI, JAMA 2002(エストロゲン+プロゲスチン、16,608人、CHD HR 1.29、乳がん HR 1.26): <a href="https://pubmed.ncbi.nlm.nih.gov/12117397/">pubmed.ncbi.nlm.nih.gov/12117397</a></li>
+<li>Stampfer MJ ら, Nurses' Health Study, NEJM 1991(相対リスク0.56)および10年追跡: <a href="https://profiles.wustl.edu/en/publications/postmenopausal-estrogen-therapy-and-cardiovascular-disease-ten-ye/">profiles.wustl.edu</a>(書誌情報)。0.56の値は検索で得た二次的な要約に基づき、原著本文は未確認です。</li>
+</ul>
+<p style="margin-top:8px">※ネットワーク制限で原著を直接開けず、検索結果の要約に基づきます。</p>
+</div>
+
+<div class="disclaimer">
+本記事は一般的な情報であり、医療アドバイスではありません。効果・必要量・リスクは個人の体質・年齢・持病・服薬で大きく変わります。実践の前に、かかりつけ医・管理栄養士・薬剤師などの専門家にご相談ください。特定の食事制限・サプリ・断食などを安易に始めないでください。ホルモン療法を使っている・検討している方は、自己判断で変更せず医師にご相談ください。
+</div>
+</div>
+</body>
+</html>
