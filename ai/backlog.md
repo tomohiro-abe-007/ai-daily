@@ -2,6 +2,7 @@
 
 ## 解説済みトピック（重複を避けるための記録）
 
+- 2026-10-22: Inception Mercury 3（2026年10月19日公開）・拡散型LLM・1,068トークン/秒（NVIDIA GPU・同社計測）・従来比4〜8倍速と主張・1Mトークンコンテキスト（前モデル2.5の約4倍）・GPT-6 Luna・Claude Haiku 5.5超えを自称（独立検証未実施）・入力$0.10/出力$0.35（100万トークン・ローンチ特別価格・通常価格は倍・公式要確認）・OpenRouter/Baseten/Vercel対応・OpenAI API互換（出典：RuntimeWire / Unite.AI・2026年10月）
 - 2026-10-21: John Jumper（ジョン・ジャンパー）がタンパク質予測AI主任研究者・2024年ノーベル化学賞共同受賞者・大手テクノロジー企業AI研究部門VP（約9年間）から生成AIスタートアップへ移籍（2026年6月発表）・2億種以上のタンパク質構造を予測したAIシステムを開発・新役職・研究テーマは2026年6月時点で未発表（出典：Bloomberg Government / RuntimeWire / FourWeekMBA・2026年6月）
 - 2026-10-20: Nemotron 3.5 Super VL（2026年10月15日公開）・半導体大手AI研究部門・総パラメータ120B MoE（1処理あたり12Bアクティブ）・テキスト・画像・文書・動画のマルチモーダル対応・オープンソース公開・同サイズクラスのオープンモデル比エージェントスループット最大5倍（自社計測）・Hermes Bench 63.44%（前モデル56.33%比向上・自社発表値）・LangChain Evals 87.05%（自社発表値）・CharXiv 80.8%（Python補助で84%・自社発表値）・Artificial Analysis Intelligence Index 26.5点（第三者集計）・vLLMでDay-0サポート・パートナー企業がコスト1/40・遅延1/10を報告（各社自己申告・第三者未検証）・商用利用条件は公式要確認（出典：開発元公式ブログ / Let's Data Science / vLLM公式ブログ / Eigent.ai / Alpha Signal・2026年10月15日）
 - 2026-10-19: Grok Voice 3.0（2026年10月14日リリース）・xAI（SpaceXAI）・Speech-to-Speech音声AIモデル・応答遅延1秒未満・Artificial Analysis Speech-to-Speech Index 86.9点（1位・2026年10月14日時点）・関数呼び出し対応・多言語対応・Voice Agent API経由で提供・電気自動車車内・衛星通信サービスサポートセンターでの運用を報告（xAI発表値・第三者未検証）・LiveKit提携・料金$0.08/分前後（情報源により差異あり・公式要確認）（出典：Testing Catalog / LLM Gateway / ToolNavs / LiveKit Blog・2026年10月）
