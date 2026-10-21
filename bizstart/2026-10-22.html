@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-10-22</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #2a4d7a 0%, #10233f 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #2a4d7a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.blue   { border-left-color: #1e5a7a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.green  { border-left-color: #1e7a5a; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #2a4d7a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin: 14px 0;
+  }
+  .stats-row.c3 { grid-template-columns: repeat(3, 1fr); }
+  .stats-row.c2 { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 12px 6px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat.now { background: #fff3e0; box-shadow: 0 0 0 2px #c8884a inset; }
+  .stat .sl { font-size: 0.62rem; color: #888; margin-bottom: 3px; line-height: 1.4; }
+  .stat .sv { font-size: 1.05rem; font-weight: 700; color: #2a4d7a; line-height: 1.15; }
+  .stat.now .sv { color: #c8884a; }
+  .stat .su { font-size: 0.62rem; color: #666; margin-top: 2px; }
+
+  .bignum {
+    background: white;
+    border-radius: 12px;
+    padding: 18px 14px;
+    text-align: center;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.1);
+    border: 2px dashed #c8884a;
+    margin: 14px 0;
+  }
+  .bignum .bl { font-size: 0.76rem; color: #888; margin-bottom: 6px; }
+  .bignum .bv { font-size: 1.7rem; font-weight: 700; color: #c8884a; line-height: 1.3; }
+  .bignum .bs { font-size: 0.76rem; color: #666; margin-top: 6px; line-height: 1.6; }
+
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #2a4d7a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-num.now { background: #b54040; }
+  .f-num.later { background: #999; }
+  .f-num.opt { background: #c8884a; }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+  .f-arrow { color: #2a4d7a; font-size: 1.1rem; margin-left: 14px; margin-bottom: 4px; }
+
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  table.cmp {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.83rem;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.08);
+  }
+  table.cmp th, table.cmp td {
+    border: 1px solid #e4dccd;
+    padding: 9px 10px;
+    line-height: 1.55;
+    vertical-align: top;
+  }
+  table.cmp thead th { background: #2a4d7a; color: white; font-weight: 600; text-align: center; }
+  table.cmp tbody th { background: #f5efe2; color: #5a4020; text-align: left; font-weight: 600; white-space: nowrap; }
+  table.cmp td { color: #444; text-align: left; }
+  table.cmp td.hi { background: #fff3e0; font-weight: 700; color: #c8884a; }
+  .wrap-x { overflow-x: auto; }
+
+  .prompt-box {
+    background: #f0f5ff;
+    border: 2px solid #4a6aae;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 12px 0;
+    font-size: 0.84rem;
+    line-height: 1.85;
+    color: #1a2a4a;
+  }
+  .prompt-box .ph {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #4a6aae;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+  .prompt-box .fill {
+    background: #d0e0ff;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-weight: 700;
+    color: #0a2a6e;
+  }
+
+  .info {
+    background: #e8eef8;
+    border-left: 4px solid #2a4d7a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #16294a;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #7a4010;
+  }
+
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #2a4d7a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #2a4d7a; word-break: break-all; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #2a4d7a; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+  <div class="meta">📅 1人法人スタート 最新トピック &nbsp;2026-10-22</div>
+  <h1>🧾 社長が自腹で払った経費 ── 「立替精算」の正しいやり方</h1>
+  <div class="desc">
+    <span class="htag">経理・記帳</span><span class="htag">立替経費</span><span class="htag">エバーグリーン</span><br>
+    会社と社長個人は<span class="hl">別人格</span>。個人のお金で払った仕事の支出は、<span class="hl">証拠を残して会社から精算</span>するのが基本です。
+  </div>
+</div>
+
+<div class="card blue">
+  <div class="sec-title">🔢 ① まず結論：覚えたい3つ</div>
+  <div class="stats-row c3">
+    <div class="stat now"><div class="sl">会社と社長個人</div><div class="sv" style="font-size:1.4rem">別人</div><div class="su">お金の財布も別</div></div>
+    <div class="stat"><div class="sl">立替の記帳科目(例)</div><div class="sv" style="font-size:1.4rem">未払金</div><div class="su">会社が社長に払う義務</div></div>
+    <div class="stat"><div class="sl">精算に必要なもの</div><div class="sv" style="font-size:1.4rem">証憑</div><div class="su">領収書・明細など</div></div>
+  </div>
+  <p>「立替(たてかえ)」とは、<b>本来は会社が払う費用を、社長が先に個人のお金で払うこと</b>。後で会社から実費を返してもらう(精算する)流れになります。</p>
+</div>
+
+<div class="card orange">
+  <div class="sec-title">🔄 ② お金の流れを図で見る</div>
+  <div class="f-step"><div class="f-num">1</div><div class="f-text"><b>社長が個人カード・現金で支払う</b>(例:仕事用の文房具、打ち合わせのカフェ代)</div></div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step"><div class="f-num">2</div><div class="f-text"><b>領収書・明細を保管し、会社の帳簿に記録</b>:費用の科目+「未払金(社長)」</div></div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step"><div class="f-num now">3</div><div class="f-text"><b>会社の口座から社長へ実費を振込</b>:「未払金」を消し込む</div></div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step"><div class="f-num opt">4</div><div class="f-text"><b>月1回など、締め日を決めて精算</b>:ためすぎない</div></div>
+</div>
+
+<div class="card green">
+  <div class="sec-title">⚖ ③ 「未払金」と「役員借入金」の違い</div>
+  <div class="wrap-x"><table class="cmp">
+    <thead><tr><th></th><th>📝 立替(未払金)</th><th>💴 会社への貸付(役員借入金)</th></tr></thead>
+    <tbody>
+      <tr><th>中身</th><td class="hi">仕事の支出を<b>一時的に</b>肩代わり</td><td class="hi">会社の資金不足を補う<b>お金の貸し借り</b></td></tr>
+      <tr><th>戻し方</th><td>実費をそのまま精算</td><td>返済計画を決めて返す</td></tr>
+      <tr><th>ポイント</th><td>使途が仕事用かが大事</td><td>契約・利息の扱いに注意</td></tr>
+    </tbody>
+  </table></div>
+  <div class="info">📌 実務では、立替を「役員借入金」で処理する会計事務所もあり、見解や運用は分かれます。どちらで処理するか迷ったら、会社として<b>ルールを1つに決める</b>ことと、税理士への確認が大切です。</div>
+</div>
+
+<div class="card red">
+  <div class="sec-title">⚠ ④ 1人社長がやりがちな失敗</div>
+  <ul class="check-list">
+    <li><span class="ck-bad">✕</span><span>領収書を捨てて、金額を「だいたい」で精算してしまう</span></li>
+    <li><span class="ck-bad">✕</span><span>私用と仕事用が混ざった支払いを、そのまま全額精算する(仕事分だけが対象)</span></li>
+    <li><span class="ck-bad">✕</span><span>何か月分もため込み、使途を思い出せなくなる</span></li>
+    <li><span class="ck">○</span><span>締め日を決め、領収書は写真でも保存して月次で精算する</span></li>
+    <li><span class="ck">○</span><span>慣れてきたら、会社名義の法人カードで立替自体を減らす</span></li>
+  </ul>
+  <div class="warn">⚠ 私用の支出を会社の経費にすると、税務上の問題になる場合があります。「仕事のための支出か」を毎回確認しましょう。</div>
+</div>
+
+<div class="card">
+  <div class="sec-title">🤖 ⑤ 生成AIで「精算ルール」と「精算表」を作る</div>
+  <div class="prompt-box">
+    <div class="ph">▶ AIに貼るプロンプト例</div>
+    私は1人社長の会社の代表です。社長が個人のお金で立て替えた経費を、会社から精算するルールを作ってください。<br>
+    精算の頻度は<span class="fill">月1回</span>、保管する書類は<span class="fill">領収書・カード明細</span>です。<br>
+    「日付・内容・金額・仕事用かの確認・精算済みか」の列を持つ精算表の雛形と、毎月の精算チェックリストを出してください。<br>
+    会計の処理方法は断定せず、「税理士に確認すべき点」を最後にまとめてください。
+  </div>
+  <div class="warn">⚠ 取引先名・金額の詳細などは伏せて入力しましょう。AIの出力は参考で、判断は専門家に確認を。</div>
+</div>
+
+<div class="card">
+  <div class="sec-title">✅ ⑥ 今日のまとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">1</span><span>会社と社長個人は別。立替は「後で会社から実費を返してもらう」</span></li>
+    <li><span class="n">2</span><span>領収書や明細を残し、仕事用の分だけ精算する</span></li>
+    <li><span class="n">3</span><span>記帳は「未払金」で処理する例が多い(役員借入金とする運用もある)。ルールを1つに決める</span></li>
+    <li><span class="n">4</span><span>締め日を決めてためすぎない。迷う処理は税理士に確認</span></li>
+  </ul>
+  <div class="source">📚 出典(基準:令和8年10月時点で確認した情報):<br>
+  ・当日は国税庁などの官公庁サイトへ接続できず、公的な一次情報で本文を確認できていません。上記は、民間の会計解説(<a href="https://biz.moneyforward.com/accounting/basic/60729/">マネーフォワード 会計の基礎(2026年4月22日更新)</a>、<a href="https://www.zeiri4.com/c_1032/q_166736/">税理士ドットコム 税務相談</a>)で確認できた一般的な考え方に基づきます。<br>
+  ・税務上の取扱いは、<a href="https://www.nta.go.jp/">国税庁</a>の法人税関係のページで最新情報をご確認ください。
+  </div>
+</div>
+
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、税務・法務の個別アドバイスではありません。会社の状況により結論は変わります。
+  具体的な判断は、税理士・社会保険労務士・司法書士などの専門家にご相談ください。<br>
+  <strong>本記事の基準年度:</strong>令和8年度(2026年10月時点)。制度は改正されることがあるため、最新情報は国税庁の公式サイトでご確認ください。
+</div>
+
+<div class="footer">
+  <p>📚 <a href="index.html">バックナンバー一覧へ</a> &nbsp;&middot;&nbsp; 毎朝更新</p>
+</div>
+
+</div>
+</body>
+</html>
