@@ -2,7 +2,6 @@
 
 ## 未解説テーマ（エバーグリーン）
 
-- 英語の集合名詞（team/family/peopleなど）の単数・複数扱いの違い── 可算・不可算の続編、イギリス英語とアメリカ英語で扱いが変わる点も
 - 英語の動詞語尾(-ate, -ize)とスペイン語の-ar動詞の対応── コグネイトの続編、動詞版の語尾変換パターン
 - スペイン語の絶対最上級 -ísimo の発展(副詞への応用・muy との使い分け)── 最上級の続編
 - 英語のelder/eldest（家族の年上を表す特殊な比較級・最上級）── 07-26で扱ったmayor/menor対比の発展
@@ -44,9 +43,11 @@
 - スペイン語の過去形のダブル接続法(pasara lo que pasara、fuera como fuera)── 10-16の発展
 - 英語のcome what may / be that as it may など文語的な譲歩表現── 10-16の英語版
 
+- スペイン語の集合名詞(la gente/la familia/la mayoría de)の動詞の一致── 10-22の続編、la mayoría de los estudiantes + 複数動詞のゆれ
 
 ## 解説済みテーマ
 
+- 2026-10-22: 英語の集合名詞(team/family/people)の単数・複数扱い── スペイン語la gente(単数)との対比
 - 2026-10-21: スペイン語のacabar de と terminar de の違い(「したばかり」vs「し終える」)── 10-17・10-20の整理編
 - 2026-10-20: スペイン語のdejar de / terminar de / ponerse a(やめる・し終える・し始める)── 10-18の続編、英語stop/finish -ingとの対比
 - 2026-10-18: スペイン語のllevar + 現在分詞 / ir + 現在分詞 / empezar a(経過・進行・開始の perífrasis)── 10-17の続編、英語have been -ingとの対応も整理
