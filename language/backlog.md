@@ -43,10 +43,11 @@
 - スペイン語の過去形のダブル接続法(pasara lo que pasara、fuera como fuera)── 10-16の発展
 - 英語のcome what may / be that as it may など文語的な譲歩表現── 10-16の英語版
 
-- スペイン語の集合名詞(la gente/la familia/la mayoría de)の動詞の一致── 10-22の続編、la mayoría de los estudiantes + 複数動詞のゆれ
+- 英語のmost of / a lot of / the number of vs a number of の動詞の一致── 10-23のla mayoría deの英語側の発展
 
 ## 解説済みテーマ
 
+- 2026-10-23: スペイン語の集合名詞(la gente/la familia)とla mayoría deの動詞の一致── 10-22の続編、英語most ofとの対応も整理
 - 2026-10-22: 英語の集合名詞(team/family/people)の単数・複数扱い── スペイン語la gente(単数)との対比
 - 2026-10-21: スペイン語のacabar de と terminar de の違い(「したばかり」vs「し終える」)── 10-17・10-20の整理編
 - 2026-10-20: スペイン語のdejar de / terminar de / ponerse a(やめる・し終える・し始める)── 10-18の続編、英語stop/finish -ingとの対比
