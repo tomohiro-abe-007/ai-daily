@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-10-24</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '🧂';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.35rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.9rem; margin-bottom: 8px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.1em; }
+  .c3-col li { margin-bottom: 4px; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  .quote-box {
+    background: #f5f0e8;
+    border-left: 4px solid #7a5abf;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    margin: 12px 0;
+    color: #444;
+    font-style: italic;
+  }
+  .quote-box .who { font-style: normal; font-weight: 700; color: #5a3a9a; margin-top: 6px; font-size: 0.78rem; }
+  .matrix {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .mx-cell {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .mx-cell .mx-head { font-weight: 700; font-size: 0.88rem; margin-bottom: 6px; }
+  .mx-cell.ok  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .mx-cell.ok  .mx-head { color: #1a6e4a; }
+  .mx-cell.ng  { background: #fbe8e6; border: 2px solid #c0392b; }
+  .mx-cell.ng  .mx-head { color: #a0291e; }
+  .subtype-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .subtype-card {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.84rem;
+  }
+  .subtype-card .st-head { font-weight: 700; font-size: 0.92rem; margin-bottom: 8px; }
+  .subtype-card .st-bar {
+    height: 10px;
+    border-radius: 5px;
+    background: #eee;
+    overflow: hidden;
+    margin: 6px 0 4px;
+  }
+  .subtype-card .st-bar-fill { height: 100%; }
+  .subtype-card.st-green { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .subtype-card.st-green .st-head { color: #1a6e4a; }
+  .subtype-card.st-orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .subtype-card.st-orange .st-head { color: #b85e10; }
+  .subtype-card.st-red { background: #fbe8e6; border: 2px solid #c0392b; }
+  .subtype-card.st-red .st-head { color: #a0291e; }
+  @media (max-width: 540px) {
+    .compare4 { grid-template-columns: 1fr; }
+    .matrix { grid-template-columns: 1fr; }
+    .subtype-grid { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.7rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+  .bar{height:22px;border-radius:6px;margin:4px 0 2px;color:#fff;font-size:.78rem;padding:0 8px;line-height:22px;white-space:nowrap}
+</style>
+
+</head>
+<body>
+<div class="page">
+<div class="header">
+<div class="label">Health &amp; Nutrition Note</div>
+<h1>健康・栄養 最新トピック 2026-10-24<br>塩(ナトリウム)は「2グラム未満」? WHOの目安と、塩を「かえる」という選択肢</h1>
+<div class="subtitle">🧂 昨日の「水分」の続きとして、体の水分バランスに関わる電解質のうち、ナトリウム(塩の成分)とカリウムを整理します。公的な目安と、大規模RCTの結果、そして注意点(エバーグリーンの基礎回)。</div>
+</div>
+
+<div class="card">
+<h2>🔍 今日のポイント</h2>
+<p>WHO(世界保健機関)は、大人のナトリウム摂取を<strong>1日2g未満</strong>(食塩にして約5g未満)にするよう勧めています。ところが世界の平均は、2019年の推定で<strong>1日4.3g</strong>と、目安の2倍以上です。</p>
+<div class="num-row">
+<div class="num-card red-bg"><span class="big">2</span><span class="unit">g未満</span><div class="desc">WHO:ナトリウムの目安(1日、大人)</div></div>
+<div class="num-card orange-bg"><span class="big">約5</span><span class="unit">g未満</span><div class="desc">食塩に直した量(ナトリウム×約2.5)</div></div>
+<div class="num-card gray-bg"><span class="big">4.3</span><span class="unit">g</span><div class="desc">世界の平均摂取量(推定・2019年、ナトリウム量)</div></div>
+<div class="num-card"><span class="big">3.5</span><span class="unit">g以上</span><div class="desc">WHO:カリウムの目安(1日、約3,510mg)</div></div>
+</div>
+<p style="font-size:.84rem">※「ナトリウム2g」と「食塩5g」は同じ量を別の言い方で表したもの。食品表示は食塩相当量が多いので、見間違えに注意。</p>
+</div>
+
+<div class="card blue">
+<h2>📖 まず言葉の意味を</h2>
+<div class="def-grid">
+<div class="def-item"><div class="dterm">ナトリウム</div>食塩(塩化ナトリウム)に含まれる成分。体の水分量や血圧に関わる電解質。</div>
+<div class="def-item"><div class="dterm">カリウム</div>野菜・果物・豆などに多い電解質。ナトリウムとバランスをとり、血圧に関わる。</div>
+<div class="def-item"><div class="dterm">電解質</div>水に溶けて電気を帯びる成分。筋肉や神経の働き、水分バランスを支える。</div>
+<div class="def-item"><div class="dterm">高カリウム血症</div>血液中のカリウムが多すぎる状態。腎臓の働きが弱い人で特に起こりやすく、危険な場合がある。</div>
+</div>
+</div>
+
+<div class="card orange">
+<h2>🧩 WHOの考え方(2つの文書)</h2>
+<table class="ev-table">
+<tr><th></th><th>2013年の勧告</th><th>2025年の指針</th></tr>
+<tr><td>ナトリウム</td><td>2g/日未満(食塩約5g)</td><td>2g/日未満を「強い推奨」として再確認</td></tr>
+<tr><td>カリウム</td><td>3.5g/日以上</td><td>―</td></tr>
+<tr><td>新しい点</td><td>―</td><td>塩を使うなら、カリウム入りの「低ナトリウム塩」への切り替えを提案(条件付き推奨)。腎機能に問題がある人・妊婦・子どもは対象外</td></tr>
+</table>
+<div class="warn"><strong>なぜ勧めるの?</strong> WHOは、ナトリウムの摂りすぎとカリウム不足が血圧の上昇につながり、心臓病や脳卒中のリスクを高めると説明しています。また、高ナトリウム摂取が原因の死亡は年間約190万人と推計されています(WHOの推計)。</div>
+</div>
+
+<div class="card purple">
+<h2>🔬 「塩をかえる」は効く? 中国での大規模RCT(SSaSS)</h2>
+<p>普通の塩を、塩化カリウムを混ぜた「低ナトリウム塩」に置きかえると、病気が減るのか。これを確かめたのが2021年にNEJM誌に発表された試験です(中国の農村、村単位でくじ引きに分けるクラスターRCT)。</p>
+<div class="num-row">
+<div class="num-card purple-bg"><span class="big">20,995</span><span class="unit">人</span><div class="desc">参加者数(平均65.4歳)</div></div>
+<div class="num-card"><span class="big">約5</span><span class="unit">年</span><div class="desc">追跡期間</div></div>
+<div class="num-card blue-bg"><span class="big">−14</span><span class="unit">%</span><div class="desc">脳卒中(相対的な減少)</div></div>
+<div class="num-card orange-bg"><span class="big">−12</span><span class="unit">%</span><div class="desc">死亡(相対的な減少)</div></div>
+</div>
+<div class="flow">
+<div class="flow-step">村を2グループに<br>くじ引き</div>
+<div class="flow-arrow">→</div>
+<div class="flow-step alt">A:低ナトリウム塩<br>B:ふつうの塩</div>
+<div class="flow-arrow">→</div>
+<div class="flow-step purp">約5年追跡<br>脳卒中などを比較</div>
+</div>
+<p>脳卒中14%減のほか、主要な心血管イベントは13%減と報告されています。高カリウム血症が原因とされる重い有害事象は、グループ間で差がありませんでした。</p>
+<table class="ev-table">
+<tr><th>見るポイント</th><th>内容</th><th>強さ</th></tr>
+<tr><td>研究の種類</td><td>ランダム化比較試験(村単位)</td><td><span class="ev-badge ev-high">因果を言いやすい</span></td></tr>
+<tr><td>対象の偏り</td><td>約73%が脳卒中の経験、約88%が高血圧。中国農村の高リスクな人たち</td><td><span class="ev-badge ev-mid">一般化は慎重に</span></td></tr>
+<tr><td>安全性の限界</td><td>使った低ナトリウム塩は1種類。カリウム値の定期測定がなく、見逃しの可能性を指摘する論説あり</td><td><span class="ev-badge ev-mid">注意</span></td></tr>
+</table>
+</div>
+
+<div class="card">
+<h2>🧭 読み方の流れ</h2>
+<ol class="step-list">
+<li>2g未満という数字は「集団として血圧を下げ、病気を減らす」ための公的な目安。個人に必要な量ぴったりではない。</li>
+<li>減塩の効果は、血圧が高い人や高リスクの人で大きく出やすい。若く健康な人で同じとは限らない。</li>
+<li>カリウム入りの塩は、腎臓の病気や、血圧・心臓の薬(カリウムを上げやすいタイプ)を飲んでいる人には危険になりうる。必ず医師・薬剤師に確認。</li>
+</ol>
+</div>
+
+<div class="card red">
+<h2>⚠️ 反対の見方と、この記事の限界</h2>
+<div class="matrix">
+<div class="mx-cell ok"><div class="mx-head">👍 わかること</div>WHOは減塩とカリウムを勧めている。SSaSSは高リスクの人で、塩の置きかえが脳卒中などを減らしたことを示した。</div>
+<div class="mx-cell ng"><div class="mx-head">👎 わからないこと</div>「全員が2g未満を目指すべき」かは議論がある。カナダ主導の研究は、WHOのナトリウム・カリウム両方の目標を満たす人は5万人に1人しかおらず、非現実的だと指摘した(報道ベース)。</div>
+</div>
+<div class="warn"><strong>本記事の限界:</strong> ネットワーク制限のため、WHO文書・NEJM論文の本文は開けず、検索結果に引用された記述に基づいています。SSaSSの信頼区間や正確なハザード比、カナダ研究の著者・掲載誌は未確認です。日本の食事摂取基準の食塩目標値とは数字が異なります。</div>
+</div>
+
+<div class="sources">
+<h3>📚 出典(基準日:2026年10月)</h3>
+<ul>
+<li>WHO「WHO issues new guidance on dietary salt and potassium」2013年1月31日: <a href="https://www.who.int/news-room/detail/31-01-2013-who-issues-new-guidance-on-dietary-salt-and-potassium">who.int</a>(検索結果で確認、本文は未取得)</li>
+<li>WHO「Use of lower-sodium salt substitutes: WHO guideline」2025年1月27日: <a href="https://www.who.int/publications/i/item/9789240105591">who.int</a>(検索結果で確認、本文は未取得)</li>
+<li>Neal B ら, Effect of Salt Substitution on Cardiovascular Events and Death(SSaSS), N Engl J Med 2021(解説): <a href="https://www.acc.org/latest-in-cardiology/articles/2021/08/26/20/08/sun-1225pm-ssass-esc-2021">acc.org</a>(二次情報で数値を確認、NEJM本文は未取得)</li>
+<li>WHO目標が非現実的とする研究の報道: <a href="https://www.ausdoc.com.au/news/who-targets-sodium-and-potassium-intake-unrealistic-study">ausdoc.com.au</a>(二次情報のみ)</li>
+</ul>
+</div>
+
+<div class="disclaimer">
+本記事は一般的な情報であり、医療アドバイスではありません。効果・必要量・リスクは個人の体質・年齢・持病・服薬で大きく変わります。実践の前に、かかりつけ医・管理栄養士・薬剤師などの専門家にご相談ください。特定の食事制限・サプリ・断食などを安易に始めないでください。低ナトリウム塩(カリウム入りの塩)は、腎臓の病気や特定の薬を使っている方には危険な場合があります。必ず事前に主治医へご相談ください。
+</div>
+</div>
+</body>
+</html>
