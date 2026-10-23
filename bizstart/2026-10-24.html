@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-10-24</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #2a4d7a 0%, #10233f 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #2a4d7a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.blue   { border-left-color: #1e5a7a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.green  { border-left-color: #1e7a5a; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #2a4d7a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin: 14px 0;
+  }
+  .stats-row.c3 { grid-template-columns: repeat(3, 1fr); }
+  .stats-row.c2 { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 12px 6px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat.now { background: #fff3e0; box-shadow: 0 0 0 2px #c8884a inset; }
+  .stat .sl { font-size: 0.62rem; color: #888; margin-bottom: 3px; line-height: 1.4; }
+  .stat .sv { font-size: 1.05rem; font-weight: 700; color: #2a4d7a; line-height: 1.15; }
+  .stat.now .sv { color: #c8884a; }
+  .stat .su { font-size: 0.62rem; color: #666; margin-top: 2px; }
+
+  .bignum {
+    background: white;
+    border-radius: 12px;
+    padding: 18px 14px;
+    text-align: center;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.1);
+    border: 2px dashed #c8884a;
+    margin: 14px 0;
+  }
+  .bignum .bl { font-size: 0.76rem; color: #888; margin-bottom: 6px; }
+  .bignum .bv { font-size: 1.7rem; font-weight: 700; color: #c8884a; line-height: 1.3; }
+  .bignum .bs { font-size: 0.76rem; color: #666; margin-top: 6px; line-height: 1.6; }
+
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #2a4d7a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-num.now { background: #b54040; }
+  .f-num.later { background: #999; }
+  .f-num.opt { background: #c8884a; }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+  .f-arrow { color: #2a4d7a; font-size: 1.1rem; margin-left: 14px; margin-bottom: 4px; }
+
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  table.cmp {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.83rem;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.08);
+  }
+  table.cmp th, table.cmp td {
+    border: 1px solid #e4dccd;
+    padding: 9px 10px;
+    line-height: 1.55;
+    vertical-align: top;
+  }
+  table.cmp thead th { background: #2a4d7a; color: white; font-weight: 600; text-align: center; }
+  table.cmp tbody th { background: #f5efe2; color: #5a4020; text-align: left; font-weight: 600; white-space: nowrap; }
+  table.cmp td { color: #444; text-align: left; }
+  table.cmp td.hi { background: #fff3e0; font-weight: 700; color: #c8884a; }
+  .wrap-x { overflow-x: auto; }
+
+  .prompt-box {
+    background: #f0f5ff;
+    border: 2px solid #4a6aae;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 12px 0;
+    font-size: 0.84rem;
+    line-height: 1.85;
+    color: #1a2a4a;
+  }
+  .prompt-box .ph {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #4a6aae;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+  .prompt-box .fill {
+    background: #d0e0ff;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-weight: 700;
+    color: #0a2a6e;
+  }
+
+  .info {
+    background: #e8eef8;
+    border-left: 4px solid #2a4d7a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #16294a;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #7a4010;
+  }
+
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #2a4d7a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #2a4d7a; word-break: break-all; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #2a4d7a; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+  <div class="meta">📅 1人法人スタート 最新トピック &nbsp;2026-10-24</div>
+  <h1>📉 赤字は捨てない ── 「欠損金の繰越控除」で最大10年、将来の税金を減らせる</h1>
+  <div class="desc">
+    <span class="htag">法人税</span><span class="htag">青色申告</span><span class="htag">エバーグリーン</span><br>
+    今期が赤字でも、がっかりしなくて大丈夫。「欠損金(けっそんきん)」＝税金の計算上の赤字は、<span class="hl">翌年以降の黒字と相殺(そうさい＝差し引き)</span>できる仕組みがあります。
+  </div>
+</div>
+
+<div class="card blue">
+  <div class="sec-title">🔢 ① まず結論：覚えたい3つ</div>
+  <div class="stats-row c3">
+    <div class="stat now"><div class="sl">繰り越せる期間</div><div class="sv" style="font-size:1.6rem">10年</div><div class="su">平成30年4月1日以後開始の事業年度分</div></div>
+    <div class="stat"><div class="sl">中小法人の控除上限</div><div class="sv" style="font-size:1.6rem">所得の100%</div><div class="su">資本金1億円以下など</div></div>
+    <div class="stat"><div class="sl">必要な条件</div><div class="sv" style="font-size:1.3rem">青色申告</div><div class="su">＋毎期の申告書提出</div></div>
+  </div>
+  <p>1年目に300万円の赤字、2年目に500万円の黒字なら、2年目の黒字から300万円を引いて<b>200万円にだけ</b>課税される、というイメージです。</p>
+</div>
+
+<div class="card orange">
+  <div class="sec-title">🧮 ② 数字で見る：赤字を繰り越すとどうなる？</div>
+  <div class="wrap-x"><table class="cmp">
+    <thead><tr><th></th><th>1期目</th><th>2期目</th></tr></thead>
+    <tbody>
+      <tr><th>所得(税金計算上の利益)</th><td>▲300万円(赤字)</td><td>500万円(黒字)</td></tr>
+      <tr><th>繰越欠損金を引く</th><td>300万円を翌期へ繰り越す</td><td class="hi">500−300＝200万円に課税</td></tr>
+    </tbody>
+  </table></div>
+  <div class="info">📌 上の数字は仕組みを説明するための例で、実際の税額は会社ごとに変わります。</div>
+</div>
+
+<div class="card green">
+  <div class="sec-title">🔄 ③ 使うまでの流れ</div>
+  <div class="f-step"><div class="f-num">1</div><div class="f-text"><b>青色申告の承認を受けておく</b>：設立直後に「青色申告の承認申請書」を出すのがポイント(6/2記事)</div></div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step"><div class="f-num now">2</div><div class="f-text"><b>赤字の期も、きちんと申告する</b>：赤字だから申告しない、は✕。赤字の期から青色の確定申告書を出すことが条件</div></div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step"><div class="f-num opt">3</div><div class="f-text"><b>その後も毎期、連続して申告する</b>：途中で申告が途切れると使えなくなるおそれ</div></div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step"><div class="f-num later">4</div><div class="f-text"><b>黒字になった期に差し引く</b>：古い赤字から順に使うのが基本。記録は申告書に残る</div></div>
+</div>
+
+<div class="card red">
+  <div class="sec-title">⚠ ④ 気をつけたい落とし穴</div>
+  <ul class="check-list">
+    <li><span class="ck-bad">✕</span><span>青色申告の承認を受けていない(白色申告だと、原則この仕組みは使えません)</span></li>
+    <li><span class="ck-bad">✕</span><span>赤字の期は「税金ゼロだから」と申告をしない</span></li>
+    <li><span class="ck-bad">✕</span><span>赤字でも、法人住民税の「均等割」(定額の税金)は原則かかります。税金が完全にゼロになるわけではありません(7/24記事)</span></li>
+    <li><span class="ck">○</span><span>毎期、期限までに申告書を出し、赤字の金額を記録に残す</span></li>
+    <li><span class="ck">○</span><span>「赤字＝お金が減った」ことも意味するので、資金繰りも一緒に確認(6/9記事)</span></li>
+  </ul>
+  <div class="warn">⚠ 赤字を出すこと自体を目的にした節税は禁物です。会社を譲り受けるなど特殊なケースでは使えない場合もあるので、個別の判断は専門家へ。</div>
+</div>
+
+<div class="card">
+  <div class="sec-title">🤖 ⑤ 生成AIで「赤字の使い道」を整理する</div>
+  <div class="prompt-box">
+    <div class="ph">▶ AIに貼るプロンプト例</div>
+    私は1人社長の会社の代表です。青色申告をしています。次の状況で、税理士に確認すべき質問リストを作ってください。<br>
+    ・1期目の所得：<span class="fill">▲○○万円</span>、2期目の見込み：<span class="fill">○○万円</span><br>
+    ・資本金：<span class="fill">○○万円</span><br>
+    繰越欠損金の使い方の確認ポイントを5つ挙げてください。税額の断定はせず、わからない点は「確認が必要」と書いてください。
+  </div>
+  <div class="warn">⚠ 社名・取引先名は入れず、数字は概算で。AIの回答は参考で、最終判断は税理士に確認を。</div>
+</div>
+
+<div class="card">
+  <div class="sec-title">✅ ⑥ 今日のまとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">1</span><span>税金計算上の赤字(欠損金)は、青色申告なら最大10年繰り越して黒字と相殺できる</span></li>
+    <li><span class="n">2</span><span>中小法人は所得の100%まで差し引ける(基準：資本金1億円以下など)</span></li>
+    <li><span class="n">3</span><span>赤字の期も青色の申告書を出し、その後も毎期続けることが条件</span></li>
+    <li><span class="n">4</span><span>均等割は赤字でも原則かかる。資金繰りも忘れずに</span></li>
+  </ul>
+  <div class="source">📚 出典(基準：令和8年10月時点で確認した情報)：<br>
+  ・国税庁 タックスアンサー No.5762「青色申告書を提出した事業年度の欠損金の繰越控除」<a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/hojin/5762.htm">https://www.nta.go.jp/taxes/shiraberu/taxanswer/hojin/5762.htm</a><br>
+  ※本日は国税庁サイトへ直接接続できず、検索結果に表示された同ページの要約で繰越期間(10年)・青色申告と連続提出の要件・中小法人の100%控除を確認しました。細かい条件は上記ページ本文でご確認ください。<br>
+  ・関連記事：<a href="2026-06-02.html">設立直後の手続き(6/2)</a>、<a href="2026-06-09.html">資金繰り感覚(6/9)</a>、<a href="2026-10-23.html">決算の着地見込み(10/23)</a>
+  </div>
+</div>
+
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、税務・法務の個別アドバイスではありません。会社の状況により結論は変わります。
+  具体的な判断は、税理士・社会保険労務士・司法書士などの専門家にご相談ください。<br>
+  <strong>本記事の基準年度：</strong>令和8年度(2026年10月時点)。制度は改正されることがあるため、最新情報は国税庁の公式サイトでご確認ください。
+</div>
+
+<div class="footer">
+  <p>📚 <a href="index.html">バックナンバー一覧へ</a> &nbsp;&middot;&nbsp; 毎朝更新</p>
+</div>
+
+</div>
+</body>
+</html>
