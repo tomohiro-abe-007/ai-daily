@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-10-25</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #2a4d7a 0%, #10233f 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #2a4d7a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.blue   { border-left-color: #1e5a7a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.green  { border-left-color: #1e7a5a; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #2a4d7a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin: 14px 0;
+  }
+  .stats-row.c3 { grid-template-columns: repeat(3, 1fr); }
+  .stats-row.c2 { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 12px 6px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat.now { background: #fff3e0; box-shadow: 0 0 0 2px #c8884a inset; }
+  .stat .sl { font-size: 0.62rem; color: #888; margin-bottom: 3px; line-height: 1.4; }
+  .stat .sv { font-size: 1.05rem; font-weight: 700; color: #2a4d7a; line-height: 1.15; }
+  .stat.now .sv { color: #c8884a; }
+  .stat .su { font-size: 0.62rem; color: #666; margin-top: 2px; }
+
+  .bignum {
+    background: white;
+    border-radius: 12px;
+    padding: 18px 14px;
+    text-align: center;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.1);
+    border: 2px dashed #c8884a;
+    margin: 14px 0;
+  }
+  .bignum .bl { font-size: 0.76rem; color: #888; margin-bottom: 6px; }
+  .bignum .bv { font-size: 1.7rem; font-weight: 700; color: #c8884a; line-height: 1.3; }
+  .bignum .bs { font-size: 0.76rem; color: #666; margin-top: 6px; line-height: 1.6; }
+
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #2a4d7a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-num.now { background: #b54040; }
+  .f-num.later { background: #999; }
+  .f-num.opt { background: #c8884a; }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+  .f-arrow { color: #2a4d7a; font-size: 1.1rem; margin-left: 14px; margin-bottom: 4px; }
+
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  table.cmp {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.83rem;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.08);
+  }
+  table.cmp th, table.cmp td {
+    border: 1px solid #e4dccd;
+    padding: 9px 10px;
+    line-height: 1.55;
+    vertical-align: top;
+  }
+  table.cmp thead th { background: #2a4d7a; color: white; font-weight: 600; text-align: center; }
+  table.cmp tbody th { background: #f5efe2; color: #5a4020; text-align: left; font-weight: 600; white-space: nowrap; }
+  table.cmp td { color: #444; text-align: left; }
+  table.cmp td.hi { background: #fff3e0; font-weight: 700; color: #c8884a; }
+  .wrap-x { overflow-x: auto; }
+
+  .prompt-box {
+    background: #f0f5ff;
+    border: 2px solid #4a6aae;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 12px 0;
+    font-size: 0.84rem;
+    line-height: 1.85;
+    color: #1a2a4a;
+  }
+  .prompt-box .ph {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #4a6aae;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+  .prompt-box .fill {
+    background: #d0e0ff;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-weight: 700;
+    color: #0a2a6e;
+  }
+
+  .info {
+    background: #e8eef8;
+    border-left: 4px solid #2a4d7a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #16294a;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #7a4010;
+  }
+
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #2a4d7a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #2a4d7a; word-break: break-all; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #2a4d7a; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+  <div class="meta">📅 1人法人スタート 最新トピック &nbsp;2026-10-25</div>
+  <h1>🏛 任期が切れていませんか？ ── 1人社長の「役員の重任登記」、2週間ルールと放置のリスク</h1>
+  <div class="desc">
+    <span class="htag">登記</span><span class="htag">会社の手続き</span><span class="htag">エバーグリーン</span><br>
+    自分1人の会社でも、社長(取締役)には「任期(にんき＝役職を務める決まった期間)」があります。同じ人が続けるときも、<span class="hl">登記(とうき＝会社の情報を法務局の公的な帳簿に載せること)の書き換え</span>が必要です。
+  </div>
+</div>
+
+<div class="card blue">
+  <div class="sec-title">🔢 ① まず結論：覚えたい3つの数字</div>
+  <div class="stats-row c3">
+    <div class="stat now"><div class="sl">登記の期限</div><div class="sv" style="font-size:1.6rem">2週間</div><div class="su">株主総会などで決めた日から</div></div>
+    <div class="stat"><div class="sl">任期を延ばせる上限</div><div class="sv" style="font-size:1.6rem">最長10年</div><div class="su">非公開会社が定款で定めた場合</div></div>
+    <div class="stat"><div class="sl">過料(罰金のようなもの)</div><div class="sv" style="font-size:1.3rem">100万円以下</div><div class="su">登記を怠った場合の上限(会社法976条)</div></div>
+  </div>
+  <p>「同じ人が社長を続けるだけ」でも、任期が来たら<b>登記は書き換えが必要</b>です。これを「重任(ちょうにん)登記」といいます。</p>
+</div>
+
+<div class="card orange">
+  <div class="sec-title">🧮 ② 任期の考え方：原則とよくある設定</div>
+  <div class="wrap-x"><table class="cmp">
+    <thead><tr><th></th><th>原則</th><th>非公開会社(株式を自由に売買できない会社)</th></tr></thead>
+    <tbody>
+      <tr><th>取締役の任期</th><td>2年(会社法332条)</td><td class="hi">定款で最長10年まで延ばせる</td></tr>
+      <tr><th>任期が来たら</th><td colspan="2">同じ人が続けても「重任」の変更登記が必要(法務省の案内でも再任の方も必要と説明)</td></tr>
+    </tbody>
+  </table></div>
+  <div class="info">📌 1人社長の会社は、設立時に「任期10年」と定款に決めていることも多いです。自社の定款の「任期」の条文を一度確認してみましょう。任期の終わりは「選任後○年以内に終了する事業年度のうち最後のものに関する定時株主総会の終結の時」という書き方が一般的です。</div>
+</div>
+
+<div class="card green">
+  <div class="sec-title">🔄 ③ 重任登記の流れ(1人社長の場合)</div>
+  <div class="f-step"><div class="f-num">1</div><div class="f-text"><b>任期の終わりを確認</b>：定款と、登記簿(履歴事項全部証明書)の「役員に関する事項」を見る</div></div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step"><div class="f-num now">2</div><div class="f-text"><b>株主総会で再任を決める</b>：1人株主なら1人で開けます。議事録を作る(決議の日付がスタート)</div></div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step"><div class="f-num opt">3</div><div class="f-text"><b>就任承諾書などを準備</b>：必要書類は会社の状況で変わるため、法務局か司法書士に確認</div></div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step"><div class="f-num later">4</div><div class="f-text"><b>決議の日から2週間以内に申請</b>：本店のある地域の法務局へ。登録免許税(手数料のような税金)がかかります。金額は法務局で確認を</div></div>
+</div>
+
+<div class="card red">
+  <div class="sec-title">⚠ ④ 放置するとどうなる？</div>
+  <ul class="check-list">
+    <li><span class="ck-bad">✕</span><span>登記を怠ると、代表者個人に100万円以下の過料(会社法976条)。実際の金額は事案によって異なります</span></li>
+    <li><span class="ck-bad">✕</span><span>登記簿の情報が古いままだと、融資・契約・口座開設などの場面で会社の確認書類として使えず困ることがあります</span></li>
+    <li><span class="ck-bad">✕</span><span>最後の登記から12年たつ「休眠会社」は、法務大臣の公告と登記所の通知の後、2か月以内に登記か届出をしないと、みなし解散(解散したとみなされる)の登記がされます</span></li>
+    <li><span class="ck">○</span><span>「次の任期の終わりの日」をカレンダーとタスク管理に入れておく(10年に1度でも忘れない仕組みを)</span></li>
+  </ul>
+  <div class="warn">⚠ 過料や登録免許税の具体的な額は、事案や制度改正で変わる可能性があります。申請前に法務局または司法書士へご確認ください。</div>
+</div>
+
+<div class="card">
+  <div class="sec-title">🤖 ⑤ 生成AIで「いつ・何をするか」を整理する</div>
+  <div class="prompt-box">
+    <div class="ph">▶ AIに貼るプロンプト例</div>
+    私は1人社長の株式会社の代表です(非公開会社)。役員の任期と重任登記について、司法書士に確認すべき質問リストと、期限管理のスケジュール表を作ってください。<br>
+    ・設立日：<span class="fill">○年○月</span>　決算月：<span class="fill">○月</span><br>
+    ・定款の任期：<span class="fill">○年(または不明)</span><br>
+    登録免許税や過料の金額は断定せず、「要確認」と書いてください。
+  </div>
+  <div class="warn">⚠ 社名・住所などの個人情報は入力せず、AIの回答は参考にとどめて、最終判断は専門家に確認を。</div>
+</div>
+
+<div class="card">
+  <div class="sec-title">✅ ⑥ 今日のまとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">1</span><span>1人社長にも取締役の任期があり、同じ人が続ける「重任」でも登記の書き換えが必要</span></li>
+    <li><span class="n">2</span><span>非公開会社は定款で任期を最長10年まで延ばせる。自社の定款の確認が第一歩</span></li>
+    <li><span class="n">3</span><span>決議の日から2週間以内に申請。怠ると代表者に過料(100万円以下)の可能性</span></li>
+    <li><span class="n">4</span><span>次の任期の終わりを予定表に入れ、手続きは法務局・司法書士に確認</span></li>
+  </ul>
+  <div class="source">📚 出典(基準：令和8年10月時点で確認した情報)：<br>
+  ・法務省「役員の変更の登記を忘れていませんか？再任の方も必要です」<a href="https://www.moj.go.jp/MINJI/minji06_00091.html">https://www.moj.go.jp/MINJI/minji06_00091.html</a><br>
+  ※本日は法務省・国税庁サイトへ直接接続できず、検索結果に表示された同ページの要約(任期の10年伸長・再任でも登記が必要)で確認しました。登記期限(2週間以内・会社法915条)、過料(会社法976条)、休眠会社の扱い(会社法472条)は民間の司法書士・会計ソフト会社の解説を参考にしており、条文・法務局の案内で最終確認をお願いします。登録免許税の額は未確認のため記載していません。<br>
+  ・関連記事：<a href="2026-06-02.html">設立直後の手続き(6/2)</a>、<a href="2026-10-13.html">相談先マップ(10/13)</a>
+  </div>
+</div>
+
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、税務・法務の個別アドバイスではありません。会社の状況により結論は変わります。
+  具体的な判断は、税理士・社会保険労務士・司法書士などの専門家にご相談ください。<br>
+  <strong>本記事の基準年度：</strong>令和8年度(2026年10月時点)。制度・手数料は改正されることがあるため、最新情報は法務省・法務局の公式サイトでご確認ください。
+</div>
+
+<div class="footer">
+  <p>📚 <a href="index.html">バックナンバー一覧へ</a> &nbsp;&middot;&nbsp; 毎朝更新</p>
+</div>
+
+</div>
+</body>
+</html>
