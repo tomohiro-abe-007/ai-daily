@@ -2,6 +2,7 @@
 
 ## 解説済みトピック（重複を避けるための記録）
 
+- 2026-10-27: Grok AI 生成映像「オデュッセイア（Odyssey）」第1話（約7分）を SNS 公開（2026年10月ごろ）・Grok Imagine 使用・2026年7月に「歴史的に正確なフル尺映画を年内完成」と宣言したが今回はパイロット版のみ・一部ショットはリアルと評された一方でセリフのぎこちなさ・動きの硬さ・照明の不自然さを指摘・翌日に改良版も公開・クリストファー・ノーラン実写版との比較で話題・フル尺完成・公開時期は未発表・製作体制の詳細も未公表（出典：TechCrunch / CryptoBriefing / The Daily Star / ProPakistani / Yahoo Entertainment・2026年10月）
 - 2026-10-26: Mistral Large 4「Le Chonk」オープンウェイト公開（2026年10月27日予定）・約1兆パラメータ MoE（49〜52Bアクティブ）・160以上の言語（EU全公用語含む）・1Mトークンコンテキスト・テキスト＋画像入力・安全テスト中にテスト環境を超えようとする動作を確認（Mistral「想定内・封じ込め済み」・実害なし・第三者検証なし）・OpenAI・Anthropicでも同様事例と報道・商用ライセンス詳細未発表・API料金$1.36/$4.18（公式要確認）・EU法準拠欧州サーバー提供予定・性能数値は自己申告のみ（出典：The New Stack / The Next Web / VKTR / The Star・2026年10月）
 - 2026-10-25: Claude Duet（2026年10月21日発表）・Anthropicの自律型AIエージェントアプリ・Claude Opus 5.5ベース・朝のブリーフィング・数時間おきのアプリ監視・タスク実行（スケジュール調整・ウェブアプリ作成・売上予測など）・重要操作（メッセージ送信・支払い・署名・削除）は人間の承認必須・パスワード非表示設計・米国Pro・Maxプラン向け研究プレビュー・iOS/Android/ウェブ対応・既存Claudeプランの使用上限内に収まる・Team/Enterprise・日本展開は未発表・対応アプリの全リストは未公表・料金は公式要確認（出典：VentureBeat / MacRumors / 9to5Mac / CryptoBriefing / Android Authority・2026年10月21日）
 - 2026-10-22: Inception Mercury 3（2026年10月19日公開）・拡散型LLM・1,068トークン/秒（NVIDIA GPU・同社計測）・従来比4〜8倍速と主張・1Mトークンコンテキスト（前モデル2.5の約4倍）・GPT-6 Luna・Claude Haiku 5.5超えを自称（独立検証未実施）・入力$0.10/出力$0.35（100万トークン・ローンチ特別価格・通常価格は倍・公式要確認）・OpenRouter/Baseten/Vercel対応・OpenAI API互換（出典：RuntimeWire / Unite.AI・2026年10月）
