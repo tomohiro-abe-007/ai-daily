@@ -44,10 +44,11 @@
 
 - 英語のmost of / a lot of / the number of vs a number of の動詞の一致── 10-23のla mayoría deの英語側の発展
 
-- スペイン語のyo形だけ不規則な動詞(tener/hacer/poner/salirなど)── 10-26の規則活用の次の一歩
+- スペイン語のvenir/decir/traer/oírなど-go動詞の仲間と語幹変化(e→ie, e→i)── 10-27の発展
 
 ## 解説済みテーマ
 
+- 2026-10-27: スペイン語のyo形だけ不規則な動詞(tengo/hago/pongo/salgo)── 10-26の規則活用の次の一歩
 - 2026-10-26: スペイン語の-er/-ir動詞の現在形活用(comer/vivir)── 10-25の-ar活用の続編
 - 2026-10-23: スペイン語の集合名詞(la gente/la familia)とla mayoría deの動詞の一致── 10-22の続編、英語most ofとの対応も整理
 - 2026-10-22: 英語の集合名詞(team/family/people)の単数・複数扱い── スペイン語la gente(単数)との対比
