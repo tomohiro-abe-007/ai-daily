@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-10-29</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #2a4d7a 0%, #10233f 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #2a4d7a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.blue   { border-left-color: #1e5a7a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.green  { border-left-color: #1e7a5a; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #2a4d7a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin: 14px 0;
+  }
+  .stats-row.c3 { grid-template-columns: repeat(3, 1fr); }
+  .stats-row.c2 { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 12px 6px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat.now { background: #fff3e0; box-shadow: 0 0 0 2px #c8884a inset; }
+  .stat .sl { font-size: 0.62rem; color: #888; margin-bottom: 3px; line-height: 1.4; }
+  .stat .sv { font-size: 1.05rem; font-weight: 700; color: #2a4d7a; line-height: 1.15; }
+  .stat.now .sv { color: #c8884a; }
+  .stat .su { font-size: 0.62rem; color: #666; margin-top: 2px; }
+
+  .bignum {
+    background: white;
+    border-radius: 12px;
+    padding: 18px 14px;
+    text-align: center;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.1);
+    border: 2px dashed #c8884a;
+    margin: 14px 0;
+  }
+  .bignum .bl { font-size: 0.76rem; color: #888; margin-bottom: 6px; }
+  .bignum .bv { font-size: 1.7rem; font-weight: 700; color: #c8884a; line-height: 1.3; }
+  .bignum .bs { font-size: 0.76rem; color: #666; margin-top: 6px; line-height: 1.6; }
+
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #2a4d7a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-num.now { background: #b54040; }
+  .f-num.later { background: #999; }
+  .f-num.opt { background: #c8884a; }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+  .f-arrow { color: #2a4d7a; font-size: 1.1rem; margin-left: 14px; margin-bottom: 4px; }
+
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  table.cmp {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.83rem;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.08);
+  }
+  table.cmp th, table.cmp td {
+    border: 1px solid #e4dccd;
+    padding: 9px 10px;
+    line-height: 1.55;
+    vertical-align: top;
+  }
+  table.cmp thead th { background: #2a4d7a; color: white; font-weight: 600; text-align: center; }
+  table.cmp tbody th { background: #f5efe2; color: #5a4020; text-align: left; font-weight: 600; white-space: nowrap; }
+  table.cmp td { color: #444; text-align: left; }
+  table.cmp td.hi { background: #fff3e0; font-weight: 700; color: #c8884a; }
+  .wrap-x { overflow-x: auto; }
+
+  .prompt-box {
+    background: #f0f5ff;
+    border: 2px solid #4a6aae;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 12px 0;
+    font-size: 0.84rem;
+    line-height: 1.85;
+    color: #1a2a4a;
+  }
+  .prompt-box .ph {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #4a6aae;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+  .prompt-box .fill {
+    background: #d0e0ff;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-weight: 700;
+    color: #0a2a6e;
+  }
+
+  .info {
+    background: #e8eef8;
+    border-left: 4px solid #2a4d7a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #16294a;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #7a4010;
+  }
+
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #2a4d7a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #2a4d7a; word-break: break-all; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #2a4d7a; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+  <div class="meta">2026-10-29(木)・経理・記帳 / 月次チェック</div>
+  <h1>🏦 1人法人スタート 最新トピック 2026-10-29<br>通帳と帳簿の残高、月1回ぴったり合わせよう</h1>
+  <div class="desc">帳簿の「預金」と、銀行の通帳の残高。この2つが一致していれば、記帳ミスや入力もれにすぐ気づけます。月末の10分で終わる、いちばんコスパのよい経理チェックです。</div>
+  <div style="margin-top:10px"><span class="htag">経理・記帳</span><span class="htag">月次チェック</span><span class="htag">残高照合</span></div>
+</div>
+
+<div class="card">
+  <div class="sec-title">🔍 ① なぜ「残高を合わせる」の？</div>
+  <p>帳簿は自分で入力するので、<b>入力もれ・二重入力・金額の打ち間違い</b>が必ず起きます。一方、通帳の残高は銀行が出す「正解」。帳簿の預金残高をこれと比べれば、まちがいがあるかどうかが一目でわかります。これを<b>残高照合(ざんだかしょうごう＝帳簿と実際の残高を突き合わせること)</b>といいます。</p>
+  <div class="stats-row c3">
+    <div class="stat"><div class="sl">頻度</div><div class="sv">月1回</div><div class="su">月末か翌月初め</div></div>
+    <div class="stat"><div class="sl">かかる時間の目安</div><div class="sv">10分</div><div class="su">毎月やれば短い</div></div>
+    <div class="stat now"><div class="sl">ずれの許容</div><div class="sv">0円</div><div class="su">1円でも原因を探す</div></div>
+  </div>
+</div>
+
+<div class="card orange">
+  <div class="sec-title">🔄 ② 月末の4ステップ</div>
+  <div class="f-step"><div class="f-num">1</div><div class="f-text"><b>月末日の通帳残高を確認</b>：ネットバンキングで「月末日時点」の残高をメモ(スクショでも可)</div></div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step"><div class="f-num">2</div><div class="f-text"><b>会計ソフトの預金残高を見る</b>：同じ月末日の「普通預金」の残高を確認</div></div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step"><div class="f-num now">3</div><div class="f-text"><b>一致すれば完了、ずれたら原因探し</b>：ずれの金額を手がかりに、下の表で当たりをつける</div></div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step"><div class="f-num later">4</div><div class="f-text"><b>確認日と結果を残す</b>：「○月分 照合済」とメモ。来月の自分と税理士さんが助かる</div></div>
+</div>
+
+<div class="card blue">
+  <div class="sec-title">⚖ ③ ずれた金額から原因を推理する</div>
+  <div class="wrap-x"><table class="cmp">
+    <thead><tr><th>ずれ方</th><th>よくある原因</th></tr></thead>
+    <tbody>
+      <tr><th>ちょうど1件分</th><td>入力もれ、または同じ取引の二重入力</td></tr>
+      <tr><th>手数料くらいの小額</th><td class="hi">振込手数料・口座維持手数料の入力もれ</td></tr>
+      <tr><th>数字の並びが近い</th><td>桁の打ち間違い(例：4,500と5,400)</td></tr>
+      <tr><th>月をまたいだ</th><td>月末の入出金の日付ちがい(通帳の日付が正)</td></tr>
+      <tr><th>引き落とし分</th><td>カード・口座引き落としの未入力</td></tr>
+    </tbody>
+  </table></div>
+  <div class="info">💡 会計ソフトに銀行口座を連携(自動取り込み)していても、取り込んだ明細に「仕訳をつける」作業を忘れると残高は合っても帳簿は未完成です。連携＝完了ではないので注意。</div>
+</div>
+
+<div class="card green">
+  <div class="sec-title">🗂 ④ あわせてやっておきたいこと</div>
+  <ul class="check-list">
+    <li><span class="ck">💴</span><span><b>現金も月1回数える</b>：手元の現金と帳簿の「現金」を比べる(小口現金があれば)</span></li>
+    <li><span class="ck">💳</span><span><b>法人カードの未払い残高</b>：翌月の引き落とし額と、帳簿の未払金が合うか見る</span></li>
+    <li><span class="ck">🧾</span><span><b>通帳のコピーを保存</b>：ネットバンキングの明細はPDFやCSVでも保存しておく</span></li>
+    <li><span class="ck">📅</span><span><b>決算月は特に丁寧に</b>：決算日時点の残高証明が必要になる場面もあるので、早めに銀行へ確認</span></li>
+  </ul>
+  <div class="warn">⚠ 「合わないけど、金額が小さいから放置」はおすすめしません。小さなずれが積み重なると、決算でまとめて直すのが大変になります。</div>
+</div>
+
+<div class="card red">
+  <div class="sec-title">🤖 ⑤ 生成AIを「照合の相棒」にする</div>
+  <p>ずれの原因探しは、AIに候補を出してもらうと早くなります。ただし<b>最終判断は通帳と帳簿の実物で</b>。</p>
+  <div class="prompt-box">
+    <div class="ph">▶ AIに貼るプロンプト例</div>
+    1人社長の会社の経理担当として、預金残高のずれの原因を一緒に考えてください。<br>
+    状況：月末の通帳残高は<span class="fill">○○円</span>、会計ソフトの預金残高は<span class="fill">△△円</span>で、差額は<span class="fill">□□円</span>です。<br>
+    お願い：①差額から考えられる原因を可能性の高い順に5つ挙げる ②それぞれ、会計ソフトのどの画面で確かめればよいか教えてください。
+  </div>
+  <div class="warn">⚠ 口座番号・取引先名・個人名などは入力しない(伏せ字やダミーに置き換える)。AIの答えは候補にすぎないので、必ず自分で通帳と帳簿を見て確認しましょう。</div>
+</div>
+
+<div class="card">
+  <div class="sec-title">✅ ⑥ 今日のまとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">1</span><span>月末に「通帳の残高＝帳簿の預金」を確認する。まず10分から</span></li>
+    <li><span class="n">2</span><span>ずれたら、差額の大きさから原因を推理(1件もれ・手数料・桁ちがい)</span></li>
+    <li><span class="n">3</span><span>銀行連携しても、仕訳をつけ終えるまでが記帳</span></li>
+    <li><span class="n">4</span><span>確認日をメモに残す。判断に迷う処理は税理士へ</span></li>
+  </ul>
+  <div class="source">📚 出典(基準：令和8年10月時点)：<br>
+  ※本日は国税庁など政府系サイトへ直接接続できず、一次情報を確認できませんでした。本記事は、帳簿と実際の残高を月次で突き合わせるという一般的な経理実務の考え方を整理したもので、税率・金額・期限など具体的な数字は記載していません。帳簿の記録・保存の具体的な定めは、国税庁の公式サイト(<a href="https://www.nta.go.jp/">https://www.nta.go.jp/</a>)でご確認ください。<br>
+  ・関連記事：<a href="2026-06-05.html">記帳と会計ソフトの始め方(6/5)</a>、<a href="2026-10-23.html">決算2か月前の着地見込みチェック(10/23)</a>、<a href="2026-10-28.html">領収書がないとき(10/28)</a>
+  </div>
+</div>
+
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、税務・法務の個別アドバイスではありません。会社の状況により結論は変わります。
+  具体的な判断は、税理士・社会保険労務士・司法書士などの専門家にご相談ください。<br>
+  <strong>本記事の基準年度：</strong>令和8年度(2026年10月時点)。制度・税率・金額は改正されることがあるため、最新情報は公式サイトでご確認ください。
+</div>
+
+<div class="footer">
+  <p>📚 <a href="index.html">バックナンバー一覧へ</a> &nbsp;&middot;&nbsp; 毎朝更新</p>
+</div>
+
+</div>
+</body>
+</html>
