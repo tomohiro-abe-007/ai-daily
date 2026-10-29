@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-10-29</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '😴';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.35rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.9rem; margin-bottom: 8px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.1em; }
+  .c3-col li { margin-bottom: 4px; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  .quote-box {
+    background: #f5f0e8;
+    border-left: 4px solid #7a5abf;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    margin: 12px 0;
+    color: #444;
+    font-style: italic;
+  }
+  .quote-box .who { font-style: normal; font-weight: 700; color: #5a3a9a; margin-top: 6px; font-size: 0.78rem; }
+  .matrix {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .mx-cell {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .mx-cell .mx-head { font-weight: 700; font-size: 0.88rem; margin-bottom: 6px; }
+  .mx-cell.ok  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .mx-cell.ok  .mx-head { color: #1a6e4a; }
+  .mx-cell.ng  { background: #fbe8e6; border: 2px solid #c0392b; }
+  .mx-cell.ng  .mx-head { color: #a0291e; }
+  .subtype-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .subtype-card {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.84rem;
+  }
+  .subtype-card .st-head { font-weight: 700; font-size: 0.92rem; margin-bottom: 8px; }
+  .subtype-card .st-bar {
+    height: 10px;
+    border-radius: 5px;
+    background: #eee;
+    overflow: hidden;
+    margin: 6px 0 4px;
+  }
+  .subtype-card .st-bar-fill { height: 100%; }
+  .subtype-card.st-green { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .subtype-card.st-green .st-head { color: #1a6e4a; }
+  .subtype-card.st-orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .subtype-card.st-orange .st-head { color: #b85e10; }
+  .subtype-card.st-red { background: #fbe8e6; border: 2px solid #c0392b; }
+  .subtype-card.st-red .st-head { color: #a0291e; }
+  @media (max-width: 540px) {
+    .compare4 { grid-template-columns: 1fr; }
+    .matrix { grid-template-columns: 1fr; }
+    .subtype-grid { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.7rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+  .bar{height:22px;border-radius:6px;margin:4px 0 2px;color:#fff;font-size:.78rem;padding:0 8px;line-height:22px;white-space:nowrap}
+</style>
+
+</head>
+<body>
+<div class="page">
+<div class="header">
+<div class="label">Health &amp; Nutrition Note</div>
+<h1>健康・栄養 最新トピック 2026-10-29<br>睡眠は何時間がいい? ──「7時間以上」の目安と、短すぎ・長すぎの両方がリスクに見える理由</h1>
+<div class="subtitle">😴 「睡眠は7〜8時間」とよく聞きます。この数字はどこから来て、どこまで信じてよいのか。専門学会の合意文書と、約138万人をまとめたメタ分析を「相関と因果」の目で読みます(基礎回)。</div>
+</div>
+
+<div class="card">
+<h2>🔍 今日のポイント</h2>
+<p>睡眠時間の目安は「一人ひとりちがう」のが前提です。そのうえで米国の2つの学会は<strong>成人は「7時間以上」</strong>を勧め、日本の国のガイドは<strong>成人は「6時間以上」</strong>を目安にしています(日本の数字は二次情報で確認、下記参照)。一方、大規模な観察研究では<strong>短い睡眠も長い睡眠も、死亡リスクがやや高く見える</strong>という「U字」の関係が出ています。ただし、これは<strong>「相関」で、睡眠時間そのものが原因とは言い切れません</strong>。</p>
+<div class="num-row">
+<div class="num-card"><span class="big">7</span><span class="unit">時間以上</span><div class="desc">米国の学会(AASM・SRS)の成人向け合意(2015年)</div></div>
+<div class="num-card orange-bg"><span class="big">1.12</span><span class="unit">倍</span><div class="desc">短い睡眠の人の死亡リスク(相対リスク。95%CI 1.06〜1.18)</div></div>
+<div class="num-card red-bg"><span class="big">1.30</span><span class="unit">倍</span><div class="desc">長い睡眠の人の死亡リスク(95%CI 1.22〜1.38)</div></div>
+<div class="num-card blue-bg"><span class="big">約138</span><span class="unit">万人</span><div class="desc">メタ分析の対象(16研究・27集団、死亡11.2万件)</div></div>
+</div>
+</div>
+
+<div class="card blue">
+<h2>📖 まず言葉の意味を</h2>
+<div class="def-grid">
+<div class="def-item"><div class="dterm">メタ分析</div>同じ問いを調べた複数の研究の結果を、統計でひとまとめにして見る方法。</div>
+<div class="def-item"><div class="dterm">相対リスク(RR)</div>比べる相手(ふつうの睡眠の人)を1としたとき、何倍起こりやすいかの数字。1.12なら12%高い。</div>
+<div class="def-item"><div class="dterm">95%信頼区間(CI)</div>「本当の値はおそらくこの範囲」という幅。1をまたがなければ、偶然とは考えにくい。</div>
+<div class="def-item"><div class="dterm">前向きコホート研究</div>最初に人々の習慣を調べ、その後何年も追いかけて病気や死亡を数える観察研究。</div>
+<div class="def-item"><div class="dterm">合意文書(コンセンサス)</div>専門家が集まり、既存の研究を検討して「こう勧める」とまとめた文書。新しい実験ではない。</div>
+</div>
+</div>
+
+<div class="card purple">
+<h2>📋 研究1:米国2学会の合意文書(2015年)── 「7時間以上」</h2>
+<div class="flow">
+<div class="flow-step">睡眠の専門家<br>パネル</div>
+<div class="flow-arrow">→</div>
+<div class="flow-step alt">既存の研究を評価<br>(RAND法を修正した<br>合意形成)</div>
+<div class="flow-arrow">→</div>
+<div class="flow-step purp">成人は<br>「7時間以上」を推奨</div>
+</div>
+<ul>
+<li>米国睡眠医学会(AASM)と睡眠研究学会(SRS)が出した文書で、<strong>7時間未満が続くと、体重増加・糖尿病・高血圧・心臓病・うつ・死亡リスクなどとの関連が報告されている</strong>としています。</li>
+<li>9時間を超える睡眠は、若い人・睡眠不足を取り戻している人・病気の人にはあり得るが、<strong>それ以外の成人では健康リスクは不確か</strong>と述べています。</li>
+<li>気になるときは医療者に相談するよう添えられています。</li>
+</ul>
+<p style="font-size:.84rem">エビデンスの強さ:<span class="ev-badge ev-mid">中</span> 専門家の合意で、1つの実験ではありません。土台は主に観察研究で、「7時間」という線引きは研究から一意に決まる数字ではなく、専門家の判断を含みます。</p>
+</div>
+
+<div class="card orange">
+<h2>📊 研究2:Cappuccioら(2010年)── 短くても長くてもリスクが高く見えた</h2>
+<div class="compare4">
+<div class="c3-col orange"><h3>🌙 短い睡眠</h3><ul><li>相対リスク 1.12</li><li>95%CI 1.06〜1.18</li><li>研究間のばらつきあり</li></ul></div>
+<div class="c3-col green"><h3>🛌 ふつうの睡眠</h3><ul><li>基準(=1.0)</li><li>比べる相手</li></ul></div>
+<div class="c3-col red"><h3>⏰ 長い睡眠</h3><ul><li>相対リスク 1.30</li><li>95%CI 1.22〜1.38</li><li>研究間のばらつき大</li></ul></div>
+</div>
+<ul>
+<li>追跡期間3年超の前向きコホート研究を集めたメタ分析(Sleep 2010;33(5):585-592)。16研究・27集団・1,382,999人、死亡112,566件(追跡4〜25年)。</li>
+<li>睡眠時間は質問票での<strong>自己申告</strong>が中心です。「短い」「長い」の区切りの時間は、今回は本文で確認できていません。</li>
+</ul>
+<p style="font-size:.84rem">エビデンスの強さ:<span class="ev-badge ev-mid">中</span> 規模は大きいものの観察研究の寄せ集めです。研究どうしの結果のばらつき(異質性)も報告されています。</p>
+</div>
+
+<div class="card">
+<h2>🧩 「相関」と「因果」を分けて読む</h2>
+<div class="matrix">
+<div class="mx-cell ok"><div class="mx-head">✅ 言えそうなこと</div>睡眠時間と死亡リスクには、短い側にも長い側にも「関連」がある。睡眠を軽く見ない根拠にはなる。</div>
+<div class="mx-cell ng"><div class="mx-head">❌ まだ言えないこと</div>「9時間寝ると寿命が縮む」「7時間にすれば病気が減る」。長く寝る人は病気やうつが隠れている(逆の因果)可能性も、年齢・仕事・生活習慣など他の要因(交絡)の可能性もある。</div>
+</div>
+<ol class="step-list">
+<li>「自己申告か、測定か」を見る(思い出しの誤差が入る)。</li>
+<li>「病気が先で眠りが変わった」可能性(逆の因果)を考える。</li>
+<li>「平均の目安」と「自分に合う時間」を分けて考える(朝すっきり、日中に眠くならないかも手がかり)。</li>
+</ol>
+</div>
+
+<div class="card green">
+<h2>🇯🇵 日本の目安は?</h2>
+<p>厚生労働省の「健康づくりのための睡眠ガイド2023」は、成人で<strong>「6時間以上」を目安</strong>に、小学生は9〜12時間、中高生は8〜10時間を参考にするとされています(個人差に触れたうえでの目安)。この数字は自治体資料などの二次情報で確認したもので、原典の正確な文言は未確認です。米国の「7時間以上」とずれているのは、<strong>目安は集団の研究と各国の判断で決まる「幅のある数字」</strong>であるためと考えられます。</p>
+</div>
+
+<div class="card red">
+<h2>⚠️ 反対の見方と、この記事の限界</h2>
+<div class="warn"><strong>反対の見方:</strong> 「7時間以上」は目安で、短時間でも元気な人はいるし、睡眠時間よりも<strong>睡眠の質・規則性・日中の眠気</strong>の方が大事だという見方もあります。逆に、睡眠時間を無理に増やしても健康になるとは限りません(因果は未確定)。</div>
+<div class="warn"><strong>本記事の限界:</strong> ネットワーク制限のため、論文本文は開けず、数値は検索結果に表示された要約に基づきます。Cappuccioら(2010年)は発表から年数がたっており、その後の研究は今回確認していません。個々の研究のCOI(利害関係)も未確認です。</div>
+<div class="warn"><strong>気をつけて:</strong> 長く寝ても疲れが取れない、いびきや日中の強い眠気、不眠が続くなどのときは、睡眠薬やサプリを自己判断で試さず、まず医療機関に相談してください。</div>
+</div>
+
+<div class="sources">
+<h3>📚 出典(基準日:2026年10月・原著は未開封、検索結果の要約に基づく)</h3>
+<ul>
+<li>Watsonら、米国睡眠医学会(AASM)・睡眠研究学会(SRS)の成人睡眠時間に関する合意文書(J Clin Sleep Med 2015;11(6):591-592、2015年): <a href="https://www.aasm.org/resources/pdf/adultsleepdurationconsensus.pdf">AASM(PDF)</a> / <a href="https://pubmed.ncbi.nlm.nih.gov/25979105/">PubMed</a></li>
+<li>Cappuccio FPら、睡眠時間と全死亡のメタ分析(Sleep 2010;33(5):585-592、2010年): <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC2864873/">PMC</a></li>
+<li>厚生労働省「健康づくりのための睡眠ガイド2023」(2023年): <a href="https://www.mhlw.go.jp/content/10904750/001222161.pdf">厚生労働省(PDF・本文未確認)</a> / 自治体資料: <a href="https://www.city.hamamatsu.shizuoka.jp/kenkozoshin/health/health_21/heart/sleep.html">浜松市</a></li>
+</ul>
+</div>
+
+<div class="disclaimer">
+本記事は一般的な情報であり、医療アドバイスではありません。効果・必要量・リスクは個人の体質・年齢・持病・服薬で大きく変わります。実践の前に、かかりつけ医・管理栄養士・薬剤師などの専門家にご相談ください。特定の食事制限・サプリ・断食などを安易に始めないでください。
+</div>
+</div>
+</body>
+</html>
