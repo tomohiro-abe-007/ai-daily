@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-10-30</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #2a4d7a 0%, #10233f 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #2a4d7a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.blue   { border-left-color: #1e5a7a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.green  { border-left-color: #1e7a5a; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #2a4d7a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin: 14px 0;
+  }
+  .stats-row.c3 { grid-template-columns: repeat(3, 1fr); }
+  .stats-row.c2 { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 12px 6px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat.now { background: #fff3e0; box-shadow: 0 0 0 2px #c8884a inset; }
+  .stat .sl { font-size: 0.62rem; color: #888; margin-bottom: 3px; line-height: 1.4; }
+  .stat .sv { font-size: 1.05rem; font-weight: 700; color: #2a4d7a; line-height: 1.15; }
+  .stat.now .sv { color: #c8884a; }
+  .stat .su { font-size: 0.62rem; color: #666; margin-top: 2px; }
+
+  .bignum {
+    background: white;
+    border-radius: 12px;
+    padding: 18px 14px;
+    text-align: center;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.1);
+    border: 2px dashed #c8884a;
+    margin: 14px 0;
+  }
+  .bignum .bl { font-size: 0.76rem; color: #888; margin-bottom: 6px; }
+  .bignum .bv { font-size: 1.7rem; font-weight: 700; color: #c8884a; line-height: 1.3; }
+  .bignum .bs { font-size: 0.76rem; color: #666; margin-top: 6px; line-height: 1.6; }
+
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #2a4d7a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-num.now { background: #b54040; }
+  .f-num.later { background: #999; }
+  .f-num.opt { background: #c8884a; }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+  .f-arrow { color: #2a4d7a; font-size: 1.1rem; margin-left: 14px; margin-bottom: 4px; }
+
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  table.cmp {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.83rem;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.08);
+  }
+  table.cmp th, table.cmp td {
+    border: 1px solid #e4dccd;
+    padding: 9px 10px;
+    line-height: 1.55;
+    vertical-align: top;
+  }
+  table.cmp thead th { background: #2a4d7a; color: white; font-weight: 600; text-align: center; }
+  table.cmp tbody th { background: #f5efe2; color: #5a4020; text-align: left; font-weight: 600; white-space: nowrap; }
+  table.cmp td { color: #444; text-align: left; }
+  table.cmp td.hi { background: #fff3e0; font-weight: 700; color: #c8884a; }
+  .wrap-x { overflow-x: auto; }
+
+  .prompt-box {
+    background: #f0f5ff;
+    border: 2px solid #4a6aae;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 12px 0;
+    font-size: 0.84rem;
+    line-height: 1.85;
+    color: #1a2a4a;
+  }
+  .prompt-box .ph {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #4a6aae;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+  .prompt-box .fill {
+    background: #d0e0ff;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-weight: 700;
+    color: #0a2a6e;
+  }
+
+  .info {
+    background: #e8eef8;
+    border-left: 4px solid #2a4d7a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #16294a;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #7a4010;
+  }
+
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #2a4d7a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #2a4d7a; word-break: break-all; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #2a4d7a; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+  <div class="meta">2026-10-30(金)・経理・記帳 / 現金管理</div>
+  <h1>💴 1人法人スタート 最新トピック 2026-10-30<br>手元の現金(小口現金)は「現金出納帳」で管理しよう</h1>
+  <div class="desc">コンビニや文房具店など、現金で払う場面はまだまだあります。会社の財布を「見えるお金」にしておく、小さくて強い習慣を解説します。</div>
+  <div style="margin-top:10px"><span class="htag">経理・記帳</span><span class="htag">現金出納帳</span><span class="htag">小口現金</span></div>
+</div>
+
+<div class="card">
+  <div class="sec-title">🔍 ① 現金出納帳(げんきんすいとうちょう)って何？</div>
+  <p><b>現金出納帳</b>とは、会社の現金の「入ったお金」「出たお金」「残り」を日付順に書く帳簿のことです。お小遣い帳の会社版と思えばOK。<b>小口現金(こぐちげんきん＝文房具や切手など、少額の支払いに使うために手元に置く現金)</b>があるなら、これで管理します。</p>
+  <div class="stats-row c3">
+    <div class="stat"><div class="sl">記入のタイミング</div><div class="sv">使った日</div><div class="su">まとめ書きは忘れがち</div></div>
+    <div class="stat"><div class="sl">現金を数える頻度</div><div class="sv">月1回</div><div class="su">月末がおすすめ</div></div>
+    <div class="stat now"><div class="sl">帳簿と現金のずれ</div><div class="sv">0円</div><div class="su">1円でも原因を探す</div></div>
+  </div>
+  <div class="info">💡 「現金」は会社の資産です。社長個人の財布と混ぜると、どれが会社のお金かわからなくなります。会社用の財布(または封筒)を1つ決めましょう。</div>
+</div>
+
+<div class="card orange">
+  <div class="sec-title">🔄 ② 現金出納帳の回し方 4ステップ</div>
+  <div class="f-step"><div class="f-num">1</div><div class="f-text"><b>手元に置く額を決める</b>：多すぎない金額を目安に。足りなくなったら銀行から引き出して補充</div></div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step"><div class="f-num">2</div><div class="f-text"><b>使うたびに記録</b>：日付・内容・金額・領収書の有無を書く(会計ソフトの「現金」の入力でもOK)</div></div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step"><div class="f-num now">3</div><div class="f-text"><b>月末に現金を数える</b>：財布の中の実際の現金と、帳簿上の残高を比べる</div></div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step"><div class="f-num later">4</div><div class="f-text"><b>領収書と一緒に保管</b>：記録した日付順に領収書をまとめ、確認日をメモ</div></div>
+</div>
+
+<div class="card blue">
+  <div class="sec-title">⚖ ③ 「小口現金」と「立替」のちがい</div>
+  <div class="wrap-x"><table class="cmp">
+    <thead><tr><th></th><th>小口現金</th><th>立替(社長の個人払い)</th></tr></thead>
+    <tbody>
+      <tr><th>お金の出どころ</th><td class="hi">会社の現金</td><td>社長個人のお金</td></tr>
+      <tr><th>記録する場所</th><td>現金出納帳(会社の現金)</td><td>精算の記録(未払金など)</td></tr>
+      <tr><th>最後にすること</th><td>残高を数えて合わせる</td><td>会社から社長へ精算する</td></tr>
+    </tbody>
+  </table></div>
+  <div class="warn">⚠ 会社の現金で個人の買い物をしたり、個人のお金で払ったのに記録しなかったりすると、現金の残高が合わなくなります。「会社の財布」と「個人の財布」は分けるのが基本です。</div>
+</div>
+
+<div class="card green">
+  <div class="sec-title">🗂 ④ ずれたときの当たりのつけ方</div>
+  <ul class="check-list">
+    <li><span class="ck">🧾</span><span><b>領収書はあるのに記録がない</b>：入力もれの可能性大。領収書の日付順に並べて照らし合わせる</span></li>
+    <li><span class="ck">🏧</span><span><b>銀行からの引き出し</b>：預金から現金への移動を、現金側にも入れ忘れていないか</span></li>
+    <li><span class="ck">🪙</span><span><b>小銭の数え間違い</b>：もう一度、硬貨と紙幣を分けて数える</span></li>
+    <li><span class="ck-bad">⚠</span><span><b>原因が見つからない</b>：無理に帳尻を合わせず、差額をそのまま残して税理士に相談</span></li>
+  </ul>
+</div>
+
+<div class="card red">
+  <div class="sec-title">🤖 ⑤ 生成AIを「現金管理の相棒」にする</div>
+  <p>運用ルールを文章にまとめたり、ずれの原因を考えたりするのに便利です。最終判断は、実際の現金と領収書で。</p>
+  <div class="prompt-box">
+    <div class="ph">▶ AIに貼るプロンプト例</div>
+    1人社長の会社の経理担当として、小口現金の運用ルールの案を作ってください。<br>
+    状況：業種は<span class="fill">○○</span>、現金払いが発生する場面は<span class="fill">△△</span>、手元に置く現金は<span class="fill">□□円くらい</span>を想定しています。<br>
+    お願い：①補充・記録・月末確認の3つのルールを箇条書きで ②やってはいけないことを3つ ③月末に数えるときのチェックリストを作ってください。
+  </div>
+  <div class="warn">⚠ 口座番号・取引先名・個人名などは入力しない(伏せ字やダミーに置き換える)。AIの答えは案にすぎないので、自分の会社に合うか確かめてから使いましょう。</div>
+</div>
+
+<div class="card">
+  <div class="sec-title">✅ ⑥ 今日のまとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">1</span><span>会社の現金は、個人の財布と分けて「現金出納帳」で見える化する</span></li>
+    <li><span class="n">2</span><span>使った日に記録し、月末に実際の現金を数えて帳簿と合わせる</span></li>
+    <li><span class="n">3</span><span>ずれたら、領収書・引き出し・数え間違いの順に確認する</span></li>
+    <li><span class="n">4</span><span>どうしても合わない・処理に迷うときは税理士へ</span></li>
+  </ul>
+  <div class="source">📚 出典(基準：令和8年10月時点)：<br>
+  ※本日も国税庁など政府系サイトへ直接接続できず、一次情報を確認できませんでした。本記事は、現金を帳簿で管理し実際の残高と突き合わせるという一般的な経理実務の考え方を整理したもので、税率・金額・期限など具体的な数字は記載していません。帳簿の記録・保存の具体的な定めは、国税庁の公式サイト(<a href="https://www.nta.go.jp/">https://www.nta.go.jp/</a>)でご確認ください。<br>
+  ・関連記事：<a href="2026-10-29.html">通帳と帳簿の残高照合(10/29)</a>、<a href="2026-10-28.html">領収書がないとき(10/28)</a>、<a href="2026-10-22.html">立替経費の精算(10/22)</a>
+  </div>
+</div>
+
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、税務・法務の個別アドバイスではありません。会社の状況により結論は変わります。
+  具体的な判断は、税理士・社会保険労務士・司法書士などの専門家にご相談ください。<br>
+  <strong>本記事の基準年度：</strong>令和8年度(2026年10月時点)。制度・税率・金額は改正されることがあるため、最新情報は公式サイトでご確認ください。
+</div>
+
+<div class="footer">
+  <p>📚 <a href="index.html">バックナンバー一覧へ</a> &nbsp;&middot;&nbsp; 毎朝更新</p>
+</div>
+
+</div>
+</body>
+</html>
