@@ -45,10 +45,12 @@
 - 英語のmost of / a lot of / the number of vs a number of の動詞の一致── 10-23のla mayoría deの英語側の発展
 
 
-- スペイン語のsaber(sé)とconocerの使い分け(情報を知る vs 人・場所を知る)── 10-30の発展
+
+- スペイン語の個人のa(conocer a / ver a / querer a など人を目的語にするときのa)── 10-31の発展
 
 ## 解説済みテーマ
 
+- 2026-10-31: スペイン語のsaberとconocerの使い分け(事柄・やり方 vs 人・場所)── 10-30の続編
 - 2026-10-30: スペイン語のconocer/ofrecer/conducirなど-zco動詞(yo形が-zco)── 10-28の-go動詞の続編
 - 2026-10-28: スペイン語のvenir/decir/traer/oír(-go動詞の仲間と語幹変化)── 10-27の続編
 - 2026-10-27: スペイン語のyo形だけ不規則な動詞(tengo/hago/pongo/salgo)── 10-26の規則活用の次の一歩
