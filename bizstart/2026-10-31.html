@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-10-31</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #2a4d7a 0%, #10233f 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #2a4d7a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.blue   { border-left-color: #1e5a7a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.green  { border-left-color: #1e7a5a; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #2a4d7a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin: 14px 0;
+  }
+  .stats-row.c3 { grid-template-columns: repeat(3, 1fr); }
+  .stats-row.c2 { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 12px 6px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat.now { background: #fff3e0; box-shadow: 0 0 0 2px #c8884a inset; }
+  .stat .sl { font-size: 0.62rem; color: #888; margin-bottom: 3px; line-height: 1.4; }
+  .stat .sv { font-size: 1.05rem; font-weight: 700; color: #2a4d7a; line-height: 1.15; }
+  .stat.now .sv { color: #c8884a; }
+  .stat .su { font-size: 0.62rem; color: #666; margin-top: 2px; }
+
+  .bignum {
+    background: white;
+    border-radius: 12px;
+    padding: 18px 14px;
+    text-align: center;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.1);
+    border: 2px dashed #c8884a;
+    margin: 14px 0;
+  }
+  .bignum .bl { font-size: 0.76rem; color: #888; margin-bottom: 6px; }
+  .bignum .bv { font-size: 1.7rem; font-weight: 700; color: #c8884a; line-height: 1.3; }
+  .bignum .bs { font-size: 0.76rem; color: #666; margin-top: 6px; line-height: 1.6; }
+
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #2a4d7a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-num.now { background: #b54040; }
+  .f-num.later { background: #999; }
+  .f-num.opt { background: #c8884a; }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+  .f-arrow { color: #2a4d7a; font-size: 1.1rem; margin-left: 14px; margin-bottom: 4px; }
+
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  table.cmp {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.83rem;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.08);
+  }
+  table.cmp th, table.cmp td {
+    border: 1px solid #e4dccd;
+    padding: 9px 10px;
+    line-height: 1.55;
+    vertical-align: top;
+  }
+  table.cmp thead th { background: #2a4d7a; color: white; font-weight: 600; text-align: center; }
+  table.cmp tbody th { background: #f5efe2; color: #5a4020; text-align: left; font-weight: 600; white-space: nowrap; }
+  table.cmp td { color: #444; text-align: left; }
+  table.cmp td.hi { background: #fff3e0; font-weight: 700; color: #c8884a; }
+  .wrap-x { overflow-x: auto; }
+
+  .prompt-box {
+    background: #f0f5ff;
+    border: 2px solid #4a6aae;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 12px 0;
+    font-size: 0.84rem;
+    line-height: 1.85;
+    color: #1a2a4a;
+  }
+  .prompt-box .ph {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #4a6aae;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+  .prompt-box .fill {
+    background: #d0e0ff;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-weight: 700;
+    color: #0a2a6e;
+  }
+
+  .info {
+    background: #e8eef8;
+    border-left: 4px solid #2a4d7a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #16294a;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #7a4010;
+  }
+
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #2a4d7a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #2a4d7a; word-break: break-all; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #2a4d7a; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+  <div class="meta">2026-10-31(土)・経理・記帳 / 月末ルーティン</div>
+  <h1>🗓 1人法人スタート 最新トピック 2026-10-31<br>月末の「30分チェック」で、お金の不安を持ち越さない</h1>
+  <div class="desc">今日は10月最後の日。ここ数日の記帳の話(領収書・通帳・現金)を、1つの「月末の流れ」にまとめます。毎月同じ順番でやるだけで、決算前のあわてが減ります。</div>
+  <div style="margin-top:10px"><span class="htag">経理・記帳</span><span class="htag">月次チェック</span><span class="htag">習慣化</span></div>
+</div>
+
+<div class="card">
+  <div class="sec-title">🔍 ① なぜ「月末にまとめて」やるの？</div>
+  <p>1人社長は、営業も経理も全部ひとりです。経理を「気が向いたとき」に回すと、決算の直前に1年分がどっと押し寄せます。そこで、<b>月末(または翌月初)に30分だけ「確認の時間」を決める</b>のがおすすめです。これは法律で決まった方法ではなく、あくまで続けやすい一般的な工夫です。</p>
+  <div class="stats-row c3">
+    <div class="stat"><div class="sl">1回にかける時間(目安)</div><div class="sv">30分</div><div class="su">カレンダーに予定として入れる</div></div>
+    <div class="stat"><div class="sl">やる頻度</div><div class="sv">月1回</div><div class="su">月末 or 翌月初</div></div>
+    <div class="stat now"><div class="sl">1年でのチェック回数</div><div class="sv">12回</div><div class="su">決算前の山を12等分</div></div>
+  </div>
+  <div class="info">💡 数字はあくまで目安です。最初は1時間かかっても大丈夫。慣れると短くなります。</div>
+</div>
+
+<div class="card orange">
+  <div class="sec-title">🔄 ② 月末チェックの流れ 5ステップ</div>
+  <div class="f-step"><div class="f-num">1</div><div class="f-text"><b>領収書・請求書を集める</b>：その月の分を1か所に。なければ <a href="2026-10-28.html">10/28の方法</a> で対応</div></div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step"><div class="f-num">2</div><div class="f-text"><b>会計ソフトに入力・仕訳の確認</b>：銀行・カードの取込分に、未確認が残っていないか</div></div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step"><div class="f-num now">3</div><div class="f-text"><b>残高を合わせる</b>：通帳(<a href="2026-10-29.html">10/29</a>)と現金(<a href="2026-10-30.html">10/30</a>)を、帳簿と照らし合わせる</div></div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step"><div class="f-num opt">4</div><div class="f-text"><b>来月の支払い予定を確認</b>：税金・社会保険料・家賃・外注費などの支払日と、口座の残高を見比べる</div></div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step"><div class="f-num later">5</div><div class="f-text"><b>売上・利益をざっと眺める</b>：先月・前年同月と比べて、大きな違いだけメモ</div></div>
+</div>
+
+<div class="card blue">
+  <div class="sec-title">⚖ ③ 「やる月末」と「やらない月末」の比べ方</div>
+  <div class="wrap-x"><table class="cmp">
+    <thead><tr><th></th><th>毎月30分やる</th><th>決算前にまとめてやる</th></tr></thead>
+    <tbody>
+      <tr><th>1回の負担</th><td class="hi">小さい</td><td>1年分で大きい</td></tr>
+      <tr><th>領収書の紛失</th><td>すぐ気づける</td><td>探しても出てこないことも</td></tr>
+      <tr><th>お金の不足</th><td>早めに気づける</td><td>気づいたときには手遅れも</td></tr>
+      <tr><th>決算時の確認</th><td>ほぼ見直すだけ</td><td>入力と確認が同時に発生</td></tr>
+    </tbody>
+  </table></div>
+</div>
+
+<div class="card green">
+  <div class="sec-title">📅 ④ 来月の「支払い予定」をカレンダーに入れよう</div>
+  <p>税金や社会保険料には、毎月または毎年のおおよその支払いサイクルがあります。たとえば一般に、<b>従業員や役員に給与を払ったときの源泉所得税</b>は原則として「支払った月の翌月10日まで」、<b>社会保険料</b>は「当月分を翌月末まで」に納める形が基本とされています(納期の特例や口座振替の扱いなど例外・個別の事情があります)。具体的な期限・金額は、国税庁・日本年金機構の案内や税理士・社労士に確認してください。</p>
+  <ul class="check-list">
+    <li><span class="ck">📆</span><span>支払日を「月末チェックの日」にメモしておく</span></li>
+    <li><span class="ck">🏦</span><span>引き落としや振込の前に、口座残高が足りるか確認する</span></li>
+    <li><span class="ck-bad">⚠</span><span>土日・祝日にあたる場合の扱いは項目ごとに違うことがある。余裕を持って準備する</span></li>
+  </ul>
+  <div class="warn">⚠ 本日は政府系サイトへ接続できず、期限の数字を一次情報で再確認できていません。上記は一般的な説明です。実際の期限は必ず公式サイトでご確認ください。</div>
+</div>
+
+<div class="card red">
+  <div class="sec-title">🤖 ⑤ 生成AIで「月末チェックリスト」を自分用にする</div>
+  <p>チェックリストの作成や、先月との違いの整理はAIが得意です。数字の正しさや税務上の判断は、必ず自分(や専門家)で確認します。</p>
+  <div class="prompt-box">
+    <div class="ph">▶ AIに貼るプロンプト例</div>
+    1人社長の会社の経理担当として、月末の30分チェックリストを作ってください。<br>
+    状況：業種は<span class="fill">○○</span>、会計ソフトは<span class="fill">△△</span>、毎月ある支払いは<span class="fill">家賃・外注費など</span>です。<br>
+    お願い：①5〜8項目のチェックリスト ②各項目の所要時間の目安 ③先月との比較で見るべき数字を3つ、を表形式で出してください。
+  </div>
+  <div class="warn">⚠ 口座番号・取引先名・個人名などは入力しない(伏せ字やダミーに置き換える)。AIの答えは案にすぎません。</div>
+</div>
+
+<div class="card">
+  <div class="sec-title">✅ ⑥ 今日のまとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">1</span><span>月末(または翌月初)に30分、「確認の時間」を予定に入れる</span></li>
+    <li><span class="n">2</span><span>集める → 入力 → 残高を合わせる → 来月の支払い確認 → 数字をざっと見る、の順で</span></li>
+    <li><span class="n">3</span><span>来月の支払い予定と口座残高を見比べ、お金の不足を早めに察知する</span></li>
+    <li><span class="n">4</span><span>迷ったら税理士・社労士へ。完璧を目指さず、まず続けることが大切</span></li>
+  </ul>
+  <div class="source">📚 出典(基準：令和8年10月時点)：<br>
+  ※本日も国税庁(www.nta.go.jp)・日本年金機構(www.nenkin.go.jp)へ接続できず、一次情報を確認できませんでした。④の期限の説明は一般的な内容で、確認済みの数字ではありません。最新の定めは各公式サイト(<a href="https://www.nta.go.jp/">国税庁</a>・<a href="https://www.nenkin.go.jp/">日本年金機構</a>)でご確認ください。①の「30分」「月1回」は筆者が示す目安で、制度上の基準ではありません。<br>
+  ・関連記事：<a href="2026-10-30.html">現金出納帳(10/30)</a>、<a href="2026-10-29.html">通帳と帳簿の残高照合(10/29)</a>、<a href="2026-10-28.html">領収書がないとき(10/28)</a>
+  </div>
+</div>
+
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、税務・法務の個別アドバイスではありません。会社の状況により結論は変わります。
+  具体的な判断は、税理士・社会保険労務士・司法書士などの専門家にご相談ください。<br>
+  <strong>本記事の基準年度：</strong>令和8年度(2026年10月時点)。制度・税率・金額は改正されることがあるため、最新情報は公式サイトでご確認ください。
+</div>
+
+<div class="footer">
+  <p>📚 <a href="index.html">バックナンバー一覧へ</a> &nbsp;&middot;&nbsp; 毎朝更新</p>
+</div>
+
+</div>
+</body>
+</html>
