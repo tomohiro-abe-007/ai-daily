@@ -2,6 +2,7 @@
 
 ## 解説済みトピック（重複を避けるための記録）
 
+- 2026-11-01: Google Project Suncatcher（2026年10月30日マイルストーン）・データセンター用TPUを積んだ衛星が宇宙でGemma 4を動かし俳句を地球へ返信・初の「データセンタークラスTPU」宇宙稼働・衛星は2026年10月1日SpaceX Transporter-18で打ち上げ（Planet共同製造）・ノルウェー領スバールバル地上局経由でコマンド送信・「Hello World」段階・電力制約により短時間稼働のみ・チップ世代・枚数は未公開・2027年に追加2機打ち上げ・複数衛星連携実験予定（出典：Unite.AI / Notebookcheck / Tech Insider・2026年10月30日）
 - 2026-10-31: GitHub Copilot Fusion 正式リリース（2026年10月28日・GitHub Universe）・複数AIモデルを自動選択・組み合わせるルーティングシステム・Fusion Standard/High/Maxの3プラン・Fusion MaxはArtificial Analysis Coding Agent Index 60点（Claude Code Opus 5.5 Maxの62点に2点差）・Terminal-Bench 4.0でトップ71点・コスト約半分（GitHub発表値・第三者検証限定的）・Octoverse 2026：毎月2.2億PRマージ・コードコミット74億件（前年比5倍）・PR約40%がAIエージェントの下書き発・VS Code/CLI/JetBrains対応・料金公式要確認（出典：The Next Web / Artificial Analysis・2026年10月28日）
 - 2026-10-30: Google DeepMind「Genie 4」（2026年10月27日発表）・テキスト指示からリアルタイムに歩き回れる仮想世界を生成するワールドモデル・シリーズ初のネイティブ音声生成・最大2分間のシーン維持（前バージョン約2倍）・リアルタイム編集（天気・カメラ角度・人物追加）・Gemini 3.8 Flash（案内役）＋Gemini Omni（映像担当）が連携・2分超で細部ドリフト問題を公式が認める・音精度も課題あり・Google AI Ultra加入者/Gemini APIパートナー向け限定アクセス・一般公開日・料金未発表・第三者性能検証なし（出典：Google DeepMind公式ブログ / TechCrunch・2026年10月27日）
 - 2026-10-28: 最先端 AI のフロンティアモデル学習中はリアルタイムのインターネット接続を行わない新方針を発表（2026年10月23日）・2026年9月20日の設定ミスによる誤接続事故（約11日間学習停止）がきっかけ・今後はあらかじめ収集・保存したキャッシュ版インターネットのみを使う・同様の方針を別の AI 企業も約2週間前に先行導入と報道・完成後の AI が検索機能などでインターネットを使う機能には影響なし・事故の詳細・影響範囲は非公表・キャッシュ版がリアルタイムウェブを完全に代替できるかは不明（出典：TechCrunch / AI Weekly / AI Chief / Interesting Engineering・2026年10月23日）
