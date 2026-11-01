@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-11-02</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #2a4d7a 0%, #10233f 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #2a4d7a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.blue   { border-left-color: #1e5a7a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.green  { border-left-color: #1e7a5a; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #2a4d7a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin: 14px 0;
+  }
+  .stats-row.c3 { grid-template-columns: repeat(3, 1fr); }
+  .stats-row.c2 { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 12px 6px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat.now { background: #fff3e0; box-shadow: 0 0 0 2px #c8884a inset; }
+  .stat .sl { font-size: 0.62rem; color: #888; margin-bottom: 3px; line-height: 1.4; }
+  .stat .sv { font-size: 1.05rem; font-weight: 700; color: #2a4d7a; line-height: 1.15; }
+  .stat.now .sv { color: #c8884a; }
+  .stat .su { font-size: 0.62rem; color: #666; margin-top: 2px; }
+
+  .bignum {
+    background: white;
+    border-radius: 12px;
+    padding: 18px 14px;
+    text-align: center;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.1);
+    border: 2px dashed #c8884a;
+    margin: 14px 0;
+  }
+  .bignum .bl { font-size: 0.76rem; color: #888; margin-bottom: 6px; }
+  .bignum .bv { font-size: 1.7rem; font-weight: 700; color: #c8884a; line-height: 1.3; }
+  .bignum .bs { font-size: 0.76rem; color: #666; margin-top: 6px; line-height: 1.6; }
+
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #2a4d7a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-num.now { background: #b54040; }
+  .f-num.later { background: #999; }
+  .f-num.opt { background: #c8884a; }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+  .f-arrow { color: #2a4d7a; font-size: 1.1rem; margin-left: 14px; margin-bottom: 4px; }
+
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  table.cmp {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.83rem;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.08);
+  }
+  table.cmp th, table.cmp td {
+    border: 1px solid #e4dccd;
+    padding: 9px 10px;
+    line-height: 1.55;
+    vertical-align: top;
+  }
+  table.cmp thead th { background: #2a4d7a; color: white; font-weight: 600; text-align: center; }
+  table.cmp tbody th { background: #f5efe2; color: #5a4020; text-align: left; font-weight: 600; white-space: nowrap; }
+  table.cmp td { color: #444; text-align: left; }
+  table.cmp td.hi { background: #fff3e0; font-weight: 700; color: #c8884a; }
+  .wrap-x { overflow-x: auto; }
+
+  .prompt-box {
+    background: #f0f5ff;
+    border: 2px solid #4a6aae;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 12px 0;
+    font-size: 0.84rem;
+    line-height: 1.85;
+    color: #1a2a4a;
+  }
+  .prompt-box .ph {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #4a6aae;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+  .prompt-box .fill {
+    background: #d0e0ff;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-weight: 700;
+    color: #0a2a6e;
+  }
+
+  .info {
+    background: #e8eef8;
+    border-left: 4px solid #2a4d7a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #16294a;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #7a4010;
+  }
+
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #2a4d7a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #2a4d7a; word-break: break-all; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #2a4d7a; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+  <div class="meta">2026-11-02(月)・代表者のマインド / 生成AI活用</div>
+  <h1>🧭 1人法人スタート 最新トピック 2026-11-02<br>「やらないことリスト」で、1人社長の時間を守る</h1>
+  <div class="desc">1人で会社を回すと、やることは無限に増えます。時間は1日24時間で増やせません。だから「何をやるか」と同じくらい「何をやらないか」を決めることが大切です。今日は、やらないことの決め方と、生成AIに任せる範囲の線引きを図解します。</div>
+  <div style="margin-top:10px"><span class="htag">マインド</span><span class="htag">時間管理</span><span class="htag">生成AI</span></div>
+</div>
+
+<div class="card">
+  <div class="sec-title">🔍 ① なぜ「やらないこと」を決めるの？</div>
+  <p>1人社長は、営業・制作・経理・手続き・問い合わせ対応を全部1人でこなします。気づくと<b>「忙しいのに売上につながらない作業」</b>に時間を取られがちです。先に「やらないこと」を決めておくと、毎回迷う時間が減り、大事な仕事に集中できます。</p>
+  <div class="stats-row c3">
+    <div class="stat"><div class="sl">1日のスタート時間</div><div class="sv">15分</div><div class="su">予定の整理(目安)</div></div>
+    <div class="stat"><div class="sl">リストの項目数</div><div class="sv">3〜5個</div><div class="su">多すぎると続かない</div></div>
+    <div class="stat now"><div class="sl">見直し頻度</div><div class="sv">月1回</div><div class="su">月末チェックと一緒に</div></div>
+  </div>
+  <div class="info">💡 数字は筆者が示す目安で、制度上の決まりではありません。自分に合わせて変えてOKです。</div>
+</div>
+
+<div class="card orange">
+  <div class="sec-title">🔄 ② やらないことリストの作り方 4ステップ</div>
+  <div class="f-step"><div class="f-num">1</div><div class="f-text"><b>1週間の作業を書き出す</b>：やったことを、小さな作業ごとにメモする(メール返信・請求書づくり・SNSなど)</div></div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step"><div class="f-num">2</div><div class="f-text"><b>4つに仕分ける</b>：次の表の「売上に近いか」「自分にしかできないか」で分ける</div></div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step"><div class="f-num now">3</div><div class="f-text"><b>「やめる・任せる・仕組みにする」を決める</b>：自分でやる必要がないものを外す</div></div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step"><div class="f-num opt">4</div><div class="f-text"><b>3〜5個に絞って紙に書き、見える所に貼る</b>：月末に見直す</div></div>
+</div>
+
+<div class="card blue">
+  <div class="sec-title">🧮 ③ 作業の仕分けマトリクス</div>
+  <div class="wrap-x"><table class="cmp">
+    <thead><tr><th></th><th>自分にしかできない</th><th>他の人・AIでもできる</th></tr></thead>
+    <tbody>
+      <tr><th>売上に近い</th><td class="hi">🎯 自分でやる<br>(商談・提案・品質の最終確認)</td><td>🤖 下書きをAIに<br>(提案書のたたき台・文章案)</td></tr>
+      <tr><th>売上から遠い</th><td>📅 時間を決めて短く<br>(お金の最終判断・書類への署名など)</td><td class="hi">✂ やめる・任せる・自動化<br>(定型の返信・整理・転記)</td></tr>
+    </tbody>
+  </table></div>
+  <div class="bignum">
+    <div class="bl">まず減らすのはここ</div>
+    <div class="bv">右下：売上から遠く、誰でもできる作業</div>
+    <div class="bs">やめる・まとめて処理する・AIや外部サービスに任せる、のどれかを選びます。</div>
+  </div>
+</div>
+
+<div class="card green">
+  <div class="sec-title">📝 ④ やらないことリストの例(架空)</div>
+  <ul class="check-list">
+    <li><span class="ck-bad">✖</span><span>通知が来るたびにメールを見ない(確認は1日2回の時間だけ)</span></li>
+    <li><span class="ck-bad">✖</span><span>条件が合わない小さな依頼を、その場で引き受けない(一晩置いて返事する)</span></li>
+    <li><span class="ck-bad">✖</span><span>完璧なデザインを目指して資料づくりに時間をかけすぎない(まず70点で出す)</span></li>
+    <li><span class="ck-bad">✖</span><span>お金や契約の判断を、疲れている夜にしない</span></li>
+  </ul>
+  <div class="warn">⚠ お金・契約・法律・税金にかかわる判断は、「やらない」ではなく<b>「一人で抱え込まない」</b>が正解です。必要に応じて税理士・社労士・司法書士などの専門家に相談しましょう。</div>
+</div>
+
+<div class="card red">
+  <div class="sec-title">🤖 ⑤ 生成AIに「仕分け」を手伝ってもらう</div>
+  <p>作業の書き出しができたら、AIに仕分けの相談をします。ただし最終判断は自分でします。</p>
+  <div class="prompt-box">
+    <div class="ph">▶ AIに貼るプロンプト例</div>
+    私は1人で会社を経営しています。今週やった作業のメモを下に貼ります。<br>
+    <span class="fill">作業メモ(例：メール返信2時間、請求書づくり1時間…)</span><br>
+    お願い：①「売上に近いか」「自分にしかできないか」で4つに仕分け ②「やめる・まとめる・AIに任せる」候補を3つ ③「やらないことリスト」の案を3〜5個、短い文で。
+  </div>
+  <div class="warn">⚠ 取引先名・個人名・口座番号などは入力せず、ダミーや「A社」に置き換えましょう。AIの提案は参考で、採用するかは自分で決めます。</div>
+</div>
+
+<div class="card">
+  <div class="sec-title">✅ ⑥ 今日のまとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">1</span><span>1人社長の時間は限られる。「やらないこと」を決めると集中できる</span></li>
+    <li><span class="n">2</span><span>作業を「売上に近いか」「自分にしかできないか」で4つに仕分ける</span></li>
+    <li><span class="n">3</span><span>売上から遠く誰でもできる作業は、やめる・まとめる・AIに任せる</span></li>
+    <li><span class="n">4</span><span>リストは3〜5個、月末チェックのときに見直す。お金や契約の判断は専門家にも相談する</span></li>
+  </ul>
+  <div class="source">📚 出典(基準：令和8年11月時点)：<br>
+  ※本日も国税庁(www.nta.go.jp)へ接続できず、公的な一次情報を確認できませんでした。そのため、本記事は税率・金額などの制度の数字を使わない一般的な考え方の解説にとどめ、「15分」「3〜5個」「月1回」などは筆者が示す目安(制度上の基準ではありません)です。例は架空です。制度の最新情報は各公式サイト(<a href="https://www.nta.go.jp/">国税庁</a>・<a href="https://www.nenkin.go.jp/">日本年金機構</a>・<a href="https://j-net21.smrj.go.jp/">J-Net21</a>)でご確認ください。<br>
+  ・関連記事：<a href="2026-10-31.html">月末の30分チェック(10/31)</a>、<a href="2026-11-01.html">資金繰り3か月先読み(11/1)</a>、<a href="2026-10-09.html">生成AIで業務マニュアルを作る(10/9)</a>
+  </div>
+</div>
+
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、税務・法務の個別アドバイスではありません。会社の状況により結論は変わります。
+  具体的な判断は、税理士・社会保険労務士・司法書士などの専門家にご相談ください。<br>
+  <strong>本記事の基準年度：</strong>令和8年度(2026年11月時点)。制度・税率・金額は改正されることがあるため、最新情報は公式サイトでご確認ください。
+</div>
+
+<div class="footer">
+  <p>📚 <a href="index.html">バックナンバー一覧へ</a> &nbsp;&middot;&nbsp; 毎朝更新</p>
+</div>
+
+</div>
+</body>
+</html>
