@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-11-03</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #2a4d7a 0%, #10233f 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #2a4d7a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.blue   { border-left-color: #1e5a7a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.green  { border-left-color: #1e7a5a; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #2a4d7a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin: 14px 0;
+  }
+  .stats-row.c3 { grid-template-columns: repeat(3, 1fr); }
+  .stats-row.c2 { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 12px 6px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat.now { background: #fff3e0; box-shadow: 0 0 0 2px #c8884a inset; }
+  .stat .sl { font-size: 0.62rem; color: #888; margin-bottom: 3px; line-height: 1.4; }
+  .stat .sv { font-size: 1.05rem; font-weight: 700; color: #2a4d7a; line-height: 1.15; }
+  .stat.now .sv { color: #c8884a; }
+  .stat .su { font-size: 0.62rem; color: #666; margin-top: 2px; }
+
+  .bignum {
+    background: white;
+    border-radius: 12px;
+    padding: 18px 14px;
+    text-align: center;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.1);
+    border: 2px dashed #c8884a;
+    margin: 14px 0;
+  }
+  .bignum .bl { font-size: 0.76rem; color: #888; margin-bottom: 6px; }
+  .bignum .bv { font-size: 1.7rem; font-weight: 700; color: #c8884a; line-height: 1.3; }
+  .bignum .bs { font-size: 0.76rem; color: #666; margin-top: 6px; line-height: 1.6; }
+
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #2a4d7a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-num.now { background: #b54040; }
+  .f-num.later { background: #999; }
+  .f-num.opt { background: #c8884a; }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+  .f-arrow { color: #2a4d7a; font-size: 1.1rem; margin-left: 14px; margin-bottom: 4px; }
+
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  table.cmp {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.83rem;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.08);
+  }
+  table.cmp th, table.cmp td {
+    border: 1px solid #e4dccd;
+    padding: 9px 10px;
+    line-height: 1.55;
+    vertical-align: top;
+  }
+  table.cmp thead th { background: #2a4d7a; color: white; font-weight: 600; text-align: center; }
+  table.cmp tbody th { background: #f5efe2; color: #5a4020; text-align: left; font-weight: 600; white-space: nowrap; }
+  table.cmp td { color: #444; text-align: left; }
+  table.cmp td.hi { background: #fff3e0; font-weight: 700; color: #c8884a; }
+  .wrap-x { overflow-x: auto; }
+
+  .prompt-box {
+    background: #f0f5ff;
+    border: 2px solid #4a6aae;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 12px 0;
+    font-size: 0.84rem;
+    line-height: 1.85;
+    color: #1a2a4a;
+  }
+  .prompt-box .ph {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #4a6aae;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+  .prompt-box .fill {
+    background: #d0e0ff;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-weight: 700;
+    color: #0a2a6e;
+  }
+
+  .info {
+    background: #e8eef8;
+    border-left: 4px solid #2a4d7a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #16294a;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #7a4010;
+  }
+
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #2a4d7a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #2a4d7a; word-break: break-all; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #2a4d7a; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+  <div class="meta">2026-11-03(火)・代表者のマインド / 経理の基本</div>
+  <h1>👛 1人法人スタート 最新トピック 2026-11-03<br>会社の財布と社長の財布を分ける ── 「公私混同」を防ぐ4つの習慣</h1>
+  <div class="desc">1人社長は「会社＝自分」と感じやすく、会社のお金と自分のお金が混ざりがちです。でも法律上、会社は社長とは別の人(法人)です。今日は、お金を分ける理由と、今日からできる習慣を図解します。</div>
+  <div style="margin-top:10px"><span class="htag">マインド</span><span class="htag">経理の基本</span><span class="htag">生成AI</span></div>
+</div>
+
+<div class="card">
+  <div class="sec-title">🔍 ① なぜ分けるの？</div>
+  <p>法人は、社長個人とは<b>別の人格</b>(法律上の「人」)を持ちます。そのため、会社のお金を私用に使ったり、私用のお金を会社の経費にしたりすると、帳簿が正しくなくなり、税務調査などで指摘される原因になります。また、混ざったお金は、後から見返しても「何のお金か」が分からなくなります。</p>
+  <div class="stats-row c2">
+    <div class="stat"><div class="sl">会社の財布</div><div class="sv">🏢 法人口座・法人カード</div><div class="su">事業の入出金だけ</div></div>
+    <div class="stat now"><div class="sl">社長の財布</div><div class="sv">🙂 個人口座・個人カード</div><div class="su">生活費・私用だけ</div></div>
+  </div>
+  <div class="info">💡 会社から社長へお金を渡す正規の方法は、主に「役員報酬」(給料のようなもの)です。必要に応じて、決まりに沿った精算や貸し借りもあります。</div>
+</div>
+
+<div class="card orange">
+  <div class="sec-title">🔄 ② お金を分ける4つの習慣</div>
+  <div class="f-step"><div class="f-num">1</div><div class="f-text"><b>口座を分ける</b>：事業の入金・支払いは法人口座だけを使う</div></div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step"><div class="f-num">2</div><div class="f-text"><b>カードを分ける</b>：事業の買い物は法人カード。無理なら「立替精算」のルールを決める</div></div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step"><div class="f-num now">3</div><div class="f-text"><b>生活費は役員報酬から</b>：会社の口座から生活費を直接引き出さない</div></div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step"><div class="f-num opt">4</div><div class="f-text"><b>混ざったらその日にメモ</b>：何のお金か、領収書や画面保存と一緒に残す</div></div>
+</div>
+
+<div class="card blue">
+  <div class="sec-title">🧮 ③ こんなとき、どっち？(対比表)</div>
+  <div class="wrap-x"><table class="cmp">
+    <thead><tr><th>場面</th><th>混ぜた場合</th><th>分けた場合</th></tr></thead>
+    <tbody>
+      <tr><th>仕事の仕入れを個人カードで払った</th><td>帳簿に出てこず、あとで分からなくなる</td><td class="hi">立替として記録し、会社から精算する</td></tr>
+      <tr><th>会社の口座から生活費を引き出した</th><td>何のお金か不明になりやすい</td><td class="hi">役員報酬として受け取る</td></tr>
+      <tr><th>家族との食事を会社のカードで払った</th><td>私用の支出が経費に混ざる</td><td class="hi">個人のカードで払う</td></tr>
+    </tbody>
+  </table></div>
+  <div class="warn">⚠ 立替の精算、役員との貸し借り、私用の扱いは、会社の状況で処理が変わります。迷ったときは税理士に相談しましょう(関連：<a href="2026-10-18.html">役員借入金と代表者貸付金(10/18)</a>、<a href="2026-10-22.html">立替精算(10/22)</a>)。</div>
+</div>
+
+<div class="card green">
+  <div class="sec-title">✅ ④ 今日できる3分チェック</div>
+  <ul class="check-list">
+    <li><span class="ck">□</span><span>法人口座の直近1か月の明細に、私用らしき支払いが混ざっていないか見る</span></li>
+    <li><span class="ck">□</span><span>個人カードで払った事業の支出を、メモに書き出す</span></li>
+    <li><span class="ck">□</span><span>「生活費はここから」と決めた口座・日付をメモしておく</span></li>
+  </ul>
+</div>
+
+<div class="card red">
+  <div class="sec-title">🤖 ⑤ 生成AIで「混ざり」を見つける</div>
+  <p>明細を整理するとき、生成AIに「仕分け案」を作ってもらうと楽です。最終判断は自分で行います。</p>
+  <div class="prompt-box">
+    <div class="ph">▶ AIに貼るプロンプト例</div>
+    次の支払い一覧を「事業用」「私用の可能性あり」「判断に迷う」の3つに仕分けてください。<br>
+    <span class="fill">支払い一覧(日付・金額・内容のみ。口座番号や個人名は除く)</span><br>
+    迷うものは、確認すべきポイントを1行ずつ書いてください。
+  </div>
+  <div class="warn">⚠ 口座番号・取引先名・個人名などは入力しないか、ダミーに置き換えましょう。AIの仕分けは参考で、税務上の判断は税理士に確認します。</div>
+</div>
+
+<div class="card">
+  <div class="sec-title">📌 ⑥ 今日のまとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">1</span><span>会社は社長とは別の人(法人)。お金も分けて管理する</span></li>
+    <li><span class="n">2</span><span>口座・カードを分け、生活費は役員報酬から受け取る</span></li>
+    <li><span class="n">3</span><span>混ざったときは、その日のうちにメモと証拠を残す</span></li>
+    <li><span class="n">4</span><span>処理に迷ったら、税理士などの専門家に相談する</span></li>
+  </ul>
+  <div class="source">📚 出典(基準：令和8年11月時点)：<br>
+  ※本日も国税庁・法務省などの公的サイトへ接続できず、一次情報を確認できませんでした。そのため、税率・金額などの制度の数字は使わず、一般的な考え方の解説にとどめています。例・表の内容は架空・一般的なものです。制度の最新情報は各公式サイト(<a href="https://www.nta.go.jp/">国税庁</a>・<a href="https://www.nenkin.go.jp/">日本年金機構</a>・<a href="https://j-net21.smrj.go.jp/">J-Net21</a>)でご確認ください。<br>
+  ・関連記事：<a href="2026-10-29.html">通帳と帳簿の残高照合(10/29)</a>、<a href="2026-10-31.html">月末の30分チェック(10/31)</a></div>
+</div>
+
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、税務・法務の個別アドバイスではありません。会社の状況により結論は変わります。
+  具体的な判断は、税理士・社会保険労務士・司法書士などの専門家にご相談ください。<br>
+  <strong>本記事の基準年度：</strong>令和8年度(2026年11月時点)。制度・税率・金額は改正されることがあるため、最新情報は公式サイトでご確認ください。
+</div>
+
+<div class="footer">
+  <p>📚 <a href="index.html">バックナンバー一覧へ</a> &nbsp;&middot;&nbsp; 毎朝更新</p>
+</div>
+
+</div>
+</body>
+</html>
