@@ -2,6 +2,7 @@
 
 ## 解説済みトピック（重複を避けるための記録）
 
+- 2026-11-04: Google Gemini 4 Carbon（2026年10月28日発表）・Artificial Analysis Intelligence Index v5 で1位（Carbon 59 / Opus 5.5 58 / GPT-6 Astra 57・二次報道）・Coding Agent Index で Opus 5.5 に次ぐ2位・当初はサイバー防御担当者など一部向け・一般提供日は未発表・ハルシネーション報道が割れる（Google側「半減」vs 計測で4%→11%）・料金公式要確認（出典：Let's Data Science / OfficeChai / AI Magazine / DataCamp・2026年10月）
 - 2026-11-03: Anthropic S-1 公開申請（2026年10月26日）・米ナスダック上場予定・ティッカー「ANT」・2026年前半売上$16.3B（前年同期比約14倍）・Q2売上$11.6B・NRR約900%（S-1記載）・株式5%を公益基金（Public Benefit Fund）に充てる提案・創業者50.1%議決権保持・前回Series H評価額$965B・報道ベースの上場目標：11月16日の週・評価額$1.5T〜$2T・調達$100B超（いずれも報道ベース・公式未確認）（出典：Free Press Journal / Dev.to / The Next Web / Ground News・2026年10月26日）
 - 2026-11-02: GPT-6.1 Terra（2026年10月26日発表）・OpenAI 中間グレードモデル・Computer Use（コンピューター操作AI）特化・Terminal-Bench 4.0: 50.3%（GPT-5.6 Terra 21.5%比大幅向上・OpenAI自己申告）・GPT-6 Astra/GPT-6.1 Sol比平均3倍以上高速・前世代比約50%値下げ・API料金$1/$5（公式要確認）・コンテキスト窓105万トークン・「Critical」サイバーセキュリティ分類（OpenAI Preparedness Framework）・ChatGPT Work/Codex/API対応（出典：Decrypt / TrueFoundry / CXO Digitalpulse・2026年10月26日）
 - 2026-11-01: Google Project Suncatcher（2026年10月30日マイルストーン）・データセンター用TPUを積んだ衛星が宇宙でGemma 4を動かし俳句を地球へ返信・初の「データセンタークラスTPU」宇宙稼働・衛星は2026年10月1日SpaceX Transporter-18で打ち上げ（Planet共同製造）・ノルウェー領スバールバル地上局経由でコマンド送信・「Hello World」段階・電力制約により短時間稼働のみ・チップ世代・枚数は未公開・2027年に追加2機打ち上げ・複数衛星連携実験予定（出典：Unite.AI / Notebookcheck / Tech Insider・2026年10月30日）
