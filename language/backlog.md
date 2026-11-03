@@ -46,10 +46,12 @@
 
 
 
-- スペイン語の動詞+de/en/con(acabar de/pensar en/soñar con など前置詞を要求する動詞)── 11-03の動詞+aの続編
+
+- スペイン語のpensar de vs pensar en の使い分けの深掘り・depender de/confiar en などの前置詞つき動詞 ── 11-04の続編
 
 ## 解説済みテーマ
 
+- 2026-11-04: スペイン語の動詞+de/en/con(acabar de/dejar de/pensar en/soñar con)── 11-03の動詞+aの続編
 - 2026-11-03: スペイン語の動詞+a+不定詞(ir a/empezar a/aprender a/ayudar a)── 11-02の発展、英語going toとの対応
 - 2026-11-02: スペイン語の個人のaと「〜に」のa(間接目的語)の見分け方── 11-01の発展、代名詞lo/la vs leで確認
 - 2026-11-01: スペイン語の個人のa(人を目的語にするときのa、al、不特定の人は無し)── 10-31の続編
