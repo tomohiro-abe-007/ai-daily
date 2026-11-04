@@ -2,6 +2,7 @@
 
 ## 解説済みトピック（重複を避けるための記録）
 
+- 2026-11-05: Google AI Overviews とニュースサイトのクリック減（DMG Media が英CMAに「最大89%減」2025年6〜7月・Authoritas約47.5%・Pew約46%・Googleは異論・測り方で数字が変わる）（出典：Campaign / Press Gazette / Search Engine Journal・2025年）
 - 2026-11-04: Google Gemini 4 Carbon（2026年10月28日発表）・Artificial Analysis Intelligence Index v5 で1位（Carbon 59 / Opus 5.5 58 / GPT-6 Astra 57・二次報道）・Coding Agent Index で Opus 5.5 に次ぐ2位・当初はサイバー防御担当者など一部向け・一般提供日は未発表・ハルシネーション報道が割れる（Google側「半減」vs 計測で4%→11%）・料金公式要確認（出典：Let's Data Science / OfficeChai / AI Magazine / DataCamp・2026年10月）
 - 2026-11-03: Anthropic S-1 公開申請（2026年10月26日）・米ナスダック上場予定・ティッカー「ANT」・2026年前半売上$16.3B（前年同期比約14倍）・Q2売上$11.6B・NRR約900%（S-1記載）・株式5%を公益基金（Public Benefit Fund）に充てる提案・創業者50.1%議決権保持・前回Series H評価額$965B・報道ベースの上場目標：11月16日の週・評価額$1.5T〜$2T・調達$100B超（いずれも報道ベース・公式未確認）（出典：Free Press Journal / Dev.to / The Next Web / Ground News・2026年10月26日）
 - 2026-11-02: GPT-6.1 Terra（2026年10月26日発表）・OpenAI 中間グレードモデル・Computer Use（コンピューター操作AI）特化・Terminal-Bench 4.0: 50.3%（GPT-5.6 Terra 21.5%比大幅向上・OpenAI自己申告）・GPT-6 Astra/GPT-6.1 Sol比平均3倍以上高速・前世代比約50%値下げ・API料金$1/$5（公式要確認）・コンテキスト窓105万トークン・「Critical」サイバーセキュリティ分類（OpenAI Preparedness Framework）・ChatGPT Work/Codex/API対応（出典：Decrypt / TrueFoundry / CXO Digitalpulse・2026年10月26日）
@@ -177,3 +178,6 @@
 - Google Dataland AIアートミュージアム（2026年6月20日ロサンゼルス開館・Geminiがリアルタイムインタラクティブアートを生成）
 - Colorado AI Act改定（SB26-189・2026年5月14日署名）：元の包括的AI規制法を大幅縮小・施行日を2026年6月30日から2027年1月1日に延期・アルゴリズム意思決定の透明性開示に絞った内容に変更
 - ~~Apple Intelligence × Alibaba Qwen（中国向け）：米国規制の最後のハードルを越え中国での提供が近づく・Qwenモデルを使用（2026年7月報道）~~ ← 2026-08-10 解説済み
+- AMD×Meta AIチップ最大$600億・5年契約（2026年11月初旬の集約記事のみで一次情報未確認・要検証）
+- GitHub 外部サービス約26件の接続コネクタ追加（2026年11月初旬・要検証）
+- ニューヨーク州のAIチャットボット新規則（2026年11月初旬・要検証）
