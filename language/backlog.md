@@ -3,7 +3,6 @@
 ## 未解説テーマ（エバーグリーン）
 
 - スペイン語の絶対最上級 -ísimo の発展(副詞への応用・muy との使い分け)── 最上級の続編
-- 英語のelder/eldest（家族の年上を表す特殊な比較級・最上級）── 07-26で扱ったmayor/menor対比の発展
 - スペイン語のser用法とestarの違いをまとめて総復習（06-11の続編・応用編）
 - スペイン語のgerundio（現在分詞）の単独用法（Estando cansado, no fui.など）── 08-23の英語分詞構文の逆向きブリッジ、スペイン語にも分詞に近い圧縮表現がある
 - スペイン語のイントネーション（疑問文で文末を上げる／平叙文は下降調）── 08-02の音節拍リズムの上に乗る抑揚のルール
@@ -48,8 +47,11 @@
 
 - スペイン語のpensar de vs pensar en の使い分けの深掘り・depender de/confiar en などの前置詞つき動詞 ── 11-04の続編
 
+- 英語のyounger/youngest と junior/senior の使い方(年下・後輩を表す語)── 11-06の続編
+
 ## 解説済みテーマ
 
+- 2026-11-06: 英語のelder/eldest(家族の年上、older/oldestとの違い)── 07-26のmayor/menor対比の発展
 - 2026-11-04: スペイン語の動詞+de/en/con(acabar de/dejar de/pensar en/soñar con)── 11-03の動詞+aの続編
 - 2026-11-03: スペイン語の動詞+a+不定詞(ir a/empezar a/aprender a/ayudar a)── 11-02の発展、英語going toとの対応
 - 2026-11-02: スペイン語の個人のaと「〜に」のa(間接目的語)の見分け方── 11-01の発展、代名詞lo/la vs leで確認
