@@ -2,6 +2,7 @@
 
 ## 解説済みトピック（重複を避けるための記録）
 
+- 2026-11-06: Claude Cowork ウェブ・モバイル対応（2026年7月7日発表・ベータ・Maxから順次・スケジュール作業は端末オンライン不要と公式説明・バックグラウンド実行の範囲は報道が割れる）（出典：Anthropic公式ブログ / Engadget / Notebookcheck・2026年7月）
 - 2026-11-05: Google AI Overviews とニュースサイトのクリック減（DMG Media が英CMAに「最大89%減」2025年6〜7月・Authoritas約47.5%・Pew約46%・Googleは異論・測り方で数字が変わる）（出典：Campaign / Press Gazette / Search Engine Journal・2025年）
 - 2026-11-04: Google Gemini 4 Carbon（2026年10月28日発表）・Artificial Analysis Intelligence Index v5 で1位（Carbon 59 / Opus 5.5 58 / GPT-6 Astra 57・二次報道）・Coding Agent Index で Opus 5.5 に次ぐ2位・当初はサイバー防御担当者など一部向け・一般提供日は未発表・ハルシネーション報道が割れる（Google側「半減」vs 計測で4%→11%）・料金公式要確認（出典：Let's Data Science / OfficeChai / AI Magazine / DataCamp・2026年10月）
 - 2026-11-03: Anthropic S-1 公開申請（2026年10月26日）・米ナスダック上場予定・ティッカー「ANT」・2026年前半売上$16.3B（前年同期比約14倍）・Q2売上$11.6B・NRR約900%（S-1記載）・株式5%を公益基金（Public Benefit Fund）に充てる提案・創業者50.1%議決権保持・前回Series H評価額$965B・報道ベースの上場目標：11月16日の週・評価額$1.5T〜$2T・調達$100B超（いずれも報道ベース・公式未確認）（出典：Free Press Journal / Dev.to / The Next Web / Ground News・2026年10月26日）
@@ -173,7 +174,7 @@
 - マルチエージェント（複数AIの協調）：2026年のエージェントフレームワーク比較
 - AI音声・TTS最新事情：各社音声モデルの比較と活用例
 - ~~John Jumper（AlphaFold 2・2024年ノーベル化学賞共同受賞者）がGoogle DeepMind→Anthropicへ移籍（2026年6月24日報道）~~ ← 2026-10-21 解説済み
-- Anthropic Claude Cowork モバイル展開（2026年7月7〜9日発表）・iOS/Android対応・バックグラウンド実行・スマホから進捗確認・タスク許可通知・Max プランからベータ展開・Cowork使用量制限を8月5日まで2倍に延長（出典：9to5Mac / Dataconomy / Engadget・2026年7月7〜9日）
+- ~~Anthropic Claude Cowork モバイル展開~~ ← 2026-11-06 解説済み
 - Apple Foundation Models 3（AFM 3）詳報（WWDC 2026・2026年6月発表）・5モデル体制（AFM 3 Core / AFM 3 Core Advanced 20B / AFM 3 Cloud / AFM 3 Cloud Image / AFM 3 Cloud Pro）・Google Cloud NVIDIA GB300に Private Cloud Compute を拡張・Gemini蒸留を使用するがGeminiモデルそのものは不使用（出典：Apple ML Research / 9to5Mac / MacStories・2026年6月）
 - Google Dataland AIアートミュージアム（2026年6月20日ロサンゼルス開館・Geminiがリアルタイムインタラクティブアートを生成）
 - Colorado AI Act改定（SB26-189・2026年5月14日署名）：元の包括的AI規制法を大幅縮小・施行日を2026年6月30日から2027年1月1日に延期・アルゴリズム意思決定の透明性開示に絞った内容に変更
