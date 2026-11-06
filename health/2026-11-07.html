@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-11-07</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '🥦';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.35rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.9rem; margin-bottom: 8px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.1em; }
+  .c3-col li { margin-bottom: 4px; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  .quote-box {
+    background: #f5f0e8;
+    border-left: 4px solid #7a5abf;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    margin: 12px 0;
+    color: #444;
+    font-style: italic;
+  }
+  .quote-box .who { font-style: normal; font-weight: 700; color: #5a3a9a; margin-top: 6px; font-size: 0.78rem; }
+  .matrix {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .mx-cell {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .mx-cell .mx-head { font-weight: 700; font-size: 0.88rem; margin-bottom: 6px; }
+  .mx-cell.ok  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .mx-cell.ok  .mx-head { color: #1a6e4a; }
+  .mx-cell.ng  { background: #fbe8e6; border: 2px solid #c0392b; }
+  .mx-cell.ng  .mx-head { color: #a0291e; }
+  .subtype-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .subtype-card {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.84rem;
+  }
+  .subtype-card .st-head { font-weight: 700; font-size: 0.92rem; margin-bottom: 8px; }
+  .subtype-card .st-bar {
+    height: 10px;
+    border-radius: 5px;
+    background: #eee;
+    overflow: hidden;
+    margin: 6px 0 4px;
+  }
+  .subtype-card .st-bar-fill { height: 100%; }
+  .subtype-card.st-green { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .subtype-card.st-green .st-head { color: #1a6e4a; }
+  .subtype-card.st-orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .subtype-card.st-orange .st-head { color: #b85e10; }
+  .subtype-card.st-red { background: #fbe8e6; border: 2px solid #c0392b; }
+  .subtype-card.st-red .st-head { color: #a0291e; }
+  @media (max-width: 540px) {
+    .compare4 { grid-template-columns: 1fr; }
+    .matrix { grid-template-columns: 1fr; }
+    .subtype-grid { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.7rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+  .bar{height:22px;border-radius:6px;margin:4px 0 2px;color:#fff;font-size:.78rem;padding:0 8px;line-height:22px;white-space:nowrap}
+</style>
+
+</head>
+<body>
+<div class="page">
+
+<div class="header">
+  <div class="label">健康・栄養 / 精密栄養学</div>
+  <h1>健康・栄養 最新トピック 2026-11-07<br>「あなた専用の食事」は、本当に効くの? 7つのRCTをまとめた分析を読む</h1>
+  <div class="subtitle">前糖尿病・メタボの人を対象にした、精密(個別化)栄養学のランダム化比較試験(RCT)の系統的レビューを、やさしく読み解きます。</div>
+</div>
+
+<div class="card">
+  <h2>🎯 今日のポイント</h2>
+  <ul>
+    <li><strong>精密栄養学</strong>(遺伝子・血液・腸内細菌などの個人情報に合わせて食事を変える考え方)の介入は、血糖値の長期指標<strong>HbA1c</strong>(過去1〜2か月の血糖の平均を反映する検査値)や<strong>食後血糖</strong>、<strong>腹囲</strong>で、一貫して良い結果だったと報告されています。</li>
+    <li>一方、空腹時血糖・脂質・血圧などは<strong>結果がバラバラ</strong>でした。</li>
+    <li>試験数は<strong>7件(合計873人)</strong>と少なく、「個別化したから効いた」のか「ていねいな指導が効いた」のかは、この分析だけでは切り分けられません。</li>
+  </ul>
+</div>
+
+<div class="card blue">
+  <h2>🔢 どんな研究?</h2>
+  <p>前糖尿病(糖尿病の一歩手前)やメタボリックシンドローム(内臓脂肪に血糖・血圧・脂質の異常が重なった状態)の大人を対象に、個別化した食事介入を調べたRCTを集めて整理した<strong>系統的レビュー</strong>(Nutrients 2024年5月、Robertson ら)です。</p>
+  <div class="num-row">
+    <div class="num-card"><div><span class="big">7</span><span class="unit">件</span></div><div class="desc">対象となったRCT</div></div>
+    <div class="num-card orange-bg"><div><span class="big">873</span><span class="unit">人</span></div><div class="desc">合計の参加者数(n)</div></div>
+    <div class="num-card blue-bg"><div><span class="big">3〜24</span><span class="unit">か月</span></div><div class="desc">介入期間の幅</div></div>
+    <div class="num-card gray-bg"><div><span class="big">5+2</span></div><div class="desc">個別化栄養5件+通常の栄養療法2件</div></div>
+  </div>
+</div>
+
+<div class="card orange">
+  <h2>📊 何が良くなって、何がはっきりしなかった?</h2>
+  <div class="matrix">
+    <div class="mx-cell ok"><div class="mx-head">✅ 一貫して改善</div><ul><li>HbA1c</li><li>食後血糖</li><li>腹囲</li></ul></div>
+    <div class="mx-cell ng"><div class="mx-head">❓ 結果がバラバラ</div><ul><li>空腹時血糖</li><li>インスリン抵抗性(HOMA-IR)</li><li>脂質・血圧・食事内容</li></ul></div>
+  </div>
+  <p>また、介入が<strong>長く・頻繁</strong>なほど、HbA1cと腹囲の改善が大きい傾向だったと報告されています。</p>
+</div>
+
+<div class="card purple">
+  <h2>🧭 このニュースの読み方</h2>
+  <ol class="step-list">
+    <li>比べる相手は? ── 対照が「何もしない」なのか「ふつうの栄養指導」なのかで意味が変わります。個別化そのものの効果を見るには、後者との比較が大切です。</li>
+    <li>「個別化」の中身はバラバラ ── 遺伝子を使うもの、血糖反応を使うものなど定義が揃っていません(著者らも標準的な定義と大規模試験が必要と述べています)。</li>
+    <li>ていねいな指導の効果 ── 個別化すると接触回数が増えやすく、それ自体が効いた可能性があります。</li>
+  </ol>
+</div>
+
+<div class="card red">
+  <h2>⚠️ 限界と注意(反対側の見方も)</h2>
+  <ul>
+    <li>7件・873人は小規模で、研究ごとに対象・期間・介入が大きく違います。</li>
+    <li>別の系統的レビュー(Munawaroh ら、Diabetes Metab Syndr Obes 2025)は、2型糖尿病・前糖尿病を対象にした8研究(RCT5件)のうち、バイアスのリスクが高い研究が2件、懸念ありが6件とし、前糖尿病で<strong>空腹時血糖は有意に変わらず</strong>、食後血糖は改善、エネルギー摂取への効果は不明と報告しています。慎重に見るべき理由の一つです。</li>
+    <li>数値の詳細(効果の大きさ・信頼区間・各試験の質評価)は本文に接続できず未確認です。</li>
+  </ul>
+</div>
+
+<div class="warn"><strong>💡 今日の学び:</strong> 精密栄養学は「期待できる分野」ですが、現時点では血糖の一部の指標で良い兆しが見えた段階です。「自分に合った食事」を知るには、まず食事の基本と、医療・栄養の専門家による評価が土台になります。</div>
+
+<div class="sources">
+  <h3>📚 出典</h3>
+  <ul>
+    <li>Robertson ら. Do Precision and Personalised Nutrition Interventions Improve Risk Factors in Adults with Prediabetes or Metabolic Syndrome? A Systematic Review of Randomised Controlled Trials. Nutrients 2024年5月。 <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11124316/">PMC11124316</a>(基準日:2024年5月)</li>
+    <li>Munawaroh ら. Effectiveness of personalized nutrition on management of diabetes mellitus(系統的レビュー). Diabetes Metab Syndr Obes 2025年8月。 <a href="https://doaj.org/article/ded43d933be44f8da409349b3cfe5bb1">DOAJ掲載ページ</a>(基準日:2025年8月)</li>
+    <li>※論文本文には接続できず、検索結果の要約に基づきます(確認日:2026年11月)。直近7日の新規論文は確認できず、バックログから選びました。</li>
+  </ul>
+</div>
+
+<div class="disclaimer">
+  ⚠️ 本記事は一般的な情報であり、医療アドバイスではありません。効果・必要量・リスクは、個人の体質・年齢・持病・服薬で大きく変わります。食事や運動、睡眠習慣を大きく変える前に、かかりつけ医・管理栄養士・薬剤師などの専門家に相談してください。特定の食事制限・サプリ・断食を安易に始めないでください。
+</div>
+
+</div>
+</body>
+</html>
