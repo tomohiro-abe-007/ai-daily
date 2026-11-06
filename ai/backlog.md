@@ -2,6 +2,8 @@
 
 ## 解説済みトピック（重複を避けるための記録）
 
+- 2026-11-07: Colorado AI Act 改定（SB26-189・署名は多くの資料で2026年5月14日・旧法を置き換え・施行は2027年1月1日の予定と解説・ADMT開示中心・司法長官の規則づくり・施行日等は法案文で要確認）（出典：CBS News Colorado / Mondaq / Illinois Lawyer Now・2026年5〜6月）
+
 - 2026-11-06: Claude Cowork ウェブ・モバイル対応（2026年7月7日発表・ベータ・Maxから順次・スケジュール作業は端末オンライン不要と公式説明・バックグラウンド実行の範囲は報道が割れる）（出典：Anthropic公式ブログ / Engadget / Notebookcheck・2026年7月）
 - 2026-11-05: Google AI Overviews とニュースサイトのクリック減（DMG Media が英CMAに「最大89%減」2025年6〜7月・Authoritas約47.5%・Pew約46%・Googleは異論・測り方で数字が変わる）（出典：Campaign / Press Gazette / Search Engine Journal・2025年）
 - 2026-11-04: Google Gemini 4 Carbon（2026年10月28日発表）・Artificial Analysis Intelligence Index v5 で1位（Carbon 59 / Opus 5.5 58 / GPT-6 Astra 57・二次報道）・Coding Agent Index で Opus 5.5 に次ぐ2位・当初はサイバー防御担当者など一部向け・一般提供日は未発表・ハルシネーション報道が割れる（Google側「半減」vs 計測で4%→11%）・料金公式要確認（出典：Let's Data Science / OfficeChai / AI Magazine / DataCamp・2026年10月）
@@ -177,8 +179,8 @@
 - ~~Anthropic Claude Cowork モバイル展開~~ ← 2026-11-06 解説済み
 - Apple Foundation Models 3（AFM 3）詳報（WWDC 2026・2026年6月発表）・5モデル体制（AFM 3 Core / AFM 3 Core Advanced 20B / AFM 3 Cloud / AFM 3 Cloud Image / AFM 3 Cloud Pro）・Google Cloud NVIDIA GB300に Private Cloud Compute を拡張・Gemini蒸留を使用するがGeminiモデルそのものは不使用（出典：Apple ML Research / 9to5Mac / MacStories・2026年6月）
 - Google Dataland AIアートミュージアム（2026年6月20日ロサンゼルス開館・Geminiがリアルタイムインタラクティブアートを生成）
-- Colorado AI Act改定（SB26-189・2026年5月14日署名）：元の包括的AI規制法を大幅縮小・施行日を2026年6月30日から2027年1月1日に延期・アルゴリズム意思決定の透明性開示に絞った内容に変更
 - ~~Apple Intelligence × Alibaba Qwen（中国向け）：米国規制の最後のハードルを越え中国での提供が近づく・Qwenモデルを使用（2026年7月報道）~~ ← 2026-08-10 解説済み
 - AMD×Meta AIチップ最大$600億・5年契約（2026年11月初旬の集約記事のみで一次情報未確認・要検証）
 - GitHub 外部サービス約26件の接続コネクタ追加（2026年11月初旬・要検証）
 - ニューヨーク州のAIチャットボット新規則（2026年11月初旬・要検証）
+- 米国の州AI法の動向（カリフォルニア・ニューヨーク・テキサス等との比較）
