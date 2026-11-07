@@ -2,6 +2,8 @@
 
 ## 解説済みトピック（重複を避けるための記録）
 
+- 2026-11-08: AMD×Meta 複数年AIチップ提携（2026年2月24日発表・最大6GW・Instinct GPU・初回1GWは2026年後半出荷予定と報道・最大1.6億株のワラント・金額は公式非公表で「1000億ドル超」は報道推計）（出典：Business Today / Gizmodo / roic.ai・2026年2月）
+
 - 2026-11-07: Colorado AI Act 改定（SB26-189・署名は多くの資料で2026年5月14日・旧法を置き換え・施行は2027年1月1日の予定と解説・ADMT開示中心・司法長官の規則づくり・施行日等は法案文で要確認）（出典：CBS News Colorado / Mondaq / Illinois Lawyer Now・2026年5〜6月）
 
 - 2026-11-06: Claude Cowork ウェブ・モバイル対応（2026年7月7日発表・ベータ・Maxから順次・スケジュール作業は端末オンライン不要と公式説明・バックグラウンド実行の範囲は報道が割れる）（出典：Anthropic公式ブログ / Engadget / Notebookcheck・2026年7月）
@@ -180,7 +182,7 @@
 - Apple Foundation Models 3（AFM 3）詳報（WWDC 2026・2026年6月発表）・5モデル体制（AFM 3 Core / AFM 3 Core Advanced 20B / AFM 3 Cloud / AFM 3 Cloud Image / AFM 3 Cloud Pro）・Google Cloud NVIDIA GB300に Private Cloud Compute を拡張・Gemini蒸留を使用するがGeminiモデルそのものは不使用（出典：Apple ML Research / 9to5Mac / MacStories・2026年6月）
 - Google Dataland AIアートミュージアム（2026年6月20日ロサンゼルス開館・Geminiがリアルタイムインタラクティブアートを生成）
 - ~~Apple Intelligence × Alibaba Qwen（中国向け）：米国規制の最後のハードルを越え中国での提供が近づく・Qwenモデルを使用（2026年7月報道）~~ ← 2026-08-10 解説済み
-- AMD×Meta AIチップ最大$600億・5年契約（2026年11月初旬の集約記事のみで一次情報未確認・要検証）
 - GitHub 外部サービス約26件の接続コネクタ追加（2026年11月初旬・要検証）
 - ニューヨーク州のAIチャットボット新規則（2026年11月初旬・要検証）
 - 米国の州AI法の動向（カリフォルニア・ニューヨーク・テキサス等との比較）
+- AMD×OpenAI 6GW提携（2025年10月）との比較：AI半導体の調達先の多様化（要一次情報確認）
