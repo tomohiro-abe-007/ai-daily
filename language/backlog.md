@@ -46,10 +46,11 @@
 
 - スペイン語のpensar de vs pensar en の使い分けの深掘り・depender de/confiar en などの前置詞つき動詞 ── 11-04の続編
 
-- 英語のyounger/youngest と junior/senior の使い方(年下・後輩を表す語)── 11-06の続編
+- 英語のolder/oldest と senior citizen/elderly の言い方(年上・高齢者を表す丁寧な語)── 11-08の続編
 
 ## 解説済みテーマ
 
+- 2026-11-08: 英語のyounger/youngestとjunior/senior(年齢の言葉と立場の言葉)── 11-06の続編、スペイン語menorとの対比
 - 2026-11-07: 英語のcan/can'tの聞き分け(弱形・強形)── 08-05の弱形の続編、スペイン語No puedoとの対比
 - 2026-11-06: 英語のelder/eldest(家族の年上、older/oldestとの違い)── 07-26のmayor/menor対比の発展
 - 2026-11-04: スペイン語の動詞+de/en/con(acabar de/dejar de/pensar en/soñar con)── 11-03の動詞+aの続編
