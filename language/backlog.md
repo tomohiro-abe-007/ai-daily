@@ -14,7 +14,6 @@
 - スペイン語の増大辞(aumentativo) -ón/-azo の使い方（hombrón, cochazoなど）── 08-14の指小辞-ito/-itaの反対語、「大きい・強調・時には皮肉」を表す語尾変化
 - 英語の-ish(強調・おおよそを表す接尾辞: greenish, fortyish, tallish)── 08-15の-y/-let(小さい・親しみ)とは別系統の「あいまいさ・程度」を足す接尾辞、日常会話でよく使われる
 - スペイン語のestar de vs. ser de(出身・所属を表す表現の違い)── ser用法の応用、生活シーンで自己紹介の幅を広げる
-- 英語のDoes that make sense?/Are you following?などフォーマルな理解確認フレーズ── 08-22のyou know?/get it?/see?のフォーマル版、ビジネス英語で使える丁寧な確認表現を整理
 - スペイン語のfiller word(este, o sea, bueno)の使い方── 08-22の英語you know?のように、意味が薄れて間つなぎ化した表現の整理、08-16のvale/claro/pues/o seaの発展
 - スペイン語のlo que sea / cueste lo que cueste など、lo que+接続法を使った慣用表現 ── 08-25のlo que/lo cualの発展、決まり文句としての使い方を扱う
 - スペイン語のquien単独用法（先行詞なしで「〜する人」を表す使い方）── 08-26の英語の自由関係詞whatと似た発想をスペイン語側で扱う
@@ -47,9 +46,11 @@
 - スペイン語のpensar de vs pensar en の使い分けの深掘り・depender de/confiar en などの前置詞つき動詞 ── 11-04の続編
 
 - 英語のolder/oldest と senior citizen/elderly の言い方(年上・高齢者を表す丁寧な語)── 11-08の続編
+- 英語の聞き返しフレーズ(Sorry, could you say that again? / What do you mean by...?)── 11-09の確認フレーズの「受ける側」編、スペイン語¿Cómo?/¿Puede repetir?へ
 
 ## 解説済みテーマ
 
+- 2026-11-09: 英語のDoes that make sense?など理解確認フレーズ── 08-22のyou know?の丁寧版、スペイン語¿Está claro?/¿Me explico?へ橋渡し
 - 2026-11-08: 英語のyounger/youngestとjunior/senior(年齢の言葉と立場の言葉)── 11-06の続編、スペイン語menorとの対比
 - 2026-11-07: 英語のcan/can'tの聞き分け(弱形・強形)── 08-05の弱形の続編、スペイン語No puedoとの対比
 - 2026-11-06: 英語のelder/eldest(家族の年上、older/oldestとの違い)── 07-26のmayor/menor対比の発展
