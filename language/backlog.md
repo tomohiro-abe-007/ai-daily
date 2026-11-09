@@ -46,9 +46,11 @@
 - スペイン語のpensar de vs pensar en の使い分けの深掘り・depender de/confiar en などの前置詞つき動詞 ── 11-04の続編
 
 - 英語のolder/oldest と senior citizen/elderly の言い方(年上・高齢者を表す丁寧な語)── 11-08の続編
-- 英語の聞き返しフレーズ(Sorry, could you say that again? / What do you mean by...?)── 11-09の確認フレーズの「受ける側」編、スペイン語¿Cómo?/¿Puede repetir?へ
+- 英語の「ゆっくり話してください」系と言い換え依頼(Could you speak more slowly? / What does ... mean?)── 11-10の続編、スペイン語Más despacio / ¿Qué significa...?
 
 ## 解説済みテーマ
+
+- 2026-11-10: 英語の聞き返しフレーズ(Could you say that again? / Sorry?)── 11-09の確認フレーズの「受ける側」、スペイン語¿Cómo?/¿Puede repetir?との対比
 
 - 2026-11-09: 英語のDoes that make sense?など理解確認フレーズ── 08-22のyou know?の丁寧版、スペイン語¿Está claro?/¿Me explico?へ橋渡し
 - 2026-11-08: 英語のyounger/youngestとjunior/senior(年齢の言葉と立場の言葉)── 11-06の続編、スペイン語menorとの対比
