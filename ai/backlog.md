@@ -2,6 +2,7 @@
 
 ## 解説済みトピック（重複を避けるための記録）
 
+- 2026-11-10: Kimi K3.1 Pro 重み公開（報道では2026年11月4日・Hugging Face・API先行は10月下旬・約2.8兆パラメータ・100万トークン・独自ライセンス/年商2,000万ドル超のサービス事業者は商用契約・サイバー関連学習データを除去・内部テストで攻撃成功率90.5%→81%はMoonshot内部計測・Highspeed版の重み公開は不明）（出典：TechNode / RuntimeWire / Crypto Briefing / Notebookcheck・2026年11月）
 - 2026-11-09: OpenAI Images 2.6（報道では2026年11月4日公開・約50%高速化はOpenAI発表・GIF作成/参照画像/フレーム編集・APIに新モデル2種・API料金は報道で出力100万トークン$30・公式要確認）（出典：TestingCatalog / FourWeekMBA / Let’s Data Science・2026年11月）
 - 2026-11-08: AMD×Meta 複数年AIチップ提携（2026年2月24日発表・最大6GW・Instinct GPU・初回1GWは2026年後半出荷予定と報道・最大1.6億株のワラント・金額は公式非公表で「1000億ドル超」は報道推計）（出典：Business Today / Gizmodo / roic.ai・2026年2月）
 
@@ -190,3 +191,5 @@
 - Gemini Omni 1.2 Flash（2026年11月5日ごろ・Google Cloudで確認されたとの未検証情報・公式は1.1表記・要検証）
 - OpenAI GPT-6 Cyber（2026年11月5日・まとめサイト情報・要検証）
 - Meta による Conductor 買収（2026年11月6日・ダイジェスト情報・要検証）
+- 候補: Cognition SWE-2 Flash（2026年11月第1週リリースと報道・詳細未確認）
+- 候補: ChatGPT検索量がGoogleの約5分の1とOpenAIが発表（MarketingProfs 2026-11-06報道・要一次確認）
