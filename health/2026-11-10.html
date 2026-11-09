@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-11-10</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '🔬';
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.35rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.9rem; margin-bottom: 8px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.1em; }
+  .c3-col li { margin-bottom: 4px; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  .quote-box {
+    background: #f5f0e8;
+    border-left: 4px solid #7a5abf;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    margin: 12px 0;
+    color: #444;
+    font-style: italic;
+  }
+  .quote-box .who { font-style: normal; font-weight: 700; color: #5a3a9a; margin-top: 6px; font-size: 0.78rem; }
+  .matrix {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .mx-cell {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .mx-cell .mx-head { font-weight: 700; font-size: 0.88rem; margin-bottom: 6px; }
+  .mx-cell.ok  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .mx-cell.ok  .mx-head { color: #1a6e4a; }
+  .mx-cell.ng  { background: #fbe8e6; border: 2px solid #c0392b; }
+  .mx-cell.ng  .mx-head { color: #a0291e; }
+  .subtype-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .subtype-card {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.84rem;
+  }
+  .subtype-card .st-head { font-weight: 700; font-size: 0.92rem; margin-bottom: 8px; }
+  .subtype-card .st-bar {
+    height: 10px;
+    border-radius: 5px;
+    background: #eee;
+    overflow: hidden;
+    margin: 6px 0 4px;
+  }
+  .subtype-card .st-bar-fill { height: 100%; }
+  .subtype-card.st-green { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .subtype-card.st-green .st-head { color: #1a6e4a; }
+  .subtype-card.st-orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .subtype-card.st-orange .st-head { color: #b85e10; }
+  .subtype-card.st-red { background: #fbe8e6; border: 2px solid #c0392b; }
+  .subtype-card.st-red .st-head { color: #a0291e; }
+  @media (max-width: 540px) {
+    .compare4 { grid-template-columns: 1fr; }
+    .matrix { grid-template-columns: 1fr; }
+    .subtype-grid { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.7rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+  .bar{height:22px;border-radius:6px;margin:4px 0 2px;color:#fff;font-size:.78rem;padding:0 8px;line-height:22px;white-space:nowrap}
+</style>
+
+</head>
+<body>
+<div class="page">
+
+<div class="header">
+  <div class="label">健康・栄養 / 論文の読み方</div>
+  <h1>健康・栄養 最新トピック 2026-11-10<br>「効く」のニュース、どこまで信じる? エビデンスの強さの見分け方</h1>
+  <div class="subtitle">同じ「研究でわかった」でも、研究のやり方で信頼度は変わります。RCT(ランダム化比較試験)と観察研究の違いを、やさしく整理します。</div>
+</div>
+
+<div class="card">
+  <h2>🎯 今日のポイント</h2>
+  <ul>
+    <li>研究には種類があり、<strong>「まとめ分析 → RCT → 観察研究 → 動物・細胞の実験」</strong>の順に、人への当てはまりや因果の確かさが高いと考えるのが一般的な目安です。</li>
+    <li>ただし、これは<strong>目安であって絶対のルールではありません</strong>。やり方が雑なRCTより、丁寧な観察研究のほうが信頼できる場合もあります。</li>
+    <li>「Aを食べる人はBが少ない」(観察)と、「Aを食べさせたらBが減った」(RCT)は、別の話です。</li>
+  </ul>
+</div>
+
+<div class="card blue">
+  <h2>📖 まず言葉の意味を</h2>
+  <div class="def-grid">
+    <div class="def-item"><div class="dterm">RCT(ランダム化比較試験)</div>くじ引きのようにグループを分け、一方に介入(食事やサプリ)をして結果を比べる試験。</div>
+    <div class="def-item"><div class="dterm">観察研究(コホート研究など)</div>人々の普段の生活を追いかけて、食習慣と病気の関係を調べる研究。介入はしない。</div>
+    <div class="def-item"><div class="dterm">交絡(こうらく)</div>別の要因が結果をゆがめること。例:「野菜をよく食べる人は、運動もしている」。</div>
+    <div class="def-item"><div class="dterm">メタ分析</div>複数の研究の結果を、統計でひとつにまとめる方法。</div>
+  </div>
+</div>
+
+<div class="card orange">
+  <h2>🪜 エビデンスの「はしご」(目安)</h2>
+  <table class="ev-table">
+    <tr><th>研究の種類</th><th>強み</th><th>弱み</th><th>目安</th></tr>
+    <tr><td>📚 まとめ(系統的レビュー・メタ分析)</td><td>多くの研究を総合できる</td><td>中身の研究の質しだい</td><td><span class="ev-badge ev-high">高め</span></td></tr>
+    <tr><td>🎲 RCT</td><td>くじ引きで分けるので、見えない違いも両グループで均等になりやすい</td><td>人数・期間が限られ、費用がかかる</td><td><span class="ev-badge ev-high">高め</span></td></tr>
+    <tr><td>👀 観察研究</td><td>長期間・多人数を調べやすい</td><td>交絡があり、因果は断定しにくい</td><td><span class="ev-badge ev-mid">中〜低</span></td></tr>
+    <tr><td>🐭 動物・細胞の実験</td><td>仕組みを調べられる</td><td>人で同じとは限らない</td><td><span class="ev-badge ev-low">参考</span></td></tr>
+  </table>
+  <p style="font-size:0.8rem;color:#666;">※「目安」はこの記事の整理です。実際の評価は研究ごとに行います。</p>
+</div>
+
+<div class="card purple">
+  <h2>🧪 GRADEという「格付け」のしくみ</h2>
+  <p>医学のガイドライン作りでよく使われる<strong>GRADE</strong>では、エビデンスの確かさを<strong>高・中・低・非常に低</strong>の4段階で評価します。一般に、RCTは「高」から、観察研究は「低」からスタートし、そこから次のような点で上げ下げします。</p>
+  <div class="flow">
+    <div class="flow-step">1️⃣ 研究の種類で<br>スタート地点を決める</div>
+    <div class="flow-arrow">➡️</div>
+    <div class="flow-step warn2">2️⃣ 偏り・結果のばらつき・<br>人数の少なさなどで下げる</div>
+    <div class="flow-arrow">➡️</div>
+    <div class="flow-step alt">3️⃣ 効果がとても大きい等で<br>上げることもある</div>
+    <div class="flow-arrow">➡️</div>
+    <div class="flow-step purp">4️⃣ 確かさを<br>4段階で判定</div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>🔢 栄養分野の分析から(Schwingshackl ら 2022)</h2>
+  <p>Schwingshackl らは、Cochraneレビュー由来のRCTのまとまりと、対応するコホート研究のまとまりについてGRADE評価を比べ、仮にまとめて評価するとどうなるかを検討しました(<em>J Clin Epidemiol</em> 2022;147:151-159)。</p>
+  <div class="num-row">
+    <div class="num-card"><div><span class="big">42</span></div><div class="desc">評価された「まとめて評価した証拠のまとまり」の数</div></div>
+    <div class="num-card orange-bg"><div><span class="big">2</span><span class="unit">つ</span></div><div class="desc">RCTで主に下げられた理由:精度の低さ(人数など)と偏りのリスク</div></div>
+    <div class="num-card blue-bg"><div><span class="big">2</span><span class="unit">つ</span></div><div class="desc">コホートで主に下げられた理由:偏りのリスクと結果のばらつき</div></div>
+  </div>
+  <p>つまり、<strong>RCTにもコホートにも、それぞれ弱点がある</strong>ということです。著者らは、両者を合わせて評価する方法には、使う前に適切な指針が必要だと結論しています。</p>
+  <p style="font-size:0.8rem;color:#666;">※これは評価方法を比べた研究で、食品の効果を示した研究ではありません。要旨で確認できた範囲の内容で、論文本文は確認できていません。</p>
+</div>
+
+<div class="card red">
+  <h2>🔍 ニュースを見たときの5つのチェック</h2>
+  <ol class="step-list">
+    <li><strong>どんな研究?</strong> RCT・観察研究・動物実験のどれか。</li>
+    <li><strong>何人?</strong> 数十人か数万人か。だれが対象か(年齢・性別・病気)。</li>
+    <li><strong>何と比べた?</strong> 比べる相手(対照)があるか。</li>
+    <li><strong>「関係がある」か「原因」か?</strong> 観察研究なら因果とは言い切れない。</li>
+    <li><strong>ほかの研究とも一致する?</strong> 1つの研究だけで決めない。</li>
+  </ol>
+</div>
+
+<div class="card orange">
+  <h2>⚖️ 反対側の見方も</h2>
+  <p>「RCTが常に最強」とは限りません。食事は長年の積み重ねで影響することが多く、何十年もかかる病気をRCTで確かめるのは難しい場合があります。そのため、観察研究が重要な手がかりになることも多いです。大切なのは、<strong>どちらも万能ではないと知ったうえで、組み合わせて考えること</strong>です。</p>
+</div>
+
+<div class="warn"><strong>💡 今日の学び:</strong> 「研究でわかった」と聞いたら、まず<strong>研究の種類・人数・比べた相手</strong>を確認しましょう。強い言葉のニュースほど、一度立ち止まる価値があります。</div>
+
+<div class="sources">
+  <h3>📚 出典</h3>
+  <ul>
+    <li>Schwingshackl L ら「Pooling of cohort studies and RCTs affects GRADE certainty of evidence in nutrition research」J Clin Epidemiol 2022;147:151-159(DOI: 10.1016/j.jclinepi.2022.04.013)。<a href="https://pubmed.ncbi.nlm.nih.gov/35436525/">https://pubmed.ncbi.nlm.nih.gov/35436525/</a>(基準日:2022年7月。検索結果の要旨で確認、確認日:2026年11月)</li>
+    <li>Health Knowledge(英国公衆衛生関係者向け教材)「The hierarchy of research evidence」。<a href="https://www.healthknowledge.org.uk/index.php/public-health-textbook/research-methods/1a-epidemiology/hierarchy-research-evidence">https://www.healthknowledge.org.uk/index.php/public-health-textbook/research-methods/1a-epidemiology/hierarchy-research-evidence</a>(GRADEの段階とRCT・観察研究の出発点の説明。確認日:2026年11月)</li>
+    <li>※直近7日の新規論文は確認せず、基礎テーマ(エビデンスの強さの見分け方)として扱いました。PubMed等の本文はネットワーク制限で直接確認できていません。</li>
+  </ul>
+</div>
+
+<div class="disclaimer">
+  ⚠️ 本記事は一般的な情報であり、医療アドバイスではありません。効果・必要量・リスクは、個人の体質・年齢・持病・服薬で大きく変わります。食事や運動、睡眠習慣を大きく変える前に、かかりつけ医・管理栄養士・薬剤師などの専門家に相談してください。特定の食事制限・サプリ・断食を安易に始めないでください。
+</div>
+
+</div>
+</body>
+</html>
