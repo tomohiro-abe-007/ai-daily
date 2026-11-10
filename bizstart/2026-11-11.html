@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-11-11</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #2a4d7a 0%, #10233f 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #2a4d7a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.blue   { border-left-color: #1e5a7a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.green  { border-left-color: #1e7a5a; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #2a4d7a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin: 14px 0;
+  }
+  .stats-row.c3 { grid-template-columns: repeat(3, 1fr); }
+  .stats-row.c2 { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 12px 6px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat.now { background: #fff3e0; box-shadow: 0 0 0 2px #c8884a inset; }
+  .stat .sl { font-size: 0.62rem; color: #888; margin-bottom: 3px; line-height: 1.4; }
+  .stat .sv { font-size: 1.05rem; font-weight: 700; color: #2a4d7a; line-height: 1.15; }
+  .stat.now .sv { color: #c8884a; }
+  .stat .su { font-size: 0.62rem; color: #666; margin-top: 2px; }
+
+  .bignum {
+    background: white;
+    border-radius: 12px;
+    padding: 18px 14px;
+    text-align: center;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.1);
+    border: 2px dashed #c8884a;
+    margin: 14px 0;
+  }
+  .bignum .bl { font-size: 0.76rem; color: #888; margin-bottom: 6px; }
+  .bignum .bv { font-size: 1.7rem; font-weight: 700; color: #c8884a; line-height: 1.3; }
+  .bignum .bs { font-size: 0.76rem; color: #666; margin-top: 6px; line-height: 1.6; }
+
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #2a4d7a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-num.now { background: #b54040; }
+  .f-num.later { background: #999; }
+  .f-num.opt { background: #c8884a; }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+  .f-arrow { color: #2a4d7a; font-size: 1.1rem; margin-left: 14px; margin-bottom: 4px; }
+
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  table.cmp {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.83rem;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.08);
+  }
+  table.cmp th, table.cmp td {
+    border: 1px solid #e4dccd;
+    padding: 9px 10px;
+    line-height: 1.55;
+    vertical-align: top;
+  }
+  table.cmp thead th { background: #2a4d7a; color: white; font-weight: 600; text-align: center; }
+  table.cmp tbody th { background: #f5efe2; color: #5a4020; text-align: left; font-weight: 600; white-space: nowrap; }
+  table.cmp td { color: #444; text-align: left; }
+  table.cmp td.hi { background: #fff3e0; font-weight: 700; color: #c8884a; }
+  .wrap-x { overflow-x: auto; }
+
+  .prompt-box {
+    background: #f0f5ff;
+    border: 2px solid #4a6aae;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 12px 0;
+    font-size: 0.84rem;
+    line-height: 1.85;
+    color: #1a2a4a;
+  }
+  .prompt-box .ph {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #4a6aae;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+  .prompt-box .fill {
+    background: #d0e0ff;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-weight: 700;
+    color: #0a2a6e;
+  }
+
+  .info {
+    background: #e8eef8;
+    border-left: 4px solid #2a4d7a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #16294a;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #7a4010;
+  }
+
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #2a4d7a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #2a4d7a; word-break: break-all; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #2a4d7a; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+  <div class="meta">2026-11-11(水)・代表者のマインド / もしもの備え</div>
+  <h1>🛟 1人法人スタート 最新トピック 2026-11-11<br>社長が急に動けなくなったら？ 1人会社の「もしもノート」</h1>
+  <div class="desc">1人会社は、社長が会社の「すべての鍵」を持っています。入院やけがで1〜2週間動けないだけで、支払いや連絡が止まってしまうことも。今日は、<b>30分で始められる備え</b>を図解します。</div>
+  <div style="margin-top:10px"><span class="htag">事業継続</span><span class="htag">マインド</span><span class="htag">1人社長</span></div>
+</div>
+
+<div class="card red">
+  <div class="sec-title">⚡ ① 1人会社の弱点は「代わりがいない」こと</div>
+  <p>社員がいる会社なら誰かが代わりに動けます。1人会社では、社長が止まると会社も止まります。まず「何が止まるか」をイメージしましょう。</p>
+  <div class="stats-row">
+    <div class="stat"><div class="sl">お金</div><div class="sv">💸</div><div class="su">支払い・入金確認が止まる</div></div>
+    <div class="stat"><div class="sl">お客さま</div><div class="sv">📞</div><div class="su">連絡がつかず信用が下がる</div></div>
+    <div class="stat"><div class="sl">データ</div><div class="sv">🔐</div><div class="su">パスワードが誰もわからない</div></div>
+    <div class="stat now"><div class="sl">家族</div><div class="sv">😰</div><div class="su">何から手をつけるか不明</div></div>
+  </div>
+  <div class="bignum">
+    <div class="bl">今日のゴール</div>
+    <div class="bv">「2週間いなくても困らない」</div>
+    <div class="bs">完璧な計画ではなく、<b>誰かが見ればわかるメモ</b>を1枚作ることから</div>
+  </div>
+</div>
+
+<div class="card orange">
+  <div class="sec-title">🔀 ② 備えの5ステップ</div>
+  <div class="f-step"><div class="f-num">1</div><div class="f-text"><b>止まると困る仕事を書き出す</b>：毎月の支払い、納品の約束、定期の連絡など</div></div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step"><div class="f-num">2</div><div class="f-text"><b>「もしもノート」を1枚作る</b>：取引先・契約・口座・支払日の一覧(下の表)</div></div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step"><div class="f-num">3</div><div class="f-text"><b>データを2か所以上に保存する</b>：パソコンだけでなく、クラウドや外付けにも</div></div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step"><div class="f-num opt">4</div><div class="f-text"><b>「もしもの連絡役」を1人決める</b>：家族や信頼できる人に、ノートの置き場所だけ伝える</div></div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step"><div class="f-num now">5</div><div class="f-text"><b>年1回、決算のタイミングで見直す</b>：取引先や契約が変わったら更新</div></div>
+</div>
+
+<div class="card blue">
+  <div class="sec-title">📒 ③ 「もしもノート」に書くこと・書かないこと</div>
+  <div class="wrap-x"><table class="cmp">
+    <thead><tr><th>項目</th><th>書くこと</th><th>書かないこと</th></tr></thead>
+    <tbody>
+      <tr><th>🤝 取引先</th><td>主なお客さまと連絡先、進行中の仕事</td><td>—</td></tr>
+      <tr><th>📅 支払い</th><td>家賃・サブスク・税金などの支払日と方法</td><td>—</td></tr>
+      <tr><th>🏦 口座・カード</th><td>どの銀行・どのカードを使っているか</td><td class="hi">暗証番号・パスワードそのもの</td></tr>
+      <tr><th>💻 アカウント</th><td>使っているサービス名と、パスワード管理の方法</td><td class="hi">ログイン情報の書き写し</td></tr>
+      <tr><th>👥 相談先</th><td>顧問税理士・社労士・司法書士の連絡先</td><td>—</td></tr>
+    </tbody>
+  </table></div>
+  <div class="warn">⚠ パスワードを紙に書いて置いておくのは危険です。パスワード管理アプリなどを使い、「緊急時の扱い方」は信頼できる人や専門家と相談して決めましょう。</div>
+  <div class="info">💡 家族であっても、会社の口座や契約を自由に動かせるとは限りません。会社のお金と社長個人のお金は別物だからです。いざという時の手続きは、司法書士・税理士などに確認しておくと安心です。</div>
+</div>
+
+<div class="card">
+  <div class="sec-title">🏛 ④ 国の仕組みも知っておく：事業継続力強化計画</div>
+  <p>災害などへの備えを計画にまとめると、国(経済産業大臣)が認定してくれる制度があります。<b>「事業継続力強化計画」</b>といいます(BCP＝事業を止めない・すぐ再開するための計画、の簡易版のようなもの)。2019年に始まった制度で、小規模事業者も使えます。</p>
+  <div class="stats-row c3">
+    <div class="stat"><div class="sl">誰が認定?</div><div class="sv">経済産業大臣</div><div class="su">窓口は地方経済産業局</div></div>
+    <div class="stat"><div class="sl">種類</div><div class="sv">単独型/連携型</div><div class="su">1社でも申請できる</div></div>
+    <div class="stat now"><div class="sl">メリットの例</div><div class="sv">金融・補助金</div><div class="su">低利融資・補助金の加点など</div></div>
+  </div>
+  <p>計画には「どんな被害が起きそうか」「最初に何をするか」「前もって何を準備するか」を書きます。もしもノートは、その<b>第一歩の材料</b>になります。</p>
+  <div class="warn">⚠ 税制措置や補助金の加点などの中身・期限は年度ごとに変わります。使う前に中小企業庁の最新情報で確認してください。</div>
+</div>
+
+<div class="card green">
+  <div class="sec-title">🤖 ⑤ 生成AIで「抜けもれチェック」をする</div>
+  <p>自分では「当たり前」すぎて書き忘れる仕事があります。AIに<b>質問してもらう</b>と、抜けもれに気づけます。</p>
+  <div class="prompt-box">
+    <div class="ph">▶ AIに貼るプロンプト例</div>
+    私は1人で<span class="fill">事業内容</span>の会社をしています。<br>
+    私が2週間入院したとき、止まって困る仕事をリストにしたいです。<br>
+    ・毎月やっていること：<span class="fill">例:請求書発行、外注費の支払い</span><br>
+    私に1つずつ質問して、抜けている仕事を見つけてください。最後に「もしもノート」の目次を作ってください。
+  </div>
+  <div class="warn">⚠ 口座番号・パスワード・取引先の実名などはAIに入力しないでください。AIには「項目」だけを考えてもらい、中身は手元のノートに書きます。</div>
+</div>
+
+<div class="card blue">
+  <div class="sec-title">🌱 ⑥ チェックリスト</div>
+  <ul class="check-list">
+    <li><span class="ck">✔</span><span>止まると困る仕事を5つ以上書き出したか</span></li>
+    <li><span class="ck">✔</span><span>支払日と支払い方法の一覧があるか</span></li>
+    <li><span class="ck">✔</span><span>大事なデータが2か所以上に保存されているか</span></li>
+    <li><span class="ck">✔</span><span>ノートの置き場所を、信頼できる人に伝えたか</span></li>
+    <li><span class="ck-bad">✖</span><span>パスワードを付箋やメモ帳アプリにそのまま書く</span></li>
+    <li><span class="ck-bad">✖</span><span>「自分は大丈夫」と後回しにする</span></li>
+  </ul>
+</div>
+
+<div class="card">
+  <div class="sec-title">📌 ⑦ 今日のまとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">1</span><span>1人会社は、社長が止まると会社も止まる</span></li>
+    <li><span class="n">2</span><span>まずは「もしもノート」1枚。パスワードそのものは書かない</span></li>
+    <li><span class="n">3</span><span>データは2か所に保存、連絡役を1人決め、年1回見直す</span></li>
+    <li><span class="n">4</span><span>国の「事業継続力強化計画」も、備えを形にする選択肢</span></li>
+  </ul>
+  <div class="source">📚 出典(基準：令和8年11月時点で確認できた資料)：<br>
+  ・中小企業庁「事業継続力強化計画」概要資料：<a href="https://www.chusho.meti.go.jp/keiei/antei/bousai/download/keizokuryoku/gaiyou.pdf">https://www.chusho.meti.go.jp/keiei/antei/bousai/download/keizokuryoku/gaiyou.pdf</a><br>
+  ・中小企業庁「事業継続力強化計画策定の手引き」：<a href="https://www.chusho.meti.go.jp/keiei/antei/bousai/download/keizokuryoku/kyoka_tebiki.pdf">https://www.chusho.meti.go.jp/keiei/antei/bousai/download/keizokuryoku/kyoka_tebiki.pdf</a><br>
+  ・中小企業庁 2019年(令和元年)の制度開始時の資料：<a href="https://www.chusho.meti.go.jp/keiei/antei/bousai/2019/190716kyokatebiki.pdf">https://www.chusho.meti.go.jp/keiei/antei/bousai/2019/190716kyokatebiki.pdf</a><br>
+  ※本日は公的サイトに直接接続できず、検索結果の要約にもとづいて確認しています。認定のメリット(税制・金融・補助金)の具体的な内容と期限は、申請前に中小企業庁の最新情報で必ずご確認ください。①〜③・⑤は一般的な実務の考え方です。<br>
+  ・関連記事：<a href="2026-11-03.html">会社の財布と社長の財布を分ける(11/3)</a>、<a href="2026-10-09.html">生成AIで業務マニュアルを作る(10/9)</a></div>
+</div>
+
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、税務・法務の個別アドバイスではありません。会社の状況により結論は変わります。
+  具体的な判断は、税理士・社会保険労務士・司法書士などの専門家にご相談ください。<br>
+  <strong>本記事の基準年度：</strong>令和8年度(2026年11月時点)。制度・税率・金額は改正されることがあるため、最新情報は公式サイトでご確認ください。
+</div>
+
+<div class="footer">
+  <p>📚 <a href="index.html">バックナンバー一覧へ</a> &nbsp;&middot;&nbsp; 毎朝更新</p>
+</div>
+
+</div>
+</body>
+</html>
