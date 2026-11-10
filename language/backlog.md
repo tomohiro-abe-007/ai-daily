@@ -2,6 +2,9 @@
 
 ## 未解説テーマ（エバーグリーン）
 
+- 英語のHow do you pronounce...?と発音を聞き返すコツ(ストレス位置の確認、スペイン語¿Cómo se pronuncia?)── 11-11の続編
+- 英語のアルファベットの読み方とスペル伝達(電話で名前を伝える、A as in Appleなど)とスペイン語の文字の読み方(hache, jota, eñe)── 11-11のHow do you spell?の発展
+
 - スペイン語の絶対最上級 -ísimo の発展(副詞への応用・muy との使い分け)── 最上級の続編
 - スペイン語のser用法とestarの違いをまとめて総復習（06-11の続編・応用編）
 - スペイン語のgerundio（現在分詞）の単独用法（Estando cansado, no fui.など）── 08-23の英語分詞構文の逆向きブリッジ、スペイン語にも分詞に近い圧縮表現がある
@@ -46,9 +49,10 @@
 - スペイン語のpensar de vs pensar en の使い分けの深掘り・depender de/confiar en などの前置詞つき動詞 ── 11-04の続編
 
 - 英語のolder/oldest と senior citizen/elderly の言い方(年上・高齢者を表す丁寧な語)── 11-08の続編
-- 英語の「ゆっくり話してください」系と言い換え依頼(Could you speak more slowly? / What does ... mean?)── 11-10の続編、スペイン語Más despacio / ¿Qué significa...?
 
 ## 解説済みテーマ
+
+- 2026-11-11: 英語のWhat does ... mean? / How do you say ... in English? / How do you spell ...?(意味・言い方・つづりを聞く)とCould you speak a little more slowly?── 11-10の続編、スペイン語¿Qué significa?/¿Cómo se dice?/¿Cómo se escribe?との対比
 
 - 2026-11-10: 英語の聞き返しフレーズ(Could you say that again? / Sorry?)── 11-09の確認フレーズの「受ける側」、スペイン語¿Cómo?/¿Puede repetir?との対比
 
