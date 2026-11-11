@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-11-12</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #2a4d7a 0%, #10233f 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #2a4d7a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.blue   { border-left-color: #1e5a7a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.green  { border-left-color: #1e7a5a; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #2a4d7a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin: 14px 0;
+  }
+  .stats-row.c3 { grid-template-columns: repeat(3, 1fr); }
+  .stats-row.c2 { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 12px 6px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat.now { background: #fff3e0; box-shadow: 0 0 0 2px #c8884a inset; }
+  .stat .sl { font-size: 0.62rem; color: #888; margin-bottom: 3px; line-height: 1.4; }
+  .stat .sv { font-size: 1.05rem; font-weight: 700; color: #2a4d7a; line-height: 1.15; }
+  .stat.now .sv { color: #c8884a; }
+  .stat .su { font-size: 0.62rem; color: #666; margin-top: 2px; }
+
+  .bignum {
+    background: white;
+    border-radius: 12px;
+    padding: 18px 14px;
+    text-align: center;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.1);
+    border: 2px dashed #c8884a;
+    margin: 14px 0;
+  }
+  .bignum .bl { font-size: 0.76rem; color: #888; margin-bottom: 6px; }
+  .bignum .bv { font-size: 1.7rem; font-weight: 700; color: #c8884a; line-height: 1.3; }
+  .bignum .bs { font-size: 0.76rem; color: #666; margin-top: 6px; line-height: 1.6; }
+
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #2a4d7a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-num.now { background: #b54040; }
+  .f-num.later { background: #999; }
+  .f-num.opt { background: #c8884a; }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+  .f-arrow { color: #2a4d7a; font-size: 1.1rem; margin-left: 14px; margin-bottom: 4px; }
+
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  table.cmp {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.83rem;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.08);
+  }
+  table.cmp th, table.cmp td {
+    border: 1px solid #e4dccd;
+    padding: 9px 10px;
+    line-height: 1.55;
+    vertical-align: top;
+  }
+  table.cmp thead th { background: #2a4d7a; color: white; font-weight: 600; text-align: center; }
+  table.cmp tbody th { background: #f5efe2; color: #5a4020; text-align: left; font-weight: 600; white-space: nowrap; }
+  table.cmp td { color: #444; text-align: left; }
+  table.cmp td.hi { background: #fff3e0; font-weight: 700; color: #c8884a; }
+  .wrap-x { overflow-x: auto; }
+
+  .prompt-box {
+    background: #f0f5ff;
+    border: 2px solid #4a6aae;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 12px 0;
+    font-size: 0.84rem;
+    line-height: 1.85;
+    color: #1a2a4a;
+  }
+  .prompt-box .ph {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #4a6aae;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+  .prompt-box .fill {
+    background: #d0e0ff;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-weight: 700;
+    color: #0a2a6e;
+  }
+
+  .info {
+    background: #e8eef8;
+    border-left: 4px solid #2a4d7a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #16294a;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #7a4010;
+  }
+
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #2a4d7a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #2a4d7a; word-break: break-all; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #2a4d7a; }
+</style>
+<body>
+<div class="container">
+<div class="header">
+  <div class="meta">2026-11-12(木)・税務の基礎 / 年末年始の準備</div>
+  <h1>🖥 1人法人スタート 最新トピック 2026-11-12<br>パソコンや机にも税金？ 1月の「償却資産の申告」を今から準備</h1>
+  <div class="desc">会社のパソコン・机・エアコンなどには、市町村の税金(固定資産税)がかかることがあります。そのための申告の期限は<b>毎年1月31日</b>。年末は忙しいので、11月のうちに「何を持っているか」を整理しておきましょう。</div>
+  <div style="margin-top:10px"><span class="htag">固定資産税</span><span class="htag">償却資産</span><span class="htag">年末年始</span></div>
+</div>
+
+<div class="card">
+  <div class="sec-title">🧐 ① そもそも「償却資産」って何？</div>
+  <p><b>償却資産</b>(しょうきゃくしさん)とは、<b>土地と建物以外で、会社の仕事に使う道具や設備</b>のことです。何年もかけて少しずつ価値が減っていく(＝減価償却する)ものを指します。土地・建物と同じように、<span class="hl">市町村の「固定資産税」の対象</span>になります。</p>
+  <div class="stats-row c3">
+    <div class="stat"><div class="sl">基準になる日</div><div class="sv">1月1日</div><div class="su">この日に持っている資産が対象</div></div>
+    <div class="stat now"><div class="sl">申告の期限</div><div class="sv">1月31日</div><div class="su">資産がある市町村へ</div></div>
+    <div class="stat"><div class="sl">標準の税率</div><div class="sv">1.4%</div><div class="su">課税標準額にかける</div></div>
+  </div>
+  <div class="info">💡 申告先は「会社の資産が置いてある市町村」です(東京23区は都税事務所)。法人税の申告先(税務署)とは別なので注意しましょう。</div>
+</div>
+
+<div class="card orange">
+  <div class="sec-title">🗂 ② 申告する？しない？ 資産の仕分け表</div>
+  <p>ポイントは<b>「法人税でどう処理したか」で、申告するかどうかが変わる</b>こと。下の表で手元の資産を仕分けしてみましょう。</p>
+  <div class="wrap-x"><table class="cmp">
+    <thead><tr><th>法人税での処理</th><th>例</th><th>償却資産の申告</th></tr></thead>
+    <tbody>
+      <tr><th>10万円未満で<br>一度に経費</th><td>マウス、安い椅子</td><td>対象外</td></tr>
+      <tr><th>20万円未満で<br>3年で均等に経費<br>(一括償却資産)</th><td>15万円の棚</td><td>対象外</td></tr>
+      <tr><th>中小企業の特例で<br>一度に経費<br>(少額減価償却資産)</th><td>25万円のパソコン</td><td class="hi">申告の対象！</td></tr>
+      <tr><th>ふつうに減価償却</th><td>50万円の業務用機器、内装工事</td><td class="hi">申告の対象</td></tr>
+    </tbody>
+  </table></div>
+  <div class="warn">⚠ いちばん間違えやすいのが3段目。法人税では「一度に経費にした」ものでも、<b>償却資産の申告には載せる</b>必要があります(国税と地方税でルールが違うため)。</div>
+  <div class="stats-row c3">
+    <div class="stat"><div class="sl">対象外の例</div><div class="sv">🚗</div><div class="su">自動車(別に自動車税がある)</div></div>
+    <div class="stat"><div class="sl">対象外の例</div><div class="sv">🏠</div><div class="su">土地・建物(別に課税)</div></div>
+    <div class="stat"><div class="sl">対象外の例</div><div class="sv">💿</div><div class="su">ソフトウェアなど形のないもの</div></div>
+  </div>
+</div>
+
+<div class="card blue">
+  <div class="sec-title">🔢 ③ 「150万円」の線：免税点</div>
+  <div class="bignum">
+    <div class="bl">同じ市町村にある償却資産の「課税標準額」の合計が</div>
+    <div class="bv">150万円 未満 → 税金はかからない</div>
+    <div class="bs">これを<b>免税点</b>(めんぜいてん＝ここより下なら課税しないライン)といいます</div>
+  </div>
+  <p>パソコンと机くらいしかない1人会社なら、税金が0円になることも多いです。ただし<span class="hlo">「税金が0円」と「申告しなくていい」は別の話</span>。1月1日に対象の資産を持っていれば、合計が150万円未満でも申告を求めている市町村が多いので、届いた案内に従いましょう。</p>
+  <div class="f-step"><div class="f-num">A</div><div class="f-text"><b>買った年の評価額</b> ＝ 取得価額 ×(1 − 減価率 ÷ 2)<br><span style="font-size:0.8rem;color:#777">買った年は「半年分」だけ価値が減ったとみなす</span></div></div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step"><div class="f-num">B</div><div class="f-text"><b>2年目以降</b> ＝ 前の年の評価額 ×(1 − 減価率)</div></div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step"><div class="f-num later">C</div><div class="f-text"><b>どれだけ古くても</b>、取得価額の5%より下にはならない</div></div>
+  <div class="info">💡 減価率は耐用年数(何年使える前提か)ごとに決まっています。計算は市町村の手引きや会計ソフトの固定資産台帳に任せてOK。社長がやるのは「何を・いつ・いくらで買ったか」の一覧づくりです。</div>
+</div>
+
+<div class="card green">
+  <div class="sec-title">🗓 ④ 11月〜1月の準備スケジュール</div>
+  <div class="f-step"><div class="f-num">1</div><div class="f-text"><b>11月：資産の棚卸し</b>(たなおろし＝持っている物を数えて確認)。固定資産台帳と、実際に手元にある物を見比べる</div></div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step"><div class="f-num">2</div><div class="f-text"><b>12月：申告書が届いたか確認</b>。設立したばかりで届かない場合は、市町村の固定資産税(償却資産)担当に問い合わせる</div></div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step"><div class="f-num opt">3</div><div class="f-text"><b>12月末まで：買う・捨てるの記録</b>。年内に買った物・処分した物を台帳に反映(基準は1月1日時点)</div></div>
+  <div class="f-arrow">▼</div>
+  <div class="f-step"><div class="f-num now">4</div><div class="f-text"><b>1月：申告書を出す</b>。郵送・窓口のほか、地方税の電子申告<b>eLTAX</b>(エルタックス)でも出せる</div></div>
+  <div class="warn">⚠ 期限の日が土日・祝日にあたるときは、翌日以降の役所が開いている日になります。2027年は1月31日が日曜日のため、実際の期限は自治体の案内で確認してください。</div>
+</div>
+
+<div class="card">
+  <div class="sec-title">🤖 ⑤ 生成AIで「台帳の仕分け」を手伝ってもらう</div>
+  <p>会計ソフトから固定資産や消耗品の一覧を出し、AIに<b>「申告に載せる候補」</b>を仕分けしてもらうと、見落としを減らせます。</p>
+  <div class="prompt-box">
+    <div class="ph">▶ AIに貼るプロンプト例</div>
+    以下は私の会社(1人法人)の購入品リストです。<br>
+    「品名・購入日・税抜金額・法人税での処理(一括経費/一括償却/少額特例/通常償却)」を書いています。<br>
+    <span class="fill">ここに一覧を貼る(会社名・取引先名は消す)</span><br>
+    固定資産税の償却資産申告に載せる候補と、対象外の候補に分けて表にしてください。判断に迷うものは「要確認」として理由を書いてください。
+  </div>
+  <div class="warn">⚠ AIの仕分けはあくまで下書きです。最終判断は市町村の手引きか、顧問税理士に確認しましょう。</div>
+</div>
+
+<div class="card blue">
+  <div class="sec-title">🌱 ⑥ チェックリスト</div>
+  <ul class="check-list">
+    <li><span class="ck">✔</span><span>固定資産台帳(または購入品リスト)が最新になっているか</span></li>
+    <li><span class="ck">✔</span><span>中小企業の特例で一度に経費にした資産を、申告候補に入れたか</span></li>
+    <li><span class="ck">✔</span><span>処分・売却した資産を台帳から外したか</span></li>
+    <li><span class="ck">✔</span><span>申告先の市町村と、申告書が届いているかを確認したか</span></li>
+    <li><span class="ck-bad">✖</span><span>「150万円未満だから何もしなくていい」と決めつける</span></li>
+    <li><span class="ck-bad">✖</span><span>法人税の申告と同じ扱いだと思い込む</span></li>
+  </ul>
+</div>
+
+<div class="card">
+  <div class="sec-title">📌 ⑦ 今日のまとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">1</span><span>パソコン・机・設備などは、市町村の固定資産税(償却資産)の対象になる</span></li>
+    <li><span class="n">2</span><span>1月1日に持っている資産を、1月31日までに市町村へ申告する</span></li>
+    <li><span class="n">3</span><span>少額特例で一度に経費にした資産は、申告に載せる(10万円未満・一括償却資産は対象外)</span></li>
+    <li><span class="n">4</span><span>合計150万円未満なら税金はかからないが、申告は求められることが多い</span></li>
+  </ul>
+  <div class="source">📚 出典(基準：令和8年度〈2026年11月時点〉。地方税法の規定は令和9年1月1日を賦課期日とする申告に適用される現行ルールとして記載)：<br>
+  ・地方税法(e-Gov法令検索)第341条(償却資産の定義)・第350条(標準税率1.4%)・第351条(免税点150万円)・第359条(賦課期日1月1日)・第383条(申告義務・1月31日まで)：<a href="https://laws.e-gov.go.jp/law/325AC0000000226">https://laws.e-gov.go.jp/law/325AC0000000226</a><br>
+  ・総務省「固定資産税」制度の概要：<a href="https://www.soumu.go.jp/main_sosiki/jichi_zeisei/czaisei/czaisei_seido/149767_08.html">https://www.soumu.go.jp/main_sosiki/jichi_zeisei/czaisei/czaisei_seido/149767_08.html</a><br>
+  ・国税庁 タックスアンサー No.5408「中小企業者等の少額減価償却資産の取得価額の損金算入の特例」：<a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/hojin/5408.htm">https://www.nta.go.jp/taxes/shiraberu/taxanswer/hojin/5408.htm</a><br>
+  ・eLTAX(地方税ポータルシステム)：<a href="https://www.eltax.lta.go.jp/">https://www.eltax.lta.go.jp/</a><br>
+  ※本日は官公庁・自治体のサイトに直接接続できず、検索結果と従来から公表されている制度内容にもとづいて記載しています。評価額の計算方法・申告書の様式・免税点未満の場合の申告の要否は市町村ごとの手引きで必ずご確認ください。なお、免税点の金額の見直しに触れた民間の解説も見られますが、本日は一次情報で確認できなかったため記載していません。<br>
+  ・関連記事：<a href="2026-06-26.html">減価償却の基礎(6/26)</a>、<a href="2026-07-10.html">少額減価償却の特例「30万円→40万円」続報(7/10)</a></div>
+</div>
+
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、税務・法務の個別アドバイスではありません。会社の状況により結論は変わります。
+  具体的な判断は、税理士・社会保険労務士・司法書士などの専門家にご相談ください。<br>
+  <strong>本記事の基準年度：</strong>令和8年度(2026年11月時点)。制度・税率・金額は改正されることがあるため、最新情報は公式サイトでご確認ください。
+</div>
+<div class="footer">
+  <p>📚 <a href="index.html">バックナンバー一覧へ</a> &nbsp;&middot;&nbsp; 毎朝更新</p>
+</div>
+</div>
+</body>
+</html>
