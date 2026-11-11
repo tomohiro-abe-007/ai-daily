@@ -2,6 +2,7 @@
 
 ## 解説済みトピック（重複を避けるための記録）
 
+- 2026-11-12: Claude Fable 5.2 / Mythos 5.2（2026年11月9日発表・公式ブログ・同じ土台モデル/Mythosは審査済み組織のみ・最大30%高速（テスター報告）・$8/$40・Fast最大2.5倍$16/$80・ブロック約55%減は早期テスト・料金は公式要確認）（出典：Anthropic公式ブログ・2026年11月）
 - 2026-11-11: ChatGPT検索量がGoogleの約5分の1とOpenAI幹部が発言（Adam Fry氏・Big Technologyインタビュー・報道では2026年11月3日・OpenAIは「ウェブ検索に行くたび1回」と数える・Googleの数字の出どころ不明・Ahrefs 2月推定約12%・Gizmodo約1/6・訪問数は別指標）（出典：Search Engine Roundtable / Crypto Briefing / Let’s Data Science / Gizmodo・2026年11月）
 - 2026-11-10: Kimi K3.1 Pro 重み公開（報道では2026年11月4日・Hugging Face・API先行は10月下旬・約2.8兆パラメータ・100万トークン・独自ライセンス/年商2,000万ドル超のサービス事業者は商用契約・サイバー関連学習データを除去・内部テストで攻撃成功率90.5%→81%はMoonshot内部計測・Highspeed版の重み公開は不明）（出典：TechNode / RuntimeWire / Crypto Briefing / Notebookcheck・2026年11月）
 - 2026-11-09: OpenAI Images 2.6（報道では2026年11月4日公開・約50%高速化はOpenAI発表・GIF作成/参照画像/フレーム編集・APIに新モデル2種・API料金は報道で出力100万トークン$30・公式要確認）（出典：TestingCatalog / FourWeekMBA / Let’s Data Science・2026年11月）
