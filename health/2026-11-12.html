@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-11-12</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: "🧠";
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.35rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.9rem; margin-bottom: 8px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.1em; }
+  .c3-col li { margin-bottom: 4px; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  .quote-box {
+    background: #f5f0e8;
+    border-left: 4px solid #7a5abf;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    margin: 12px 0;
+    color: #444;
+    font-style: italic;
+  }
+  .quote-box .who { font-style: normal; font-weight: 700; color: #5a3a9a; margin-top: 6px; font-size: 0.78rem; }
+  .matrix {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .mx-cell {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .mx-cell .mx-head { font-weight: 700; font-size: 0.88rem; margin-bottom: 6px; }
+  .mx-cell.ok  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .mx-cell.ok  .mx-head { color: #1a6e4a; }
+  .mx-cell.ng  { background: #fbe8e6; border: 2px solid #c0392b; }
+  .mx-cell.ng  .mx-head { color: #a0291e; }
+  .subtype-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .subtype-card {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.84rem;
+  }
+  .subtype-card .st-head { font-weight: 700; font-size: 0.92rem; margin-bottom: 8px; }
+  .subtype-card .st-bar {
+    height: 10px;
+    border-radius: 5px;
+    background: #eee;
+    overflow: hidden;
+    margin: 6px 0 4px;
+  }
+  .subtype-card .st-bar-fill { height: 100%; }
+  .subtype-card.st-green { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .subtype-card.st-green .st-head { color: #1a6e4a; }
+  .subtype-card.st-orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .subtype-card.st-orange .st-head { color: #b85e10; }
+  .subtype-card.st-red { background: #fbe8e6; border: 2px solid #c0392b; }
+  .subtype-card.st-red .st-head { color: #a0291e; }
+  @media (max-width: 540px) {
+    .compare4 { grid-template-columns: 1fr; }
+    .matrix { grid-template-columns: 1fr; }
+    .subtype-grid { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.7rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+  .bar{height:22px;border-radius:6px;margin:4px 0 2px;color:#fff;font-size:.78rem;padding:0 8px;line-height:22px;white-space:nowrap}
+</style>
+
+</head>
+<body>
+<div class="page">
+
+<div class="header">
+  <div class="label">健康・栄養 / 脳 × サプリ × 論文の読み方</div>
+  <h1>健康・栄養 最新トピック 2026-11-12<br>魚の油(DHA)は脳に届いた。でも、記憶は変わらなかった ── 2年間のRCTを読む</h1>
+  <div class="subtitle">🧠 認知症になりやすい要素をもつ55〜80歳の365人に、DHAを1日2gか「にせもののカプセル」を2年間とってもらった米国の試験(<em>eBioMedicine</em> 2026年)。「届く」と「効く」は別物だ、という話です。</div>
+</div>
+
+<div class="card">
+  <h2>🎯 今日のポイント</h2>
+  <ul>
+    <li>DHA(魚の油に多いオメガ3脂肪酸の一種)を毎日2gとると、<strong>脳と背骨のまわりの液(脳脊髄液)のDHAがちゃんと増えました</strong>。</li>
+    <li>それでも2年後、<strong>記憶などのテストの成績も、記憶の中枢「海馬」の縮み方も、にせものカプセルの人と差がありませんでした</strong>。</li>
+    <li>「脳に届かなかったから効かなかった」という言いわけが使えなくなった、という意味で大切な結果です。ただし<strong>1つの試験・特定の人たち</strong>の話です。</li>
+  </ul>
+  <p style="font-size:0.85rem;color:#666;">🔄 <strong>前回からのアップデート:</strong>11月3日の回(オメガ3と心臓)の続きで、今日は<strong>「脳・認知」編</strong>です。</p>
+</div>
+
+<div class="card purple">
+  <h2>📖 まず言葉の意味を</h2>
+  <div class="def-grid">
+    <div class="def-item"><div class="dterm">🐟 DHA</div>ドコサヘキサエン酸。青魚に多い脂の一種で、脳の細胞の膜にたくさん含まれる。</div>
+    <div class="def-item"><div class="dterm">💧 脳脊髄液(のうせきずいえき)</div>脳と脊髄をつつむ透明な液。腰に細い針を刺して(腰椎穿刺)少しとると、脳の中の様子を間接的に調べられる。</div>
+    <div class="def-item"><div class="dterm">🌀 海馬(かいば)</div>記憶をつくる脳の部分。アルツハイマー病では早くから縮みやすい。MRIで大きさを測れる。</div>
+    <div class="def-item"><div class="dterm">🧬 APOE4(エーポイー・フォー)</div>アルツハイマー病のなりやすさに関わる遺伝子のタイプ。持っていても必ず発症するわけではない。</div>
+    <div class="def-item"><div class="dterm">🎭 プラセボ</div>見た目は同じだが有効成分の入っていない「にせもの」。思い込みの効果と本当の効果を分けるために使う。</div>
+    <div class="def-item"><div class="dterm">🎯 ターゲット・エンゲージメント</div>「薬や栄養素が、ねらった場所にちゃんと届いて働いているか」を確かめること。</div>
+  </div>
+</div>
+
+<div class="card blue">
+  <h2>🔢 試験の数字</h2>
+  <div class="num-row">
+    <div class="num-card blue-bg"><div class="big">365<span class="unit">人</span></div><div class="desc">参加者(55〜80歳・平均66歳・認知症なし)</div></div>
+    <div class="num-card"><div class="big">2<span class="unit">g/日</span></div><div class="desc">DHAの量(またはプラセボ)</div></div>
+    <div class="num-card purple-bg"><div class="big">2<span class="unit">年</span></div><div class="desc">試験の期間</div></div>
+    <div class="num-card orange-bg"><div class="big">+17<span class="unit">%</span></div><div class="desc">6か月後の脳脊髄液のDHA(平均・研究チームの解説による)</div></div>
+  </div>
+  <p>参加したのは、<strong>魚をあまり食べず、認知症のなりやすさにつながる要素を1つ以上もつ人</strong>たちです。APOE4を持つ人・持たない人で偏らないように分けてから、くじ引き(ランダム)でDHAとプラセボに振り分けました。参加者も研究者もどちらを飲んでいるかわからない<strong>二重盲検</strong>です。</p>
+</div>
+
+<div class="card">
+  <h2>🧭 試験の流れ</h2>
+  <div class="flow">
+    <div class="flow-step">① 365人を<br>くじ引きで2群に</div>
+    <div class="flow-arrow">➜</div>
+    <div class="flow-step">② DHA 2g または<br>プラセボを毎日</div>
+    <div class="flow-arrow">➜</div>
+    <div class="flow-step alt">③ 6か月:<br>脳脊髄液を検査<br>(希望者のみ)</div>
+    <div class="flow-arrow">➜</div>
+    <div class="flow-step purp">④ 2年:<br>記憶テスト+<br>MRIで海馬</div>
+  </div>
+  <p style="font-size:0.85rem;">※最初に確かめたい項目(主要評価項目)は、<strong>6か月後の脳脊髄液の中のDHAの割合の変化</strong>でした。腰椎穿刺に同意した約180人が対象です。</p>
+</div>
+
+<div class="card orange">
+  <h2>⚖️ 結果:「届いた」と「効いた」を分けて見る</h2>
+  <div class="matrix">
+    <div class="mx-cell ok">
+      <div class="mx-head">✅ 届いた(確認できた)</div>
+      <ul style="padding-left:1.1em;">
+        <li>血液のDHAが増えた</li>
+        <li>脳脊髄液のDHAも増えた</li>
+        <li>APOE4の有無で増え方に差は見られなかった(研究チームの解説)</li>
+      </ul>
+    </div>
+    <div class="mx-cell ng">
+      <div class="mx-head">❌ 効いた(確認できなかった)</div>
+      <ul style="padding-left:1.1em;">
+        <li>記憶・思考のテスト:プラセボと差なし</li>
+        <li>海馬の大きさの減り方:左右とも差なし</li>
+        <li>APOE4を持つ人は海馬が縮みやすかったが、DHAでその傾向は変わらなかった</li>
+      </ul>
+    </div>
+  </div>
+  <div class="warn"><strong>💡 ポイント:</strong> 栄養素が体の中で増えること(中間の数値)と、病気や症状がよくなること(本当に知りたい結果)は、<strong>別々に確かめる必要があります</strong>。今回は前者が「はい」、後者が「いいえ」でした。</div>
+</div>
+
+<div class="card purple">
+  <h2>🧪 エビデンスの強さ</h2>
+  <table class="ev-table">
+    <tr><th>項目</th><th>今回の試験</th><th>評価</th></tr>
+    <tr><td>研究の種類</td><td>ランダム化・二重盲検・プラセボ対照試験(RCT)</td><td><span class="ev-badge ev-high">強め</span></td></tr>
+    <tr><td>人数・期間</td><td>365人・2年(認知症予防の試験としては中くらいの規模)</td><td><span class="ev-badge ev-mid">中</span></td></tr>
+    <tr><td>対象</td><td>米国の55〜80歳、魚をあまり食べない、認知症の要素あり、認知症なし</td><td><span class="ev-badge ev-mid">限定的</span></td></tr>
+    <tr><td>一般化</td><td>日本人・魚をよく食べる人・すでに物忘れがある人には、そのまま当てはめられない</td><td><span class="ev-badge ev-low">注意</span></td></tr>
+  </table>
+  <p style="font-size:0.85rem;">※「効果がなかった」も、正確には「この人数・この期間では<strong>差を見つけられなかった</strong>」という意味です。ごく小さな効果まで否定できたわけではありません。</p>
+</div>
+
+<div class="card blue">
+  <h2>🆚 反対側の見方も</h2>
+  <div class="compare4">
+    <div class="c3-col orange">
+      <h3>🤔 「サプリで予防」には否定的</h3>
+      <ul>
+        <li>届いても効かなかったので、「量を増やせば効く」とは言いにくい</li>
+        <li>研究代表者も、魚油サプリをアルツハイマー予防として勧める根拠にはならないとコメント(報道)</li>
+      </ul>
+    </div>
+    <div class="c3-col green">
+      <h3>🔍 まだ残る疑問</h3>
+      <ul>
+        <li>2年は短すぎた? もっと若いうちから長く続けたら?</li>
+        <li>テストやMRIが、小さな変化をとらえきれなかった?</li>
+        <li>脳の中でDHAがどう使われるか(代謝)が人によって違う?</li>
+      </ul>
+    </div>
+  </div>
+  <p>研究チーム自身も、今後は「サプリの量を上げる」より、<strong>脳の中でのDHAの使われ方や、運動・食事などを組み合わせた方法</strong>を調べるべきだと述べています。また、<strong>魚を食べる人ほど認知症が少ない</strong>という観察研究(相関)はありますが、それは魚以外の生活習慣の違いも混ざりうるため、今回のような試験(因果を確かめる)とは分けて考えます。</p>
+</div>
+
+<div class="card">
+  <h2>🧬 精密栄養学の視点</h2>
+  <p>今回は「APOE4という遺伝子タイプで効き方が変わるか」も見られましたが、<strong>DHAの増え方にも効果にも、はっきりした違いは見つかりませんでした</strong>。「遺伝子で分ければ効く人が見つかるはず」という期待が、いつも当たるわけではない、という例でもあります。</p>
+  <p>11月3日の回で見たように、オメガ3は<strong>心臓のテーマでも「対象・量・種類(EPAかDHAか)」で結果が変わります</strong>。「オメガ3は体にいい/悪い」とひとまとめにせず、<strong>「だれに・何を・どれだけ・何のために」</strong>で分けて読むのが大切です。</p>
+</div>
+
+<div class="warn"><strong>💡 今日の学び:</strong> 「成分が脳に届いた」は、「脳によい」と同じではありません。ニュースを読むときは、<strong>中間の数値(血液・体液の濃度)</strong>と<strong>本当に知りたい結果(記憶・病気)</strong>のどちらの話かを見分けましょう。</div>
+
+<div class="sources">
+  <h3>📚 出典</h3>
+  <ul>
+    <li>Yassine HN ら(南カリフォルニア大学)「CNS target engagement of high-dose DHA supplementation in older adults at risk for dementia: a randomised, double-blind, placebo-controlled trial」<em>eBioMedicine</em> 2026(DOI: 10.1016/j.ebiom.2026.106316)。<a href="https://www.thelancet.com/journals/ebiom/article/PIIS2352-3964(26)00198-2/fulltext">https://www.thelancet.com/journals/ebiom/article/PIIS2352-3964(26)00198-2/fulltext</a>(基準日:2026年6月。研究デザイン・主要評価項目・認知機能と海馬体積に群間差がないことは検索結果の要旨で確認。本文はネットワーク制限で未確認、確認日:2026年11月)</li>
+    <li>Yassine HN ら「Baseline Findings of PreventE4: A Double-Blind Placebo Controlled Clinical Trial Testing High Dose DHA in APOE4 Carriers before the Onset of Dementia」<em>J Prev Alzheimers Dis</em> 2023(DOI: 10.14283/jpad.2023.77)。<a href="https://pubmed.ncbi.nlm.nih.gov/37874103/">https://pubmed.ncbi.nlm.nih.gov/37874103/</a>(基準日:2023年。参加者365人・55〜80歳・平均66歳・DHA 2g/日・2年間の情報。確認日:2026年11月)</li>
+    <li>Yassine Lab「Beyond Omega-3 supplements: What PreventE4 Taught Us About Omega-3s and the Brain」(研究チームによる解説)。<a href="https://www.yassinelab.org/p/beyond-omega-3-supplements-what-prevente4">https://www.yassinelab.org/p/beyond-omega-3-supplements-what-prevente4</a>(基準日:2026年。脳脊髄液DHA平均+17%、APOE4による違いが見られなかった点の出典。確認日:2026年11月)</li>
+    <li>※この試験は2026年6月に発表され、10月下旬に改めて報道されたものです。直近7日に発表された新しい論文は見つからなかったため、11月3日の回の続きとして取り上げました。</li>
+  </ul>
+</div>
+
+<div class="disclaimer">
+  ⚠️ 本記事は一般的な情報であり、医療アドバイスではありません。効果・必要量・リスクは、個人の体質・年齢・持病・服薬で大きく変わります。魚油(オメガ3)サプリは、血をかたまりにくくする薬などとの飲み合わせに注意が必要な場合があります。サプリを始める・やめる前に、かかりつけ医・管理栄養士・薬剤師などの専門家に相談してください。特定の食事制限・サプリ・断食を安易に始めないでください。
+</div>
+
+</div>
+</body>
+</html>
