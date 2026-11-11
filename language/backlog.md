@@ -2,7 +2,6 @@
 
 ## 未解説テーマ（エバーグリーン）
 
-- 英語のHow do you pronounce...?と発音を聞き返すコツ(ストレス位置の確認、スペイン語¿Cómo se pronuncia?)── 11-11の続編
 - 英語のアルファベットの読み方とスペル伝達(電話で名前を伝える、A as in Appleなど)とスペイン語の文字の読み方(hache, jota, eñe)── 11-11のHow do you spell?の発展
 
 - スペイン語の絶対最上級 -ísimo の発展(副詞への応用・muy との使い分け)── 最上級の続編
@@ -48,9 +47,14 @@
 
 - スペイン語のpensar de vs pensar en の使い分けの深掘り・depender de/confiar en などの前置詞つき動詞 ── 11-04の続編
 
+- 英語の複合語のストレス(GREENhouse温室 vs green HOUSE緑の家、BLACKboard)── 11-12の続編
+- スペイン語のアクセント記号で意味が変わる語(hablo/habló、papa/papá、tu/tú)── 11-12のブリッジの深掘り
+
 - 英語のolder/oldest と senior citizen/elderly の言い方(年上・高齢者を表す丁寧な語)── 11-08の続編
 
 ## 解説済みテーマ
+
+- 2026-11-12: 英語のHow do you pronounce...? / Where's the stress?(発音と強く読む場所の確認)── 11-11の続編、名詞・動詞でストレスが変わる語(record/present)、スペイン語¿Cómo se pronuncia?とアクセント記号のルール
 
 - 2026-11-11: 英語のWhat does ... mean? / How do you say ... in English? / How do you spell ...?(意味・言い方・つづりを聞く)とCould you speak a little more slowly?── 11-10の続編、スペイン語¿Qué significa?/¿Cómo se dice?/¿Cómo se escribe?との対比
 
