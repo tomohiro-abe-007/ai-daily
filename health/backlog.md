@@ -1,5 +1,11 @@
 # 健康日報 テーマバックログ
 
+## 未使用テーマ(追記:2026-11-13)
+
+- 11-13記事(上咽頭がんの化学放射線療法中の早期ONS、JAMA Oncol 2026年11月12日 DOI 10.1001/jamaoncol.2026.4535、NCT04823468、n=216)の続報候補 ── 本文での副次評価(口内炎・治療中断・生存・生活の質)、信頼区間、栄養剤の量、製品提供の有無。jamanetwork・clinicaltrials.govはネットワーク制限で本文未確認
+- 「医療としての食事(Food is Medicine)」の独立回 ── Hollis-Hansen ら Nature Communications 2026年11月6日「A pilot randomized controlled trial of medically tailored groceries and resource coaching」(DOI 10.1038/s41467-026-79207-z、NCT06242808、N=210)。結果の数値は未確認、本文確認が必要
+- 体内時計のズレ・夜遅い食事と腸内細菌・腸のバリア(iScience、肥満者対象、2026年11月報道)── 一次論文の特定が必要、観察研究の読み方と合わせて
+
 ## 未使用テーマ(追記:2026-11-12)
 
 - 11-12記事(DHAと脳、Yassine ら eBioMedicine 2026 DOI 10.1016/j.ebiom.2026.106316、PreventE4試験 n=365)の続報候補 ── 本文での認知テストの群間差・信頼区間・海馬体積の年率、資金源、ClinicalTrials.gov登録番号(NCT03613844が同一試験か未確認)。thelancet.com等はネットワーク制限で本文未確認

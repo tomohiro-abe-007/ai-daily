@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-11-13</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: "🥤";
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.35rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.9rem; margin-bottom: 8px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.1em; }
+  .c3-col li { margin-bottom: 4px; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; overflow-wrap: anywhere; word-break: break-all; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  .quote-box {
+    background: #f5f0e8;
+    border-left: 4px solid #7a5abf;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    margin: 12px 0;
+    color: #444;
+    font-style: italic;
+  }
+  .quote-box .who { font-style: normal; font-weight: 700; color: #5a3a9a; margin-top: 6px; font-size: 0.78rem; }
+  .matrix {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .mx-cell {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .mx-cell .mx-head { font-weight: 700; font-size: 0.88rem; margin-bottom: 6px; }
+  .mx-cell.ok  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .mx-cell.ok  .mx-head { color: #1a6e4a; }
+  .mx-cell.ng  { background: #fbe8e6; border: 2px solid #c0392b; }
+  .mx-cell.ng  .mx-head { color: #a0291e; }
+  .subtype-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .subtype-card {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.84rem;
+  }
+  .subtype-card .st-head { font-weight: 700; font-size: 0.92rem; margin-bottom: 8px; }
+  .subtype-card .st-bar {
+    height: 10px;
+    border-radius: 5px;
+    background: #eee;
+    overflow: hidden;
+    margin: 6px 0 4px;
+  }
+  .subtype-card .st-bar-fill { height: 100%; }
+  .subtype-card.st-green { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .subtype-card.st-green .st-head { color: #1a6e4a; }
+  .subtype-card.st-orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .subtype-card.st-orange .st-head { color: #b85e10; }
+  .subtype-card.st-red { background: #fbe8e6; border: 2px solid #c0392b; }
+  .subtype-card.st-red .st-head { color: #a0291e; }
+  @media (max-width: 540px) {
+    .compare4 { grid-template-columns: 1fr; }
+    .matrix { grid-template-columns: 1fr; }
+    .subtype-grid { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.7rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+  .bar{height:22px;border-radius:6px;margin:4px 0 2px;color:#fff;font-size:.78rem;padding:0 8px;line-height:22px;white-space:nowrap}
+</style>
+
+</head>
+<body>
+<div class="page">
+
+<div class="header">
+  <div class="label">健康・栄養 / 治療中の栄養 × 論文の読み方</div>
+  <h1>健康・栄養 最新トピック 2026-11-13<br>やせる前に「先回り」の栄養 ── がんの放射線治療中の、飲む栄養剤のRCTを読む</h1>
+  <div class="subtitle">🥤 のどの奥のがん(上咽頭がん)の治療を受ける216人を、「治療の初日から栄養剤を飲む」と「体重が落ちてから飲む」にくじ引きで分けた中国の試験(<em>JAMA Oncology</em>、2026年11月12日オンライン公開)。「いつ始めるか」で結果は変わるのか、という話です。</div>
+</div>
+
+<div class="card">
+  <h2>🎯 今日のポイント</h2>
+  <ul>
+    <li>のどの放射線治療中は、口やのどが荒れて<strong>食べられなくなり、やせやすい</strong>ことが知られています。</li>
+    <li>栄養剤を<strong>治療の初日から</strong>飲んだ人たちは、<strong>落ちてから</strong>飲んだ人たちより、「体重が5%以上減った人」の割合が少なくなりました(<strong>約81% → 約65%</strong>)。</li>
+    <li>ただし、確かめたのは<strong>「体重」</strong>という中間の結果で、<strong>命がのびるか・がんが治りやすくなるかは別の話</strong>です。中国の6病院・1種類のがんでの結果でもあります。</li>
+  </ul>
+</div>
+
+<div class="card purple">
+  <h2>📖 まず言葉の意味を</h2>
+  <div class="def-grid">
+    <div class="def-item"><div class="dterm">👃 上咽頭がん(じょういんとうがん)</div>鼻のいちばん奥、のどの上のほうにできるがん。中国南部や東南アジアで比較的多い。</div>
+    <div class="def-item"><div class="dterm">☢️ 化学放射線療法</div>抗がん剤(化学療法)と放射線を同時に行う治療。効果が高い一方、口やのどの粘膜が荒れやすい。</div>
+    <div class="def-item"><div class="dterm">🥤 経口栄養補助食品(ONS)</div>口から飲む栄養剤。少ない量でエネルギーやたんぱく質をとれるように作られた飲みもの。</div>
+    <div class="def-item"><div class="dterm">🔓 非盲検(オープンラベル)</div>参加者も医師も、どちらのグループか知っている試験。プラセボを使えない場合に多いが、思い込みの影響が入りうる。</div>
+    <div class="def-item"><div class="dterm">🎯 主要評価項目</div>試験で「いちばん確かめたいこと」として最初に決めておく結果。今回は「体重が5%以上減ったかどうか」。</div>
+    <div class="def-item"><div class="dterm">💴 費用効用分析</div>かかったお金と、得られた「生活の質を考えた健康な期間(QALY)」を比べる計算。</div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>🧭 試験の流れ</h2>
+  <div class="flow">
+    <div class="flow-step">① 216人<br>(6病院・2021〜2025年)</div>
+    <div class="flow-arrow">➜</div>
+    <div class="flow-step purp">② くじ引きで<br>2グループに</div>
+    <div class="flow-arrow">➜</div>
+    <div class="flow-step">③-A 早め:<br>治療初日から<br>栄養剤</div>
+    <div class="flow-step alt">③-B いつもどおり:<br>栄養状態が落ちたら<br>栄養剤</div>
+    <div class="flow-arrow">➜</div>
+    <div class="flow-step warn2">④ 治療の終わりに<br>体重が5%以上<br>減った人の割合</div>
+  </div>
+  <p style="font-size:0.85rem;">※対象は、新しく診断されたステージII〜IVAの上咽頭がんの大人。体重60kgの人なら、5%は<strong>3kg</strong>にあたります。</p>
+</div>
+
+<div class="card blue">
+  <h2>🔢 結果の数字</h2>
+  <div class="num-row">
+    <div class="num-card orange-bg"><div class="big">80.7<span class="unit">%</span></div><div class="desc">いつもどおり群で5%以上やせた人(88/109人)</div></div>
+    <div class="num-card"><div class="big">65.4<span class="unit">%</span></div><div class="desc">早め群で5%以上やせた人(70/107人)</div></div>
+    <div class="num-card blue-bg"><div class="big">−15<span class="unit">ポイント</span></div><div class="desc">割合の差(絶対差・計算値 約15.3)</div></div>
+    <div class="num-card purple-bg"><div class="big">約7<span class="unit">人</span></div><div class="desc">早めに始めると、およそ7人に1人「5%以上やせる」を防げた計算(参考値)</div></div>
+  </div>
+  <p style="font-size:0.85rem;">グラフで見ると(5%以上やせた人の割合):</p>
+  <div style="font-size:0.8rem;">いつもどおり</div>
+  <div class="bar" style="width:80.7%;background:#c07020;">80.7%</div>
+  <div style="font-size:0.8rem;margin-top:6px;">早め</div>
+  <div class="bar" style="width:65.4%;background:#1a7a5a;">65.4%</div>
+  <div class="warn"><strong>💡 見落としやすい点:</strong> 早め群でも<strong>3人に2人は5%以上やせています</strong>。栄養剤だけで、やせを完全に防げるわけではありません。</div>
+</div>
+
+<div class="card orange">
+  <h2>💴 お金の面は?</h2>
+  <div class="compare4">
+    <div class="c3-col green">
+      <h3>🥤 早め群</h3>
+      <ul>
+        <li>費用:約9,561ドル</li>
+        <li>QALY:0.1144</li>
+      </ul>
+    </div>
+    <div class="c3-col orange">
+      <h3>⏳ いつもどおり群</h3>
+      <ul>
+        <li>費用:約9,685ドル</li>
+        <li>QALY:0.1132</li>
+      </ul>
+    </div>
+  </div>
+  <p style="font-size:0.85rem;">論文の要旨によると、条件のよい試算(ベストケース)では、早め群のほうが<strong>費用はやや少なく、健康な期間はわずかに長い</strong>結果でした。ただし差は小さく、<strong>中国の医療費での計算</strong>なので、日本などにそのまま当てはめることはできません。</p>
+</div>
+
+<div class="card purple">
+  <h2>🧪 エビデンスの強さ</h2>
+  <table class="ev-table">
+    <tr><th>項目</th><th>今回の試験</th><th>評価</th></tr>
+    <tr><td>研究の種類</td><td>ランダム化比較試験(RCT)・多施設</td><td><span class="ev-badge ev-high">強め</span></td></tr>
+    <tr><td>盲検</td><td>非盲検(どちらの群か本人も医師も知っている)</td><td><span class="ev-badge ev-mid">注意</span></td></tr>
+    <tr><td>人数</td><td>216人(体重の差を見るには十分、命の長さを見るには小さい)</td><td><span class="ev-badge ev-mid">中</span></td></tr>
+    <tr><td>結果の種類</td><td>体重という<strong>中間の結果</strong>。生存率などは今回の要旨では確認できず</td><td><span class="ev-badge ev-mid">限定的</span></td></tr>
+    <tr><td>一般化</td><td>中国・上咽頭がんのみ。ほかのがん・ほかの国には慎重に</td><td><span class="ev-badge ev-low">注意</span></td></tr>
+  </table>
+  <p style="font-size:0.85rem;">※本文はネットワークの制限で読めず、<strong>要旨と研究概要の範囲</strong>で解説しています。副作用や治療の中断などの細かい結果は未確認です。</p>
+</div>
+
+<div class="card blue">
+  <h2>🆚 これまでの研究は、そろっていない</h2>
+  <div class="compare4">
+    <div class="c3-col green">
+      <h3>👍 早めがよさそう</h3>
+      <ul>
+        <li>今回のRCT(216人):5%以上のやせが減った</li>
+        <li>2019年の探索的RCT(100人):体重の減りが小さかった。ただし生活の質などには差なし</li>
+      </ul>
+    </div>
+    <div class="c3-col orange">
+      <h3>🤔 差がはっきりしない</h3>
+      <ul>
+        <li>2020年のRCT(<em>Oral Oncology</em>):治療を続けやすくはなったが、<strong>短期の体重の減りには差がなかった</strong></li>
+      </ul>
+    </div>
+  </div>
+  <p>同じ「早めの栄養剤」でも、<strong>使う栄養剤・量・比べる相手(「落ちたら開始」の基準)</strong>が試験ごとに違うため、結果が割れていると考えられます。今回の試験は、これまでより大きく多施設で行われた点で、天秤を「早め」の側に少し傾ける結果といえます。</p>
+</div>
+
+<div class="card">
+  <h2>🏥 専門家の指針では</h2>
+  <p>ヨーロッパ臨床栄養代謝学会(ESPEN)のがん患者の栄養ガイドライン(2017年)は、<strong>頭頸部(頭と首)などの放射線治療中は、一人ひとりに合わせた栄養相談や栄養剤で食事量を保ち、栄養状態の悪化や治療の中断を防ぐ</strong>ことを勧めています。今回の試験は、その「いつ始めるか」という部分に新しいデータを加えたものです。</p>
+  <div class="flow">
+    <div class="flow-step">📋 栄養の<br>チェック</div>
+    <div class="flow-arrow">➜</div>
+    <div class="flow-step">🗣️ 栄養相談<br>(食べ方の工夫)</div>
+    <div class="flow-arrow">➜</div>
+    <div class="flow-step alt">🥤 栄養剤</div>
+    <div class="flow-arrow">➜</div>
+    <div class="flow-step warn2">🩺 足りなければ<br>管からの栄養など</div>
+  </div>
+  <p style="font-size:0.8rem;color:#666;">※図は一般的な考え方の流れです。どこから始めるかは、病状に合わせて医療チームが決めます。</p>
+</div>
+
+<div class="card">
+  <h2>🧬 精密栄養学の視点</h2>
+  <p>今回の比較は、<strong>「全員に先回り」と「困ってから対応」</strong>のちがいでした。結果を見ると、先回りで助かる人がいる一方、先回りしてもやせる人、何もしなくてもやせなかった人もいます。</p>
+  <div class="matrix">
+    <div class="mx-cell ok"><div class="mx-head">🔮 今後知りたいこと</div>治療前の栄養状態・年齢・腫瘍の場所などから、<strong>「だれが特にやせやすいか」を前もって予測</strong>できるか。</div>
+    <div class="mx-cell ng"><div class="mx-head">🧩 栄養剤だけでは足りない部分</div>口内炎の痛みのケア、飲みこみの訓練、食べ方の相談など、<strong>食べられる状態をつくる工夫</strong>との組み合わせ。</div>
+  </div>
+</div>
+
+<div class="warn"><strong>💡 今日の学び:</strong> 栄養の研究では「何を」だけでなく<strong>「いつ始めるか」</strong>も結果を左右します。そしてニュースを読むときは、<strong>体重のような中間の結果</strong>なのか、<strong>命や病気の治り方</strong>なのかを見分けましょう。治療中の栄養は、自己判断ではなく<strong>主治医・管理栄養士に早めに相談</strong>するのが基本です。</div>
+
+<div class="sources">
+  <h3>📚 出典</h3>
+  <ul>
+    <li>「Early vs Routine Oral Nutritional Supplementation During Concurrent Chemoradiotherapy for Nasopharyngeal Carcinoma: A Randomized Clinical Trial」<em>JAMA Oncology</em> 2026年11月12日オンライン公開(DOI: 10.1001/jamaoncol.2026.4535)。<a href="https://jamanetwork.com/journals/jamaoncology/article-abstract/2856379">https://jamanetwork.com/journals/jamaoncology/article-abstract/2856379</a>(基準日:2026年11月。多施設・非盲検、中国の6病院、2021年7月〜2025年5月、216人、主要評価項目の割合65.4% vs 80.7%、費用とQALYは要旨・研究概要で確認。本文はネットワーク制限で未確認、確認日:2026年11月)</li>
+    <li>同 Research Summary。<a href="https://jamanetwork.com/journals/jamaoncology/fullarticle/2856377">https://jamanetwork.com/journals/jamaoncology/fullarticle/2856377</a>(基準日:2026年11月。並行群間・優越性試験の記載。確認日:2026年11月)</li>
+    <li>ClinicalTrials.gov NCT04823468「Effect of Oral Nutritional Supplements on Body Weight Loss of Patients With Nasopharyngeal Carcinoma」。<a href="https://clinicaltrials.gov/study/NCT04823468">https://clinicaltrials.gov/study/NCT04823468</a>(基準日:2025年。責任者は福建医科大学附属第一医院の研究者で、企業ではなく研究者主導の登録。栄養剤メーカーからの製品提供の有無は未確認。確認日:2026年11月、検索結果経由)</li>
+    <li>Chen J ら「A prospective randomized controlled trial on the value of prophylactic oral nutritional supplementation in locally advanced nasopharyngeal carcinoma patients receiving chemo-radiotherapy」<em>Oral Oncology</em> 2020;111:105025(PubMed 33032180)。<a href="https://pubmed.ncbi.nlm.nih.gov/33032180/">https://pubmed.ncbi.nlm.nih.gov/33032180/</a>(基準日:2020年。治療の継続しやすさは改善、短期の体重減少には差なし。確認日:2026年11月、要旨の範囲)</li>
+    <li>Arends J ら「ESPEN guidelines on nutrition in cancer patients」<em>Clinical Nutrition</em> 2017;36(1):11-48(PubMed 27637832)。<a href="https://pubmed.ncbi.nlm.nih.gov/27637832/">https://pubmed.ncbi.nlm.nih.gov/27637832/</a>(基準日:2017年。放射線治療中の栄養相談・栄養剤の推奨。確認日:2026年11月)</li>
+    <li>※2019年の探索的RCT(100人)は、検索結果の要旨情報によるもので、原著の詳細は未確認です。</li>
+  </ul>
+</div>
+
+<div class="disclaimer">
+  ⚠️ 本記事は一般的な情報であり、医療アドバイスではありません。効果・必要量・リスクは、個人の体質・年齢・持病・服薬・がんの種類や治療内容で大きく変わります。栄養剤には、腎臓病・糖尿病などで量や種類の調整が必要な場合があります。治療中の食事や栄養剤については、自己判断で始めたりやめたりせず、主治医・管理栄養士・薬剤師など専門家に相談してください。特定の食事制限・サプリ・断食を安易に始めないでください。
+</div>
+
+</div>
+</body>
+</html>
