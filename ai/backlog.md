@@ -2,6 +2,7 @@
 
 ## 解説済みトピック（重複を避けるための記録）
 
+- 2026-11-13: Apple Foundation Models 3（AFM 3・WWDC 2026＝2026年6月・Core約3B/Core Advanced約20Bスパース・Swift FoundationModelsで画像入力追加と解説・EU/中国は当初非対応との記述・詳細は公式要確認）（出典：9to5Mac / MacStories / Callstack・2026年6月）
 - 2026-11-12: Claude Fable 5.2 / Mythos 5.2（2026年11月9日発表・公式ブログ・同じ土台モデル/Mythosは審査済み組織のみ・最大30%高速（テスター報告）・$8/$40・Fast最大2.5倍$16/$80・ブロック約55%減は早期テスト・料金は公式要確認）（出典：Anthropic公式ブログ・2026年11月）
 - 2026-11-11: ChatGPT検索量がGoogleの約5分の1とOpenAI幹部が発言（Adam Fry氏・Big Technologyインタビュー・報道では2026年11月3日・OpenAIは「ウェブ検索に行くたび1回」と数える・Googleの数字の出どころ不明・Ahrefs 2月推定約12%・Gizmodo約1/6・訪問数は別指標）（出典：Search Engine Roundtable / Crypto Briefing / Let’s Data Science / Gizmodo・2026年11月）
 - 2026-11-10: Kimi K3.1 Pro 重み公開（報道では2026年11月4日・Hugging Face・API先行は10月下旬・約2.8兆パラメータ・100万トークン・独自ライセンス/年商2,000万ドル超のサービス事業者は商用契約・サイバー関連学習データを除去・内部テストで攻撃成功率90.5%→81%はMoonshot内部計測・Highspeed版の重み公開は不明）（出典：TechNode / RuntimeWire / Crypto Briefing / Notebookcheck・2026年11月）
@@ -183,7 +184,7 @@
 - AI音声・TTS最新事情：各社音声モデルの比較と活用例
 - ~~John Jumper（AlphaFold 2・2024年ノーベル化学賞共同受賞者）がGoogle DeepMind→Anthropicへ移籍（2026年6月24日報道）~~ ← 2026-10-21 解説済み
 - ~~Anthropic Claude Cowork モバイル展開~~ ← 2026-11-06 解説済み
-- Apple Foundation Models 3（AFM 3）詳報（WWDC 2026・2026年6月発表）・5モデル体制（AFM 3 Core / AFM 3 Core Advanced 20B / AFM 3 Cloud / AFM 3 Cloud Image / AFM 3 Cloud Pro）・Google Cloud NVIDIA GB300に Private Cloud Compute を拡張・Gemini蒸留を使用するがGeminiモデルそのものは不使用（出典：Apple ML Research / 9to5Mac / MacStories・2026年6月）
+- ~~Apple Foundation Models 3（AFM 3）詳報~~ ← 2026-11-13 解説済み
 - Google Dataland AIアートミュージアム（2026年6月20日ロサンゼルス開館・Geminiがリアルタイムインタラクティブアートを生成）
 - ~~Apple Intelligence × Alibaba Qwen（中国向け）：米国規制の最後のハードルを越え中国での提供が近づく・Qwenモデルを使用（2026年7月報道）~~ ← 2026-08-10 解説済み
 - GitHub 外部サービス約26件の接続コネクタ追加（2026年11月初旬・要検証）
@@ -196,3 +197,4 @@
 - 候補: Cognition SWE-2 Flash（2026年11月第1週リリースと報道・詳細未確認）
 - ~~ChatGPT検索量がGoogleの約5分の1~~ ← 2026-11-11 解説済み
 - 候補: ChatGPTユーザー数が10億→12億に（OpenAI幹部が同インタビューで言及と報道・要一次確認）
+- 候補: ChatGPT週間ユーザー12億人の時期（DevDay 9/29説・10/5説・インタビュー説で食い違い・要一次確認）
