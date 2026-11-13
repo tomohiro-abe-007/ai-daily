@@ -2,6 +2,7 @@
 
 ## 解説済みトピック（重複を避けるための記録）
 
+- 2026-11-14: Meta Muse Ember 1.0（報道では2026年11月9日ごろ・日付は資料で前後・Metaの最小モデル・エージェントのこまかい実行向け・重み非公開・入力約$0.10/出力約$0.50（100万トークン）・Haiku 5.5/GPT-6 Lunaより割安とのMeta主張・パラメータ数非公表・公式要確認）（出典：Let’s Data Science / The New Stack / Interesting Engineering / SmartScope・2026年11月）
 - 2026-11-13: Apple Foundation Models 3（AFM 3・WWDC 2026＝2026年6月・Core約3B/Core Advanced約20Bスパース・Swift FoundationModelsで画像入力追加と解説・EU/中国は当初非対応との記述・詳細は公式要確認）（出典：9to5Mac / MacStories / Callstack・2026年6月）
 - 2026-11-12: Claude Fable 5.2 / Mythos 5.2（2026年11月9日発表・公式ブログ・同じ土台モデル/Mythosは審査済み組織のみ・最大30%高速（テスター報告）・$8/$40・Fast最大2.5倍$16/$80・ブロック約55%減は早期テスト・料金は公式要確認）（出典：Anthropic公式ブログ・2026年11月）
 - 2026-11-11: ChatGPT検索量がGoogleの約5分の1とOpenAI幹部が発言（Adam Fry氏・Big Technologyインタビュー・報道では2026年11月3日・OpenAIは「ウェブ検索に行くたび1回」と数える・Googleの数字の出どころ不明・Ahrefs 2月推定約12%・Gizmodo約1/6・訪問数は別指標）（出典：Search Engine Roundtable / Crypto Briefing / Let’s Data Science / Gizmodo・2026年11月）
