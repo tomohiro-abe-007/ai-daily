@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-11-14</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #2a4d7a 0%, #10233f 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #2a4d7a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.blue   { border-left-color: #1e5a7a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.green  { border-left-color: #1e7a5a; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #2a4d7a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin: 14px 0;
+  }
+  .stats-row.c3 { grid-template-columns: repeat(3, 1fr); }
+  .stats-row.c2 { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 12px 6px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat.now { background: #fff3e0; box-shadow: 0 0 0 2px #c8884a inset; }
+  .stat .sl { font-size: 0.62rem; color: #888; margin-bottom: 3px; line-height: 1.4; }
+  .stat .sv { font-size: 1.05rem; font-weight: 700; color: #2a4d7a; line-height: 1.15; }
+  .stat.now .sv { color: #c8884a; }
+  .stat .su { font-size: 0.62rem; color: #666; margin-top: 2px; }
+
+  .bignum {
+    background: white;
+    border-radius: 12px;
+    padding: 18px 14px;
+    text-align: center;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.1);
+    border: 2px dashed #c8884a;
+    margin: 14px 0;
+  }
+  .bignum .bl { font-size: 0.76rem; color: #888; margin-bottom: 6px; }
+  .bignum .bv { font-size: 1.7rem; font-weight: 700; color: #c8884a; line-height: 1.3; }
+  .bignum .bs { font-size: 0.76rem; color: #666; margin-top: 6px; line-height: 1.6; }
+
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #2a4d7a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-num.now { background: #b54040; }
+  .f-num.later { background: #999; }
+  .f-num.opt { background: #c8884a; }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+  .f-arrow { color: #2a4d7a; font-size: 1.1rem; margin-left: 14px; margin-bottom: 4px; }
+
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  table.cmp {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.83rem;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.08);
+  }
+  table.cmp th, table.cmp td {
+    border: 1px solid #e4dccd;
+    padding: 9px 10px;
+    line-height: 1.55;
+    vertical-align: top;
+  }
+  table.cmp thead th { background: #2a4d7a; color: white; font-weight: 600; text-align: center; }
+  table.cmp tbody th { background: #f5efe2; color: #5a4020; text-align: left; font-weight: 600; white-space: nowrap; }
+  table.cmp td { color: #444; text-align: left; }
+  table.cmp td.hi { background: #fff3e0; font-weight: 700; color: #c8884a; }
+  .wrap-x { overflow-x: auto; }
+
+  .prompt-box {
+    background: #f0f5ff;
+    border: 2px solid #4a6aae;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 12px 0;
+    font-size: 0.84rem;
+    line-height: 1.85;
+    color: #1a2a4a;
+  }
+  .prompt-box .ph {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #4a6aae;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+  .prompt-box .fill {
+    background: #d0e0ff;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-weight: 700;
+    color: #0a2a6e;
+  }
+
+  .info {
+    background: #e8eef8;
+    border-left: 4px solid #2a4d7a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #16294a;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #7a4010;
+  }
+
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #2a4d7a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #2a4d7a; word-break: break-all; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #2a4d7a; }
+</style>
+<body>
+<div class="container">
+<div class="header">
+  <div class="meta">2026-11-14(土)・経理・記帳の基礎</div>
+  <h1>📊 1人法人スタート 最新トピック 2026-11-14<br>決算書の読み方入門 ── 「2枚の表」だけ見れば会社の健康診断ができる</h1>
+  <div class="desc">決算書(けっさんしょ＝1年の成績表)は、見る場所を絞れば怖くありません。まず見るのは<b>損益計算書</b>と<b>貸借対照表</b>の2枚。1人社長が最初に見る5か所を図解します。</div>
+  <div style="margin-top:10px"><span class="htag">決算書</span><span class="htag">損益計算書</span><span class="htag">貸借対照表</span></div>
+</div>
+
+<div class="card">
+  <div class="sec-title">🧐 ① 決算書は「2枚の表」が土台</div>
+  <p>会社の決算書は、主に次の書類のセットです(会社法の「計算書類」)。その中心がこの2枚です。</p>
+  <div class="stats-row c2">
+    <div class="stat now"><div class="sl">1枚目</div><div class="sv">損益計算書(PL)</div><div class="su">1年間の「もうけ」の計算<br>売上 − 費用 = 利益</div></div>
+    <div class="stat"><div class="sl">2枚目</div><div class="sv">貸借対照表(BS)</div><div class="su">決算日時点の「持ち物と借り物」<br>資産 = 負債 + 純資産</div></div>
+  </div>
+  <div class="info">💡 PLは「動画」(1年の動き)、BSは「写真」(決算日の一瞬)と覚えるとわかりやすいです。ほかに、株主資本の動きを示す株主資本等変動計算書や、注記表も作ります。</div>
+</div>
+
+<div class="card orange">
+  <div class="sec-title">🔍 ② 損益計算書は「上から下へ」利益が変わっていく</div>
+  <div class="f-step"><div class="f-num">1</div><div class="f-text"><b>売上高</b>：1年間の売上</div></div>
+  <div class="f-arrow">▼ 仕入や外注の原価を引く</div>
+  <div class="f-step"><div class="f-num">2</div><div class="f-text"><b>売上総利益(粗利)</b>：商品・サービス自体のもうけ</div></div>
+  <div class="f-arrow">▼ 役員報酬・家賃・広告費などを引く</div>
+  <div class="f-step"><div class="f-num">3</div><div class="f-text"><b>営業利益</b>：本業のもうけ</div></div>
+  <div class="f-arrow">▼ 受取利息・支払利息などを足し引き</div>
+  <div class="f-step"><div class="f-num">4</div><div class="f-text"><b>経常利益</b>：ふだんの活動全体のもうけ</div></div>
+  <div class="f-arrow">▼ 臨時の損益を調整し、法人税等を引く</div>
+  <div class="f-step"><div class="f-num now">5</div><div class="f-text"><b>当期純利益</b>：最終的に会社に残ったもうけ</div></div>
+  <div class="info">💡 1人社長がまず見るのは<span class="hl">営業利益</span>。本業で黒字かどうかが一目でわかります。</div>
+</div>
+
+<div class="card blue">
+  <div class="sec-title">⚖ ③ 貸借対照表は「左右がつり合う」表</div>
+  <div class="wrap-x"><table class="cmp">
+    <thead><tr><th>左側(お金の使いみち)</th><th>右側(お金の出どころ)</th></tr></thead>
+    <tbody>
+      <tr><td><b>資産</b>：現金・預金・売掛金(あとで受け取るお金)・パソコンなど</td><td><b>負債</b>：借入金・未払金(あとで払うお金)など = 返す必要がある</td></tr>
+      <tr><td>　</td><td><b>純資産</b>：資本金・これまでの利益の積み重ね = 返さなくてよい</td></tr>
+    </tbody>
+  </table></div>
+  <div class="info">💡 左の合計と右の合計は<b>必ず同じ</b>になります。ならなければ記帳ミスのサインです。</div>
+</div>
+
+<div class="card green">
+  <div class="sec-title">🩺 ④ 1人社長がまず見る5か所</div>
+  <ul class="check-list">
+    <li><span class="ck">1</span><span><b>営業利益</b>：本業で黒字か(PL)</span></li>
+    <li><span class="ck">2</span><span><b>現金・預金</b>：月の支出の何か月分あるか(BS)。多いほど安心</span></li>
+    <li><span class="ck">3</span><span><b>売掛金</b>：前年より急に増えていないか。回収が遅れているサインかも(BS)</span></li>
+    <li><span class="ck">4</span><span><b>借入金</b>：増減と、毎月の返済額に無理がないか(BS)</span></li>
+    <li><span class="ck">5</span><span><b>純資産</b>：マイナス(債務超過)になっていないか(BS)</span></li>
+  </ul>
+  <div class="bignum">
+    <div class="bl">見方の目安をひとつだけ</div>
+    <div class="bv">預金 ÷ 月の支出 = 何か月分？</div>
+    <div class="bs">決まった正解の数字はありません。業種や取引条件で変わるので、まず自社の「今」を知ることから。</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="sec-title">🤖 ⑤ 生成AIに「通訳」してもらう</div>
+  <div class="prompt-box">
+    <div class="ph">▶ AIに貼るプロンプト例</div>
+    私は1人で会社を経営しています。決算書の数字(会社名・取引先名は消してあります)を貼ります。<br>
+    <span class="fill">損益計算書・貸借対照表の主な数字</span><br>
+    ①中学生にもわかる言葉で全体の印象、②前年と比べて気になる点、③税理士に聞くべき質問を3つ、を表にしてください。断定できない点は「要確認」と書いてください。
+  </div>
+  <div class="warn">⚠ 数字はAIに任せきりにせず、最終判断は税理士に確認しましょう。社名・口座番号など個人や取引先を特定できる情報は貼らないでください。</div>
+</div>
+
+<div class="card blue">
+  <div class="sec-title">🌱 ⑥ チェックリスト</div>
+  <ul class="check-list">
+    <li><span class="ck">✔</span><span>PL・BSの2枚を、決算のたびに前年と並べて見たか</span></li>
+    <li><span class="ck">✔</span><span>営業利益・預金・売掛金・借入金・純資産の5か所を確認したか</span></li>
+    <li><span class="ck">✔</span><span>わからない科目を税理士に質問したか</span></li>
+    <li><span class="ck-bad">✖</span><span>「納税額」だけを見て終わる</span></li>
+    <li><span class="ck-bad">✖</span><span>申告後に決算書を見返さない</span></li>
+  </ul>
+</div>
+
+<div class="card">
+  <div class="sec-title">📌 ⑦ 今日のまとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">1</span><span>PLは1年のもうけの動画、BSは決算日の持ち物と借り物の写真</span></li>
+    <li><span class="n">2</span><span>PLは「売上→粗利→営業利益→経常利益→純利益」と上から下へ読む</span></li>
+    <li><span class="n">3</span><span>BSは左(資産)＝右(負債＋純資産)で必ずつり合う</span></li>
+    <li><span class="n">4</span><span>最初は5か所だけ。AIを通訳にして、疑問は税理士に</span></li>
+  </ul>
+  <div class="source">📚 出典(基準：2026年11月時点の現行法令)：<br>
+  ・会社法 第435条(計算書類等の作成)、会社計算規則 第59条(計算書類の構成)：<a href="https://laws.e-gov.go.jp/law/417AC0000000086">https://laws.e-gov.go.jp/law/417AC0000000086</a><br>
+  ・国税庁 法人税の申告(申告書・決算関係書類)：<a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/hojin/hojin.htm">https://www.nta.go.jp/taxes/shiraberu/taxanswer/hojin/hojin.htm</a><br>
+  ※本日は官公庁サイトへ直接接続して確認できていません。会計の基本的な考え方を中心に、金額・税率には触れていません。条文番号・様式は公式サイトでご確認ください。<br>
+  ・関連記事：<a href="2026-11-01.html">3か月先の資金繰り(11/1)</a>、<a href="2026-10-23.html">決算2か月前の着地見込みチェック(10/23)</a></div>
+</div>
+
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、税務・法務の個別アドバイスではありません。会社の状況により結論は変わります。
+  具体的な判断は、税理士・社会保険労務士・司法書士などの専門家にご相談ください。<br>
+  <strong>本記事の基準年度：</strong>令和8年度(2026年11月時点)。制度・税率・金額は改正されることがあるため、最新情報は公式サイトでご確認ください。
+</div>
+<div class="footer">
+  <p>📚 <a href="index.html">バックナンバー一覧へ</a> &nbsp;&middot;&nbsp; 毎朝更新</p>
+</div>
+</div>
+</body>
+</html>
