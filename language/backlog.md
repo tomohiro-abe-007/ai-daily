@@ -51,11 +51,15 @@
 - 英語のolder/oldest と senior citizen/elderly の言い方(年上・高齢者を表す丁寧な語)── 11-08の続編
 
 - スペイン語で数字・電話番号・メールアドレスを伝える(arroba, punto, guion)── 11-13のスペル伝達の続編
-- 英語でメールアドレス・URLを口頭で伝える(at, dot, underscore, hyphen)── 11-13のスペル伝達の続編
 
 - スペイン語のTe presento a...(人を紹介する言い方と、初対面のあいさつ Encantado/a)── 11-14の敬称の続編
 
+- 英語で電話番号・住所を伝える(数字の区切り方、oh と zero、double three)── 11-15の続編
+- 英語のURL・SNSアカウントの伝え方(hashtag #、handle、"at"で始まるアカウント名)── 11-15の続編
+
 ## 解説済みテーマ
+
+- 2026-11-15: 英語でメールアドレス・URLを口頭で伝える(at, dot, underscore, hyphen, slash)── 11-13の続編、@の由来とスペイン語arroba
 
 - 2026-11-12: 英語のHow do you pronounce...? / Where's the stress?(発音と強く読む場所の確認)── 11-11の続編、名詞・動詞でストレスが変わる語(record/present)、スペイン語¿Cómo se pronuncia?とアクセント記号のルール
 
