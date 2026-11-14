@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>インサイドセールス 最新トピック 2026-11-15</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  /* ── カバー ── */
+  .cover {
+    background: linear-gradient(135deg, #6d1b1b 0%, #a13a2c 50%, #d98a2e 100%);
+    color: white;
+    border-radius: 8px;
+    padding: 60px 40px;
+    text-align: center;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.3);
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent, transparent 28px,
+      rgba(255,255,255,0.05) 28px, rgba(255,255,255,0.05) 29px
+    );
+  }
+  .cover-emoji { font-size: 64px; display: block; margin-bottom: 16px; }
+  .cover h1 {
+    font-family: 'Klee One', sans-serif;
+    font-size: 1.9rem;
+    font-weight: 600;
+    line-height: 1.35;
+    margin-bottom: 12px;
+    position: relative;
+  }
+  .cover .subtitle { font-size: 1.05rem; opacity: 0.85; margin-bottom: 8px; position: relative; }
+  .cover .date-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 20px;
+    padding: 6px 20px;
+    font-size: 1rem;
+    margin-top: 16px;
+    position: relative;
+  }
+
+  /* ── カード共通 ── */
+  .card {
+    background: #fff9f0;
+    border-radius: 6px;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.12);
+    position: relative;
+    overflow: hidden;
+  }
+  .card-body {
+    padding: 40px 36px 28px 64px;
+    background: repeating-linear-gradient(0deg, transparent, transparent 31px, #e0d8c8 31px, #e0d8c8 32px);
+    background-color: #fff9f0;
+  }
+  .card-tab {
+    display: inline-block;
+    background: #a13a2c;
+    color: white;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 4px 16px;
+    border-radius: 0 0 6px 6px;
+    position: absolute;
+    top: 0; left: 32px;
+    letter-spacing: 0.05em;
+  }
+  .card h2 {
+    font-size: 1.22rem;
+    color: #6d1b1b;
+    margin-bottom: 16px;
+    margin-top: 4px;
+    line-height: 1.5;
+    border-left: 4px solid #c0532b;
+    padding-left: 12px;
+  }
+  p { line-height: 1.85; color: #333; font-size: 0.97rem; margin-bottom: 12px; }
+
+  /* ── 数字カード ── */
+  .num-cards { display: flex; gap: 14px; flex-wrap: wrap; margin: 20px 0; }
+  .num-card {
+    flex: 1; min-width: 170px;
+    background: #6d1b1b; color: white;
+    border-radius: 10px; padding: 20px 16px; text-align: center;
+  }
+  .num-card.orange { background: #a13a2c; }
+  .num-card.gold   { background: #b06b1a; }
+  .num-card.gray   { background: #6b6b6b; }
+  .num-card .big-num {
+    font-family: 'Caveat', cursive;
+    font-size: 1.7rem; font-weight: 700; line-height: 1.15;
+    color: #ffd8b0;
+  }
+  .num-card .num-label { font-size: 0.78rem; margin-top: 8px; opacity: 0.92; line-height: 1.6; }
+
+  /* ── ステップフロー ── */
+  .step-flow { display: flex; flex-direction: column; gap: 0; margin: 20px 0; }
+  .step-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px dotted #ddd;
+  }
+  .step-item:last-child { border-bottom: none; }
+  .step-num {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: #a13a2c;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .step-body { flex: 1; }
+  .step-title { font-size: 0.97rem; font-weight: 700; color: #6d1b1b; margin-bottom: 4px; }
+  .step-desc  { font-size: 0.85rem; color: #555; line-height: 1.7; margin: 0; }
+
+  /* ── 対比カード(2〜3列) ── */
+  .compare-flow { display: flex; gap: 14px; flex-wrap: wrap; margin: 20px 0; align-items: stretch; }
+  .compare-col {
+    flex: 1; min-width: 200px;
+    background: #fdf2ea;
+    border: 1.5px solid #e8c8a8;
+    border-radius: 8px;
+    padding: 16px 18px;
+  }
+  .compare-col.highlight-col { background: #f6e2c8; border-color: #d98a2e; }
+  .compare-col h3 { font-size: 0.93rem; color: #6d1b1b; margin-bottom: 10px; }
+  .compare-col ol, .compare-col ul { padding-left: 18px; }
+  .compare-col li { font-size: 0.82rem; color: #555; line-height: 1.85; }
+  .cause-down {
+    text-align: center;
+    font-size: 1.3rem;
+    color: #a13a2c;
+    margin: 10px 0 -2px;
+  }
+  .result-box {
+    background: #6d1b1b;
+    color: white;
+    border-radius: 8px;
+    padding: 14px 18px;
+    text-align: center;
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-top: 4px;
+  }
+
+  /* ── マトリクス表 ── */
+  .matrix-table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 0.85rem; }
+  .matrix-table th, .matrix-table td {
+    border: 1px solid #e0d0b8; padding: 10px 12px; text-align: left; vertical-align: top;
+  }
+  .matrix-table th { background: #f6e2c8; color: #6d1b1b; font-weight: 700; }
+  .matrix-table td { color: #444; line-height: 1.6; }
+  .matrix-table tr:nth-child(even) td { background: #fdf9f2; }
+  .matrix-table tr.warn td { background: #f8e6e0; }
+
+  /* ── 今日の一歩 ── */
+  .today-box {
+    background: linear-gradient(135deg, #6d1b1b, #c0532b);
+    color: white; border-radius: 8px;
+    padding: 24px 28px; margin: 16px 0; text-align: center;
+  }
+  .today-box .emoji { font-size: 2.2rem; display: block; margin-bottom: 8px; }
+  .today-box .title { font-size: 1.1rem; font-weight: 600; margin-bottom: 10px; }
+  .today-box .desc  { font-size: 0.92rem; opacity: 0.92; line-height: 1.8; text-align: left; }
+
+  /* ── 共通パーツ ── */
+  .highlight { background: #f6e2c8; border-radius: 4px; padding: 1px 6px; color: #6d1b1b; font-weight: 600; }
+  .callout {
+    border-radius: 6px; padding: 14px 16px; margin-top: 14px;
+  }
+  .callout.yellow { background: #fef9e7; border-left: 4px solid #d98a2e; }
+  .callout.green  { background: #eafaf1; border-left: 4px solid #27ae60; }
+  .callout.blue   { background: #e8f4fd; border-left: 4px solid #2980b9; }
+  .callout.wine   { background: #f6e9e4; border-left: 4px solid #a13a2c; }
+
+  /* ── 免責 ── */
+  .disclaimer {
+    background: #fff; border: 1px solid #ddd; border-radius: 6px;
+    padding: 16px 20px; font-size: 0.8rem; color: #777; line-height: 1.7;
+    width: 100%; max-width: 820px; margin-bottom: 16px;
+  }
+  .disclaimer strong { color: #555; }
+
+  /* ── 出典 ── */
+  .sources {
+    background: #fff9f0; border-radius: 6px; padding: 16px 24px;
+    width: 100%; max-width: 820px; margin-bottom: 24px;
+    font-size: 0.8rem; color: #666; line-height: 1.8;
+  }
+  .sources h3 { font-size: 0.85rem; color: #6d1b1b; margin-bottom: 8px; }
+  .sources a { color: #a13a2c; text-decoration: none; }
+  .sources a:hover { text-decoration: underline; }
+  .sources ul { padding-left: 16px; }
+
+  /* ── バックリンク ── */
+  .back-link { text-align: center; margin-bottom: 20px; font-size: 0.9rem; }
+  .back-link a { color: #a13a2c; text-decoration: none; }
+  .back-link a:hover { text-decoration: underline; }
+
+  .bars { margin: 18px 0; }
+  .bar-row { display: flex; align-items: center; gap: 10px; margin: 8px 0; font-size: 0.85rem; color: #444; }
+  .bar-row .lbl { width: 78px; flex-shrink: 0; }
+  .bar-track { flex: 1; background: #f0e6d6; border-radius: 6px; height: 22px; overflow: hidden; }
+  .bar-fill { background: #a13a2c; height: 100%; border-radius: 6px; }
+  .bar-fill.top { background: #b06b1a; }
+  .bar-row .val { width: 120px; flex-shrink: 0; font-size: 0.8rem; }
+  @media (max-width: 560px) {
+    .card-body { padding: 40px 18px 24px 24px; }
+    .matrix-table { display: block; overflow-x: auto; white-space: nowrap; }
+    .compare-flow { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <span class="cover-emoji">🛑📞</span>
+  <h1>「もう電話しないで」と<br>言われたら、どう止める?</h1>
+  <div class="subtitle">インサイドセールス 最新トピック 2026-11-15</div>
+  <div class="date-badge">テレアポ・インサイドセールス 毎朝解説</div>
+</div>
+
+<div class="card">
+  <span class="card-tab">01 今日のテーマ</span>
+  <div class="card-body">
+    <h2>🎯 「断られた相手」への連絡には、止める基準が必要</h2>
+    <p>ここ数日、休眠リード(=しばらく連絡していない見込み客)にもう一度連絡する方法を学んできました。でも、その前に必ず決めておきたいのが<strong>「連絡してはいけない相手」</strong>の扱いです。</p>
+    <p>「もう電話しないでください」と言われた相手に、別の担当者が知らずにまた電話してしまう──これは相手を嫌な気持ちにさせ、会社の信用も落とします。そこで使うのが<span class="highlight">除外リスト=連絡しない相手の一覧</span>です。</p>
+    <div class="num-cards">
+      <div class="num-card"><div class="big-num">2種類</div><div class="num-label">「今は不要」と<br>「連絡をやめて」を分ける</div></div>
+      <div class="num-card orange"><div class="big-num">チーム全員</div><div class="num-label">一人が聞いた断りを<br>全員で共有する</div></div>
+      <div class="num-card gold"><div class="big-num">かける前</div><div class="num-label">毎回リストと<br>照らし合わせる</div></div>
+    </div>
+    <p style="font-size:0.8rem;color:#777;">※ 数字は今日の記事の整理の仕方で、調査結果ではありません。</p>
+  </div>
+</div>
+
+<div class="card">
+  <span class="card-tab">02 法律の基本</span>
+  <div class="card-body">
+    <h2>⚖️ 個人向けの電話営業には「再勧誘の禁止」がある</h2>
+    <p>日本の<span class="highlight">特定商取引法(特商法)=訪問販売や電話勧誘などのルールを決めた法律</span>では、電話で個人に商品をすすめる「電話勧誘販売」について、<strong>契約しないと伝えた相手にすすめ続けること・日を改めてすすめることを禁止</strong>しています(第17条。法律事務所などの解説で確認)。</p>
+    <table class="matrix-table">
+      <tr><th>ポイント</th><th>解説で説明されている内容</th></tr>
+      <tr><td>📣 断りの言葉</td><td>「いりません」「結構です」「間に合っています」など。「もう電話はやめて」という電話そのものへの拒否も含むとする解説もある</td></tr>
+      <tr class="warn"><td>👥 同じ会社の別の人</td><td>別の社員がかけた電話でも対象になるとされる → チームでの共有が欠かせない</td></tr>
+      <tr><td>🏢 会社向け(BtoB)営業</td><td>相手が「営業のため」に契約する取引は、特商法の適用除外(第26条)とされる</td></tr>
+    </table>
+    <div class="callout yellow">⚠️ 会社向けの営業でも「法律の対象外だから何度かけてもいい」わけではありません。嫌がられる連絡は信用を失い、苦情の原因になります。どこまでが対象になるかは個別の判断になるので、正確な条文はe-Gov法令検索や消費者庁の公式情報、職場のルールで確認しましょう。</div>
+  </div>
+</div>
+
+<div class="card">
+  <span class="card-tab">03 断りの見分け方</span>
+  <div class="card-body">
+    <h2>🔍 「今は不要」と「連絡をやめて」は別物</h2>
+    <div class="compare-flow">
+      <div class="compare-col"><h3>🕐 今は不要(タイミングの問題)</h3><ul><li>「今期は予算がない」</li><li>「半年後ならまた」</li><li>→ 相手の了解をとって、次回連絡日を入れる</li></ul></div>
+      <div class="compare-col highlight-col"><h3>🛑 連絡をやめて(連絡そのものを拒否)</h3><ul><li>「もう電話しないで」</li><li>「迷惑です」</li><li>→ その場で除外リストに入れ、以後は連絡しない</li></ul></div>
+    </div>
+    <div class="callout wine">💬 迷ったら、確認の一言を。「承知しました。今後はこちらからのご連絡を控えたほうがよろしいでしょうか?」と聞き、相手の答えをそのまま記録します。しつこく理由を聞き出すのはNGです。</div>
+  </div>
+</div>
+
+<div class="card">
+  <span class="card-tab">04 除外リストの作り方</span>
+  <div class="card-body">
+    <h2>📝 4ステップで「二度とかけない」仕組みにする</h2>
+    <div class="step-flow">
+      <div class="step-item"><div class="step-num">1</div><div class="step-body"><div class="step-title">👂 その場でていねいに受け止める</div><p class="step-desc">「承知しました。失礼いたしました」と短く伝えて電話を終えます。言い返さない、粘らない。</p></div></div>
+      <div class="step-item"><div class="step-num">2</div><div class="step-body"><div class="step-title">✏️ 電話を切ったらすぐ記録</div><p class="step-desc">会社名・担当者名・電話番号・日付・相手の言葉(そのまま)・対応した人を残します。</p></div></div>
+      <div class="step-item"><div class="step-num">3</div><div class="step-body"><div class="step-title">🗂 全員が見る場所に入れる</div><p class="step-desc">CRM(顧客情報の管理ツール)の「連絡不可」の印や、チーム共有の一覧に入れます。個人のメモだけに残すのはNG。</p></div></div>
+      <div class="step-item"><div class="step-num">4</div><div class="step-body"><div class="step-title">✅ かける前に毎回チェック</div><p class="step-desc">新しいリストを受け取ったら、まず除外リストと照らし合わせて、該当する相手を外してからかけ始めます。</p></div></div>
+    </div>
+    <div class="cause-down">▼</div>
+    <div class="result-box">「誰が電話しても、断った相手には二度とかけない」状態がゴール</div>
+  </div>
+</div>
+
+<div class="card">
+  <span class="card-tab">05 よくある落とし穴</span>
+  <div class="card-body">
+    <h2>🕳 漏れが起きやすい3つの場面</h2>
+    <table class="matrix-table">
+      <tr><th>場面</th><th>起きがちなこと</th><th>対策</th></tr>
+      <tr><td>📥 新しいリストを使うとき</td><td>以前断った相手がまた入っている</td><td>使う前に除外リストと照合</td></tr>
+      <tr><td>🔄 担当者が交代したとき</td><td>前任者の記録が引き継がれない</td><td>個人メモでなくCRMや共有一覧に残す</td></tr>
+      <tr><td>✉️ 電話以外の連絡</td><td>電話は止めたのにメールが届き続ける</td><td>メールの配信停止も同時に行う(会社のルールに従う)</td></tr>
+    </table>
+    <div class="callout blue">💡 面接で「断られた相手の情報をどう扱いますか?」と聞かれたら、この4ステップを話せると、ルールを守れる人だと伝わりやすくなります。</div>
+  </div>
+</div>
+
+<div class="card">
+  <span class="card-tab">06 今日の一歩</span>
+  <div class="card-body">
+    <div class="today-box">
+      <span class="emoji">✅</span>
+      <div class="title">今日からできる一歩</div>
+      <div class="desc">練習用に「断りの言葉」を5つ書き出して、それぞれ「今は不要」か「連絡をやめて」かに分けてみましょう。そのうえで、「連絡をやめて」と言われたときの返し方「承知しました。失礼いたしました」を声に出して3回練習すれば完了です。</div>
+    </div>
+  </div>
+</div>
+
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  報酬・採用の結果には個人差があり、市場・時期・スキルによって変わります。本記事は一般的な考え方の紹介で、法律相談や成果の保証ではありません。法律の扱いは個別の状況で変わるため、具体的な判断は公式情報や専門家、職場のルールで確認してください。紹介した求人媒体・企業・ツールの条件や機能は変わることがあるため、最新情報は各社の公式でご確認ください。
+</div>
+
+<div class="sources">
+  <h3>📎 参考情報(基準日:2026年11月)</h3>
+  <ul>
+    <li>特商法第17条(電話勧誘販売の再勧誘禁止)・同一企業の別社員も対象:<a href="https://www.skypce.net/media/article/1138/" target="_blank" rel="noopener">SKYPCE</a>/<a href="https://health-beauty-soleil.jp/%E9%9B%BB%E8%A9%B1%E5%8B%A7%E8%AA%98%E8%B2%A9%E5%A3%B2%E3%81%AB%E3%81%8A%E3%81%91%E3%82%8B%E7%89%B9%E5%95%86%E6%B3%95%E4%B8%8A%E3%81%AE%E6%B3%A8%E6%84%8F%E7%82%B9%EF%BD%9E%E8%AA%98%E5%BC%95%E6%AE%B5/" target="_blank" rel="noopener">丸の内ソレイユ法律事務所</a>(2026年11月確認)</li>
+    <li>断りの言葉の例・電話そのものへの拒否:<a href="https://eigyouya.jp/column/53/" target="_blank" rel="noopener">eigyouya.jp</a>/<a href="https://legalsearch.jp/portal/column/telemarketing/" target="_blank" rel="noopener">LegalSearch</a>(2026年11月確認)</li>
+    <li>第26条の適用除外(営業のための取引):<a href="https://www.shouhiseikatu.metro.tokyo.lg.jp/torihiki/compliance/documents/b1.pdf" target="_blank" rel="noopener">東京都 消費生活総合サイト 講習資料(PDF)</a>(2026年11月確認)</li>
+    <li>上記は二次情報・自治体資料です。条文の原文はe-Gov法令検索、公式解説は消費者庁「特定商取引法ガイド」で確認してください。</li>
+    <li>関連:<a href="2026-11-14.html">2026-11-14 休眠リストの管理</a>/<a href="2026-11-12.html">2026-11-12 電話とメールの組み合わせ方</a></li>
+  </ul>
+</div>
+
+<div class="back-link">
+  <a href="index.html">&larr; バックナンバー一覧へ</a>
+</div>
+
+</body>
+</html>
