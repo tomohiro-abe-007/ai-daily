@@ -2,6 +2,7 @@
 
 ## 解説済みトピック（重複を避けるための記録）
 
+- 2026-11-15: Cognition SWE-2 Flash（報道では2026年11月4日ごろ・SWE-2より約3倍速く約5分の1の料金と会社説明・Devin Desktop/CLI・11/30まで無料と報道・重み非公開・数値は会社発表で第三者検証なし・公式サイト未接続のため要確認）
 - 2026-11-14: Meta Muse Ember 1.0（報道では2026年11月9日ごろ・日付は資料で前後・Metaの最小モデル・エージェントのこまかい実行向け・重み非公開・入力約$0.10/出力約$0.50（100万トークン）・Haiku 5.5/GPT-6 Lunaより割安とのMeta主張・パラメータ数非公表・公式要確認）（出典：Let’s Data Science / The New Stack / Interesting Engineering / SmartScope・2026年11月）
 - 2026-11-13: Apple Foundation Models 3（AFM 3・WWDC 2026＝2026年6月・Core約3B/Core Advanced約20Bスパース・Swift FoundationModelsで画像入力追加と解説・EU/中国は当初非対応との記述・詳細は公式要確認）（出典：9to5Mac / MacStories / Callstack・2026年6月）
 - 2026-11-12: Claude Fable 5.2 / Mythos 5.2（2026年11月9日発表・公式ブログ・同じ土台モデル/Mythosは審査済み組織のみ・最大30%高速（テスター報告）・$8/$40・Fast最大2.5倍$16/$80・ブロック約55%減は早期テスト・料金は公式要確認）（出典：Anthropic公式ブログ・2026年11月）
@@ -195,7 +196,7 @@
 - Gemini Omni 1.2 Flash（2026年11月5日ごろ・Google Cloudで確認されたとの未検証情報・公式は1.1表記・要検証）
 - OpenAI GPT-6 Cyber（2026年11月5日・まとめサイト情報・要検証）
 - Meta による Conductor 買収（2026年11月6日・ダイジェスト情報・要検証）
-- 候補: Cognition SWE-2 Flash（2026年11月第1週リリースと報道・詳細未確認）
 - ~~ChatGPT検索量がGoogleの約5分の1~~ ← 2026-11-11 解説済み
 - 候補: ChatGPTユーザー数が10億→12億に（OpenAI幹部が同インタビューで言及と報道・要一次確認）
 - 候補: ChatGPT週間ユーザー12億人の時期（DevDay 9/29説・10/5説・インタビュー説で食い違い・要一次確認）
+- 候補: Ripple-65B Preview / Hy4（2026年11月のリリース一覧に掲載・詳細未確認・要検証）
