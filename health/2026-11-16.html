@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-11-16</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: "🩸";
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.35rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.9rem; margin-bottom: 8px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.1em; }
+  .c3-col li { margin-bottom: 4px; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; overflow-wrap: anywhere; word-break: break-all; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  .quote-box {
+    background: #f5f0e8;
+    border-left: 4px solid #7a5abf;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    margin: 12px 0;
+    color: #444;
+    font-style: italic;
+  }
+  .quote-box .who { font-style: normal; font-weight: 700; color: #5a3a9a; margin-top: 6px; font-size: 0.78rem; }
+  .matrix {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .mx-cell {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .mx-cell .mx-head { font-weight: 700; font-size: 0.88rem; margin-bottom: 6px; }
+  .mx-cell.ok  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .mx-cell.ok  .mx-head { color: #1a6e4a; }
+  .mx-cell.ng  { background: #fbe8e6; border: 2px solid #c0392b; }
+  .mx-cell.ng  .mx-head { color: #a0291e; }
+  .subtype-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .subtype-card {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.84rem;
+  }
+  .subtype-card .st-head { font-weight: 700; font-size: 0.92rem; margin-bottom: 8px; }
+  .subtype-card .st-bar {
+    height: 10px;
+    border-radius: 5px;
+    background: #eee;
+    overflow: hidden;
+    margin: 6px 0 4px;
+  }
+  .subtype-card .st-bar-fill { height: 100%; }
+  .subtype-card.st-green { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .subtype-card.st-green .st-head { color: #1a6e4a; }
+  .subtype-card.st-orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .subtype-card.st-orange .st-head { color: #b85e10; }
+  .subtype-card.st-red { background: #fbe8e6; border: 2px solid #c0392b; }
+  .subtype-card.st-red .st-head { color: #a0291e; }
+  @media (max-width: 540px) {
+    .compare4 { grid-template-columns: 1fr; }
+    .matrix { grid-template-columns: 1fr; }
+    .subtype-grid { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.7rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+  .bar{height:22px;border-radius:6px;margin:4px 0 2px;color:#fff;font-size:.78rem;padding:0 8px;line-height:22px;white-space:nowrap}
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="header">
+  <div class="label">健康・栄養 日報 ／ 論文の読み解き</div>
+  <h1>健康・栄養 最新トピック 2026-11-16 ── 血液検査の前の「絶食」は何時間必要? 約10万人のデータを読む</h1>
+  <div class="subtitle">🩸 「前の晩から何も食べないで来てください」── 健康診断でおなじみのこのルール、検査によっては必要性が小さいかもしれない、という韓国の大規模な研究(2026年)を、やさしく読み解きます。</div>
+</div>
+
+<div class="card">
+  <h2>🎯 今日のポイント</h2>
+  <ul class="step-list">
+    <li><span>約10万人・約975万件の検査結果を調べると、<strong>絶食時間の影響がはっきり残った検査は、121項目のうち10項目</strong>だけでした。</span></li>
+    <li><span>ただし<strong>血糖・中性脂肪</strong>などは、絶食が8時間未満だと高めに出ました。これらを正確に測りたいときは、<strong>8時間以上の絶食</strong>が引き続き大切です。</span></li>
+    <li><span>一方で、<strong>12時間を超えて絶食しても、さらに正確になるわけではありません</strong>でした。</span></li>
+  </ul>
+</div>
+
+<div class="card">
+  <h2>🔰 まず用語</h2>
+  <div class="def-grid">
+    <div class="def-item"><div class="dterm">絶食(空腹時採血)</div>検査の前に、一定の時間、食べ物をとらないこと。食事の影響を消して、値をそろえるため。</div>
+    <div class="def-item"><div class="dterm">中性脂肪(トリグリセリド)</div>血液中の脂肪の一種。食後に大きく上がりやすい。</div>
+    <div class="def-item"><div class="dterm">γ-GTP(GGT)</div>肝臓などの状態を見る酵素。お酒の量の目安にも使われる。</div>
+    <div class="def-item"><div class="dterm">リパーゼ</div>すい臓から出る、脂肪を分解する酵素。</div>
+    <div class="def-item"><div class="dterm">許容誤差(APS)</div>「この差より大きいと、検査結果の判断に影響しうる」という目安の幅。</div>
+    <div class="def-item"><div class="dterm">交絡(こうらく)</div>本当の原因とは別の「隠れた違い」が、見かけの差をつくること。</div>
+  </div>
+</div>
+
+<div class="card orange">
+  <h2>🔢 どんな研究?</h2>
+  <div class="num-row">
+    <div class="num-card"><span class="big">10.1</span><span class="unit">万人</span><div class="desc">外来で採血した大人 101,148人</div></div>
+    <div class="num-card blue-bg"><span class="big">975</span><span class="unit">万件</span><div class="desc">検査結果 9,755,547件(372の検査項目)</div></div>
+    <div class="num-card orange-bg"><span class="big">121</span><span class="unit">項目</span><div class="desc">くわしく比べた、よく使う検査</div></div>
+    <div class="num-card gray-bg"><span class="big">1</span><span class="unit">病院</span><div class="desc">韓国・ソウルの大学病院(2021年2月〜2023年12月)</div></div>
+  </div>
+  <p style="font-size:0.88rem;">🗂 Shin ら、<em>JAMA Internal Medicine</em>(米国医師会の内科専門誌)に2026年9月28日オンライン掲載。過去の記録を使った<strong>観察研究(後ろ向きの横断研究)</strong>で、くじ引きで絶食時間を決めた実験ではありません。絶食時間は、採血のときに30分刻みで記録されていました。</p>
+
+  <div class="flow">
+    <div class="flow-step">🕗 採血時に<br>絶食時間を記録</div>
+    <div class="flow-arrow">➜</div>
+    <div class="flow-step purp">🗂 3グループに分ける<br>8時間未満/8〜12時間/12時間超</div>
+    <div class="flow-arrow">➜</div>
+    <div class="flow-step alt">⚖️ ① 別の人どうしで比べる</div>
+    <div class="flow-arrow">➜</div>
+    <div class="flow-step">🔁 ② 同じ人の<br>別の日どうしで確かめる</div>
+  </div>
+</div>
+
+<div class="card blue">
+  <h2>📊 結果:影響が残ったのは一部の検査だけ</h2>
+  <p>許容誤差を超える差は、①「別の人どうし」の比較では<strong>27項目</strong>で見つかりました。でも②「同じ人どうし」で確かめると、残ったのは<strong>10項目</strong>だけでした。</p>
+  <div class="bar" style="width:100%;background:#888;">121項目(くわしく比べた検査)</div>
+  <div class="bar" style="width:22.3%;min-width:150px;background:#e07b2a;">27項目(別の人どうし)</div>
+  <div class="bar" style="width:8.3%;min-width:150px;background:#1a7a5a;">10項目(同じ人でも確認)</div>
+
+  <p style="margin-top:16px;">🍚 <strong>絶食8時間未満のときに高く出たおもな検査</strong>(もっと長く絶食した人との比較)</p>
+  <div class="num-row">
+    <div class="num-card orange-bg"><span class="big">+10.8</span><span class="unit">%</span><div class="desc">血糖(グルコース)</div></div>
+    <div class="num-card red-bg"><span class="big">+20.1</span><span class="unit">%</span><div class="desc">中性脂肪</div></div>
+    <div class="num-card purple-bg"><span class="big">+14.8</span><span class="unit">%</span><div class="desc">γ-GTP</div></div>
+    <div class="num-card blue-bg"><span class="big">+36.4</span><span class="unit">%</span><div class="desc">リパーゼ</div></div>
+  </div>
+  <div class="matrix">
+    <div class="mx-cell ng"><div class="mx-head">⏱ 8時間未満</div>血糖・中性脂肪などが<strong>高めに出る</strong>。病気の判定ラインに近い人では、結果の読み方が変わりうる。</div>
+    <div class="mx-cell ok"><div class="mx-head">⏳ 8〜12時間 と 12時間超</div>どの検査でも、<strong>大事と言える差は見られなかった</strong>。長く絶食すれば得、ではない。</div>
+  </div>
+  <p style="font-size:0.85rem;">※論文本文はネットワーク制限で読めず、要旨・医学ニュースの範囲で解説しています。10項目の全リスト、信頼区間(結果のブレ幅)、資金源は未確認です。</p>
+</div>
+
+<div class="card purple">
+  <h2>🔍 「27項目→10項目」から学べること</h2>
+  <p>別の人どうしを比べると、<strong>絶食時間以外の違い</strong>も混ざってしまいます。たとえば、食べてから来る人は、受診の時間帯や病気の種類、体の状態がちがうかもしれません。</p>
+  <div class="flow">
+    <div class="flow-step alt">👤A さん(食後)<br>vs 👤B さん(空腹)</div>
+    <div class="flow-arrow">➜</div>
+    <div class="flow-step warn2">❓ 差は「絶食」のせい?<br>それとも「人のちがい」?</div>
+    <div class="flow-arrow">➜</div>
+    <div class="flow-step">👤A さん自身の<br>食後の日 vs 空腹の日</div>
+  </div>
+  <p>同じ人どうしで比べると、「人のちがい」をかなり取りのぞけます。差が27から10に減ったことは、<strong>最初に見えた差の多くが交絡(隠れた違い)だった可能性</strong>を示しています。</p>
+  <div class="warn"><strong>⚠️ 読むときの注意:</strong> 同じ人どうしの比較でも、くじ引きの実験(RCT)ほど強い証拠ではありません。日によって体調や時間帯もちがうからです。</div>
+</div>
+
+<div class="card">
+  <h2>🌍 ほかの指針と合わせると(慎重な見方も)</h2>
+  <div class="compare4">
+    <div class="c3-col blue"><h3>🇪🇺 欧州の学会(2016年)</h3><ul><li>欧州動脈硬化学会などの共同声明は、<strong>コレステロール検査はふだん絶食なしでよい</strong>とした</li><li>食事なしの中性脂肪が高い(440mg/dL超)ときなどは、絶食で測り直す</li></ul></div>
+    <div class="c3-col green"><h3>🇯🇵 日本の学会(2022年)</h3><ul><li>日本動脈硬化学会の指針は、「空腹時」を<strong>10時間以上の絶食</strong>と定義</li><li>中性脂肪の高値の目安は、空腹時150mg/dL以上、<strong>随時(食後など)175mg/dL以上</strong>と、分けて示している</li></ul></div>
+    <div class="c3-col red"><h3>🤚 慎重な点</h3><ul><li>1つの病院(韓国)の外来患者だけのデータ</li><li>観察研究で、絶食時間は割り当てていない</li><li>この論文で確かめられていない検査もあり、<strong>検査ごとの決まりを置きかえるものではない</strong></li></ul></div>
+  </div>
+  <p style="font-size:0.88rem;">つまり「絶食は全部いらない」ではなく、<strong>「検査によって、必要な絶食の程度がちがう」</strong>と読むのが正確です。</p>
+</div>
+
+<div class="card purple">
+  <h2>🧪 エビデンスの強さ</h2>
+  <table class="ev-table">
+    <tr><th>項目</th><th>内容</th><th>評価</th></tr>
+    <tr><td>研究の種類</td><td>観察研究(後ろ向きの横断研究)+同じ人どうしの比較</td><td><span class="ev-badge ev-mid">中</span></td></tr>
+    <tr><td>人数</td><td>101,148人・約975万件の結果</td><td><span class="ev-badge ev-high">非常に多い</span></td></tr>
+    <tr><td>結果の種類</td><td>血液検査の値そのもの(客観的な数値)</td><td><span class="ev-badge ev-high">客観的</span></td></tr>
+    <tr><td>対象</td><td>韓国の1つの大学病院の外来患者。健診の受診者や他の国にそのまま当てはまるとは限らない</td><td><span class="ev-badge ev-mid">限定的</span></td></tr>
+  </table>
+</div>
+
+<div class="card">
+  <h2>🧬 精密栄養学の視点</h2>
+  <div class="matrix">
+    <div class="mx-cell ok"><div class="mx-head">🍽 食後の反応は人それぞれ</div>同じ食事でも、食後に血糖や中性脂肪がどれだけ上がるかは人によってちがいます。絶食は、その<strong>個人差と食事の差をいったん消して</strong>、比べやすくするための工夫です。</div>
+    <div class="mx-cell ng"><div class="mx-head">📋 自分の結果を比べるときは</div>去年と今年の値を比べるなら、<strong>同じ条件(絶食時間・時間帯)</strong>で測るほうが、変化を正しく読みやすくなります。</div>
+  </div>
+</div>
+
+<div class="card orange">
+  <h2>✅ 今日からできること</h2>
+  <ul class="step-list">
+    <li><span><strong>検査の案内(病院・健診機関の指示)に従う</strong>のが基本。今回の研究を理由に、自己判断で絶食をやめたり短くしたりしない。</span></li>
+    <li><span>うっかり食べてしまったら、<strong>採血のときに正直に伝える</strong>。食後かどうかで結果の読み方が変わる検査があります。</span></li>
+    <li><span>糖尿病の薬などを使っている人は、絶食で<strong>低血糖</strong>になることも。食事や薬の調整は、<strong>必ず主治医・薬剤師に相談</strong>してください。</span></li>
+  </ul>
+</div>
+
+<div class="warn"><strong>💡 今日の学び:</strong> 「○○しなくてもよい」というニュースは、<strong>「どの検査・どの人について?」</strong>まで確かめましょう。今回の結論は「絶食は不要」ではなく、「血糖・脂質など一部の検査では大切、ほかの多くの検査では影響が小さい」です。</div>
+
+<div class="sources">
+  <h3>📚 出典</h3>
+  <ul>
+    <li>Shin S ら「Fasting Duration and Differences Across Routine Laboratory Tests」<em>JAMA Internal Medicine</em>(2026年9月28日オンライン)DOI 10.1001/jamainternmed.2026.4718。<a href="https://doi.org/10.1001/jamainternmed.2026.4718">https://doi.org/10.1001/jamainternmed.2026.4718</a>(基準日:2026年9月。韓国・峨山医療センターの後ろ向き横断研究、101,148人・9,755,547件・372項目、121項目で比較、許容誤差超えは群間27項目→同一人物の比較で10項目、8時間未満で血糖+10.8%・中性脂肪+20.1%・γ-GTP+14.8%・リパーゼ+36.4%、12時間超で追加の差なし。確認日:2026年11月、要旨・検索結果の範囲。本文・信頼区間・資金源は未確認)</li>
+    <li>JAMA ニュース「Fasting Duration Minimally Affects Most Routine Laboratory Tests」<em>JAMA</em>(2026年10月16日)。<a href="https://jamanetwork.com/journals/jama/fullarticle/2855638">https://jamanetwork.com/journals/jama/fullarticle/2855638</a>(基準日:2026年10月。上記論文の紹介記事。確認日:2026年11月、検索結果の範囲)</li>
+    <li>Healio「Fasting duration minimally affects most routine blood tests」(2026年10月2日、論文の紹介記事)。<a href="https://www.healio.com/news/primary-care/20261002/fasting-duration-minimally-affects-most-routine-blood-tests">https://www.healio.com/news/primary-care/20261002/fasting-duration-minimally-affects-most-routine-blood-tests</a>(基準日:2026年10月。単一施設・外来採血に限られるという限界の記載)</li>
+    <li>Nordestgaard BG ら「Fasting is not routinely required for determination of a lipid profile」欧州動脈硬化学会(EAS)・欧州臨床化学会連合(EFLM)共同声明、<em>European Heart Journal</em> 2016(PMID 27122601)DOI 10.1093/eurheartj/ehw152。<a href="https://doi.org/10.1093/eurheartj/ehw152">https://doi.org/10.1093/eurheartj/ehw152</a>(基準日:2016年4月。脂質検査はふだん非空腹時でよい、非空腹時の中性脂肪が5mmol/L(440mg/dL)超なら空腹時で測定を検討)</li>
+    <li>日本動脈硬化学会「動脈硬化性疾患予防ガイドライン2022年版」── 空腹時=10時間以上の絶食、中性脂肪の基準:空腹時150mg/dL以上・随時175mg/dL以上(随時の新設)。確認はケアネットの解説記事経由:<a href="https://www.carenet.com/news/general/carenet/55658">https://www.carenet.com/news/general/carenet/55658</a> ／ <a href="https://www.carenet.com/news/general/carenet/56974">https://www.carenet.com/news/general/carenet/56974</a>(基準日:2022〜2023年。ガイドライン原典の文言は未確認)</li>
+  </ul>
+</div>
+
+<div class="disclaimer">
+  ⚠️ 本記事は一般的な情報であり、医療アドバイスではありません。検査の準備・効果・リスクは、個人の体質・年齢・持病・服薬で大きく変わります。検査前の食事や薬については、受診先の指示に従い、かかりつけ医・管理栄養士・薬剤師など専門家に相談してください。特定の食事制限・サプリ・断食を安易に始めないでください。
+</div>
+
+</div>
+</body>
+</html>
