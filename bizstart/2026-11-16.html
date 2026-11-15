@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-11-16</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #2a4d7a 0%, #10233f 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #2a4d7a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.blue   { border-left-color: #1e5a7a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.green  { border-left-color: #1e7a5a; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #2a4d7a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin: 14px 0;
+  }
+  .stats-row.c3 { grid-template-columns: repeat(3, 1fr); }
+  .stats-row.c2 { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 12px 6px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat.now { background: #fff3e0; box-shadow: 0 0 0 2px #c8884a inset; }
+  .stat .sl { font-size: 0.62rem; color: #888; margin-bottom: 3px; line-height: 1.4; }
+  .stat .sv { font-size: 1.05rem; font-weight: 700; color: #2a4d7a; line-height: 1.15; }
+  .stat.now .sv { color: #c8884a; }
+  .stat .su { font-size: 0.62rem; color: #666; margin-top: 2px; }
+
+  .bignum {
+    background: white;
+    border-radius: 12px;
+    padding: 18px 14px;
+    text-align: center;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.1);
+    border: 2px dashed #c8884a;
+    margin: 14px 0;
+  }
+  .bignum .bl { font-size: 0.76rem; color: #888; margin-bottom: 6px; }
+  .bignum .bv { font-size: 1.7rem; font-weight: 700; color: #c8884a; line-height: 1.3; }
+  .bignum .bs { font-size: 0.76rem; color: #666; margin-top: 6px; line-height: 1.6; }
+
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #2a4d7a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-num.now { background: #b54040; }
+  .f-num.later { background: #999; }
+  .f-num.opt { background: #c8884a; }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+  .f-arrow { color: #2a4d7a; font-size: 1.1rem; margin-left: 14px; margin-bottom: 4px; }
+
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  table.cmp {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.83rem;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.08);
+  }
+  table.cmp th, table.cmp td {
+    border: 1px solid #e4dccd;
+    padding: 9px 10px;
+    line-height: 1.55;
+    vertical-align: top;
+  }
+  table.cmp thead th { background: #2a4d7a; color: white; font-weight: 600; text-align: center; }
+  table.cmp tbody th { background: #f5efe2; color: #5a4020; text-align: left; font-weight: 600; white-space: nowrap; }
+  table.cmp td { color: #444; text-align: left; }
+  table.cmp td.hi { background: #fff3e0; font-weight: 700; color: #c8884a; }
+  .wrap-x { overflow-x: auto; }
+
+  .prompt-box {
+    background: #f0f5ff;
+    border: 2px solid #4a6aae;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 12px 0;
+    font-size: 0.84rem;
+    line-height: 1.85;
+    color: #1a2a4a;
+  }
+  .prompt-box .ph {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #4a6aae;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+  .prompt-box .fill {
+    background: #d0e0ff;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-weight: 700;
+    color: #0a2a6e;
+  }
+
+  .info {
+    background: #e8eef8;
+    border-left: 4px solid #2a4d7a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #16294a;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #7a4010;
+  }
+
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #2a4d7a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #2a4d7a; word-break: break-all; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #2a4d7a; }
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header">
+  <div class="meta">2026-11-16(月)・税務の基礎(年末〜1月の手続き)</div>
+  <h1>🧾 1人法人スタート 最新トピック 2026-11-16<br>税理士やデザイナーに払ったお金、税務署に報告してる? ── 「報酬の支払調書」の基礎</h1>
+  <div class="desc">1人社長は、税理士・デザイナー・ライターなど「外の専門家」にお金を払うことが多いはずです。そうした支払いは、年が明けたら<b>「だれに・いくら払ったか」を税務署に報告する</b>決まりがあります。昨日の「源泉徴収票のみなし提出」の続きとして、対象の見分け方と1月までの流れを図解します。</div>
+  <div style="margin-top:10px"><span class="htag">支払調書</span><span class="htag">法定調書合計表</span><span class="htag">源泉徴収</span><span class="htag">令和8年分</span></div>
+</div>
+
+<div class="card">
+  <div class="sec-title">📌 ① まず言葉をそろえよう</div>
+  <ul class="check-list">
+    <li><span class="ck">🧾</span><span><b>支払調書</b>(しはらいちょうしょ)＝「この人に、1年でこれだけ払いました」と税務署に伝える報告書。正式名は「報酬、料金、契約金及び賞金の支払調書」です。</span></li>
+    <li><span class="ck">✂️</span><span><b>源泉徴収</b>(げんせんちょうしゅう)＝払う側が、相手の所得税を先に差し引いて代わりに国へ納めるしくみ。</span></li>
+    <li><span class="ck">🗂</span><span><b>法定調書合計表</b>＝税務署に出す報告書類の「表紙兼まとめ表」。支払調書を出すなら一緒に出します。</span></li>
+  </ul>
+  <div class="info">💡 ひとことで言うと：<b>給料は「源泉徴収票」、外の専門家への報酬は「支払調書」</b>で税務署に報告する、という役割分担です。</div>
+</div>
+
+<div class="card orange">
+  <div class="sec-title">🔢 ② 覚えておきたい数字</div>
+  <div class="stats-row c3">
+    <div class="stat now"><div class="sl">税理士・デザイナー等への報酬</div><div class="sv">年5万円超</div><div class="su">同じ相手への1年の合計</div></div>
+    <div class="stat"><div class="sl">提出期限</div><div class="sv">翌年<br>1月31日</div><div class="su">今回は2027年2月1日(月)</div></div>
+    <div class="stat"><div class="sl">個人に払うときの源泉徴収</div><div class="sv">10.21%</div><div class="su">1回100万円超の部分は20.42%</div></div>
+  </div>
+  <div class="bignum">
+    <div class="bl">令和8年(2026年)中の支払いの報告期限</div>
+    <div class="bv">2027年2月1日(月)</div>
+    <div class="bs">本来は1月31日。2027年は1月31日が日曜日のため翌日に(国税通則法10条2項)</div>
+  </div>
+  <p style="font-size:0.82rem">※「5万円超」は税理士・弁護士・デザイン料・原稿料などの区分の基準です。外交員報酬など一部の区分は基準額がちがうため、該当しそうなときは国税庁の手引きで確認してください。金額は消費税込みで判定しますが、請求書で消費税がはっきり分かれていれば税抜で判定してもかまいません。</p>
+</div>
+
+<div class="card blue">
+  <div class="sec-title">🔍 ③ 対象になる? ならない? 見分け方フロー</div>
+  <div class="f-step"><div class="f-num">1</div><div class="f-text">その支払いは<b>「専門家の仕事への報酬」</b>?(税理士・弁護士・社労士・司法書士の報酬、デザイン料、原稿料、講演料など)<br><span style="color:#888">→ ちがう(文房具の購入、家賃、ふつうの仕入れなど)なら対象外</span></div></div>
+  <div class="f-arrow">⬇</div>
+  <div class="f-step"><div class="f-num">2</div><div class="f-text">同じ相手への<b>1年間の合計が5万円を超えた</b>?<br><span style="color:#888">→ 5万円以下なら支払調書は不要</span></div></div>
+  <div class="f-arrow">⬇</div>
+  <div class="f-step"><div class="f-num now">3</div><div class="f-text"><b>支払調書を作る対象</b>。相手が個人なら、支払いのたびに源泉徴収も必要だったはず。漏れがないか確認を。</div></div>
+  <div class="warn">⚠️ <b>相手が法人(税理士法人・デザイン会社など)のとき</b>：源泉徴収はふつう不要です。ただし「源泉徴収が要らない＝支払調書も要らない」とは限らず、報酬の中身によって判断が分かれます。迷う相手がいたら、顧問税理士か税務署に確認しましょう。</div>
+</div>
+
+<div class="card">
+  <div class="sec-title">⚖️ ④ 源泉徴収票と支払調書のちがい</div>
+  <div class="wrap-x">
+  <table class="cmp">
+    <thead><tr><th></th><th>給与所得の源泉徴収票</th><th>報酬の支払調書</th></tr></thead>
+    <tbody>
+      <tr><th>だれの分?</th><td>社長本人・従業員(給料)</td><td class="hi">外の専門家(報酬)</td></tr>
+      <tr><th>提出の基準</th><td>役員は年150万円超 など</td><td class="hi">同じ相手に年5万円超(税理士・デザイン料など)</td></tr>
+      <tr><th>令和8年分の新しい特例</th><td>市区町村に出せば税務署分はみなし提出(11/15記事)</td><td>特例なし。<b>税務署へ提出</b>が必要</td></tr>
+      <tr><th>合計表</th><td>給与の源泉徴収票だけなら原則不要に</td><td class="hi">支払調書を出すなら必要</td></tr>
+      <tr><th>期限</th><td colspan="2" style="text-align:center">どちらも翌年1月31日(2027年は2月1日)</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="info">💡 昨日の記事のとおり、給与の源泉徴収票は市区町村に出せば税務署分が済むようになります。でも<b>報酬の支払調書が1枚でもあれば、合計表と一緒に税務署へ出す作業は残る</b>、という点がポイントです。</div>
+</div>
+
+<div class="card green">
+  <div class="sec-title">🗓 ⑤ 12月〜1月の段取り(4ステップ)</div>
+  <div class="f-step"><div class="f-num">1</div><div class="f-text"><b>12月：支払先リストを作る</b><br>会計ソフトの「支払手数料」「外注費」などから、専門家への支払いを相手別に合計する。</div></div>
+  <div class="f-arrow">⬇</div>
+  <div class="f-step"><div class="f-num">2</div><div class="f-text"><b>12月：相手の情報をそろえる</b><br>住所・氏名(名称)と、マイナンバー(個人)または法人番号。マイナンバーは本人確認とあわせて安全に受け取る。</div></div>
+  <div class="f-arrow">⬇</div>
+  <div class="f-step"><div class="f-num">3</div><div class="f-text"><b>1月：支払調書と合計表を作る</b><br>支払金額・源泉徴収税額を記入。会計・給与ソフトの帳票機能を使うと楽です。</div></div>
+  <div class="f-arrow">⬇</div>
+  <div class="f-step"><div class="f-num now">4</div><div class="f-text"><b>2027年2月1日(月)までに税務署へ提出</b><br>e-Taxか書面で。前々年の提出枚数が一定以上(令和9年1月以後は30枚以上)の会社はe-Tax等が義務です。</div></div>
+  <div class="info">💡 支払調書の控えを相手に送る会社もありますが、<b>提出先はあくまで税務署</b>。相手に送っただけでは提出したことになりません。</div>
+</div>
+
+<div class="card orange">
+  <div class="sec-title">🤖 ⑥ 生成AIで「支払先リスト」を整理する</div>
+  <p>会計ソフトから書き出した仕訳一覧(CSV)をもとに、AIに下書きを手伝ってもらいましょう。<b>マイナンバーや口座番号は入力しない</b>のが鉄則です。</p>
+  <div class="prompt-box">
+    <div class="ph">📝 プロンプト例</div>
+    次の支払一覧(<span class="fill">2026年1月〜12月</span>)を、支払先ごとに合計してください。<br>
+    1. 「税理士報酬・デザイン料・原稿料など専門家への報酬」と思われるものに印をつける<br>
+    2. 同じ相手への合計が5万円を超えるものを一覧にする<br>
+    3. 相手が個人か法人か、名前から判断できないものは「要確認」とする<br>
+    ※判断は最終的に私が国税庁の手引きで確認します。<br>
+    <span class="fill">(相手の名前・日付・金額・摘要だけを貼り付け)</span>
+  </div>
+  <div class="warn">⚠️ AIの分類は「下書き」です。対象かどうかの最終判断は、国税庁の手引きや税理士の確認で行ってください。</div>
+</div>
+
+<div class="card red">
+  <div class="sec-title">✅ ⑦ チェックリスト</div>
+  <ul class="check-list">
+    <li><span class="ck">✔</span><span>2026年に専門家へ払った報酬を、相手ごとに合計した</span></li>
+    <li><span class="ck">✔</span><span>個人の専門家に払ったとき、源泉徴収していたか確認した</span></li>
+    <li><span class="ck">✔</span><span>相手の住所・マイナンバー/法人番号をそろえた</span></li>
+    <li><span class="ck">✔</span><span>合計表もあわせて作る予定を入れた(期限2027年2月1日)</span></li>
+    <li><span class="ck-bad">✖</span><span>「源泉徴収票がみなし提出になったから、税務署への提出は全部なくなった」と思いこむ</span></li>
+    <li><span class="ck-bad">✖</span><span>マイナンバーをそのまま生成AIに貼り付ける</span></li>
+  </ul>
+</div>
+
+<div class="card">
+  <div class="sec-title">📝 ⑧ 今日のまとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">1</span><span>税理士・デザイナーなど外の専門家への報酬は、「支払調書」で税務署に報告する</span></li>
+    <li><span class="n">2</span><span>税理士・デザイン料などは、同じ相手への1年の合計が5万円超なら対象(令和8年分)</span></li>
+    <li><span class="n">3</span><span>支払調書を出すなら合計表も必要。給与の「みなし提出」とは別の話</span></li>
+    <li><span class="n">4</span><span>令和8年分の期限は2027年2月1日(月)。12月のうちに支払先リストを作っておこう</span></li>
+  </ul>
+  <div class="source">📚 出典(基準：令和8年分〈2026年中の支払〉・2027年1月以後の提出分、2026年11月時点)：<br>
+  ・国税庁 タックスアンサーNo.7431 報酬、料金、契約金及び賞金の支払調書(提出義務者・期限・消費税の扱い)：<a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/hotei/7431.htm">https://www.nta.go.jp/taxes/shiraberu/taxanswer/hotei/7431.htm</a><br>
+  ・国税庁「令和8年分 給与所得の源泉徴収票等の法定調書の作成と提出の手引」第4章(報酬・料金の支払調書の提出範囲)：<a href="https://www.nta.go.jp/publication/pamph/hotei/tebiki2026/PDF/04.pdf">https://www.nta.go.jp/publication/pamph/hotei/tebiki2026/PDF/04.pdf</a><br>
+  ・国税庁 タックスアンサーNo.2795 源泉徴収が必要な報酬・料金等とは(10.21%・100万円超部分20.42%)：<a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/gensen/2795.htm">https://www.nta.go.jp/taxes/shiraberu/taxanswer/gensen/2795.htm</a><br>
+  ・国税庁 法定調書関係(e-Tax等の提出義務 令和9年1月1日以後30枚以上)：<a href="https://www.nta.go.jp/users/gensen/hotei/index.htm">https://www.nta.go.jp/users/gensen/hotei/index.htm</a><br>
+  ・国税通則法 第10条第2項(期限が日曜・祝日等の場合は翌日)：<a href="https://laws.e-gov.go.jp/law/337AC0000000066">https://laws.e-gov.go.jp/law/337AC0000000066</a><br>
+  ※本日は官公庁サイトへ直接接続できず、検索結果に表示された上記ページの記載と解説記事をもとにまとめています。「5万円超」の基準や法人への支払いの扱いは、提出前に手引きの原文でご確認ください。<br>
+  ・関連記事：<a href="2026-11-15.html">源泉徴収票のみなし提出(11/15)</a>、<a href="2026-06-15.html">1人会社の年末調整と法定調書の基礎(6/15)</a></div>
+</div>
+
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、税務・法務の個別アドバイスではありません。会社の状況により結論は変わります。
+  具体的な判断は、税理士・社会保険労務士・司法書士などの専門家にご相談ください。<br>
+  <strong>本記事の基準年度：</strong>令和8年分(2026年中の支払)・2027年1月以後の提出分(2026年11月時点の情報)。制度・税率・金額は改正されることがあるため、最新情報は公式サイトでご確認ください。
+</div>
+<div class="footer">
+  <p>📚 <a href="index.html">バックナンバー一覧へ</a> &nbsp;&middot;&nbsp; 毎朝更新</p>
+</div>
+</div>
+</body>
+</html>
