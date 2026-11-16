@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-11-17</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #2a4d7a 0%, #10233f 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #2a4d7a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.blue   { border-left-color: #1e5a7a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.green  { border-left-color: #1e7a5a; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #2a4d7a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin: 14px 0;
+  }
+  .stats-row.c3 { grid-template-columns: repeat(3, 1fr); }
+  .stats-row.c2 { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 12px 6px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat.now { background: #fff3e0; box-shadow: 0 0 0 2px #c8884a inset; }
+  .stat .sl { font-size: 0.62rem; color: #888; margin-bottom: 3px; line-height: 1.4; }
+  .stat .sv { font-size: 1.05rem; font-weight: 700; color: #2a4d7a; line-height: 1.15; }
+  .stat.now .sv { color: #c8884a; }
+  .stat .su { font-size: 0.62rem; color: #666; margin-top: 2px; }
+
+  .bignum {
+    background: white;
+    border-radius: 12px;
+    padding: 18px 14px;
+    text-align: center;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.1);
+    border: 2px dashed #c8884a;
+    margin: 14px 0;
+  }
+  .bignum .bl { font-size: 0.76rem; color: #888; margin-bottom: 6px; }
+  .bignum .bv { font-size: 1.7rem; font-weight: 700; color: #c8884a; line-height: 1.3; }
+  .bignum .bs { font-size: 0.76rem; color: #666; margin-top: 6px; line-height: 1.6; }
+
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #2a4d7a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-num.now { background: #b54040; }
+  .f-num.later { background: #999; }
+  .f-num.opt { background: #c8884a; }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+  .f-arrow { color: #2a4d7a; font-size: 1.1rem; margin-left: 14px; margin-bottom: 4px; }
+
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  table.cmp {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.83rem;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.08);
+  }
+  table.cmp th, table.cmp td {
+    border: 1px solid #e4dccd;
+    padding: 9px 10px;
+    line-height: 1.55;
+    vertical-align: top;
+  }
+  table.cmp thead th { background: #2a4d7a; color: white; font-weight: 600; text-align: center; }
+  table.cmp tbody th { background: #f5efe2; color: #5a4020; text-align: left; font-weight: 600; white-space: nowrap; }
+  table.cmp td { color: #444; text-align: left; }
+  table.cmp td.hi { background: #fff3e0; font-weight: 700; color: #c8884a; }
+  .wrap-x { overflow-x: auto; }
+
+  .prompt-box {
+    background: #f0f5ff;
+    border: 2px solid #4a6aae;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 12px 0;
+    font-size: 0.84rem;
+    line-height: 1.85;
+    color: #1a2a4a;
+  }
+  .prompt-box .ph {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #4a6aae;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+  .prompt-box .fill {
+    background: #d0e0ff;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-weight: 700;
+    color: #0a2a6e;
+  }
+
+  .info {
+    background: #e8eef8;
+    border-left: 4px solid #2a4d7a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #16294a;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #7a4010;
+  }
+
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #2a4d7a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #2a4d7a; word-break: break-all; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #2a4d7a; }
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header">
+  <div class="meta">2026-11-17(火)・会社の手続き(登記)</div>
+  <h1>🏢 1人法人スタート 最新トピック 2026-11-17<br>事務所を引っ越すなら知っておきたい ── 「本店移転登記」の基礎</h1>
+  <div class="desc">自宅から事務所へ、あるいはレンタルオフィスへ。会社の住所(本店)を変えるときは、<b>法務局への登記と、税務署・年金事務所などへの届出</b>がセットで必要です。費用が3万円か6万円か、定款を変える必要があるかは「どこからどこへ移るか」で決まります。全体の流れを図でつかみましょう。</div>
+  <div style="margin-top:10px"><span class="htag">本店移転</span><span class="htag">登録免許税</span><span class="htag">定款変更</span><span class="htag">異動届出書</span><span class="htag">2026年11月時点</span></div>
+</div>
+
+<div class="card">
+  <div class="sec-title">📌 ① まず言葉をそろえよう</div>
+  <ul class="check-list">
+    <li><span class="ck">🏢</span><span><b>本店</b>(ほんてん)＝登記簿にのっている会社の「正式な住所」。実際に仕事をする場所と同じとは限りません。</span></li>
+    <li><span class="ck">📜</span><span><b>登記</b>(とうき)＝会社の大事な情報を法務局の公開名簿にのせること。住所が変わったら書きかえが必要です。</span></li>
+    <li><span class="ck">🗺</span><span><b>管轄</b>(かんかつ)＝その住所を担当する法務局の「受け持ち地域」。担当の法務局が変わるかどうかで費用が変わります。</span></li>
+    <li><span class="ck">📘</span><span><b>定款</b>(ていかん)＝会社のルールブック。本店の所在地は必ず書く項目です(会社法27条)。</span></li>
+  </ul>
+</div>
+
+<div class="card orange">
+  <div class="sec-title">🔢 ② 覚えておきたい数字</div>
+  <div class="stats-row c3">
+    <div class="stat"><div class="sl">同じ法務局の管轄内で移転</div><div class="sv">3万円</div><div class="su">登録免許税</div></div>
+    <div class="stat now"><div class="sl">別の法務局の管轄へ移転</div><div class="sv">6万円</div><div class="su">旧住所分3万＋新住所分3万</div></div>
+    <div class="stat"><div class="sl">登記の期限</div><div class="sv">2週間</div><div class="su">移転した日から</div></div>
+  </div>
+  <div class="bignum">
+    <div class="bl">登記を放っておくと…</div>
+    <div class="bv">過料 100万円以下</div>
+    <div class="bs">登記を怠ったときの過料(会社法976条)。代表者個人に科される「行政上のペナルティ」です</div>
+  </div>
+  <p style="font-size:0.82rem">※登録免許税＝登記のときに国に納める税金。本店移転は「1件につき3万円」で、管轄外への移転は旧住所・新住所の両方で登記するため合計6万円になります(登録免許税法 別表第一)。司法書士に頼む場合は、これとは別に報酬がかかります。</p>
+</div>
+
+<div class="card blue">
+  <div class="sec-title">🔍 ③ 定款を変える必要がある? 判定フロー</div>
+  <div class="f-step"><div class="f-num">1</div><div class="f-text">定款に本店所在地を<b>どこまで</b>書いている?<br><span style="color:#888">例A「東京都渋谷区に置く」(市区町村まで)／例B「東京都渋谷区○○1-2-3」(番地まで)</span></div></div>
+  <div class="f-arrow">⬇</div>
+  <div class="f-step"><div class="f-num">2</div><div class="f-text">新しい住所は、定款に書いた<b>範囲の中</b>?<br><span style="color:#888">例A：渋谷区内の引っ越し → 範囲内／新宿区へ → 範囲外<br>例B：番地が1つでも変われば → 範囲外</span></div></div>
+  <div class="f-arrow">⬇</div>
+  <div class="f-step"><div class="f-num now">3</div><div class="f-text"><b>範囲外なら定款変更が必要</b>＝株主総会の特別決議。1人株主の会社なら、書面で全員(＝自分)が同意する「書面決議」で済ませる方法もあります(会社法319条)。<br><span style="color:#888">範囲内なら定款変更は不要。具体的な住所と移転日を取締役が決めれば足ります(取締役会がある会社は取締役会決議)。</span></div></div>
+  <div class="info">💡 設立時に定款を<b>「市区町村まで」</b>にしておくと、同じ市区町村内の引っ越しで定款変更がいりません。これから定款を作る人は覚えておくと便利です。</div>
+</div>
+
+<div class="card">
+  <div class="sec-title">⚖️ ④ 管轄内と管轄外のちがい</div>
+  <div class="wrap-x">
+  <table class="cmp">
+    <thead><tr><th></th><th>同じ法務局の管轄内</th><th>別の法務局の管轄へ</th></tr></thead>
+    <tbody>
+      <tr><th>登録免許税</th><td>3万円</td><td class="hi">6万円(3万円×2)</td></tr>
+      <tr><th>申請書</th><td>1通</td><td class="hi">旧住所用・新住所用の2通(旧住所の法務局へまとめて出すのが一般的)</td></tr>
+      <tr><th>会社の実印</th><td>そのまま</td><td class="hi">新しい法務局向けに印鑑届書を出し直す</td></tr>
+      <tr><th>定款変更</th><td colspan="2" style="text-align:center">③のフローで判定(管轄とは別の話)</td></tr>
+      <tr><th>期限</th><td colspan="2" style="text-align:center">移転した日から2週間以内</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="warn">⚠️ 法務局の管轄は市区町村の区切りと一致しないこともあります。<b>同じ市内でも管轄が別</b>、<b>隣の市でも同じ管轄</b>ということがあるので、法務局の「管轄のご案内」で必ず確認しましょう。</div>
+</div>
+
+<div class="card green">
+  <div class="sec-title">🗓 ⑤ 引っ越しの段取り(5ステップ)</div>
+  <div class="f-step"><div class="f-num">1</div><div class="f-text"><b>1〜2か月前：新しい物件を「本店にしてよいか」確認</b><br>賃貸契約で法人登記OKか、バーチャルオフィスなら登記利用ができるプランか。許認可がある業種は、移転先で要件を満たすかも確認。</div></div>
+  <div class="f-arrow">⬇</div>
+  <div class="f-step"><div class="f-num">2</div><div class="f-text"><b>移転前：決議と書類をそろえる</b><br>定款変更が必要なら株主総会(書面決議)、住所と移転日は取締役の決定。議事録・決定書を作成。</div></div>
+  <div class="f-arrow">⬇</div>
+  <div class="f-step"><div class="f-num now">3</div><div class="f-text"><b>移転から2週間以内：法務局に本店移転登記</b><br>登録免許税3万円(管轄外は6万円)。オンライン申請も可能。</div></div>
+  <div class="f-arrow">⬇</div>
+  <div class="f-step"><div class="f-num">4</div><div class="f-text"><b>登記完了後：役所への届出</b>(⑥の一覧)<br>登記事項証明書(登記簿謄本)の写しを添付するものが多いので、完了後に取得しておく。</div></div>
+  <div class="f-arrow">⬇</div>
+  <div class="f-step"><div class="f-num opt">5</div><div class="f-text"><b>まわりの変更</b><br>銀行・クレジットカード・取引先・ホームページ・請求書のひな形・名刺。インボイス登録をしている法人は登録内容の変更届出も。</div></div>
+</div>
+
+<div class="card">
+  <div class="sec-title">🗂 ⑥ 登記のあとに出す届出マップ</div>
+  <div class="wrap-x">
+  <table class="cmp">
+    <thead><tr><th>どこへ</th><th>主な書類</th><th>目安の期限</th></tr></thead>
+    <tbody>
+      <tr><th>🏛 税務署</th><td>異動届出書(登記事項証明書の写しは原則不要)</td><td>移転後すみやかに</td></tr>
+      <tr><th>🏯 都道府県・市区町村</th><td>異動届出書(自治体ごとの様式。県や市をまたぐ場合は新旧両方へ)</td><td>自治体の定めによる</td></tr>
+      <tr><th>🏥 年金事務所</th><td>健康保険・厚生年金保険 適用事業所所在地・名称変更(訂正)届</td><td class="hi">事実発生から5日以内</td></tr>
+      <tr><th>🧾 税務署(インボイス)</th><td>適格請求書発行事業者の登録事項変更届出書(登録している法人)</td><td>変更後すみやかに</td></tr>
+      <tr><th>👷 労基署・ハローワーク</th><td>従業員を雇っている場合の所在地変更の届出</td><td>各機関の定めによる</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="info">💡 国税庁の案内では、令和5年(2023年)6月以後、本店移転で税務署の担当が変わる場合でも、異動届出書は<b>移転前の税務署1か所</b>に出せばよいとされています。給与を払っている会社は「給与支払事務所等の移転届出書」も確認しましょう。</div>
+  <div class="warn">⚠️ 年金事務所の「5日以内」は、登記完了前に来てしまうことがよくあります。間に合わないときは、管轄の年金事務所に添付書類の扱いを相談してから出すのが安心です。</div>
+</div>
+
+<div class="card orange">
+  <div class="sec-title">🤖 ⑦ 生成AIで「住所変更やることリスト」を作る</div>
+  <p>住所が載っている場所は意外と多く、抜けが出やすいところ。AIに洗い出しの下書きを頼みましょう。<b>口座番号や契約番号などは入力しない</b>のが鉄則です。</p>
+  <div class="prompt-box">
+    <div class="ph">📝 プロンプト例</div>
+    私は<span class="fill">1人で経営する株式会社</span>の代表です。<span class="fill">2027年1月</span>に本店を<span class="fill">○○市から△△市</span>へ移します。<br>
+    1. 法務局・税務署・自治体・年金事務所への手続きを、時系列のチェックリストにしてください<br>
+    2. 会社の住所が載っていそうなもの(銀行、カード、ホームページ、請求書、契約書など)を一覧にしてください<br>
+    3. 期限があるものには期限を、根拠がはっきりしないものには「要確認」と書いてください<br>
+    ※最終確認は法務局・国税庁などの公式情報と専門家で行います。
+  </div>
+  <div class="warn">⚠️ AIが出す期限や様式名は間違うことがあります。「下書き」として使い、公式サイトで裏を取ってから動きましょう。</div>
+</div>
+
+<div class="card red">
+  <div class="sec-title">✅ ⑧ チェックリスト</div>
+  <ul class="check-list">
+    <li><span class="ck">✔</span><span>新しい物件で法人登記ができるか、契約前に確認した</span></li>
+    <li><span class="ck">✔</span><span>定款の本店所在地の書き方を見て、定款変更の要否を判定した</span></li>
+    <li><span class="ck">✔</span><span>新旧の住所の管轄法務局を調べ、費用(3万円/6万円)を見積もった</span></li>
+    <li><span class="ck">✔</span><span>移転日から2週間以内に登記する予定を入れた</span></li>
+    <li><span class="ck">✔</span><span>税務署・自治体・年金事務所・インボイスの届出をリスト化した</span></li>
+    <li><span class="ck-bad">✖</span><span>「引っ越しが落ち着いてから」と登記を何か月も後回しにする</span></li>
+    <li><span class="ck-bad">✖</span><span>税務署に届けたから、県や市への届出もいらないと思いこむ</span></li>
+  </ul>
+</div>
+
+<div class="card">
+  <div class="sec-title">📝 ⑨ 今日のまとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">1</span><span>本店を移したら、移転日から2週間以内に法務局へ登記する</span></li>
+    <li><span class="n">2</span><span>登録免許税は管轄内3万円、管轄外は旧・新あわせて6万円</span></li>
+    <li><span class="n">3</span><span>定款に書いた範囲(市区町村や番地)を出るなら定款変更も必要</span></li>
+    <li><span class="n">4</span><span>登記のあとは税務署・自治体・年金事務所・インボイスへの届出を忘れずに</span></li>
+  </ul>
+  <div class="source">📚 出典(基準：2026年11月時点の法令・各機関の案内)：<br>
+  ・法務省 商業・法人登記の申請書様式(本店移転登記の申請書・記載例)：<a href="https://www.moj.go.jp/MINJI/MINJI06/minji06_00037.html">https://www.moj.go.jp/MINJI/MINJI06/minji06_00037.html</a><br>
+  ・法務局 管轄のご案内：<a href="https://houmukyoku.moj.go.jp/homu/static/kankatsu_index.html">https://houmukyoku.moj.go.jp/homu/static/kankatsu_index.html</a><br>
+  ・会社法(27条 定款の記載事項、309条・466条 定款変更の特別決議、319条 書面決議、915条・916条 変更・本店移転の登記、976条 過料)：<a href="https://laws.e-gov.go.jp/law/417AC0000000086">https://laws.e-gov.go.jp/law/417AC0000000086</a><br>
+  ・登録免許税法 別表第一(本店移転の登記 1件につき3万円)：<a href="https://laws.e-gov.go.jp/law/342AC0000000035">https://laws.e-gov.go.jp/law/342AC0000000035</a><br>
+  ・国税庁 [手続名]異動事項に関する届出：<a href="https://www.nta.go.jp/taxes/tetsuzuki/shinsei/annai/hojin/annai/1554_2.htm">https://www.nta.go.jp/taxes/tetsuzuki/shinsei/annai/hojin/annai/1554_2.htm</a><br>
+  ・日本年金機構 適用事業所の名称・所在地を変更するとき：<a href="https://www.nenkin.go.jp/service/kounen/jigyosho-hiho/jigyosho/20150407.html">https://www.nenkin.go.jp/service/kounen/jigyosho-hiho/jigyosho/20150407.html</a><br>
+  ※本日は官公庁サイトへ直接接続できず、法令の条文と検索結果・民間の解説記事をもとにまとめています。期限・添付書類・提出先は、手続き前に各機関の公式ページでご確認ください。<br>
+  ・関連記事：<a href="2026-11-13.html">定款の「事業目的」を確認しよう(11/13)</a>、<a href="2026-10-25.html">役員の重任登記(10/25)</a></div>
+</div>
+
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、税務・法務の個別アドバイスではありません。会社の状況により結論は変わります。
+  具体的な判断は、税理士・社会保険労務士・司法書士などの専門家にご相談ください。<br>
+  <strong>本記事の基準年度：</strong>2026年11月時点の法令・各機関の案内にもとづく情報です。制度・税率・金額は改正されることがあるため、最新情報は公式サイトでご確認ください。
+</div>
+<div class="footer">
+  <p>📚 <a href="index.html">バックナンバー一覧へ</a> &nbsp;&middot;&nbsp; 毎朝更新</p>
+</div>
+</div>
+</body>
+</html>
