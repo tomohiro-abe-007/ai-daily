@@ -53,13 +53,16 @@
 
 - スペイン語のTe presento a...(人を紹介する言い方と、初対面のあいさつ Encantado/a)── 11-14の敬称の続編
 
-- 英語で電話番号・住所を伝える(数字の区切り方、oh と zero、double three)── 11-15の続編
+- 英語の住所を書類・ネット注文フォームに書く(Address line 1/2, State, ZIP、日本の住所を英語表記にする手順)── 11-17の続編
+- 英語の大きな数・年号・値段の読み方(1,500=fifteen hundred、2026=twenty twenty-six、$3.50)── 11-17の番地2けた読みの発展
 - 英語のURL・SNSアカウントの伝え方(hashtag #、handle、"at"で始まるアカウント名)── 11-15の続編
 
 - スペイン語で住所を伝える・書く(calle, número, piso, puerta「3º 2ª」の読み方、código postal)── 11-16の電話番号・メールの続編、スペインの住所表記
 - スペイン語の電話の受け答え(¿Diga?/¿Sí?/De parte de quién/Se ha equivocado)── 11-16の電話番号の続編、08-03の電話フレーズの発展
 
 ## 解説済みテーマ
+
+- 2026-11-17: 英語で電話番号・住所を伝える(1つずつ読む・oh と zero・double/triple、住所は小さい順、番地は2けたずつ)── 11-15の続編
 
 - 2026-11-16: スペイン語でメールアドレス・電話番号を伝える(arroba, punto, guion, guion bajo、9けた・6/7は携帯)── 11-15の英語版の続編
 - 2026-11-15: 英語でメールアドレス・URLを口頭で伝える(at, dot, underscore, hyphen, slash)── 11-13の続編、@の由来とスペイン語arroba
