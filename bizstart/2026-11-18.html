@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-11-18</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #2a4d7a 0%, #10233f 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #2a4d7a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.blue   { border-left-color: #1e5a7a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.green  { border-left-color: #1e7a5a; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #2a4d7a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin: 14px 0;
+  }
+  .stats-row.c3 { grid-template-columns: repeat(3, 1fr); }
+  .stats-row.c2 { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 12px 6px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat.now { background: #fff3e0; box-shadow: 0 0 0 2px #c8884a inset; }
+  .stat .sl { font-size: 0.62rem; color: #888; margin-bottom: 3px; line-height: 1.4; }
+  .stat .sv { font-size: 1.05rem; font-weight: 700; color: #2a4d7a; line-height: 1.15; }
+  .stat.now .sv { color: #c8884a; }
+  .stat .su { font-size: 0.62rem; color: #666; margin-top: 2px; }
+
+  .bignum {
+    background: white;
+    border-radius: 12px;
+    padding: 18px 14px;
+    text-align: center;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.1);
+    border: 2px dashed #c8884a;
+    margin: 14px 0;
+  }
+  .bignum .bl { font-size: 0.76rem; color: #888; margin-bottom: 6px; }
+  .bignum .bv { font-size: 1.7rem; font-weight: 700; color: #c8884a; line-height: 1.3; }
+  .bignum .bs { font-size: 0.76rem; color: #666; margin-top: 6px; line-height: 1.6; }
+
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #2a4d7a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-num.now { background: #b54040; }
+  .f-num.later { background: #999; }
+  .f-num.opt { background: #c8884a; }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+  .f-arrow { color: #2a4d7a; font-size: 1.1rem; margin-left: 14px; margin-bottom: 4px; }
+
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  table.cmp {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.83rem;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.08);
+  }
+  table.cmp th, table.cmp td {
+    border: 1px solid #e4dccd;
+    padding: 9px 10px;
+    line-height: 1.55;
+    vertical-align: top;
+  }
+  table.cmp thead th { background: #2a4d7a; color: white; font-weight: 600; text-align: center; }
+  table.cmp tbody th { background: #f5efe2; color: #5a4020; text-align: left; font-weight: 600; white-space: nowrap; }
+  table.cmp td { color: #444; text-align: left; }
+  table.cmp td.hi { background: #fff3e0; font-weight: 700; color: #c8884a; }
+  .wrap-x { overflow-x: auto; }
+
+  .prompt-box {
+    background: #f0f5ff;
+    border: 2px solid #4a6aae;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 12px 0;
+    font-size: 0.84rem;
+    line-height: 1.85;
+    color: #1a2a4a;
+  }
+  .prompt-box .ph {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #4a6aae;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+  .prompt-box .fill {
+    background: #d0e0ff;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-weight: 700;
+    color: #0a2a6e;
+  }
+
+  .info {
+    background: #e8eef8;
+    border-left: 4px solid #2a4d7a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #16294a;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #7a4010;
+  }
+
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #2a4d7a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #2a4d7a; word-break: break-all; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #2a4d7a; }
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header">
+  <div class="meta">2026-11-18(水)・税務の基礎(年末〜1月の手続き)</div>
+  <h1>🏠 1人法人スタート 最新トピック 2026-11-18<br>社長の自宅を事務所として借りている? ── 「不動産の使用料等の支払調書」の基礎</h1>
+  <div class="desc">1人法人では、<b>社長個人の家の一部を会社が借りて、会社から社長に家賃を払う</b>形がよくあります。この家賃も、金額によっては年明けに税務署へ報告が必要です。おとといの「報酬の支払調書」の続きとして、家賃・地代の報告ルールを図解します。</div>
+  <div style="margin-top:10px"><span class="htag">支払調書</span><span class="htag">家賃・地代</span><span class="htag">法定調書合計表</span><span class="htag">令和8年分</span></div>
+</div>
+
+<div class="card">
+  <div class="sec-title">📌 ① まず言葉をそろえよう</div>
+  <ul class="check-list">
+    <li><span class="ck">🏠</span><span><b>不動産の使用料等</b>＝土地や建物を借りるために払うお金。家賃・地代のほか、<b>権利金・更新料</b>(契約のときや更新のときに払う一時金)も入ります。</span></li>
+    <li><span class="ck">🧾</span><span><b>支払調書</b>＝「この人に、1年でこれだけ払いました」と税務署に伝える報告書。今日のものの正式名は「不動産の使用料等の支払調書」です。</span></li>
+    <li><span class="ck">🗂</span><span><b>法定調書合計表</b>＝税務署に出す報告書類の「表紙兼まとめ表」。支払調書を出すなら一緒に出します。</span></li>
+  </ul>
+  <div class="info">💡 ひとことで言うと：<b>会社が払った家賃や地代のうち、一定額を超えるものは「だれに・いくら払ったか」を税務署に知らせる</b>しくみです。払う側が法人なら、規模に関係なく対象です。</div>
+</div>
+
+<div class="card orange">
+  <div class="sec-title">🔢 ② 覚えておきたい数字</div>
+  <div class="stats-row c3">
+    <div class="stat now"><div class="sl">提出の基準(同じ相手への1年の合計)</div><div class="sv">15万円超</div><div class="su">月に直すと 12,500円 を超える家賃</div></div>
+    <div class="stat"><div class="sl">提出期限</div><div class="sv">翌年<br>1月31日</div><div class="su">今回は2027年2月1日(月)</div></div>
+    <div class="stat"><div class="sl">相手が法人のとき</div><div class="sv">家賃は<br>対象外</div><div class="su">権利金・更新料などは対象</div></div>
+  </div>
+  <div class="bignum">
+    <div class="bl">例：社長の自宅の一部を 月3万円 で会社が借りている</div>
+    <div class="bv">3万円 × 12か月 ＝ 36万円</div>
+    <div class="bs">15万円を超えるので <b>支払調書の対象</b>(相手は社長「個人」のため)</div>
+  </div>
+  <p style="font-size:0.82rem">※15万円の判定は原則として消費税込みの金額で行います。請求書などで消費税がはっきり分かれていれば、税抜で判定してもかまいません。</p>
+</div>
+
+<div class="card blue">
+  <div class="sec-title">🔍 ③ 対象になる? ならない? 見分け方フロー</div>
+  <div class="f-step"><div class="f-num">1</div><div class="f-text">その支払いは<b>土地・建物を借りるためのお金</b>?(家賃・地代・権利金・更新料など)<br><span style="color:#888">→ ちがうなら対象外(水道光熱費、管理会社への清掃費など)</span></div></div>
+  <div class="f-arrow">⬇</div>
+  <div class="f-step"><div class="f-num">2</div><div class="f-text">払う相手は<b>個人</b>? <b>法人</b>?<br><span style="color:#888">→ 法人(不動産会社・大家さんの会社など)なら、<b>家賃だけの支払いは対象外</b>。権利金・更新料などがあれば次へ</span></div></div>
+  <div class="f-arrow">⬇</div>
+  <div class="f-step"><div class="f-num">3</div><div class="f-text">同じ相手への<b>1年間の合計が15万円を超えた</b>?<br><span style="color:#888">→ 15万円以下なら不要</span></div></div>
+  <div class="f-arrow">⬇</div>
+  <div class="f-step"><div class="f-num now">4</div><div class="f-text"><b>支払調書を作る対象</b>。合計表とあわせて税務署へ。</div></div>
+  <div class="warn">⚠️ 不動産会社に<b>仲介してもらった</b>場合も、報告する相手は<b>実際の貸主(大家さん)</b>が基本です。管理会社経由で払っていて貸主が個人か法人かわからないときは、契約書の「貸主」欄を確認しましょう。</div>
+</div>
+
+<div class="card">
+  <div class="sec-title">⚖️ ④ よくある3パターンを比べてみよう</div>
+  <div class="wrap-x">
+  <table class="cmp">
+    <thead><tr><th></th><th>社長の自宅の一部を借りる</th><th>個人の大家さんから事務所を借りる</th><th>不動産会社(法人)から借りる</th></tr></thead>
+    <tbody>
+      <tr><th>貸主</th><td>社長個人</td><td>個人</td><td>法人</td></tr>
+      <tr><th>家賃</th><td class="hi">年15万円超なら対象</td><td class="hi">年15万円超なら対象</td><td>対象外</td></tr>
+      <tr><th>権利金・更新料</th><td>(あれば合算して判定)</td><td>(あれば合算して判定)</td><td class="hi">年15万円超なら対象</td></tr>
+      <tr><th>必要な情報</th><td>社長の住所・マイナンバー</td><td>貸主の住所・マイナンバー</td><td>法人名・所在地・法人番号</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="info">💡 <b>社長への家賃は「身内だから報告不要」ではありません。</b>会社と社長は別人格(法律上は別の「人」)なので、ほかの大家さんと同じルールで判定します。また社長側では、受け取った家賃が<b>個人の不動産所得</b>になり、確定申告が必要になる場合があります。</div>
+</div>
+
+<div class="card green">
+  <div class="sec-title">🗓 ⑤ 12月〜1月の段取り(4ステップ)</div>
+  <div class="f-step"><div class="f-num">1</div><div class="f-text"><b>12月：家賃・地代の支払先を洗い出す</b><br>会計ソフトの「地代家賃」「支払手数料」などの勘定から、相手別に1年分を合計する。</div></div>
+  <div class="f-arrow">⬇</div>
+  <div class="f-step"><div class="f-num">2</div><div class="f-text"><b>12月：契約書で貸主と一時金を確認</b><br>貸主が個人か法人か、今年払った権利金・更新料がないかをチェック。</div></div>
+  <div class="f-arrow">⬇</div>
+  <div class="f-step"><div class="f-num">3</div><div class="f-text"><b>1月：支払調書と合計表を作る</b><br>おととい扱った「報酬の支払調書」があれば、<b>同じ合計表にまとめて</b>記入します。</div></div>
+  <div class="f-arrow">⬇</div>
+  <div class="f-step"><div class="f-num now">4</div><div class="f-text"><b>2027年2月1日(月)までに税務署へ提出</b><br>本来は1月31日ですが、2027年は日曜日のため翌日に。e-Taxか書面で提出します。</div></div>
+  <div class="info">💡 ふだんの家賃の支払いでは、国内に住む個人の大家さんに対しても<b>源泉徴収は通常不要</b>です(貸主が海外に住んでいる場合などは別ルール)。「源泉徴収していないから報告もいらない」と考えないよう注意しましょう。</div>
+</div>
+
+<div class="card orange">
+  <div class="sec-title">🤖 ⑥ 生成AIで「家賃の支払先リスト」を作る</div>
+  <p>会計ソフトから書き出した仕訳一覧をもとに、AIに集計の下書きを手伝ってもらいましょう。<b>マイナンバーや口座番号は入力しない</b>のが鉄則です。</p>
+  <div class="prompt-box">
+    <div class="ph">📝 プロンプト例</div>
+    次の「地代家賃」の仕訳一覧(<span class="fill">2026年1月〜12月</span>)を、支払先ごとに合計してください。<br>
+    1. 家賃・地代と、権利金・更新料などの一時金を分けて合計する<br>
+    2. 支払先が個人か法人か、名前から判断できないものは「要確認」とする<br>
+    3. 個人への支払いで合計15万円超のもの、法人への一時金で合計15万円超のものを一覧にする<br>
+    ※最終判断は私が国税庁の資料と契約書で確認します。<br>
+    <span class="fill">(支払先名・日付・金額・摘要だけを貼り付け)</span>
+  </div>
+  <div class="warn">⚠️ AIの分類は「下書き」です。貸主が個人か法人かは、必ず契約書で確かめてください。</div>
+</div>
+
+<div class="card red">
+  <div class="sec-title">✅ ⑦ チェックリスト</div>
+  <ul class="check-list">
+    <li><span class="ck">✔</span><span>2026年に払った家賃・地代を、相手ごとに合計した</span></li>
+    <li><span class="ck">✔</span><span>社長個人に払っている家賃も、リストに入れた</span></li>
+    <li><span class="ck">✔</span><span>法人の貸主に払った権利金・更新料がないか確認した</span></li>
+    <li><span class="ck">✔</span><span>報酬の支払調書とあわせて、合計表を1枚にまとめる予定を入れた</span></li>
+    <li><span class="ck-bad">✖</span><span>「社長への家賃だから報告はいらない」と思いこむ</span></li>
+    <li><span class="ck-bad">✖</span><span>不動産会社に払った家賃を、すべて支払調書に載せてしまう(法人への家賃は対象外)</span></li>
+  </ul>
+</div>
+
+<div class="card">
+  <div class="sec-title">📝 ⑧ 今日のまとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">1</span><span>会社が払った家賃・地代・権利金などは「不動産の使用料等の支払調書」で税務署に報告する</span></li>
+    <li><span class="n">2</span><span>基準は同じ相手への1年の合計が15万円超(令和8年分)</span></li>
+    <li><span class="n">3</span><span>相手が法人なら家賃は対象外、権利金・更新料などは対象。社長個人への家賃は対象になりうる</span></li>
+    <li><span class="n">4</span><span>令和8年分の期限は2027年2月1日(月)。報酬の支払調書と一緒に合計表で出そう</span></li>
+  </ul>
+  <div class="source">📚 出典(基準：令和8年分〈2026年中の支払〉・2027年1月以後の提出分、2026年11月時点)：<br>
+  ・国税庁 タックスアンサーNo.7441 不動産の使用料等の支払調書(提出義務者・15万円超・法人への支払いは賃借料を除く権利金・更新料等・消費税の扱い)：<a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/hotei/7441.htm">https://www.nta.go.jp/taxes/shiraberu/taxanswer/hotei/7441.htm</a><br>
+  ・国税庁「令和8年分 給与所得の源泉徴収票等の法定調書の作成と提出の手引」(提出範囲・令和8年中の支払に適用)：<a href="https://www.nta.go.jp/publication/pamph/hotei/tebiki2026/PDF/07.pdf">https://www.nta.go.jp/publication/pamph/hotei/tebiki2026/PDF/07.pdf</a><br>
+  ・国税庁 法定調書関係：<a href="https://www.nta.go.jp/users/gensen/hotei/index.htm">https://www.nta.go.jp/users/gensen/hotei/index.htm</a><br>
+  ・国税通則法 第10条第2項(期限が日曜・祝日等の場合は翌日)：<a href="https://laws.e-gov.go.jp/law/337AC0000000066">https://laws.e-gov.go.jp/law/337AC0000000066</a><br>
+  ※本日は官公庁サイトへ直接接続できず、検索結果に表示された国税庁ページの記載をもとにまとめています。提出前に手引きの原文でご確認ください。<br>
+  ・関連記事：<a href="2026-11-16.html">報酬の支払調書の基礎(11/16)</a>、<a href="2026-11-15.html">源泉徴収票のみなし提出(11/15)</a></div>
+</div>
+
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、税務・法務の個別アドバイスではありません。会社の状況により結論は変わります。
+  具体的な判断は、税理士・社会保険労務士・司法書士などの専門家にご相談ください。<br>
+  <strong>本記事の基準年度：</strong>令和8年分(2026年中の支払)・2027年1月以後の提出分(2026年11月時点の情報)。制度・税率・金額は改正されることがあるため、最新情報は公式サイトでご確認ください。
+</div>
+<div class="footer">
+  <p>📚 <a href="index.html">バックナンバー一覧へ</a> &nbsp;&middot;&nbsp; 毎朝更新</p>
+</div>
+</div>
+</body>
+</html>
