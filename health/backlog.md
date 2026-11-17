@@ -1,5 +1,12 @@
 # 健康日報 テーマバックログ
 
+## 未使用テーマ(追記:2026-11-18)
+
+- 11-18記事(食事タイプと内臓脂肪、PubMed 43039960 の6か月4群RCT・NCT06320782、DIETFITS Gardner JAMA 2018・CENTRAL Gepner Circulation 2018)の続報候補 ── 6か月試験の掲載誌(検索ではEur J Clin Nutr と表示)・実際の人数・内臓脂肪の測定法と減少量、12か月時点の結果、大腿四頭筋(太ももの筋肉)の結果。pubmed・clinicaltrials.gov はネットワーク制限で本文未確認
+- 遅い時間の食事・睡眠のずれと腸内細菌・腸のバリア(UTHealth Houston、iScience 2026、DOI 10.1016/j.isci.2026.117892、News-Medical 2026年11月9日報道)── 研究デザイン・人数の一次確認が必要
+- 睡眠行動と腸内細菌(Lifelines Dutch Microbiome Project、n=6,941、Nature Communications 2026)── 観察研究、一次確認が必要
+- 「体重」と「体脂肪の場所」は別物 ── 皮下脂肪・内臓脂肪・肝臓の脂肪の違いと健診の腹囲(エバーグリーン)
+
 ## 未使用テーマ(追記:2026-11-17)
 
 - 11-17記事(多重検定、Schoenfeld & Ioannidis Am J Clin Nutr 2013 PMID 23193004・Austin ら J Clin Epidemiol 2006 PMID 16895820・ASA声明 2016)の続報候補 ── Schoenfeld本文でのメタ分析側の数値(件数・効果量の中央値)、Austin論文の対象人数、FDR(偽発見率)とボンフェローニ補正の違い、事前登録(研究計画の公開)の効果。pubmed・cancerresearchuk等はネットワーク制限で本文未確認。なお当日は直近7日の新着論文を検索で見つけられず基礎回とした
