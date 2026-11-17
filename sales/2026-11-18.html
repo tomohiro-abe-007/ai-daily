@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>インサイドセールス 最新トピック 2026-11-18</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  /* ── カバー ── */
+  .cover {
+    background: linear-gradient(135deg, #6d1b1b 0%, #a13a2c 50%, #d98a2e 100%);
+    color: white;
+    border-radius: 8px;
+    padding: 60px 40px;
+    text-align: center;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.3);
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent, transparent 28px,
+      rgba(255,255,255,0.05) 28px, rgba(255,255,255,0.05) 29px
+    );
+  }
+  .cover-emoji { font-size: 64px; display: block; margin-bottom: 16px; }
+  .cover h1 {
+    font-family: 'Klee One', sans-serif;
+    font-size: 1.9rem;
+    font-weight: 600;
+    line-height: 1.35;
+    margin-bottom: 12px;
+    position: relative;
+  }
+  .cover .subtitle { font-size: 1.05rem; opacity: 0.85; margin-bottom: 8px; position: relative; }
+  .cover .date-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 20px;
+    padding: 6px 20px;
+    font-size: 1rem;
+    margin-top: 16px;
+    position: relative;
+  }
+
+  /* ── カード共通 ── */
+  .card {
+    background: #fff9f0;
+    border-radius: 6px;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.12);
+    position: relative;
+    overflow: hidden;
+  }
+  .card-body {
+    padding: 40px 36px 28px 64px;
+    background: repeating-linear-gradient(0deg, transparent, transparent 31px, #e0d8c8 31px, #e0d8c8 32px);
+    background-color: #fff9f0;
+  }
+  .card-tab {
+    display: inline-block;
+    background: #a13a2c;
+    color: white;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 4px 16px;
+    border-radius: 0 0 6px 6px;
+    position: absolute;
+    top: 0; left: 32px;
+    letter-spacing: 0.05em;
+  }
+  .card h2 {
+    font-size: 1.22rem;
+    color: #6d1b1b;
+    margin-bottom: 16px;
+    margin-top: 4px;
+    line-height: 1.5;
+    border-left: 4px solid #c0532b;
+    padding-left: 12px;
+  }
+  p { line-height: 1.85; color: #333; font-size: 0.97rem; margin-bottom: 12px; }
+
+  /* ── 数字カード ── */
+  .num-cards { display: flex; gap: 14px; flex-wrap: wrap; margin: 20px 0; }
+  .num-card {
+    flex: 1; min-width: 170px;
+    background: #6d1b1b; color: white;
+    border-radius: 10px; padding: 20px 16px; text-align: center;
+  }
+  .num-card.orange { background: #a13a2c; }
+  .num-card.gold   { background: #b06b1a; }
+  .num-card.gray   { background: #6b6b6b; }
+  .num-card .big-num {
+    font-family: 'Caveat', cursive;
+    font-size: 1.7rem; font-weight: 700; line-height: 1.15;
+    color: #ffd8b0;
+  }
+  .num-card .num-label { font-size: 0.78rem; margin-top: 8px; opacity: 0.92; line-height: 1.6; }
+
+  /* ── ステップフロー ── */
+  .step-flow { display: flex; flex-direction: column; gap: 0; margin: 20px 0; }
+  .step-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px dotted #ddd;
+  }
+  .step-item:last-child { border-bottom: none; }
+  .step-num {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: #a13a2c;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .step-body { flex: 1; }
+  .step-title { font-size: 0.97rem; font-weight: 700; color: #6d1b1b; margin-bottom: 4px; }
+  .step-desc  { font-size: 0.85rem; color: #555; line-height: 1.7; margin: 0; }
+
+  /* ── 対比カード(2〜3列) ── */
+  .compare-flow { display: flex; gap: 14px; flex-wrap: wrap; margin: 20px 0; align-items: stretch; }
+  .compare-col {
+    flex: 1; min-width: 200px;
+    background: #fdf2ea;
+    border: 1.5px solid #e8c8a8;
+    border-radius: 8px;
+    padding: 16px 18px;
+  }
+  .compare-col.highlight-col { background: #f6e2c8; border-color: #d98a2e; }
+  .compare-col h3 { font-size: 0.93rem; color: #6d1b1b; margin-bottom: 10px; }
+  .compare-col ol, .compare-col ul { padding-left: 18px; }
+  .compare-col li { font-size: 0.82rem; color: #555; line-height: 1.85; }
+  .cause-down {
+    text-align: center;
+    font-size: 1.3rem;
+    color: #a13a2c;
+    margin: 10px 0 -2px;
+  }
+  .result-box {
+    background: #6d1b1b;
+    color: white;
+    border-radius: 8px;
+    padding: 14px 18px;
+    text-align: center;
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-top: 4px;
+  }
+
+  /* ── マトリクス表 ── */
+  .matrix-table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 0.85rem; }
+  .matrix-table th, .matrix-table td {
+    border: 1px solid #e0d0b8; padding: 10px 12px; text-align: left; vertical-align: top;
+  }
+  .matrix-table th { background: #f6e2c8; color: #6d1b1b; font-weight: 700; }
+  .matrix-table td { color: #444; line-height: 1.6; }
+  .matrix-table tr:nth-child(even) td { background: #fdf9f2; }
+  .matrix-table tr.warn td { background: #f8e6e0; }
+
+  /* ── 今日の一歩 ── */
+  .today-box {
+    background: linear-gradient(135deg, #6d1b1b, #c0532b);
+    color: white; border-radius: 8px;
+    padding: 24px 28px; margin: 16px 0; text-align: center;
+  }
+  .today-box .emoji { font-size: 2.2rem; display: block; margin-bottom: 8px; }
+  .today-box .title { font-size: 1.1rem; font-weight: 600; margin-bottom: 10px; }
+  .today-box .desc  { font-size: 0.92rem; opacity: 0.92; line-height: 1.8; text-align: left; }
+
+  /* ── 共通パーツ ── */
+  .highlight { background: #f6e2c8; border-radius: 4px; padding: 1px 6px; color: #6d1b1b; font-weight: 600; }
+  .callout {
+    border-radius: 6px; padding: 14px 16px; margin-top: 14px;
+  }
+  .callout.yellow { background: #fef9e7; border-left: 4px solid #d98a2e; }
+  .callout.green  { background: #eafaf1; border-left: 4px solid #27ae60; }
+  .callout.blue   { background: #e8f4fd; border-left: 4px solid #2980b9; }
+  .callout.wine   { background: #f6e9e4; border-left: 4px solid #a13a2c; }
+
+  /* ── 免責 ── */
+  .disclaimer {
+    background: #fff; border: 1px solid #ddd; border-radius: 6px;
+    padding: 16px 20px; font-size: 0.8rem; color: #777; line-height: 1.7;
+    width: 100%; max-width: 820px; margin-bottom: 16px;
+  }
+  .disclaimer strong { color: #555; }
+
+  /* ── 出典 ── */
+  .sources {
+    background: #fff9f0; border-radius: 6px; padding: 16px 24px;
+    width: 100%; max-width: 820px; margin-bottom: 24px;
+    font-size: 0.8rem; color: #666; line-height: 1.8;
+  }
+  .sources h3 { font-size: 0.85rem; color: #6d1b1b; margin-bottom: 8px; }
+  .sources a { color: #a13a2c; text-decoration: none; }
+  .sources a:hover { text-decoration: underline; }
+  .sources ul { padding-left: 16px; }
+
+  /* ── バックリンク ── */
+  .back-link { text-align: center; margin-bottom: 20px; font-size: 0.9rem; }
+  .back-link a { color: #a13a2c; text-decoration: none; }
+  .back-link a:hover { text-decoration: underline; }
+
+  .bars { margin: 18px 0; }
+  .bar-row { display: flex; align-items: center; gap: 10px; margin: 8px 0; font-size: 0.85rem; color: #444; }
+  .bar-row .lbl { width: 78px; flex-shrink: 0; }
+  .bar-track { flex: 1; background: #f0e6d6; border-radius: 6px; height: 22px; overflow: hidden; }
+  .bar-fill { background: #a13a2c; height: 100%; border-radius: 6px; }
+  .bar-fill.top { background: #b06b1a; }
+  .bar-row .val { width: 120px; flex-shrink: 0; font-size: 0.8rem; }
+  .arr { font-size:1.6rem; color:#a13a2c; flex:0 0 auto; text-align:center; }
+  @media (max-width: 560px) {
+    .card-body { padding: 40px 18px 24px 24px; }
+    .matrix-table { display: block; overflow-x: auto; white-space: nowrap; }
+    .compare-flow { flex-direction: column; }
+    .arr { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <span class="cover-emoji">🏁📝</span>
+  <h1>商談の「最後の3分」、<br>どうまとめればいい?</h1>
+  <div class="subtitle">インサイドセールス 最新トピック 2026-11-18</div>
+  <div class="date-badge">テレアポ・インサイドセールス 毎朝解説</div>
+</div>
+
+<div class="card">
+  <span class="card-tab">01 今日のテーマ</span>
+  <div class="card-body">
+    <h2>🎯 終わり方で「次」があるかが変わる</h2>
+    <p>昨日は<a href="2026-11-17.html">商談の最初の1分</a>を紹介しました。今日はその反対、<strong>終わる直前の3分</strong>の話です。</p>
+    <p>話が盛り上がっても、「では、また何かあれば…」で終わると、相手もこちらも<strong>次に何をするのか</strong>がわからないままになりがちです。数日たつと、話した中身も忘れられてしまいます。</p>
+    <p>最後の3分でやることは<span class="highlight">3つだけ</span>です。</p>
+    <div class="compare-flow" style="align-items:center;">
+      <div class="compare-col highlight-col" style="text-align:center;min-width:130px;padding:12px 8px;"><h3>📋 要点の確認</h3><ul style="list-style:none;padding:0;"><li>今日わかったことを短くまとめる</li></ul></div>
+      <div class="arr">➡</div>
+      <div class="compare-col" style="text-align:center;min-width:130px;padding:12px 8px;"><h3>📅 次の約束</h3><ul style="list-style:none;padding:0;"><li>次に会う日・やることを決める</li></ul></div>
+      <div class="arr">➡</div>
+      <div class="compare-col highlight-col" style="text-align:center;min-width:130px;padding:12px 8px;"><h3>🎒 宿題の整理</h3><ul style="list-style:none;padding:0;"><li>「だれが・何を・いつまでに」</li></ul></div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <span class="card-tab">02 時間の目安</span>
+  <div class="card-body">
+    <h2>⏳ 3分をざっくり分けると</h2>
+    <p>大事なのは、<strong>残り3分になってから慌てない</strong>こと。時計を見て「残り5分」で話をまとめに入るのがコツです。</p>
+    <div class="num-cards">
+      <div class="num-card"><div class="big-num">残り5分</div><div class="num-label">⏰ まとめに入る合図<br>「お時間も近いので…」</div></div>
+      <div class="num-card orange"><div class="big-num">約1分</div><div class="num-label">📋 今日の要点を<br>2〜3個にまとめる</div></div>
+      <div class="num-card gold"><div class="big-num">約1分</div><div class="num-label">📅 次の約束を<br>その場で決める</div></div>
+      <div class="num-card gray"><div class="big-num">約1分</div><div class="num-label">🎒 宿題の確認と<br>お礼・あいさつ</div></div>
+    </div>
+    <p style="font-size:0.8rem;color:#777;">※ 調査データではなく、考え方をわかりやすくするための目安です。商談の長さや相手で変わります。</p>
+  </div>
+</div>
+
+<div class="card">
+  <span class="card-tab">03 3ステップと言い方の例</span>
+  <div class="card-body">
+    <h2>🗣 そのまま使える「締めの型」</h2>
+    <div class="step-flow">
+      <div class="step-item"><div class="step-num">0</div><div class="step-body"><div class="step-title">⏰ まとめに入る合図</div><p class="step-desc">「お約束の時間も近づいてきましたので、最後に今日の内容を整理させてください」。<strong>終わりの時間を守る</strong>姿勢そのものが信頼につながります。</p></div></div>
+      <div class="step-item"><div class="step-num">1</div><div class="step-body"><div class="step-title">📋 要点の確認(サマリー)</div><p class="step-desc"><strong>サマリー</strong>=話の要約。「今のお困りごとは①○○、②○○で、特に①を早めに解決したい、という理解で合っていますか?」。<strong>最後は質問で終える</strong>と、ずれがあればその場で直せます。</p></div></div>
+      <div class="step-item"><div class="step-num">2</div><div class="step-body"><div class="step-title">📅 次の約束(ネクストステップ)</div><p class="step-desc"><strong>ネクストステップ</strong>=次にやること。「次回、くわしいお見積もりをお見せしたいのですが、来週の火曜か木曜はいかがでしょう?」。<strong>日時まで決める</strong>のがポイントです。</p></div></div>
+      <div class="step-item"><div class="step-num">3</div><div class="step-body"><div class="step-title">🎒 宿題の整理</div><p class="step-desc">「私からは金曜までに資料をお送りします。○○様には、社内でご担当の方のお名前を確認していただけると助かります」。<strong>自分の宿題を先に言う</strong>と、相手にもお願いしやすくなります。</p></div></div>
+    </div>
+    <div class="cause-down">▼</div>
+    <div class="result-box">「何を話したか」+「次に何をするか」をそろえて終わる</div>
+  </div>
+</div>
+
+<div class="card">
+  <span class="card-tab">04 よくある終わり方の比較</span>
+  <div class="card-body">
+    <h2>⚖️ ふわっと終わる vs はっきり終わる</h2>
+    <div class="compare-flow">
+      <div class="compare-col"><h3>😶 ふわっと終わる</h3><ul><li>「では、また何かあればご連絡ください」</li><li>次の日程が決まっていない</li><li>資料をだれが送るかあいまい</li><li>時間をオーバーして、あわてて切る</li></ul></div>
+      <div class="compare-col highlight-col"><h3>😊 はっきり終わる</h3><ul><li>「今日の要点は2つで合っていますか?」</li><li>「来週火曜の14時でいかがでしょう」</li><li>「私は金曜までに資料をお送りします」</li><li>時間内に終えて、お礼を伝える</li></ul></div>
+    </div>
+    <div class="callout yellow">💡 相手が「社内で検討します」と言ったときも、「では、ご検討の結果を伺うお電話を来週○日にしてもよろしいですか?」と<strong>次に連絡する日</strong>だけは決めておくと、追いかけやすくなります。無理に押す必要はありません。</div>
+  </div>
+</div>
+
+<div class="card">
+  <span class="card-tab">05 こんなときは?</span>
+  <div class="card-body">
+    <h2>🧭 締めでよくある「想定外」と対応の例</h2>
+    <table class="matrix-table">
+      <tr><th>場面</th><th>対応の例</th></tr>
+      <tr class="warn"><td>⏱ 時間ぎりぎりで話がまだ途中</td><td>「続きは次回にしてもよろしいですか?」と区切り、<strong>次回の日程だけ</strong>先に決める(延長はこちらから無理に頼まない)</td></tr>
+      <tr><td>🤔 「今は日程を決められない」</td><td>「いつごろ改めてご連絡すればよいですか?」と<strong>連絡する時期</strong>を聞いておく</td></tr>
+      <tr><td>❓ 答えられない質問が出た</td><td>その場でごまかさず、「確認して○日までにメールでお返事します」と<strong>宿題として預かる</strong></td></tr>
+      <tr><td>👥 決める人が別にいるとわかった</td><td>「次回はその方にもご同席いただけそうですか?」と、次の参加者を相談する</td></tr>
+    </table>
+    <div class="callout blue">📝 決まった「次の約束」と「宿題」は、商談直後にCRM(=顧客情報を管理するツール)へ記録し、<a href="2026-11-06.html">お礼メール</a>にも同じ内容を書いて送ると、「言った・言わない」を防げます。</div>
+  </div>
+</div>
+
+<div class="card">
+  <span class="card-tab">06 今日の一歩</span>
+  <div class="card-body">
+    <div class="today-box">
+      <span class="emoji">✅</span>
+      <div class="title">今日からできる一歩</div>
+      <div class="desc">スマホのメモに<strong>「締めの3文」</strong>を書いてみましょう。①「今日の要点は○○と○○で合っていますか?」 ②「次回は○曜か○曜でいかがでしょう?」 ③「私は○日までに○○をお送りします」。昨日の「冒頭の4文」と並べて声に出し、<strong>録音して聞き直せば</strong>完了です。</div>
+    </div>
+  </div>
+</div>
+
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  報酬・採用の結果には個人差があり、市場・時期・スキルによって変わります。本記事は一般的な考え方の紹介で、成果を保証するものではありません。時間配分や言い方は目安で、職場のルールや相手に合わせて調整してください。紹介した求人媒体・企業・ツールの条件や機能は変わることがあるため、最新情報は各社の公式でご確認ください。
+</div>
+
+<div class="sources">
+  <h3>📎 参考情報(基準日:2026年11月)</h3>
+  <ul>
+    <li>本日の内容は、商談の締め方に関する一般的な考え方をまとめたものです。特定の調査の数字は使っていません(時間配分は目安)。</li>
+    <li>関連:<a href="2026-11-17.html">2026-11-17 商談の「最初の1分」</a>/<a href="2026-11-06.html">2026-11-06 商談後のお礼メール</a>/<a href="2026-11-03.html">2026-11-03 アポの日程の決め方</a>/<a href="2026-11-01.html">2026-11-01 復唱確認</a></li>
+  </ul>
+</div>
+
+<div class="back-link">
+  <a href="index.html">&larr; バックナンバー一覧へ</a>
+</div>
+
+</body>
+</html>
