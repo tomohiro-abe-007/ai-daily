@@ -57,10 +57,13 @@
 - 英語の大きな数・年号・値段の読み方(1,500=fifteen hundred、2026=twenty twenty-six、$3.50)── 11-17の番地2けた読みの発展
 - 英語のURL・SNSアカウントの伝え方(hashtag #、handle、"at"で始まるアカウント名)── 11-15の続編
 
-- スペイン語で住所を伝える・書く(calle, número, piso, puerta「3º 2ª」の読み方、código postal)── 11-16の電話番号・メールの続編、スペインの住所表記
+- スペイン語で部屋探し・内見の質問(¿Hay ascensor? ¿Cuánto es el alquiler? ¿Está amueblado?、fianza=敷金)── 11-18の住所・階の続編
+- スペイン語の序数 primero〜décimo と primer/tercer の語尾脱落(el primer piso)── 11-18の3º 2ªの発展
 - スペイン語の電話の受け答え(¿Diga?/¿Sí?/De parte de quién/Se ha equivocado)── 11-16の電話番号の続編、08-03の電話フレーズの発展
 
 ## 解説済みテーマ
+
+- 2026-11-18: スペイン語で住所を伝える・書く(C/・nº・3º 2ª=階+ドア、Izq./Dcha.、bajoが地上階、郵便番号5けた・先頭2けたが県)── 11-17の英語の住所の続編
 
 - 2026-11-17: 英語で電話番号・住所を伝える(1つずつ読む・oh と zero・double/triple、住所は小さい順、番地は2けたずつ)── 11-15の続編
 
