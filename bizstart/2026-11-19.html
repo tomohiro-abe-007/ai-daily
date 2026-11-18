@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-11-19</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #2a4d7a 0%, #10233f 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #2a4d7a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.blue   { border-left-color: #1e5a7a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.green  { border-left-color: #1e7a5a; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #2a4d7a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin: 14px 0;
+  }
+  .stats-row.c3 { grid-template-columns: repeat(3, 1fr); }
+  .stats-row.c2 { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 12px 6px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat.now { background: #fff3e0; box-shadow: 0 0 0 2px #c8884a inset; }
+  .stat .sl { font-size: 0.62rem; color: #888; margin-bottom: 3px; line-height: 1.4; }
+  .stat .sv { font-size: 1.05rem; font-weight: 700; color: #2a4d7a; line-height: 1.15; }
+  .stat.now .sv { color: #c8884a; }
+  .stat .su { font-size: 0.62rem; color: #666; margin-top: 2px; }
+
+  .bignum {
+    background: white;
+    border-radius: 12px;
+    padding: 18px 14px;
+    text-align: center;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.1);
+    border: 2px dashed #c8884a;
+    margin: 14px 0;
+  }
+  .bignum .bl { font-size: 0.76rem; color: #888; margin-bottom: 6px; }
+  .bignum .bv { font-size: 1.7rem; font-weight: 700; color: #c8884a; line-height: 1.3; }
+  .bignum .bs { font-size: 0.76rem; color: #666; margin-top: 6px; line-height: 1.6; }
+
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #2a4d7a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-num.now { background: #b54040; }
+  .f-num.later { background: #999; }
+  .f-num.opt { background: #c8884a; }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+  .f-arrow { color: #2a4d7a; font-size: 1.1rem; margin-left: 14px; margin-bottom: 4px; }
+
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  table.cmp {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.83rem;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.08);
+  }
+  table.cmp th, table.cmp td {
+    border: 1px solid #e4dccd;
+    padding: 9px 10px;
+    line-height: 1.55;
+    vertical-align: top;
+  }
+  table.cmp thead th { background: #2a4d7a; color: white; font-weight: 600; text-align: center; }
+  table.cmp tbody th { background: #f5efe2; color: #5a4020; text-align: left; font-weight: 600; white-space: nowrap; }
+  table.cmp td { color: #444; text-align: left; }
+  table.cmp td.hi { background: #fff3e0; font-weight: 700; color: #c8884a; }
+  .wrap-x { overflow-x: auto; }
+
+  .prompt-box {
+    background: #f0f5ff;
+    border: 2px solid #4a6aae;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 12px 0;
+    font-size: 0.84rem;
+    line-height: 1.85;
+    color: #1a2a4a;
+  }
+  .prompt-box .ph {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #4a6aae;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+  .prompt-box .fill {
+    background: #d0e0ff;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-weight: 700;
+    color: #0a2a6e;
+  }
+
+  .info {
+    background: #e8eef8;
+    border-left: 4px solid #2a4d7a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #16294a;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #7a4010;
+  }
+
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #2a4d7a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #2a4d7a; word-break: break-all; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #2a4d7a; }
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header">
+  <div class="meta">2026-11-19(木)・税務の基礎(社長と会社のお金)</div>
+  <h1>🔄 1人法人スタート 最新トピック 2026-11-19<br>社長と会社のお金の貸し借り ── 「役員借入金」と「役員貸付金」の基礎</h1>
+  <div class="desc">1人法人では「会社の口座が足りないから社長の財布から立て替えた」「社長が会社のお金を一時的に使った」ということが起こりがちです。どちらも帳簿では<b>社長と会社の“貸し借り”</b>として記録されます。決算の前に、2つの違いと注意点を整理しましょう。</div>
+  <div style="margin-top:10px"><span class="htag">役員借入金</span><span class="htag">役員貸付金</span><span class="htag">認定利息</span><span class="htag">令和8年</span></div>
+</div>
+
+<div class="card">
+  <div class="sec-title">📌 ① まず言葉をそろえよう</div>
+  <ul class="check-list">
+    <li><span class="ck">⬅</span><span><b>役員借入金</b>＝会社が<b>社長から借りている</b>お金。(社長 → 会社 にお金が動いた)</span></li>
+    <li><span class="ck">➡</span><span><b>役員貸付金</b>＝会社が<b>社長に貸している</b>お金。(会社 → 社長 にお金が動いた)</span></li>
+    <li><span class="ck">💴</span><span><b>認定利息</b>＝実際には受け取っていなくても、「本来はこれくらい利息をもらうはず」と税金の計算上みなされる利息。</span></li>
+    <li><span class="ck">🎁</span><span><b>経済的利益</b>＝お金そのものではないけれど、得をしたぶん。税金の世界では<b>給与と同じように扱われる</b>ことがあります。</span></li>
+  </ul>
+  <div class="info">💡 ひとことで言うと：<b>会社と社長は法律上「別の人」</b>。だから、社長が自分の会社とお金をやり取りしても、それは「他人との貸し借り」と同じように記録・説明する必要があります。</div>
+</div>
+
+<div class="card blue">
+  <div class="sec-title">⚖️ ② 2つの向きを比べてみよう</div>
+  <div class="wrap-x">
+  <table class="cmp">
+    <thead><tr><th></th><th>⬅ 役員借入金<br>(社長が会社に貸す)</th><th>➡ 役員貸付金<br>(会社が社長に貸す)</th></tr></thead>
+    <tbody>
+      <tr><th>よくある場面</th><td>設立直後の運転資金、経費を社長個人のカードで立替</td><td>会社の口座から私用の支払い、使いみちが説明できない出金</td></tr>
+      <tr><th>無利息でもよい?</th><td>受け取っていない利息に所得税はかからないのが基本</td><td class="hi">差額の利息が社長への給与(経済的利益)とされることがある</td></tr>
+      <tr><th>注意点</th><td>社長に万一のことがあると、会社への貸付金は<b>相続財産</b>になる</td><td>説明がつかないと、そもそも「給与・賞与」と扱われるおそれも</td></tr>
+      <tr><th>危険度</th><td>🟢 比較的おだやか</td><td>🔴 要注意</td></tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<div class="card orange">
+  <div class="sec-title">🔢 ③ 会社が社長に貸すときの「利率」の目安</div>
+  <p>会社が役員や従業員にお金を貸すときは、国税庁が示す利率で利息を受け取るのが基本です。これより低いと、<b>差額ぶんが給与として課税される</b>ことがあります。</p>
+  <div class="stats-row c3">
+    <div class="stat"><div class="sl">会社が銀行などから借りて<br>それを貸した場合</div><div class="sv">その借入の<br>利率</div><div class="su">借りたときと同じ条件</div></div>
+    <div class="stat"><div class="sl">令和4年〜令和7年中に<br>貸し付けたもの</div><div class="sv">年0.9%</div><div class="su">国税庁No.2606</div></div>
+    <div class="stat now"><div class="sl">令和8年中に<br>貸し付けたもの</div><div class="sv">年1.3%</div><div class="su">※解説記事ベース・要確認</div></div>
+  </div>
+  <div class="bignum">
+    <div class="bl">例：会社が社長に 200万円 を無利息で1年間貸した(令和8年中の貸付・1.3%で計算)</div>
+    <div class="bv">200万円 × 1.3% ＝ 2万6,000円</div>
+    <div class="bs">この利息を受け取っていないと、<b>その分が社長への給与(経済的利益)</b>とされる可能性があります</div>
+  </div>
+  <div class="warn">⚠️ 利率は<b>貸し付けた年ごと</b>に決まります(令和8年の1.3%は、本日は国税庁ページを直接確認できず解説記事の記載によるものです)。また、災害や病気で急に多額の生活資金が必要になった場合など、課税しなくてよい例外もあります。実際の判断は税理士に確認しましょう。</div>
+</div>
+
+<div class="card green">
+  <div class="sec-title">🧭 ④ 立替・出金があったときの判断フロー</div>
+  <div class="f-step"><div class="f-num">1</div><div class="f-text">それは<b>会社の仕事のための支払い</b>?<br><span style="color:#888">→ YES：領収書をそろえて「経費の立替精算」。社長が払ったなら会社から返す(または役員借入金)</span></div></div>
+  <div class="f-arrow">⬇ NO(私用だった)</div>
+  <div class="f-step"><div class="f-num">2</div><div class="f-text">会社の口座から<b>社長の私用</b>に払ってしまった?<br><span style="color:#888">→ 「役員貸付金」として記録し、<b>できるだけ早く社長個人から返す</b></span></div></div>
+  <div class="f-arrow">⬇</div>
+  <div class="f-step"><div class="f-num">3</div><div class="f-text">すぐ返せない・金額が大きい?<br><span style="color:#888">→ <b>金銭消費貸借契約書</b>(お金の貸し借りの契約書)を作り、返済予定と利息を決める</span></div></div>
+  <div class="f-arrow">⬇</div>
+  <div class="f-step"><div class="f-num now">4</div><div class="f-text"><b>決算の前に残高をチェック</b><br>役員貸付金が残っていれば、返済・利息計上の要否を税理士と相談する</div></div>
+</div>
+
+<div class="card">
+  <div class="sec-title">🧠 ⑤ 代表者のマインド：財布は2つ</div>
+  <div class="stats-row c2">
+    <div class="stat"><div class="sl">👤 社長個人の財布</div><div class="sv" style="font-size:0.95rem">生活費・私用</div><div class="su">役員報酬から払う</div></div>
+    <div class="stat"><div class="sl">🏢 会社の財布</div><div class="sv" style="font-size:0.95rem">仕事の支払いだけ</div><div class="su">法人口座・法人カード</div></div>
+  </div>
+  <ul class="check-list">
+    <li><span class="ck">✔</span><span><b>口座とカードを分ける</b>のが最強の予防策。混ざらなければ貸し借りも発生しにくい</span></li>
+    <li><span class="ck">✔</span><span>社長から会社にお金を入れたら、<b>「出資」か「貸付」か</b>をメモしておく(後から区別しにくい)</span></li>
+    <li><span class="ck">✔</span><span>役員貸付金が大きく残る決算書は、<b>銀行などから見てお金の管理があいまい</b>と受け取られることがあると言われます</span></li>
+  </ul>
+</div>
+
+<div class="card orange">
+  <div class="sec-title">🤖 ⑥ 生成AIで「社長との貸し借り台帳」を整える</div>
+  <p>会計ソフトから「役員借入金」「役員貸付金」「事業主貸・仮払金」などの仕訳を書き出し、AIに時系列の台帳を作ってもらいましょう。<b>口座番号やマイナンバーは貼らない</b>のが鉄則です。</p>
+  <div class="prompt-box">
+    <div class="ph">📝 プロンプト例</div>
+    次の仕訳一覧(<span class="fill">2026年1月〜11月</span>)から、社長と会社のお金の貸し借りを整理してください。<br>
+    1. 「社長→会社」「会社→社長」の向きごとに、日付順の台帳にする<br>
+    2. 月末ごとの残高を計算する<br>
+    3. 摘要から私用か業務用か判断できないものは「要確認」とする<br>
+    4. 決算までに税理士に確認すべき点を3つ挙げる<br>
+    ※税務上の判断は私が専門家に確認します。<br>
+    <span class="fill">(日付・勘定科目・金額・摘要だけを貼り付け)</span>
+  </div>
+  <div class="warn">⚠️ AIの台帳は「下書き」です。利率や課税の判断はAIに任せず、国税庁の資料と税理士で確認してください。</div>
+</div>
+
+<div class="card red">
+  <div class="sec-title">✅ ⑦ チェックリスト</div>
+  <ul class="check-list">
+    <li><span class="ck">✔</span><span>試算表で「役員借入金」「役員貸付金」の残高を確認した</span></li>
+    <li><span class="ck">✔</span><span>社長の立替経費は、領収書とともに精算(または借入金として記録)した</span></li>
+    <li><span class="ck">✔</span><span>私用の出金があれば、返済の予定を立てた</span></li>
+    <li><span class="ck">✔</span><span>金額が大きい貸し借りは、契約書を作った</span></li>
+    <li><span class="ck-bad">✖</span><span>会社の口座を社長の財布がわりに使い続ける</span></li>
+    <li><span class="ck-bad">✖</span><span>会社から社長への貸付を、利息なしのまま何年も放置する</span></li>
+  </ul>
+</div>
+
+<div class="card">
+  <div class="sec-title">📝 ⑧ 今日のまとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">1</span><span>社長→会社は「役員借入金」、会社→社長は「役員貸付金」</span></li>
+    <li><span class="n">2</span><span>会社が社長に無利息・低利で貸すと、差額の利息が社長への給与とされることがある</span></li>
+    <li><span class="n">3</span><span>利率は貸した年ごと(令和4〜7年中は年0.9%、令和8年中は年1.3%とされる・要確認)</span></li>
+    <li><span class="n">4</span><span>口座とカードを分けるのが一番の予防策。決算前に残高を必ずチェック</span></li>
+  </ul>
+  <div class="source">📚 出典(基準：令和8年〈2026年〉中の貸付、2026年11月時点)：<br>
+  ・国税庁 タックスアンサーNo.2606 金銭を貸し付けたとき(役員・使用人への貸付利率、会社が借り入れて貸した場合はその利率、令和4年〜令和7年中の貸付は0.9%、災害・病気等の例外。ページは令和7年4月1日現在法令等)：<a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/gensen/2606.htm">https://www.nta.go.jp/taxes/shiraberu/taxanswer/gensen/2606.htm</a><br>
+  ・国税庁 法人税基本通達 第15章 関連(資料)：<a href="https://www.nta.go.jp/law/tsutatsu/kihon/hojin/15/15_01_04.htm">https://www.nta.go.jp/law/tsutatsu/kihon/hojin/15/15_01_04.htm</a><br>
+  ・令和8年中の貸付利率 年1.3%(利子税特例基準割合に連動)：税理士向け解説記事・Q&Aの記載による(<a href="https://www.zeiri4.com/c_1032/c_1018/q_167529/">https://www.zeiri4.com/c_1032/c_1018/q_167529/</a>)。国税庁の一次情報は本日未確認<br>
+  ※本日は官公庁サイトへ直接接続できず、検索結果に表示された国税庁ページの記載をもとにまとめています。利率は必ず最新のNo.2606でご確認ください。<br>
+  ・関連記事：<a href="2026-11-18.html">不動産の使用料等の支払調書(11/18)</a>、<a href="2026-11-14.html">決算書の読み方入門(11/14)</a></div>
+</div>
+
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  本記事は一般的な情報であり、税務・法務の個別アドバイスではありません。会社の状況により結論は変わります。
+  具体的な判断は、税理士・社会保険労務士・司法書士などの専門家にご相談ください。<br>
+  <strong>本記事の基準年度：</strong>令和8年(2026年)中の貸付(2026年11月時点の情報)。制度・税率・金額は改正されることがあるため、最新情報は公式サイトでご確認ください。
+</div>
+<div class="footer">
+  <p>📚 <a href="index.html">バックナンバー一覧へ</a> &nbsp;&middot;&nbsp; 毎朝更新</p>
+</div>
+</div>
+</body>
+</html>
