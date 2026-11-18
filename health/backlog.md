@@ -1,5 +1,11 @@
 # 健康日報 テーマバックログ
 
+## 未使用テーマ(追記:2026-11-19)
+
+- 11-19記事(超加工食品と若年成人の脳、Leslie ら Obesity 2026 DOI 10.1002/oby.70341、NCT05550818/Hutelin ら Nature Metabolism 2026 DOI 10.1038/s42255-026-01619-4)の続報候補 ── 本文での脳の分析人数・効果量・多重比較の補正、遅延割引・実行機能テストの結果、資金源。Nature Metabolism の姉妹論文(DOI 10.1038/s42255-026-01618-5「Ultraprocessed foods evoke distinct metabolic and neural responses」とされる)の確認。wiley・nature・medrxiv・pubmed はネットワーク制限で本文未確認
+- 複数成分の「老化対策」サプリ(NOVOS Core)と血管機能のRCT(英サリー大学、n=61、6か月、European Heart Journal Open、2026年11月4日報道)── 小規模・企業製品の試験として「サプリの効果を冷静に見る」回の題材候補。資金源・利益相反の一次確認が必要
+- 統合失調症などの精神病性障害へのケトン食の初のRCT(EurekAlert 2026年報道)── 一次論文の特定・人数の確認が必要
+
 ## 未使用テーマ(追記:2026-11-18)
 
 - 11-18記事(食事タイプと内臓脂肪、PubMed 43039960 の6か月4群RCT・NCT06320782、DIETFITS Gardner JAMA 2018・CENTRAL Gepner Circulation 2018)の続報候補 ── 6か月試験の掲載誌(検索ではEur J Clin Nutr と表示)・実際の人数・内臓脂肪の測定法と減少量、12か月時点の結果、大腿四頭筋(太ももの筋肉)の結果。pubmed・clinicaltrials.gov はネットワーク制限で本文未確認
