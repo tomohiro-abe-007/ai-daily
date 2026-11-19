@@ -54,7 +54,6 @@
 - スペイン語のTe presento a...(人を紹介する言い方と、初対面のあいさつ Encantado/a)── 11-14の敬称の続編
 
 - 英語の住所を書類・ネット注文フォームに書く(Address line 1/2, State, ZIP、日本の住所を英語表記にする手順)── 11-17の続編
-- 英語の-teen/-tyの聞き分けと強勢(fifteen/fifty、値段の聞き違いを防ぐ確認フレーズ)── 11-19の大きな数の続編
 - スペイン語の大きな数(mil/millón/mil millones、doscientos/doscientasの性一致)と年号の読み方── 11-19の英語版の逆向きブリッジ
 - 英語のURL・SNSアカウントの伝え方(hashtag #、handle、"at"で始まるアカウント名)── 11-15の続編
 
@@ -231,3 +230,5 @@
 - 2026-11-05: スペイン語のcuyo(whoseに当たる所有の関係詞、持ち物の性数に合わせる)── 07-29のque/quienの発展
 - 2026-11-13: 英語のスペル伝達(A as in Apple)とスペイン語の文字名(hache, jota, eñe, ye)
 - 2026-11-14: スペイン語の señor/señora・don/doña(敬称・呼びかけ)── 08-03の続編
+
+- 英語の時刻の言い方(thirteen thirty / quarter past / half past)── 11-20の-teen/-tyの続編、時間の聞き取り
