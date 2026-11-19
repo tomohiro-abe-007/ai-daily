@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>インサイドセールス 最新トピック 2026-11-20</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  /* ── カバー ── */
+  .cover {
+    background: linear-gradient(135deg, #6d1b1b 0%, #a13a2c 50%, #d98a2e 100%);
+    color: white;
+    border-radius: 8px;
+    padding: 60px 40px;
+    text-align: center;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.3);
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent, transparent 28px,
+      rgba(255,255,255,0.05) 28px, rgba(255,255,255,0.05) 29px
+    );
+  }
+  .cover-emoji { font-size: 64px; display: block; margin-bottom: 16px; }
+  .cover h1 {
+    font-family: 'Klee One', sans-serif;
+    font-size: 1.9rem;
+    font-weight: 600;
+    line-height: 1.35;
+    margin-bottom: 12px;
+    position: relative;
+  }
+  .cover .subtitle { font-size: 1.05rem; opacity: 0.85; margin-bottom: 8px; position: relative; }
+  .cover .date-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 20px;
+    padding: 6px 20px;
+    font-size: 1rem;
+    margin-top: 16px;
+    position: relative;
+  }
+
+  /* ── カード共通 ── */
+  .card {
+    background: #fff9f0;
+    border-radius: 6px;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.12);
+    position: relative;
+    overflow: hidden;
+  }
+  .card-body {
+    padding: 40px 36px 28px 64px;
+    background: repeating-linear-gradient(0deg, transparent, transparent 31px, #e0d8c8 31px, #e0d8c8 32px);
+    background-color: #fff9f0;
+  }
+  .card-tab {
+    display: inline-block;
+    background: #a13a2c;
+    color: white;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 4px 16px;
+    border-radius: 0 0 6px 6px;
+    position: absolute;
+    top: 0; left: 32px;
+    letter-spacing: 0.05em;
+  }
+  .card h2 {
+    font-size: 1.22rem;
+    color: #6d1b1b;
+    margin-bottom: 16px;
+    margin-top: 4px;
+    line-height: 1.5;
+    border-left: 4px solid #c0532b;
+    padding-left: 12px;
+  }
+  p { line-height: 1.85; color: #333; font-size: 0.97rem; margin-bottom: 12px; }
+
+  /* ── 数字カード ── */
+  .num-cards { display: flex; gap: 14px; flex-wrap: wrap; margin: 20px 0; }
+  .num-card {
+    flex: 1; min-width: 170px;
+    background: #6d1b1b; color: white;
+    border-radius: 10px; padding: 20px 16px; text-align: center;
+  }
+  .num-card.orange { background: #a13a2c; }
+  .num-card.gold   { background: #b06b1a; }
+  .num-card.gray   { background: #6b6b6b; }
+  .num-card .big-num {
+    font-family: 'Caveat', cursive;
+    font-size: 1.7rem; font-weight: 700; line-height: 1.15;
+    color: #ffd8b0;
+  }
+  .num-card .num-label { font-size: 0.78rem; margin-top: 8px; opacity: 0.92; line-height: 1.6; }
+
+  /* ── ステップフロー ── */
+  .step-flow { display: flex; flex-direction: column; gap: 0; margin: 20px 0; }
+  .step-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px dotted #ddd;
+  }
+  .step-item:last-child { border-bottom: none; }
+  .step-num {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: #a13a2c;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .step-body { flex: 1; }
+  .step-title { font-size: 0.97rem; font-weight: 700; color: #6d1b1b; margin-bottom: 4px; }
+  .step-desc  { font-size: 0.85rem; color: #555; line-height: 1.7; margin: 0; }
+
+  /* ── 対比カード(2〜3列) ── */
+  .compare-flow { display: flex; gap: 14px; flex-wrap: wrap; margin: 20px 0; align-items: stretch; }
+  .compare-col {
+    flex: 1; min-width: 200px;
+    background: #fdf2ea;
+    border: 1.5px solid #e8c8a8;
+    border-radius: 8px;
+    padding: 16px 18px;
+  }
+  .compare-col.highlight-col { background: #f6e2c8; border-color: #d98a2e; }
+  .compare-col h3 { font-size: 0.93rem; color: #6d1b1b; margin-bottom: 10px; }
+  .compare-col ol, .compare-col ul { padding-left: 18px; }
+  .compare-col li { font-size: 0.82rem; color: #555; line-height: 1.85; }
+  .cause-down {
+    text-align: center;
+    font-size: 1.3rem;
+    color: #a13a2c;
+    margin: 10px 0 -2px;
+  }
+  .result-box {
+    background: #6d1b1b;
+    color: white;
+    border-radius: 8px;
+    padding: 14px 18px;
+    text-align: center;
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-top: 4px;
+  }
+
+  /* ── マトリクス表 ── */
+  .matrix-table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 0.85rem; }
+  .matrix-table th, .matrix-table td {
+    border: 1px solid #e0d0b8; padding: 10px 12px; text-align: left; vertical-align: top;
+  }
+  .matrix-table th { background: #f6e2c8; color: #6d1b1b; font-weight: 700; }
+  .matrix-table td { color: #444; line-height: 1.6; }
+  .matrix-table tr:nth-child(even) td { background: #fdf9f2; }
+  .matrix-table tr.warn td { background: #f8e6e0; }
+
+  /* ── 今日の一歩 ── */
+  .today-box {
+    background: linear-gradient(135deg, #6d1b1b, #c0532b);
+    color: white; border-radius: 8px;
+    padding: 24px 28px; margin: 16px 0; text-align: center;
+  }
+  .today-box .emoji { font-size: 2.2rem; display: block; margin-bottom: 8px; }
+  .today-box .title { font-size: 1.1rem; font-weight: 600; margin-bottom: 10px; }
+  .today-box .desc  { font-size: 0.92rem; opacity: 0.92; line-height: 1.8; text-align: left; }
+
+  /* ── 共通パーツ ── */
+  .highlight { background: #f6e2c8; border-radius: 4px; padding: 1px 6px; color: #6d1b1b; font-weight: 600; }
+  .callout {
+    border-radius: 6px; padding: 14px 16px; margin-top: 14px;
+  }
+  .callout.yellow { background: #fef9e7; border-left: 4px solid #d98a2e; }
+  .callout.green  { background: #eafaf1; border-left: 4px solid #27ae60; }
+  .callout.blue   { background: #e8f4fd; border-left: 4px solid #2980b9; }
+  .callout.wine   { background: #f6e9e4; border-left: 4px solid #a13a2c; }
+
+  /* ── 免責 ── */
+  .disclaimer {
+    background: #fff; border: 1px solid #ddd; border-radius: 6px;
+    padding: 16px 20px; font-size: 0.8rem; color: #777; line-height: 1.7;
+    width: 100%; max-width: 820px; margin-bottom: 16px;
+  }
+  .disclaimer strong { color: #555; }
+
+  /* ── 出典 ── */
+  .sources {
+    background: #fff9f0; border-radius: 6px; padding: 16px 24px;
+    width: 100%; max-width: 820px; margin-bottom: 24px;
+    font-size: 0.8rem; color: #666; line-height: 1.8;
+  }
+  .sources h3 { font-size: 0.85rem; color: #6d1b1b; margin-bottom: 8px; }
+  .sources a { color: #a13a2c; text-decoration: none; }
+  .sources a:hover { text-decoration: underline; }
+  .sources ul { padding-left: 16px; }
+
+  /* ── バックリンク ── */
+  .back-link { text-align: center; margin-bottom: 20px; font-size: 0.9rem; }
+  .back-link a { color: #a13a2c; text-decoration: none; }
+  .back-link a:hover { text-decoration: underline; }
+
+  .bars { margin: 18px 0; }
+  .bar-row { display: flex; align-items: center; gap: 10px; margin: 8px 0; font-size: 0.85rem; color: #444; }
+  .bar-row .lbl { width: 78px; flex-shrink: 0; }
+  .bar-track { flex: 1; background: #f0e6d6; border-radius: 6px; height: 22px; overflow: hidden; }
+  .bar-fill { background: #a13a2c; height: 100%; border-radius: 6px; }
+  .bar-fill.top { background: #b06b1a; }
+  .bar-row .val { width: 120px; flex-shrink: 0; font-size: 0.8rem; }
+  .arr { font-size:1.6rem; color:#a13a2c; flex:0 0 auto; text-align:center; }
+  @media (max-width: 560px) {
+    .card-body { padding: 40px 18px 24px 24px; }
+    .matrix-table { display: block; overflow-x: auto; white-space: nowrap; }
+    .compare-flow { flex-direction: column; }
+    .arr { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <span class="cover-emoji">🤝🎧</span>
+  <h1>商談にこちらも「2人」で出るとき、<br>役割はどう分ければいい?</h1>
+  <div class="subtitle">インサイドセールス 最新トピック 2026-11-20</div>
+  <div class="date-badge">テレアポ・インサイドセールス 毎朝解説</div>
+</div>
+
+<div class="card">
+  <span class="card-tab">01 今日のテーマ</span>
+  <div class="card-body">
+    <h2>🎯 インサイドセールス+営業担当で出る商談</h2>
+    <p>前回は<a href="2026-11-19.html">相手側が複数人</a>のときの進め方でした。今日はその続きで、<strong>こちら側も2人</strong>で参加するときの話です。</p>
+    <p>よくあるのは、アポを取った<strong>インサイドセールス(電話やメールで見込み客と関係を作る人)</strong>と、商談を進めて契約まで担当する<strong>営業担当</strong>がいっしょに出るパターンです。会社によって呼び方や分け方はちがいます。</p>
+    <p>2人で出るメリットは大きい一方、<strong>役割が決まっていないと「どちらが話すの?」と迷って</strong>相手を待たせてしまいます。コツは<span class="highlight">「事前に決める → 当日は任せる → 終わったら振り返る」</span>です。</p>
+    <div class="compare-flow" style="align-items:center;">
+      <div class="compare-col highlight-col" style="text-align:center;min-width:130px;padding:12px 8px;"><h3>📋 決める</h3><ul style="list-style:none;padding:0;"><li>だれが何を話すか、前日までにすり合わせる</li></ul></div>
+      <div class="arr">➡</div>
+      <div class="compare-col" style="text-align:center;min-width:130px;padding:12px 8px;"><h3>🎬 任せる</h3><ul style="list-style:none;padding:0;"><li>当日は決めた役割どおりに進める</li></ul></div>
+      <div class="arr">➡</div>
+      <div class="compare-col highlight-col" style="text-align:center;min-width:130px;padding:12px 8px;"><h3>🔁 振り返る</h3><ul style="list-style:none;padding:0;"><li>終わったらすぐ共有して次に生かす</li></ul></div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <span class="card-tab">02 役割の例</span>
+  <div class="card-body">
+    <h2>🧩 2人の「持ち場」をはっきりさせる</h2>
+    <p>ここでは一例として、よくある分け方を並べます。会社のルールがある場合はそちらを優先してください。</p>
+    <div class="compare-flow">
+      <div class="compare-col"><h3>🎧 インサイドセールス</h3><ul><li>これまでの電話・メールのやり取りを伝える</li><li>相手が話した困りごとを代わりに説明する</li><li>議事メモ・次回日程の調整</li></ul></div>
+      <div class="compare-col highlight-col"><h3>💼 営業担当</h3><ul><li>サービスの説明と提案の中心</li><li>費用や条件など、専門的な質問に答える</li><li>次の約束(クロージング)を進める</li></ul></div>
+    </div>
+    <div class="callout yellow">💡 「話す人」と「記録する人」を分けるだけでも、話す側は目の前の相手に集中できます。</div>
+  </div>
+</div>
+
+<div class="card">
+  <span class="card-tab">03 4ステップと言い方の例</span>
+  <div class="card-body">
+    <h2>🗣 2人で出る商談の進め方</h2>
+    <div class="step-flow">
+      <div class="step-item"><div class="step-num">1</div><div class="step-body"><div class="step-title">📝 前日までに「引き継ぎメモ」をそろえる</div><p class="step-desc">相手の会社名・参加者・これまでに聞いた困りごと・約束したこと・まだ聞けていないことを1枚にまとめて共有します。</p></div></div>
+      <div class="step-item"><div class="step-num">2</div><div class="step-body"><div class="step-title">🎬 開始直前に「役割と合図」を確認</div><p class="step-desc">「冒頭と経緯は私、提案は○○さん、メモは私」のように確認。助けがほしいときの合図(チャットに一言など)も決めておきます。</p></div></div>
+      <div class="step-item"><div class="step-num">3</div><div class="step-body"><div class="step-title">🎤 バトンを渡すときは一言そえる</div><p class="step-desc">「ここからは、営業の○○がご説明します」「ここまでのお話は私から補足します」と<strong>相手にも見える形</strong>でつなぐと、だれが話しているか迷いません。</p></div></div>
+      <div class="step-item"><div class="step-num">4</div><div class="step-body"><div class="step-title">🔁 終わったらその場で5分、振り返る</div><p class="step-desc">相手の反応・宿題・次の約束をすり合わせ、記録に残します。お礼メールをどちらが送るかもここで決めます。</p></div></div>
+    </div>
+    <div class="cause-down">▼</div>
+    <div class="result-box">2人で出ても「ひとつのチーム」に見える商談にする</div>
+  </div>
+</div>
+
+<div class="card">
+  <span class="card-tab">04 よくある進め方の比較</span>
+  <div class="card-body">
+    <h2>⚖️ ぶっつけ本番 vs 事前にすり合わせ</h2>
+    <div class="compare-flow">
+      <div class="compare-col"><h3>😵 ぶっつけ本番</h3><ul><li>どちらが話すか決まっていない</li><li>同じ質問を2人で相手にしてしまう</li><li>相手がすでに話した内容をもう一度聞く</li><li>終わってから「言った・言わない」になる</li></ul></div>
+      <div class="compare-col highlight-col"><h3>😊 事前にすり合わせ</h3><ul><li>話す順番と持ち場が決まっている</li><li>引き継ぎメモで質問がかぶらない</li><li>バトンを渡す言葉で流れがスムーズ</li><li>終了後すぐ共有して抜けが少ない</li></ul></div>
+    </div>
+    <div class="callout blue">📝 相手から見ると、同じ質問をくり返されるのは「社内で情報が共有されていない会社」という印象につながりやすいものです。</div>
+  </div>
+</div>
+
+<div class="card">
+  <span class="card-tab">05 こんなときは?</span>
+  <div class="card-body">
+    <h2>🧭 2人体制でよくある「想定外」と対応の例</h2>
+    <table class="matrix-table">
+      <tr><th>場面</th><th>対応の例</th></tr>
+      <tr class="warn"><td>🙊 相手の質問に、どちらが答えるか迷った</td><td>少し間をおいて「専門的な内容ですので、○○からお答えします」と<strong>自分から譲る</strong>。2人で同時に話し始めない</td></tr>
+      <tr><td>✂️ 相方の説明の途中で、間違いに気づいた</td><td>その場で否定せず、「補足させてください」と<strong>やわらかく足す</strong>。細かい訂正は終了後に共有する</td></tr>
+      <tr><td>🕒 時間が足りなくなりそう</td><td>事前に決めた合図で知らせ、「残りは次回に」と<strong>優先度の高い話だけ</strong>に絞る</td></tr>
+      <tr><td>😰 相手が営業担当にばかり話しかける</td><td>インサイドセールスは気にせず、<strong>これまでの経緯の補足役</strong>として必要な場面で入る</td></tr>
+    </table>
+    <div class="callout wine">⚠️ 相手の前で、相方の発言を否定したり、社内の意見の食いちがいを見せたりするのは避けましょう。相手の不安につながります。</div>
+  </div>
+</div>
+
+<div class="card">
+  <span class="card-tab">06 今日の一歩</span>
+  <div class="card-body">
+    <div class="today-box">
+      <span class="emoji">✅</span>
+      <div class="title">今日からできる一歩</div>
+      <div class="desc">紙かスマホに<strong>「引き継ぎメモ」</strong>のひな形を作りましょう。項目は「相手の会社・参加者/聞いた困りごと/約束したこと/まだ聞けていないこと/当日の役割」の5つ。架空の1社分を埋めて、<strong>バトンを渡す一言</strong>(「ここからは○○がご説明します」)を声に出して2回練習すれば完了です。</div>
+    </div>
+  </div>
+</div>
+
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  報酬・採用の結果には個人差があり、市場・時期・スキルによって変わります。本記事は一般的な考え方の紹介で、成果を保証するものではありません。役割分担や言い方は目安で、職場のルールや相手に合わせて調整してください。紹介した求人媒体・企業・ツールの条件や機能は変わることがあるため、最新情報は各社の公式でご確認ください。
+</div>
+
+<div class="sources">
+  <h3>📎 参考情報(基準日:2026年11月)</h3>
+  <ul>
+    <li>本日の内容は、インサイドセールスと営業担当が2人で参加する商談の進め方に関する一般的な考え方をまとめたものです。特定の調査の数字は使っていません(役割の分け方は一例で、会社により異なります)。</li>
+    <li>基礎テーマの続編として、新しい調査・求人動向の確認は行わず一般論でまとめています。</li>
+    <li>関連:<a href="2026-11-19.html">2026-11-19 相手が複数人の商談</a>/<a href="2026-11-18.html">2026-11-18 商談の「最後の3分」</a>/<a href="2026-11-17.html">2026-11-17 商談の「最初の1分」</a>/<a href="2026-11-06.html">2026-11-06 商談後のお礼メール</a></li>
+  </ul>
+</div>
+
+<div class="back-link">
+  <a href="index.html">&larr; バックナンバー一覧へ</a>
+</div>
+
+</body>
+</html>
