@@ -2,6 +2,7 @@
 
 ## 解説済みトピック（重複を避けるための記録）
 
+- 2026-11-20: Tencent Hy4（Preview 2026年8月28日・770B MoE/約49Bアクティブ/100万トークン超/Apache 2.0・正式版は報道で2026年11月4日・画像理解とコンピューター操作追加・料金はPreviewと同じと報道・重みは未公開で時期は報道で食い違い・Hy4 Flash予定・点数は自社測定・公式未確認）（出典：TechNode / Interesting Engineering / SCMP / Verdict・検索結果要約ベース）
 - 2026-11-19: AMD×OpenAI 6GW提携（2025年10月発表・MI450初回1GWは2026年後半開始予定・最大1.6億株のワラント・「最大」契約で本格拡大は2027年中心との見方も・時期は報道で食い違い・公式要確認）（出典：Intelligent CIO / Futurum / Fierce Network / iTWire）
 - 2026-11-18: Businesses in ChatGPT（OpenAI・ベータ・報道では2026年11月10日ごろ・Business Hubで申請/本人確認・青チェック・Business Agentは米国の一部EC/オンラインサービス向け・開始時無料と報道・条件は公式要確認）（出典：The Next Web / VentureBeat / AI Weekly・2026年11月）
 - 2026-11-17: マルチエージェント入門（Anthropic Engineering記事・2025年6月13日公開・リーダー＋サブの並行構成・内部評価90.2%向上・トークン約15倍・新規ニュースが取れずバックログから選択）
@@ -203,5 +204,5 @@
 - ~~ChatGPT検索量がGoogleの約5分の1~~ ← 2026-11-11 解説済み
 - 候補: ChatGPTユーザー数が10億→12億に（OpenAI幹部が同インタビューで言及と報道・要一次確認）
 - 候補: ChatGPT週間ユーザー12億人の時期（DevDay 9/29説・10/5説・インタビュー説で食い違い・要一次確認）
-- 候補: Ripple-65B Preview / Hy4（2026年11月のリリース一覧に掲載・詳細未確認・要検証）
+- ~~Hy4~~ ← 2026-11-20 解説済み / 候補: Ripple-65B Preview（詳細未確認・要検証）
 - Gemini 4 Hydrogen（Flash級の開発コード名・リーク/追跡サイト情報のみで公式未発表・2026年11月中旬・要検証）
