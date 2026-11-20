@@ -1,5 +1,11 @@
 # 健康日報 テーマバックログ
 
+## 未使用テーマ(追記:2026-11-21)
+
+- 11-21記事(EAT-Lancet食と2型糖尿病、Cui ら Front Nutr 2026 DOI 10.3389/fnut.2026.1951780・Sowah ら PLoS Med 2025 PMID 40956993・Berthy ら IJE 2025 DOI 10.1093/ije/dyaf011・Beal ら Lancet Planet Health 2023 PMID 36889864)の続報候補 ── Cui論文本文のHR・信頼区間・追跡年数・BMI調整の有無、NutriNet-SantéのBMI媒介割合(検索では最大61%とする記載あり)、EAT-Lancet 2025改訂版の栄養素充足の扱い。frontiersin・hal・ncbi はネットワーク制限で本文未確認
+- 「生物学的年齢(KDM-BA・PhenoAge・エピジェネティック時計)とは何か」の独立回 ── 物差しの中身(HbA1c・血糖・CRPなど)と、結果と重なる指標を媒介に使う問題(エバーグリーン)
+- EAT-Lancet食と生物学的老化・テロメア長(npj Aging 2025、s41514-025-00306-0、UKバイオバンク)── 一次確認が必要
+
 ## 未使用テーマ(追記:2026-11-19)
 
 - 11-19記事(超加工食品と若年成人の脳、Leslie ら Obesity 2026 DOI 10.1002/oby.70341、NCT05550818/Hutelin ら Nature Metabolism 2026 DOI 10.1038/s42255-026-01619-4)の続報候補 ── 本文での脳の分析人数・効果量・多重比較の補正、遅延割引・実行機能テストの結果、資金源。Nature Metabolism の姉妹論文(DOI 10.1038/s42255-026-01618-5「Ultraprocessed foods evoke distinct metabolic and neural responses」とされる)の確認。wiley・nature・medrxiv・pubmed はネットワーク制限で本文未確認
@@ -370,7 +376,7 @@
 - 09-05記事(Tavares JF, Breteler MMBほか, medRxivプレプリント, DOI: 10.1101/2025.05.17.25327830)の続報候補 ── 査読誌Nature Communicationsへの正式掲載が複数の検索結果・科学ニュース経由で報じられているが、当セッションのネットワーク制限(nature.com / medrxiv.org / pubmed.ncbi.nlm.nih.gov / dzne.de / rheinland-studie.de / aging-us.com / drkumardiscovery.com / medicalxpress.com / daem.de がブロック対象)で本文・正式DOIとも未確認。査読誌版が確認できれば、正確な回帰係数・信頼区間・p値、EAT-Lancet食だけ関連が見られなかった理由の考察を含めて深掘り記事化を検討
 - 喫煙状況による食事の質と老化加速の関連の違い(現在喫煙者でもっとも強い関連)の詳しい統計値(交互作用のp値など) ── 09-05記事では概要のみ紹介。一次論文で確認できれば「精密栄養学×生活習慣の交互作用」の独立回として深掘り可能
 - 別の関連研究として検索で見つかった「Assessing Smoking-Related Age Acceleration and the Role of Diet」(欧州呼吸器学会 ERS 2026学会抄録)── 喫煙・食事・エピジェネティック時計というほぼ同じテーマを別のコホート(Framingham Heart Studyのデータの可能性)で扱っている様子だが、著者・対象人数・具体的な数値が未確認。09-05記事の数値と誤って混同しないよう要注意、一次資料の確認が必要
-- EAT-Lancet食(地球環境に配慮した食事指針)そのものを扱う独立回 ── 環境負荷と健康影響を両立させる食事指針として近年注目されているが、09-05記事の研究では老化加速との明確な関連が見られなかった唯一の食事パターンだった。栄養面の設計思想の違いを掘り下げられれば独立テーマとして有望
+（削除:「EAT-Lancet食の独立回」→ 2026-11-21 使用済み）
 
 ## 未使用テーマ（追記：2026-09-04 検索で見つけた有望テーマ）
 

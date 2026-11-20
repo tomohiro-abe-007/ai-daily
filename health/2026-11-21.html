@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-11-21</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: "🌍";
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.35rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.9rem; margin-bottom: 8px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.1em; }
+  .c3-col li { margin-bottom: 4px; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; overflow-wrap: anywhere; word-break: break-all; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  .quote-box {
+    background: #f5f0e8;
+    border-left: 4px solid #7a5abf;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    margin: 12px 0;
+    color: #444;
+    font-style: italic;
+  }
+  .quote-box .who { font-style: normal; font-weight: 700; color: #5a3a9a; margin-top: 6px; font-size: 0.78rem; }
+  .matrix {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .mx-cell {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .mx-cell .mx-head { font-weight: 700; font-size: 0.88rem; margin-bottom: 6px; }
+  .mx-cell.ok  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .mx-cell.ok  .mx-head { color: #1a6e4a; }
+  .mx-cell.ng  { background: #fbe8e6; border: 2px solid #c0392b; }
+  .mx-cell.ng  .mx-head { color: #a0291e; }
+  .subtype-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .subtype-card {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.84rem;
+  }
+  .subtype-card .st-head { font-weight: 700; font-size: 0.92rem; margin-bottom: 8px; }
+  .subtype-card .st-bar {
+    height: 10px;
+    border-radius: 5px;
+    background: #eee;
+    overflow: hidden;
+    margin: 6px 0 4px;
+  }
+  .subtype-card .st-bar-fill { height: 100%; }
+  .subtype-card.st-green { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .subtype-card.st-green .st-head { color: #1a6e4a; }
+  .subtype-card.st-orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .subtype-card.st-orange .st-head { color: #b85e10; }
+  .subtype-card.st-red { background: #fbe8e6; border: 2px solid #c0392b; }
+  .subtype-card.st-red .st-head { color: #a0291e; }
+  @media (max-width: 540px) {
+    .compare4 { grid-template-columns: 1fr; }
+    .matrix { grid-template-columns: 1fr; }
+    .subtype-grid { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.7rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+  .bar{height:22px;border-radius:6px;margin:4px 0 2px;color:#fff;font-size:.78rem;padding:0 8px;line-height:22px;white-space:nowrap}
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="header">
+  <div class="label">健康・栄養 日報 ／ 論文の読み解き</div>
+  <h1>健康・栄養 最新トピック 2026-11-21 ── 「地球にやさしい食事」は糖尿病も減らす? 15万人の研究と「途中の道すじ(媒介分析)」の読み方</h1>
+  <div class="subtitle">🌍 環境と健康の両方を考えた食事の目安「EAT-Lancet食」と2型糖尿病の関係を調べた、イギリスの約15万人の追跡研究(2026年)を、ほかの2つの追跡研究や反対側の意見と並べて読みます。</div>
+</div>
+
+<div class="card">
+  <h2>🎯 今日のポイント</h2>
+  <ul class="step-list">
+    <li><span>植物性の食べ物が中心の「EAT-Lancet食」に近い食べ方の人ほど、<strong>2型糖尿病になる割合が低い</strong>という結果が、イギリスやフランスの複数の追跡研究で出ています。</span></li>
+    <li><span>2026年の英国の研究(約15万5千人)は、その関連の<strong>約4割が「体の老け具合(生物学的年齢)」で説明できそう</strong>と分析しました。</span></li>
+    <li><span>ただし全部<strong>観察研究</strong>。しかも「老け具合」の物差しには<strong>血糖の値そのものが含まれている</strong>ので、数字をそのまま「食事で老化が遅れ、糖尿病が減る」とは読めません。</span></li>
+  </ul>
+</div>
+
+<div class="card">
+  <h2>🔰 まず用語</h2>
+  <div class="def-grid">
+    <div class="def-item"><div class="dterm">EAT-Lancet食(プラネタリー・ヘルス・ダイエット)</div>専門家の委員会が、健康と地球環境の両方を考えて示した食事の目安。野菜・果物・全粒穀物・豆・ナッツが中心で、肉(特に赤身肉)や砂糖は少なめ。</div>
+    <div class="def-item"><div class="dterm">前向きコホート研究</div>最初に食事を聞いて、その後何年も追いかけ、だれが病気になったかを見る観察研究。くじ引きで食事を割り当てるわけではない。</div>
+    <div class="def-item"><div class="dterm">ハザード比(HR)</div>比べる相手と比べて、病気の起きやすさが何倍か。0.68なら「約32%低め」。</div>
+    <div class="def-item"><div class="dterm">生物学的年齢</div>血液検査などの値から計算する「体の年齢」。実際の年齢より高いと「老化が速い」と考える。</div>
+    <div class="def-item"><div class="dterm">媒介分析</div>「A→B」の関係のうち、どれくらいが途中の「C」を通っているかを計算する統計の方法。</div>
+  </div>
+</div>
+
+<div class="card blue">
+  <h2>🥗 EAT-Lancet食ってどんな食事?</h2>
+  <p>2019年に最初の報告が出され、<strong>2025年10月に改訂版の報告</strong>が医学誌<em>The Lancet</em>に掲載されました。お皿のイメージは次のとおりです。</p>
+  <div class="compare4">
+    <div class="c3-col green"><h3>🟢 たっぷり</h3><ul><li>野菜・果物</li><li>全粒穀物</li><li>豆類・ナッツ</li></ul></div>
+    <div class="c3-col orange"><h3>🟠 ほどほど</h3><ul><li>魚</li><li>鶏肉・卵</li><li>乳製品</li></ul></div>
+    <div class="c3-col red"><h3>🔴 少なめ</h3><ul><li>赤身肉(牛・豚など)</li><li>砂糖を加えた食品</li></ul></div>
+  </div>
+  <p>委員会は「世界中がこの食べ方に変われば、早すぎる死を年間約1,500万人防げる可能性がある」と見積もっています。ただしこれは<strong>計算モデルによる推計</strong>で、実際に試して確かめた数字ではありません。</p>
+</div>
+
+<div class="card purple">
+  <h2>🔎 2026年の英国の研究:どんな研究?</h2>
+  <p>Cui らが<em>Frontiers in Nutrition</em>誌(査読あり)に発表した研究です。イギリスの大規模な健康データ「UKバイオバンク」で、最初に糖尿病がなかった人を追いかけました。</p>
+  <div class="num-row">
+    <div class="num-card blue-bg"><span class="big">15.5</span><span class="unit">万人</span><div class="desc">分析した人 155,413人</div></div>
+    <div class="num-card orange-bg"><span class="big">7,626</span><span class="unit">人</span><div class="desc">追跡中に2型糖尿病になった人</div></div>
+    <div class="num-card"><span class="big">15〜17</span><span class="unit">%</span><div class="desc">いちばん近い群の「低さ」(報道による値)</div></div>
+    <div class="num-card purple-bg"><span class="big">37〜44</span><span class="unit">%</span><div class="desc">「体の老け具合」を通じた割合(推計)</div></div>
+  </div>
+  <p>食事の近さは2種類の点数(Stubbendorff 指数・Knuppel 指数)で、体の老け具合は2種類の物差し(KDM-BA・PhenoAge)で測りました。媒介分析では、関連全体のうち<strong>KDM-BAで36.6%、PhenoAgeで43.8%</strong>が「老化の速さ」を通じていると計算されています。</p>
+  <p style="font-size:0.82rem;color:#555;">※ 「15〜17%低い」は報道で伝えられた数字で、論文本文の表(信頼区間・追跡年数)はネットワークの制限で確認できていません。</p>
+</div>
+
+<div class="card">
+  <h2>🧭 図解:研究チームが考えた「道すじ」</h2>
+  <div class="flow">
+    <div class="flow-step">🥗 EAT-Lancet食に近い</div><div class="flow-arrow">→</div>
+    <div class="flow-step purp">🧓 体の老け具合が<br>ゆっくり(?)</div><div class="flow-arrow">→</div>
+    <div class="flow-step alt">🩸 2型糖尿病が<br>少ない</div>
+  </div>
+  <p style="text-align:center;font-size:0.85rem;">+ 「老け具合」を通らない直接の道すじ(残りの約6割)</p>
+  <div class="warn"><strong>⚠️ ここが大事な落とし穴:</strong> KDM-BA には HbA1c(過去1〜2か月の血糖の平均を表す値)、PhenoAge には血糖値が計算に入っています。つまり「老け具合」の中に<strong>糖尿病に近い情報がもともと含まれている</strong>ので、媒介の割合が大きく出やすい可能性があります。論文の解説でもこの点が限界として挙げられています。</div>
+</div>
+
+<div class="card blue">
+  <h2>📊 ほかの国の研究と比べると</h2>
+  <table class="ev-table">
+    <tr><th>研究</th><th>人数・追跡</th><th>主な結果</th></tr>
+    <tr><td>🇬🇧 EPIC-Norfolk<br>(PLoS Med 2025)</td><td>23,722人・平均19.4年・糖尿病3,496人</td><td>いちばん近い5分の1の群は、いちばん遠い群より<strong>HR 0.68(95%CI 0.61〜0.76)</strong>。食事由来の温室効果ガスも少なめ</td></tr>
+    <tr><td>🇫🇷 NutriNet-Santé<br>(Int J Epidemiol 2025)</td><td>88,964人・2009〜2022年</td><td>点数が1標準偏差上がるごとに<strong>HR 0.89(95%CI 0.82〜0.96)</strong>。関連のかなりの部分が体格(BMI)を通じている可能性</td></tr>
+    <tr><td>🇬🇧 UKバイオバンク<br>(Front Nutr 2026)</td><td>155,413人・糖尿病7,626人</td><td>近い群で約15〜17%低い(報道)。約4割が「老け具合」を通じると推計</td></tr>
+  </table>
+  <p>3つとも同じ向き(近いほど糖尿病が少ない)なのは心強い点です。でも、<strong>全部が観察研究</strong>で、「食事を変えたら糖尿病が減った」と試した研究(RCT)ではありません。</p>
+</div>
+
+<div class="card red">
+  <h2>⚖️ 反対側の見方・注意点</h2>
+  <div class="matrix">
+    <div class="mx-cell ng"><div class="mx-head">❌ 言えないこと</div>「EAT-Lancet食で老化が遅れ、糖尿病が防げる」と因果まで言うこと。</div>
+    <div class="mx-cell ok"><div class="mx-head">⭕ 言えること</div>「EAT-Lancet食に近い人ほど、2型糖尿病になる割合が低い<strong>傾向</strong>が、複数の国で見られる」。</div>
+  </div>
+  <ul>
+    <li><strong>栄養が足りなくなる心配</strong>:2023年の分析(Beal ら)は、元の目安どおりだと、出産可能な年齢の女性では<strong>鉄が推奨量の約55%</strong>、カルシウム約84%、亜鉛・ビタミンB12 約93%しかとれないと推計しました。動物性食品を少し増やす修正案も出されています。</li>
+    <li><strong>ほかの要因</strong>:植物性中心の食事の人は、運動・喫煙・収入なども違いがち。統計で調整しても、完全には取り除けません。</li>
+    <li><strong>食事は自己申告</strong>:記憶や申告の偏りが入ります。</li>
+    <li><strong>前回の研究との食い違い</strong>:9月5日の回で紹介した老化時計の研究(査読前の段階で紹介)では、EAT-Lancet食だけ明確な関連が出ませんでした。物差しが違うと結果も変わります。</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h2>🧩 「途中の道すじ」ニュースの読み方 3ステップ</h2>
+  <ul class="step-list">
+    <li><span><strong>まず研究の種類</strong> ── 観察研究の媒介分析は、因果の「仮説」を示すもので、証明ではありません。</span></li>
+    <li><span><strong>途中の物差しの中身を見る</strong> ── 途中の値(C)が結果(B)とよく似た情報を含んでいないか。</span></li>
+    <li><span><strong>RCTがあるかを探す</strong> ── 実際に食事を変えて確かめた試験があるかどうか。</span></li>
+  </ul>
+</div>
+
+<div class="card">
+  <h2>🧬 精密栄養学の視点</h2>
+  <p>同じ「植物性中心」でも、鉄や亜鉛が足りなくなりやすい人(月経のある人・妊娠中の人・成長期・高齢者など)と、そうでない人がいます。「地球にやさしい」と「自分の体に合う」を両立させるには、<strong>何を減らすかより、何で補うか</strong>を一人ひとり考える必要があります。</p>
+  <div class="flow">
+    <div class="flow-step">🌍 環境への配慮</div><div class="flow-arrow">＋</div>
+    <div class="flow-step alt">🩸 血糖・体重</div><div class="flow-arrow">＋</div>
+    <div class="flow-step purp">🧪 鉄・亜鉛・B12 は足りている?</div>
+  </div>
+</div>
+
+<div class="card purple">
+  <h2>🧪 今日の根拠のエビデンスの強さ</h2>
+  <table class="ev-table">
+    <tr><th>根拠</th><th>中身</th><th>位置づけ</th></tr>
+    <tr><td>Cui ら 2026</td><td>前向きコホート・155,413人・英国の中高年</td><td><span class="ev-badge ev-mid">観察研究(媒介分析は探索的)</span></td></tr>
+    <tr><td>Sowah ら 2025</td><td>前向きコホート・23,722人・英国</td><td><span class="ev-badge ev-mid">観察研究</span></td></tr>
+    <tr><td>Berthy ら 2025</td><td>前向きコホート・88,964人・フランス</td><td><span class="ev-badge ev-mid">観察研究</span></td></tr>
+    <tr><td>Beal ら 2023</td><td>栄養素量の計算による推計</td><td><span class="ev-badge ev-low">モデル推計(人での試験ではない)</span></td></tr>
+    <tr><td>EAT-Lancet委員会 2025</td><td>文献とモデルによる総合報告</td><td><span class="ev-badge ev-low">推計(1,500万人はモデルの値)</span></td></tr>
+  </table>
+</div>
+
+<div class="card orange">
+  <h2>✅ 今日からできること</h2>
+  <ul class="step-list">
+    <li><span>いつもの食事に<strong>野菜・豆・全粒穀物を「足す」</strong>ことから考えてみる(極端に何かを抜くのではなく)。</span></li>
+    <li><span>肉や乳製品を大きく減らすなら、<strong>鉄・カルシウム・亜鉛・ビタミンB12</strong>が足りているか、管理栄養士やかかりつけ医に相談する。</span></li>
+    <li><span>糖尿病の治療中・腎臓病・妊娠中などの人は、自己判断で食事を大きく変えない。</span></li>
+  </ul>
+</div>
+
+<div class="warn"><strong>💡 今日の学び:</strong> 「AはCを通ってBにつながる」という媒介分析は、<strong>Cの物差しの中にBの情報が混ざっていないか</strong>をまず確認。そして観察研究どうしが同じ向きでも、因果の証明にはなりません。</div>
+
+<div class="sources">
+  <h3>📚 出典</h3>
+  <ul>
+    <li>Cui ら「EAT-Lancet diet, accelerated biological aging, and type 2 diabetes risk: a cohort study from the UK Biobank」<em>Frontiers in Nutrition</em> 2026。DOI: 10.3389/fnut.2026.1951780。<a href="https://www.frontiersin.org/journals/nutrition/articles/10.3389/fnut.2026.1951780/full">https://www.frontiersin.org/journals/nutrition/articles/10.3389/fnut.2026.1951780/full</a>(基準日:2026年11月。人数・症例数・媒介割合は抄録・検索結果レベルで確認、本文は未確認。「15〜17%」は報道 <a href="https://www.mindbodygreen.com/articles/huge-study-has-more-good-news-about-plant-forward-eating">mindbodygreen 2026年11月</a> による値)</li>
+    <li>Sowah ら「The association of the planetary health diet with type 2 diabetes incidence and greenhouse gas emissions: Findings from the EPIC-Norfolk prospective cohort study」<em>PLoS Medicine</em> 2025;22(9):e1004633。PMID 40956993。<a href="https://pubmed.ncbi.nlm.nih.gov/40956993/">https://pubmed.ncbi.nlm.nih.gov/40956993/</a>(基準日:2025年9月。抄録レベルを2026年11月に確認)</li>
+    <li>Berthy ら「Adherence to the EAT-Lancet reference diet and risk of type 2 diabetes: results from the NutriNet-Santé cohort study」<em>International Journal of Epidemiology</em> 2025。DOI: 10.1093/ije/dyaf011。<a href="https://doi.org/10.1093/ije/dyaf011">https://doi.org/10.1093/ije/dyaf011</a>(基準日:2025年。抄録レベルを2026年11月に確認、BMIを通じた割合の詳細は本文未確認)</li>
+    <li>Beal T, Ortenzi F, Fanzo J「Estimated micronutrient shortfalls of the EAT–Lancet planetary health diet」<em>Lancet Planetary Health</em> 2023。PMID 36889864。<a href="https://pubmed.ncbi.nlm.nih.gov/36889864/">https://pubmed.ncbi.nlm.nih.gov/36889864/</a>(基準日:2023年3月。抄録レベルを2026年11月に確認)</li>
+    <li>Rockström J ら「The EAT–Lancet Commission on healthy, sustainable, and just food systems」<em>The Lancet</em> 2025。DOI: 10.1016/S0140-6736(25)01201-2。<a href="https://doi.org/10.1016/S0140-6736(25)01201-2">https://doi.org/10.1016/S0140-6736(25)01201-2</a>(基準日:2025年10月。1,500万人の推計は委員会の要約・発表資料レベルで確認)</li>
+  </ul>
+</div>
+
+<div class="disclaimer">
+  ⚠️ 本記事は一般的な情報であり、医療アドバイスではありません。食事の効果・必要な栄養量・リスクは、個人の体質・年齢・持病・服薬で大きく変わります。食事を大きく変える前には、かかりつけ医・管理栄養士・薬剤師などの専門家に相談してください。特定の食事制限・サプリ・断食などを安易に始めないでください。
+</div>
+
+</div>
+</body>
+</html>
