@@ -59,10 +59,13 @@
 
 - スペイン語で部屋探し・内見の質問(¿Hay ascensor? ¿Cuánto es el alquiler? ¿Está amueblado?、fianza=敷金)── 11-18の住所・階の続編
 - スペイン語の序数 primero〜décimo と primer/tercer の語尾脱落(el primer piso)── 11-18の3º 2ªの発展
-- スペイン語の電話の受け答え(¿Diga?/¿Sí?/De parte de quién/Se ha equivocado)── 11-16の電話番号の続編、08-03の電話フレーズの発展
+
+- スペイン語で伝言を頼む・受ける(¿Puedo dejar un mensaje? / Dile que me llame / Le diré que ha llamado)── 11-21の電話の受け答えの続編
+- 英語の電話の決まり文句(Hold on / I'll put you through / Can I take a message?)── 11-21のスペイン語電話の英語側
 
 ## 解説済みテーマ
 
+- 2026-11-21: スペイン語の電話の受け答え(¿Diga?/¿Dígame?/¿Sí?、国別の第一声、¿Está…?/¿De parte de quién?/Un momento、se ha equivocado vs me he equivocado、英語This is〜との対応)── 11-16の電話番号の続編
 - 2026-11-19: 英語の大きな数・年号・値段の読み方(3けたずつのカンマ読み・万がない、年号は2けたずつ、$3.50=three fifty、billionとbillónの違い)── 11-17の番地2けた読みの発展
 
 - 2026-11-18: スペイン語で住所を伝える・書く(C/・nº・3º 2ª=階+ドア、Izq./Dcha.、bajoが地上階、郵便番号5けた・先頭2けたが県)── 11-17の英語の住所の続編
