@@ -61,9 +61,13 @@
 - スペイン語の序数 primero〜décimo と primer/tercer の語尾脱落(el primer piso)── 11-18の3º 2ªの発展
 
 - スペイン語で伝言を頼む・受ける(¿Puedo dejar un mensaje? / Dile que me llame / Le diré que ha llamado)── 11-21の電話の受け答えの続編
-- 英語の電話の決まり文句(Hold on / I'll put you through / Can I take a message?)── 11-21のスペイン語電話の英語側
+- 英語の時刻の言い方(thirteen thirty / quarter past / half past)── 11-20の-teen/-tyの続編、時間の聞き取り
+- 英語の留守番電話・ボイスメールの残し方と聞き取り(Hi, this is ~. Please call me back at ~.)── 11-22の電話の決まり文句の続編
+- 英語の句動詞 hang/hold/call 一家の整理(hang out, hold up, call off など電話以外の意味)── 11-22のhang on/hang upの発展
 
 ## 解説済みテーマ
+
+- 2026-11-22: 英語の電話の決まり文句(Hello?→Is ~ there?→May I ask who's calling?→This is ~、Hold on/put you through、take vs leave a message、Speaking.、ていねいさの段階、hang on vs hang up、スペイン語との対応表)── 11-21のスペイン語電話の英語側
 
 - 2026-11-21: スペイン語の電話の受け答え(¿Diga?/¿Dígame?/¿Sí?、国別の第一声、¿Está…?/¿De parte de quién?/Un momento、se ha equivocado vs me he equivocado、英語This is〜との対応)── 11-16の電話番号の続編
 - 2026-11-19: 英語の大きな数・年号・値段の読み方(3けたずつのカンマ読み・万がない、年号は2けたずつ、$3.50=three fifty、billionとbillónの違い)── 11-17の番地2けた読みの発展
@@ -233,5 +237,3 @@
 - 2026-11-05: スペイン語のcuyo(whoseに当たる所有の関係詞、持ち物の性数に合わせる)── 07-29のque/quienの発展
 - 2026-11-13: 英語のスペル伝達(A as in Apple)とスペイン語の文字名(hache, jota, eñe, ye)
 - 2026-11-14: スペイン語の señor/señora・don/doña(敬称・呼びかけ)── 08-03の続編
-
-- 英語の時刻の言い方(thirteen thirty / quarter past / half past)── 11-20の-teen/-tyの続編、時間の聞き取り
