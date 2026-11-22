@@ -54,7 +54,6 @@
 - スペイン語のTe presento a...(人を紹介する言い方と、初対面のあいさつ Encantado/a)── 11-14の敬称の続編
 
 - 英語の住所を書類・ネット注文フォームに書く(Address line 1/2, State, ZIP、日本の住所を英語表記にする手順)── 11-17の続編
-- スペイン語の大きな数(mil/millón/mil millones、doscientos/doscientasの性一致)と年号の読み方── 11-19の英語版の逆向きブリッジ
 - 英語のURL・SNSアカウントの伝え方(hashtag #、handle、"at"で始まるアカウント名)── 11-15の続編
 
 - スペイン語で部屋探し・内見の質問(¿Hay ascensor? ¿Cuánto es el alquiler? ¿Está amueblado?、fianza=敷金)── 11-18の住所・階の続編
@@ -64,8 +63,12 @@
 - 英語の時刻の言い方(thirteen thirty / quarter past / half past)── 11-20の-teen/-tyの続編、時間の聞き取り
 - 英語の留守番電話・ボイスメールの残し方と聞き取り(Hi, this is ~. Please call me back at ~.)── 11-22の電話の決まり文句の続編
 - 英語の句動詞 hang/hold/call 一家の整理(hang out, hold up, call off など電話以外の意味)── 11-22のhang on/hang upの発展
+- スペイン語の値段・割合の言い方(¿Cuánto cuesta?、3,50 €、por ciento、la mitad/un tercio)── 11-23の大きな数の続編、買い物で使う
+- スペイン語の日付の言い方(el 23 de noviembre de 2026、el uno/el primero、書類の日/月/年の順)── 11-23の年号の続編
 
 ## 解説済みテーマ
+
+- 2026-11-23: スペイン語の大きな数と年号(cien/ciento、milは不変・un milにしない、doscientos/doscientasの性一致とquinientos/setecientos/novecientos、millónは名詞でde、billón=1兆の罠、年は区切らず全部読む、小数点コンマ)── 11-19の英語版の逆向きブリッジ
 
 - 2026-11-22: 英語の電話の決まり文句(Hello?→Is ~ there?→May I ask who's calling?→This is ~、Hold on/put you through、take vs leave a message、Speaking.、ていねいさの段階、hang on vs hang up、スペイン語との対応表)── 11-21のスペイン語電話の英語側
 
