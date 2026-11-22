@@ -1,5 +1,12 @@
 # 健康日報 テーマバックログ
 
+## 未使用テーマ(追記:2026-11-23)
+
+- 11-23記事(早寝と体重、Malone ら Nursing Research 2026 DOI 10.1097/NNR.0000000000000957・Tasali ら JAMA Intern Med 2022 PMID 35129580)の続報候補 ── Malone論文本文の主要評価項目(CGMで140mg/dL超の時間割合)の数値、群別の体重変化、睡眠時間・入眠時刻の変化量(報道では約10分・約12分)、脱落率。ovid・lww・clinicaltrials.gov(NCT03398902が関連プロトコルの可能性)はネットワーク制限で未確認。当日は直近7日の新着で未掲載の一次情報つき研究を見つけられず、10月公開の本試験を扱った
+- 「主要評価項目と副次・事後解析」の独立回(RCTの結果の確かさのちがい、事前登録の意味)── 一次文献(CONSORT 2025 声明など)の確認が必要
+- 「寝る時刻の規則性・一貫性と体重維持」(NoHoW試験の二次解析、PMC7365417)── 観察的解析。一次確認が必要
+- 睡眠時無呼吸症候群と代謝(血糖・血圧)の基礎回 ── 公的機関・学会の一次情報の確認が必要
+
 ## 未使用テーマ(追記:2026-11-22)
 
 - 11-22記事(平均への回帰、Bland & Altman BMJ 1994 DOI 10.1136/bmj.308.6942.1499・Barnett ら IJE 2005 PMID 15333621・Morton & Torgerson BMJ 2003・Hróbjartsson & Gøtzsche NEJM 2001・Wampold ら J Clin Psychol 2005 DOI 10.1002/jclp.20129)の続報候補 ── Barnett本文の具体例(血圧・コレステロール等)と補正の式、Bland & Altman 続編「Some examples of regression towards the mean」(BMJ 1994;309:780)の事例、Hróbjartsson & Gøtzsche の2010年コクラン更新版の結果。pubmed・pmc はネットワーク制限で本文未確認。なお当日は直近7日の新着論文で未掲載のものを検索で見つけられず基礎回とした
