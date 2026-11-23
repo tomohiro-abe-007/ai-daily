@@ -64,9 +64,13 @@
 - 英語の留守番電話・ボイスメールの残し方と聞き取り(Hi, this is ~. Please call me back at ~.)── 11-22の電話の決まり文句の続編
 - 英語の句動詞 hang/hold/call 一家の整理(hang out, hold up, call off など電話以外の意味)── 11-22のhang on/hang upの発展
 - スペイン語の値段・割合の言い方(¿Cuánto cuesta?、3,50 €、por ciento、la mitad/un tercio)── 11-23の大きな数の続編、買い物で使う
-- スペイン語の日付の言い方(el 23 de noviembre de 2026、el uno/el primero、書類の日/月/年の順)── 11-23の年号の続編
+
+- スペイン語で予約の日時を決める(¿Qué día te viene bien? / ¿A qué hora? / el próximo lunes)── 11-24の日付の続編
+- 英語の日付の言い方と書き方(序数 first/second、米 MM/DD と英 DD/MM の違い)── 11-24の逆向きブリッジ
 
 ## 解説済みテーマ
+
+- 2026-11-24: スペイン語の日付(el+日+de+月+de+年、月・曜日は小文字、el lunesにenなし、1日はuno(西)/primero(中南米)、書類は日/月/年、de 2026)── 11-23の年号の続編
 
 - 2026-11-23: スペイン語の大きな数と年号(cien/ciento、milは不変・un milにしない、doscientos/doscientasの性一致とquinientos/setecientos/novecientos、millónは名詞でde、billón=1兆の罠、年は区切らず全部読む、小数点コンマ)── 11-19の英語版の逆向きブリッジ
 
