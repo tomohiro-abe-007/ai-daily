@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-11-24</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #2a4d7a 0%, #142a48 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #2a4d7a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.blue   { border-left-color: #1e5a7a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.green  { border-left-color: #1e7a5a; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #2a4d7a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin: 14px 0;
+  }
+  .stats-row.c3 { grid-template-columns: repeat(3, 1fr); }
+  .stats-row.c2 { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 12px 6px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat.now { background: #fff3e0; box-shadow: 0 0 0 2px #c8884a inset; }
+  .stat .sl { font-size: 0.62rem; color: #888; margin-bottom: 3px; line-height: 1.4; }
+  .stat .sv { font-size: 1.05rem; font-weight: 700; color: #2a4d7a; line-height: 1.15; }
+  .stat.now .sv { color: #c8884a; }
+  .stat .su { font-size: 0.62rem; color: #666; margin-top: 2px; }
+
+  .bignum {
+    background: white;
+    border-radius: 12px;
+    padding: 18px 14px;
+    text-align: center;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.1);
+    border: 2px dashed #c8884a;
+    margin: 14px 0;
+  }
+  .bignum .bl { font-size: 0.76rem; color: #888; margin-bottom: 6px; }
+  .bignum .bv { font-size: 1.7rem; font-weight: 700; color: #c8884a; line-height: 1.3; }
+  .bignum .bs { font-size: 0.76rem; color: #666; margin-top: 6px; line-height: 1.6; }
+
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #2a4d7a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-num.now { background: #b54040; }
+  .f-num.later { background: #999; }
+  .f-num.opt { background: #c8884a; }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+  .f-arrow { color: #2a4d7a; font-size: 1.1rem; margin-left: 14px; margin-bottom: 4px; }
+
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  table.cmp {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.83rem;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.08);
+  }
+  table.cmp th, table.cmp td {
+    border: 1px solid #e4dccd;
+    padding: 9px 10px;
+    line-height: 1.55;
+    vertical-align: top;
+  }
+  table.cmp thead th { background: #2a4d7a; color: white; font-weight: 600; text-align: center; }
+  table.cmp tbody th { background: #f5efe2; color: #5a4020; text-align: left; font-weight: 600; white-space: nowrap; }
+  table.cmp td { color: #444; text-align: left; }
+  table.cmp td.hi { background: #fff3e0; font-weight: 700; color: #c8884a; }
+  .wrap-x { overflow-x: auto; }
+
+  .prompt-box {
+    background: #f0f5ff;
+    border: 2px solid #4a6aae;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 12px 0;
+    font-size: 0.84rem;
+    line-height: 1.85;
+    color: #1a2a4a;
+  }
+  .prompt-box .ph {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #4a6aae;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+  .prompt-box .fill {
+    background: #d0e0ff;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-weight: 700;
+    color: #0a2a6e;
+  }
+
+  .info {
+    background: #e8eef8;
+    border-left: 4px solid #2a4d7a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #16294a;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #7a4010;
+  }
+
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #2a4d7a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #2a4d7a; word-break: break-all; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #2a4d7a; }
+  .matrix { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:14px 0; }
+  @media (max-width: 540px) { .matrix { grid-template-columns:1fr; } }
+  .mx { background:white; border-radius:10px; padding:14px 16px; box-shadow:2px 3px 8px rgba(0,0,0,0.09); border-top:4px solid #2a4d7a; }
+  .mx.k { border-top-color:#1e7a5a; } .mx.p { border-top-color:#b54040; } .mx.t { border-top-color:#c8884a; } .mx.m { border-top-color:#1e5a7a; }
+  .mx .mh { font-weight:700; font-size:0.92rem; margin-bottom:6px; }
+  .mx .mb { font-size:0.84rem; line-height:1.65; color:#444; }
+  .week { display:grid; grid-template-columns:repeat(5,1fr); gap:6px; margin:14px 0; }
+  .day { background:white; border-radius:8px; padding:10px 4px; text-align:center; font-size:0.76rem; line-height:1.5; box-shadow:2px 3px 8px rgba(0,0,0,0.08); color:#666; }
+  .day b { display:block; font-size:0.9rem; color:#2a4d7a; }
+  .day.fri { background:#fff3e0; box-shadow:0 0 0 2px #c8884a inset; color:#7a4010; }
+  .day.fri b { color:#c8884a; }
+</style>
+<style>
+  .tl { display:grid; grid-template-columns:repeat(3,1fr); gap:6px; margin:14px 0; align-items:stretch; }
+  .tl .tc { background:white; border-radius:10px; padding:12px 6px; text-align:center; box-shadow:2px 3px 8px rgba(0,0,0,0.09); font-size:0.78rem; line-height:1.5; color:#555; position:relative; }
+  .tl .tc b { display:block; font-size:0.95rem; color:#2a4d7a; margin:2px 0; }
+  .tl .tc.key { background:#fff3e0; box-shadow:0 0 0 2px #c8884a inset; }
+  .tl .tc.key b { color:#c8884a; }
+  .tl .tc .ic { font-size:1.3rem; }
+  .split { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:14px 0; }
+  @media (max-width:540px){ .split{ grid-template-columns:1fr; } }
+  .term { background:#f5efe2; border-radius:8px; padding:2px 7px; font-size:0.82rem; }
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header">
+  <div class="meta">2026-11-24(火)・経理・記帳の基礎 × 決算準備</div>
+  <h1>📅 1人法人スタート 最新トピック 2026-11-24<br>売上・経費は「いつ」の分？ ── お金が動いた日ではなく「仕事が終わった日」</h1>
+  <div class="desc">3月に納品して、入金は4月。この売上は3月の分？4月の分？ 会社の帳簿では、<b>お金の出入りの日</b>ではなく<b>仕事が終わった日（約束が決まった日）</b>で考えるのが基本です。決算月の前に知っておきたい「計上（けいじょう）タイミング」をやさしく図解します。</div>
+  <div style="margin-top:10px"><span class="htag">経理・記帳</span><span class="htag">発生主義</span><span class="htag">決算準備</span><span class="htag">エバーグリーン</span></div>
+</div>
+
+<div class="card">
+  <div class="sec-title">🎯 ① 今日の結論</div>
+  <div class="bignum">
+    <div class="bl">売上・経費を帳簿に載せる日の目安</div>
+    <div class="bv">入金日ではなく「納品・完了日」</div>
+    <div class="bs">売上＝<b>商品を渡した日／サービスを終えた日</b>の期の分。<br>経費＝<b>支払う義務が決まった日</b>の期の分（支払日ではない）。</div>
+  </div>
+  <div class="info">💡 <b>計上（けいじょう）</b>＝帳簿に「この期の売上・経費です」と載せること。<br>💡 <b>発生主義（はっせいしゅぎ）</b>＝お金の出入りではなく、<b>取引が起きた時点</b>で記録する考え方。会社の会計と法人税は、基本的にこの考え方です。</div>
+</div>
+
+<div class="card orange">
+  <div class="sec-title">🗓️ ② 例で見る：3月決算の会社の場合</div>
+  <p><b>売上の例</b>：Webサイト制作を3月20日に納品 → 3月31日に請求書を発行 → 4月30日に入金</p>
+  <div class="tl">
+    <div class="tc key"><span class="ic">📦</span><b>3/20 納品</b>この日の期（3月期）の売上</div>
+    <div class="tc"><span class="ic">🧾</span><b>3/31 請求</b>請求書の日付は決め手ではない</div>
+    <div class="tc"><span class="ic">🏦</span><b>4/30 入金</b>「売掛金」の回収にすぎない</div>
+  </div>
+  <p><b>経費の例</b>：外注先が3月中に作業完了 → 請求書が4月5日に届く → 4月末に支払い</p>
+  <div class="tl">
+    <div class="tc key"><span class="ic">🛠️</span><b>3月 作業完了</b>3月期の経費（支払う義務が決まった）</div>
+    <div class="tc"><span class="ic">📨</span><b>4/5 請求書着</b>金額が分かったら3月期に入れる</div>
+    <div class="tc"><span class="ic">💸</span><b>4月末 支払</b>「未払金」を払っただけ</div>
+  </div>
+  <div class="warn">⚠️ 入金日・支払日で記帳していると、決算をまたいだ取引が<b>「翌期の分」にずれます</b>。利益と税金の計算がずれる原因になります。</div>
+</div>
+
+<div class="card blue">
+  <div class="sec-title">⚖️ ③ 現金主義と発生主義の違い</div>
+  <div class="wrap-x"><table class="cmp">
+    <thead><tr><th></th><th>💴 現金主義</th><th>📒 発生主義</th></tr></thead>
+    <tbody>
+      <tr><th>記録する日</th><td>お金が入った日・出た日</td><td class="hi">納品・完了・義務が決まった日</td></tr>
+      <tr><th>分かりやすさ</th><td>通帳と同じなので簡単</td><td>未入金・未払いの管理が必要</td></tr>
+      <tr><th>分かること</th><td>手元のお金の動き</td><td>その期に本当に稼いだ利益</td></tr>
+      <tr><th>法人の決算</th><td>× このままでは使えない</td><td class="hi">○ 基本はこちら</td></tr>
+    </tbody>
+  </table></div>
+  <div class="info">📌 個人事業には、一定の条件で現金主義を選べる特例があります。<b>法人の税務にはこの特例はありません</b>。個人事業から法人にした人ほど、ここで戸惑いやすいので注意しましょう。</div>
+</div>
+
+<div class="card green">
+  <div class="sec-title">🧩 ④ 期末に拾う「4つの箱」</div>
+  <p>決算日（期末）の時点で、お金の動きと仕事の時期がずれているものを4つの箱で整理します。</p>
+  <div class="matrix">
+    <div class="mx k"><div class="mh">📥 売掛金（うりかけきん）</div><div class="mb">仕事は終わったが<b>まだ入金がない</b>売上。<br>→ 今期の売上に入れる</div></div>
+    <div class="mx p"><div class="mh">📤 未払金（みばらいきん）</div><div class="mb">モノ・サービスは受け取ったが<b>まだ払っていない</b>経費。<br>→ 今期の経費に入れる</div></div>
+    <div class="mx t"><div class="mh">⏩ 前払費用（まえばらいひよう）</div><div class="mb">先に払ったが、<b>サービスは来期</b>に受ける費用（例：4月分の家賃を3月に払った）。<br>→ 原則、来期の経費</div></div>
+    <div class="mx m"><div class="mh">⏪ 前受金（まえうけきん）</div><div class="mb">先にお金をもらったが、<b>仕事は来期</b>にする売上（例：着手金）。<br>→ 原則、来期の売上</div></div>
+  </div>
+  <div class="info">📝 前払費用には、一定の条件を満たすと支払った期の経費にできる取扱い（短期前払費用）もありますが、<b>条件が細かく、継続適用が前提</b>です。使う場合は必ず税理士に確認しましょう。</div>
+</div>
+
+<div class="card">
+  <div class="sec-title">🔍 ⑤ 経費が「今期の分」になる3つの条件</div>
+  <p>経費（減価償却費を除く）は、期末までに<b>支払う義務が確定</b>したものが今期の分になります。国税庁の通達（法人税の取扱いの指針）では、次の3つがそろっていることが目安です。</p>
+  <div class="stats-row c3">
+    <div class="stat"><div class="sl">条件1</div><div class="sv">🤝 約束</div><div class="su">期末までに支払う<br>義務が成立している</div></div>
+    <div class="stat"><div class="sl">条件2</div><div class="sv">✅ 実行</div><div class="su">モノの受け取りや<br>作業が終わっている</div></div>
+    <div class="stat now"><div class="sl">条件3</div><div class="sv">🔢 金額</div><div class="su">金額を合理的に<br>計算できる</div></div>
+  </div>
+  <div class="warn">⚠️ 「来期に使う予定の備品を、今期の経費として見積もりで入れる」のは、条件2がそろわないので原則NGです。</div>
+</div>
+
+<div class="card orange">
+  <div class="sec-title">🪜 ⑥ 決算月の「締め」5ステップ</div>
+  <div class="f-step"><div class="f-num">1</div><div class="f-text"><b>今期に出した請求書を一覧にする</b>：会計ソフトや請求書ソフトから出力。入金済み／未入金に分ける。</div></div>
+  <div class="f-arrow">⬇</div>
+  <div class="f-step"><div class="f-num">2</div><div class="f-text"><b>「納品済みだけど請求書未発行」を探す</b>：期末ぎりぎりの納品は請求が翌月になりがち。<b>売上の計上もれ</b>に注意。</div></div>
+  <div class="f-arrow">⬇</div>
+  <div class="f-step"><div class="f-num">3</div><div class="f-text"><b>期末後に届く請求書を待つ</b>：決算日から2〜3週間は、外注費・カード利用・電気代などの請求書を確認し、今期分を<b>未払金</b>で入れる。</div></div>
+  <div class="f-arrow">⬇</div>
+  <div class="f-step"><div class="f-num opt">4</div><div class="f-text"><b>先払い・先受けをチェック</b>：年払いの保険やサブスク、着手金など、来期分が混ざっていないか確認。</div></div>
+  <div class="f-arrow">⬇</div>
+  <div class="f-step"><div class="f-num now">5</div><div class="f-text"><b>税理士に一覧を渡す</b>：「売掛金・未払金・前払・前受」の4つの箱のリストにして共有すると、決算がスムーズ。</div></div>
+  <div class="info">💡 期中（月々）の記帳を入金ベースで行い、<b>決算のときにまとめて売掛金・未払金を立てる</b>やり方をとる会社もあります。どこまで月次で管理するかは、顧問税理士と決めておきましょう。</div>
+</div>
+
+<div class="card blue">
+  <div class="sec-title">🤖 ⑦ 生成AIで「4つの箱リスト」の下書き</div>
+  <div class="prompt-box">
+    <div class="ph">▼ コピーして、<span class="fill">青い部分</span>だけ書き換え</div>
+    あなたは経理の整理を手伝うアシスタントです。私の会社の決算日は<span class="fill">2027年3月31日</span>です。<br>
+    下の「取引メモ」を、次の4つに分類して表にしてください。<br>
+    ① 売掛金（今期に納品済み・期末時点で未入金）<br>
+    ② 未払金（今期に受け取り済み・期末時点で未払い）<br>
+    ③ 前払費用（今期に支払ったが、サービスは来期）<br>
+    ④ 前受金（今期に受け取ったが、仕事は来期）<br>
+    表の列は「取引／納品・完了日／入出金日／分類／判断に迷う点」にしてください。<br>
+    ※ 日付があいまいなものは推測せず「確認が必要」と書く<br>
+    ※ 税務上の最終判断は断定せず、「税理士に確認する項目」として別にまとめる<br><br>
+    【取引メモ】<span class="fill">例：A社 Web制作 3/20納品 4/30入金予定 ／ B社 外注 3月作業 4/5請求書着</span>
+  </div>
+  <div class="warn">⚠️ 取引先名は「A社」などに置き換え、口座番号や個人情報は貼らないのが基本です。AIの分類は<b>下書き</b>。納品日などの事実は、契約書・納品書で自分が確認しましょう。</div>
+</div>
+
+<div class="card red">
+  <div class="sec-title">🚧 ⑧ やりがちな失敗</div>
+  <ul class="check-list">
+    <li><span class="ck-bad">✕</span><span><b>入金日で売上を入れる</b>：期末に納品して翌期入金の売上が、翌期にずれてしまう。</span></li>
+    <li><span class="ck-bad">✕</span><span><b>翌月届いた請求書を翌期の経費にする</b>：今期に受けたサービスなら、今期の未払金。経費の入れもれは利益の出すぎにつながる。</span></li>
+    <li><span class="ck-bad">✕</span><span><b>着手金をもらった日に全額売上にする</b>：仕事が来期なら、原則は前受金。</span></li>
+    <li><span class="ck">○</span><span><b>毎期同じルールで処理する</b>：都合のよい年だけやり方を変えないことが大切。</span></li>
+    <li><span class="ck">○</span><span><b>納品書・検収メールを保存</b>：「いつ終わったか」の証拠になる。</span></li>
+  </ul>
+</div>
+
+<div class="card">
+  <div class="sec-title">✅ ⑨ まとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">1</span><span>会社の帳簿は<b>発生主義</b>。売上は<b>納品・完了日</b>、経費は<b>支払う義務が決まった日</b>の期の分。</span></li>
+    <li><span class="n">2</span><span>期末には<b>売掛金・未払金・前払費用・前受金</b>の4つの箱を拾う。</span></li>
+    <li><span class="n">3</span><span>決算月は<b>「請求書未発行の納品」と「期末後に届く請求書」</b>を重点チェック。</span></li>
+    <li><span class="n">4</span><span>生成AIは<b>分類の下書き役</b>。事実確認と最終判断は社長と税理士。</span></li>
+  </ul>
+  <div class="source">
+    【出典・基準】2026年11月時点の法令・通達にもとづく一般的な解説です（本記事に税率・金額は掲載していません）。<br>
+    ・法人税法 第22条（第3項：費用は期末までに債務が確定したもの〈償却費を除く〉）・第22条の2（第1項：収益は目的物の引渡し又は役務の提供の日の属する事業年度）── e-Gov法令検索 <a href="https://laws.e-gov.go.jp/law/340AC0000000034">https://laws.e-gov.go.jp/law/340AC0000000034</a><br>
+    ・法人税基本通達 2-2-12（債務の確定の判定：①債務の成立 ②給付原因事実の発生 ③金額の合理的算定）・2-2-14（短期前払費用）── 国税庁 法人税基本通達 目次 <a href="https://www.nta.go.jp/law/tsutatsu/kihon/hojin/01.htm">https://www.nta.go.jp/law/tsutatsu/kihon/hojin/01.htm</a><br>
+    ・個人事業の現金主義の特例は所得税法 第67条（法人には適用なし）── e-Gov法令検索 <a href="https://laws.e-gov.go.jp/law/340AC0000000033">https://laws.e-gov.go.jp/law/340AC0000000033</a><br>
+    ※ 本日は作業環境から公的サイトへ接続できなかったため、上記は条文・通達番号を出典として示しています。実際の処理の前に原文と最新の取扱いをご確認ください。<br>
+    ※ 関連記事：<a href="2026-10-22.html">2026-10-22 立替経費の精算</a> ／ <a href="2026-10-27.html">2026-10-27 生成AIで入金確認と催促</a> ／ <a href="2026-11-14.html">2026-11-14 決算書の読み方入門</a>
+  </div>
+</div>
+
+<div class="disclaimer">
+  <b>【免責・ご注意】</b><br>
+  ・本記事は一般的な情報であり、税務・法務の個別アドバイスではありません。会社の状況（業種・契約内容・会計方針など）により結論は変わります。<br>
+  ・具体的な判断は、税理士・社会保険労務士・司法書士など専門家にご相談ください。<br>
+  ・制度・税率・金額には基準年度を明記しています（本記事は2026年11月時点の法令・通達にもとづき、税率・金額は扱っていません）。<br>
+  ・生成AIの回答は誤りを含むことがあります。重要な内容は必ず公的な一次情報で確認してください。
+</div>
+<div class="footer"><a href="index.html">← 日報アーカイブへ</a></div>
+</div>
+</body>
+</html>
