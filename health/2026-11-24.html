@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-11-24</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: "🦠";
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.35rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.9rem; margin-bottom: 8px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.1em; }
+  .c3-col li { margin-bottom: 4px; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; overflow-wrap: anywhere; word-break: break-all; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  .quote-box {
+    background: #f5f0e8;
+    border-left: 4px solid #7a5abf;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    margin: 12px 0;
+    color: #444;
+    font-style: italic;
+  }
+  .quote-box .who { font-style: normal; font-weight: 700; color: #5a3a9a; margin-top: 6px; font-size: 0.78rem; }
+  .matrix {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .mx-cell {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .mx-cell .mx-head { font-weight: 700; font-size: 0.88rem; margin-bottom: 6px; }
+  .mx-cell.ok  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .mx-cell.ok  .mx-head { color: #1a6e4a; }
+  .mx-cell.ng  { background: #fbe8e6; border: 2px solid #c0392b; }
+  .mx-cell.ng  .mx-head { color: #a0291e; }
+  .subtype-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .subtype-card {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.84rem;
+  }
+  .subtype-card .st-head { font-weight: 700; font-size: 0.92rem; margin-bottom: 8px; }
+  .subtype-card .st-bar {
+    height: 10px;
+    border-radius: 5px;
+    background: #eee;
+    overflow: hidden;
+    margin: 6px 0 4px;
+  }
+  .subtype-card .st-bar-fill { height: 100%; }
+  .subtype-card.st-green { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .subtype-card.st-green .st-head { color: #1a6e4a; }
+  .subtype-card.st-orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .subtype-card.st-orange .st-head { color: #b85e10; }
+  .subtype-card.st-red { background: #fbe8e6; border: 2px solid #c0392b; }
+  .subtype-card.st-red .st-head { color: #a0291e; }
+  @media (max-width: 540px) {
+    .compare4 { grid-template-columns: 1fr; }
+    .matrix { grid-template-columns: 1fr; }
+    .subtype-grid { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.7rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+  .bar{height:22px;border-radius:6px;margin:4px 0 2px;color:#fff;font-size:.78rem;padding:0 8px;line-height:22px;white-space:nowrap}
+  .rtm-row{display:flex;align-items:center;gap:10px;margin:6px 0;font-size:.82rem}
+  .rtm-row .lbl{min-width:92px}
+  .rtm-track{flex:1;position:relative;height:26px;background:#f0ece3;border-radius:6px}
+  .rtm-true{position:absolute;top:0;bottom:0;width:3px;background:#1a7a5a}
+  .rtm-dot{position:absolute;top:4px;width:18px;height:18px;border-radius:50%;transform:translateX(-50%);color:#fff;font-size:.62rem;line-height:18px;text-align:center}
+</style>
+<style>
+  .axis-wrap{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0}
+  .axis{border-radius:10px;padding:14px;font-size:.84rem}
+  .axis.good{background:#e4f5ed;border:2px solid #1a7a5a}
+  .axis.bad{background:#fbe8e6;border:2px solid #c0392b}
+  .axis h3{font-size:.92rem;margin-bottom:8px}
+  .axis.good h3{color:#1a6e4a}.axis.bad h3{color:#a0291e}
+  .axis .row{display:flex;align-items:center;gap:6px;margin:6px 0;flex-wrap:wrap}
+  .axis .chip{background:#fff;border-radius:14px;padding:2px 10px;font-size:.78rem;border:1px solid #ccc}
+  .axis .down{text-align:center;font-size:1.2rem;margin:2px 0}
+  @media (max-width:540px){.axis-wrap{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="header">
+  <div class="label">健康・栄養 日報 ／ 腸内細菌と生活習慣・論文の読み方</div>
+  <h1>健康・栄養 最新トピック 2026-11-24 ── コーヒー・納豆・運動と腸内細菌 ── 日本人6,803人の研究で見えた「2つの流れ」を読む</h1>
+  <div class="subtitle">🦠 2026年11月5日、日本の6,803人の便を調べ、生活習慣と腸内細菌と病気の関係を整理した研究が<em>Nature Medicine</em>に発表されました。「腸にいい生活」と「腸に悪い生活」が、反対向きの2つの流れでつながっていた ── その中身と、<strong>「関係がある」と「原因である」のちがい</strong>を見ていきます。</div>
+</div>
+
+<div class="card">
+  <h2>🎯 今日のポイント</h2>
+  <ul class="step-list">
+    <li><span>日本の大人<strong>6,803人</strong>の便の遺伝子をまとめて読み取り、生活習慣・腸内細菌・<strong>15の病気</strong>の関係を調べた<strong>観察研究</strong>。</span></li>
+    <li><span><strong>植物性の食品・発酵食品・コーヒー・運動</strong>は「健康寄り」の細菌と、<strong>精製された炭水化物・甘い清涼飲料・喫煙・長時間の座りっぱなし</strong>は「病気寄り」の細菌と結びつく、<strong>反対向きの2つの流れ</strong>が見えた。</span></li>
+    <li><span>ただし観察研究なので、<strong>「コーヒーを飲めば病気が防げる」と証明されたわけではない</strong>。腸内細菌が「橋わたし役」かもしれない、という仮説の段階。</span></li>
+  </ul>
+</div>
+
+<div class="card">
+  <h2>📖 まず言葉の意味を</h2>
+  <div class="def-grid">
+    <div class="def-item"><div class="dterm">腸内細菌(腸内細菌叢)</div>おなかの中にすむたくさんの細菌の集まり。「腸内フローラ」とも呼ばれる。</div>
+    <div class="def-item"><div class="dterm">メタゲノム解析(ショットガン法)</div>便にふくまれる細菌の遺伝子をまとめて読み、「どんな細菌が、どれくらいいるか」を調べる方法。</div>
+    <div class="def-item"><div class="dterm">コホート研究</div>たくさんの人の生活や健康の情報を集めて比べる観察研究。くじ引きで割り当てはしない。</div>
+    <div class="def-item"><div class="dterm">媒介分析</div>「A(生活習慣)→ B(細菌)→ C(病気)」のように、AとCの関係の一部がBを通っていそうかを統計で調べる方法。</div>
+    <div class="def-item"><div class="dterm">酪酸(らくさん)</div>腸内細菌が食物繊維などから作る物質の一つ。腸の炎症をおさえる働きが研究されている。</div>
+    <div class="def-item"><div class="dterm">外部検証</div>別の集団のデータでも同じ結果が出るかを確かめること。「たまたま」を減らすためのチェック。</div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>🔢 数字で見る研究</h2>
+  <div class="num-row">
+    <div class="num-card"><span class="big">6,803</span><span class="unit">人</span><div class="desc">日本の「4Dコホート」に参加した16〜95歳の大人</div></div>
+    <div class="num-card blue-bg"><span class="big">15</span><span class="unit">の病気</span><div class="desc">2型糖尿病・炎症性腸疾患・うつ病・関節リウマチなど</div></div>
+    <div class="num-card purple-bg"><span class="big">13</span><span class="unit">集団</span><div class="desc">別の国・地域のデータで確かめた外部検証の数</div></div>
+    <div class="num-card orange-bg"><span class="big">2</span><span class="unit">つの流れ</span><div class="desc">反対向きにはたらく「健康寄り」と「病気寄り」</div></div>
+  </div>
+</div>
+
+<div class="card blue">
+  <h2>🧭 研究のしくみ:「橋わたし役」を探す</h2>
+  <div class="flow">
+    <div class="flow-step">☕ 生活習慣<br>(食事・運動・喫煙など)</div><div class="flow-arrow">→</div>
+    <div class="flow-step purp">🦠 腸内細菌<br>(便のメタゲノム)</div><div class="flow-arrow">→</div>
+    <div class="flow-step alt">🏥 病気<br>(15種類)</div>
+  </div>
+  <p>研究チームは、生活習慣と病気の関係のうち、<strong>どの細菌が「間に入って」いそうか</strong>を媒介分析で調べました。年齢・性別・BMI(体格の指数)・薬の使用を統計的にそろえ、さらに「病気 → 細菌」という逆向きの可能性もチェックしています。</p>
+</div>
+
+<div class="card orange">
+  <h2>⚖️ 見えてきた「2つの流れ」</h2>
+  <div class="axis-wrap">
+    <div class="axis good">
+      <h3>🌿 健康寄りの流れ</h3>
+      <div class="row"><span class="chip">🥦 植物性の食品</span><span class="chip">🫘 発酵食品</span><span class="chip">☕ コーヒー</span><span class="chip">🏃 運動</span></div>
+      <div class="down">⬇</div>
+      <div class="row"><span class="chip">🦠 酪酸を作る細菌など</span></div>
+      <div class="down">⬇</div>
+      <div class="row"><span class="chip">炎症をおさえる方向</span></div>
+    </div>
+    <div class="axis bad">
+      <h3>⚠️ 病気寄りの流れ</h3>
+      <div class="row"><span class="chip">🍞 精製された炭水化物</span><span class="chip">🥤 甘い清涼飲料</span><span class="chip">🚬 喫煙</span><span class="chip">🪑 長時間の座りっぱなし</span></div>
+      <div class="down">⬇</div>
+      <div class="row"><span class="chip">🦠 炎症と関係する細菌など</span></div>
+      <div class="down">⬇</div>
+      <div class="row"><span class="chip">炎症を強める方向</span></div>
+    </div>
+  </div>
+  <p style="font-size:.86rem">具体例として、論文では次の「候補」が挙げられています。</p>
+  <ul>
+    <li>☕ コーヒーと関係する細菌「<em>Lawsonibacter asaccharolyticus</em>」が、<strong>炎症性腸疾患(IBD)になりにくいこととの橋わたし役の候補</strong>として浮かんだ。</li>
+    <li>🫘 納豆・みそなどの大豆製品は、大豆の成分から「エクオール」という物質を作る <em>Adlercreutzia</em> 属の細菌と結びついていた。</li>
+  </ul>
+</div>
+
+<div class="card purple">
+  <h2>🔍 なぜ「コーヒーで病気予防」とは言い切れない?</h2>
+  <p>これは<strong>ある時点の人々を比べた観察研究</strong>で、くじ引きで生活習慣を変えてもらったわけではありません。研究チームも、因果関係(原因と結果)までは確かめられないと述べています。一般的に、次のような説明が残ります。</p>
+  <div class="compare4">
+    <div class="c3-col blue"><h3>① 本当に細菌が橋わたし</h3><ul><li>生活習慣 → 細菌 → 病気、という流れが実際にある</li></ul></div>
+    <div class="c3-col orange"><h3>② 別の要因が両方に効く</h3><ul><li>コーヒーを飲む人は、ほかの生活習慣もちがうかもしれない(交絡)</li></ul></div>
+    <div class="c3-col red"><h3>③ 向きが逆</h3><ul><li>病気や治療の影響で、食事も細菌も変わった(逆の因果)。チェックはしたが、完全には否定できない</li></ul></div>
+  </div>
+  <div class="warn"><strong>📌 もう一つの注意:</strong> 対象は日本の人々が中心です。13の外部集団で確かめてはいますが、食習慣のちがう地域や、個人一人ひとりに同じ関係があてはまるかは、まだわかりません。</div>
+</div>
+
+<div class="card red">
+  <h2>🪜 ほかの研究とならべると</h2>
+  <div class="matrix">
+    <div class="mx-cell ok"><div class="mx-head">📚 食物繊維・全粒穀物の大きな分析</div>Reynolds ら(2019年、Lancet)は、観察研究とRCTをまとめ、<strong>食物繊維や全粒穀物を多くとる人ほど病気が少ない</strong>傾向を示した(11月6日の回)。「植物性の食品が健康寄り」という今回の結果と方向はそろう。</div>
+    <div class="mx-cell ng"><div class="mx-head">🦠 今回の研究が足したこと</div>「なぜ体にいいのか」の<strong>しくみの候補として腸内細菌</strong>を具体的に挙げた点。ただし、細菌を変えると病気が減るかは、今後の介入試験(RCT)で確かめる必要がある。</div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>🧬 精密栄養学の視点</h2>
+  <p>同じものを食べても、<strong>腸内細菌がちがえば、体の中でできる物質もちがう</strong>可能性があります。たとえば大豆からエクオールを作れるかどうかは、持っている細菌によって変わると考えられています。腸内細菌は「一人ひとりに合った栄養」を考えるうえで注目の手がかりです。</p>
+  <div class="flow">
+    <div class="flow-step">💡 観察研究で<br>候補の細菌が見つかる</div><div class="flow-arrow">→</div>
+    <div class="flow-step alt">🎲 食事を変えるRCTで<br>細菌と体の変化を確かめる</div><div class="flow-arrow">→</div>
+    <div class="flow-step purp">🎯 だれに効くかを<br>調べる</div>
+  </div>
+  <p style="font-size:.86rem">今回の研究は、<strong>個人の便検査の結果で食事を決める方法を試したものではありません</strong>。いまの段階で、便検査だけを根拠に食事やサプリを大きく変えるのは早いと言えます。</p>
+</div>
+
+<div class="card purple">
+  <h2>🧪 今日の根拠のエビデンスの強さ</h2>
+  <table class="ev-table">
+    <tr><th>根拠</th><th>中身</th><th>位置づけ</th></tr>
+    <tr><td>Nagata ら 2026(全体の結果)</td><td>観察研究(コホート)、n=6,803、日本の16〜95歳、13集団で外部検証</td><td><span class="ev-badge ev-mid">大規模な観察研究・相関</span></td></tr>
+    <tr><td>Nagata ら 2026(個別の細菌の役割)</td><td>媒介分析で浮かんだ候補(コーヒーとIBDなど)</td><td><span class="ev-badge ev-low">仮説づくりの段階</span></td></tr>
+    <tr><td>Reynolds ら 2019</td><td>観察研究とRCTの系統的レビュー・メタ分析(WHOの依頼)</td><td><span class="ev-badge ev-high">複数研究のまとめ</span></td></tr>
+  </table>
+</div>
+
+<div class="card orange">
+  <h2>✅ 今日からできること</h2>
+  <ul class="step-list">
+    <li><span>特定の食品にたよるより、<strong>野菜・豆・発酵食品をふだんの食事に少しずつ</strong>、そして<strong>座りっぱなしの時間を減らす</strong>という、ほかの研究とも方向がそろう習慣から考える。</span></li>
+    <li><span>コーヒーは、カフェインで眠りにくくなる人・妊娠中の人・持病や薬がある人もいるので、<strong>「腸にいいから増やす」とは考えない</strong>。</span></li>
+    <li><span>腸の不調が続く人(下痢・血便・腹痛など)は、自己判断で食事を変える前に<strong>医師に相談</strong>する。</span></li>
+  </ul>
+</div>
+
+<div class="warn"><strong>💡 今日の学び:</strong> 「A → B → C」の流れを統計で示す<strong>媒介分析</strong>は、しくみの手がかりになります。でも観察研究のままでは、<strong>「関係がある」までで、「原因である」とは言えません</strong>。ニュースで「〇〇菌が病気を防ぐ」と見たら、どんな研究の種類かを確かめましょう。</div>
+
+<div class="sources">
+  <h3>📚 出典</h3>
+  <ul>
+    <li>Nagata N, Wei X, Kaneko ら「Opposing microbiome-mediated axes link modifiable lifestyles to health and chronic diseases」<em>Nature Medicine</em> 2026。DOI: 10.1038/s41591-026-04744-5。<a href="https://www.nature.com/articles/s41591-026-04744-5">https://www.nature.com/articles/s41591-026-04744-5</a>(基準日:2026年11月5日オンライン公開。抄録の要点を検索結果経由で2026年11月に確認。出版社サイトはネットワーク制限で本文未確認のため、効果の大きさの数値は掲載していません)</li>
+    <li>Reynolds A ら「Carbohydrate quality and human health: a series of systematic reviews and meta-analyses」<em>Lancet</em> 2019;393:434-445。DOI: 10.1016/S0140-6736(18)31809-9。<a href="https://doi.org/10.1016/S0140-6736(18)31809-9">https://doi.org/10.1016/S0140-6736(18)31809-9</a>(基準日:2019年1月)</li>
+  </ul>
+</div>
+
+<div class="disclaimer">
+  ⚠️ 本記事は一般的な情報であり、医療アドバイスではありません。効果・必要量・リスクは、個人の体質・年齢・持病・服薬で大きく変わります。健康のために何かを始める前には、かかりつけ医・管理栄養士・薬剤師などの専門家に相談してください。特定の食事制限・サプリ・断食などを安易に始めないでください。
+</div>
+
+</div>
+</body>
+</html>
