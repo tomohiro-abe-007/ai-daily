@@ -2,6 +2,7 @@
 
 ## 解説済みトピック（重複を避けるための記録）
 
+- 2026-11-25: Google Gemini 4 Neon（2026年11月18日発表と複数報道・Hydrogenと Carbonの中間・Artificial Analysis 3位(61)/Vals 2位(70.9%)は第三者・料金$3/$15は二次情報・公式ページ未接続のため要確認）
 - 2026-11-24: OpenAI GPT-6 Cyber（報道では2026年11月5日発表・GPT-6 Astraのサイバー特化版・審査済みの利用者限定/Daybreak経由・ExploitGym 48.5%（前版32.1%）・Preparedness Framework「Critical」と報道・openai.com未接続のため二次情報・公式で要確認）
 - 2026-11-23: Google DeepMind AlphaProof Code（2026年11月10日発表と報道・複数AIで形式検証・Signalプロトコルの一部性質を検証・新規脆弱性は未発見・第三者再現は未確認・公式で要確認）
 - 2026-11-22: 米国の州AI法（CA SB53・2025/9/29署名・2026/1/1施行／TX TRAIGA 2026/1/1施行／NY RAISE法 2027/1/1施行予定・署名日は資料で食い違い・2026年3月修正と報道／CO SB205 2026/6/30と記述する資料あり・要確認・検索要約ベース・本文未確認）（出典：NCSL / IAPP / KPMG / Cooley / Chambers）
@@ -182,6 +183,7 @@
 
 ## 未解説の候補トピック（今後の参考）
 
+- Claude Ship（Anthropic・コードレビュー/修正/承認エージェント・2026年11月・二次情報のみ・要一次確認）／ OpenAI GPT-6.2 Astra・Sol（2026年11月17日と報道）／ Anthropic ナスダック上場完了（調達額の報道が食い違い・要一次確認）
 - LinkedIn AI生成コンテンツ規制強化（2026年上半期）：2026年上半期に不正アクティビティ検出が前期比46%増・エンゲージメントポッド・自動投稿・偽プロフィール・低品質AI生成コンテンツへの対応強化
 
 - Google DeepMind Gemini 2 Humanoid Model（2026年8月6日）：ヒューマノイドロボット向け基盤モデル
