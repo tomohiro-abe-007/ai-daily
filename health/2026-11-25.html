@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-11-25</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: "🏷️";
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.35rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.9rem; margin-bottom: 8px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.1em; }
+  .c3-col li { margin-bottom: 4px; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; overflow-wrap: anywhere; word-break: break-all; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  .quote-box {
+    background: #f5f0e8;
+    border-left: 4px solid #7a5abf;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    margin: 12px 0;
+    color: #444;
+    font-style: italic;
+  }
+  .quote-box .who { font-style: normal; font-weight: 700; color: #5a3a9a; margin-top: 6px; font-size: 0.78rem; }
+  .matrix {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .mx-cell {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .mx-cell .mx-head { font-weight: 700; font-size: 0.88rem; margin-bottom: 6px; }
+  .mx-cell.ok  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .mx-cell.ok  .mx-head { color: #1a6e4a; }
+  .mx-cell.ng  { background: #fbe8e6; border: 2px solid #c0392b; }
+  .mx-cell.ng  .mx-head { color: #a0291e; }
+  .subtype-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .subtype-card {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.84rem;
+  }
+  .subtype-card .st-head { font-weight: 700; font-size: 0.92rem; margin-bottom: 8px; }
+  .subtype-card .st-bar {
+    height: 10px;
+    border-radius: 5px;
+    background: #eee;
+    overflow: hidden;
+    margin: 6px 0 4px;
+  }
+  .subtype-card .st-bar-fill { height: 100%; }
+  .subtype-card.st-green { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .subtype-card.st-green .st-head { color: #1a6e4a; }
+  .subtype-card.st-orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .subtype-card.st-orange .st-head { color: #b85e10; }
+  .subtype-card.st-red { background: #fbe8e6; border: 2px solid #c0392b; }
+  .subtype-card.st-red .st-head { color: #a0291e; }
+  @media (max-width: 540px) {
+    .compare4 { grid-template-columns: 1fr; }
+    .matrix { grid-template-columns: 1fr; }
+    .subtype-grid { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.7rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+  .bar{height:22px;border-radius:6px;margin:4px 0 2px;color:#fff;font-size:.78rem;padding:0 8px;line-height:22px;white-space:nowrap}
+  .rtm-row{display:flex;align-items:center;gap:10px;margin:6px 0;font-size:.82rem}
+  .rtm-row .lbl{min-width:92px}
+  .rtm-track{flex:1;position:relative;height:26px;background:#f0ece3;border-radius:6px}
+  .rtm-true{position:absolute;top:0;bottom:0;width:3px;background:#1a7a5a}
+  .rtm-dot{position:absolute;top:4px;width:18px;height:18px;border-radius:50%;transform:translateX(-50%);color:#fff;font-size:.62rem;line-height:18px;text-align:center}
+</style>
+<style>
+  .axis-wrap{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0}
+  .axis{border-radius:10px;padding:14px;font-size:.84rem}
+  .axis.good{background:#e4f5ed;border:2px solid #1a7a5a}
+  .axis.bad{background:#fbe8e6;border:2px solid #c0392b}
+  .axis h3{font-size:.92rem;margin-bottom:8px}
+  .axis.good h3{color:#1a6e4a}.axis.bad h3{color:#a0291e}
+  .axis .row{display:flex;align-items:center;gap:6px;margin:6px 0;flex-wrap:wrap}
+  .axis .chip{background:#fff;border-radius:14px;padding:2px 10px;font-size:.78rem;border:1px solid #ccc}
+  .axis .down{text-align:center;font-size:1.2rem;margin:2px 0}
+  @media (max-width:540px){.axis-wrap{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="header">
+  <div class="label">健康・栄養 日報 ／ 食品の表示と食べ方・論文の読み方</div>
+  <h1>健康・栄養 最新トピック 2026-11-25 ── デリバリーアプリに「A〜E」の栄養ラベル。注文は健康的になった? 「そう感じた」と「実際に変わった」を分けて読む</h1>
+  <div class="subtitle">🛵 食べ物の宅配アプリのメニューに、栄養の良し悪しを5段階で示す「Nutri-Score(ニュートリスコア)」を付けたら、人の選び方は変わるのか。英国の成人を対象にしたオンラインのランダム化比較試験が、2026年11月22日に<em>Journal of Human Nutrition and Dietetics</em>でオンライン公開されました。結果は<strong>「ラベルは効きそうだと感じられた」けれど「選んだカロリーは変わらなかった」</strong>。このズレの読み方を見ていきます。</div>
+</div>
+
+<div class="card">
+  <h2>🎯 今日のポイント</h2>
+  <ul class="step-list">
+    <li><span>宅配アプリをまねた画面で、<strong>①カロリー表示だけ</strong>/<strong>②+Nutri-Score</strong>/<strong>③+Nutri-Score+説明資料</strong>の3グループにくじ引きで分け、どんな注文をするかを比べた<strong>ランダム化比較試験(RCT)</strong>。</span></li>
+    <li><span>参加者はNutri-Scoreを<strong>「不健康な選択を減らすのに効きそう」と評価</strong>。でも、<strong>選んだ食事の合計カロリーには差がなかった</strong>。</span></li>
+    <li><span>「D・E(栄養面で好ましくない)の品を選びにくくなった」という数字もあるが、<strong>複数の比較を考えた厳しい基準では「はっきりした差」とは扱われていない</strong>。<strong>本物のお金を払う注文ではなく、オンラインの模擬注文</strong>だった点にも注意。</span></li>
+  </ul>
+</div>
+
+<div class="card">
+  <h2>📖 まず言葉の意味を</h2>
+  <div class="def-grid">
+    <div class="def-item"><div class="dterm">Nutri-Score(ニュートリスコア)</div>食品の栄養の質を、緑のAから赤のEまで5段階の色と文字で示すラベル。フランスで考案され、ヨーロッパの一部の国で使われている。</div>
+    <div class="def-item"><div class="dterm">ランダム化比較試験(RCT)</div>参加者をくじ引きでグループに分けて比べる試験。グループ同士の「もともとのちがい」が出にくい。</div>
+    <div class="def-item"><div class="dterm">主観的な評価と行動</div>「効きそう」と感じること(意見)と、実際に何を選んだか(行動)は別の物差し。</div>
+    <div class="def-item"><div class="dterm">信頼区間(95%CI)</div>本当の値がありそうな範囲の目安。範囲が0をまたぐと「差があるとは言えない」。</div>
+    <div class="def-item"><div class="dterm">オッズ比</div>あることが起こる「見込み」のくらべ。1より小さいと起こりにくい。0.70なら約3割起こりにくい目安。</div>
+    <div class="def-item"><div class="dterm">多重比較の補正</div>たくさん比べると「たまたま有意」が出やすいので、合格ラインを厳しくすること(11月17日の回)。</div>
+  </div>
+</div>
+
+<div class="card blue">
+  <h2>🧭 試験のしくみ</h2>
+  <div class="flow">
+    <div class="flow-step">👥 宅配アプリをよく使う<br>英国の成人</div><div class="flow-arrow">→</div>
+    <div class="flow-step purp">🎲 くじ引きで<br>3グループに</div><div class="flow-arrow">→</div>
+    <div class="flow-step alt">📱 模擬アプリで<br>メニューを選ぶ</div><div class="flow-arrow">→</div>
+    <div class="flow-step">📊 カロリー・A〜Eの<br>選び方・感想を比較</div>
+  </div>
+  <div class="compare4">
+    <div class="c3-col blue"><h3>① 対照グループ</h3><ul><li>カロリー表示だけ</li><li>(英国の飲食店ではカロリー表示が身近)</li></ul></div>
+    <div class="c3-col green"><h3>② Nutri-Score</h3><ul><li>カロリー表示</li><li>+A〜Eのラベル</li></ul></div>
+    <div class="c3-col orange"><h3>③ Nutri-Score+説明</h3><ul><li>②に加えて</li><li>ラベルの読み方の説明資料</li></ul></div>
+  </div>
+  <p style="font-size:.84rem">参加者数は、事前公開版(プレプリント)の要旨では<strong>813人</strong>。掲載版では数がちがう可能性があり、本文は未確認です。試験は事前登録されています(NCT07423845)。</p>
+</div>
+
+<div class="card">
+  <h2>🔢 数字で見る結果</h2>
+  <div class="num-row">
+    <div class="num-card gray-bg"><span class="big">−17</span><span class="unit">kcal</span><div class="desc">合計カロリーの差(−69〜+35の範囲で0をまたぐ → 差なし)</div></div>
+    <div class="num-card orange-bg"><span class="big">0.70</span><div class="desc">D・Eの品を選ぶオッズ比(p=0.012。厳しい基準では有意とされず)</div></div>
+    <div class="num-card blue-bg"><span class="big">+0.29</span><div class="desc">「効きそう」という評価の差(p&lt;0.001、はっきり上がった)</div></div>
+  </div>
+  <p style="font-size:.84rem">数値は論文の要旨(抄録)より。説明資料つき(③)のグループの結果は、今回確認できた範囲では数値を確かめられませんでした。</p>
+</div>
+
+<div class="card orange">
+  <h2>⚖️ 「感じた」と「変わった」はちがう</h2>
+  <div class="matrix">
+    <div class="mx-cell ok"><div class="mx-head">💭 感想(意見)</div>「このラベルがあれば、不健康なものを選びにくくなりそう」<br>→ <strong>はっきり高く評価された</strong></div>
+    <div class="mx-cell ng"><div class="mx-head">🛒 行動(実際の選択)</div>選んだ食事の合計カロリー<br>→ <strong>差なし</strong>。A・B/D・Eの選び方も、厳しい基準では差とは言えず</div>
+  </div>
+  <p>ニュースやアンケートで「〇〇は効果的だと思う人が多い」と聞くと、効果があったように感じます。でも、<strong>健康への影響を考えるなら、大事なのは「行動」と、その先の「体の変化」</strong>です。今回の試験は、その2つが同じではないことをよく示しています。</p>
+</div>
+
+<div class="card purple">
+  <h2>🔍 p=0.012 なのに「有意じゃない」のはなぜ?</h2>
+  <p>ふつう「p&lt;0.05なら有意」と言われます。でもこの試験では、3つのグループ・いくつもの結果を同時に比べています。比べる回数が多いほど、<strong>本当は差がなくても「たまたま」小さなpが出やすく</strong>なります。</p>
+  <div class="flow">
+    <div class="flow-step">🎯 比べる回数が多い</div><div class="flow-arrow">→</div>
+    <div class="flow-step warn2">🎰 たまたま当たりが<br>出やすくなる</div><div class="flow-arrow">→</div>
+    <div class="flow-step purp">📏 合格ラインを<br>0.05より厳しくする</div>
+  </div>
+  <p>要旨では、研究チームは<strong>補正した基準で判断し、「Nutri-Scoreで有意に健康的な選択にはならなかった」とまとめています</strong>。D・Eの品が減った「方向」はあるので、<strong>「効果ゼロと証明された」でもない</strong>点も大切です。次の、もっと大きな試験や本物の注文データで確かめる段階です。</p>
+</div>
+
+<div class="card red">
+  <h2>🪜 ほかの見方とならべると</h2>
+  <div class="matrix">
+    <div class="mx-cell ok"><div class="mx-head">👍 ラベルを支持する立場</div>Nutri-Scoreの考案者側の総説(Hercberg ら 2022)は、ラベルは<strong>見てすぐわかり、商品の比較を助ける</strong>という研究の積み重ねがあるとまとめている。</div>
+    <div class="mx-cell ng"><div class="mx-head">🤔 慎重な立場</div>A〜Eを決める<strong>計算方法そのものに改良の議論</strong>が続いており(エネルギー密度を加味する案など)、「Aなら何でも体にいい」とは言えない。今回のように、<strong>実際の注文が変わるかは別問題</strong>という結果もある。</div>
+  </div>
+  <div class="warn"><strong>📌 注意:</strong> 今回は<strong>英国の成人・オンラインの模擬注文・1回の選択</strong>での結果です。本当にお金を払う場面、何週間も続けた場合、子どもや別の国の人で同じになるかはわかりません。日本ではNutri-Scoreは一般的な表示ではありません。</div>
+</div>
+
+<div class="card">
+  <h2>🧬 精密栄養学の視点</h2>
+  <p>ラベルは「全員に同じ情報」を届ける方法です。でも、<strong>同じラベルを見ても、反応する人・しない人がいる</strong>と考えられます。空腹の度合い、値段、好み、栄養の知識、そしてその人の持病(たとえば減塩が必要、血糖に気をつけたい)によって、本当に注目すべき数字も変わります。</p>
+  <div class="flow">
+    <div class="flow-step">🏷️ みんなに同じ<br>ラベル</div><div class="flow-arrow">→</div>
+    <div class="flow-step alt">👤 だれの行動が<br>変わるかを調べる</div><div class="flow-arrow">→</div>
+    <div class="flow-step purp">🎯 その人に必要な<br>情報を届ける</div>
+  </div>
+  <p style="font-size:.86rem">A〜Eの1文字は便利な「まとめ」ですが、塩分・糖・たんぱく質などの<strong>中身の数字が自分にとってどうか</strong>は、別に見る必要があります。</p>
+</div>
+
+<div class="card purple">
+  <h2>🧪 今日の根拠のエビデンスの強さ</h2>
+  <table class="ev-table">
+    <tr><th>根拠</th><th>中身</th><th>位置づけ</th></tr>
+    <tr><td>Finlay ら 2026(カロリー・感想)</td><td>オンラインのRCT、英国の成人(プレプリントでは813人)、模擬注文1回、事前登録あり</td><td><span class="ev-badge ev-mid">RCTだが模擬場面・短期</span></td></tr>
+    <tr><td>Finlay ら 2026(D・Eが減った傾向)</td><td>補正前p=0.012、補正後の基準では有意とされず</td><td><span class="ev-badge ev-low">確かめが必要な傾向</span></td></tr>
+    <tr><td>Hercberg ら 2022</td><td>考案者側による研究のまとめ(総説)</td><td><span class="ev-badge ev-mid">支持側の総説・利益相反に注意</span></td></tr>
+  </table>
+</div>
+
+<div class="card orange">
+  <h2>✅ 今日からできること</h2>
+  <ul class="step-list">
+    <li><span>健康の記事で「効果的と感じた人が多い」とあったら、<strong>実際の行動や体の変化を測ったのか</strong>を確かめる。</span></li>
+    <li><span>栄養のラベルや表示は「選ぶヒント」と考え、<strong>1つのマークだけで食べ物の良し悪しを決めつけない</strong>。</span></li>
+    <li><span>持病などで塩分・糖・カロリーに気をつける必要がある人は、どの数字を見ればよいかを<strong>医師や管理栄養士に相談</strong>する。</span></li>
+  </ul>
+</div>
+
+<div class="warn"><strong>💡 今日の学び:</strong> 「効きそう」と<strong>感じること</strong>と、<strong>実際に行動が変わること</strong>は別物。そして、たくさん比べた中の1つだけ小さなp値が出ても、<strong>それだけで「効果あり」とは言えません</strong>。研究の「何を測ったか」と「何回比べたか」に目を向けましょう。</div>
+
+<div class="sources">
+  <h3>📚 出典</h3>
+  <ul>
+    <li>Finlay A ら「Nutri-Score Labelling on Food Delivery Platforms: An Online Randomised Controlled Trial to Assess Potential Effectiveness」<em>Journal of Human Nutrition and Dietetics</em> 2026;39(6):e70381。DOI: 10.1111/jhn.70381。<a href="https://onlinelibrary.wiley.com/doi/10.1111/jhn.70381">https://onlinelibrary.wiley.com/doi/10.1111/jhn.70381</a> ／ PubMed: <a href="https://pubmed.ncbi.nlm.nih.gov/43069702/">https://pubmed.ncbi.nlm.nih.gov/43069702/</a>(基準日:2026年11月22日オンライン公開。要旨の数値を検索結果経由で2026年11月に確認。出版社サイト・PubMedはネットワーク制限で本文未確認)</li>
+    <li>試験登録「The Impact of Nutri-score Labels on the Nutritional Quality of Out-of-home Food Selection in a Delivery Platform Setting: An Online Randomised Controlled Trial」NCT07423845。<a href="https://clinicaltrials.gov/study/NCT07423845">https://clinicaltrials.gov/study/NCT07423845</a>(基準日:2026年11月に検索結果で確認)</li>
+    <li>Hercberg S ら「The Nutri-Score nutrition label: A public health tool based on rigorous scientific evidence aiming to improve the nutritional status of the population」<em>Int J Vitam Nutr Res</em> 2022。<a href="https://www.researchgate.net/publication/353494215_The_Nutri-Score_nutrition_label_A_public_health_tool_based_on_rigorous_scientific_evidence_aiming_to_improve_the_nutritional_status_of_the_population">ResearchGate 掲載ページ</a>(基準日:2021年オンライン公開、2022年掲載)</li>
+    <li>「Exploring an energy-density adjustment to the Nutri-Score algorithm for general foods」PubMed 42763315。<a href="https://pubmed.ncbi.nlm.nih.gov/42763315/">https://pubmed.ncbi.nlm.nih.gov/42763315/</a>(基準日:2026年。計算方法の改良議論の例として、タイトルのみ確認)</li>
+  </ul>
+</div>
+
+<div class="disclaimer">
+  ⚠️ 本記事は一般的な情報であり、医療アドバイスではありません。効果・必要量・リスクは、個人の体質・年齢・持病・服薬で大きく変わります。健康のために何かを始める前には、かかりつけ医・管理栄養士・薬剤師などの専門家に相談してください。特定の食事制限・サプリ・断食などを安易に始めないでください。
+</div>
+
+</div>
+</body>
+</html>

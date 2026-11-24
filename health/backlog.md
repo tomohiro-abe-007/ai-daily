@@ -1,11 +1,18 @@
 # 健康日報 テーマバックログ
 
+## 未使用テーマ(追記:2026-11-25)
+
+- 11-25記事(Nutri-Scoreとフードデリバリー、Finlay ら J Hum Nutr Diet 2026;39(6):e70381 DOI 10.1111/jhn.70381、PubMed 43069702、NCT07423845)の続報候補 ── 掲載版の解析人数(プレプリント813人、検索では898人とする記載もあり未確認)、説明資料つき群(③)の結果、多重比較の補正方法、A/B選択の数値、資金源。wiley・pubmed・clinicaltrials.gov・sciety はネットワーク制限で本文未確認
+- 英国の飲食店(実店舗)でのNutri-Score大規模RCT(medRxiv 2026-07-31、2026.07.29.26359233、NCT06923241)── 査読掲載後に一次確認。社会経済的状況(学歴)で効果が異なるとの記載あり。11-25の続報として扱える
+- 植物性食品のコントロール給食パイロット試験(Pilot and Feasibility Studies 2026-11-23公開、DOI 10.1186/s40814-026-01969-6)──「パイロット試験・実行可能性試験とは何か」の基礎回の題材候補
+- 「アンケートの『効きそう』と実際の行動・健康指標」── 代理指標(サロゲート)回と統合可
+
 ## 未使用テーマ(追記:2026-11-24)
 
 - 11-24記事(日本の4Dコホート6,803人の腸内細菌と生活習慣、Nagata ら Nature Medicine 2026-11-05 DOI 10.1038/s41591-026-04744-5)の続報候補 ── 本文の効果の大きさ(オッズ比など)、15疾患の全リスト、長期追跡サブセット・外部検証の人数(検索では402人/804検体、13集団3,095人・11集団で再現との記載あり、未確認)、座位9.5時間の定義、食事の評価方法。nature.com・news-medical はネットワーク制限で本文未確認
 - 「エクオール産生者と大豆の効果の個人差」── 精密栄養学の具体例。日本人の産生者割合などは一次文献の確認が必要
 - 「媒介分析とは何か・その限界」の独立回(観察研究で『しくみ』を語るときの注意)── 一次文献の特定が必要
-- 2026年11月の新着候補(一次確認が必要):Nutri-Score表示をフードデリバリーアプリに載せるオンラインRCT(J Hum Nutr Diet 2026-11-22公開)、腸内細菌 Roseburia inulinivorans と筋力の研究(元論文未特定)、夜遅い食事・概日リズムのずれと腸のバリア・炎症(UTHealth Houston、肥満の人、論文名 "Circadian misalignment associates with inflammation, gut barrier, and microbiome composition in humans with obesity")
+- 2026年11月の新着候補(一次確認が必要):（Nutri-ScoreデリバリーRCT → 2026-11-25 使用済み）腸内細菌 Roseburia inulinivorans と筋力の研究(元論文未特定)、夜遅い食事・概日リズムのずれと腸のバリア・炎症(UTHealth Houston、肥満の人、論文名 "Circadian misalignment associates with inflammation, gut barrier, and microbiome composition in humans with obesity")
 
 ## 未使用テーマ(追記:2026-11-23)
 
