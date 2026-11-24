@@ -57,7 +57,6 @@
 - 英語のURL・SNSアカウントの伝え方(hashtag #、handle、"at"で始まるアカウント名)── 11-15の続編
 
 - スペイン語で部屋探し・内見の質問(¿Hay ascensor? ¿Cuánto es el alquiler? ¿Está amueblado?、fianza=敷金)── 11-18の住所・階の続編
-- スペイン語の序数 primero〜décimo と primer/tercer の語尾脱落(el primer piso)── 11-18の3º 2ªの発展
 
 - スペイン語で伝言を頼む・受ける(¿Puedo dejar un mensaje? / Dile que me llame / Le diré que ha llamado)── 11-21の電話の受け答えの続編
 - 英語の時刻の言い方(thirteen thirty / quarter past / half past)── 11-20の-teen/-tyの続編、時間の聞き取り
@@ -68,7 +67,12 @@
 - スペイン語で予約の日時を決める(¿Qué día te viene bien? / ¿A qué hora? / el próximo lunes)── 11-24の日付の続編
 - 英語の日付の言い方と書き方(序数 first/second、米 MM/DD と英 DD/MM の違い)── 11-24の逆向きブリッジ
 
+- スペイン語の語尾脱落グループの総まとめ(buen/mal/algún/ningún/gran/cien/san)── 11-25のprimer/tercerの発展
+- 英語の序数の読み書き(first〜twentieth、21st/22nd/23rd、-th の発音)と分数 one third── 11-25の逆向きブリッジ
+
 ## 解説済みテーマ
+
+- 2026-11-25: スペイン語の序数1〜10(primero〜décimo、-o/-a/-os/-as、1.º/1.ª、primer/tercerの語尾脱落と女性形不可、planta baja=日本の1階・primer piso=2階、英米のfirst floorの違い、11番目以降は基数)── 11-18の3.º 2.ª・11-24のel primeroの発展
 
 - 2026-11-24: スペイン語の日付(el+日+de+月+de+年、月・曜日は小文字、el lunesにenなし、1日はuno(西)/primero(中南米)、書類は日/月/年、de 2026)── 11-23の年号の続編
 
