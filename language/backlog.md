@@ -65,12 +65,15 @@
 - スペイン語の値段・割合の言い方(¿Cuánto cuesta?、3,50 €、por ciento、la mitad/un tercio)── 11-23の大きな数の続編、買い物で使う
 
 - スペイン語で予約の日時を決める(¿Qué día te viene bien? / ¿A qué hora? / el próximo lunes)── 11-24の日付の続編
-- 英語の日付の言い方と書き方(序数 first/second、米 MM/DD と英 DD/MM の違い)── 11-24の逆向きブリッジ
+- 英語の誕生日・記念日の会話(When is your birthday? / Happy birthday! / anniversary)と序数の聞き取り── 11-26の日付の続編
+- 英語の曜日・月の略語(Mon/Tue、Jan/Feb、Sept)とカレンダー・予約画面の読み方── 11-26の日付の続編
 
 - スペイン語の語尾脱落グループの総まとめ(buen/mal/algún/ningún/gran/cien/san)── 11-25のprimer/tercerの発展
 - 英語の序数の読み書き(first〜twentieth、21st/22nd/23rd、-th の発音)と分数 one third── 11-25の逆向きブリッジ
 
 ## 解説済みテーマ
+
+- 2026-11-26: 英語の日付の言い方と書き方(序数で読む、米 May 5, 2026 / 英 5 May 2026・the fifth of May、5/11の米英差とISO 8601、年号の読み方、in/on/at)── 11-24の逆向きブリッジ
 
 - 2026-11-25: スペイン語の序数1〜10(primero〜décimo、-o/-a/-os/-as、1.º/1.ª、primer/tercerの語尾脱落と女性形不可、planta baja=日本の1階・primer piso=2階、英米のfirst floorの違い、11番目以降は基数)── 11-18の3.º 2.ª・11-24のel primeroの発展
 
