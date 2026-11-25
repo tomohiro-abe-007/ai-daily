@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-11-26</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #2a4d7a 0%, #142a48 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #2a4d7a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.blue   { border-left-color: #1e5a7a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.green  { border-left-color: #1e7a5a; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #2a4d7a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin: 14px 0;
+  }
+  .stats-row.c3 { grid-template-columns: repeat(3, 1fr); }
+  .stats-row.c2 { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 12px 6px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat.now { background: #fff3e0; box-shadow: 0 0 0 2px #c8884a inset; }
+  .stat .sl { font-size: 0.62rem; color: #888; margin-bottom: 3px; line-height: 1.4; }
+  .stat .sv { font-size: 1.05rem; font-weight: 700; color: #2a4d7a; line-height: 1.15; }
+  .stat.now .sv { color: #c8884a; }
+  .stat .su { font-size: 0.62rem; color: #666; margin-top: 2px; }
+
+  .bignum {
+    background: white;
+    border-radius: 12px;
+    padding: 18px 14px;
+    text-align: center;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.1);
+    border: 2px dashed #c8884a;
+    margin: 14px 0;
+  }
+  .bignum .bl { font-size: 0.76rem; color: #888; margin-bottom: 6px; }
+  .bignum .bv { font-size: 1.7rem; font-weight: 700; color: #c8884a; line-height: 1.3; }
+  .bignum .bs { font-size: 0.76rem; color: #666; margin-top: 6px; line-height: 1.6; }
+
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #2a4d7a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-num.now { background: #b54040; }
+  .f-num.later { background: #999; }
+  .f-num.opt { background: #c8884a; }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+  .f-arrow { color: #2a4d7a; font-size: 1.1rem; margin-left: 14px; margin-bottom: 4px; }
+
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  table.cmp {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.83rem;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.08);
+  }
+  table.cmp th, table.cmp td {
+    border: 1px solid #e4dccd;
+    padding: 9px 10px;
+    line-height: 1.55;
+    vertical-align: top;
+  }
+  table.cmp thead th { background: #2a4d7a; color: white; font-weight: 600; text-align: center; }
+  table.cmp tbody th { background: #f5efe2; color: #5a4020; text-align: left; font-weight: 600; white-space: nowrap; }
+  table.cmp td { color: #444; text-align: left; }
+  table.cmp td.hi { background: #fff3e0; font-weight: 700; color: #c8884a; }
+  .wrap-x { overflow-x: auto; }
+
+  .prompt-box {
+    background: #f0f5ff;
+    border: 2px solid #4a6aae;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 12px 0;
+    font-size: 0.84rem;
+    line-height: 1.85;
+    color: #1a2a4a;
+  }
+  .prompt-box .ph {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #4a6aae;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+  .prompt-box .fill {
+    background: #d0e0ff;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-weight: 700;
+    color: #0a2a6e;
+  }
+
+  .info {
+    background: #e8eef8;
+    border-left: 4px solid #2a4d7a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #16294a;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #7a4010;
+  }
+
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #2a4d7a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #2a4d7a; word-break: break-all; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #2a4d7a; }
+  .matrix { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:14px 0; }
+  @media (max-width: 540px) { .matrix { grid-template-columns:1fr; } }
+  .mx { background:white; border-radius:10px; padding:14px 16px; box-shadow:2px 3px 8px rgba(0,0,0,0.09); border-top:4px solid #2a4d7a; }
+  .mx.k { border-top-color:#1e7a5a; } .mx.p { border-top-color:#b54040; } .mx.t { border-top-color:#c8884a; } .mx.m { border-top-color:#1e5a7a; }
+  .mx .mh { font-weight:700; font-size:0.92rem; margin-bottom:6px; }
+  .mx .mb { font-size:0.84rem; line-height:1.65; color:#444; }
+  .week { display:grid; grid-template-columns:repeat(5,1fr); gap:6px; margin:14px 0; }
+  .day { background:white; border-radius:8px; padding:10px 4px; text-align:center; font-size:0.76rem; line-height:1.5; box-shadow:2px 3px 8px rgba(0,0,0,0.08); color:#666; }
+  .day b { display:block; font-size:0.9rem; color:#2a4d7a; }
+  .day.fri { background:#fff3e0; box-shadow:0 0 0 2px #c8884a inset; color:#7a4010; }
+  .day.fri b { color:#c8884a; }
+</style>
+<style>
+  .tl { display:grid; grid-template-columns:repeat(3,1fr); gap:6px; margin:14px 0; align-items:stretch; }
+  .tl .tc { background:white; border-radius:10px; padding:12px 6px; text-align:center; box-shadow:2px 3px 8px rgba(0,0,0,0.09); font-size:0.78rem; line-height:1.5; color:#555; position:relative; }
+  .tl .tc b { display:block; font-size:0.95rem; color:#2a4d7a; margin:2px 0; }
+  .tl .tc.key { background:#fff3e0; box-shadow:0 0 0 2px #c8884a inset; }
+  .tl .tc.key b { color:#c8884a; }
+  .tl .tc .ic { font-size:1.3rem; }
+  .split { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:14px 0; }
+  @media (max-width:540px){ .split{ grid-template-columns:1fr; } }
+  .term { background:#f5efe2; border-radius:8px; padding:2px 7px; font-size:0.82rem; }
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header">
+  <div class="meta">2026-11-26(木)・法人税の基礎 × 決算準備</div>
+  <h1>⏩ 1人法人スタート 最新トピック 2026-11-26<br>家賃を1年分まとめて払うと今期の経費？ ── 「短期前払費用」の基礎</h1>
+  <div class="desc">「決算前に家賃や保険料を1年分払えば、全部今期の経費になる」と聞いたことはありませんか？ これは<b>条件付きで認められる取扱い</b>で、条件を外すと使えません。しかも<b>税金がなくなるわけではなく、経費を前倒しするだけ</b>です。しくみと注意点をやさしく図解します。</div>
+  <div style="margin-top:10px"><span class="htag">法人税</span><span class="htag">決算準備</span><span class="htag">経理・記帳</span><span class="htag">11/24記事の続編</span></div>
+</div>
+
+<div class="card">
+  <div class="sec-title">🎯 ① 今日の結論</div>
+  <div class="bignum">
+    <div class="bl">先払いした費用は、原則「サービスを受ける期」の経費。ただし…</div>
+    <div class="bv">1年以内の分 ＋ 毎年続ける</div>
+    <div class="bs">家賃・保険料などの<b>続けて受けるサービス</b>を、<b>支払日から1年以内の分だけ</b>先払いし、<br><b>毎期同じやり方を続ける</b>なら、払った期の経費にしてよい、という取扱いがあります。</div>
+  </div>
+  <div class="info">💡 <b>前払費用（まえばらいひよう）</b>＝お金を先に払ったけれど、サービスはまだ受けていない分。原則は「資産（あとで経費になる貯金のようなもの）」として来期に回します。<br>💡 <b>短期前払費用（たんきまえばらいひよう）</b>＝そのうち<b>1年以内の短い分</b>について、条件付きで払った期の経費にできる取扱い。国税庁の通達（税務署の取扱いのルール集）<b>法人税基本通達2-2-14</b>に書かれています。</div>
+</div>
+
+<div class="card orange">
+  <div class="sec-title">🗓️ ② 例で見る：3月決算・家賃 月10万円の会社</div>
+  <p>3月1日に、<b>3月〜翌年2月の12か月分（120万円）</b>をまとめて払ったとします（契約で「年払い」と決めてある前提）。</p>
+  <div class="stats-row c2">
+    <div class="stat"><div class="sl">📕 原則のやり方</div><div class="sv">今期 10万円</div><div class="su">3月分だけ今期の経費<br>残り110万円は「前払費用」で来期へ</div></div>
+    <div class="stat now"><div class="sl">📗 短期前払費用の取扱い</div><div class="sv">今期 120万円</div><div class="su">条件を満たせば<br>支払った期に全額を経費</div></div>
+  </div>
+  <div class="tl">
+    <div class="tc key"><span class="ic">💸</span><b>3/1 支払い</b>12か月分 120万円</div>
+    <div class="tc"><span class="ic">📅</span><b>3/31 決算</b>受けたのは1か月分だけ</div>
+    <div class="tc"><span class="ic">🏢</span><b>4月〜翌2月</b>残り11か月分のサービス</div>
+  </div>
+  <div class="warn">⚠️ 数字はしくみを説明するための例です。実際に使えるかは契約内容などで変わります。</div>
+</div>
+
+<div class="card green">
+  <div class="sec-title">🔍 ③ 使うための4つの条件</div>
+  <div class="matrix">
+    <div class="mx k"><div class="mh">🔁 1. 続けて受けるサービス</div><div class="mb">契約にもとづき<b>毎月・毎年同じように受けるサービス</b>の代金（例：家賃、保険料、保守料）。<br>モノの購入や、一回きりの仕事の代金は対象外。</div></div>
+    <div class="mx p"><div class="mh">💴 2. 今期中に実際に払った</div><div class="mb">「払う予定」「未払い」はダメ。<b>期末までに支払いが済んでいる</b>ことが必要。</div></div>
+    <div class="mx t"><div class="mh">⏳ 3. 支払日から1年以内の分</div><div class="mb">支払った日から<b>1年以内に受けるサービス</b>の分であること。2年分などをまとめ払いするのは対象外と考えるのが一般的。</div></div>
+    <div class="mx m"><div class="mh">📏 4. 毎期つづける</div><div class="mb">一度選んだら<b>翌期以降も同じ処理を続ける</b>。利益が多い年だけ使う、はNG。</div></div>
+  </div>
+  <div class="info">📌 通達の注書きで、<b>借りたお金を預金や有価証券で運用している場合の、その借入金の利息</b>のように、収益と対応させる必要があるものはこの取扱いの対象外とされています。</div>
+</div>
+
+<div class="card blue">
+  <div class="sec-title">⚖️ ④ 対象になりやすいもの・なりにくいもの</div>
+  <div class="wrap-x"><table class="cmp">
+    <thead><tr><th>支払いの例</th><th>判定の目安</th><th>ポイント</th></tr></thead>
+    <tbody>
+      <tr><th>🏢 事務所家賃の年払い</th><td class="hi">○ 対象になりやすい</td><td>契約で年払いにしておく。賃貸人との合意が前提</td></tr>
+      <tr><th>🛡️ 1年分の保険料</th><td class="hi">○ 対象になりやすい</td><td>保険の種類によって経費にできる範囲が別に決まっている点に注意</td></tr>
+      <tr><th>🔧 年間保守契約</th><td>△ 契約内容しだい</td><td>毎月同じサービスが続く契約か、作業ごとの契約かで変わる</td></tr>
+      <tr><th>🖊️ 来期に使う消耗品の購入</th><td>✕ 対象外</td><td>モノの購入でサービスではない</td></tr>
+      <tr><th>📆 2年分の一括払い</th><td>✕ 対象外が一般的</td><td>支払日から1年を超える分を含む</td></tr>
+      <tr><th>📝 期末に未払いのまま計上</th><td>✕ 対象外</td><td>実際に支払っていることが条件</td></tr>
+    </tbody>
+  </table></div>
+  <div class="warn">⚠️ サービスの開始が期末より後（例：3月決算で、6月から始まるサービスを3月に前払い）の場合は使えない、とする解説があります。開始時期が期をまたぐときは、必ず税理士に確認しましょう。</div>
+</div>
+
+<div class="card red">
+  <div class="sec-title">🧠 ⑤ 社長のマインド：「節税」ではなく「前倒し」</div>
+  <div class="tl">
+    <div class="tc key"><span class="ic">📉</span><b>1年目</b>経費が増え、利益と税金が減る</div>
+    <div class="tc"><span class="ic">➡️</span><b>2年目以降</b>毎年1年分を払うので、経費は普通に戻る</div>
+    <div class="tc"><span class="ic">💰</span><b>現金</b>先にまとまったお金が出ていく</div>
+  </div>
+  <ul class="check-list">
+    <li><span class="ck-bad">✕</span><span><b>「税金が消える」わけではない</b>：効果が大きいのは最初の1年だけ。経費が「来期から今期へ」移るだけです。</span></li>
+    <li><span class="ck-bad">✕</span><span><b>手元資金を減らしすぎる</b>：まとめ払いで通帳が薄くなり、納税や支払いに困っては本末転倒。</span></li>
+    <li><span class="ck-bad">✕</span><span><b>翌年から月払いに戻す</b>：継続が条件。戻すと前年の処理が問題になる可能性があります。</span></li>
+    <li><span class="ck">○</span><span><b>資金に余裕があり、毎年続けられる支払いだけ</b>を候補にする。</span></li>
+  </ul>
+</div>
+
+<div class="card orange">
+  <div class="sec-title">🪜 ⑥ 使うかどうか決める5ステップ</div>
+  <div class="f-step"><div class="f-num">1</div><div class="f-text"><b>続けて払っている契約を一覧にする</b>：家賃・保険・保守・サブスクなど。</div></div>
+  <div class="f-arrow">⬇</div>
+  <div class="f-step"><div class="f-num">2</div><div class="f-text"><b>年払いにできるか確認</b>：相手との契約で「年払い」と決められるか（家賃なら貸主との合意）。</div></div>
+  <div class="f-arrow">⬇</div>
+  <div class="f-step"><div class="f-num">3</div><div class="f-text"><b>資金繰りを試算</b>：年払いにした後も、決算後の納税や毎月の支払いに困らないか。</div></div>
+  <div class="f-arrow">⬇</div>
+  <div class="f-step"><div class="f-num opt">4</div><div class="f-text"><b>「毎年続けられるか」を自分に問う</b>：来年も再来年も同じ時期にまとめて払えるか。</div></div>
+  <div class="f-arrow">⬇</div>
+  <div class="f-step"><div class="f-num now">5</div><div class="f-text"><b>決算月の2〜3か月前に税理士へ相談</b>：契約書を見せて、使えるか・どの科目で処理するかを確認。</div></div>
+</div>
+
+<div class="card blue">
+  <div class="sec-title">🤖 ⑦ 生成AIで「候補リスト」の下書き</div>
+  <div class="prompt-box">
+    <div class="ph">▼ コピーして、<span class="fill">青い部分</span>だけ書き換え</div>
+    あなたは経理の整理を手伝うアシスタントです。私の会社の決算日は<span class="fill">2027年3月31日</span>です。<br>
+    下の「継続的な支払いメモ」を表にしてください。列は「支払い名／今の支払い方（月払い・年払い）／金額／サービスの期間／年払いにした場合の支払日／判断に迷う点」です。<br>
+    ※「短期前払費用（法人税基本通達2-2-14）」の候補になりそうかは<b>断定せず</b>、「税理士に確認する質問」として別にまとめてください<br>
+    ※ 年払いにした場合に、決算前の月に出ていくお金の合計も計算してください<br>
+    ※ 期間や契約内容があいまいなものは推測せず「確認が必要」と書いてください<br><br>
+    【継続的な支払いメモ】<span class="fill">例：事務所家賃 月10万円 月払い ／ 賠償責任保険 年払い 3万円 ／ サーバー保守 月1万円</span>
+  </div>
+  <div class="warn">⚠️ 契約書の全文や取引先の個人情報は貼らないのが基本です。AIの表は<b>下書き</b>。使うかどうかの判断は、契約書をもとに税理士と決めましょう。</div>
+</div>
+
+<div class="card">
+  <div class="sec-title">✅ ⑧ まとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">1</span><span>先払いした費用は、原則<b>サービスを受ける期の経費</b>（前払費用）。</span></li>
+    <li><span class="n">2</span><span><b>続けて受けるサービス・今期に支払済み・支払日から1年以内・毎期継続</b>なら、払った期の経費にできる取扱いがある（法人税基本通達2-2-14）。</span></li>
+    <li><span class="n">3</span><span>効果は<b>経費の前倒し</b>。税金が消えるわけではなく、<b>現金は先に出ていく</b>。</span></li>
+    <li><span class="n">4</span><span>使うなら<b>決算の2〜3か月前</b>に契約書を持って税理士へ。AIは候補リストづくりに使う。</span></li>
+  </ul>
+  <div class="source">
+    【出典・基準】2026年（令和8年）11月時点の通達にもとづく一般的な解説です（本記事の金額は説明用の例で、税率・制度上の金額は扱っていません）。<br>
+    ・法人税基本通達 2-2-14（短期の前払費用：支払った日から1年以内に提供を受ける役務に係る前払費用を、継続して支払日の属する事業年度の損金に算入しているときは認める／注：借入金を預金・有価証券等で運用する場合の支払利子など収益と対応させる必要があるものは対象外）── 国税庁 法人税基本通達 目次 <a href="https://www.nta.go.jp/law/tsutatsu/kihon/hojin/01.htm">https://www.nta.go.jp/law/tsutatsu/kihon/hojin/01.htm</a><br>
+    ・国税庁 質疑応答事例（法人税）「短期前払費用」関連（契約により地代・家賃を継続的に前払いする場合の通達2-2-14の適用）<a href="https://www.nta.go.jp/law/shitsugi/hojin/02/03.htm">https://www.nta.go.jp/law/shitsugi/hojin/02/03.htm</a><br>
+    ・役務の提供開始時期が事業年度内でない場合の扱いについての解説 ── 税務研究会「税務通信」No.3535 <a href="https://www.zeiken.co.jp/news/3449854.php">https://www.zeiken.co.jp/news/3449854.php</a><br>
+    ※ 本日は作業環境から国税庁サイトへ直接接続できず、通達の文言は検索結果に表示された国税庁ページの抜粋と専門誌の解説で確認しています。実際の処理の前に原文と最新の取扱いをご確認ください。<br>
+    ※ 関連記事：<a href="2026-11-24.html">2026-11-24 売上・経費の計上タイミング</a> ／ <a href="2026-11-14.html">2026-11-14 決算書の読み方入門</a>
+  </div>
+</div>
+
+<div class="disclaimer">
+  <b>【免責・ご注意】</b><br>
+  ・本記事は一般的な情報であり、税務・法務の個別アドバイスではありません。会社の状況（契約内容・業種・会計方針・資金繰りなど）により結論は変わります。<br>
+  ・具体的な判断は、税理士・社会保険労務士・司法書士など専門家にご相談ください。<br>
+  ・制度・税率・金額には基準年度を明記しています（本記事は2026年〈令和8年〉11月時点の通達にもとづきます）。<br>
+  ・生成AIの回答は誤りを含むことがあります。重要な内容は必ず公的な一次情報で確認してください。
+</div>
+<div class="footer"><a href="index.html">← 日報アーカイブへ</a></div>
+</div>
+</body>
+</html>
