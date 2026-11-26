@@ -59,7 +59,6 @@
 - スペイン語で部屋探し・内見の質問(¿Hay ascensor? ¿Cuánto es el alquiler? ¿Está amueblado?、fianza=敷金)── 11-18の住所・階の続編
 
 - スペイン語で伝言を頼む・受ける(¿Puedo dejar un mensaje? / Dile que me llame / Le diré que ha llamado)── 11-21の電話の受け答えの続編
-- 英語の時刻の言い方(thirteen thirty / quarter past / half past)── 11-20の-teen/-tyの続編、時間の聞き取り
 - 英語の留守番電話・ボイスメールの残し方と聞き取り(Hi, this is ~. Please call me back at ~.)── 11-22の電話の決まり文句の続編
 - 英語の句動詞 hang/hold/call 一家の整理(hang out, hold up, call off など電話以外の意味)── 11-22のhang on/hang upの発展
 - スペイン語の値段・割合の言い方(¿Cuánto cuesta?、3,50 €、por ciento、la mitad/un tercio)── 11-23の大きな数の続編、買い物で使う
@@ -69,9 +68,13 @@
 - 英語の曜日・月の略語(Mon/Tue、Jan/Feb、Sept)とカレンダー・予約画面の読み方── 11-26の日付の続編
 
 - スペイン語の語尾脱落グループの総まとめ(buen/mal/algún/ningún/gran/cien/san)── 11-25のprimer/tercerの発展
+- スペイン語の時刻の深掘り(y cuarto/y media/menos cuarto、中南米の un cuarto para、de la mañana/tarde/noche、en punto、24時間表記の読み方)── 11-27の英語の時刻の逆向きブリッジ
+- 英語で待ち合わせ・遅刻の連絡(I'm running late / I'll be there in 10 minutes / Let's meet at ~)── 11-27の時刻の続編
 - 英語の序数の読み書き(first〜twentieth、21st/22nd/23rd、-th の発音)と分数 one third── 11-25の逆向きブリッジ
 
 ## 解説済みテーマ
+
+- 2026-11-27: 英語の時刻の言い方(デジタル式three thirtyとアナログ式half past three、past/toで時計を左右に分ける、quarter/half、o'clock・a.m./p.m.・noon/midnight・24時間表記、at、fifteen/fiftyの聞き分け、スペイン語y/menos・Es la una/Son las・un cuarto para)── 11-26の日付の続編
 
 - 2026-11-26: 英語の日付の言い方と書き方(序数で読む、米 May 5, 2026 / 英 5 May 2026・the fifth of May、5/11の米英差とISO 8601、年号の読み方、in/on/at)── 11-24の逆向きブリッジ
 
