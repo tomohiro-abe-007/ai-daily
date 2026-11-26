@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-11-27</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #2a4d7a 0%, #142a48 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #2a4d7a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.blue   { border-left-color: #1e5a7a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.green  { border-left-color: #1e7a5a; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #2a4d7a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin: 14px 0;
+  }
+  .stats-row.c3 { grid-template-columns: repeat(3, 1fr); }
+  .stats-row.c2 { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 12px 6px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat.now { background: #fff3e0; box-shadow: 0 0 0 2px #c8884a inset; }
+  .stat .sl { font-size: 0.62rem; color: #888; margin-bottom: 3px; line-height: 1.4; }
+  .stat .sv { font-size: 1.05rem; font-weight: 700; color: #2a4d7a; line-height: 1.15; }
+  .stat.now .sv { color: #c8884a; }
+  .stat .su { font-size: 0.62rem; color: #666; margin-top: 2px; }
+
+  .bignum {
+    background: white;
+    border-radius: 12px;
+    padding: 18px 14px;
+    text-align: center;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.1);
+    border: 2px dashed #c8884a;
+    margin: 14px 0;
+  }
+  .bignum .bl { font-size: 0.76rem; color: #888; margin-bottom: 6px; }
+  .bignum .bv { font-size: 1.7rem; font-weight: 700; color: #c8884a; line-height: 1.3; }
+  .bignum .bs { font-size: 0.76rem; color: #666; margin-top: 6px; line-height: 1.6; }
+
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #2a4d7a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-num.now { background: #b54040; }
+  .f-num.later { background: #999; }
+  .f-num.opt { background: #c8884a; }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+  .f-arrow { color: #2a4d7a; font-size: 1.1rem; margin-left: 14px; margin-bottom: 4px; }
+
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  table.cmp {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.83rem;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.08);
+  }
+  table.cmp th, table.cmp td {
+    border: 1px solid #e4dccd;
+    padding: 9px 10px;
+    line-height: 1.55;
+    vertical-align: top;
+  }
+  table.cmp thead th { background: #2a4d7a; color: white; font-weight: 600; text-align: center; }
+  table.cmp tbody th { background: #f5efe2; color: #5a4020; text-align: left; font-weight: 600; white-space: nowrap; }
+  table.cmp td { color: #444; text-align: left; }
+  table.cmp td.hi { background: #fff3e0; font-weight: 700; color: #c8884a; }
+  .wrap-x { overflow-x: auto; }
+
+  .prompt-box {
+    background: #f0f5ff;
+    border: 2px solid #4a6aae;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 12px 0;
+    font-size: 0.84rem;
+    line-height: 1.85;
+    color: #1a2a4a;
+  }
+  .prompt-box .ph {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #4a6aae;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+  .prompt-box .fill {
+    background: #d0e0ff;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-weight: 700;
+    color: #0a2a6e;
+  }
+
+  .info {
+    background: #e8eef8;
+    border-left: 4px solid #2a4d7a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #16294a;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #7a4010;
+  }
+
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #2a4d7a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #2a4d7a; word-break: break-all; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #2a4d7a; }
+  .matrix { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:14px 0; }
+  @media (max-width: 540px) { .matrix { grid-template-columns:1fr; } }
+  .mx { background:white; border-radius:10px; padding:14px 16px; box-shadow:2px 3px 8px rgba(0,0,0,0.09); border-top:4px solid #2a4d7a; }
+  .mx.k { border-top-color:#1e7a5a; } .mx.p { border-top-color:#b54040; } .mx.t { border-top-color:#c8884a; } .mx.m { border-top-color:#1e5a7a; }
+  .mx .mh { font-weight:700; font-size:0.92rem; margin-bottom:6px; }
+  .mx .mb { font-size:0.84rem; line-height:1.65; color:#444; }
+  .week { display:grid; grid-template-columns:repeat(5,1fr); gap:6px; margin:14px 0; }
+  .day { background:white; border-radius:8px; padding:10px 4px; text-align:center; font-size:0.76rem; line-height:1.5; box-shadow:2px 3px 8px rgba(0,0,0,0.08); color:#666; }
+  .day b { display:block; font-size:0.9rem; color:#2a4d7a; }
+  .day.fri { background:#fff3e0; box-shadow:0 0 0 2px #c8884a inset; color:#7a4010; }
+  .day.fri b { color:#c8884a; }
+</style>
+<style>
+  .tl { display:grid; grid-template-columns:repeat(3,1fr); gap:6px; margin:14px 0; align-items:stretch; }
+  .tl .tc { background:white; border-radius:10px; padding:12px 6px; text-align:center; box-shadow:2px 3px 8px rgba(0,0,0,0.09); font-size:0.78rem; line-height:1.5; color:#555; position:relative; }
+  .tl .tc b { display:block; font-size:0.95rem; color:#2a4d7a; margin:2px 0; }
+  .tl .tc.key { background:#fff3e0; box-shadow:0 0 0 2px #c8884a inset; }
+  .tl .tc.key b { color:#c8884a; }
+  .tl .tc .ic { font-size:1.3rem; }
+  .split { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:14px 0; }
+  @media (max-width:540px){ .split{ grid-template-columns:1fr; } }
+  .term { background:#f5efe2; border-radius:8px; padding:2px 7px; font-size:0.82rem; }
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header">
+  <div class="meta">2026-11-27(金)・法人税の基礎 × 税制改正ニュース(前回からのアップデート)</div>
+  <h1>⏳ 1人法人スタート 最新トピック 2026-11-27<br>「法人税15%」はどうなる？ ── 12月の税制改正大綱の前に知っておきたい4つの期限</h1>
+  <div class="desc">小さな会社の法人税を軽くしている<b>「15%の特例」</b>などの4つのしくみが、<b>令和9年（2027年）3月31日</b>に期限を迎えます。11月に国の検証や与党の議論が始まり、<b>延長するかは12月の「税制改正大綱」で方向が決まる見込み</b>です。いま知っておくことと、慌てなくていいことを整理します。</div>
+  <div style="margin-top:10px"><span class="htag">法人税</span><span class="htag">税制改正</span><span class="htag">資金繰り</span><span class="htag">9/30記事の続報</span></div>
+</div>
+
+<div class="card">
+  <div class="sec-title">🎯 ① 今日の結論</div>
+  <div class="bignum">
+    <div class="bl">まだ何も決まっていない。だから…</div>
+    <div class="bv">12月中旬の大綱を待つ</div>
+    <div class="bs">延長・見直し・終了のどれになるかは<b>未定</b>です。<br>いまやるのは<b>「自分の会社にいつから関係するか」を知っておくこと</b>と、<b>今期の利益の見込みをつかんでおくこと</b>の2つだけ。</div>
+  </div>
+  <div class="info">💡 <b>税制改正大綱（ぜいせいかいせいたいこう）</b>＝来年の税金のルールをどう変えるかを、与党が毎年12月ごろにまとめる「設計図」。その後、国会で法律が成立して正式に決まります。<br>💡 <b>租税特別措置（そぜいとくべつそち）</b>＝期限つきの「特別ルール」。期限が来たら、延長しない限り元のルールに戻ります。</div>
+</div>
+
+<div class="card orange">
+  <div class="sec-title">🔢 ② そもそも「15%」ってなに？</div>
+  <p>資本金1億円以下などの中小法人は、<b>1年の所得（もうけ）のうち800万円までの部分</b>に、本来の19%より低い<b>15%</b>の法人税率が使えます。これが期限つきの特例です。</p>
+  <div class="stats-row c3">
+    <div class="stat"><div class="sl">📘 本来の税率（本則）</div><div class="sv">19%</div><div class="su">年800万円以下の部分</div></div>
+    <div class="stat now"><div class="sl">📗 いまの特例</div><div class="sv">15%</div><div class="su">同じ部分に適用中</div></div>
+    <div class="stat"><div class="sl">📏 対象になる所得</div><div class="sv">800万円</div><div class="su">まで（年あたり）</div></div>
+  </div>
+  <p>1人社長の会社は所得が800万円以下のことが多いので、<span class="hlo">もうけの全部がこの特例の対象</span>になっているケースがよくあります。</p>
+  <div class="sec-title" style="margin-top:14px;font-size:0.95rem">🧮 もし特例が終わったら？（国の法人税だけの単純計算）</div>
+  <div class="wrap-x"><table class="cmp">
+    <thead><tr><th>年の所得</th><th>15%のとき</th><th>19%のとき</th><th>増える額</th></tr></thead>
+    <tbody>
+      <tr><th>200万円</th><td>30万円</td><td>38万円</td><td class="hi">＋8万円</td></tr>
+      <tr><th>400万円</th><td>60万円</td><td>76万円</td><td class="hi">＋16万円</td></tr>
+      <tr><th>800万円</th><td>120万円</td><td>152万円</td><td class="hi">＋32万円</td></tr>
+    </tbody>
+  </table></div>
+  <div class="warn">⚠️ 説明用の単純計算です。実際は法人税額をもとに計算する地方法人税・住民税なども連動して変わります。また「終わる」と決まったわけではありません。</div>
+</div>
+
+<div class="card green">
+  <div class="sec-title">🗂️ ③ 令和9年3月31日に期限が来る4つのしくみ</div>
+  <div class="matrix">
+    <div class="mx k"><div class="mh">💴 1. 法人税の軽減税率（15%）</div><div class="mb">所得800万円以下の部分を15%に。<br><b>ほぼすべての黒字の1人法人に関係</b>。</div></div>
+    <div class="mx t"><div class="mh">📈 2. 賃上げ促進税制</div><div class="mb">給料を前年より増やすと法人税が減る。<br>社長だけの会社は<b>対象外になりやすい</b>（役員報酬は原則対象外）。</div></div>
+    <div class="mx m"><div class="mh">🛠️ 3. 中小企業投資促進税制</div><div class="mb">決められた機械などを買うと、<b>多めに経費にする</b>か<b>税金から差し引く</b>ことができる。</div></div>
+    <div class="mx p"><div class="mh">⚙️ 4. 中小企業経営強化税制</div><div class="mb">国の認定を受けた計画にもとづく設備投資で、税の優遇。<b>買う前の手続き</b>が必要。</div></div>
+  </div>
+  <div class="info">📌 2026年11月10日、政府税制調査会の専門家会合（EBPM＝データで効果を確かめる会議）で、この4つの検証資料が出されたと報じられています。財務省は「効果の薄い措置は見直す」、中小企業庁は「効果がある」という立場とされます。</div>
+</div>
+
+<div class="card blue">
+  <div class="sec-title">📅 ④ 「いつから関係するか」は決算月で変わる</div>
+  <p>15%の特例の期限は<b>「令和9年3月31日<u>までに開始する</u>事業年度」</b>。期限の日に急に変わるのではなく、<span class="hl">その日までに始まった事業年度は、終わりまで15%</span>です。</p>
+  <div class="wrap-x"><table class="cmp">
+    <thead><tr><th>決算月</th><th>15%が使える最後の期（現行ルール）</th><th>大綱しだいの最初の期</th></tr></thead>
+    <tbody>
+      <tr><th>3月決算</th><td>2026/4/1〜2027/3/31</td><td class="hi">2027/4/1〜 開始の期</td></tr>
+      <tr><th>9月決算</th><td>2026/10/1〜2027/9/30</td><td class="hi">2027/10/1〜 開始の期</td></tr>
+      <tr><th>12月決算</th><td>2027/1/1〜2027/12/31</td><td class="hi">2028/1/1〜 開始の期</td></tr>
+    </tbody>
+  </table></div>
+  <div class="tl">
+    <div class="tc"><span class="ic">🏛️</span><b>11月</b>政府税調の検証・与党税調の議論スタート</div>
+    <div class="tc key"><span class="ic">📜</span><b>12月中旬（見込み）</b>税制改正大綱で方向が決まる</div>
+    <div class="tc"><span class="ic">⚖️</span><b>翌年1〜3月ごろ</b>法案が国会へ・成立で正式決定</div>
+  </div>
+  <div class="warn">⚠️ 経済産業省は令和9年度税制改正要望（2026年8月）で15%特例の延長を求めていますが、<b>要望は「お願い」であって決定ではありません</b>。「延長が決まった」「廃止が決まった」という断定的な記事には注意しましょう。</div>
+</div>
+
+<div class="card red">
+  <div class="sec-title">🧠 ⑤ 社長のマインド：ニュースに振り回されない</div>
+  <ul class="check-list">
+    <li><span class="ck-bad">✕</span><span><b>「15%のうちに」と決算前に慌てて経費を使う</b>：不要な出費は手元のお金を減らすだけ。税金が少し減っても、現金はもっと減ります。</span></li>
+    <li><span class="ck-bad">✕</span><span><b>未確定の情報で役員報酬や決算月を変える</b>：役員報酬は原則、期首から3か月以内にしか変えられません。大綱を見てから税理士と相談しても間に合うことが多いです。</span></li>
+    <li><span class="ck">○</span><span><b>今期の利益の見込みを月次で把握</b>しておく。数字が分かっていれば、どの結論が出てもすぐ試算できます。</span></li>
+    <li><span class="ck">○</span><span><b>設備投資の予定がある人だけ</b>、③の3・4の期限と要件を早めに税理士に確認（特に4は購入前の手続きが必要）。</span></li>
+  </ul>
+</div>
+
+<div class="card orange">
+  <div class="sec-title">🪜 ⑥ 12月までにやる4ステップ</div>
+  <div class="f-step"><div class="f-num">1</div><div class="f-text"><b>自分の決算月を④の表に当てはめる</b>：「大綱しだいの最初の期」がいつ始まるかメモ。</div></div>
+  <div class="f-arrow">⬇</div>
+  <div class="f-step"><div class="f-num">2</div><div class="f-text"><b>今期の所得（もうけ）の見込みを出す</b>：会計ソフトの試算表で、ここまでの利益＋残り月数の見込み。</div></div>
+  <div class="f-arrow">⬇</div>
+  <div class="f-step"><div class="f-num opt">3</div><div class="f-text"><b>「19%になった場合」を一度だけ計算</b>：②の表のように差額を出し、来期の資金繰り表に“念のため枠”として置く。</div></div>
+  <div class="f-arrow">⬇</div>
+  <div class="f-step"><div class="f-num now">4</div><div class="f-text"><b>大綱が出たら確認</b>：財務省・経済産業省の公表資料で「延長／見直し／終了」と条件を確認し、必要なら税理士と次の期の作戦を決める。</div></div>
+</div>
+
+<div class="card blue">
+  <div class="sec-title">🤖 ⑦ 生成AIで「わが社への影響メモ」を作る</div>
+  <div class="prompt-box">
+    <div class="ph">▼ 大綱が出たら、コピーして<span class="fill">青い部分</span>を書き換え</div>
+    あなたは中小企業の経理を手伝うアシスタントです。下に貼る「令和9年度税制改正大綱（公表資料）の中小企業関係の部分」を読んで、次の表を作ってください。<br>
+    列：「制度名／今のルール／大綱での変更点／いつの事業年度から／私の会社に関係ありそうか」<br>
+    私の会社：<span class="fill">決算月 3月／資本金 100万円／役員1人・従業員0人／今期の所得見込み 約400万円／設備投資の予定 なし</span><br>
+    ※ 貼った資料に書いていないことは推測せず「資料に記載なし」と書いてください<br>
+    ※ 税額の計算は「国の法人税のみの概算」と明記し、最後に「税理士に確認する質問」を3つ挙げてください<br><br>
+    【大綱の該当部分】<span class="fill">（財務省などの公表資料から該当部分をコピーして貼る）</span>
+  </div>
+  <div class="warn">⚠️ AIに「最新の大綱の内容を教えて」と聞くと、古い情報や誤りが混ざることがあります。<b>必ず公表資料を自分で貼って</b>要約させ、結論は原文と税理士で確認しましょう。</div>
+</div>
+
+<div class="card">
+  <div class="sec-title">✅ ⑧ まとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">1</span><span>中小法人の所得800万円以下の部分の<b>法人税15%（本則19%）</b>など4つの特例が、<b>令和9年3月31日</b>に期限を迎える。</span></li>
+    <li><span class="n">2</span><span>15%の期限は「<b>その日までに開始する事業年度</b>」。決算月によって関係する時期がずれる。</span></li>
+    <li><span class="n">3</span><span>延長するかは<b>12月中旬見込みの税制改正大綱</b>で方向が決まり、国会で正式決定。いまは<b>未定</b>。</span></li>
+    <li><span class="n">4</span><span>慌てて経費を使わず、<b>今期の利益見込み</b>と「19%の場合」の試算だけ準備しておく。</span></li>
+  </ul>
+  <div class="source">
+    【出典・基準】2026年（令和8年）11月27日時点の情報。税率・期限は令和8年度時点の現行制度です。<br>
+    ・中小法人の軽減税率15%（本則19%・年800万円以下の所得部分）と適用期限（令和9年3月31日までに開始する事業年度）── 経済産業省「中小企業者等の法人税率の特例」租特点検資料 <a href="https://www.meti.go.jp/main/zeisei/zeisei_tenken/r9kaisei_tenken/sotokutenken_01.pdf">https://www.meti.go.jp/main/zeisei/zeisei_tenken/r9kaisei_tenken/sotokutenken_01.pdf</a><br>
+    ・経済産業省「令和9年度税制改正に関する経済産業省要望【概要】」（令和8年8月）<a href="https://www.meti.go.jp/main/yosangaisan/fy2027/pdf/03.pdf">https://www.meti.go.jp/main/yosangaisan/fy2027/pdf/03.pdf</a><br>
+    ・政府税制調査会「税制のEBPMに関する専門家会合」第9回 資料（2026年11月10日・中小企業庁「中小企業税制について」ほか、4措置の適用期限 令和9年3月31日）<a href="https://www.cao.go.jp/zei-cho/content/8ebpm9kai2.pdf">https://www.cao.go.jp/zei-cho/content/8ebpm9kai2.pdf</a><br>
+    ・自民党税制調査会が令和9年度税制改正大綱に向けた議論を開始（2026年11月中旬）── 税務研究会「税務通信」No.3925 <a href="https://www.zeiken.co.jp/zeimutusin/article/no3925/TA00039250601.html">https://www.zeiken.co.jp/zeimutusin/article/no3925/TA00039250601.html</a> ／ 税のしるべ 電子版（2026年11月23日）<a href="https://shirube.zaikyo.or.jp/article/2026/11/23/10358397.html">https://shirube.zaikyo.or.jp/article/2026/11/23/10358397.html</a><br>
+    ・役員報酬の改定時期（期首から3か月以内の定期同額給与の改定）── 国税庁 タックスアンサー No.5211 <a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/hojin/5211.htm">https://www.nta.go.jp/taxes/shiraberu/taxanswer/hojin/5211.htm</a><br>
+    ※ 本日は作業環境から官公庁サイトへ直接接続できず、上記の公的資料は検索結果に表示された内容と税務専門誌の報道で確認しています。②の税額は説明用の単純計算です。大綱の公表後、必ず原文をご確認ください。<br>
+    ※ 関連記事：<a href="2026-09-30.html">2026-09-30 軽減税率15%の適用期限と税負担の目安</a> ／ <a href="2026-09-29.html">2026-09-29 中小企業税制パンフレットを1人社長目線で読む</a>
+  </div>
+</div>
+
+<div class="disclaimer">
+  <b>【免責・ご注意】</b><br>
+  ・本記事は一般的な情報であり、税務・法務の個別アドバイスではありません。会社の状況（決算月・資本金・所得・設備投資の予定など）により結論は変わります。<br>
+  ・具体的な判断は、税理士・社会保険労務士・司法書士など専門家にご相談ください。<br>
+  ・制度・税率・金額には基準年度を明記しています（本記事は2026年〈令和8年〉11月27日時点の現行制度・報道にもとづき、令和9年度税制改正の内容は未確定です）。<br>
+  ・生成AIの回答は誤りを含むことがあります。重要な内容は必ず公的な一次情報で確認してください。
+</div>
+<div class="footer"><a href="index.html">← 日報アーカイブへ</a></div>
+</div>
+</body>
+</html>
