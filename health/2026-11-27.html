@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>健康・栄養 最新トピック 2026-11-27</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f5f0e8;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    color: #333;
+    padding: 20px;
+    line-height: 1.75;
+  }
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a7a5a 0%, #0d4a35 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: "💭";
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    font-size: 3.2rem;
+    opacity: 0.35;
+  }
+  .header .label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.75;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .header h1 {
+    font-size: 1.35rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+  .card {
+    background: #fffdf7;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.08);
+    border-left: 5px solid #1a7a5a;
+  }
+  .card h2 {
+    font-size: 1.05rem;
+    color: #1a7a5a;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .card p, .card li {
+    font-size: 0.93rem;
+    margin-bottom: 8px;
+  }
+  .card ul { padding-left: 1.4em; }
+  .card li { margin-bottom: 6px; }
+  .card.orange { border-left-color: #e07b2a; }
+  .card.orange h2 { color: #b85e10; }
+  .card.blue  { border-left-color: #1a5e8a; }
+  .card.blue  h2 { color: #0d3660; }
+  .card.purple { border-left-color: #7a5abf; }
+  .card.purple h2 { color: #5a3a9a; }
+  .card.red   { border-left-color: #c0392b; }
+  .card.red   h2 { color: #a0291e; }
+  .num-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .num-card {
+    background: linear-gradient(135deg, #1a7a5a, #2aaa7a);
+    color: white;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+  }
+  .num-card .big { font-size: 2.1rem; font-weight: 700; line-height: 1; }
+  .num-card .unit { font-size: 1rem; margin-left: 2px; }
+  .num-card .desc { font-size: 0.76rem; opacity: 0.88; margin-top: 6px; line-height: 1.4; }
+  .num-card.orange-bg { background: linear-gradient(135deg, #c07020, #e09040); }
+  .num-card.blue-bg  { background: linear-gradient(135deg, #1a5e8a, #2a80bf); }
+  .num-card.gray-bg  { background: linear-gradient(135deg, #555, #888); }
+  .num-card.red-bg   { background: linear-gradient(135deg, #a0322a, #c0524a); }
+  .num-card.purple-bg { background: linear-gradient(135deg, #5a3a9a, #8a68c8); }
+  .compare4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .c3-col {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .c3-col.green  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .c3-col.orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .c3-col.blue   { background: #e4eef8; border: 2px solid #1a5e8a; }
+  .c3-col.red    { background: #fbe8e6; border: 2px solid #c0392b; }
+  .c3-col.purple { background: #efe8fb; border: 2px solid #7a5abf; }
+  .c3-col h3 { font-size: 0.9rem; margin-bottom: 8px; }
+  .c3-col.green  h3 { color: #1a7a5a; }
+  .c3-col.orange h3 { color: #b85e10; }
+  .c3-col.blue   h3 { color: #0d3660; }
+  .c3-col.red    h3 { color: #a0291e; }
+  .c3-col.purple h3 { color: #5a3a9a; }
+  .c3-col ul { padding-left: 1.1em; }
+  .c3-col li { margin-bottom: 4px; }
+  .flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+    justify-content: center;
+  }
+  .flow-step {
+    background: #e4f5ed;
+    border: 2px solid #1a7a5a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.82rem;
+    min-width: 120px;
+  }
+  .flow-step.alt { background: #fef0e4; border-color: #e07b2a; }
+  .flow-step.warn2 { background: #fbe8e6; border-color: #c0392b; }
+  .flow-step.purp { background: #efe8fb; border-color: #7a5abf; }
+  .flow-arrow { font-size: 1.4rem; color: #1a7a5a; }
+  .warn {
+    background: #fff8e8;
+    border-left: 5px solid #f0a000;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    margin: 14px 0;
+  }
+  .warn strong { color: #b87000; }
+  .ev-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 14px 0;
+  }
+  .ev-table th {
+    background: #1a7a5a;
+    color: white;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .ev-table td { padding: 8px 12px; border-bottom: 1px solid #ddd; }
+  .ev-table tr:nth-child(even) td { background: #f5fbf7; }
+  .ev-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .ev-high { background: #cff0df; color: #1a6e4a; }
+  .ev-mid  { background: #fff0c8; color: #8a6000; }
+  .ev-low  { background: #fce8e8; color: #a02020; }
+  .sources {
+    background: #fffdf7;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-size: 0.8rem;
+    color: #555;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+  }
+  .sources h3 { color: #1a7a5a; margin-bottom: 10px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 8px; line-height: 1.55; }
+  .sources a { color: #1a7a5a; overflow-wrap: anywhere; word-break: break-all; }
+  .disclaimer {
+    background: #f0ece3;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.78rem;
+    color: #777;
+    margin-bottom: 16px;
+    border: 1px dashed #ccc;
+  }
+  .tag {
+    display: inline-block;
+    background: #cff0df;
+    color: #1a7a5a;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  .step-list { counter-reset: steps; padding-left: 0; list-style: none; }
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+  .step-list li::before {
+    content: counter(steps);
+    background: #1a7a5a;
+    color: white;
+    border-radius: 50%;
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .def-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .def-item {
+    background: #fffdf7;
+    border: 1px solid #d8e8de;
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.84rem;
+  }
+  .def-item .dterm { font-weight: 700; color: #1a7a5a; margin-bottom: 4px; font-size: 0.86rem; }
+  .quote-box {
+    background: #f5f0e8;
+    border-left: 4px solid #7a5abf;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    margin: 12px 0;
+    color: #444;
+    font-style: italic;
+  }
+  .quote-box .who { font-style: normal; font-weight: 700; color: #5a3a9a; margin-top: 6px; font-size: 0.78rem; }
+  .matrix {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .mx-cell {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.85rem;
+  }
+  .mx-cell .mx-head { font-weight: 700; font-size: 0.88rem; margin-bottom: 6px; }
+  .mx-cell.ok  { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .mx-cell.ok  .mx-head { color: #1a6e4a; }
+  .mx-cell.ng  { background: #fbe8e6; border: 2px solid #c0392b; }
+  .mx-cell.ng  .mx-head { color: #a0291e; }
+  .subtype-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .subtype-card {
+    border-radius: 10px;
+    padding: 16px 14px;
+    font-size: 0.84rem;
+  }
+  .subtype-card .st-head { font-weight: 700; font-size: 0.92rem; margin-bottom: 8px; }
+  .subtype-card .st-bar {
+    height: 10px;
+    border-radius: 5px;
+    background: #eee;
+    overflow: hidden;
+    margin: 6px 0 4px;
+  }
+  .subtype-card .st-bar-fill { height: 100%; }
+  .subtype-card.st-green { background: #e4f5ed; border: 2px solid #1a7a5a; }
+  .subtype-card.st-green .st-head { color: #1a6e4a; }
+  .subtype-card.st-orange { background: #fef0e4; border: 2px solid #e07b2a; }
+  .subtype-card.st-orange .st-head { color: #b85e10; }
+  .subtype-card.st-red { background: #fbe8e6; border: 2px solid #c0392b; }
+  .subtype-card.st-red .st-head { color: #a0291e; }
+  @media (max-width: 540px) {
+    .compare4 { grid-template-columns: 1fr; }
+    .matrix { grid-template-columns: 1fr; }
+    .subtype-grid { grid-template-columns: 1fr; }
+    .header h1 { font-size: 1.15rem; }
+    .num-card .big { font-size: 1.7rem; }
+    .flow { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+  .bar{height:22px;border-radius:6px;margin:4px 0 2px;color:#fff;font-size:.78rem;padding:0 8px;line-height:22px;white-space:nowrap}
+  .rtm-row{display:flex;align-items:center;gap:10px;margin:6px 0;font-size:.82rem}
+  .rtm-row .lbl{min-width:92px}
+  .rtm-track{flex:1;position:relative;height:26px;background:#f0ece3;border-radius:6px}
+  .rtm-true{position:absolute;top:0;bottom:0;width:3px;background:#1a7a5a}
+  .rtm-dot{position:absolute;top:4px;width:18px;height:18px;border-radius:50%;transform:translateX(-50%);color:#fff;font-size:.62rem;line-height:18px;text-align:center}
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="header">
+  <div class="label">健康・栄養 日報 ／ ノセボ効果・二重盲検の読み方</div>
+  <h1>健康・栄養 最新トピック 2026-11-27 ── 「食べたらおなかが痛くなる」は、思い込みでも起きる? 「ノセボ効果」と、中身を隠して確かめる試験</h1>
+  <div class="subtitle">💭 にせ薬で体調がよくなる「プラセボ効果」の反対に、<strong>「悪いことが起きそう」と思うだけで、実際に症状が出る</strong>ことがあります。これを<strong>ノセボ効果</strong>といいます。グルテン(小麦のたんぱく質)、コレステロールの薬、ワクチンの3つの研究から、「本当に原因はそれ?」を確かめる方法を学びましょう。※今日は直近7日の新着で一次情報を確認できる研究が見つからなかったため、基礎回です。</div>
+</div>
+
+<div class="card">
+  <h2>🎯 今日のポイント</h2>
+  <ul class="step-list">
+    <li><span><strong>「グルテンを食べた」と思って食べた人</strong>は、実際にはグルテンが入っていなくても、おなかの症状が多めに出た(84人のランダム化比較試験)。</span></li>
+    <li><span>コレステロールの薬(スタチン)の副作用だと思われていた症状の<strong>約9割は、にせ薬でも同じように出ていた</strong>(60人の試験)。</span></li>
+    <li><span>ノセボ効果は<strong>「気のせい」「仮病」ではない</strong>。症状は本物で、つらさも本物。ただ<strong>原因が「その成分」とは限らない</strong>、ということです。</span></li>
+  </ul>
+</div>
+
+<div class="card">
+  <h2>📖 まず言葉の意味を</h2>
+  <div class="def-grid">
+    <div class="def-item"><div class="dterm">プラセボ(偽薬)</div>見た目は同じだけど、効く成分が入っていないもの。「効くはず」という期待でよくなるのがプラセボ効果。</div>
+    <div class="def-item"><div class="dterm">ノセボ効果</div>「悪いことが起きそう」という予想や不安で、実際に頭痛・腹痛・だるさなどが出たり強くなったりすること。</div>
+    <div class="def-item"><div class="dterm">二重盲検(にじゅうもうけん)</div>参加者も、研究者も、だれが本物をもらったか知らないまま行う試験。思い込みが結果に入りにくい。</div>
+    <div class="def-item"><div class="dterm">クロスオーバー試験</div>同じ人が、本物とにせ物を時期を変えて両方ためす試験。自分自身と比べられる。</div>
+    <div class="def-item"><div class="dterm">セリアック病・小麦アレルギー</div>グルテンや小麦で体が実際に反応する病気。検査で診断できる。今日の話とは別もので、思い込みではない。</div>
+    <div class="def-item"><div class="dterm">FODMAP(フォドマップ)</div>小麦・玉ねぎ・豆などに多い、おなかで発酵しやすい糖質のなかま。人によってはおなかの張りや痛みの原因になる。</div>
+  </div>
+</div>
+
+<div class="card blue">
+  <h2>🧠 ノセボ効果が起きる流れ</h2>
+  <div class="flow">
+    <div class="flow-step">📰 情報・体験<br>「〇〇は体に悪い」</div><div class="flow-arrow">→</div>
+    <div class="flow-step alt">😟 予想・不安<br>「食べたら痛くなるかも」</div><div class="flow-arrow">→</div>
+    <div class="flow-step purp">🔍 体の変化に<br>敏感になる</div><div class="flow-arrow">→</div>
+    <div class="flow-step warn2">😣 本当に<br>症状を感じる</div>
+  </div>
+  <p style="font-size:.86rem">ふだんなら気にしない、おなかの小さな動きや頭の重さも、「来るぞ」と思っていると強く感じやすくなります。そして「やっぱり〇〇のせいだ」と<strong>思い込みがさらに強まる</strong>こともあります。</p>
+</div>
+
+<div class="card orange">
+  <h2>🍞 研究①:「グルテン入り」と言われたパン(2×2の試験)</h2>
+  <p>グルテンで体調をくずすと感じているけれど、<strong>セリアック病でも小麦アレルギーでもない人</strong>84人(18〜70歳)を、4つのグループにランダムに分けました。英国とオランダの3施設で行われ、<em>Lancet Gastroenterology &amp; Hepatology</em>誌に掲載された二重盲検の試験です。</p>
+  <div class="matrix">
+    <div class="mx-cell ng"><div class="mx-head">「グルテン入り」と伝える ＋ 本当にグルテン入り</div>21人</div>
+    <div class="mx-cell ng"><div class="mx-head">「グルテン入り」と伝える ＋ 実はグルテンなし</div>21人</div>
+    <div class="mx-cell ok"><div class="mx-head">「グルテンなし」と伝える ＋ 実はグルテン入り</div>20人</div>
+    <div class="mx-cell ok"><div class="mx-head">「グルテンなし」と伝える ＋ 本当にグルテンなし</div>22人</div>
+  </div>
+  <p>結果:<strong>「グルテン入り」と伝えられたグループで、おなかの症状が多め</strong>でした。著者は<strong>「伝えられた内容(予想)と、実際のグルテンの組み合わせ」が症状にいちばん大きく影響し、ノセボ効果を反映している</strong>とまとめています。</p>
+  <div class="warn"><strong>📌 公平に:</strong> 著者自身が<strong>「グルテンそのものの追加の影響も否定はできない」</strong>と書いています。「グルテン過敏は全部思い込み」と言える結果ではありません。1回の試験で人数も84人と多くないことにも注意しましょう。</div>
+</div>
+
+<div class="card orange">
+  <h2>🍞 研究②:グルテンを「多め・少なめ・なし」で(2013年)</h2>
+  <p>グルテン過敏を自覚する<strong>過敏性腸症候群の人37人</strong>のクロスオーバー試験(二重盲検)。まずFODMAPを減らした食事を2週間続け、その後に1週間ずつ、次の3つの食事をためしました。</p>
+  <div class="compare4">
+    <div class="c3-col red"><h3>🍞 グルテン多め</h3>1日16g</div>
+    <div class="c3-col orange"><h3>🥛 グルテン少なめ</h3>1日2g ＋ 乳たんぱく(ホエイ)14g</div>
+    <div class="c3-col green"><h3>🥛 グルテンなし</h3>ホエイ16g(対照)</div>
+  </div>
+  <p>結果:<strong>グルテンの量に応じて症状が増える、という関係は見られませんでした</strong>。グルテンなしの食事でも症状が悪化し、著者はノセボ効果が大きいと考えました。また、グルテン抜きで楽になる理由の一部は、<strong>小麦に多いFODMAPが減ったから</strong>かもしれない、と提案しています。</p>
+</div>
+
+<div class="card purple">
+  <h2>💊 研究③:薬の副作用でも ── スタチンの「自分だけの試験」</h2>
+  <p>副作用がつらくてスタチン(コレステロールを下げる薬)をやめた<strong>60人</strong>が参加。1人ずつに<strong>12か月分のボトル</strong>を渡し、月ごとに<strong>「本物の薬」「にせ薬」「何も飲まない」</strong>のどれかがランダムな順番で入っていました(本人も医師もどれか知らない)。毎日、症状の強さを記録しました。</p>
+  <div class="num-row">
+    <div class="num-card purple-bg"><span class="big">60</span><span class="unit">人</span><div class="desc">参加者(副作用で薬をやめた人)</div></div>
+    <div class="num-card orange-bg"><span class="big">0.90</span><div class="desc">本物の薬で出た症状のうち、にせ薬でも出ていた割合(ノセボ比)</div></div>
+    <div class="num-card blue-bg"><span class="big">50</span><span class="unit">%</span><div class="desc">試験の6か月後に、薬を再開していた人(60人中30人)</div></div>
+  </div>
+  <p style="font-size:.86rem">「にせ薬の月」と「本物の月」で症状があまり変わらないのを<strong>自分のデータで見たこと</strong>が、薬を再開するきっかけになった人もいたと考えられます。ただし、これは参加者が少ない試験で、<strong>本当に薬の副作用が出る人もいます</strong>。自己判断で薬をやめたり再開したりしないでください。</p>
+</div>
+
+<div class="card blue">
+  <h2>💉 研究④:ワクチン試験の「にせ注射」グループ</h2>
+  <p>新型コロナワクチンの12の試験をまとめたメタ分析(複数の研究を合わせて分析する方法)。<strong>にせ注射(生理食塩水など)を受けた22,578人</strong>と、ワクチンを受けた22,802人の副反応の報告を比べました。</p>
+  <div class="num-row">
+    <div class="num-card gray-bg"><span class="big">35</span><span class="unit">%</span><div class="desc">1回目のあと、にせ注射なのに頭痛・だるさなど全身の症状を報告した人の割合(約)</div></div>
+    <div class="num-card blue-bg"><span class="big">76</span><span class="unit">%</span><div class="desc">1回目のあと、ワクチン群の全身症状のうちノセボ反応で説明できると推定された割合</div></div>
+    <div class="num-card orange-bg"><span class="big">24</span><span class="unit">%</span><div class="desc">同じく、腕の痛みなど注射した場所の症状では</div></div>
+  </div>
+  <p style="font-size:.86rem">2回目のあとでは、全身症状のうちノセボ反応の推定割合は約52%に下がりました。これは<strong>「副反応はない」という意味ではなく</strong>、本物の反応とノセボ反応が<strong>まざって報告されている</strong>という意味です。</p>
+</div>
+
+<div class="card">
+  <h2>🔬 なぜ「中身を隠す」ことが大切なの?</h2>
+  <div class="compare4">
+    <div class="c3-col red"><h3>❌ 中身を知って比べる</h3>「グルテンを食べた日はおなかが痛い」<br>→ 予想・不安と成分の影響が<strong>見分けられない</strong></div>
+    <div class="c3-col green"><h3>✅ 中身を隠して比べる</h3>本物とにせ物を、だれにもわからないように渡す<br>→ <strong>成分そのものの影響</strong>だけを取り出せる</div>
+    <div class="c3-col purple"><h3>🔁 さらに「予想」も操作</h3>研究①のように、伝える内容と中身をわざとずらす<br>→ <strong>予想の影響の大きさ</strong>まで測れる</div>
+  </div>
+  <p style="font-size:.86rem">日記やアプリで「食べた物と体調」を記録するのは役立ちますが、<strong>自分で中身を知っている記録だけでは、ノセボ効果と区別できません</strong>。</p>
+</div>
+
+<div class="card">
+  <h2>🧬 精密栄養学の視点</h2>
+  <p>精密栄養学は「人によって合う食べ物がちがう」を大切にします。だからこそ、<strong>「本当に体がその成分に反応しているのか」</strong>を正しく見分けることが出発点になります。</p>
+  <div class="flow">
+    <div class="flow-step warn2">😣 「〇〇で<br>体調が悪い」</div><div class="flow-arrow">→</div>
+    <div class="flow-step">🩺 病気の検査<br>(セリアック病・アレルギーなど)</div><div class="flow-arrow">→</div>
+    <div class="flow-step alt">🥄 専門家と<br>原因の候補をしぼる</div><div class="flow-arrow">→</div>
+    <div class="flow-step purp">🙈 必要なら<br>中身を隠したためし</div>
+  </div>
+  <div class="warn"><strong>⚠️ 自分だけで食べ物を次々にやめるのは要注意:</strong> 原因ではない食べ物までやめると、<strong>食事がかたよって栄養が足りなくなる</strong>おそれがあります。また、セリアック病の検査は、グルテンを食べている状態で受ける必要があるとされています。先にグルテンをやめてしまう前に、医師に相談しましょう。</div>
+</div>
+
+<div class="card red">
+  <h2>🙅 ありがちな誤解</h2>
+  <div class="matrix">
+    <div class="mx-cell ng"><div class="mx-head">❌「ノセボ＝気のせい・うそ」</div>症状は実際に感じているもの。体の感じ方そのものが変わっている。</div>
+    <div class="mx-cell ok"><div class="mx-head">⭕ 正しくは</div>症状は本物。ただ、その<strong>原因が成分か、予想・不安か</strong>を分けて考える必要がある。</div>
+    <div class="mx-cell ng"><div class="mx-head">❌「グルテン過敏は全部ノセボ」</div>研究①の著者もグルテン自体の影響を否定していない。研究②はFODMAPの関与を示唆。</div>
+    <div class="mx-cell ok"><div class="mx-head">⭕ 正しくは</div>人によって原因はさまざま。<strong>一人ひとり確かめる</strong>必要がある。</div>
+  </div>
+</div>
+
+<div class="card purple">
+  <h2>🧪 今日の根拠のエビデンスの強さ</h2>
+  <table class="ev-table">
+    <tr><th>根拠</th><th>中身</th><th>位置づけ</th></tr>
+    <tr><td>de Graaf ら 2024 <em>Lancet Gastroenterol Hepatol</em></td><td>2×2のランダム化・二重盲検・プラセボ対照、84人、自覚的なグルテン過敏の成人</td><td><span class="ev-badge ev-mid">RCT(中規模・1試験)</span></td></tr>
+    <tr><td>Biesiekierski ら 2013 <em>Gastroenterology</em></td><td>二重盲検クロスオーバー、37人、過敏性腸症候群＋自覚的グルテン過敏</td><td><span class="ev-badge ev-mid">RCT(小規模)</span></td></tr>
+    <tr><td>Howard ら 2021 <em>JACC</em>(SAMSON試験)</td><td>1人ずつのN-of-1試験の集まり、60人、スタチンをやめた人</td><td><span class="ev-badge ev-mid">二重盲検(小規模)</span></td></tr>
+    <tr><td>Haas ら 2022 <em>JAMA Netw Open</em></td><td>12試験のメタ分析、にせ注射22,578人・ワクチン22,802人</td><td><span class="ev-badge ev-high">メタ分析(大人数)</span></td></tr>
+  </table>
+  <p style="font-size:.84rem">ノセボ効果がある、という点はくり返し示されています。ただし<strong>「どの症状の何%がノセボか」は、対象者・状況・測り方で大きく変わります</strong>。今日の数字を、ほかの食べ物や薬にそのまま当てはめないようにしましょう。</p>
+</div>
+
+<div class="card orange">
+  <h2>✅ 今日からできること</h2>
+  <ul class="step-list">
+    <li><span>「〇〇を食べると具合が悪い」と感じたら、<strong>まず医師に相談して、病気(アレルギー・セリアック病など)の検査</strong>を受ける。自己判断で食事を大きく変えない。</span></li>
+    <li><span>ネットの「〇〇は危険」という話を見たら、<strong>「中身を隠した試験で確かめられた?」</strong>と考えてみる。</span></li>
+    <li><span>薬の副作用が心配なときは、<strong>自分でやめずに、医師・薬剤師に相談</strong>する。種類や量を変えるなど、ほかの方法がある場合もある。</span></li>
+  </ul>
+</div>
+
+<div class="warn"><strong>💡 今日の学び:</strong> 体はとても正直で、<strong>「悪いことが起きそう」という予想だけでも、本当に症状が出る</strong>ことがある。だから「食べた → 具合が悪い」だけでは原因は決まらない。<strong>中身を隠して比べる</strong>ことで、はじめて「本当に効いている(悪さをしている)のはどれか」がわかります。</div>
+
+<div class="sources">
+  <h3>📚 出典</h3>
+  <ul>
+    <li>de Graaf MCG, ら「The effect of expectancy versus actual gluten intake on gastrointestinal and extra-intestinal symptoms in non-coeliac gluten sensitivity: a randomised, double-blind, placebo-controlled, international, multicentre study」<em>Lancet Gastroenterol Hepatol</em> 2024;9(2):110-123。DOI: 10.1016/S2468-1253(23)00317-5。<a href="https://cris.maastrichtuniversity.nl/en/publications/2fd37a60-b91f-40ef-8f13-73a456615d46">https://cris.maastrichtuniversity.nl/en/publications/2fd37a60-b91f-40ef-8f13-73a456615d46</a>(基準日:2023年オンライン公開・2024年2月号掲載。人数・群分け・結論は2026年11月に検索結果経由で確認。各群の症状スコアの数値は本文未確認のため記載していません)</li>
+    <li>ClinicalTrials.gov NCT05779358「Gluten and (Extra-)Intestinal Symptoms in NCGS」<a href="https://clinicaltrials.gov/study/NCT05779358">https://clinicaltrials.gov/study/NCT05779358</a>(基準日:2026年11月に存在を確認)</li>
+    <li>Biesiekierski JR, ら「No effects of gluten in patients with self-reported non-celiac gluten sensitivity after dietary reduction of fermentable, poorly absorbed, short-chain carbohydrates」<em>Gastroenterology</em> 2013。PubMed 23648697。<a href="https://pubmed.ncbi.nlm.nih.gov/23648697/">https://pubmed.ncbi.nlm.nih.gov/23648697/</a>(基準日:2013年。要旨の内容を2026年11月に検索結果経由で確認)</li>
+    <li>Howard JP, Wood FA, Finegold JA, Nowbar AN, ら「Side Effect Patterns in a Crossover Trial of Statin, Placebo, and No Treatment」<em>J Am Coll Cardiol</em> 2021;78:1210-1222(SAMSON試験)。<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8453640">https://pmc.ncbi.nlm.nih.gov/articles/PMC8453640</a>(基準日:2021年。ノセボ比0.90・6か月後の再開30/60は2026年11月に検索結果経由で確認)</li>
+    <li>NIDDK(米国立糖尿病・消化器・腎疾患研究所)「Diagnosis of Celiac Disease」<a href="https://www.niddk.nih.gov/health-information/digestive-diseases/celiac-disease/diagnosis">https://www.niddk.nih.gov/health-information/digestive-diseases/celiac-disease/diagnosis</a>(検査の前にグルテンをやめないよう求めている点。基準日:2026年11月に参照)</li>
+    <li>British Heart Foundation「SAMSON trial」<a href="https://www.bhf.org.uk/what-we-do/our-research/impact-of-clinical-trials/samson-trial">https://www.bhf.org.uk/what-we-do/our-research/impact-of-clinical-trials/samson-trial</a>(基準日:2026年11月確認。試験の資金提供団体による解説)</li>
+    <li>Haas JW, ら「Frequency of Adverse Events in the Placebo Arms of COVID-19 Vaccine Trials: A Systematic Review and Meta-analysis」<em>JAMA Netw Open</em> 2022。DOI: 10.1001/jamanetworkopen.2021.43955。<a href="https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2788172">https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2788172</a>(基準日:2022年1月。12試験・人数・76.0%/24.3%/51.8%は2026年11月に検索結果経由で確認)</li>
+  </ul>
+</div>
+
+<div class="disclaimer">
+  ⚠️ 本記事は一般的な情報であり、医療アドバイスではありません。効果・必要量・リスクは、個人の体質・年齢・持病・服薬で大きく変わります。健康のために何かを始めたりやめたりする前には、かかりつけ医・管理栄養士・薬剤師などの専門家に相談してください。グルテン抜きなどの食事制限・サプリ・断食などを安易に始めないでください。処方薬を自己判断でやめないでください。
+</div>
+
+</div>
+</body>
+</html>
