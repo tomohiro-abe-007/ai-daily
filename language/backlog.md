@@ -68,11 +68,14 @@
 - 英語の曜日・月の略語(Mon/Tue、Jan/Feb、Sept)とカレンダー・予約画面の読み方── 11-26の日付の続編
 
 - スペイン語の語尾脱落グループの総まとめ(buen/mal/algún/ningún/gran/cien/san)── 11-25のprimer/tercerの発展
-- スペイン語の時刻の深掘り(y cuarto/y media/menos cuarto、中南米の un cuarto para、de la mañana/tarde/noche、en punto、24時間表記の読み方)── 11-27の英語の時刻の逆向きブリッジ
 - 英語で待ち合わせ・遅刻の連絡(I'm running late / I'll be there in 10 minutes / Let's meet at ~)── 11-27の時刻の続編
 - 英語の序数の読み書き(first〜twentieth、21st/22nd/23rd、-th の発音)と分数 one third── 11-25の逆向きブリッジ
+- スペイン語の一日の過ごし方と時間帯のあいさつ(Buenos días/Buenas tardes/Buenas noches の切り替え、desayuno/comida/cena の時間)── 11-28の時間帯の続編
+- スペイン語で待ち合わせ・遅刻の連絡(¿Quedamos a las…? / Llego tarde / en diez minutos)── 11-28の時刻の続編
 
 ## 解説済みテーマ
+
+- 2026-11-28: スペイン語の時刻の言い方(Es la una/Son las、y/menos、cuarto/media/en punto、de la mañana/tarde/noche/madrugada と por la tarde の違い、mediodía/medianoche、a las、24時間表記の読み方と veintiuna、中南米の un cuarto para)── 11-27の英語の時刻の逆向きブリッジ
 
 - 2026-11-27: 英語の時刻の言い方(デジタル式three thirtyとアナログ式half past three、past/toで時計を左右に分ける、quarter/half、o'clock・a.m./p.m.・noon/midnight・24時間表記、at、fifteen/fiftyの聞き分け、スペイン語y/menos・Es la una/Son las・un cuarto para)── 11-26の日付の続編
 
