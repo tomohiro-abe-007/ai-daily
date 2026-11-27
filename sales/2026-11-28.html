@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>インサイドセールス 最新トピック 2026-11-28</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  /* ── カバー ── */
+  .cover {
+    background: linear-gradient(135deg, #6d1b1b 0%, #a13a2c 50%, #d98a2e 100%);
+    color: white;
+    border-radius: 8px;
+    padding: 60px 40px;
+    text-align: center;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.3);
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent, transparent 28px,
+      rgba(255,255,255,0.05) 28px, rgba(255,255,255,0.05) 29px
+    );
+  }
+  .cover-emoji { font-size: 64px; display: block; margin-bottom: 16px; }
+  .cover h1 {
+    font-family: 'Klee One', sans-serif;
+    font-size: 1.9rem;
+    font-weight: 600;
+    line-height: 1.35;
+    margin-bottom: 12px;
+    position: relative;
+  }
+  .cover .subtitle { font-size: 1.05rem; opacity: 0.85; margin-bottom: 8px; position: relative; }
+  .cover .date-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 20px;
+    padding: 6px 20px;
+    font-size: 1rem;
+    margin-top: 16px;
+    position: relative;
+  }
+
+  /* ── カード共通 ── */
+  .card {
+    background: #fff9f0;
+    border-radius: 6px;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: 24px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.12);
+    position: relative;
+    overflow: hidden;
+  }
+  .card-body {
+    padding: 40px 36px 28px 64px;
+    background: repeating-linear-gradient(0deg, transparent, transparent 31px, #e0d8c8 31px, #e0d8c8 32px);
+    background-color: #fff9f0;
+  }
+  .card-tab {
+    display: inline-block;
+    background: #a13a2c;
+    color: white;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 4px 16px;
+    border-radius: 0 0 6px 6px;
+    position: absolute;
+    top: 0; left: 32px;
+    letter-spacing: 0.05em;
+  }
+  .card h2 {
+    font-size: 1.22rem;
+    color: #6d1b1b;
+    margin-bottom: 16px;
+    margin-top: 4px;
+    line-height: 1.5;
+    border-left: 4px solid #c0532b;
+    padding-left: 12px;
+  }
+  p { line-height: 1.85; color: #333; font-size: 0.97rem; margin-bottom: 12px; }
+
+  /* ── 数字カード ── */
+  .num-cards { display: flex; gap: 14px; flex-wrap: wrap; margin: 20px 0; }
+  .num-card {
+    flex: 1; min-width: 170px;
+    background: #6d1b1b; color: white;
+    border-radius: 10px; padding: 20px 16px; text-align: center;
+  }
+  .num-card.orange { background: #a13a2c; }
+  .num-card.gold   { background: #b06b1a; }
+  .num-card.gray   { background: #6b6b6b; }
+  .num-card .big-num {
+    font-family: 'Caveat', cursive;
+    font-size: 1.7rem; font-weight: 700; line-height: 1.15;
+    color: #ffd8b0;
+  }
+  .num-card .num-label { font-size: 0.78rem; margin-top: 8px; opacity: 0.92; line-height: 1.6; }
+
+  /* ── ステップフロー ── */
+  .step-flow { display: flex; flex-direction: column; gap: 0; margin: 20px 0; }
+  .step-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px dotted #ddd;
+  }
+  .step-item:last-child { border-bottom: none; }
+  .step-num {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: #a13a2c;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .step-body { flex: 1; }
+  .step-title { font-size: 0.97rem; font-weight: 700; color: #6d1b1b; margin-bottom: 4px; }
+  .step-desc  { font-size: 0.85rem; color: #555; line-height: 1.7; margin: 0; }
+
+  /* ── 対比カード(2〜3列) ── */
+  .compare-flow { display: flex; gap: 14px; flex-wrap: wrap; margin: 20px 0; align-items: stretch; }
+  .compare-col {
+    flex: 1; min-width: 200px;
+    background: #fdf2ea;
+    border: 1.5px solid #e8c8a8;
+    border-radius: 8px;
+    padding: 16px 18px;
+  }
+  .compare-col.highlight-col { background: #f6e2c8; border-color: #d98a2e; }
+  .compare-col h3 { font-size: 0.93rem; color: #6d1b1b; margin-bottom: 10px; }
+  .compare-col ol, .compare-col ul { padding-left: 18px; }
+  .compare-col li { font-size: 0.82rem; color: #555; line-height: 1.85; }
+  .cause-down {
+    text-align: center;
+    font-size: 1.3rem;
+    color: #a13a2c;
+    margin: 10px 0 -2px;
+  }
+  .result-box {
+    background: #6d1b1b;
+    color: white;
+    border-radius: 8px;
+    padding: 14px 18px;
+    text-align: center;
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-top: 4px;
+  }
+
+  /* ── マトリクス表 ── */
+  .matrix-table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 0.85rem; }
+  .matrix-table th, .matrix-table td {
+    border: 1px solid #e0d0b8; padding: 10px 12px; text-align: left; vertical-align: top;
+  }
+  .matrix-table th { background: #f6e2c8; color: #6d1b1b; font-weight: 700; }
+  .matrix-table td { color: #444; line-height: 1.6; }
+  .matrix-table tr:nth-child(even) td { background: #fdf9f2; }
+  .matrix-table tr.warn td { background: #f8e6e0; }
+
+  /* ── 今日の一歩 ── */
+  .today-box {
+    background: linear-gradient(135deg, #6d1b1b, #c0532b);
+    color: white; border-radius: 8px;
+    padding: 24px 28px; margin: 16px 0; text-align: center;
+  }
+  .today-box .emoji { font-size: 2.2rem; display: block; margin-bottom: 8px; }
+  .today-box .title { font-size: 1.1rem; font-weight: 600; margin-bottom: 10px; }
+  .today-box .desc  { font-size: 0.92rem; opacity: 0.92; line-height: 1.8; text-align: left; }
+
+  /* ── 共通パーツ ── */
+  .highlight { background: #f6e2c8; border-radius: 4px; padding: 1px 6px; color: #6d1b1b; font-weight: 600; }
+  .callout {
+    border-radius: 6px; padding: 14px 16px; margin-top: 14px;
+  }
+  .callout.yellow { background: #fef9e7; border-left: 4px solid #d98a2e; }
+  .callout.green  { background: #eafaf1; border-left: 4px solid #27ae60; }
+  .callout.blue   { background: #e8f4fd; border-left: 4px solid #2980b9; }
+  .callout.wine   { background: #f6e9e4; border-left: 4px solid #a13a2c; }
+
+  /* ── 免責 ── */
+  .disclaimer {
+    background: #fff; border: 1px solid #ddd; border-radius: 6px;
+    padding: 16px 20px; font-size: 0.8rem; color: #777; line-height: 1.7;
+    width: 100%; max-width: 820px; margin-bottom: 16px;
+  }
+  .disclaimer strong { color: #555; }
+
+  /* ── 出典 ── */
+  .sources {
+    background: #fff9f0; border-radius: 6px; padding: 16px 24px;
+    width: 100%; max-width: 820px; margin-bottom: 24px;
+    font-size: 0.8rem; color: #666; line-height: 1.8;
+  }
+  .sources h3 { font-size: 0.85rem; color: #6d1b1b; margin-bottom: 8px; }
+  .sources a { color: #a13a2c; text-decoration: none; }
+  .sources a:hover { text-decoration: underline; }
+  .sources ul { padding-left: 16px; }
+
+  /* ── バックリンク ── */
+  .back-link { text-align: center; margin-bottom: 20px; font-size: 0.9rem; }
+  .back-link a { color: #a13a2c; text-decoration: none; }
+  .back-link a:hover { text-decoration: underline; }
+
+  .bars { margin: 18px 0; }
+  .bar-row { display: flex; align-items: center; gap: 10px; margin: 8px 0; font-size: 0.85rem; color: #444; }
+  .bar-row .lbl { width: 78px; flex-shrink: 0; }
+  .bar-track { flex: 1; background: #f0e6d6; border-radius: 6px; height: 22px; overflow: hidden; }
+  .bar-fill { background: #a13a2c; height: 100%; border-radius: 6px; }
+  .bar-fill.top { background: #b06b1a; }
+  .bar-row .val { width: 120px; flex-shrink: 0; font-size: 0.8rem; }
+  .arr { font-size:1.6rem; color:#a13a2c; flex:0 0 auto; text-align:center; }
+  @media (max-width: 560px) {
+    .card-body { padding: 40px 18px 24px 24px; }
+    .matrix-table { display: block; overflow-x: auto; white-space: nowrap; }
+    .compare-flow { flex-direction: column; }
+    .arr { transform: rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <span class="cover-emoji">🤫📞</span>
+  <h1>相手が黙ってしまったとき、<br>あわてない「沈黙」の扱い方</h1>
+  <div class="subtitle">インサイドセールス 最新トピック 2026-11-28</div>
+  <div class="date-badge">テレアポ・インサイドセールス 毎朝解説</div>
+</div>
+
+<div class="card">
+  <span class="card-tab">01 今日のテーマ</span>
+  <div class="card-body">
+    <h2>🎯 沈黙は「失敗」ではなく「考えている時間」かもしれない</h2>
+    <p>電話で質問したあと、相手が急に黙ってしまう。たった数秒でも、かける側にはとても長く感じます。あわてて自分が話しはじめてしまう人も多いはずです。</p>
+    <p>でも、相手は<strong>答えを考えている</strong>だけかもしれません。こちらが沈黙を埋めてしまうと、相手が言おうとしていた本音を聞きのがすことがあります。</p>
+    <div class="compare-flow">
+      <div class="compare-col"><h3>😰 すぐ埋めてしまう</h3><ul><li>質問を言いかえて重ねる</li><li>説明を足して話が長くなる</li><li>相手の考えがまとまる前に話題が変わる</li></ul></div>
+      <div class="arr">➡</div>
+      <div class="compare-col highlight-col"><h3>😌 少し待てる</h3><ul><li>相手が自分の言葉で話しはじめる</li><li>困りごとや本音が出やすくなる</li><li>落ち着いた、聞く姿勢が伝わる</li></ul></div>
+    </div>
+    <div class="callout blue">📌 前回の<a href="2026-11-26.html">電話の「あいづち」と「復唱」(11-26)</a>は<strong>相手が話しているとき</strong>の聞き方でした。今日は<strong>相手が話さないとき</strong>の話です。</div>
+  </div>
+</div>
+
+<div class="card">
+  <span class="card-tab">02 沈黙の3タイプ</span>
+  <div class="card-body">
+    <h2>🔍 黙っている理由は、だいたい3つ</h2>
+    <p>沈黙にはいくつかの種類があります。直前の自分の言葉と、相手の声の様子から見分けます。</p>
+    <div class="num-cards">
+      <div class="num-card"><div class="big-num">🤔 考え中</div><div class="num-label">質問の答えを考えている<br>→ <strong>待つ</strong>のが基本</div></div>
+      <div class="num-card orange"><div class="big-num">❓ わからない</div><div class="num-label">質問の意味がつかめない<br>→ <strong>短く言いかえる</strong></div></div>
+      <div class="num-card gold"><div class="big-num">😐 迷い・気がかり</div><div class="num-label">言いにくいことがある<br>→ <strong>話しやすくする一言</strong></div></div>
+    </div>
+    <div class="callout yellow">💡 もう1つ、<strong>電波や音声の不調</strong>の場合もあります。長く何も聞こえないときは「お声が少し遠いようですが、聞こえていますか?」と確認しましょう。</div>
+  </div>
+</div>
+
+<div class="card">
+  <span class="card-tab">03 待ち方の目安</span>
+  <div class="card-body">
+    <h2>⏱️ 心の中で数えて、少しだけ待つ</h2>
+    <p>何秒待てばよいという決まった正解はありません。ここでは<strong>練習用の目安</strong>として、心の中でゆっくり数える方法を紹介します。</p>
+    <div class="step-flow">
+      <div class="step-item"><div class="step-num">1</div><div class="step-body"><div class="step-title">🫢 質問したら口を閉じる</div><p class="step-desc">質問のあとに「えーと、たとえば…」と自分で続けないのが第一歩です。</p></div></div>
+      <div class="step-item"><div class="step-num">2</div><div class="step-body"><div class="step-title">🔢 「いち、に、さん」と心で数える</div><p class="step-desc">体感ではとても長く感じますが、実際は短い時間です。まずは3つ数えるまで待つ練習をします。</p></div></div>
+      <div class="step-item"><div class="step-num">3</div><div class="step-body"><div class="step-title">💬 それでも続くなら、短い一言でうながす</div><p class="step-desc">下の「沈黙を破る一言」から、場面に合うものを1つだけ使います。</p></div></div>
+    </div>
+    <div class="callout green">✅ 相手が「うーん」「そうですねえ」と声を出しているときは、まさに考え中のサイン。<strong>口をはさまず</strong>、続きを待ちます。</div>
+  </div>
+</div>
+
+<div class="card">
+  <span class="card-tab">04 沈黙を破る一言</span>
+  <div class="card-body">
+    <h2>🗝️ タイプ別「沈黙を破る一言」</h2>
+    <table class="matrix-table">
+      <tr><th>沈黙のタイプ</th><th>使える一言の例</th><th>ねらい</th></tr>
+      <tr><td>🤔 考え中</td><td>「ゆっくりで大丈夫です」<br>「思いつく範囲で構いません」</td><td>急かさず、答えのハードルを下げる</td></tr>
+      <tr><td>❓ わからない</td><td>「少しわかりにくい聞き方でしたね。たとえば○○と△△でいうと、どちらに近いですか?」</td><td>質問を小さく・二択にする</td></tr>
+      <tr><td>😐 迷い・気がかり</td><td>「もし気になる点があれば、遠慮なくおっしゃってください」</td><td>言いにくいことを言いやすくする</td></tr>
+      <tr><td>📶 音声の不調</td><td>「お声が途切れたようですが、聞こえていますか?」</td><td>まず通話の状態を確かめる</td></tr>
+      <tr class="warn"><td>🙅 避けたい一言</td><td>「あれ?聞いてます?」「で、どうですか?」</td><td>責めている・急かしているように聞こえる</td></tr>
+    </table>
+    <div class="callout wine">⚠️ 「わからない」タイプのとき、自分の質問のせいにする言い方(「わかりにくい聞き方でしたね」)にすると、相手に恥ずかしい思いをさせずにすみます。</div>
+  </div>
+</div>
+
+<div class="card">
+  <span class="card-tab">05 沈黙が生まれやすい場面</span>
+  <div class="card-body">
+    <h2>🗺️ どこで黙りやすい?場面と対応の地図</h2>
+    <div class="compare-flow">
+      <div class="compare-col"><h3>💰 金額を伝えたあと</h3><ul><li>頭の中で予算と比べている</li><li>すぐに値下げの話をしない</li><li>待ってから「ご予算感と比べていかがですか?」</li></ul></div>
+      <div class="compare-col"><h3>📅 日程を聞いたあと</h3><ul><li>予定表を見ている</li><li>「ご確認いただいて大丈夫です」と一言</li><li>決めにくそうなら二択を出す</li></ul></div>
+      <div class="compare-col highlight-col"><h3>🙋 困りごとを聞いたあと</h3><ul><li>いちばん本音が出やすい場面</li><li>ここは特に<strong>しっかり待つ</strong></li><li>出てきた言葉は復唱して受けとめる</li></ul></div>
+    </div>
+    <div class="cause-down">▼</div>
+    <div class="result-box">「待つ → 様子を見る → 短い一言」で、沈黙を本音を聞くチャンスに</div>
+  </div>
+</div>
+
+<div class="card">
+  <span class="card-tab">06 今日の一歩</span>
+  <div class="card-body">
+    <div class="today-box">
+      <span class="emoji">✅</span>
+      <div class="title">今日からできる一歩</div>
+      <div class="desc">家族や友だちとの会話で、<strong>質問をしたあと心の中で「いち、に、さん」と数えてから話す</strong>ことを1回だけ試してみましょう。待っているあいだに、相手がどんな言葉を足してくれたかをメモしておくと、沈黙が「話を引き出す時間」になる感覚がつかめます。あわせて、上の表から自分が使いやすい<strong>「沈黙を破る一言」を1つ選び、トークスクリプトの余白に書き足して</strong>おくと、本番であわてずにすみます。</div>
+    </div>
+  </div>
+</div>
+
+<div class="disclaimer">
+  <strong>【免責事項】</strong><br>
+  報酬・採用の結果には個人差があり、市場・時期・スキルによって変わります。本記事は電話での沈黙の扱い方について一般的な考え方を紹介するもので、アポ獲得や成約を保証するものではありません。待つ時間の目安や文例は練習のためのもので、相手・商材・職場のルールに合わせて調整してください。紹介した求人媒体・企業・ツールの内容や条件は変わることがあるため、最新情報は各公式でご確認ください。
+</div>
+
+<div class="sources">
+  <h3>📎 参考情報・出典(基準日:2026年11月)</h3>
+  <ul>
+    <li>本記事(沈黙の3タイプ・待ち方の目安・沈黙を破る一言・場面別の対応)は、電話営業で一般的に使われる聞き方の考え方をまとめたもので、特定の調査の数字・企業情報・ツール情報は使っていません。「3つ数える」は練習用の目安で、調査にもとづく数値ではありません。</li>
+    <li>直近7日のインサイドセールス関連の新しい調査・求人動向は、2026年11月28日時点の検索では見つからなかったため、基礎テーマ(エバーグリーン)で構成しています。</li>
+    <li>関連:<a href="2026-11-26.html">2026-11-26 電話の「あいづち」と「復唱」</a>/<a href="2026-11-22.html">2026-11-22 電話で使うクッション言葉</a>/<a href="2026-11-03.html">2026-11-03 アポの日程の決め方(二択提案)</a></li>
+  </ul>
+</div>
+
+<div class="back-link">
+  <a href="index.html">&larr; バックナンバー一覧へ</a>
+</div>
+
+</body>
+</html>
