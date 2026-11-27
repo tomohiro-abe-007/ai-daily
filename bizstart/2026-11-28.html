@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1人法人スタート 最新トピック 2026-11-28</title>
+<link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #f0ece3;
+    font-family: 'Klee One', 'Hiragino Maru Gothic Pro', sans-serif;
+    padding: 24px 16px 48px;
+    color: #333;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  .header {
+    background: linear-gradient(135deg, #2a4d7a 0%, #142a48 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 22px;
+    box-shadow: 4px 6px 20px rgba(0,0,0,0.25);
+  }
+  .header .meta { font-size: 0.78rem; opacity: 0.75; margin-bottom: 8px; }
+  .header h1 { font-size: 1.5rem; line-height: 1.5; margin-bottom: 10px; }
+  .header .desc { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+  .htag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    padding: 2px 9px;
+    border-radius: 10px;
+    margin: 0 3px 5px 0;
+  }
+
+  .card {
+    background: #fff9f0;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    box-shadow: 3px 4px 12px rgba(0,0,0,0.09);
+    border-left: 5px solid #2a4d7a;
+  }
+  .card.orange { border-left-color: #c8884a; }
+  .card.blue   { border-left-color: #1e5a7a; }
+  .card.red    { border-left-color: #b54040; }
+  .card.green  { border-left-color: #1e7a5a; }
+
+  .sec-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #2a4d7a;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  p { font-size: 0.91rem; line-height: 1.78; color: #444; }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin: 14px 0;
+  }
+  .stats-row.c3 { grid-template-columns: repeat(3, 1fr); }
+  .stats-row.c2 { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 540px) { .stats-row { grid-template-columns: 1fr 1fr; } }
+  .stat {
+    background: white;
+    border-radius: 10px;
+    padding: 12px 6px;
+    text-align: center;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.09);
+  }
+  .stat.now { background: #fff3e0; box-shadow: 0 0 0 2px #c8884a inset; }
+  .stat .sl { font-size: 0.62rem; color: #888; margin-bottom: 3px; line-height: 1.4; }
+  .stat .sv { font-size: 1.05rem; font-weight: 700; color: #2a4d7a; line-height: 1.15; }
+  .stat.now .sv { color: #c8884a; }
+  .stat .su { font-size: 0.62rem; color: #666; margin-top: 2px; }
+
+  .bignum {
+    background: white;
+    border-radius: 12px;
+    padding: 18px 14px;
+    text-align: center;
+    box-shadow: 2px 3px 10px rgba(0,0,0,0.1);
+    border: 2px dashed #c8884a;
+    margin: 14px 0;
+  }
+  .bignum .bl { font-size: 0.76rem; color: #888; margin-bottom: 6px; }
+  .bignum .bv { font-size: 1.7rem; font-weight: 700; color: #c8884a; line-height: 1.3; }
+  .bignum .bs { font-size: 0.76rem; color: #666; margin-top: 6px; line-height: 1.6; }
+
+  .f-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .f-num {
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #2a4d7a;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .f-num.now { background: #b54040; }
+  .f-num.later { background: #999; }
+  .f-num.opt { background: #c8884a; }
+  .f-text { font-size: 0.88rem; line-height: 1.65; padding-top: 3px; }
+  .f-arrow { color: #2a4d7a; font-size: 1.1rem; margin-left: 14px; margin-bottom: 4px; }
+
+  .check-list { list-style: none; margin: 10px 0; }
+  .check-list li {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px dotted #e0e0e0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    align-items: flex-start;
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .ck { color: #4a9e6a; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .check-list .ck-bad { color: #b54040; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  table.cmp {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 0.83rem;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.08);
+  }
+  table.cmp th, table.cmp td {
+    border: 1px solid #e4dccd;
+    padding: 9px 10px;
+    line-height: 1.55;
+    vertical-align: top;
+  }
+  table.cmp thead th { background: #2a4d7a; color: white; font-weight: 600; text-align: center; }
+  table.cmp tbody th { background: #f5efe2; color: #5a4020; text-align: left; font-weight: 600; white-space: nowrap; }
+  table.cmp td { color: #444; text-align: left; }
+  table.cmp td.hi { background: #fff3e0; font-weight: 700; color: #c8884a; }
+  .wrap-x { overflow-x: auto; }
+
+  .prompt-box {
+    background: #f0f5ff;
+    border: 2px solid #4a6aae;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 12px 0;
+    font-size: 0.84rem;
+    line-height: 1.85;
+    color: #1a2a4a;
+  }
+  .prompt-box .ph {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #4a6aae;
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+  .prompt-box .fill {
+    background: #d0e0ff;
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-weight: 700;
+    color: #0a2a6e;
+  }
+
+  .info {
+    background: #e8eef8;
+    border-left: 4px solid #2a4d7a;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #16294a;
+  }
+  .warn {
+    background: #fff3e0;
+    border-left: 4px solid #e07820;
+    border-radius: 0 8px 8px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: #7a4010;
+  }
+
+  .sum-list { list-style: none; margin: 10px 0; }
+  .sum-list li {
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted #ddd;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .sum-list li:last-child { border-bottom: none; }
+  .sum-list .n { color: #2a4d7a; font-weight: 700; flex-shrink: 0; }
+
+  .hl  { background: linear-gradient(transparent 55%, #b3d9f5 55%); font-weight: 600; }
+  .hlg { background: linear-gradient(transparent 55%, #b3f5cc 55%); font-weight: 600; }
+  .hlo { background: linear-gradient(transparent 55%, #ffd9a0 55%); font-weight: 600; }
+
+  .source { font-size: 0.73rem; color: #888; margin-top: 10px; line-height: 1.7; }
+  .source a { color: #2a4d7a; word-break: break-all; }
+
+  .disclaimer {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.77rem;
+    color: #666;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .footer {
+    text-align: center;
+    color: #aaa;
+    font-size: 0.78rem;
+    margin-top: 18px;
+  }
+  .footer a { color: #2a4d7a; }
+  .matrix { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:14px 0; }
+  @media (max-width: 540px) { .matrix { grid-template-columns:1fr; } }
+  .mx { background:white; border-radius:10px; padding:14px 16px; box-shadow:2px 3px 8px rgba(0,0,0,0.09); border-top:4px solid #2a4d7a; }
+  .mx.k { border-top-color:#1e7a5a; } .mx.p { border-top-color:#b54040; } .mx.t { border-top-color:#c8884a; } .mx.m { border-top-color:#1e5a7a; }
+  .mx .mh { font-weight:700; font-size:0.92rem; margin-bottom:6px; }
+  .mx .mb { font-size:0.84rem; line-height:1.65; color:#444; }
+  .week { display:grid; grid-template-columns:repeat(5,1fr); gap:6px; margin:14px 0; }
+  .day { background:white; border-radius:8px; padding:10px 4px; text-align:center; font-size:0.76rem; line-height:1.5; box-shadow:2px 3px 8px rgba(0,0,0,0.08); color:#666; }
+  .day b { display:block; font-size:0.9rem; color:#2a4d7a; }
+  .day.fri { background:#fff3e0; box-shadow:0 0 0 2px #c8884a inset; color:#7a4010; }
+  .day.fri b { color:#c8884a; }
+</style>
+<style>
+  .tl { display:grid; grid-template-columns:repeat(3,1fr); gap:6px; margin:14px 0; align-items:stretch; }
+  .tl .tc { background:white; border-radius:10px; padding:12px 6px; text-align:center; box-shadow:2px 3px 8px rgba(0,0,0,0.09); font-size:0.78rem; line-height:1.5; color:#555; position:relative; }
+  .tl .tc b { display:block; font-size:0.95rem; color:#2a4d7a; margin:2px 0; }
+  .tl .tc.key { background:#fff3e0; box-shadow:0 0 0 2px #c8884a inset; }
+  .tl .tc.key b { color:#c8884a; }
+  .tl .tc .ic { font-size:1.3rem; }
+  .split { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:14px 0; }
+  @media (max-width:540px){ .split{ grid-template-columns:1fr; } }
+  .term { background:#f5efe2; border-radius:8px; padding:2px 7px; font-size:0.82rem; }
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header">
+  <div class="meta">2026-11-28(土)・税務の基礎 × 社長自身の年末調整（10/5記事からのアップデート）</div>
+  <h1>🧮 1人法人スタート 最新トピック 2026-11-28<br>社長の年末調整、令和8年分は「12月1日以後」に ── 国税庁の手引きで数字を確認</h1>
+  <div class="desc">1人会社でも、社長に払う役員報酬は「給与」です。だから会社が<b>社長自身の年末調整</b>をします。令和8年分は税制改正の施行日が<b>12月1日</b>なので、やる時期と使う書類に注意が必要です。10/5の準備編で紹介した数字を、国税庁の「令和8年分 年末調整のしかた」であらためて確認し、12月の作業手順にまとめました。</div>
+  <div style="margin-top:12px;">
+    <span class="htag">年末調整</span><span class="htag">基礎控除</span><span class="htag">役員報酬</span><span class="htag">令和8年分</span><span class="htag">生成AI</span>
+  </div>
+</div>
+
+<div class="card orange">
+  <div class="sec-title">🔢 ① 令和8年分の「4つの数字」</div>
+  <p><span class="term">年末調整</span>（＝毎月の給料から天引きしてきた所得税を、1年分まとめて正しい金額に直す作業）で使う数字のうち、今年変わった主なものです。</p>
+  <div class="stats-row">
+    <div class="stat now"><div class="sl">基礎控除<br>（合計所得489万円以下）</div><div class="sv">104万円</div><div class="su">令和8・9年分</div></div>
+    <div class="stat"><div class="sl">給与所得控除の<br>最低保障額</div><div class="sv">74万円</div><div class="su">改正前65万円</div></div>
+    <div class="stat"><div class="sl">扶養親族の<br>所得要件</div><div class="sv">62万円以下</div><div class="su">給与だけなら年収136万円以下</div></div>
+    <div class="stat now"><div class="sl">改正の<br>施行日</div><div class="sv">12月1日</div><div class="su">令和8年</div></div>
+  </div>
+  <div class="info">💡 <b>基礎控除</b>（＝だれでも所得から差し引ける基本の控除）は、本則が58万円→<b>62万円</b>に上がり、さらに中・低所得の人には上乗せがあります。令和8・9年分は、合計所得489万円以下なら上乗せ42万円で<b>合計104万円</b>。489万円を超えると上乗せは小さくなり、所得が高くなるほど控除額は段階的に下がります。</div>
+  <p style="font-size:0.84rem;">※ 「178万円の壁」と呼ばれるのは、給与だけの人の場合 <b>基礎控除104万円＋給与所得控除74万円＝178万円</b> まで所得税がかからない、という意味です（ほかの控除がない場合の目安）。</p>
+</div>
+
+<div class="card red">
+  <div class="sec-title">📅 ② いちばんの注意点：「12月1日以後」にやる</div>
+  <p>今回の改正は<b>令和8年12月1日に施行</b>され、令和8年分の所得税から適用されます。11月までの毎月の天引きには反映されていないので、<span class="hlo">12月の年末調整でまとめて精算</span>する形になります。</p>
+  <div class="tl">
+    <div class="tc"><span class="ic">🗓️</span>1〜11月<b>旧ルールで天引き</b>毎月の源泉徴収は<br>そのまま</div>
+    <div class="tc key"><span class="ic">🔁</span>12月1日以後<b>年末調整</b>令和8年分の様式で<br>新ルールの年税額を計算</div>
+    <div class="tc"><span class="ic">💴</span>12月の報酬<b>過不足を精算</b>多く引いていれば<br>社長に返す（還付）</div>
+  </div>
+  <div class="warn">⚠️ 国税庁は、<b>令和8年分の申告書の様式は12月1日以後に行う年末調整で使う</b>と案内しています。11月30日以前に年末調整をする場合は、令和7年分の様式を直して使うよう案内されています。1人会社なら急ぐ理由は少ないので、<b>12月に入ってから、12月の役員報酬の支給日までに</b>行うのがシンプルです。</div>
+  <div class="info">💡 12月1日以後に給与（報酬）の支払いがない人は、改正後の控除を年末調整に反映できず、<b>確定申告</b>で受ける必要がある、と実務解説では整理されています。役員報酬を毎月払っていれば、ふつうは12月にも支給日があります。</div>
+</div>
+
+<div class="card blue">
+  <div class="sec-title">👔 ③ そもそも社長も年末調整の対象？</div>
+  <div class="split">
+    <div class="mx k"><div class="mh">⭕ 対象になる（多くの1人社長）</div><div class="mb">・会社から毎月<b>役員報酬</b>をもらっている<br>・会社に「扶養控除等申告書」を出している<br>・その年の給与収入が<b>2,000万円以下</b></div></div>
+    <div class="mx p"><div class="mh">✖ 対象にならない（自分で確定申告）</div><div class="mb">・給与収入が<b>2,000万円を超える</b><br>・扶養控除等申告書を出していない（2か所目の給与など）<br>※ 年末調整をしても、医療費控除や寄附金控除などは<b>確定申告</b>で受けます</div></div>
+  </div>
+  <p>1人会社では、<b>「書類を出す人（社長個人）」と「受け取って計算する人（会社＝社長）」が同じ</b>です。自分で書いて、自分で計算して、自分でチェックする。だからこそ、手順を決めておくとミスが減ります。</p>
+</div>
+
+<div class="card">
+  <div class="sec-title">📝 ④ 社長が自分あてに書く申告書（令和8年分）</div>
+  <div class="wrap-x">
+  <table class="cmp">
+    <thead><tr><th>書類</th><th>何のため？</th><th>1人社長のチェック</th></tr></thead>
+    <tbody>
+      <tr><th>扶養控除等申告書</th><td>扶養する家族がいるかを申告（家族がいなくても提出）</td><td>令和8年分は年初に出しているはず。令和9年分は12月中に用意</td></tr>
+      <tr><th>基礎控除申告書<br><span style="font-weight:400;font-size:0.75rem;">（配偶者控除等・所得金額調整控除などと一体の様式）</span></th><td>基礎控除や配偶者控除を受けるため</td><td class="hi">基礎控除（最大104万円）を受けるには<b>提出が必要</b></td></tr>
+      <tr><th>特定親族特別控除申告書</th><td>19歳以上23歳未満の家族（大学生の子など）が稼いでいる場合</td><td>その家族の合計所得が<b>62万円超123万円以下</b>なら対象</td></tr>
+      <tr><th>保険料控除申告書</th><td>生命保険料・地震保険料・社会保険料・小規模企業共済等掛金の控除</td><td>iDeCo・小規模企業共済の掛金もここ。<b>控除証明書</b>を添付</td></tr>
+      <tr><th>住宅借入金等特別控除申告書</th><td>住宅ローン控除の2年目以降</td><td>税務署から届く申告書と<b>年末残高証明書</b>を用意</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="info">💡 提出期限は「<b>その年の最後に給与を受け取る日の前日まで</b>」。1人会社なら、12月の役員報酬の支給日の前日までに、自分で書いて会社の書類として保管します。</div>
+</div>
+
+<div class="card green">
+  <div class="sec-title">🆕 ⑤ 今年からの新しい項目2つ</div>
+  <div class="matrix">
+    <div class="mx t"><div class="mh">👨‍👩‍👧 生命保険料控除の特例</div><div class="mb">年齢<b>23歳未満の扶養親族</b>がいる場合、一般生命保険料控除（新契約）の上限が<b>4万円→最高6万円</b>に。<br>※ 生命保険料控除全体の合計上限<b>12万円は変わりません</b>。保険料控除申告書に「23歳未満の扶養親族の有無」を書く欄があります。</div></div>
+    <div class="mx m"><div class="mh">🎓 特定親族特別控除</div><div class="mb">19歳以上23歳未満の家族が<b>扶養の所得要件（62万円以下）を超えても</b>、合計所得123万円以下までは控除が段階的に残る仕組み。控除額は最大<b>63万円</b>から、所得が増えるほど下がります。</div></div>
+  </div>
+  <p style="font-size:0.84rem;">家族がいない1人社長なら、この2つは「該当なし」でOK。家族がいる場合は、<b>家族の今年の収入見込み</b>を12月に確認しておきましょう。</p>
+</div>
+
+<div class="card orange">
+  <div class="sec-title">🪜 ⑥ 12月の作業手順（1人会社版）</div>
+  <div class="f-step"><div class="f-num">1</div><div class="f-text"><b>証明書を集める</b>（12月初め）── 生命保険・地震保険の控除証明書、小規模企業共済・iDeCo の掛金証明、住宅ローンの年末残高証明書。</div></div>
+  <div class="f-arrow">↓</div>
+  <div class="f-step"><div class="f-num">2</div><div class="f-text"><b>令和8年分の申告書を書く</b>── 国税庁の様式または給与ソフトの入力画面で。家族の所得見込みもここで確認。</div></div>
+  <div class="f-arrow">↓</div>
+  <div class="f-step"><div class="f-num now">3</div><div class="f-text"><b>年税額を計算する</b>（12月1日以後）── 1年分の役員報酬・天引き済み社会保険料を集計し、給与ソフトで新ルールの年税額を計算。</div></div>
+  <div class="f-arrow">↓</div>
+  <div class="f-step"><div class="f-num">4</div><div class="f-text"><b>12月の報酬で過不足を精算</b>── 天引きしすぎなら差額を社長に返し、足りなければ12月分から追加で天引き。</div></div>
+  <div class="f-arrow">↓</div>
+  <div class="f-step"><div class="f-num">5</div><div class="f-text"><b>納付する</b>── 12月分の源泉所得税（精算後の金額）を翌年1月10日まで。<b>令和9年は1月10日が日曜・11日が成人の日のため1月12日(火)</b>。納期の特例を使っていれば7〜12月分を<b>1月20日(水)</b>まで。</div></div>
+  <div class="f-arrow">↓</div>
+  <div class="f-step"><div class="f-num later">6</div><div class="f-text"><b>源泉徴収票・給与支払報告書を作る</b>── 社長への報酬の源泉徴収票と、市区町村への給与支払報告書を<b>1月31日</b>まで（令和9年は日曜のため<b>2月1日(月)</b>）。</div></div>
+  <div class="info">💡 <b>「還付」が出たら、会社のお金から社長個人に返す</b>のがポイント。精算額を12月の報酬の明細に書き、会社の口座から振り込んでおけば、会社と個人のお金がきれいに分かれます。</div>
+</div>
+
+<div class="card blue">
+  <div class="sec-title">🤖 ⑦ 生成AIで「年末調整チェックリスト」を作る</div>
+  <p>計算は給与ソフトに任せ、AIには<b>「漏れがないか」の確認役</b>をお願いすると効率的です。</p>
+  <div class="prompt-box">
+    <div class="ph">📋 お願い文の例</div>
+    私は1人会社の代表者で、自分の役員報酬の年末調整（令和8年分）を自分で行います。<br>
+    家族構成は <span class="fill">配偶者あり・大学生の子1人</span>、加入しているのは <span class="fill">生命保険・iDeCo・小規模企業共済</span> です。<br>
+    ①集める証明書、②書く申告書、③12月中にやる作業、を日付順のチェックリストにしてください。<br>
+    数字や様式名は、私が貼り付ける国税庁「令和8年分 年末調整のしかた」の内容だけを使い、不明な点は「要確認」と書いてください。
+  </div>
+  <div class="warn">⚠️ <b>マイナンバー・保険証券番号・家族の氏名や生年月日などの個人情報はAIに入れない</b>でください。AIは控除額を古い年度で答えることがあるので、数字は必ず国税庁の手引きで確認します。</div>
+</div>
+
+<div class="card">
+  <div class="sec-title">🧭 ⑧ 社長としての心構え</div>
+  <ul class="check-list">
+    <li><span class="ck">✔</span><span>年末調整は「会社の義務」。自分の分でも<b>会社の帳簿・書類として残す</b>（申告書は会社で保管）。</span></li>
+    <li><span class="ck">✔</span><span>改正の年は「去年と同じ」が通用しない。<b>手引きの“昨年と比べて変わった点”から読む</b>習慣を。</span></li>
+    <li><span class="ck">✔</span><span>12月は年末調整・納付・翌年の法定調書と作業が重なる。<b>カレンダーに今日のうちに予定を入れる</b>。</span></li>
+    <li><span class="ck-bad">✖</span><span>「還付が出るから得」ではありません。天引きしすぎた分が戻るだけで、<b>税金の総額は変わりません</b>。</span></li>
+  </ul>
+</div>
+
+<div class="card">
+  <div class="sec-title">✅ ⑨ まとめ</div>
+  <ul class="sum-list">
+    <li><span class="n">1</span><span>1人会社でも社長の役員報酬は給与。給与収入2,000万円以下なら<b>会社が社長の年末調整をする</b>。</span></li>
+    <li><span class="n">2</span><span>令和8年分は<b>基礎控除104万円（合計所得489万円以下・令和8・9年分）</b>、給与所得控除の最低保障<b>74万円</b>、扶養の所得要件<b>62万円以下</b>。</span></li>
+    <li><span class="n">3</span><span>改正の施行は<b>令和8年12月1日</b>。年末調整は<b>12月1日以後に令和8年分の様式</b>で行うのがシンプル。</span></li>
+    <li><span class="n">4</span><span>精算は12月の報酬で。納付は<b>令和9年1月12日</b>（納期の特例なら1月20日）、源泉徴収票等は<b>2月1日</b>まで。</span></li>
+  </ul>
+  <div class="source">
+    【出典・基準】令和8年（2026年）分の所得税・年末調整。2026年11月28日時点の情報です。<br>
+    ・国税庁「令和8年分 年末調整のしかた」（昨年と比べて変わった点：基礎控除の引上げ、給与所得控除の最低保障額65万円→74万円、扶養親族等の所得要件の改正、23歳未満の扶養親族を有する場合の生命保険料控除の特例）<a href="https://www.nta.go.jp/publication/pamph/gensen/nencho2026/01.htm">https://www.nta.go.jp/publication/pamph/gensen/nencho2026/01.htm</a> ／ PDF一括 <a href="https://www.nta.go.jp/publication/pamph/gensen/nencho2026/pdf/nencho_all.pdf">https://www.nta.go.jp/publication/pamph/gensen/nencho2026/pdf/nencho_all.pdf</a><br>
+    ・国税庁「令和８年度税制改正による所得税の基礎控除の引上げ等について」（本則58万円→62万円、令和8年12月1日施行・令和8年分以後に適用）<a href="https://www.nta.go.jp/users/gensen/2026kiso/index.htm">https://www.nta.go.jp/users/gensen/2026kiso/index.htm</a><br>
+    ・財務省「令和8年度 税制改正の解説」（令和8・9年分の基礎控除の加算額：合計所得489万円以下は42万円）<a href="https://www.mof.go.jp/tax_policy/tax_reform/outline/fy2026/explanation/PDF/p0011-0088.pdf">https://www.mof.go.jp/tax_policy/tax_reform/outline/fy2026/explanation/PDF/p0011-0088.pdf</a><br>
+    ・国税庁「年末調整がよくわかるページ（令和８年分）」（令和8年分様式は12月1日以後の年末調整で使用、提出は最後の給与の支払日の前日まで）<a href="https://www.nta.go.jp/users/gensen/nencho/index.htm">https://www.nta.go.jp/users/gensen/nencho/index.htm</a><br>
+    ・国税庁「A2-4 給与所得者の基礎控除、配偶者（特別）控除、特定親族特別控除及び所得金額調整控除の申告」<a href="https://www.nta.go.jp/taxes/tetsuzuki/shinsei/annai/gensen/annai/1648_73.htm">https://www.nta.go.jp/taxes/tetsuzuki/shinsei/annai/gensen/annai/1648_73.htm</a><br>
+    ・国税庁「令和8年分 年末調整のしかた」保険料控除の説明（23歳未満の扶養親族を有する場合は一般生命保険料控除が最高6万円）<a href="https://www.nta.go.jp/publication/pamph/gensen/nencho2026/pdf/105.pdf">https://www.nta.go.jp/publication/pamph/gensen/nencho2026/pdf/105.pdf</a><br>
+    ・年末調整に係る源泉所得税の納期限 ── 国税庁 <a href="https://www.nta.go.jp/users/gensen/nencho/pdf/02.pdf">https://www.nta.go.jp/users/gensen/nencho/pdf/02.pdf</a>（期限が土日祝日の場合は翌平日）<br>
+    ・12月1日以後に給与の支払いがない場合の扱い ── TKC「令和8年分 年末調整のポイント」<a href="https://www.tkc.jp/media_library/lp/ebooks-invoice/r8income_tax/docs/R8nenmatsuchosei_point_tkcmyportal.pdf">https://www.tkc.jp/media_library/lp/ebooks-invoice/r8income_tax/docs/R8nenmatsuchosei_point_tkcmyportal.pdf</a><br>
+    ※ 本日は作業環境から国税庁・財務省のサイトへ直接接続できず、上記の公的資料は検索結果に表示された本文抜粋で確認しています。基礎控除の所得区分ごとの全額表は手引き原文でご確認ください。<br>
+    ※ 関連記事：<a href="2026-10-05.html">2026-10-05 年末調整の準備シーズン</a> ／ <a href="2026-10-10.html">2026-10-10 源泉所得税の納期の特例</a> ／ <a href="2026-11-15.html">2026-11-15 源泉徴収票の「みなし提出」</a>
+  </div>
+</div>
+
+<div class="disclaimer">
+  <b>【免責・ご注意】</b><br>
+  ・本記事は一般的な情報であり、税務・法務の個別アドバイスではありません。会社の状況（報酬額・家族構成・他の所得の有無など）により結論は変わります。<br>
+  ・具体的な判断は、税理士・社会保険労務士・司法書士など専門家にご相談ください。<br>
+  ・制度・税率・金額には基準年度を明記しています（本記事は令和8年〈2026年〉分の所得税・年末調整について、2026年11月28日時点の情報にもとづきます）。<br>
+  ・生成AIの回答は誤りを含むことがあります。重要な内容は必ず公的な一次情報で確認してください。
+</div>
+<div class="footer"><a href="index.html">← 日報アーカイブへ</a></div>
+</div>
+</body>
+</html>
