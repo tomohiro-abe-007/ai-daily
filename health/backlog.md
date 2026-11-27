@@ -1,5 +1,11 @@
 # 健康日報 テーマバックログ
 
+## 未使用テーマ(追記:2026-11-28)
+
+- 11-28記事(ウロリチンAと血管・脳血流、JAMA Netw Open 2026 DOI 10.1001/jamanetworkopen.2026.38047、NCT05921266、n=50、オクラホマ大学/Liu ら JAMA Netw Open 2022 DOI 10.1001/jamanetworkopen.2021.44279/Singh ら Eur J Clin Nutr 2021)の続報候補 ── 本文のFMD群間差の信頼区間・P値、fNIRSの解析数と多重比較の補正、掲載日(検索では10月9日とする記載と11月報道があり未確認)、サプリの提供元・利益相反。jamanetwork・pmc・eurekalert はネットワーク制限で本文未確認。当日は直近7日の新着で一次情報つきの未掲載研究が見つからず、11月報道の本試験を扱った
+- 「代謝タイプ(メタボタイプ)」の独立回 ── ウロリチン・エクオールなど、腸内細菌しだいで体に届く成分が変わる例(11-24候補の「エクオール産生者」と統合可)
+- 腸内細菌 Clostridium immunis が作る糖と内臓脂肪(Duke-NUS、Cell Host & Microbe 2026-11-19 報道)── 研究デザイン(動物か人か)・人数の一次確認が必要
+
 ## 未使用テーマ(追記:2026-11-27)
 
 - (11-27に「ノセボ効果」基礎回として使用:de Graaf ら Lancet Gastroenterol Hepatol 2024;9(2):110-123 DOI 10.1016/S2468-1253(23)00317-5・Biesiekierski ら Gastroenterology 2013 PMID 23648697・Howard ら JACC 2021;78:1210-1222・Haas ら JAMA Netw Open 2022 DOI 10.1001/jamanetworkopen.2021.43955)の続報候補 ── de Graaf本文の各群の症状スコア・効果量、SAMSONの症状スコア(薬・偽薬・無服薬の月別)と完了人数。whiterose・nejm はネットワーク制限で本文未確認。当日は直近7日の新着で一次情報を確認できる研究を見つけられず基礎回とした
